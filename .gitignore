@@ -1,0 +1,3 @@
+venv
+rsync_to_*.sh
+*.egg-info
