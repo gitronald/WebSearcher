@@ -75,13 +75,16 @@ se.results[0]
 
 ## Saving the raw SERPs
 
-Generally a good idea when conducting web research.
+Recommended: Append html and meta data as lines to a json file. 
+Useful for larger or ongoing crawls.
 
 ```python
-# Recommended: Append html and meta data as lines to a json file. Useful for larger or ongoing crawls.
 se.save_serp(append_to='serps.json')
- 
-# Save individual html files in a directory, named by a provided or (default) generated `serp_id`. Useful for smaller qualitative explorations where you want to quickly look at what is showing up. No meta data is saved, but timestamps could be recovered from the files themselves.
+ ```
+
+Alternative: Save individual html files in a directory, named by a provided or (default) generated `serp_id`. Useful for smaller qualitative explorations where you want to quickly look at what is showing up. No meta data is saved, but timestamps could be recovered from the files themselves.
+
+```python
 se.save_serp(save_dir='./serps')
 ```
 
@@ -95,6 +98,9 @@ Recently added:
 Coming next:  
     - Functions for using multiprocessing to parse SERPs.  
     - SSH tunneling
+
+To do:
+    - SQL storage
 
 ### Repair or Enhance a Parser
 
