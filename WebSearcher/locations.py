@@ -23,6 +23,8 @@ url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
 
 def download_locations(data_dir, url=url):
     """Download the latest locations data
+
+    Checks if the current version already exists locally before downloading
     
     Args:
         data_dir (str): Where to save the data as a csv
