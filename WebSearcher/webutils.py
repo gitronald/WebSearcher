@@ -123,3 +123,41 @@ def split_styles(soup):
         return sum(list(map(split_style, styles)), [])
     else:
         return None
+
+
+# SSH -------------------------------------------------------------------------
+
+class SSH(object):
+    """ Create SSH cmd and tunnel objects """
+    def __init__(self, user='ubuntu', port=6000, ip='', keyfile=''):
+        self.user = user
+        self.keyfile = keyfile
+        self.port = port
+        self.ip = ip
+        self.machine = f'{self.user}@{self.ip}'
+        self.cmd = ['ssh', 
+            '-i', self.keyfile, 
+            '-ND', f'127.0.0.1:{self.port}',
+            '-o','StrictHostKeyChecking=no', 
+            self.machine
+        ]
+        self.cmd_str = ' '.join(self.cmd)
+    
+    def open_tunnel(self):
+        self.tunnel = subprocess.Popen(self.cmd, shell=False)
+
+def generate_ssh_tunnels(ips, ports, keyfile):
+    """ Generate SSH tunnels for each (IP, port) combination"""
+
+    def generate_ssh_tunnel(ip, port, keyfile=keyfile):
+        ssh_tunnel = SSH(ip=ip, port=port, keyfile=keyfile)
+        subprocess.call(['chmod', '600', keyfile])
+        print('{}'.format(ssh_tunnel.cmd_str))
+        ssh_tunnel.open_tunnel()
+        atexit.register(exit_handler, ssh_tunnel) # Always kill tunnels on exit
+
+    return [generate_ssh_tunnel(ip, port) for ip, port in zip(ips, ports)]
+
+def exit_handler(ssh):
+    print('Killing: {} on port: {}'.format(ssh.machine, ssh.port))
+    ssh.tunnel.kill()
