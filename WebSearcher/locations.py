@@ -21,7 +21,7 @@ from bs4 import BeautifulSoup
 
 url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
 
-def download_locations(data_dir, url=url):
+def download_locations(data_dir, url=url, return_data=True):
     """Download the latest locations data
 
     Checks if the current version already exists locally before downloading
@@ -54,16 +54,22 @@ def download_locations(data_dir, url=url):
     csv_url = current.a['href']
     fp = os.path.join(data_dir, csv_url.split('/')[-1])
 
-    # Check if the current version already exists, else download it
+    # Check if the current version already exists
     if os.path.exists(fp):
         raise SystemExit(f'Version up to date: {csv_url}')
     else:
+        # If it doesn't, download it
         try:
             locations = pd.read_csv(csv_url)
         except Exception as e:
             print(e)
 
+    # Save
     locations.to_csv(fp, index=False, encoding='utf-8')
+    
+    # Return
+    if return_data:
+        return locations
 
 
 def get_location_id(canonical_name):
