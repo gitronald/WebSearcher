@@ -243,7 +243,7 @@ To do:
 ---  
 ## Similar Packages
 
-Many other methods for scraping web search in python exist, but many of these projects have been abandoned, but I was not able to find one that provided details on the components (e.g. "Answer Boxes" and "Top Stories") and positioning configurations (e.g. a horizontally or vertically oriented carousel) that compose a modern SERP.
+Many other methods for scraping web search in python exist, but many of these projects have been abandoned, and I was not able to find one that provided details on the components (e.g. "Answer Boxes" and "Top Stories") and positioning configurations (e.g. a horizontally or vertically oriented carousel) that compose a modern SERP.
 
 Some of the other projects are still ongoing and very interesting in their own ways. Arranged by increasing URL length. Feel free to add to the list through a pull request if you are aware of others:
 

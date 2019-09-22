@@ -16,9 +16,8 @@ from . import webutils
 from .component_classifier import classify_type
 from .component_parsers import type_functions
 from .component_parsers.footer import extract_footer
-from .logger import Logger
-
-log = Logger().start(__name__)
+from . import logger
+log = logger.Logger().start(__name__)
 
 import traceback
 from bs4 import BeautifulSoup
@@ -106,8 +105,10 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
         parser = get_component_parser(cmpt_type)
         parsed_cmpt = parser(cmpt)
     except Exception:
-        traceback.print_exc()
-        return [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 'error':traceback.format_exc()}]
+        log.exception()
+        parsed_cmpt = [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 
+                        'error':traceback.format_exc()}]
+    return parsed_cmpt
 
     if isinstance(parsed_cmpt, list):
         for sub_rank, sub in enumerate(parsed_cmpt):

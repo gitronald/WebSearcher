@@ -19,6 +19,10 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
+from . import logger
+log = logger.Logger().start(__name__)
+
+
 url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
 
 def download_locations(data_dir, url=url, return_data=True):
@@ -47,8 +51,8 @@ def download_locations(data_dir, url=url, return_data=True):
         article = soup.find('div', {'itemprop': 'articleBody'})
         buttons = article.find_all('p', {'class': 'button'})
         current, previous = buttons
-    except Exception as e:
-        print(e)
+    except Exception:
+        log.exception("Failed to retrieve location data's url")
 
     # Get CSV url and use as filename
     csv_url = current.a['href']
@@ -61,8 +65,8 @@ def download_locations(data_dir, url=url, return_data=True):
         # If it doesn't, download it
         try:
             locations = pd.read_csv(csv_url)
-        except Exception as e:
-            print(e)
+        except Exception:
+            log.exception('Failed to retrieve location data')
 
     # Save
     locations.to_csv(fp, index=False, encoding='utf-8')

@@ -34,7 +34,7 @@ def write_lines(iter_data, fp, overwrite=False):
 
 # Descriptive Stats ------------------------------------------------------------
 
-def dnum(df_col):
+def dnum(dfcol):
     if df_col.dtype in [int, float]:
         return df_col.describe()
     else:
@@ -56,7 +56,7 @@ def unlist(nested_list):
 
 def split_by_spaces(s, n=2):
     # Split a string by n or more spaces
-    return re.split('\s{%d,}' % n, s)
+    return re.split(r'\s{%d,}' % n, s)
 
 def get_between_brackets(s, regex=r'\[(.*?)\]'):
     return re.search(regex, s).group(1)
@@ -66,21 +66,6 @@ def get_between_parentheses(s, regex=r'\((.*?)\)'):
     
 def remove_digits(string):
     return "".join([x for x in string if not x.isdigit()]).strip()
-
-# Timer ------------------------------------------------------------------------
-
-def start_timer():
-    return default_timer()
-
-def stop_timer(start, v=False):
-    stop = default_timer()
-    total_time = stop - start
-    mins, secs = divmod(total_time, 60)
-    hours, mins = divmod(mins, 60)
-    runtime = f'{int(hours)}:{int(mins)}:{secs}'
-    if v:
-        print(f'Run time:\t{runtime}\n')
-    return f'{runtime}'
 
 # Misc -------------------------------------------------------------------------
 

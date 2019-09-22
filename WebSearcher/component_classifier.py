@@ -12,6 +12,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from . import logger
+log = logger.Logger().start(__name__)
 
 def classify_type(cmpt):
     """Component classifier
@@ -107,7 +109,7 @@ def classify_type(cmpt):
         elif '/Available on' in cmpt.text:
             return 'available_on'
 
-    except Exception as e:
-        print('Failed to classify component', e)
+    except Exception:
+        log.exception('Unknown Component')
         return 'unknown'
         

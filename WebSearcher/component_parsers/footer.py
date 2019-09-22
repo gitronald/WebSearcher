@@ -12,6 +12,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+from . import logging
+log = logging.Logger().start(__name__)
+
 import traceback
 
 def extract_footer(soup):
@@ -49,9 +52,10 @@ def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
 
     try: 
         parsed_cmpt = parser(cmpt)
-    except Exception as e:
-        traceback.print_exc()
-        return [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 'error':traceback.format_exc()}]
+    except Exception:
+        log.exception('Failed to parse footer')
+        parsed_cmpt = [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 
+                        'error':traceback.format_exc()}]
     return parsed_cmpt
 
 def parse_footer(cmpt):

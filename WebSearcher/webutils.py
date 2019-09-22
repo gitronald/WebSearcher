@@ -3,6 +3,8 @@
 Note on using socks5h, hostname resolution
 https://stackoverflow.com/questions/12601316/how-to-make-python-requests-work-via-socks-proxy
 """
+from . import logger
+log = logger.Logger().start(__name__)
 
 import os
 import re
@@ -152,12 +154,12 @@ def generate_ssh_tunnels(ips, ports, keyfile):
     def generate_ssh_tunnel(ip, port, keyfile=keyfile):
         ssh_tunnel = SSH(ip=ip, port=port, keyfile=keyfile)
         subprocess.call(['chmod', '600', keyfile])
-        print('{}'.format(ssh_tunnel.cmd_str))
+        log.info(f'{ssh_tunnel.cmd_str}')
         ssh_tunnel.open_tunnel()
         atexit.register(exit_handler, ssh_tunnel) # Always kill tunnels on exit
 
     return [generate_ssh_tunnel(ip, port) for ip, port in zip(ips, ports)]
 
 def exit_handler(ssh):
-    print('Killing: {} on port: {}'.format(ssh.machine, ssh.port))
+    log.info(f'Killing: {ssh.machine} on port: {ssh.port}')
     ssh.tunnel.kill()
