@@ -31,7 +31,7 @@ def get_readme_abstract(fp='README.md', delim='#', stop_at=1):
 
 setuptools.setup(
     name='WebSearcher',
-    version='version='0.1.3'',
+    version='0.1.4',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
