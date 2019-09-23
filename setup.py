@@ -15,19 +15,21 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import setuptools
-import pandas as pd
 
 def get_readme_title(fp='README.md', delim='# ', stop_at=1):
-    readme = pd.read_csv(fp, sep='\n', squeeze=True, header=None)
-    selected = readme[readme.str.startswith(delim)].iloc[0].replace('# ', '')
+    with open(fp, 'r') as infile:
+        readme = [l.strip() for l in infile.read().split('\n')]
+    selected = [l.replace('#', '') for l in readme if l.startswith(delim)][0]
     return selected
 
 def get_readme_abstract(fp='README.md', delim='#', stop_at=1):
-    readme = pd.read_csv(fp, sep='\n', squeeze=True, header=None)
-    selected = readme[readme.str.startswith(delim)].index[:stop_at]
+    with open(fp, 'r') as infile:
+        readme = [l.strip() for l in infile.read().split('\n')]
+    selected = [l.replace('#', '') for l in readme 
+                if l.startswith(delim)][:stop_at]
     start, stop = selected[0], selected[-1]
     abstract = selected[start:stop]
-    return abstract.str.cat(sep=' ').strip() 
+    return ' '.join(abstract)
 
 setuptools.setup(
     name='WebSearcher',
@@ -40,5 +42,5 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=['requests','lxml','bs4','brotli',
                       'tldextract','emoji','pandas'],
-    zip_safe=False
+    python_requires='>=3.6'
 )
