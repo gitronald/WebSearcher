@@ -12,8 +12,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from . import logging
-log = logging.Logger().start(__name__)
+from .. import logger
+log = logger.Logger().start(__name__)
 
 import traceback
 
