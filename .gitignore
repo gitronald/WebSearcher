@@ -1,3 +1,6 @@
+build
+dist
 venv
 rsync_to_*.sh
 *.egg-info
+*__pycache__
