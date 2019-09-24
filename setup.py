@@ -22,13 +22,13 @@ def get_readme_descriptions(fp='README.md', s='#', stop_at=2):
         readme = [l.strip() for l in infile.read().split('\n')]
         description = readme[0].replace('# ', '')
         heading_idx = [idx for idx, l in enumerate(readme) if l.startswith(s)]
-        long_description = '  '.join(readme[:heading_idx[stop_at]])
+        long_description = '  \n'.join(readme[:heading_idx[stop_at]])
     return description, long_description
     
 description, long_description = get_readme_descriptions()
 
 setuptools.setup(
-    name='WebSearcher',
+    name='WebSearching',
     version='0.1.5',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
