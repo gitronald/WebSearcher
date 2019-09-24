@@ -22,14 +22,12 @@ def get_readme_title(fp='README.md', delim='# ', stop_at=1):
     selected = [l.replace('#', '') for l in readme if l.startswith(delim)][0]
     return selected
 
-def get_readme_abstract(fp='README.md', delim='#', stop_at=1):
+def get_long_description(fp='README.md', delim='#', stop_at=2):
     with open(fp, 'r') as infile:
-        readme = [l.strip() for l in infile.read().split('\n')]
-    selected = [l.replace('#', '') for l in readme 
-                if l.startswith(delim)][:stop_at]
-    start, stop = selected[0], selected[-1]
-    abstract = selected[start:stop]
-    return ' '.join(abstract)
+        readme = [l for l in infile.read().split('\n')]
+        heading_idx = [idx for idx, l in enumerate(readme) if l[0] = delim]
+        long_description = readme[:heading_idx[stop_at]]
+        return '  '.join(long_description)
 
 setuptools.setup(
     name='WebSearcher',
@@ -39,6 +37,8 @@ setuptools.setup(
     author_email='rer@ccs.neu.edu',
     license='BSD-3-Clause',
     description=get_readme_title(),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
     install_requires=['requests','lxml','bs4','brotli',
                       'tldextract','emoji','pandas'],
