@@ -31,7 +31,7 @@ def get_long_description(fp='README.md', delim='#', stop_at=2):
 
 setuptools.setup(
     name='WebSearcher',
-    version='0.1.4',
+    version='0.1.5',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
