@@ -16,18 +16,16 @@
 
 import setuptools
 
-def get_readme_title(fp='README.md', delim='# ', stop_at=1):
+def get_readme_descriptions(fp='README.md', s='#', stop_at=2):
     with open(fp, 'r') as infile:
+        # Extract description (title) and long description including n sections
         readme = [l.strip() for l in infile.read().split('\n')]
-    selected = [l.replace('#', '') for l in readme if l.startswith(delim)][0]
-    return selected
-
-def get_long_description(fp='README.md', delim='#', stop_at=2):
-    with open(fp, 'r') as infile:
-        readme = [l for l in infile.read().split('\n')]
-        heading_idx = [idx for idx, l in enumerate(readme) if l[0] = delim]
-        long_description = readme[:heading_idx[stop_at]]
-        return '  '.join(long_description)
+        description = readme[0].replace('# ', '')
+        heading_idx = [idx for idx, l in enumerate(readme) if l.startswith(s)]
+        long_description = '  '.join(readme[:heading_idx[stop_at]])
+    return description, long_description
+    
+description, long_description = get_readme_descriptions()
 
 setuptools.setup(
     name='WebSearcher',
@@ -36,7 +34,7 @@ setuptools.setup(
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
     license='BSD-3-Clause',
-    description=get_readme_title(),
+    description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
