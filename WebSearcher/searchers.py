@@ -121,7 +121,8 @@ class SearchEngine(object):
         if location:
             self.set_location(location)
         else:
-            self.params.pop('uule')
+            if 'uule' in self.params:
+                self.params.pop('uule')
 
         param_str = '&'.join([f'{k}={v}' for k, v in self.params.items()])
         qry_url =  f'{self.url}?{param_str}'
