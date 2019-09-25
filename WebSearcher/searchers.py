@@ -69,7 +69,7 @@ class SearchEngine(object):
         self.headers['Accept-Encoding'] = accept_encoding
         self.headers['Accept-Language'] = accept_language
 
-        # Set a requests session - if you want to 
+        # Set a requests session
         self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
 
         # Set a log file, prints to console by default
@@ -121,6 +121,7 @@ class SearchEngine(object):
         if location:
             self.set_location(location)
         else:
+            # Reset previous location
             if 'uule' in self.params:
                 self.params.pop('uule')
 

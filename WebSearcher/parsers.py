@@ -118,8 +118,6 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
                         'error':traceback.format_exc()}]
     return parsed_cmpt
 
-    return parsed_cmpt
-
 def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
     """Parse a Search Engine Result Page (SERP)
     
