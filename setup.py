@@ -28,8 +28,8 @@ def get_readme_descriptions(fp='README.md', s='#', stop_at=2):
 description, long_description = get_readme_descriptions()
 
 setuptools.setup(
-    name='WebSearching',
-    version='0.1.7',
+    name='WebSearcher',
+    version='0.1.8',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
