@@ -79,8 +79,13 @@ def parse_twitter_card(sub, sub_rank=0):
 
     # Bottom div containing timestamp and tweet link
     div = sub.find('div', {'class':'Brgz0'})
-    parsed['url'] = webutils.url_unquote(div.find('a')['href'])
-    parsed['timestamp'] = div.find('span', {'class':'f'}).text
+    link = div.find('a')
+    if 'href' in link.attrs:
+        parsed['url'] = webutils.url_unquote(link['href'])
+
+    ts = div.find('span', {'class':'f'})
+    if ts:
+        parsed['timestamp'] = div.find('span', {'class':'f'}).text
 
     # Tweet text
     subdiv = div.find('div', {'class':'xcQxib'})

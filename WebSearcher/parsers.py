@@ -113,7 +113,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
             parsed_cmpt.update({'sub_rank':0, 'cmpt_rank':cmpt_rank})
 
     except Exception:
-        log.exception()
+        log.exception('Parsing Exception')
         parsed_cmpt = [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 
                         'error':traceback.format_exc()}]
     return parsed_cmpt

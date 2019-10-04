@@ -48,14 +48,14 @@ def parse_local_result(sub, sub_rank=0):
     detail_divs = sub.find('span', {'class':'rllt__details'}).find_all('div')
 
     # Extract rating and location type
-    rating_div = detail_divs[0]
-    rating = rating_div.find('span', {'class':'BTtC6e'})
-    if rating: 
-        local_details['rating'] = float(rating.text)
-        n_reviews = utils.get_between_parentheses(rating_div.text).replace(',','')
-        local_details['n_reviews'] = int(n_reviews)
-
-    local_details['sub_type'] = rating_div.text.split('·')[-1].strip()
+    if detail_divs:
+        rating_div = detail_divs[0]
+        rating = rating_div.find('span', {'class':'BTtC6e'})
+        if rating: 
+            local_details['rating'] = float(rating.text)
+            n_reviews = utils.get_between_parentheses(rating_div.text).replace(',','')
+            local_details['n_reviews'] = int(n_reviews)
+        local_details['sub_type'] = rating_div.text.split('·')[-1].strip()
 
     # Extract contact details
     if len(detail_divs) > 1:
