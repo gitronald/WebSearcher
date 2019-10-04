@@ -43,9 +43,15 @@ def parse_video(sub, sub_rank=0):
     text_div, citetime_div = sub.find_all('div',{'class':'MjS0Lc'})
     parsed['text'] = text_div.text if text_div else None
 
-    cite, timestamp = citetime_div.find('div',{'class':'zECGdd'}).children
-    parsed['cite'] = cite.text
-    parsed['timestamp'] = timestamp.replace(' - ', '')
+    if citetime_div:
+        # Sometimes there is only a cite
+        citetime = list(citetime_div.find('div',{'class':'zECGdd'}).children)
+        if len(citetime) == 2:
+            cite, timestamp = citetime       
+            parsed['cite'] = cite.text
+            parsed['timestamp'] = timestamp.replace(' - ', '')
+        else:
+            parsed['cite'] = citetime[0].text
 
     parsed['details'] = {} 
     parsed['details']['img_url'] = get_img_url(sub)
