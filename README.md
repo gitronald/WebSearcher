@@ -23,7 +23,7 @@ This package provides tools for conducting algorithm audits of web search and in
 ---  
 ## Getting Started
 
-pip version [link](https://pypi.org/project/WebSearcher/0.1.8/)
+pip version [link](https://pypi.org/project/WebSearcher)
 ```bash
 pip install WebSearcher
 ```
@@ -259,6 +259,7 @@ Some of the other projects are still ongoing and very interesting in their own w
 - https://github.com/Jayin/google.py
 - https://github.com/ecoron/SerpScrap
 - https://github.com/henux/cli-google
+- https://github.com/Kaiz0r/netcrawler
 - https://github.com/NikolaiT/se-scraper
 - https://github.com/nabehide/WebSearch
 - https://github.com/rrwen/search_google
