@@ -1,4 +1,4 @@
-# WebSearcher 0.1.10  
+# WebSearcher 0.1.11  
 ## Tools for conducting, collecting, and parsing web search  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
