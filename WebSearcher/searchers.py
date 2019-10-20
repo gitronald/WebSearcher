@@ -96,7 +96,7 @@ class SearchEngine(object):
         """
         self.params['uule'] = locations.get_location_id(canonical_name)
 
-    def set_query(self, qry):
+    def prepare_url(self, qry, location):
         """Prepare a query
 
         Set as original query and current query per default behavior in desktop 
@@ -104,10 +104,19 @@ class SearchEngine(object):
         
         Args:
             qry (str): Search query
+            location (str): location name
         """
         self.qry = qry
-        for k in ['q']:
-            self.params[k] = '+'.join(qry.split(' '))
+        self.params['q'] = '+'.join(qry.split(' '))
+
+        # Reset previous location
+        if 'uule' in self.params:
+            self.params.pop('uule')
+        if location:
+            self.set_location(location)
+
+        param_str = wu.join_url_quote(self.params)
+        return  f'{self.url}?{param_str}'
         
     def search(self, qry, location='', serp_id=''):
         """Conduct a search and save HTML
@@ -117,17 +126,7 @@ class SearchEngine(object):
             location (str, optional): A location's Canonical Name.
             serp_id (str, optional): A unique identifier for this SERP
         """
-        self.set_query(qry)
-        if location:
-            self.set_location(location)
-        else:
-            # Reset previous location
-            if 'uule' in self.params:
-                self.params.pop('uule')
-
-        param_str = '&'.join([f'{k}={v}' for k, v in self.params.items()])
-        qry_url =  f'{self.url}?{param_str}'
-
+        self.prepare_search_params(qry, location=location)
         self.timestamp = pd.datetime.utcnow().isoformat()
 
         rand_id = sha224(self.timestamp.encode('utf-8')).hexdigest()

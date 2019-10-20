@@ -31,32 +31,39 @@ def classify_footer_component(cmpt):
         subs = cmpt.find_all('div', {'class':'g'})
         if subs:
             return 'image_cards'
+        else:
+            return 'unknown'
 
     elif cmpt.find('g-section-with-header'):
         return 'searches_related'
+    else:
+        return 'unknown'
 
 def get_component_parser(cmpt_type):
     if cmpt_type == 'image_cards':
         return parse_image_cards
     elif cmpt_type == 'searches_related':
         return parse_related_searches
-    else:
-        return 'unknown'
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
-    """Classify the footer component and parse it"""
-    parsed_cmpt = [{'type':'unknown', 'sub_rank':0, 'cmpt_rank':cmpt_rank}]
-    
+    """Classify the footer component and parse it""" 
     cmpt_type = cmpt_type if cmpt_type else classify_footer_component(cmpt)
-    parser = get_component_parser(cmpt_type)
-
-    try: 
-        parsed_cmpt = parser(cmpt)
-    except Exception:
-        log.exception('Failed to parse footer')
-        parsed_cmpt = [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 
-                        'error':traceback.format_exc()}]
-    return parsed_cmpt
+    parsed = {
+        'type': cmpt_type,
+        'cmpt_rank':cmpt_rank,
+        'sub_rank':0
+    }
+       
+    if cmpt_type == 'unknown':
+        return [parsed]
+    else:
+        parser = get_component_parser(cmpt_type)
+        try: 
+            parsed = parser(cmpt)
+        except Exception:
+            log.exception('Failed to parse footer component')
+            parsed['error'] = traceback.format_exc()
+        return parsed
 
 def parse_footer(cmpt):
     """Parse footer component

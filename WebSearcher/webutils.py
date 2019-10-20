@@ -80,6 +80,9 @@ def parse_emojis(text):
 
 # URLs -------------------------------------------------------------------------
 
+def join_url_quote(quote_dict):
+    return '&'.join([f'{k}={v}' for k, v in quote_dict.items()])
+
 def url_unquote(url):
     return urlparse.unquote(url)
 
