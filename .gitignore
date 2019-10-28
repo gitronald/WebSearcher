@@ -1,5 +1,6 @@
 build
 dist
+location_data
 venv
 rsync_to_*.sh
 *.egg-info

@@ -15,14 +15,14 @@ else:
     print(args.query)
     
     # Initialize crawler
-    g = ws.SearchEngine()
+    se = ws.SearchEngine()
     
     # Conduct Search
-    g.search(args.query)
+    se.search(args.query)
 
     # Parse Results
-    g.parse_results()
+    se.parse_results()
 
     # Shape as dataframe
-    results = pd.DataFrame(g.results)
+    results = pd.DataFrame(se.results)
     print(results.head())
