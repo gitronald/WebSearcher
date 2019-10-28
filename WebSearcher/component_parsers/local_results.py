@@ -68,5 +68,8 @@ def parse_local_result(sub, sub_rank=0):
     links_dict = dict(zip(links_text, links))
     local_details.update(links_dict)
     parsed['details'] = local_details
+
+    if 'website' in links_dict:
+        parsed['url'] = links_dict['website']
     
     return parsed
