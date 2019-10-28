@@ -35,6 +35,8 @@ default_ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 
 default_encoding = 'gzip,deflate,br'
 default_language = 'en-US,en;q=0.5'
 
+def utc_stamp(): return pd.datetime.utcnow().isoformat()
+def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
 
 class SearchEngine(object):
     """ Collect Search Engine Results Pages (SERPs)
@@ -116,25 +118,12 @@ class SearchEngine(object):
             self.set_location(location)
 
         param_str = wu.join_url_quote(self.params)
-        return  f'{self.url}?{param_str}'
-        
-    def search(self, qry, location='', serp_id=''):
-        """Conduct a search and save HTML
-        
-        Args:
-            qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            serp_id (str, optional): A unique identifier for this SERP
-        """
-        self.prepare_search_params(qry, location=location)
-        self.timestamp = pd.datetime.utcnow().isoformat()
+        self.url = f'{self.url}?{param_str}'
 
-        rand_id = sha224(self.timestamp.encode('utf-8')).hexdigest()
-        self.serp_id = serp_id if serp_id else rand_id
-
+    def snapshot(self):
         try:
-            self.response = self.sesh.get(qry_url, timeout=10)
-            self.log.info(f'{self.response.status_code} | Searching {qry}')
+            self.response = self.sesh.get(self.url, timeout=10)
+            self.log.info(f'{self.response.status_code} | Searching {self.qry}')
 
         except requests.exceptions.ConnectionError:
             # SSH Tunnel may have died. 
@@ -154,6 +143,19 @@ class SearchEngine(object):
         except Exception:
             # Honestly, who knows
             self.log.exception(f'SERP | Scraping error | {self.serp_id}')
+
+    def search(self, qry, location='', serp_id=''):
+        """Conduct a search and save HTML
+        
+        Args:
+            qry (str): The search query
+            location (str, optional): A location's Canonical Name.
+            serp_id (str, optional): A unique identifier for this SERP
+        """
+        self.prepare_url(qry, location=location)
+        self.serp_id = serp_id if serp_id else generate_rand_id()
+        self.timestamp = utc_stamp()
+        self.snapshot()
     
     def unzip_html(self):
         """Unzip brotli zipped html 
