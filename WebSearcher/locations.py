@@ -22,8 +22,12 @@ from bs4 import BeautifulSoup
 from . import logger
 log = logger.Logger().start(__name__)
 
-
 url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
+
+def get_all_urls(soup):
+    a_divs = soup.find_all('a')
+    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}    
+    return all_urls
 
 def download_locations(data_dir, url=url, return_data=True):
     """Download the latest locations data
@@ -48,32 +52,34 @@ def download_locations(data_dir, url=url, return_data=True):
     try:
         html = requests.get(url).content
         soup = BeautifulSoup(html, 'lxml')
-        article = soup.find('div', {'itemprop': 'articleBody'})
-        buttons = article.find_all('p', {'class': 'button'})
-        current, previous = buttons
+        all_urls = get_all_urls(soup)
+        geo_urls = [url for url in all_urls if 'geotargets' in url]
+
     except Exception:
         log.exception("Failed to retrieve location data's url")
 
-    # Get CSV url and use as filename
-    csv_url = current.a['href']
-    fp = os.path.join(data_dir, csv_url.split('/')[-1])
+    # Get current CSV url and use as filename
+    geo_url = sorted(geo_urls)[-1]
+    full_url = 'https://developers.google.com' + geo_url
+    fp = os.path.join(data_dir, geo_url.split('/')[-1])
 
     # Check if the current version already exists
     if os.path.exists(fp):
-        raise SystemExit(f'Version up to date: {csv_url}')
+        print(f'Version up to date: {geo_url}')
     else:
         # If it doesn't, download it
         try:
-            locations = pd.read_csv(csv_url)
+            print(f'Getting: {full_url}')
+            locations = pd.read_csv(full_url)
         except Exception:
             log.exception('Failed to retrieve location data')
 
-    # Save
-    locations.to_csv(fp, index=False, encoding='utf-8')
-    
-    # Return
-    if return_data:
-        return locations
+        # Save
+        locations.to_csv(fp, index=False, encoding='utf-8')
+        
+        # Return
+        if return_data:
+            return locations
 
 
 def get_location_id(canonical_name):
