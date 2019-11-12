@@ -90,17 +90,15 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     Returns:
         dict: The parsed results and/or subresults
     """
-    parsed_cmpt = [{'type':'unknown', 'sub_rank':0, 'cmpt_rank':cmpt_rank}]
-
+    # Classify Component
     cmpt_type = cmpt_type if cmpt_type else classify_type(cmpt)
-    if not cmpt_type or cmpt_type == 'unknown':
-        # Unknown component
-        return parsed_cmpt
-    if not type_functions[cmpt_type]:
-        # Named component but no function
-        parsed_cmpt[0]['type'] = cmpt_type
-        return parsed_cmpt
+    assert cmpt_type, 'Null component type'
 
+    # Return unknown components
+    if cmpt_type == 'unknown':
+        return [{'type':'unknown', 'sub_rank':0, 'cmpt_rank':cmpt_rank}]
+
+    # Parse component
     try:
         parser = get_component_parser(cmpt_type)
         parsed_cmpt = parser(cmpt)
@@ -114,8 +112,9 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     except Exception:
         log.exception('Parsing Exception')
-        parsed_cmpt = [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 
-                        'error':traceback.format_exc()}]
+        err = traceback.format_exc()
+        return [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 'error':err}]
+
     return parsed_cmpt
 
 def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):

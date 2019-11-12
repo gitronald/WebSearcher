@@ -36,7 +36,7 @@ def classify_type(cmpt):
                 if h3.text == 'Quotes in the news':
                     return 'news_quotes'
             
-            h2 = cmpt.find('h2')  
+            h2 = cmpt.find('h2')
             if h2 and h2.text == 'People also ask': 
                 # <h2 class="MA9Une">People also ask</h2>
                 return 'people_also_ask'
@@ -108,6 +108,13 @@ def classify_type(cmpt):
 
         elif '/Available on' in cmpt.text:
             return 'available_on'
+        
+        # General with people also ask style questions
+        elif cmpt.find('div', {'class':'ifM9O'}):
+            return 'general_questions'
+
+        else:
+            return 'unknown'
 
     except Exception:
         log.exception('Unknown Component')

@@ -13,6 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+def get_text(div):
+    return '|'.join([d.get_text(separator=' ') for d in div if d.text])
+
 def parse_knowledge_panel(cmpt, sub_rank=0):
     """Parse the Knowledge Box
     
@@ -40,13 +43,13 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
     # Get all text
     if cmpt.find('h2') and cmpt.find('h2').text == 'Featured snippet from the web':
         details['subtype'] = 'featured_snippet'
-        text = cmpt.find_all(['span'])
-        details['text'] = '|'.join([s.text for s in text if s.text]) if text else None
+        span = cmpt.find_all(['span'])
+        details['text'] = get_text(span) if span else None
 
     if cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
         details['subtype'] = 'unit_converter'
-        text = cmpt.find_all(['span'])
-        details['text'] = '|'.join([s.text for s in text if s.text]) if text else None
+        span = cmpt.find_all(['span'])
+        details['text'] = get_text(span) if span else None
 
     if cmpt.find('h2') and cmpt.find('h2').text == 'Sports Results':
         details['subtype'] = 'sports'
@@ -55,8 +58,8 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
 
     else:
         details['subtype'] = 'panel'
-        text = cmpt.find_all(['span','div','a'], text=True)
-        details['text'] = '|'.join([t.text for t in text]) if text else None
+        div = cmpt.find_all(['span','div','a'], text=True)
+        details['text'] = get_text(div) if div else None
 
     # Get image
     img_div = cmpt.find('div', {'class':'img-brk'})

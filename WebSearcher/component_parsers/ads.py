@@ -39,8 +39,9 @@ def parse_ad(sub, sub_rank=0, visible=None):
     parsed['url'] = header.find('cite').text
     parsed['text'] = sub.find('div', {'class':'ads-creative'}).text
     
-    bottom_links = sub.find('ul')
-    if bottom_links:
-        parsed['details'] = [li.text for li in bottom_links.find_all('li')]
+    bottom_text = sub.find('ul')
+    if bottom_text:
+        bottom_li = bottom_text.find_all('li')
+        parsed['details'] = [li.get_text(separator=' ') for li in bottom_li]
 
     return parsed

@@ -12,12 +12,14 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from . import parse_top_stories
+from . import parse_general_results
+from . import parse_people_also_ask
 
-def parse_latest_from(cmpt):
-    """Parse a "Latest news" component
+def parse_general_questions(cmpt):
+    """Parse a General + People Also Ask hybrid component
 
-    These components are the same as Top Stories, but have a different heading.
+    These components consist of a general result followed by a people also
+    ask component with 3 subresults (questions).
     
     Args:
         cmpt (bs4 object): A latest from component
@@ -25,4 +27,11 @@ def parse_latest_from(cmpt):
     Returns:
         dict : parsed result
     """
-    return parse_top_stories(cmpt, ctype='latest_from')
+
+    result = parse_general_results(cmpt)
+    questions = parse_people_also_ask(cmpt)
+    result[0]['details'] = questions[0]['details']
+    result[0]['type'] = 'general_questions'
+    return result
+
+
