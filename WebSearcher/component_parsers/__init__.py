@@ -16,6 +16,7 @@ import pandas as pd
 from .ads import parse_ads
 from .knowledge import parse_knowledge_panel
 from .general import parse_general_results
+from .general_questions import parse_general_questions
 from .top_stories import parse_top_stories
 from .latest_from import parse_latest_from
 from .view_more_news import parse_view_more_news
@@ -36,6 +37,7 @@ components = pd.DataFrame([
     ('ad', parse_ads, 'Ad'),
     ('knowledge', parse_knowledge_panel, 'Knowledge'),
     ('general', parse_general_results, 'General'),
+    ('general_questions', parse_general_questions, 'General Questions'),
     ('general_menu', parse_general_results, 'General Submenu'),
     ('available_on', parse_available_on, 'Available On'),
     ('top_stories', parse_top_stories, 'Top Stories'), 
