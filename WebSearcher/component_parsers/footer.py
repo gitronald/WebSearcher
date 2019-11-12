@@ -17,6 +17,14 @@ log = logger.Logger().start(__name__)
 
 import traceback
 
+def get_component_parser(cmpt_type):
+    if cmpt_type == 'image_cards':
+        return parse_image_cards
+    elif cmpt_type == 'searches_related':
+        return parse_searches_related
+    elif cmpt_type == 'discover_more':
+        return parse_discover_more
+
 def extract_footer(soup):
     return soup.find('div', {'id':'botstuff'})
 
@@ -31,19 +39,17 @@ def classify_footer_component(cmpt):
         subs = cmpt.find_all('div', {'class':'g'})
         if subs:
             return 'image_cards'
+        elif cmpt.find('g-scrolling-carousel'):
+            return 'discover_more'
         else:
             return 'unknown'
 
     elif cmpt.find('g-section-with-header'):
         return 'searches_related'
+
     else:
         return 'unknown'
 
-def get_component_parser(cmpt_type):
-    if cmpt_type == 'image_cards':
-        return parse_image_cards
-    elif cmpt_type == 'searches_related':
-        return parse_related_searches
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
     """Classify the footer component and parse it""" 
@@ -83,6 +89,15 @@ def parse_footer(cmpt):
 
     return parsed_list
 
+def parse_discover_more(cmpt):
+    carousel = cmpt.find('g-scrolling-carousel')
+    parsed = [{
+        'type':'discover_more', 
+        'sub_rank':0,
+        'text': '|'.join(c.text for c in carousel.find_all('g-inner-card'))
+    }]
+    return parsed
+
 def parse_image_cards(cmpt):
     """Parse a horiontally stacked row of image results relevant to query"""
     subs = cmpt.find_all('div', {'class':'g'})
@@ -94,7 +109,7 @@ def parse_image_card(sub, sub_rank=0):
     parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in sub.find_all('img')]
     return parsed
 
-def parse_related_searches(cmpt, sub_rank=0):
+def parse_searches_related(cmpt, sub_rank=0):
     """Parse a one or two column list of related search queries"""
     parsed = {'type':'searches_related', 'sub_rank':sub_rank}
     subs = cmpt.find('g-section-with-header').find_all('p')
