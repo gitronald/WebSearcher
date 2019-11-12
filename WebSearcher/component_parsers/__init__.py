@@ -16,7 +16,6 @@ import pandas as pd
 from .ads import parse_ads
 from .knowledge import parse_knowledge_panel
 from .general import parse_general_results
-from .general_questions import parse_general_questions
 from .top_stories import parse_top_stories
 from .latest_from import parse_latest_from
 from .view_more_news import parse_view_more_news
@@ -28,6 +27,7 @@ from .images import parse_images
 from .videos import parse_videos
 from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
+from .general_questions import parse_general_questions
 from .available_on import parse_available_on
 from .footer import parse_footer
 
