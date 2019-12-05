@@ -35,6 +35,7 @@ def parse_img(sub, sub_rank=0):
         dict : parsed subresult
     """
     parsed = {'type':'images', 'sub_rank':sub_rank}
-    if 'title' in sub:
-        parsed['img_url'] = sub['title'] # Hacky, 'src' is always the same though
+    if 'title' in sub.attrs:
+        # Hacky, 'src' is always the same though
+        parsed['url'] = sub['title'] 
     return parsed
