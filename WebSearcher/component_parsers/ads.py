@@ -14,24 +14,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 def parse_ads(cmpt):
-    """Parse ads from ad component
-
-    Receives tuple (visible, ad_soup)
-
-    """
-    # visible_cue = cmpt.find('div', {'style':'padding:0 20px'})
-    # visible = True if visible_cue else False
-    
-    # Find first style in center col, split into lines, find cue
-    # visible, cmpt = cmpt
-    
+    """Parse ads from ad component"""
     subs = cmpt.find_all('li', {'class':'ads-ad'})
-    # return [parse_ad(sub, sub_rank, visible) for sub_rank, sub in enumerate(subs)]
     return [parse_ad(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_ad(sub, sub_rank=0, visible=None):
     """Parse details of a single ad subcomponent, similar to general"""
-    # parsed = {'type':'ad', 'sub_rank':sub_rank, 'visible':visible}
     parsed = {'type':'ad', 'sub_rank':sub_rank}
 
     header = sub.find('div', {'class':'ad_cclk'})
