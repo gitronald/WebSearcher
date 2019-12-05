@@ -27,95 +27,99 @@ def classify_type(cmpt):
     try:
     
         if cmpt.find('div', {'class':'knowledge-panel'}):
-            return 'knowledge'
+            cmpt_type = 'knowledge'
         elif cmpt.find('div', {'class':'knavi'}):
-            return 'knowledge'
+            cmpt_type = 'knowledge'
         elif cmpt.find('div', {'class':'kp-blk'}):
             if cmpt.find('g-tray-header'):
                 h3 = cmpt.find('h3')
                 if h3.text == 'Quotes in the news':
-                    return 'news_quotes'
-            
-            h2 = cmpt.find('h2')
-            if h2 and h2.text == 'People also ask': 
+                    cmpt_type = 'news_quotes'
+            elif cmpt.find('h2') and cmpt.find('h2').text == 'People also ask': 
                 # <h2 class="MA9Une">People also ask</h2>
-                return 'people_also_ask'
-            
-            return 'knowledge'
+                cmpt_type = 'people_also_ask'
+            else:
+                cmpt_type = 'knowledge'
 
-        h2 = cmpt.find('h2')
-        if h2:
+        elif cmpt.find('h2'):
+            h2 = cmpt.find('h2')
+            
             if h2.text == 'Featured snippet from the web': 
                 # "<h2 class="bNg8Rb">Featured snippet from the web</h2>"
-                return 'knowledge'
+                cmpt_type = 'knowledge'
                 
             if h2.text == 'Unit Converter':
                 # <h2 class="bNg8Rb">Unit Converter</h2>
-                return 'knowledge'
+                cmpt_type = 'knowledge'
 
             if h2.text == 'Sports Results':
                 # <h2 class="bNg8Rb">Sports Results</h2>
-                return 'knowledge'
+                cmpt_type = 'knowledge'
 
             elif h2.text == 'Web results': 
                 # <h2 class="bNg8Rb">Web results</h2>
-                return 'general' 
+                cmpt_type = 'general' 
 
             elif h2.text == 'Resultados de la Web': 
                 # <h2 class="bNg8Rb">Resultados de la Web</h2>
-                return 'general' 
+                cmpt_type = 'general' 
 
             elif h2.text == 'Web Result with Site Links': 
                 # <h2 class="bNg8Rb">Web Result with Site Links</h2>
-                return 'general' #_menu
+                cmpt_type = 'general' #_menu
 
             elif h2.text == 'Local Results': 
                 # <h2 class="bNg8Rb">Local Results</h2> 
-                return 'local_results' 
+                cmpt_type = 'local_results' 
 
             elif h2.text == 'Map Results':
                 # <h2 class="bNg8Rb">Map Results</h2>
-                return 'map_results'
+                cmpt_type = 'map_results'
 
             elif h2.text == 'Twitter Results':
                 if cmpt.find('g-section-with-header'):
-                    return 'twitter_cards'
+                    cmpt_type = 'twitter_cards'
                 else:
-                    return 'twitter_result'
+                    cmpt_type = 'twitter_result'
 
         elif cmpt.find('g-tray-header'):
             h3 = cmpt.find('h3')
             if h3.text == 'Quotes in the news':
-                return 'news_quotes'
+                cmpt_type = 'news_quotes'
 
         elif cmpt.find('div', {'id':'imagebox_bigimages'}):
-            return 'images'
+            cmpt_type = 'images'
 
         elif cmpt.find('g-section-with-header'):
             h3 = cmpt.find('h3')
             if h3:
-                if h3.text.startswith('Top stories'): # Accounts for Top stories for <query>
-                    return 'top_stories'
-                elif h3.text.startswith('Videos'):  # Accounts for Videos for <query>
-                    return 'videos'
+                if h3.text.startswith('Top stories'): 
+                    # Accounts for "Top stories for <query>"
+                    cmpt_type = 'top_stories'
+                elif h3.text.startswith('Videos'):  
+                    # Accounts for "Videos for <query>"
+                    cmpt_type = 'videos'
                 elif h3.text.startswith('View more videos'):
-                    return 'view_more_videos'
+                    cmpt_type = 'view_more_videos'
                 elif h3.text.startswith('Latest from'):
-                    return 'latest_from'
-                elif h3.text.startswith('View more news'):
-                    return 'view_more_news'
                     # <h3 aria-level="2" role="heading">Latest from aol.com</h3>
+                    cmpt_type = 'latest_from'
+                elif h3.text.startswith('View more news'):
+                    cmpt_type = 'view_more_news'
+                elif h3.text.startswith('Images for'):
+                    cmpt_type = 'images'
+
 
         elif '/Available on' in cmpt.text:
-            return 'available_on'
+            cmpt_type = 'available_on'
         
         # General with people also ask style questions
         elif cmpt.find('div', {'class':'ifM9O'}):
-            return 'general_questions'
+            cmpt_type = 'general_questions'
 
-        else:
-            return 'unknown'
-
+        # Return type or unknown if null (not tagged by an existing classifier)
+        return cmpt_type if cmpt_type else 'unknwon'
+        
     except Exception:
         log.exception('Unknown Component')
         return 'unknown'
