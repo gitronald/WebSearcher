@@ -25,6 +25,7 @@ from .local_results import parse_local_results
 from .map_results import parse_map_results
 from .images import parse_images
 from .videos import parse_videos
+from .scholarly_articles import parse_scholarly_articles
 from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
 from .general_questions import parse_general_questions
@@ -52,6 +53,7 @@ components = pd.DataFrame([
     ('view_more_videos', parse_videos, 'View More Videos'),
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
     ('twitter_result', parse_twitter_result, 'Twitter Result'),
+    ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('footer', parse_footer, 'Footer')
 ], columns=columns)
 
