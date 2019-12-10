@@ -51,6 +51,21 @@ def parse_general_result(sub, sub_rank=0):
     # Get citation
     cite = sub.find('cite')
     parsed['cite'] = cite.text if cite else None
+    
+    # Get design details
+    top_logo = sub.find('img', {'class':'xA33Gc'})
+    top_menu = sub.find('div', {'class':'yWc32e'})
+    
+    parsed['details'] = 'top_cite_logo' if top_logo else ''
+    if top_menu:
+        # If menu has children, ignore URLs and get correct title URL
+        has_children = list(top_menu.children)
+        if has_children: 
+            parsed['details'] += '_menu' 
+
+            for child in top_menu.children:
+                child.decompose()
+            parsed['url'] = title_div.find('a')['href']
 
     # Get snippet text
     body = sub.find('span', {'class':'st'})
