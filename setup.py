@@ -34,6 +34,10 @@ setuptools.setup(
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
     license='BSD-3-Clause',
+    classifiers=[
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: BSD License'
+    ],
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
