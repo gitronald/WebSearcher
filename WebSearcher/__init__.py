@@ -12,7 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-__version__ = "0.1.13"
+__version__ = "0.1.14"
 from .searchers import SearchEngine
 from .parsers import parse_serp, extract_components
 from .locations import download_locations
