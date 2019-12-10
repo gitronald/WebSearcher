@@ -12,10 +12,36 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from . import logger
-log = logger.Logger().start(__name__)
+# from . import logger
+# log = logger.Logger().start(__name__)
 
-def classify_type(cmpt):
+# Classifications based on H2 Headings
+h2_matches = {
+    "Featured snippet from the web": "knowledge",
+    "Unit Converter": "knowledge",
+    "Sports Results": "knowledge",
+    "Web results": "general",
+    "Resultados de la Web": "general",
+    "Web Result with Site Links": "general",
+    "Local Results": "local_results",
+    "Map Results": "map_results",
+    "People also ask": "people_also_ask",
+    "Twitter Results": "twitter"
+}
+
+# Classifications based on H3 Headings
+h3_matches = {
+    "Videos": "videos",
+    "Top stories": "top_stories",
+    "Quotes in the news": "news_quotes",
+    "Latest from": "latest_from",
+    "View more videos": "view_more_videos",
+    "View more news": "view_more_news",
+    "Images for": "images",
+    "Scholarly articles for": "scholarly_articles"
+}
+
+def classify_type(cmpt, cmpt_type='unknown'):
     """Component classifier
     
     Args:
@@ -24,103 +50,43 @@ def classify_type(cmpt):
     Returns:
         str: A classification of the component type
     """
-    try:
-    
-        if cmpt.find('div', {'class':'knowledge-panel'}):
-            cmpt_type = 'knowledge'
-        elif cmpt.find('div', {'class':'knavi'}):
-            cmpt_type = 'knowledge'
-        elif cmpt.find('div', {'class':'kp-blk'}):
-            if cmpt.find('g-tray-header'):
-                h3 = cmpt.find('h3')
-                if h3.text == 'Quotes in the news':
-                    cmpt_type = 'news_quotes'
-            elif cmpt.find('h2') and cmpt.find('h2').text == 'People also ask': 
-                # <h2 class="MA9Une">People also ask</h2>
-                cmpt_type = 'people_also_ask'
-            else:
-                cmpt_type = 'knowledge'
 
-        elif cmpt.find('h2'):
-            h2 = cmpt.find('h2')
-            
-            if h2.text == 'Featured snippet from the web': 
-                # "<h2 class="bNg8Rb">Featured snippet from the web</h2>"
-                cmpt_type = 'knowledge'
-                
-            if h2.text == 'Unit Converter':
-                # <h2 class="bNg8Rb">Unit Converter</h2>
-                cmpt_type = 'knowledge'
+    # Define HTML references (sets to `None` if it doesn't exist)
+    h2 = cmpt.find('h2')
+    h3 = cmpt.find('h3')
+    g_tray = cmpt.find('g-tray-header')
+    g_section = cmpt.find('g-section-with-header')
+    g_accordian = cmpt.find('g-accordion')
+    related_question_pair = cmpt.find('related-question-pair')
+    knowledge = cmpt.find('div', {'class':['knowledge-panel','knavi','kp-blk']})
+    img_box = cmpt.find('div', {'id':'imagebox_bigimages'})
+    hybrid = cmpt.find('div', {'class':'ifM9O'})
 
-            if h2.text == 'Sports Results':
-                # <h2 class="bNg8Rb">Sports Results</h2>
-                cmpt_type = 'knowledge'
+    # Check `h2.text` for string matches
+    if h2:
+        for text, ctype in h2_matches.items():
+            if h2.text.startswith(text):
+                cmpt_type = ctype
 
-            elif h2.text == 'Web results': 
-                # <h2 class="bNg8Rb">Web results</h2>
-                cmpt_type = 'general' 
+    # Check `h3.text` for string matches
+    if h3:
+        for text, ctype in h3_matches.items():
+            if h3.text.startswith(text):
+                cmpt_type = ctype
 
-            elif h2.text == 'Resultados de la Web': 
-                # <h2 class="bNg8Rb">Resultados de la Web</h2>
-                cmpt_type = 'general' 
+    # Check for binary match only divs (exists/doesn't exist)
+    if cmpt_type == 'unknown':
+        if img_box: cmpt_type = 'images'
+        if knowledge: cmpt_type = 'knowledge'
+        if hybrid and g_accordian: cmpt_type = 'general_questions'
 
-            elif h2.text == 'Web Result with Site Links': 
-                # <h2 class="bNg8Rb">Web Result with Site Links</h2>
-                cmpt_type = 'general' #_menu
+    # Check for available on divs
+    if '/Available on' in cmpt.text:
+        cmpt_type = 'available_on'
 
-            elif h2.text == 'Local Results': 
-                # <h2 class="bNg8Rb">Local Results</h2> 
-                cmpt_type = 'local_results' 
+    # Twitter subtype
+    if cmpt_type == 'twitter':
+        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
 
-            elif h2.text == 'Map Results':
-                # <h2 class="bNg8Rb">Map Results</h2>
-                cmpt_type = 'map_results'
-
-            elif h2.text == 'Twitter Results':
-                if cmpt.find('g-section-with-header'):
-                    cmpt_type = 'twitter_cards'
-                else:
-                    cmpt_type = 'twitter_result'
-
-        elif cmpt.find('g-tray-header'):
-            h3 = cmpt.find('h3')
-            if h3.text == 'Quotes in the news':
-                cmpt_type = 'news_quotes'
-
-        elif cmpt.find('div', {'id':'imagebox_bigimages'}):
-            cmpt_type = 'images'
-
-        elif cmpt.find('g-section-with-header'):
-            h3 = cmpt.find('h3')
-            if h3:
-                if h3.text.startswith('Top stories'): 
-                    # Accounts for "Top stories for <query>"
-                    cmpt_type = 'top_stories'
-                elif h3.text.startswith('Videos'):  
-                    # Accounts for "Videos for <query>"
-                    cmpt_type = 'videos'
-                elif h3.text.startswith('View more videos'):
-                    cmpt_type = 'view_more_videos'
-                elif h3.text.startswith('Latest from'):
-                    # <h3 aria-level="2" role="heading">Latest from aol.com</h3>
-                    cmpt_type = 'latest_from'
-                elif h3.text.startswith('View more news'):
-                    cmpt_type = 'view_more_news'
-                elif h3.text.startswith('Images for'):
-                    cmpt_type = 'images'
-
-
-        elif '/Available on' in cmpt.text:
-            cmpt_type = 'available_on'
-        
-        # General with people also ask style questions
-        elif cmpt.find('div', {'class':'ifM9O'}):
-            cmpt_type = 'general_questions'
-
-        # Return type or unknown if null (not tagged by an existing classifier)
-        return cmpt_type if cmpt_type else 'unknwon'
-        
-    except Exception:
-        log.exception('Unknown Component')
-        return 'unknown'
-        
+    # Return type or unknown (default)
+    return cmpt_type
