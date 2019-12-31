@@ -175,18 +175,19 @@ class SearchEngine(object):
             self.log.exception(f'Decompression error | serp_id : {self.serp_id}')
             self.html = self.response.content
 
-    def save_serp(self, save_dir='.', append_to=''):
+    def save_serp(self, save_dir='.', append_to='', sql_conn=None):
         """Save SERP as `{save_dir}/serp_id.html` or append with metadata to a file 
         
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
             append_to (str, optional): Append results to this file path
+            sql_conn (Object, optional): Append SERP to a SQL table.
         """
         # Save SERP
         if not self.html:
             self.unzip_html()
         
-        if append_to:
+        if append_to or sql_conn:
             # Keys to drop from object before saving
             exclude = ['response', 'sesh', 'ssh_tunnel', 
                        'log', 'results', 'results_html']
@@ -194,8 +195,14 @@ class SearchEngine(object):
             out_data['response_code'] = self.response.status_code
             out_data['html'] = out_data['html'].decode('utf-8', 'ignore')
 
-            with open(append_to, 'a+') as outfile:
-                outfile.write(f'{json.dumps(out_data)}\n')
+            if append_to:
+                with open(append_to, 'a+') as outfile:
+                    outfile.write(f'{json.dumps(out_data)}\n')
+
+            elif sql_conn:
+                out_df = pd.DataFrame(out_data, index=[0])
+                out_df.to_sql('serps_raw', con=conn, 
+                              index=False, if_exists='append')
 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
