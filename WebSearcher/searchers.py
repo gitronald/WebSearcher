@@ -201,7 +201,7 @@ class SearchEngine(object):
 
             elif sql_conn:
                 out_df = pd.DataFrame(out_data, index=[0])
-                out_df.to_sql('serps_raw', con=conn, 
+                out_df.to_sql('serps_raw', con=sql_conn, 
                               index=False, if_exists='append')
 
         else:
