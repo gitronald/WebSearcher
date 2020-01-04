@@ -24,7 +24,7 @@ class Logger(object):
         ```
     """
     def __init__(self, 
-        file_name='', file_format='detailed', file_mode='w',
+        file_name='',  file_mode='w', file_format='detailed',
         console=True, console_format='detailed', console_level='DEBUG'):
     
         # Handlers: change file and console logging details
