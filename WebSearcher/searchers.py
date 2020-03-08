@@ -75,7 +75,10 @@ class SearchEngine(object):
         self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
 
         # Set a log file, prints to console by default
-        self.log = logger.Logger(log_fp, log_mode).start(__name__)
+        self.log = logger.Logger(
+            file_name=log_fp, 
+            file_mode=log_mode
+        ).start(__name__)
 
         # Set an SSH tunnel - conducting the search from somewhere else
         self.ssh_tunnel = ssh_tunnel
