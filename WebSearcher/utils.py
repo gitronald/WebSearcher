@@ -32,6 +32,17 @@ def write_lines(iter_data, fp, overwrite=False):
             for data in iter_data:
                 outfile.write('%s\n' % json.dumps(data))
 
+def write_sql_row(data, table, conn):
+    """Write a dict `data` as a row in `table` via SQL connection `conn`
+    
+    Arguments:
+        data (dict) -- A dictionary to insert as a row.
+        table (str) -- The name of the table.
+        conn -- A connection to a SQL database.
+    """
+    row = pd.DataFrame(data, index=[0])
+    row.to_sql(table, con=sql_conn, index=False, if_exists='append')
+
 # Descriptive Stats ------------------------------------------------------------
 
 def dnum(dfcol):
