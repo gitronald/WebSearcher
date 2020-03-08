@@ -55,7 +55,7 @@ def parse_local_result(sub, sub_rank=0):
             local_details['rating'] = float(rating.text)
             n_reviews = utils.get_between_parentheses(rating_div.text).replace(',','')
             local_details['n_reviews'] = int(n_reviews)
-        local_details['sub_type'] = rating_div.text.split('·')[-1].strip()
+        local_details['loc_label'] = rating_div.text.split('·')[-1].strip()
 
     # Extract contact details
     if len(detail_divs) > 1:
