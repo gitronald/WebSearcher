@@ -1,4 +1,4 @@
-# WebSearcher 0.1.14  
+# WebSearcher 0.2.0  
 ## Tools for conducting, collecting, and parsing web search  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -226,15 +226,9 @@ results[results.type=='local_results']['details'].tolist()
 
 Happy to have help! If you see a component that we aren't covering yet, please add it using the process below. If you have other improvements, feel free to add them any way you can.
 
-Recently added:  
-    - Location.
 
 Coming next:  
     - Functions for using multiprocessing to parse SERPs.  
-    - SSH tunneling
-
-To do:  
-    - SQL storage
 
 ### Repair or Enhance a Parser
 
@@ -260,8 +254,8 @@ Some of the other projects are still ongoing and very interesting in their own w
 - https://github.com/ecoron/SerpScrap
 - https://github.com/henux/cli-google
 - https://github.com/Kaiz0r/netcrawler
-- https://github.com/NikolaiT/se-scraper
 - https://github.com/nabehide/WebSearch
+- https://github.com/NikolaiT/se-scraper
 - https://github.com/rrwen/search_google
 - https://github.com/howie6879/magic_google
 - https://github.com/rohithpr/py-web-search
@@ -277,7 +271,7 @@ Some of the other projects are still ongoing and very interesting in their own w
 ---  
 ## License
 
-Copyright (C) 2017-2019 Ronald E. Robertson <rer@ronalderobertson.com>
+Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
