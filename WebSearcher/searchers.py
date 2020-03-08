@@ -49,7 +49,8 @@ class SearchEngine(object):
         log_fp='', log_mode='a+',
         user_agent=default_ua, 
         accept_encoding=default_encoding,
-        accept_language=default_language):
+        accept_language=default_language,
+        unzip=False):
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
         
@@ -85,6 +86,7 @@ class SearchEngine(object):
 
         # Initialize data storage - search results and optionally their html
         self.html = None
+        self.unzip = unzip
         self.results = []
         self.results_html = []
 
@@ -147,6 +149,21 @@ class SearchEngine(object):
             # Honestly, who knows
             self.log.exception(f'SERP | Scraping error | {self.serp_id}')
 
+    def handle_response(self)
+        try:
+            # Unzip string if True
+            if self.unzip:  
+                self.unzip_html()
+            else:
+                # Get response string
+                self.html = self.response.content
+
+            # Decode string
+            self.html = self.html.decode('utf-8', 'ignore')
+                
+        except Exception:
+            self.log.exception(f'Response handling error')
+
     def search(self, qry, location='', serp_id=''):
         """Conduct a search and save HTML
         
@@ -159,7 +176,9 @@ class SearchEngine(object):
         self.serp_id = serp_id if serp_id else generate_rand_id()
         self.timestamp = utc_stamp()
         self.snapshot()
+        self.handle_response()
     
+
     def unzip_html(self):
         """Unzip brotli zipped html 
 
@@ -178,7 +197,7 @@ class SearchEngine(object):
             self.html = self.response.content
 
     def save_serp(self, save_dir='.', append_to='', sql_table='', sql_conn=None):
-        """Save SERP as `{save_dir}/serp_id.html` or append with metadata to a file 
+        """Save SERP to file or SQL table
         
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
@@ -213,12 +232,8 @@ class SearchEngine(object):
             save_dir (str, optional): Description
         """
         # Parse results, see parsers.py
-        if not self.html:
-            self.unzip_html()
+        assert self.html, "No HTML found"
         
-        # Decode string
-        self.html = self.html.decode('utf-8', 'ignore')
-
         try:
             soup = wu.make_soup(self.html)
             self.results = parsers.parse_serp(soup, serp_id=self.serp_id)
