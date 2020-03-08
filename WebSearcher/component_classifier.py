@@ -74,6 +74,10 @@ def classify_type(cmpt, cmpt_type='unknown'):
             if h3.text.startswith(text):
                 cmpt_type = ctype
 
+    # Twitter subtype
+    if cmpt_type == 'twitter':
+        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
+
     # Check for binary match only divs (exists/doesn't exist)
     if cmpt_type == 'unknown':
         if img_box: cmpt_type = 'images'
@@ -84,9 +88,6 @@ def classify_type(cmpt, cmpt_type='unknown'):
     if '/Available on' in cmpt.text:
         cmpt_type = 'available_on'
 
-    # Twitter subtype
-    if cmpt_type == 'twitter':
-        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
 
     # Return type or unknown (default)
     return cmpt_type
