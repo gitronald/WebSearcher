@@ -12,7 +12,7 @@ args = parser.parse_args()
 if not args.query:
     print('Must include -q arg')
 else:
-    print(args.query)
+    print(f'Test search | query: {args.query}')
     
     # Initialize crawler
     se = ws.SearchEngine()
@@ -26,3 +26,9 @@ else:
     # Shape as dataframe
     results = pd.DataFrame(se.results)
     print(results.head())
+
+    try:
+        se.save_serp(append_to='test_serp_save.json')
+        se.save_results(append_to='test_results_save.json')
+    except Exception as e:
+        print('Save error', e)
