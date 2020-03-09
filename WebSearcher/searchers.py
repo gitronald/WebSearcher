@@ -101,6 +101,7 @@ class SearchEngine(object):
         download a csv of locations and their canonical names. 
 
         """
+        self.loc = canonical_name
         self.params['uule'] = locations.get_location_id(canonical_name)
 
     def prepare_url(self, qry, location):
