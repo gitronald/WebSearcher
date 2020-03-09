@@ -128,7 +128,11 @@ class SearchEngine(object):
     def snapshot(self):
         try:
             self.response = self.sesh.get(self.url, timeout=10)
-            self.log.info(f'{self.response.status_code} | Searching {self.qry}')
+            if self.loc:
+                msg = f"{self.qry} | {self.loc}"
+            else:
+                msg = f"{self.qry}" 
+            self.log.info(f'{self.response.status_code} | {msg}')
 
         except requests.exceptions.ConnectionError:
             # SSH Tunnel may have died. 
@@ -177,7 +181,6 @@ class SearchEngine(object):
         self.timestamp = utc_stamp()
         self.snapshot()
         self.handle_response()
-    
 
     def unzip_html(self):
         """Unzip brotli zipped html 
@@ -213,7 +216,7 @@ class SearchEngine(object):
                        'log', 'results', 'results_html']
             out_data = {k: v for k, v in vars(self).items() if k not in exclude}
             out_data['response_code'] = self.response.status_code
-            out_data['html'] = out_data['html'].decode('utf-8', 'ignore')
+            out_data['html'] = out_data['html']
 
             if append_to:
                 utils.write_lines(out_data, append_to)
