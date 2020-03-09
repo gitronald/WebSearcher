@@ -1,8 +1,8 @@
 # WebSearcher 0.2.0  
-## Tools for conducting, collecting, and parsing web search  
+## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
-This package provides tools for conducting algorithm audits of web search and includes a scraper with tools for geolocating, conducting, and saving searches. It also includes a modular parser for decomposing a SERP into list of components with categorical classifications and position-based specifications.
+This package provides tools for conducting algorithm audits of web search and includes a scraper built on `requests` with tools for geolocating, conducting, and saving searches. It also includes a modular parser for decomposing a SERP into list of components with categorical classifications and position-based specifications.
 
 ## Table of Contents
 
@@ -23,15 +23,12 @@ This package provides tools for conducting algorithm audits of web search and in
 ---  
 ## Getting Started
 
-pip version [link](https://pypi.org/project/WebSearcher)
 ```bash
+# Install pip version
 pip install WebSearcher
-```
 
-Github version
-```bash
-git clone https://github.com/github/gitronald/WebSearcher.git
-pip install ./WebSearcher
+# Install Github development version - less stable, more fun!
+pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
 ---  
@@ -79,7 +76,6 @@ se.search('immigration')
 se.parse_results()
 ```
 ```
-2019-08-14 01:25:42,112 | 2688 | INFO | WebSearcher.searchers | Not brotli compressed
 2019-08-14 01:25:42,208 | 2688 | INFO | WebSearcher.parsers | Parsing SERP 4d4fe27fe6b6466041e326622719b03ccc6542427c577c69740ae7fc
 ```
 
