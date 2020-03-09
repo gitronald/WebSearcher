@@ -1,5 +1,5 @@
 # WebSearcher - Tools for conducting, collecting, and parsing web search
-# Copyright (C) 2017-2019 Ronald E. Robertson <rer@ronalderobertson.com>
+# Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ description, long_description = get_readme_descriptions()
 
 setuptools.setup(
     name='WebSearcher',
-    version='0.1.14',
+    version='0.2.0',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',

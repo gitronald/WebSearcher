@@ -1,4 +1,4 @@
-# Copyright (C) 2017-2019 Ronald E. Robertson <rer@ronalderobertson.com>
+# Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,12 +38,11 @@ def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
     """Returns the parser for a given component type"""
     return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else None
 
-def extract_components(soup, include_ads=True):
+def extract_components(soup):
     """Extract SERP components
     
     Args:
         soup (bs4): BeautifulSoup SERP
-        include_ads (bool): Extract ads, defaults to True
     
     Returns:
         list: a rank ordered top-to-bottom and left-to-right list of 
@@ -53,10 +52,9 @@ def extract_components(soup, include_ads=True):
     cmpts = []
 
     # Top Ads
-    if include_ads:
-        ads = soup.find('div', {'id':'tads'})
-        if ads: 
-            cmpts.append(('ad', ads))
+    ads = soup.find('div', {'id':'tads'})
+    if ads: 
+        cmpts.append(('ad', ads))
 
     # Main results column
     column = [('main', r) for r in soup.find_all('div', {'class':'bkWMgd'})]
@@ -67,10 +65,9 @@ def extract_components(soup, include_ads=True):
     cmpts.extend(column)
 
     # Bottom Ads
-    if include_ads:
-        ads = soup.find('div', {'id':'tadsb'})
-        if ads:
-            cmpts.append(('ad', ads))
+    ads = soup.find('div', {'id':'tadsb'})
+    if ads:
+        cmpts.append(('ad', ads))
 
     # Footer results
     footer = extract_footer(soup)

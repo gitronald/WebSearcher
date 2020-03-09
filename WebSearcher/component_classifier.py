@@ -1,4 +1,4 @@
-# Copyright (C) 2017-2019 Ronald E. Robertson <rer@ronalderobertson.com>
+# Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -74,6 +74,10 @@ def classify_type(cmpt, cmpt_type='unknown'):
             if h3.text.startswith(text):
                 cmpt_type = ctype
 
+    # Twitter subtype
+    if cmpt_type == 'twitter':
+        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
+
     # Check for binary match only divs (exists/doesn't exist)
     if cmpt_type == 'unknown':
         if img_box: cmpt_type = 'images'
@@ -84,9 +88,6 @@ def classify_type(cmpt, cmpt_type='unknown'):
     if '/Available on' in cmpt.text:
         cmpt_type = 'available_on'
 
-    # Twitter subtype
-    if cmpt_type == 'twitter':
-        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
 
     # Return type or unknown (default)
     return cmpt_type

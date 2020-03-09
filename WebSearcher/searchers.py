@@ -1,4 +1,4 @@
-# Copyright (C) 2017-2019 Ronald E. Robertson <rer@ronalderobertson.com>
+# Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -49,7 +49,8 @@ class SearchEngine(object):
         log_fp='', log_mode='a+',
         user_agent=default_ua, 
         accept_encoding=default_encoding,
-        accept_language=default_language):
+        accept_language=default_language,
+        unzip=False):
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
         
@@ -75,13 +76,17 @@ class SearchEngine(object):
         self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
 
         # Set a log file, prints to console by default
-        self.log = logger.Logger(log_fp, log_mode).start(__name__)
+        self.log = logger.Logger(
+            file_name=log_fp, 
+            file_mode=log_mode
+        ).start(__name__)
 
         # Set an SSH tunnel - conducting the search from somewhere else
         self.ssh_tunnel = ssh_tunnel
 
         # Initialize data storage - search results and optionally their html
         self.html = None
+        self.unzip = unzip
         self.results = []
         self.results_html = []
 
@@ -96,6 +101,7 @@ class SearchEngine(object):
         download a csv of locations and their canonical names. 
 
         """
+        self.loc = canonical_name
         self.params['uule'] = locations.get_location_id(canonical_name)
 
     def prepare_url(self, qry, location):
@@ -123,7 +129,11 @@ class SearchEngine(object):
     def snapshot(self):
         try:
             self.response = self.sesh.get(self.url, timeout=10)
-            self.log.info(f'{self.response.status_code} | Searching {self.qry}')
+            if self.loc:
+                msg = f"{self.qry} | {self.loc}"
+            else:
+                msg = f"{self.qry}" 
+            self.log.info(f'{self.response.status_code} | {msg}')
 
         except requests.exceptions.ConnectionError:
             # SSH Tunnel may have died. 
@@ -144,6 +154,21 @@ class SearchEngine(object):
             # Honestly, who knows
             self.log.exception(f'SERP | Scraping error | {self.serp_id}')
 
+    def handle_response(self):
+        try:
+            # Unzip string if True
+            if self.unzip:  
+                self.unzip_html()
+            else:
+                # Get response string
+                self.html = self.response.content
+
+            # Decode string
+            self.html = self.html.decode('utf-8', 'ignore')
+                
+        except Exception:
+            self.log.exception(f'Response handling error')
+
     def search(self, qry, location='', serp_id=''):
         """Conduct a search and save HTML
         
@@ -156,7 +181,8 @@ class SearchEngine(object):
         self.serp_id = serp_id if serp_id else generate_rand_id()
         self.timestamp = utc_stamp()
         self.snapshot()
-    
+        self.handle_response()
+
     def unzip_html(self):
         """Unzip brotli zipped html 
 
@@ -169,34 +195,35 @@ class SearchEngine(object):
         try: 
             self.html = brotli.decompress(self.response.content)
         except brotli.error:
-            self.log.info('Not brotli compressed')
             self.html = self.response.content
         except Exception:
             self.log.exception(f'Decompression error | serp_id : {self.serp_id}')
             self.html = self.response.content
 
-    def save_serp(self, save_dir='.', append_to=''):
-        """Save SERP as `{save_dir}/serp_id.html` or append with metadata to a file 
+    def save_serp(self, save_dir='.', append_to='', sql_table='', sql_conn=None):
+        """Save SERP to file or SQL table
         
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
             append_to (str, optional): Append results to this file path
+            sql_table (str, optional): A SQL table name 
+            sql_conn (Object, optional): A SQL connection
         """
-        # Save SERP
-        if not self.html:
-            self.unzip_html()
+        assert self.html, "Must conduct a search first"
         
-        if append_to:
+        if append_to or sql_conn:
             # Keys to drop from object before saving
             exclude = ['response', 'sesh', 'ssh_tunnel', 
                        'log', 'results', 'results_html']
             out_data = {k: v for k, v in vars(self).items() if k not in exclude}
             out_data['response_code'] = self.response.status_code
-            out_data['html'] = out_data['html'].decode('utf-8', 'ignore')
+            out_data['html'] = out_data['html']
 
-            with open(append_to, 'a+') as outfile:
-                outfile.write(f'{json.dumps(out_data)}\n')
-
+            if append_to:
+                utils.write_lines([out_data], append_to)
+            elif sql_table and sql_conn:
+                utils.write_sql_row(out_data, table=sql_table, conn=sql_conn)
+                
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'wb') as outfile:
@@ -209,12 +236,8 @@ class SearchEngine(object):
             save_dir (str, optional): Description
         """
         # Parse results, see parsers.py
-        if not self.html:
-            self.unzip_html()
+        assert self.html, "No HTML found"
         
-        # Decode string
-        self.html = self.html.decode('utf-8', 'ignore')
-
         try:
             soup = wu.make_soup(self.html)
             self.results = parsers.parse_serp(soup, serp_id=self.serp_id)
