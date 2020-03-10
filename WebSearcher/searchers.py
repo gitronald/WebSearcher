@@ -25,6 +25,7 @@ import brotli
 import requests
 import pandas as pd
 from hashlib import sha224
+from datetime import datetime
 
 default_headers = {
     'Host': 'www.google.com',
@@ -35,7 +36,7 @@ default_ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 
 default_encoding = 'gzip,deflate,br'
 default_language = 'en-US,en;q=0.5'
 
-def utc_stamp(): return pd.datetime.utcnow().isoformat()
+def utc_stamp(): return datetime.utcnow().isoformat()
 def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
 
 class SearchEngine(object):
@@ -115,6 +116,7 @@ class SearchEngine(object):
             location (str): location name
         """
         self.qry = qry
+        self.loc = location
         self.params['q'] = '+'.join(qry.split(' '))
 
         # Reset previous location
