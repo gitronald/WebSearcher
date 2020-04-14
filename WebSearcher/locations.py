@@ -75,6 +75,7 @@ def download_locations(data_dir, url=url, return_data=True):
             log.exception('Failed to retrieve location data')
 
         # Save
+        print(f"Saving: {fp}")
         locations.to_csv(fp, index=False, encoding='utf-8')
         
         # Return
