@@ -31,7 +31,8 @@ def parse_lang(soup):
     """Parse language from html tags"""
     try:
         return soup.find('html').attrs['lang']
-    except Exception:
+    except Exception as e:
+        log.exception('Error while parsing language')
         return None
 
 def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
@@ -131,7 +132,9 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
     cmpts = extract_components(soup)
 
     parsed = []
-    log.info(f'Parsing SERP {serp_id}')
+    if verbose: 
+        log.info(f'Parsing SERP {serp_id}')
+        
     for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
         cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
         if verbose: 
@@ -146,4 +149,5 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
         p['lang'] = parse_lang(soup)
         p['serp_id'] = serp_id
         p['serp_rank'] = serp_rank
+        
     return parsed
