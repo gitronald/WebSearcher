@@ -1,7 +1,8 @@
 archive
 build
 dist
-location_data
+images
+data
 venv
 rsync_to_*.sh
 *.egg-info
