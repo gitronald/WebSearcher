@@ -38,6 +38,7 @@ default_language = 'en-US,en;q=0.5'
 
 def utc_stamp(): return datetime.utcnow().isoformat()
 def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
+def hash_id(s): return sha224(s.encode('utf-8')).hexdigest()
 
 class SearchEngine(object):
     """ Collect Search Engine Results Pages (SERPs)
@@ -61,7 +62,8 @@ class SearchEngine(object):
             log_fp (str, optional): A file to log function process output to.
             log_mode (str, optional): Write over the log file or append to it.
             user_agent (str, optional): User-Agent string to use in request
-            accept_encoding (str, optional): Acceptable zips to return
+            accept_encoding (str, optional): Response encodings to accept
+            accept_language (str, optional): Response language to accept
         """
 
         self.url = 'https://www.google.com/search'
@@ -115,8 +117,9 @@ class SearchEngine(object):
             qry (str): Search query
             location (str): location name
         """
-        self.qry = qry
-        self.loc = location
+        self.qry = str(qry)
+        self.loc = str(location)
+        
         self.params['q'] = '+'.join(qry.split(' '))
 
         # Reset previous location
@@ -180,7 +183,7 @@ class SearchEngine(object):
             serp_id (str, optional): A unique identifier for this SERP
         """
         self.prepare_url(qry, location=location)
-        self.serp_id = serp_id if serp_id else generate_rand_id()
+        self.serp_id = serp_id if serp_id else hash_id(qry + location)
         self.timestamp = utc_stamp()
         self.snapshot()
         self.handle_response()
@@ -215,7 +218,7 @@ class SearchEngine(object):
         
         if append_to or sql_conn:
             # Keys to drop from object before saving
-            exclude = ['response', 'sesh', 'ssh_tunnel', 
+            exclude = ['response', 'sesh', 'ssh_tunnel', 'unzip',
                        'log', 'results', 'results_html']
             out_data = {k: v for k, v in vars(self).items() if k not in exclude}
             out_data['response_code'] = self.response.status_code
@@ -262,7 +265,7 @@ class SearchEngine(object):
                 fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
                 utils.write_lines(self.results, fp)
         else:
-            self.log.info(f'No results to save for serp_id {self.serp_id}')
+            self.log.info(f'No parsed results to save for serp_id {self.serp_id}')
     
     def scrape_results_html(self, save_dir='.', append_to=''):
         """Scrape and save all unique, non-internal URLs parsed from the SERP
