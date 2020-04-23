@@ -113,6 +113,7 @@ def parse_searches_related(cmpt, sub_rank=0):
     """Parse a one or two column list of related search queries"""
     parsed = {'type':'searches_related', 'sub_rank':sub_rank}
     subs = cmpt.find('g-section-with-header').find_all('p')
-    parsed['details'] = [{'text':s.text, 'url':s.find('a')['href']} for s in subs]
+    parsed['details'] = [{'text':s.text, 'url':s.find('a')['href']} \
+                         for s in subs if s]
     return [parsed]
     

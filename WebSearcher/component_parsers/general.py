@@ -27,7 +27,10 @@ def parse_general_results(cmpt):
         list : list of parsed subcomponent dictionaries
     """
 
+    # Legacy compatibility
     subs = cmpt.find_all('div', {'class':'g'})
+    subs = subs if subs else [cmpt] 
+    
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_general_result(sub, sub_rank=0):
