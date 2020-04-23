@@ -3,6 +3,8 @@ build
 dist
 images
 data
+notes.md
+tests
 venv
 rsync_to_*.sh
 *.egg-info
