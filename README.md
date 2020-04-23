@@ -6,19 +6,22 @@ This package provides tools for conducting algorithm audits of web search and in
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-    * [Prepare a search](#prepare-a-search)
-    * [Conduct a search](#conduct-a-search)
-    * [Save a search](#save-a-search)
-- [Localization](#localization)
-    + [Obtain location names](#obtain-location-names)
-    + [Conduct a localized search](#conduct-a-localized-search)
-- [Contributing](#contributing)
-    + [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
-    + [Add a Parser](#add-a-parser)
-- [Similar Packages](#similar-packages)
-- [License](#license)
+- [WebSearcher 0.2.2](#websearcher-022)
+  - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+  - [Usage](#usage)
+      - [Prepare a search](#prepare-a-search)
+      - [Conduct a search](#conduct-a-search)
+    - [Save a Search](#save-a-search)
+  - [Localization](#localization)
+      - [Obtain location names](#obtain-location-names)
+      - [Conduct a localized search](#conduct-a-localized-search)
+  - [Contributing](#contributing)
+    - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
+    - [Add a Parser](#add-a-parser)
+  - [Similar Packages](#similar-packages)
+  - [License](#license)
 
 ---  
 ## Getting Started
@@ -267,7 +270,7 @@ Some of the other projects are still ongoing and very interesting in their own w
 ---  
 ## License
 
-Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
+Copyright (C) 2017-2020 Ronald E. Robertson <ronaldrobertson42@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
