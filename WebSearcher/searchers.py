@@ -231,7 +231,7 @@ class SearchEngine(object):
                 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
-            with open(fp, 'wb') as outfile:
+            with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
     def parse_results(self, save_dir='.'):
@@ -265,7 +265,7 @@ class SearchEngine(object):
                 fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
                 utils.write_lines(self.results, fp)
         else:
-            self.log.info(f'No parsed results to save for serp_id {self.serp_id}')
+            self.log.info(f'No parsed results for serp_id {self.serp_id}')
     
     def scrape_results_html(self, save_dir='.', append_to=''):
         """Scrape and save all unique, non-internal URLs parsed from the SERP
