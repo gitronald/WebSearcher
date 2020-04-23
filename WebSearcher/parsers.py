@@ -1,17 +1,3 @@
-# Copyright (C) 2017-2020 Ronald E. Robertson <rer@ronalderobertson.com>
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 from . import webutils
 from .component_classifier import classify_type
 from .component_parsers import type_functions
@@ -21,6 +7,12 @@ log = logger.Logger().start(__name__)
 
 import traceback
 from bs4 import BeautifulSoup
+
+UNKNOWN_COMPONENT = {
+    'sub_rank':0, 
+    'cmpt_rank':cmpt_rank
+    'type': 'unknown', 
+}
 
 def parse_query(soup):
     """Parse query from title of html soup"""
@@ -58,7 +50,13 @@ def extract_components(soup):
         cmpts.append(('ad', ads))
 
     # Main results column
-    column = [('main', r) for r in soup.find_all('div', {'class':'bkWMgd'})]
+    rso = soup.find('div', {'id':'rso'}) 
+    results_html = list(rso.children) 
+
+    # Legacy parsing
+    # div_class = {'class':['g','bkWMgd']}
+    # column = [('main', r) for r in soup.find_all('div', div_class)]
+
     # Hacky fix removing named Twitter component without content, possible G error
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
     filter_text = ['Twitter Results', '']
@@ -94,7 +92,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     # Return unknown components
     if cmpt_type == 'unknown':
-        return [{'type':'unknown', 'sub_rank':0, 'cmpt_rank':cmpt_rank}]
+        return [UNKNOWN_COMPONENT]
 
     # Parse component
     try:
