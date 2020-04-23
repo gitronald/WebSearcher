@@ -10,8 +10,7 @@ from bs4 import BeautifulSoup
 
 UNKNOWN_COMPONENT = {
     'sub_rank':0, 
-    'cmpt_rank':cmpt_rank
-    'type': 'unknown', 
+    'type': 'unknown'
 }
 
 def parse_query(soup):
@@ -92,6 +91,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     # Return unknown components
     if cmpt_type == 'unknown':
+        UNKNOWN_COMPONENT['cmpt_rank'] = 0
         return [UNKNOWN_COMPONENT]
 
     # Parse component
