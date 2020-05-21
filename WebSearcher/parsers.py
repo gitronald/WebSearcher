@@ -48,9 +48,10 @@ def extract_components(soup):
     if ads: 
         cmpts.append(('ad', ads))
 
-    # Main results column
+    # Main results column (filter JS and CSS tags)
     rso = soup.find('div', {'id':'rso'})
-    column = [('main', r) for r in rso.children]
+    filter_tags = ['script', 'style']
+    column = [('main', c) for c in rso.children if c.name not in filter_tags]
 
     # Legacy parsing
     # div_class = {'class':['g','bkWMgd']}
