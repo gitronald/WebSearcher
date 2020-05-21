@@ -49,8 +49,8 @@ def extract_components(soup):
         cmpts.append(('ad', ads))
 
     # Main results column
-    rso = soup.find('div', {'id':'rso'}) 
-    results_html = list(rso.children) 
+    rso = soup.find('div', {'id':'rso'})
+    column = [('main', r) for r in rso.children]
 
     # Legacy parsing
     # div_class = {'class':['g','bkWMgd']}
@@ -59,7 +59,7 @@ def extract_components(soup):
     # Hacky fix removing named Twitter component without content, possible G error
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
     filter_text = ['Twitter Results', '']
-    column = [(cloc, c) for cloc, c in column if c.text not in filter_text]
+    column = [(cloc, c) for (cloc, c) in column if c.text not in filter_text]
     cmpts.extend(column)
 
     # Bottom Ads
