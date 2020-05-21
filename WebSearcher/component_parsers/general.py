@@ -27,7 +27,10 @@ def parse_general_result(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-    parsed = {'type':'general', 'sub_rank':sub_rank}
+    parsed = {
+        'type': 'general', 
+        'sub_rank': sub_rank
+    }
 
     # Get title
     # title_div = sub.find('h3').find('a')
@@ -45,6 +48,7 @@ def parse_general_result(sub, sub_rank=0):
     top_menu = sub.find('div', {'class':'yWc32e'})
     
     parsed['details'] = 'top_cite_logo' if top_logo else ''
+    
     if top_menu:
         # If menu has children, ignore URLs and get correct title URL
         has_children = list(top_menu.children)
@@ -66,12 +70,24 @@ def parse_general_result(sub, sub_rank=0):
         else:
             parsed['text'] = body.text
             parsed['timestamp'] = None
-    if sub.find('div', {'class':'P1usbc'}): # Submenu
+
+    # Check for submenu and parse
+    if sub.find('div', {'class':'P1usbc'}):
         parsed['type'] = 'general_submenu'
+        alinks = sub.find('div', {'class':'P1usbc'}).find_all('a')
         parsed['details'] = parse_general_extra(sub)
+    elif sub.find('table'):
+        parsed['type'] = 'general_submenu'
+        alinks = sub.find('table').find_all('a')
+        parsed['details'] = [parse_alink(a) for a in alinks]
+
     return parsed
+
+def parse_alink(a): 
+    return {'text':a.text,'url':a.attrs['href']}
 
 def parse_general_extra(sub):
     """Parse submenu that appears below some general components"""
     item_list = list(sub.find('div', {'class':'P1usbc'}).children)
-    return '|'.join([i.text for i in item_list])
+    ' | '.join([i.text for i in item_list])
+    return 
