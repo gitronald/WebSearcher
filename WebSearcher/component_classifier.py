@@ -74,6 +74,10 @@ def classify_type(cmpt, cmpt_type='unknown'):
     if '/Available on' in cmpt.text:
         cmpt_type = 'available_on'
 
+    # Check if component is only of class 'g'
+    if 'class' in cmpt.attrs:
+        if cmpt.attrs['class'][0] == 'g':
+            cmpt_type = 'general'
 
     # Return type or unknown (default)
     return cmpt_type
