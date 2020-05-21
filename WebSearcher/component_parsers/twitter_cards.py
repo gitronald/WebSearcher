@@ -71,7 +71,7 @@ def parse_twitter_card(sub, sub_rank=0):
 
     ts = div.find('span', {'class':'f'})
     if ts:
-        parsed['timestamp'] = div.find('span', {'class':'f'}).text
+        parsed['timestamp'] = div.find_all('span', {'class':'f'})[-1].text
 
     # Tweet text
     subdiv = div.find('div', {'class':'xcQxib'})
