@@ -44,6 +44,7 @@ def classify_type(cmpt, cmpt_type='unknown'):
     knowledge = cmpt.find('div', {'class':['knowledge-panel','knavi','kp-blk']})
     img_box = cmpt.find('div', {'id':'imagebox_bigimages'})
     hybrid = cmpt.find('div', {'class':'ifM9O'})
+    twitter = cmpt.find_previous().text == "Twitter Results"
 
     # Check `h2.text` for string matches
     if h2:
@@ -57,8 +58,10 @@ def classify_type(cmpt, cmpt_type='unknown'):
             if h3.text.startswith(text):
                 cmpt_type = ctype
 
+
     # Twitter subtype
-    if cmpt_type == 'twitter':
+    
+    if twitter or cmpt_type == 'twitter':
         cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
 
     # Check for binary match only divs (exists/doesn't exist)
