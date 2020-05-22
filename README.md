@@ -1,4 +1,4 @@
-# WebSearcher 0.2.3  
+# WebSearcher 0.2.4  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -6,7 +6,7 @@ This package provides tools for conducting algorithm audits of web search and in
 
 ## Table of Contents
 
-- [WebSearcher 0.2.3](#websearcher-022)
+- [WebSearcher 0.2.4](#websearcher-022)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
