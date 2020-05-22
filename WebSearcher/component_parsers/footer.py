@@ -3,7 +3,7 @@ log = logger.Logger().start(__name__)
 
 import traceback
 
-def get_component_parser(cmpt_type):
+def get_footer_parser(cmpt_type):
     if cmpt_type == 'image_cards':
         return parse_image_cards
     elif cmpt_type == 'searches_related':
@@ -49,7 +49,7 @@ def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
     if cmpt_type == 'unknown':
         return [parsed]
     else:
-        parser = get_component_parser(cmpt_type)
+        parser = get_footer_parser(cmpt_type)
         try: 
             parsed = parser(cmpt)
         except Exception:
@@ -95,11 +95,13 @@ def parse_image_card(sub, sub_rank=0):
     parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in sub.find_all('img')]
     return parsed
 
+def parse_alink(a): 
+    return {'text':a.text,'url':a.attrs['href']}
+
 def parse_searches_related(cmpt, sub_rank=0):
     """Parse a one or two column list of related search queries"""
     parsed = {'type':'searches_related', 'sub_rank':sub_rank}
-    subs = cmpt.find('g-section-with-header').find_all('p')
-    parsed['details'] = [{'text':s.text, 'url':s.find('a')['href']} \
-                         for s in subs if s]
+    # subs = cmpt.find('g-section-with-header').find_all('p')
+    parsed['details'] = [parse_alink(a) for a in cmpt.find_all('a')]
     return [parsed]
     
