@@ -2,12 +2,30 @@
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
-This package provides tools for conducting algorithm audits of web search and includes a scraper built on `requests` with tools for geolocating, conducting, and saving searches. It also includes a modular parser for decomposing a SERP into list of components with categorical classifications and position-based specifications.
+This package provides tools for conducting algorithm audits of web search and 
+includes a scraper built on `requests` with tools for geolocating, conducting, 
+and saving searches. It also includes a modular parser built on `BeautifulSoup` 
+for decomposing a SERP into list of components with categorical classifications 
+and position-based specifications.
+
+## Recent Changes
+
+`0.2.4` -  Google Search, like most online platforms, undergoes changes over time. 
+These changes often affect not just their outward appearance, but the underlying 
+code that parsers depend on. This makes parsing a goal with a moving target. 
+Sometime around February 2020, Google changed a few elements of their HTML 
+structure which broke this parser. I created this patch for these changes, 
+but have not tested its backwards compatibility (e.g. on SERPs collected prior to 
+2/2020). More generally, there's no guarantee on future compatibility. In fact, 
+there is almost certainly the opposite: more changes will inveitably occur. 
+If you have older data that you need to parse and the current parser doesn't work, 
+you can try using `0.2.1`, or send a pull request if you find a way to make both work!
 
 ## Table of Contents
 
-- [WebSearcher 0.2.4](#websearcher-022)
+- [WebSearcher 0.2.4](#websearcher-024)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
+  - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
