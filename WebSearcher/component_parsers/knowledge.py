@@ -31,12 +31,12 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
-    if cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
+    elif cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
         details['subtype'] = 'unit_converter'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
-    if cmpt.find('h2') and cmpt.find('h2').text == 'Sports Results':
+    elif cmpt.find('h2') and cmpt.find('h2').text == 'Sports Results':
         details['subtype'] = 'sports'
         div = cmpt.find('div', {'class':'SwsxUd'})
         details['text'] = div.text if div else None
