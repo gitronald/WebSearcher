@@ -18,19 +18,33 @@ def all_abs_paths(dir):
     return file_paths
 
 def read_lines(fp):
+    try:
+        is_json = '.json' in fp
+    except TypeError:
+        is_json = '.json' in fp.__fspath__()
+
     with open(fp, 'r') as infile:
-        if '.txt' in fp: return [line.strip() for line in infile]
-        elif '.json' in fp:  return [json.loads(line) for line in infile]
+        if is_json:
+            return [json.loads(line) for line in infile]
+        else:
+            return [line.strip() for line in infile]
 
 def write_lines(iter_data, fp, overwrite=False):
     mode = 'w' if overwrite else 'a+'
+
+    try:
+        is_json = '.json' in fp
+    except TypeError:
+        is_json = 'json' in fp.__fspath__()
+
     with open(fp, mode) as outfile:
-        if '.txt' in fp:
-            for data in iter_data:
-                outfile.write('%s\n' % data)
-        elif '.json' in fp:
+        if is_json:
             for data in iter_data:
                 outfile.write('%s\n' % json.dumps(data))
+        else:
+            for data in iter_data:
+                outfile.write('%s\n' % data)
+
 
 def write_sql_row(data, table, conn):
     """Write a dict `data` as a row in `table` via SQL connection `conn`
