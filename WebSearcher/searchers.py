@@ -52,7 +52,7 @@ class SearchEngine(object):
             accept_language (str, optional): Response language to accept
         """
 
-        self.url = 'https://www.google.com/search'
+        self.base_url = 'https://www.google.com/search'
         self.params = {}
 
         # Set request headers - telling the server about you
@@ -106,7 +106,7 @@ class SearchEngine(object):
         self.qry = str(qry)
         self.loc = str(location)
         
-        self.params['q'] = '+'.join(qry.split(' '))
+        self.params['q'] = '+'.join(self.qry.split(' '))
 
         # Reset previous location
         if 'uule' in self.params:
@@ -114,8 +114,9 @@ class SearchEngine(object):
         if location:
             self.set_location(location)
 
+        # Create request URL
         param_str = wu.join_url_quote(self.params)
-        self.url = f'{self.url}?{param_str}'
+        self.url = f'{self.base_url}?{param_str}'
 
     def snapshot(self):
         try:
@@ -318,4 +319,3 @@ class SearchEngine(object):
                     # Create directory using serp_id
                     fp = os.path.join(save_dir, 'results_html', f'{self.serp_id}.json')
                     utils.write_lines(self.results_html, fp)
-            
