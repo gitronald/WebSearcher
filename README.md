@@ -23,7 +23,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.5](#websearcher-024)
+- [WebSearcher 0.2.5](#websearcher-025)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
@@ -283,6 +283,8 @@ Some of the other projects are still ongoing and very interesting in their own w
 - https://github.com/KokocGroup/google-parser
 - https://github.com/vijayant123/google-scrap
 - https://github.com/BirdAPI/Google-Search-API
+- https://github.com/bisoncorps/search-engine-parser
+- https://github.com/the-markup/investigation-google-search-audit
 - http://googlesystem.blogspot.com/2008/04/google-search-rest-api.html
 
 ---  
