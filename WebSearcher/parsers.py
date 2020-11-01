@@ -48,10 +48,27 @@ def extract_components(soup):
     if ads: 
         cmpts.append(('ad', ads))
 
-    # Main results column (filter JS and CSS tags)
-    rso = soup.find('div', {'id':'rso'})
+    rso = soup.find('div', {'id':'rso'}) # gets rso
+
+    # if rso does not have enough children, jank len call 
+    if (soup.find('div', {'class': 'ZxoDOe'})):
+        rso = []
+        print("RUN")
+        type1_segs = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        for seg in type1_segs:
+            if seg.find('h2') != None and seg.find('h2').text == "Twitter Results": # if it is a twitter box
+                rso.append(seg.find('div').parent)
+            elif seg.find('g-section-with-header') != None:
+                rso.append(seg.find('g-section-with-header').parent)
+            else:
+                for child in seg.find_all('div',  {'class':'g'}):
+                    rso.append(child)
+        second_Seg = soup.find('div', {'class':'WvKfwe a3spGf'})
+        for child2 in second_Seg.children:
+            rso.append(child2)
+
     filter_tags = ['script', 'style']
-    column = [('main', c) for c in rso.children if c.name not in filter_tags]
+    column = [('main', c) for c in rso if c.name not in filter_tags]
 
     # Legacy parsing
     # div_class = {'class':['g','bkWMgd']}
