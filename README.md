@@ -10,20 +10,22 @@ and position-based specifications.
 
 ## Recent Changes
 
-`0.2.6` -  Google Search, like most online platforms, undergoes changes over time. 
+`0.2.6` - Updated ad parser for latest format, still handles older ad format.
+
+`0.2.5` -  Google Search, like most online platforms, undergoes changes over time. 
 These changes often affect not just their outward appearance, but the underlying 
 code that parsers depend on. This makes parsing a goal with a moving target. 
 Sometime around February 2020, Google changed a few elements of their HTML 
 structure which broke this parser. I created this patch for these changes, 
 but have not tested its backwards compatibility (e.g. on SERPs collected prior to 
 2/2020). More generally, there's no guarantee on future compatibility. In fact, 
-there is almost certainly the opposite: more changes will inveitably occur. 
+there is almost certainly the opposite: more changes will inevitably occur. 
 If you have older data that you need to parse and the current parser doesn't work, 
 you can try using `0.2.1`, or send a pull request if you find a way to make both work!
 
 ## Table of Contents
 
-- [WebSearcher 0.2.6](#websearcher-025)
+- [WebSearcher 0.2.6](#websearcher-026)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
