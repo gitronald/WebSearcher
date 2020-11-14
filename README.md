@@ -1,4 +1,4 @@
-# WebSearcher 0.2.5  
+# WebSearcher 0.2.6  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -10,7 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
-`0.2.5` -  Google Search, like most online platforms, undergoes changes over time. 
+`0.2.6` -  Google Search, like most online platforms, undergoes changes over time. 
 These changes often affect not just their outward appearance, but the underlying 
 code that parsers depend on. This makes parsing a goal with a moving target. 
 Sometime around February 2020, Google changed a few elements of their HTML 
@@ -23,7 +23,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.5](#websearcher-025)
+- [WebSearcher 0.2.6](#websearcher-025)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
