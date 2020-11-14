@@ -64,6 +64,7 @@ class Logger(object):
             # External loggers
             'requests': {'level': 'WARNING'},
             'urllib3': {'level': 'WARNING'},
+            'asyncio': {'level': 'INFO'},
             'chardet.charsetprober': {'level': 'INFO'},
             'parso': {'level': 'INFO'} # Fix for ipython autocomplete bug
         }
