@@ -46,12 +46,12 @@ def classify_type(cmpt, cmpt_type='unknown'):
     hybrid = cmpt.find('div', {'class':'ifM9O'})
     twitter = cmpt.find_previous().text == "Twitter Results"
 
-    # Scuffed test for top stories
+    # Checks a g-section for a specific id to classify as top stories as not all
+    # top stories have an h3 tag
     if g_section:
         car = g_section.find('g-scrolling-carousel')
         if car:
-            if car.attrs['class'][0] == 'F8yfEe':
-                print('TOP')
+            if 'class' in car.attrs and car.attrs['class'][0] == 'F8yfEe':
                 cmpt_type = 'top_stories'
 
     # Check `h2.text` for string matches
