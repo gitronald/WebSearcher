@@ -2,7 +2,7 @@ import os
 import base64
 import string
 import requests
-import pandas as pd
+# import pandas as pd
 from bs4 import BeautifulSoup
 
 from . import logger
@@ -12,18 +12,18 @@ url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
 
 def get_all_urls(soup):
     a_divs = soup.find_all('a')
-    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}    
+    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}
     return all_urls
 
 def download_locations(data_dir, url=url, return_data=True):
     """Download the latest locations data
 
     Checks if the current version already exists locally before downloading
-    
+
     Args:
         data_dir (str): Where to save the data as a csv
         url (str, optional): Defaults to the current URL
-    
+
     Raises:
         SystemExit: Exit if file exists
 
@@ -63,7 +63,7 @@ def download_locations(data_dir, url=url, return_data=True):
         # Save
         print(f"Saving: {fp}")
         locations.to_csv(fp, index=False, encoding='utf-8')
-        
+
         # Return
         if return_data:
             return locations
@@ -71,17 +71,17 @@ def download_locations(data_dir, url=url, return_data=True):
 
 def get_location_id(canonical_name):
     """Get location ID for URL parameter 'uule'
-    
+
     Returns the url parameter for a given location's Canonical Name
-    
+
     Args:
         canonical_name (str): Canoncial Name for a location, see
-        data downloaded using download_locations. Column name is 
-        usually something like "Canonical Name" or "Canonical.Name". 
-    
+        data downloaded using download_locations. Column name is
+        usually something like "Canonical Name" or "Canonical.Name".
+
     Returns:
         str: The parameter key for selecting a location
-    
+
     """
     uule_key = string.ascii_uppercase+string.ascii_lowercase+string.digits
     uule_key = uule_key + '-_' + uule_key + '-_' # Double length, repeating
