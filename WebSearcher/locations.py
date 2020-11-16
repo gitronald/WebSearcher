@@ -3,6 +3,7 @@ import base64
 import string
 import requests
 # import pandas as pd
+import csv
 from bs4 import BeautifulSoup
 
 from . import logger
@@ -56,7 +57,7 @@ def download_locations(data_dir, url=url, return_data=True):
         # If it doesn't, download it
         try:
             print(f'Getting: {full_url}')
-            locations = pd.read_csv(full_url)
+            #locations = pd.read_csv(full_url)
         except Exception:
             log.exception('Failed to retrieve location data')
 
