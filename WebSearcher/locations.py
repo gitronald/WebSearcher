@@ -62,6 +62,7 @@ def download_locations(data_dir, url=url, return_data=True):
             locations = csv.reader(open(full_url,'r'))
         except Exception:
             log.exception('Failed to retrieve location data')
+            return # url not working 
 
 
         # Save
