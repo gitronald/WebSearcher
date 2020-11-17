@@ -75,6 +75,7 @@ def download_locations(data_dir, url=url, return_data=True):
             for row in locations:
                 print(row)
                 writer.writerow(row)
+        # not sure if something should be 'closed' here... eg lines.close()
 
         # Return
         if return_data:
