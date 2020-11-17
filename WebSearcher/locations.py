@@ -3,6 +3,7 @@ import base64
 import string
 import requests
 # import pandas as pd
+import urllib
 import csv
 from bs4 import BeautifulSoup
 
@@ -59,10 +60,11 @@ def download_locations(data_dir, url=url, return_data=True):
         try:
             print(f'Getting: {full_url}')
             #locations = pd.read_csv(full_url)
-            locations = csv.reader(open(full_url,'r'))
+            response = urllib.request.urlopen(full_url)
+            lines = [l.decode('utf-8') for l in response.readlines()]
+            locations = csv.reader(lines,delimiter=',')
         except Exception:
             log.exception('Failed to retrieve location data')
-            return # url not working 
 
 
         # Save
@@ -71,8 +73,8 @@ def download_locations(data_dir, url=url, return_data=True):
         with open(fp,'w') as locs_out:
             writer = csv.writer(locs_out)
             for row in locations:
+                print(row)
                 writer.writerow(row)
-        locs_out.close()
 
         # Return
         if return_data:
