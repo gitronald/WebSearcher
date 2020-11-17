@@ -49,6 +49,7 @@ def download_locations(data_dir, url=url, return_data=True):
     geo_url = sorted(geo_urls)[-1]
     full_url = 'https://developers.google.com' + geo_url
     fp = os.path.join(data_dir, geo_url.split('/')[-1])
+    print(fp)
 
     # Check if the current version already exists
     if os.path.exists(fp):
@@ -58,12 +59,19 @@ def download_locations(data_dir, url=url, return_data=True):
         try:
             print(f'Getting: {full_url}')
             #locations = pd.read_csv(full_url)
+            locations = csv.reader(open(full_url,'r'))
         except Exception:
             log.exception('Failed to retrieve location data')
 
+
         # Save
         print(f"Saving: {fp}")
-        locations.to_csv(fp, index=False, encoding='utf-8')
+        # locations.to_csv(fp, index=False, encoding='utf-8')
+        with open(fp,'w') as locs_out:
+            writer = csv.writer(locs_out)
+            for row in locations:
+                writer.writerow(row)
+        locs_out.close()
 
         # Return
         if return_data:
