@@ -48,10 +48,27 @@ def extract_components(soup):
     if ads: 
         cmpts.append(('ad', ads))
 
-    # Main results column (filter JS and CSS tags)
-    rso = soup.find('div', {'id':'rso'})
+    rso = soup.find('div', {'id':'rso'}) # gets rso
+
+    # if layuot is left leaning, the rso is split into two types
+    if (soup.find('div', {'class': 'ZxoDOe'})):
+        rso = []
+        type1_segs = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        ## finds all the first type of the rso
+        for seg in type1_segs:
+            if seg.find('h2') != None and seg.find('h2').text == "Twitter Results": # if it is a twitter box
+                rso.append(seg.find('div').parent)
+            elif seg.find('g-section-with-header') != None: # if it is a g-section - most likely top-stories
+                rso.append(seg.find('g-section-with-header').parent)
+            else:
+                for child in seg.find_all('div',  {'class':'g'}): # normal g elements
+                    rso.append(child)
+        second_Seg = soup.find('div', {'class':'WvKfwe a3spGf'}) # finds all second type rso
+        for child2 in second_Seg.children:
+            rso.append(child2)
+
     filter_tags = ['script', 'style']
-    column = [('main', c) for c in rso.children if c.name not in filter_tags]
+    column = [('main', c) for c in rso if c.name not in filter_tags]
 
     # Legacy parsing
     # div_class = {'class':['g','bkWMgd']}
