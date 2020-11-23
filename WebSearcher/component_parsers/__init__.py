@@ -1,4 +1,4 @@
-import pandas as pd
+# import pandas as pd
 from .ads import parse_ads
 from .knowledge import parse_knowledge_panel
 from .general import parse_general_results
@@ -27,7 +27,7 @@ components = pd.DataFrame([
     ('general_questions', parse_general_questions, 'General Questions'),
     ('general_menu', parse_general_results, 'General Submenu'),
     ('available_on', parse_available_on, 'Available On'),
-    ('top_stories', parse_top_stories, 'Top Stories'), 
+    ('top_stories', parse_top_stories, 'Top Stories'),
     ('latest_from', parse_latest_from, 'Latest From'),
     ('view_more_news', parse_view_more_news, 'View More News'),
     ('news_quotes', parse_news_quotes, 'News Quotes'),
