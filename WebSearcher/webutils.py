@@ -97,7 +97,9 @@ def url_table(url):
 
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
-    if pd.isnull(url):
+    # if pd.isnull(url):
+    #     return ''
+    if url is None or url == '':
         return ''
     domain = tldextract.extract(url)
     without_subdomain = '.'.join([domain.domain, domain.suffix])
