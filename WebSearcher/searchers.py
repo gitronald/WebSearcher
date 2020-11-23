@@ -213,8 +213,8 @@ class SearchEngine(object):
 
             if append_to:
                 utils.write_lines([out_data], append_to)
-            elif sql_table and sql_conn:
-                utils.write_sql_row(out_data, table=sql_table, conn=sql_conn)
+            # elif sql_table and sql_conn:
+            #     utils.write_sql_row(out_data, table=sql_table, conn=sql_conn)
 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
