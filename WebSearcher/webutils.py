@@ -15,6 +15,7 @@ import subprocess
 import tldextract
 import atexit
 # import pandas as pd
+import json
 import urllib.parse as urlparse
 from bs4 import BeautifulSoup
 
@@ -115,11 +116,22 @@ def get_domain(url):
 def extract_html_json(data_fp, extract_to, id_col):
     """Save HTML to directory for viewing """
     os.makedirs(extract_to, exist_ok=True)
-    data = pd.read_json(data_fp, lines=True)
-    for idx, row in data.iterrows():
-        fp = os.path.join(extract_to, row[id_col] + '.html')
-        with open(fp, 'wb') as outfile:
-            outfile.write(row['html'])
+    # data = pd.read_json(data_fp, lines=True)
+    data = []
+    try:
+        with open(data_fp,'r') as f:
+            for line in f:
+                data.append(json.loads(line))
+        for d in data:
+            fp = os.path.join(extract_to, d[id_col] + '.html')
+            with open(fp, 'wb') as outfile:
+                outfile.write(d['html'])
+    except:
+        print("DECODING JSON FAILED")
+    # for idx, row in data.iterrows():
+    #     fp = os.path.join(extract_to, row[id_col] + '.html')
+    #     with open(fp, 'wb') as outfile:
+    #         outfile.write(row['html'])
 
 def split_styles(soup):
     """Extract embedded CSS """
