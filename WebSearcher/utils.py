@@ -46,16 +46,16 @@ def write_lines(iter_data, fp, overwrite=False):
                 outfile.write('%s\n' % data)
 
 
-def write_sql_row(data, table, conn):
-    """Write a dict `data` as a row in `table` via SQL connection `conn`
-
-    Arguments:
-        data (dict) -- A dictionary to insert as a row.
-        table (str) -- The name of the table.
-        conn -- A connection to a SQL database.
-    """
-    row = pd.DataFrame(data, index=[0])
-    row.to_sql(table, con=sql_conn, index=False, if_exists='append')
+# def write_sql_row(data, table, conn):
+#     """Write a dict `data` as a row in `table` via SQL connection `conn`
+#
+#     Arguments:
+#         data (dict) -- A dictionary to insert as a row.
+#         table (str) -- The name of the table.
+#         conn -- A connection to a SQL database.
+#     """
+#     row = pd.DataFrame(data, index=[0])
+#     row.to_sql(table, con=sql_conn, index=False, if_exists='append')
     # need to get rid of this ^ but will probably need a different package to write to sql
     # cursor = conn.cursor()
     # columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in data.keys())
