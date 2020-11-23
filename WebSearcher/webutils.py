@@ -93,6 +93,7 @@ def url_table(url):
     url_parts = list(tldextract.extract(url))
     keys = ['subdomain','domain','suffix']
     url_dict = {k:v for k,v in zip(keys,url_parts)}
+    return url_dict
 
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
