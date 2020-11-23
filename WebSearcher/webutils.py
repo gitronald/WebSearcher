@@ -88,7 +88,11 @@ def url_unquote(url):
 
 def url_table(url):
     """Break down a url into a table of its component parts"""
-    return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
+    # return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
+    # this is gonna become a dictionary... sorry
+    url_parts = list(tldextract.extract(url))
+    keys = ['subdomain','domain','suffix']
+    url_dict = {k:v for k,v in zip(keys,url_parts)}
 
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
