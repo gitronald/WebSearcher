@@ -14,7 +14,8 @@ import requests
 import subprocess
 import tldextract
 import atexit
-import pandas as pd
+# import pandas as pd
+import json
 import urllib.parse as urlparse
 from bs4 import BeautifulSoup
 
@@ -88,11 +89,18 @@ def url_unquote(url):
 
 def url_table(url):
     """Break down a url into a table of its component parts"""
-    return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
+    # return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
+    # this is gonna become a dictionary... sorry
+    url_parts = list(tldextract.extract(url))
+    keys = ['subdomain','domain','suffix']
+    url_dict = {k:v for k,v in zip(keys,url_parts)}
+    return url_dict
 
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
-    if pd.isnull(url):
+    # if pd.isnull(url):
+    #     return ''
+    if url is None or url == '':
         return ''
     domain = tldextract.extract(url)
     without_subdomain = '.'.join([domain.domain, domain.suffix])
@@ -108,15 +116,26 @@ def get_domain(url):
 def extract_html_json(data_fp, extract_to, id_col):
     """Save HTML to directory for viewing """
     os.makedirs(extract_to, exist_ok=True)
-    data = pd.read_json(data_fp, lines=True)
-    for idx, row in data.iterrows():
-        fp = os.path.join(extract_to, row[id_col] + '.html') 
-        with open(fp, 'wb') as outfile:
-            outfile.write(row['html'])
+    # data = pd.read_json(data_fp, lines=True)
+    data = []
+    try:
+        with open(data_fp,'r') as f:
+            for line in f:
+                data.append(json.loads(line))
+        for d in data:
+            fp = os.path.join(extract_to, d[id_col] + '.html')
+            with open(fp, 'wb') as outfile:
+                outfile.write(d['html'])
+    except:
+        print("DECODING JSON FAILED")
+    # for idx, row in data.iterrows():
+    #     fp = os.path.join(extract_to, row[id_col] + '.html')
+    #     with open(fp, 'wb') as outfile:
+    #         outfile.write(row['html'])
 
 def split_styles(soup):
     """Extract embedded CSS """
-    
+
     def split_style(style):
         if style.string:
             return style.string.replace('}', '}\n').split('\n')
@@ -140,14 +159,14 @@ class SSH(object):
         self.port = port
         self.ip = ip
         self.machine = f'{self.user}@{self.ip}'
-        self.cmd = ['ssh', 
-            '-i', self.keyfile, 
+        self.cmd = ['ssh',
+            '-i', self.keyfile,
             '-ND', f'127.0.0.1:{self.port}',
-            '-o','StrictHostKeyChecking=no', 
+            '-o','StrictHostKeyChecking=no',
             self.machine
         ]
         self.cmd_str = ' '.join(self.cmd)
-    
+
     def open_tunnel(self):
         self.tunnel = subprocess.Popen(self.cmd, shell=False)
 
