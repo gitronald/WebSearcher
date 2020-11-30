@@ -9,7 +9,6 @@ import json
 import time
 import brotli
 import requests
-import pandas as pd
 from hashlib import sha224
 from datetime import datetime
 
@@ -192,18 +191,16 @@ class SearchEngine(object):
             self.log.exception(f'Decompression error | serp_id : {self.serp_id}')
             self.html = self.response.content
 
-    def save_serp(self, save_dir='.', append_to='', sql_table='', sql_conn=None):
-        """Save SERP to file or SQL table
-        
+    def save_serp(self, save_dir='.', append_to=''):
+        """Save SERP to file
+
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
             append_to (str, optional): Append results to this file path
-            sql_table (str, optional): A SQL table name 
-            sql_conn (Object, optional): A SQL connection
         """
         assert self.html, "Must conduct a search first"
-        
-        if append_to or sql_conn:
+
+        if append_to:
             # Keys to drop from object before saving
             exclude = ['response', 'sesh', 'ssh_tunnel', 'unzip',
                        'log', 'results', 'results_html']
@@ -213,9 +210,6 @@ class SearchEngine(object):
 
             if append_to:
                 utils.write_lines([out_data], append_to)
-            elif sql_table and sql_conn:
-                utils.write_sql_row(out_data, table=sql_table, conn=sql_conn)
-                
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'w') as outfile:
@@ -262,13 +256,29 @@ class SearchEngine(object):
             append_to (str, optional): Append results html to this file path
         """
 
+    def scrape_results_html(self, save_dir='.', append_to=''):
+        """Scrape and save all unique, non-internal URLs parsed from the SERP
+    
+        Args:
+            save_dir (str, optional): Save results html as `save_dir/results_html/{serp_id}.json`
+            append_to (str, optional): Append results html to this file path
+        """
+    
         if not self.results:
             self.log.info(f'No results to scrape for serp_id {self.serp_id}')
         else:
-            results = pd.DataFrame(self.results)
 
-            if 'url' in results.columns:
-
+            results = self.results
+            def check_valid_url(result): 
+                """Check if result has url and url is in a valid format"""
+                if 'url' in result:
+                    return True if result['url'].startswith('http') else False
+                else:
+                    return False
+            results_wurl = [r for r in results if check_valid_url(r)]
+            
+            if results_wurl:
+    
                 # Prepare session
                 keep_headers = ['User-Agent']
                 headers = {k:v for k,v in self.headers.items() if k in keep_headers}
@@ -276,46 +286,58 @@ class SearchEngine(object):
                     result_sesh = wu.start_sesh(headers=headers, proxy_port=self.ssh_tunnel.port)
                 else:
                     result_sesh = wu.start_sesh(headers=headers)
-
+    
                 # Get all unique result urls
-                mask = ((~results.url.duplicated()) & (~pd.isnull(results.url)))
-                cols = ['serp_id', 'serp_rank', 'url']
-                result_urls = results[mask][cols].to_dict(orient='records')
-
+                result_urls = []
+                unique_urls = set()
+                for result in results_wurl:
+                    # If the result has a url and we haven't seen it yet
+                    if result['url'] and result['url'] not in unique_urls:
+                        # Take a subset of the keys
+                        keep_keys = {'serp_id', 'serp_rank', 'url'}
+                        res = {k:v for k,v in result.items() if k in keep_keys} 
+                        result_urls.append(res)
+                        unique_urls.add(result['url'])
+                    
                 # Scrape results HTML
                 for result in result_urls:
-                    try:
-                        response = result_sesh.get(result['url'], timeout=10)
-                        result['html'] = response.content.decode('utf-8', 'ignore')
+                    resid = f"{result['serp_id']} | {result['url']}"
 
+                    try:
+                        r = result_sesh.get(result['url'], timeout=15)
+                        result['html'] = r.content.decode('utf-8', 'ignore')
+    
                     except requests.exceptions.TooManyRedirects:
                         result['html'] = 'error_redirects'
-                        self.log.exception(f"Results | Redirects error | {result['serp_id']} | {result['url']}")
-
+                        self.log.exception(f"Results | RedirectsErr | {resid}")
+    
                     except requests.exceptions.Timeout:
                         result['html'] = 'error_timeout'
-                        self.log.exception(f"Results | Timeout error | {result['serp_id']} | {result['url']}")
-
-                    except requests.exceptions.ConnectionError: 
+                        self.log.exception(f"Results | TimeoutErr | {resid}")
+    
+                    except requests.exceptions.ConnectionError:
                         result['html'] = 'error_connection'
-                        self.log.exception(f"Results | Connection error | {result['serp_id']} | {result['url']}")
-
+                        self.log.exception(f"Results | ConnectionErr | {resid}")
+    
                         # SSH Tunnel may have died, reset SSH session
                         if self.ssh_tunnel:
                             self.ssh_tunnel.tunnel.kill()
                             self.ssh_tunnel.open_tunnel()
                             self.log.info('Results | Restarted SSH tunnel')
                             time.sleep(10) # Allow time to establish connection
-
+    
                     except Exception:
                         result['html'] = 'error_unknown'
-                        self.log.exception(f"Results | Scraping error | {result['serp_id']} | {result['url']}")
+                        self.log.exception(f"Results | ScrapingErr | {resid}")
 
+                    # Append HTML to results_html list
                     self.results_html.append(result)
-
+    
+                # Save results HTML
                 if append_to:
+                    # Append to aggregate file
                     utils.write_lines(self.results_html, append_to)
                 else:
-                    # Create directory using serp_id
+                    # Save new SERP-specific file
                     fp = os.path.join(save_dir, 'results_html', f'{self.serp_id}.json')
                     utils.write_lines(self.results_html, fp)

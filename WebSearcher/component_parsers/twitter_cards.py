@@ -22,12 +22,24 @@ def parse_twitter_cards(cmpt):
 
 def parse_twitter_header(header, sub_rank=0):
     """Parse the Twitter component header"""
-    parsed = {'type':'twitter_cards', 'sub_type':'header', 'sub_rank':sub_rank}
+    parsed = {
+        'type': 'twitter_cards', 
+        'sub_type':'header', 
+        'sub_rank': sub_rank,
+        'title': '',
+        'url': '',
+        'cite': ''
+    }
 
     if header.find('h3'):
-        parsed['title'] = header.find('h3', {'class':'r'}).find('a').text
-        url = header.find('h3', {'class':'r'}).find('a')['href']
-        parsed['url'] = webutils.url_unquote(url)
+
+        # Handle legacy and current formats
+        if header.find('h3', {'class':'r'}):
+            header_parsed = find_header_legacy(header)
+        else:
+            header_parsed = find_header(header)
+        parsed.update(header_parsed)
+
     else:
         glink = header.find('g-link')
         parsed['title'] = glink.text
@@ -36,7 +48,38 @@ def parse_twitter_header(header, sub_rank=0):
     parsed['cite'] = header.find('cite').text
 
     return [parsed]
+
+def find_header_legacy(header):
+    """A legacy version to find the header of a twitter card
+
+    Args:
+        header (bs4 object): A twitter card
+
+    Returns:
+        dict: the header text and url
+    """
+    element = header.find('h3', {'class':'r'}).find('a')
+    url = webutils.url_unquote(element['href'])
+    return {'url' : url, 'title' : element.text}
+
+def find_header(header):
+    """A updated version to find the header of a twitter card
+
+    Args:
+        header (bs4 object): A twitter card
+
+    Returns:
+        dict: the header text and url
+    """
     
+    glink = header.find('g-link')
+    url = webutils.url_unquote(glink.a['href']) if glink else ''
+
+    title_h3 = header.find('h3', {'class':'NsiYH'})
+    title = title_h3.text if title_h3 else ''
+
+    return {'url' : url, 'title' : title}
+
 def parse_twitter_card(sub, sub_rank=0):
     """Parse a Twitter cards subcomponent
     

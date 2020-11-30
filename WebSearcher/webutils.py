@@ -3,18 +3,18 @@
 Note on using socks5h, hostname resolution
 https://stackoverflow.com/questions/12601316/how-to-make-python-requests-work-via-socks-proxy
 """
+from . import utils
 from . import logger
 log = logger.Logger().start(__name__)
 
 import os
 import re
 import emoji
+import atexit
 import brotli
 import requests
 import subprocess
 import tldextract
-import atexit
-import pandas as pd
 import urllib.parse as urlparse
 from bs4 import BeautifulSoup
 
@@ -86,13 +86,9 @@ def join_url_quote(quote_dict):
 def url_unquote(url):
     return urlparse.unquote(url)
 
-def url_table(url):
-    """Break down a url into a table of its component parts"""
-    return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
-
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
-    if pd.isnull(url):
+    if not url:
         return ''
     domain = tldextract.extract(url)
     without_subdomain = '.'.join([domain.domain, domain.suffix])
@@ -106,11 +102,11 @@ def get_domain(url):
 # Misc -------------------------------------------------------------------------
 
 def extract_html_json(data_fp, extract_to, id_col):
-    """Save HTML to directory for viewing """
+    """Save HTML to directory for viewing"""
     os.makedirs(extract_to, exist_ok=True)
-    data = pd.read_json(data_fp, lines=True)
-    for idx, row in data.iterrows():
-        fp = os.path.join(extract_to, row[id_col] + '.html') 
+    data = utils.read_lines(data_fp)
+    for row in data:
+        fp = os.path.join(extract_to, row[id_col] + '.html')
         with open(fp, 'wb') as outfile:
             outfile.write(row['html'])
 
