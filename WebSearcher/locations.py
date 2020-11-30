@@ -2,9 +2,7 @@ import os
 import base64
 import string
 import requests
-# import pandas as pd
-import urllib
-import csv
+import pandas as pd
 from bs4 import BeautifulSoup
 
 from . import logger
@@ -14,18 +12,18 @@ url = 'https://developers.google.com/adwords/api/docs/appendix/geotargeting'
 
 def get_all_urls(soup):
     a_divs = soup.find_all('a')
-    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}
+    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}    
     return all_urls
 
 def download_locations(data_dir, url=url, return_data=True):
     """Download the latest locations data
 
     Checks if the current version already exists locally before downloading
-
+    
     Args:
         data_dir (str): Where to save the data as a csv
         url (str, optional): Defaults to the current URL
-
+    
     Raises:
         SystemExit: Exit if file exists
 
@@ -50,7 +48,6 @@ def download_locations(data_dir, url=url, return_data=True):
     geo_url = sorted(geo_urls)[-1]
     full_url = 'https://developers.google.com' + geo_url
     fp = os.path.join(data_dir, geo_url.split('/')[-1])
-    print(fp)
 
     # Check if the current version already exists
     if os.path.exists(fp):
@@ -59,24 +56,14 @@ def download_locations(data_dir, url=url, return_data=True):
         # If it doesn't, download it
         try:
             print(f'Getting: {full_url}')
-            #locations = pd.read_csv(full_url)
-            response = urllib.request.urlopen(full_url)
-            lines = [l.decode('utf-8') for l in response.readlines()]
-            locations = csv.reader(lines,delimiter=',')
+            locations = pd.read_csv(full_url)
         except Exception:
             log.exception('Failed to retrieve location data')
 
-
         # Save
         print(f"Saving: {fp}")
-        # locations.to_csv(fp, index=False, encoding='utf-8')
-        with open(fp,'w') as locs_out:
-            writer = csv.writer(locs_out)
-            for row in locations:
-                print(row)
-                writer.writerow(row)
-        # not sure if something should be 'closed' here... eg lines.close()
-
+        locations.to_csv(fp, index=False, encoding='utf-8')
+        
         # Return
         if return_data:
             return locations
@@ -84,17 +71,17 @@ def download_locations(data_dir, url=url, return_data=True):
 
 def get_location_id(canonical_name):
     """Get location ID for URL parameter 'uule'
-
+    
     Returns the url parameter for a given location's Canonical Name
-
+    
     Args:
         canonical_name (str): Canoncial Name for a location, see
-        data downloaded using download_locations. Column name is
-        usually something like "Canonical Name" or "Canonical.Name".
-
+        data downloaded using download_locations. Column name is 
+        usually something like "Canonical Name" or "Canonical.Name". 
+    
     Returns:
         str: The parameter key for selecting a location
-
+    
     """
     uule_key = string.ascii_uppercase+string.ascii_lowercase+string.digits
     uule_key = uule_key + '-_' + uule_key + '-_' # Double length, repeating
