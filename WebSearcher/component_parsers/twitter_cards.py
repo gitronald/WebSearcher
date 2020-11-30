@@ -25,8 +25,14 @@ def parse_twitter_header(header, sub_rank=0):
     parsed = {'type':'twitter_cards', 'sub_type':'header', 'sub_rank':sub_rank}
 
     if header.find('h3'):
-        parsed['title'] = header.find('h3', {'class':'r'}).find('a').text
-        url = header.find('h3', {'class':'r'}).find('a')['href']
+        parsed['title'] = None
+        url = None
+        if header.find('h3', {'class':'r'}) != None:
+            parsed['title'] = find_header_legacy(header)['title']
+            url = find_header_legacy(header)['url']
+        else:
+            parsed['title'] = find_header(header)['title']
+            url = find_header(header)['url']
         parsed['url'] = webutils.url_unquote(url)
     else:
         glink = header.find('g-link')
@@ -36,7 +42,30 @@ def parse_twitter_header(header, sub_rank=0):
     parsed['cite'] = header.find('cite').text
 
     return [parsed]
-    
+
+def find_header_legacy(header):
+    """A legacy version to find the header of a twitter card
+
+    Args:
+        header (bs4 object): A twitter card
+
+    Returns:
+        dict: the header text and url
+    """
+    element = header.find('h3', {'class':'r'}).find('a')
+    return {'url' : element['href'], 'title' : element.text}
+
+def find_header(header):
+    """A updated version to find the header of a twitter card
+
+    Args:
+        header (bs4 object): A twitter card
+
+    Returns:
+        dict: the header text and url
+    """
+    return {'url' : header.find('g-link').a['href'], 'title' : header.find('h3', {'class':'NsiYH'}).text}
+
 def parse_twitter_card(sub, sub_rank=0):
     """Parse a Twitter cards subcomponent
     
