@@ -1,4 +1,4 @@
-# WebSearcher 0.2.6  
+# WebSearcher 0.2.7  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -9,6 +9,9 @@ for decomposing a SERP into list of components with categorical classifications
 and position-based specifications.
 
 ## Recent Changes
+
+`0.2.7` - Added fix for parsing twitter cards, removed pandas dependencies and 
+several unused functions, moving towards greater package simplicity.
 
 `0.2.6` - Updated ad parser for latest format, still handles older ad format.
 
@@ -25,7 +28,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.6](#websearcher-026)
+- [WebSearcher 0.2.7](#websearcher-027)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
