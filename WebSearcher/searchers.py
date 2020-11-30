@@ -191,18 +191,16 @@ class SearchEngine(object):
             self.log.exception(f'Decompression error | serp_id : {self.serp_id}')
             self.html = self.response.content
 
-    def save_serp(self, save_dir='.', append_to='', sql_table='', sql_conn=None):
-        """Save SERP to file or SQL table
+    def save_serp(self, save_dir='.', append_to=''):
+        """Save SERP to file
 
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
             append_to (str, optional): Append results to this file path
-            sql_table (str, optional): A SQL table name
-            sql_conn (Object, optional): A SQL connection
         """
         assert self.html, "Must conduct a search first"
 
-        if append_to or sql_conn:
+        if append_to:
             # Keys to drop from object before saving
             exclude = ['response', 'sesh', 'ssh_tunnel', 'unzip',
                        'log', 'results', 'results_html']
@@ -212,8 +210,6 @@ class SearchEngine(object):
 
             if append_to:
                 utils.write_lines([out_data], append_to)
-            # elif sql_table and sql_conn:
-            #     utils.write_sql_row(out_data, table=sql_table, conn=sql_conn)
 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
