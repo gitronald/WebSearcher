@@ -28,6 +28,6 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
     install_requires=['requests','lxml','bs4','brotli',
-                      'tldextract','emoji','pandas'],
+                      'tldextract','emoji'],
     python_requires='>=3.6'
 )

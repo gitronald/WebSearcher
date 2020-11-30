@@ -8,7 +8,6 @@ emoji==0.5.2
 idna==2.8
 lxml==4.3.4
 numpy==1.16.4
-pandas==0.25.0
 python-dateutil==2.8.0
 pytz==2019.1
 requests==2.22.0
