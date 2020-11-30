@@ -3,7 +3,6 @@ import os
 import json
 import random
 import itertools
-import pandas as pd
 from hashlib import sha224
 from timeit import default_timer
 from string import ascii_letters, digits
@@ -45,37 +44,6 @@ def write_lines(iter_data, fp, overwrite=False):
             for data in iter_data:
                 outfile.write('%s\n' % data)
 
-
-# def write_sql_row(data, table, conn):
-#     """Write a dict `data` as a row in `table` via SQL connection `conn`
-#
-#     Arguments:
-#         data (dict) -- A dictionary to insert as a row.
-#         table (str) -- The name of the table.
-#         conn -- A connection to a SQL database.
-#     """
-#     row = pd.DataFrame(data, index=[0])
-#     row.to_sql(table, con=sql_conn, index=False, if_exists='append')
-    # need to get rid of this ^ but will probably need a different package to write to sql
-    # cursor = conn.cursor()
-    # columns = ', '.join("`" + str(x).replace('/', '_') + "`" for x in data.keys())
-    # values = ', '.join("'" + str(x).replace('/', '_') + "'" for x in data.values())
-
-
-# Descriptive Stats ------------------------------------------------------------
-
-# def dnum(dfcol):
-#     if df_col.dtype in [int, float]:
-#         return df_col.describe()
-#     else:
-#         return 0
-#
-# def dft(dfcol):
-#     tab = pd.DataFrame({
-#         'n': dfcol.value_counts(),
-#         'p': dfcol.value_counts(True)
-#     }).sort_index()
-#     return tab
 
 # Lists ------------------------------------------------------------------------
 
