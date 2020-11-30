@@ -20,56 +20,31 @@ from .footer import parse_footer
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
-# components = pd.DataFrame([
-#     ('ad', parse_ads, 'Ad'),
-#     ('knowledge', parse_knowledge_panel, 'Knowledge'),
-#     ('general', parse_general_results, 'General'),
-#     ('general_questions', parse_general_questions, 'General Questions'),
-#     ('general_menu', parse_general_results, 'General Submenu'),
-#     ('available_on', parse_available_on, 'Available On'),
-#     ('top_stories', parse_top_stories, 'Top Stories'),
-#     ('latest_from', parse_latest_from, 'Latest From'),
-#     ('view_more_news', parse_view_more_news, 'View More News'),
-#     ('news_quotes', parse_news_quotes, 'News Quotes'),
-#     ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
-#     ('local_results', parse_local_results, 'Local Results'),
-#     ('map_results', parse_map_results, 'Map Results'),
-#     ('images', parse_images, 'Images'),
-#     ('videos', parse_videos, 'Videos'),
-#     ('view_more_videos', parse_videos, 'View More Videos'),
-#     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
-#     ('twitter_result', parse_twitter_result, 'Twitter Result'),
-#     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
-#     ('footer', parse_footer, 'Footer')
-# ], columns=columns)
 components = [
-    ['ad', parse_ads, 'Ad'],
-    ['knowledge', parse_knowledge_panel, 'Knowledge'],
-    ['general', parse_general_results, 'General'],
-    ['general_questions', parse_general_questions, 'General Questions'],
-    ['general_menu', parse_general_results, 'General Submenu'],
-    ['available_on', parse_available_on, 'Available On'],
-    ['top_stories', parse_top_stories, 'Top Stories'],
-    ['latest_from', parse_latest_from, 'Latest From'],
-    ['view_more_news', parse_view_more_news, 'View More News'],
-    ['news_quotes', parse_news_quotes, 'News Quotes'],
-    ['people_also_ask', parse_people_also_ask, 'People Also Ask'],
-    ['local_results', parse_local_results, 'Local Results'],
-    ['map_results', parse_map_results, 'Map Results'],
-    ['images', parse_images, 'Images'],
-    ['videos', parse_videos, 'Videos'],
-    ['view_more_videos', parse_videos, 'View More Videos'],
-    ['twitter_cards', parse_twitter_cards, 'Twitter Cards'],
-    ['twitter_result', parse_twitter_result, 'Twitter Result'],
-    ['scholarly_articles', parse_scholarly_articles, 'Scholar Articles'],
-    ['footer', parse_footer, 'Footer']
+    ('ad', parse_ads, 'Ad'),
+    ('knowledge', parse_knowledge_panel, 'Knowledge'),
+    ('general', parse_general_results, 'General'),
+    ('general_questions', parse_general_questions, 'General Questions'),
+    ('general_menu', parse_general_results, 'General Submenu'),
+    ('available_on', parse_available_on, 'Available On'),
+    ('top_stories', parse_top_stories, 'Top Stories'),
+    ('latest_from', parse_latest_from, 'Latest From'),
+    ('view_more_news', parse_view_more_news, 'View More News'),
+    ('news_quotes', parse_news_quotes, 'News Quotes'),
+    ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
+    ('local_results', parse_local_results, 'Local Results'),
+    ('map_results', parse_map_results, 'Map Results'),
+    ('images', parse_images, 'Images'),
+    ('videos', parse_videos, 'Videos'),
+    ('view_more_videos', parse_videos, 'View More Videos'),
+    ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
+    ('twitter_result', parse_twitter_result, 'Twitter Result'),
+    ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
+    ('footer', parse_footer, 'Footer')
 ]
 
-
-# dict[type] = function
-# type_functions = components.set_index('type')['func'].to_dict()
+# Format {type: function}
 type_functions = {i[0]:i[1] for i in components}
 
-# dict[type] = label
-# type_labels = components.set_index('type')['label'].to_dict()
+# Format {type: label}
 type_labels = {i[0]:i[2] for i in components}
