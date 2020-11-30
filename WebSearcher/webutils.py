@@ -3,19 +3,18 @@
 Note on using socks5h, hostname resolution
 https://stackoverflow.com/questions/12601316/how-to-make-python-requests-work-via-socks-proxy
 """
+from . import utils
 from . import logger
 log = logger.Logger().start(__name__)
 
 import os
 import re
 import emoji
+import atexit
 import brotli
 import requests
 import subprocess
 import tldextract
-import atexit
-# import pandas as pd
-import json
 import urllib.parse as urlparse
 from bs4 import BeautifulSoup
 
@@ -87,20 +86,9 @@ def join_url_quote(quote_dict):
 def url_unquote(url):
     return urlparse.unquote(url)
 
-def url_table(url):
-    """Break down a url into a table of its component parts"""
-    # return pd.Series(tldextract.extract(url), index=['subdomain','domain','suffix'])
-    # this is gonna become a dictionary... sorry
-    url_parts = list(tldextract.extract(url))
-    keys = ['subdomain','domain','suffix']
-    url_dict = {k:v for k,v in zip(keys,url_parts)}
-    return url_dict
-
 def get_domain(url):
     """Extract a full domain from a url, drop www"""
-    # if pd.isnull(url):
-    #     return ''
-    if url is None or url == '':
+    if not url:
         return ''
     domain = tldextract.extract(url)
     without_subdomain = '.'.join([domain.domain, domain.suffix])
@@ -114,24 +102,13 @@ def get_domain(url):
 # Misc -------------------------------------------------------------------------
 
 def extract_html_json(data_fp, extract_to, id_col):
-    """Save HTML to directory for viewing """
+    """Save HTML to directory for viewing"""
     os.makedirs(extract_to, exist_ok=True)
-    # data = pd.read_json(data_fp, lines=True)
-    data = []
-    try:
-        with open(data_fp,'r') as f:
-            for line in f:
-                data.append(json.loads(line))
-        for d in data:
-            fp = os.path.join(extract_to, d[id_col] + '.html')
-            with open(fp, 'wb') as outfile:
-                outfile.write(d['html'])
-    except:
-        print("DECODING JSON FAILED")
-    # for idx, row in data.iterrows():
-    #     fp = os.path.join(extract_to, row[id_col] + '.html')
-    #     with open(fp, 'wb') as outfile:
-    #         outfile.write(row['html'])
+    data = utils.read_lines(data_fp)
+    for row in data:
+        fp = os.path.join(extract_to, row[id_col] + '.html')
+        with open(fp, 'wb') as outfile:
+            outfile.write(row['html'])
 
 def split_styles(soup):
     """Extract embedded CSS """
