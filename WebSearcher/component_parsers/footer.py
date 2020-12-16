@@ -21,18 +21,21 @@ def extract_footer_components(footer):
     return footer_cmpts
 
 def classify_footer_component(cmpt):
+    gsection = cmpt.find('g-section-with-header')
+    subs = cmpt.find_all('div', {'class':'g'})
+    h3 = cmpt.find('h3')
+
     if 'id' in cmpt.attrs and cmpt.attrs['id'] == 'bres':
-        subs = cmpt.find_all('div', {'class':'g'})
         if subs:
             return 'image_cards'
         elif cmpt.find('g-scrolling-carousel'):
             return 'discover_more'
+        elif h3 and h3.text.strip() == 'Related searches':
+            return 'searches_related'
         else:
             return 'unknown'
-
-    elif cmpt.find('g-section-with-header'):
+    elif gsection:
         return 'searches_related'
-
     else:
         return 'unknown'
 
