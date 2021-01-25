@@ -27,7 +27,6 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
-    install_requires=['requests','lxml','bs4','brotli',
-                      'tldextract','emoji'],
+    install_requires=['requests','lxml','bs4','brotli', 'tldextract'],
     python_requires='>=3.6'
 )
