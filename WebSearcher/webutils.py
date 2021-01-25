@@ -9,7 +9,7 @@ log = logger.Logger().start(__name__)
 
 import os
 import re
-import emoji
+# import emoji
 import atexit
 import brotli
 import requests
@@ -74,8 +74,8 @@ def parse_hashtags(text):
     hashtags = [re.sub(r"(\W+)$", "", h, flags = re.UNICODE) for h in hashtags]
     return list(set(hashtags))
 
-def parse_emojis(text):
-    return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
+# def parse_emojis(text):
+#     return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
 
 
 # URLs -------------------------------------------------------------------------

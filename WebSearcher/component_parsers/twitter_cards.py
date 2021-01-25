@@ -125,7 +125,7 @@ def parse_twitter_card(sub, sub_rank=0):
     links = subdiv.find_all('a')
     details['urls'] = [webutils.url_unquote(a['href']) for a in links if 'href' in a.attrs]
     details['hashtags'] = webutils.parse_hashtags(parsed['text'])
-    details['emojis'] = webutils.parse_emojis(parsed['text'])
+    # details['emojis'] = webutils.parse_emojis(parsed['text'])
     parsed['details'] = details
 
     return parsed
