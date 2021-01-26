@@ -48,27 +48,44 @@ def extract_components(soup):
     if ads: 
         cmpts.append(('ad', ads))
 
-    rso = soup.find('div', {'id':'rso'}) # gets rso
+    # Check if layout contains left side bar
+    left_side_bar = soup.find('div', {'class': 'ZxoDOe'})
 
-    # if layuot is left leaning, the rso is split into two types
-    if (soup.find('div', {'class': 'ZxoDOe'})):
+    if not left_side_bar:
+        # Extract results from single div
+        rso = soup.find('div', {'id':'rso'})
+        drop_tags = {'script', 'style'}
+        column = [('main', c) for c in rso.children if c.name not in drop_tags]
+
+    else:
+        # Extract results from two div sections
         rso = []
-        type1_segs = soup.find_all('div', {'class':'UDZeY OTFaAf'})
-        ## finds all the first type of the rso
-        for seg in type1_segs:
-            if seg.find('h2') != None and seg.find('h2').text == "Twitter Results": # if it is a twitter box
-                rso.append(seg.find('div').parent)
-            elif seg.find('g-section-with-header') != None: # if it is a g-section - most likely top-stories
-                rso.append(seg.find('g-section-with-header').parent)
-            else:
-                for child in seg.find_all('div',  {'class':'g'}): # normal g elements
-                    rso.append(child)
-        second_Seg = soup.find('div', {'class':'WvKfwe a3spGf'}) # finds all second type rso
-        for child2 in second_Seg.children:
-            rso.append(child2)
 
-    filter_tags = ['script', 'style']
-    column = [('main', c) for c in rso if c.name not in filter_tags]
+        # Find section 1 results and append to rso list
+        section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        for div in section1:
+
+            # Conditional handling for Twitter result
+            if div.find('h2') and div.find('h2').text == "Twitter Results": 
+                rso.append(div.find('div').parent)
+
+            # Conditional handling for g-section with header
+            elif div.find('g-section-with-header'): 
+                rso.append(div.find('g-section-with-header').parent)
+
+            else:
+                # Handle general results
+                for child in div.find_all('div',  {'class':'g'}): 
+                    rso.append(child)
+
+        # Find section 2 results and append to rso list
+        section2 = soup.find('div', {'class':'WvKfwe a3spGf'})
+        if section2:
+            for child in section2.children:
+                rso.append(child)
+
+        drop_tags = {'script', 'style'}
+        column = [('main', c) for c in rso if c.name not in drop_tags]
 
     # Legacy parsing
     # div_class = {'class':['g','bkWMgd']}
@@ -76,8 +93,8 @@ def extract_components(soup):
 
     # Hacky fix removing named Twitter component without content, possible G error
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
-    filter_text = ['Twitter Results', '']
-    column = [(cloc, c) for (cloc, c) in column if c.text not in filter_text]
+    drop_text = {'Twitter Results', ''}
+    column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
     cmpts.extend(column)
 
     # Bottom Ads
