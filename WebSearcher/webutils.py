@@ -11,7 +11,6 @@ import os
 import re
 # import emoji
 import atexit
-import brotli
 import requests
 import subprocess
 import tldextract
@@ -21,10 +20,9 @@ from bs4 import BeautifulSoup
 
 def load_html(fp, zipped=False):
     """Load html file, with option for brotli decompression"""
-    read_func = lambda i: brotli.decompress(i.read()) if zipped else i.read()
     read_type = 'rb' if zipped else 'r'
     with open(fp, read_type) as infile:
-        return read_func(infile)
+        return infile.read()
 
 def load_soup(fp, zipped=False):
     return make_soup(load_html(fp, zipped))

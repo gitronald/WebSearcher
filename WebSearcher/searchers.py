@@ -7,7 +7,6 @@ from . import logger
 import os
 import json
 import time
-import brotli
 import requests
 from hashlib import sha224
 from datetime import datetime
@@ -183,13 +182,22 @@ class SearchEngine(object):
         Returns:
             str: Decompressed html
         """
-        try: 
-            self.html = brotli.decompress(self.response.content)
-        except brotli.error:
-            self.html = self.response.content
-        except Exception:
-            self.log.exception(f'Decompression error | serp_id : {self.serp_id}')
-            self.html = self.response.content
+        try:
+            import brotli
+        except ImportError:
+            external_module = None 
+
+        if external_module:
+            try:
+                self.html = brotli.decompress(self.response.content)
+            except brotli.error:
+                self.html = self.response.content
+            except Exception:
+                self.log.exception(f'unzip error | serp_id : {self.serp_id}')
+                self.html = self.response.content
+        else:
+            print("To use the `unzip` arg, first run `pip install brotli`.")
+        
 
     def save_serp(self, save_dir='.', append_to=''):
         """Save SERP to file
