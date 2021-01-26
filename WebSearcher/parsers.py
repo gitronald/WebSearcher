@@ -126,8 +126,9 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     # Return unknown components
     if cmpt_type == 'unknown':
-        UNKNOWN_COMPONENT['cmpt_rank'] = 0
-        return [UNKNOWN_COMPONENT]
+        unknown_component = UNKNOWN_COMPONENT.copy()
+        unknown_component['cmpt_rank'] = 0
+        return [unknown_component]
 
     # Parse component
     try:
