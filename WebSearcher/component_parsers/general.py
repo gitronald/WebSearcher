@@ -34,8 +34,12 @@ def parse_general_result(sub, sub_rank=0):
 
     # Get title
     # title_div = sub.find('h3').find('a')
-    title_div = sub.find('div', {'class':'rc'})
-    if title_div:
+    title_div1 = sub.find('div', {'class':'rc'})
+    title_div2 = sub.find('div', {'class':'yuRUbf'})
+    if title_div1:
+        parsed['title'] = title_div.find('h3').text
+        parsed['url'] = title_div.find('a')['href']
+    elif title_div2:
         parsed['title'] = title_div.find('h3').text
         parsed['url'] = title_div.find('a')['href']
 
