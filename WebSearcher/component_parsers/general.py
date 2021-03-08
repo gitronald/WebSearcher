@@ -37,11 +37,11 @@ def parse_general_result(sub, sub_rank=0):
     title_div1 = sub.find('div', {'class':'rc'})
     title_div2 = sub.find('div', {'class':'yuRUbf'})
     if title_div1:
-        parsed['title'] = title_div.find('h3').text
-        parsed['url'] = title_div.find('a')['href']
+        parsed['title'] = title_div1.find('h3').text
+        parsed['url'] = title_div1.find('a')['href']
     elif title_div2:
-        parsed['title'] = title_div.find('h3').text
-        parsed['url'] = title_div.find('a')['href']
+        parsed['title'] = title_div2.find('h3').text
+        parsed['url'] = title_div2.find('a')['href']
 
     # Get citation
     cite = sub.find('cite')
