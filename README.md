@@ -1,4 +1,4 @@
-# WebSearcher 0.2.7  
+# WebSearcher 0.2.8  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -28,7 +28,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.7](#websearcher-027)
+- [WebSearcher 0.2.8](#websearcher-028)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
