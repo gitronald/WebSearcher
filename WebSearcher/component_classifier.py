@@ -53,6 +53,8 @@ def classify_type(cmpt, cmpt_type='unknown'):
         if car:
             if 'class' in car.attrs and car.attrs['class'][0] == 'F8yfEe':
                 cmpt_type = 'top_stories'
+    else:
+       g_section =  cmpt.find('g-scrolling-carousel')
 
     # Check `h2.text` for string matches
     if h2:
