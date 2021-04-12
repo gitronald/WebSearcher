@@ -93,5 +93,23 @@ def classify_type(cmpt, cmpt_type='unknown'):
         if cmpt.attrs['class'][0] == 'g':
             cmpt_type = 'general'
 
+    if 'class' in cmpt.attrs.keys() and cmpt.attrs['class'] == ['g', 'kno-kp', 'mnr-c', 'g-blk']:
+        cmpt_type='people_also_ask'
+ 
+    if 'jsdata' in cmpt.attrs.keys() and "ALusFc;;" in cmpt.attrs['jsdata']:
+        cmpt_type='jobs'
+    else:
+        jmodel = cmpt.find('div', {'jsmodel':'uIhXXc nzbBxb'})
+        if jmodel and 'jsdata' in jmodel.attrs.keys() and "ALusFc;;" in jmodel.attrs['jsdata']:
+            cmpt_type='jobs'
+               
+    # print(cmpt.attrs)
+    if 'data-hveid' in cmpt.attrs.keys() and cmpt.attrs['data-hveid'] == 'CAMQAA':
+        cmpt_type='maps'
+        
+    # if cmpt_type == 'unknown':
+    #     print(jmodel)    
+    #     print(cmpt)
+       
     # Return type or unknown (default)
     return cmpt_type
