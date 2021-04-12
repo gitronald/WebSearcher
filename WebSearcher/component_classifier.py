@@ -46,6 +46,9 @@ def classify_type(cmpt, cmpt_type='unknown'):
     hybrid = cmpt.find('div', {'class':'ifM9O'})
     twitter = cmpt.find_previous().text == "Twitter Results"
 
+    if 'class' in cmpt.attrs.keys() and cmpt.attrs['class'][0] == 'hlcw0c':
+        cmpt_type='general'
+        
     # Checks a g-section for a specific id to classify as top stories as not all
     # top stories have an h3 tag
     if g_section:
