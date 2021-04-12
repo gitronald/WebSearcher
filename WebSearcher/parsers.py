@@ -28,7 +28,14 @@ def parse_lang(soup):
 
 def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
     """Returns the parser for a given component type"""
-    return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else None
+    return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else defaultParser(cmpt_type)
+
+def defaultParser(cmpt_type):
+    def defaultDF(cmpt):
+        parsed = {'type': 'knowledge', 'subtype': cmpt_type}
+        return [parsed]
+    return defaultDF
+    
 
 def extract_components(soup):
     """Extract SERP components
