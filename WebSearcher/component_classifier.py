@@ -9,8 +9,8 @@ h2_matches = {
     "Local Results": "local_results",
     "Map Results": "map_results",
     "People also ask": "people_also_ask",
-    "Twitter Results": "twitter"
-}
+    "Twitter Results": "twitter",
+    "Translation Result":"translate"}
 
 # Classifications based on H3 Headings
 h3_matches = {
@@ -21,7 +21,9 @@ h3_matches = {
     "View more videos": "view_more_videos",
     "View more news": "view_more_news",
     "Images for": "images",
-    "Scholarly articles for": "scholarly_articles"
+    "Scholarly articles for": "scholarly_articles",
+    "Recipes": "recipes",
+    "Popular products":"products"
 }
 
 def classify_type(cmpt, cmpt_type='unknown'):
