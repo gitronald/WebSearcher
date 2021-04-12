@@ -67,6 +67,7 @@ def extract_components(soup):
     else:
         # Extract results from two div sections
         rso = []
+        # rso = soup.find('div', {'id':'rso'})
 
         # Find section 1 results and append to rso list
         section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
@@ -141,7 +142,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     try:
         parser = get_component_parser(cmpt_type)
         parsed_cmpt = parser(cmpt)
-
+        
         # Add cmpt rank to parsed
         if isinstance(parsed_cmpt, list):
             for sub_rank, sub in enumerate(parsed_cmpt):
