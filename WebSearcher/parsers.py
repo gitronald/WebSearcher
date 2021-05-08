@@ -1,7 +1,7 @@
 from . import webutils
 from .component_classifier import classify_type
 from .component_parsers import type_functions
-from .component_parsers.footer import extract_footer
+from .component_parsers.footer import extract_footer, extract_footer_components
 from . import logger
 log = logger.Logger().start(__name__)
 
@@ -35,26 +35,17 @@ def defaultParser(cmpt_type):
         parsed = {'type': 'knowledge', 'subtype': cmpt_type}
         return [parsed]
     return defaultDF
-    
 
-def extract_components(soup):
+
+def extract_results_column(soup):
     """Extract SERP components
     
     Args:
         soup (bs4): BeautifulSoup SERP
     
     Returns:
-        list: a rank ordered top-to-bottom and left-to-right list of 
-             (component location, component soup) tuples
+        list: a list of HTML result components
     """
-
-    cmpts = []
-
-    # Top Ads
-    ads = soup.find('div', {'id':'tads'})
-    if ads: 
-        cmpts.append(('ad', ads))
-
     # Check if layout contains left side bar
     left_side_bar = soup.find('div', {'class': 'OeVqAd'})
 
@@ -86,6 +77,10 @@ def extract_components(soup):
             elif div.find('g-more-link'): 
                 rso.append(div)
 
+            # Include footer components that appear in the main column
+            elif div.find('div', {'class':'oIk2Cb'}):
+                rso.append(div)
+
             else:
                 # Handle general results
                 for child in div.find_all('div',  {'class':'g'}): 
@@ -108,6 +103,28 @@ def extract_components(soup):
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
     drop_text = {'Twitter Results', ''}
     column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
+    return column
+    
+
+def extract_components(soup):
+    """Extract SERP components
+    
+    Args:
+        soup (bs4): BeautifulSoup SERP
+    
+    Returns:
+        list: a rank ordered top-to-bottom and left-to-right list of 
+             (component location, component soup) tuples
+    """
+
+    cmpts = []
+
+    # Top Ads
+    ads = soup.find('div', {'id':'tads'})
+    if ads: 
+        cmpts.append(('ad', ads))
+
+    column = extract_results_column(soup)
     cmpts.extend(column)
 
     # Bottom Ads
@@ -117,7 +134,7 @@ def extract_components(soup):
 
     # Footer results
     footer = extract_footer(soup)
-    if footer:
+    if extract_footer_components(footer):
         cmpts.append(('footer', footer))
 
     return cmpts
