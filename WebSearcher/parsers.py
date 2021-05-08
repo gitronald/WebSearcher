@@ -56,7 +56,7 @@ def extract_components(soup):
         cmpts.append(('ad', ads))
 
     # Check if layout contains left side bar
-    left_side_bar = soup.find('div', {'class': 'ZxoDOe'})
+    left_side_bar = soup.find('div', {'class': 'OeVqAd'})
 
     if not left_side_bar:
         # Extract results from single div
