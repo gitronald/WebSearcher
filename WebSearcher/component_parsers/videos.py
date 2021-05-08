@@ -41,6 +41,11 @@ def parse_video(sub, sub_rank=0):
 
     parsed['details'] = {} 
     parsed['details']['img_url'] = get_img_url(sub)
+
+    # Check for "key moments" in video
+    key_moments_div = sub.find('div', {'class':'AvBz0e'})
+    parsed['details']['key_moments'] = True if key_moments_div else False
+
     return parsed
 
 def get_img_url(soup):
