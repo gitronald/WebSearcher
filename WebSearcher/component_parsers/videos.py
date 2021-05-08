@@ -10,6 +10,7 @@ def parse_videos(cmpt):
         list : list of parsed subcomponent dictionaries
     """
     subs = cmpt.find_all('g-inner-card')
+    subs = cmpt.find_all('div', {'class':'VibNM'}) if not subs else subs
     return [parse_video(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_video(sub, sub_rank=0):
