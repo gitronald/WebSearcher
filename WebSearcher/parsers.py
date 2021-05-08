@@ -70,7 +70,8 @@ def extract_components(soup):
         # rso = soup.find('div', {'id':'rso'})
 
         # Find section 1 results and append to rso list
-        section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        section1 = soup.find_all('div', {'class':'sATSHe'})
+        # section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
         for div in section1:
 
             # Conditional handling for Twitter result
