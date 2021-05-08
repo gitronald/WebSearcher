@@ -61,6 +61,13 @@ def classify_type(cmpt, cmpt_type='unknown'):
     else:
        g_section =  cmpt.find('g-scrolling-carousel')
 
+    # Check component header
+    cmpt_header = cmpt.find('div', {'class':'mfMhoc'})
+    if cmpt_header:
+        for text, ctype in h3_matches.items():
+            if cmpt_header.text.startswith(text):
+                cmpt_type = ctype
+
     # Check `h2.text` for string matches
     if h2:
         for text, ctype in h2_matches.items():
