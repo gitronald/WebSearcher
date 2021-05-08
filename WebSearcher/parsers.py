@@ -81,6 +81,10 @@ def extract_components(soup):
             elif div.find('g-section-with-header'): 
                 rso.append(div.find('g-section-with-header').parent)
 
+            # Include divs with a "View more" type of button
+            elif div.find('g-more-link'): 
+                rso.append(div)
+
             else:
                 # Handle general results
                 for child in div.find_all('div',  {'class':'g'}): 
