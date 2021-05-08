@@ -10,6 +10,10 @@ and position-based specifications.
 
 ## Recent Changes
 
+`0.2.9` - Various fixes for SERPs with a left-hand side bar, which are becoming more common and change other parts of the SERP layout.
+
+`0.2.8` - Small fixes due to HTML changes, such as missing titles and URLs in general components
+
 `0.2.7` - Added fix for parsing twitter cards, removed pandas dependencies and 
 several unused functions, moving towards greater package simplicity.
 
