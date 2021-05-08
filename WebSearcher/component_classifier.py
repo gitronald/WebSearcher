@@ -23,7 +23,8 @@ h3_matches = {
     "Images for": "images",
     "Scholarly articles for": "scholarly_articles",
     "Recipes": "recipes",
-    "Popular products":"products"
+    "Popular products":"products",
+    "Related searches": "searches_related",
 }
 
 def classify_type(cmpt, cmpt_type='unknown'):
