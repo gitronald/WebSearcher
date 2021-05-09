@@ -51,7 +51,7 @@ def parse_video(sub, sub_rank=0):
                 parsed['cite'] = citetime[0].text
     else:
         parsed['cite'] = sub.find('span', {'class':'ocUPSd'}).text
-        parsed['timestamp'] = sub.find('div', {'class':'rjmdhd'}).text
+        parsed['timestamp'] = get_div_text(sub, {'class':'rjmdhd'})
 
     parsed['details'] = {} 
     parsed['details']['img_url'] = get_img_url(sub)
@@ -61,6 +61,10 @@ def parse_video(sub, sub_rank=0):
     parsed['details']['key_moments'] = True if key_moments_div else False
 
     return parsed
+
+def get_div_text(soup, details):
+    div = soup.find('div', details)
+    return div.text if div else None
 
 def get_img_url(soup):
     """Extract image source"""    
