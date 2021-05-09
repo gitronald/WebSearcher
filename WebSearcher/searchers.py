@@ -262,16 +262,7 @@ class SearchEngine(object):
         Args:
             save_dir (str, optional): Save results html as `save_dir/results_html/{serp_id}.json`
             append_to (str, optional): Append results html to this file path
-        """
-
-    def scrape_results_html(self, save_dir='.', append_to=''):
-        """Scrape and save all unique, non-internal URLs parsed from the SERP
-    
-        Args:
-            save_dir (str, optional): Save results html as `save_dir/results_html/{serp_id}.json`
-            append_to (str, optional): Append results html to this file path
-        """
-    
+        """    
         if not self.results:
             self.log.info(f'No results to scrape for serp_id {self.serp_id}')
         else:
