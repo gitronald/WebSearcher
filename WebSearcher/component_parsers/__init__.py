@@ -15,7 +15,7 @@ from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
 from .general_questions import parse_general_questions
 from .available_on import parse_available_on
-from .footer import parse_footer
+from .footer import parse_footer, parse_searches_related
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
@@ -39,6 +39,7 @@ components = [
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
     ('twitter_result', parse_twitter_result, 'Twitter Result'),
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
+    ('searches_related', parse_searches_related, 'Related Searches'),
     ('footer', parse_footer, 'Footer')
 ]
 

@@ -12,9 +12,9 @@ def parse_twitter_cards(cmpt):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    header, carousel = list(cmpt.find('g-section-with-header').children)[:2]
+    # header, carousel = list(cmpt.find('g-section-with-header').children)[:2]
+    carousel = cmpt.find('g-scrolling-carousel')
     parsed_list = parse_twitter_header(cmpt)
-
     subs = carousel.find_all('g-inner-card')
     parsed_cards = [parse_twitter_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     parsed_list.extend(parsed_cards)
@@ -45,7 +45,8 @@ def parse_twitter_header(header, sub_rank=0):
         parsed['title'] = glink.text
         parsed['url'] = glink.a['href']
 
-    parsed['cite'] = header.find('cite').text
+    if header.find('cite'):
+        parsed['cite'] = header.find('cite').text
 
     return [parsed]
 

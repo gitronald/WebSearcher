@@ -1,7 +1,7 @@
 from . import webutils
 from .component_classifier import classify_type
 from .component_parsers import type_functions
-from .component_parsers.footer import extract_footer
+from .component_parsers.footer import extract_footer, extract_footer_components
 from . import logger
 log = logger.Logger().start(__name__)
 
@@ -28,28 +28,26 @@ def parse_lang(soup):
 
 def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
     """Returns the parser for a given component type"""
-    return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else None
+    return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else defaultParser(cmpt_type)
 
-def extract_components(soup):
+def defaultParser(cmpt_type):
+    def defaultDF(cmpt):
+        parsed = {'type': 'knowledge', 'subtype': cmpt_type}
+        return [parsed]
+    return defaultDF
+
+
+def extract_results_column(soup):
     """Extract SERP components
     
     Args:
         soup (bs4): BeautifulSoup SERP
     
     Returns:
-        list: a rank ordered top-to-bottom and left-to-right list of 
-             (component location, component soup) tuples
+        list: a list of HTML result components
     """
-
-    cmpts = []
-
-    # Top Ads
-    ads = soup.find('div', {'id':'tads'})
-    if ads: 
-        cmpts.append(('ad', ads))
-
     # Check if layout contains left side bar
-    left_side_bar = soup.find('div', {'class': 'ZxoDOe'})
+    left_side_bar = soup.find('div', {'class': 'OeVqAd'})
 
     if not left_side_bar:
         # Extract results from single div
@@ -60,9 +58,11 @@ def extract_components(soup):
     else:
         # Extract results from two div sections
         rso = []
+        # rso = soup.find('div', {'id':'rso'})
 
         # Find section 1 results and append to rso list
-        section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        section1 = soup.find_all('div', {'class':'sATSHe'})
+        # section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
         for div in section1:
 
             # Conditional handling for Twitter result
@@ -72,6 +72,14 @@ def extract_components(soup):
             # Conditional handling for g-section with header
             elif div.find('g-section-with-header'): 
                 rso.append(div.find('g-section-with-header').parent)
+
+            # Include divs with a "View more" type of button
+            elif div.find('g-more-link'): 
+                rso.append(div)
+
+            # Include footer components that appear in the main column
+            elif div.find('div', {'class':'oIk2Cb'}):
+                rso.append(div)
 
             else:
                 # Handle general results
@@ -95,6 +103,28 @@ def extract_components(soup):
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
     drop_text = {'Twitter Results', ''}
     column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
+    return column
+    
+
+def extract_components(soup):
+    """Extract SERP components
+    
+    Args:
+        soup (bs4): BeautifulSoup SERP
+    
+    Returns:
+        list: a rank ordered top-to-bottom and left-to-right list of 
+             (component location, component soup) tuples
+    """
+
+    cmpts = []
+
+    # Top Ads
+    ads = soup.find('div', {'id':'tads'})
+    if ads: 
+        cmpts.append(('ad', ads))
+
+    column = extract_results_column(soup)
     cmpts.extend(column)
 
     # Bottom Ads
@@ -104,7 +134,7 @@ def extract_components(soup):
 
     # Footer results
     footer = extract_footer(soup)
-    if footer:
+    if extract_footer_components(footer):
         cmpts.append(('footer', footer))
 
     return cmpts
@@ -134,7 +164,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     try:
         parser = get_component_parser(cmpt_type)
         parsed_cmpt = parser(cmpt)
-
+        
         # Add cmpt rank to parsed
         if isinstance(parsed_cmpt, list):
             for sub_rank, sub in enumerate(parsed_cmpt):
