@@ -70,11 +70,9 @@ import WebSearcher as ws
 
 # Initialize crawler with defaults (headers, logs, ssh tunnels)
 se = ws.SearchEngine()
-
+vars(se)
 ```
 ```python
-vars(se)
-
 {'url': 'https://www.google.com/search',
  'params': {},
  'headers': {'Host': 'www.google.com',
