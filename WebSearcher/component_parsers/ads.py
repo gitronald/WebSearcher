@@ -9,7 +9,7 @@ def parse_ads(cmpt):
         subs = cmpt.find_all('div', {'class':'uEierd'})
         parser = parse_ad
 
-    return [parser(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    return [parser(sub, sub_rank) for sub_rank, sub in enumerate(subs)] if subs else []
 
 
 def parse_ad(sub, sub_rank=0, visible=None):
