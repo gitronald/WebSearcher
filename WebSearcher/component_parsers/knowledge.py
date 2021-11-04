@@ -1,6 +1,9 @@
 def get_text(div):
     return '|'.join([d.get_text(separator=' ') for d in div if d.text])
 
+def parse_alink(a):
+    return {'url': a['href'], 'text': a.get_text('|')}
+
 def parse_knowledge_panel(cmpt, sub_rank=0):
     """Parse the Knowledge Box
     
@@ -25,24 +28,69 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
     heading = cmpt.find('div', {'role':'heading'})
     details['heading'] = heading.text if heading else None
 
+    alinks = cmpt.find_all('a')
+    if alinks:
+        details['urls'] = [
+            parse_alink(a) 
+            for a in alinks 
+            if 'href' in a.attrs and a['href'] != '#'
+        ] 
+
     # Get all text
-    if cmpt.find('h2') and cmpt.find('h2').text == 'Featured snippet from the web':
-        details['subtype'] = 'featured_snippet'
+    if (
+        cmpt.find('h2') and cmpt.find('h2').text == 'Featured snippet from the web' or 
+        cmpt.find('div', {'class':'answered-question'})
+    ):
+        parsed['subtype'] = 'featured_snippet'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
-        details['subtype'] = 'unit_converter'
+        parsed['subtype'] = 'unit_converter'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Sports Results':
-        details['subtype'] = 'sports'
+        parsed['subtype'] = 'sports'
         div = cmpt.find('div', {'class':'SwsxUd'})
         details['text'] = div.text if div else None
 
+    elif cmpt.find('h2') and cmpt.find('h2').text == 'Weather Result':
+        parsed['subtype'] = 'weather'
+        span = cmpt.find('span')
+        details['text'] = get_text(span) if span else None
+
+    elif (
+        cmpt.find('h2') and cmpt.find('h2').text == 'Finance Results' or
+        cmpt.find('div', {'id':'knowledge-finance-wholepage__entity-summary'})
+    ):
+        parsed['subtype'] = 'finance'
+        span = cmpt.find('span')
+        details['text'] = get_text(span) if span else None
+
+    elif cmpt.find('div', {'role':'button'}) and cmpt.find('div', {'role':'button'}).text == 'Dictionary':
+        parsed['subtype'] = 'dictionary'
+        span = cmpt.find('span', {'jsslot':''}).find_all('span')
+        details['text'] = get_text(span).split('Translate')[0] if span else None
+
+    elif (
+        cmpt.find('h2') and cmpt.find('h2').text == 'Translation Result' or
+        cmpt.find('h2') and cmpt.find('h2').text == 'Resultado de traducción'
+    ):
+        parsed['subtype'] = 'translate'
+        span = cmpt.find_all('span')
+        details['text'] = get_text(span).split('Community Verified')[0] if span else None
+
+    elif cmpt.find('h2') and cmpt.find('h2').text == 'Calculator Result':
+        parsed['subtype'] = 'calculator'
+
+    elif details['heading'] == '2020 US election results':
+        parsed['subtype'] = 'election'
+        span = cmpt.find_all(['span'])
+        details['text'] = get_text(span) if span else None
+
     else:
-        details['subtype'] = 'panel'
+        parsed['subtype'] = 'panel'
         div = cmpt.find_all(['span','div','a'], text=True)
         details['text'] = get_text(div) if div else None
 
