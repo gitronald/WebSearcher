@@ -52,7 +52,7 @@ def extract_results_column(soup):
     if not left_side_bar:
         # Extract results from single div
         rso = soup.find('div', {'id':'rso'})
-        drop_tags = {'script', 'style'}
+        drop_tags = {'script', 'style', None}
         column = [('main', c) for c in rso.children if c.name not in drop_tags]
 
     else:
@@ -119,6 +119,12 @@ def extract_components(soup):
 
     cmpts = []
 
+    # Top Image Carousel
+    top_bar = soup.find('div', {'id':'appbar'})
+    if top_bar:
+        if top_bar.find('g-scrolling-carousel') and top_bar.find('g-img'):
+            cmpts.append(('top_image_carousel', top_bar))
+
     # Top Ads
     ads = soup.find('div', {'id':'tads'})
     if ads: 
@@ -134,9 +140,17 @@ def extract_components(soup):
 
     # Footer results
     footer = extract_footer(soup)
-    if extract_footer_components(footer):
+    if footer and extract_footer_components(footer):
         cmpts.append(('footer', footer))
 
+    # RHS Knowledge Panel 
+    rhs = soup.find('div', {'id': 'rhs'})
+    if rhs:
+        rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel']})
+        if rhs_kp:
+            # reading from top-to-bottom, left-to-right
+            cmpts.append(('knowledge_rhs', rhs_kp))
+            
     return cmpts
 
 def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
