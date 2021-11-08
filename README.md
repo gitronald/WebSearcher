@@ -10,6 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
+`0.2.10` - a) Add right-hand-side knowledge panel and top image carousel, b) Add knowledge and general component subtypes, c) Updates to component classifier, footer, ad, and people_also_ask components
+
 `0.2.9` - Various fixes for SERPs with a left-hand side bar, which are becoming more common and change other parts of the SERP layout.
 
 `0.2.8` - Small fixes due to HTML changes, such as missing titles and URLs in general components
