@@ -3,6 +3,12 @@ h2_matches = {
     "Featured snippet from the web": "knowledge",
     "Unit Converter": "knowledge",
     "Sports Results": "knowledge",
+    "Weather Result": "knowledge",
+    "Finance Results": "knowledge",
+    "Calculator Result": "knowledge",
+    "Translation Result":"knowledge",
+    "Resultado de traducción": "knowledge",
+    "Knowledge Result":"knowledge",
     "Web results": "general",
     "Resultados de la Web": "general",
     "Web Result with Site Links": "general",
@@ -10,7 +16,7 @@ h2_matches = {
     "Map Results": "map_results",
     "People also ask": "people_also_ask",
     "Twitter Results": "twitter",
-    "Translation Result":"translate"}
+}
 
 # Classifications based on H3 Headings
 h3_matches = {
@@ -42,25 +48,23 @@ def classify_type(cmpt, cmpt_type='unknown'):
     h3 = cmpt.find('h3')
     g_tray = cmpt.find('g-tray-header')
     g_section = cmpt.find('g-section-with-header')
+    carousel = cmpt.find('g-scrolling-carousel')
     g_accordian = cmpt.find('g-accordion')
     related_question_pair = cmpt.find('related-question-pair')
     knowledge = cmpt.find('div', {'class':['knowledge-panel','knavi','kp-blk']})
+    finance = cmpt.find('div', {'id':'knowledge-finance-wholepage__entity-summary'})
     img_box = cmpt.find('div', {'id':'imagebox_bigimages'})
     hybrid = cmpt.find('div', {'class':'ifM9O'})
     twitter = cmpt.find_previous().text == "Twitter Results"
 
     if 'class' in cmpt.attrs.keys() and cmpt.attrs['class'][0] == 'hlcw0c':
         cmpt_type='general'
-        
-    # Checks a g-section for a specific id to classify as top stories as not all
+    
+    # Checks a g-scrolling-carousel for a specific id to classify as top stories as not all
     # top stories have an h3 tag
-    if g_section:
-        car = g_section.find('g-scrolling-carousel')
-        if car:
-            if 'class' in car.attrs and car.attrs['class'][0] == 'F8yfEe':
-                cmpt_type = 'top_stories'
-    else:
-       g_section =  cmpt.find('g-scrolling-carousel')
+    if carousel:
+        if 'class' in carousel.attrs and carousel.attrs['class'][0] == 'F8yfEe':
+            cmpt_type = 'top_stories'
 
     # Check component header
     cmpt_header = cmpt.find('div', {'class':'mfMhoc'})
@@ -84,13 +88,14 @@ def classify_type(cmpt, cmpt_type='unknown'):
     # Twitter subtype
     
     if twitter or cmpt_type == 'twitter':
-        cmpt_type = 'twitter_cards' if g_section else 'twitter_result'
+        cmpt_type = 'twitter_cards' if carousel else 'twitter_result'
 
     # Check for binary match only divs (exists/doesn't exist)
     if cmpt_type == 'unknown':
         if img_box: cmpt_type = 'images'
-        if knowledge: cmpt_type = 'knowledge'
-        if hybrid and g_accordian: cmpt_type = 'general_questions'
+        elif knowledge: cmpt_type = 'knowledge'
+        elif finance: cmpt_type = 'knowledge'
+        elif hybrid and g_accordian: cmpt_type = 'general_questions'
 
     # Check for available on divs
     if '/Available on' in cmpt.text:
@@ -98,7 +103,7 @@ def classify_type(cmpt, cmpt_type='unknown'):
 
     # Check if component is only of class 'g'
     if 'class' in cmpt.attrs:
-        if cmpt.attrs['class'][0] == 'g':
+        if cmpt.attrs['class'] == ['g']:
             cmpt_type = 'general'
 
     if 'class' in cmpt.attrs.keys() and cmpt.attrs['class'] == ['g', 'kno-kp', 'mnr-c', 'g-blk']:
@@ -112,8 +117,9 @@ def classify_type(cmpt, cmpt_type='unknown'):
             cmpt_type='jobs'
                
     # print(cmpt.attrs)
-    if 'data-hveid' in cmpt.attrs.keys() and cmpt.attrs['data-hveid'] == 'CAMQAA':
-        cmpt_type='maps'
+    if cmpt_type == 'unknown':
+        if 'data-hveid' in cmpt.attrs.keys() and cmpt.attrs['data-hveid'] == 'CAMQAA':
+            cmpt_type='maps'
         
     # if cmpt_type == 'unknown':
     #     print(jmodel)    
