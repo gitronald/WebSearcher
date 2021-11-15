@@ -32,6 +32,8 @@ def classify_footer_component(cmpt):
             return 'discover_more'
         elif h3 and h3.text.strip() == 'Related searches':
             return 'searches_related'
+        elif h3 and h3.text.strip() == 'People also search for':
+            return 'searches_related'
         else:
             return 'unknown'
     elif gsection:

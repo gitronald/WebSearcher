@@ -1,4 +1,4 @@
-# WebSearcher 0.2.9  
+# WebSearcher 0.2.10  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -9,6 +9,8 @@ for decomposing a SERP into list of components with categorical classifications
 and position-based specifications.
 
 ## Recent Changes
+
+`0.2.10` - a) Add right-hand-side knowledge panel and top image carousel, b) Add knowledge and general component subtypes, c) Updates to component classifier, footer, ad, and people_also_ask components
 
 `0.2.9` - Various fixes for SERPs with a left-hand side bar, which are becoming more common and change other parts of the SERP layout.
 
@@ -32,7 +34,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.9](#websearcher-029)
+- [WebSearcher 0.2.10](#websearcher-029)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)

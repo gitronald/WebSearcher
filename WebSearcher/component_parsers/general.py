@@ -1,3 +1,5 @@
+import re
+
 def parse_general_results(cmpt):
     """Parse a general component
 
@@ -75,16 +77,34 @@ def parse_general_result(sub, sub_rank=0):
             parsed['text'] = body.text
             parsed['timestamp'] = None
 
-    # Check for submenu and parse
-    if sub.find('div', {'class':'P1usbc'}):
-        parsed['type'] = 'general_submenu'
-        alinks = sub.find('div', {'class':'P1usbc'}).find_all('a')
-        parsed['details'] = parse_general_extra(sub)
-    elif sub.find('table'):
-        parsed['type'] = 'general_submenu'
-        alinks = sub.find('table').find_all('a')
+    # Check for subtype and parse 
+    if sub.find('g-review-stars'):
+        parsed['subtype'] = 'submenu_rating'
+        text = sub.find('g-review-stars').next_sibling.text.strip()
+        if len(text):
+            parsed['details'] = parse_ratings(text.split('-'))
+    elif sub.find('div', {'class': ['P1usbc', 'IThcWe']}):
+        parsed['subtype'] = 'submenu'
+        alinks = sub.find('div', {'class': ['P1usbc', 'IThcWe']}).find_all('a')
+        #parsed['details'] = parse_general_extra(sub)
         parsed['details'] = [parse_alink(a) for a in alinks]
-
+    elif sub.find('table'):
+        parsed['subtype'] = 'submenu'
+        alinks = sub.find('table').find_all('a')
+        parsed['details'] = [parse_alink(a) for a in alinks if 'href' in a.attrs]
+    elif sub.find('div', {'class': ['osl', 'jYOxx']}):
+        parsed['subtype'] = 'submenu_mini'  
+        alinks = sub.find('div', {'class':['osl','jYOxx']}).find_all('a')
+        parsed['details'] = [parse_alink(a) for a in alinks]
+    elif sub.find('div', {'class': re.compile('fG8Fp')}):
+        alinks = sub.find('div', {'class': re.compile('fG8Fp')}).find_all('a')
+        text = sub.find('div', {'class': re.compile('fG8Fp')}).text
+        if len(alinks) and 'Cited by' in alinks[0].text:
+            parsed['subtype'] = 'submenu_scholarly'
+            parsed['details'] = [parse_alink(a) for a in alinks]
+        elif '$' in text:
+            parsed['subtype'] = 'submenu_product'
+            parsed['details'] = parse_product(text) 
     return parsed
 
 def parse_alink(a): 
@@ -95,3 +115,38 @@ def parse_general_extra(sub):
     item_list = list(sub.find('div', {'class':'P1usbc'}).children)
     ' | '.join([i.text for i in item_list])
     return 
+
+def parse_ratings(text):
+    """Parse ratings that appear below some general components"""
+
+    text = [t.strip() for t in text]
+    numeric = re.compile('^\d*[.]?\d*$')
+    rating = re.split('Rating: ', text[0])[-1]
+    if numeric.match(rating):
+        details = {'rating': float(rating)}
+    else:
+        details = {'rating': rating}
+    
+    str_match_0 = re.compile(' vote[s]?| review[s]?')
+    str_match_1 = re.compile('Review by')
+    if str_match_0.search(text[1]):
+        reviews = re.split(str_match_0, text[1])[0]
+        reviews = reviews.replace(',','')[1:] # [1:] drops unicode char
+        details['reviews'] = int(reviews)
+    elif str_match_1.search(text[1]):
+        details['reviews'] = 1
+        
+    # could parse other fields
+    # (price, os, category) for products
+    # (time, cals) for recipes
+
+    return details
+
+def parse_product(text):
+    """Parse price and stock that appears below some general components"""
+    split_match = re.compile('-|·')
+    text = re.split(split_match, text)
+    if len(text) == 1:
+        return {'price': text[0].strip()[1:]}
+    else:
+        return {'price': text[0].strip()[1:], 'stock': text[1].strip()[1:]}
