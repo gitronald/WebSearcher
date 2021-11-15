@@ -113,8 +113,7 @@ def parse_alink(a):
 def parse_general_extra(sub):
     """Parse submenu that appears below some general components"""
     item_list = list(sub.find('div', {'class':'P1usbc'}).children)
-    ' | '.join([i.text for i in item_list])
-    return 
+    return ' | '.join([i.text for i in item_list])
 
 def parse_ratings(text):
     """Parse ratings that appear below some general components"""
