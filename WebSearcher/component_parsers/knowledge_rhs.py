@@ -9,10 +9,11 @@ def parse_knowledge_rhs(cmpt, sub_rank=0):
     """
     
     parsed_list = parse_knowledge_rhs_main(cmpt)
-    description = cmpt.find('h2', {'class':'Uo8X3b'}).parent
-    subs = [s for s in description.next_siblings]
-    parsed_subs = [parse_knowledge_rhs_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    parsed_list.extend(parsed_subs)
+    description = cmpt.find('h2', {'class':'Uo8X3b'})
+    if description and description.parent:
+        subs = [s for s in description.parent.next_siblings]
+        parsed_subs = [parse_knowledge_rhs_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+        parsed_list.extend(parsed_subs)
     return parsed_list
 
 def parse_knowledge_rhs_main(cmpt, sub_rank=0):
@@ -32,8 +33,10 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
 
     # images TODO missing single image to right of title
     if cmpt.find('h3') and cmpt.find('h3').text == 'Images':
-        imgs = cmpt.find('h3').next_sibling.find_all('a')
-        parsed['img_urls'] = [img['href'] for img in imgs]
+        sibling = cmpt.find('h3').next_sibling
+        if sibling:
+            imgs = sibling.find_all('a')
+            parsed['img_urls'] = [img['href'] for img in imgs if 'href' in img.attrs]
     
     # title, subtitle
     if cmpt.find('h2', {'data-attrid':'title'}):
@@ -42,18 +45,20 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
         parsed['subtitle'] = cmpt.find('div', {'data-attrid':'subtitle'}).text
 
     # description
-    description = cmpt.find('h2', {'class':'Uo8X3b'}).parent
-    if description.find('span'):
-        parsed['text'] = description.find('span').text
-        if description.find('a') and 'href' in description.find('a').attrs:
-            parsed['url'] = description.find('a')['href']
+    description = cmpt.find('h2', {'class':'Uo8X3b'})
+    if description and description.parent: 
+        if description.parent.find('span'):
+            parsed['text'] = description.parent.find('span').text
+        if description.parent.find('a') and 'href' in description.parent.find('a').attrs:
+            parsed['url'] = description.parent.find('a')['href']
 
     # submenu
-    alinks = description.find_all('a')
-    if description.previous_sibling:
-        alinks += description.previous_sibling.find_all('a')
-    if len(alinks) > 1: # 1st match has main description
-        parsed['details'] = [parse_alink(a) for a in alinks[1:] if 'href' in a.attrs] 
+    if description and description.parent:
+        alinks = description.parent.find_all('a')
+        if description.parent.previous_sibling:
+            alinks += description.parent.previous_sibling.find_all('a')
+        if len(alinks) > 1: # 1st match has main description
+            parsed['details'] = [parse_alink(a) for a in alinks[1:] if 'href' in a.attrs] 
 
     return [parsed]
 
