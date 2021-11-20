@@ -80,14 +80,15 @@ def parse_general_result(sub, sub_rank=0):
     # Check for subtype and parse 
     if sub.find('g-review-stars'):
         parsed['subtype'] = 'submenu_rating'
-        text = sub.find('g-review-stars').next_sibling.text.strip()
-        if len(text):
-            parsed['details'] = parse_ratings(text.split('-'))
+        sibling = sub.find('g-review-stars').next_sibling
+        if sibling and len(sibling.text.strip()):
+            text = sibling.text.strip().split('-')
+            parsed['details'] = parse_ratings(text)
     elif sub.find('div', {'class': ['P1usbc', 'IThcWe']}):
         parsed['subtype'] = 'submenu'
         alinks = sub.find('div', {'class': ['P1usbc', 'IThcWe']}).find_all('a')
         #parsed['details'] = parse_general_extra(sub)
-        parsed['details'] = [parse_alink(a) for a in alinks]
+        parsed['details'] = [parse_alink(a) for a in alinks if 'href' in a.attrs]
     elif sub.find('table'):
         parsed['subtype'] = 'submenu'
         alinks = sub.find('table').find_all('a')
@@ -95,13 +96,13 @@ def parse_general_result(sub, sub_rank=0):
     elif sub.find('div', {'class': ['osl', 'jYOxx']}):
         parsed['subtype'] = 'submenu_mini'  
         alinks = sub.find('div', {'class':['osl','jYOxx']}).find_all('a')
-        parsed['details'] = [parse_alink(a) for a in alinks]
+        parsed['details'] = [parse_alink(a) for a in alinks if 'href' in a.attrs]
     elif sub.find('div', {'class': re.compile('fG8Fp')}):
         alinks = sub.find('div', {'class': re.compile('fG8Fp')}).find_all('a')
         text = sub.find('div', {'class': re.compile('fG8Fp')}).text
         if len(alinks) and 'Cited by' in alinks[0].text:
             parsed['subtype'] = 'submenu_scholarly'
-            parsed['details'] = [parse_alink(a) for a in alinks]
+            parsed['details'] = [parse_alink(a) for a in alinks if 'href' in a.attrs]
         elif '$' in text:
             parsed['subtype'] = 'submenu_product'
             parsed['details'] = parse_product(text) 
