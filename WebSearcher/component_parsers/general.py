@@ -81,9 +81,10 @@ def parse_general_result(sub, sub_rank=0):
     if sub.find('g-review-stars'):
         parsed['subtype'] = 'submenu_rating'
         sibling = sub.find('g-review-stars').next_sibling
-        if sibling and len(sibling.text.strip()):
-            text = sibling.text.strip().split('-')
-            parsed['details'] = parse_ratings(text)
+        if sibling:
+            text = str(sibling).strip()
+            if len(text):
+                parsed['details'] = parse_ratings(text.split('-'))
     elif sub.find('div', {'class': ['P1usbc', 'IThcWe']}):
         parsed['subtype'] = 'submenu'
         alinks = sub.find('div', {'class': ['P1usbc', 'IThcWe']}).find_all('a')
