@@ -184,8 +184,9 @@ class SearchEngine(object):
         """
         try:
             import brotli
+            external_module = True
         except ImportError:
-            external_module = None 
+            external_module = False 
 
         if external_module:
             try:
