@@ -5,7 +5,8 @@ import pandas as pd
 import WebSearcher as ws
 
 # Retrieve and save latest location data 
-data_dir = './location_data'
+data_dir = 'data/locations'
+os.makedirs(data_dir, exist_ok=True)
 ws.download_locations(data_dir)
 
 # Read it back in
