@@ -31,7 +31,8 @@ def parse_local_result(sub, sub_rank=0):
     parsed['title'] = sub.find('div', {'class','dbg0pd'}).text
 
     # Extract summary details
-    detail_divs = sub.find('span', {'class':'rllt__details'}).find_all('div')
+    detail_div = sub.find('span', {'class':'rllt__details'})
+    detail_divs = detail_div.find_all('div') if detail_div else None
 
     # Extract rating and location type
     if detail_divs:
@@ -43,10 +44,10 @@ def parse_local_result(sub, sub_rank=0):
             local_details['n_reviews'] = int(n_reviews)
         local_details['loc_label'] = rating_div.text.split('·')[-1].strip()
 
-    # Extract contact details
-    if len(detail_divs) > 1:
-        contact_div = detail_divs[1]
-        local_details['contact'] = contact_div.text
+        # Extract contact details
+        if len(detail_divs) > 1:
+            contact_div = detail_divs[1]
+            local_details['contact'] = contact_div.text
 
     # Extract various links
     links = [a.attrs['href'] for a in sub.find_all('a') if 'href' in a.attrs]

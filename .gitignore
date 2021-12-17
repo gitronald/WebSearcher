@@ -3,6 +3,7 @@ build
 dist
 images
 data
+notebooks
 notes.md
 tests
 venv
