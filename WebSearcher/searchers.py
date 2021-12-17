@@ -7,6 +7,7 @@ from . import logger
 import os
 import json
 import time
+import brotli
 import requests
 from hashlib import sha224
 from datetime import datetime
@@ -36,7 +37,7 @@ class SearchEngine(object):
         user_agent=default_ua, 
         accept_encoding=default_encoding,
         accept_language=default_language,
-        unzip=False):
+        unzip=True):
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
         
@@ -182,23 +183,16 @@ class SearchEngine(object):
         Returns:
             str: Decompressed html
         """
-        try:
-            import brotli
-            external_module = True
-        except ImportError:
-            external_module = False 
 
-        if external_module:
-            try:
-                self.html = brotli.decompress(self.response.content)
-            except brotli.error:
-                self.html = self.response.content
-            except Exception:
-                self.log.exception(f'unzip error | serp_id : {self.serp_id}')
-                self.html = self.response.content
-        else:
-            print("To use the `unzip` arg, first run `pip install brotli`.")
-        
+        rcontent = self.response.content
+        try:
+            self.html = brotli.decompress(rcontent)
+        except brotli.error:
+            self.html = rcontent
+        except Exception:
+            self.log.exception(f'unzip error | serp_id : {self.serp_id}')
+            self.html = rcontent
+
 
     def save_serp(self, save_dir='.', append_to=''):
         """Save SERP to file
