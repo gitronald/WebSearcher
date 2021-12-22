@@ -10,6 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
+`0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
+
 `0.2.12` - Try to brotli decompress by default
 
 `0.2.11` - Fixed local result parser and no return in general extra details
