@@ -57,21 +57,19 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Weather Result':
         parsed['subtype'] = 'weather'
-        span = cmpt.find('span')
-        details['text'] = get_text(span) if span else None
 
     elif (
         cmpt.find('h2') and cmpt.find('h2').text == 'Finance Results' or
         cmpt.find('div', {'id':'knowledge-finance-wholepage__entity-summary'})
     ):
         parsed['subtype'] = 'finance'
-        span = cmpt.find('span')
-        details['text'] = get_text(span) if span else None
 
     elif cmpt.find('div', {'role':'button'}) and cmpt.find('div', {'role':'button'}).text == 'Dictionary':
         parsed['subtype'] = 'dictionary'
-        span = cmpt.find('span', {'jsslot':''}).find_all('span')
-        details['text'] = get_text(span).split('Translate')[0] if span else None
+        span_first = cmpt.find('span', {'jsslot':''})
+        if span_first:
+            span = span_first.find_all('span')
+            details['text'] = get_text(span).split('Translate')[0] if span else None
 
     elif (
         cmpt.find('h2') and cmpt.find('h2').text == 'Translation Result' or

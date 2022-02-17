@@ -33,7 +33,8 @@ def parse_ad(sub, sub_rank=0, visible=None):
     if bottom_section:
         list_items = sub.find_all('div', {'role':'listitem'})
         if list_items:
-            parsed['details'] = [i.find('a')['href'] for i in list_items]
+            alinks = [i.find('a') for i in list_items]
+            parsed['details'] = [a['href'] for a in alinks if a]
     
     return parsed
 

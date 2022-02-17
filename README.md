@@ -1,4 +1,4 @@
-# WebSearcher 0.2.12  
+# WebSearcher 0.2.13  
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -9,6 +9,8 @@ for decomposing a SERP into list of components with categorical classifications
 and position-based specifications.
 
 ## Recent Changes
+
+`0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
 
 `0.2.12` - Try to brotli decompress by default
 
@@ -38,7 +40,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 
 ## Table of Contents
 
-- [WebSearcher 0.2.12](#websearcher-0212)
+- [WebSearcher 0.2.13](#websearcher-0212)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
