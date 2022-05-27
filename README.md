@@ -10,6 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
+`0.2.14` - Add shopping ads carousel and three knowledge subtypes (flights, hotels, events)
+
 `0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
 
 `0.2.12` - Try to brotli decompress by default
