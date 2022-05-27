@@ -14,7 +14,7 @@ description, long_description = get_readme_descriptions()
 
 setuptools.setup(
     name='WebSearcher',
-    version='0.2.13',
+    version='0.2.14',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@ccs.neu.edu',
