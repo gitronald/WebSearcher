@@ -112,13 +112,14 @@ def classify_type(cmpt, cmpt_type="unknown"):
             cmpt_type = "general"
 
     # check for people also ask
-    if "class" in cmpt.attrs.keys() and cmpt.attrs["class"] == [
-        "g",
-        "kno-kp",
-        "mnr-c",
-        "g-blk",
-    ]:
-        cmpt_type = "people_also_ask"
+    if cmpt_type == "unknown":
+        if "class" in cmpt.attrs.keys() and cmpt.attrs["class"] == [
+            "g",
+            "kno-kp",
+            "mnr-c",
+            "g-blk",
+        ]:
+            cmpt_type = "people_also_ask"
 
     # check for flights, maps, hotels, events, jobs
     if cmpt_type == "unknown":
@@ -131,9 +132,7 @@ def classify_type(cmpt, cmpt_type="unknown"):
             cmpt_type = "flights"
         elif "data-hveid" in cmpt.attrs.keys() and cmpt.attrs["data-hveid"] == "CAMQAA":
             cmpt_type = "maps"
-        elif cmpt.find("div", {"jsmodel": "xjY0Ec"}):
-            cmpt_type = "hotels"
-        elif cmpt.find("div", {"data-hveid": ["CAEQAQ", "CAEQAw"]}):
+        elif cmpt.find("div", {"class": "zd2Jbb"}):
             cmpt_type = "hotels"
         elif cmpt.find("g-card", {"class": "URhAHe"}):
             cmpt_type = "events"
