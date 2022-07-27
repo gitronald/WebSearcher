@@ -18,6 +18,7 @@ from .available_on import parse_available_on
 from .footer import parse_footer, parse_searches_related
 from .top_image_carousel import parse_top_image_carousel
 from .knowledge_rhs import parse_knowledge_rhs
+from .shopping_ads import parse_shopping_ads
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
@@ -44,7 +45,8 @@ components = [
     ('searches_related', parse_searches_related, 'Related Searches'),
     ('footer', parse_footer, 'Footer'),
     ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
-    ('knowledge_rhs', parse_knowledge_rhs, 'Knowledge RHS')
+    ('knowledge_rhs', parse_knowledge_rhs, 'Knowledge RHS'),
+    ('shopping_ad', parse_shopping_ads, 'Shopping Ad')
 ]
 
 # Format {type: function}

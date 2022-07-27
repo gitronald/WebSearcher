@@ -122,8 +122,14 @@ def extract_components(soup):
     # Top Image Carousel
     top_bar = soup.find('div', {'id':'appbar'})
     if top_bar:
-        if top_bar.find('g-scrolling-carousel') and top_bar.find('g-img'):
+        has_img = top_bar.find(lambda tag: tag.has_attr('src') and not tag.has_attr('data-src'))
+        if top_bar.find('g-scrolling-carousel') and has_img:
             cmpts.append(('top_image_carousel', top_bar))
+
+    # Shopping Ads
+    shopping_ads = soup.find('div', {'class': 'commercial-unit-desktop-top'})
+    if shopping_ads:
+        cmpts.append(('shopping_ad', shopping_ads))
 
     # Top Ads
     ads = soup.find('div', {'id':'tads'})
