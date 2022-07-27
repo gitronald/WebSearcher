@@ -128,14 +128,15 @@ def parse_ratings(text):
     else:
         details = {'rating': rating}
     
-    str_match_0 = re.compile(' vote[s]?| review[s]?')
-    str_match_1 = re.compile('Review by')
-    if str_match_0.search(text[1]):
-        reviews = re.split(str_match_0, text[1])[0]
-        reviews = reviews.replace(',','')[1:] # [1:] drops unicode char
-        details['reviews'] = int(reviews)
-    elif str_match_1.search(text[1]):
-        details['reviews'] = 1
+    if len(text) > 1:
+        str_match_0 = re.compile(' vote[s]?| review[s]?')
+        str_match_1 = re.compile('Review by')
+        if str_match_0.search(text[1]):
+            reviews = re.split(str_match_0, text[1])[0]
+            reviews = reviews.replace(',','')[1:] # [1:] drops unicode char
+            details['reviews'] = int(reviews)
+        elif str_match_1.search(text[1]):
+            details['reviews'] = 1
         
     # could parse other fields
     # (price, os, category) for products
