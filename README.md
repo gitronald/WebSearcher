@@ -10,6 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
+`0.2.15` - Fix people-also-ask and hotel false positives, add flag for left-hand side bar
+
 `0.2.14` - Add shopping ads carousel and three knowledge subtypes (flights, hotels, events)
 
 `0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
