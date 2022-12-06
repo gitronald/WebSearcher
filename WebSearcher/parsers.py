@@ -233,5 +233,6 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
         p['lang'] = parse_lang(soup)
         p['serp_id'] = serp_id
         p['serp_rank'] = serp_rank
+        p['lhs_bar'] = soup.find('div', {'class': 'OeVqAd'}) is not None
         
     return parsed
