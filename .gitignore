@@ -2,6 +2,7 @@ archive
 build
 dist
 images
+code
 data
 notebooks
 notes.md
@@ -10,3 +11,4 @@ venv
 rsync_to_*.sh
 *.egg-info
 *__pycache__
+*.code-workspace

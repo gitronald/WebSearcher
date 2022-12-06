@@ -16,4 +16,5 @@ else:
     parsed = ws.parse_serp(soup)
     results = pd.DataFrame(parsed)
 
+    # Obtain HTML component list for examination
     cmpts = ws.extract_components(soup)
