@@ -1,4 +1,4 @@
-# WebSearcher 0.2.15  
+# WebSearcher
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
@@ -8,43 +8,17 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
-## Recent Changes
-
-`0.2.15` - Fix people-also-ask and hotel false positives, add flag for left-hand side bar
-
-`0.2.14` - Add shopping ads carousel and three knowledge subtypes (flights, hotels, events)
-
-`0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
-
-`0.2.12` - Try to brotli decompress by default
-
-`0.2.11` - Fixed local result parser and no return in general extra details
-
-`0.2.10` - a) Add right-hand-side knowledge panel and top image carousel, b) Add knowledge and general component subtypes, c) Updates to component classifier, footer, ad, and people_also_ask components
-
-`0.2.9` - Various fixes for SERPs with a left-hand side bar, which are becoming more common and change other parts of the SERP layout.
-
-`0.2.8` - Small fixes due to HTML changes, such as missing titles and URLs in general components
-
-`0.2.7` - Added fix for parsing twitter cards, removed pandas dependencies and 
-several unused functions, moving towards greater package simplicity.
-
-`0.2.6` - Updated ad parser for latest format, still handles older ad format.
-
-`0.2.5` -  Google Search, like most online platforms, undergoes changes over time. 
-These changes often affect not just their outward appearance, but the underlying 
-code that parsers depend on. This makes parsing a goal with a moving target. 
-Sometime around February 2020, Google changed a few elements of their HTML 
-structure which broke this parser. I created this patch for these changes, 
-but have not tested its backwards compatibility (e.g. on SERPs collected prior to 
-2/2020). More generally, there's no guarantee on future compatibility. In fact, 
-there is almost certainly the opposite: more changes will inevitably occur. 
-If you have older data that you need to parse and the current parser doesn't work, 
-you can try using `0.2.1`, or send a pull request if you find a way to make both work!
+As of December 2022, version numbers correspond to the date of the data collection 
+that the parser was last optimized to perform on. For example, version 2022.12.19 
+will have been developed using data collected on December 19, 2022. Given that 
+changes occur in HTML over time, HTML parsers often need updating, and this new 
+version scheme should help to select which version to use for a historical dataset.
+The last version prior to December 2022 was optimized for mid-to-late 2020 data,
+and is available as version `2020.0.0`.
 
 ## Table of Contents
 
-- [WebSearcher 0.2.15](#websearcher-0212)
+- [WebSearcher](#websearcher)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
   - [Recent Changes](#recent-changes)
   - [Table of Contents](#table-of-contents)
@@ -277,6 +251,43 @@ Coming next:
 2. Add parser file in `/component_parsers` as `cmpt_name.py`, with function `parse_cmpt_name`.
 3. Add import for `parse_cmpt_name` in `/component_parsers/__init__.py`
 
+
+---
+## Recent Changes
+
+`0.2.15` - Fix people-also-ask and hotel false positives, add flag for left-hand side bar
+
+`0.2.14` - Add shopping ads carousel and three knowledge subtypes (flights, hotels, events)
+
+`0.2.13` - Small fixes for knowledge subtypes, general subtypes, and ads
+
+`0.2.12` - Try to brotli decompress by default
+
+`0.2.11` - Fixed local result parser and no return in general extra details
+
+`0.2.10` - a) Add right-hand-side knowledge panel and top image carousel, b) Add knowledge and general component subtypes, c) Updates to component classifier, footer, ad, and people_also_ask components
+
+`0.2.9` - Various fixes for SERPs with a left-hand side bar, which are becoming more common and change other parts of the SERP layout.
+
+`0.2.8` - Small fixes due to HTML changes, such as missing titles and URLs in general components
+
+`0.2.7` - Added fix for parsing twitter cards, removed pandas dependencies and 
+several unused functions, moving towards greater package simplicity.
+
+`0.2.6` - Updated ad parser for latest format, still handles older ad format.
+
+`0.2.5` -  Google Search, like most online platforms, undergoes changes over time. 
+These changes often affect not just their outward appearance, but the underlying 
+code that parsers depend on. This makes parsing a goal with a moving target. 
+Sometime around February 2020, Google changed a few elements of their HTML 
+structure which broke this parser. I created this patch for these changes, 
+but have not tested its backwards compatibility (e.g. on SERPs collected prior to 
+2/2020). More generally, there's no guarantee on future compatibility. In fact, 
+there is almost certainly the opposite: more changes will inevitably occur. 
+If you have older data that you need to parse and the current parser doesn't work, 
+you can try using `0.2.1`, or send a pull request if you find a way to make both work!
+
+
 ---  
 ## Similar Packages
 
@@ -311,7 +322,7 @@ Some of the other projects are still ongoing and very interesting in their own w
 ---  
 ## License
 
-Copyright (C) 2017-2020 Ronald E. Robertson <ronaldrobertson42@gmail.com>
+Copyright (C) 2017-2022 Ronald E. Robertson <ronaldrobertson42@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
