@@ -1,5 +1,5 @@
 [version]
-current = "0.2.15"
+current = "2020.0.0"
 
 # Must match current_version
 regex = '''
