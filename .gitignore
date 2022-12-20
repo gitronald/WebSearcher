@@ -9,6 +9,7 @@ notes.md
 tests
 venv
 rsync_to_*.sh
+desktop.ini
 *.egg-info
 *__pycache__
 *.code-workspace
