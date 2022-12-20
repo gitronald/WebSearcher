@@ -24,8 +24,9 @@ def classify_type(cmpt):
     hybrid = cmpt.find("div", {"class": "ifM9O"})
     twitter = cmpt.find_previous().text == "Twitter Results"
 
-    if "class" in cmpt.attrs and cmpt.attrs["class"][0] == "hlcw0c":
-        cmpt_type = "general"
+    if "class" in cmpt.attrs:
+        if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
+            cmpt_type = "general"
 
     # Checks a g-scrolling-carousel for a specific id to classify as not all 
     # top_stories have an h3 tag
