@@ -13,8 +13,8 @@ that the parser was last optimized to perform on. For example, version 2022.12.1
 will have been developed using data collected on December 19, 2022. Given that 
 changes occur in HTML over time, HTML parsers often need updating, and this new 
 version scheme should help to select which version to use for a historical dataset.
-The last version prior to December 2022 was optimized for mid-to-late 2020 data,
-and is available as version `2020.0.0`.
+The last version prior to December 2022 (`0.1.25`) was optimized for mid-to-late 
+2020 data, and is available as version `2020.0.0`.
 
 ## Table of Contents
 
