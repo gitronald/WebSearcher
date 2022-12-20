@@ -1,5 +1,5 @@
 [version]
-current = "0.1.27-d"
+current = "0.2.15"
 
 # Must match current_version
 regex = '''
@@ -17,8 +17,15 @@ regex = '''
 message_template = "Bump to {new_version}"
 tag_template = "v{new_version}"
 
-# Add [[file]] configs 
 [[file]]
 src = "setup.py" # path relative tbump.toml
-version_template = '{major}.{minor}.{patch}-{extra}'
-# search = "version_info = {current_version}" # search string
+version_template = '{major}.{minor}.{patch}'
+
+[[file]]
+src = "README.md" # path relative tbump.toml
+search = "WebSearcher {current_version}" # search string
+version_template = '{major}.{minor}.{patch}'
+
+[[file]]
+src = "WebSearcher/__init__.py" # path relative tbump.toml
+version_template = '{major}.{minor}.{patch}'
