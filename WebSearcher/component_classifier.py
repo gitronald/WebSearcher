@@ -173,7 +173,6 @@ def classify_knowledge_box(cmpt):
     
     """
     attrs = cmpt.attrs
-    text_list = list(cmpt.stripped_strings)
 
     condition = {}
     condition['flights'] = (
@@ -184,10 +183,10 @@ def classify_knowledge_box(cmpt):
     condition['hotels'] = cmpt.find("div", {"class": "zd2Jbb"})
     condition['events'] = cmpt.find("g-card", {"class": "URhAHe"})
     condition['jobs'] = cmpt.find("g-card", {"class": "cvoI5e"})
-    condition['covid_alert'] = (
-        (len(text_list) >= 1) & 
-        (text_list[0] == "COVID-19 alert")
-    )
+
+    text_list = list(cmpt.stripped_strings)
+    if text_list:
+        condition['covid_alert'] = (text_list[0] == "COVID-19 alert")
 
     for condition_type, conditions in condition.items():
         return condition_type if conditions else "unknown"
