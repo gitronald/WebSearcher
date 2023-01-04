@@ -1,5 +1,5 @@
 [version]
-current = "2022.12.18"
+current = "2023.01.04"
 
 # Must match current_version
 regex = '''
