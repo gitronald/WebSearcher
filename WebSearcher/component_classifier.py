@@ -1,6 +1,8 @@
 """SERP component classifiers
 """
 
+from . import webutils
+
 def classify_type(cmpt):
     """Component classifier
 
@@ -82,11 +84,6 @@ def classify_type(cmpt):
     return cmpt_type
 
 
-def check_dict_value(d, key, value):
-    """Check if a key exists in a dictionary and is equal to a input value"""
-    return (d[key] == value) if key in d else False
-
-
 # Classifications based on H2 Headings
 h2_text_to_label = {
     "Featured snippet from the web": "knowledge",
@@ -156,7 +153,7 @@ def classify_h3_divs(cmpt):
 
 def classify_people_also_ask(cmpt):
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
-    conditions = check_dict_value(cmpt.attrs, "class", class_list)
+    conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"
 
 
@@ -176,10 +173,10 @@ def classify_knowledge_box(cmpt):
 
     condition = {}
     condition['flights'] = (
-        (check_dict_value(attrs, "jscontroller", "Z2bSc")) |
+        (webutils.check_dict_value(attrs, "jscontroller", "Z2bSc")) |
         bool(cmpt.find("div", {"jscontroller": "Z2bSc"}))
     )
-    condition['maps'] = check_dict_value(attrs, "data-hveid", "CAMQAA")
+    condition['maps'] = webutils.check_dict_value(attrs, "data-hveid", "CAMQAA")
     condition['hotels'] = cmpt.find("div", {"class": "zd2Jbb"})
     condition['events'] = cmpt.find("g-card", {"class": "URhAHe"})
     condition['jobs'] = cmpt.find("g-card", {"class": "cvoI5e"})
