@@ -75,6 +75,22 @@ def parse_hashtags(text):
 # def parse_emojis(text):
 #     return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
 
+def check_dict_value(d, key, value):
+    """Check if a key exists in a dictionary and is equal to a input value"""
+    return (d[key] == value) if key in d else False
+
+
+def get_link(soup, kwargs=None, key='href'):
+    """Utility for soup.find('a')['href'] with optional kwargs and null handling"""
+    a = soup.find('a', kwargs) if kwargs else soup.find('a')
+    return a.attrs[key] if a.attrs and key in a.attrs else None
+
+
+def get_text(soup, tag=None, kwargs=None):
+    """Utility for `soup.find(tag, kwargs).text with optional tag and kwargs and null handling"""
+    div = soup.find(tag, kwargs) if kwargs else soup.find(tag) if tag else soup
+    return div.text if div else None
+
 
 # URLs -------------------------------------------------------------------------
 
