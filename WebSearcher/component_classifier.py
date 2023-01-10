@@ -26,9 +26,6 @@ def classify_type(cmpt):
     hybrid = cmpt.find("div", {"class": "ifM9O"})
     twitter = cmpt.find_previous().text == "Twitter Results"
 
-    if "class" in cmpt.attrs:
-        if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
-            cmpt_type = "general"
 
     # Checks a g-scrolling-carousel for a specific id to classify as not all 
     # top_stories have an h3 tag
@@ -48,6 +45,10 @@ def classify_type(cmpt):
         
     if cmpt_type == "unknown":
         cmpt_type = classify_h3_divs(cmpt)
+
+    if cmpt_type == "unknown" and "class" in cmpt.attrs:
+        if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
+            cmpt_type = "general"
                 
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
@@ -69,7 +70,7 @@ def classify_type(cmpt):
         cmpt_type = "available_on"
 
     # Check if component is only of class 'g'
-    if "class" in cmpt.attrs and cmpt.attrs["class"] == ["g"]:
+    if webutils.check_dict_value(cmpt.attrs, "class", ["g"]):
         cmpt_type = "general"
 
     # check for people also ask
@@ -105,9 +106,10 @@ h2_text_to_label = {
     "Twitter Results": "twitter",
 }
 
-def classify_h2_divs(cmpt):
+def classify_h2_divs(cmpt, text_to_label=h2_text_to_label):
     """Check h2 text for string matches"""
 
+    # Find h2 headers
     h2_list = [
         cmpt.find("h2"),
         cmpt.find("div", {'aria-level':"2", "role":"heading"})
@@ -115,7 +117,7 @@ def classify_h2_divs(cmpt):
 
    # Check `h2.text` for string matches
     for h2 in filter(None, h2_list):
-        for text, label in h2_text_to_label.items():
+        for text, label in text_to_label.items():
             if h2.text.startswith(text):
                 return label
     return "unknown"
@@ -136,16 +138,17 @@ h3_text_to_label = {
     "Related searches": "searches_related",
 }
 
-def classify_h3_divs(cmpt):
+def classify_h3_divs(cmpt, text_to_label=h3_text_to_label):
     """Check h3 text for string matches"""
     
+    # Find h3 headers
     h3_list = [
         cmpt.find("h3"),
         cmpt.find("div", {'aria-level':"3", "role":"heading"})
     ]
 
     for h3 in filter(None, h3_list):
-        for text, label in h3_text_to_label.items():
+        for text, label in text_to_label.items():
             if h3.text.startswith(text):
                 return label
     return "unknown"

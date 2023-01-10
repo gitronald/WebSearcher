@@ -81,14 +81,17 @@ def check_dict_value(d, key, value):
 
 
 def get_link(soup, kwargs=None, key='href'):
-    """Utility for soup.find('a')['href'] with optional kwargs and null handling"""
-    a = soup.find('a', kwargs) if kwargs else soup.find('a')
-    return a.attrs[key] if a.attrs and key in a.attrs else None
+    """Utility for `soup.find('a')['href']` with null key handling"""
+    link = get_div(soup, 'a', kwargs)
+    return link.attrs[key] if link.attrs and key in link.attrs else None
 
+def get_div(soup, name, attrs=None):
+    """Utility for `soup.find(name)` with null attrs handling"""
+    return soup.find(name, attrs) if attrs else soup.find(name)
 
-def get_text(soup, tag=None, kwargs=None):
-    """Utility for `soup.find(tag, kwargs).text with optional tag and kwargs and null handling"""
-    div = soup.find(tag, kwargs) if kwargs else soup.find(tag) if tag else soup
+def get_text(soup, name=None, kwargs=None):
+    """Utility for `soup.find(name).text` with null name handling"""
+    div = get_div(soup, name, kwargs) if name else soup
     return div.text if div else None
 
 

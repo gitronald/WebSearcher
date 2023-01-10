@@ -1,3 +1,5 @@
+from .. import webutils
+
 def parse_people_also_ask(cmpt, sub_rank=0):
     """Parse a "People Also Ask" component
 
@@ -13,44 +15,43 @@ def parse_people_also_ask(cmpt, sub_rank=0):
         list : list of parsed subcomponent dictionaries
     """
     parsed = {'type':'people_also_ask', 'sub_rank':sub_rank}
-    questions = cmpt.find_all('g-accordion-expander')
+    # questions = cmpt.find_all('g-accordion-expander')
     # questions = cmpt.find('section').find_all('div', {'class':'yTrXHe'})
+    questions = cmpt.find_all("div", {"class":"related-question-pair"})
+
     parsed['details'] = [parse_question(q) for q in questions] if questions else None
     return [parsed]
 
 def parse_question(question):
     """Parse an individual question in a "People Also Ask" component"""
+    
     alinks = question.find_all('a')
-
     if not alinks:
         return None
         
     parsed = {
-        'qry': alinks[-1].text,
+        'qry': webutils.get_text(alinks[-1]),
         'qry_url': alinks[-1]['href'],
     }
 
     # Get title
-    title_div1 = question.find('div', {'class':'rc'})
-    title_div2 = question.find('div', {'class':'yuRUbf'})
-    if title_div1:
-        parsed['title'] = title_div1.find('h3').text
-        parsed['url'] = title_div1.find('a')['href']
-    elif title_div2:
-        parsed['title'] = title_div2.find('h3').text
-        parsed['url'] = title_div2.find('a')['href']
+    title_divs = [
+        question.find('div', {'class':'rc'}),
+        question.find('div', {'class':'yuRUbf'})
+    ]
+    for title_div in filter(None, title_divs):
+        parsed['title'] = webutils.get_text(title_div, 'h3')
+        parsed['url'] = webutils.get_link(title_div)
 
     # Get citation
-    cite = question.find('cite')
-    if cite:
-        parsed['cite'] = cite.text
-
+    parsed['cite'] = webutils.get_text(question, 'cite')
+    
     # Get text
     replace = ['qry', 'title', 'cite']
     text = question.text.replace('Search for: ', '')
-    for r in replace:
-        if r in parsed.keys():
-            text = text.replace(parsed[r], '')
-    parsed['text'] = text
+    for key in replace:
+        if key in parsed.keys() and parsed[key]:
+            text = text.replace(parsed[key], '')
+    parsed['text'] = text if text else None
 
     return parsed
