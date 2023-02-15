@@ -41,10 +41,10 @@ def classify_type(cmpt):
                 cmpt_type = ctype
 
     if cmpt_type == "unknown":
-        cmpt_type = classify_h2_divs(cmpt)
+        cmpt_type = classify_header(cmpt, level=2)
         
     if cmpt_type == "unknown":
-        cmpt_type = classify_h3_divs(cmpt)
+        cmpt_type = classify_header(cmpt, level=3)
 
     if cmpt_type == "unknown" and "class" in cmpt.attrs:
         if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
@@ -85,72 +85,59 @@ def classify_type(cmpt):
     return cmpt_type
 
 
-# Classifications based on H2 Headings
-h2_text_to_label = {
-    "Featured snippet from the web": "knowledge",
-    "Unit Converter": "knowledge",
-    "Sports Results": "knowledge",
-    "Weather Result": "knowledge",
-    "Finance Results": "knowledge",
-    "Calculator Result": "knowledge",
-    "Translation Result": "knowledge",
-    "Resultado de traducción": "knowledge",
-    "Knowledge Result": "knowledge",
-    "Jobs": "jobs",
-    "Web results": "general",
-    "Resultados de la Web": "general",
-    "Web Result with Site Links": "general",
-    "Local Results": "local_results",
-    "Map Results": "map_results",
-    "People also ask": "people_also_ask",
-    "Twitter Results": "twitter",
-}
+def classify_header(cmpt, level):
+    """Check text in common headers for dict matches"""
 
-def classify_h2_divs(cmpt, text_to_label=h2_text_to_label):
-    """Check h2 text for string matches"""
+    # Find headers
+    if level == 2:
+        header_dict = {
+            "Featured snippet from the web": "knowledge",
+            "Unit Converter": "knowledge",
+            "Sports Results": "knowledge",
+            "Weather Result": "knowledge",
+            "Finance Results": "knowledge",
+            "Calculator Result": "knowledge",
+            "Translation Result": "knowledge",
+            "Resultado de traducción": "knowledge",
+            "Knowledge Result": "knowledge",
+            "Jobs": "jobs",
+            "Web results": "general",
+            "Resultados de la Web": "general",
+            "Web Result with Site Links": "general",
+            "Local Results": "local_results",
+            "Map Results": "map_results",
+            "People also ask": "people_also_ask",
+            "Twitter Results": "twitter",
+            "Related searches": "searches_related"
+        }
+    elif level == 3:
+        header_dict = {
+            "Videos": "videos",
+            "Top stories": "top_stories",
+            "Quotes in the news": "news_quotes",
+            "Latest from": "latest_from",
+            "View more videos": "view_more_videos",
+            "View more news": "view_more_news",
+            "Images for": "images",
+            "Scholarly articles for": "scholarly_articles",
+            "Recipes": "recipes",
+            "Popular products": "products",
+            "Related searches": "searches_related",
+        }
 
-    # Find h2 headers
-    h2_list = [
-        cmpt.find("h2"),
-        cmpt.find("div", {'aria-level':"2", "role":"heading"})
+    # Find headers, eg for level 2: <h2> or <div aria-level="2" role="heading">
+    header_list = [
+        cmpt.find(f"h{level}"),
+        cmpt.find("div", {'aria-level':f"{level}", "role":"heading"})
     ]
 
    # Check `h2.text` for string matches
-    for h2 in filter(None, h2_list):
-        for text, label in text_to_label.items():
-            if h2.text.startswith(text):
+    for header in filter(None, header_list):
+        for text, label in header_dict.items():
+            if header.text.startswith(text):
                 return label
-    return "unknown"
 
-
-# Classifications based on H3 Headings
-h3_text_to_label = {
-    "Videos": "videos",
-    "Top stories": "top_stories",
-    "Quotes in the news": "news_quotes",
-    "Latest from": "latest_from",
-    "View more videos": "view_more_videos",
-    "View more news": "view_more_news",
-    "Images for": "images",
-    "Scholarly articles for": "scholarly_articles",
-    "Recipes": "recipes",
-    "Popular products": "products",
-    "Related searches": "searches_related",
-}
-
-def classify_h3_divs(cmpt, text_to_label=h3_text_to_label):
-    """Check h3 text for string matches"""
-    
-    # Find h3 headers
-    h3_list = [
-        cmpt.find("h3"),
-        cmpt.find("div", {'aria-level':"3", "role":"heading"})
-    ]
-
-    for h3 in filter(None, h3_list):
-        for text, label in text_to_label.items():
-            if h3.text.startswith(text):
-                return label
+    # Return unknown if no matches
     return "unknown"
 
 
