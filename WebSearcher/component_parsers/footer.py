@@ -1,3 +1,4 @@
+from .. import component_classifier
 from .. import logger
 log = logger.Logger().start(__name__)
 
@@ -14,13 +15,29 @@ def get_footer_parser(cmpt_type):
 def extract_footer(soup):
     return soup.find('div', {'id':'botstuff'})
 
+def find_all_divs(soup, name, attr, filter_empty=True):
+    divs = soup.find_all(name, attr)
+    if filter_empty:
+        divs = [c for c in divs if c]
+        divs = [c for c in divs if c.text != '']
+    return divs if divs else None
+
 def extract_footer_components(footer):
-    footer_cmpts = footer.find_all('div', {'id':['bres', 'brs']})
-    footer_cmpts = [c for c in footer_cmpts if c]
-    footer_cmpts = [c for c in footer_cmpts if c.text != '']
-    return footer_cmpts
+    footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
+
+    # Expand component list with alternative layouts
+    expanded = []
+    for cmpt in footer_cmpts:
+        divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
+        if divs and len(divs) > 1:
+            expanded.extend(divs)
+        else:
+            expanded.append(cmpt)
+    
+    return expanded
 
 def classify_footer_component(cmpt):
+
     gsection = cmpt.find('g-section-with-header')
     subs = cmpt.find_all('div', {'class':'g'})
     h3 = cmpt.find('h3')
