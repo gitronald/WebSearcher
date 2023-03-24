@@ -198,7 +198,7 @@ class SearchEngine(object):
         """Save SERP to file
 
         Args:
-            save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
+            save_dir (str, optional): Save results as `save_dir/{serp_id}.html`
             append_to (str, optional): Append results to this file path
         """
         assert self.html, "Must conduct a search first"
@@ -217,6 +217,19 @@ class SearchEngine(object):
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
+    
+    def load_serp(self, serp_id:str, save_dir='.'):
+        """Load SERP from file
+
+        Args:
+            serp_id (str): A unique identifier for the SERP to load
+            save_dir (str, optional): Load results from `save_dir/{serp_id}.html` 
+        """
+
+        fp = os.path.join(save_dir, f'{serp_id}.html')
+        with open(fp, 'r') as file:
+            self.html = file.read()
+            self.serp_id = serp_id
 
     def parse_results(self, save_dir='.'):
         """Parse a SERP
