@@ -33,13 +33,6 @@ def classify_type(cmpt):
         if "class" in carousel.attrs and carousel.attrs["class"][0] == "F8yfEe":
             cmpt_type = "top_stories"
 
-    # Check component header
-    cmpt_header = cmpt.find("div", {"class": "mfMhoc"})
-    if cmpt_header:
-        for text, ctype in h3_text_to_label.items():
-            if cmpt_header.text.startswith(text):
-                cmpt_type = ctype
-
     if cmpt_type == "unknown":
         cmpt_type = classify_header(cmpt, level=2)
         
@@ -49,6 +42,10 @@ def classify_type(cmpt):
     if cmpt_type == "unknown" and "class" in cmpt.attrs:
         if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
             cmpt_type = "general"
+
+            if cmpt.find("block-component"):
+                # Check for image card block
+                cmpt_type = "image_cards"
                 
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
@@ -81,6 +78,16 @@ def classify_type(cmpt):
     if cmpt_type == "unknown":
         cmpt_type = classify_knowledge_box(cmpt)
 
+    # Check for hidden components
+    condition = webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"])
+    if cmpt_type == "unknown" and condition:
+
+        if cmpt.find('promo-throttler'):
+            cmpt_type = "hidden-survey"
+        
+        elif cmpt.find('block-component'):
+            cmpt_type = 'knowledge'
+    
     # Return type or unknown (default)
     return cmpt_type
 
@@ -108,7 +115,8 @@ def classify_header(cmpt, level):
             "Map Results": "map_results",
             "People also ask": "people_also_ask",
             "Twitter Results": "twitter",
-            "Related searches": "searches_related"
+            "Related searches": "searches_related",
+            "Directions": "directions",
         }
     elif level == 3:
         header_dict = {
@@ -131,7 +139,7 @@ def classify_header(cmpt, level):
         cmpt.find("div", {'aria-level':f"{level}", "role":"heading"})
     ]
 
-   # Check `h2.text` for string matches
+   # Check for string matches in header text e.g. `h2.text`
     for header in filter(None, header_list):
         for text, label in header_dict.items():
             if header.text.startswith(text):
