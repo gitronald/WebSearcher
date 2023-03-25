@@ -46,7 +46,8 @@ components = [
     ('footer', parse_footer, 'Footer'),
     ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
     ('knowledge_rhs', parse_knowledge_rhs, 'Knowledge RHS'),
-    ('shopping_ad', parse_shopping_ads, 'Shopping Ad')
+    ('shopping_ad', parse_shopping_ads, 'Shopping Ad'),
+    ('directions', parse_local_results, 'Directions'),
 ]
 
 # Format {type: function}

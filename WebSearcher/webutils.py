@@ -89,6 +89,15 @@ def get_div(soup, name, attrs=None):
     """Utility for `soup.find(name)` with null attrs handling"""
     return soup.find(name, attrs) if attrs else soup.find(name)
 
+
+def find_all_divs(soup, name, attr=None, filter_empty=True):
+    divs = soup.find_all(name, attr) if attr else soup.find_all(name)
+    if filter_empty:
+        divs = [c for c in divs if c]
+        divs = [c for c in divs if c.text != '']
+    return divs if divs else None
+
+
 def get_text(soup, name=None, kwargs=None):
     """Utility for `soup.find(name).text` with null name handling"""
     div = get_div(soup, name, kwargs) if name else soup

@@ -1,5 +1,8 @@
+from . import parse_general_results, parse_people_also_ask
 from .. import component_classifier
 from .. import logger
+from ..webutils import get_text, find_all_divs
+
 log = logger.Logger().start(__name__)
 
 import traceback
@@ -11,16 +14,15 @@ def get_footer_parser(cmpt_type):
         return parse_searches_related
     elif cmpt_type == 'discover_more':
         return parse_discover_more
+    elif cmpt_type == 'general':
+        return parse_general_results
+    elif cmpt_type == 'people_also_ask':
+        return parse_people_also_ask
+
 
 def extract_footer(soup):
     return soup.find('div', {'id':'botstuff'})
 
-def find_all_divs(soup, name, attr, filter_empty=True):
-    divs = soup.find_all(name, attr)
-    if filter_empty:
-        divs = [c for c in divs if c]
-        divs = [c for c in divs if c.text != '']
-    return divs if divs else None
 
 def extract_footer_components(footer):
     footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
@@ -35,6 +37,7 @@ def extract_footer_components(footer):
             expanded.append(cmpt)
     
     return expanded
+
 
 def classify_footer_component(cmpt):
 
@@ -61,7 +64,11 @@ def classify_footer_component(cmpt):
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
     """Classify the footer component and parse it""" 
+
     cmpt_type = cmpt_type if cmpt_type else classify_footer_component(cmpt)
+    if cmpt_type == 'unknown':
+        cmpt_type = component_classifier.classify_type(cmpt)
+
     parsed = {
         'type': cmpt_type,
         'cmpt_rank':cmpt_rank,
@@ -114,7 +121,11 @@ def parse_image_cards(cmpt):
 
 def parse_image_card(sub, sub_rank=0):
     parsed = {'type':'img_cards', 'sub_rank':sub_rank}
-    parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in sub.find_all('img')]
+    parsed['title'] = get_text(sub, "div", {'aria-level':"3", "role":"heading"})
+    images = sub.find_all('img')
+    if images:
+        parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
+    
     return parsed
 
 def parse_alink(a): 
