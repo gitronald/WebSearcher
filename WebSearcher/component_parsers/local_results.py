@@ -13,8 +13,9 @@ def parse_local_results(cmpt):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    subs = cmpt.find_all('div', {'class':'VkpGBb'})
-    return [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    subs = cmpt.find_all('div', {'class': 'VkpGBb'})
+    parsed = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    return parsed if parsed else [{'type':'local_results', 'sub_rank':0}]
 
 def parse_local_result(sub, sub_rank=0):
     """Parse a "Local Results" subcomponent
