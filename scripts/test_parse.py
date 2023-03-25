@@ -1,4 +1,4 @@
-""" Test parse
+""" Test parse SERP from .html file
 """
 
 import argparse
