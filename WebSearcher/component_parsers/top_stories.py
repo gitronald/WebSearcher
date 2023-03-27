@@ -1,3 +1,5 @@
+from ..webutils import find_all_divs, find_children
+
 def parse_top_stories(cmpt, ctype='top_stories'):
     """Parse a "Top Stories" component
 
@@ -12,16 +14,17 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    subs = cmpt.find_all('g-inner-card')
-    if subs:
-        return [parse_top_story(sub, ctype, sub_rank) for sub_rank, sub in enumerate(subs)]
-    else:
-        div = cmpt.find('div', {'class':'qmv19b'})
-        if div:
-            subs = div.children
-            return [parse_top_story(sub, ctype, sub_rank) for sub_rank, sub in enumerate(subs)]
-        else:
-            return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents'}]
+    # Known div structures
+    div_list = [
+        find_all_divs(cmpt, 'g-inner-card'),
+        find_children(cmpt, 'div', {'class':'qmv19b'}),
+        find_all_divs(cmpt, 'div', {'class':'MkXWrd'}),
+    ]
+    # If any known div structures exist, parse subcomponents
+    for divs in filter(None, div_list):
+        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
+    
+    return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 def parse_top_story(sub, ctype, sub_rank=0):
     """Parse "Top Stories" component

@@ -98,6 +98,12 @@ def find_all_divs(soup, name, attr=None, filter_empty=True):
     return divs if divs else None
 
 
+def find_children(soup, name, attr=None):
+    """Find all children of a div with a given name and attribute"""
+    div = get_div(soup, name, attr)
+    return div.children if div else None
+    
+
 def get_text(soup, name=None, kwargs=None):
     """Utility for `soup.find(name).text` with null name handling"""
     div = get_div(soup, name, kwargs) if name else soup
