@@ -16,9 +16,12 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     if subs:
         return [parse_top_story(sub, ctype, sub_rank) for sub_rank, sub in enumerate(subs)]
     else:
-        subs = cmpt.find('div', {'class':'qmv19b'}).children
-        return [parse_top_story(sub, ctype, sub_rank) for sub_rank, sub in enumerate(subs)]
-
+        div = cmpt.find('div', {'class':'qmv19b'})
+        if div:
+            subs = div.children
+            return [parse_top_story(sub, ctype, sub_rank) for sub_rank, sub in enumerate(subs)]
+        else:
+            return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents'}]
 
 def parse_top_story(sub, ctype, sub_rank=0):
     """Parse "Top Stories" component

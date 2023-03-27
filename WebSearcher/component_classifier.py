@@ -108,6 +108,7 @@ def classify_header(cmpt, level):
             "Resultado de traducción": "knowledge",
             "Knowledge Result": "knowledge",
             "Jobs": "jobs",
+            "Top stories": "top_stories",
             "Web results": "general",
             "Resultados de la Web": "general",
             "Web Result with Site Links": "general",
