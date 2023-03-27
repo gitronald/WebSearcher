@@ -1,4 +1,5 @@
-from ..webutils import find_all_divs, find_children
+from ..webutils import find_all_divs, find_children, get_text, get_link
+
 
 def parse_top_stories(cmpt, ctype='top_stories'):
     """Parse a "Top Stories" component
@@ -18,13 +19,15 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
         find_children(cmpt, 'div', {'class':'qmv19b'}),
-        find_all_divs(cmpt, 'div', {'class':'MkXWrd'}),
+        find_all_divs(cmpt, 'div', {'class':'MkXWrd'}), # quad
+        find_all_divs(cmpt, 'div', {'class':'JJZKK'}),  # perspectives
     ]
     # If any known div structures exist, parse subcomponents
     for divs in filter(None, div_list):
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
     
     return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
+
 
 def parse_top_story(sub, ctype, sub_rank=0):
     """Parse "Top Stories" component
@@ -36,15 +39,15 @@ def parse_top_story(sub, ctype, sub_rank=0):
         dict: A parsed subresult
     """
     parsed = {'type':ctype, 'sub_rank':sub_rank}
-    a = sub.find('a')
-    parsed['title'] = a.text if a else None
-    parsed['url'] = a['href'] if a else None
 
-    cite = sub.find('cite')
-    parsed['cite'] = cite.text if cite else None
+    parsed['title'] = get_text(sub, 'a', separator=' | ')
+    parsed['url'] = get_link(sub, key='href')
+    parsed['cite'] = get_text(sub, 'cite')
+    
+    if ctype == 'perspectives':
+        parsed['text'] = get_text(sub, "div", {'class': "GI74Re"})
 
-    timestamp = sub.find('span', {'class':['f', 'uaCsqe']})
-    parsed['timestamp'] = timestamp.text if timestamp else None
+    parsed['timestamp'] = get_text(sub, "div", {'class': ['f', 'uaCsqe', "ZE0LJd"]})
 
     # Extract component specific details
     details = {}
@@ -54,6 +57,7 @@ def parse_top_story(sub, ctype, sub_rank=0):
     parsed['details'] = details
     
     return parsed
+
 
 def get_img_url(soup):
     """Extract image source"""    

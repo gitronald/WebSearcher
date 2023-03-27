@@ -19,6 +19,7 @@ from .footer import parse_footer, parse_searches_related
 from .top_image_carousel import parse_top_image_carousel
 from .knowledge_rhs import parse_knowledge_rhs
 from .shopping_ads import parse_shopping_ads
+from .perspectives import parse_perspectives
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
@@ -36,6 +37,7 @@ components = [
     ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
     ('local_results', parse_local_results, 'Local Results'),
     ('map_results', parse_map_results, 'Map Results'),
+    ('perspectives', parse_perspectives, 'Perspectives & Opinions'),
     ('images', parse_images, 'Images'),
     ('videos', parse_videos, 'Videos'),
     ('view_more_videos', parse_videos, 'View More Videos'),
