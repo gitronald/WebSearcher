@@ -26,16 +26,15 @@ def extract_footer(soup):
 
 def extract_footer_components(footer):
     footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
-
-    # Expand component list with alternative layouts
     expanded = []
-    for cmpt in footer_cmpts:
-        divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
-        if divs and len(divs) > 1:
-            expanded.extend(divs)
-        else:
-            expanded.append(cmpt)
-    
+    if footer_cmpts:
+        # Expand component list with alternative layouts
+        for cmpt in footer_cmpts:
+            divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
+            if divs and len(divs) > 1:
+                expanded.extend(divs)
+            else:
+                expanded.append(cmpt)        
     return expanded
 
 
