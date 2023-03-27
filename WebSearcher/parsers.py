@@ -206,7 +206,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     return parsed_cmpt
 
-def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
+def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False):
     """Parse a Search Engine Result Page (SERP)
     
     Args:
@@ -220,8 +220,20 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
 
     soup = webutils.make_soup(serp) if make_soup else serp
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
+
+    # Set SERP-level attributes
+    serp_attrs = {
+        'crawl_id':crawl_id, 
+        'serp_id':serp_id, 
+        'qry': parse_query(soup),
+        'lang': parse_lang(soup),
+        'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
+    }
+    
+    # Extract components
     cmpts = extract_components(soup)
 
+    # Classify and parse components
     parsed = []
     if verbose: 
         log.info(f'Parsing SERP {serp_id}')
@@ -239,10 +251,7 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
         parsed.extend(parsed_cmpt)
 
     for serp_rank, p in enumerate(parsed):
-        p['qry'] = parse_query(soup)
-        p['lang'] = parse_lang(soup)
-        p['serp_id'] = serp_id
         p['serp_rank'] = serp_rank
-        p['lhs_bar'] = soup.find('div', {'class': 'OeVqAd'}) is not None
+        p.update(serp_attrs)
         
     return parsed
