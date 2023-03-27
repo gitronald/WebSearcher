@@ -30,7 +30,7 @@ def classify_type(cmpt):
     # Checks a g-scrolling-carousel for a specific id to classify as not all 
     # top_stories have an h3 tag
     if carousel:
-        if "class" in carousel.attrs and carousel.attrs["class"][0] == "F8yfEe":
+        if webutils.check_dict_value(cmpt.attrs, "class", ["F8yfEe"]):
             cmpt_type = "top_stories"
 
     if cmpt_type == "unknown":
@@ -150,6 +150,7 @@ def classify_header(cmpt, level):
 
 
 def classify_people_also_ask(cmpt):
+    """Secondary check for people also ask, see classify_header for primary"""
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"
