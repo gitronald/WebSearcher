@@ -8,7 +8,7 @@ log = logger.Logger().start(__name__)
 import traceback
 
 def get_footer_parser(cmpt_type):
-    if cmpt_type == 'image_cards':
+    if cmpt_type == 'img_cards':
         return parse_image_cards
     elif cmpt_type == 'searches_related':
         return parse_searches_related
@@ -46,7 +46,7 @@ def classify_footer_component(cmpt):
 
     if 'id' in cmpt.attrs and cmpt.attrs['id'] == 'bres':
         if subs:
-            return 'image_cards'
+            return 'img_cards'
         elif cmpt.find('g-scrolling-carousel'):
             return 'discover_more'
         elif h3 and h3.text.strip() == 'Related searches':

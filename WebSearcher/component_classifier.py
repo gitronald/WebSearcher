@@ -45,7 +45,7 @@ def classify_type(cmpt):
 
             if cmpt.find("block-component"):
                 # Check for image card block
-                cmpt_type = "image_cards"
+                cmpt_type = "img_cards"
                 
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
