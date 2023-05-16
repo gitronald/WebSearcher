@@ -28,13 +28,17 @@ def parse_lang(soup):
 
 def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
     """Returns the parser for a given component type"""
-    return cmpt_funcs[cmpt_type] if cmpt_type in cmpt_funcs else defaultParser(cmpt_type)
+    try:
+        return cmpt_funcs[cmpt_type]
+    except KeyError as e:
+        return not_implemented
 
-def defaultParser(cmpt_type):
-    def defaultDF(cmpt):
-        parsed = {'type': 'knowledge', 'subtype': cmpt_type}
-        return [parsed]
-    return defaultDF
+def not_implemented(cmpt):
+    """Placeholder function for component parsers that are not implemented"""
+    parsed = UNKNOWN_COMPONENT.copy()
+    parsed['type'] = classify_type(cmpt)
+    parsed['error'] = 'not implemented'
+    return [parsed]
 
 
 def extract_results_column(soup):
@@ -174,6 +178,9 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     cmpt_type = cmpt_type if cmpt_type else classify_type(cmpt)
     assert cmpt_type, 'Null component type'
 
+    # if cmpt_type == 'directions':
+    #     print(cmpt)
+
     # Return unknown components
     if cmpt_type == 'unknown':
         unknown_component = UNKNOWN_COMPONENT.copy()
@@ -199,7 +206,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
 
     return parsed_cmpt
 
-def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
+def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False):
     """Parse a Search Engine Result Page (SERP)
     
     Args:
@@ -213,14 +220,29 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
 
     soup = webutils.make_soup(serp) if make_soup else serp
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
+
+    # Set SERP-level attributes
+    serp_attrs = {
+        'crawl_id':crawl_id, 
+        'serp_id':serp_id, 
+        'qry': parse_query(soup),
+        'lang': parse_lang(soup),
+        'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
+    }
+    
+    # Extract components
     cmpts = extract_components(soup)
 
+    # Classify and parse components
     parsed = []
     if verbose: 
         log.info(f'Parsing SERP {serp_id}')
         
     for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
         cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
+        if cmpt_type == 'directions':
+            # print(cmpt)
+            pass
         if verbose: 
             log.info(f'{cmpt_rank} | {cmpt_type}')
         parsed_cmpt = parse_component(cmpt, cmpt_type=cmpt_type, cmpt_rank=cmpt_rank)
@@ -229,10 +251,7 @@ def parse_serp(serp, serp_id=None, verbose=False, make_soup=False):
         parsed.extend(parsed_cmpt)
 
     for serp_rank, p in enumerate(parsed):
-        p['qry'] = parse_query(soup)
-        p['lang'] = parse_lang(soup)
-        p['serp_id'] = serp_id
         p['serp_rank'] = serp_rank
-        p['lhs_bar'] = soup.find('div', {'class': 'OeVqAd'}) is not None
+        p.update(serp_attrs)
         
     return parsed

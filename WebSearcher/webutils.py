@@ -85,14 +85,30 @@ def get_link(soup, kwargs=None, key='href'):
     link = get_div(soup, 'a', kwargs)
     return link.attrs[key] if link.attrs and key in link.attrs else None
 
+
 def get_div(soup, name, attrs=None):
     """Utility for `soup.find(name)` with null attrs handling"""
     return soup.find(name, attrs) if attrs else soup.find(name)
 
-def get_text(soup, name=None, kwargs=None):
+
+def find_all_divs(soup, name, attr=None, filter_empty=True):
+    divs = soup.find_all(name, attr) if attr else soup.find_all(name)
+    if filter_empty:
+        divs = [c for c in divs if c]
+        divs = [c for c in divs if c.text != '']
+    return divs if divs else None
+
+
+def find_children(soup, name, attr=None):
+    """Find all children of a div with a given name and attribute"""
+    div = get_div(soup, name, attr)
+    return div.children if div else None
+    
+
+def get_text(soup, name=None, kwargs=None, separator=" "):
     """Utility for `soup.find(name).text` with null name handling"""
     div = get_div(soup, name, kwargs) if name else soup
-    return div.text if div else None
+    return div.get_text(separator=separator) if div else None
 
 
 # URLs -------------------------------------------------------------------------

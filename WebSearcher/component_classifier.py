@@ -30,25 +30,22 @@ def classify_type(cmpt):
     # Checks a g-scrolling-carousel for a specific id to classify as not all 
     # top_stories have an h3 tag
     if carousel:
-        if "class" in carousel.attrs and carousel.attrs["class"][0] == "F8yfEe":
+        if webutils.check_dict_value(cmpt.attrs, "class", ["F8yfEe"]):
             cmpt_type = "top_stories"
 
-    # Check component header
-    cmpt_header = cmpt.find("div", {"class": "mfMhoc"})
-    if cmpt_header:
-        for text, ctype in h3_text_to_label.items():
-            if cmpt_header.text.startswith(text):
-                cmpt_type = ctype
-
     if cmpt_type == "unknown":
-        cmpt_type = classify_h2_divs(cmpt)
+        cmpt_type = classify_header(cmpt, level=2)
         
     if cmpt_type == "unknown":
-        cmpt_type = classify_h3_divs(cmpt)
+        cmpt_type = classify_header(cmpt, level=3)
 
     if cmpt_type == "unknown" and "class" in cmpt.attrs:
         if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
             cmpt_type = "general"
+
+            if cmpt.find("block-component"):
+                # Check for image card block
+                cmpt_type = "img_cards"
                 
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
@@ -81,80 +78,81 @@ def classify_type(cmpt):
     if cmpt_type == "unknown":
         cmpt_type = classify_knowledge_box(cmpt)
 
+    # Check for hidden components
+    condition = webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"])
+    if cmpt_type == "unknown" and condition:
+
+        if cmpt.find('promo-throttler'):
+            cmpt_type = "hidden-survey"
+        
+        elif cmpt.find('block-component'):
+            cmpt_type = 'knowledge'
+    
     # Return type or unknown (default)
     return cmpt_type
 
 
-# Classifications based on H2 Headings
-h2_text_to_label = {
-    "Featured snippet from the web": "knowledge",
-    "Unit Converter": "knowledge",
-    "Sports Results": "knowledge",
-    "Weather Result": "knowledge",
-    "Finance Results": "knowledge",
-    "Calculator Result": "knowledge",
-    "Translation Result": "knowledge",
-    "Resultado de traducción": "knowledge",
-    "Knowledge Result": "knowledge",
-    "Jobs": "jobs",
-    "Web results": "general",
-    "Resultados de la Web": "general",
-    "Web Result with Site Links": "general",
-    "Local Results": "local_results",
-    "Map Results": "map_results",
-    "People also ask": "people_also_ask",
-    "Twitter Results": "twitter",
-}
+def classify_header(cmpt, level):
+    """Check text in common headers for dict matches"""
 
-def classify_h2_divs(cmpt, text_to_label=h2_text_to_label):
-    """Check h2 text for string matches"""
+    # Find headers
+    if level == 2:
+        header_dict = {
+            'Calculator Result': 'knowledge',
+            'Directions': 'directions',
+            'Featured snippet from the web': 'knowledge',
+            'Finance Results': 'knowledge',
+            'Jobs': 'jobs',
+            'Knowledge Result': 'knowledge',
+            'Local Results': 'local_results',
+            'Map Results': 'map_results',
+            'People also ask': 'people_also_ask',
+            'Perspectives & opinions': 'perspectives',
+            'Related searches': 'searches_related',
+            'Resultado de traducción': 'knowledge',
+            'Resultados de la Web': 'general',
+            'Sports Results': 'knowledge',
+            'Top stories': 'top_stories',
+            'Translation Result': 'knowledge',
+            'Twitter Results': 'twitter',
+            'Unit Converter': 'knowledge',
+            'Weather Result': 'knowledge',
+            'Web Result with Site Links': 'general',
+            'Web results': 'general'
+        }
+    elif level == 3:
+        header_dict = {
+            'Images for': 'images',
+            'Latest from': 'latest_from',
+            'Popular products': 'products',
+            'Quotes in the news': 'news_quotes',
+            'Recipes': 'recipes',
+            'Related searches': 'searches_related',
+            'Scholarly articles for': 'scholarly_articles',
+            'Top stories': 'top_stories',
+            'Videos': 'videos',
+            'View more news': 'view_more_news',
+            'View more videos': 'view_more_videos'
+        }
 
-    # Find h2 headers
-    h2_list = [
-        cmpt.find("h2"),
-        cmpt.find("div", {'aria-level':"2", "role":"heading"})
+    # Find headers, eg for level 2: <h2> or <div aria-level="2" role="heading">
+    header_list = [
+        cmpt.find(f"h{level}"),
+        cmpt.find("div", {'aria-level':f"{level}", "role":"heading"})
     ]
 
-   # Check `h2.text` for string matches
-    for h2 in filter(None, h2_list):
-        for text, label in text_to_label.items():
-            if h2.text.startswith(text):
+   # Check for string matches in header text e.g. `h2.text`
+    for header in filter(None, header_list):
+        for text, label in header_dict.items():
+            if header.text.startswith(text):
                 return label
-    return "unknown"
 
-
-# Classifications based on H3 Headings
-h3_text_to_label = {
-    "Videos": "videos",
-    "Top stories": "top_stories",
-    "Quotes in the news": "news_quotes",
-    "Latest from": "latest_from",
-    "View more videos": "view_more_videos",
-    "View more news": "view_more_news",
-    "Images for": "images",
-    "Scholarly articles for": "scholarly_articles",
-    "Recipes": "recipes",
-    "Popular products": "products",
-    "Related searches": "searches_related",
-}
-
-def classify_h3_divs(cmpt, text_to_label=h3_text_to_label):
-    """Check h3 text for string matches"""
-    
-    # Find h3 headers
-    h3_list = [
-        cmpt.find("h3"),
-        cmpt.find("div", {'aria-level':"3", "role":"heading"})
-    ]
-
-    for h3 in filter(None, h3_list):
-        for text, label in text_to_label.items():
-            if h3.text.startswith(text):
-                return label
+    # Return unknown if no matches
     return "unknown"
 
 
 def classify_people_also_ask(cmpt):
+    """Secondary check for people also ask, see classify_header for primary"""
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"

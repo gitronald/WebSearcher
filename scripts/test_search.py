@@ -1,4 +1,4 @@
-""" Test search and parse
+""" Test search and parse a single query from command line
 """
 
 import argparse

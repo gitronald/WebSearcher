@@ -28,7 +28,8 @@ def parse_question(question):
     alinks = question.find_all('a')
     if not alinks:
         return None
-        
+    
+    # Get query and URL fragments
     parsed = {
         'qry': webutils.get_text(alinks[-1]),
         'qry_url': alinks[-1]['href'],

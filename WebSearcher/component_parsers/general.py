@@ -1,4 +1,5 @@
 import re
+from ..webutils import get_text
 
 def parse_general_results(cmpt):
     """Parse a general component
@@ -76,6 +77,8 @@ def parse_general_result(sub, sub_rank=0):
         else:
             parsed['text'] = body.text
             parsed['timestamp'] = None
+
+    parsed['text'] = get_text(sub, 'div', {'class':'VwiC3b'})
 
     # Check for subtype and parse 
     if sub.find('g-review-stars'):

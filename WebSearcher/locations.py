@@ -1,7 +1,9 @@
 import os
+import io
 import csv
 import base64
 import string
+import zipfile
 import requests
 from bs4 import BeautifulSoup
 
@@ -30,11 +32,24 @@ def get_latest_url(url):
 
     except Exception:
         log.exception("Failed to retrieve location data's url")
-    
+
+def save_zip_response(response:requests.Response, fp:str) -> None:
+    with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
+        for member in zip_ref.namelist():
+            if member.endswith('.csv'):
+                with zip_ref.open(member) as csv_file:
+                    with open(fp, 'w', encoding="utf-8") as outfile:
+                        reader = csv.reader(io.TextIOWrapper(csv_file,'utf-8'))
+                        writer = csv.writer(outfile)
+                        writer.writerows(reader)
+                    print(f"saved: {fp}")
+
 def write_csv(fp, lines):
     with open(fp, 'w', encoding="utf-8") as outfile:
         writer = csv.writer(outfile)
         writer.writerows(lines)
+    print(f"saved: {fp}")
+
 
 def download_locations(data_dir, url=URL, return_data=True):
     """Download the latest locations data
@@ -57,27 +72,27 @@ def download_locations(data_dir, url=URL, return_data=True):
 
     full_url = get_latest_url(url)
     fp = os.path.join(data_dir, full_url.split('/')[-1])
+    fp_unzip = fp.replace('.zip', '')
 
     # Check if the current version already exists
     if os.path.exists(fp):
-        print(f'Version up to date: {fp}')
-    # If it doesn't, download it
+        print(f"Version up to date: {fp}")
+    elif os.path.exists(fp_unzip):
+        print(f"Version up to date: {fp_unzip}")
     else:
+        # Download and save
         try:
             print(f'Getting: {full_url}')
             response = requests.get(full_url)
-            lines = response.content.decode('utf-8').split('\n')
-            locations = [l for l in csv.reader(lines, delimiter=',')]
         except Exception:
             log.exception('Failed to retrieve location data')
 
-        # Save
-        print(f"saving csv: {fp}")
-        write_csv(fp, locations)
-        
-        # Return
-        if return_data:
-            return locations
+        if fp.endswith('.zip'):
+            save_zip_response(response, fp_unzip)
+        else:
+            lines = response.content.decode('utf-8').split('\n')
+            locations = [l for l in csv.reader(lines, delimiter=',')]
+            write_csv(fp_unzip, locations)
 
 def get_location_id(canonical_name):
     """Get location ID for URL parameter 'uule'

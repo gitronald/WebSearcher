@@ -1,33 +1,52 @@
+from . import parse_general_results, parse_people_also_ask
+from .. import component_classifier
 from .. import logger
+from ..webutils import get_text, find_all_divs
+
 log = logger.Logger().start(__name__)
 
 import traceback
 
 def get_footer_parser(cmpt_type):
-    if cmpt_type == 'image_cards':
+    if cmpt_type == 'img_cards':
         return parse_image_cards
     elif cmpt_type == 'searches_related':
         return parse_searches_related
     elif cmpt_type == 'discover_more':
         return parse_discover_more
+    elif cmpt_type == 'general':
+        return parse_general_results
+    elif cmpt_type == 'people_also_ask':
+        return parse_people_also_ask
+
 
 def extract_footer(soup):
     return soup.find('div', {'id':'botstuff'})
 
+
 def extract_footer_components(footer):
-    footer_cmpts = footer.find_all('div', {'id':['bres', 'brs']})
-    footer_cmpts = [c for c in footer_cmpts if c]
-    footer_cmpts = [c for c in footer_cmpts if c.text != '']
-    return footer_cmpts
+    footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
+    expanded = []
+    if footer_cmpts:
+        # Expand component list with alternative layouts
+        for cmpt in footer_cmpts:
+            divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
+            if divs and len(divs) > 1:
+                expanded.extend(divs)
+            else:
+                expanded.append(cmpt)        
+    return expanded
+
 
 def classify_footer_component(cmpt):
+
     gsection = cmpt.find('g-section-with-header')
     subs = cmpt.find_all('div', {'class':'g'})
     h3 = cmpt.find('h3')
 
     if 'id' in cmpt.attrs and cmpt.attrs['id'] == 'bres':
         if subs:
-            return 'image_cards'
+            return 'img_cards'
         elif cmpt.find('g-scrolling-carousel'):
             return 'discover_more'
         elif h3 and h3.text.strip() == 'Related searches':
@@ -44,7 +63,11 @@ def classify_footer_component(cmpt):
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
     """Classify the footer component and parse it""" 
+
     cmpt_type = cmpt_type if cmpt_type else classify_footer_component(cmpt)
+    if cmpt_type == 'unknown':
+        cmpt_type = component_classifier.classify_type(cmpt)
+
     parsed = {
         'type': cmpt_type,
         'cmpt_rank':cmpt_rank,
@@ -97,7 +120,11 @@ def parse_image_cards(cmpt):
 
 def parse_image_card(sub, sub_rank=0):
     parsed = {'type':'img_cards', 'sub_rank':sub_rank}
-    parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in sub.find_all('img')]
+    parsed['title'] = get_text(sub, "div", {'aria-level':"3", "role":"heading"})
+    images = sub.find_all('img')
+    if images:
+        parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
+    
     return parsed
 
 def parse_alink(a): 
