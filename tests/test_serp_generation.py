@@ -24,3 +24,5 @@ def test_serp_generation_is_correct():
 
     # Check if results are correct
     assert se.results == json.load(open(serp_json_file_name))
+
+    # TODO: use https://pypi.org/project/pytest-snapshot/ ???
