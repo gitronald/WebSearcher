@@ -67,12 +67,17 @@ def parse_general_result(sub, sub_rank=0):
             parsed['url'] = title_div.find('a')['href']
 
     # Get snippet text
-    body = sub.find('span', {'class':'st'})
+    body = sub.find('span', {'class':'st'}) or sub.find('div', {'class': 'VwiC3b'})
     if body:
         if ' - ' in body.text[:20]:
             split_body = body.text.split(' - ')
             timestamp = split_body[0]
             parsed['text'] = ' - '.join(split_body[1:])
+            parsed['timestamp'] = timestamp
+        if ' \u2014 ' in body.text[:23]:
+            split_body = body.text.split(' \u2014 ')
+            timestamp = split_body[0]
+            parsed['text'] = ' \u2014 '.join(split_body[1:])
             parsed['timestamp'] = timestamp
         else:
             parsed['text'] = body.text
