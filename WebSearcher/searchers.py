@@ -250,6 +250,26 @@ class SearchEngine(object):
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id {self.serp_id}')
+
+    def save_response_text(self, save_dir='.', append_to=False):
+        """Save response text
+        
+        Args:
+            save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
+            append_to (bool, optional): Append results to this file path
+        """
+        # Save response text
+        if self.response.text:
+            if append_to:
+                with open(append_to, 'w') as outfile:
+                    outfile.write(self.response.text)
+            else:
+                fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
+                with open(fp, 'w') as outfile:
+                    outfile.write(self.response.text)
+        else:
+            self.log.info(f'No response text for serp_id {self.serp_id}')
+
     
     def scrape_results_html(self, save_dir='.', append_to=''):
         """Scrape and save all unique, non-internal URLs parsed from the SERP
