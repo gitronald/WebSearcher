@@ -1,10 +1,9 @@
-import pytest
 import json
 import WebSearcher as ws
 
-def test_serp_1684516032_is_correct(snapshot):
+def test_serp_1684837514_is_correct(snapshot):
     # TODO: run for all dates in the test_html_pages folder
-    html_file_name = './tests/test_html_pages/1684516032.html'
+    html_file_name = './tests/test_html_pages/1684837514.html'
 
     # read html
     with open(html_file_name) as file:
