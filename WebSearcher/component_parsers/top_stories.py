@@ -18,13 +18,17 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     # Known div structures
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
-        find_children(cmpt, 'div', {'class':'qmv19b'}),
-        find_all_divs(cmpt, 'div', {'class':'MkXWrd'}), # quad
-        find_all_divs(cmpt, 'div', {'class':'JJZKK'}),  # perspectives
+        find_children(cmpt, 'div', {'class': 'qmv19b'}),
+        cmpt.select('div.Dnzdlc > div'), # triple
+        find_all_divs(cmpt, 'div', {'class': 'MkXWrd'}), # quad
+        find_all_divs(cmpt, 'div', {'class': 'JJZKK'}),  # perspectives
     ]
-    # If any known div structures exist, parse subcomponents
-    for divs in filter(None, div_list):
-        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
+
+    # Allow multiple div structures at the same time, this checks for matches in each item in the div_list
+    subcomponents_grouped_by_parent_divs = [div for div in div_list if div]
+    subcomponent_divs = [div for divs in subcomponents_grouped_by_parent_divs for div in divs]
+    if len(div_list) > 1:
+        return [parse_top_story(div, ctype, i) for i, div in enumerate(subcomponent_divs)]
     
     return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
@@ -38,7 +42,7 @@ def parse_top_story(sub, ctype, sub_rank=0):
     Returns:
         dict: A parsed subresult
     """
-    parsed = {'type':ctype, 'sub_rank':sub_rank}
+    parsed = {'type': ctype, 'sub_rank': sub_rank}
 
     parsed['title'] = get_text(sub, 'a', separator=' | ')
     parsed['url'] = get_link(sub, key='href')
