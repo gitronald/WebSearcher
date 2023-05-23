@@ -154,14 +154,20 @@
           "lhs_bar": false
       },
       {
-          "type": "people_also_ask",
+          "type": "knowledge",
           "sub_rank": 0,
-          "details": [
-              null,
-              null,
-              null,
-              null
-          ],
+          "subtype": "panel",
+          "details": {
+              "heading": "People also ask",
+              "urls": [
+                  {
+                      "url": "https://en.wikipedia.org/wiki/Abortion",
+                      "text": "Wikipedia"
+                  }
+              ],
+              "text": "Choose what you\u2019re giving feedback on|general feedback|Abortion|Abortion|Abortion is the termination of a pregnancy by removal or expulsion of an embryo or fetus. An abortion that occurs without intervention is known as a miscarriage or \"spontaneous abortion\"; these occur in approximately 30% to 40% of all pregnancies.| |Wikipedia|:|Induced miscarriage, termination of pregnancy|Induced miscarriage, termination of pregnancy|:|10A0|10A0|:|779.6|779.6|Feedback|Feedback|Feedback|Feedback|People also ask|People also ask|People also ask|You will see more English now.|You will see more English now.|You will see more English now.|You will see more English now.|You will see more English now.|What is abortion in medical term?|What is abortion in medical term?|What is abortion in medical term?|What is missed abortion?|What is missed abortion?|What is missed abortion?|What is the legal definition of abortion?|What is the legal definition of abortion?|What is the legal definition of abortion?|What are the different classification of abortion?|What are the different classification of abortion?|What are the different classification of abortion?|Feedback",
+              "img_url": null
+          },
           "cmpt_rank": 2,
           "serp_rank": 8,
           "crawl_id": null,

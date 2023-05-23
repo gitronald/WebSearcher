@@ -44,9 +44,10 @@ def classify_type(cmpt):
             cmpt_type = "general"
 
             if cmpt.find("block-component"):
+                # this can also be a "related results box"
                 # Check for image card block
                 cmpt_type = "img_cards"
-                
+
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
         cmpt_type = "twitter_cards" if carousel else "twitter_result"
@@ -69,6 +70,10 @@ def classify_type(cmpt):
     # Check if component is only of class 'g'
     if webutils.check_dict_value(cmpt.attrs, "class", ["g"]):
         cmpt_type = "general"
+
+    # check for complementary results
+    # if cmpt_type == "unknown":
+    #     cmpt_type = classify_complementary_result(cmpt)
 
     # check for people also ask
     if cmpt_type == "unknown":
@@ -118,7 +123,8 @@ def classify_header(cmpt, level):
             'Unit Converter': 'knowledge',
             'Weather Result': 'knowledge',
             'Web Result with Site Links': 'general',
-            'Web results': 'general'
+            'Web results': 'general',
+            'Complementary Results': 'knowledge',
         }
     elif level == 3:
         header_dict = {
