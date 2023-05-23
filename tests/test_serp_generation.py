@@ -2,12 +2,9 @@ import pytest
 import json
 import WebSearcher as ws
 
-def test_serp_generation_is_correct():
+def test_serp_1684516032_is_correct(snapshot):
     # TODO: run for all dates in the test_html_pages folder
-    date = '1684516032'
-
-    html_file_name = './tests/test_html_pages/{0}.html'.format(date)
-    serp_json_file_name = './tests/test_serps_json/{0}.json'.format(date)
+    html_file_name = './tests/test_html_pages/1684516032.html'
 
     # read html
     with open(html_file_name) as file:
@@ -22,7 +19,6 @@ def test_serp_generation_is_correct():
     # Parse Results
     se.parse_results()
 
-    # Check if results are correct
-    assert se.results == json.load(open(serp_json_file_name))
+    results_as_json = json.dumps(se.results, indent=4)
 
-    # TODO: use https://pypi.org/project/pytest-snapshot/ ???
+    assert results_as_json == snapshot
