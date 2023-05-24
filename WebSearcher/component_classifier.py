@@ -113,6 +113,7 @@ def classify_header(cmpt, level):
             'Map Results': 'map_results',
             'People also ask': 'people_also_ask',
             'Perspectives & opinions': 'perspectives',
+            'Perspectives': 'perspectives',
             'Related searches': 'searches_related',
             'Resultado de traducción': 'knowledge',
             'Resultados de la Web': 'general',
