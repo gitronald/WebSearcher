@@ -126,6 +126,7 @@ def classify_header(cmpt, level):
             'Web Result with Site Links': 'general',
             'Web results': 'general',
             'Complementary Results': 'knowledge',
+            'Videos': 'videos',
         }
     elif level == 3:
         header_dict = {
