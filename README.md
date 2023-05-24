@@ -48,6 +48,16 @@ pip install WebSearcher
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
+## Testing
+```
+pytest
+```
+
+Update snapshots:
+```
+pytest --snapshot-update
+```
+
 ---  
 ## Usage
 
