@@ -17,8 +17,16 @@ def parse_general_results(cmpt):
 
     # Legacy compatibility
     subs = cmpt.find_all('div', {'class':'g'})
-    subs = subs if subs else [cmpt] 
-    
+
+    # as of 2023.05.09 - finds subs
+    if cmpt.find_all('div', {'class': 'd4rhi'}):
+        # this means that there is a sub-element, with class d4rhi
+        # the first div child of the div.g is the first sub element
+        first = cmpt.find('div')
+        additional = cmpt.find_all('div', {'class': 'd4rhi'})
+        subs = [first] + additional
+    subs = subs if subs else [cmpt]
+
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_general_result(sub, sub_rank=0):
