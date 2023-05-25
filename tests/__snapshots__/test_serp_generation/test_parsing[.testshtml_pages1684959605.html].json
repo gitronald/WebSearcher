@@ -94,6 +94,7 @@
     "url": "https://www.abortionfinder.org/"
   },
   {
+    "FIXME:": "THIS IS A DUPE OF THE ABOVE RESULT",
     "cite": "https://www.abortionfinder.org",
     "cmpt_rank": 1,
     "crawl_id": null,
@@ -127,6 +128,7 @@
     "type": "general",
     "url": "https://www.drhern.com/"
   },
+  {sub element for DR Hern}
   {
     "cite": "https://www.plannedparenthood.org › abortion-access",
     "cmpt_rank": 3,
@@ -144,6 +146,7 @@
     "type": "general",
     "url": "https://www.plannedparenthood.org/abortion-access"
   },
+  {sub element for PP}
   {
     "cite": "https://prochoice.org",
     "cmpt_rank": 4,

@@ -71,6 +71,7 @@
     "type": "general",
     "url": "https://www.plannedparenthood.org/abortion-access"
   },
+  {sub element for PP above}
   {
     "cmpt_rank": 2,
     "crawl_id": null,
@@ -156,6 +157,7 @@
     "type": "general",
     "url": "https://www.abortionfinder.org/"
   },
+  {sub element from above}
   {
     "cite": "https://www.mapquest.com › ... › Colorado › Boulder",
     "cmpt_rank": 5,

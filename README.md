@@ -58,6 +58,11 @@ Update snapshots:
 pytest --snapshot-update
 ```
 
+Running pytest with the `-vv` flag will show a diff of the snapshots that have changed:
+```
+pytest -vv
+```
+
 ---  
 ## Usage
 

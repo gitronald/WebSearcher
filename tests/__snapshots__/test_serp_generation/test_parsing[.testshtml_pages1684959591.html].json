@@ -17,6 +17,9 @@
     "url": "https://www.plannedparenthood.org/health-center/colorado/boulder/80302/boulder-2488-90210/abortion"
   },
   {
+    subelement for PP above, but with "Park Hill text"
+  },
+  {
     "cmpt_rank": 1,
     "crawl_id": null,
     "details": {
@@ -101,6 +104,7 @@
     "type": "general",
     "url": "https://www.abortionfinder.org/"
   },
+  {sub result for abortionfinder above}
   {
     "cite": "https://milehighabortion.com",
     "cmpt_rank": 4,
