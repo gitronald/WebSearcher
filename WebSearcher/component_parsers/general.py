@@ -18,13 +18,22 @@ def parse_general_results(cmpt):
     # Legacy compatibility
     subs = cmpt.find_all('div', {'class':'g'})
 
-    # as of 2023.05.09 - finds subs
+    # 2023.05.09 - finds subs
     if cmpt.find_all('div', {'class': 'd4rhi'}):
         # this means that there is a sub-element, with class d4rhi
         # the first div child of the div.g is the first sub element
         first = cmpt.find('div')
         additional = cmpt.find_all('div', {'class': 'd4rhi'})
         subs = [first] + additional
+
+    # 2023.05.09 - handles duplicate .g tags within one component
+    if cmpt.find('div', {'class':'g'}):
+        parent_g = cmpt.find('div', {'class':'g'})
+        if parent_g.find_all('div', {'class':'g'}):
+            # this means that there is a .g element inside of another .g element,
+            # and it would otherwise get double-counted
+            # we just want to keep the parent .g element in this case
+            subs = [parent_g]
     subs = subs if subs else [cmpt]
 
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
