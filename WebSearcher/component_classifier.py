@@ -71,10 +71,6 @@ def classify_type(cmpt):
     if webutils.check_dict_value(cmpt.attrs, "class", ["g"]):
         cmpt_type = "general"
 
-    # check for complementary results
-    # if cmpt_type == "unknown":
-    #     cmpt_type = classify_complementary_result(cmpt)
-
     # check for people also ask
     if cmpt_type == "unknown":
         cmpt_type = classify_people_also_ask(cmpt)
