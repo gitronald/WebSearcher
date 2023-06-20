@@ -21,12 +21,14 @@ def parse_top_stories(cmpt, ctype='top_stories'):
         find_children(cmpt, 'div', {'class':'qmv19b'}),
         find_all_divs(cmpt, 'div', {'class':'MkXWrd'}), # quad
         find_all_divs(cmpt, 'div', {'class':'JJZKK'}),  # perspectives
+        [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
     ]
+
     # If any known div structures exist, parse subcomponents
     for divs in filter(None, div_list):
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
     
-    return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
+    return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
 def parse_top_story(sub, ctype, sub_rank=0):
