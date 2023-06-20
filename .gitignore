@@ -8,3 +8,8 @@ build
 dist
 *.egg-info
 *__pycache__
+
+# generated script files
+test_response_save.html
+test_results_save.json
+test_serp_save.json

@@ -52,6 +52,12 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
         if description.parent.find('a') and 'href' in description.parent.find('a').attrs:
             parsed['url'] = description.parent.find('a')['href']
 
+    description = cmpt.find('div', {'class':'kno-rdesc'})
+    if description:
+        parsed['text'] = description.find('span').text
+        if description.find('a') and 'href' in description.find('a').attrs:
+            parsed['url'] = description.find('a')['href']
+
     # submenu
     if description and description.parent:
         alinks = description.parent.find_all('a')

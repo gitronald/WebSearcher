@@ -30,5 +30,7 @@ else:
     try:
         se.save_serp(append_to='test_serp_save.json')
         se.save_results(append_to='test_results_save.json')
+        import datetime
+        se.save_response_text(append_to=f'test_response_save_{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}.html')
     except Exception as e:
         print('Save error', e)

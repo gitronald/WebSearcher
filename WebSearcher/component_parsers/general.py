@@ -17,8 +17,25 @@ def parse_general_results(cmpt):
 
     # Legacy compatibility
     subs = cmpt.find_all('div', {'class':'g'})
-    subs = subs if subs else [cmpt] 
-    
+
+    # 2023.05.09 - finds subs
+    if cmpt.find_all('div', {'class': 'd4rhi'}):
+        # this means that there is a sub-element, with class d4rhi
+        # the first div child of the div.g is the first sub element
+        first = cmpt.find('div')
+        additional = cmpt.find_all('div', {'class': 'd4rhi'})
+        subs = [first] + additional
+
+    # 2023.05.09 - handles duplicate .g tags within one component
+    if cmpt.find('div', {'class':'g'}):
+        parent_g = cmpt.find('div', {'class':'g'})
+        if parent_g.find_all('div', {'class':'g'}):
+            # this means that there is a .g element inside of another .g element,
+            # and it would otherwise get double-counted
+            # we just want to keep the parent .g element in this case
+            subs = [parent_g]
+    subs = subs if subs else [cmpt]
+
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_general_result(sub, sub_rank=0):
@@ -67,12 +84,17 @@ def parse_general_result(sub, sub_rank=0):
             parsed['url'] = title_div.find('a')['href']
 
     # Get snippet text
-    body = sub.find('span', {'class':'st'})
+    body = sub.find('span', {'class':'st'}) or sub.find('div', {'class': 'VwiC3b'})
     if body:
         if ' - ' in body.text[:20]:
             split_body = body.text.split(' - ')
             timestamp = split_body[0]
             parsed['text'] = ' - '.join(split_body[1:])
+            parsed['timestamp'] = timestamp
+        if ' \u2014 ' in body.text[:23]:
+            split_body = body.text.split(' \u2014 ')
+            timestamp = split_body[0]
+            parsed['text'] = ' \u2014 '.join(split_body[1:])
             parsed['timestamp'] = timestamp
         else:
             parsed['text'] = body.text
