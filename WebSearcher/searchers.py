@@ -266,22 +266,20 @@ class SearchEngine(object):
         else:
             self.log.info(f'No parsed results for serp_id {self.serp_id}')
 
-    def save_response_text(self, save_dir='.', append_to=False):
-        """Save response text
-        
+    def save_response_as_html(self, filename=None, save_dir='.'):
+        """Save response text as html
+
         Args:
-            save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
-            append_to (bool, optional): Append results to this file path
+            filename (str, optional): Filename to save as, defaults to `test_response_save_{datetime}.html`
+            save_dir (str, optional): Directory to save to, defaults to current directory
         """
+        if not filename:
+            filename = f'response_{datetime.now().strftime("%Y%m%d%H%M%S")}.html'
+
         # Save response text
         if self.response.text:
-            if append_to:
-                with open(append_to, 'w') as outfile:
-                    outfile.write(self.response.text)
-            else:
-                fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
-                with open(fp, 'w') as outfile:
-                    outfile.write(self.response.text)
+            with open(os.path.join(save_dir, filename), 'w') as outfile:
+                outfile.write(self.response.text)
         else:
             self.log.info(f'No response text for serp_id {self.serp_id}')
 
