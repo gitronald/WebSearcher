@@ -67,9 +67,15 @@ def classify_type(cmpt):
     if "/Available on" in cmpt.text:
         cmpt_type = "available_on"
 
-    # Check if component is only of class 'g'
-    if webutils.check_dict_value(cmpt.attrs, "class", ["g"]):
-        cmpt_type = "general"
+    # Check for general
+    if "class" in cmpt.attrs:
+        # If only class is 'g' then it is a general component
+        if cmpt.attrs["class"] == ["g"]:
+            cmpt_type = "general"
+        # If class includees 'g' check for extra class tags
+        elif "g" in cmpt.attrs["class"]:
+            if any(s in ["Ww4FFb"] for s in cmpt.attrs["class"]):
+                cmpt_type = "general"
 
     # check for people also ask
     if cmpt_type == "unknown":
