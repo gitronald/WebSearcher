@@ -254,6 +254,7 @@ Coming next:
 3. Add import for `parse_cmpt_name` in `/component_parsers/__init__.py`
 
 ### Testing
+Run tests:
 ```
 pytest
 ```
