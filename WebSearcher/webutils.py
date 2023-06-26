@@ -83,7 +83,7 @@ def check_dict_value(d, key, value):
 def get_link(soup, kwargs=None, key='href'):
     """Utility for `soup.find('a')['href']` with null key handling"""
     link = get_div(soup, 'a', kwargs)
-    return link.attrs[key] if link.attrs and key in link.attrs else None
+    return link.attrs.get(key, None) if link else None
 
 
 def get_div(soup, name, attrs=None):

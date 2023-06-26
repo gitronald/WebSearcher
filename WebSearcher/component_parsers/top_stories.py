@@ -19,7 +19,9 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
         find_children(cmpt, 'div', {'class': 'qmv19b'}),
-        cmpt.select('div.Dnzdlc > div'), # triple
+        # TODO: choose one of these stragegies
+        # cmpt.select('div.Dnzdlc > div'), # triple
+        # [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
         find_all_divs(cmpt, 'div', {'class': 'MkXWrd'}), # quad
         find_all_divs(cmpt, 'div', {'class': 'JJZKK'}),  # perspectives
     ]
