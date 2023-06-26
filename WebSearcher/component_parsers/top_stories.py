@@ -15,7 +15,7 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    # Known div structures
+    # Known div structures, this returns a 2d list of divs
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
         find_children(cmpt, 'div', {'class': 'qmv19b'}),
@@ -24,13 +24,13 @@ def parse_top_stories(cmpt, ctype='top_stories'):
         find_all_divs(cmpt, 'div', {'class': 'JJZKK'}),  # perspectives
     ]
 
-    # Allow multiple div structures at the same time, this checks for matches in each item in the div_list
-    subcomponents_grouped_by_parent_divs = [div for div in div_list if div]
-    subcomponent_divs = [div for divs in subcomponents_grouped_by_parent_divs for div in divs]
+    # flatten 2d div list
+    subcomponent_divs = [div for divs in div_list for div in divs]
+
     if len(div_list) > 1:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(subcomponent_divs)]
-    
-    return [{'type':ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
+
+    return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
 def parse_top_story(sub, ctype, sub_rank=0):
