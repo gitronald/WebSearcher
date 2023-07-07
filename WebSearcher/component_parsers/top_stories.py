@@ -15,19 +15,23 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    # Known div structures
+    # Known div structures, this returns a 2d list of divs
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
-        find_children(cmpt, 'div', {'class':'qmv19b'}),
-        find_all_divs(cmpt, 'div', {'class':'MkXWrd'}), # quad
-        find_all_divs(cmpt, 'div', {'class':'JJZKK'}),  # perspectives
-        [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
+        find_children(cmpt, 'div', {'class': 'qmv19b'}),
+        # TODO: choose one of these stragegies
+        # cmpt.select('div.Dnzdlc > div'), # triple
+        # [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
+        find_all_divs(cmpt, 'div', {'class': 'MkXWrd'}), # quad
+        find_all_divs(cmpt, 'div', {'class': 'JJZKK'}),  # perspectives
     ]
 
-    # If any known div structures exist, parse subcomponents
-    for divs in filter(None, div_list):
-        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
-    
+    # flatten 2d div list
+    subcomponent_divs = [div for divs in div_list for div in divs]
+
+    if len(div_list) > 1:
+        return [parse_top_story(div, ctype, i) for i, div in enumerate(subcomponent_divs)]
+
     return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
@@ -40,7 +44,7 @@ def parse_top_story(sub, ctype, sub_rank=0):
     Returns:
         dict: A parsed subresult
     """
-    parsed = {'type':ctype, 'sub_rank':sub_rank}
+    parsed = {'type': ctype, 'sub_rank': sub_rank}
 
     parsed['title'] = get_text(sub, 'a', separator=' | ')
     parsed['url'] = get_link(sub, key='href')

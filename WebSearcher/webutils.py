@@ -83,7 +83,7 @@ def check_dict_value(d, key, value):
 def get_link(soup, kwargs=None, key='href'):
     """Utility for `soup.find('a')['href']` with null key handling"""
     link = get_div(soup, 'a', kwargs)
-    return link.attrs[key] if link.attrs and key in link.attrs else None
+    return link.attrs.get(key, None) if link else None
 
 
 def get_div(soup, name, attrs=None):
@@ -96,13 +96,13 @@ def find_all_divs(soup, name, attr=None, filter_empty=True):
     if filter_empty:
         divs = [c for c in divs if c]
         divs = [c for c in divs if c.text != '']
-    return divs if divs else None
+    return divs
 
 
 def find_children(soup, name, attr=None):
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attr)
-    return div.children if div else None
+    return div.children if div else []
     
 
 def get_text(soup, name=None, kwargs=None, separator=" "):

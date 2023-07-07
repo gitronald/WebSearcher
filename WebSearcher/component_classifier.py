@@ -44,9 +44,10 @@ def classify_type(cmpt):
             cmpt_type = "general"
 
             if cmpt.find("block-component"):
+                # this can also be a "related results box"
                 # Check for image card block
                 cmpt_type = "img_cards"
-                
+
     # Twitter subtype
     if twitter or cmpt_type == "twitter":
         cmpt_type = "twitter_cards" if carousel else "twitter_result"
@@ -114,6 +115,7 @@ def classify_header(cmpt, level):
             'Map Results': 'map_results',
             'People also ask': 'people_also_ask',
             'Perspectives & opinions': 'perspectives',
+            'Perspectives': 'perspectives',
             'Related searches': 'searches_related',
             'Resultado de traducción': 'knowledge',
             'Resultados de la Web': 'general',
@@ -124,7 +126,9 @@ def classify_header(cmpt, level):
             'Unit Converter': 'knowledge',
             'Weather Result': 'knowledge',
             'Web Result with Site Links': 'general',
-            'Web results': 'general'
+            'Web results': 'general',
+            'Complementary Results': 'knowledge',
+            'Videos': 'videos',
         }
     elif level == 3:
         header_dict = {

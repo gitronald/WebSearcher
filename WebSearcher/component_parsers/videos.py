@@ -19,6 +19,7 @@ def parse_videos(cmpt):
     """
     subs = cmpt.find_all('g-inner-card')
     subs = cmpt.find_all('div', {'class':'VibNM'}) if not subs else subs
+    subs = cmpt.find_all('div', {'class':'sI5x9c'}) if not subs else subs
     return [parse_video(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 def parse_video(sub, sub_rank=0):
@@ -31,10 +32,15 @@ def parse_video(sub, sub_rank=0):
         dict : parsed subresult
     """
     parsed = {'type':'videos', 'sub_rank':sub_rank}
-    parsed['url'] = sub.find('a')['href']
+
+    all_urls = sub.find_all('a')
+    # remove urls if they start with '#'
+    non_hash_urls = [url for url in all_urls if not url['href'].startswith('#')]
+    parsed['url'] = non_hash_urls[0]['href'] if non_hash_urls else None
+
     parsed['title'] = sub.find('div', {'role':'heading'}).text
 
-    details = sub.find_all('div',{'class':'MjS0Lc'})
+    details = sub.find_all('div', {'class':'MjS0Lc'})
     if details:
         text_div, citetime_div = details
         parsed['text'] = text_div.text if text_div else None
@@ -50,7 +56,9 @@ def parse_video(sub, sub_rank=0):
             else:
                 parsed['cite'] = citetime[0].text
     else:
-        parsed['cite'] = sub.find('span', {'class':'ocUPSd'}).text
+        cite_span = sub.find('span', {'class':'ocUPSd'})
+        parsed['cite'] = sub.text if cite_span else None
+
         parsed['timestamp'] = get_div_text(sub, {'class':'rjmdhd'})
 
     parsed['details'] = {} 

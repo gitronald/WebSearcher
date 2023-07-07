@@ -174,6 +174,21 @@ class SearchEngine(object):
         self.snapshot()
         self.handle_response()
 
+    def mock_search(self, html, qry='testing_query', location='', serp_id=''):
+        """Conducts a mock search, where we pass the html to the method instead
+        of fetching it. For testing.
+
+        Args:
+            html (str): HTML content as string
+            qry (str, optional): The search query. Optional because this is for testing.
+            location (str, optional): A location's Canonical Name.
+            serp_id (str, optional): A unique identifier for this SERP
+        """
+        self.prepare_url(qry, location=location)
+        self.serp_id = serp_id if serp_id else hash_id(qry + location)
+        self.timestamp = utc_stamp()
+        self.html = html
+
     def unzip_html(self):
         """Unzip brotli zipped html 
 
@@ -250,6 +265,24 @@ class SearchEngine(object):
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id {self.serp_id}')
+
+    def save_response_as_html(self, filename=None, save_dir='.'):
+        """Save response text as html
+
+        Args:
+            filename (str, optional): Filename to save as, defaults to `test_response_save_{datetime}.html`
+            save_dir (str, optional): Directory to save to, defaults to current directory
+        """
+        if not filename:
+            filename = f'response_{datetime.now().strftime("%Y%m%d%H%M%S")}.html'
+
+        # Save response text
+        if self.response.text:
+            with open(os.path.join(save_dir, filename), 'w') as outfile:
+                outfile.write(self.response.text)
+        else:
+            self.log.info(f'No response text for serp_id {self.serp_id}')
+
     
     def scrape_results_html(self, save_dir='.', append_to=''):
         """Scrape and save all unique, non-internal URLs parsed from the SERP

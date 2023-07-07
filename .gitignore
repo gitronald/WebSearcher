@@ -8,3 +8,12 @@ build
 dist
 *.egg-info
 *__pycache__
+
+# ignores testing html and json files, see pr #38
+tests/html_pages/*
+tests/__snapshots__/*
+
+# generated script files
+test_response_save.html
+test_results_save.json
+test_serp_save.json

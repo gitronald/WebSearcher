@@ -33,6 +33,7 @@ optimized on mid-to-late 2020 data, and is also available as version `2020.0.0`.
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
+    - [Testing](#testing)
   - [Recent Changes](#recent-changes)
   - [Similar Packages](#similar-packages)
   - [License](#license)
@@ -252,6 +253,26 @@ Coming next:
 2. Add parser file in `/component_parsers` as `cmpt_name.py`, with function `parse_cmpt_name`.
 3. Add import for `parse_cmpt_name` in `/component_parsers/__init__.py`
 
+### Testing
+Run tests:
+```
+pytest
+```
+
+Update snapshots:
+```
+pytest --snapshot-update
+```
+
+Running pytest with the `-vv` flag will show a diff of the snapshots that have changed:
+```
+pytest -vv
+```
+
+With the `-k` flag you can run a test for a specific html file:
+```
+pytest -k "1684837514.html"
+```
 
 ---
 ## Recent Changes
