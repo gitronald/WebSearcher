@@ -52,10 +52,10 @@ def extract_results_column(soup):
     """
     # Check if layout contains left side bar
     left_side_bar = soup.find('div', {'class': 'OeVqAd'})
+    rso = soup.find('div', {'id':'rso'})
 
-    if not left_side_bar:
+    if not left_side_bar and rso:
         # Extract results from single div
-        rso = soup.find('div', {'id':'rso'})
         drop_tags = {'script', 'style', None}
         column = [('main', c) for c in rso.children if c.name not in drop_tags]
 

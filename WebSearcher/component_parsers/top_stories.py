@@ -19,18 +19,15 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     div_list = [
         find_all_divs(cmpt, 'g-inner-card'),
         find_children(cmpt, 'div', {'class': 'qmv19b'}),
-        # TODO: choose one of these stragegies
+        # TODO: choose one of these strategies
         # cmpt.select('div.Dnzdlc > div'), # triple
-        # [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
+        [c for c in cmpt.find_all('div') if 'data-hveid' in c.attrs], # triple
         find_all_divs(cmpt, 'div', {'class': 'MkXWrd'}), # quad
         find_all_divs(cmpt, 'div', {'class': 'JJZKK'}),  # perspectives
     ]
 
-    # flatten 2d div list
-    subcomponent_divs = [div for divs in div_list for div in divs]
-
-    if len(div_list) > 1:
-        return [parse_top_story(div, ctype, i) for i, div in enumerate(subcomponent_divs)]
+    for divs in filter(None, div_list):
+        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
 
     return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 

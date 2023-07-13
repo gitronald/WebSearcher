@@ -17,7 +17,7 @@ setuptools.setup(
     version='2023.05.19',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
-    author_email='rer@ccs.neu.edu',
+    author_email='rer@acm.org',
     license='BSD-3-Clause',
     classifiers=[
         'Programming Language :: Python :: 3',
