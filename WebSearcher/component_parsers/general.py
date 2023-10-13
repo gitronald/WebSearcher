@@ -19,11 +19,12 @@ def parse_general_results(cmpt):
     subs = cmpt.find_all('div', {'class':'g'})
 
     # 2023.05.09 - finds subs
-    if cmpt.find_all('div', {'class': 'd4rhi'}):
+    additional = cmpt.find_all('div', {'class': 'd4rhi'})
+    if additional:
+        # Catch general_subresult
         # this means that there is a sub-element, with class d4rhi
         # the first div child of the div.g is the first sub element
         first = cmpt.find('div')
-        additional = cmpt.find_all('div', {'class': 'd4rhi'})
         subs = [first] + additional
 
     # 2023.05.09 - handles duplicate .g tags within one component
@@ -36,7 +37,8 @@ def parse_general_results(cmpt):
             subs = [parent_g]
     subs = subs if subs else [cmpt]
 
-    return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    parsed = [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    return parsed
 
 def parse_general_result(sub, sub_rank=0):
     """Parse a general subcomponent
@@ -103,7 +105,10 @@ def parse_general_result(sub, sub_rank=0):
     parsed['text'] = get_text(sub, 'div', {'class':'VwiC3b'})
 
     # Check for subtype and parse 
-    if sub.find('g-review-stars'):
+    if 'class' in sub.attrs:
+        if sub.attrs['class'] == 'd4rhi':
+            parsed['subtype'] == 'subresult'
+    elif sub.find('g-review-stars'):
         parsed['subtype'] = 'submenu_rating'
         sibling = sub.find('g-review-stars').next_sibling
         if sibling:

@@ -29,6 +29,7 @@ components = [
     ('general', parse_general_results, 'General'),
     ('general_questions', parse_general_questions, 'General Questions'),
     ('general_menu', parse_general_results, 'General Submenu'),
+    ('general_subresult', parse_general_results, 'General Subresult'),
     ('available_on', parse_available_on, 'Available On'),
     ('top_stories', parse_top_stories, 'Top Stories'),
     ('latest_from', parse_latest_from, 'Latest From'),

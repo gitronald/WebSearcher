@@ -72,10 +72,18 @@ def classify_type(cmpt):
         # If only class is 'g' then it is a general component
         if cmpt.attrs["class"] == ["g"]:
             cmpt_type = "general"
-        # If class includees 'g' check for extra class tags
+        # If class includes 'g' check for extra class tags
         elif "g" in cmpt.attrs["class"]:
             if any(s in ["Ww4FFb"] for s in cmpt.attrs["class"]):
                 cmpt_type = "general"
+
+    if cmpt_type == "unknown":
+        # A general result followed by an indented result from the same domain
+        mask_class1 = cmpt.find_all('div', {'class':'g'})
+        mask_class2 = cmpt.find_all('div', {'class':'d4rhi'})
+        mask_sum = len(mask_class1) + len(mask_class2)
+        if mask_sum > 1:
+            cmpt_type = "general_subresult"
 
     # check for people also ask
     if cmpt_type == "unknown":
