@@ -7,24 +7,13 @@ log = logger.Logger().start(__name__)
 
 import traceback
 
-def get_footer_parser(cmpt_type):
-    if cmpt_type == 'img_cards':
-        return parse_image_cards
-    elif cmpt_type == 'searches_related':
-        return parse_searches_related
-    elif cmpt_type == 'discover_more':
-        return parse_discover_more
-    elif cmpt_type == 'general':
-        return parse_general_results
-    elif cmpt_type == 'people_also_ask':
-        return parse_people_also_ask
-
 
 def extract_footer(soup):
+    """Extract footer div from a SERP"""
     return soup.find('div', {'id':'botstuff'})
 
-
 def extract_footer_components(footer):
+    """Extract footer components from a footer div"""
     footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
     expanded = []
     if footer_cmpts:
@@ -34,7 +23,7 @@ def extract_footer_components(footer):
             if divs and len(divs) > 1:
                 expanded.extend(divs)
             else:
-                expanded.append(cmpt)        
+                expanded.append(cmpt)
     return expanded
 
 
@@ -61,6 +50,19 @@ def classify_footer_component(cmpt):
         return 'unknown'
 
 
+def get_footer_parser(cmpt_type):
+    if cmpt_type == 'img_cards':
+        return parse_image_cards
+    elif cmpt_type == 'searches_related':
+        return parse_searches_related
+    elif cmpt_type == 'discover_more':
+        return parse_discover_more
+    elif cmpt_type == 'general':
+        return parse_general_results
+    elif cmpt_type == 'people_also_ask':
+        return parse_people_also_ask
+
+
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
     """Classify the footer component and parse it""" 
 
@@ -73,7 +75,7 @@ def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
         'cmpt_rank':cmpt_rank,
         'sub_rank':0
     }
-       
+    
     if cmpt_type == 'unknown':
         return [parsed]
     else:
@@ -81,7 +83,7 @@ def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
         try: 
             parsed = parser(cmpt)
         except Exception:
-            log.exception('Failed to parse footer component')
+            log.exception(f'Failed to parse footer component - {cmpt_type}')
             parsed['error'] = traceback.format_exc()
         return parsed
 
