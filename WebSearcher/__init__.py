@@ -1,4 +1,4 @@
-__version__ = "2023.05.19"
+__version__ = "2023.03.22"
 from .searchers import SearchEngine
 from .parsers import parse_serp, extract_components
 from .locations import download_locations
