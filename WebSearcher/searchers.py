@@ -172,22 +172,6 @@ class SearchEngine(object):
         self.handle_response()
 
 
-    def mock_search(self, html, qry='testing_query', location='', serp_id=''):
-        """Conducts a mock search, where we pass the html to the method instead
-        of fetching it. For testing.
-
-        Args:
-            html (str): HTML content as string
-            qry (str, optional): The search query. Optional because this is for testing.
-            location (str, optional): A location's Canonical Name.
-            serp_id (str, optional): A unique identifier for this SERP
-        """
-        self.prepare_url(qry, location=location)
-        self.serp_id = serp_id if serp_id else hash_id(qry + location)
-        self.timestamp = utc_stamp()
-        self.html = html
-
-
     def unzip_html(self):
         """Unzip brotli zipped html 
 
