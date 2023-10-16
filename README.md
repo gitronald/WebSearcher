@@ -8,15 +8,6 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
-Version numbers correspond to the date of the data corpus that the parser was 
-last optimized to perform on. For example, version `2022.12.18` was developed 
-using data collected on December 18, 2022. Due to the rate at which HTML changes 
-over time, the parsers built on them frequently need updating. This version 
-scheme should help to select which version to use for historical datasets going
-forward. Earlier versions (`0.1.2` to `0.2.15`) were optimized for various periods 
-from 2018 to 2020. The last version with this original numbering (`0.2.15`) was 
-optimized on mid-to-late 2020 data, and is also available as version `2020.0.0`.
-
 ## Table of Contents
 
 - [WebSearcher](#websearcher)
