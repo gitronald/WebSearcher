@@ -12,14 +12,15 @@ import requests
 from hashlib import sha224
 from datetime import datetime
 
-default_headers = {
+# Default headers to send with requests (i.e. device fingerprint)
+DEFAULT_HEADERS = {
     'Host': 'www.google.com',
     'Referer': 'https://www.google.com/',
-    'Accept': '*/*'
+    'Accept': '*/*',
+    'Accept-Encoding': 'gzip,deflate,br',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0',
 }
-default_ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
-default_encoding = 'gzip,deflate,br'
-default_language = 'en-US,en;q=0.5'
 
 def utc_stamp(): return datetime.utcnow().isoformat()
 def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
@@ -34,9 +35,7 @@ class SearchEngine(object):
     def __init__(self, 
         sesh=None, ssh_tunnel=None, 
         log_fp='', log_mode='a+',
-        user_agent=default_ua, 
-        accept_encoding=default_encoding,
-        accept_language=default_language,
+        headers=DEFAULT_HEADERS,
         unzip=True):
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
@@ -46,19 +45,13 @@ class SearchEngine(object):
             ssh_tunnel (None, optional): An SSH tunnel subprocess from `webutils`.
             log_fp (str, optional): A file to log function process output to.
             log_mode (str, optional): Write over the log file or append to it.
-            user_agent (str, optional): User-Agent string to use in request
-            accept_encoding (str, optional): Response encodings to accept
-            accept_language (str, optional): Response language to accept
+            headers (dict, optional): Headers to send with requests.
+            unzip (bool, optional): Unzip brotli zipped html responses.
         """
 
         self.base_url = 'https://www.google.com/search'
         self.params = {}
-
-        # Set request headers - telling the server about you
-        self.headers = default_headers
-        self.headers['User-Agent'] = user_agent
-        self.headers['Accept-Encoding'] = accept_encoding
-        self.headers['Accept-Language'] = accept_language
+        self.headers = headers
 
         # Set a requests session
         self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
@@ -92,6 +85,7 @@ class SearchEngine(object):
         self.loc = canonical_name
         self.params['uule'] = locations.get_location_id(canonical_name)
 
+
     def prepare_url(self, qry, location):
         """Prepare a query
 
@@ -116,6 +110,7 @@ class SearchEngine(object):
         # Create request URL
         param_str = wu.join_url_quote(self.params)
         self.url = f'{self.base_url}?{param_str}'
+
 
     def snapshot(self):
         try:
@@ -145,6 +140,7 @@ class SearchEngine(object):
             # Honestly, who knows
             self.log.exception(f'SERP | Scraping error | {self.serp_id}')
 
+
     def handle_response(self):
         try:
             # Unzip string if True
@@ -160,6 +156,7 @@ class SearchEngine(object):
         except Exception:
             self.log.exception(f'Response handling error')
 
+
     def search(self, qry, location='', serp_id=''):
         """Conduct a search and save HTML
         
@@ -173,6 +170,7 @@ class SearchEngine(object):
         self.timestamp = utc_stamp()
         self.snapshot()
         self.handle_response()
+
 
     def mock_search(self, html, qry='testing_query', location='', serp_id=''):
         """Conducts a mock search, where we pass the html to the method instead
@@ -188,6 +186,7 @@ class SearchEngine(object):
         self.serp_id = serp_id if serp_id else hash_id(qry + location)
         self.timestamp = utc_stamp()
         self.html = html
+
 
     def unzip_html(self):
         """Unzip brotli zipped html 
@@ -233,6 +232,7 @@ class SearchEngine(object):
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
+
     def parse_results(self, save_dir='.'):
         """Parse a SERP
         
@@ -248,6 +248,7 @@ class SearchEngine(object):
 
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
+
 
     def save_results(self, save_dir='.', append_to=False):
         """Save parsed results
@@ -265,6 +266,7 @@ class SearchEngine(object):
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id {self.serp_id}')
+
 
     def save_response_as_html(self, filename=None, save_dir='.'):
         """Save response text as html
