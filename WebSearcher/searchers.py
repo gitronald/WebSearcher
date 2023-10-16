@@ -203,7 +203,7 @@ class SearchEngine(object):
         if append_to:
             # Keys to drop from object before saving
             exclude = ['response', 'sesh', 'ssh_tunnel', 'unzip',
-                       'log', 'results', 'results_html']
+                       'log', 'results']
             out_data = {k: v for k, v in vars(self).items() if k not in exclude}
             out_data['response_code'] = self.response.status_code
             out_data['html'] = out_data['html']
@@ -211,7 +211,8 @@ class SearchEngine(object):
             if append_to:
                 utils.write_lines([out_data], append_to)
         else:
-            fp = os.path.join(save_dir, f'{self.serp_id}.html')
+            fn = f'{self.qry.replace(" ", "+")}-{self.timestamp}.html'
+            fp = os.path.join(save_dir, fn)
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
@@ -249,23 +250,3 @@ class SearchEngine(object):
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id {self.serp_id}')
-
-
-    def save_response_as_html(self, filename=None, save_dir='.'):
-        """Save response text as html
-
-        Args:
-            filename (str, optional): Filename to save as, defaults to `test_response_save_{datetime}.html`
-            save_dir (str, optional): Directory to save to, defaults to current directory
-        """
-        if not filename:
-            filename = f'response_{datetime.now().strftime("%Y%m%d%H%M%S")}.html'
-
-        # Save response text
-        if self.response.text:
-            with open(os.path.join(save_dir, filename), 'w') as outfile:
-                outfile.write(self.response.text)
-        else:
-            self.log.info(f'No response text for serp_id {self.serp_id}')
-
-    
