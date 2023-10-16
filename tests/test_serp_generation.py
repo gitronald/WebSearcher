@@ -17,13 +17,5 @@ def test_parsing(snapshot_json, file_name):
     with open(file_name) as file:
         html = file.read()
     
-    # Initialize crawler
-    se = ws.SearchEngine()
-    
-    # Conduct Search
-    se.mock_search(html)
-
-    # Parse Results
-    se.parse_results()
-
-    assert se.results == snapshot_json
+    results = ws.parse_serp(html, make_soup=True)
+    assert results == snapshot_json
