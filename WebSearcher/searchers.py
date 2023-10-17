@@ -149,7 +149,7 @@ class SearchEngine(object):
             self.log.exception(f'Response handling error')
 
 
-    def search(self, qry, location='', serp_id=''):
+    def search(self, qry, location='', serp_id='', crawl_id=''):
         """Conduct a search and save HTML
         
         Args:
@@ -158,8 +158,9 @@ class SearchEngine(object):
             serp_id (str, optional): A unique identifier for this SERP
         """
         self.prepare_url(qry, location=location)
-        self.serp_id = serp_id if serp_id else hash_id(qry + location)
         self.timestamp = utc_stamp()
+        self.serp_id = serp_id if serp_id else hash_id(qry + location + self.timestamp)
+        self.crawl_id = crawl_id
         self.snapshot()
         self.handle_response()
 
@@ -194,18 +195,27 @@ class SearchEngine(object):
         assert self.html, "Must conduct a search first"
 
         if append_to:
-            # Keys to drop from object before saving
-            exclude = ['response', 'sesh', 'ssh_tunnel', 'unzip',
-                       'log', 'results']
-            out_data = {k: v for k, v in vars(self).items() if k not in exclude}
+            # Keep a selection of object keys
+            keep_keys = [
+                'qry',
+                'loc',
+                'url',
+                'html',
+                'headers',
+                'timestamp',
+                'serp_id',
+                'crawl_id',
+            ]
+            all_items = dict(vars(self).items())
+            out_data = {k: all_items[k] for k in keep_keys}
             out_data['response_code'] = self.response.status_code
-            out_data['html'] = out_data['html']
+            utils.write_lines([out_data], append_to)
 
-            if append_to:
-                utils.write_lines([out_data], append_to)
         else:
             fn = f'{self.qry.replace(" ", "+")}-{self.timestamp}.html'
             fp = os.path.join(save_dir, fn)
+            print(f"Saving SERP to: {save_dir}")
+
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
