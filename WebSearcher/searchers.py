@@ -97,27 +97,20 @@ class SearchEngine(object):
         """
         self.qry = str(qry)
         self.loc = str(location)
-        
-        self.params['q'] = '+'.join(self.qry.split(' '))
+        self.params['q'] = qry
 
         # Reset previous location
         if 'uule' in self.params:
             self.params.pop('uule')
         if location:
             self.set_location(location)
-
-        # Create request URL
-        param_str = wu.join_url_quote(self.params)
-        self.url = f'{self.base_url}?{param_str}'
-
+        
 
     def snapshot(self):
         try:
-            self.response = self.sesh.get(self.url, timeout=10)
-            if self.loc:
-                msg = f"{self.qry} | {self.loc}"
-            else:
-                msg = f"{self.qry}" 
+            self.response = self.sesh.get(self.base_url, params=self.params, timeout=10)
+            self.url = self.response.url
+            msg = f"{self.qry} | {self.loc}" if self.loc else f"{self.qry}"
             self.log.info(f'{self.response.status_code} | {msg}')
 
         except requests.exceptions.ConnectionError:
