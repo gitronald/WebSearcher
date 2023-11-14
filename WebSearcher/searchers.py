@@ -189,7 +189,7 @@ class SearchEngine(object):
         """Save SERP to file
 
         Args:
-            save_dir (str, optional): Save results as `save_dir/{serp_id}.json`
+            save_dir (str, optional): Save results as `save_dir/{serp_id}.html`
             append_to (str, optional): Append results to this file path
         """
         assert self.html, "Must conduct a search first"
