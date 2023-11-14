@@ -1,5 +1,4 @@
-from pydantic import BaseModel, model_validator
-from typing import Any, Optional
+from pydantic import BaseModel
 
 class BannerResult(BaseModel):
     type: str = 'banner'
@@ -38,7 +37,7 @@ def parse_banner(cmpt):
         )
         banner_results.append(banner_result_suggestion)
 
-    return banner_results
+    return [banner.model_dump() for banner in banner_results]
 
 def get_result_text(cmpt, selector):
     if cmpt.select_one(selector):
