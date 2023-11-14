@@ -2,112 +2,63 @@
 """
 
 from . import webutils
+import bs4
 
-def classify_type(cmpt):
+def classify_type(cmpt: bs4.element.Tag):
     """Component classifier
 
     Args:
-        cmpt (bs4 object): A Search component
+        cmpt (bs4.element.Tag): A search component
 
     Returns:
-        str: A classification of the component type
+        str: A classification of the component type (default: "unknown")
     """
     
     # Default unknown
     cmpt_type = "unknown"
-    g_tray = cmpt.find("g-tray-header")
-    g_section = cmpt.find("g-section-with-header")
-    carousel = cmpt.find("g-scrolling-carousel")
-    g_accordian = cmpt.find("g-accordion")
-    related_question_pair = cmpt.find("related-question-pair")
-    knowledge = cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk"]})
-    finance = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
-    img_box = cmpt.find("div", {"id": "imagebox_bigimages"})
-    hybrid = cmpt.find("div", {"class": "ifM9O"})
-    twitter = cmpt.find_previous().text == "Twitter Results"
-
-
-    # Checks a g-scrolling-carousel for a specific id to classify as not all 
-    # top_stories have an h3 tag
-    if carousel:
-        if webutils.check_dict_value(cmpt.attrs, "class", ["F8yfEe"]):
-            cmpt_type = "top_stories"
-
-    if cmpt_type == "unknown":
-        cmpt_type = classify_header(cmpt, level=2)
-        
-    if cmpt_type == "unknown":
-        cmpt_type = classify_header(cmpt, level=3)
-
-    if cmpt_type == "unknown" and "class" in cmpt.attrs:
-        if any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]):
-            cmpt_type = "general"
-
-            if cmpt.find("block-component"):
-                # this can also be a "related results box"
-                # Check for image card block
-                cmpt_type = "img_cards"
-
-    # Twitter subtype
-    if twitter or cmpt_type == "twitter":
-        cmpt_type = "twitter_cards" if carousel else "twitter_result"
-
-    # Check for binary match only divs (exists/doesn't exist)
-    if cmpt_type == "unknown":
-        if img_box:
-            cmpt_type = "images"
-        elif knowledge:
-            cmpt_type = "knowledge"
-        elif finance:
-            cmpt_type = "knowledge"
-        elif hybrid and g_accordian:
-            cmpt_type = "general_questions"
-
-    # Check for available on divs
-    if "/Available on" in cmpt.text:
-        cmpt_type = "available_on"
-
-    # Check for general
-    if "class" in cmpt.attrs:
-        # If only class is 'g' then it is a general component
-        if cmpt.attrs["class"] == ["g"]:
-            cmpt_type = "general"
-        # If class includes 'g' check for extra class tags
-        elif "g" in cmpt.attrs["class"]:
-            if any(s in ["Ww4FFb"] for s in cmpt.attrs["class"]):
-                cmpt_type = "general"
-
-    if cmpt_type == "unknown":
-        # A general result followed by an indented result from the same domain
-        mask_class1 = cmpt.find_all('div', {'class':'g'})
-        mask_class2 = cmpt.find_all('div', {'class':'d4rhi'})
-        mask_sum = len(mask_class1) + len(mask_class2)
-        if mask_sum > 1:
-            cmpt_type = "general_subresult"
-
-    # check for people also ask
-    if cmpt_type == "unknown":
-        cmpt_type = classify_people_also_ask(cmpt)
-
-    # check for flights, maps, hotels, events, jobs
-    if cmpt_type == "unknown":
-        cmpt_type = classify_knowledge_box(cmpt)
-
-    # Check for hidden components
-    condition = webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"])
-    if cmpt_type == "unknown" and condition:
-
-        if cmpt.find('promo-throttler'):
-            cmpt_type = "hidden-survey"
-        
-        elif cmpt.find('block-component'):
-            cmpt_type = 'knowledge'
     
-    # Return type or unknown (default)
+   # Component type classifiers (order matters)
+    component_classifiers = [
+        classify_top_stories,        # Check top stories
+        classify_header_lvl2,        # Check level 2 header text
+        classify_header_lvl3,        # Check level 3 header text
+        classify_img_cards,          # Check image cards
+        classify_images,             # Check images
+        classify_knowledge_panel,    # Check knowledge panel
+        classify_finance_panel,      # Check finance panel (classify as knowledge)
+        classify_general_questions,  # Check hybrid general questions
+        classify_general,            # Check general components
+        classify_general_subresult,  # Check general result with submenu
+        classify_people_also_ask,    # Check people also ask
+        classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
+        classify_banner,             # Check for banners
+        classify_hidden_survey,      # Check for hidden surveys
+        classify_knowledge_block,    # Check for knowledge components
+    ]
+    for classifier in component_classifiers:
+        if cmpt_type != "unknown":  break  # Exit if successful classification
+        cmpt_type = classifier(cmpt)
+
+        # Distinguish twitter types ("twitter_cards", "twitter_result")
+        if cmpt_type == "twitter":
+            cmpt_type = classify_twitter_type(cmpt, cmpt_type)
+
+        # Ad-hoc check for available on divs
+        if "/Available on" in cmpt.text:
+            cmpt_type = "available_on"
+    
     return cmpt_type
 
 
-def classify_header(cmpt, level):
+def classify_header_lvl2(cmpt: bs4.element.Tag):
+    # Wrapper for header level 2
+    return classify_header(cmpt, level=2)
+
+def classify_header_lvl3(cmpt: bs4.element.Tag):
+    # Wrapper for header level 2
+    return classify_header(cmpt, level=3)
+
+def classify_header(cmpt: bs4.element.Tag, level):
     """Check text in common headers for dict matches"""
 
     # Find headers
@@ -169,14 +120,120 @@ def classify_header(cmpt, level):
     return "unknown"
 
 
-def classify_people_also_ask(cmpt):
+def classify_top_stories(cmpt: bs4.element.Tag):
+    """Classify top stories components
+    
+    Checks for g-scrolling-carousel & div id, not all top stories have an h3 tag
+    
+    """
+    conditions = [cmpt.find("g-scrolling-carousel"), 
+                  cmpt.find("div", {"id": "tvcap"})]
+    return 'top_stories' if all(conditions) else "unknown"
+
+
+def classify_img_cards(cmpt: bs4.element.Tag):
+    """Classify image cards components"""
+    if "class" in cmpt.attrs:
+        conditions = [
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]),
+            cmpt.find("block-component"),
+        ]
+        return 'img_cards' if all(conditions) else "unknown"
+    else:
+        return "unknown"
+
+
+def classify_images(cmpt: bs4.element.Tag):
+    img_box = cmpt.find("div", {"id": "imagebox_bigimages"})
+    return 'images' if img_box else "unknown"
+
+
+def classify_knowledge_panel(cmpt: bs4.element.Tag):
+    condition = cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk"]})
+    return 'knowledge' if condition else "unknown"
+
+
+def classify_finance_panel(cmpt: bs4.element.Tag):
+    condition = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
+    return 'knowledge' if condition else "unknown"
+
+
+def classify_general_questions(cmpt: bs4.element.Tag):
+    hybrid = cmpt.find("div", {"class": "ifM9O"})
+    g_accordian = cmpt.find("g-accordion")
+    return 'general_questions' if hybrid and g_accordian else "unknown"
+
+
+def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
+    """Classify twitter component type"""
+    conditions = [
+        (cmpt_type == 'twitter'),                         # Check if already classified as twitter (header text)
+        (cmpt.find_previous().text == "Twitter Results")  # Check for twitter results text
+    ]
+    if any(conditions):
+        # Differentiate twitter cards (carousel) and twitter result (single)
+        carousel = cmpt.find("g-scrolling-carousel")
+        cmpt_type = "twitter_cards" if carousel else "twitter_result"
+    
+    return cmpt_type
+
+
+def classify_general(cmpt: bs4.element.Tag):
+    """Classify general components"""
+    if "class" in cmpt.attrs:
+        conditions = [
+            cmpt.attrs["class"] == ["g"],                               # Only class is 'g'
+            (("g" in cmpt.attrs["class"]) &                             # OR contains 'g' and 'Ww4FFb'
+            any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]) # OR contains 'hlcw0c' or 'MjjYud'
+        ]
+        return 'general' if any(conditions) else "unknown"
+    else:
+        return "unknown"
+
+
+def classify_general_subresult(cmpt: bs4.element.Tag):
+    # A general result followed by an indented result from the same domain
+    mask_class1 = cmpt.find_all('div', {'class':'g'})
+    mask_class2 = cmpt.find_all('div', {'class':'d4rhi'})
+    mask_sum = len(mask_class1) + len(mask_class2)
+    return 'general_subresult' if mask_sum > 1 else "unknown"
+
+
+def classify_banner(cmpt: bs4.element.Tag):
+    conditions = [
+        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+        cmpt.find("div", {"class": "uzjuFc"}),
+    ]
+    return 'banner' if all(conditions) else "unknown"
+
+
+def classify_hidden_survey(cmpt: bs4.element.Tag):
+    """Classify hidden survey components"""
+    conditions = [
+        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+        cmpt.find('promo-throttler'),
+    ]
+    return 'hidden_survey' if all(conditions) else "unknown"
+
+
+def classify_knowledge_block(cmpt: bs4.element.Tag):
+    """Classify knowledge block components"""
+    conditions = [
+        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+        cmpt.find('block-component'),
+    ]
+    return 'knowledge' if all(conditions) else "unknown"
+
+
+def classify_people_also_ask(cmpt: bs4.element.Tag):
     """Secondary check for people also ask, see classify_header for primary"""
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"
 
 
-def classify_knowledge_box(cmpt):
+def classify_knowledge_box(cmpt: bs4.element.Tag):
     """Classify knowledge component types
     
     Creates conditions for each label in a dictionary then assigns the 

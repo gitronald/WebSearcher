@@ -14,7 +14,7 @@ description, long_description = get_readme_descriptions()
 
 setuptools.setup(
     name='WebSearcher',
-    version='0.3.1',
+    version='0.3.2',
     url='http://github.com/gitronald/WebSearcher',
     author='Ronald E. Robertson',
     author_email='rer@acm.org',
@@ -27,6 +27,6 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     packages=setuptools.find_packages(),
-    install_requires=['requests','lxml','bs4','tldextract','brotli'],
+    install_requires=['requests','lxml','bs4','tldextract','brotli', 'pydantic'],
     python_requires='>=3.6'
 )
