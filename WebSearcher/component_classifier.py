@@ -50,6 +50,7 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_general_subresult, # Check general result with submenu
         classify_people_also_ask,   # Check people also ask
         classify_knowledge_box,     # Check flights, maps, hotels, events, jobs
+        classify_banner,            # Check for banners
         classify_hidden_survey,     # Check for hidden surveys
         classify_knowledge_block,   # Check for knowledge components
     ]    
@@ -205,6 +206,14 @@ def classify_general_subresult(cmpt: bs4.element.Tag):
     mask_class2 = cmpt.find_all('div', {'class':'d4rhi'})
     mask_sum = len(mask_class1) + len(mask_class2)
     return 'general_subresult' if mask_sum > 1 else "unknown"
+
+
+def classify_banner(cmpt: bs4.element.Tag):
+    conditions = [
+        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+        cmpt.find("div", {"class": "uzjuFc"}),
+    ]
+    return 'banner' if all(conditions) else "unknown"
 
 
 def classify_hidden_survey(cmpt: bs4.element.Tag):

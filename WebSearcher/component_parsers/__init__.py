@@ -20,10 +20,12 @@ from .top_image_carousel import parse_top_image_carousel
 from .knowledge_rhs import parse_knowledge_rhs
 from .shopping_ads import parse_shopping_ads
 from .perspectives import parse_perspectives
+from .banner import parse_banner
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
 components = [
+    ('banner', parse_banner, 'Banner'),
     ('ad', parse_ads, 'Ad'),
     ('knowledge', parse_knowledge_panel, 'Knowledge'),
     ('general', parse_general_results, 'General'),
