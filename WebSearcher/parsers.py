@@ -103,6 +103,10 @@ def extract_results_column(soup):
     # div_class = {'class':['g','bkWMgd']}
     # column = [('main', r) for r in soup.find_all('div', div_class)]
 
+    # Remove empty rso component; hidden <h2> header
+    drop_text = {"Main results"}
+    column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
+
     # Hacky fix removing named Twitter component without content, possible G error
     # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
     drop_text = {'Twitter Results', ''}
