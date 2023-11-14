@@ -20,6 +20,7 @@ def parse_map_results(cmpt, sub_rank=0):
     details['subtitle'] = subtitle_span.text if subtitle_span else None
 
     img = cmpt.find('img', {'id':'lu_map'})
-    details['img_title'] = img.attrs['title'] if 'title' in img.attrs else None
+    if img:
+        details['img_title'] = img.attrs['title'] if 'title' in img.attrs else None
     parsed['details'] = details
     return [parsed]
