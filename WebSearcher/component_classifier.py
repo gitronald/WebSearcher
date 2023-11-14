@@ -17,7 +17,7 @@ def classify_type(cmpt: bs4.element.Tag):
     # Default unknown
     cmpt_type = "unknown"
     
-   # Initial classifier checks (order matters)
+   # Component type classifiers (order matters)
     component_classifiers = [
         classify_top_stories,        # Check top stories
         classify_header_lvl2,        # Check level 2 header text
@@ -27,37 +27,26 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_knowledge_panel,    # Check knowledge panel
         classify_finance_panel,      # Check finance panel (classify as knowledge)
         classify_general_questions,  # Check hybrid general questions
+        classify_general,            # Check general components
+        classify_general_subresult,  # Check general result with submenu
+        classify_people_also_ask,    # Check people also ask
+        classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
+        classify_banner,             # Check for banners
+        classify_hidden_survey,      # Check for hidden surveys
+        classify_knowledge_block,    # Check for knowledge components
     ]
     for classifier in component_classifiers:
         if cmpt_type != "unknown":  break  # Exit if successful classification
         cmpt_type = classifier(cmpt)
 
+        # Distinguish twitter types ("twitter_cards", "twitter_result")
         if cmpt_type == "twitter":
-            # Distinguish among twitter result subtypes 
-            # ("twitter_cards", "twitter_result")
             cmpt_type = classify_twitter_type(cmpt, cmpt_type)
 
-    # Ad-hoc check for available on divs
-    if "/Available on" in cmpt.text:
-        cmpt_type = "available_on"
+        # Ad-hoc check for available on divs
+        if "/Available on" in cmpt.text:
+            cmpt_type = "available_on"
     
-    # Check for general components (can overwrite existing cmpt_type)
-    if "class" in cmpt.attrs:
-        cmpt_type = classify_general(cmpt, cmpt_type)
-    
-   # Secondary classifier checks (order matters)
-    component_classifiers = [
-        classify_general_subresult, # Check general result with submenu
-        classify_people_also_ask,   # Check people also ask
-        classify_knowledge_box,     # Check flights, maps, hotels, events, jobs
-        classify_banner,            # Check for banners
-        classify_hidden_survey,     # Check for hidden surveys
-        classify_knowledge_block,   # Check for knowledge components
-    ]    
-    for classifier in component_classifiers:
-        if cmpt_type != "unknown":  break  # Exit if successful classification
-        cmpt_type = classifier(cmpt)
-
     return cmpt_type
 
 
@@ -189,15 +178,18 @@ def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
     return cmpt_type
 
 
-def classify_general(cmpt: bs4.element.Tag, cmpt_type="unknown"):
+def classify_general(cmpt: bs4.element.Tag):
     """Classify general components"""
-    conditions = [
-        cmpt.attrs["class"] == ["g"],                               # Only class is 'g'
-        (("g" in cmpt.attrs["class"]) &                             # OR contains 'g' and 'Ww4FFb'
-         any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
-        any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]) # OR contains 'hlcw0c' or 'MjjYud'
-    ]
-    return 'general' if any(conditions) else cmpt_type
+    if "class" in cmpt.attrs:
+        conditions = [
+            cmpt.attrs["class"] == ["g"],                               # Only class is 'g'
+            (("g" in cmpt.attrs["class"]) &                             # OR contains 'g' and 'Ww4FFb'
+            any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]) # OR contains 'hlcw0c' or 'MjjYud'
+        ]
+        return 'general' if any(conditions) else "unknown"
+    else:
+        return "unknown"
 
 
 def classify_general_subresult(cmpt: bs4.element.Tag):
