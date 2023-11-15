@@ -53,6 +53,7 @@ def parse_general_results(cmpt):
 
     parsed = [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     return parsed
+   
 
 def parse_general_result(sub, sub_rank=0):
     """Parse a general subcomponent
@@ -63,7 +64,9 @@ def parse_general_result(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-
+    
+    if is_general_video(sub):
+        return parse_general_video(sub, sub_rank=sub_rank)
 
     # Get title and text body divs
     title_div = sub.find('div', {'class':'rc'}) or sub.find('div', {'class':'yuRUbf'})
@@ -194,3 +197,47 @@ def parse_product(text):
         return {'price': text[0].strip()[1:]}
     else:
         return {'price': text[0].strip()[1:], 'stock': text[1].strip()[1:]}
+
+
+# ------------------------------------------------------------------------------
+# General Video Results
+
+
+def is_general_video(cmpt):
+    """Check for a unique class name specific to video results"""
+    class_list = cmpt.get('class', [])
+    return 'PmEWq' in class_list
+
+
+def parse_general_video(sub, sub_rank: int = 0):
+    """Parse a general video component
+
+    Args:
+        cmpt (bs4 object): A general video component
+    
+    Returns:
+        VideoResult: Parsed information of the video
+    """
+
+    video_result = Result(
+        type='general',
+        sub_type='video',
+        sub_rank=sub_rank,
+        title=get_result_text(sub, 'h3.LC20lb'),
+        url=sub.select_one('a[href]').get('href', '') if sub.select_one('a[href]') else '',
+        text=get_result_text(sub, '.ITZIwc'),
+        cite=get_result_text(sub, 'cite', strip=False),
+        details=get_result_details(sub),
+    )
+    return video_result.model_dump()
+
+
+def get_result_text(cmpt, selector, strip=True):
+    element = cmpt.select_one(selector)
+    return element.get_text(strip=strip) if element else ''
+
+
+def get_result_details(cmpt):
+    details = {"source": get_result_text(cmpt, '.gqF9jc', strip=False),
+               "duration": get_result_text(cmpt, '.JIv15d')}
+    return details
