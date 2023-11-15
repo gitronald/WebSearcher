@@ -8,12 +8,11 @@ class Result(BaseModel):
     type: str = 'general'
     sub_type: str = ''
     sub_rank: int = 0
-    title: str = ''
-    url: str = ''
-    text: str = ''
-    cite: str = ''
+    title: Optional[str] = ''
+    url: Optional[str] = ''
+    text: Optional[str] = ''
+    cite: Optional[str] = None
     details: Optional[Any] = None
-
 
 def parse_general_results(cmpt):
     """Parse a general component
