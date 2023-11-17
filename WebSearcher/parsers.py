@@ -167,6 +167,7 @@ def extract_components(soup):
             
     return cmpts
 
+
 def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     """Parse a SERP component
     
@@ -226,13 +227,17 @@ def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
 
     # Set SERP-level attributes
-    serp_attrs = {
-        'crawl_id':crawl_id, 
-        'serp_id':serp_id, 
+    serp_attrs = {}
+    if serp_id: 
+        serp_attrs['serp_id'] = serp_id
+    if crawl_id:
+        serp_attrs['crawl_id'] = crawl_id
+
+    serp_attrs.update({
         'qry': parse_query(soup),
         'lang': parse_lang(soup),
         'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
-    }
+    })
     
     # Extract components
     cmpts = extract_components(soup)
