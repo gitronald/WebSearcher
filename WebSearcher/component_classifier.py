@@ -86,7 +86,7 @@ def classify_header(cmpt: bs4.element.Tag, level):
             'Weather Result': 'knowledge',
             'Web Result with Site Links': 'general',
             'Web results': 'general',
-            'Complementary Results': 'knowledge',
+            'Complementary Results': 'general',
             'Videos': 'videos',
         }
     elif level == 3:
