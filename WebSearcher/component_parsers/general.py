@@ -1,18 +1,6 @@
 import re
-from pydantic import BaseModel
-from typing import Any, Optional
+from ..models import BaseResult
 from ..webutils import get_text, get_link
-
-
-class Result(BaseModel):
-    type: str = 'general'
-    sub_type: str = ''
-    sub_rank: int = 0
-    title: Optional[str] = ''
-    url: Optional[str] = ''
-    text: Optional[str] = ''
-    cite: Optional[str] = None
-    details: Optional[Any] = None
 
 def parse_general_results(cmpt):
     """Parse a general component
@@ -71,7 +59,8 @@ def parse_general_result(sub, sub_rank=0):
     title_div = sub.find('div', {'class':'rc'}) or sub.find('div', {'class':'yuRUbf'})
     body_div = sub.find('span', {'class':'st'}) or sub.find('div', {'class': 'VwiC3b'})
 
-    parsed = Result(
+    parsed = BaseResult(
+        type='general',
         sub_rank=sub_rank,
         title=get_text(title_div, 'h3') if title_div else '',
         url=get_link(title_div) if title_div else '',
@@ -218,7 +207,7 @@ def parse_general_video(sub, sub_rank: int = 0):
         VideoResult: Parsed information of the video
     """
 
-    video_result = Result(
+    video_result = BaseResult(
         type='general',
         sub_type='video',
         sub_rank=sub_rank,
