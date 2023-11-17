@@ -96,13 +96,14 @@ def parse_twitter_card(sub, sub_rank=0):
         url = webutils.get_link(div)
         parsed.url = webutils.url_unquote(url) if url else None
         parsed.text = webutils.get_text(div, 'div', {'class':'xcQxib'})
-
-        if parsed.text:
-            details = {}
-            post_content = div.find('div', {'class':'xcQxib'})
-            links = [a for a in post_content.find_all('a') if 'href' in a.attrs]
-            details['urls'] = [webutils.url_unquote(a['href']) for a in links]
-            details['hashtags'] = webutils.parse_hashtags(parsed.text)
-            # details['emojis'] = webutils.parse_emojis(parsed['text'])
-            parsed.details = details
     return parsed.model_dump()
+
+# Deprecated: text processing should be done post-parse
+# def get_details(div):
+#     details = {}
+#     post_content = div.find('div', {'class':'xcQxib'})
+#     links = [a for a in post_content.find_all('a') if 'href' in a.attrs]
+#     details['urls'] = [webutils.url_unquote(a['href']) for a in links]
+#     details['hashtags'] = webutils.parse_hashtags(parsed.text)
+#     # details['emojis'] = webutils.parse_emojis(parsed['text'])
+#     return details
