@@ -12,6 +12,7 @@ def extract_footer(soup):
     """Extract footer div from a SERP"""
     return soup.find('div', {'id':'botstuff'})
 
+
 def extract_footer_components(footer):
     """Extract footer components from a footer div"""
     footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
@@ -24,7 +25,15 @@ def extract_footer_components(footer):
                 expanded.extend(divs)
             else:
                 expanded.append(cmpt)
+
+    # Exclude hidden people also ask components
+    expanded = [e for e in expanded if not is_hidden(e)]
     return expanded
+
+
+def is_hidden(element):
+    """Check if a hidden people also ask class"""
+    return element.find("div", {"class": "RTaUke"})
 
 
 def classify_footer_component(cmpt):
@@ -129,13 +138,20 @@ def parse_image_card(sub, sub_rank=0):
     
     return parsed
 
+
 def parse_alink(a): 
     return {'text':a.text,'url':a.attrs['href']}
+
+
+def parse_alink_list(alinks):
+    return [parse_alink(a) for a in alinks if 'href' in a.attrs]
+
 
 def parse_searches_related(cmpt, sub_rank=0):
     """Parse a one or two column list of related search queries"""
     parsed = {'type':'searches_related', 'sub_rank':sub_rank}
     # subs = cmpt.find('g-section-with-header').find_all('p')
-    parsed['details'] = [parse_alink(a) for a in cmpt.find_all('a')]
+    alinks = cmpt.find_all('a')
+    parsed['details'] = parse_alink_list(alinks)
     return [parsed]
     
