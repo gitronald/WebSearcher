@@ -27,6 +27,7 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_knowledge_panel,    # Check knowledge panel
         classify_finance_panel,      # Check finance panel (classify as knowledge)
         classify_general_questions,  # Check hybrid general questions
+        classify_twitter,            # Check twitter cards and results
         classify_general,            # Check general components
         classify_general_subresult,  # Check general result with submenu
         classify_people_also_ask,    # Check people also ask
@@ -38,10 +39,6 @@ def classify_type(cmpt: bs4.element.Tag):
     for classifier in component_classifiers:
         if cmpt_type != "unknown":  break  # Exit if successful classification
         cmpt_type = classifier(cmpt)
-
-        # Distinguish twitter types ("twitter_cards", "twitter_result")
-        if cmpt_type == "twitter":
-            cmpt_type = classify_twitter_type(cmpt, cmpt_type)
 
         # Ad-hoc check for available on divs
         if "/Available on" in cmpt.text:
@@ -105,10 +102,9 @@ def classify_header(cmpt: bs4.element.Tag, level):
         }
 
     # Find headers, eg for level 2: <h2> or <div aria-level="2" role="heading">
-    header_list = [
-        cmpt.find(f"h{level}"),
-        cmpt.find("div", {'aria-level':f"{level}", "role":"heading"})
-    ]
+    header_list = []
+    header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
+    header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
 
    # Check for string matches in header text e.g. `h2.text`
     for header in filter(None, header_list):
@@ -164,8 +160,14 @@ def classify_general_questions(cmpt: bs4.element.Tag):
     return 'general_questions' if hybrid and g_accordian else "unknown"
 
 
+def classify_twitter(cmpt: bs4.element.Tag):
+    cmpt_type = 'twitter' if cmpt.find('div', {'class': 'eejeod'}) else "unknown"
+    cmpt_type = classify_twitter_type(cmpt, cmpt_type)
+    return cmpt_type
+
+
 def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
-    """Classify twitter component type"""
+    """ Distinguish twitter types ('twitter_cards', 'twitter_result')"""
     conditions = [
         (cmpt_type == 'twitter'),                         # Check if already classified as twitter (header text)
         (cmpt.find_previous().text == "Twitter Results")  # Check for twitter results text
