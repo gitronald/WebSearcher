@@ -35,6 +35,8 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_banner,             # Check for banners
         classify_hidden_survey,      # Check for hidden surveys
         classify_knowledge_block,    # Check for knowledge components
+        classify_map_result,         # Check for map results
+        classify_local_results,      # Check for local results
     ]
     for classifier in component_classifiers:
         if cmpt_type != "unknown":  break  # Exit if successful classification
@@ -233,6 +235,16 @@ def classify_people_also_ask(cmpt: bs4.element.Tag):
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"
+
+
+def classify_map_result(cmpt):
+    condition = cmpt.find("div", {"class": "lu_map_section"})
+    return 'map_results' if condition else "unknown"
+
+
+def classify_local_results(cmpt):
+    condition = cmpt.find("div", {"class": "VkpGBb"})
+    return 'local_results' if condition else "unknown"
 
 
 def classify_knowledge_box(cmpt: bs4.element.Tag):
