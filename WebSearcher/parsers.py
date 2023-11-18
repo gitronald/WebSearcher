@@ -113,6 +113,7 @@ def extract_results_column(soup):
     column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
     return column
     
+    
 
 def extract_components(soup):
     """Extract SERP components
@@ -226,19 +227,6 @@ def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False
     soup = webutils.make_soup(serp) if make_soup else serp
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
 
-    # Set SERP-level attributes
-    serp_attrs = {}
-    if serp_id: 
-        serp_attrs['serp_id'] = serp_id
-    if crawl_id:
-        serp_attrs['crawl_id'] = crawl_id
-
-    serp_attrs.update({
-        'qry': parse_query(soup),
-        'lang': parse_lang(soup),
-        'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
-    })
-    
     # Extract components
     cmpts = extract_components(soup)
 
@@ -249,15 +237,34 @@ def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False
         
     for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
         cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
+        
+        # Ignore hidden survey component
+        if cmpt_type == 'hidden_survey':
+            continue
+        # Ignore directions component
         if cmpt_type == 'directions':
-            # print(cmpt)
-            pass
+            continue
+
         if verbose: 
             log.info(f'{cmpt_rank} | {cmpt_type}')
         parsed_cmpt = parse_component(cmpt, cmpt_type=cmpt_type, cmpt_rank=cmpt_rank)
         assert isinstance(parsed_cmpt, list), \
             f'Parsed component must be list: {parsed_cmpt}'
         parsed.extend(parsed_cmpt)
+
+    # Set SERP-level attributes
+    serp_attrs = {}
+    if serp_id: 
+        serp_attrs['serp_id'] = serp_id
+    if crawl_id:
+        serp_attrs['crawl_id'] = crawl_id
+
+    # Deprecated: Unused; can quickly get via regex post-parse
+    # serp_attrs.update({
+    #     'qry': parse_query(soup),
+    #     'lang': parse_lang(soup),
+    #     'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
+    # })
 
     for serp_rank, p in enumerate(parsed):
         p['serp_rank'] = serp_rank
