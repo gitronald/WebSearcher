@@ -25,6 +25,7 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_img_cards,          # Check image cards
         classify_images,             # Check images
         classify_knowledge_panel,    # Check knowledge panel
+        classify_knowledge_block,    # Check knowledge components
         classify_finance_panel,      # Check finance panel (classify as knowledge)
         classify_general_questions,  # Check hybrid general questions
         classify_twitter,            # Check twitter cards and results
@@ -34,7 +35,6 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
         classify_banner,             # Check for banners
         classify_hidden_survey,      # Check for hidden surveys
-        classify_knowledge_block,    # Check for knowledge components
         classify_map_result,         # Check for map results
         classify_local_results,      # Check for local results
     ]
@@ -186,10 +186,11 @@ def classify_general(cmpt: bs4.element.Tag):
     """Classify general components"""
     if "class" in cmpt.attrs:
         conditions = [
-            cmpt.attrs["class"] == ["g"],                               # Only class is 'g'
-            (("g" in cmpt.attrs["class"]) &                             # OR contains 'g' and 'Ww4FFb'
+            cmpt.attrs["class"] == ["g"],                                # Only class is 'g'
+            (("g" in cmpt.attrs["class"]) &                              # OR contains 'g' and 'Ww4FFb'
             any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
-            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]) # OR contains 'hlcw0c' or 'MjjYud'
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]), # OR contains 'hlcw0c' or 'MjjYud'
+            cmpt.find('div', {'class': ['g', 'Ww4FFb']}),                # OR contains 'g' and 'Ww4FFb' element
         ]
         return 'general' if any(conditions) else "unknown"
     else:
