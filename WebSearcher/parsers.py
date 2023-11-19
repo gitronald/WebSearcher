@@ -57,7 +57,15 @@ def extract_results_column(soup):
     if not left_side_bar and rso:
         # Extract results from single div
         drop_tags = {'script', 'style', None}
-        column = [('main', c) for c in rso.children if c.name not in drop_tags]
+        column = []
+        for child in rso.children:
+            if child.name in drop_tags:
+                continue
+            if not child.attrs:
+                column.extend(child.contents)
+            else:
+                column.append(child)
+        column = list(zip(['main']*len(column), column))
 
     else:
         # Extract results from two div sections
