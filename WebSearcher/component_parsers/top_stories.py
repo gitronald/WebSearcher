@@ -23,7 +23,13 @@ def parse_top_stories(cmpt, ctype='top_stories'):
     divs.extend(find_children(cmpt, 'div', {'class': 'qmv19b'}))  # Top Stories
     divs.extend(find_all_divs(cmpt, 'div', {'class': 'IJl0Z'}))   # Top Stories  
     divs.extend(find_all_divs(cmpt, 'div', {'class': 'JJZKK'}))   # Perspectives
-    divs = filter(None, divs)
+
+    if not divs:
+        # This will double count if divs already found above
+        link_divs = find_all_divs(cmpt, 'a', {'class': 'WlydOe'}) # Top Stories - Vertical
+        divs.extend([div.parent for div in link_divs])  
+
+    divs = list(filter(None, divs))
 
     if divs:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
