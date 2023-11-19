@@ -25,23 +25,22 @@ def classify_type(cmpt: bs4.element.Tag):
         classify_img_cards,          # Check image cards
         classify_images,             # Check images
         classify_knowledge_panel,    # Check knowledge panel
+        classify_knowledge_block,    # Check knowledge components
         classify_finance_panel,      # Check finance panel (classify as knowledge)
         classify_general_questions,  # Check hybrid general questions
+        classify_twitter,            # Check twitter cards and results
         classify_general,            # Check general components
         classify_general_subresult,  # Check general result with submenu
         classify_people_also_ask,    # Check people also ask
         classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
         classify_banner,             # Check for banners
         classify_hidden_survey,      # Check for hidden surveys
-        classify_knowledge_block,    # Check for knowledge components
+        classify_map_result,         # Check for map results
+        classify_local_results,      # Check for local results
     ]
     for classifier in component_classifiers:
         if cmpt_type != "unknown":  break  # Exit if successful classification
         cmpt_type = classifier(cmpt)
-
-        # Distinguish twitter types ("twitter_cards", "twitter_result")
-        if cmpt_type == "twitter":
-            cmpt_type = classify_twitter_type(cmpt, cmpt_type)
 
         # Ad-hoc check for available on divs
         if "/Available on" in cmpt.text:
@@ -86,7 +85,7 @@ def classify_header(cmpt: bs4.element.Tag, level):
             'Weather Result': 'knowledge',
             'Web Result with Site Links': 'general',
             'Web results': 'general',
-            'Complementary Results': 'knowledge',
+            'Complementary Results': 'general',
             'Videos': 'videos',
         }
     elif level == 3:
@@ -105,10 +104,9 @@ def classify_header(cmpt: bs4.element.Tag, level):
         }
 
     # Find headers, eg for level 2: <h2> or <div aria-level="2" role="heading">
-    header_list = [
-        cmpt.find(f"h{level}"),
-        cmpt.find("div", {'aria-level':f"{level}", "role":"heading"})
-    ]
+    header_list = []
+    header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
+    header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
 
    # Check for string matches in header text e.g. `h2.text`
     for header in filter(None, header_list):
@@ -164,8 +162,14 @@ def classify_general_questions(cmpt: bs4.element.Tag):
     return 'general_questions' if hybrid and g_accordian else "unknown"
 
 
+def classify_twitter(cmpt: bs4.element.Tag):
+    cmpt_type = 'twitter' if cmpt.find('div', {'class': 'eejeod'}) else "unknown"
+    cmpt_type = classify_twitter_type(cmpt, cmpt_type)
+    return cmpt_type
+
+
 def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
-    """Classify twitter component type"""
+    """ Distinguish twitter types ('twitter_cards', 'twitter_result')"""
     conditions = [
         (cmpt_type == 'twitter'),                         # Check if already classified as twitter (header text)
         (cmpt.find_previous().text == "Twitter Results")  # Check for twitter results text
@@ -182,10 +186,11 @@ def classify_general(cmpt: bs4.element.Tag):
     """Classify general components"""
     if "class" in cmpt.attrs:
         conditions = [
-            cmpt.attrs["class"] == ["g"],                               # Only class is 'g'
-            (("g" in cmpt.attrs["class"]) &                             # OR contains 'g' and 'Ww4FFb'
+            cmpt.attrs["class"] == ["g"],                                # Only class is 'g'
+            (("g" in cmpt.attrs["class"]) &                              # OR contains 'g' and 'Ww4FFb'
             any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
-            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]) # OR contains 'hlcw0c' or 'MjjYud'
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]), # OR contains 'hlcw0c' or 'MjjYud'
+            cmpt.find('div', {'class': ['g', 'Ww4FFb']}),                # OR contains 'g' and 'Ww4FFb' element
         ]
         return 'general' if any(conditions) else "unknown"
     else:
@@ -231,6 +236,16 @@ def classify_people_also_ask(cmpt: bs4.element.Tag):
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
     return 'people_also_ask' if conditions else "unknown"
+
+
+def classify_map_result(cmpt):
+    condition = cmpt.find("div", {"class": "lu_map_section"})
+    return 'map_results' if condition else "unknown"
+
+
+def classify_local_results(cmpt):
+    condition = cmpt.find("div", {"class": "VkpGBb"})
+    return 'local_results' if condition else "unknown"
 
 
 def classify_knowledge_box(cmpt: bs4.element.Tag):

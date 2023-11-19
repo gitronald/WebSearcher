@@ -1,4 +1,5 @@
 from .. import webutils
+from ..models import BaseResult
 
 def parse_twitter_cards(cmpt):
     """Parse a Twitter carousel component
@@ -22,64 +23,50 @@ def parse_twitter_cards(cmpt):
 
 def parse_twitter_header(header, sub_rank=0):
     """Parse the Twitter component header"""
-    parsed = {
-        'type': 'twitter_cards', 
-        'sub_type':'header', 
-        'sub_rank': sub_rank,
-        'title': '',
-        'url': '',
-        'cite': ''
-    }
+
+    parsed = BaseResult(
+        type='twitter_cards',
+        sub_type='header',
+        sub_rank=sub_rank,
+        title='',
+        url='',
+        cite=webutils.get_text(header, 'cite')
+    )
+
+    header_details = get_header_details(header)
+    parsed.title = header_details['title']
+    parsed.url = header_details['url']
+
+    return [parsed.model_dump()]
+
+
+def get_header_details(header):
+    """Handle legacy and current formats"""
 
     if header.find('h3'):
 
-        # Handle legacy and current formats
         if header.find('h3', {'class':'r'}):
-            header_parsed = find_header_legacy(header)
+            # Legacy format
+            element = header.find('h3', {'class':'r'})
+            header_details = {
+                'url': webutils.url_unquote(element['href']), 
+                'title': webutils.get_text(element, 'a')
+            }
         else:
-            header_parsed = find_header(header)
-        parsed.update(header_parsed)
-
+            # Current
+            glink = header.find('g-link')
+            header_details = {
+                'url': webutils.url_unquote(glink.a['href']) if glink else '', 
+                'title': webutils.get_text(glink)
+            }
     else:
         glink = header.find('g-link')
-        parsed['title'] = glink.text
-        parsed['url'] = glink.a['href']
+        header_details = {
+            'url': webutils.get_link(glink) if glink else '', 
+            'title': webutils.get_text(glink)
+        }
+    return header_details
 
-    if header.find('cite'):
-        parsed['cite'] = header.find('cite').text
-
-    return [parsed]
-
-def find_header_legacy(header):
-    """A legacy version to find the header of a twitter card
-
-    Args:
-        header (bs4 object): A twitter card
-
-    Returns:
-        dict: the header text and url
-    """
-    element = header.find('h3', {'class':'r'}).find('a')
-    url = webutils.url_unquote(element['href'])
-    return {'url' : url, 'title' : element.text}
-
-def find_header(header):
-    """A updated version to find the header of a twitter card
-
-    Args:
-        header (bs4 object): A twitter card
-
-    Returns:
-        dict: the header text and url
-    """
-    
-    glink = header.find('g-link')
-    url = webutils.url_unquote(glink.a['href']) if glink else ''
-
-    title_h3 = header.find('h3', {'class':'NsiYH'})
-    title = title_h3.text if title_h3 else ''
-
-    return {'url' : url, 'title' : title}
 
 def parse_twitter_card(sub, sub_rank=0):
     """Parse a Twitter cards subcomponent
@@ -90,43 +77,33 @@ def parse_twitter_card(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-    parsed = {
-        'type': 'twitter_cards', 
-        'sub_type': 'card', 
-        'sub_rank': sub_rank + 1,  # Add one to rank to account for header
-        'cmpt_rank': None,
-        'title':'',
-        'url':'',
-        'text':'',
-        'details':None,
-        'timestamp':None
-    }
+    parsed = BaseResult(
+        type='twitter_cards',
+        sub_type='card',
+        sub_rank=sub_rank + 1,  # Add one to rank to account for header
+    )
 
     # Tweet account
     title = sub.find('g-link')
     if title:
-        parsed['title'] = title.find('a').text
+        parsed.title = webutils.get_text(title, 'a')
 
     # Bottom div containing timestamp and tweet link
     div = sub.find('div', {'class':'Brgz0'})
-    link = div.find('a')
-    if 'href' in link.attrs:
-        parsed['url'] = webutils.url_unquote(link['href'])
+    if div:
+        parsed.cite = webutils.get_text(div, 'div', {'class':'rmxqbe'})
+        
+        url = webutils.get_link(div)
+        parsed.url = webutils.url_unquote(url) if url else None
+        parsed.text = webutils.get_text(div, 'div', {'class':'xcQxib'})
+    return parsed.model_dump()
 
-    ts = div.find('span', {'class':'f'})
-    if ts:
-        parsed['timestamp'] = div.find_all('span', {'class':'f'})[-1].text
-
-    # Tweet text
-    subdiv = div.find('div', {'class':'xcQxib'})
-    parsed['text'] = subdiv.text if subdiv else None
-
-    # Tweet details
-    details = {}
-    links = subdiv.find_all('a')
-    details['urls'] = [webutils.url_unquote(a['href']) for a in links if 'href' in a.attrs]
-    details['hashtags'] = webutils.parse_hashtags(parsed['text'])
-    # details['emojis'] = webutils.parse_emojis(parsed['text'])
-    parsed['details'] = details
-
-    return parsed
+# Deprecated: text processing should be done post-parse
+# def get_details(div):
+#     details = {}
+#     post_content = div.find('div', {'class':'xcQxib'})
+#     links = [a for a in post_content.find_all('a') if 'href' in a.attrs]
+#     details['urls'] = [webutils.url_unquote(a['href']) for a in links]
+#     details['hashtags'] = webutils.parse_hashtags(parsed.text)
+#     # details['emojis'] = webutils.parse_emojis(parsed['text'])
+#     return details

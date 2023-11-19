@@ -12,6 +12,7 @@ def extract_footer(soup):
     """Extract footer div from a SERP"""
     return soup.find('div', {'id':'botstuff'})
 
+
 def extract_footer_components(footer):
     """Extract footer components from a footer div"""
     footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
@@ -24,7 +25,23 @@ def extract_footer_components(footer):
                 expanded.extend(divs)
             else:
                 expanded.append(cmpt)
+    
+    filter_notice = footer.find('div', {'class':'ClPXac'})
+    if filter_notice:
+        expanded.append(filter_notice)
+
+    # Filter hidden people also ask components
+    expanded = [e for e in expanded if not is_hidden(e)]
     return expanded
+
+
+def is_hidden(element):
+    """Check if a hidden people also ask class"""
+    conditions = [
+        element.find("span", {"class":"oUAcPd"}),   # Empty `general`
+        element.find("div", {"class": "RTaUke"}),   # Empty `people_also_ask`
+    ]
+    return any(conditions)
 
 
 def classify_footer_component(cmpt):
@@ -44,6 +61,8 @@ def classify_footer_component(cmpt):
             return 'searches_related'
         else:
             return 'unknown'
+    elif cmpt.find("p", {"id":"ofr"}):
+        return 'filter-notice'
     elif gsection:
         return 'searches_related'
     else:
@@ -61,6 +80,8 @@ def get_footer_parser(cmpt_type):
         return parse_general_results
     elif cmpt_type == 'people_also_ask':
         return parse_people_also_ask
+    elif cmpt_type == 'filter-notice':
+        return parse_filter_notice
 
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
@@ -105,6 +126,9 @@ def parse_footer(cmpt):
 
     return parsed_list
 
+def parse_filter_notice(cmpt):
+    return [{'type':'filter-notice'}]
+
 def parse_discover_more(cmpt):
     carousel = cmpt.find('g-scrolling-carousel')
     parsed = [{
@@ -129,13 +153,20 @@ def parse_image_card(sub, sub_rank=0):
     
     return parsed
 
+
 def parse_alink(a): 
     return {'text':a.text,'url':a.attrs['href']}
+
+
+def parse_alink_list(alinks):
+    return [parse_alink(a) for a in alinks if 'href' in a.attrs]
+
 
 def parse_searches_related(cmpt, sub_rank=0):
     """Parse a one or two column list of related search queries"""
     parsed = {'type':'searches_related', 'sub_rank':sub_rank}
     # subs = cmpt.find('g-section-with-header').find_all('p')
-    parsed['details'] = [parse_alink(a) for a in cmpt.find_all('a')]
+    alinks = cmpt.find_all('a')
+    parsed['details'] = parse_alink_list(alinks)
     return [parsed]
     

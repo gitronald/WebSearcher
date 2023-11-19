@@ -6,6 +6,9 @@ Changelog
 
 """
 
+from .. import webutils
+from ..models import BaseResult
+
 def parse_videos(cmpt):
     """Parse a videos component
 
@@ -17,10 +20,20 @@ def parse_videos(cmpt):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    subs = cmpt.find_all('g-inner-card')
-    subs = cmpt.find_all('div', {'class':'VibNM'}) if not subs else subs
-    subs = cmpt.find_all('div', {'class':'sI5x9c'}) if not subs else subs
-    return [parse_video(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+
+    # Get known div structures
+    divs = []
+    divs.extend(webutils.find_all_divs(cmpt, 'g-inner-card'))
+    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'VibNM'}))
+    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'mLmaBd'}))
+    # divs.extend(cmpt.find_all('div', {'class':'sI5x9c'})) # Selects a level too low, missing links.
+    divs = list(filter(None, divs))
+
+    if divs:
+        return [parse_video(div, i) for i, div in enumerate(divs)]
+    else:
+        return [{'type': 'videos', 'sub_rank': 0, 'error': 'No subcomponents found'}]
+
 
 def parse_video(sub, sub_rank=0):
     """Parse a videos subcomponent
@@ -31,19 +44,19 @@ def parse_video(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-    parsed = {'type':'videos', 'sub_rank':sub_rank}
 
-    all_urls = sub.find_all('a')
-    # remove urls if they start with '#'
-    non_hash_urls = [url for url in all_urls if not url['href'].startswith('#')]
-    parsed['url'] = non_hash_urls[0]['href'] if non_hash_urls else None
-
-    parsed['title'] = sub.find('div', {'role':'heading'}).text
+    parsed = BaseResult(
+        type='videos',
+        sub_rank=sub_rank,
+        url=get_url(sub),
+        title=webutils.get_text(sub, 'div', {'role':'heading'}),
+        text=webutils.get_text(sub, 'div', {'class':'MjS0Lc'}),
+    )
 
     details = sub.find_all('div', {'class':'MjS0Lc'})
     if details:
         text_div, citetime_div = details
-        parsed['text'] = text_div.text if text_div else None
+        parsed.text = text_div.text if text_div else None
 
         if citetime_div:
             # Sometimes there is only a cite
@@ -51,31 +64,45 @@ def parse_video(sub, sub_rank=0):
             citetime = list(citetime.children)
             if len(citetime) == 2:
                 cite, timestamp = citetime       
-                parsed['cite'] = cite.text
-                parsed['timestamp'] = timestamp.replace(' - ', '')
+                parsed.cite = cite.text
+                # parsed.timestamp = timestamp.replace(' - ', '')
             else:
-                parsed['cite'] = citetime[0].text
-    else:
-        cite_span = sub.find('span', {'class':'ocUPSd'})
-        parsed['cite'] = sub.text if cite_span else None
+                parsed.cite = citetime[0].text
+    elif sub.find('span', {'class':'ocUPSd'}):
+        parsed.cite = sub.text
+        # parsed.timestamp = get_div_text(sub, {'class':'rjmdhd'})
+    elif sub.find("cite"):
+        parsed.cite = webutils.get_text(sub, "cite")
+        # parsed.timestamp = webutils.get_text(sub, "div", {'class':'hMJ0yc'})
 
-        parsed['timestamp'] = get_div_text(sub, {'class':'rjmdhd'})
+    return parsed.model_dump()
 
-    parsed['details'] = {} 
-    parsed['details']['img_url'] = get_img_url(sub)
 
-    # Check for "key moments" in video
-    key_moments_div = sub.find('div', {'class':'AvBz0e'})
-    parsed['details']['key_moments'] = True if key_moments_div else False
+def get_url(sub):
+    """Get video URL by filtering for non-hash links"""
+    all_urls = sub.find_all('a')
+    non_hash_urls = [url for url in all_urls if not url['href'].startswith('#')]
+    return non_hash_urls[0]['href'] if non_hash_urls else None
 
-    return parsed
 
 def get_div_text(soup, details):
     div = soup.find('div', details)
     return div.text if div else None
+
 
 def get_img_url(soup):
     """Extract image source"""    
     img = soup.find('img')
     if img and 'data-src' in img.attrs:
         return img.attrs['data-src']
+
+
+# Deprecated: images now have the same link, key moments are rare or gone
+# def get_video_details(sub):
+#     parsed['details'] = {} 
+#     parsed['details']['img_url'] = get_img_url(sub)
+
+#     # Check for "key moments" in video
+#     key_moments_div = sub.find('div', {'class':'AvBz0e'})
+#     parsed['details']['key_moments'] = True if key_moments_div else False
+#     return parsed

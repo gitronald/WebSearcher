@@ -1,3 +1,5 @@
+from .. import webutils
+
 def parse_top_image_carousel(cmpt, sub_rank=0):
     """parse image carousel that appears at top of page above search results
 
@@ -13,7 +15,7 @@ def parse_top_image_carousel(cmpt, sub_rank=0):
     title = cmpt.find_all('span', {'class': 'Wkr6U'})
     if title:
         parsed['title'] = '|'.join([t.text for t in title])
-        parsed['url'] = cmpt.find('a').attrs['href']
+        parsed['url'] = webutils.get_link(cmpt)
 
     images = cmpt.find('div', {'role':'list'})
     if images:
@@ -29,9 +31,9 @@ def parse_top_image_carousel(cmpt, sub_rank=0):
     return [parsed]
 
 def parse_alink(a): 
-    parsed = {'text':a.get_text('|')}
+    parsed = {'text': a.get_text('|')}
     if 'href' in a.attrs:
         parsed['url'] = a['href']
     elif 'data-url' in a.attrs:
         parsed['url'] = a['data-url']
-    return parsed    
+    return parsed  

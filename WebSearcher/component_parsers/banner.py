@@ -1,12 +1,5 @@
-from pydantic import BaseModel
+from ..models import BaseResult
 
-class BannerResult(BaseModel):
-    type: str = 'banner'
-    sub_rank: int = 0
-    sub_type: str = ''
-    title: str = ''
-    url: str = ''
-    text: str = ''
 
 def parse_banner(cmpt):
     """Parse a search suggestion component
@@ -20,8 +13,10 @@ def parse_banner(cmpt):
     banner_results = []
 
     # Header subcomponent
-    banner_result_header = BannerResult(
+    banner_result_header = BaseResult(
+        type='banner',
         sub_type='header',
+        sub_rank=0,
         title=get_result_text(cmpt, '.v3jTId'),
         text=get_result_text(cmpt, '.Cy9gW'),
     )
@@ -29,9 +24,10 @@ def parse_banner(cmpt):
 
     # Suggestion subcomponents
     for i, suggestion in enumerate(cmpt.select('.TjBpC')):
-        banner_result_suggestion = BannerResult(
-            sub_rank=i + 1,
+        banner_result_suggestion = BaseResult(
+            type='banner',
             sub_type='suggestion',
+            sub_rank=i + 1,
             title=get_result_text(suggestion, '.AbPV3'),
             url=suggestion.get('href')
         )

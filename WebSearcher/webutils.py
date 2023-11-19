@@ -24,8 +24,10 @@ def load_html(fp, zipped=False):
     with open(fp, read_type) as infile:
         return infile.read()
 
+
 def load_soup(fp, zipped=False):
     return make_soup(load_html(fp, zipped))
+
 
 def start_sesh(headers=None, proxy_port=None):
     protocols = ['http', 'https']
@@ -44,6 +46,13 @@ def start_sesh(headers=None, proxy_port=None):
         sesh.mount(protocol, requests.adapters.HTTPAdapter(max_retries=3))
 
     return sesh
+
+# Misc -------------------------------------------------------------------------
+
+def check_dict_value(d, key, value):
+    """Check if a key exists in a dictionary and is equal to a input value"""
+    return (d[key] == value) if key in d else False
+
 
 # Parsing ----------------------------------------------------------------------
 
@@ -72,42 +81,41 @@ def parse_hashtags(text):
     hashtags = [re.sub(r"(\W+)$", "", h, flags = re.UNICODE) for h in hashtags]
     return list(set(hashtags))
 
+# Deprecated: text processing should be done after parsing not during
 # def parse_emojis(text):
 #     return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
 
-def check_dict_value(d, key, value):
-    """Check if a key exists in a dictionary and is equal to a input value"""
-    return (d[key] == value) if key in d else False
+# Get divs, links, and text ----------------------------------------------------
 
 
-def get_link(soup, kwargs=None, key='href'):
+def get_link(soup:BeautifulSoup, attrs:dict = {}, key:str = 'href') -> str:
     """Utility for `soup.find('a')['href']` with null key handling"""
-    link = get_div(soup, 'a', kwargs)
+    link = get_div(soup, 'a', attrs)
     return link.attrs.get(key, None) if link else None
 
 
-def get_div(soup, name, attrs=None):
+def get_div(soup:BeautifulSoup, name:str, attrs:dict = {}) -> BeautifulSoup:
     """Utility for `soup.find(name)` with null attrs handling"""
     return soup.find(name, attrs) if attrs else soup.find(name)
 
 
-def find_all_divs(soup, name, attr=None, filter_empty=True):
-    divs = soup.find_all(name, attr) if attr else soup.find_all(name)
+def find_all_divs(soup:BeautifulSoup, name:str, attrs:dict = {}, filter_empty:bool = True) -> list:
+    divs = soup.find_all(name, attrs) if attrs else soup.find_all(name)
     if filter_empty:
         divs = [c for c in divs if c]
         divs = [c for c in divs if c.text != '']
     return divs
 
 
-def find_children(soup, name, attr=None):
+def find_children(soup, name:str, attrs:dict = {}) -> list:
     """Find all children of a div with a given name and attribute"""
-    div = get_div(soup, name, attr)
+    div = get_div(soup, name, attrs)
     return div.children if div else []
-    
 
-def get_text(soup, name=None, kwargs=None, separator=" "):
+
+def get_text(soup, name:str=None, attrs:dict={}, separator:str=" ") -> str:
     """Utility for `soup.find(name).text` with null name handling"""
-    div = get_div(soup, name, kwargs) if name else soup
+    div = get_div(soup, name, attrs) if name else soup
     return div.get_text(separator=separator) if div else None
 
 
