@@ -27,7 +27,7 @@ def parse_videos(cmpt):
     divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'VibNM'}))
     divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'mLmaBd'}))
     # divs.extend(cmpt.find_all('div', {'class':'sI5x9c'})) # Selects a level too low, missing links.
-    divs = filter(None, divs)
+    divs = list(filter(None, divs))
 
     if divs:
         return [parse_video(div, i) for i, div in enumerate(divs)]
