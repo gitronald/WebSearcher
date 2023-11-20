@@ -26,6 +26,7 @@ def parse_videos(cmpt):
     divs.extend(webutils.find_all_divs(cmpt, 'g-inner-card'))
     divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'VibNM'}))
     divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'mLmaBd'}))
+    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'RzdJxc'}))
     # divs.extend(cmpt.find_all('div', {'class':'sI5x9c'})) # Selects a level too low, missing links.
     divs = list(filter(None, divs))
 
