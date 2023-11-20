@@ -9,14 +9,19 @@ def extract_results_column(soup):
     Returns:
         list: a list of HTML result components
     """
-    # Check if layout contains left side bar
-    left_side_bar = soup.find('div', {'class': 'OeVqAd'})
-    rso = soup.find('div', {'id':'rso'})
 
-    if not left_side_bar and rso:
-        # Extract results from single div
-        drop_tags = {'script', 'style', None}
-        column = []
+    # Drop tags
+    drop_tags = {'script', 'style', None}
+
+    # Check if layout contains left side bar
+    layout_shift = [
+        soup.find('div', {'class': 'OeVqAd'}),  # left side bar
+        soup.find('div', {'class': 'M8OgIe'}),  # top bar
+    ]
+    rso = soup.find('div', {'id':'rso'})
+    column = []
+
+    if not any(layout_shift) and rso:
         for child in rso.children:
             if child.name in drop_tags:
                 continue
@@ -24,60 +29,55 @@ def extract_results_column(soup):
                 column.extend(child.contents)
             else:
                 column.append(child)
-        column = list(zip(['main']*len(column), column))
-
-    else:
+    elif rso:
         # Extract results from two div sections
-        rso = []
-        # rso = soup.find('div', {'id':'rso'})
 
         # Find section 1 results and append to rso list
-        section1 = soup.find_all('div', {'class':'sATSHe'})
-        # section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        column = rso.find_all('div', {'class':'sATSHe'})
+        column = [c for c in column if c.name not in drop_tags]
+
+    else:
+        section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
         for div in section1:
 
             # Conditional handling for Twitter result
             if div.find('h2') and div.find('h2').text == "Twitter Results": 
-                rso.append(div.find('div').parent)
+                column.append(div.find('div').parent)
 
             # Conditional handling for g-section with header
             elif div.find('g-section-with-header'): 
-                rso.append(div.find('g-section-with-header').parent)
+                column.append(div.find('g-section-with-header').parent)
 
             # Include divs with a "View more" type of button
             elif div.find('g-more-link'): 
-                rso.append(div)
+                column.append(div)
 
             # Include footer components that appear in the main column
             elif div.find('div', {'class':'oIk2Cb'}):
-                rso.append(div)
+                column.append(div)
 
             else:
                 # Handle general results
                 for child in div.find_all('div',  {'class':'g'}): 
-                    rso.append(child)
+                    column.append(child)
 
-        # Find section 2 results and append to rso list
-        section2 = soup.find('div', {'class':'WvKfwe a3spGf'})
-        if section2:
-            for child in section2.children:
-                rso.append(child)
+            # Find section 2 results and append to column list
+            section2 = soup.find('div', {'class':'WvKfwe a3spGf'})
+            if section2:
+                for child in section2.children:
+                    column.append(child)
+            column = [c for c in column if c.name not in drop_tags]
 
-        drop_tags = {'script', 'style'}
-        column = [('main', c) for c in rso if c.name not in drop_tags]
+    # Drop empty components
+    drop_text = {
+        "Main results",    # Remove empty rso component; hidden <h2> header  
+        "Twitter Results", # Remove empty Twitter component
+        "",                # Remove empty divs
+    }
+    column = [c for c in column if c.text not in drop_text]
+    column = list(zip(['main']*len(column), column))
 
-    # Legacy extraction
-    # div_class = {'class':['g','bkWMgd']}
-    # column = [('main', r) for r in soup.find_all('div', div_class)]
 
-    # Remove empty rso component; hidden <h2> header
-    drop_text = {"Main results"}
-    column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
-
-    # Hacky fix removing named Twitter component without content, possible G error
-    # Another fix for empty components, e.g. - <div class="bkWMgd"></div>
-    drop_text = {'Twitter Results', ''}
-    column = [(cloc, c) for (cloc, c) in column if c.text not in drop_text]
     return column
 
 
