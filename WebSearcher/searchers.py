@@ -59,7 +59,8 @@ class SearchEngine(object):
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             file_name=log_fp, 
-            file_mode=log_mode
+            file_mode=log_mode,
+            console=True if not log_fp else False,
         ).start(__name__)
 
         # Set an SSH tunnel - conducting the search from somewhere else
