@@ -20,6 +20,7 @@ from .top_image_carousel import parse_top_image_carousel
 from .knowledge_rhs import parse_knowledge_rhs
 from .shopping_ads import parse_shopping_ads
 from .perspectives import parse_perspectives
+from .local_news import parse_local_news
 from .banner import parse_banner
 
 # Component details dataframe
@@ -34,6 +35,7 @@ components = [
     ('general_subresult', parse_general_results, 'General Subresult'),
     ('available_on', parse_available_on, 'Available On'),
     ('top_stories', parse_top_stories, 'Top Stories'),
+    ('local_news', parse_local_news, 'Local News'),
     ('latest_from', parse_latest_from, 'Latest From'),
     ('view_more_news', parse_view_more_news, 'View More News'),
     ('news_quotes', parse_news_quotes, 'News Quotes'),
