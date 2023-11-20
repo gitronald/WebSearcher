@@ -79,6 +79,7 @@ def classify_header(cmpt: bs4.element.Tag, level):
             'Resultados de la Web': 'general',
             'Sports Results': 'knowledge',
             'Top stories': 'top_stories',
+            'Local news': 'local_news',
             'Translation Result': 'knowledge',
             'Twitter Results': 'twitter',
             'Unit Converter': 'knowledge',
@@ -111,7 +112,7 @@ def classify_header(cmpt: bs4.element.Tag, level):
    # Check for string matches in header text e.g. `h2.text`
     for header in filter(None, header_list):
         for text, label in header_dict.items():
-            if header.text.startswith(text):
+            if header.text.strip().startswith(text):
                 return label
 
     # Return unknown if no matches

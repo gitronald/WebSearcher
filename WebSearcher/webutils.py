@@ -81,9 +81,20 @@ def parse_hashtags(text):
     hashtags = [re.sub(r"(\W+)$", "", h, flags = re.UNICODE) for h in hashtags]
     return list(set(hashtags))
 
+
+def parse_lang(soup):
+    """Parse language from html tags"""
+    try:
+        return soup.find('html').attrs['lang']
+    except Exception as e:
+        log.exception('Error while parsing language')
+        return None
+    
+
 # Deprecated: text processing should be done after parsing not during
 # def parse_emojis(text):
 #     return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
+
 
 # Get divs, links, and text ----------------------------------------------------
 
