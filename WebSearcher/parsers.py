@@ -2,31 +2,12 @@ from . import webutils
 from .component_classifier import classify_type
 from .component_parsers import type_functions
 from .extractors import extract_components
-from . import logger
-log = logger.Logger().start(__name__)
+from .models import BaseResult
+from .logger import Logger
+log = Logger().start(__name__)
 
 import traceback
 from bs4 import BeautifulSoup
-
-UNKNOWN_COMPONENT = {
-    'sub_rank':0, 
-    'type': 'unknown'
-}
-
-
-def parse_query(soup):
-    """Parse query from title of html soup"""
-    title = str(soup.html.find('title'))
-    return webutils.strip_html_tags(title).split(" - ")[0]
-
-
-def parse_lang(soup):
-    """Parse language from html tags"""
-    try:
-        return soup.find('html').attrs['lang']
-    except Exception as e:
-        log.exception('Error while parsing language')
-        return None
 
 
 def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
@@ -39,8 +20,7 @@ def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
 
 def not_implemented(cmpt):
     """Placeholder function for component parsers that are not implemented"""
-    parsed = UNKNOWN_COMPONENT.copy()
-    parsed['type'] = classify_type(cmpt)
+    parsed = BaseResult(type=classify_type(cmpt), sub_rank=0).model_dump()
     parsed['error'] = 'not implemented'
     return [parsed]
 
@@ -56,18 +36,16 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     Returns:
         dict: The parsed results and/or subresults
     """
+
     # Classify Component
     cmpt_type = cmpt_type if cmpt_type else classify_type(cmpt)
     assert cmpt_type, 'Null component type'
 
-    # if cmpt_type == 'directions':
-    #     print(cmpt)
-
     # Return unknown components
     if cmpt_type == 'unknown':
-        unknown_component = UNKNOWN_COMPONENT.copy()
-        unknown_component['cmpt_rank'] = 0
-        return [unknown_component]
+        parsed = BaseResult(type='unknown', sub_rank=0).model_dump()
+        parsed['cmpt_rank'] = cmpt_rank
+        return [parsed]
 
     # Parse component
     try:
@@ -87,6 +65,7 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
         return [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 'error':err}]
 
     return parsed_cmpt
+
 
 def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False):
     """Parse a Search Engine Result Page (SERP)
@@ -134,13 +113,6 @@ def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False
         serp_attrs['serp_id'] = serp_id
     if crawl_id:
         serp_attrs['crawl_id'] = crawl_id
-
-    # Deprecated: Unused; can quickly get via regex post-parse
-    # serp_attrs.update({
-    #     'qry': parse_query(soup),
-    #     'lang': parse_lang(soup),
-    #     'lhs_bar': soup.find('div', {'class': 'OeVqAd'}) is not None,
-    # })
 
     for serp_rank, p in enumerate(parsed):
         p['serp_rank'] = serp_rank
