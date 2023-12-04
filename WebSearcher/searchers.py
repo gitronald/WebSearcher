@@ -9,7 +9,6 @@ import json
 import time
 import brotli
 import requests
-from hashlib import sha224
 from datetime import datetime
 
 # Default headers to send with requests (i.e. device fingerprint)
@@ -22,9 +21,6 @@ DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
 }
 
-def utc_stamp(): return datetime.utcnow().isoformat()
-def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
-def hash_id(s): return sha224(s.encode('utf-8')).hexdigest()
 
 class SearchEngine(object):
     """ Collect Search Engine Results Pages (SERPs)
@@ -159,8 +155,8 @@ class SearchEngine(object):
             serp_id (str, optional): A unique identifier for this SERP
         """
         self.prepare_url(qry, location=location)
-        self.timestamp = utc_stamp()
-        self.serp_id = serp_id if serp_id else hash_id(qry + location + self.timestamp)
+        self.timestamp = datetime.utcnow().isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
         self.crawl_id = crawl_id
         self.snapshot()
         self.handle_response()

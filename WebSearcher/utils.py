@@ -2,8 +2,8 @@ import re
 import os
 import json
 import random
+import hashlib
 import itertools
-from hashlib import sha224
 from timeit import default_timer
 from string import ascii_letters, digits
 
@@ -66,6 +66,9 @@ def remove_digits(string):
     return "".join([x for x in string if not x.isdigit()]).strip()
 
 # Misc -------------------------------------------------------------------------
+
+def hash_id(s): 
+    return hashlib.sha224(s.encode('utf-8')).hexdigest()
 
 def make_id():
     return hashlib.sha224(random_string().encode('utf-8')).hexdigest()
