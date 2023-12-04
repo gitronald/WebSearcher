@@ -209,10 +209,9 @@ class SearchEngine(object):
             utils.write_lines([out_data], append_to)
 
         else:
-            fn = f'{self.qry.replace(" ", "+")}-{self.timestamp}.html'
+            fn = f'{self.serp_id}.html'
             fp = os.path.join(save_dir, fn)
-            print(f"Saving SERP to: {save_dir}")
-
+            self.log.debug(f"saving: {fp}")
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
