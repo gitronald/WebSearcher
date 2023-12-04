@@ -245,8 +245,11 @@ def classify_map_result(cmpt):
 
 
 def classify_local_results(cmpt):
-    condition = cmpt.find("div", {"class": "VkpGBb"})
-    return 'local_results' if condition else "unknown"
+    conditions = [
+        cmpt.find("div", {"class": "Qq3Lb"}),  # Places
+        cmpt.find("div", {"class": "VkpGBb"})  # Local Results
+    ]
+    return 'local_results' if any(conditions) else "unknown"
 
 
 def classify_knowledge_box(cmpt: bs4.element.Tag):
