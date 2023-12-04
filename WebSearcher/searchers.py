@@ -3,6 +3,7 @@ from . import locations
 from . import webutils as wu
 from . import utils
 from . import logger
+from .models import BaseSERP
 
 import os
 import time
@@ -53,9 +54,7 @@ class SearchEngine:
         self.base_url = 'https://www.google.com/search'
         self.params = {}
         self.headers = headers
-
-        # Set a requests session
-        self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.unzip = unzip
 
         # Set a log file, prints to console by default
         self.log = logger.Logger(
@@ -65,12 +64,14 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
+        # Set a requests session
+        self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
+
         # Set an SSH tunnel - conducting the search from somewhere else
         self.ssh_tunnel = ssh_tunnel
 
-        # Initialize data storage - search results
+        # Initialize data storage
         self.html = None
-        self.unzip = unzip
         self.results = []
 
 
@@ -107,7 +108,7 @@ class SearchEngine:
             self.params.pop('uule')
         if location:
             self.set_location(location)
-        
+
 
     def snapshot(self):
         try:
@@ -212,7 +213,10 @@ class SearchEngine:
             all_items = dict(vars(self).items())
             out_data = {k: all_items[k] for k in keep_keys}
             out_data['response_code'] = self.response.status_code
-            utils.write_lines([out_data], append_to)
+            self.log.debug(f"Validating SERP data")
+            serp = BaseSERP(**out_data)
+            output = [serp.model_dump()]
+            utils.write_lines(output, append_to)
 
         else:
             fn = f'{self.serp_id}.html'
