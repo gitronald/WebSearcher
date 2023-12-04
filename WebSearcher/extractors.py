@@ -17,8 +17,11 @@ def check_page_layout(soup : BeautifulSoup) -> dict:
     layout_dict = {
         'rso': soup.find('div', {'id':'rso'}),              # main results
         'left-bar': soup.find('div', {'class': 'OeVqAd'}),  # left side bar
-        'top-bar': soup.find('div', {'class': 'M8OgIe'}),   # top bar
+        'top-bar-1': soup.find('div', {'class': 'M8OgIe'}),   # top bar
+        'top-bar-2': soup.find('div', {'class': 'XqFnDf'}),   # top bar
     }
+    layout_dict['top-bar'] = layout_dict['top-bar-1'] or layout_dict['top-bar-2']
+
     return layout_dict
 
 
@@ -45,7 +48,8 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
             
         elif layout_dict['left-bar']:
             log.debug("layout: left-bar")
-
+            # Not implemented - may appear in pre-2022 data
+        
     else:
         log.debug("layout: no-rso")
         column = extract_from_no_rso(layout_dict, drop_tags)
