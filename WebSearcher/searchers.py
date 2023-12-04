@@ -59,6 +59,7 @@ class SearchEngine:
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not log_fp else False,
+            console_level=log_level,
             file_name=log_fp, 
             file_mode=log_mode,
             file_level=log_level,

@@ -28,7 +28,7 @@ class Logger:
     def __init__(self,
                  console: bool = True, 
                  console_format: str = 'medium', 
-                 console_level: str = 'DEBUG',                
+                 console_level: str = 'INFO',                
                  file_name: str = '',  
                  file_mode: str = 'w', 
                  file_format: str = 'detailed',
@@ -39,7 +39,7 @@ class Logger:
         Args:
             console (bool): Flag to enable or disable console logging.
             console_format (str): Format of the console logging. Should be either 'minimal' or 'detailed'.
-            console_level (str): Logging level for the console. Default is 'DEBUG'.
+            console_level (str): Logging level for the console. Default is 'INFO'.
             file_name (str): Name of the file to log messages. If empty, file logging is disabled.
             file_mode (str): File mode for file logging. Default is 'w' (write).
             file_format (str): Format of the file logging. Should be either 'minimal' or 'detailed'.
