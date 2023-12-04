@@ -13,7 +13,7 @@ def extract_results_column(soup):
     # Drop tags
     drop_tags = {'script', 'style', None}
 
-    # Check if layout contains left side bar
+    # Check if layout contains left side bar or top bar
     layout_shift = [
         soup.find('div', {'class': 'OeVqAd'}),  # left side bar
         soup.find('div', {'class': 'M8OgIe'}),  # top bar
@@ -21,20 +21,20 @@ def extract_results_column(soup):
     rso = soup.find('div', {'id':'rso'})
     column = []
 
-    if not any(layout_shift) and rso:
-        for child in rso.children:
-            if child.name in drop_tags:
-                continue
-            if not child.attrs:
-                column.extend(child.contents)
-            else:
-                column.append(child)
-    elif rso:
-        # Extract results from two div sections
-
-        # Find section 1 results and append to rso list
-        column = rso.find_all('div', {'class':'sATSHe'})
-        column = [c for c in column if c.name not in drop_tags]
+    if rso:
+        # Check for most common layout
+        if not any(layout_shift):
+            for child in rso.children:
+                if child.name in drop_tags:
+                    continue
+                if not child.attrs:
+                    column.extend(child.contents)
+                else:
+                    column.append(child)
+        else:
+            # Handle layout shifts
+            column = rso.find_all('div', {'class':'sATSHe'})
+            column = [c for c in column if c.name not in drop_tags]
 
     else:
         section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
