@@ -37,12 +37,9 @@ def write_lines(iter_data, fp, overwrite=False):
         is_json = 'json' in fp.__fspath__()
 
     with open(fp, mode) as outfile:
-        if is_json:
-            for data in iter_data:
-                outfile.write('%s\n' % json.dumps(data))
-        else:
-            for data in iter_data:
-                outfile.write('%s\n' % data)
+        for data in iter_data:
+            line_output = json.dumps(data) if is_json else data
+            outfile.write(f"{line_output}\n")
 
 
 # Lists ------------------------------------------------------------------------
