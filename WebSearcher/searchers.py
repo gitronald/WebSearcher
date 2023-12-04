@@ -5,11 +5,11 @@ from . import utils
 from . import logger
 
 import os
-import json
 import time
 import brotli
 import requests
 from datetime import datetime
+from typing import Any, Dict, Optional
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
@@ -22,27 +22,32 @@ DEFAULT_HEADERS = {
 }
 
 
-class SearchEngine(object):
+class SearchEngine:
     """ Collect Search Engine Results Pages (SERPs)
     
     Location provided must be a "Canonical Name"
 
     """
     def __init__(self, 
-        sesh=None, ssh_tunnel=None, 
-        log_fp='', log_mode='a+',
-        headers=DEFAULT_HEADERS,
-        unzip=True):
+            headers: Dict[str, str] = DEFAULT_HEADERS,
+            unzip: bool = True,
+            sesh: Optional[requests.Session] = None, 
+            ssh_tunnel: Optional[Any] = None, 
+            log_fp: str = '', 
+            log_mode: str = 'a+',
+            log_level: str ='INFO',
+        ) -> None:
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
         
         Args:
+            headers (dict, optional): Headers to send with requests.
+            unzip (bool, optional): Unzip brotli zipped html responses.
             sesh (None, optional): A `requests.Session` object.
             ssh_tunnel (None, optional): An SSH tunnel subprocess from `webutils`.
             log_fp (str, optional): A file to log function process output to.
             log_mode (str, optional): Write over the log file or append to it.
-            headers (dict, optional): Headers to send with requests.
-            unzip (bool, optional): Unzip brotli zipped html responses.
+            log_level (str, optional): The file logging level.
         """
 
         self.base_url = 'https://www.google.com/search'
@@ -54,9 +59,10 @@ class SearchEngine(object):
 
         # Set a log file, prints to console by default
         self.log = logger.Logger(
+            console=True if not log_fp else False,
             file_name=log_fp, 
             file_mode=log_mode,
-            console=True if not log_fp else False,
+            file_level=log_level,
         ).start(__name__)
 
         # Set an SSH tunnel - conducting the search from somewhere else
@@ -216,15 +222,10 @@ class SearchEngine(object):
                 outfile.write(self.html)
 
 
-    def parse_results(self, save_dir='.'):
-        """Parse a SERP
-        
-        Args:
-            save_dir (str, optional): Description
-        """
-        # Parse results, see parsers.py
+    def parse_results(self):
+        """Parse a SERP - see parsers.py"""
+
         assert self.html, "No HTML found"
-        
         try:
             soup = wu.make_soup(self.html)
             self.results = parsers.parse_serp(soup, serp_id=self.serp_id)
