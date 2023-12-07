@@ -1,4 +1,6 @@
 from .. import utils
+from .. import webutils
+from ..models import BaseResult
 
 def parse_local_results(cmpt):
     """Parse a "Local Results" component
@@ -15,7 +17,15 @@ def parse_local_results(cmpt):
     """
     subs = cmpt.find_all('div', {'class': 'VkpGBb'})
     parsed = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    return parsed if parsed else [{'type':'local_results', 'sub_rank':0}]
+    if parsed:
+        return parsed
+    else:
+        return [BaseResult(
+        type='local_results',
+        sub_rank=0,
+        text=webutils.get_text(cmpt, 'div', {'class': 'n6tePd'}) # No results message
+    )]
+
 
 def parse_local_result(sub, sub_rank=0):
     """Parse a "Local Results" subcomponent
@@ -26,10 +36,22 @@ def parse_local_result(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-    parsed = {'type':'local_results', 'sub_rank':sub_rank}
-    local_details = {}
 
-    parsed['title'] = sub.find('div', {'class','dbg0pd'}).text
+    details = parse_local_details(sub)
+
+    parsed = BaseResult(
+        type='local_results',
+        sub_rank=sub_rank,
+        title=webutils.get_text(sub, 'div', {'class': 'dbg0pd'}),
+        url=details['website'] if 'website' in details else None,
+        details=details,
+    )
+    return parsed.model_dump()
+
+
+def parse_local_details(sub):
+    
+    local_details = {}
 
     # Extract summary details
     detail_div = sub.find('span', {'class':'rllt__details'})
@@ -55,9 +77,4 @@ def parse_local_result(sub, sub_rank=0):
     links_text = [a.text.lower() for a in sub.find_all('a') if 'href' in a.attrs]
     links_dict = dict(zip(links_text, links))
     local_details.update(links_dict)
-    parsed['details'] = local_details
-
-    if 'website' in links_dict:
-        parsed['url'] = links_dict['website']
-    
-    return parsed
+    return local_details
