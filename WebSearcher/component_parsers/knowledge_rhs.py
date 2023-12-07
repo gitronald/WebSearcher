@@ -21,7 +21,7 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
 
     parsed = {
         'type': 'knowledge', 
-        'subtype': 'panel_rhs', 
+        'sub_type': 'panel_rhs', 
         'sub_rank': sub_rank,
         'title': '',
         'subtitle': '',
@@ -73,7 +73,7 @@ def parse_knowledge_rhs_sub(sub, sub_rank=0):
 
     parsed = {
         'type': 'knowledge',
-        'subtype': 'panel_rhs',
+        'sub_type': 'panel_rhs',
         'sub_rank': sub_rank+1,
         'title': '',
         'details': None
