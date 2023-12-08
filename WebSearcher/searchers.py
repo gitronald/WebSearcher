@@ -3,14 +3,14 @@ from . import locations
 from . import webutils as wu
 from . import utils
 from . import logger
+from .models import BaseSERP
 
 import os
-import json
 import time
 import brotli
 import requests
-from hashlib import sha224
 from datetime import datetime
+from typing import Any, Dict, Optional
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
@@ -22,53 +22,57 @@ DEFAULT_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
 }
 
-def utc_stamp(): return datetime.utcnow().isoformat()
-def generate_rand_id(): return sha224(utc_stamp().encode('utf-8')).hexdigest()
-def hash_id(s): return sha224(s.encode('utf-8')).hexdigest()
 
-class SearchEngine(object):
+class SearchEngine:
     """ Collect Search Engine Results Pages (SERPs)
     
     Location provided must be a "Canonical Name"
 
     """
     def __init__(self, 
-        sesh=None, ssh_tunnel=None, 
-        log_fp='', log_mode='a+',
-        headers=DEFAULT_HEADERS,
-        unzip=True):
+            headers: Dict[str, str] = DEFAULT_HEADERS,
+            unzip: bool = True,
+            sesh: Optional[requests.Session] = None, 
+            ssh_tunnel: Optional[Any] = None, 
+            log_fp: str = '', 
+            log_mode: str = 'a+',
+            log_level: str ='INFO',
+        ) -> None:
         """Initialize a `requests.Session` to conduct searches through or
         pass an existing one with an optional SSH tunnel.
         
         Args:
+            headers (dict, optional): Headers to send with requests.
+            unzip (bool, optional): Unzip brotli zipped html responses.
             sesh (None, optional): A `requests.Session` object.
             ssh_tunnel (None, optional): An SSH tunnel subprocess from `webutils`.
             log_fp (str, optional): A file to log function process output to.
             log_mode (str, optional): Write over the log file or append to it.
-            headers (dict, optional): Headers to send with requests.
-            unzip (bool, optional): Unzip brotli zipped html responses.
+            log_level (str, optional): The file logging level.
         """
 
         self.base_url = 'https://www.google.com/search'
         self.params = {}
         self.headers = headers
+        self.unzip = unzip
+
+        # Set a log file, prints to console by default
+        self.log = logger.Logger(
+            console=True if not log_fp else False,
+            console_level=log_level,
+            file_name=log_fp, 
+            file_mode=log_mode,
+            file_level=log_level,
+        ).start(__name__)
 
         # Set a requests session
         self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
 
-        # Set a log file, prints to console by default
-        self.log = logger.Logger(
-            file_name=log_fp, 
-            file_mode=log_mode,
-            console=True if not log_fp else False,
-        ).start(__name__)
-
         # Set an SSH tunnel - conducting the search from somewhere else
         self.ssh_tunnel = ssh_tunnel
 
-        # Initialize data storage - search results
+        # Initialize data storage
         self.html = None
-        self.unzip = unzip
         self.results = []
 
 
@@ -105,7 +109,7 @@ class SearchEngine(object):
             self.params.pop('uule')
         if location:
             self.set_location(location)
-        
+
 
     def snapshot(self):
         try:
@@ -159,8 +163,8 @@ class SearchEngine(object):
             serp_id (str, optional): A unique identifier for this SERP
         """
         self.prepare_url(qry, location=location)
-        self.timestamp = utc_stamp()
-        self.serp_id = serp_id if serp_id else hash_id(qry + location + self.timestamp)
+        self.timestamp = datetime.utcnow().isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
         self.crawl_id = crawl_id
         self.snapshot()
         self.handle_response()
@@ -210,26 +214,23 @@ class SearchEngine(object):
             all_items = dict(vars(self).items())
             out_data = {k: all_items[k] for k in keep_keys}
             out_data['response_code'] = self.response.status_code
-            utils.write_lines([out_data], append_to)
+            self.log.debug(f"Validating SERP data")
+            serp = BaseSERP(**out_data)
+            output = [serp.model_dump()]
+            utils.write_lines(output, append_to)
 
         else:
-            fn = f'{self.qry.replace(" ", "+")}-{self.timestamp}.html'
+            fn = f'{self.serp_id}.html'
             fp = os.path.join(save_dir, fn)
-            print(f"Saving SERP to: {save_dir}")
-
+            self.log.debug(f"saving: {fp}")
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
 
-    def parse_results(self, save_dir='.'):
-        """Parse a SERP
-        
-        Args:
-            save_dir (str, optional): Description
-        """
-        # Parse results, see parsers.py
+    def parse_results(self):
+        """Parse a SERP - see parsers.py"""
+
         assert self.html, "No HTML found"
-        
         try:
             soup = wu.make_soup(self.html)
             self.results = parsers.parse_serp(soup, serp_id=self.serp_id)

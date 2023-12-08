@@ -2,8 +2,8 @@ import re
 import os
 import json
 import random
+import hashlib
 import itertools
-from hashlib import sha224
 from timeit import default_timer
 from string import ascii_letters, digits
 
@@ -37,12 +37,9 @@ def write_lines(iter_data, fp, overwrite=False):
         is_json = 'json' in fp.__fspath__()
 
     with open(fp, mode) as outfile:
-        if is_json:
-            for data in iter_data:
-                outfile.write('%s\n' % json.dumps(data))
-        else:
-            for data in iter_data:
-                outfile.write('%s\n' % data)
+        for data in iter_data:
+            line_output = json.dumps(data) if is_json else data
+            outfile.write(f"{line_output}\n")
 
 
 # Lists ------------------------------------------------------------------------
@@ -66,6 +63,9 @@ def remove_digits(string):
     return "".join([x for x in string if not x.isdigit()]).strip()
 
 # Misc -------------------------------------------------------------------------
+
+def hash_id(s): 
+    return hashlib.sha224(s.encode('utf-8')).hexdigest()
 
 def make_id():
     return hashlib.sha224(random_string().encode('utf-8')).hexdigest()
