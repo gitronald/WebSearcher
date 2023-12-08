@@ -37,8 +37,9 @@ def parse_question(question):
     title_divs = [
         question.find('div', {'class':'rc'}),
         question.find('div', {'class':'yuRUbf'}),
-        question.find('div', {'class': 'JlqpRe'}),  # 2023-11-16
+        question.find('div', {'class':'iDjcJe'}),  # 2023-01-01
+        question.find('div', {'class':'JlqpRe'}),  # 2023-11-16
     ]
     for title_div in filter(None, title_divs):
         text = webutils.get_text(title_div)
-    return text
+    return text if text else None

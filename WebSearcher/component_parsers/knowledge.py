@@ -41,31 +41,31 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
         cmpt.find('h2') and cmpt.find('h2').text == 'Featured snippet from the web' or 
         cmpt.find('div', {'class':'answered-question'})
     ):
-        parsed['subtype'] = 'featured_snippet'
+        parsed['sub_type'] = 'featured_snippet'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
-        parsed['subtype'] = 'unit_converter'
+        parsed['sub_type'] = 'unit_converter'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Sports Results':
-        parsed['subtype'] = 'sports'
+        parsed['sub_type'] = 'sports'
         div = cmpt.find('div', {'class':'SwsxUd'})
         details['text'] = div.text if div else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Weather Result':
-        parsed['subtype'] = 'weather'
+        parsed['sub_type'] = 'weather'
 
     elif (
         cmpt.find('h2') and cmpt.find('h2').text == 'Finance Results' or
         cmpt.find('div', {'id':'knowledge-finance-wholepage__entity-summary'})
     ):
-        parsed['subtype'] = 'finance'
+        parsed['sub_type'] = 'finance'
 
     elif cmpt.find('div', {'role':'button'}) and cmpt.find('div', {'role':'button'}).text == 'Dictionary':
-        parsed['subtype'] = 'dictionary'
+        parsed['sub_type'] = 'dictionary'
         span_first = cmpt.find('span', {'jsslot':''})
         if span_first:
             span = span_first.find_all('span')
@@ -75,20 +75,20 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
         cmpt.find('h2') and cmpt.find('h2').text == 'Translation Result' or
         cmpt.find('h2') and cmpt.find('h2').text == 'Resultado de traducción'
     ):
-        parsed['subtype'] = 'translate'
+        parsed['sub_type'] = 'translate'
         span = cmpt.find_all('span')
         details['text'] = get_text(span).split('Community Verified')[0] if span else None
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Calculator Result':
-        parsed['subtype'] = 'calculator'
+        parsed['sub_type'] = 'calculator'
 
     elif details['heading'] == '2020 US election results':
-        parsed['subtype'] = 'election'
+        parsed['sub_type'] = 'election'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
     else:
-        parsed['subtype'] = 'panel'
+        parsed['sub_type'] = 'panel'
         div = cmpt.find_all(['span','div','a'], text=True)
         details['text'] = get_text(div) if div else None
 

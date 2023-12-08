@@ -40,6 +40,7 @@ def is_hidden(element):
     conditions = [
         element.find("span", {"class":"oUAcPd"}),   # Empty `general`
         element.find("div", {"class": "RTaUke"}),   # Empty `people_also_ask`
+        element.find("div", {"class": "KJ7Tg"}),    # Empty `people_also_ask`
     ]
     return any(conditions)
 

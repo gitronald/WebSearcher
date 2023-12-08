@@ -3,15 +3,15 @@
 
 import os
 import time
-import datetime
 import pandas as pd
 import WebSearcher as ws
 
-# Output filepaths
-date = datetime.datetime.now().strftime('%Y-%m-%d')
-dir_serps = f'data/tests/{date}/html'
-fp_results = f'data/tests/{date}/results.json'
-os.makedirs(dir_serps, exist_ok=True)
+# Filepaths
+data_dir = f"ws-v{ws.__version__}-demo-data"
+fp_serps = os.path.join(data_dir, 'serps.json')
+fp_results = os.path.join(data_dir, 'results.json')
+dir_html = os.path.join(data_dir, 'html')
+os.makedirs(dir_html, exist_ok=True)
 
 # Load query list from file, from: https://ahrefs.com/blog/top-google-searches/
 fp_queries = 'data/tests/top_searches_google_2020-04.tsv'

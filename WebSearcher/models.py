@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Any, Optional
+from typing import Any, Dict, Optional
 
 class BaseResult(BaseModel):
     type: str = 'unclassified'
@@ -11,3 +11,13 @@ class BaseResult(BaseModel):
     cite: Optional[str] = None
     details: Optional[Any] = None
 
+class BaseSERP(BaseModel):
+    qry: str
+    loc: Optional[str] = None
+    url: str
+    html: str
+    headers: Dict[str, str]
+    timestamp: str
+    response_code: int
+    serp_id: str
+    crawl_id: str
