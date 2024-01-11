@@ -9,6 +9,7 @@ import os
 import time
 import brotli
 import requests
+import subprocess
 from datetime import datetime
 from typing import Any, Dict, Optional
 
@@ -24,16 +25,12 @@ DEFAULT_HEADERS = {
 
 
 class SearchEngine:
-    """ Collect Search Engine Results Pages (SERPs)
-    
-    Location provided must be a "Canonical Name"
-
-    """
+    """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
             headers: Dict[str, str] = DEFAULT_HEADERS,
             unzip: bool = True,
             sesh: Optional[requests.Session] = None, 
-            ssh_tunnel: Optional[Any] = None, 
+            ssh_tunnel: Optional[subprocess.Popen] = None, 
             log_fp: str = '', 
             log_mode: str = 'a+',
             log_level: str ='INFO',
@@ -76,18 +73,20 @@ class SearchEngine:
         self.results = []
 
 
-    def set_location(self, canonical_name):
-        """Set location using uule parameter derived from location name
+    def set_location(self, canonical_name: str = ''):
+        """Set location using uule parameter derived from location name.
 
-        Credit for figuring this out goes to the author of the PHP version: 
-        https://github.com/512banque/uule-grabber/blob/master/uule.php.
-
+        Location provided must be a "Canonical Name."
         See download_locations.py or ws.download_locations() to 
         download a csv of locations and their canonical names. 
 
+        Credit for figuring this out goes to the author of the PHP version: 
+        https://github.com/512banque/uule-grabber/blob/master/uule.php      
+
         """
-        self.loc = canonical_name
-        self.params['uule'] = locations.get_location_id(canonical_name)
+        if canonical_name:
+            self.loc = canonical_name
+            self.params['uule'] = locations.get_location_id(canonical_name)
 
 
     def prepare_url(self, qry, location):
@@ -154,22 +153,6 @@ class SearchEngine:
             self.log.exception(f'Response handling error')
 
 
-    def search(self, qry, location='', serp_id='', crawl_id=''):
-        """Conduct a search and save HTML
-        
-        Args:
-            qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            serp_id (str, optional): A unique identifier for this SERP
-        """
-        self.prepare_url(qry, location=location)
-        self.timestamp = datetime.utcnow().isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
-        self.crawl_id = crawl_id
-        self.snapshot()
-        self.handle_response()
-
-
     def unzip_html(self):
         """Unzip brotli zipped html 
 
@@ -188,6 +171,22 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'unzip error | serp_id : {self.serp_id}')
             self.html = rcontent
+
+
+    def search(self, qry, location='', serp_id='', crawl_id=''):
+        """Conduct a search and save HTML
+        
+        Args:
+            qry (str): The search query
+            location (str, optional): A location's Canonical Name.
+            serp_id (str, optional): A unique identifier for this SERP
+        """
+        self.prepare_url(qry, location=location)
+        self.timestamp = datetime.utcnow().isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
+        self.crawl_id = crawl_id
+        self.snapshot()
+        self.handle_response()
 
 
     def save_serp(self, save_dir='.', append_to=''):
