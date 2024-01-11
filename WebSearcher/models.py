@@ -12,12 +12,12 @@ class BaseResult(BaseModel):
     details: Optional[Any] = None
 
 class BaseSERP(BaseModel):
-    qry: str
-    loc: Optional[str] = None
-    url: str
-    html: str
-    headers: Dict[str, str]
-    timestamp: str
-    response_code: int
-    serp_id: str
-    crawl_id: str
+    qry: str                   # Search query 
+    loc: Optional[str] = None  # Location if set, "Canonical Name"
+    url: str                   # URL of SERP   
+    html: str                  # Raw HTML of SERP
+    headers: Dict[str, str]    # HTTP headers
+    timestamp: str             # Timestamp of crawl
+    response_code: int         # HTTP response code
+    serp_id: str               # Search Engine Results Page (SERP) ID
+    crawl_id: str              # Crawl ID for grouping SERPs

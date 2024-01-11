@@ -47,7 +47,7 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 ```python
 import WebSearcher as ws
 
-# Initialize crawler with defaults (headers, logs, ssh tunnels)
+# Initialize crawler with optional defaults (headers, logs, ssh tunnels)
 se = ws.SearchEngine()
 vars(se)
 ```
