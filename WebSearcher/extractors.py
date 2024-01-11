@@ -47,12 +47,13 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
             column = extract_from_top_bar(layout_dict, drop_tags)
             
         elif layout_dict['left-bar']:
-            log.debug("layout: left-bar")
             # Not implemented - may appear in pre-2022 data
+            log.debug("layout: left-bar")
+            column = []
         
     else:
         log.debug("layout: no-rso")
-        column = extract_from_no_rso(layout_dict, drop_tags)
+        column = extract_from_no_rso(soup, drop_tags)
 
     # Drop empty components
     drop_text = {
