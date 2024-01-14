@@ -6,6 +6,7 @@ from .latest_from import parse_latest_from
 from .view_more_news import parse_view_more_news
 from .news_quotes import parse_news_quotes
 from .people_also_ask import parse_people_also_ask
+from .searches_related import parse_searches_related
 from .local_results import parse_local_results
 from .map_results import parse_map_results
 from .images import parse_images
@@ -15,7 +16,7 @@ from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
 from .general_questions import parse_general_questions
 from .available_on import parse_available_on
-from .footer import parse_footer, parse_searches_related
+from .footer import parse_footer
 from .top_image_carousel import parse_top_image_carousel
 from .knowledge_rhs import parse_knowledge_rhs
 from .shopping_ads import parse_shopping_ads

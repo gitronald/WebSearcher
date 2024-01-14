@@ -1,4 +1,4 @@
-from . import parse_general_results, parse_people_also_ask
+from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from .. import component_classifier
 from .. import logger
 from ..webutils import get_text, find_all_divs
@@ -161,13 +161,3 @@ def parse_alink(a):
 
 def parse_alink_list(alinks):
     return [parse_alink(a) for a in alinks if 'href' in a.attrs]
-
-
-def parse_searches_related(cmpt, sub_rank=0):
-    """Parse a one or two column list of related search queries"""
-    parsed = {'type':'searches_related', 'sub_rank':sub_rank}
-    # subs = cmpt.find('g-section-with-header').find_all('p')
-    alinks = cmpt.find_all('a')
-    parsed['details'] = parse_alink_list(alinks)
-    return [parsed]
-    
