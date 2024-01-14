@@ -56,8 +56,10 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
         if isinstance(parsed_cmpt, list):
             for sub_rank, sub in enumerate(parsed_cmpt):
                 sub.update({'sub_rank':sub_rank, 'cmpt_rank':cmpt_rank})
-        else:
+        elif isinstance(parsed_cmpt, dict):
             parsed_cmpt.update({'sub_rank':0, 'cmpt_rank':cmpt_rank})
+        else:
+            raise TypeError(f'Parsed component must be list or dict: {parsed_cmpt}')
 
     except Exception:
         log.exception('Parsing Exception')
