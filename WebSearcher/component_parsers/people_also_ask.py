@@ -24,6 +24,7 @@ def parse_people_also_ask(cmpt, sub_rank=0):
     parsed = BaseResult(
         type='people_also_ask',
         sub_rank=sub_rank,
+        text="<|>".join(details) if details else None,
         details=details,
     )
 
