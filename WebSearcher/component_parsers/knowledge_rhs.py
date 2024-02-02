@@ -33,12 +33,12 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
     }
 
     # images
-    if cmpt.find("h3") and cmpt.find("h3").text == "Images":
-        sibling = cmpt.find("h3").next_sibling
+    if cmpt.find('h3') and cmpt.find('h3').text == 'Images':
+        sibling = cmpt.find('h3').next_sibling
         if sibling:
-            imgs = sibling.find_all("a")
-            parsed["details"]["img_urls"] = [
-                img["href"] for img in imgs if "href" in img.attrs
+            imgs = sibling.find_all('a')
+            parsed['details']['img_urls'] = [
+                img['href'] for img in imgs if 'href' in img.attrs
             ]
 
     # title, subtitle
