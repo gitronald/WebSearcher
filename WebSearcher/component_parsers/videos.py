@@ -82,8 +82,10 @@ def parse_video(sub, sub_rank=0):
 def get_url(sub):
     """Get video URL by filtering for non-hash links"""
     all_urls = sub.find_all('a')
-    non_hash_urls = [url for url in all_urls if not url['href'].startswith('#')]
-    return non_hash_urls[0]['href'] if non_hash_urls else None
+    for url in all_urls:
+        if "href" in url and not url['href'].startswith('#'):
+            return url["href"]
+    return None
 
 
 def get_div_text(soup, details):

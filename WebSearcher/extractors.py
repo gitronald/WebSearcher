@@ -52,7 +52,7 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
         
     else:
         log.debug("layout: no-rso")
-        column = extract_from_no_rso(layout_dict, drop_tags)
+        column = extract_from_no_rso(soup, drop_tags)
 
     # Drop empty components
     drop_text = {
