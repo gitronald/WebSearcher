@@ -1,4 +1,4 @@
-from . import parse_general_results, parse_people_also_ask
+from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from .. import component_classifier
 from .. import logger
 from ..webutils import get_text, find_all_divs
@@ -26,9 +26,9 @@ def extract_footer_components(footer):
             else:
                 expanded.append(cmpt)
     
-    filter_notice = footer.find('div', {'class':'ClPXac'})
-    if filter_notice:
-        expanded.append(filter_notice)
+    omitted_notice = footer.find('div', {'class':'ClPXac'})
+    if omitted_notice:
+        expanded.append(omitted_notice)
 
     # Filter hidden people also ask components
     expanded = [e for e in expanded if not is_hidden(e)]
@@ -63,7 +63,7 @@ def classify_footer_component(cmpt):
         else:
             return 'unknown'
     elif cmpt.find("p", {"id":"ofr"}):
-        return 'filter-notice'
+        return 'omitted_notice'
     elif gsection:
         return 'searches_related'
     else:
@@ -81,8 +81,8 @@ def get_footer_parser(cmpt_type):
         return parse_general_results
     elif cmpt_type == 'people_also_ask':
         return parse_people_also_ask
-    elif cmpt_type == 'filter-notice':
-        return parse_filter_notice
+    elif cmpt_type == 'omitted_notice':
+        return parse_omitted_notice
 
 
 def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
@@ -127,8 +127,8 @@ def parse_footer(cmpt):
 
     return parsed_list
 
-def parse_filter_notice(cmpt):
-    return [{'type':'filter-notice'}]
+def parse_omitted_notice(cmpt):
+    return [{'type':'omitted_notice', 'sub_rank':0, 'text':cmpt.text}]
 
 def parse_discover_more(cmpt):
     carousel = cmpt.find('g-scrolling-carousel')
@@ -161,13 +161,3 @@ def parse_alink(a):
 
 def parse_alink_list(alinks):
     return [parse_alink(a) for a in alinks if 'href' in a.attrs]
-
-
-def parse_searches_related(cmpt, sub_rank=0):
-    """Parse a one or two column list of related search queries"""
-    parsed = {'type':'searches_related', 'sub_rank':sub_rank}
-    # subs = cmpt.find('g-section-with-header').find_all('p')
-    alinks = cmpt.find_all('a')
-    parsed['details'] = parse_alink_list(alinks)
-    return [parsed]
-    

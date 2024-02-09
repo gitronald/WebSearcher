@@ -4,10 +4,10 @@ from ..models import BaseResult
 def parse_people_also_ask(cmpt, sub_rank=0):
     """Parse a "People Also Ask" component
 
-    These components contain a list of questions, which drop down to reveal
-    summarized information and/or general component results. However, advanced 
-    scraping is required to preserve the information in the dropdown, which only
-    loads after a subcomponent is clicked.
+    These components contain a list of questions, which drop down to reveal  
+    summarized information and/or general component results. However, browser  
+    automation is required to preserve the information in the dropdown, which  
+    only loads after a subcomponent is clicked.
     
     Args:
         cmpt (bs4 object): A "People Also Ask" component
@@ -24,6 +24,7 @@ def parse_people_also_ask(cmpt, sub_rank=0):
     parsed = BaseResult(
         type='people_also_ask',
         sub_rank=sub_rank,
+        text="<|>".join(details) if details else None,
         details=details,
     )
 

@@ -9,7 +9,6 @@ log = logger.Logger().start(__name__)
 
 import os
 import re
-# import emoji
 import atexit
 import requests
 import subprocess
@@ -89,51 +88,49 @@ def parse_lang(soup):
     except Exception as e:
         log.exception('Error while parsing language')
         return None
-    
-
-# Deprecated: text processing should be done after parsing not during
-# def parse_emojis(text):
-#     return [emoji.demojize(e['emoji']) for e in emoji.emoji_lis(text)]
 
 
 # Get divs, links, and text ----------------------------------------------------
 
+def get_div(soup: BeautifulSoup, name: str, attrs: dict = {}) -> BeautifulSoup:
+    """Utility for `soup.find(name)` with null attrs handling"""
+    return soup.find(name, attrs) if attrs else soup.find(name)
 
-def get_link(soup:BeautifulSoup, attrs:dict = {}, key:str = 'href') -> str:
+def get_text(soup, name: str=None, attrs: dict={}, separator:str=" ") -> str:
+    """Utility for `soup.find(name).text` with null name handling"""
+    div = get_div(soup, name, attrs) if name else soup
+    return div.get_text(separator=separator) if div else None
+
+def get_link(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> str:
     """Utility for `soup.find('a')['href']` with null key handling"""
     link = get_div(soup, 'a', attrs)
     return link.attrs.get(key, None) if link else None
 
+def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> list:
+    """Utility for `soup.find_all('a')['href']` with null key handling"""
+    links = find_all_divs(soup, 'a', attrs)
+    return [link.attrs.get(key, None) for link in links] if links else None
 
-def get_div(soup:BeautifulSoup, name:str, attrs:dict = {}) -> BeautifulSoup:
-    """Utility for `soup.find(name)` with null attrs handling"""
-    return soup.find(name, attrs) if attrs else soup.find(name)
-
-
-def find_all_divs(soup:BeautifulSoup, name:str, attrs:dict = {}, filter_empty:bool = True) -> list:
+def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty: bool = True) -> list:
     divs = soup.find_all(name, attrs) if attrs else soup.find_all(name)
     if filter_empty:
         divs = [c for c in divs if c]
         divs = [c for c in divs if c.text != '']
     return divs
 
-
-def find_children(soup, name:str, attrs:dict = {}) -> list:
+def find_children(soup, name: str, attrs: dict = {}) -> list:
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
     return div.children if div else []
-
-
-def get_text(soup, name:str=None, attrs:dict={}, separator:str=" ") -> str:
-    """Utility for `soup.find(name).text` with null name handling"""
-    div = get_div(soup, name, attrs) if name else soup
-    return div.get_text(separator=separator) if div else None
 
 
 # URLs -------------------------------------------------------------------------
 
 def join_url_quote(quote_dict):
     return '&'.join([f'{k}={v}' for k, v in quote_dict.items()])
+
+def encode_param_value(value):
+    return urlparse.quote_plus(value)
 
 def url_unquote(url):
     return urlparse.unquote(url)
@@ -150,6 +147,7 @@ def get_domain(url):
     else:
         domain_str = without_subdomain
     return domain_str
+
 
 # Misc -------------------------------------------------------------------------
 
@@ -180,7 +178,7 @@ def split_styles(soup):
 
 # SSH -------------------------------------------------------------------------
 
-class SSH(object):
+class SSH:
     """ Create SSH cmd and tunnel objects """
     def __init__(self, user='ubuntu', port=6000, ip='', keyfile=''):
         self.user = user

@@ -24,7 +24,7 @@ def parse_local_results(cmpt):
         type='local_results',
         sub_rank=0,
         text=webutils.get_text(cmpt, 'div', {'class': 'n6tePd'}) # No results message
-    )]
+    ).model_dump()]
 
 
 def parse_local_result(sub, sub_rank=0):

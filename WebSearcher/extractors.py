@@ -36,6 +36,7 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
     """
     log.debug(f"Extracting Results")
     layout_dict = check_page_layout(soup)
+
     if layout_dict['rso']:
 
         if not layout_dict['top-bar'] and not layout_dict['left-bar']:
@@ -47,12 +48,13 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
             column = extract_from_top_bar(layout_dict, drop_tags)
             
         elif layout_dict['left-bar']:
-            log.debug("layout: left-bar")
             # Not implemented - may appear in pre-2022 data
+            log.debug("layout: left-bar")
+            column = []
         
     else:
         log.debug("layout: no-rso")
-        column = extract_from_no_rso(layout_dict, drop_tags)
+        column = extract_from_no_rso(soup, drop_tags)
 
     # Drop empty components
     drop_text = {
@@ -64,6 +66,19 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
     column = list(zip(['main']*len(column), column))
 
     return column
+
+
+def extract_children(soup, drop_tags={}):
+    """Extract children from BeautifulSoup, drop specific tags, flatten list"""
+    children = []
+    for child in soup.children:
+        if child.name in drop_tags:
+            continue
+        if not child.attrs:
+            children.extend(child.contents)
+        else:
+            children.append(child)
+    return children
 
 
 def extract_from_top_bar(layout_dict, drop_tags={}):
@@ -129,6 +144,11 @@ def extract_components(soup):
 
     cmpts = []
 
+    # RHS Knowledge Panel - extract
+    has_rhs = soup.find('div', {'id': 'rhs'})
+    if has_rhs:
+        rhs = soup.find('div', {'id': 'rhs'}).extract()
+
     # Top Image Carousel
     top_bar = soup.find('div', {'id':'appbar'})
     if top_bar:
@@ -159,26 +179,13 @@ def extract_components(soup):
     footer = extract_footer(soup)
     if footer and extract_footer_components(footer):
         cmpts.append(('footer', footer))
-
-    # RHS Knowledge Panel 
-    rhs = soup.find('div', {'id': 'rhs'})
-    if rhs:
-        rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel']})
+    
+    # RHS Knowledge Panel - append
+    if has_rhs:
+        rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
+        # print(rhs_kp)
         if rhs_kp:
             # reading from top-to-bottom, left-to-right
             cmpts.append(('knowledge_rhs', rhs_kp))
-            
+
     return cmpts
-
-
-def extract_children(soup, drop_tags={}):
-    """Extract children from BeautifulSoup, drop specific tags, flatten list"""
-    children = []
-    for child in soup.children:
-        if child.name in drop_tags:
-            continue
-        if not child.attrs:
-            children.extend(child.contents)
-        else:
-            children.append(child)
-    return children

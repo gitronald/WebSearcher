@@ -1,4 +1,4 @@
-__version__ = "0.3.6"
+__version__ = "0.3.7"
 from .searchers import SearchEngine
 from .parsers import parse_serp
 from .extractors import extract_components

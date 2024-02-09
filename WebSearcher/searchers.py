@@ -9,8 +9,13 @@ import os
 import time
 import brotli
 import requests
+import subprocess
+import pkg_resources
 from datetime import datetime
 from typing import Any, Dict, Optional
+
+# Current version
+WS_VERSION = pkg_resources.get_distribution('WebSearcher').version
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
@@ -24,16 +29,12 @@ DEFAULT_HEADERS = {
 
 
 class SearchEngine:
-    """ Collect Search Engine Results Pages (SERPs)
-    
-    Location provided must be a "Canonical Name"
-
-    """
+    """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
             headers: Dict[str, str] = DEFAULT_HEADERS,
             unzip: bool = True,
             sesh: Optional[requests.Session] = None, 
-            ssh_tunnel: Optional[Any] = None, 
+            ssh_tunnel: Optional[subprocess.Popen] = None, 
             log_fp: str = '', 
             log_mode: str = 'a+',
             log_level: str ='INFO',
@@ -51,6 +52,7 @@ class SearchEngine:
             log_level (str, optional): The file logging level.
         """
 
+        self.version = WS_VERSION
         self.base_url = 'https://www.google.com/search'
         self.params = {}
         self.headers = headers
@@ -74,20 +76,23 @@ class SearchEngine:
         # Initialize data storage
         self.html = None
         self.results = []
+        self.response = None
 
 
-    def set_location(self, canonical_name):
-        """Set location using uule parameter derived from location name
+    def set_location(self, canonical_name: str = ''):
+        """Set location using uule parameter derived from location name.
 
-        Credit for figuring this out goes to the author of the PHP version: 
-        https://github.com/512banque/uule-grabber/blob/master/uule.php.
-
+        Location provided must be a "Canonical Name."
         See download_locations.py or ws.download_locations() to 
         download a csv of locations and their canonical names. 
 
+        Credit for figuring this out goes to the author of the PHP version: 
+        https://github.com/512banque/uule-grabber/blob/master/uule.php      
+
         """
-        self.loc = canonical_name
-        self.params['uule'] = locations.get_location_id(canonical_name)
+        if canonical_name:
+            self.loc = canonical_name
+            self.params['uule'] = locations.get_location_id(canonical_name)
 
 
     def prepare_url(self, qry, location):
@@ -102,7 +107,7 @@ class SearchEngine:
         """
         self.qry = str(qry)
         self.loc = str(location)
-        self.params['q'] = qry
+        self.params['q'] = wu.encode_param_value(qry)
 
         # Reset previous location
         if 'uule' in self.params:
@@ -113,29 +118,28 @@ class SearchEngine:
 
     def snapshot(self):
         try:
-            self.response = self.sesh.get(self.base_url, params=self.params, timeout=10)
-            self.url = self.response.url
-            msg = f"{self.qry} | {self.loc}" if self.loc else f"{self.qry}"
-            self.log.info(f'{self.response.status_code} | {msg}')
-
+            self.send_request()
         except requests.exceptions.ConnectionError:
-            # SSH Tunnel may have died. 
             self.log.exception(f'SERP | Connection error | {self.serp_id}')
-
-            # Reset SSH session
-            if self.ssh_tunnel:
-                self.ssh_tunnel.tunnel.kill()
-                self.ssh_tunnel.open_tunnel()
-                self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
-                time.sleep(10) # Allow time to establish connection
-
+            self.reset_ssh_tunnel()
         except requests.exceptions.Timeout:
-            # Connection timed out
             self.log.exception(f'SERP | Timeout error | {self.serp_id}')
-
         except Exception:
-            # Honestly, who knows
-            self.log.exception(f'SERP | Scraping error | {self.serp_id}')
+            self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+
+
+    def send_request(self):
+        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
+        self.response = self.sesh.get(self.url, timeout=10)
+        self.log.info(f'{self.response.status_code} | {self.qry} | {self.loc if self.loc else self.qry}')
+
+
+    def reset_ssh_tunnel(self):
+        if self.ssh_tunnel:
+            self.ssh_tunnel.tunnel.kill()
+            self.ssh_tunnel.open_tunnel()
+            self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
+            time.sleep(10) # Allow time to establish connection
 
 
     def handle_response(self):
@@ -152,22 +156,6 @@ class SearchEngine:
         
         except Exception:
             self.log.exception(f'Response handling error')
-
-
-    def search(self, qry, location='', serp_id='', crawl_id=''):
-        """Conduct a search and save HTML
-        
-        Args:
-            qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            serp_id (str, optional): A unique identifier for this SERP
-        """
-        self.prepare_url(qry, location=location)
-        self.timestamp = datetime.utcnow().isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
-        self.crawl_id = crawl_id
-        self.snapshot()
-        self.handle_response()
 
 
     def unzip_html(self):
@@ -190,6 +178,22 @@ class SearchEngine:
             self.html = rcontent
 
 
+    def search(self, qry, location='', serp_id='', crawl_id=''):
+        """Conduct a search and save HTML
+        
+        Args:
+            qry (str): The search query
+            location (str, optional): A location's Canonical Name.
+            serp_id (str, optional): A unique identifier for this SERP
+        """
+        self.prepare_url(qry, location=location)
+        self.timestamp = datetime.utcnow().isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
+        self.crawl_id = crawl_id
+        self.snapshot()
+        self.handle_response()
+
+
     def save_serp(self, save_dir='.', append_to=''):
         """Save SERP to file
 
@@ -210,6 +214,7 @@ class SearchEngine:
                 'timestamp',
                 'serp_id',
                 'crawl_id',
+                'version',
             ]
             all_items = dict(vars(self).items())
             out_data = {k: all_items[k] for k in keep_keys}
