@@ -129,6 +129,9 @@ def find_children(soup, name: str, attrs: dict = {}) -> list:
 def join_url_quote(quote_dict):
     return '&'.join([f'{k}={v}' for k, v in quote_dict.items()])
 
+def encode_param_value(value):
+    return urlparse.quote_plus(value)
+
 def url_unquote(url):
     return urlparse.unquote(url)
 

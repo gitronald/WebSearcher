@@ -101,7 +101,7 @@ class SearchEngine:
         """
         self.qry = str(qry)
         self.loc = str(location)
-        self.params['q'] = qry
+        self.params['q'] = wu.encode_param_value(qry)
 
         # Reset previous location
         if 'uule' in self.params:
@@ -112,29 +112,28 @@ class SearchEngine:
 
     def snapshot(self):
         try:
-            self.response = self.sesh.get(self.base_url, params=self.params, timeout=10)
-            self.url = self.response.url
-            msg = f"{self.qry} | {self.loc}" if self.loc else f"{self.qry}"
-            self.log.info(f'{self.response.status_code} | {msg}')
-
+            self.send_request()
         except requests.exceptions.ConnectionError:
-            # SSH Tunnel may have died. 
             self.log.exception(f'SERP | Connection error | {self.serp_id}')
-
-            # Reset SSH session
-            if self.ssh_tunnel:
-                self.ssh_tunnel.tunnel.kill()
-                self.ssh_tunnel.open_tunnel()
-                self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
-                time.sleep(10) # Allow time to establish connection
-
+            self.reset_ssh_tunnel()
         except requests.exceptions.Timeout:
-            # Connection timed out
             self.log.exception(f'SERP | Timeout error | {self.serp_id}')
-
         except Exception:
-            # Honestly, who knows
-            self.log.exception(f'SERP | Scraping error | {self.serp_id}')
+            self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+
+
+    def send_request(self):
+        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
+        self.response = self.sesh.get(self.url, timeout=10)
+        self.log.info(f'{self.response.status_code} | {self.qry} | {self.loc if self.loc else self.qry}')
+
+
+    def reset_ssh_tunnel(self):
+        if self.ssh_tunnel:
+            self.ssh_tunnel.tunnel.kill()
+            self.ssh_tunnel.open_tunnel()
+            self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
+            time.sleep(10) # Allow time to establish connection
 
 
     def handle_response(self):
