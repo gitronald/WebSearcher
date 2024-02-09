@@ -11,11 +11,8 @@ pd.set_option('display.width', 1000,
               'display.max_columns', None)
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-q", "--query", type=str, help="A search query")
+parser.add_argument("-q", "--query", type=str, help="A search query", required=True)
 args = parser.parse_args()
-
-if not args.query:
-    print('Must include -q arg'); exit();
 
 # Settings
 query = args.query

@@ -94,7 +94,12 @@ se.parse_results()
 results = pd.DataFrame(se.results)
 print(results.head())
 
-results[results.type=='local_results']['details'].tolist()
+print(results[results.type=='local_results']['details'].tolist())
+
+dir_html = os.path.join("data", 'html')
+os.makedirs(dir_html, exist_ok=True)
+se.save_serp(save_dir=dir_html)
+
 
 # [{
 #     'rating': 4.0,
