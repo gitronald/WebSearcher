@@ -78,7 +78,8 @@ def get_latest_url(url:str):
     try:
         html = requests.get(url).content
         soup = wu.make_soup(html)
-        geo_urls = [url for url in wu.get_link_list(soup) if 'geotargets' in url]
+        url_list = [url for url in wu.get_link_list(soup) if url and url != '']
+        geo_urls = [url for url in url_list if 'geotargets' in url]
 
         # Get current CSV url and use as filename
         geo_url = sorted(geo_urls)[-1]
@@ -100,16 +101,16 @@ def save_zip_response(response: requests.Response, fp: str) -> None:
         for member in zip_ref.namelist():
             if member.endswith('.csv'):
                 with zip_ref.open(member) as csv_file:
-                    with open(fp, 'w', encoding="utf-8") as outfile:
-                        reader = csv.reader(io.TextIOWrapper(csv_file,'utf-8'))
-                        writer = csv.writer(outfile)
-                        writer.writerows(reader)
-                    print(f"saved: {fp}")
+                    reader = csv.reader(io.TextIOWrapper(csv_file, 'utf-8'))
+                    write_csv(fp, reader=reader)
 
 
-def write_csv(fp: str, lines: list) -> None:
+def write_csv(fp: str, lines: list = None, reader: csv.reader = None) -> None:
     with open(fp, 'w', encoding="utf-8") as outfile:
         writer = csv.writer(outfile)
-        writer.writerows(lines)
+        if reader:
+            writer.writerows(reader)
+        elif lines:
+            writer.writerows(lines)
     print(f"saved: {fp}")
 
