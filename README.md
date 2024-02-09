@@ -268,6 +268,16 @@ pytest -k "1684837514.html"
 ---
 ## Recent Changes
 
+
+`0.3.7` - Fixed localization, parser and classifier updates and fixes, image subtypes, changed rhs component handling.
+
+`0.3.0` - `0.3.6` - Parser updates for SERPs from 2022 and 2023, standalone extractors file, added pydantic, reduced redundancies in outputs.
+
+`2020.0.0`, `2022.12.18`, `2023.01.04` - Various updates, attempt at date versioning that seemed like a good idea at the time ¯\\\_(ツ)\_/¯
+
+<!-- refs/tags/v2022.12.18 -->
+<!-- refs/tags/v2023.01.04 -->
+
 `0.2.15` - Fix people-also-ask and hotel false positives, add flag for left-hand side bar
 
 `0.2.14` - Add shopping ads carousel and three knowledge subtypes (flights, hotels, events)
@@ -304,9 +314,7 @@ you can try using `0.2.1`, or send a pull request if you find a way to make both
 ---  
 ## Similar Packages
 
-Many other methods for scraping web search in python exist, but many of these projects have been abandoned, and I was not able to find one that provided details on the components (e.g. "Answer Boxes" and "Top Stories") and positioning configurations (e.g. a horizontally or vertically oriented carousel) that compose a modern SERP.
-
-Some of the other projects are still ongoing and very interesting in their own ways. Feel free to add to the list through a pull request if you are aware of others:
+Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 25 without considering `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
 
 - https://github.com/jarun/googler
 - http://googolplex.sourceforge.net
@@ -335,7 +343,7 @@ Some of the other projects are still ongoing and very interesting in their own w
 ---  
 ## License
 
-Copyright (C) 2017-2022 Ronald E. Robertson <ronaldrobertson42@gmail.com>
+Copyright (C) 2017-2024 Ronald E. Robertson <rer@acm.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

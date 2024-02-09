@@ -1,5 +1,7 @@
 """ Collect HTML for individual results from a SERP
 """
+
+import time
 import requests
 from . import utils
 from . import webutils as wu
@@ -53,36 +55,7 @@ def scrape_results_html(results, serp_id, log, headers, ssh_tunnel,
                 
             # Scrape results HTML
             for result in result_urls:
-                resid = f"{result['serp_id']} | {result['url']}"
-
-                try:
-                    r = result_sesh.get(result['url'], timeout=15)
-                    result['html'] = r.content.decode('utf-8', 'ignore')
-
-                except requests.exceptions.TooManyRedirects:
-                    result['html'] = 'error_redirects'
-                    log.exception(f"Results | RedirectsErr | {resid}")
-
-                except requests.exceptions.Timeout:
-                    result['html'] = 'error_timeout'
-                    log.exception(f"Results | TimeoutErr | {resid}")
-
-                except requests.exceptions.ConnectionError:
-                    result['html'] = 'error_connection'
-                    log.exception(f"Results | ConnectionErr | {resid}")
-
-                    # SSH Tunnel may have died, reset SSH session
-                    if ssh_tunnel:
-                        ssh_tunnel.tunnel.kill()
-                        ssh_tunnel.open_tunnel()
-                        log.info('Results | Restarted SSH tunnel')
-                        time.sleep(10) # Allow time to establish connection
-
-                except Exception:
-                    result['html'] = 'error_unknown'
-                    log.exception(f"Results | ScrapingErr | {resid}")
-
-                # Append HTML to results_html list
+                result = scrape_result_html(result_sesh, result, log, ssh_tunnel)
                 results_html.append(result)
 
             # Save results HTML
@@ -93,3 +66,34 @@ def scrape_results_html(results, serp_id, log, headers, ssh_tunnel,
                 # Save new SERP-specific file
                 fp = os.path.join(save_dir, 'results_html', f'{serp_id}.json')
                 utils.write_lines(results_html, fp)
+
+
+def scrape_result_html(result_sesh, result, log, ssh_tunnel):
+        resid = f"{result['serp_id']} | {result['url']}"
+    
+        try:
+            r = result_sesh.get(result['url'], timeout=15)
+            result['html'] = r.content.decode('utf-8', 'ignore')
+
+        except requests.exceptions.TooManyRedirects:
+            result['html'] = 'error_redirects'
+            log.exception(f"Results | RedirectsErr | {resid}")
+
+        except requests.exceptions.Timeout:
+            result['html'] = 'error_timeout'
+            log.exception(f"Results | TimeoutErr | {resid}")
+
+        except requests.exceptions.ConnectionError:
+            result['html'] = 'error_connection'
+            log.exception(f"Results | ConnectionErr | {resid}")
+
+            # SSH Tunnel may have died, reset SSH session
+            if ssh_tunnel:
+                ssh_tunnel.tunnel.kill()
+                ssh_tunnel.open_tunnel()
+                log.info('Results | Restarted SSH tunnel')
+                time.sleep(10) # Allow time to establish connection
+
+        except Exception:
+            result['html'] = 'error_unknown'
+            log.exception(f"Results | Collection Error | {resid}")
