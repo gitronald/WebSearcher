@@ -10,8 +10,12 @@ import time
 import brotli
 import requests
 import subprocess
+import pkg_resources
 from datetime import datetime
 from typing import Any, Dict, Optional
+
+# Current version
+WS_VERSION = pkg_resources.get_distribution('WebSearcher').version
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
@@ -48,6 +52,7 @@ class SearchEngine:
             log_level (str, optional): The file logging level.
         """
 
+        self.version = WS_VERSION
         self.base_url = 'https://www.google.com/search'
         self.params = {}
         self.headers = headers
@@ -71,6 +76,7 @@ class SearchEngine:
         # Initialize data storage
         self.html = None
         self.results = []
+        self.response = None
 
 
     def set_location(self, canonical_name: str = ''):
@@ -208,6 +214,7 @@ class SearchEngine:
                 'timestamp',
                 'serp_id',
                 'crawl_id',
+                'version',
             ]
             all_items = dict(vars(self).items())
             out_data = {k: all_items[k] for k in keep_keys}
