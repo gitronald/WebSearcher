@@ -32,9 +32,9 @@ class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
             headers: Dict[str, str] = DEFAULT_HEADERS,
-            unzip: bool = True,
             sesh: Optional[requests.Session] = None, 
             ssh_tunnel: Optional[subprocess.Popen] = None, 
+            unzip: bool = True,
             log_fp: str = '', 
             log_mode: str = 'a+',
             log_level: str ='INFO',
@@ -52,12 +52,26 @@ class SearchEngine:
             log_level (str, optional): The file logging level.
         """
 
-        self.version = WS_VERSION
-        self.base_url = 'https://www.google.com/search'
-        self.params = {}
-        self.headers = headers
-        self.unzip = unzip
+        # Initialize data storage
+        self.version: str = WS_VERSION
+        self.base_url: str = 'https://www.google.com/search'
+        self.headers: Dict[str, str] = headers
+        self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.ssh_tunnel: subprocess.Popen = ssh_tunnel
+        self.unzip: bool = unzip
+        self.params: Dict[str, Any] = {}
 
+        # Initialize search data
+        self.qry: str = None
+        self.loc: str = None
+        self.url: str = None
+        self.timestamp: str = None
+        self.serp_id: str = None
+        self.crawl_id: str = None
+        self.response: requests.Response = None
+        self.html: str = None
+        self.results: list = []
+        
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not log_fp else False,
@@ -67,56 +81,37 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
-        # Set a requests session
-        self.sesh = sesh if sesh else wu.start_sesh(headers=self.headers)
 
-        # Set an SSH tunnel - conducting the search from somewhere else
-        self.ssh_tunnel = ssh_tunnel
-
-        # Initialize data storage
-        self.html = None
-        self.results = []
-        self.response = None
-
-
-    def set_location(self, canonical_name: str = ''):
-        """Set location using uule parameter derived from location name.
-
-        Location provided must be a "Canonical Name."
-        See download_locations.py or ws.download_locations() to 
-        download a csv of locations and their canonical names. 
-
-        Credit for figuring this out goes to the author of the PHP version: 
-        https://github.com/512banque/uule-grabber/blob/master/uule.php      
-
-        """
-        if canonical_name:
-            self.loc = canonical_name
-            self.params['uule'] = locations.get_location_id(canonical_name)
-
-
-    def prepare_url(self, qry, location):
-        """Prepare a query
-
-        Set as original query and current query per default behavior in desktop 
-        search
+    def search(self, qry: str, location: str = '', serp_id: str = '', crawl_id: str = ''):
+        """Conduct a search and save HTML
         
         Args:
-            qry (str): Search query
-            location (str): location name
+            qry (str): The search query
+            location (str, optional): A location's Canonical Name.
+            serp_id (str, optional): A unique identifier for this SERP
+            crawl_id (str, optional): An identifier for this crawl
         """
+        self.prepare_search(qry, location)
+        self.conduct_search(serp_id, crawl_id)
+        self.handle_response()
+
+
+    def prepare_search(self, qry: str, location: str = ''):
+        """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
         self.loc = str(location)
-        self.params['q'] = wu.encode_param_value(qry)
-
-        # Reset previous location
-        if 'uule' in self.params:
-            self.params.pop('uule')
+        self.params = {}
+        self.params['q'] = wu.encode_param_value(self.qry)
         if location:
-            self.set_location(location)
+            self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
 
-    def snapshot(self):
+    def conduct_search(self, serp_id: str = '', crawl_id: str = ''):
+        """Send a search request and handle errors"""
+
+        self.timestamp = datetime.utcnow().isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
+        self.crawl_id = crawl_id
         try:
             self.send_request()
         except requests.exceptions.ConnectionError:
@@ -131,7 +126,9 @@ class SearchEngine:
     def send_request(self):
         self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
         self.response = self.sesh.get(self.url, timeout=10)
-        self.log.info(f'{self.response.status_code} | {self.qry} | {self.loc if self.loc else self.qry}')
+        log_msg = f"{self.response.status_code} | {self.qry}"
+        log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
+        self.log.info(log_msg)
 
 
     def reset_ssh_tunnel(self):
@@ -162,7 +159,7 @@ class SearchEngine:
         """Unzip brotli zipped html 
 
         Can allow zipped responses by setting the header `"Accept-Encoding"`.
-        Zipped reponses are the default because it is more efficient for them
+        Zipped reponses are the default because it is more efficient.
         
         Returns:
             str: Decompressed html
@@ -178,80 +175,57 @@ class SearchEngine:
             self.html = rcontent
 
 
-    def search(self, qry, location='', serp_id='', crawl_id=''):
-        """Conduct a search and save HTML
-        
-        Args:
-            qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            serp_id (str, optional): A unique identifier for this SERP
-        """
-        self.prepare_url(qry, location=location)
-        self.timestamp = datetime.utcnow().isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(qry + location + self.timestamp)
-        self.crawl_id = crawl_id
-        self.snapshot()
-        self.handle_response()
+    def parse_results(self):
+        """Parse a SERP - see parsers.py"""
+
+        assert self.html, "No HTML found"
+        try:
+            self.results = parsers.parse_serp(self.html, serp_id=self.serp_id, make_soup=True)
+        except Exception:
+            self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
 
-    def save_serp(self, save_dir='.', append_to=''):
+    def save_serp(self, save_dir: str = '', append_to: str = ""):
         """Save SERP to file
 
         Args:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.html`
             append_to (str, optional): Append results to this file path
         """
-        assert self.html, "Must conduct a search first"
+        assert self.html, "No HTML found"
+        assert save_dir or append_to, "Must provide a save_dir or append_to file path"
 
         if append_to:
-            # Keep a selection of object keys
-            keep_keys = [
-                'qry',
-                'loc',
-                'url',
-                'html',
-                'headers',
-                'timestamp',
-                'serp_id',
-                'crawl_id',
-                'version',
-            ]
-            all_items = dict(vars(self).items())
-            out_data = {k: all_items[k] for k in keep_keys}
-            out_data['response_code'] = self.response.status_code
-            self.log.debug(f"Validating SERP data")
-            serp = BaseSERP(**out_data)
-            output = [serp.model_dump()]
-            utils.write_lines(output, append_to)
+            # Prepare and save SERP row
+            serp = BaseSERP(
+                qry=self.qry, 
+                loc=self.loc, 
+                url=self.url, 
+                html=self.html,
+                response_code=self.response.status_code,
+                timestamp=self.timestamp,
+                serp_id=self.serp_id,
+                crawl_id=self.crawl_id,
+                version=self.version,
+                user_agent=self.headers['User-Agent']
+            )
+            utils.write_lines([serp.model_dump()], append_to)
 
         else:
-            fn = f'{self.serp_id}.html'
-            fp = os.path.join(save_dir, fn)
-            self.log.debug(f"saving: {fp}")
+            fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
 
-    def parse_results(self):
-        """Parse a SERP - see parsers.py"""
-
-        assert self.html, "No HTML found"
-        try:
-            soup = wu.make_soup(self.html)
-            self.results = parsers.parse_serp(soup, serp_id=self.serp_id)
-
-        except Exception:
-            self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
-
-
-    def save_results(self, save_dir='.', append_to=False):
+    def save_results(self, save_dir: str = '', append_to: str = ""):
         """Save parsed results
         
         Args:
             save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
             append_to (bool, optional): Append results to this file path
-        """
-        # Save parsed results
+        """        
+        assert save_dir or append_to, "Must provide a save_dir or append_to file path"
+
         if self.results:
             if append_to:
                 utils.write_lines(self.results, append_to)
@@ -259,4 +233,4 @@ class SearchEngine:
                 fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
                 utils.write_lines(self.results, fp)
         else:
-            self.log.info(f'No parsed results for serp_id {self.serp_id}')
+            self.log.info(f'No parsed results for serp_id: {self.serp_id}')

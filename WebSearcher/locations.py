@@ -15,15 +15,19 @@ log = logger.Logger().start(__name__)
 def get_location_id(canonical_name: str) -> str:
     """Get location ID for URL parameter 'uule'
     
-    Returns the url parameter for a given location's Canonical Name
-    
+    Returns the url parameter for a given location's Canonical Name.
+    See download_locations to obtain a csv of locations and their canonical names. 
+
+    Credit for figuring this out goes to the author of the PHP version: 
+    https://github.com/512banque/uule-grabber/blob/master/uule.php
+
     Args:
         canonical_name (str): The "Canoncial Name" for a location. Use 
         download_locations to obtain file containing all options. Column name 
         is usually something like "Canonical Name" or "Canonical.Name". 
     
     Returns:
-        str: The uule parameter key for selecting a location
+        str: The uule parameter key for a given location's Canonical Name.
     
     """
     uule_key = string.ascii_uppercase+string.ascii_lowercase+string.digits
