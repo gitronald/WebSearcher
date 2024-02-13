@@ -16,8 +16,10 @@ class BaseSERP(BaseModel):
     loc: Optional[str] = None  # Location if set, "Canonical Name"
     url: str                   # URL of SERP   
     html: str                  # Raw HTML of SERP
-    headers: Dict[str, str]    # HTTP headers
+    # headers: Dict[str, str]    # HTTP headers
     timestamp: str             # Timestamp of crawl
     response_code: int         # HTTP response code
+    user_agent: str            # User agent used for the crawl
     serp_id: str               # Search Engine Results Page (SERP) ID
     crawl_id: str              # Crawl ID for grouping SERPs
+    version: str               # WebSearcher version

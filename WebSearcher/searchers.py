@@ -203,11 +203,11 @@ class SearchEngine:
                 url=self.url, 
                 html=self.html,
                 response_code=self.response.status_code,
+                user_agent=self.headers['User-Agent'],
                 timestamp=self.timestamp,
                 serp_id=self.serp_id,
                 crawl_id=self.crawl_id,
                 version=self.version,
-                user_agent=self.headers['User-Agent']
             )
             utils.write_lines([serp.model_dump()], append_to)
 
