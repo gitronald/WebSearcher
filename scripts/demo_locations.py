@@ -92,28 +92,27 @@ se.parse_results()
 
 # Shape as dataframe
 results = pd.DataFrame(se.results)
-print(results.head())
+with pd.option_context('display.max_colwidth', 80):
+    print(results[['type', 'title']])
 
-print(results[results.type=='local_results']['details'].tolist())
+#             type                                                        title
+#    local_results                                FLORINA Pizzeria & Paninoteca
+#    local_results                                              Regina Pizzeria
+#    local_results                                       Halftime King of Pizza
+#          general                   Where to Eat Excellent Pizza Around Boston
+#          general             Where to Find the Best Pizza in Boston Right Now
+#          general  Pizza Hut | Delivery & Carryout - No One OutPizzas The Hut!
+#          general   Domino's: Pizza Delivery & Carryout, Pasta, Chicken & More
+#  people_also_ask                                                         None
+#          general            THE 10 BEST Pizza Places in Boston (Updated 2024)
+#          general  20 Best Pizza Spots in Boston For Delicious Slices And Pies
+#          general               Supreme Pizza - Pizza Restaurant in Boston, MA
+#          general                 Best Pizza in Boston: 27 Famous Pizza Places
+#          general                        New Market Pizza - Boston, Boston, MA
+#          general   Home | Regina Pizzeria, Boston's Brick Oven Pizza - Boston
+# searches_related                                                         None
+#        knowledge                                                             
 
 dir_html = os.path.join("data", 'html')
 os.makedirs(dir_html, exist_ok=True)
 se.save_serp(save_dir=dir_html)
-
-
-# [{
-#     'rating': 4.0,
-#     'n_reviews': 152,
-#     'sub_type': 'Pizza',
-#     'contact': '226 N Market St'
-# },
-# {
-#     'rating': 4.6,
-#     'n_reviews': 752,
-#     'sub_type': 'Pizza',
-#     'contact': '69 Salem St'
-# },
-# {
-#     'sub_type': 'Pizza', 
-#     'contact': 'McCormack Building, 1 Ashburton Pl'
-# }]
