@@ -23,11 +23,16 @@ def parse_videos(cmpt):
 
     # Get known div structures
     divs = []
-    divs.extend(webutils.find_all_divs(cmpt, 'g-inner-card'))
-    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'VibNM'}))
-    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'mLmaBd'}))
-    divs.extend(webutils.find_all_divs(cmpt, 'div', {'class':'RzdJxc'}))
-    # divs.extend(cmpt.find_all('div', {'class':'sI5x9c'})) # Selects a level too low, missing links.
+    name_attrs = [
+        {'name':'g-inner-card'},
+        {'name':'div', 'attrs':{'class':'VibNM'}},
+        {'name':'div', 'attrs':{'class':'mLmaBd'}},
+        {'name':'div', 'attrs':{'class':'RzdJxc'}},
+    ]
+    for kwargs in name_attrs:
+        divs = webutils.find_all_divs(cmpt, **kwargs)
+        if divs:
+            break
     divs = list(filter(None, divs))
 
     if divs:
