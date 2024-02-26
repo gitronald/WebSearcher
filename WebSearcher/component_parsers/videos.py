@@ -83,8 +83,8 @@ def get_url(sub):
     """Get video URL by filtering for non-hash links"""
     all_urls = sub.find_all('a')
     for url in all_urls:
-        if "href" in url and not url['href'].startswith('#'):
-            return url["href"]
+        if "href" in url.attrs and not url.attrs['href'].startswith('#'):
+            return url.attrs["href"]
     return None
 
 
