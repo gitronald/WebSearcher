@@ -3,7 +3,7 @@ Brotli==1.0.9
 bs4==0.0.1
 certifi==2023.7.22
 chardet==4.0.0
-idna==2.10
+idna==3.7
 lxml==4.9.1
 pydantic==2.5.0
 pydantic_core==2.14.1
