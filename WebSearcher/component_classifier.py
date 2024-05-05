@@ -150,8 +150,11 @@ def classify_img_cards(cmpt: bs4.element.Tag):
 
 
 def classify_images(cmpt: bs4.element.Tag):
-    img_box = cmpt.find("div", {"id": "imagebox_bigimages"})
-    return 'images' if img_box else "unknown"
+    conditions = [
+        cmpt.find("div", {"id": "imagebox_bigimages"}),  
+        cmpt.find("div", {"id":"iur"})
+    ]
+    return 'images' if any(conditions) else "unknown"
 
 
 def classify_knowledge_panel(cmpt: bs4.element.Tag):
