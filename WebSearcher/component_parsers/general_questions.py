@@ -1,5 +1,5 @@
-from . import parse_general_results
-from . import parse_people_also_ask
+from .general import parse_general_results
+from .people_also_ask import parse_people_also_ask
 
 def parse_general_questions(cmpt):
     """Parse a General + People Also Ask hybrid component
