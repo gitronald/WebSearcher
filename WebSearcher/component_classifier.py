@@ -4,6 +4,51 @@
 from . import webutils
 import bs4
 
+# Header (e.g., <h2> and <div aria-level="2" role="heading">) text -> WS type
+HEADER_LVL2_MAPPING = {
+    'Calculator Result': 'knowledge',
+    'Directions': 'directions',
+    'Featured snippet from the web': 'knowledge',
+    'Finance Results': 'knowledge',
+    'Jobs': 'jobs',
+    'Knowledge Result': 'knowledge',
+    'Local Results': 'local_results',
+    'Map Results': 'map_results',
+    'People also ask': 'people_also_ask',
+    'Perspectives & opinions': 'perspectives',
+    'Perspectives': 'perspectives',
+    'Related searches': 'searches_related',
+    'Resultado de traducción': 'knowledge',
+    'Resultados de la Web': 'general',
+    'Sports Results': 'knowledge',
+    'Top stories': 'top_stories',
+    'Local news': 'local_news',
+    'Translation Result': 'knowledge',
+    'Twitter Results': 'twitter',
+    'Unit Converter': 'knowledge',
+    'Weather Result': 'knowledge',
+    'Web Result with Site Links': 'general',
+    'Web results': 'general',
+    'Complementary Results': 'general',
+    'Videos': 'videos',
+}
+
+# Header (e.g., <h3> and <div aria-level="3" role="heading">) text -> WS type
+HEADER_LVL3_MAPPING = {
+    'Images for': 'images',
+    'Latest from': 'latest_from',
+    'Popular products': 'products',
+    'Quotes in the news': 'news_quotes',
+    'Recipes': 'recipes',
+    'Related searches': 'searches_related',
+    'Scholarly articles for': 'scholarly_articles',
+    'Top stories': 'top_stories',
+    'Videos': 'videos',
+    'View more news': 'view_more_news',
+    'View more videos': 'view_more_videos'
+}
+
+
 def classify_type(cmpt: bs4.element.Tag):
     """Component classifier
 
@@ -62,49 +107,11 @@ def classify_header(cmpt: bs4.element.Tag, level):
 
     # Find headers
     if level == 2:
-        header_dict = {
-            'Calculator Result': 'knowledge',
-            'Directions': 'directions',
-            'Featured snippet from the web': 'knowledge',
-            'Finance Results': 'knowledge',
-            'Jobs': 'jobs',
-            'Knowledge Result': 'knowledge',
-            'Local Results': 'local_results',
-            'Map Results': 'map_results',
-            'People also ask': 'people_also_ask',
-            'Perspectives & opinions': 'perspectives',
-            'Perspectives': 'perspectives',
-            'Related searches': 'searches_related',
-            'Resultado de traducción': 'knowledge',
-            'Resultados de la Web': 'general',
-            'Sports Results': 'knowledge',
-            'Top stories': 'top_stories',
-            'Local news': 'local_news',
-            'Translation Result': 'knowledge',
-            'Twitter Results': 'twitter',
-            'Unit Converter': 'knowledge',
-            'Weather Result': 'knowledge',
-            'Web Result with Site Links': 'general',
-            'Web results': 'general',
-            'Complementary Results': 'general',
-            'Videos': 'videos',
-        }
+        header_dict = HEADER_LVL2_MAPPING
     elif level == 3:
-        header_dict = {
-            'Images for': 'images',
-            'Latest from': 'latest_from',
-            'Popular products': 'products',
-            'Quotes in the news': 'news_quotes',
-            'Recipes': 'recipes',
-            'Related searches': 'searches_related',
-            'Scholarly articles for': 'scholarly_articles',
-            'Top stories': 'top_stories',
-            'Videos': 'videos',
-            'View more news': 'view_more_news',
-            'View more videos': 'view_more_videos'
-        }
-
-    # Find headers, eg for level 2: <h2> or <div aria-level="2" role="heading">
+        header_dict = HEADER_LVL3_MAPPING
+    
+    # Find headers, eg for level 2: <h2> and <div aria-level="2" role="heading">
     header_list = []
     header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
     header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
