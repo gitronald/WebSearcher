@@ -49,7 +49,7 @@ HEADER_LVL3_MAPPING = {
 }
 
 
-def classify_type(cmpt: bs4.element.Tag):
+def classify_type(cmpt: bs4.element.Tag) -> str:
     """Component classifier
 
     Args:
