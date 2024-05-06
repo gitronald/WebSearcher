@@ -1,13 +1,14 @@
 """ Test search and parse a single query from command line
 """
 
+import os
 import argparse
 import pandas as pd
 import WebSearcher as ws
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-q", "--query", type=str, help="A search query")
-args = parser.parse_args()
+pd.set_option('display.width', 120, 
+              'display.max_rows', None, 
+              'display.max_columns', None)
 
 MODIFIED_HEADERS = {
     'Host': 'www.google.com',
@@ -18,27 +19,25 @@ MODIFIED_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0',
 }
 
-if not args.query:
-    print('Must include -q arg')
-else:
-    print(f'WebSearcher v{ws.__version__} | Search Query: {args.query}')
-    
-    # Initialize crawler
-    se = ws.SearchEngine(headers=MODIFIED_HEADERS)
-    
-    # Conduct Search
-    se.search(args.query)
+parser = argparse.ArgumentParser()
+parser.add_argument("-q", "--query", type=str, help="A search query", required=True)
+args = parser.parse_args()
 
-    # Parse Results
-    se.parse_results()
+# Settings
+query = args.query
+data_dir = os.path.join("data", f"demo-ws-v{ws.__version__}")
+print(f'WebSearcher v{ws.__version__} | Search Query: {args.query} | Output: {data_dir}')
 
-    # Shape as dataframe
-    results = pd.DataFrame(se.results)
-    print(results.head())
+# Filepaths
+fp_serps = os.path.join(data_dir, 'serps.json')
+fp_results = os.path.join(data_dir, 'results.json')
+dir_html = os.path.join(data_dir, 'html')
+os.makedirs(dir_html, exist_ok=True)
 
-    try:
-        se.save_serp(append_to='test_serp_save.json')
-        se.save_results(append_to='test_results_save.json')
-        se.save_serp(save_dir=".")
-    except Exception as e:
-        print('Save error', e)
+# Search, parse, and save
+se = ws.SearchEngine(headers=MODIFIED_HEADERS)  # Initialize searcher
+se.search(query)                                # Conduct Search
+se.parse_results()                              # Parse Results
+se.save_serp(append_to=fp_serps)                # Save SERP to json (html + metadata)
+se.save_results(append_to=fp_results)           # Save results to json
+se.save_serp(save_dir=dir_html)                 # Save SERP html to dir (no metadata)
