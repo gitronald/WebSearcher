@@ -53,8 +53,8 @@ def download_locations(
     """
     os.makedirs(data_dir, exist_ok=True)
 
-    full_url = get_latest_url(url)
-    fp = os.path.join(data_dir, full_url.split('/')[-1])
+    url_latest = get_latest_url(url)
+    fp = os.path.join(data_dir, url_latest.split('/')[-1])
     fp_unzip = fp.replace('.zip', '')
 
     # Check if the current version already exists
@@ -63,10 +63,11 @@ def download_locations(
     elif os.path.exists(fp_unzip):
         print(f"Version up to date: {fp_unzip}")
     else:
+        print(f"Version out of date")
         # Download and save
         try:
-            print(f'Getting: {full_url}')
-            response = requests.get(full_url)
+            print(f'getting: {url_latest}')
+            response = requests.get(url_latest)
         except Exception:
             log.exception('Failed to retrieve location data')
 
@@ -87,8 +88,8 @@ def get_latest_url(url:str):
 
         # Get current CSV url and use as filename
         geo_url = sorted(geo_urls)[-1]
-        full_url = 'https://developers.google.com' + geo_url
-        return full_url
+        url_latest = 'https://developers.google.com' + geo_url
+        return url_latest
 
     except Exception:
         log.exception("Failed to retrieve location data url")

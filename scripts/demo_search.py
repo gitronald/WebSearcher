@@ -6,7 +6,7 @@ import argparse
 import pandas as pd
 import WebSearcher as ws
 
-pd.set_option('display.width', 1000, 
+pd.set_option('display.width', 120, 
               'display.max_rows', None, 
               'display.max_columns', None)
 
@@ -16,7 +16,8 @@ args = parser.parse_args()
 
 # Settings
 query = args.query
-data_dir = f"demo-data-ws-v{ws.__version__}"
+data_dir = os.path.join("data", f"demo-ws-v{ws.__version__}")
+print(f'WebSearcher v{ws.__version__} | Search Query: {args.query} | Output: {data_dir}')
 
 # Filepaths
 fp_serps = os.path.join(data_dir, 'serps.json')
@@ -25,7 +26,7 @@ dir_html = os.path.join(data_dir, 'html')
 os.makedirs(dir_html, exist_ok=True)
 
 # Search, parse, and save
-se = ws.SearchEngine()                  # Initialize crawler
+se = ws.SearchEngine()                  # Initialize searcher
 se.search(query)                        # Conduct Search
 se.parse_results()                      # Parse Results
 se.save_serp(append_to=fp_serps)        # Save SERP to json (html + metadata)

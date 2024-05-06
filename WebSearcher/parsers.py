@@ -10,7 +10,7 @@ import traceback
 from bs4 import BeautifulSoup
 
 
-def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
+def get_component_parser(cmpt_type:str, cmpt_funcs:dict=type_functions) -> callable:
     """Returns the parser for a given component type"""
     try:
         return cmpt_funcs[cmpt_type]
@@ -18,14 +18,14 @@ def get_component_parser(cmpt_type, cmpt_funcs=type_functions):
         return not_implemented
 
 
-def not_implemented(cmpt):
+def not_implemented(cmpt) -> list:
     """Placeholder function for component parsers that are not implemented"""
     parsed = BaseResult(type=classify_type(cmpt), sub_rank=0).model_dump()
     parsed['error'] = 'not implemented'
     return [parsed]
 
 
-def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
+def parse_component(cmpt, cmpt_type:str = '', cmpt_rank:int = 0) -> list:
     """Parse a SERP component
     
     Args:
@@ -69,7 +69,8 @@ def parse_component(cmpt, cmpt_type='', cmpt_rank=0):
     return parsed_cmpt
 
 
-def parse_serp(serp, serp_id=None, crawl_id=None, verbose=False, make_soup=False):
+def parse_serp(serp:BeautifulSoup, serp_id:str = None, crawl_id:str = None, 
+               verbose:bool = False, make_soup:bool = False) -> list:
     """Parse a Search Engine Result Page (SERP)
     
     Args:

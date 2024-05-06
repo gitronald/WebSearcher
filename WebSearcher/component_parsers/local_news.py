@@ -1,4 +1,4 @@
-from . import parse_top_stories
+from .top_stories import parse_top_stories
 
 def parse_local_news(cmpt):
     """Parse a "Perspectives & opinions" component

@@ -10,6 +10,7 @@ log = logger.Logger().start(__name__)
 import os
 import re
 import atexit
+import brotli
 import requests
 import subprocess
 import tldextract
@@ -19,9 +20,10 @@ from bs4 import BeautifulSoup
 
 def load_html(fp, zipped=False):
     """Load html file, with option for brotli decompression"""
+    read_func = lambda i: brotli.decompress(i.read()) if zipped else i.read()
     read_type = 'rb' if zipped else 'r'
     with open(fp, read_type) as infile:
-        return infile.read()
+        return read_func(infile)
 
 
 def load_soup(fp, zipped=False):
