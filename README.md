@@ -19,8 +19,6 @@ and position-based specifications.
       - [Conduct a search](#conduct-a-search)
     - [Save a Search](#save-a-search)
   - [Localization](#localization)
-      - [Obtain location names](#obtain-location-names)
-      - [Conduct a localized search](#conduct-a-localized-search)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
@@ -120,118 +118,20 @@ se.save_serp(save_dir='./serps')
 ---  
 ## Localization
 
-Conduct web searches from a location of choice.
+<!-- Conduct web searches from a location of choice. -->
 
-#### Obtain location names
+To conduct localized searches--from a location of your choice--you only need one additional data point: The __"Canonical Name"__ of each location.   
+These are available online, and can be downloaded using a built in function (`ws.download_locations()`) that checks for the most recent version.  
 
-To conduct localized searches, you only need one additional data point: The __"Canonical Name"__ of each location.   
-These are available online, and can be downloaded using a built in function that checks for the most recent version. 
+A brief guide on how to select a canonical name and use it to conduct a localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
 
-```python
-# Set save location  
-data_dir = './location_data'
 
-# Download latest data; checks for local version before downloading
-ws.download_locations(data_dir)
-
-f  = os.listdir(data_dir)[-1]  # Last file
-fp = os.path.join(data_dir, f) # File path
-locs = pd.read_csv(fp)         # Read
-locs.info()
-```
-```
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 102029 entries, 0 to 102028
-Data columns (total 7 columns):
-Criteria ID       102029 non-null int64
-Name              102029 non-null object
-Canonical Name    102029 non-null object
-Parent ID         101788 non-null float64
-Country Code      102013 non-null object
-Target Type       102029 non-null object
-Status            102029 non-null object
-dtypes: float64(1), int64(1), object(5)
-memory usage: 5.4+ MB
-```
-```python
-# Take a look at the first row
-locs.iloc[0]
-```
-```
-Criteria ID                       1000002
-Name                                Kabul
-Canonical Name    Kabul,Kabul,Afghanistan
-Parent ID                     9.07539e+06
-Country Code                           AF
-Target Type                          City
-Status                             Active
-Name: 0, dtype: object
-```
-
-__Looking for Canonical Names__. In order to search from a given location, you must find the corresponding canonical name.
-
-```python
-# Filter for names containing "Boston" and "Massachusetts"
-regex = r'(?=.*Boston)(?=.*Massachusetts)' 
-str_mask = locs['Canonical Name'].str.contains(regex)
-locs[str_mask]
-```
-```
-15849                                Boston,Massachusetts,United States
-15908                           East Boston,Massachusetts,United States
-66033    Boston Logan International Airport,Massachusetts,United States
-84817                        Boston College,Massachusetts,United States
-85985                          South Boston,Massachusetts,United States
-Name: Canonical Name, dtype: object
-```
-
-#### Conduct a localized search
-
-After picking one, say `'Boston,Massachusetts,United States'`, you just add this to your `se.search()` call:
-
-```python
-# Conduct Search
-qry = 'pizza'
-loc = 'Boston,Massachusetts,United States'
-se.search(qry, location=loc)
-
-# Parse Results
-se.parse_results()
-
-# Shape as dataframe
-results = pd.DataFrame(se.results)
-
-# Show details of local results returned 
-results[results.type=='local_results']['details'].tolist()
-```
-
-```
-[{
-    'rating': 4.0,
-    'n_reviews': 152,
-    'sub_type': 'Pizza',
-    'contact': '226 N Market St'
-},
-{
-    'rating': 4.6,
-    'n_reviews': 752,
-    'sub_type': 'Pizza',
-    'contact': '69 Salem St'
-},
-{
-    'sub_type': 'Pizza', 
-    'contact': 'McCormack Building, 1 Ashburton Pl'
-}]
-```
 
 ---
 ## Contributing
 
-Happy to have help! If you see a component that we aren't covering yet, please add it using the process below. If you have other improvements, feel free to add them any way you can.
+Happy to have help! If you see a component that we aren't covering yet, please add it using the process below. If you have other improvements, feel free to add them any way you can.  
 
-
-Coming next:  
-    - Functions for using multiprocessing to parse SERPs.  
 
 ### Repair or Enhance a Parser
 
@@ -268,6 +168,11 @@ pytest -k "1684837514.html"
 ---
 ## Recent Changes
 
+`0.3.10` - Updated component classifier for images, added exportable header text mappings, added gist on localized searches.
+
+`0.3.9` - Small fixes for video url parsing
+
+`0.3.8` - Using SERP pydantic model, added github pip publishing workflow
 
 `0.3.7` - Fixed localization, parser and classifier updates and fixes, image subtypes, changed rhs component handling.
 
