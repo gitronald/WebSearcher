@@ -1,6 +1,19 @@
-from .. import webutils
+""" Parsers for ad components
 
-def parse_ads(cmpt):
+Changelog
+---------
+2024-05-08: 
+- added new div class for text field
+- added labels (e.g., "Provides abortions") from <span class="mXsQRe">, appended to text field
+
+
+"""
+
+from .. import webutils
+from ..models import BaseResult
+import bs4
+
+def parse_ads(cmpt: bs4.element.Tag):
     """Parse ads from ad component"""
 
     if cmpt.find_all('li', {'class':'ads-ad'}):
@@ -19,42 +32,53 @@ def parse_ads(cmpt):
     return [parser(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-
-def parse_ad(sub, sub_rank=0, visible=None):
+def parse_ad(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """Parse details of a single ad subcomponent, similar to general"""
-
-    parsed = {'type':'ad', 'sub_rank': sub_rank}
-    
-    submenu = parse_ad_menu(sub)
-    parsed['sub_type'] = 'submenu' if submenu else 'standard'
+    parsed = {"type": "ad", 
+              "sub_type": "standard", 
+              "sub_rank": sub_rank}
     
     parsed['title'] = webutils.get_text(sub, 'div', {'role':'heading'})
     parsed['url'] = webutils.get_link(sub, {"class":"sVXRqc"})
     parsed['cite'] = webutils.get_text(sub, 'span', {"role":"text"})
-    parsed['text'] = webutils.get_text(sub, 'div', {'class':'yDYNvb'})
-    parsed['details'] = parse_ad_menu(sub)
-    return parsed
+    
+    name_attrs = [{"name":"div", "attrs":{"class":"yDYNvb"}}, 
+                  {"name":"div", "attrs":{"class":"Va3FIb"}}]
+    for kwargs in name_attrs:
+        text = webutils.get_text(sub, **kwargs)
+        if text:
+            break
+    label = webutils.get_text(sub, 'span', {'class':'mXsQRe'})
+    parsed['text'] = f"{text} | {label}" if label else text
+
+    submenu = parse_ad_menu(sub)
+    if submenu:
+        parsed['sub_type'] = 'submenu'
+        parsed['details'] = submenu
+
+    validated = BaseResult(**parsed)
+    return validated.model_dump()
 
 
-def parse_ad_menu(sub):
+def parse_ad_menu(sub: bs4.element.Tag) -> list:
     """Parse menu items for a large ad with additional subresults"""
 
-    parsed_list = []
+    parsed_items = []
     menu_items = sub.find_all('div', {'class':'MhgNwc'})
     for item in menu_items:
-        parsed = {}
+        parsed_item = {}
         item_divs = item.find_all('div', {'class':'MUxGbd'})
         for div in item_divs:
             if webutils.check_dict_value(div.attrs, 'role', 'listitem'):
-                parsed['url'] = webutils.get_link(div)
-                parsed['title'] = webutils.get_text(div)
+                parsed_item['url'] = webutils.get_link(div)
+                parsed_item['title'] = webutils.get_text(div)
             else:
-                parsed['text'] = webutils.get_text(div)
-        parsed_list.append(parsed)
-    return parsed_list if parsed_list else None
+                parsed_item['text'] = webutils.get_text(div)
+        parsed_items.append(parsed_item)
+    return parsed_items if parsed_items else None
 
 
-def parse_ad_secondary(sub, sub_rank=0, visible=None):
+def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """Parse details of a single ad subcomponent, similar to general"""
 
     parsed = {'type':'ad', 'sub_rank':sub_rank}
@@ -79,7 +103,7 @@ def parse_ad_secondary(sub, sub_rank=0, visible=None):
 
     return parsed
 
-def parse_ad_legacy(sub, sub_rank=0, visible=None):
+def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """[legacy] Parse details of a single ad subcomponent, similar to general"""
 
     parsed = {'type':'ad', 'sub_rank':sub_rank}
