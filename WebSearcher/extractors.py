@@ -1,10 +1,11 @@
 from .component_parsers.footer import extract_footer, extract_footer_components
 from . import logger
-log = logger.Logger(console=True, console_format="medium", console_level='DEBUG').start(__name__)
+log = logger.Logger().start(__name__)
+
 from bs4 import BeautifulSoup
 
 
-def check_page_layout(soup : BeautifulSoup) -> dict:
+def check_page_layout(soup: BeautifulSoup) -> dict:
     """Check SERP layout elements
     
     Args:
@@ -15,8 +16,8 @@ def check_page_layout(soup : BeautifulSoup) -> dict:
     """
     log.debug(f"Checking page layout")
     layout_dict = {
-        'rso': soup.find('div', {'id':'rso'}),              # main results
-        'left-bar': soup.find('div', {'class': 'OeVqAd'}),  # left side bar
+        'rso': soup.find('div', {'id':'rso'}),                # main results
+        'left-bar': soup.find('div', {'class': 'OeVqAd'}),    # left side bar
         'top-bar-1': soup.find('div', {'class': 'M8OgIe'}),   # top bar
         'top-bar-2': soup.find('div', {'class': 'XqFnDf'}),   # top bar
     }
@@ -25,7 +26,7 @@ def check_page_layout(soup : BeautifulSoup) -> dict:
     return layout_dict
 
 
-def extract_results_column(soup, drop_tags = {'script', 'style', None}):
+def extract_results_column(soup: BeautifulSoup, drop_tags: set = {'script', 'style', None}) -> list:
     """Extract SERP components
     
     Args:
@@ -68,7 +69,7 @@ def extract_results_column(soup, drop_tags = {'script', 'style', None}):
     return column
 
 
-def extract_children(soup, drop_tags={}):
+def extract_children(soup: BeautifulSoup, drop_tags: set = {}) -> list:
     """Extract children from BeautifulSoup, drop specific tags, flatten list"""
     children = []
     for child in soup.children:
@@ -81,7 +82,8 @@ def extract_children(soup, drop_tags={}):
     return children
 
 
-def extract_from_top_bar(layout_dict, drop_tags={}):
+def extract_from_top_bar(layout_dict: dict, drop_tags: set = {}) -> list:
+    """Extract components from top bar layout"""
     column = layout_dict['rso'].find_all('div', {'class':'sATSHe'})
     if column:
         log.debug("format: top-bar-sATSHe")
@@ -95,7 +97,8 @@ def extract_from_top_bar(layout_dict, drop_tags={}):
     return column
 
 
-def extract_from_no_rso(soup, drop_tags={}):
+def extract_from_no_rso(soup: BeautifulSoup, drop_tags: set = {}) -> list:
+    """Extract components from no-rso layout"""
     column = []
     section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
     for div in section1:
@@ -131,7 +134,7 @@ def extract_from_no_rso(soup, drop_tags={}):
     return column
 
 
-def extract_components(soup):
+def extract_components(soup: BeautifulSoup) -> list:
     """Extract SERP components
     
     Args:
@@ -144,7 +147,7 @@ def extract_components(soup):
 
     cmpts = []
 
-    # RHS Knowledge Panel - extract
+    # RHS Knowledge Panel - extract (removes from soup, must be done first)
     has_rhs = soup.find('div', {'id': 'rhs'})
     if has_rhs:
         rhs = soup.find('div', {'id': 'rhs'}).extract()
@@ -183,7 +186,6 @@ def extract_components(soup):
     # RHS Knowledge Panel - append
     if has_rhs:
         rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
-        # print(rhs_kp)
         if rhs_kp:
             # reading from top-to-bottom, left-to-right
             cmpts.append(('knowledge_rhs', rhs_kp))

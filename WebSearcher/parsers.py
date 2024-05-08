@@ -82,7 +82,7 @@ def parse_serp(serp:BeautifulSoup, serp_id:str = None, crawl_id:str = None,
         list: A list of parsed results ordered top-to-bottom and left-to-right
     """
 
-    soup = webutils.make_soup(serp) if make_soup else serp
+    soup = webutils.make_soup(serp) if make_soup and type(serp) is not BeautifulSoup else serp
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
 
     # Extract components

@@ -8,6 +8,7 @@ import bs4
 HEADER_LVL2_MAPPING = {
     'Calculator Result': 'knowledge',
     'Directions': 'directions',
+    'Discussions and forums': 'discussions_and_forums',
     'Featured snippet from the web': 'knowledge',
     'Finance Results': 'knowledge',
     'Jobs': 'jobs',
