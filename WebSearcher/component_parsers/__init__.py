@@ -1,6 +1,7 @@
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
+from .discussions_and_forums import parse_discussions_and_forums
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
@@ -33,6 +34,7 @@ components = [
     ('ad', parse_ads, 'Ad'),
     ('available_on', parse_available_on, 'Available On'),
     ('banner', parse_banner, 'Banner'),
+    ('discussions_and_forums', parse_discussions_and_forums, 'Discussions & Forums'),
     ('general', parse_general_results, 'General'),
     ('general_questions', parse_general_questions, 'General Questions'),
     ('images', parse_images, 'Images'),
