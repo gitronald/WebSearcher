@@ -49,7 +49,7 @@ def parse_ad(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         if text:
             break
     label = webutils.get_text(sub, 'span', {'class':'mXsQRe'})
-    parsed['text'] = f"{text} | {label}" if label else text
+    parsed['text'] = f"{text} <label>{label}</label>" if label else text
 
     submenu = parse_ad_menu(sub)
     if submenu:
