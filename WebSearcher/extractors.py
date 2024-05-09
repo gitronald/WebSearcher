@@ -1,3 +1,4 @@
+from . import webutils
 from .component_parsers.footer import extract_footer, extract_footer_components
 from . import logger
 log = logger.Logger().start(__name__)
@@ -110,21 +111,33 @@ def extract_results_column(soup: bs4.BeautifulSoup, drop_tags: set = {'script', 
         log.debug("layout: no-rso")
         column = extract_from_no_rso(soup, drop_tags)
 
+    # Filter main column
+    column = filter_main_column(column)
+
     # Add main location to components
     column = list(zip(['main']*len(column), column))
 
     return column
 
 
-    # Drop empty components
+def filter_main_column(column: list) -> list:
+    """Filter empty and hidden components"""
+    
+    def is_hidden_survey(cmpt: bs4.element.Tag):
+        cond = [webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+                cmpt.find('promo-throttler')]
+        return all(cond)
+
+    # Filter empty components
     drop_text = {
         "Main results",    # Remove empty rso component; hidden <h2> header  
         "Twitter Results", # Remove empty Twitter component
         "",                # Remove empty divs
     }
     column = [c for c in column if c.text not in drop_text]
-    column = list(zip(['main']*len(column), column))
 
+    # Filter hidden survey components
+    column = [c for c in column if not is_hidden_survey(c)]
     return column
 
 

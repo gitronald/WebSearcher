@@ -81,7 +81,6 @@ def classify_type(cmpt: bs4.element.Tag) -> str:
         classify_general_subresult,  # Check general result with submenu
         classify_people_also_ask,    # Check people also ask
         classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
-        classify_hidden_survey,      # Check for hidden surveys
         classify_local_results,      # Check for local results
     ]
     for classifier in component_classifiers:
@@ -223,15 +222,6 @@ def classify_banner(cmpt: bs4.element.Tag):
         cmpt.find("div", {"class": "uzjuFc"}),
     ]
     return 'banner' if all(conditions) else "unknown"
-
-
-def classify_hidden_survey(cmpt: bs4.element.Tag):
-    """Classify hidden survey components"""
-    conditions = [
-        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
-        cmpt.find('promo-throttler'),
-    ]
-    return 'hidden_survey' if all(conditions) else "unknown"
 
 
 def classify_knowledge_block(cmpt: bs4.element.Tag):
