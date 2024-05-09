@@ -95,12 +95,6 @@ def get_latest_url(url:str):
         log.exception("Failed to retrieve location data url")
 
 
-def get_all_urls(soup):
-    a_divs = soup.find_all('a')
-    all_urls = {a.attrs['href'] for a in a_divs if 'href' in a.attrs}    
-    return all_urls
-
-
 def save_zip_response(response: requests.Response, fp: str) -> None:
     with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
         for member in zip_ref.namelist():

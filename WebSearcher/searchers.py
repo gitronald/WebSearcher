@@ -10,12 +10,12 @@ import time
 import brotli
 import requests
 import subprocess
-import pkg_resources
 from datetime import datetime
+from importlib import metadata
 from typing import Any, Dict, Optional
 
 # Current version
-WS_VERSION = pkg_resources.get_distribution('WebSearcher').version
+WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
@@ -61,9 +61,10 @@ class SearchEngine:
         self.unzip: bool = unzip
         self.params: Dict[str, Any] = {}
 
-        # Initialize search data
+        # Initialize search details
         self.qry: str = None
         self.loc: str = None
+        self.num_results = None
         self.url: str = None
         self.timestamp: str = None
         self.serp_id: str = None
@@ -82,26 +83,30 @@ class SearchEngine:
         ).start(__name__)
 
 
-    def search(self, qry: str, location: str = '', serp_id: str = '', crawl_id: str = ''):
+    def search(self, qry: str, location: str = '', serp_id: str = '', crawl_id: str = '', num_results: int = None):
         """Conduct a search and save HTML
         
         Args:
             qry (str): The search query
             location (str, optional): A location's Canonical Name.
+            num_results (int, optional): The number of results to return.
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self.prepare_search(qry, location)
+        self.prepare_search(qry, location, num_results)
         self.conduct_search(serp_id, crawl_id)
         self.handle_response()
 
 
-    def prepare_search(self, qry: str, location: str = ''):
+    def prepare_search(self, qry: str, location: str = '', num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
         self.loc = str(location)
+        self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
+        if num_results is not None:
+            self.params['num'] = self.num_results
         if location:
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 

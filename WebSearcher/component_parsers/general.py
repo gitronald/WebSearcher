@@ -154,7 +154,7 @@ def parse_ratings(text):
     """Parse ratings that appear below some general components"""
 
     text = [t.strip() for t in text]
-    numeric = re.compile('^\d*[.]?\d*$')
+    numeric = re.compile(r'^\d*[.]?\d*$')
     rating = re.split('Rating: ', text[0])[-1]
     if numeric.match(rating):
         details = {'rating': float(rating)}

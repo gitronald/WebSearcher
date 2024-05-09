@@ -96,9 +96,6 @@ def parse_serp(serp:BeautifulSoup, serp_id:str = None, crawl_id:str = None,
     for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
         cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
         
-        # Ignore hidden survey component
-        if cmpt_type == 'hidden_survey':
-            continue
         # Ignore directions component
         if cmpt_type == 'directions':
             continue

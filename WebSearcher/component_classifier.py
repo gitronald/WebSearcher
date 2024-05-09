@@ -6,7 +6,9 @@ import bs4
 
 # Header (e.g., <h2> and <div aria-level="2" role="heading">) text -> WS type
 HEADER_LVL2_MAPPING = {
+    'Additional searches': 'searches_related',
     'Calculator Result': 'knowledge',
+    'Complementary Results': 'general',
     'Directions': 'directions',
     'Discussions and forums': 'discussions_and_forums',
     'Featured snippet from the web': 'knowledge',
@@ -15,10 +17,14 @@ HEADER_LVL2_MAPPING = {
     'Knowledge Result': 'knowledge',
     'Local Results': 'local_results',
     'Map Results': 'map_results',
+    'Other searches': 'searches_related',
     'People also ask': 'people_also_ask',
+    'People also search for': 'searches_related',
     'Perspectives & opinions': 'perspectives',
     'Perspectives': 'perspectives',
+    'Related': 'searches_related',
     'Related searches': 'searches_related',
+    'Related to this search': 'searches_related',
     'Resultado de traducción': 'knowledge',
     'Resultados de la Web': 'general',
     'Sports Results': 'knowledge',
@@ -30,7 +36,6 @@ HEADER_LVL2_MAPPING = {
     'Weather Result': 'knowledge',
     'Web Result with Site Links': 'general',
     'Web results': 'general',
-    'Complementary Results': 'general',
     'Videos': 'videos',
 }
 
@@ -81,7 +86,6 @@ def classify_type(cmpt: bs4.element.Tag) -> str:
         classify_general_subresult,  # Check general result with submenu
         classify_people_also_ask,    # Check people also ask
         classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
-        classify_hidden_survey,      # Check for hidden surveys
         classify_local_results,      # Check for local results
     ]
     for classifier in component_classifiers:
@@ -223,15 +227,6 @@ def classify_banner(cmpt: bs4.element.Tag):
         cmpt.find("div", {"class": "uzjuFc"}),
     ]
     return 'banner' if all(conditions) else "unknown"
-
-
-def classify_hidden_survey(cmpt: bs4.element.Tag):
-    """Classify hidden survey components"""
-    conditions = [
-        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
-        cmpt.find('promo-throttler'),
-    ]
-    return 'hidden_survey' if all(conditions) else "unknown"
 
 
 def classify_knowledge_block(cmpt: bs4.element.Tag):

@@ -16,16 +16,28 @@ def parse_local_results(cmpt):
         list : list of parsed subcomponent dictionaries
     """
     subs = cmpt.find_all('div', {'class': 'VkpGBb'})
-    parsed = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    if parsed:
-        return parsed
-    else:
-        return [BaseResult(
-        type='local_results',
-        sub_rank=0,
-        text=webutils.get_text(cmpt, 'div', {'class': 'n6tePd'}) # No results message
-    ).model_dump()]
+    parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    if parsed_list:
 
+        # Set first non-empty header as sub_type (e.g. "Places" -> places)
+        header_list = [
+            webutils.get_text(cmpt, "h2", {"role":"heading"}),
+            webutils.get_text(cmpt, 'div', {'aria-level':"2", "role":"heading"}),
+        ]
+        header_list = list(filter(None, header_list))
+        if header_list:
+            sub_type = str(header_list[0]).lower().replace(" ", "_")
+            for parsed in parsed_list:
+                parsed.update({'sub_type':sub_type})
+
+        return parsed_list
+    else:
+        parsed = {
+            'type':'local_results',
+            'sub_rank':0,
+            'text':webutils.get_text(cmpt, 'div', {'class': 'n6tePd'}) # No results message
+        }
+        return [BaseResult(**parsed).model_dump()]
 
 def parse_local_result(sub, sub_rank=0):
     """Parse a "Local Results" subcomponent
@@ -37,16 +49,24 @@ def parse_local_result(sub, sub_rank=0):
         dict : parsed subresult
     """
 
-    details = parse_local_details(sub)
+    parsed = {'type':'local_results', 
+              'sub_rank':sub_rank}
+    parsed['title'] = webutils.get_text(sub, 'div', {'class':'dbg0pd'})
 
-    parsed = BaseResult(
-        type='local_results',
-        sub_rank=sub_rank,
-        title=webutils.get_text(sub, 'div', {'class': 'dbg0pd'}),
-        url=details['website'] if 'website' in details else None,
-        details=details,
-    )
-    return parsed.model_dump()
+    # Extract URL
+    links = [a.attrs['href'] for a in sub.find_all('a') if 'href' in a.attrs]
+    links_text = [a.text.lower() for a in sub.find_all('a') if 'href' in a.attrs]
+    links_dict = dict(zip(links_text, links))
+    parsed['url'] = links_dict.get('website', None)
+
+    # Extract text and label
+    text = webutils.get_text(sub, 'div', {'class':'rllt__details'}, separator='<|>')
+    label = webutils.get_text(sub, "span", {"class":"X0w5lc"})
+    parsed['text'] = f"{text} <label>{label}</label>" if label else text
+    parsed['details'] = parse_local_details(sub)
+
+    validated = BaseResult(**parsed)
+    return validated.model_dump()
 
 
 def parse_local_details(sub):

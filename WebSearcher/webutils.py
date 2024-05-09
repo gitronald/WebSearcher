@@ -108,9 +108,9 @@ def get_link(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> str:
     link = get_div(soup, 'a', attrs)
     return link.attrs.get(key, None) if link else None
 
-def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> list:
+def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href', filter_empty: bool = True) -> list:
     """Utility for `soup.find_all('a')['href']` with null key handling"""
-    links = find_all_divs(soup, 'a', attrs)
+    links = find_all_divs(soup, 'a', attrs, filter_empty)
     return [link.attrs.get(key, None) for link in links] if links else None
 
 def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty: bool = True) -> list:
@@ -120,10 +120,14 @@ def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty
         divs = [c for c in divs if c.text != '']
     return divs
 
-def find_children(soup, name: str, attrs: dict = {}) -> list:
+def find_children(soup, name: str, attrs: dict = {}, filter_empty: bool = False):
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    return div.children if div else []
+    divs = div.children if div else []
+    if divs and filter_empty:
+        divs = [c for c in divs if c]
+        divs = [c for c in divs if c.text != '']
+    return divs
 
 
 # URLs -------------------------------------------------------------------------
