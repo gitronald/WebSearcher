@@ -108,9 +108,9 @@ def get_link(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> str:
     link = get_div(soup, 'a', attrs)
     return link.attrs.get(key, None) if link else None
 
-def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> list:
+def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href', filter_empty: bool = True) -> list:
     """Utility for `soup.find_all('a')['href']` with null key handling"""
-    links = find_all_divs(soup, 'a', attrs)
+    links = find_all_divs(soup, 'a', attrs, filter_empty)
     return [link.attrs.get(key, None) for link in links] if links else None
 
 def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty: bool = True) -> list:
