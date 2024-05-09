@@ -10,12 +10,12 @@ import time
 import brotli
 import requests
 import subprocess
-import pkg_resources
 from datetime import datetime
+from importlib import metadata
 from typing import Any, Dict, Optional
 
 # Current version
-WS_VERSION = pkg_resources.get_distribution('WebSearcher').version
+WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
