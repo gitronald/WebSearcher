@@ -56,10 +56,10 @@ def classify_footer_component(cmpt):
             return 'img_cards'
         elif cmpt.find('g-scrolling-carousel'):
             return 'discover_more'
-        elif h3 and h3.text.strip() == 'Related searches':
-            return 'searches_related'
-        elif h3 and h3.text.strip() == 'People also search for':
-            return 'searches_related'
+        elif h3:
+            known_labels = {'Related', 'Related searches', 'People also search for', 'Related to this search'}
+            if h3.text.strip() in known_labels:
+                return 'searches_related'
         else:
             return 'unknown'
     elif cmpt.find("p", {"id":"ofr"}):

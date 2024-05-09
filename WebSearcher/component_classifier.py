@@ -6,7 +6,9 @@ import bs4
 
 # Header (e.g., <h2> and <div aria-level="2" role="heading">) text -> WS type
 HEADER_LVL2_MAPPING = {
+    'Additional searches': 'searches_related',
     'Calculator Result': 'knowledge',
+    'Complementary Results': 'general',
     'Directions': 'directions',
     'Discussions and forums': 'discussions_and_forums',
     'Featured snippet from the web': 'knowledge',
@@ -15,10 +17,14 @@ HEADER_LVL2_MAPPING = {
     'Knowledge Result': 'knowledge',
     'Local Results': 'local_results',
     'Map Results': 'map_results',
+    'Other searches': 'searches_related',
     'People also ask': 'people_also_ask',
+    'People also search for': 'searches_related',
     'Perspectives & opinions': 'perspectives',
     'Perspectives': 'perspectives',
+    'Related': 'searches_related',
     'Related searches': 'searches_related',
+    'Related to this search': 'searches_related',
     'Resultado de traducción': 'knowledge',
     'Resultados de la Web': 'general',
     'Sports Results': 'knowledge',
@@ -30,7 +36,6 @@ HEADER_LVL2_MAPPING = {
     'Weather Result': 'knowledge',
     'Web Result with Site Links': 'general',
     'Web results': 'general',
-    'Complementary Results': 'general',
     'Videos': 'videos',
 }
 
