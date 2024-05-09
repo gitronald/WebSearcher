@@ -120,10 +120,14 @@ def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty
         divs = [c for c in divs if c.text != '']
     return divs
 
-def find_children(soup, name: str, attrs: dict = {}) -> list:
+def find_children(soup, name: str, attrs: dict = {}, filter_empty: bool = False):
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    return div.children if div else []
+    divs = div.children if div else []
+    if divs and filter_empty:
+        divs = [c for c in divs if c]
+        divs = [c for c in divs if c.text != '']
+    return divs
 
 
 # URLs -------------------------------------------------------------------------
