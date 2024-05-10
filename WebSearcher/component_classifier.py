@@ -83,7 +83,6 @@ def classify_type(cmpt: bs4.element.Tag) -> str:
         classify_general_questions,  # Check hybrid general questions
         classify_twitter,            # Check twitter cards and results
         classify_general,            # Check general components
-        classify_general_subresult,  # Check general result with submenu
         classify_people_also_ask,    # Check people also ask
         classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
         classify_local_results,      # Check for local results
@@ -205,20 +204,14 @@ def classify_general(cmpt: bs4.element.Tag):
             cmpt.attrs["class"] == ["g"],                                # Only class is 'g'
             (("g" in cmpt.attrs["class"]) &                              # OR contains 'g' and 'Ww4FFb'
             any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])),
-            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]), # OR contains 'hlcw0c' or 'MjjYud'
+            any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]), # OR contains 'hlcw0c' (subresults) or 'MjjYud'
             cmpt.find('div', {'class': ['g', 'Ww4FFb']}),                # OR contains 'g' and 'Ww4FFb' element
         ]
-        return 'general' if any(conditions) else "unknown"
     else:
-        return "unknown"
-
-
-def classify_general_subresult(cmpt: bs4.element.Tag):
-    # A general result followed by an indented result from the same domain
-    mask_class1 = cmpt.find_all('div', {'class':'g'})
-    mask_class2 = cmpt.find_all('div', {'class':'d4rhi'})
-    mask_sum = len(mask_class1) + len(mask_class2)
-    return 'general_subresult' if mask_sum > 1 else "unknown"
+        conditions = [
+            all(cmpt.find("div", {"class": c}) for c in ["g", "d4rhi"]), # Contains 'g' and 'd4rhi' elements
+        ]
+    return 'general' if any(conditions) else "unknown"
 
 
 def classify_banner(cmpt: bs4.element.Tag):
