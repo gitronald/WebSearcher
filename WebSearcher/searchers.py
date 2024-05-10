@@ -10,8 +10,8 @@ import time
 import brotli
 import requests
 import subprocess
-from datetime import datetime
 from importlib import metadata
+from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
 # Current version
@@ -114,7 +114,7 @@ class SearchEngine:
     def conduct_search(self, serp_id: str = '', crawl_id: str = ''):
         """Send a search request and handle errors"""
 
-        self.timestamp = datetime.utcnow().isoformat()
+        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
         try:
