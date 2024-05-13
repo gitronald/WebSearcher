@@ -98,15 +98,15 @@ def classify_type(cmpt: bs4.element.Tag) -> str:
     return cmpt_type
 
 
-def classify_header_lvl2(cmpt: bs4.element.Tag):
+def classify_header_lvl2(cmpt: bs4.element.Tag) -> str:
     # Wrapper for header level 2
     return classify_header(cmpt, level=2)
 
-def classify_header_lvl3(cmpt: bs4.element.Tag):
+def classify_header_lvl3(cmpt: bs4.element.Tag) -> str:
     # Wrapper for header level 2
     return classify_header(cmpt, level=3)
 
-def classify_header(cmpt: bs4.element.Tag, level):
+def classify_header(cmpt: bs4.element.Tag, level: int) -> str:
     """Check text in common headers for dict matches"""
 
     # Find headers
@@ -130,7 +130,7 @@ def classify_header(cmpt: bs4.element.Tag, level):
     return "unknown"
 
 
-def classify_top_stories(cmpt: bs4.element.Tag):
+def classify_top_stories(cmpt: bs4.element.Tag) -> str:
     """Classify top stories components
     
     Checks for g-scrolling-carousel & div id, not all top stories have an h3 tag
@@ -141,7 +141,7 @@ def classify_top_stories(cmpt: bs4.element.Tag):
     return 'top_stories' if all(conditions) else "unknown"
 
 
-def classify_img_cards(cmpt: bs4.element.Tag):
+def classify_img_cards(cmpt: bs4.element.Tag) -> str:
     """Classify image cards components"""
     if "class" in cmpt.attrs:
         conditions = [
@@ -153,7 +153,7 @@ def classify_img_cards(cmpt: bs4.element.Tag):
         return "unknown"
 
 
-def classify_images(cmpt: bs4.element.Tag):
+def classify_images(cmpt: bs4.element.Tag) -> str:
     conditions = [
         cmpt.find("div", {"id": "imagebox_bigimages"}),  
         cmpt.find("div", {"id":"iur"})
@@ -161,29 +161,29 @@ def classify_images(cmpt: bs4.element.Tag):
     return 'images' if any(conditions) else "unknown"
 
 
-def classify_knowledge_panel(cmpt: bs4.element.Tag):
+def classify_knowledge_panel(cmpt: bs4.element.Tag) -> str:
     condition = cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk"]})
     return 'knowledge' if condition else "unknown"
 
 
-def classify_finance_panel(cmpt: bs4.element.Tag):
+def classify_finance_panel(cmpt: bs4.element.Tag) -> str:
     condition = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
     return 'knowledge' if condition else "unknown"
 
 
-def classify_general_questions(cmpt: bs4.element.Tag):
+def classify_general_questions(cmpt: bs4.element.Tag) -> str:
     hybrid = cmpt.find("div", {"class": "ifM9O"})
     g_accordian = cmpt.find("g-accordion")
     return 'general_questions' if hybrid and g_accordian else "unknown"
 
 
-def classify_twitter(cmpt: bs4.element.Tag):
+def classify_twitter(cmpt: bs4.element.Tag) -> str:
     cmpt_type = 'twitter' if cmpt.find('div', {'class': 'eejeod'}) else "unknown"
     cmpt_type = classify_twitter_type(cmpt, cmpt_type)
     return cmpt_type
 
 
-def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
+def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown") -> str:
     """ Distinguish twitter types ('twitter_cards', 'twitter_result')"""
     conditions = [
         (cmpt_type == 'twitter'),                         # Check if already classified as twitter (header text)
@@ -197,7 +197,7 @@ def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown"):
     return cmpt_type
 
 
-def classify_general(cmpt: bs4.element.Tag):
+def classify_general(cmpt: bs4.element.Tag) -> str:
     """Classify general components"""
     if "class" in cmpt.attrs:
         conditions = [
@@ -214,7 +214,7 @@ def classify_general(cmpt: bs4.element.Tag):
     return 'general' if any(conditions) else "unknown"
 
 
-def classify_banner(cmpt: bs4.element.Tag):
+def classify_banner(cmpt: bs4.element.Tag) -> str:
     conditions = [
         webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
         cmpt.find("div", {"class": "uzjuFc"}),
@@ -222,7 +222,7 @@ def classify_banner(cmpt: bs4.element.Tag):
     return 'banner' if all(conditions) else "unknown"
 
 
-def classify_knowledge_block(cmpt: bs4.element.Tag):
+def classify_knowledge_block(cmpt: bs4.element.Tag) -> str:
     """Classify knowledge block components"""
     conditions = [
         webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
@@ -231,7 +231,7 @@ def classify_knowledge_block(cmpt: bs4.element.Tag):
     return 'knowledge' if all(conditions) else "unknown"
 
 
-def classify_people_also_ask(cmpt: bs4.element.Tag):
+def classify_people_also_ask(cmpt: bs4.element.Tag) -> str:
     """Secondary check for people also ask, see classify_header for primary"""
     class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
     conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
@@ -251,7 +251,7 @@ def classify_local_results(cmpt):
     return 'local_results' if any(conditions) else "unknown"
 
 
-def classify_knowledge_box(cmpt: bs4.element.Tag):
+def classify_knowledge_box(cmpt: bs4.element.Tag) -> str:
     """Classify knowledge component types
     
     Creates conditions for each label in a dictionary then assigns the 
@@ -280,4 +280,7 @@ def classify_knowledge_box(cmpt: bs4.element.Tag):
         condition['covid_alert'] = (text_list[0] == "COVID-19 alert")
 
     for condition_type, conditions in condition.items():
-        return condition_type if conditions else "unknown"
+        if conditions:
+            return condition_type
+    
+    return "unknown"
