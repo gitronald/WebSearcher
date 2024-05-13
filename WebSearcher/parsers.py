@@ -62,7 +62,7 @@ def parse_component(cmpt, cmpt_type:str = '', cmpt_rank:int = 0) -> list:
             raise TypeError(f'Parsed component must be list or dict: {parsed_cmpt}')
 
     except Exception:
-        log.exception('Parsing Exception')
+        log.exception(f'Parsing Exception | Main | {cmpt_rank} | {cmpt_type}')
         err = traceback.format_exc()
         return [{'type':cmpt_type, 'cmpt_rank':cmpt_rank, 'error':err}]
 
