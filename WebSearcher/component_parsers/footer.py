@@ -1,6 +1,7 @@
 from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from .. import component_classifier
 from .. import logger
+from ..models import BaseResult
 from ..webutils import get_text, find_all_divs
 
 log = logger.Logger().start(__name__)
@@ -46,6 +47,7 @@ def is_hidden(element):
 
 
 def classify_footer_component(cmpt):
+    """Classify a single footer component, fallback to main classifier"""
 
     gsection = cmpt.find('g-section-with-header')
     subs = cmpt.find_all('div', {'class':'g'})
@@ -69,7 +71,7 @@ def classify_footer_component(cmpt):
     elif gsection:
         return 'searches_related'
     else:
-        return 'unknown'
+        return component_classifier.classify_type(cmpt)
 
 
 def classify_searches_related(cmpt):
@@ -101,29 +103,50 @@ def get_footer_parser(cmpt_type: str) -> callable:
         return parse_omitted_notice
 
 
-def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0):
+def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0) -> list:
     """Classify the footer component and parse it""" 
 
+    # Classify Component
     cmpt_type = cmpt_type if cmpt_type else classify_footer_component(cmpt)
-    if cmpt_type == 'unknown':
-        cmpt_type = component_classifier.classify_type(cmpt)
+    assert cmpt_type, 'Null component type'
 
-    parsed = {
-        'type': cmpt_type,
-        'cmpt_rank':cmpt_rank,
-        'sub_rank':0
-    }
-    
+    # Return unknown components
     if cmpt_type == 'unknown':
-        return [parsed]
-    else:
+        parsed = {'type': 'footer',
+                  'sub_type': cmpt_type,
+                  'cmpt_rank': cmpt_rank,
+                  'sub_rank': 0}
+        validated = BaseResult(**parsed).model_dump()
+        return [validated]
+
+    # Parse component
+    try: 
         parser = get_footer_parser(cmpt_type)
-        try: 
-            parsed = parser(cmpt)
-        except Exception:
-            log.exception(f'Failed to parse footer component - {cmpt_type}')
-            parsed['error'] = traceback.format_exc()
-        return parsed
+        parsed = parser(cmpt)
+
+        # Add cmpt rank to parsed
+        if isinstance(parsed, list):
+            for sub_rank, sub in enumerate(parsed):
+                sub.update({'sub_rank':sub_rank, 'cmpt_rank':cmpt_rank})
+        elif isinstance(parsed, dict):
+            parsed.update({'sub_rank':0, 'cmpt_rank':cmpt_rank})
+            validated = BaseResult(**parsed).model_dump()
+            return [validated]
+        else:
+            raise TypeError(f'Parsed component must be list or dict: {parsed}')
+
+    except Exception:
+        log.exception('Parsing Exception - Footer')
+        err = traceback.format_exc()
+        parsed = {'type': 'footer',
+                  'sub_type': cmpt_type,
+                  'cmpt_rank': cmpt_rank,
+                  'sub_rank': 0}
+        validated = BaseResult(**parsed).model_dump()
+        validated['error'] = err        
+        return [validated]
+    
+    return parsed
 
 def parse_footer(cmpt):
     """Parse footer component
@@ -137,8 +160,7 @@ def parse_footer(cmpt):
     cmpts = extract_footer_components(cmpt)
     parsed_list = []
     for cmpt_rank, cmpt in enumerate(cmpts):
-        cmpt_type = classify_footer_component(cmpt)
-        parsed = parse_footer_cmpt(cmpt, cmpt_type, cmpt_rank)
+        parsed = parse_footer_cmpt(cmpt, cmpt_rank=cmpt_rank)
         parsed_list.extend(parsed)
 
     return parsed_list
