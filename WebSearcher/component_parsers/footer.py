@@ -49,17 +49,19 @@ def classify_footer_component(cmpt):
 
     gsection = cmpt.find('g-section-with-header')
     subs = cmpt.find_all('div', {'class':'g'})
-    h3 = cmpt.find('h3')
 
-    if 'id' in cmpt.attrs and cmpt.attrs['id'] == 'bres':
+    conditions = [
+        ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
+        ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud'])
+    ]
+
+    if any(conditions):
         if subs:
             return 'img_cards'
         elif cmpt.find('g-scrolling-carousel'):
             return 'discover_more'
-        elif h3:
-            known_labels = {'Related', 'Related searches', 'People also search for', 'Related to this search'}
-            if h3.text.strip() in known_labels:
-                return 'searches_related'
+        elif cmpt.find('h3'):
+            return classify_searches_related(cmpt)
         else:
             return 'unknown'
     elif cmpt.find("p", {"id":"ofr"}):
@@ -70,7 +72,21 @@ def classify_footer_component(cmpt):
         return 'unknown'
 
 
-def get_footer_parser(cmpt_type):
+def classify_searches_related(cmpt):
+    log.debug('classifying searches related component')
+    known_labels = {'Related', 
+                    'Related searches', 
+                    'People also search for', 
+                    'Related to this search'}
+    h3 = cmpt.find('h3')
+    if h3:
+        h3_matches = [h3.text.strip().startswith(text) for text in known_labels]
+        if any(h3_matches):
+            return 'searches_related'
+    return 'unknown'
+
+
+def get_footer_parser(cmpt_type: str) -> callable:
     if cmpt_type == 'img_cards':
         return parse_image_cards
     elif cmpt_type == 'searches_related':
