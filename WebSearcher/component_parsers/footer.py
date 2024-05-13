@@ -169,11 +169,3 @@ def parse_image_card(sub, sub_rank=0):
         parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
     
     return parsed
-
-
-def parse_alink(a): 
-    return {'text':a.text,'url':a.attrs['href']}
-
-
-def parse_alink_list(alinks):
-    return [parse_alink(a) for a in alinks if 'href' in a.attrs]
