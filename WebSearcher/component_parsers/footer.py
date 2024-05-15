@@ -46,7 +46,7 @@ def is_hidden(element):
     return any(conditions)
 
 
-def classify_footer_component(cmpt):
+def classify_footer_component(cmpt, cmpt_type='unknown'):
     """Classify a single footer component, fallback to main classifier"""
 
     gsection = cmpt.find('g-section-with-header')
@@ -59,19 +59,23 @@ def classify_footer_component(cmpt):
 
     if any(conditions):
         if subs:
-            return 'img_cards'
+            cmpt_type = 'img_cards'
         elif cmpt.find('g-scrolling-carousel'):
-            return 'discover_more'
+            cmpt_type = 'discover_more'
         elif cmpt.find('h3'):
-            return classify_searches_related(cmpt)
-        else:
-            return 'unknown'
+            cmpt_type = classify_searches_related(cmpt)
+
     elif cmpt.find("p", {"id":"ofr"}):
-        return 'omitted_notice'
+        cmpt_type = 'omitted_notice'
+
     elif gsection:
-        return 'searches_related'
-    else:
-        return component_classifier.classify_type(cmpt)
+        cmpt_type = 'searches_related'
+    
+    if cmpt_type == 'unknown':
+        log.debug('falling back to main classifier')
+        cmpt_type = component_classifier.classify_type(cmpt)
+
+    return cmpt_type
 
 
 def classify_searches_related(cmpt):
