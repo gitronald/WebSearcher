@@ -9,6 +9,10 @@ log = logger.Logger().start(__name__)
 import traceback
 
 
+# ------------------------------------------------------------------------------
+# Extractors
+
+
 def extract_footer(soup):
     """Extract footer div from a SERP"""
     return soup.find('div', {'id':'botstuff'})
@@ -33,6 +37,8 @@ def extract_footer_components(footer):
 
     # Filter hidden people also ask components
     expanded = [e for e in expanded if not is_hidden(e)]
+    log.debug(f'Expanded footer components: {len(expanded)}')
+
     return expanded
 
 
@@ -44,6 +50,10 @@ def is_hidden(element):
         element.find("div", {"class": "KJ7Tg"}),    # Empty `people_also_ask`
     ]
     return any(conditions)
+
+
+# ------------------------------------------------------------------------------
+# Classifiers
 
 
 def classify_footer_component(cmpt, cmpt_type='unknown'):
@@ -90,6 +100,28 @@ def classify_searches_related(cmpt):
         if any(h3_matches):
             return 'searches_related'
     return 'unknown'
+
+
+# ------------------------------------------------------------------------------
+# Parsers
+
+
+def parse_footer(cmpt):
+    """Parse footer component
+    
+    Args:
+        soup (bs4 object): a SERP
+    
+    Returns:
+        list: list of parsed footer component dictionaries
+    """
+    cmpts = extract_footer_components(cmpt)
+    parsed_list = []
+    for cmpt_rank, cmpt in enumerate(cmpts):
+        parsed = parse_footer_cmpt(cmpt, cmpt_rank=cmpt_rank)
+        parsed_list.extend(parsed)
+
+    return parsed_list
 
 
 def get_footer_parser(cmpt_type: str) -> callable:
@@ -152,22 +184,10 @@ def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0) -> list:
     
     return parsed
 
-def parse_footer(cmpt):
-    """Parse footer component
-    
-    Args:
-        soup (bs4 object): a SERP
-    
-    Returns:
-        list: list of parsed footer component dictionaries
-    """
-    cmpts = extract_footer_components(cmpt)
-    parsed_list = []
-    for cmpt_rank, cmpt in enumerate(cmpts):
-        parsed = parse_footer_cmpt(cmpt, cmpt_rank=cmpt_rank)
-        parsed_list.extend(parsed)
 
-    return parsed_list
+# ------------------------------------------------------------------------------
+# Component Parsers
+
 
 def parse_omitted_notice(cmpt):
     return [{'type':'omitted_notice', 'sub_rank':0, 'text':cmpt.text}]
