@@ -185,9 +185,12 @@ def classify_twitter(cmpt: bs4.element.Tag) -> str:
 
 def classify_twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown") -> str:
     """ Distinguish twitter types ('twitter_cards', 'twitter_result')"""
+
+    cmpt_prev = cmpt.find_previous()
+
     conditions = [
-        (cmpt_type == 'twitter'),                         # Check if already classified as twitter (header text)
-        (cmpt.find_previous().text == "Twitter Results")  # Check for twitter results text
+        (cmpt_type == 'twitter'),                          # Check if already classified as twitter (header text)
+        False if cmpt_prev is None else (cmpt_prev.text == "Twitter Results")  # Check for twitter results text
     ]
     if any(conditions):
         # Differentiate twitter cards (carousel) and twitter result (single)
