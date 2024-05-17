@@ -95,14 +95,14 @@ def parse_serp(serp:BeautifulSoup, serp_id:str = None, crawl_id:str = None,
         
     for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
         cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
+        if verbose:  log.info(f'{cmpt_rank} | {cmpt_type}')
         
         # Ignore directions component
         if cmpt_type == 'directions':
             continue
 
-        if verbose: 
-            log.info(f'{cmpt_rank} | {cmpt_type}')
         parsed_cmpt = parse_component(cmpt, cmpt_type=cmpt_type, cmpt_rank=cmpt_rank)
+        
         assert isinstance(parsed_cmpt, list), \
             f'Parsed component must be list: {parsed_cmpt}'
         parsed.extend(parsed_cmpt)

@@ -25,7 +25,7 @@ from .twitter_result import parse_twitter_result
 from .videos import parse_videos
 from .view_more_news import parse_view_more_news
 
-from .footer import parse_footer
+from .footer_new import parse_footer
 from .knowledge_rhs import parse_knowledge_rhs
 
 # Component details dataframe

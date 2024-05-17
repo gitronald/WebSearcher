@@ -1,5 +1,5 @@
 from . import webutils
-from .component_parsers.footer import extract_footer, extract_footer_components
+from .component_parsers.footer_new import Footer
 from . import logger
 log = logger.Logger().start(__name__)
 
@@ -51,10 +51,12 @@ def extract_components(soup: bs4.BeautifulSoup) -> list:
         cmpts.append(('ad', ads))
 
     # Footer Results
-    footer = extract_footer(soup)
-    if footer and extract_footer_components(footer):
-        cmpts.append(('footer', footer))
-    
+    footer_obj = Footer(soup)
+    footer_obj.extract()
+    footer_obj.extract_components()
+    if footer_obj.footer_soup and footer_obj.components:
+        cmpts.append(('footer', footer_obj.footer_soup))
+
     # RHS Knowledge Panel - append
     if has_rhs:
         rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
