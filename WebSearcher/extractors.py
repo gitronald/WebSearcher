@@ -59,11 +59,16 @@ def extract_components(soup: bs4.BeautifulSoup) -> list:
 
     # RHS Knowledge Panel - append
     if has_rhs:
+        rhs_complementary = webutils.check_dict_value(rhs.attrs, "role", "complementary")
         rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
-        if rhs_kp:
-            # reading from top-to-bottom, left-to-right
+        if rhs_complementary:
+            cmpts.append(('knowledge_rhs', rhs))
+            log.debug("Extracted RHS Complementary Panel")
+        elif rhs_kp:
             cmpts.append(('knowledge_rhs', rhs_kp))
+            log.debug("Extracted RHS Knowledge Panel")
 
+    log.debug(f"Extracted {len(cmpts)} components")
     return cmpts
 
 
@@ -99,6 +104,11 @@ def extract_results_column(soup: bs4.BeautifulSoup, drop_tags: set = {'script', 
         if not layout_dict['top-bar'] and not layout_dict['left-bar']:
             log.debug("layout: standard")
             column = extract_children(layout_dict['rso'], drop_tags)
+
+            if len(filter_main_column(column)) == 0:
+                log.debug("layout: standard-alt")
+                divs = layout_dict['rso'].find_all('div', {'id':'kp-wp-tab-overview'})
+                column = sum([div.find_all('div', {'class':'TzHB6b'}) for div in divs], [])
 
         elif layout_dict['top-bar']:
             log.debug("layout: top-bar")
