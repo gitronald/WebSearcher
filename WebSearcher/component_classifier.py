@@ -17,6 +17,7 @@ HEADER_LVL2_MAPPING = {
     'Knowledge Result': 'knowledge',
     'Local Results': 'local_results',
     'Map Results': 'map_results',
+    'Notices about Filtered Results': 'omitted_notice',
     'Other searches': 'searches_related',
     'People also ask': 'people_also_ask',
     'People also search for': 'searches_related',
@@ -118,6 +119,7 @@ def classify_header(cmpt: bs4.element.Tag, level: int) -> str:
     # Find headers, eg for level 2: <h2> and <div aria-level="2" role="heading">
     header_list = []
     header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
+    header_list.extend(cmpt.find_all(f"h{level}", {"class":"O3JH7"}))
     header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
 
    # Check for string matches in header text e.g. `h2.text`
