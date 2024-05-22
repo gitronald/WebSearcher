@@ -221,7 +221,7 @@ def classify_general(cmpt: bs4.element.Tag) -> str:
 
 def classify_banner(cmpt: bs4.element.Tag) -> str:
     conditions = [
-        webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+        "ULSxyf" in cmpt.attrs.get("class", []),
         cmpt.find("div", {"class": "uzjuFc"}),
     ]
     return 'banner' if all(conditions) else "unknown"
