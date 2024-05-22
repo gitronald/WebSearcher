@@ -1,5 +1,5 @@
 from . import webutils
-from .component_parsers.footer_new import Footer
+from .component_parsers.footer import Footer
 from . import logger
 log = logger.Logger().start(__name__)
 

@@ -9,209 +9,216 @@ log = logger.Logger().start(__name__)
 import traceback
 
 
-# ------------------------------------------------------------------------------
-# Extractors
+def parse_footer(soup):
+    footer = Footer(soup)
+    footer.extract_components()
+    return footer.parse_footer()
 
 
-def extract_footer(soup):
-    """Extract footer div from a SERP"""
-    return soup.find('div', {'id':'botstuff'})
+class Component:
+    def __init__(self, cmpt, type='unknown', cmpt_rank=0):
+        self.soup = cmpt
+        self.type = type
+        self.cmpt_rank = cmpt_rank
+        # self.parsed_list = []
 
-
-def extract_footer_components(footer):
-    """Extract footer components from a footer div"""
-    footer_cmpts = find_all_divs(footer, 'div', {'id':['bres', 'brs']})
-    expanded = []
-    if footer_cmpts:
-        # Expand component list with alternative layouts
-        for cmpt in footer_cmpts:
-            divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
-            if divs and len(divs) > 1:
-                expanded.extend(divs)
-            else:
-                expanded.append(cmpt)
+    def to_dict(self):
+        return self.__dict__
     
-    omitted_notice = footer.find('div', {'class':'ClPXac'})
-    if omitted_notice:
-        expanded.append(omitted_notice)
-
-    # Filter hidden people also ask components
-    expanded = [e for e in expanded if not is_hidden(e)]
-    log.debug(f'Expanded footer components: {len(expanded)}')
-
-    return expanded
+    def get_metadata(self):
+        return {k:v for k,v in self.to_dict().items() if k not in ['soup']}
 
 
-def is_hidden(element):
-    """Check if a hidden people also ask class"""
-    conditions = [
-        element.find("span", {"class":"oUAcPd"}),   # Empty `general`
-        element.find("div", {"class": "RTaUke"}),   # Empty `people_also_ask`
-        element.find("div", {"class": "KJ7Tg"}),    # Empty `people_also_ask`
-    ]
-    return any(conditions)
+class ComponentList:
+    def __init__(self):
+        self.components = []
+        self.rank_counter = 0
 
+    def add_component(self, component):
+        component = Component(component,
+                              type=Footer.classify_component(component), 
+                              cmpt_rank=self.rank_counter)
+        self.components.append(component)
+        self.rank_counter += 1
 
-# ------------------------------------------------------------------------------
-# Classifiers
-
-
-def classify_footer_component(cmpt, cmpt_type='unknown'):
-    """Classify a single footer component, fallback to main classifier"""
-
-    gsection = cmpt.find('g-section-with-header')
-    subs = cmpt.find_all('div', {'class':'g'})
-
-    conditions = [
-        ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
-        ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud'])
-    ]
-
-    if any(conditions):
-        if subs:
-            cmpt_type = 'img_cards'
-        elif cmpt.find('g-scrolling-carousel'):
-            cmpt_type = 'discover_more'
-        elif cmpt.find('h3'):
-            cmpt_type = classify_searches_related(cmpt)
-
-    elif cmpt.find("p", {"id":"ofr"}):
-        cmpt_type = 'omitted_notice'
-
-    elif gsection:
-        cmpt_type = 'searches_related'
+    def to_records(self):
+        return [Component.to_dict() for Component in self.components]
     
-    if cmpt_type == 'unknown':
-        log.debug('falling back to main classifier')
-        cmpt_type = component_classifier.classify_type(cmpt)
 
-    return cmpt_type
-
-
-def classify_searches_related(cmpt):
-    log.debug('classifying searches related component')
-    known_labels = {'Related', 
-                    'Related searches', 
-                    'People also search for', 
-                    'Related to this search'}
-    h3 = cmpt.find('h3')
-    if h3:
-        h3_matches = [h3.text.strip().startswith(text) for text in known_labels]
-        if any(h3_matches):
-            return 'searches_related'
-    return 'unknown'
+class Footer:
+    def __init__(self, soup):
+        self.soup = soup
+        self.footer_soup = None
+        self.components = ComponentList()
 
 
-# ------------------------------------------------------------------------------
-# Parsers
+    def extract(self):
+        self.footer_soup = self.soup.find('div', {'id':'botstuff'})
 
 
-def parse_footer(cmpt):
-    """Parse footer component
-    
-    Args:
-        soup (bs4 object): a SERP
-    
-    Returns:
-        list: list of parsed footer component dictionaries
-    """
-    cmpts = extract_footer_components(cmpt)
-    parsed_list = []
-    for cmpt_rank, cmpt in enumerate(cmpts):
-        parsed = parse_footer_cmpt(cmpt, cmpt_rank=cmpt_rank)
-        parsed_list.extend(parsed)
+    def extract_components(self):
+        footer_cmpts = find_all_divs(self.soup, 'div', {'id':['bres', 'brs']})
+        expanded = []
+        if footer_cmpts:
+            for cmpt in footer_cmpts:
+                divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
+                if divs and len(divs) > 1:
+                    expanded.extend(divs)
+                else:
+                    expanded.append(cmpt)
 
-    return parsed_list
+        omitted_notice = self.soup.find('div', {'class':'ClPXac'})
+        if omitted_notice:
+            expanded.append(omitted_notice)
 
+        expanded = [e for e in expanded if not self.is_hidden(e)]
+        log.debug(f'Expanded footer components: {len(expanded)}')
 
-def get_footer_parser(cmpt_type: str) -> callable:
-    if cmpt_type == 'img_cards':
-        return parse_image_cards
-    elif cmpt_type == 'searches_related':
-        return parse_searches_related
-    elif cmpt_type == 'discover_more':
-        return parse_discover_more
-    elif cmpt_type == 'general':
-        return parse_general_results
-    elif cmpt_type == 'people_also_ask':
-        return parse_people_also_ask
-    elif cmpt_type == 'omitted_notice':
-        return parse_omitted_notice
+        for cmpt in expanded:
+            self.components.add_component(cmpt)
 
 
-def parse_footer_cmpt(cmpt, cmpt_type='', cmpt_rank=0) -> list:
-    """Classify the footer component and parse it""" 
+    def is_hidden(self, element):
+        conditions = [
+            element.find("span", {"class":"oUAcPd"}),   
+            element.find("div", {"class": "RTaUke"}),   
+            element.find("div", {"class": "KJ7Tg"}),    
+        ]
+        return any(conditions)
 
-    # Classify Component
-    cmpt_type = cmpt_type if cmpt_type else classify_footer_component(cmpt)
-    assert cmpt_type, 'Null component type'
 
-    # Return unknown components
-    if cmpt_type == 'unknown':
-        parsed = {'type': 'footer',
-                  'sub_type': cmpt_type,
-                  'cmpt_rank': cmpt_rank,
-                  'sub_rank': 0}
-        validated = BaseResult(**parsed).model_dump()
-        return [validated]
+    @classmethod
+    def classify_component(self, component_soup, cmpt_type="unknown"):
+        cmpt = component_soup
+        gsection = cmpt.find('g-section-with-header')
+        subs = cmpt.find_all('div', {'class':'g'})
 
-    # Parse component
-    try: 
-        parser = get_footer_parser(cmpt_type)
-        parsed = parser(cmpt)
+        conditions = [
+            ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
+            ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud'])
+        ]
 
-        # Add cmpt rank to parsed
-        if isinstance(parsed, list):
-            for sub_rank, sub in enumerate(parsed):
-                sub.update({'sub_rank':sub_rank, 'cmpt_rank':cmpt_rank})
-        elif isinstance(parsed, dict):
-            parsed.update({'sub_rank':0, 'cmpt_rank':cmpt_rank})
-            validated = BaseResult(**parsed).model_dump()
+        if any(conditions):
+            if subs:
+                cmpt_type = 'img_cards'
+            elif cmpt.find('g-scrolling-carousel'):
+                cmpt_type = 'discover_more'
+            elif cmpt.find('h3'):
+                cmpt_type = self.classify_searches_related(cmpt)
+
+        elif self.classify_omitted_notice(cmpt):
+            cmpt_type = 'omitted_notice'
+
+        elif gsection:
+            cmpt_type = 'searches_related'
+
+        if cmpt_type == 'unknown':
+            log.debug('falling back to main classifier')
+            cmpt_type = component_classifier.classify_type(cmpt)
+
+        return cmpt_type
+
+
+    @classmethod
+    def classify_omitted_notice(self, cmpt):
+        conditions = [
+            cmpt.find("p", {"id":"ofr"}),
+            (get_text(cmpt, "h2") == "Notices about Filtered Results"),
+        ]
+        return any(conditions)
+
+
+    @classmethod
+    def classify_searches_related(self, cmpt):
+        log.debug('classifying searches related component')
+        known_labels = {'Related', 
+                        'Related searches', 
+                        'People also search for', 
+                        'Related to this search'}
+        h3 = cmpt.find('h3')
+        if h3:
+            h3_matches = [h3.text.strip().startswith(text) for text in known_labels]
+            if any(h3_matches):
+                return 'searches_related'
+        return 'unknown'
+
+
+    def parse_footer(self):
+        parsed_list = sum([self.parse_component(c) for c in self.components.components], [])
+        return parsed_list
+
+
+    def parse_component(self, component:Component):
+        assert component.type, 'Null component type'
+
+        if component.type == 'unknown':
+            validated = BaseResult(**component.get_metadata()).model_dump()
             return [validated]
-        else:
-            raise TypeError(f'Parsed component must be list or dict: {parsed}')
 
-    except Exception:
-        log.exception('Parsing Exception - Footer')
-        err = traceback.format_exc()
-        parsed = {'type': 'footer',
-                  'sub_type': cmpt_type,
-                  'cmpt_rank': cmpt_rank,
-                  'sub_rank': 0}
-        validated = BaseResult(**parsed).model_dump()
-        validated['error'] = err        
-        return [validated]
-    
-    return parsed
+        try: 
+            parser = self.get_parser(component.type)
+            parsed = parser(component.soup)
+
+            if isinstance(parsed, list):
+                for sub in parsed:
+                    sub.update(component.get_metadata())
+            elif isinstance(parsed, dict):
+                parsed.update(component.get_metadata())
+            else:
+                raise TypeError(f'Parsed component must be list or dict: {parsed}')
+
+        except Exception:
+            log.exception('Parsing Exception - Footer')
+            validated = BaseResult(**component.get_metadata()).model_dump()
+            validated['error'] = traceback.format_exc()        
+            return [validated]
+        
+        return parsed
 
 
-# ------------------------------------------------------------------------------
-# Component Parsers
+    @classmethod
+    def get_parser(self, cmpt_type: str) -> callable:
+        if cmpt_type == 'img_cards':
+            return self.parse_image_cards
+        elif cmpt_type == 'searches_related':
+            return parse_searches_related
+        elif cmpt_type == 'discover_more':
+            return self.parse_discover_more
+        elif cmpt_type == 'general':
+            return parse_general_results
+        elif cmpt_type == 'people_also_ask':
+            return parse_people_also_ask
+        elif cmpt_type == 'omitted_notice':
+            return self.parse_omitted_notice
 
 
-def parse_omitted_notice(cmpt):
-    return [{'type':'omitted_notice', 'sub_rank':0, 'text':cmpt.text}]
+    @classmethod
+    def parse_image_cards(self, cmpt):
+        subs = cmpt.find_all('div', {'class':'g'})
+        return [self.parse_image_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-def parse_discover_more(cmpt):
-    carousel = cmpt.find('g-scrolling-carousel')
-    parsed = [{
-        'type':'discover_more', 
-        'sub_rank':0,
-        'text': '|'.join(c.text for c in carousel.find_all('g-inner-card'))
-    }]
-    return parsed
 
-def parse_image_cards(cmpt):
-    """Parse a horiontally stacked row of image results relevant to query"""
-    subs = cmpt.find_all('div', {'class':'g'})
-    parsed = [parse_image_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    return parsed
+    @classmethod
+    def parse_image_card(self, sub, sub_rank=0):
+        parsed = {'type':'img_cards', 'sub_rank':sub_rank}
+        parsed['title'] = get_text(sub, "div", {'aria-level':"3", "role":"heading"})
+        images = sub.find_all('img')
+        if images:
+            parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
 
-def parse_image_card(sub, sub_rank=0):
-    parsed = {'type':'img_cards', 'sub_rank':sub_rank}
-    parsed['title'] = get_text(sub, "div", {'aria-level':"3", "role":"heading"})
-    images = sub.find_all('img')
-    if images:
-        parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
-    
-    return parsed
+        return parsed
+
+
+    @classmethod
+    def parse_discover_more(self, cmpt):
+        carousel = cmpt.find('g-scrolling-carousel')
+        return [{
+            'type':'discover_more', 
+            'sub_rank':0,
+            'text': '|'.join(c.text for c in carousel.find_all('g-inner-card'))
+        }]
+
+
+    @classmethod
+    def parse_omitted_notice(self, cmpt):
+        return [{'type':'omitted_notice', 'sub_rank':0, 'text':cmpt.text}]
