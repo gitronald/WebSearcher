@@ -103,7 +103,6 @@ class SearchEngine:
         self.qry = str(qry)
         self.loc = str(location)
         self.num_results = num_results
-        self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if num_results is not None:
             self.params['num'] = self.num_results
