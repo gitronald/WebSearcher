@@ -19,12 +19,17 @@ def parse_searches_related(cmpt, sub_rank=0):
 
     # Classic search query suggestions
     subs = webutils.find_all_divs(cmpt, 'a', {'class':'k8XOCe'})
-    text_list = [sub.text for sub in subs]
+    text_list = [sub.text.strip() for sub in subs]
     output_list.extend(filter(None, text_list))
 
     # Curated list (e.g. song names)
     subs = webutils.find_all_divs(cmpt, 'div', {'class':'EASEnb'})
-    text_list = [sub.text for sub in subs]
+    text_list = [sub.text.strip() for sub in subs]
+    output_list.extend(filter(None, text_list))
+
+    # Other list types
+    subs = webutils.find_all_divs(cmpt, 'div', {'role':'listitem'})
+    text_list = [sub.text.strip() for sub in subs]
     output_list.extend(filter(None, text_list))
     
     # Accordion list
