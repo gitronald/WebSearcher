@@ -34,10 +34,8 @@ class ComponentList:
         self.components = []
         self.rank_counter = 0
 
-    def add_component(self, component):
-        component = Component(component,
-                              type=Footer.classify_component(component), 
-                              cmpt_rank=self.rank_counter)
+    def add_component(self, component, type='unknown'):
+        component = Component(component, type=type, cmpt_rank=self.rank_counter)
         self.components.append(component)
         self.rank_counter += 1
 
@@ -75,7 +73,7 @@ class Footer:
         log.debug(f'Expanded footer components: {len(expanded)}')
 
         for cmpt in expanded:
-            self.components.add_component(cmpt)
+            self.components.add_component(cmpt, type=self.classify_component(cmpt))
 
 
     def is_hidden(self, element):
