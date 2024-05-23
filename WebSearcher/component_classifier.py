@@ -121,6 +121,7 @@ def classify_header(cmpt: bs4.element.Tag, level: int) -> str:
     header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
     header_list.extend(cmpt.find_all(f"h{level}", {"class":"O3JH7"}))
     header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
+    header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "class":"XmmGVd"}))
 
    # Check for string matches in header text e.g. `h2.text`
     for header in filter(None, header_list):
