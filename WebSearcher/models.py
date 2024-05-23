@@ -22,3 +22,31 @@ class BaseSERP(BaseModel):
     serp_id: str               # Search Engine Results Page (SERP) ID
     crawl_id: str              # Crawl ID for grouping SERPs
     version: str               # WebSearcher version
+
+
+class Component:
+    def __init__(self, cmpt, type='unknown', cmpt_rank=0):
+        self.soup = cmpt
+        self.type = type
+        self.cmpt_rank = cmpt_rank
+
+    def to_dict(self):
+        return self.__dict__
+    
+    def get_metadata(self):
+        return {k:v for k,v in self.to_dict().items() if k not in ['soup']}
+
+
+class ComponentList:
+    def __init__(self):
+        self.components = []
+        self.rank_counter = 0
+
+    def add_component(self, component, type='unknown'):
+        component = Component(component, type=type, cmpt_rank=self.rank_counter)
+        self.components.append(component)
+        self.rank_counter += 1
+
+    def to_records(self):
+        return [Component.to_dict() for Component in self.components]
+    

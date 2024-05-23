@@ -1,7 +1,7 @@
 from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from .. import component_classifier
 from .. import logger
-from ..models import BaseResult
+from ..models import BaseResult, Component, ComponentList
 from ..webutils import get_text, find_all_divs
 
 log = logger.Logger().start(__name__)
@@ -14,34 +14,6 @@ def parse_footer(soup):
     footer.extract_components()
     return footer.parse_footer()
 
-
-class Component:
-    def __init__(self, cmpt, type='unknown', cmpt_rank=0):
-        self.soup = cmpt
-        self.type = type
-        self.cmpt_rank = cmpt_rank
-        # self.parsed_list = []
-
-    def to_dict(self):
-        return self.__dict__
-    
-    def get_metadata(self):
-        return {k:v for k,v in self.to_dict().items() if k not in ['soup']}
-
-
-class ComponentList:
-    def __init__(self):
-        self.components = []
-        self.rank_counter = 0
-
-    def add_component(self, component, type='unknown'):
-        component = Component(component, type=type, cmpt_rank=self.rank_counter)
-        self.components.append(component)
-        self.rank_counter += 1
-
-    def to_records(self):
-        return [Component.to_dict() for Component in self.components]
-    
 
 class Footer:
     def __init__(self, soup):
