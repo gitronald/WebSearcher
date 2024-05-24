@@ -48,7 +48,7 @@ components = [
     ('perspectives', parse_perspectives, 'Perspectives & Opinions'),
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('searches_related', parse_searches_related, 'Related Searches'),
-    ('shopping_ad', parse_shopping_ads, 'Shopping Ad'),
+    ('shopping_ads', parse_shopping_ads, 'Shopping Ad'),
     ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
     ('top_stories', parse_top_stories, 'Top Stories'),
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
