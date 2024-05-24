@@ -13,10 +13,12 @@ HEADER_LVL2_MAPPING = {
     'Discussions and forums': 'discussions_and_forums',
     'Featured snippet from the web': 'knowledge',
     'Finance Results': 'knowledge',
+    'From sources across the web': 'knowledge',
     'Jobs': 'jobs',
     'Knowledge Result': 'knowledge',
     'Local Results': 'local_results',
     'Map Results': 'map_results',
+    'More searches': 'searches_related',
     'Notices about Filtered Results': 'omitted_notice',
     'Other searches': 'searches_related',
     'People also ask': 'people_also_ask',
@@ -54,7 +56,6 @@ HEADER_LVL3_MAPPING = {
     'View more news': 'view_more_news',
     'View more videos': 'view_more_videos'
 }
-
 
 def classify_type(cmpt: bs4.element.Tag) -> str:
     """Component classifier
@@ -119,7 +120,7 @@ def classify_header(cmpt: bs4.element.Tag, level: int) -> str:
     # Find headers, eg for level 2: <h2> and <div aria-level="2" role="heading">
     header_list = []
     header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
-    header_list.extend(cmpt.find_all(f"h{level}", {"class":"O3JH7"}))
+    header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x"]}))
     header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
     header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "class":"XmmGVd"}))
 
@@ -165,8 +166,11 @@ def classify_images(cmpt: bs4.element.Tag) -> str:
 
 
 def classify_knowledge_panel(cmpt: bs4.element.Tag) -> str:
-    condition = cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk"]})
-    return 'knowledge' if condition else "unknown"
+    conditions = [
+        cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
+        cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
+    ]
+    return 'knowledge' if any(conditions) else "unknown"
 
 
 def classify_finance_panel(cmpt: bs4.element.Tag) -> str:
