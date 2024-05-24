@@ -84,12 +84,15 @@ def parse_component(cmpt: Component, cmpt_type: str = None) -> list:
 
 def get_component_parser(cmpt:Component, cmpt_funcs:dict=type_functions) -> callable:
     """Returns the parser for a given component type"""
-    if cmpt.type in cmpt_funcs:
-        return cmpt_funcs[cmpt.type]
-    elif cmpt.type == 'unknown':
-        return parse_unknown
+    if cmpt.section == 'footer':
+        return Footer.get_parser(cmpt.type)
     else:
-        return parse_not_implemented
+        if cmpt.type in cmpt_funcs:
+            return cmpt_funcs[cmpt.type]
+        elif cmpt.type == 'unknown':
+            return parse_unknown
+        else:
+            return parse_not_implemented
 
 
 def parse_unknown(cmpt: Component) -> list:
