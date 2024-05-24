@@ -1,218 +1,302 @@
+from .models import Component, ComponentList
 from . import webutils
-from .component_parsers.footer import Footer
 from . import logger
 log = logger.Logger().start(__name__)
-
 import bs4
 
 
-def extract_components(soup: bs4.BeautifulSoup) -> list:
-    """Extract SERP components
+class Extractor:    
+    def __init__(self, soup):
+        self.soup = soup
+        self.components = ComponentList()
+        self.rhs = None
+        self.layout_divs = {
+            'rso': None,
+            'top-bar': None,
+            'left-bar': None,
+            'top-bar-1': None,
+            'top-bar-2': None,
+        }
+        self.layouts = {
+            'rso': False,
+            'top-bar': False,
+            'left-bar': False,
+            'standard': False,
+            'no-rso': False,
+        }
+        self.layout_label = None
+        self.layout_extractors = {
+            'standard': self.extract_from_standard,
+            'top-bar': self.extract_from_top_bar,
+            'left-bar': self.extract_from_left_bar,
+            'no-rso': self.extract_from_no_rso
+        }
+
+
+    def extract_components(self):
+        log.debug("Extracting Components")
+        self.extract_rhs()
+        self.extract_header()
+        self.extract_main()
+        self.extract_footer()
+        self.append_rhs()
+        log.debug(f"Extracted {self.components.rank_counter:,} components")
+
+
+    def extract_rhs(self):
+        """Extract the Right Hand Side (RHS) Knowledge Panel. Can appear in arbitrary order, must extract first."""
+        has_rhs = self.soup.find('div', {'id': 'rhs'})
+        if has_rhs:
+            rhs = self.soup.find('div', {'id': 'rhs'}).extract()
+
+            # RHS Knowledge Panel - append
+            rhs_complementary = webutils.check_dict_value(rhs.attrs, "role", "complementary")
+            rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
+            if rhs_complementary:
+                log.debug("Extracted RHS Complementary Panel")
+                self.rhs = Component(rhs, section='rhs', type='knowledge_rhs', cmpt_rank=-1)
+            elif rhs_kp:
+                log.debug("Extracted RHS Knowledge Panel")
+                self.rhs = Component(rhs_kp, section='rhs', type='knowledge_rhs', cmpt_rank=-1)
+
+
+    def append_rhs(self):
+        """Append the RHS Knowledge Panel to the components list at the end"""
+        if self.rhs:
+            cmpt_rank = self.components.rank_counter
+            self.components.add_component(self.rhs, cmpt_rank=cmpt_rank)
+            self.rhs = None
+
+
+    def extract_header(self):
+        """Extract the header section, often a carousel of images or other suggestions."""
+        top_bar = self.soup.find('div', {'id':'appbar'})
+        if top_bar:
+            has_img = top_bar.find(lambda tag: tag.has_attr('src') and not tag.has_attr('data-src'))
+            if top_bar.find('g-scrolling-carousel') and has_img:
+                self.components.add_component(top_bar, section='header', type='top_image_carousel')
+
+
+    def extract_main(self):
+        """Extract the main results sections of the SERP"""
+        self.extract_main_shopping_ads()
+        self.extract_main_ads_top()
+        self.extract_main_components()
+        self.extract_main_ads_bottom()
+ 
+
+    def extract_main_shopping_ads(self):
+        """Extract the main shopping ads section of the SERP"""
+        shopping_ads = self.soup.find('div', {'class': 'commercial-unit-desktop-top'})
+        if shopping_ads:
+            self.components.add_component(shopping_ads, section='main', type='shopping_ads')
+
+
+    def extract_main_ads_top(self):
+        """Extract the main ads section of the SERP"""
+        ads = self.soup.find('div', {'id':'tads'})
+        if ads: 
+            self.components.add_component(ads, section='main', type='ad')
+
+
+    def extract_main_ads_bottom(self):
+        """Extract the main ads section of the SERP"""
+        ads = self.soup.find('div', {'id':'tadsb'})
+        if ads:
+            self.components.add_component(ads, section='main', type='ad')
+
+
+    # --------------------------------------------------------------------------
+    # Main Section
     
-    Args:
-        soup (bs4): BeautifulSoup SERP
+
+    def check_layout_main(self):
+        """Divide and label the page layout"""
+        log.debug(f"Checking SERP layout")
+
+        # Layout soup subsets
+        self.layout_divs["rso"] = self.soup.find('div', {'id':'rso'})
+        self.layout_divs["left-bar"] = self.soup.find('div', {'class': 'OeVqAd'})
+        self.layout_divs["top-bar-1"] = self.soup.find('div', {'class': 'M8OgIe'})
+        self.layout_divs["top-bar-2"] = self.soup.find('div', {'class': 'XqFnDf'})
+
+        # Layout classifications
+        self.layouts['rso'] = bool(self.layout_divs['rso'])
+        self.layouts['top-bar'] = bool(self.layout_divs['top-bar-1']) or bool(self.layout_divs['top-bar-2'])
+        self.layouts['left-bar'] = bool(self.layout_divs['left-bar'])
+        self.layouts['standard'] = (self.layouts['rso'] & ~self.layouts['top-bar'] & ~self.layouts['left-bar'])
+        self.layouts['no-rso'] = ~self.layouts['rso']
+
+        # Get layout label
+        label_matches = [k for k,v in self.layouts.items() if k !='rso' and v]
+        first_match = label_matches[0] if label_matches else None
+        self.layout_label = first_match
+        log.debug(f"layout: {self.layout_label}")
+
+
+    def extract_main_components(self, drop_tags: set={'script', 'style', None}):
+        """Extract main components based on SERP layout"""
+        log.debug("Extracting main column components")
+
+        self.check_layout_main()
+        if self.layout_label:
+            if self.layout_label in self.layout_extractors:
+                layout_extractor = self.layout_extractors[self.layout_label]
+                column = layout_extractor(drop_tags)
+                for component in column:
+                    if Extractor.is_valid_main_component(component):
+                        self.components.add_component(component, section='main')
+            else:
+                raise ValueError(f"no matching layout found for {self.layout_label}")  
+        else:
+            raise ValueError("no matching layout found")
     
-    Returns:
-        list: a rank ordered top-to-bottom and left-to-right list of 
-             (component location, component soup) tuples
-    """
 
-    cmpts = []
-
-    # RHS Knowledge Panel - extract (removes from soup, must be done first)
-    has_rhs = soup.find('div', {'id': 'rhs'})
-    if has_rhs:
-        rhs = soup.find('div', {'id': 'rhs'}).extract()
-
-    # Top Image Carousel
-    top_bar = soup.find('div', {'id':'appbar'})
-    if top_bar:
-        has_img = top_bar.find(lambda tag: tag.has_attr('src') and not tag.has_attr('data-src'))
-        if top_bar.find('g-scrolling-carousel') and has_img:
-            cmpts.append(('top_image_carousel', top_bar))
-
-    # Shopping Ads
-    shopping_ads = soup.find('div', {'class': 'commercial-unit-desktop-top'})
-    if shopping_ads:
-        cmpts.append(('shopping_ad', shopping_ads))
-
-    # Top Ads
-    ads = soup.find('div', {'id':'tads'})
-    if ads: 
-        cmpts.append(('ad', ads))
-
-    # Main Results
-    column = extract_results_column(soup)
-    cmpts.extend(column)
-
-    # Bottom Ads
-    ads = soup.find('div', {'id':'tadsb'})
-    if ads:
-        cmpts.append(('ad', ads))
-
-    # Footer Results
-    footer_obj = Footer(soup)
-    footer_obj.extract()
-    footer_obj.extract_components()
-    if footer_obj.footer_soup and footer_obj.components:
-        cmpts.append(('footer', footer_obj.footer_soup))
-
-    # RHS Knowledge Panel - append
-    if has_rhs:
-        rhs_complementary = webutils.check_dict_value(rhs.attrs, "role", "complementary")
-        rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
-        if rhs_complementary:
-            cmpts.append(('knowledge_rhs', rhs))
-            log.debug("Extracted RHS Complementary Panel")
-        elif rhs_kp:
-            cmpts.append(('knowledge_rhs', rhs_kp))
-            log.debug("Extracted RHS Knowledge Panel")
-
-    log.debug(f"Extracted {len(cmpts)} components")
-    return cmpts
+    def extract_from_standard(self, drop_tags: set = {}) -> list:
+        column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
+        column = [c for c in column if Extractor.is_valid_main_component(c)]
+        if len(column) == 0:
+            log.debug("layout update: standard-alt")
+            self.layout_label = 'standard-alt'
+            divs = self.layout_divs['rso'].find_all('div', {'id':'kp-wp-tab-overview'})
+            column = sum([div.find_all('div', {'class':'TzHB6b'}) for div in divs], [])
+        return column
 
 
-def check_page_layout(soup: bs4.BeautifulSoup) -> dict:
-    """Check SERP layout elements
+    def extract_from_top_bar(self, drop_tags: set = {}) -> list:
+        """Extract components from top-bar layout"""
+        column = []
+        column.append(self.layout_divs['top-bar'])
+        layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
+        if layout_divs:
+            log.debug("layout update: top-bar-divs")
+            self.layout_label = 'top-bar-divs'
+            layout_column = [div for div in layout_divs if div.name not in drop_tags]
+        else:
+            log.debug("layout update: top-bar-children")
+            self.layout_label = 'top-bar-children'
+            layout_column = extract_children(self.layout_divs['rso'], drop_tags)
+        column.extend(layout_column)
+        return column
     
-    Args:
-        soup (bs4): BeautifulSoup SERP
-    
-    Returns:
-        dict: a dictionary with keys 'left-bar' and 'top-bar' and boolean values
-    """
-    log.debug(f"Checking page layout")
-    layout_dict = {
-        'rso': soup.find('div', {'id':'rso'}),                # main results
-        'left-bar': soup.find('div', {'class': 'OeVqAd'}),    # left side bar
-        'top-bar-1': soup.find('div', {'class': 'M8OgIe'}),   # top bar
-        'top-bar-2': soup.find('div', {'class': 'XqFnDf'}),   # top bar
-    }
-    layout_dict['top-bar'] = layout_dict['top-bar-1'] or layout_dict['top-bar-2']
 
-    return layout_dict
+    def extract_from_left_bar(self, drop_tags: set = {}) -> list:
+        """Extract components from left-bar layout"""
+        log.debug("not implemented | may appear in pre-2022 data")
+        column = []
+        return column
 
 
-def extract_results_column(soup: bs4.BeautifulSoup, drop_tags: set = {'script', 'style', None}) -> list:
-    """Extract components from main SERP column"""
-
-    log.debug(f"Extracting Results")
-    layout_dict = check_page_layout(soup)
-
-    if layout_dict['rso']:
-
-        if not layout_dict['top-bar'] and not layout_dict['left-bar']:
-            log.debug("layout: standard")
-            column = extract_children(layout_dict['rso'], drop_tags)
-
-            if len(filter_main_column(column)) == 0:
-                log.debug("layout: standard-alt")
-                divs = layout_dict['rso'].find_all('div', {'id':'kp-wp-tab-overview'})
-                column = sum([div.find_all('div', {'class':'TzHB6b'}) for div in divs], [])
-
-        elif layout_dict['top-bar']:
-            log.debug("layout: top-bar")
-            column = extract_from_top_bar(layout_dict, drop_tags)
-            
-        elif layout_dict['left-bar']:
-            # Not implemented - may appear in pre-2022 data
-            log.debug("layout: left-bar")
-            column = []
-        
-    else:
+    def extract_from_no_rso(self, drop_tags: set = {}) -> list:
+        """Extract components from no-rso layout"""
         log.debug("layout: no-rso")
-        column = extract_from_no_rso(soup, drop_tags)
+        column = []
+        section1 = self.soup.find_all('div', {'class':'UDZeY OTFaAf'})
+        for div in section1:
 
-    # Filter main column
-    column = filter_main_column(column)
+            # Conditional handling for Twitter result
+            if div.find('h2') and div.find('h2').text == "Twitter Results": 
+                column.append(div.find('div').parent)
 
-    # Add main location to components
-    column = list(zip(['main']*len(column), column))
+            # Conditional handling for g-section with header
+            elif div.find('g-section-with-header'): 
+                column.append(div.find('g-section-with-header').parent)
 
-    return column
+            # Include divs with a "View more" type of button
+            elif div.find('g-more-link'): 
+                column.append(div)
+
+            # Include footer components that appear in the main column
+            elif div.find('div', {'class':'oIk2Cb'}):
+                column.append(div)
+
+            else:
+                # Handle general results
+                for child in div.find_all('div',  {'class':'g'}): 
+                    column.append(child)
+
+            # Find section 2 results and append to column list
+            section2 = self.soup.find('div', {'class':'WvKfwe a3spGf'})
+            if section2:
+                for child in section2.children:
+                    column.append(child)
+            column = [c for c in column if c.name not in drop_tags]
+        return column
+
+    def extract_footer(self):
+        """Extract the footer section of the SERP"""
+
+        footer_div = self.soup.find('div', {'id':'botstuff'})
+        footer_component_list = []
+
+        # Check if footer div exists
+        if footer_div:
+            footer_component_divs = webutils.find_all_divs(self.soup, 'div', {'id':['bres', 'brs']}) 
+            if footer_component_divs:
+
+                # Expand components by checking for nested divs
+                for footer_component_div in footer_component_divs:
+                    expanded_divs = webutils.find_all_divs(footer_component_div, "div", {"class":"MjjYud"})
+                    if expanded_divs and len(expanded_divs) > 1:
+                        footer_component_list.extend(expanded_divs)
+                    else:
+                        footer_component_list.append(footer_component_div)
+
+        # Check for omitted notice
+        omitted_notice = self.soup.find('div', {'class':'ClPXac'})
+        if omitted_notice:
+            footer_component_list.append(omitted_notice)
+
+        footer_component_list = [e for e in footer_component_list if not Extractor.is_hidden_footer(e)]
+        log.debug(f'footer_component_list len: {len(footer_component_list)}')
+        
+        for footer_component in footer_component_list:
+            self.components.add_component(footer_component, section='footer')
 
 
-def filter_main_column(column: list) -> list:
-    """Filter empty and hidden components"""
-    
-    def is_hidden_survey(cmpt: bs4.element.Tag):
-        cond = [webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
-                cmpt.find('promo-throttler')]
-        return all(cond)
-
-    # Filter empty components
-    drop_text = {
-        "Main results",    # Remove empty rso component; hidden <h2> header  
-        "Twitter Results", # Remove empty Twitter component
-        "",                # Remove empty divs
-    }
-    column = [c for c in column if c.text not in drop_text]
-
-    # Filter hidden survey components
-    column = [c for c in column if not is_hidden_survey(c)]
-    return column
-
-
-def extract_children(soup: bs4.BeautifulSoup, drop_tags: set = {}) -> list:
-    """Extract children from BeautifulSoup, drop specific tags, flatten list"""
-    children = []
-    for child in soup.children:
-        if child.name in drop_tags:
-            continue
-        if not child.attrs:
-            children.extend(child.contents)
+    @staticmethod
+    def is_valid_main_component(c) -> bool:
+        """Check if a given component is neither empty nor a hidden survey"""
+        if not c:
+            return False
         else:
-            children.append(child)
-    return children
+            drop_text = {
+                "Main results",    # Remove empty rso component; hidden <h2> header  
+                "Twitter Results", # Remove empty Twitter component
+                "",                # Remove empty divs
+            }
+            return c.text not in drop_text and not Extractor.is_hidden_survey(c)
+
+    @staticmethod
+    def is_hidden_survey(element):
+        """Check if a component is a hidden survey component; no visual presence so filter out"""
+        conditions = [
+            element.find('promo-throttler'),
+            webutils.check_dict_value(element.attrs, "class", ["ULSxyf"]),
+        ]
+        return all(conditions)
 
 
-def extract_from_top_bar(layout_dict: dict, drop_tags: set = {}) -> list:
-    """Extract components from top bar layout"""
-    column = layout_dict['rso'].find_all('div', {'class':'sATSHe'})
-    if column:
-        log.debug("format: top-bar-sATSHe")
-        column = [c for c in column if c.name not in drop_tags]
-    else:
-        log.debug("format: top-bar-children")
-        column = extract_children(layout_dict['rso'], drop_tags)
+    @staticmethod
+    def is_hidden_footer(element):
+        """Check if a component is a hidden footer component; no visual presence so filter out"""
+        conditions = [
+            element.find("span", {"class":"oUAcPd"}),   
+            element.find("div", {"class": "RTaUke"}),   
+            element.find("div", {"class": "KJ7Tg"}),    
+        ]
+        return any(conditions)
 
-    # Combine with top bar
-    column = [layout_dict['top-bar']] + column
-    return column
+    @staticmethod
+    def extract_children(soup: bs4.BeautifulSoup, drop_tags: set = {}) -> list:
+        """Extract children from BeautifulSoup, drop specific tags, flatten list"""
+        children = []
+        for child in soup.children:
+            if child.name in drop_tags:
+                continue
+            if not child.attrs:
+                children.extend(child.contents)
+            else:
+                children.append(child)
+        return children
 
-
-def extract_from_no_rso(soup: bs4.BeautifulSoup, drop_tags: set = {}) -> list:
-    """Extract components from no-rso layout"""
-    column = []
-    section1 = soup.find_all('div', {'class':'UDZeY OTFaAf'})
-    for div in section1:
-
-        # Conditional handling for Twitter result
-        if div.find('h2') and div.find('h2').text == "Twitter Results": 
-            column.append(div.find('div').parent)
-
-        # Conditional handling for g-section with header
-        elif div.find('g-section-with-header'): 
-            column.append(div.find('g-section-with-header').parent)
-
-        # Include divs with a "View more" type of button
-        elif div.find('g-more-link'): 
-            column.append(div)
-
-        # Include footer components that appear in the main column
-        elif div.find('div', {'class':'oIk2Cb'}):
-            column.append(div)
-
-        else:
-            # Handle general results
-            for child in div.find_all('div',  {'class':'g'}): 
-                column.append(child)
-
-        # Find section 2 results and append to column list
-        section2 = soup.find('div', {'class':'WvKfwe a3spGf'})
-        if section2:
-            for child in section2.children:
-                column.append(child)
-        column = [c for c in column if c.name not in drop_tags]
-    
-    return column

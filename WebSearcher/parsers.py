@@ -1,7 +1,7 @@
 from . import webutils
 from .component_classifier import classify_type
-from .component_parsers import type_functions
-from .extractors import extract_components
+from .component_parsers import type_functions, Footer
+from .extractors import Extractor
 from .models import BaseResult
 from .logger import Logger
 log = Logger().start(__name__)
@@ -86,22 +86,23 @@ def parse_serp(serp:BeautifulSoup, serp_id:str = None, crawl_id:str = None,
     assert type(soup) is BeautifulSoup, 'Input must be BeautifulSoup'
 
     # Extract components
-    cmpts = extract_components(soup)
+    extractor = Extractor(soup)
+    extractor.extract_components()
+    cmpts = extractor.components.to_records()
 
     # Classify and parse components
     parsed = []
     if verbose: 
         log.info(f'Parsing SERP {serp_id}')
         
-    for cmpt_rank, (cmpt_loc, cmpt) in enumerate(cmpts):
-        cmpt_type = classify_type(cmpt) if cmpt_loc == 'main' else cmpt_loc
-        if verbose:  log.info(f'{cmpt_rank} | {cmpt_type}')
+    for cmpt in cmpts:
+        if cmpt['section'] == 'footer':
+            cmpt['type'] = Footer.classify_component(cmpt['soup'])
+        elif cmpt['section'] == 'main':
+            cmpt['type'] = classify_type(cmpt['soup'])
+        log.debug(f"{cmpt['cmpt_rank']} | {cmpt['type']}")
         
-        # Ignore directions component
-        if cmpt_type == 'directions':
-            continue
-
-        parsed_cmpt = parse_component(cmpt, cmpt_type=cmpt_type, cmpt_rank=cmpt_rank)
+        parsed_cmpt = parse_component(cmpt['soup'], cmpt_type=cmpt['type'], cmpt_rank=cmpt['cmpt_rank'])
         
         assert isinstance(parsed_cmpt, list), \
             f'Parsed component must be list: {parsed_cmpt}'

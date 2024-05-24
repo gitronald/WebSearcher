@@ -26,10 +26,10 @@ class BaseSERP(BaseModel):
 
 
 class Component:
-    def __init__(self, cmpt, section='unknown', cmpt_type='unknown', cmpt_rank=0):
+    def __init__(self, cmpt, section='unknown', type='unknown', cmpt_rank=0):
         self.soup = cmpt
         self.section = section
-        self.cmpt_type = cmpt_type
+        self.type = type
         self.cmpt_rank = cmpt_rank
 
     def __str__(self):

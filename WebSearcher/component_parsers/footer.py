@@ -21,42 +21,6 @@ class Footer:
         self.footer_soup = None
         self.components = ComponentList()
 
-
-    def extract(self):
-        self.footer_soup = self.soup.find('div', {'id':'botstuff'})
-
-
-    def extract_components(self):
-        footer_cmpts = find_all_divs(self.soup, 'div', {'id':['bres', 'brs']})
-        expanded = []
-        if footer_cmpts:
-            for cmpt in footer_cmpts:
-                divs = find_all_divs(cmpt, "div", {"class":"MjjYud"})
-                if divs and len(divs) > 1:
-                    expanded.extend(divs)
-                else:
-                    expanded.append(cmpt)
-
-        omitted_notice = self.soup.find('div', {'class':'ClPXac'})
-        if omitted_notice:
-            expanded.append(omitted_notice)
-
-        expanded = [e for e in expanded if not self.is_hidden(e)]
-        log.debug(f'Expanded footer components: {len(expanded)}')
-
-        for cmpt in expanded:
-            self.components.add_component(cmpt, type=self.classify_component(cmpt))
-
-
-    def is_hidden(self, element):
-        conditions = [
-            element.find("span", {"class":"oUAcPd"}),   
-            element.find("div", {"class": "RTaUke"}),   
-            element.find("div", {"class": "KJ7Tg"}),    
-        ]
-        return any(conditions)
-
-
     @classmethod
     def classify_component(self, component_soup, cmpt_type="unknown"):
         cmpt = component_soup
