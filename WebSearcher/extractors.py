@@ -13,13 +13,11 @@ class Extractor:
         self.layout_divs = {
             'rso': None,
             'left-bar': None,
-            'top-bar-1': None,
-            'top-bar-2': None,
-            'top-bar': None,
+            'top-bars': None,
         }
         self.layouts = {
             'rso': False,
-            'top-bar': False,
+            'top-bars': False,
             'left-bar': False,
             'standard': False,
             'no-rso': False,
@@ -27,7 +25,7 @@ class Extractor:
         self.layout_label = None
         self.layout_extractors = {
             'standard': self.extract_from_standard,
-            'top-bar': self.extract_from_top_bar,
+            'top-bars': self.extract_from_top_bar,
             'left-bar': self.extract_from_left_bar,
             'no-rso': self.extract_from_no_rso
         }
@@ -123,15 +121,13 @@ class Extractor:
         # Layout soup subsets
         self.layout_divs["rso"] = self.soup.find('div', {'id':'rso'})
         self.layout_divs["left-bar"] = self.soup.find('div', {'class': 'OeVqAd'})
-        self.layout_divs["top-bar-1"] = self.soup.find('div', {'class': 'M8OgIe'})
-        self.layout_divs["top-bar-2"] = self.soup.find('div', {'class': 'XqFnDf'})
-        self.layout_divs['top-bar'] = self.layout_divs['top-bar-1'] or self.layout_divs['top-bar-2']
-
+        self.layout_divs["top-bars"] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
+        
         # Layout classifications
         self.layouts['rso'] = bool(self.layout_divs['rso'])
-        self.layouts['top-bar'] = bool(self.layout_divs['top-bar'])
+        self.layouts['top-bars'] = bool(self.layout_divs['top-bars'])
         self.layouts['left-bar'] = bool(self.layout_divs['left-bar'])
-        self.layouts['standard'] = (self.layouts['rso'] & ~self.layouts['top-bar'] & ~self.layouts['left-bar'])
+        self.layouts['standard'] = (self.layouts['rso'] & ~self.layouts['top-bars'] & ~self.layouts['left-bar'])
         self.layouts['no-rso'] = ~self.layouts['rso']
 
         # Get layout label
@@ -139,7 +135,7 @@ class Extractor:
         first_match = label_matches[0] if label_matches else None
         self.layout_label = first_match
         log.debug(f"layout: {self.layout_label}")
-
+        
 
     def extract_main_components(self, drop_tags: set={'script', 'style', None}):
         """Extract main components based on SERP layout"""
@@ -171,17 +167,17 @@ class Extractor:
 
 
     def extract_from_top_bar(self, drop_tags: set = {}) -> list:
-        """Extract components from top-bar layout"""
+        """Extract components from top-bars layout"""
         column = []
-        column.append(self.layout_divs['top-bar'])
+        column.extend(self.layout_divs['top-bars'])
         layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
         if layout_divs:
-            log.debug("layout update: top-bar-divs")
-            self.layout_label = 'top-bar-divs'
+            log.debug("layout update: top-bars-divs")
+            self.layout_label = 'top-bars-divs'
             layout_column = [div for div in layout_divs if div.name not in drop_tags]
         else:
-            log.debug("layout update: top-bar-children")
-            self.layout_label = 'top-bar-children'
+            log.debug("layout update: top-bars-children")
+            self.layout_label = 'top-bars-children'
             layout_column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
         column.extend(layout_column)
         return column
