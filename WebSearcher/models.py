@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import Any, Dict, Optional
+import bs4
 
 class BaseResult(BaseModel):
     type: str = 'unclassified'
@@ -25,10 +26,15 @@ class BaseSERP(BaseModel):
 
 
 class Component:
-    def __init__(self, cmpt, type='unknown', cmpt_rank=0):
+    def __init__(self, cmpt, section='unknown', cmpt_type='unknown', cmpt_rank=0):
         self.soup = cmpt
-        self.type = type
+        self.section = section
+        self.cmpt_type = cmpt_type
         self.cmpt_rank = cmpt_rank
+
+    def __str__(self):
+        """Return a string representation of the Component"""
+        return str(vars(self))
 
     def to_dict(self):
         return self.__dict__
@@ -42,9 +48,19 @@ class ComponentList:
         self.components = []
         self.rank_counter = 0
 
-    def add_component(self, component, type='unknown'):
-        component = Component(component, type=type, cmpt_rank=self.rank_counter)
-        self.components.append(component)
+    def __iter__(self):
+        for component in self.components:
+            yield component
+
+    def add_component(self, component, section="unknown", type='unknown', cmpt_rank=None):
+        """Add a component to the list of components"""
+        if isinstance(component, Component):
+            component.cmpt_rank = component.cmpt_rank if not cmpt_rank else cmpt_rank
+            self.components.append(component)
+        elif isinstance(component, bs4.element.Tag):
+            cmpt_rank = self.rank_counter if not cmpt_rank else cmpt_rank
+            component = Component(component, section, type, cmpt_rank)
+            self.components.append(component)
         self.rank_counter += 1
 
     def to_records(self):
