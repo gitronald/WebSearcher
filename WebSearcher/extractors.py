@@ -5,15 +5,15 @@ log = logger.Logger().start(__name__)
 import bs4
 
 
-class Extractor:    
-    def __init__(self, soup, serp_id=None, crawl_id=None):
+class Extractor:
+    def __init__(self, serp_id:str = None, crawl_id:str = None):
         self.soup = soup
         self.components = ComponentList(serp_id=serp_id, crawl_id=crawl_id)
         self.rhs = None
         self.layout_divs = {
             'rso': None,
-            'left-bar': None,
             'top-bars': None,
+            'left-bar': None,
         }
         self.layouts = {
             'rso': False,
@@ -39,7 +39,6 @@ class Extractor:
         self.extract_footer()
         self.append_rhs()
         log.debug(f"Extracted {self.components.cmpt_rank_counter:,} components")
-
 
     # --------------------------------------------------------------------------
     # Right Hand Sidebar Components
@@ -306,7 +305,7 @@ class Extractor:
     def is_hidden_footer(element):
         """Check if a component is a hidden footer component; no visual presence so filter out"""
         conditions = [
-            element.find("b", {"class":"uDuvJd"}),
+            # element.find("b", {"class":"uDuvJd"}),
             element.find("span", {"class":"oUAcPd"}),   
             element.find("div", {"class": "RTaUke"}),   
             element.find("div", {"class": "KJ7Tg"}),    
