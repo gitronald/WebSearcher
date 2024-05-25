@@ -1,4 +1,4 @@
-from .models import Component, ComponentList
+from .components import Component, ComponentList
 from . import webutils
 from . import logger
 log = logger.Logger().start(__name__)
@@ -6,30 +6,29 @@ import bs4
 
 
 class Extractor:
-    def __init__(self, serp_id:str = None, crawl_id:str = None):
+    def __init__(self, soup: bs4.BeautifulSoup, serp_id:str = None, crawl_id:str = None):
         self.soup = soup
         self.components = ComponentList(serp_id=serp_id, crawl_id=crawl_id)
-        self.rhs = None
+        self.rhs = {}
         self.layout_divs = {
-            'rso': None,
-            'top-bars': None,
-            'left-bar': None,
+            "rso": None,
+            "top-bars": None,
+            "left-bar": None,
         }
         self.layouts = {
-            'rso': False,
-            'top-bars': False,
-            'left-bar': False,
-            'standard': False,
-            'no-rso': False,
+            "rso": False,
+            "top-bars": False,
+            "left-bar": False,
+            "standard": False,
+            "no-rso": False,
         }
         self.layout_label = None
         self.layout_extractors = {
-            'standard': self.extract_from_standard,
-            'top-bars': self.extract_from_top_bar,
-            'left-bar': self.extract_from_left_bar,
-            'no-rso': self.extract_from_no_rso
+            "standard": self.extract_from_standard,
+            "top-bars": self.extract_from_top_bar,
+            "left-bar": self.extract_from_left_bar,
+            "no-rso": self.extract_from_no_rso
         }
-
 
     def extract_components(self):
         log.debug("Extracting Components")
@@ -46,26 +45,27 @@ class Extractor:
 
     def extract_rhs(self):
         """Extract the Right Hand Side (RHS) Knowledge Panel. Can appear in arbitrary order, must extract first."""
-        has_rhs = self.soup.find('div', {'id': 'rhs'})
-        if has_rhs:
-            rhs = self.soup.find('div', {'id': 'rhs'}).extract()
-
-            # RHS Knowledge Panel - append
-            rhs_complementary = webutils.check_dict_value(rhs.attrs, "role", "complementary")
-            rhs_kp = rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']})
-            if rhs_complementary:
-                log.debug("Extracted RHS Complementary Panel")
-                self.rhs = Component(rhs, section='rhs', type='knowledge_rhs', cmpt_rank=-1)
-            elif rhs_kp:
-                log.debug("Extracted RHS Knowledge Panel")
-                self.rhs = Component(rhs_kp, section='rhs', type='knowledge_rhs', cmpt_rank=-1)
+        rhs_kws = ('div', {'id': 'rhs'})
+        rhs = self.soup.find(*rhs_kws).extract() if self.soup.find(*rhs_kws) else None
+        if rhs:
+            rhs_layouts = {
+                'rhs_complementary': rhs if webutils.check_dict_value(rhs.attrs, "role", "complementary") else None,
+                'rhs_knowledge': rhs.find('div', {'class': ['kp-wholepage', 'knowledge-panel', 'TzHB6b']}),
+            }
+            rhs_layout = next((layout for layout, component in rhs_layouts.items() if component), None)
+            if rhs_layout:
+                log.debug(f"rhs_layout: {rhs_layout}")
+                self.rhs = {"elem": rhs_layouts[rhs_layout], 
+                            "section": "rhs", 
+                            "type": "knowledge_rhs"}
+            else:
+                log.debug(f"no rhs_layout")
 
 
     def append_rhs(self):
         """Append the RHS Knowledge Panel to the components list at the end"""
         if self.rhs:
-            cmpt_rank = self.components.cmpt_rank_counter
-            self.components.add_component(self.rhs, cmpt_rank=cmpt_rank)
+            self.components.add_component(**self.rhs)
             self.rhs = None
 
     # --------------------------------------------------------------------------
@@ -141,18 +141,14 @@ class Extractor:
         log.debug("Extracting main column components")
 
         self.check_layout_main()
-        if self.layout_label:
-            if self.layout_label in self.layout_extractors:
-                layout_extractor = self.layout_extractors[self.layout_label]
-                column = layout_extractor(drop_tags)
-                for component in column:
-                    if Extractor.is_valid_main_component(component):
-                        self.components.add_component(component, section='main')
-            else:
-                raise ValueError(f"no matching layout found for {self.layout_label}")  
-        else:
-            raise ValueError("no matching layout found")
-    
+        try:
+            layout_extractor = self.layout_extractors[self.layout_label]
+            column = layout_extractor(drop_tags)
+            for component in column:
+                if Extractor.is_valid_main_component(component):
+                    self.components.add_component(component, section='main')
+        except KeyError:
+            raise ValueError(f"no extractor for layout_label: {self.layout_label}")    
 
     def extract_from_standard(self, drop_tags: set = {}) -> list:
         column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
