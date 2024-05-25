@@ -1,3 +1,5 @@
+from ..components import Component, ComponentList
+
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
@@ -30,7 +32,7 @@ from .knowledge_rhs import parse_knowledge_rhs
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
-components = [
+component_parser_catalogue = [
     ('ad', parse_ads, 'Ad'),
     ('available_on', parse_available_on, 'Available On'),
     ('banner', parse_banner, 'Banner'),
@@ -60,7 +62,36 @@ components = [
 ]
 
 # Format {type: function}
-type_functions = {i[0]:i[1] for i in components}
+type_functions = {i[0]:i[1] for i in component_parser_catalogue}
 
 # Format {type: label}
-type_labels = {i[0]:i[2] for i in components}
+type_labels = {i[0]:i[2] for i in component_parser_catalogue}
+
+
+def get_component_parser(cmpt:Component, cmpt_funcs:dict=type_functions) -> callable:
+    """Returns the parser for a given component type"""
+    if cmpt.section == 'footer':
+        return Footer.get_parser(cmpt.type)
+    else:
+        if cmpt.type in cmpt_funcs:
+            return cmpt_funcs[cmpt.type]
+        elif cmpt.type == 'unknown':
+            return parse_unknown
+        else:
+            return parse_not_implemented
+
+
+def parse_unknown(cmpt: Component) -> list:
+    parsed_result = {'type': cmpt.type,
+                     'cmpt_rank': cmpt.cmpt_rank,
+                     'text': cmpt.elem.get_text("<|>", strip=True) if cmpt.elem else None}
+    return [parsed_result]
+
+
+def parse_not_implemented(cmpt: Component) -> list:
+    """Placeholder function for component parsers that are not implemented"""
+    parsed_result = {'type': cmpt.type,
+                     'cmpt_rank': cmpt.cmpt_rank,
+                     'text': cmpt.elem.get_text("<|>", strip=True),
+                     'error': 'not implemented'}
+    return [parsed_result]

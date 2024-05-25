@@ -1,8 +1,8 @@
 from . import webutils
 from .component_classifier import classify_type
-from .component_parsers import type_functions, Footer
+from .component_parsers import get_component_parser, parse_unknown, parse_not_implemented, Footer
 from .extractors import Extractor
-from .models import Component, ComponentList
+from .components import Component, ComponentList
 from .logger import Logger
 log = Logger().start(__name__)
 
@@ -33,7 +33,7 @@ def parse_component_list(components: ComponentList) -> list:
     results = []
     for cmpt in components.components:
         
-        # Classify component
+        # Classify component (some main are already classified e.g., ads)
         if cmpt.section == "main" and cmpt.type == "unknown":
             cmpt.classify_component(classify_type)
         elif cmpt.section == "footer":
@@ -47,15 +47,7 @@ def parse_component_list(components: ComponentList) -> list:
 
 
 def parse_component(cmpt: Component, cmpt_type: str = None) -> list:
-    """Parse a SERP component
-    
-    Args:
-        cmpt (bs4 object): A parsed SERP component
-        cmpt_type (str, optional): The type of component it is
-    
-    Returns:
-        list: The parsed results and/or subresults
-    """
+    """Parse a SERP component"""
 
     cmpt.type = cmpt_type if cmpt_type else cmpt.type
     log.debug(f"{cmpt.cmpt_rank} | {cmpt.section} | {cmpt.type}")
@@ -67,54 +59,20 @@ def parse_component(cmpt: Component, cmpt_type: str = None) -> list:
         if parser == parse_not_implemented or parser == parse_unknown:
             parsed = parser(cmpt)
         else:
-            parsed = parser(cmpt.soup)
+            # All existing parsers expect a soup element
+            parsed = parser(cmpt.elem)
         assert type(parsed) in [list, dict], f'parsed must be list or dict: {type(parsed)}'
         parsed_list = parsed if isinstance(parsed, list) else [parsed]
    
     except Exception:
         log.exception(f'Parsing Exception | {cmpt.cmpt_rank} | {cmpt.type}')
-        parsed_list = parse_exception(cmpt)
+        parsed_list = [{'type': cmpt.type,
+                       'cmpt_rank': cmpt.cmpt_rank,
+                       'text': cmpt.elem.get_text("<|>", strip=True),
+                       'error': traceback.format_exc()}]
 
     # Validate and add results
-    for parsed_result in parsed_list:
-        cmpt.add_parsed_result(parsed_result)
+    cmpt.add_parsed_result_list(parsed_list)
 
     return cmpt
 
-
-def get_component_parser(cmpt:Component, cmpt_funcs:dict=type_functions) -> callable:
-    """Returns the parser for a given component type"""
-    if cmpt.section == 'footer':
-        return Footer.get_parser(cmpt.type)
-    else:
-        if cmpt.type in cmpt_funcs:
-            return cmpt_funcs[cmpt.type]
-        elif cmpt.type == 'unknown':
-            return parse_unknown
-        else:
-            return parse_not_implemented
-
-
-def parse_unknown(cmpt: Component) -> list:
-    parsed_result = {'type': cmpt.type,
-                     'cmpt_rank': cmpt.cmpt_rank,
-                     'text': cmpt.soup.get_text("<|>", strip=True) if cmpt.soup else None}
-    return [parsed_result]
-
-
-def parse_not_implemented(cmpt: Component) -> list:
-    """Placeholder function for component parsers that are not implemented"""
-    parsed_result = {'type': cmpt.type,
-                     'cmpt_rank': cmpt.cmpt_rank,
-                     'text': cmpt.soup.get_text("<|>", strip=True),
-                     'error': 'not implemented'}
-    return [parsed_result]
-
-
-def parse_exception(cmpt: Component) -> list:
-    """Placeholder function for component parsers that raise an exception"""
-    parsed_result = {'type': cmpt.type,
-                     'cmpt_rank': cmpt.cmpt_rank,
-                     'text': cmpt.soup.get_text("<|>", strip=True),
-                     'error': traceback.format_exc()}
-    return [parsed_result]

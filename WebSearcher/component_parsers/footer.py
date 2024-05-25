@@ -1,7 +1,8 @@
 from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from .. import component_classifier
 from .. import logger
-from ..models import BaseResult, Component, ComponentList
+from ..models import BaseResult
+from ..components import Component, ComponentList
 from ..webutils import get_text, find_all_divs
 
 log = logger.Logger().start(__name__)
