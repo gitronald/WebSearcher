@@ -2,61 +2,9 @@
 """
 
 from .components import Component
+from .classifiers import ClassifyByHeader
 from . import webutils
 import bs4
-
-# Header (e.g., <h2> and <div aria-level="2" role="heading">) text -> WS type
-HEADER_LVL2_MAPPING = {
-    'Additional searches': 'searches_related',
-    'Calculator Result': 'knowledge',
-    'Complementary Results': 'general',
-    'Directions': 'directions',
-    'Discussions and forums': 'discussions_and_forums',
-    'Featured snippet from the web': 'knowledge',
-    'Finance Results': 'knowledge',
-    'From sources across the web': 'knowledge',
-    'Jobs': 'jobs',
-    'Knowledge Result': 'knowledge',
-    'Local Results': 'local_results',
-    'Map Results': 'map_results',
-    'More searches': 'searches_related',
-    'Notices about Filtered Results': 'omitted_notice',
-    'Other searches': 'searches_related',
-    'People also ask': 'people_also_ask',
-    'People also search for': 'searches_related',
-    'Perspectives & opinions': 'perspectives',
-    'Perspectives': 'perspectives',
-    'Related': 'searches_related',
-    'Related searches': 'searches_related',
-    'Related to this search': 'searches_related',
-    'Resultado de traducción': 'knowledge',
-    'Resultados de la Web': 'general',
-    'Sports Results': 'knowledge',
-    'Top stories': 'top_stories',
-    'Local news': 'local_news',
-    'Translation Result': 'knowledge',
-    'Twitter Results': 'twitter',
-    'Unit Converter': 'knowledge',
-    'Weather Result': 'knowledge',
-    'Web Result with Site Links': 'general',
-    'Web results': 'general',
-    'Videos': 'videos',
-}
-
-# Header (e.g., <h3> and <div aria-level="3" role="heading">) text -> WS type
-HEADER_LVL3_MAPPING = {
-    'Images for': 'images',
-    'Latest from': 'latest_from',
-    'Popular products': 'products',
-    'Quotes in the news': 'news_quotes',
-    'Recipes': 'recipes',
-    'Related searches': 'searches_related',
-    'Scholarly articles for': 'scholarly_articles',
-    'Top stories': 'top_stories',
-    'Videos': 'videos',
-    'View more news': 'view_more_news',
-    'View more videos': 'view_more_videos'
-}
 
 def classify_type(cmpt: Component) -> str:
     if cmpt.section == "main":
@@ -80,22 +28,21 @@ def classify_type_main(cmpt: bs4.element.Tag) -> str:
     
    # Component type classifiers (order matters)
     component_classifiers = [
-        classify_top_stories,        # Check top stories
-        classify_header_lvl2,        # Check level 2 header text
-        classify_header_lvl3,        # Check level 3 header text
-        classify_img_cards,          # Check image cards
-        classify_images,             # Check images
-        classify_knowledge_panel,    # Check knowledge panel
-        classify_knowledge_block,    # Check knowledge components
-        classify_banner,             # Check for banners
-        classify_finance_panel,      # Check finance panel (classify as knowledge)
-        classify_map_result,         # Check for map results
-        classify_general_questions,  # Check hybrid general questions
-        classify_twitter,            # Check twitter cards and results
-        classify_general,            # Check general components
-        classify_people_also_ask,    # Check people also ask
-        classify_knowledge_box,      # Check flights, maps, hotels, events, jobs
-        classify_local_results,      # Check for local results
+        classify_top_stories,       # Check top stories
+        ClassifyByHeader.classify,  # Check levels 2 & 3 header text
+        classify_img_cards,         # Check image cards
+        classify_images,            # Check images
+        classify_knowledge_panel,   # Check knowledge panel
+        classify_knowledge_block,   # Check knowledge components
+        classify_banner,            # Check for banners
+        classify_finance_panel,     # Check finance panel (classify as knowledge)
+        classify_map_result,        # Check for map results
+        classify_general_questions, # Check hybrid general questions
+        classify_twitter,           # Check twitter cards and results
+        classify_general,           # Check general components
+        classify_people_also_ask,   # Check people also ask
+        classify_knowledge_box,     # Check flights, maps, hotels, events, jobs
+        classify_local_results,     # Check for local results
     ]
     for classifier in component_classifiers:
         if cmpt_type != "unknown":  break  # Exit if successful classification
@@ -106,40 +53,6 @@ def classify_type_main(cmpt: bs4.element.Tag) -> str:
             cmpt_type = "available_on"
     
     return cmpt_type
-
-
-def classify_header_lvl2(cmpt: bs4.element.Tag) -> str:
-    # Wrapper for header level 2
-    return classify_header(cmpt, level=2)
-
-def classify_header_lvl3(cmpt: bs4.element.Tag) -> str:
-    # Wrapper for header level 2
-    return classify_header(cmpt, level=3)
-
-def classify_header(cmpt: bs4.element.Tag, level: int) -> str:
-    """Check text in common headers for dict matches"""
-
-    # Find headers
-    if level == 2:
-        header_dict = HEADER_LVL2_MAPPING
-    elif level == 3:
-        header_dict = HEADER_LVL3_MAPPING
-    
-    # Find headers, eg for level 2: <h2> and <div aria-level="2" role="heading">
-    header_list = []
-    header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
-    header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x"]}))
-    header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
-    header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "class":"XmmGVd"}))
-
-   # Check for string matches in header text e.g. `h2.text`
-    for header in filter(None, header_list):
-        for text, label in header_dict.items():
-            if header.text.strip().startswith(text):
-                return label
-
-    # Return unknown if no matches
-    return "unknown"
 
 
 def classify_top_stories(cmpt: bs4.element.Tag) -> str:
