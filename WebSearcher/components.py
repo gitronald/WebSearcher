@@ -23,7 +23,7 @@ class Component:
     
     def classify_component(self, classify_type_func: callable):
         """Classify the component type"""
-        self.type = classify_type_func(self.elem)
+        self.type = classify_type_func(self)
 
     def parse_component(self, parser_type_func: callable):
         """Parse the component using a parser function"""

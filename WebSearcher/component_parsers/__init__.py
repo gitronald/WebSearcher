@@ -27,12 +27,12 @@ from .twitter_result import parse_twitter_result
 from .videos import parse_videos
 from .view_more_news import parse_view_more_news
 
-from .footer import Footer, parse_footer
+from .footer import Footer
 from .knowledge_rhs import parse_knowledge_rhs
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
-component_parser_catalogue = [
+main_parsers = [
     ('ad', parse_ads, 'Ad'),
     ('available_on', parse_available_on, 'Available On'),
     ('banner', parse_banner, 'Banner'),
@@ -57,24 +57,32 @@ component_parser_catalogue = [
     ('twitter_result', parse_twitter_result, 'Twitter Result'),
     ('videos', parse_videos, 'Videos'),
     ('view_more_news', parse_view_more_news, 'View More News'),
-    ('footer', parse_footer, 'Footer'),
     ('knowledge_rhs', parse_knowledge_rhs, 'Knowledge RHS'),
 ]
-
-# Format {type: function}
-type_functions = {i[0]:i[1] for i in component_parser_catalogue}
-
-# Format {type: label}
-type_labels = {i[0]:i[2] for i in component_parser_catalogue}
+main_parser_dict = {i[0]:i[1] for i in main_parsers}   # Format {type: function}
+main_parser_labels = {i[0]:i[2] for i in main_parsers} # Format {type: label}
 
 
-def get_component_parser(cmpt:Component, cmpt_funcs:dict=type_functions) -> callable:
+# Footer parsers
+footer_parsers = [
+    ('img_cards', Footer.parse_image_cards, 'Image Cards'),
+    ('searches_related', parse_searches_related, 'Related Searches'),
+    ('discover_more', Footer.parse_discover_more, 'Discover More'),
+    ('general', parse_general_results, 'General'),
+    ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
+    ('omitted_notice', Footer.parse_omitted_notice, 'Omitted Notice'),
+]
+footer_parser_dict = {i[0]:i[1] for i in footer_parsers}  # Format {type: function}
+footer_parser_labels = {i[0]:i[2] for i in footer_parsers} # Format {type: label}
+
+
+def get_component_parser(cmpt:Component) -> callable:
     """Returns the parser for a given component type"""
-    if cmpt.section == 'footer':
-        return Footer.get_parser(cmpt.type)
+    if cmpt.section == 'footer' and cmpt.type in footer_parser_dict:
+        return footer_parser_dict[cmpt.type]
     else:
-        if cmpt.type in cmpt_funcs:
-            return cmpt_funcs[cmpt.type]
+        if cmpt.type in main_parser_dict:
+            return main_parser_dict[cmpt.type]
         elif cmpt.type == 'unknown':
             return parse_unknown
         else:

@@ -1,6 +1,7 @@
 """SERP component classifiers
 """
 
+from .components import Component
 from . import webutils
 import bs4
 
@@ -57,15 +58,22 @@ HEADER_LVL3_MAPPING = {
     'View more videos': 'view_more_videos'
 }
 
-def classify_type(cmpt: bs4.element.Tag) -> str:
-    """Component classifier
+def classify_type(cmpt: Component) -> str:
+    if cmpt.section == "main":
+        if cmpt.type == "unknown":
+            return classify_type_main(cmpt.elem)
+        else:
+            return cmpt.type
+    elif cmpt.section == "footer":
+        return classify_type_footer(cmpt.elem)
+    elif cmpt.section == "header" or cmpt.section == "rhs":
+        return cmpt.type
+    else:
+        print(f"Unknown section: {cmpt.section}")
 
-    Args:
-        cmpt (bs4.element.Tag): A search component
 
-    Returns:
-        str: A classification of the component type (default: "unknown")
-    """
+def classify_type_main(cmpt: bs4.element.Tag) -> str:
+    """Component classifier - Main section"""
     
     # Default unknown
     cmpt_type = "unknown"
@@ -294,3 +302,72 @@ def classify_knowledge_box(cmpt: bs4.element.Tag) -> str:
             return condition_type
     
     return "unknown"
+
+# ------------------------------------------------------------------------------
+# Footer Components
+
+def classify_type_footer(cmpt: bs4.element.Tag) -> str:
+    """Component classifier
+
+    Args:
+        cmpt (bs4.element.Tag): A search component
+
+    Returns:
+        str: A classification of the component type (default: "unknown")
+    """
+    
+    # Default unknown
+    cmpt_type = "unknown"
+    
+    layout_1_conditions = [
+        ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
+        ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud']),
+    ]
+
+   # Component type classifiers (order matters)
+    classifiers_layout_1 = [
+        classify_img_cards,
+        classify_discover_more,
+        classify_searches_related,
+    ]
+
+    classifiers_layout_2 = [
+        classify_omitted_notice,
+    ]
+    classifier_list = classifiers_layout_1 if any(layout_1_conditions) else classifiers_layout_2
+
+    for classifier in classifier_list:
+        if cmpt_type != "unknown":  break  # Exit if successful classification
+        cmpt_type = classifier(cmpt)
+
+    if cmpt_type == 'unknown':
+        cmpt_type = classify_type_main(cmpt)
+    
+    return cmpt_type
+
+
+def classify_discover_more(cmpt):
+    conditions = [
+        cmpt.find("g-scrolling-carousel"),
+    ]
+    return 'discover_more' if all(conditions) else "unknown"
+
+
+def classify_searches_related(cmpt):
+    # log.debug('classifying searches related component')
+    known_labels = {'Related', 
+                    'Related searches', 
+                    'People also search for', 
+                    'Related to this search'}
+    h3 = cmpt.find('h3')
+    h3_matches = [h3.text.strip().startswith(text) for text in known_labels] if h3 else []
+    return 'searches_related' if any(h3_matches) else 'unknown'
+
+
+def classify_omitted_notice(cmpt):
+    conditions = [
+        cmpt.find("p", {"id":"ofr"}),
+        (get_text(cmpt, "h2") == "Notices about Filtered Results"),
+    ]
+    return "omitted_notice" if any(conditions) else "unknown"
+

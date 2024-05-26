@@ -1,81 +1,18 @@
-from . import parse_general_results, parse_people_also_ask, parse_searches_related
-from .. import component_classifier
-from .. import logger
 from ..models import BaseResult
 from ..components import Component, ComponentList
+from . import parse_general_results, parse_people_also_ask, parse_searches_related
 from ..webutils import get_text, find_all_divs
 
+from .. import logger
 log = logger.Logger().start(__name__)
 
 import traceback
-
-
-def parse_footer(soup):
-    footer = Footer(soup)
-    footer.extract_components()
-    return footer.parse_footer()
-
 
 class Footer:
     def __init__(self, soup):
         self.soup = soup
         self.footer_soup = None
         self.components = ComponentList()
-
-    @classmethod
-    def classify_component(self, component_soup, cmpt_type="unknown"):
-        cmpt = component_soup
-        gsection = cmpt.find('g-section-with-header')
-        subs = cmpt.find_all('div', {'class':'g'})
-
-        conditions = [
-            ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
-            ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud'])
-        ]
-
-        if any(conditions):
-            if subs:
-                cmpt_type = 'img_cards'
-            elif cmpt.find('g-scrolling-carousel'):
-                cmpt_type = 'discover_more'
-            elif cmpt.find('h3'):
-                cmpt_type = self.classify_searches_related(cmpt)
-
-        elif self.classify_omitted_notice(cmpt):
-            cmpt_type = 'omitted_notice'
-
-        elif gsection:
-            cmpt_type = 'searches_related'
-
-        if cmpt_type == 'unknown':
-            log.debug('falling back to main classifier')
-            cmpt_type = component_classifier.classify_type(cmpt)
-
-        return cmpt_type
-
-
-    @classmethod
-    def classify_omitted_notice(self, cmpt):
-        conditions = [
-            cmpt.find("p", {"id":"ofr"}),
-            (get_text(cmpt, "h2") == "Notices about Filtered Results"),
-        ]
-        return any(conditions)
-
-
-    @classmethod
-    def classify_searches_related(self, cmpt):
-        log.debug('classifying searches related component')
-        known_labels = {'Related', 
-                        'Related searches', 
-                        'People also search for', 
-                        'Related to this search'}
-        h3 = cmpt.find('h3')
-        if h3:
-            h3_matches = [h3.text.strip().startswith(text) for text in known_labels]
-            if any(h3_matches):
-                return 'searches_related'
-        return 'unknown'
 
 
     def parse_footer(self):
