@@ -63,7 +63,10 @@ def strip_html_tags(string):
 
 def make_soup(html, parser='lxml'):
     """Create soup object"""
-    return BeautifulSoup(html, parser)
+    if isinstance(html, BeautifulSoup):
+        return html
+    else:
+        return BeautifulSoup(html, parser)
 
 def has_captcha(soup):
     """Boolean for 'CAPTCHA' appearance in soup"""
@@ -98,10 +101,17 @@ def get_div(soup: BeautifulSoup, name: str, attrs: dict = {}) -> BeautifulSoup:
     """Utility for `soup.find(name)` with null attrs handling"""
     return soup.find(name, attrs) if attrs else soup.find(name)
 
-def get_text(soup, name: str=None, attrs: dict={}, separator:str=" ") -> str:
+def get_text(soup: BeautifulSoup, name: str=None, attrs: dict={}, separator:str=" ", strip=False) -> str:
     """Utility for `soup.find(name).text` with null name handling"""
+    if not soup:
+        return None
     div = get_div(soup, name, attrs) if name else soup
-    return div.get_text(separator=separator) if div else None
+    if not div:
+        return None
+    text = div.get_text(separator=separator)
+    return text.strip() if strip else text
+
+
 
 def get_link(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> str:
     """Utility for `soup.find('a')['href']` with null key handling"""
