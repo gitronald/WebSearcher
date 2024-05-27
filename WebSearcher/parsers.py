@@ -30,9 +30,8 @@ def parse_serp(serp: BeautifulSoup, serp_id: str = None, crawl_id: str = None,
 def parse_component_list(components: ComponentList) -> list:
     """Parse a list of SERP components"""
     
-    results = []
     for cmpt in components.components:
-        cmpt.classify_component(classify_type)
+        cmpt.classify_component()
         cmpt = parse_component(cmpt)
     results = components.export_component_results()
 

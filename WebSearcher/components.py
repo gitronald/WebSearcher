@@ -1,4 +1,5 @@
 from .models import BaseResult
+from .classifiers import ClassifyMain, ClassifyFooter
 from typing import Dict
 import bs4
 
@@ -21,9 +22,16 @@ class Component:
         key_filter = ['section', 'cmpt_rank']
         return {k:v for k,v in self.to_dict().items() if k in key_filter}
     
-    def classify_component(self, classify_type_func: callable):
+    def classify_component(self, classify_type_func: callable = None):
         """Classify the component type"""
-        self.type = classify_type_func(self)
+        if classify_type_func:
+            self.type = classify_type_func(self.elem)
+        else:
+            if self.type == "unknown":
+                if self.section == "main":
+                    self.type = ClassifyMain.classify(self.elem)
+                elif self.section == "footer":
+                    self.type = ClassifyFooter.classify(self.elem)
 
     def parse_component(self, parser_type_func: callable):
         """Parse the component using a parser function"""
