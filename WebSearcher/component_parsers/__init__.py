@@ -1,5 +1,3 @@
-from ..components import Component, ComponentList
-
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
@@ -62,7 +60,6 @@ main_parsers = [
 main_parser_dict = {i[0]:i[1] for i in main_parsers}   # Format {type: function}
 main_parser_labels = {i[0]:i[2] for i in main_parsers} # Format {type: label}
 
-
 # Footer parsers
 footer_parsers = [
     ('img_cards', Footer.parse_image_cards, 'Image Cards'),
@@ -76,27 +73,14 @@ footer_parser_dict = {i[0]:i[1] for i in footer_parsers}  # Format {type: functi
 footer_parser_labels = {i[0]:i[2] for i in footer_parsers} # Format {type: label}
 
 
-def get_component_parser(cmpt:Component) -> callable:
-    """Returns the parser for a given component type"""
-    if cmpt.section == 'footer' and cmpt.type in footer_parser_dict:
-        return footer_parser_dict[cmpt.type]
-    else:
-        if cmpt.type in main_parser_dict:
-            return main_parser_dict[cmpt.type]
-        elif cmpt.type == 'unknown':
-            return parse_unknown
-        else:
-            return parse_not_implemented
-
-
-def parse_unknown(cmpt: Component) -> list:
+def parse_unknown(cmpt) -> list:
     parsed_result = {'type': cmpt.type,
                      'cmpt_rank': cmpt.cmpt_rank,
                      'text': cmpt.elem.get_text("<|>", strip=True) if cmpt.elem else None}
     return [parsed_result]
 
 
-def parse_not_implemented(cmpt: Component) -> list:
+def parse_not_implemented(cmpt) -> list:
     """Placeholder function for component parsers that are not implemented"""
     parsed_result = {'type': cmpt.type,
                      'cmpt_rank': cmpt.cmpt_rank,
