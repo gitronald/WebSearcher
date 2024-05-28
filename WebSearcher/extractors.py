@@ -6,9 +6,9 @@ import bs4
 
 
 class Extractor:
-    def __init__(self, soup: bs4.BeautifulSoup, serp_id:str = None, crawl_id:str = None):
+    def __init__(self, soup: bs4.BeautifulSoup):
         self.soup = soup
-        self.components = ComponentList(serp_id=serp_id, crawl_id=crawl_id)
+        self.components = ComponentList()
         self.rhs = {}
         self.layout_divs = {
             "rso": None,

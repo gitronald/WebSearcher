@@ -83,7 +83,7 @@ class SearchEngine:
         ).start(__name__)
 
 
-    def search(self, qry: str, location: str = '', serp_id: str = '', crawl_id: str = '', num_results: int = None):
+    def search(self, qry: str, location: str = '', num_results: int = None, serp_id: str = '', crawl_id: str = ''):
         """Conduct a search and save HTML
         
         Args:
@@ -93,8 +93,8 @@ class SearchEngine:
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self.prepare_search(qry, location, num_results)
-        self.conduct_search(serp_id, crawl_id)
+        self.prepare_search(qry=qry, location=location, num_results=num_results)
+        self.conduct_search(serp_id=serp_id, crawl_id=crawl_id)
         self.handle_response()
 
 
@@ -146,16 +146,11 @@ class SearchEngine:
 
     def handle_response(self):
         try:
-            # Unzip string if True
             if self.unzip:  
                 self.unzip_html()
             else:
-                # Get response string
                 self.html = self.response.content
-
-            # Decode string
             self.html = self.html.decode('utf-8', 'ignore')
-        
         except Exception:
             self.log.exception(f'Response handling error')
 
@@ -185,7 +180,7 @@ class SearchEngine:
 
         assert self.html, "No HTML found"
         try:
-            self.results = parsers.parse_serp(self.html, serp_id=self.serp_id)
+            self.results = parsers.parse_serp(self.html)
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 

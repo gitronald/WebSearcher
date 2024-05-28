@@ -107,10 +107,8 @@ class Component:
 
 
 class ComponentList:
-    def __init__(self, serp_id=None, crawl_id=None):
+    def __init__(self):
         self.components = []
-        self.crawl_id = crawl_id
-        self.serp_id = serp_id
         self.cmpt_rank_counter = 0
         self.serp_rank_counter = 0
 
@@ -131,8 +129,6 @@ class ComponentList:
         results = []
         for cmpt in self.components:
             for result in cmpt.export_results():
-                result['crawl_id'] = self.crawl_id
-                result['serp_id'] = self.serp_id
                 result['serp_rank'] = self.serp_rank_counter
                 results.append(result)
                 self.serp_rank_counter += 1
