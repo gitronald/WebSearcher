@@ -185,7 +185,7 @@ class SearchEngine:
 
         assert self.html, "No HTML found"
         try:
-            self.results = parsers.parse_serp(self.html, serp_id=self.serp_id, make_soup=True)
+            self.results = parsers.parse_serp(self.html, serp_id=self.serp_id)
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
