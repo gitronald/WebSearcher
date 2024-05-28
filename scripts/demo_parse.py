@@ -5,6 +5,11 @@ import argparse
 import pandas as pd
 import WebSearcher as ws
 
+pd.set_option('display.width', 120, 
+              'display.max_colwidth', 40,
+              'display.max_rows', None, 
+              'display.max_columns', None)
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--filepath", help="The SERP html file")
 args = parser.parse_args()
@@ -18,4 +23,4 @@ else:
     print(results[['type', 'title', 'url']])
 
     # Obtain HTML component list for examination
-    cmpts = ws.extract_components(soup)
+    cmpts = ws.Extractor(soup).extract_components()

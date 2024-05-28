@@ -6,6 +6,11 @@ import time
 import pandas as pd
 import WebSearcher as ws
 
+pd.set_option('display.width', 120, 
+              'display.max_colwidth', 40,
+              'display.max_rows', None, 
+              'display.max_columns', None)
+
 # Filepaths
 data_dir = os.path.join("data", f"demo-ws-v{ws.__version__}")
 fp_serps = os.path.join(data_dir, 'serps.json')
@@ -26,4 +31,8 @@ for qry in queries:
     se.save_serp(append_to=fp_serps)        # Save SERP to json (html + metadata)
     se.save_results(append_to=fp_results)   # Save results to json
     se.save_serp(save_dir=dir_html)         # Save SERP html to dir (no metadata)
-    time.sleep(30)                            # Wait 30 seconds
+
+    # Convert results to dataframe and print select columns
+    results = pd.DataFrame(se.results)
+    print(results[['type', 'title', 'url']])
+    time.sleep(30)
