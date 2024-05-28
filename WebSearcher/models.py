@@ -1,15 +1,18 @@
 from pydantic import BaseModel
-from typing import Any, Dict, Optional
+from typing import Any, Optional
+
 
 class BaseResult(BaseModel):
+    sub_rank: int = 0
     type: str = 'unclassified'
     sub_type: Optional[str] = None
-    sub_rank: int = 0
     title: Optional[str] = None
     url: Optional[str] = None
     text: Optional[str] = None
     cite: Optional[str] = None
     details: Optional[Any] = None
+    error: Optional[str] = None
+
 
 class BaseSERP(BaseModel):
     qry: str                   # Search query 
@@ -22,3 +25,4 @@ class BaseSERP(BaseModel):
     serp_id: str               # Search Engine Results Page (SERP) ID
     crawl_id: str              # Crawl ID for grouping SERPs
     version: str               # WebSearcher version
+

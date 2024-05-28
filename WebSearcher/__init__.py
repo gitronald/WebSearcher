@@ -1,7 +1,7 @@
-__version__ = "0.3.12"
+__version__ = "0.4.0"
 from .searchers import SearchEngine
 from .parsers import parse_serp
-from .extractors import extract_components
+from .extractors import Extractor
 from .locations import download_locations
-from .component_classifier import classify_type
+from .classifiers import ClassifyMain, ClassifyFooter
 from .webutils import load_html, make_soup, load_soup

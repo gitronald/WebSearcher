@@ -25,12 +25,12 @@ from .twitter_result import parse_twitter_result
 from .videos import parse_videos
 from .view_more_news import parse_view_more_news
 
-from .footer import parse_footer
+from .footer import Footer
 from .knowledge_rhs import parse_knowledge_rhs
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
-components = [
+main_parsers = [
     ('ad', parse_ads, 'Ad'),
     ('available_on', parse_available_on, 'Available On'),
     ('banner', parse_banner, 'Banner'),
@@ -48,19 +48,42 @@ components = [
     ('perspectives', parse_perspectives, 'Perspectives & Opinions'),
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('searches_related', parse_searches_related, 'Related Searches'),
-    ('shopping_ad', parse_shopping_ads, 'Shopping Ad'),
+    ('shopping_ads', parse_shopping_ads, 'Shopping Ad'),
     ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
     ('top_stories', parse_top_stories, 'Top Stories'),
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
     ('twitter_result', parse_twitter_result, 'Twitter Result'),
     ('videos', parse_videos, 'Videos'),
     ('view_more_news', parse_view_more_news, 'View More News'),
-    ('footer', parse_footer, 'Footer'),
     ('knowledge_rhs', parse_knowledge_rhs, 'Knowledge RHS'),
 ]
+main_parser_dict = {i[0]:i[1] for i in main_parsers}   # Format {type: function}
+main_parser_labels = {i[0]:i[2] for i in main_parsers} # Format {type: label}
 
-# Format {type: function}
-type_functions = {i[0]:i[1] for i in components}
+# Footer parsers
+footer_parsers = [
+    ('img_cards', Footer.parse_image_cards, 'Image Cards'),
+    ('searches_related', parse_searches_related, 'Related Searches'),
+    ('discover_more', Footer.parse_discover_more, 'Discover More'),
+    ('general', parse_general_results, 'General'),
+    ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
+    ('omitted_notice', Footer.parse_omitted_notice, 'Omitted Notice'),
+]
+footer_parser_dict = {i[0]:i[1] for i in footer_parsers}  # Format {type: function}
+footer_parser_labels = {i[0]:i[2] for i in footer_parsers} # Format {type: label}
 
-# Format {type: label}
-type_labels = {i[0]:i[2] for i in components}
+
+def parse_unknown(cmpt) -> list:
+    parsed_result = {'type': cmpt.type,
+                     'cmpt_rank': cmpt.cmpt_rank,
+                     'text': cmpt.elem.get_text("<|>", strip=True) if cmpt.elem else None}
+    return [parsed_result]
+
+
+def parse_not_implemented(cmpt) -> list:
+    """Placeholder function for component parsers that are not implemented"""
+    parsed_result = {'type': cmpt.type,
+                     'cmpt_rank': cmpt.cmpt_rank,
+                     'text': cmpt.elem.get_text("<|>", strip=True),
+                     'error': 'not implemented'}
+    return [parsed_result]

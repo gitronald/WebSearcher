@@ -1,3 +1,7 @@
+from .. import webutils
+from .general import parse_general_result
+
+
 def get_text(div):
     return '|'.join([d.get_text(separator=' ') for d in div if d.text])
 
@@ -18,9 +22,11 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
     # Get embedded result if it exists
     result = cmpt.find('div', {'class':'rc'})
     if result:
-        parsed['title'] = result.find('h3').text
-        parsed['url'] = result.find('a')['href']
-        parsed['cite'] = result.find('cite').text
+        parsed['title'] = webutils.get_text(result, 'h3')
+        parsed['url'] = webutils.get_link(result)
+        parsed['cite'] = webutils.get_text(result, 'cite')
+
+    parsed['text'] = webutils.get_text(cmpt, "div", {"role":"heading", "aria-level":"3"})
 
     # Get details
     details = {}
@@ -44,6 +50,13 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
         parsed['sub_type'] = 'featured_snippet'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
+
+        # General component with no abstract
+        if cmpt.find('div', {'class':'g'}):
+            parsed_general = parse_general_result(cmpt.find('div', {'class':'g'}))
+            parsed_general = {k:v for k,v in parsed_general.items() if k in {'title', 'url', 'cite'}}
+            parsed.update(parsed_general)
+
 
     elif cmpt.find('h2') and cmpt.find('h2').text == 'Unit Converter':
         parsed['sub_type'] = 'unit_converter'
@@ -91,6 +104,12 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
         parsed['sub_type'] = 'panel'
         div = cmpt.find_all(['span','div','a'], text=True)
         details['text'] = get_text(div) if div else None
+
+        text_divs = cmpt.find_all("div", {"class":"sinMW"})
+        text_list = [webutils.get_text(div) for div in text_divs]
+        parsed["text"] = "<|>".join(text_list) if text_list else None
+        parsed["title"] = webutils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
+        # parsed["title"] = webutils.get_text(cmpt, "div", {"class":"HdbW6"}) if not parsed["title"] else parsed["title"]
 
     # Get image
     img_div = cmpt.find('div', {'class':'img-brk'})

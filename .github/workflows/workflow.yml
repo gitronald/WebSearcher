@@ -3,12 +3,18 @@ name: Python Package Release
 on:
   push:
     branches:
-      - master  # or your release branch
+      - master
     tags:
-      - 'v*'  # Trigger workflow on version tags e.g., v1.0, v2.0
+      - 'v*'         # version tags e.g., v1.0.0, v2.0.0
+  pull_request:
+    branches:
+      - master
+    types: [closed]  # run after pr is closed
+
 
 jobs:
   build-and-publish:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
