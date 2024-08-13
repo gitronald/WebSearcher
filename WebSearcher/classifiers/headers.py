@@ -28,8 +28,8 @@ class ClassifyByHeader:
         header_list = []
         header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
         header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x"]}))
-        header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "role":"heading"}))
-        header_list.extend(cmpt.find_all("div", {'aria-level':f"{level}", "class":"XmmGVd"}))
+        header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "role":"heading"}))
+        header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "class":"XmmGVd"}))
 
         # Check header text for known title matches
         for header in filter(None, header_list):
@@ -87,17 +87,17 @@ class ClassifyByHeader:
 
     # WS type -> header level 2 text (e.g., <h3>title</h3>)
     TYPE_TO_H3_MAPPING = {
-        'images': ['Images for'],
-        'latest_from': ['Latest from'],
-        'products': ['Popular products'],
-        'news_quotes': ['Quotes in the news'],
-        'recipes': ['Recipes'],
-        'searches_related': ['Related searches'],
-        'scholarly_articles': ['Scholarly articles for'],
-        'top_stories': ['Top stories'],
-        'videos': ['Videos'],
-        'view_more_news': ['View more news'],
-        'view_more_videos': ['View more videos']
+        "images": ["Images for"],
+        "latest_from": ["Latest from"],
+        "products": ["Popular products"],
+        "news_quotes": ["Quotes in the news"],
+        "recipes": ["Recipes"],
+        "searches_related": ["Related searches"],
+        "scholarly_articles": ["Scholarly articles for"],
+        "top_stories": ["Top stories"],
+        "videos": ["Videos"],
+        "view_more_news": ["View more news"],
+        "view_more_videos": ["View more videos"]
     }
 
     # Invert from {label: [text, ...]} to [{text: label}, ...]
