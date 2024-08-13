@@ -54,6 +54,7 @@ class ClassifyByHeader:
                     "Resultados de la Web", 
                     "Web Result with Site Links", 
                     "Web results"],
+        "images": ["Images"],
         "jobs": ["Jobs"],
         "knowledge": ["Calculator Result", 
                     "Featured snippet from the web", 

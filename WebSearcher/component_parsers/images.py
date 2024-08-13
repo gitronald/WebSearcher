@@ -52,7 +52,7 @@ def parse_image_multimedia(sub, sub_rank=0):
         sub_type="multimedia",
         sub_rank=sub_rank,
         title=get_img_alt(sub),
-        # url=get_img_url(sub), # dynamic load, no source url via requests
+        url=get_img_url(sub),
     )
     return parsed.model_dump()
 
@@ -66,7 +66,6 @@ def parse_image_medium(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-
     
     parsed = BaseResult(
         type="images",
@@ -101,7 +100,7 @@ def parse_image_small(sub, sub_rank=0):
 def get_img_url(soup):
     """Get image source"""
     try:
-        return soup.find('img').attrs['src']
+        return soup.attrs['data-lpage']
     except Exception:
         return None
 
