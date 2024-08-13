@@ -180,8 +180,7 @@ class Extractor:
 
     def extract_from_left_bar(self, drop_tags: set = {}) -> list:
         """Extract components from left-bar layout"""
-        log.debug("not implemented | may appear in pre-2022 data")
-        column = []
+        column = self.soup.find_all('div', {'class':'TzHB6b'})
         return column
 
 
