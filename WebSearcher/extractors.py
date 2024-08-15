@@ -149,12 +149,22 @@ class Extractor:
                     self.components.add_component(component, section='main')
         except KeyError:
             raise ValueError(f"no extractor for layout_label: {self.layout_label}")    
+        log.debug(f"Extracted main components: {self.components.cmpt_rank_counter:,}")
+
 
     def extract_from_standard(self, drop_tags: set = {}) -> list:
+
+        if self.layout_divs['rso'].find('div', {'id':'kp-wp-tab-overview'}):
+            log.debug("layout update: standard-alt-1")
+            self.layout_label = 'standard-alt'
+            column = self.layout_divs['rso'].find_all('div', {'class':'TzHB6b'})
+            return column
+        
         column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
         column = [c for c in column if Extractor.is_valid_main_component(c)]
+        
         if len(column) == 0:
-            log.debug("layout update: standard-alt")
+            log.debug("layout update: standard-alt-0")
             self.layout_label = 'standard-alt'
             divs = self.layout_divs['rso'].find_all('div', {'id':'kp-wp-tab-overview'})
             column = sum([div.find_all('div', {'class':'TzHB6b'}) for div in divs], [])
