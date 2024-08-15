@@ -61,7 +61,6 @@ class Extractor:
             else:
                 log.debug(f"no rhs_layout")
 
-
     def append_rhs(self):
         """Append the RHS Knowledge Panel to the components list at the end"""
         if self.rhs:
@@ -79,6 +78,14 @@ class Extractor:
             has_img = top_bar.find(lambda tag: tag.has_attr('src') and not tag.has_attr('data-src'))
             if top_bar.find('g-scrolling-carousel') and has_img:
                 self.components.add_component(top_bar, section='header', type='top_image_carousel')
+        self.append_query_notices()
+
+    def append_query_notices(self):
+        """Append query notices to the components list at the end"""
+        query_notices = webutils.find_all_divs(self.soup, 'div', {'id':['taw', 'topstuff']})        
+        log.debug(f"query_notices: {len(query_notices)}")
+        for notice in query_notices:
+            self.components.add_component(notice, section='header', type='query_notice')
 
     # --------------------------------------------------------------------------
     # Main Components
@@ -90,7 +97,6 @@ class Extractor:
         self.extract_main_ads_top()
         self.extract_main_components()
         self.extract_main_ads_bottom()
- 
 
     def extract_main_shopping_ads(self):
         """Extract the main shopping ads section of the SERP"""

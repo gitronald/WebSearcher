@@ -1,6 +1,7 @@
 from .models import BaseResult
-from .classifiers import ClassifyMain, ClassifyFooter
-from .component_parsers import main_parser_dict, footer_parser_dict, parse_unknown, parse_not_implemented
+from .classifiers import ClassifyMain, ClassifyFooter, ClassifyHeaderComponent
+from .component_parsers import main_parser_dict, footer_parser_dict, header_parser_dict
+from .component_parsers import parse_unknown, parse_not_implemented
 from .logger import Logger
 log = Logger().start(__name__)
 
@@ -32,6 +33,9 @@ class Component:
             self.type = classify_type_func(self.elem)
         else:
             if self.type == "unknown":
+                if self.section == "header":
+                    self.type = ClassifyHeaderComponent.classify(self.elem)
+                    log.debug(f"header classification: {self.type}")
                 if self.section == "main":
                     self.type = ClassifyMain.classify(self.elem)
                 elif self.section == "footer":
@@ -48,6 +52,10 @@ class Component:
             try:
                 if self.type == 'unknown':
                     parsed_list = parse_unknown(self)
+
+                if self.section == 'header':
+                    header_parser = header_parser_dict.get(self.type, None)
+                    parsed_list = header_parser(self.elem)
 
                 elif self.type not in main_parser_dict and self.type not in footer_parser_dict:
                     parsed_list = parse_not_implemented(self)

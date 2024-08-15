@@ -1,3 +1,6 @@
+
+from .query_notices import parse_query_notices
+
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
@@ -27,6 +30,13 @@ from .view_more_news import parse_view_more_news
 
 from .footer import Footer
 from .knowledge_rhs import parse_knowledge_rhs
+
+# Header parsers
+header_parsers = [
+    ("query_notice", parse_query_notices, "Query Notices"),
+]
+header_parser_dict = {i[0]:i[1] for i in header_parsers}  # Format {type: function}
+header_parser_labels = {i[0]:i[2] for i in header_parsers} # Format {type: label}
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
