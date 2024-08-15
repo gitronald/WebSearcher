@@ -1,4 +1,4 @@
-from .headers import ClassifyHeaderText
+from .header_text import ClassifyHeaderText
 from .. import webutils
 import bs4
 
