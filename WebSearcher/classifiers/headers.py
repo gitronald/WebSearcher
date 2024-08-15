@@ -1,28 +1,28 @@
 import bs4
 
-class ClassifyByHeader:
+class ClassifyHeaderText:
     """Classify components based on header text (e.g. <h2>title</h2>)"""    
 
     @staticmethod
     def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
         for level in levels:
-            header = ClassifyByHeader._classify_header(cmpt, level)
+            header = ClassifyHeaderText._classify_header(cmpt, level)
             if header != "unknown":
                 return header
         return "unknown"
 
     @staticmethod
     def classify_header_lvl2(cmpt: bs4.element.Tag) -> str:        
-        return ClassifyByHeader._classify_header(cmpt, level=2)
+        return ClassifyHeaderText._classify_header(cmpt, level=2)
 
     @staticmethod
     def classify_header_lvl3(cmpt: bs4.element.Tag) -> str:
-        return ClassifyByHeader._classify_header(cmpt, level=3)
+        return ClassifyHeaderText._classify_header(cmpt, level=3)
 
     @staticmethod
     def _classify_header(cmpt: bs4.element.Tag, level: int) -> str:
         """Check text in common headers for dict matches"""
-        header_dict = ClassifyByHeader._get_header_level_mapping(level)
+        header_dict = ClassifyHeaderText._get_header_level_mapping(level)
 
         # Collect list of potential header divs
         header_list = []
@@ -42,8 +42,8 @@ class ClassifyByHeader:
     @staticmethod
     def _get_header_level_mapping(level) -> dict:
         """Return mapping of header level to header text"""
-        options = {2: ClassifyByHeader.TYPE_TO_H2_MAPPING,
-                   3: ClassifyByHeader.TYPE_TO_H3_MAPPING}
+        options = {2: ClassifyHeaderText.TYPE_TO_H2_MAPPING,
+                   3: ClassifyHeaderText.TYPE_TO_H3_MAPPING}
         return options.get(level, {})
 
     # WS type -> header level 2 text (e.g., <h2>title</h2>)
