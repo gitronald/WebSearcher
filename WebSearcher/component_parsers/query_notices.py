@@ -12,6 +12,7 @@ def parse_query_notices(cmpt):
         list: list of parsed subcomponent dictionaries
     """
 
+    parsed = {}
     sub_type = classify_sub_type(cmpt)
     if sub_type == 'no_results_replacement':
         parsed = _parse_no_results_replacement(cmpt)
