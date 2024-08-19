@@ -108,14 +108,14 @@ class Extractor:
     def extract_main_ads_top(self):
         """Extract the main ads section of the SERP"""
         ads = self.soup.find('div', {'id':'tads'})
-        if ads: 
+        if ads and webutils.get_text(ads):
             self.components.add_component(ads, section='main', type='ad')
 
 
     def extract_main_ads_bottom(self):
         """Extract the main ads section of the SERP"""
         ads = self.soup.find('div', {'id':'tadsb'})
-        if ads:
+        if ads and webutils.get_text(ads):
             self.components.add_component(ads, section='main', type='ad')
 
 
