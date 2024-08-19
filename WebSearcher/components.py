@@ -84,9 +84,17 @@ class Component:
                 log.exception(f'Parsing Exception | {self.cmpt_rank} | {self.type}')
                 parsed_list = [{'type': self.type,
                                 'cmpt_rank': self.cmpt_rank,
-                                'text': self.elem.get_text("<|>", strip=True),
+                                'text': self.elem.get_text('<|>', strip=True),
                                 'error': traceback.format_exc()}]
-        
+
+
+        # Check for empty results list
+        if len(parsed_list) == 0:
+            log.debug(f"No subcomponents parsed for {self.cmpt_rank} | {self.type}")
+            parsed_list = [{"type": self.type,
+                            "cmpt_rank": self.cmpt_rank,
+                            "text": self.elem.get_text("<|>", strip=True),
+                            "error": "No results parsed"}]
         # Track parsed results
         assert type(parsed_list) in [list, dict], f'parser output must be list or dict: {type(parsed_list)}'
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
@@ -94,6 +102,7 @@ class Component:
 
     def add_parsed_result_list(self, parsed_result_list):
         """Add a list of parsed results with BaseResult validation to results_list"""
+        assert len(parsed_result_list) > 0, "Empty parsed result list"
         for parsed_result in parsed_result_list:
             self.add_parsed_result(parsed_result)
 
