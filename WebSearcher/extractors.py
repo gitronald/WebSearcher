@@ -61,11 +61,14 @@ class Extractor:
             else:
                 log.debug(f"no rhs_layout")
 
+
     def append_rhs(self):
         """Append the RHS Knowledge Panel to the components list at the end"""
         if self.rhs:
+            log.debug(f"appending rhs")
             self.components.add_component(**self.rhs)
             self.rhs = None
+
 
     # --------------------------------------------------------------------------
     # Header Components
@@ -80,12 +83,14 @@ class Extractor:
                 self.components.add_component(top_bar, section='header', type='top_image_carousel')
         self.append_query_notices()
 
+
     def append_query_notices(self):
         """Append query notices to the components list at the end"""
         query_notices = webutils.find_all_divs(self.soup, 'div', {'id':['taw', 'topstuff']})        
         log.debug(f"query_notices: {len(query_notices)}")
         for notice in query_notices:
             self.components.add_component(notice, section='header', type='query_notice')
+
 
     # --------------------------------------------------------------------------
     # Main Components
@@ -98,6 +103,7 @@ class Extractor:
         self.extract_main_components()
         self.extract_main_ads_bottom()
 
+
     def extract_main_shopping_ads(self):
         """Extract the main shopping ads section of the SERP"""
         shopping_ads = self.soup.find('div', {'class': 'commercial-unit-desktop-top'})
@@ -109,7 +115,9 @@ class Extractor:
         """Extract the main ads section of the SERP"""
         ads = self.soup.find('div', {'id':'tads'})
         if ads and webutils.get_text(ads):
-            self.components.add_component(ads, section='main', type='ad')
+            # Filter if already extracted as shopping ads
+            if not ads.find('div', {'class': 'commercial-unit-desktop-top'}):
+                self.components.add_component(ads, section='main', type='ad')
 
 
     def extract_main_ads_bottom(self):
