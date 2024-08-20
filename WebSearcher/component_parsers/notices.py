@@ -1,3 +1,4 @@
+import re
 import copy
 from ..models import BaseResult
 from ..webutils import get_text, get_link
@@ -23,14 +24,16 @@ class NoticeParser:
                 "Search instead for:"
             },
             "location_choose_area": {"Results for", "Choose area"},
-            "location_use_precise_location": {"Results for", "Use precise location"}
+            "location_use_precise_location": {"Results for", "Use precise location"},
+            "language_tip": {"Tip:", "Learn more about filtering by language"}
         }
         self.parser_dict = {
             'query_edit': self._parse_query_edit,
             'query_edit_no_results': self._parse_no_results_replacement,
             'query_suggestion': self._parse_query_suggestion,
             'location_choose_area': self._parse_location_choose_area,
-            'location_use_precise_location': self._parse_location_use_precise_location
+            'location_use_precise_location': self._parse_location_use_precise_location,
+            'language_tip': self._parse_language_tip
         }
 
     def parse_notices(self, cmpt) -> list:
@@ -43,18 +46,23 @@ class NoticeParser:
 
     def _classify_sub_type(self, cmpt) -> str:
         """Classify the sub-type of a query notice component"""
-        sub_type = None
-        cmpt_text = cmpt.text
+        cmpt_text = cmpt.text.strip()
+        cmpt_text = re.sub(r'\s+', ' ', cmpt_text)
+
         for sub_type, text_list in self.sub_type_text.items():
             if sub_type.startswith("location_"):
                 if all(text in cmpt_text for text in text_list):
+                    self.sub_type = sub_type
                     break
             elif sub_type.startswith("query_"):
                 if any(text in cmpt_text for text in text_list):
+                    self.sub_type = sub_type
                     break
-        
-        if sub_type:
-            self.sub_type = sub_type
+            elif sub_type.startswith("language_"):
+                if all(text in cmpt_text for text in text_list):
+                    self.sub_type = sub_type
+                    break
+
 
     def _parse_sub_type(self, cmpt):
         sub_parser = self.parser_dict.get(self.sub_type, None)
@@ -112,13 +120,14 @@ class NoticeParser:
         output = {"title": None, "text": None}
 
         # check in div and span with same class
-        did_you_mean_span = cmpt.find('span', class_='gL9Hy')
-        if did_you_mean_span:
-            output['title'] = did_you_mean_span.text.strip()
-        
-        did_you_mean_div = cmpt.find('div', class_='gL9Hy')
-        if did_you_mean_div:
-            output['title'] = did_you_mean_div.text.strip()
+        cmpt_checks = {
+            cmpt.find('span', class_='gL9Hy'),
+            cmpt.find('div', class_='gL9Hy')
+        }
+        for cmpt_check in cmpt_checks:
+            if cmpt_check:
+                output['title'] = cmpt_check.text.strip()
+                break
 
         suggestion_links = cmpt.find_all('a', class_='gL9Hy')
         suggested_queries = [get_text(suggestion_link) for suggestion_link in suggestion_links if suggestion_link]
@@ -153,3 +162,12 @@ class NoticeParser:
                 output['title'] = f"{results_for_span.text.strip()} {location_span.text.strip()}"
         
         return output
+
+    def _parse_language_tip(self, cmpt):
+        output = {"title": None, "text": None}   
+        title_div = cmpt.find('div', class_='Ww4FFb')
+        if title_div:
+            output['title'] = re.sub(r'\s+', ' ', title_div.text)
+
+        return output
+
