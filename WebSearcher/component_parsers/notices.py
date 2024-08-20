@@ -2,7 +2,7 @@ import copy
 from ..models import BaseResult
 from ..webutils import get_text, get_link
 
-def parse_query_notices(cmpt) -> list:
+def parse_notices(cmpt) -> list:
     """Parse a query notices component"""
 
     parsed = {}
@@ -19,7 +19,7 @@ def parse_query_notices(cmpt) -> list:
         parsed = _parse_location_use_precise_location(cmpt)
 
     result = BaseResult(
-        type='query_notice',
+        type='notice',
         sub_type=sub_type,
         sub_rank=0,
         title=parsed.get('title', None),

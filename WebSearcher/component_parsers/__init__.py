@@ -1,5 +1,5 @@
 
-from .query_notices import parse_query_notices
+from .notices import parse_notices
 from .top_image_carousel import parse_top_image_carousel
 
 from .ads import parse_ads
@@ -33,7 +33,7 @@ from .knowledge_rhs import parse_knowledge_rhs
 
 # Header parsers
 header_parsers = [
-    ("query_notice", parse_query_notices, "Query Notices"),
+    ("notice", parse_notices, "Notices"),
     ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
 ]
 header_parser_dict = {i[0]:i[1] for i in header_parsers}  # Format {type: function}
