@@ -1,4 +1,5 @@
 from .components import Component, ComponentList
+from . import utils
 from . import webutils
 from . import logger
 log = logger.Logger().start(__name__)
@@ -76,21 +77,28 @@ class Extractor:
 
     def extract_header(self):
         """Extract the header section, often a carousel of images or other suggestions."""
+        self.extract_top_bar()
+        self.extract_notices()
+
+
+    def extract_top_bar(self):
+        """Extract the top bar section, often a carousel of images or other suggestions."""
         top_bar = self.soup.find('div', {'id':'appbar'})
         if top_bar:
             has_img = top_bar.find(lambda tag: tag.has_attr('src') and not tag.has_attr('data-src'))
             if top_bar.find('g-scrolling-carousel') and has_img:
                 self.components.add_component(top_bar, section='header', type='top_image_carousel')
-        self.append_query_notices()
 
 
-    def append_query_notices(self):
-        """Append query notices to the components list at the end"""
-        query_notices = webutils.find_all_divs(self.soup, 'div', {'id':['taw', 'topstuff']})        
-        log.debug(f"query_notices: {len(query_notices)}")
-        for notice in query_notices:
-            self.components.add_component(notice, section='header', type='query_notice')
+    def extract_notices(self):
+        """Append notices to the components list at the end"""
+        notices = webutils.find_all_divs(self.soup, "div", {"id":["taw", "topstuff"]})
+        notices = utils.unlist([webutils.find_all_divs(div, "div", {"id": "oFNiHe"}) for div in notices])
+        notices = webutils.filter_empty_divs(notices)
 
+        log.debug(f"notices: {len(notices)}")
+        for notice in notices:
+            self.components.add_component(notice, section="header", type="query_notice")
 
     # --------------------------------------------------------------------------
     # Main Components
@@ -98,17 +106,17 @@ class Extractor:
 
     def extract_main(self):
         """Extract the main results sections of the SERP"""
-        self.extract_main_shopping_ads()
+        # self.extract_main_shopping_ads()
         self.extract_main_ads_top()
         self.extract_main_components()
         self.extract_main_ads_bottom()
 
 
-    def extract_main_shopping_ads(self):
-        """Extract the main shopping ads section of the SERP"""
-        shopping_ads = self.soup.find('div', {'class': 'commercial-unit-desktop-top'})
-        if shopping_ads:
-            self.components.add_component(shopping_ads, section='main', type='shopping_ads')
+    # def extract_main_shopping_ads(self):
+    #     """Extract the main shopping ads section of the SERP"""
+    #     shopping_ads = self.soup.find('div', {'class': 'commercial-unit-desktop-top'})
+    #     if shopping_ads:
+    #         self.components.add_component(shopping_ads, section='main', type='shopping_ads')
 
 
     def extract_main_ads_top(self):
@@ -116,8 +124,23 @@ class Extractor:
         ads = self.soup.find('div', {'id':'tads'})
         if ads and webutils.get_text(ads):
             # Filter if already extracted as shopping ads
-            if not ads.find('div', {'class': 'commercial-unit-desktop-top'}):
-                self.components.add_component(ads, section='main', type='ad')
+            # if not ads.find('div', {'class': 'commercial-unit-desktop-top'}):
+            self.components.add_component(ads, section='main', type='ad')
+
+
+    def extract_main_components(self, drop_tags: set={'script', 'style', None}):
+        """Extract main components based on SERP layout"""
+        log.debug("Extracting main column components")
+        self.check_layout_main()
+        try:
+            layout_extractor = self.layout_extractors[self.layout_label]
+            column = layout_extractor(drop_tags)
+            for component in column:
+                if Extractor.is_valid_main_component(component):
+                    self.components.add_component(component, section='main')
+        except KeyError:
+            raise ValueError(f"no extractor for layout_label: {self.layout_label}")    
+        log.debug(f"Extracted main components: {self.components.cmpt_rank_counter:,}")
 
 
     def extract_main_ads_bottom(self):
@@ -125,6 +148,10 @@ class Extractor:
         ads = self.soup.find('div', {'id':'tadsb'})
         if ads and webutils.get_text(ads):
             self.components.add_component(ads, section='main', type='ad')
+
+    # --------------------------------------------------------------------------
+    # Layout Specifics
+    # --------------------------------------------------------------------------
 
 
     def check_layout_main(self):
@@ -148,23 +175,7 @@ class Extractor:
         first_match = label_matches[0] if label_matches else None
         self.layout_label = first_match
         log.debug(f"layout: {self.layout_label}")
-        
-
-    def extract_main_components(self, drop_tags: set={'script', 'style', None}):
-        """Extract main components based on SERP layout"""
-        log.debug("Extracting main column components")
-
-        self.check_layout_main()
-        try:
-            layout_extractor = self.layout_extractors[self.layout_label]
-            column = layout_extractor(drop_tags)
-            for component in column:
-                if Extractor.is_valid_main_component(component):
-                    self.components.add_component(component, section='main')
-        except KeyError:
-            raise ValueError(f"no extractor for layout_label: {self.layout_label}")    
-        log.debug(f"Extracted main components: {self.components.cmpt_rank_counter:,}")
-
+    
 
     def extract_from_standard(self, drop_tags: set = {}) -> list:
 
