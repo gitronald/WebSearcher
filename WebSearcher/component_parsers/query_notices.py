@@ -2,24 +2,21 @@ import copy
 from ..models import BaseResult
 from ..webutils import get_text, get_link
 
-def parse_query_notices(cmpt):
-    """Parse an image component
-    
-    Args:
-        cmpt (bs4 object): an image component
-    
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
+def parse_query_notices(cmpt) -> list:
+    """Parse a query notices component"""
 
     parsed = {}
     sub_type = classify_sub_type(cmpt)
-    if sub_type == 'no_results_replacement':
-        parsed = _parse_no_results_replacement(cmpt)
-    elif sub_type == 'query_edit':
+    if sub_type == 'query_edit':
         parsed = _parse_query_edit(cmpt)
+    elif sub_type == 'query_edit_no_results':
+        parsed = _parse_no_results_replacement(cmpt)
     elif sub_type == 'query_suggestion':
         parsed = _parse_query_suggestion(cmpt)
+    elif sub_type == 'location_choose_area':
+        parsed = _parse_location_choose_area(cmpt)
+    elif sub_type == 'location_use_precise_location':
+        parsed = _parse_location_use_precise_location(cmpt)
 
     result = BaseResult(
         type='query_notice',
@@ -31,17 +28,20 @@ def parse_query_notices(cmpt):
     return [result.model_dump()]
 
 
-def classify_sub_type(cmpt):
+def classify_sub_type(cmpt) -> str:
     """Classify the sub-type of a query notice component"""
     text = cmpt.text
-    if "No results found for" in text:
-        return 'no_results_replacement'
-    elif "Showing results for" in text:
+    if "Showing results for" in text or "Including results for" in text:
         return 'query_edit'
+    elif "No results found for" in text:
+        return 'query_edit_no_results'
     elif "Did you mean:" in text or "Are you looking for:" in text:
         return 'query_suggestion'
+    elif "Results for" in text and "Choose area" in text:
+        return 'location_choose_area'
+    elif "Results for" in text and "Use precise location" in text:
+        return 'location_use_precise_location'
     return "unknown"
-
 
 def _parse_no_results_replacement(cmpt):
     output = {"title": None, "text": None}
@@ -92,9 +92,35 @@ def _parse_query_suggestion(cmpt):
         output['title'] = did_you_mean_div.text.strip()
 
     suggestion_links = cmpt.find_all('a', class_='gL9Hy')
-    for suggestion_link in suggestion_links:
-        suggested_query = get_text(suggestion_link)
-        if suggested_query:
-            output['text'] += suggested_query + " | "
+    suggested_queries = [get_text(suggestion_link) for suggestion_link in suggestion_links if suggestion_link]
+    output['text'] = '<|>'.join(suggested_queries)
 
+    return output
+
+def _parse_location_choose_area(cmpt):
+    output = {"title": None, "text": None}
+    
+    # Extract the main heading
+    heading = cmpt.find('div', class_='eKPi4')
+    if heading:
+        results_for_span = heading.find('span', class_='gm7Ysb')
+        location_span = heading.find('span', class_='BBwThe')
+        
+        if results_for_span and location_span:
+            output['title'] = f"{results_for_span.text.strip()} {location_span.text.strip()}"
+    
+    return output
+
+def _parse_location_use_precise_location(cmpt):
+    output = {"title": None, "text": None}
+    
+    # Extract the main heading
+    heading = cmpt.find('div', class_='eKPi4')
+    if heading:
+        results_for_span = heading.find('span', class_='gm7Ysb')
+        location_span = heading.find('span', class_='BBwThe')
+        
+        if results_for_span and location_span:
+            output['title'] = f"{results_for_span.text.strip()} {location_span.text.strip()}"
+    
     return output
