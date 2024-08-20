@@ -39,7 +39,7 @@ def parse_images(cmpt):
     return parsed
 
 
-def parse_image_multimedia(sub, sub_rank=0):
+def parse_image_multimedia(sub, sub_rank=0) -> dict:
     """Parse an image subcomponent
     
     Args:
@@ -71,9 +71,7 @@ def parse_image_medium(sub, sub_rank=0):
     
     title_div = get_div(sub, 'a', {'class':'EZAeBe'})
     title = get_text(title_div) if title_div else get_img_alt(sub)
-
-    url_div = get_div(sub, 'a', {'class':'EZAeBe'})
-    url = get_link(url_div) if url_div else get_img_url(sub)
+    url = get_link(sub) if title_div else get_img_url(sub)
 
     parsed = BaseResult(
         type="images",
