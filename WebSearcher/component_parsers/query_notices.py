@@ -33,11 +33,12 @@ def parse_query_notices(cmpt):
 
 def classify_sub_type(cmpt):
     """Classify the sub-type of a query notice component"""
-    if "No results found for" in cmpt.text:
+    text = cmpt.text
+    if "No results found for" in text:
         return 'no_results_replacement'
-    elif "Showing results for" in cmpt.text:
+    elif "Showing results for" in text:
         return 'query_edit'
-    elif "Did you mean:" in cmpt.text:
+    elif "Did you mean:" in text or "Are you looking for:" in text:
         return 'query_suggestion'
     return "unknown"
 
@@ -80,13 +81,20 @@ def _parse_query_edit(cmpt):
 
 def _parse_query_suggestion(cmpt):
     output = {"title": None, "text": None}
+
+    # check in div and span with same class
     did_you_mean_span = cmpt.find('span', class_='gL9Hy')
     if did_you_mean_span:
         output['title'] = did_you_mean_span.text.strip()
+    
+    did_you_mean_div = cmpt.find('div', class_='gL9Hy')
+    if did_you_mean_div:
+        output['title'] = did_you_mean_div.text.strip()
 
-    suggestion_link = cmpt.find('a', class_='gL9Hy')
-    if suggestion_link:
+    suggestion_links = cmpt.find_all('a', class_='gL9Hy')
+    for suggestion_link in suggestion_links:
         suggested_query = get_text(suggestion_link)
-        output['text'] = suggested_query
-        output['search_link'] = get_link(suggestion_link)
+        if suggested_query:
+            output['text'] += suggested_query + " | "
+
     return output
