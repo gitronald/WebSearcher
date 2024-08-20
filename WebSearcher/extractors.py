@@ -92,8 +92,7 @@ class Extractor:
 
     def extract_notices(self):
         """Append notices to the components list at the end"""
-        notices = webutils.find_all_divs(self.soup, "div", {"id":["taw", "topstuff"]})
-        notices = utils.unlist([webutils.find_all_divs(div, "div", {"id": "oFNiHe"}) for div in notices])
+        notices = webutils.find_all_divs(self.soup, "div", {"id": "oFNiHe"})
         notices = webutils.filter_empty_divs(notices)
 
         log.debug(f"notices: {len(notices)}")
