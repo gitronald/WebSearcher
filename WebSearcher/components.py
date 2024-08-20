@@ -94,8 +94,10 @@ class Component:
                             "cmpt_rank": self.cmpt_rank,
                             "text": self.elem.get_text("<|>", strip=True),
                             "error": "No results parsed"}]
+        
         # Track parsed results
         assert type(parsed_list) in [list, dict], f"parser output must be list or dict: {type(parsed_list)}"
+        assert len(parsed_list) > 0, f"Empty parsed list: {parsed_list}"
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
 
