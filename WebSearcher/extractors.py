@@ -98,7 +98,7 @@ class Extractor:
 
         log.debug(f"notices: {len(notices)}")
         for notice in notices:
-            self.components.add_component(notice, section="header", type="query_notice")
+            self.components.add_component(notice, section="header", type="notice")
 
     # --------------------------------------------------------------------------
     # Main Components

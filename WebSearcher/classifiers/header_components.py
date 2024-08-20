@@ -11,5 +11,5 @@ class ClassifyHeaderComponent:
         
         cmpt_type = "unknown"
         if webutils.check_dict_value(cmpt.attrs, "id", ["taw", "topstuff"]):
-            cmpt_type = "query_notice"
+            cmpt_type = "notice"
         return cmpt_type

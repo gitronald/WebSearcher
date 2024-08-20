@@ -31,11 +31,21 @@ def parse_notices(cmpt) -> list:
 def classify_sub_type(cmpt) -> str:
     """Classify the sub-type of a query notice component"""
     text = cmpt.text
-    if "Showing results for" in text or "Including results for" in text:
+    
+    query_edit_check_list = ["Showing results for", "Including results for"]
+    query_suggestion_check_list = [
+        "Did you mean:", 
+        "Are you looking for:", 
+        "Search for this instead?", 
+        "Did you mean to search for:", 
+        "Search instead for:",
+    ]
+
+    if any(check_text in text for check_text in query_edit_check_list):
         return 'query_edit'
     elif "No results found for" in text:
         return 'query_edit_no_results'
-    elif "Did you mean:" in text or "Are you looking for:" in text:
+    elif any(check_text in text for check_text in query_suggestion_check_list):
         return 'query_suggestion'
     elif "Results for" in text and "Choose area" in text:
         return 'location_choose_area'
