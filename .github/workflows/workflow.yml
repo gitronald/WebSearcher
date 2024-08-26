@@ -3,13 +3,11 @@ name: Python Package Release
 on:
   push:
     branches:
-      - master  # or your release branch
-    tags:
-      - 'v*'  # Trigger workflow on version tags e.g., v1.0, v2.0
-
+      - master
 
 jobs:
   build-and-publish:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -24,10 +22,6 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install setuptools wheel twine
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-
-    - name: Run tests
-      run: |
-        echo "Running tests"  # Placeholder for test commands
 
     - name: Build package
       run: |
