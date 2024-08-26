@@ -111,8 +111,6 @@ def get_text(soup: BeautifulSoup, name: str=None, attrs: dict={}, separator:str=
     text = div.get_text(separator=separator)
     return text.strip() if strip else text
 
-
-
 def get_link(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href') -> str:
     """Utility for `soup.find('a')['href']` with null key handling"""
     link = get_div(soup, 'a', attrs)
@@ -125,18 +123,19 @@ def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href', filt
 
 def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty: bool = True) -> list:
     divs = soup.find_all(name, attrs) if attrs else soup.find_all(name)
-    if filter_empty:
-        divs = [c for c in divs if c]
-        divs = [c for c in divs if c.text != '']
+    divs = filter_empty_divs(divs) if filter_empty else divs
+    return divs
+
+def filter_empty_divs(divs):
+    divs = [c for c in divs if c]
+    divs = [c for c in divs if c.text != '']
     return divs
 
 def find_children(soup, name: str, attrs: dict = {}, filter_empty: bool = False):
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
     divs = div.children if div else []
-    if divs and filter_empty:
-        divs = [c for c in divs if c]
-        divs = [c for c in divs if c.text != '']
+    divs = filter_empty_divs(divs) if filter_empty else divs
     return divs
 
 

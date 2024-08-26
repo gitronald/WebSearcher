@@ -11,25 +11,43 @@ Changelog
 
 from .. import webutils
 from ..models import BaseResult
+from .shopping_ads import parse_shopping_ads
 import bs4
 
-def parse_ads(cmpt: bs4.element.Tag):
+def parse_ads(cmpt: bs4.element.Tag) -> list:
     """Parse ads from ad component"""
 
-    if cmpt.find_all('li', {'class':'ads-ad'}):
-        # Check for legacy ad format
-        subs = cmpt.find_all('li', {'class':'ads-ad'})
-        parser = parse_ad_legacy
-    elif cmpt.find_all('li', {'class':'ads-fr'}):
-        # Check for secondary ad format
-        subs = cmpt.find_all('li', {'class':'ads-fr'})
-        parser = parse_ad_secondary
-    else:
-        # Check for latest ad format
-        subs = cmpt.find_all('div', {'class':'uEierd'})
-        parser = parse_ad
+    parsed = []
+    sub_type = classify_ad_type(cmpt)
 
-    return [parser(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    if sub_type == 'legacy':
+        subs = cmpt.find_all('li', {'class': 'ads-ad'})
+        parsed = [parse_ad_legacy(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    elif sub_type == 'secondary':
+        subs = cmpt.find_all('li', {'class': 'ads-fr'})
+        parsed = [parse_ad_secondary(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    elif sub_type == 'standard':
+        subs = webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
+        for sub in subs:
+            sub_classes = sub.attrs.get("class", [])
+            if "commercial-unit-desktop-top" in sub_classes:
+                parsed.extend(parse_shopping_ads(sub))
+            elif "uEierd" in sub_classes:
+                parsed.append(parse_ad(sub))
+    return [BaseResult(**parsed_item).model_dump() for parsed_item in parsed]
+
+
+def classify_ad_type(cmpt: bs4.element.Tag) -> str:
+    """Classify the type of ad component"""
+    label_divs = {
+        "legacy": webutils.find_all_divs(cmpt, 'div', {'class': 'ad_cclk'}),
+        "secondary": webutils.find_all_divs(cmpt, 'div', {'class': 'd5oMvf'}),
+        "standard": webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
+    }
+    for label, divs in label_divs.items():
+        if divs:
+            return label
+    return 'unknown'
 
 
 def parse_ad(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
@@ -56,8 +74,7 @@ def parse_ad(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         parsed['sub_type'] = 'submenu'
         parsed['details'] = submenu
 
-    validated = BaseResult(**parsed)
-    return validated.model_dump()
+    return parsed
 
 
 def parse_ad_menu(sub: bs4.element.Tag) -> list:
@@ -81,7 +98,9 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
 def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """Parse details of a single ad subcomponent, similar to general"""
 
-    parsed = {'type':'ad', 'sub_rank':sub_rank}
+    parsed = {"type": "ad", 
+              "sub_type": "secondary", 
+              "sub_rank": sub_rank}
     parsed['title'] = sub.find('div', {'role':'heading'}).text
     parsed['url'] = sub.find('div', {'class':'d5oMvf'}).find('a')['href']
     parsed['cite'] = sub.find('span', {'class':'gBIQub'}).text
@@ -103,10 +122,12 @@ def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
     return parsed
 
-def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_ad_legacy(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """[legacy] Parse details of a single ad subcomponent, similar to general"""
 
-    parsed = {'type':'ad', 'sub_rank':sub_rank}
+    parsed = {"type": "ad", 
+              "sub_type": "legacy", 
+              "sub_rank": sub_rank}
     header = sub.find('div', {'class':'ad_cclk'})
     parsed['title'] = header.find('h3').text
     parsed['url'] = header.find('cite').text

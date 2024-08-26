@@ -1,3 +1,7 @@
+
+from .notices import parse_notices
+from .top_image_carousel import parse_top_image_carousel
+
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
@@ -19,7 +23,6 @@ from .people_also_ask import parse_people_also_ask
 from .scholarly_articles import parse_scholarly_articles
 from .searches_related import parse_searches_related
 from .shopping_ads import parse_shopping_ads
-from .top_image_carousel import parse_top_image_carousel
 from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
 from .videos import parse_videos
@@ -27,6 +30,14 @@ from .view_more_news import parse_view_more_news
 
 from .footer import Footer
 from .knowledge_rhs import parse_knowledge_rhs
+
+# Header parsers
+header_parsers = [
+    ("notice", parse_notices, "Notices"),
+    ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
+]
+header_parser_dict = {i[0]:i[1] for i in header_parsers}  # Format {type: function}
+header_parser_labels = {i[0]:i[2] for i in header_parsers} # Format {type: label}
 
 # Component details dataframe
 columns = ['type', 'func', 'label']
@@ -49,7 +60,6 @@ main_parsers = [
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('searches_related', parse_searches_related, 'Related Searches'),
     ('shopping_ads', parse_shopping_ads, 'Shopping Ad'),
-    ('top_image_carousel', parse_top_image_carousel, 'Top Image Carousel'),
     ('top_stories', parse_top_stories, 'Top Stories'),
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),
     ('twitter_result', parse_twitter_result, 'Twitter Result'),

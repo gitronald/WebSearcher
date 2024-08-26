@@ -1,6 +1,5 @@
 from ..models import BaseResult
-from ..webutils import get_text, get_link
-
+from ..webutils import get_text, get_link, get_div
 
 def parse_images(cmpt):
     """Parse an image component
@@ -16,28 +15,31 @@ def parse_images(cmpt):
 
     # Small images: thumbnails with text labels
     if cmpt.find('g-expandable-container'):
-        subs_small = cmpt.find_all('a', {'class': 'dgdd6c'})
-        parsed_small = [parse_image_small(div, sub_rank) for sub_rank, div in enumerate(subs_small)]
-        parsed.extend(parsed_small)
+        subs = cmpt.find_all('a', {'class': 'dgdd6c'})
+        sub_type = 'small'
+        parsed_subs = [parse_image_small(div, sub_rank) for sub_rank, div in enumerate(subs)]
+        parsed.extend(parsed_subs)
 
     if cmpt.find('g-scrolling-carousel'):
         # Medium images or video previews, no text labels
         subs = cmpt.find_all('div', {'class':'eA0Zlc'})
-        _parsed = [parse_image_multimedia(sub, sub_rank + len(parsed)) for sub_rank, sub in enumerate(subs)]
-        parsed.extend(_parsed)
+        sub_type = 'multimedia'
+        parsed_subs = [parse_image_multimedia(sub, sub_rank + len(parsed)) for sub_rank, sub in enumerate(subs)]
+        parsed.extend(parsed_subs)
     else:
         # Medium images with titles and urls
         subs = cmpt.find_all('div', {'class':'eA0Zlc'})
-        _parsed = [parse_image_medium(sub, sub_rank + len(parsed)) for sub_rank, sub in enumerate(subs)]
-        parsed.extend(_parsed)
+        sub_type = 'medium'
+        parsed_subs = [parse_image_medium(sub, sub_rank + len(parsed)) for sub_rank, sub in enumerate(subs)]
+        parsed.extend(parsed_subs)
 
     # Filter empty results
-    parsed = [p for p in parsed if p['title']]
-            
+    parsed = [p for p in parsed if any([p['title'], p['url'], p['text']])]
+    
     return parsed
 
 
-def parse_image_multimedia(sub, sub_rank=0):
+def parse_image_multimedia(sub, sub_rank=0) -> dict:
     """Parse an image subcomponent
     
     Args:
@@ -52,7 +54,7 @@ def parse_image_multimedia(sub, sub_rank=0):
         sub_type="multimedia",
         sub_rank=sub_rank,
         title=get_img_alt(sub),
-        # url=get_img_url(sub), # dynamic load, no source url via requests
+        url=get_img_url(sub),
     )
     return parsed.model_dump()
 
@@ -66,14 +68,17 @@ def parse_image_medium(sub, sub_rank=0):
     Returns:
         dict : parsed subresult
     """
-
     
+    title_div = get_div(sub, 'a', {'class':'EZAeBe'})
+    title = get_text(title_div) if title_div else get_img_alt(sub)
+    url = get_link(sub) if title_div else get_img_url(sub)
+
     parsed = BaseResult(
         type="images",
         sub_type="medium",
         sub_rank=sub_rank,
-        title=get_text(sub, 'a', {'class':'EZAeBe'}),
-        url=get_link(sub, {'class':'EZAeBe'}),
+        title=title,
+        url=url,
         cite=get_text(sub, 'div', {'class':'ptes9b'})
     )
     return parsed.model_dump()
@@ -98,17 +103,17 @@ def parse_image_small(sub, sub_rank=0):
     return parsed.model_dump()
 
 
-def get_img_url(soup):
+def get_img_url(sub):
     """Get image source"""
     try:
-        return soup.find('img').attrs['src']
+        return sub.attrs['data-lpage']
     except Exception:
         return None
 
 
-def get_img_alt(soup):
+def get_img_alt(sub):
     """Get image alt text"""
     try:
-        return f"alt-text: {soup.find('img').attrs['alt']}"
+        return f"alt-text: {sub.find('img').attrs['alt']}"
     except Exception:
         return None

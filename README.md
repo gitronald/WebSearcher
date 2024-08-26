@@ -50,54 +50,60 @@ se = ws.SearchEngine()
 vars(se)
 ```
 ```python
-{'url': 'https://www.google.com/search',
- 'params': {},
+{'version': '0.4.1',
+ 'base_url': 'https://www.google.com/search',
  'headers': {'Host': 'www.google.com',
   'Referer': 'https://www.google.com/',
   'Accept': '*/*',
-  'Accept-Language': 'en-US,en;q=0.5',
   'Accept-Encoding': 'gzip,deflate,br',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'},
+  'Accept-Language': 'en-US,en;q=0.5',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0'},
+ 'sesh': <requests.sessions.Session at 0x7f9ac018ece0>,
  'ssh_tunnel': None,
- 'sesh': <requests.sessions.Session at 0x7f7bad8efba8>,
- 'log': <Logger WebSearcher.searchers (DEBUG)>,
+ 'unzip': True,
+ 'params': {},
+ 'qry': None,
+ 'loc': None,
+ 'num_results': None,
+ 'url': None,
+ 'timestamp': None,
+ 'serp_id': None,
+ 'crawl_id': None,
+ 'response': None,
  'html': None,
  'results': [],
- 'results_html': []}
+ 'log': <Logger WebSearcher.searchers (DEBUG)>}
 ```
 
 #### Conduct a search
 
 ```python
 # Conduct Search
-se.search('immigration')
+se.search('immigration news')
 ```
 ```
-2019-08-14 01:25:38,267 | 2688 | INFO | WebSearcher.searchers | 200 | Searching immigration
+2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
 ```
 
 ```python
 # Parse Results
 se.parse_results()
 ```
-```
-2019-08-14 01:25:42,208 | 2688 | INFO | WebSearcher.parsers | Parsing SERP 4d4fe27fe6b6466041e326622719b03ccc6542427c577c69740ae7fc
-```
 
 ```python
 se.results[0]
-{'cite': 'The New York Times',
+{'section': 'main',
  'cmpt_rank': 0,
- 'details': {'img_url': None, 'live_stamp': False, 'orient': 'h'},
- 'lang': 'en',
- 'qry': 'immigration',
- 'serp_id': '4d4fe27fe6b6466041e326622719b03ccc6542427c577c69740ae7fc',
- 'serp_rank': 0,
  'sub_rank': 0,
- 'timestamp': '1 day ago',
- 'title': 'Trump Policy Favors Wealthier Immigrants for Green Cards',
  'type': 'top_stories',
- 'url': 'https://www.nytimes.com/2019/08/12/us/politics/trump-immigration-policy.html'}
+ 'sub_type': None,
+ 'title': 'Biden citizenship program for migrant spouses in US launches',
+ 'url': 'https://www.newsnationnow.com/us-news/immigration/biden-citizenship-program-migrant-spouses-us-launches/',
+ 'text': None,
+ 'cite': 'NewsNation',
+ 'details': None,
+ 'error': None,
+ 'serp_rank': 0}
 ```
 
 ### Save a Search
@@ -140,9 +146,9 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 
 ### Add a Parser
 
-1. Add classifier to `component_classifier.py`, as `'cmpt_name'`
-2. Add parser file in `/component_parsers` as `cmpt_name.py`, with function `parse_cmpt_name`.
-3. Add import for `parse_cmpt_name` in `/component_parsers/__init__.py`
+1. Add classifier to `classifiers/{main,footer,headers}.py`  
+2. Add parser as new file in `/component_parsers`  
+3. Add new parser to imports and catalogue in `/component_parsers/__init__.py`  
 
 ### Testing
 Run tests:

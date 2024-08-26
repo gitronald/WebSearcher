@@ -2,7 +2,7 @@ from ..models import BaseResult
 
 
 def parse_banner(cmpt):
-    """Parse a search suggestion component
+    """Parse a warning banner component
 
     Args:
         cmpt (bs4 object): A search suggestion component
@@ -40,16 +40,3 @@ def get_result_text(cmpt, selector):
         return cmpt.select_one(selector).get_text(strip=True)
     else:
         return ""
-
-
-# ------------------------------------------------------------------------------
-
-# with open("examples/banner-topicality.html", "r") as f:
-#     html = f.read()
-
-# wraprint(html, width=150)
-# # print(ws.make_soup(html).prettify())
-
-# l = parse_banner(ws.make_soup(html))
-# df = pd.DataFrame([i.model_dump() for i in l])
-# df
