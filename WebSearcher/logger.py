@@ -4,6 +4,9 @@
 import logging.config
 from typing import Optional
 
+# Setting
+LOG_LEVEL_DEFAULT = 'INFO'
+
 # Formatters: change what gets logged
 minimal = '%(message)s'
 medium = '%(asctime)s.%(msecs)01d | %(levelname)s | %(name)s | %(message)s'
@@ -28,11 +31,11 @@ class Logger:
     def __init__(self,
                  console: bool = True, 
                  console_format: str = 'medium', 
-                 console_level: str = 'INFO',                
+                 console_level: str = LOG_LEVEL_DEFAULT,
                  file_name: str = '',  
                  file_mode: str = 'w', 
                  file_format: str = 'detailed',
-                 file_level: str = 'INFO') -> None:
+                 file_level: str = LOG_LEVEL_DEFAULT) -> None:
         """
         Initializes the Logger configuration.
 
