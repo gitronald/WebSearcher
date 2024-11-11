@@ -4,8 +4,7 @@ on:
   pull_request:
     branches:
       - master
-    types:
-      - closed
+    types: [closed, synchronize]
 
 permissions:
   contents: read
