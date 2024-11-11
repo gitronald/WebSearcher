@@ -70,7 +70,7 @@ def make_soup(html, parser='lxml'):
 
 def has_captcha(soup):
     """Boolean for 'CAPTCHA' appearance in soup"""
-    return True if soup.find(text=re.compile('CAPTCHA')) else False
+    return True if soup.find(string=re.compile('CAPTCHA')) else False
 
 def get_html_language(soup):
     try:
