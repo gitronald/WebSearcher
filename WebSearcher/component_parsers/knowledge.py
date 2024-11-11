@@ -102,7 +102,7 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
 
     else:
         parsed['sub_type'] = 'panel'
-        div = cmpt.find_all(['span','div','a'], text=True)
+        div = cmpt.find_all(['span','div','a'], string=True)
         details['text'] = get_text(div) if div else None
 
         text_divs = cmpt.find_all("div", {"class":"sinMW"})

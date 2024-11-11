@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "WebSearcher"
+version = "0.4.2"
+description = "Tools for conducting, collecting, and parsing web search"
+authors = ["Ronald E. Robertson <rer@acm.org>"]
+packages = [{include = "WebSearcher"}]
+license = "GPL-3.0"
+readme = "README.md"
+homepage = "http://github.com/gitronald/WebSearcher"
+repository = "http://github.com/gitronald/WebSearcher"
+keywords = ["web", "search", "parser"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.32.3"
+lxml = "^5.3.0"
+beautifulsoup4 = "^4.12.3"
+tldextract = "^5.1.2"
+brotli = "^1.1.0"
+pydantic = "^2.9.2"
+pandas = "^2.2.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^8.3.3"
+syrupy = "^4.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+demo-search = "scripts.demo_search:main"

@@ -15,9 +15,13 @@ and position-based specifications.
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
-      - [Prepare a search](#prepare-a-search)
-      - [Conduct a search](#conduct-a-search)
-    - [Save a Search](#save-a-search)
+    - [Example Search Script](#example-search-script)
+    - [Step by Step](#step-by-step)
+      - [1. Initialize Collector](#1-initialize-collector)
+      - [2. Conduct a Search](#2-conduct-a-search)
+      - [3. Parse Search Results](#3-parse-search-results)
+      - [4. Save HTML and Metadata](#4-save-html-and-metadata)
+      - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
@@ -41,15 +45,82 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 ---  
 ## Usage
 
-#### Prepare a search
+### Example Search Script
+
+There's an example search script that can be run from the command line with poetry with a search query argument (`-q` or `--query`).
+
+```bash
+poetry run demo-search -q "election news"
+```
+
+Search results are constantly changing, especially for news, but just now (see timestamp below), that search returned the following details (only a subset of columns are shown):
+
+```
+WebSearcher v0.4.2.dev0
+Search Query: election news
+Output Dir: data/demo-ws-v0.4.2.dev0
+
+2024-11-11 10:55:27.362 | INFO | WebSearcher.searchers | 200 | election news
+
+                type                                    title                                      url
+0        top_stories  There’s a Lot of Fighting Over Why H...  https://slate.com/news-and-politics/...
+1        top_stories  Dearborn’s Arab Americans feel vindi...  https://www.politico.com/news/2024/1...
+2        top_stories  Former Kamala Harris aide says Joe B...  https://www.usatoday.com/story/news/...
+3        top_stories  Election live updates: Control of Co...  https://apnews.com/live/house-senate...
+4        top_stories  Undecided races of the 2024 election...  https://abcnews.go.com/538/live-upda...
+5         local_news  These Southern California House race...  https://www.nbclosangeles.com/decisi...
+6         local_news  Election Day is over in California. ...  https://www.sacbee.com/news/politics...
+7         local_news  Why Haven’t Numerous California Hous...  https://www.democracydocket.com/news...
+8         local_news  Anti-slavery measure Prop. 6 fails, ...  https://calmatters.org/politics/elec...
+9            general  November 10, 2024, election and Trum...  https://www.cnn.com/politics/live-ne...
+10           general  When do states have to certify 2024 ...  https://www.cbsnews.com/news/state-e...
+11           general  US Election 2024 | Latest News & Ana...  https://www.bbc.com/news/topics/cj3e...
+12           unknown                                     None                                     None
+13           general                            2024 Election  https://www.npr.org/sections/elections/
+14           general  Politics, Policy, Political News - P...                https://www.politico.com/
+15           general  Presidential election highlights: No...  https://apnews.com/live/trump-harris...
+16           general  Election 2024: Latest News, Top Stor...  https://calmatters.org/category/poli...
+17  searches_related                                     None                                     None
+```
+
+By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) with the structure below. Within that, the script saves the HTML both to a single JSON lines file (`serps.json`), which is recommended because it includes metadata about the search, and to individual HTML files in a subdirectory (`html/`) for ease of viewing the SERPs (e.g., in a browser). The script also saves the parsed search results to a JSON file (`results.json`).
+
+```sh
+ls -hal data/demo-ws-v0.4.2.dev0/
+```
+```
+total 1020K
+drwxr-xr-x 3 user user 4.0K 2024-11-11 10:54 ./
+drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
+drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
+-rw-r--r-- 1 user user  16K 2024-11-11 10:55 results.json
+-rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
+```
+
+### Step by Step
+
+Example search and parse pipeline:
+
+```python
+import WebSearcher as ws
+se = ws.SearchEngine()                     # 1. Initialize collector
+se.search('immigration news')              # 2. Conduct a search
+se.parse_results()                         # 3. Parse search results
+se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
+se.save_results(append_to='results.json')  # 5. Save parsed results
+
+```
+
+#### 1. Initialize Collector
+
 ```python
 import WebSearcher as ws
 
-# Initialize crawler with optional defaults (headers, logs, ssh tunnels)
+# Initialize collector with optional defaults (headers, logs, ssh tunnels)
 se = ws.SearchEngine()
+
+# Show collector settings
 vars(se)
-```
-```python
 {'version': '0.4.1',
  'base_url': 'https://www.google.com/search',
  'headers': {'Host': 'www.google.com',
@@ -75,22 +146,22 @@ vars(se)
  'log': <Logger WebSearcher.searchers (DEBUG)>}
 ```
 
-#### Conduct a search
+#### 2. Conduct a Search
 
 ```python
-# Conduct Search
 se.search('immigration news')
-```
-```
-2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
+# 2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
 ```
 
+#### 3. Parse Search Results
+
+The example below is primarily for parsing search results as you collect HTML.  
+See `ws.parse_serp(html)` for parsing existing HTML data.
+
 ```python
-# Parse Results
 se.parse_results()
-```
 
-```python
+# Show first result
 se.results[0]
 {'section': 'main',
  'cmpt_rank': 0,
@@ -106,10 +177,11 @@ se.results[0]
  'serp_rank': 0}
 ```
 
-### Save a Search
 
-Recommended: Append html and meta data as lines to a json file. 
-Useful for larger or ongoing crawls.
+#### 4. Save HTML and Metadata
+
+Recommended: Append html and meta data as lines to a json file for larger or 
+ongoing collections.
 
 ```python
 se.save_serp(append_to='serps.json')
@@ -121,22 +193,30 @@ Alternative: Save individual html files in a directory, named by a provided or (
 se.save_serp(save_dir='./serps')
 ```
 
+#### 5. Save Parsed Results
+
+Save to a json lines file.
+
+```python
+se.save_results(append_to='results.json')
+```
+
 ---  
 ## Localization
 
-<!-- Conduct web searches from a location of choice. -->
+To conduct localized searches--from a location of your choice--you only need  
+one additional data point: The __"Canonical Name"__ of each location. These are  
+available online, and can be downloaded using a built in function  
+(`ws.download_locations()`) to check for the most recent version.  
 
-To conduct localized searches--from a location of your choice--you only need one additional data point: The __"Canonical Name"__ of each location.   
-These are available online, and can be downloaded using a built in function (`ws.download_locations()`) that checks for the most recent version.  
-
-A brief guide on how to select a canonical name and use it to conduct a localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
-
+A brief guide on how to select a canonical name and use it to conduct a  
+localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
 
 
 ---
 ## Contributing
 
-Happy to have help! If you see a component that we aren't covering yet, please add it using the process below. If you have other improvements, feel free to add them any way you can.  
+Happy to have help! If you see a component that we aren't covering yet, please add it using the process below. If you aren't sure about how to write a parser, you can also create an issue and I'll try to check it out. When creating that type of issue, providing the query that produced the new component and the time it was seen are essential, a screenshot of the component would be helpful, and the HTML would be ideal. Feel free to reach out if you have questions or need help.
 
 
 ### Repair or Enhance a Parser
@@ -173,6 +253,16 @@ pytest -k "1684837514.html"
 
 ---
 ## Recent Changes
+
+`0.4.1` - Added notices component types, including query edits, suggestions, language tips, and location tips.
+
+`0.4.0` - Restructured parser for component classes, split classifier into submodules for header, main, footer, etc., and rewrote extractors to work with component classes. Various bug fixes.
+
+`0.3.13` - New footer parser, broader extraction coverage, various bug and deprecation fixes.
+
+`0.3.12` - Added num_results to search args, added handling for local results text and labels (made by the SE), ignore hidden_survey type at extraction.
+
+`0.3.11` - Added extraction of labels for ads (made by the SE), use model validation, cleanup and various bug fixes.
 
 `0.3.10` - Updated component classifier for images, added exportable header text mappings, added gist on localized searches.
 
