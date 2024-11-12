@@ -184,6 +184,20 @@ class SearchEngine:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
 
+    def prepare_serp_save(self):
+        self.serp = BaseSERP(
+            qry=self.qry, 
+            loc=self.loc, 
+            url=self.url, 
+            html=self.html,
+            response_code=self.response.status_code,
+            user_agent=self.headers['User-Agent'],
+            timestamp=self.timestamp,
+            serp_id=self.serp_id,
+            crawl_id=self.crawl_id,
+            version=self.version,
+        ).model_dump()
+
     def save_serp(self, save_dir: str = "", append_to: str = ""):
         """Save SERP to file
 
@@ -195,20 +209,8 @@ class SearchEngine:
         assert save_dir or append_to, "Must provide a save_dir or append_to file path"
 
         if append_to:
-            # Prepare and save SERP row
-            serp = BaseSERP(
-                qry=self.qry, 
-                loc=self.loc, 
-                url=self.url, 
-                html=self.html,
-                response_code=self.response.status_code,
-                user_agent=self.headers['User-Agent'],
-                timestamp=self.timestamp,
-                serp_id=self.serp_id,
-                crawl_id=self.crawl_id,
-                version=self.version,
-            )
-            utils.write_lines([serp.model_dump()], append_to)
+            self.prepare_serp_save()
+            utils.write_lines([self.serp], append_to)
 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
