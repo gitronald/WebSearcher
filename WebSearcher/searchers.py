@@ -173,7 +173,6 @@ class SearchEngine:
             self.log.exception(f'unzip error | serp_id : {self.serp_id}')
             self.html = rcontent
 
-
     def parse_results(self):
         """Parse a SERP - see parsers.py"""
 
@@ -183,6 +182,14 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
+    def parse_serp_features(self):
+        """Extract SERP features - see parsers.py"""
+
+        assert self.html, "No HTML found"
+        try:
+            self.serp_features = parsers.FeatureExtractor.extract_features(self.html)
+        except Exception:
+            self.log.exception(f'Feature extraction error | serp_id : {self.serp_id}')
 
     def prepare_serp_save(self):
         self.serp = BaseSERP(
@@ -217,6 +224,24 @@ class SearchEngine:
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
+    def save_search(self, append_to: str = ""):
+        """Save search metadata (excludes HTML) to file
+
+        Args:
+            append_to (str, optional): Append results to this file path
+        """
+        assert self.html, "No HTML found"
+        assert append_to, "Must provide an append_to file path"
+
+        if not self.serp:
+            self.prepare_serp_save()
+        
+        if not self.serp_features:
+            self.parse_serp_features()
+        
+        self.serp_metadata = {k: v for k, v in self.serp.items() if k != 'html'}
+        self.serp_metadata.update(self.serp_features)
+        utils.write_lines([self.serp_metadata], append_to)
 
     def save_results(self, save_dir: str = "", append_to: str = ""):
         """Save parsed results
