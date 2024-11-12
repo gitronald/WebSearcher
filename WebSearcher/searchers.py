@@ -93,12 +93,12 @@ class SearchEngine:
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self.prepare_search(qry=qry, location=location, num_results=num_results)
-        self.conduct_search(serp_id=serp_id, crawl_id=crawl_id)
-        self.handle_response()
+        self._prepare_search(qry=qry, location=location, num_results=num_results)
+        self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
+        self._handle_response()
 
 
-    def prepare_search(self, qry: str, location: str = '', num_results: int = None):
+    def _prepare_search(self, qry: str, location: str = '', num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
         self.loc = str(location)
@@ -111,24 +111,24 @@ class SearchEngine:
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
 
-    def conduct_search(self, serp_id: str = '', crawl_id: str = ''):
+    def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
         """Send a search request and handle errors"""
 
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
         try:
-            self.send_request()
+            self._send_request()
         except requests.exceptions.ConnectionError:
             self.log.exception(f'SERP | Connection error | {self.serp_id}')
-            self.reset_ssh_tunnel()
+            self._reset_ssh_tunnel()
         except requests.exceptions.Timeout:
             self.log.exception(f'SERP | Timeout error | {self.serp_id}')
         except Exception:
             self.log.exception(f'SERP | Unknown error | {self.serp_id}')
 
 
-    def send_request(self):
+    def _send_request(self):
         self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
         self.response = self.sesh.get(self.url, timeout=10)
         log_msg = f"{self.response.status_code} | {self.qry}"
@@ -136,7 +136,7 @@ class SearchEngine:
         self.log.info(log_msg)
 
 
-    def reset_ssh_tunnel(self):
+    def _reset_ssh_tunnel(self):
         if self.ssh_tunnel:
             self.ssh_tunnel.tunnel.kill()
             self.ssh_tunnel.open_tunnel()
@@ -144,10 +144,10 @@ class SearchEngine:
             time.sleep(10) # Allow time to establish connection
 
 
-    def handle_response(self):
+    def _handle_response(self):
         try:
             if self.unzip:  
-                self.unzip_html()
+                self._unzip_html()
             else:
                 self.html = self.response.content
             self.html = self.html.decode('utf-8', 'ignore')
@@ -155,7 +155,7 @@ class SearchEngine:
             self.log.exception(f'Response handling error')
 
 
-    def unzip_html(self):
+    def _unzip_html(self):
         """Unzip brotli zipped html 
 
         Can allow zipped responses by setting the header `"Accept-Encoding"`.
