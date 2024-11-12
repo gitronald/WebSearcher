@@ -36,10 +36,14 @@ class FeatureExtractor:
         # Extract result estimate count and time
         match = rx_estimate.search(html)
         result_estimate_div = match.group(0) if match else None
-        count_match = re.search(r'([0-9,]+) results', result_estimate_div)
-        time_match = re.search(r'([0-9.]+) seconds', result_estimate_div)
-        output["result_estimate_count"] = float(count_match.group(1).replace(",","")) if count_match else None
-        output["result_estimate_time"] = float(time_match.group(1)) if time_match else None
+        if result_estimate_div is None:
+            output["result_estimate_count"] = None
+            output["result_estimate_time"] = None
+        else:
+            count_match = re.search(r'([0-9,]+) results', result_estimate_div)
+            time_match = re.search(r'([0-9.]+) seconds', result_estimate_div)
+            output["result_estimate_count"] = float(count_match.group(1).replace(",","")) if count_match else None
+            output["result_estimate_time"] = float(time_match.group(1)) if time_match else None
 
         # Extract language
         match = rx_language.search(html)
