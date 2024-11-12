@@ -114,14 +114,9 @@ class Component:
 
     def export_results(self):
         """Export the list of results"""
-
-        results_metadata_list = []
-        for result in self.result_list:
-            result_metadata = {"section":self.section, "cmpt_rank":self.cmpt_rank}
-            result_metadata.update(result)
-            results_metadata_list.append(result_metadata)
-
-        return results_metadata_list
+        result_metadata = {"section":self.section, "cmpt_rank":self.cmpt_rank}
+        results_list = [{**result_metadata, **result} for result in self.result_list]
+        return results_list
 
 
 class ComponentList:
@@ -151,7 +146,6 @@ class ComponentList:
                 results.append(result)
                 self.serp_rank_counter += 1
         return results
-
 
     def to_records(self):
         return [Component.to_dict() for Component in self.components]
