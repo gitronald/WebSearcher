@@ -10,11 +10,10 @@ import time
 import brotli
 import requests
 import subprocess
-from importlib import metadata
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
-# Current version
+from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
@@ -185,7 +184,7 @@ class SearchEngine:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
 
-    def save_serp(self, save_dir: str = '', append_to: str = ""):
+    def save_serp(self, save_dir: str = "", append_to: str = ""):
         """Save SERP to file
 
         Args:
@@ -217,18 +216,20 @@ class SearchEngine:
                 outfile.write(self.html)
 
 
-    def save_results(self, save_dir: str = '', append_to: str = ""):
+    def save_results(self, save_dir: str = "", append_to: str = ""):
         """Save parsed results
         
         Args:
             save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
             append_to (bool, optional): Append results to this file path
-        """        
+        """
         assert save_dir or append_to, "Must provide a save_dir or append_to file path"
 
         if self.results:
             if append_to:
-                utils.write_lines(self.results, append_to)
+                result_metadata = {'crawl_id': self.crawl_id, 'serp_id': self.serp_id, 'version': self.version}
+                results_output = [{**result, **result_metadata} for result in self.results]
+                utils.write_lines(results_output, append_to)
             else:
                 fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
                 utils.write_lines(self.results, fp)
