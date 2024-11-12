@@ -1,6 +1,6 @@
-__version__ = "0.4.4.dev1"
+__version__ = "0.4.4"
 from .searchers import SearchEngine
-from .parsers import parse_serp
+from .parsers import parse_serp, FeatureExtractor
 from .extractors import Extractor
 from .locations import download_locations
 from .classifiers import ClassifyMain, ClassifyFooter

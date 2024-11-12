@@ -173,7 +173,6 @@ class SearchEngine:
             self.log.exception(f'unzip error | serp_id : {self.serp_id}')
             self.html = rcontent
 
-
     def parse_results(self):
         """Parse a SERP - see parsers.py"""
 
@@ -183,6 +182,28 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
+    def parse_serp_features(self):
+        """Extract SERP features - see parsers.py"""
+
+        assert self.html, "No HTML found"
+        try:
+            self.serp_features = parsers.FeatureExtractor.extract_features(self.html)
+        except Exception:
+            self.log.exception(f'Feature extraction error | serp_id : {self.serp_id}')
+
+    def prepare_serp_save(self):
+        self.serp = BaseSERP(
+            qry=self.qry, 
+            loc=self.loc, 
+            url=self.url, 
+            html=self.html,
+            response_code=self.response.status_code,
+            user_agent=self.headers['User-Agent'],
+            timestamp=self.timestamp,
+            serp_id=self.serp_id,
+            crawl_id=self.crawl_id,
+            version=self.version,
+        ).model_dump()
 
     def save_serp(self, save_dir: str = "", append_to: str = ""):
         """Save SERP to file
@@ -195,26 +216,32 @@ class SearchEngine:
         assert save_dir or append_to, "Must provide a save_dir or append_to file path"
 
         if append_to:
-            # Prepare and save SERP row
-            serp = BaseSERP(
-                qry=self.qry, 
-                loc=self.loc, 
-                url=self.url, 
-                html=self.html,
-                response_code=self.response.status_code,
-                user_agent=self.headers['User-Agent'],
-                timestamp=self.timestamp,
-                serp_id=self.serp_id,
-                crawl_id=self.crawl_id,
-                version=self.version,
-            )
-            utils.write_lines([serp.model_dump()], append_to)
+            self.prepare_serp_save()
+            utils.write_lines([self.serp], append_to)
 
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'w') as outfile:
                 outfile.write(self.html)
 
+    def save_search(self, append_to: str = ""):
+        """Save search metadata (excludes HTML) to file
+
+        Args:
+            append_to (str, optional): Append results to this file path
+        """
+        assert self.html, "No HTML found"
+        assert append_to, "Must provide an append_to file path"
+
+        if not self.serp:
+            self.prepare_serp_save()
+        
+        if not self.serp_features:
+            self.parse_serp_features()
+        
+        self.serp_metadata = {k: v for k, v in self.serp.items() if k != 'html'}
+        self.serp_metadata.update(self.serp_features)
+        utils.write_lines([self.serp_metadata], append_to)
 
     def save_results(self, save_dir: str = "", append_to: str = ""):
         """Save parsed results
