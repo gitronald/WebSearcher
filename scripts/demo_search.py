@@ -23,6 +23,7 @@ def main():
     # Filepaths
     fp_serps = os.path.join(args.data_dir, 'serps.json')
     fp_results = os.path.join(args.data_dir, 'results.json')
+    fp_searches = os.path.join(args.data_dir, 'searches.json')
     dir_html = os.path.join(args.data_dir, 'html')
     os.makedirs(dir_html, exist_ok=True)
 
@@ -33,6 +34,7 @@ def main():
     se.save_serp(append_to=fp_serps)        # Save SERP to json (html + metadata)
     se.save_results(append_to=fp_results)   # Save results to json
     se.save_serp(save_dir=dir_html)         # Save SERP html to dir (no metadata)
+    se.save_search(append_to=fp_searches)   # Save search metadata + extracted features
 
     # Convert results to dataframe and print select columns
     results = pd.DataFrame(se.results)
