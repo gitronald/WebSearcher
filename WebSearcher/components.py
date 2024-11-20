@@ -60,6 +60,7 @@ class Component:
                     parsed_list = parse_not_implemented(self)
 
                 elif self.section == "footer":
+                    # TODO: Check if None and use parse_not_implemented
                     footer_parser = footer_parser_dict.get(self.type, None)
                     parsed_list = footer_parser(self.elem)
 
@@ -69,7 +70,7 @@ class Component:
                     parsed_list = main_parser(self.elem)
 
             except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.type}")
+                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.section} | {self.type}")
                 parsed_list = [{"type": self.type,
                                 "cmpt_rank": self.cmpt_rank,
                                 "text": self.elem.get_text("<|>", strip=True),
@@ -80,7 +81,7 @@ class Component:
                 parser_type_func(self)
                 
             except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.type}")
+                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.section} | {self.type}")
                 parsed_list = [{"type": self.type,
                                 "cmpt_rank": self.cmpt_rank,
                                 "text": self.elem.get_text("<|>", strip=True),
@@ -89,7 +90,7 @@ class Component:
 
         # Check for empty results list
         if len(parsed_list) == 0:
-            log.debug(f"No subcomponents parsed for {self.cmpt_rank} | {self.type}")
+            log.debug(f"No subcomponents parsed  | {self.cmpt_rank} | {self.section} | {self.type}")
             parsed_list = [{"type": self.type,
                             "cmpt_rank": self.cmpt_rank,
                             "text": self.elem.get_text("<|>", strip=True),
