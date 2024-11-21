@@ -71,18 +71,17 @@ class Component:
     def parse_component(self, parser_type_func: callable = None):
         
         if not self.type:
-            log.error(f"null component type: {self.cmpt_rank} | {self.section} | {self.type}")
-            raise ValueError("null component type")
-
-        # Select and run parser
-        parser_func = self.select_parser(parser_type_func)
-        parsed_list = self.run_parser(parser_func)
-        
-        # Check parsed_list
-        if not isinstance(parsed_list, (list, dict)):
-            parsed_list = self.create_parsed_list_error("parser output not list or dict")
-        elif len(parsed_list) == 0:
-            parsed_list = self.create_parsed_list_error("no subcomponents parsed")
+            parsed_list = self.create_parsed_list_error("null component type")
+        else:
+            # Select and run parser
+            parser_func = self.select_parser(parser_type_func)
+            parsed_list = self.run_parser(parser_func)
+            
+            # Check parsed_list
+            if not isinstance(parsed_list, (list, dict)):
+                parsed_list = self.create_parsed_list_error("parser output not list or dict")
+            elif len(parsed_list) == 0:
+                parsed_list = self.create_parsed_list_error("no subcomponents parsed")
 
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
