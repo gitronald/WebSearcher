@@ -71,7 +71,9 @@ class SearchEngine:
         self.response: requests.Response = None
         self.html: str = None
         self.results: list = []
-        
+        self.serp_features: dict = {}
+        self.serp: dict = {}
+
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not log_fp else False,
