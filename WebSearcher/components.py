@@ -41,54 +41,46 @@ class Component:
                 elif self.section == "footer":
                     self.type = ClassifyFooter.classify(self.elem)
 
+    def select_parser(self, parser_type_func: callable = None) -> callable:
+        if parser_type_func:
+            parser_func = parser_type_func
+        else:
+            if self.type == "unknown":
+                parser_func = parse_unknown
+            elif self.section == "header":
+                parser_func = header_parser_dict.get(self.type, parse_not_implemented)
+            elif self.section == "footer":
+                parser_func = footer_parser_dict.get(self.type, parse_not_implemented)
+            elif self.section in {"main", "rhs"}:
+                parser_func = main_parser_dict.get(self.type, parse_not_implemented)
+            else:
+                parser_func = parse_not_implemented
+        return parser_func
+
+    def run_parser(self, parser_func: callable) -> list:
+        try:
+            if parser_func in {parse_unknown, parse_not_implemented}:
+                parsed_list = parser_func(self)
+            else:
+                parsed_list = parser_func(self.elem)
+        except Exception:
+            log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.section} | {self.type}")
+            parsed_list = [{"type": self.type,
+                            "cmpt_rank": self.cmpt_rank,
+                            "text": self.elem.get_text("<|>", strip=True),
+                            "error": "No results parsed"}]
+        return parsed_list
+
     def parse_component(self, parser_type_func: callable = None):
         
         log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
         if not self.type:
             raise ValueError("Null component type")
 
-        if not parser_type_func:
-            # Assign parser function and run on component
-            try:
-                if self.type == "unknown":
-                    parsed_list = parse_unknown(self)
-
-                if self.section == "header":
-                    header_parser = header_parser_dict.get(self.type, None)
-                    parsed_list = header_parser(self.elem)
-
-                elif self.type not in main_parser_dict and self.type not in footer_parser_dict:
-                    parsed_list = parse_not_implemented(self)
-
-                elif self.section == "footer":
-                    # TODO: Check if None and use parse_not_implemented
-                    footer_parser = footer_parser_dict.get(self.type, None)
-                    parsed_list = footer_parser(self.elem)
-
-                elif self.section in {"main", "header", "rhs"}:
-                    # TODO: Update component_parsers/* to accept a Component object, currently expects a bs4 element
-                    main_parser = main_parser_dict.get(self.type, None)
-                    parsed_list = main_parser(self.elem)
-
-            except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.section} | {self.type}")
-                parsed_list = [{"type": self.type,
-                                "cmpt_rank": self.cmpt_rank,
-                                "text": self.elem.get_text("<|>", strip=True),
-                                "error": traceback.format_exc()}]
-        else:
-            # Run provided parser function on component
-            try:
-                parser_type_func(self)
-                
-            except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.section} | {self.type}")
-                parsed_list = [{"type": self.type,
-                                "cmpt_rank": self.cmpt_rank,
-                                "text": self.elem.get_text("<|>", strip=True),
-                                "error": traceback.format_exc()}]
-
-
+        # Select and run parser
+        parser_func = self.select_parser(parser_type_func)
+        parsed_list = self.run_parser(parser_func)
+        
         # Check for empty results list
         if len(parsed_list) == 0:
             log.debug(f"No subcomponents parsed  | {self.cmpt_rank} | {self.section} | {self.type}")
