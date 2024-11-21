@@ -20,7 +20,7 @@ brotli = "^1.1.0"
 pydantic = "^2.9.2"
 pandas = "^2.2.3"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 syrupy = "^4.7.1"
 
