@@ -1,8 +1,7 @@
 import re
-from ..models import BaseResult
 from ..webutils import get_text, get_link
 
-def parse_general_results(cmpt):
+def parse_general_results(cmpt) -> list:
     """Parse a general component
 
     The ubiquitous blue title, green citation, and black text summary results.
@@ -38,11 +37,11 @@ def parse_general_results(cmpt):
             subs = [parent_g]
     subs = subs if subs else [cmpt]
 
-    parsed = [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    return parsed
+    parsed_list = [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    return parsed_list
    
 
-def parse_general_result(sub, sub_rank=0):
+def parse_general_result(sub, sub_rank=0) -> dict:
     """Parse a general subcomponent
     
     Args:
@@ -59,18 +58,18 @@ def parse_general_result(sub, sub_rank=0):
     title_div = sub.find('div', {'class':'rc'}) or sub.find('div', {'class':'yuRUbf'})
     body_div = sub.find('span', {'class':'st'}) or sub.find('div', {'class': 'VwiC3b'})
 
-    parsed = BaseResult(
-        type='general',
-        sub_rank=sub_rank,
-        title=get_text(title_div, 'h3') if title_div else '',
-        url=get_link(title_div) if title_div else '',
-        text=get_text(body_div) if body_div else '',
-        cite=get_text(sub, 'cite')
-    )
+    parsed = {
+        'type': 'general',
+        'sub_rank': sub_rank,
+        'title': get_text(title_div, 'h3') if title_div else '',
+        'url': get_link(title_div) if title_div else '',
+        'text': get_text(body_div) if body_div else '',
+        'cite': get_text(sub, 'cite')
+    }
 
     # Get subtype details
     parsed = parse_subtype_details(sub, parsed)
-    return parsed.model_dump()
+    return parsed
 
 
 def parse_alink(a): 
@@ -81,7 +80,7 @@ def parse_alink_list(alinks):
     return [parse_alink(a) for a in alinks if 'href' in a.attrs]
 
 
-def parse_subtype_details(sub, parsed):
+def parse_subtype_details(sub, parsed) -> dict:
     # Check for subtype and parse details
 
     details = {}
@@ -94,16 +93,16 @@ def parse_subtype_details(sub, parsed):
             for child in top_menu.children:
                 child.decompose()
             if sub.find('h3'):
-                parsed.url = sub.find('h3').find('a')['href']
+                parsed['url'] = sub.find('h3').find('a')['href']
 
     # Subtype specific detail parsing
     if 'class' in sub.attrs:
         if sub.attrs['class'] == 'd4rhi':
-            parsed.sub_type == 'subresult'
+            parsed['sub_type'] == 'subresult'
     
     # Submenu - rating
     elif sub.find('g-review-stars'):
-        parsed.sub_type = 'submenu_rating'
+        parsed['sub_type'] = 'submenu_rating'
         sibling = sub.find('g-review-stars').next_sibling
         if sibling:
             text = str(sibling).strip()
@@ -113,7 +112,7 @@ def parse_subtype_details(sub, parsed):
     
     # Submenu - list format
     elif sub.find('div', {'class': ['P1usbc', 'IThcWe']}):
-        parsed.sub_type = 'submenu'
+        parsed['sub_type'] = 'submenu'
         submenu_div = sub.find('div', {'class': ['P1usbc', 'IThcWe']})
         if submenu_div:
             alinks = submenu_div.find_all('a')
@@ -121,36 +120,35 @@ def parse_subtype_details(sub, parsed):
 
     # Submenu - table format
     elif sub.find('table'):
-        parsed.sub_type = 'submenu'
+        parsed['sub_type'] = 'submenu'
         alinks = sub.find('table').find_all('a')
         details['links'] = parse_alink_list(alinks)
 
     # Mini submenu
     elif sub.find('div', {'class': ['osl', 'jYOxx']}):
-        parsed.sub_type = 'submenu_mini'  
+        parsed['sub_type'] = 'submenu_mini'  
         alinks = sub.find('div', {'class':['osl','jYOxx']}).find_all('a')
         details['links'] = parse_alink_list(alinks)
 
     elif sub.find('div', {'class': re.compile('fG8Fp')}):
-
         # Scholar results
         alinks = sub.find('div', {'class': re.compile('fG8Fp')}).find_all('a')
         if len(alinks) and 'Cited by' in alinks[0].text:
-            parsed.sub_type = 'submenu_scholarly'
+            parsed['sub_type'] = 'submenu_scholarly'
             details['links'] = parse_alink_list(alinks)
 
         # Product results
         text = get_text(sub, 'div', {'class': re.compile('fG8Fp')})
         if not alinks and '$' in text:
-            parsed.sub_type = 'submenu_product'
+            parsed['sub_type'] = 'submenu_product'
             product_details = parse_product(text) 
             details.update(product_details)
     
-    parsed.details = details if details else None          
+    parsed['details'] = details if details else None          
     return parsed
 
 
-def parse_ratings(text):
+def parse_ratings(text) -> dict:
     """Parse ratings that appear below some general components"""
 
     text = [t.strip() for t in text]
@@ -177,7 +175,7 @@ def parse_ratings(text):
 
     return details
 
-def parse_product(text):
+def parse_product(text) -> dict:
     """Parse price and stock that appears below some general components"""
     split_match = re.compile('-|·')
     text = re.split(split_match, text)
@@ -188,8 +186,8 @@ def parse_product(text):
 
 
 # ------------------------------------------------------------------------------
-# General Video Results
 
+# General Video Results
 
 def is_general_video(cmpt):
     """Check for a unique class name specific to video results"""
@@ -197,7 +195,7 @@ def is_general_video(cmpt):
     return 'PmEWq' in class_list
 
 
-def parse_general_video(sub, sub_rank: int = 0):
+def parse_general_video(sub, sub_rank: int = 0) -> dict:
     """Parse a general video component
 
     Args:
@@ -206,18 +204,16 @@ def parse_general_video(sub, sub_rank: int = 0):
     Returns:
         VideoResult: Parsed information of the video
     """
-
-    video_result = BaseResult(
-        type='general',
-        sub_type='video',
-        sub_rank=sub_rank,
-        title=get_result_text(sub, 'h3.LC20lb'),
-        url=sub.select_one('a[href]').get('href', '') if sub.select_one('a[href]') else '',
-        text=get_result_text(sub, '.ITZIwc'),
-        cite=get_result_text(sub, 'cite', strip=False),
-        details=get_result_details(sub),
-    )
-    return video_result.model_dump()
+    return {
+        'type': 'general',
+        'sub_type': 'video',
+        'sub_rank': sub_rank,
+        'title': get_result_text(sub, 'h3.LC20lb'),
+        'url': sub.select_one('a[href]').get('href', '') if sub.select_one('a[href]') else '',
+        'text': get_result_text(sub, '.ITZIwc'),
+        'cite': get_result_text(sub, 'cite', strip=False),
+        'details': get_result_details(sub),
+    }
 
 
 def get_result_text(cmpt, selector, strip=True):

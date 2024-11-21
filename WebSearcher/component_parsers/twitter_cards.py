@@ -1,8 +1,7 @@
 from .. import webutils
-from ..models import BaseResult
 
 
-def parse_twitter_cards(cmpt):
+def parse_twitter_cards(cmpt) -> list:
     """Parse a Twitter carousel component
 
     These components consist of a header and a carousel of cards:
@@ -24,7 +23,7 @@ def parse_twitter_cards(cmpt):
     return parsed_list
 
 
-def parse_twitter_header(cmpt, sub_rank:int = 0):
+def parse_twitter_header(cmpt, sub_rank:int = 0) -> dict:
     """Parse a Twitter header from the main component"""
     parsed = {"type": "twitter_cards", 
               "sub_type": "header", 
@@ -43,11 +42,10 @@ def parse_twitter_header(cmpt, sub_rank:int = 0):
         parsed['title'] = webutils.get_text(element_current)
     parsed["cite"] = webutils.get_text(cmpt, 'cite')
 
-    validated = BaseResult(**parsed)
-    return validated.model_dump()
+    return parsed
 
 
-def parse_twitter_card(sub, sub_rank:int = 0):
+def parse_twitter_card(sub, sub_rank:int = 0) -> dict:
     """Parse a Twitter card from a subcomponent"""
     parsed = {"type": "twitter_cards",
               "sub_type": "card",
@@ -65,5 +63,4 @@ def parse_twitter_card(sub, sub_rank:int = 0):
         parsed["text"] = webutils.get_text(div, 'div', {'class':'xcQxib'})
         parsed["cite"] = webutils.get_text(div, 'div', {'class':'rmxqbe'})
 
-    validated = BaseResult(**parsed)
-    return validated.model_dump()
+    return parsed

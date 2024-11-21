@@ -41,69 +41,65 @@ class Component:
                 elif self.section == "footer":
                     self.type = ClassifyFooter.classify(self.elem)
 
+    def select_parser(self, parser_type_func: callable = None) -> callable:
+        if parser_type_func:
+            parser_func = parser_type_func
+        else:
+            if self.type == "unknown":
+                parser_func = parse_unknown
+            elif self.section == "header":
+                parser_func = header_parser_dict.get(self.type, parse_not_implemented)
+            elif self.section == "footer":
+                parser_func = footer_parser_dict.get(self.type, parse_not_implemented)
+            elif self.section in {"main", "rhs"}:
+                parser_func = main_parser_dict.get(self.type, parse_not_implemented)
+            else:
+                parser_func = parse_not_implemented
+        return parser_func
+
+    def run_parser(self, parser_func: callable) -> list:
+        log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
+        try:
+            if parser_func in {parse_unknown, parse_not_implemented}:
+                parsed_list = parser_func(self)
+            else:
+                parsed_list = parser_func(self.elem)
+        except Exception:
+            parsed_list = self.create_parsed_list_error("parsing exception", is_exception=True)
+        return parsed_list
+
     def parse_component(self, parser_type_func: callable = None):
         
-        log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
-        assert self.type, "Null component type"
-
-        if not parser_type_func:
-            # Assign parser function and run on component
-            try:
-                if self.type == "unknown":
-                    parsed_list = parse_unknown(self)
-
-                if self.section == "header":
-                    header_parser = header_parser_dict.get(self.type, None)
-                    parsed_list = header_parser(self.elem)
-
-                elif self.type not in main_parser_dict and self.type not in footer_parser_dict:
-                    parsed_list = parse_not_implemented(self)
-
-                elif self.section == "footer":
-                    footer_parser = footer_parser_dict.get(self.type, None)
-                    parsed_list = footer_parser(self.elem)
-
-                elif self.section in {"main", "header", "rhs"}:
-                    # TODO: Update component_parsers/* to accept a Component object, currently expects a bs4 element
-                    main_parser = main_parser_dict.get(self.type, None)
-                    parsed_list = main_parser(self.elem)
-
-            except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.type}")
-                parsed_list = [{"type": self.type,
-                                "cmpt_rank": self.cmpt_rank,
-                                "text": self.elem.get_text("<|>", strip=True),
-                                "error": traceback.format_exc()}]
+        if not self.type:
+            parsed_list = self.create_parsed_list_error("null component type")
         else:
-            # Run provided parser function on component
-            try:
-                parser_type_func(self)
-                
-            except Exception:
-                log.exception(f"Parsing Exception | {self.cmpt_rank} | {self.type}")
-                parsed_list = [{"type": self.type,
-                                "cmpt_rank": self.cmpt_rank,
-                                "text": self.elem.get_text("<|>", strip=True),
-                                "error": traceback.format_exc()}]
+            # Select and run parser
+            parser_func = self.select_parser(parser_type_func)
+            parsed_list = self.run_parser(parser_func)
+            
+            # Check parsed_list
+            if not isinstance(parsed_list, (list, dict)):
+                parsed_list = self.create_parsed_list_error("parser output not list or dict")
+            elif len(parsed_list) == 0:
+                parsed_list = self.create_parsed_list_error("no subcomponents parsed")
 
-
-        # Check for empty results list
-        if len(parsed_list) == 0:
-            log.debug(f"No subcomponents parsed for {self.cmpt_rank} | {self.type}")
-            parsed_list = [{"type": self.type,
-                            "cmpt_rank": self.cmpt_rank,
-                            "text": self.elem.get_text("<|>", strip=True),
-                            "error": "No results parsed"}]
-        
-        # Track parsed results
-        assert type(parsed_list) in [list, dict], f"parser output must be list or dict: {type(parsed_list)}"
-        assert len(parsed_list) > 0, f"Empty parsed list: {parsed_list}"
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
 
+    def create_parsed_list_error(self, error_msg: str, is_exception: bool = False) -> list:
+        if is_exception:
+            log.exception(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
+            error_traceback = traceback.format_exc()
+        else:
+            log.debug(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
+        return [{
+            "type": self.type,
+            "cmpt_rank": self.cmpt_rank,
+            "text": self.elem.get_text("<|>", strip=True),
+            "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}"
+        }]
+
     def add_parsed_result_list(self, parsed_result_list):
-        """Add a list of parsed results with BaseResult validation to results_list"""
-        assert len(parsed_result_list) > 0, "Empty parsed result list"
         for parsed_result in parsed_result_list:
             self.add_parsed_result(parsed_result)
 
@@ -149,4 +145,3 @@ class ComponentList:
 
     def to_records(self):
         return [Component.to_dict() for Component in self.components]
-    

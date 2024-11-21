@@ -7,9 +7,8 @@ Changelog
 """
 
 from .. import webutils
-from ..models import BaseResult
 
-def parse_videos(cmpt):
+def parse_videos(cmpt) -> list:
     """Parse a videos component
 
     These components contain links to videos, frequently to YouTube.
@@ -41,7 +40,7 @@ def parse_videos(cmpt):
         return [{'type': 'videos', 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
-def parse_video(sub, sub_rank=0):
+def parse_video(sub, sub_rank=0) -> dict:
     """Parse a videos subcomponent
     
     Args:
@@ -51,18 +50,18 @@ def parse_video(sub, sub_rank=0):
         dict : parsed subresult
     """
 
-    parsed = BaseResult(
-        type='videos',
-        sub_rank=sub_rank,
-        url=get_url(sub),
-        title=webutils.get_text(sub, 'div', {'role':'heading'}),
-        text=webutils.get_text(sub, 'div', {'class':'MjS0Lc'}),
-    )
+    parsed = {
+        'type': 'videos',
+        'sub_rank': sub_rank,
+        'url': get_url(sub),
+        'title': webutils.get_text(sub, 'div', {'role':'heading'}),
+        'text': webutils.get_text(sub, 'div', {'class':'MjS0Lc'}),
+    }
 
     details = sub.find_all('div', {'class':'MjS0Lc'})
     if details:
         text_div, citetime_div = details
-        parsed.text = text_div.text if text_div else None
+        parsed['text'] = text_div.text if text_div else None
 
         if citetime_div:
             # Sometimes there is only a cite
@@ -70,18 +69,18 @@ def parse_video(sub, sub_rank=0):
             citetime = list(citetime.children)
             if len(citetime) == 2:
                 cite, timestamp = citetime       
-                parsed.cite = cite.text
+                parsed['cite'] = cite.text
                 # parsed.timestamp = timestamp.replace(' - ', '')
             else:
-                parsed.cite = citetime[0].text
+                parsed['cite'] = citetime[0].text
     elif sub.find('span', {'class':'ocUPSd'}):
-        parsed.cite = sub.text
+        parsed['cite'] = sub.text
         # parsed.timestamp = get_div_text(sub, {'class':'rjmdhd'})
     elif sub.find("cite"):
-        parsed.cite = webutils.get_text(sub, "cite")
+        parsed['cite'] = webutils.get_text(sub, "cite")
         # parsed.timestamp = webutils.get_text(sub, "div", {'class':'hMJ0yc'})
 
-    return parsed.model_dump()
+    return parsed
 
 
 def get_url(sub):

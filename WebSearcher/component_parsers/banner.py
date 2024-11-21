@@ -1,7 +1,4 @@
-from ..models import BaseResult
-
-
-def parse_banner(cmpt):
+def parse_banner(cmpt) -> list:
     """Parse a warning banner component
 
     Args:
@@ -10,32 +7,32 @@ def parse_banner(cmpt):
     Returns:
         list: List of BannerResult objects, with the main component and its subcomponents
     """
-    banner_results = []
+    parsed_list = []
 
     # Header subcomponent
-    banner_result_header = BaseResult(
-        type='banner',
-        sub_type='header',
-        sub_rank=0,
-        title=get_result_text(cmpt, '.v3jTId'),
-        text=get_result_text(cmpt, '.Cy9gW'),
-    )
-    banner_results.append(banner_result_header)
+    banner_result_header = {
+        'type': 'banner',
+        'sub_type': 'header',
+        'sub_rank': 0,
+        'title': _get_result_text(cmpt, '.v3jTId'),
+        'text': _get_result_text(cmpt, '.Cy9gW'),
+    }
+    parsed_list.append(banner_result_header)
 
     # Suggestion subcomponents
     for i, suggestion in enumerate(cmpt.select('.TjBpC')):
-        banner_result_suggestion = BaseResult(
-            type='banner',
-            sub_type='suggestion',
-            sub_rank=i + 1,
-            title=get_result_text(suggestion, '.AbPV3'),
-            url=suggestion.get('href')
-        )
-        banner_results.append(banner_result_suggestion)
+        banner_result_suggestion = {
+            'type': 'banner',
+            'sub_type': 'suggestion',
+            'sub_rank': i + 1,
+            'title': _get_result_text(suggestion, '.AbPV3'),
+            'url': suggestion.get('href')
+        }
+        parsed_list.append(banner_result_suggestion)
 
-    return [banner.model_dump() for banner in banner_results]
+    return parsed_list
 
-def get_result_text(cmpt, selector):
+def _get_result_text(cmpt, selector) -> str:
     if cmpt.select_one(selector):
         return cmpt.select_one(selector).get_text(strip=True)
     else:

@@ -1,4 +1,4 @@
-def parse_scholarly_articles(cmpt):
+def parse_scholarly_articles(cmpt) -> list:
     """Parse a scholarly articles component
 
     These components contain links to academic articles via Google Scholar
@@ -9,11 +9,10 @@ def parse_scholarly_articles(cmpt):
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    data_list = []
     subs = cmpt.find_all('tr')[1].find_all('div')
     return [parse_article(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-def parse_article(sub, sub_rank=0):
+def parse_article(sub, sub_rank=0) -> dict:
     """Parse a scholarly articles subcomponent
     
     Args:

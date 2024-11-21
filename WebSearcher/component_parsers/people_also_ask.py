@@ -1,7 +1,6 @@
 from .. import webutils
-from ..models import BaseResult
 
-def parse_people_also_ask(cmpt, sub_rank=0):
+def parse_people_also_ask(cmpt, sub_rank=0) -> list:
     """Parse a "People Also Ask" component
 
     These components contain a list of questions, which drop down to reveal  
@@ -21,14 +20,14 @@ def parse_people_also_ask(cmpt, sub_rank=0):
     questions = cmpt.find_all("div", {"class":"related-question-pair"})
     details = [parse_question(q) for q in questions] if questions else None
 
-    parsed = BaseResult(
-        type='people_also_ask',
-        sub_rank=sub_rank,
-        text="<|>".join(details) if details else None,
-        details=details,
-    )
+    parsed = {
+        'type': 'people_also_ask',
+        'sub_rank': sub_rank,
+        'text': "<|>".join(details) if details else None,
+        'details': details,
+    }
 
-    return [parsed.model_dump()]
+    return [parsed]
 
 
 def parse_question(question):

@@ -1,4 +1,4 @@
-def parse_shopping_ads(cmpt):
+def parse_shopping_ads(cmpt) -> list:
     """Parse all shopping ads from a shopping ads carousel
 
     Args:
@@ -11,7 +11,7 @@ def parse_shopping_ads(cmpt):
     subs = cmpt.find_all('div', {'class':'mnr-c pla-unit'})
     return [parse_shopping_ad(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-def parse_shopping_ad(sub, sub_rank=0):
+def parse_shopping_ad(sub, sub_rank=0) -> dict:
     """Parse a shopping ad subcomponent
     
     Args:

@@ -71,7 +71,9 @@ class SearchEngine:
         self.response: requests.Response = None
         self.html: str = None
         self.results: list = []
-        
+        self.serp_features: dict = {}
+        self.serp: dict = {}
+
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not log_fp else False,
@@ -82,7 +84,7 @@ class SearchEngine:
         ).start(__name__)
 
 
-    def search(self, qry: str, location: str = '', num_results: int = None, serp_id: str = '', crawl_id: str = ''):
+    def search(self, qry: str, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
         """Conduct a search and save HTML
         
         Args:
@@ -97,16 +99,16 @@ class SearchEngine:
         self._handle_response()
 
 
-    def _prepare_search(self, qry: str, location: str = '', num_results: int = None):
+    def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
-        self.loc = str(location)
+        self.loc = str(location) if (location == location) else ''
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
-        if num_results is not None:
+        if self.num_results:
             self.params['num'] = self.num_results
-        if location:
+        if self.loc:
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
 

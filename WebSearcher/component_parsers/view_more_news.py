@@ -1,4 +1,4 @@
-def parse_view_more_news(cmpt):
+def parse_view_more_news(cmpt) -> list:
     """Parse a "View more news" component
 
     These components are highly similar to the vertically stacked Top Stories 
@@ -17,7 +17,7 @@ def parse_view_more_news(cmpt):
         subs = cmpt.find('g-scrolling-carousel').find_all('g-inner-card')
     return [parse_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-def parse_sub(sub, sub_rank=0):
+def parse_sub(sub, sub_rank=0) -> dict:
     """Parse a "View more news" subcomponent
     
     Args:

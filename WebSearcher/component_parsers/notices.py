@@ -1,7 +1,6 @@
 import re
 import copy
-from ..models import BaseResult
-from ..webutils import get_text, get_link
+from ..webutils import get_text
 
 
 def parse_notices(cmpt) -> list:
@@ -41,8 +40,8 @@ class NoticeParser:
 
         self._classify_sub_type(cmpt)
         self._parse_sub_type(cmpt)
-        self._validate_parsed()
-        return self.parsed
+        self._package_parsed()
+        return self.parsed_list
 
     def _classify_sub_type(self, cmpt) -> str:
         """Classify the sub-type of a query notice component"""
@@ -63,23 +62,21 @@ class NoticeParser:
                     self.sub_type = sub_type
                     break
 
-
     def _parse_sub_type(self, cmpt):
         sub_parser = self.parser_dict.get(self.sub_type, None)
         if sub_parser:
             self.parsed = sub_parser(cmpt)
 
-    def _validate_parsed(self):
-        result = BaseResult(
-            type='notice',
-            sub_type=self.sub_type,
-            sub_rank=0,
-            title=self.parsed.get('title', None),
-            text=self.parsed.get('text', None),
-        )
-        self.parsed = [result.model_dump()]
+    def _package_parsed(self):
+        self.parsed_list = [{
+            'type': 'notice',
+            'sub_type': self.sub_type,
+            'sub_rank': 0,
+            'title': self.parsed.get('title', None),
+            'text': self.parsed.get('text', None)
+        }]
 
-    def _parse_no_results_replacement(self, cmpt):
+    def _parse_no_results_replacement(self, cmpt) -> dict:
         output = {"title": None, "text": None}
 
         cmpt = copy.copy(cmpt)
@@ -93,9 +90,8 @@ class NoticeParser:
             output['text'] = div_text.text.strip()
 
         return output
-    
 
-    def _parse_query_edit(self, cmpt):
+    def _parse_query_edit(self, cmpt) -> dict:
         output = {"title": None, "text": None}
         showing_results_span = cmpt.find('span', class_='gL9Hy')
         if showing_results_span:
@@ -116,7 +112,7 @@ class NoticeParser:
             output['text'] += f" {original_query}"
         return output
 
-    def _parse_query_suggestion(self, cmpt):
+    def _parse_query_suggestion(self, cmpt) -> dict:
         output = {"title": None, "text": None}
 
         # check in div and span with same class
@@ -135,7 +131,7 @@ class NoticeParser:
 
         return output
 
-    def _parse_location_choose_area(self, cmpt):
+    def _parse_location_choose_area(self, cmpt) -> dict:
         output = {"title": None, "text": None}
         
         # Extract the main heading
@@ -149,7 +145,7 @@ class NoticeParser:
         
         return output
 
-    def _parse_location_use_precise_location(self, cmpt):
+    def _parse_location_use_precise_location(self, cmpt) -> dict:
         output = {"title": None, "text": None}
         
         # Extract the main heading
@@ -163,7 +159,7 @@ class NoticeParser:
         
         return output
 
-    def _parse_language_tip(self, cmpt):
+    def _parse_language_tip(self, cmpt) -> dict:
         output = {"title": None, "text": None}   
         title_div = cmpt.find('div', class_='Ww4FFb')
         if title_div:

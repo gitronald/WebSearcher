@@ -1,4 +1,4 @@
-def parse_knowledge_rhs(cmpt, sub_rank=0):
+def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel
 
     Args:
@@ -18,7 +18,7 @@ def parse_knowledge_rhs(cmpt, sub_rank=0):
     return parsed_list
 
 
-def parse_knowledge_rhs_main(cmpt, sub_rank=0):
+def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel main component"""
 
     parsed = {
@@ -82,7 +82,7 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0):
     return [parsed]
 
 
-def parse_knowledge_rhs_sub(sub, sub_rank=0):
+def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
     """Parse a Right-Hand-Side Knowledge Panel subcomponent"""
 
     parsed = {

@@ -1,8 +1,7 @@
-from ..models import BaseResult
 from ..webutils import find_all_divs, find_children, get_text, get_link
 
 
-def parse_top_stories(cmpt, ctype='top_stories'):
+def parse_top_stories(cmpt, ctype='top_stories') -> list:
     """Parse a "Top Stories" component
 
     These components contain links to news articles and often feature an image.
@@ -37,29 +36,17 @@ def parse_top_stories(cmpt, ctype='top_stories'):
         return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
-def parse_top_story(sub, ctype, sub_rank=0):
-    """Parse "Top Stories" component
-    
-    Args:
-        sub (bs4 object): A "Top Stories" subcomponent
-    
-    Returns:
-        dict: A parsed subresult
-    """
-    parsed = BaseResult(
-        type=ctype,
-        sub_rank=sub_rank,
-        title=get_text(sub, 'div', {'class':'n0jPhd'}),
-        url=get_link(sub, key='href'),
-        text=get_text(sub, "div", {'class': "GI74Re"}),
-        cite=get_cite(sub)
-    )
-
-    # Deprecated - too much detail to maintain in dynamic SERPs
-    # parsed.timestamp = get_text(sub, "div", {'class': ['f', 'uaCsqe', "ZE0LJd"]})
-    # parsed.details = get_top_story_details(sub)
-
-    return parsed.model_dump()
+def parse_top_story(sub, ctype, sub_rank=0) -> dict:
+    """Parse "Top Stories" component"""
+    parsed = {
+        'type': ctype,
+        'sub_rank': sub_rank,
+        'title': get_text(sub, 'div', {'class':'n0jPhd'}),
+        'url': get_link(sub, key='href'),
+        'text': get_text(sub, "div", {'class': "GI74Re"}),
+        'cite': get_cite(sub)
+    }
+    return parsed
 
 
 def get_cite(sub):

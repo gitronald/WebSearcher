@@ -1,8 +1,7 @@
 from .. import utils
 from .. import webutils
-from ..models import BaseResult
 
-def parse_local_results(cmpt):
+def parse_local_results(cmpt) -> list:
     """Parse a "Local Results" component
 
     These components contain an embedded map followed by vertically 
@@ -37,9 +36,9 @@ def parse_local_results(cmpt):
             'sub_rank':0,
             'text':webutils.get_text(cmpt, 'div', {'class': 'n6tePd'}) # No results message
         }
-        return [BaseResult(**parsed).model_dump()]
+        return [parsed]
 
-def parse_local_result(sub, sub_rank=0):
+def parse_local_result(sub, sub_rank=0) -> dict:
     """Parse a "Local Results" subcomponent
     
     Args:
@@ -65,11 +64,10 @@ def parse_local_result(sub, sub_rank=0):
     parsed['text'] = f"{text} <label>{label}</label>" if label else text
     parsed['details'] = parse_local_details(sub)
 
-    validated = BaseResult(**parsed)
-    return validated.model_dump()
+    return parsed
 
 
-def parse_local_details(sub):
+def parse_local_details(sub) -> dict:
     
     local_details = {}
 

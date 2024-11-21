@@ -1,7 +1,6 @@
 from .. import webutils 
-from ..models import BaseResult
 
-def parse_map_results(cmpt, sub_rank=0):
+def parse_map_results(cmpt, sub_rank=0) -> list:
     """Parse a "Map Results" component
 
     These components contain an embedded map that is not followed by 
@@ -13,12 +12,11 @@ def parse_map_results(cmpt, sub_rank=0):
     Returns:
         dict : parsed result
     """
-    parsed = BaseResult(
-        type='map_results',
-        sub_rank=sub_rank,
-        title=get_title(cmpt)
-    )
-    return [parsed.model_dump()]
+    return [{
+        'type': 'map_results',
+        'sub_rank': sub_rank,
+        'title': get_title(cmpt)
+    }]
 
 def get_title(cmpt):
     # return webutils.get_text(cmpt, 'div', {'class':'desktop-title-content'})
