@@ -90,14 +90,14 @@ class Component:
                             "error": "No results parsed"}]
         
         # Track parsed results
-        assert type(parsed_list) in [list, dict], f"parser output must be list or dict: {type(parsed_list)}"
-        assert len(parsed_list) > 0, f"Empty parsed list: {parsed_list}"
+        if type(parsed_list) not in {list, dict}:
+            raise ValueError(f"parser output must be list or dict: {type(parsed_list)}")
+        
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
 
     def add_parsed_result_list(self, parsed_result_list):
         """Add a list of parsed results with BaseResult validation to results_list"""
-        assert len(parsed_result_list) > 0, "Empty parsed result list"
         for parsed_result in parsed_result_list:
             self.add_parsed_result(parsed_result)
 
@@ -143,4 +143,3 @@ class ComponentList:
 
     def to_records(self):
         return [Component.to_dict() for Component in self.components]
-    
