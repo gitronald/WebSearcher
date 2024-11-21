@@ -166,8 +166,8 @@ class Extractor:
         self.layouts['rso'] = bool(self.layout_divs['rso'])
         self.layouts['top-bars'] = bool(self.layout_divs['top-bars'])
         self.layouts['left-bar'] = bool(self.layout_divs['left-bar'])
-        self.layouts['standard'] = (self.layouts['rso'] & ~self.layouts['top-bars'] & ~self.layouts['left-bar'])
-        self.layouts['no-rso'] = ~self.layouts['rso']
+        self.layouts['standard'] = (self.layouts['rso'] and not self.layouts['top-bars'] and not self.layouts['left-bar'])
+        self.layouts['no-rso'] = not self.layouts['rso']
 
         # Get layout label
         label_matches = [k for k,v in self.layouts.items() if k !='rso' and v]
