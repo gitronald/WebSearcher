@@ -10,31 +10,30 @@ Changelog
 """
 
 from .. import webutils
-from ..models import BaseResult
 from .shopping_ads import parse_shopping_ads
 import bs4
 
 def parse_ads(cmpt: bs4.element.Tag) -> list:
     """Parse ads from ad component"""
 
-    parsed = []
+    parsed_list = []
     sub_type = classify_ad_type(cmpt)
 
     if sub_type == 'legacy':
         subs = cmpt.find_all('li', {'class': 'ads-ad'})
-        parsed = [parse_ad_legacy(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+        parsed_list = [parse_ad_legacy(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     elif sub_type == 'secondary':
         subs = cmpt.find_all('li', {'class': 'ads-fr'})
-        parsed = [parse_ad_secondary(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+        parsed_list = [parse_ad_secondary(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     elif sub_type == 'standard':
         subs = webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
         for sub in subs:
             sub_classes = sub.attrs.get("class", [])
             if "commercial-unit-desktop-top" in sub_classes:
-                parsed.extend(parse_shopping_ads(sub))
+                parsed_list.extend(parse_shopping_ads(sub))
             elif "uEierd" in sub_classes:
-                parsed.append(parse_ad(sub))
-    return [BaseResult(**parsed_item).model_dump() for parsed_item in parsed]
+                parsed_list.append(parse_ad(sub))
+    return parsed_list
 
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:

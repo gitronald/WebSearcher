@@ -1,4 +1,4 @@
-def parse_news_quotes(cmpt):
+def parse_news_quotes(cmpt) -> list:
     """Parse a "Quotes in the News" component
     
     Args:
@@ -10,7 +10,7 @@ def parse_news_quotes(cmpt):
     subs = cmpt.find_all('g-inner-card')
     return [parse_news_quote(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-def parse_news_quote(sub, sub_rank=0):
+def parse_news_quote(sub, sub_rank=0) -> dict:
     """Parse a "Quotes in the News" subcomponent
     
     Args:

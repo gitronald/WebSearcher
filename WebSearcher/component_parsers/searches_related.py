@@ -1,7 +1,6 @@
 from .. import webutils
-from ..models import BaseResult
 
-def parse_searches_related(cmpt, sub_rank=0):
+def parse_searches_related(cmpt, sub_rank=0) -> list:
     """Parse a one or two column list of related search queries"""
 
     parsed = {'type':'searches_related', 
@@ -40,5 +39,5 @@ def parse_searches_related(cmpt, sub_rank=0):
 
     parsed['text'] = '<|>'.join(output_list)
     parsed['details'] = output_list
-    return [BaseResult(**parsed).model_dump()]
+    return [parsed]
 

@@ -1,4 +1,4 @@
-def parse_available_on(cmpt, sub_rank=0):
+def parse_available_on(cmpt, sub_rank=0) -> list:
     """Parse an available component
 
     These components contain a carousel of thumbnail images with links to

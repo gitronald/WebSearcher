@@ -1,4 +1,4 @@
-def parse_twitter_result(cmpt, sub_rank=0):
+def parse_twitter_result(cmpt, sub_rank=0) -> list:
     """Parse a Twitter single result component
 
     These components look like general components, but link to a Twitter account

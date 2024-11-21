@@ -2,13 +2,7 @@ from .. import webutils
 from .general import parse_general_result
 
 
-def get_text(div):
-    return '|'.join([d.get_text(separator=' ') for d in div if d.text])
-
-def parse_alink(a):
-    return {'url': a['href'], 'text': a.get_text('|')}
-
-def parse_knowledge_panel(cmpt, sub_rank=0):
+def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
     """Parse the Knowledge Box
     
     Args:
@@ -117,3 +111,9 @@ def parse_knowledge_panel(cmpt, sub_rank=0):
     parsed['details'] = details
 
     return [parsed]
+
+def get_text(div):
+    return '|'.join([d.get_text(separator=' ') for d in div if d.text])
+
+def parse_alink(a):
+    return {'url': a['href'], 'text': a.get_text('|')}

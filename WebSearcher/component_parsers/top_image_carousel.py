@@ -1,6 +1,6 @@
 from .. import webutils
 
-def parse_top_image_carousel(cmpt, sub_rank=0):
+def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     """parse image carousel that appears at top of page above search results
 
     Args:
