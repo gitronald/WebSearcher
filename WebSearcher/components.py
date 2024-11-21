@@ -44,7 +44,8 @@ class Component:
     def parse_component(self, parser_type_func: callable = None):
         
         log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
-        assert self.type, "Null component type"
+        if not self.type:
+            raise ValueError("Null component type")
 
         if not parser_type_func:
             # Assign parser function and run on component
