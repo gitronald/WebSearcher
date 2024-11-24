@@ -198,19 +198,34 @@ class Extractor:
     def extract_from_top_bar(self, drop_tags: set = {}) -> list:
         """Extract components from top-bars layout"""
         column = []
-        column.extend(self.layout_divs['top-bars'])
-        layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
-        if layout_divs:
-            log.debug("layout update: top-bars-divs")
+
+        top_bar_divs = Extractor.extract_from_top_bar_divs(self.layout_divs['top-bars'])
+        column.extend(top_bar_divs)
+        
+        rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
+        if rso_layout_divs:
             self.layout_label = 'top-bars-divs'
-            layout_column = [div for div in layout_divs if div.name not in drop_tags]
+            layout_column = [div for div in rso_layout_divs if div.name not in drop_tags]
         else:
-            log.debug("layout update: top-bars-children")
             self.layout_label = 'top-bars-children'
             layout_column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
+        log.debug(f"layout update: {self.layout_label}")
+
         column.extend(layout_column)
         return column
     
+    @staticmethod
+    def extract_from_top_bar_divs(soup, drop_tags: set = {}) -> list:
+        output_list = []
+        for top_bar in soup:
+            if webutils.check_dict_value(top_bar.attrs, "class", ["M8OgIe"]):
+                knowledge_divs = webutils.find_all_divs(top_bar, "div", {"jscontroller":"qTdDb"})
+                output_list.extend(knowledge_divs)
+                log.debug(f"layout: M8OgIe divs: {len(knowledge_divs)}")
+            else:
+                output_list.append(top_bar)
+        return output_list
+
 
     def extract_from_left_bar(self, drop_tags: set = {}) -> list:
         """Extract components from left-bar layout"""
