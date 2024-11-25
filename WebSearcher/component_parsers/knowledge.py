@@ -37,7 +37,11 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
         ] 
 
     # Get all text
-    if (
+    if cmpt.find("div", {"class": "Fzsovc"}):
+        parsed['sub_type'] = 'ai_overview'
+    elif cmpt.find("div", {"class":"pxiwBd"}):
+        parsed['sub_type'] = 'featured_results'
+    elif (
         cmpt.find('h2') and cmpt.find('h2').text == 'Featured snippet from the web' or 
         cmpt.find('div', {'class':'answered-question'})
     ):

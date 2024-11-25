@@ -1,3 +1,6 @@
+from .. import logger
+log = logger.Logger().start(__name__)
+
 from .header_text import ClassifyHeaderText
 from .. import webutils
 import bs4
@@ -11,7 +14,7 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
-            ClassifyHeaderText.classify,       # Check levels 2 & 3 header text
+            ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
             ClassifyMain.knowledge_panel,    # Check knowledge panel
@@ -138,6 +141,7 @@ class ClassifyMain:
         conditions = [
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
+            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
         ]
         return 'knowledge' if any(conditions) else "unknown"
 
