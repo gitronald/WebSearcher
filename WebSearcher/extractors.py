@@ -94,7 +94,6 @@ class Extractor:
         """Append notices to the components list at the end"""
         notices = webutils.find_all_divs(self.soup, "div", {"id": "oFNiHe"})
         notices = webutils.filter_empty_divs(notices)
-
         log.debug(f"notices: {len(notices)}")
         for notice in notices:
             self.components.add_component(notice, section="header", type="notice")
@@ -158,15 +157,17 @@ class Extractor:
         log.debug(f"Checking SERP layout")
 
         # Layout soup subsets
-        self.layout_divs["rso"] = self.soup.find('div', {'id':'rso'})
-        self.layout_divs["left-bar"] = self.soup.find('div', {'class': 'OeVqAd'})
-        self.layout_divs["top-bars"] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
+        self.layout_divs['rso'] = self.soup.find('div', {'id':'rso'})
+        self.layout_divs['left-bar'] = self.soup.find('div', {'class': 'OeVqAd'})
+        self.layout_divs['top-bars'] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
         
         # Layout classifications
         self.layouts['rso'] = bool(self.layout_divs['rso'])
         self.layouts['top-bars'] = bool(self.layout_divs['top-bars'])
         self.layouts['left-bar'] = bool(self.layout_divs['left-bar'])
-        self.layouts['standard'] = (self.layouts['rso'] and not self.layouts['top-bars'] and not self.layouts['left-bar'])
+        self.layouts['standard'] = (self.layouts['rso'] &
+                                    (not self.layouts['top-bars']) &
+                                    (not self.layouts['left-bar']))
         self.layouts['no-rso'] = not self.layouts['rso']
 
         # Get layout label
@@ -273,6 +274,7 @@ class Extractor:
     @staticmethod
     def extract_children(soup: bs4.BeautifulSoup, drop_tags: set = {}) -> list:
         """Extract children from BeautifulSoup, drop specific tags, flatten list"""
+        log.debug("layout: extracting children")
         children = []
         for child in soup.children:
             if child.name in drop_tags:
