@@ -139,6 +139,7 @@ class ClassifyMain:
     @staticmethod
     def knowledge_panel(cmpt: bs4.element.Tag) -> str:
         conditions = [
+            cmpt.find("h1", {"class": "VW3apb"}),
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
             webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
