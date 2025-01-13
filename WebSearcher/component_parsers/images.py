@@ -12,23 +12,20 @@ def parse_images(cmpt) -> list:
 
     parsed_list = []
 
-    # Small images: thumbnails with text labels
     if cmpt.find('g-expandable-container'):
+        # Small images: thumbnails with text labels
         subs = cmpt.find_all('a', {'class': 'dgdd6c'})
-        sub_type = 'small'
         parsed_subs = [parse_image_small(div, sub_rank) for sub_rank, div in enumerate(subs)]
         parsed_list.extend(parsed_subs)
 
     if cmpt.find('g-scrolling-carousel'):
         # Medium images or video previews, no text labels
         subs = cmpt.find_all('div', {'class':'eA0Zlc'})
-        sub_type = 'multimedia'
         parsed_subs = [parse_image_multimedia(sub, sub_rank + len(parsed_list)) for sub_rank, sub in enumerate(subs)]
         parsed_list.extend(parsed_subs)
     else:
         # Medium images with titles and urls
         subs = cmpt.find_all('div', {'class':'eA0Zlc'})
-        sub_type = 'medium'
         parsed_subs = [parse_image_medium(sub, sub_rank + len(parsed_list)) for sub_rank, sub in enumerate(subs)]
         parsed_list.extend(parsed_subs)
 
@@ -36,7 +33,6 @@ def parse_images(cmpt) -> list:
     parsed_list = [p for p in parsed_list if any([p['title'], p['url']])]
     
     return parsed_list
-
 
 def parse_image_multimedia(sub, sub_rank=0) -> dict:
     """Parse an image subcomponent
@@ -97,10 +93,25 @@ def parse_image_small(sub, sub_rank=0) -> dict:
 
 def get_img_url(sub):
     """Get image source"""
-    try:
+
+    def get_image_url_from_img_src(sub):
+        return sub.find('img').attrs['src']
+        
+    def get_image_url_from_attrs(sub):
         return sub.attrs['data-lpage']
-    except Exception:
-        return None
+
+    func_list = [
+        get_image_url_from_img_src,
+        get_image_url_from_attrs
+    ]
+
+    # Try each function in the list
+    for func in func_list:
+        try:
+            return func(sub)
+        except Exception as e:
+            pass
+    return None
 
 
 def get_img_alt(sub):
