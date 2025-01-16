@@ -27,7 +27,7 @@ class ClassifyHeaderText:
         # Collect list of potential header divs
         header_list = []
         header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
-        header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x"]}))
+        header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x", "mfMhoc"]}))
         header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "role":"heading"}))
         header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "class":"XmmGVd"}))
 
@@ -79,7 +79,8 @@ class ClassifyHeaderText:
                             "People also search for", 
                             "Related", 
                             "Related searches", 
-                            "Related to this search"],
+                            "Related to this search",
+                            "Searches related to"],
         "top_stories": ["Top stories"],
         "twitter": ["Twitter Results"],
         "videos": ["Videos"]

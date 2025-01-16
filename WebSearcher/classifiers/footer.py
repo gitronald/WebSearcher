@@ -7,7 +7,7 @@ class ClassifyFooter:
     @staticmethod
     def classify(cmpt: bs4.element.Tag) -> str:
         layout_conditions = [
-            ('id' in cmpt.attrs and cmpt.attrs['id'] == 'bres'),
+            ('id' in cmpt.attrs and cmpt.attrs['id'] in {'bres', 'brs'}),
             ('class' in cmpt.attrs and cmpt.attrs['class'] == ['MjjYud']),
         ]
 
@@ -55,7 +55,8 @@ class ClassifyFooter:
         known_labels = {'Related', 
                         'Related searches', 
                         'People also search for', 
-                        'Related to this search'}
+                        'Related to this search',
+                        'Searches related to'}
         h3 = cmpt.find('h3')
         h3_matches = [h3.text.strip().startswith(text) for text in known_labels] if h3 else []
         return 'searches_related' if any(h3_matches) else 'unknown'
