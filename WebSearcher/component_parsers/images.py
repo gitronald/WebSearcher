@@ -95,20 +95,32 @@ def get_img_url(sub):
     """Get image source"""
 
     def get_image_url_from_img_src(sub):
-        return sub.find('img').attrs['src']
+        img_src = sub.find('img').attrs['src']
+        if img_src.startswith('data:image'):
+            raise ValueError(f"Data URL: {img_src}")
+        else:
+            return img_src
+    
+    def get_image_url_from_img_title(sub):
+        return sub.find('img').attrs['title']
         
     def get_image_url_from_attrs(sub):
         return sub.attrs['data-lpage']
 
     func_list = [
         get_image_url_from_img_src,
-        get_image_url_from_attrs
+        get_image_url_from_attrs,
+        get_image_url_from_img_title,
     ]
 
     # Try each function in the list
     for func in func_list:
         try:
-            return func(sub)
+            url = func(sub)
+            if url.startswith('data:image'):
+                raise ValueError(f"Data URL: {img_src}")
+            else:
+                return url
         except Exception as e:
             pass
     return None
