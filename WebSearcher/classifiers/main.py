@@ -14,6 +14,7 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
+            ClassifyMain.news_quotes,        # Check news quotes
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
@@ -174,6 +175,14 @@ class ClassifyMain:
             cmpt.find("div", {"id": "tvcap"})
         ]
         return 'top_stories' if all(conditions) else "unknown"
+
+    @staticmethod
+    def news_quotes(cmpt: bs4.element.Tag) -> str:
+        """Classify top stories components"""
+        conditions = [
+            cmpt.find("g-tray-header", role="heading"),
+        ]
+        return 'news_quotes' if all(conditions) else "unknown"
 
     @staticmethod
     def twitter(cmpt: bs4.element.Tag) -> str:
