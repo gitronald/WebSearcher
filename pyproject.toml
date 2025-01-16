@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "WebSearcher"
-version = "0.4.7.dev3"
+version = "0.4.7"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = ["Ronald E. Robertson <rer@acm.org>"]
 packages = [{include = "WebSearcher"}]
