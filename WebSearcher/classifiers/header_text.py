@@ -67,8 +67,14 @@ class ClassifyHeaderText:
                     "Unit Converter", 
                     "Weather Result"],
         "local_news": ["Local news"],
-        "local_results": ["Local Results"],
-        "map_results": ["Map Results"],
+        "local_results": [
+            "Local Results",
+            "Locations",
+            "Places",
+            "Businesses",
+        ],
+        "map_results": ["Map Results",
+                        "Choice Hotels"],
         "omitted_notice": ["Notices about Filtered Results"],
         "people_also_ask": ["People also ask"],
         "perspectives": ["Perspectives & opinions", 
@@ -81,7 +87,9 @@ class ClassifyHeaderText:
                             "Related searches", 
                             "Related to this search",
                             "Searches related to"],
-        "top_stories": ["Top stories"],
+        "top_stories": ["Top stories", 
+                        "News",
+                        "Market news"],
         "twitter": ["Twitter Results"],
         "videos": ["Videos"]
     }
