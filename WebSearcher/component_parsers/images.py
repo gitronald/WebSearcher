@@ -48,7 +48,8 @@ def parse_image_multimedia(sub, sub_rank=0) -> dict:
         "sub_type": "multimedia",
         "sub_rank": sub_rank,
         "title": get_img_alt(sub),
-        "url": get_img_url(sub)
+        "url": get_img_url(sub),
+        "text": None,
     }
 
 def parse_image_medium(sub, sub_rank=0) -> dict:
@@ -71,6 +72,7 @@ def parse_image_medium(sub, sub_rank=0) -> dict:
         "sub_rank": sub_rank,
         "title": title,
         "url": url,
+        "text": None,
         "cite": get_text(sub, 'div', {'class':'ptes9b'})
     }
 
@@ -88,7 +90,8 @@ def parse_image_small(sub, sub_rank=0) -> dict:
         "sub_type": "small",
         "sub_rank": sub_rank,
         "title": get_text(sub, 'div', {'class':'xlY4q'}),
-        "url": None
+        "url": None,
+        "text": None,
     }
 
 def get_img_url(sub):

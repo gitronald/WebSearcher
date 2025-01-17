@@ -4,7 +4,9 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
     """Parse a one or two column list of related search queries"""
 
     parsed = {'type':'searches_related', 
-              'sub_rank':sub_rank}
+              'sub_rank':sub_rank,
+              'title': None,
+              'url': None}
 
     # Set first non-empty header as sub_type (e.g. "Additional searches" -> additional_searches)
     header_list = [
@@ -45,4 +47,3 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
     parsed['text'] = '<|>'.join(output_list)
     parsed['details'] = output_list
     return [parsed]
-
