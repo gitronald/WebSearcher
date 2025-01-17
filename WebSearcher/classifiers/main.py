@@ -14,8 +14,8 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
-            ClassifyMain.news_quotes,        # Check news quotes
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
+            ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
             ClassifyMain.knowledge_panel,    # Check knowledge panel
