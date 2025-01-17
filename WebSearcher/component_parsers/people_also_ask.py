@@ -19,7 +19,7 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
     # questions = cmpt.find('section').find_all('div', {'class':'yTrXHe'})
     questions = cmpt.find_all("div", {"class":"related-question-pair"})
     parsed_questions = [parse_question(q) for q in questions]
-    parsed_questions = filter(None, parsed_questions)
+    parsed_questions = list(filter(None, parsed_questions))
     parsed = {
         'type': 'people_also_ask',
         'sub_rank': sub_rank,
