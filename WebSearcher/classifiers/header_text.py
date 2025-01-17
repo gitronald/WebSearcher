@@ -34,6 +34,9 @@ class ClassifyHeaderText:
         # Check header text for known title matches
         for header in filter(None, header_list):
             for text, label in header_dict.items():
+                if label == "local_results" and text == "locations":
+                    if header.text.strip().endswith(text):
+                        return label
                 if header.text.strip().startswith(text):
                     return label
 
@@ -72,6 +75,7 @@ class ClassifyHeaderText:
             "Locations",
             "Places",
             "Businesses",
+            "locations",
         ],
         "map_results": ["Map Results",
                         "Choice Hotels"],
