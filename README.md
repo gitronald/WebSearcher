@@ -10,7 +10,7 @@ and position-based specifications.
 
 ## Recent Update
 
-`0.4.9` - last version with poetry v1, future versions (`>=0.5.0`) will use [poetry v2](https://python-poetry.org/blog/announcing-poetry-2.0.1/) configs and rename package to `websearcher` in lowercase to comply with poetry-enforced PEP name standards. When those **future versions** are installed, it will create breaking changes anywhere `import WebSearcher as ws` was used (need change all instances to `import websearcher as ws`).
+`0.5.0` - poetry v2
 
 For a longer list of updates, see the [Update Log](#update-log).
 
@@ -260,6 +260,9 @@ pytest -k "1684837514.html"
 
 ---
 ## Update Log
+
+
+`0.4.9` - last version with poetry v1, future versions (`>=0.5.0`) will use [poetry v2](https://python-poetry.org/blog/announcing-poetry-2.0.1/) configs.
 
 `0.4.2` - `0.4.8` - varied parser updates, testing with py3.12.
 
