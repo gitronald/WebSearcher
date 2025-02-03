@@ -33,6 +33,7 @@ for qry in queries:
     se.save_serp(save_dir=dir_html)         # Save SERP html to dir (no metadata)
 
     # Convert results to dataframe and print select columns
-    results = pd.DataFrame(se.results)
-    print(results[['type', 'title', 'url']])
+    if se.results:
+        results = pd.DataFrame(se.results)
+        print(results[['type', 'title', 'url']])
     time.sleep(30)

@@ -91,9 +91,10 @@ se.search(qry, location=canon_name)
 se.parse_results()
 
 # Shape as dataframe
-results = pd.DataFrame(se.results)
-with pd.option_context('display.max_colwidth', 80):
-    print(results[['type', 'title']])
+if se.results:
+    results = pd.DataFrame(se.results)
+    with pd.option_context('display.max_colwidth', 80):
+        print(results[['type', 'title']])
 
 #             type                                                        title
 #    local_results                                FLORINA Pizzeria & Paninoteca
