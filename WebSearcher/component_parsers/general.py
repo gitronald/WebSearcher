@@ -61,9 +61,9 @@ def parse_general_result(sub, sub_rank=0) -> dict:
     parsed = {
         'type': 'general',
         'sub_rank': sub_rank,
-        'title': get_text(title_div, 'h3') if title_div else '',
-        'url': get_link(title_div) if title_div else '',
-        'text': get_text(body_div) if body_div else '',
+        'title': get_text(title_div, 'h3') if title_div else None,
+        'url': get_link(title_div) if title_div else None,
+        'text': get_text(body_div) if body_div else None,
         'cite': get_text(sub, 'cite')
     }
 
@@ -209,7 +209,7 @@ def parse_general_video(sub, sub_rank: int = 0) -> dict:
         'sub_type': 'video',
         'sub_rank': sub_rank,
         'title': get_result_text(sub, 'h3.LC20lb'),
-        'url': sub.select_one('a[href]').get('href', '') if sub.select_one('a[href]') else '',
+        'url': sub.select_one('a[href]').get('href', '') if sub.select_one('a[href]') else None,
         'text': get_result_text(sub, '.ITZIwc'),
         'cite': get_result_text(sub, 'cite', strip=False),
         'details': get_result_details(sub),
@@ -218,7 +218,7 @@ def parse_general_video(sub, sub_rank: int = 0) -> dict:
 
 def get_result_text(cmpt, selector, strip=True):
     element = cmpt.select_one(selector)
-    return element.get_text(strip=strip) if element else ''
+    return element.get_text(strip=strip) if element else None
 
 
 def get_result_details(cmpt):

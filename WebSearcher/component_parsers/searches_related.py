@@ -4,7 +4,9 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
     """Parse a one or two column list of related search queries"""
 
     parsed = {'type':'searches_related', 
-              'sub_rank':sub_rank}
+              'sub_rank':sub_rank,
+              'title': None,
+              'url': None}
 
     # Set first non-empty header as sub_type (e.g. "Additional searches" -> additional_searches)
     header_list = [
@@ -37,7 +39,11 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
         text_list = [webutils.get_text(sub, 'div', {'class':'Cx1ZMc'}) for sub in subs]
         output_list.extend(filter(None, text_list))
 
+    if cmpt.find('div', {"class":'brs_col'}):
+        subs = webutils.find_all_divs(cmpt, 'a')
+        link_text = [sub.text.strip() for sub in subs]
+        output_list.extend(filter(None, link_text))
+
     parsed['text'] = '<|>'.join(output_list)
     parsed['details'] = output_list
     return [parsed]
-

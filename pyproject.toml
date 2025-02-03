@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "WebSearcher"
-version = "0.4.6"
+version = "0.4.9"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = ["Ronald E. Robertson <rer@acm.org>"]
 packages = [{include = "WebSearcher"}]
@@ -23,6 +23,8 @@ pandas = "^2.2.3"
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"
 syrupy = "^4.7.1"
+pandas = "^2.2.3"
+ipykernel = "^6.29.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

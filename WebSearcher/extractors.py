@@ -94,7 +94,6 @@ class Extractor:
         """Append notices to the components list at the end"""
         notices = webutils.find_all_divs(self.soup, "div", {"id": "oFNiHe"})
         notices = webutils.filter_empty_divs(notices)
-
         log.debug(f"notices: {len(notices)}")
         for notice in notices:
             self.components.add_component(notice, section="header", type="notice")
@@ -158,15 +157,17 @@ class Extractor:
         log.debug(f"Checking SERP layout")
 
         # Layout soup subsets
-        self.layout_divs["rso"] = self.soup.find('div', {'id':'rso'})
-        self.layout_divs["left-bar"] = self.soup.find('div', {'class': 'OeVqAd'})
-        self.layout_divs["top-bars"] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
+        self.layout_divs['rso'] = self.soup.find('div', {'id':'rso'})
+        self.layout_divs['left-bar'] = self.soup.find('div', {'class': 'OeVqAd'})
+        self.layout_divs['top-bars'] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
         
         # Layout classifications
         self.layouts['rso'] = bool(self.layout_divs['rso'])
         self.layouts['top-bars'] = bool(self.layout_divs['top-bars'])
         self.layouts['left-bar'] = bool(self.layout_divs['left-bar'])
-        self.layouts['standard'] = (self.layouts['rso'] and not self.layouts['top-bars'] and not self.layouts['left-bar'])
+        self.layouts['standard'] = (self.layouts['rso'] &
+                                    (not self.layouts['top-bars']) &
+                                    (not self.layouts['left-bar']))
         self.layouts['no-rso'] = not self.layouts['rso']
 
         # Get layout label
@@ -198,19 +199,34 @@ class Extractor:
     def extract_from_top_bar(self, drop_tags: set = {}) -> list:
         """Extract components from top-bars layout"""
         column = []
-        column.extend(self.layout_divs['top-bars'])
-        layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
-        if layout_divs:
-            log.debug("layout update: top-bars-divs")
+
+        top_bar_divs = Extractor.extract_from_top_bar_divs(self.layout_divs['top-bars'])
+        column.extend(top_bar_divs)
+        
+        rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
+        if rso_layout_divs:
             self.layout_label = 'top-bars-divs'
-            layout_column = [div for div in layout_divs if div.name not in drop_tags]
+            layout_column = [div for div in rso_layout_divs if div.name not in drop_tags]
         else:
-            log.debug("layout update: top-bars-children")
             self.layout_label = 'top-bars-children'
             layout_column = Extractor.extract_children(self.layout_divs['rso'], drop_tags)
+        log.debug(f"layout update: {self.layout_label}")
+
         column.extend(layout_column)
         return column
     
+    @staticmethod
+    def extract_from_top_bar_divs(soup, drop_tags: set = {}) -> list:
+        output_list = []
+        for top_bar in soup:
+            if webutils.check_dict_value(top_bar.attrs, "class", ["M8OgIe"]):
+                knowledge_divs = webutils.find_all_divs(top_bar, "div", {"jscontroller": ["qTdDb", "OWrb3e"]})
+                output_list.extend(knowledge_divs)
+                log.debug(f"layout: M8OgIe divs: {len(knowledge_divs)}")
+            else:
+                output_list.append(top_bar)
+        return output_list
+
 
     def extract_from_left_bar(self, drop_tags: set = {}) -> list:
         """Extract components from left-bar layout"""
@@ -258,6 +274,7 @@ class Extractor:
     @staticmethod
     def extract_children(soup: bs4.BeautifulSoup, drop_tags: set = {}) -> list:
         """Extract children from BeautifulSoup, drop specific tags, flatten list"""
+        log.debug("layout: extracting children")
         children = []
         for child in soup.children:
             if child.name in drop_tags:

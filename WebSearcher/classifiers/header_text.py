@@ -27,13 +27,16 @@ class ClassifyHeaderText:
         # Collect list of potential header divs
         header_list = []
         header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
-        header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x"]}))
+        header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x", "mfMhoc"]}))
         header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "role":"heading"}))
         header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "class":"XmmGVd"}))
 
         # Check header text for known title matches
         for header in filter(None, header_list):
             for text, label in header_dict.items():
+                if label == "local_results" and text == "locations":
+                    if header.text.strip().endswith(text):
+                        return label
                 if header.text.strip().startswith(text):
                     return label
 
@@ -67,8 +70,15 @@ class ClassifyHeaderText:
                     "Unit Converter", 
                     "Weather Result"],
         "local_news": ["Local news"],
-        "local_results": ["Local Results"],
-        "map_results": ["Map Results"],
+        "local_results": [
+            "Local Results",
+            "Locations",
+            "Places",
+            "Businesses",
+            "locations",
+        ],
+        "map_results": ["Map Results",
+                        "Choice Hotels"],
         "omitted_notice": ["Notices about Filtered Results"],
         "people_also_ask": ["People also ask"],
         "perspectives": ["Perspectives & opinions", 
@@ -79,8 +89,11 @@ class ClassifyHeaderText:
                             "People also search for", 
                             "Related", 
                             "Related searches", 
-                            "Related to this search"],
-        "top_stories": ["Top stories"],
+                            "Related to this search",
+                            "Searches related to"],
+        "top_stories": ["Top stories", 
+                        "News",
+                        "Market news"],
         "twitter": ["Twitter Results"],
         "videos": ["Videos"]
     }

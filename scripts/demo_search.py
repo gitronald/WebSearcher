@@ -37,8 +37,9 @@ def main():
     se.save_search(append_to=fp_searches)   # Save search metadata + extracted features
 
     # Convert results to dataframe and print select columns
-    results = pd.DataFrame(se.results)
-    print(results[['type', 'title', 'url']])
+    if se.results:
+        results = pd.DataFrame(se.results)
+        print(results[['type', 'title', 'url']])
 
 if __name__ == "__main__":
     main()

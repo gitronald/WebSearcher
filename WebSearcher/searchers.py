@@ -102,13 +102,13 @@ class SearchEngine:
     def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
-        self.loc = str(location) if (location == location) else ''
+        self.loc = str(location) if location else ''
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if self.num_results:
             self.params['num'] = self.num_results
-        if self.loc:
+        if self.loc and self.loc != 'None':
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
 

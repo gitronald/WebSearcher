@@ -8,10 +8,17 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
+## Recent Update
+
+`0.4.9` - last version with poetry v1, future versions (`>=0.5.0`) will use [poetry v2](https://python-poetry.org/blog/announcing-poetry-2.0.1/) configs and rename package to `websearcher` in lowercase to comply with poetry-enforced PEP name standards. When those **future versions** are installed, it will create breaking changes anywhere `import WebSearcher as ws` was used (need change all instances to `import websearcher as ws`).
+
+For a longer list of updates, see the [Update Log](#update-log).
+
 ## Table of Contents
 
 - [WebSearcher](#websearcher)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
+  - [Recent Update](#recent-update)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
@@ -27,7 +34,7 @@ and position-based specifications.
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
     - [Testing](#testing)
-  - [Recent Changes](#recent-changes)
+  - [Update Log](#update-log)
   - [Similar Packages](#similar-packages)
   - [License](#license)
 
@@ -252,7 +259,9 @@ pytest -k "1684837514.html"
 ```
 
 ---
-## Recent Changes
+## Update Log
+
+`0.4.2` - `0.4.8` - varied parser updates, testing with py3.12.
 
 `0.4.1` - Added notices component types, including query edits, suggestions, language tips, and location tips.
 

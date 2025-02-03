@@ -1,3 +1,6 @@
+from .. import logger
+log = logger.Logger().start(__name__)
+
 from .header_text import ClassifyHeaderText
 from .. import webutils
 import bs4
@@ -11,7 +14,8 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
-            ClassifyHeaderText.classify,       # Check levels 2 & 3 header text
+            ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
+            ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
             ClassifyMain.knowledge_panel,    # Check knowledge panel
@@ -136,8 +140,10 @@ class ClassifyMain:
     @staticmethod
     def knowledge_panel(cmpt: bs4.element.Tag) -> str:
         conditions = [
+            cmpt.find("h1", {"class": "VW3apb"}),
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
+            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
         ]
         return 'knowledge' if any(conditions) else "unknown"
 
@@ -169,6 +175,14 @@ class ClassifyMain:
             cmpt.find("div", {"id": "tvcap"})
         ]
         return 'top_stories' if all(conditions) else "unknown"
+
+    @staticmethod
+    def news_quotes(cmpt: bs4.element.Tag) -> str:
+        """Classify top stories components"""
+        conditions = [
+            cmpt.find("g-tray-header", role="heading"),
+        ]
+        return 'news_quotes' if all(conditions) else "unknown"
 
     @staticmethod
     def twitter(cmpt: bs4.element.Tag) -> str:
