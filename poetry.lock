@@ -1938,9 +1938,9 @@ test = ["big-O", "importlib-resources", "jaraco.functools", "jaraco.itertools", 
 type = ["pytest-mypy"]
 
 [extras]
-dev = ["ipykernel", "pandas", "pytest", "syrupy"]
+dev = ["ipykernel", "pytest", "syrupy"]
 
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.9"
-content-hash = "05117d7aef98ea0cbf81526991873390f7c326eed157af2258be227c200f0525"
+content-hash = "c2232a510ee7d9605d973f26c6fa96e536aeb83648d2bd058360e63abd6f0afe"
