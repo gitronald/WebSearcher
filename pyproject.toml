@@ -1,7 +1,6 @@
 [project]
 name = "WebSearcher"
 version = "0.5.0.dev0"
-packages = [{include = "WebSearcher"}]
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "<rer@acm.org>"}]
 keywords = ["web", "search", "parser"]
@@ -34,7 +33,8 @@ repository = "http://github.com/gitronald/WebSearcher"
 [project.scripts]
 demo-search = 'scripts.demo_search:main'
 
-# [tool.poetry]
+[tool.poetry]
+packages = [{include = "WebSearcher"}]
 # name = "WebSearcher"
 # version = "0.4.8.dev2"
 
