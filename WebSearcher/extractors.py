@@ -220,7 +220,7 @@ class Extractor:
         output_list = []
         for top_bar in soup:
             if webutils.check_dict_value(top_bar.attrs, "class", ["M8OgIe"]):
-                knowledge_divs = webutils.find_all_divs(top_bar, "div", {"jscontroller":"qTdDb"})
+                knowledge_divs = webutils.find_all_divs(top_bar, "div", {"jscontroller": ["qTdDb", "OWrb3e"]})
                 output_list.extend(knowledge_divs)
                 log.debug(f"layout: M8OgIe divs: {len(knowledge_divs)}")
             else:
