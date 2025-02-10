@@ -29,6 +29,7 @@ def main():
 
     # Search, parse, and save
     se = ws.SearchEngine()                  # Initialize searcher
+    se.launch_chromedriver(headless =False) # Launch browser
     se.search(args.query)                   # Conduct Search
     se.parse_results()                      # Parse Results
     se.save_serp(append_to=fp_serps)        # Save SERP to json (html + metadata)

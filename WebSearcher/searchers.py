@@ -4,12 +4,19 @@ from . import webutils as wu
 from . import utils
 from . import logger
 from .models import BaseSERP
+# selenium updates
+import undetected_chromedriver as uc
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 import os
 import time
 import brotli
 import requests
 import subprocess
+
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
@@ -17,20 +24,30 @@ from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
-DEFAULT_HEADERS = {
-    'Host': 'www.google.com',
-    'Referer': 'https://www.google.com/',
-    'Accept': '*/*',
-    'Accept-Encoding': 'gzip,deflate,br',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
-}
+
+#DEFAULT_HEADERS = {
+#    'Host': 'www.google.com',
+#    'Referer': 'https://www.google.com/',
+#    'Accept': '*/*',
+#    'Accept-Encoding': 'gzip,deflate,br',
+#    'Accept-Language': 'en-US,en;q=0.5',
+#    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
+#}
+
+#chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
+#driver = uc.Chrome(chromedriver_path = chromedriver_path)
+#driver.get('https://www.google.com')
+#search_box = driver.find_element(By.ID, "APjFqb")
+#search_box.send_keys("how climate change works")
+#search_box.send_keys(Keys.RETURN)
+#html_content = driver.page_source
+
 
 
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
-            headers: Dict[str, str] = DEFAULT_HEADERS,
+            headers: Dict[str, str] = None,
             sesh: Optional[requests.Session] = None, 
             ssh_tunnel: Optional[subprocess.Popen] = None, 
             unzip: bool = True,
@@ -54,8 +71,9 @@ class SearchEngine:
         # Initialize data storage
         self.version: str = WS_VERSION
         self.base_url: str = 'https://www.google.com/search'
-        self.headers: Dict[str, str] = headers
-        self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.headers: Dict[str, str] = None
+        #self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.sesh = None
         self.ssh_tunnel: subprocess.Popen = ssh_tunnel
         self.unzip: bool = unzip
         self.params: Dict[str, Any] = {}
@@ -83,6 +101,11 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
+    def launch_chromedriver(self, headless = False, use_subprocess = False, chromedriver_path = ''):
+        self.headless = headless
+        self.use_subprocess = use_subprocess
+        self.chromedriver_path = chromedriver_path
+        self._init_chromedriver()
 
     def search(self, qry: str, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
         """Conduct a search and save HTML
@@ -95,9 +118,8 @@ class SearchEngine:
             crawl_id (str, optional): An identifier for this crawl
         """
         self._prepare_search(qry=qry, location=location, num_results=num_results)
-        self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
-        self._handle_response()
-
+        self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id)
+        #self._handle_response()
 
     def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
@@ -111,23 +133,41 @@ class SearchEngine:
         if self.loc and self.loc != 'None':
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
+    def _init_chromedriver(self):
+        print('launching...')
+        if self.chromedriver_path == '':
+            #optionally: headless=True, use_subprocess=True
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess)
+        else:
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path)
+            #chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
+        time.sleep(2)
+        self.driver.get('https://www.google.com')
+        time.sleep(2)
 
-    def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
+    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = ''):
         """Send a search request and handle errors"""
-
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
         try:
-            self._send_request()
-        except requests.exceptions.ConnectionError:
-            self.log.exception(f'SERP | Connection error | {self.serp_id}')
-            self._reset_ssh_tunnel()
-        except requests.exceptions.Timeout:
-            self.log.exception(f'SERP | Timeout error | {self.serp_id}')
-        except Exception:
+            self._send_chromedriver_request()
+        except:
             self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+        self.driver.delete_all_cookies()
 
+    def _send_chromedriver_request(self):
+        search_box = self.driver.find_element(By.ID, "APjFqb")
+        search_box.send_keys(self.qry)
+        search_box.send_keys(Keys.RETURN)
+        
+        # wait for the page to load
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "search")) 
+        )
+        time.sleep(2) #including a sleep to allow the page to fully load
+        self.html = self.driver.page_source
+        self.url = self.driver.current_url
 
     def _send_request(self):
         self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
@@ -144,7 +184,6 @@ class SearchEngine:
             self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
             time.sleep(10) # Allow time to establish connection
 
-
     def _handle_response(self):
         try:
             if self.unzip:  
@@ -154,7 +193,6 @@ class SearchEngine:
             self.html = self.html.decode('utf-8', 'ignore')
         except Exception:
             self.log.exception(f'Response handling error')
-
 
     def _unzip_html(self):
         """Unzip brotli zipped html 
@@ -199,8 +237,8 @@ class SearchEngine:
             loc=self.loc, 
             url=self.url, 
             html=self.html,
-            response_code=self.response.status_code,
-            user_agent=self.headers['User-Agent'],
+            response_code= 0,#self.response.status_code,
+            user_agent='',#self.headers['User-Agent'],
             timestamp=self.timestamp,
             serp_id=self.serp_id,
             crawl_id=self.crawl_id,
@@ -264,3 +302,14 @@ class SearchEngine:
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id: {self.serp_id}')
+
+
+
+
+#chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
+#ws = SearchEngine(chromedriver_path=chromedriver_path)
+#ws.launch_chromedriver()
+#qry = 'how climate change works'
+#ws.search(qry)
+#ws.parse_results()
+#ws.results

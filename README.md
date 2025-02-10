@@ -2,8 +2,10 @@
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
+NOTE: In 0.5.*, we moved scraping to selenium
+
 This package provides tools for conducting algorithm audits of web search and 
-includes a scraper built on `requests` with tools for geolocating, conducting, 
+includes a scraper built on `selenium` with tools for geolocating, conducting, 
 and saving searches. It also includes a modular parser built on `BeautifulSoup` 
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
@@ -104,13 +106,14 @@ drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
 -rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
 ```
 
-### Step by Step
+### Step by Step 
 
 Example search and parse pipeline:
 
 ```python
 import WebSearcher as ws
 se = ws.SearchEngine()                     # 1. Initialize collector
+se.launch_chromedriver(headless=False)     # 2. Launch undetected chromedriver window
 se.search('immigration news')              # 2. Conduct a search
 se.parse_results()                         # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
@@ -153,14 +156,20 @@ vars(se)
  'log': <Logger WebSearcher.searchers (DEBUG)>}
 ```
 
-#### 2. Conduct a Search
+#### 2. Launch undetected chromedriver window
+We've switched to using [undetected chrome](https://github.com/ultrafunkamsterdam/undetected-chromedriver) to scrape search results. You'll need to ensure that your chromedriver is up-to-date. All cookies are deleted following each search.launch_chromedriver accepts 3 optional arguments. The defaults are:
+
+se.launch_chromedriver(headless = False, use_subprocess = False, chromedriver_path = '')
+
+
+#### 3. Conduct a Search
 
 ```python
 se.search('immigration news')
 # 2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
 ```
 
-#### 3. Parse Search Results
+#### 4. Parse Search Results
 
 The example below is primarily for parsing search results as you collect HTML.  
 See `ws.parse_serp(html)` for parsing existing HTML data.
@@ -185,7 +194,7 @@ se.results[0]
 ```
 
 
-#### 4. Save HTML and Metadata
+#### 5. Save HTML and Metadata
 
 Recommended: Append html and meta data as lines to a json file for larger or 
 ongoing collections.
@@ -200,7 +209,7 @@ Alternative: Save individual html files in a directory, named by a provided or (
 se.save_serp(save_dir='./serps')
 ```
 
-#### 5. Save Parsed Results
+#### 6. Save Parsed Results
 
 Save to a json lines file.
 
