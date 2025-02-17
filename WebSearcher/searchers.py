@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
 
 import os
 import time
@@ -107,7 +108,7 @@ class SearchEngine:
         self.chromedriver_path = chromedriver_path
         self._init_chromedriver()
 
-    def search(self, qry: str, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
+    def search(self, qry: str, ai_expand = False, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
         """Conduct a search and save HTML
         
         Args:
@@ -118,8 +119,9 @@ class SearchEngine:
             crawl_id (str, optional): An identifier for this crawl
         """
         self._prepare_search(qry=qry, location=location, num_results=num_results)
-        self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id)
+        self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
         #self._handle_response()
+
 
     def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
@@ -145,7 +147,14 @@ class SearchEngine:
         self.driver.get('https://www.google.com')
         time.sleep(2)
 
-    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = ''):
+    def _check_ai_expand(self):
+        try:
+            self.driver.find_element(By.XPATH, "//div[@jsname='rPRdsc' and @role='button']")
+            return True
+        except NoSuchElementException:
+            return False
+
+    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
@@ -154,10 +163,38 @@ class SearchEngine:
             self._send_chromedriver_request()
         except:
             self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+        
+        ## Look for AI overview box and click on it
+        if ai_expand:
+            ai_button = self._check_ai_expand()
+            if ai_button:
+                try:
+                    show_more_button = WebDriverWait(self.driver, 1).until(
+                        EC.element_to_be_clickable((By.XPATH, "//div[@jsname='rPRdsc' and @role='button']"))
+                    )
+                    show_more_button.click()
+                    if show_more_button is not None:
+                        try:
+                            # Wait for additional content to load
+                            time.sleep(2)
+
+                            show_all_button = WebDriverWait(self.driver, 1).until(
+                                EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "trEk7e") and @role="button"]'))
+                            )
+                            show_all_button.click()
+                        except:
+                            pass
+                except:
+                    pass
+                self.html = self.driver.page_source
+            else:
+                pass
+        
         self.driver.delete_all_cookies()
 
     def _send_chromedriver_request(self):
         search_box = self.driver.find_element(By.ID, "APjFqb")
+        search_box.clear()
         search_box.send_keys(self.qry)
         search_box.send_keys(Keys.RETURN)
         
