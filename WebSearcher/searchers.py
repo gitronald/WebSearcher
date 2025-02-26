@@ -63,6 +63,7 @@ class SearchEngine:
         # Initialize search details
         self.qry: str = None
         self.loc: str = None
+        self.lang: str = None
         self.num_results = None
         self.url: str = None
         self.timestamp: str = None
@@ -84,7 +85,14 @@ class SearchEngine:
         ).start(__name__)
 
 
-    def search(self, qry: str, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
+    def search(self, 
+            qry: str, 
+            location: str = None, 
+            lang: str = None, 
+            num_results: int = None, 
+            serp_id: str = '', 
+            crawl_id: str = ''
+        ):
         """Conduct a search and save HTML
         
         Args:
@@ -94,20 +102,23 @@ class SearchEngine:
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self._prepare_search(qry=qry, location=location, num_results=num_results)
+        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
         self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
         self._handle_response()
 
 
-    def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
+    def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
         self.loc = str(location) if location else ''
+        self.lang = lang
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if self.num_results:
             self.params['num'] = self.num_results
+        if self.lang:
+            self.params['hl'] = self.lang
         if self.loc and self.loc != 'None':
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
