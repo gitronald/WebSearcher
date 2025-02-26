@@ -208,6 +208,7 @@ class SearchEngine:
         self.serp = BaseSERP(
             qry=self.qry, 
             loc=self.loc, 
+            lang=self.lang,
             url=self.url, 
             html=self.html,
             response_code=self.response.status_code,
