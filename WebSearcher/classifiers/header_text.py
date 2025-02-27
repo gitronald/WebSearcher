@@ -51,16 +51,16 @@ class ClassifyHeaderText:
 
     # WS type -> header level 2 text (e.g., <h2>title</h2>)
     TYPE_TO_H2_MAPPING = {
-        "directions": ["Directions"],
+        "directions": ["Directions", "Ubicaciones"],
         "discussions_and_forums": ["Discussions and forums"],
         "general": ["Complementary Results", 
                     "Resultados de la Web", 
                     "Web Result with Site Links", 
                     "Web results"],
-        "images": ["Images"],
-        "jobs": ["Jobs"],
+        "images": ["Images", "Imágenes"],
+        "jobs": ["Jobs", "Empleos"],
         "knowledge": ["Calculator Result", 
-                    "Featured snippet from the web", 
+                    "Featured snippet from the web", "Fragmento destacado",
                     "Finance Results", 
                     "From sources across the web", 
                     "Knowledge Result", 
