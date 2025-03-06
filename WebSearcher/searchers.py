@@ -10,6 +10,7 @@ import time
 import brotli
 import requests
 import subprocess
+import pandas as pd
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
@@ -110,16 +111,16 @@ class SearchEngine:
     def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
-        self.loc = str(location) if location else ''
-        self.lang = lang
+        self.loc = str(location) if not pd.isnull(location) else ''
+        self.lang = str(lang) if not pd.isnull(lang) else ''
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if self.num_results:
             self.params['num'] = self.num_results
-        if self.lang:
+        if self.lang and self.lang not in {'None', 'nan'}:
             self.params['hl'] = self.lang
-        if self.loc and self.loc != 'None':
+        if self.loc and self.loc not in {'None', 'nan'}:
             self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
 
 
