@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.5.1.dev4"
+version = "0.5.1.dev5"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "<rer@acm.org>"}]
 keywords = ["web", "search", "parser"]
@@ -15,6 +15,7 @@ dependencies = [
     "brotli>=1.1.0",
     "pydantic>=2.9.2",
     "pandas>=2.2.3",
+    "protobuf (>=6.30.0,<7.0.0)",
 ]
 
 [project.urls]
