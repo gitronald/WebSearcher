@@ -121,7 +121,7 @@ class SearchEngine:
         if self.lang and self.lang not in {'None', 'nan'}:
             self.params['hl'] = self.lang
         if self.loc and self.loc not in {'None', 'nan'}:
-            self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
+            self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
 
 
     def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
