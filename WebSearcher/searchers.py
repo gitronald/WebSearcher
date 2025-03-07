@@ -10,6 +10,7 @@ import time
 import brotli
 import requests
 import subprocess
+import pandas as pd
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
@@ -63,6 +64,7 @@ class SearchEngine:
         # Initialize search details
         self.qry: str = None
         self.loc: str = None
+        self.lang: str = None
         self.num_results = None
         self.url: str = None
         self.timestamp: str = None
@@ -84,7 +86,14 @@ class SearchEngine:
         ).start(__name__)
 
 
-    def search(self, qry: str, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
+    def search(self, 
+            qry: str, 
+            location: str = None, 
+            lang: str = None, 
+            num_results: int = None, 
+            serp_id: str = '', 
+            crawl_id: str = ''
+        ):
         """Conduct a search and save HTML
         
         Args:
@@ -94,22 +103,25 @@ class SearchEngine:
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self._prepare_search(qry=qry, location=location, num_results=num_results)
+        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
         self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
         self._handle_response()
 
 
-    def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
+    def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
-        self.loc = str(location) if location else ''
+        self.loc = str(location) if not pd.isnull(location) else ''
+        self.lang = str(lang) if not pd.isnull(lang) else ''
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if self.num_results:
             self.params['num'] = self.num_results
-        if self.loc and self.loc != 'None':
-            self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
+        if self.lang and self.lang not in {'None', 'nan'}:
+            self.params['hl'] = self.lang
+        if self.loc and self.loc not in {'None', 'nan'}:
+            self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
 
 
     def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
@@ -197,6 +209,7 @@ class SearchEngine:
         self.serp = BaseSERP(
             qry=self.qry, 
             loc=self.loc, 
+            lang=self.lang,
             url=self.url, 
             html=self.html,
             response_code=self.response.status_code,
