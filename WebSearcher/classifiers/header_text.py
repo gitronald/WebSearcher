@@ -73,9 +73,9 @@ class ClassifyHeaderText:
                     "Players", "Jugadores",
                     "Translation Result", 
                     "Unit Converter", 
-                    "Weather Result", "Clima"
+                    "Weather Result", "Clima",
                     "Artworks", "Obras de arte",
-                    "Songs", "Canciones"
+                    "Songs", "Canciones",
                     "Albums", "Álbumes",
                     "What people are saying",
                     "About", "Información",
