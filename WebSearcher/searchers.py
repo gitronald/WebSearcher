@@ -92,19 +92,6 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
-    def launch_chromedriver(
-            self, 
-            headless: bool = False, 
-            version_main: int = 133,
-            use_subprocess: bool = False, 
-            chromedriver_path: str = ''
-        ) -> None:
-        self.headless = headless
-        self.use_subprocess = use_subprocess
-        self.chromedriver_path = chromedriver_path
-        self.version_main = version_main
-        self._init_chromedriver()
-
     def search(self, 
             qry: str, 
             location: str = None, 
@@ -127,9 +114,9 @@ class SearchEngine:
         """
 
         self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
+
         if method == 'selenium':
             self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
-        
         elif method == 'requests':
             self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
             self._handle_response()
@@ -149,62 +136,28 @@ class SearchEngine:
         if self.loc and self.loc not in {'None', 'nan'}:
             self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
 
+    def launch_chromedriver(
+            self, 
+            headless: bool = False, 
+            version_main: int = 133,
+            use_subprocess: bool = False, 
+            chromedriver_path: str = ''
+        ) -> None:
+        self.headless = headless
+        self.use_subprocess = use_subprocess
+        self.chromedriver_path = chromedriver_path
+        self.version_main = version_main
+        self._init_chromedriver()
+
     def _init_chromedriver(self):
-        print('launching...')
+        self.log.info(f'SERP | Launching ChromeDriver | headless: {self.headless} | subprocess: {self.use_subprocess} | version: {self.version_main}')
         if self.chromedriver_path == '':
-            #optionally: headless=True, use_subprocess=True
             self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, version_main = self.version_main)
         else:
             self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path, version_main = self.version_main)
-            #chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
         time.sleep(2)
         self.driver.get('https://www.google.com')
         time.sleep(2)
-
-    def _check_ai_expand(self):
-        try:
-            self.driver.find_element(By.XPATH, "//div[@jsname='rPRdsc' and @role='button']")
-            return True
-        except NoSuchElementException:
-            return False
-
-    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
-        """Send a search request and handle errors"""
-        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
-        self.crawl_id = crawl_id
-        try:
-            self._send_chromedriver_request()
-        except:
-            self.log.exception(f'SERP | Unknown error | {self.serp_id}')
-        
-        ## Look for AI overview box and click on it
-        if ai_expand:
-            ai_button = self._check_ai_expand()
-            if ai_button:
-                try:
-                    show_more_button = WebDriverWait(self.driver, 1).until(
-                        EC.element_to_be_clickable((By.XPATH, "//div[@jsname='rPRdsc' and @role='button']"))
-                    )
-                    show_more_button.click()
-                    if show_more_button is not None:
-                        try:
-                            # Wait for additional content to load
-                            time.sleep(2)
-
-                            show_all_button = WebDriverWait(self.driver, 1).until(
-                                EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "trEk7e") and @role="button"]'))
-                            )
-                            show_all_button.click()
-                        except:
-                            pass
-                except:
-                    pass
-                self.html = self.driver.page_source
-            else:
-                pass
-        
-        self.driver.delete_all_cookies()
 
     def _send_chromedriver_request(self):
         search_box = self.driver.find_element(By.ID, "APjFqb")
@@ -227,6 +180,52 @@ class SearchEngine:
         log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
         self.log.info(log_msg)
 
+    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
+        """Send a search request and handle errors"""
+        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
+        self.crawl_id = crawl_id
+        try:
+            self._send_chromedriver_request()
+            self.html = self.driver.page_source
+        except:
+            self.log.exception(f'SERP | Chromedriver error | {self.serp_id}')
+
+        if ai_expand:
+            self._expand_ai_overview()           # Expand AI overview box by clicking it
+        self.driver.delete_all_cookies()
+
+    def _expand_ai_overview(self):
+        show_more_button_xpath = "//div[@jsname='rPRdsc' and @role='button']"
+        show_all_button_xpath = '//div[contains(@class, "trEk7e") and @role="button"]'
+
+        try:
+            self.driver.find_element(By.XPATH, show_more_button_xpath)
+            show_more_button_exists = True
+        except NoSuchElementException:
+            show_more_button_exists = False
+        
+        if show_more_button_exists:
+            try:
+                show_more_button = WebDriverWait(self.driver, 1).until(
+                    EC.element_to_be_clickable((By.XPATH, show_more_button_xpath))
+                )
+                if show_more_button is not None:
+                    show_more_button.click()
+                    try:
+                        time.sleep(2) # Wait for additional content to load
+                        show_all_button = WebDriverWait(self.driver, 1).until(
+                            EC.element_to_be_clickable((By.XPATH, show_all_button_xpath))
+                        )
+                        show_all_button.click()
+                    except Exception:
+                        pass
+                    
+                     # Overwrite html with expanded content
+                    self.html = self.driver.page_source
+
+            except Exception:
+                pass
 
     def _reset_ssh_tunnel(self):
         if self.ssh_tunnel:
