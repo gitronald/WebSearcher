@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.5.2.dev0"
+version = "0.5.2"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "<rer@acm.org>"}]
 keywords = ["web", "search", "parser"]
