@@ -8,17 +8,26 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
-## Recent Update
+## Recent Updates
 
-`0.5.0` - poetry v2
+Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
 
-For a longer list of updates, see the [Update Log](#update-log).
+
+`0.5.2`
+- Added support for Spanish component headers by text
+- Pull request [#74](https://github.com/gitronald/WebSearcher/pull/74)
+
+`0.5.1`
+- Fixed canonical name -> UULE converter using `protobuf`, see [this gist](https://gist.github.com/gitronald/66cac42194ea2d489ff3a1e32651e736) for details
+- Added lang arg to specify language in se.search, uses hl URL param and does not change Accept-Language request header (which defaults to en-US), but works in tests.
+- Fixed null location/language arg input handling (again)
+- Pull Request [#76](https://github.com/gitronald/WebSearcher/pull/76)
 
 ## Table of Contents
 
 - [WebSearcher](#websearcher)
   - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
-  - [Recent Update](#recent-update)
+  - [Recent Updates](#recent-updates)
   - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
@@ -261,6 +270,8 @@ pytest -k "1684837514.html"
 ---
 ## Update Log
 
+`0.5.0`
+- configuration now using poetry v2
 
 `0.4.9` - last version with poetry v1, future versions (`>=0.5.0`) will use [poetry v2](https://python-poetry.org/blog/announcing-poetry-2.0.1/) configs.
 
