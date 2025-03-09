@@ -2,8 +2,6 @@
 ## Tools for conducting and parsing web searches  
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
-NOTE: In 0.5.*, we moved scraping to selenium
-
 This package provides tools for conducting algorithm audits of web search and 
 includes a scraper built on `selenium` with tools for geolocating, conducting, 
 and saving searches. It also includes a modular parser built on `BeautifulSoup` 
@@ -14,6 +12,10 @@ and position-based specifications.
 
 Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
 
+
+`0.6.0` 
+- method for collecting data with selenium; requests no longer works without a redirect
+- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
 
 `0.5.2`
 - Added support for Spanish component headers by text
@@ -36,10 +38,11 @@ Below are some details about recent updates. For a longer list, see the [Update 
     - [Example Search Script](#example-search-script)
     - [Step by Step](#step-by-step)
       - [1. Initialize Collector](#1-initialize-collector)
-      - [2. Conduct a Search](#2-conduct-a-search)
-      - [3. Parse Search Results](#3-parse-search-results)
-      - [4. Save HTML and Metadata](#4-save-html-and-metadata)
-      - [5. Save Parsed Results](#5-save-parsed-results)
+      - [2. Launch undetected chromedriver window](#2-launch-undetected-chromedriver-window)
+      - [3. Conduct a Search](#3-conduct-a-search)
+      - [4. Parse Search Results](#4-parse-search-results)
+      - [5. Save HTML and Metadata](#5-save-html-and-metadata)
+      - [6. Save Parsed Results](#6-save-parsed-results)
   - [Localization](#localization)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
