@@ -4,6 +4,16 @@ from . import webutils as wu
 from . import utils
 from . import logger
 from .models import BaseSERP
+
+import os
+import time
+import brotli
+import requests
+import subprocess
+import pandas as pd
+from datetime import datetime, timezone
+from typing import Any, Dict, Optional
+
 # selenium updates
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
@@ -12,38 +22,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-import os
-import time
-import brotli
-import requests
-import subprocess
-
-from datetime import datetime, timezone
-from typing import Any, Dict, Optional
-
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
-
-#DEFAULT_HEADERS = {
-#    'Host': 'www.google.com',
-#    'Referer': 'https://www.google.com/',
-#    'Accept': '*/*',
-#    'Accept-Encoding': 'gzip,deflate,br',
-#    'Accept-Language': 'en-US,en;q=0.5',
-#    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
-#}
-
-#chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
-#driver = uc.Chrome(chromedriver_path = chromedriver_path)
-#driver.get('https://www.google.com')
-#search_box = driver.find_element(By.ID, "APjFqb")
-#search_box.send_keys("how climate change works")
-#search_box.send_keys(Keys.RETURN)
-#html_content = driver.page_source
-
-
+DEFAULT_HEADERS = {
+   'Host': 'www.google.com',
+   'Referer': 'https://www.google.com/',
+   'Accept': '*/*',
+   'Accept-Encoding': 'gzip,deflate,br',
+   'Accept-Language': 'en-US,en;q=0.5',
+   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
+}
 
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
@@ -73,7 +63,7 @@ class SearchEngine:
         self.version: str = WS_VERSION
         self.base_url: str = 'https://www.google.com/search'
         self.headers: Dict[str, str] = None
-        #self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
         self.sesh = None
         self.ssh_tunnel: subprocess.Popen = ssh_tunnel
         self.unzip: bool = unzip
@@ -82,6 +72,7 @@ class SearchEngine:
         # Initialize search details
         self.qry: str = None
         self.loc: str = None
+        self.lang: str = None
         self.num_results = None
         self.url: str = None
         self.timestamp: str = None
@@ -108,32 +99,49 @@ class SearchEngine:
         self.chromedriver_path = chromedriver_path
         self._init_chromedriver()
 
-    def search(self, qry: str, ai_expand = False, location: str = None, num_results: int = None, serp_id: str = '', crawl_id: str = ''):
+    def search(self, 
+            qry: str, 
+            location: str = None, 
+            lang: str = None, 
+            num_results: int = None, 
+            method: str = 'selenium',
+            ai_expand: bool = False,
+            serp_id: str = '', 
+            crawl_id: str = ''
+        ):
         """Conduct a search and save HTML
         
         Args:
             qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            num_results (int, optional): The number of results to return.
+            location (str, optional): A location's Canonical Name
+            num_results (int, optional): The number of results to return
+            ai_expand: (bool, optional): Whether to use selenium to expand AI overviews
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self._prepare_search(qry=qry, location=location, num_results=num_results)
-        self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
-        #self._handle_response()
 
+        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
+        if method == 'selenium':
+            self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
+        
+        elif method == 'requests':
+            self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
+            self._handle_response()
 
-    def _prepare_search(self, qry: str, location: str = None, num_results: int = None):
+    def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
         self.qry = str(qry)
-        self.loc = str(location) if location else ''
+        self.loc = str(location) if not pd.isnull(location) else ''
+        self.lang = str(lang) if not pd.isnull(lang) else ''
         self.num_results = num_results
         self.params = {}
         self.params['q'] = wu.encode_param_value(self.qry)
         if self.num_results:
             self.params['num'] = self.num_results
-        if self.loc and self.loc != 'None':
-            self.params['uule'] = locations.get_location_id(canonical_name=self.loc)
+        if self.lang and self.lang not in {'None', 'nan'}:
+            self.params['hl'] = self.lang
+        if self.loc and self.loc not in {'None', 'nan'}:
+            self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
 
     def _init_chromedriver(self):
         print('launching...')
@@ -272,10 +280,11 @@ class SearchEngine:
         self.serp = BaseSERP(
             qry=self.qry, 
             loc=self.loc, 
+            lang=self.lang,
             url=self.url, 
             html=self.html,
-            response_code= 0,#self.response.status_code,
-            user_agent='',#self.headers['User-Agent'],
+            response_code=0 if not self.response else self.response.status_code,
+            user_agent='' if not self.response else self.headers['User-Agent'],
             timestamp=self.timestamp,
             serp_id=self.serp_id,
             crawl_id=self.crawl_id,
@@ -341,12 +350,3 @@ class SearchEngine:
             self.log.info(f'No parsed results for serp_id: {self.serp_id}')
 
 
-
-
-#chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
-#ws = SearchEngine(chromedriver_path=chromedriver_path)
-#ws.launch_chromedriver()
-#qry = 'how climate change works'
-#ws.search(qry)
-#ws.parse_results()
-#ws.results

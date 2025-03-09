@@ -17,6 +17,7 @@ class BaseResult(BaseModel):
 class BaseSERP(BaseModel):
     qry: str                   # Search query 
     loc: Optional[str] = None  # Location if set, "Canonical Name"
+    lang: Optional[str] = None # Language if set
     url: str                   # URL of SERP   
     html: str                  # Raw HTML of SERP
     timestamp: str             # Timestamp of crawl
