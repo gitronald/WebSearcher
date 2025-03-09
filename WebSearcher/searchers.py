@@ -62,9 +62,8 @@ class SearchEngine:
         # Initialize data storage
         self.version: str = WS_VERSION
         self.base_url: str = 'https://www.google.com/search'
-        self.headers: Dict[str, str] = None
-        self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
-        self.sesh = None
+        self.headers: Dict[str, str] = headers or DEFAULT_HEADERS
+        self.sesh: requests.Session = sesh or wu.start_sesh(headers=self.headers)
         self.ssh_tunnel: subprocess.Popen = ssh_tunnel
         self.unzip: bool = unzip
         self.params: Dict[str, Any] = {}
@@ -93,10 +92,17 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
-    def launch_chromedriver(self, headless = False, use_subprocess = False, chromedriver_path = ''):
+    def launch_chromedriver(
+            self, 
+            headless: bool = False, 
+            version_main: int = 133,
+            use_subprocess: bool = False, 
+            chromedriver_path: str = ''
+        ) -> None:
         self.headless = headless
         self.use_subprocess = use_subprocess
         self.chromedriver_path = chromedriver_path
+        self.version_main = version_main
         self._init_chromedriver()
 
     def search(self, 
@@ -147,9 +153,9 @@ class SearchEngine:
         print('launching...')
         if self.chromedriver_path == '':
             #optionally: headless=True, use_subprocess=True
-            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess)
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, version_main = self.version_main)
         else:
-            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path)
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path, version_main = self.version_main)
             #chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
         time.sleep(2)
         self.driver.get('https://www.google.com')
