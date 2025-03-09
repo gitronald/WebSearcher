@@ -14,24 +14,31 @@ import pandas as pd
 from datetime import datetime, timezone
 from typing import Any, Dict, Optional
 
+# selenium updates
+import undetected_chromedriver as uc
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException
+
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
 # Default headers to send with requests (i.e. device fingerprint)
 DEFAULT_HEADERS = {
-    'Host': 'www.google.com',
-    'Referer': 'https://www.google.com/',
-    'Accept': '*/*',
-    'Accept-Encoding': 'gzip,deflate,br',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
+   'Host': 'www.google.com',
+   'Referer': 'https://www.google.com/',
+   'Accept': '*/*',
+   'Accept-Encoding': 'gzip,deflate,br',
+   'Accept-Language': 'en-US,en;q=0.5',
+   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
 }
-
 
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
-            headers: Dict[str, str] = DEFAULT_HEADERS,
+            headers: Dict[str, str] = None,
             sesh: Optional[requests.Session] = None, 
             ssh_tunnel: Optional[subprocess.Popen] = None, 
             unzip: bool = True,
@@ -55,8 +62,9 @@ class SearchEngine:
         # Initialize data storage
         self.version: str = WS_VERSION
         self.base_url: str = 'https://www.google.com/search'
-        self.headers: Dict[str, str] = headers
+        self.headers: Dict[str, str] = None
         self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
+        self.sesh = None
         self.ssh_tunnel: subprocess.Popen = ssh_tunnel
         self.unzip: bool = unzip
         self.params: Dict[str, Any] = {}
@@ -85,12 +93,19 @@ class SearchEngine:
             file_level=log_level,
         ).start(__name__)
 
+    def launch_chromedriver(self, headless = False, use_subprocess = False, chromedriver_path = ''):
+        self.headless = headless
+        self.use_subprocess = use_subprocess
+        self.chromedriver_path = chromedriver_path
+        self._init_chromedriver()
 
     def search(self, 
             qry: str, 
             location: str = None, 
             lang: str = None, 
             num_results: int = None, 
+            method: str = 'selenium',
+            ai_expand: bool = False,
             serp_id: str = '', 
             crawl_id: str = ''
         ):
@@ -98,15 +113,20 @@ class SearchEngine:
         
         Args:
             qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            num_results (int, optional): The number of results to return.
+            location (str, optional): A location's Canonical Name
+            num_results (int, optional): The number of results to return
+            ai_expand: (bool, optional): Whether to use selenium to expand AI overviews
             serp_id (str, optional): A unique identifier for this SERP
             crawl_id (str, optional): An identifier for this crawl
         """
-        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
-        self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
-        self._handle_response()
 
+        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
+        if method == 'selenium':
+            self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
+        
+        elif method == 'requests':
+            self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
+            self._handle_response()
 
     def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
         """Prepare a search URL and metadata for the given query and location"""
@@ -123,23 +143,76 @@ class SearchEngine:
         if self.loc and self.loc not in {'None', 'nan'}:
             self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
 
+    def _init_chromedriver(self):
+        print('launching...')
+        if self.chromedriver_path == '':
+            #optionally: headless=True, use_subprocess=True
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess)
+        else:
+            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path)
+            #chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
+        time.sleep(2)
+        self.driver.get('https://www.google.com')
+        time.sleep(2)
 
-    def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
+    def _check_ai_expand(self):
+        try:
+            self.driver.find_element(By.XPATH, "//div[@jsname='rPRdsc' and @role='button']")
+            return True
+        except NoSuchElementException:
+            return False
+
+    def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
-
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
         try:
-            self._send_request()
-        except requests.exceptions.ConnectionError:
-            self.log.exception(f'SERP | Connection error | {self.serp_id}')
-            self._reset_ssh_tunnel()
-        except requests.exceptions.Timeout:
-            self.log.exception(f'SERP | Timeout error | {self.serp_id}')
-        except Exception:
+            self._send_chromedriver_request()
+        except:
             self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+        
+        ## Look for AI overview box and click on it
+        if ai_expand:
+            ai_button = self._check_ai_expand()
+            if ai_button:
+                try:
+                    show_more_button = WebDriverWait(self.driver, 1).until(
+                        EC.element_to_be_clickable((By.XPATH, "//div[@jsname='rPRdsc' and @role='button']"))
+                    )
+                    show_more_button.click()
+                    if show_more_button is not None:
+                        try:
+                            # Wait for additional content to load
+                            time.sleep(2)
 
+                            show_all_button = WebDriverWait(self.driver, 1).until(
+                                EC.element_to_be_clickable((By.XPATH, '//div[contains(@class, "trEk7e") and @role="button"]'))
+                            )
+                            show_all_button.click()
+                        except:
+                            pass
+                except:
+                    pass
+                self.html = self.driver.page_source
+            else:
+                pass
+        
+        self.driver.delete_all_cookies()
+
+    def _send_chromedriver_request(self):
+        search_box = self.driver.find_element(By.ID, "APjFqb")
+        search_box.clear()
+        search_box.send_keys(self.qry)
+        search_box.send_keys(Keys.RETURN)
+        
+        # wait for the page to load
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "search")) 
+        )
+        time.sleep(2) #including a sleep to allow the page to fully load
+        self.html = self.driver.page_source
+        self.url = self.driver.current_url
 
     def _send_request(self):
         self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
@@ -156,7 +229,6 @@ class SearchEngine:
             self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
             time.sleep(10) # Allow time to establish connection
 
-
     def _handle_response(self):
         try:
             if self.unzip:  
@@ -166,7 +238,6 @@ class SearchEngine:
             self.html = self.html.decode('utf-8', 'ignore')
         except Exception:
             self.log.exception(f'Response handling error')
-
 
     def _unzip_html(self):
         """Unzip brotli zipped html 
@@ -212,8 +283,8 @@ class SearchEngine:
             lang=self.lang,
             url=self.url, 
             html=self.html,
-            response_code=self.response.status_code,
-            user_agent=self.headers['User-Agent'],
+            response_code=0 if not self.response else self.response.status_code,
+            user_agent='' if not self.response else self.headers['User-Agent'],
             timestamp=self.timestamp,
             serp_id=self.serp_id,
             crawl_id=self.crawl_id,
@@ -277,3 +348,5 @@ class SearchEngine:
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id: {self.serp_id}')
+
+
