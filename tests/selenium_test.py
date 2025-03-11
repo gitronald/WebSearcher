@@ -40,6 +40,7 @@ def main(
     se.save_serp(append_to=f'{output_prefix}_serps.json')
     se.save_search(append_to=f'{output_prefix}_searches.json')
     se.save_results(append_to=f'{output_prefix}_results.json')
+    se.cleanup()
 
 if __name__ == "__main__":
     app()

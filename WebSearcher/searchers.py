@@ -198,7 +198,6 @@ class SearchEngine:
 
         self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
         if self.config.method == SearchMethod.SELENIUM:
-            self._init_chromedriver()
             self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
         elif self.config.method == SearchMethod.REQUESTS:
             self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
@@ -272,6 +271,9 @@ class SearchEngine:
 
     def _conduct_chromedriver_search(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
+        if not self.driver:
+            self._init_chromedriver()
+
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
@@ -282,10 +284,11 @@ class SearchEngine:
             self.log.exception(f'SERP | Chromedriver error | {self.serp_id}')
 
         if ai_expand:
-            self._expand_ai_overview()           # Expand AI overview box by clicking it
+            self._expand_ai_overview()
         self.driver.delete_all_cookies()
 
     def _expand_ai_overview(self):
+        """Expand AI overview box by clicking it"""
         show_more_button_xpath = "//div[@jsname='rPRdsc' and @role='button']"
         show_all_button_xpath = '//div[contains(@class, "trEk7e") and @role="button"]'
 
@@ -318,6 +321,23 @@ class SearchEngine:
 
             except Exception:
                 pass
+
+    def cleanup(self):
+        """Clean up resources, particularly Selenium's browser instance
+        
+        Returns:
+            bool: True if cleanup was successful or not needed, False if cleanup failed
+        """
+        if self.config.method == SearchMethod.SELENIUM and hasattr(self, 'driver') and self.driver:
+            try:
+                self.driver.quit()
+                self.driver = None
+                self.log.debug(f'Browser successfully closed')
+                return True
+            except Exception as e:
+                self.log.warning(f'Failed to close browser: {e}')
+                return False
+        return True
 
     # ==========================================================================
     # Requests method
