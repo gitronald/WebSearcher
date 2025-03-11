@@ -38,11 +38,10 @@ Below are some details about recent updates. For a longer list, see the [Update 
     - [Example Search Script](#example-search-script)
     - [Step by Step](#step-by-step)
       - [1. Initialize Collector](#1-initialize-collector)
-      - [2. Launch undetected chromedriver window](#2-launch-undetected-chromedriver-window)
-      - [3. Conduct a Search](#3-conduct-a-search)
-      - [4. Parse Search Results](#4-parse-search-results)
-      - [5. Save HTML and Metadata](#5-save-html-and-metadata)
-      - [6. Save Parsed Results](#6-save-parsed-results)
+      - [2. Conduct a Search](#2-conduct-a-search)
+      - [3. Parse Search Results](#3-parse-search-results)
+      - [4. Save HTML and Metadata](#4-save-html-and-metadata)
+      - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
@@ -125,7 +124,6 @@ Example search and parse pipeline:
 ```python
 import WebSearcher as ws
 se = ws.SearchEngine()                     # 1. Initialize collector
-se.launch_chromedriver(headless=False)     # 2. Launch undetected chromedriver window
 se.search('immigration news')              # 2. Conduct a search
 se.parse_results()                         # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
@@ -138,50 +136,26 @@ se.save_results(append_to='results.json')  # 5. Save parsed results
 ```python
 import WebSearcher as ws
 
-# Initialize collector with optional defaults (headers, logs, ssh tunnels)
-se = ws.SearchEngine()
+# Initialize collector with method and other settings
+se = ws.SearchEngine(
+    method="selenium", 
+    selenium_config = {
+        "headless": False,
+        "use_subprocess": False,
+        "driver_executable_path": "",
+        "version_main": 133,
+    }
+)
+```   
 
-# Show collector settings
-vars(se)
-{'version': '0.4.1',
- 'base_url': 'https://www.google.com/search',
- 'headers': {'Host': 'www.google.com',
-  'Referer': 'https://www.google.com/',
-  'Accept': '*/*',
-  'Accept-Encoding': 'gzip,deflate,br',
-  'Accept-Language': 'en-US,en;q=0.5',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0'},
- 'sesh': <requests.sessions.Session at 0x7f9ac018ece0>,
- 'ssh_tunnel': None,
- 'unzip': True,
- 'params': {},
- 'qry': None,
- 'loc': None,
- 'num_results': None,
- 'url': None,
- 'timestamp': None,
- 'serp_id': None,
- 'crawl_id': None,
- 'response': None,
- 'html': None,
- 'results': [],
- 'log': <Logger WebSearcher.searchers (DEBUG)>}
-```
-
-#### 2. Launch undetected chromedriver window
-We've switched to using [undetected chrome](https://github.com/ultrafunkamsterdam/undetected-chromedriver) to scrape search results. You'll need to ensure that your chromedriver is up-to-date. All cookies are deleted following each search.launch_chromedriver accepts 3 optional arguments. The defaults are:
-
-se.launch_chromedriver(headless = False, use_subprocess = False, chromedriver_path = '')
-
-
-#### 3. Conduct a Search
+#### 2. Conduct a Search
 
 ```python
 se.search('immigration news')
 # 2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
 ```
 
-#### 4. Parse Search Results
+#### 3. Parse Search Results
 
 The example below is primarily for parsing search results as you collect HTML.  
 See `ws.parse_serp(html)` for parsing existing HTML data.
@@ -206,7 +180,7 @@ se.results[0]
 ```
 
 
-#### 5. Save HTML and Metadata
+#### 4. Save HTML and Metadata
 
 Recommended: Append html and meta data as lines to a json file for larger or 
 ongoing collections.
@@ -221,7 +195,7 @@ Alternative: Save individual html files in a directory, named by a provided or (
 se.save_serp(save_dir='./serps')
 ```
 
-#### 6. Save Parsed Results
+#### 5. Save Parsed Results
 
 Save to a json lines file.
 

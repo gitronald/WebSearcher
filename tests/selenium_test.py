@@ -1,15 +1,45 @@
+import typer
 import WebSearcher as ws
 
-#chromedriver_path = "/opt/homebrew/Caskroom/chromedriver/133.0.6943.53"
+# driver_executable_path locations:
+# /opt/homebrew/Caskroom/chromedriver/133.0.6943.53 # Mac
+# /opt/google/chrome/google-chrome  # Google Chrome 134.0.6998.88 | permissions error
+# ~/.local/share/undetected_chromedriver/undetected_chromedriver # ChromeDriver 133.0.6943.141
 
-se = ws.SearchEngine()                     # 1. Initialize collector
-se.launch_chromedriver(headless=False,     # 2. Launch undetected_chromedriver window 
-                       use_subprocess=False,
-                       version_main=133)   
-se.search('immigration news')              # 2. Conduct a search
-se.parse_results()                         # 3. Parse search results
-se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
-se.save_results(append_to='results.json')  # 5. Save parsed results
+app = typer.Typer()
 
-#import pandas as pd
-#df = pd.DataFrame(se.results)                   # 6. Display results in a pandas dataframe
+@app.command()
+def main(
+    query: str = typer.Argument(..., help="Search query to use"),
+    method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
+    headless: bool = typer.Option(False, help="Run browser in headless mode"),
+    use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
+    version_main: int = typer.Option(133, help="Main version of Chrome to use"),
+    ai_expand: bool = typer.Option(False, help="Expand AI overviews if present"),
+    driver_executable_path: str = typer.Option(None, help="Path to ChromeDriver executable"),
+    output_prefix: str = typer.Option("output", help="Prefix for output files")
+) -> None:
+
+    typer.echo(f"query: {query}\nmethod: {method}")
+    selenium_config = {
+        "headless": headless,
+        "use_subprocess": use_subprocess,
+        "driver_executable_path": driver_executable_path,
+        "version_main": version_main,
+    }
+    
+    se = ws.SearchEngine(
+        method=method,
+        selenium_config=selenium_config
+    )
+    
+    se.search(qry=query, ai_expand=ai_expand)
+    se.parse_results()
+    
+    # Save results with the specified prefix
+    se.save_serp(append_to=f'{output_prefix}_serps.json')
+    se.save_search(append_to=f'{output_prefix}_searches.json')
+    se.save_results(append_to=f'{output_prefix}_results.json')
+
+if __name__ == "__main__":
+    app()

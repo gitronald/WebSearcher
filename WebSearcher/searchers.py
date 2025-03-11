@@ -7,12 +7,15 @@ from .models import BaseSERP
 
 import os
 import time
+import json
 import brotli
 import requests
 import subprocess
 import pandas as pd
+from enum import Enum
+from typing import Any, Dict, Optional, Union
 from datetime import datetime, timezone
-from typing import Any, Dict, Optional
+from dataclasses import dataclass, field
 
 # selenium updates
 import undetected_chromedriver as uc
@@ -35,38 +38,117 @@ DEFAULT_HEADERS = {
    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
 }
 
+class SearchMethod(Enum):
+    REQUESTS = "requests"
+    SELENIUM = "selenium"
+
+@dataclass
+class BaseConfig:
+    """Common search configuration
+    
+    Attributes:
+        log_fp (str, optional): A file to log function process output to
+        log_mode (str, optional): Write over the log file or append to it
+        log_level (str, optional): The file logging level
+    
+    """
+    log_fp: str = ''
+    log_mode: str = 'a+'
+    log_level: str = 'INFO'
+
+@dataclass
+class SeleniumConfig:
+    """Selenium-specific configuration
+
+    Attributes:
+        headless (bool): Whether to run the browser in headless mode
+        version_main (int): The main version of the ChromeDriver to use
+        use_subprocess (bool): Whether to use subprocess for ChromeDriver
+        driver_executable_path (str): Path to the ChromeDriver executable
+    
+    """
+    headless: bool = False
+    version_main: int = 133
+    use_subprocess: bool = False
+    driver_executable_path: str = ''
+
+@dataclass 
+class RequestsConfig:
+    """Requests-specific configuration
+    
+    Attributes:
+        headers (Dict[str, str]): Headers to send with requests
+        sesh (Optional[requests.Session]): A `requests.Session` object
+        ssh_tunnel (Optional[subprocess.Popen]): An SSH tunnel subprocess from `webutils`
+        unzip (bool): Unzip brotli zipped html responses
+    
+    """
+    headers: Dict[str, str] = field(default_factory=lambda: DEFAULT_HEADERS)
+    sesh: Optional[requests.Session] = None
+    ssh_tunnel: Optional[subprocess.Popen] = None
+    unzip: bool = True
+
+@dataclass
+class SearchConfig:
+    """Combined search engine configuration
+
+    Attributes:
+        method (Union[str, SearchMethod]): The method to use for searching, either 'requests' or 'selenium'
+        base (BaseConfig): Common search configuration
+        selenium (SeleniumConfig): Selenium-specific configuration
+        requests (RequestsConfig): Requests-specific configuration
+    
+    """
+    method: Union[str, SearchMethod] = SearchMethod.SELENIUM
+    base: BaseConfig = field(default_factory=BaseConfig)
+    selenium: SeleniumConfig = field(default_factory=SeleniumConfig)
+    requests: RequestsConfig = field(default_factory=RequestsConfig)
+
+
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
-            headers: Dict[str, str] = None,
-            sesh: Optional[requests.Session] = None, 
-            ssh_tunnel: Optional[subprocess.Popen] = None, 
-            unzip: bool = True,
-            log_fp: str = '', 
-            log_mode: str = 'a+',
-            log_level: str ='INFO',
+            method: Union[str, SearchMethod] = SearchMethod.SELENIUM,
+            base_config: Union[dict, BaseConfig] = None,
+            selenium_config: Union[dict, SeleniumConfig] = None,
+            requests_config: Union[dict, RequestsConfig] = None
         ) -> None:
-        """Initialize a `requests.Session` to conduct searches through or
-        pass an existing one with an optional SSH tunnel.
-        
-        Args:
-            headers (dict, optional): Headers to send with requests.
-            unzip (bool, optional): Unzip brotli zipped html responses.
-            sesh (None, optional): A `requests.Session` object.
-            ssh_tunnel (None, optional): An SSH tunnel subprocess from `webutils`.
-            log_fp (str, optional): A file to log function process output to.
-            log_mode (str, optional): Write over the log file or append to it.
-            log_level (str, optional): The file logging level.
+        """Initialize the search engine
+
+        Args: 
+            method (Union[str, SearchMethod], optional): The method to use for searching, either 'requests' or 'selenium'. Defaults to SearchMethod.SELENIUM.
+            base_config (Union[dict, BaseConfig], optional): Common search configuration. Defaults to None.
+            selenium_config (Union[dict, SeleniumConfig], optional): Selenium-specific configuration. Defaults to None.
+            requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
         """
 
-        # Initialize data storage
+        # Convert string method to enum if needed
+        if isinstance(method, str):
+            method = SearchMethod(method.lower())
+
+        # Handle config objects/dicts
+        def isdict(config): 
+            return isinstance(config, dict)
+        base = BaseConfig(**base_config) if isdict(base_config) else base_config or BaseConfig()
+        selenium = SeleniumConfig(**selenium_config) if isdict(selenium_config) else selenium_config or SeleniumConfig()
+        requests = RequestsConfig(**requests_config) if isdict(requests_config) else requests_config or RequestsConfig()
+        self.config = SearchConfig(
+            method=method,
+            base=base,
+            selenium=selenium,
+            requests=requests
+        )
+
+        # Initialize common attributes
         self.version: str = WS_VERSION
         self.base_url: str = 'https://www.google.com/search'
-        self.headers: Dict[str, str] = headers or DEFAULT_HEADERS
-        self.sesh: requests.Session = sesh or wu.start_sesh(headers=self.headers)
-        self.ssh_tunnel: subprocess.Popen = ssh_tunnel
-        self.unzip: bool = unzip
         self.params: Dict[str, Any] = {}
+
+        # Initialize method-specific attributes
+        if self.config.method == SearchMethod.SELENIUM:
+            self.driver = None
+        else:
+            self.config.requests.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.config.requests.headers)
 
         # Initialize search details
         self.qry: str = None
@@ -77,6 +159,8 @@ class SearchEngine:
         self.timestamp: str = None
         self.serp_id: str = None
         self.crawl_id: str = None
+
+        # Initialize search outputs
         self.response: requests.Response = None
         self.html: str = None
         self.results: list = []
@@ -85,11 +169,11 @@ class SearchEngine:
 
         # Set a log file, prints to console by default
         self.log = logger.Logger(
-            console=True if not log_fp else False,
-            console_level=log_level,
-            file_name=log_fp, 
-            file_mode=log_mode,
-            file_level=log_level,
+            console=True if not self.config.base.log_fp else False,
+            console_level=self.config.base.log_level,
+            file_name=self.config.base.log_fp, 
+            file_mode=self.config.base.log_mode,
+            file_level=self.config.base.log_level,
         ).start(__name__)
 
     def search(self, 
@@ -97,7 +181,6 @@ class SearchEngine:
             location: str = None, 
             lang: str = None, 
             num_results: int = None, 
-            method: str = 'selenium',
             ai_expand: bool = False,
             serp_id: str = '', 
             crawl_id: str = ''
@@ -114,10 +197,10 @@ class SearchEngine:
         """
 
         self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
-
-        if method == 'selenium':
+        if self.config.method == SearchMethod.SELENIUM:
+            self._init_chromedriver()
             self._conduct_chromedriver_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
-        elif method == 'requests':
+        elif self.config.method == SearchMethod.REQUESTS:
             self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
             self._handle_response()
 
@@ -135,48 +218,55 @@ class SearchEngine:
             self.params['hl'] = self.lang
         if self.loc and self.loc not in {'None', 'nan'}:
             self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
+        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
 
-    def launch_chromedriver(
-            self, 
-            headless: bool = False, 
-            version_main: int = 133,
-            use_subprocess: bool = False, 
-            chromedriver_path: str = ''
-        ) -> None:
-        self.headless = headless
-        self.use_subprocess = use_subprocess
-        self.chromedriver_path = chromedriver_path
-        self.version_main = version_main
-        self._init_chromedriver()
+    # ==========================================================================
+    # Selenium method
 
-    def _init_chromedriver(self):
-        self.log.info(f'SERP | Launching ChromeDriver | headless: {self.headless} | subprocess: {self.use_subprocess} | version: {self.version_main}')
-        if self.chromedriver_path == '':
-            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, version_main = self.version_main)
-        else:
-            self.driver = uc.Chrome(headless = self.headless, subprocess = self.use_subprocess, chromedriver_path = self.chromedriver_path, version_main = self.version_main)
+    def _init_chromedriver(self) -> None:
+        """Initialize Chrome driver with selenium-specific config"""
+        self.log.debug(f'SERP | init uc chromedriver | kwargs: {self.config.selenium.__dict__}')
+        self.driver = uc.Chrome(**self.config.selenium.__dict__)
+        self.user_agent = self.driver.execute_script('return navigator.userAgent')
+        self.response_code = None
+        
+        # Log version information
+        self.browser_info = {
+            'browser_id': "",
+            'browser_name': self.driver.capabilities['browserName'],
+            'browser_version': self.driver.capabilities['browserVersion'],
+            'driver_version': self.driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0],
+        }
+        self.browser_info['browser_id'] = utils.hash_id(json.dumps(self.browser_info))
+        self.log.debug(json.dumps(self.browser_info, indent=4))
+
+    def _send_chromedriver_typed_query(self):
+        """Send a typed query to the search box"""
         time.sleep(2)
         self.driver.get('https://www.google.com')
         time.sleep(2)
-
-    def _send_chromedriver_request(self):
         search_box = self.driver.find_element(By.ID, "APjFqb")
         search_box.clear()
         search_box.send_keys(self.qry)
         search_box.send_keys(Keys.RETURN)
+
+    def _send_chromedriver_request(self):
+        """Use a prepared URL to conduct a search"""
+
+        time.sleep(2)
+        self.driver.get(self.url)
+        time.sleep(2)
         
         # wait for the page to load
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "search")) 
         )
         time.sleep(2) #including a sleep to allow the page to fully load
+
         self.html = self.driver.page_source
         self.url = self.driver.current_url
-
-    def _send_request(self):
-        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
-        self.response = self.sesh.get(self.url, timeout=10)
-        log_msg = f"{self.response.status_code} | {self.qry}"
+        self.response_code = 0
+        log_msg = f"{self.response_code} | {self.qry}"
         log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
         self.log.info(log_msg)
 
@@ -222,21 +312,51 @@ class SearchEngine:
                         pass
                     
                      # Overwrite html with expanded content
-                    self.html = self.driver.page_source
+                    new_html = self.driver.page_source
+                    self.log.debug(f'SERP | overwriting expanded content | len diff: {len(new_html) - len(self.html)}')
+                    self.html = new_html
 
             except Exception:
                 pass
 
+    # ==========================================================================
+    # Requests method
+
+    def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
+        """Send a search request and handle errors"""
+
+        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
+        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
+        self.crawl_id = crawl_id
+        self.user_agent = self.config.requests.headers['User-Agent']
+
+        try:
+            self._send_request()
+        except requests.exceptions.ConnectionError:
+            self.log.exception(f'SERP | Connection error | {self.serp_id}')
+            self._reset_ssh_tunnel()
+        except requests.exceptions.Timeout:
+            self.log.exception(f'SERP | Timeout error | {self.serp_id}')
+        except Exception:
+            self.log.exception(f'SERP | Unknown error | {self.serp_id}')
+
+    def _send_request(self):
+        self.response = self.config.requests.sesh.get(self.url, timeout=10)
+        self.response_code = self.response.status_code
+        log_msg = f"{self.response_code} | {self.qry}"
+        log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
+        self.log.info(log_msg)
+
     def _reset_ssh_tunnel(self):
-        if self.ssh_tunnel:
-            self.ssh_tunnel.tunnel.kill()
-            self.ssh_tunnel.open_tunnel()
+        if self.config.requests.ssh_tunnel:
+            self.config.requests.ssh_tunnel.tunnel.kill()
+            self.config.requests.ssh_tunnel.open_tunnel()
             self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
             time.sleep(10) # Allow time to establish connection
 
     def _handle_response(self):
         try:
-            if self.unzip:  
+            if self.config.requests.unzip:  
                 self._unzip_html()
             else:
                 self.html = self.response.content
@@ -244,14 +364,11 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'Response handling error')
 
-    def _unzip_html(self):
+    def _unzip_html(self) -> None:
         """Unzip brotli zipped html 
 
         Can allow zipped responses by setting the header `"Accept-Encoding"`.
         Zipped reponses are the default because it is more efficient.
-        
-        Returns:
-            str: Decompressed html
         """
 
         rcontent = self.response.content
@@ -262,6 +379,9 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'unzip error | serp_id : {self.serp_id}')
             self.html = rcontent
+
+    # ==========================================================================
+    # Parsing
 
     def parse_results(self):
         """Parse a SERP - see parsers.py"""
@@ -281,6 +401,9 @@ class SearchEngine:
         except Exception:
             self.log.exception(f'Feature extraction error | serp_id : {self.serp_id}')
 
+    # ==========================================================================
+    # Saving
+
     def prepare_serp_save(self):
         self.serp = BaseSERP(
             qry=self.qry, 
@@ -288,8 +411,8 @@ class SearchEngine:
             lang=self.lang,
             url=self.url, 
             html=self.html,
-            response_code=0 if not self.response else self.response.status_code,
-            user_agent='' if not self.response else self.headers['User-Agent'],
+            response_code=self.response_code,
+            user_agent=self.user_agent,
             timestamp=self.timestamp,
             serp_id=self.serp_id,
             crawl_id=self.crawl_id,
@@ -353,5 +476,4 @@ class SearchEngine:
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id: {self.serp_id}')
-
 
