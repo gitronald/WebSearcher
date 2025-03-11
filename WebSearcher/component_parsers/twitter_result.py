@@ -1,3 +1,5 @@
+from ..webutils import get_text, get_link
+
 def parse_twitter_result(cmpt, sub_rank=0) -> list:
     """Parse a Twitter single result component
 
@@ -28,7 +30,7 @@ def parse_twitter_result(cmpt, sub_rank=0) -> list:
     
     # Get snippet text, timestamp, and tweet url
     body, timestamp_url = cmpt.find('div', {'class':'tw-res'}).children
-    parsed['text'] = body.text
-    parsed['timestamp'] = timestamp_url.find('span').text
-    parsed['details'] = timestamp_url.find('a')['href']
+    parsed['text'] = get_text(body)
+    parsed['timestamp'] = get_text(timestamp_url, 'span')
+    parsed['details'] = get_link(timestamp_url)
     return [parsed]
