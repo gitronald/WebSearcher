@@ -26,4 +26,5 @@ class BaseSERP(BaseModel):
     serp_id: str               # Search Engine Results Page (SERP) ID
     crawl_id: str              # Crawl ID for grouping SERPs
     version: str               # WebSearcher version
+    method: str                # Search method used
 

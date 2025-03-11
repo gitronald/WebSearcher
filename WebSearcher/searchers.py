@@ -161,7 +161,7 @@ class SearchEngine:
         self.crawl_id: str = None
 
         # Initialize search outputs
-        self.response: requests.Response = None
+        self.response = None  # type: Optional[requests.Response]
         self.html: str = None
         self.results: list = []
         self.serp_features: dict = {}
@@ -417,6 +417,7 @@ class SearchEngine:
             serp_id=self.serp_id,
             crawl_id=self.crawl_id,
             version=self.version,
+            method=self.config.method.value
         ).model_dump()
 
     def save_serp(self, save_dir: str = "", append_to: str = ""):
