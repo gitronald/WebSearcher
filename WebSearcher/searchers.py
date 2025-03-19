@@ -403,9 +403,17 @@ class SearchEngine:
     # ==========================================================================
     # Parsing
 
+    def parse_all(self):
+        """Parse results and extract SERP features in a single pass"""
+        assert self.html, "No HTML found"
+        try:
+            # Use the enhanced parse_serp function to get both results and features in one pass
+            self.results, self.serp_features = parsers.parse_serp(self.html, extract_features=True)
+        except Exception:
+            self.log.exception(f'Combined parsing error | serp_id : {self.serp_id}')
+
     def parse_results(self):
         """Parse a SERP - see parsers.py"""
-
         assert self.html, "No HTML found"
         try:
             self.results = parsers.parse_serp(self.html)
@@ -414,7 +422,6 @@ class SearchEngine:
 
     def parse_serp_features(self):
         """Extract SERP features - see parsers.py"""
-
         assert self.html, "No HTML found"
         try:
             self.serp_features = parsers.FeatureExtractor.extract_features(self.html)
