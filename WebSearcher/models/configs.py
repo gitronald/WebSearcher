@@ -1,51 +1,33 @@
 from pydantic import BaseModel, Field
-from typing import Any, Optional, Dict, Union
+from typing import Dict, Optional, Union
 import subprocess
 import requests
 from enum import Enum
 
+class BaseConfig(BaseModel):
+    """Base class for all configuration classes"""
+    
+    @classmethod
+    def create(cls, config=None):
+        """Create a config instance from a dictionary or existing instance"""
+        if isinstance(config, dict):
+            return cls(**config)
+        return config or cls()
 
-class BaseResult(BaseModel):
-    sub_rank: int = 0
-    type: str = 'unclassified'
-    sub_type: Optional[str] = None
-    title: Optional[str] = None
-    url: Optional[str] = None
-    text: Optional[str] = None
-    cite: Optional[str] = None
-    details: Optional[Any] = None
-    error: Optional[str] = None
-
-
-class BaseSERP(BaseModel):
-    qry: str                   # Search query 
-    loc: Optional[str] = None  # Location if set, "Canonical Name"
-    lang: Optional[str] = None # Language if set
-    url: str                   # URL of SERP   
-    html: str                  # Raw HTML of SERP
-    timestamp: str             # Timestamp of crawl
-    response_code: int         # HTTP response code
-    user_agent: str            # User agent used for the crawl
-    serp_id: str               # Search Engine Results Page (SERP) ID
-    crawl_id: str              # Crawl ID for grouping SERPs
-    version: str               # WebSearcher version
-    method: str                # Search method used
-
-
-class LogConfig(BaseModel):
+class LogConfig(BaseConfig):
     log_fp: str = ''
     log_mode: str = 'a+'
     log_level: str = 'INFO'
 
 
-class SeleniumConfig(BaseModel):
+class SeleniumConfig(BaseConfig):
     headless: bool = False
     version_main: int = 133
     use_subprocess: bool = False
     driver_executable_path: str = ""
 
 
-class RequestsConfig(BaseModel):
+class RequestsConfig(BaseConfig):
     model_config = {"arbitrary_types_allowed": True}
     headers: Dict[str, str] = Field(default_factory=lambda: {
         'Host': 'www.google.com',

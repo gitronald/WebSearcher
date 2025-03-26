@@ -3,7 +3,8 @@ from . import locations
 from . import webutils as wu
 from . import utils
 from . import logger
-from .models import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod, BaseSERP
+from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
+from .models.data import BaseSERP
 
 import os
 import time
@@ -46,17 +47,10 @@ class SearchEngine:
         if isinstance(method, str):
             method = SearchMethod(method.lower())
 
-        # Handle config objects/dicts
-        def isdict(config): 
-            return isinstance(config, dict)
-        base = LogConfig(**base_config) if isdict(base_config) else base_config or LogConfig()
-        selenium = SeleniumConfig(**selenium_config) if isdict(selenium_config) else selenium_config or SeleniumConfig()
-        requests = RequestsConfig(**requests_config) if isdict(requests_config) else requests_config or RequestsConfig()
-        self.config = SearchConfig(
-            method=method,
-            base=base,
-            selenium=selenium,
-            requests=requests
+        self.config = SearchConfig(method=method, 
+            base=LogConfig(base_config), 
+            selenium=SeleniumConfig(selenium_config),
+            requests=RequestsConfig(requests_config)
         )
 
         # Initialize common attributes
