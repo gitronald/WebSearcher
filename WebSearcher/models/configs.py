@@ -4,6 +4,7 @@ import subprocess
 import requests
 from enum import Enum
 
+
 class BaseConfig(BaseModel):
     """Base class for all configuration classes"""
     
@@ -13,6 +14,7 @@ class BaseConfig(BaseModel):
         if isinstance(config, dict):
             return cls(**config)
         return config or cls()
+
 
 class LogConfig(BaseConfig):
     log_fp: str = ''
@@ -46,7 +48,23 @@ class SearchMethod(Enum):
     REQUESTS = "requests"
     SELENIUM = "selenium"
 
-class SearchConfig(BaseModel):
+    @classmethod
+    def create(cls, method=None):
+        """Convert string to SearchMethod enum or return existing enum instance"""
+        if method is None:
+            return cls.SELENIUM
+        if isinstance(method, cls):
+            return method
+        if isinstance(method, str):
+            try:
+                return cls(method.lower())
+            except ValueError:
+                valid_values = [e.value for e in cls]
+                raise ValueError(f"Invalid search method: {method}. Valid values are: {valid_values}")
+        raise TypeError(f"Expected string or SearchMethod, got {type(method)}")
+
+
+class SearchConfig(BaseConfig):
     method: Union[str, SearchMethod] = SearchMethod.SELENIUM
     base: LogConfig = Field(default_factory=LogConfig)
     selenium: SeleniumConfig = Field(default_factory=SeleniumConfig)

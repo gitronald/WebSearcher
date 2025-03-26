@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Any, Optional
 
+
 class BaseResult(BaseModel):
     sub_rank: int = 0
     type: str = 'unclassified'

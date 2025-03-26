@@ -30,9 +30,9 @@ class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
             method: Union[str, SearchMethod] = SearchMethod.SELENIUM,
-            base_config: Union[dict, LogConfig] = None,
-            selenium_config: Union[dict, SeleniumConfig] = None,
-            requests_config: Union[dict, RequestsConfig] = None
+            base_config: Union[dict, LogConfig] = {},
+            selenium_config: Union[dict, SeleniumConfig] = {},
+            requests_config: Union[dict, RequestsConfig] = {}
         ) -> None:
         """Initialize the search engine
 
@@ -43,15 +43,14 @@ class SearchEngine:
             requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
         """
 
-        # Convert string method to enum if needed
-        if isinstance(method, str):
-            method = SearchMethod(method.lower())
-
-        self.config = SearchConfig(method=method, 
-            base=LogConfig(base_config), 
-            selenium=SeleniumConfig(selenium_config),
-            requests=RequestsConfig(requests_config)
-        )
+        # Initialize configuration
+        self.version = WS_VERSION
+        self.config = SearchConfig.create({
+            "method": SearchMethod.create(method),
+            "base": LogConfig.create(base_config),
+            "selenium": SeleniumConfig.create(selenium_config),
+            "requests": RequestsConfig.create(requests_config),
+        })
 
         # Initialize common attributes
         self.version: str = WS_VERSION
