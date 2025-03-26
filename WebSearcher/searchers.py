@@ -1,9 +1,8 @@
 from . import parsers
-from . import locations
 from . import webutils as wu
 from . import utils
 from . import logger
-from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
+from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod, SearchParams
 from .models.data import BaseSERP
 
 import os
@@ -12,7 +11,7 @@ import json
 import brotli
 import requests
 import pandas as pd
-from typing import Any, Dict, Optional, Union
+from typing import Dict, Optional, Union
 from datetime import datetime, timezone
 
 # selenium updates
@@ -54,22 +53,16 @@ class SearchEngine:
         })
 
         # Initialize searcher
-        self.base_url: str = 'https://www.google.com/search'
-        self.params: Dict[str, Any] = {}
         if self.config.method == SearchMethod.REQUESTS:
             self.headers = headers or self.config.requests.headers
             self.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.headers)
         elif self.config.method == SearchMethod.SELENIUM:
             self.driver = None
-        else:
-            self.config.requests.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.config.requests.headers)
+
+        self.search_params = SearchParams.create()
+
 
         # Initialize search details
-        self.qry: str = None
-        self.loc: str = None
-        self.lang: str = None
-        self.num_results = None
-        self.url: str = None
         self.timestamp: str = None
         self.serp_id: str = None
         self.crawl_id: str = None
@@ -113,21 +106,13 @@ class SearchEngine:
         self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
         self._conduct_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
 
-    def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
-        """Prepare a search URL and metadata for the given query and location"""
-        self.qry = str(qry)
-        self.loc = str(location) if not pd.isnull(location) else ''
-        self.lang = str(lang) if not pd.isnull(lang) else ''
-        self.num_results = num_results
-        self.params = {}
-        self.params['q'] = wu.encode_param_value(self.qry)
-        if self.num_results:
-            self.params['num'] = self.num_results
-        if self.lang and self.lang not in {'None', 'nan'}:
-            self.params['hl'] = self.lang
-        if self.loc and self.loc not in {'None', 'nan'}:
-            self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
-        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
+    def _prepare_search(self, qry: str, location: str, lang: str, num_results: int):
+        self.search_params = SearchParams.create({
+            'qry': str(qry),
+            'loc': str(location) if not pd.isnull(location) else '',
+            'lang': str(lang) if not pd.isnull(lang) else '',
+            'num_results': num_results,
+        })
 
     def _conduct_search(self, serp_id:str = '', crawl_id:str = '', ai_expand:bool = False):
         if self.config.method == SearchMethod.SELENIUM:
@@ -162,14 +147,14 @@ class SearchEngine:
         time.sleep(2)
         search_box = self.driver.find_element(By.ID, "APjFqb")
         search_box.clear()
-        search_box.send_keys(self.qry)
+        search_box.send_keys(self.search_params.qry)
         search_box.send_keys(Keys.RETURN)
 
     def _send_chromedriver_request(self):
         """Use a prepared URL to conduct a search"""
 
         time.sleep(2)
-        self.driver.get(self.url)
+        self.driver.get(self.search_params.url)
         time.sleep(2)
         
         # wait for the page to load
@@ -179,19 +164,19 @@ class SearchEngine:
         time.sleep(2) #including a sleep to allow the page to fully load
 
         self.html = self.driver.page_source
-        self.url = self.driver.current_url
+        self.selenium_url = self.driver.current_url
         self.response_code = 0
-        log_msg = f"{self.response_code} | {self.qry}"
-        log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
+        log_msg = f"{self.response_code} | {self.search_params.qry}"
+        log_msg = f"{log_msg} | {self.search_params.loc}" if self.search_params.loc else log_msg
         self.log.info(log_msg)
 
     def _conduct_search_chromedriver(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
         if not self.driver:
             self._init_chromedriver()
-
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
+        str_to_hash = self.search_params.qry + self.search_params.loc + self.timestamp
+        self.serp_id = serp_id if serp_id else utils.hash_id(str_to_hash)
         self.crawl_id = crawl_id
         try:
             self._send_chromedriver_request()
@@ -294,7 +279,8 @@ class SearchEngine:
         """Send a search request and handle errors"""
 
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
+        str_to_hash = self.search_params.qry + self.search_params.loc + self.timestamp
+        self.serp_id = serp_id if serp_id else utils.hash_id(str_to_hash)
         self.crawl_id = crawl_id
         self.user_agent = self.headers['User-Agent']
 
@@ -311,10 +297,10 @@ class SearchEngine:
             self._handle_response()
 
     def _send_request(self):
-        self.response = self.sesh.get(self.url, timeout=10)
+        self.response = self.sesh.get(self.search_params.url, timeout=10)
         self.response_code = self.response.status_code
-        log_msg = f"{self.response_code} | {self.qry}"
-        log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
+        log_msg = f"{self.response_code} | {self.search_params.qry}"
+        log_msg = f"{log_msg} | {self.search_params.loc}" if self.search_params.loc else log_msg
         self.log.info(log_msg)
 
     def _reset_ssh_tunnel(self):
@@ -383,10 +369,10 @@ class SearchEngine:
 
     def prepare_serp_save(self):
         self.serp = BaseSERP(
-            qry=self.qry, 
-            loc=self.loc, 
-            lang=self.lang,
-            url=self.url, 
+            qry=self.search_params.qry,
+            loc=self.search_params.loc,
+            lang=self.search_params.lang,
+            url=self.search_params.url, 
             html=self.html,
             response_code=self.response_code,
             user_agent=self.user_agent,

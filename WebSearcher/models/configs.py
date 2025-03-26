@@ -1,8 +1,11 @@
-from pydantic import BaseModel, Field
-from typing import Dict, Optional, Union
+from pydantic import BaseModel, Field, computed_field
+from typing import Dict, Optional, Union, Any
 import subprocess
 import requests
 from enum import Enum
+
+from .. import webutils as wu
+from .. import locations
 
 
 class BaseConfig(BaseModel):
@@ -15,6 +18,29 @@ class BaseConfig(BaseModel):
             return cls(**config)
         return config or cls()
 
+class SearchParams(BaseConfig):
+    qry: str = ''
+    num_results: Optional[int] = None
+    lang: Optional[str] = None
+    loc: Optional[str] = None
+    base_url: str = "https://www.google.com/search"
+    
+    @computed_field
+    def url_params(self) -> Dict[str, Any]:
+        params = {'q': wu.encode_param_value(self.qry)}
+        opt_params = {
+            'num': self.num_results,
+            'hl': self.lang,
+            'uule': locations.convert_canonical_name_to_uule(self.loc) if self.loc else None,
+        }
+        opt_params = {k: v for k, v in opt_params.items() if v and v not in {'None', 'nan'}}
+        params.update(opt_params)
+        return params
+    
+    @computed_field
+    def url(self) -> str:
+        """Return the fully formed URL with parameters."""
+        return f"{self.base_url}?{wu.join_url_quote(self.url_params)}"
 
 class LogConfig(BaseConfig):
     fp: str = ''
