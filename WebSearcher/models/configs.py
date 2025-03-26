@@ -17,9 +17,9 @@ class BaseConfig(BaseModel):
 
 
 class LogConfig(BaseConfig):
-    log_fp: str = ''
-    log_mode: str = 'a+'
-    log_level: str = 'INFO'
+    fp: str = ''
+    mode: str = 'a'
+    level: str = 'INFO'
 
 
 class SeleniumConfig(BaseConfig):
@@ -66,6 +66,6 @@ class SearchMethod(Enum):
 
 class SearchConfig(BaseConfig):
     method: Union[str, SearchMethod] = SearchMethod.SELENIUM
-    base: LogConfig = Field(default_factory=LogConfig)
+    log: LogConfig = Field(default_factory=LogConfig)
     selenium: SeleniumConfig = Field(default_factory=SeleniumConfig)
     requests: RequestsConfig = Field(default_factory=RequestsConfig)

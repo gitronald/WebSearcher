@@ -30,15 +30,16 @@ class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
             method: Union[str, SearchMethod] = SearchMethod.SELENIUM,
-            base_config: Union[dict, LogConfig] = {},
+            log_config: Union[dict, LogConfig] = {},
             selenium_config: Union[dict, SeleniumConfig] = {},
-            requests_config: Union[dict, RequestsConfig] = {}
+            requests_config: Union[dict, RequestsConfig] = {},
+            headers: Dict[str, str] = None
         ) -> None:
         """Initialize the search engine
 
         Args: 
             method (Union[str, SearchMethod], optional): The method to use for searching, either 'requests' or 'selenium'. Defaults to SearchMethod.SELENIUM.
-            base_config (Union[dict, LogConfig], optional): Common search configuration. Defaults to None.
+            log_config (Union[dict, LogConfig], optional): Common search configuration. Defaults to None.
             selenium_config (Union[dict, SeleniumConfig], optional): Selenium-specific configuration. Defaults to None.
             requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
         """
@@ -47,18 +48,18 @@ class SearchEngine:
         self.version = WS_VERSION
         self.config = SearchConfig.create({
             "method": SearchMethod.create(method),
-            "base": LogConfig.create(base_config),
+            "log": LogConfig.create(log_config),
             "selenium": SeleniumConfig.create(selenium_config),
             "requests": RequestsConfig.create(requests_config),
         })
 
-        # Initialize common attributes
-        self.version: str = WS_VERSION
+        # Initialize searcher
         self.base_url: str = 'https://www.google.com/search'
         self.params: Dict[str, Any] = {}
-
-        # Initialize method-specific attributes
-        if self.config.method == SearchMethod.SELENIUM:
+        if self.config.method == SearchMethod.REQUESTS:
+            self.headers = headers or self.config.requests.headers
+            self.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.headers)
+        elif self.config.method == SearchMethod.SELENIUM:
             self.driver = None
         else:
             self.config.requests.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.config.requests.headers)
@@ -82,11 +83,11 @@ class SearchEngine:
 
         # Set a log file, prints to console by default
         self.log = logger.Logger(
-            console=True if not self.config.base.log_fp else False,
-            console_level=self.config.base.log_level,
-            file_name=self.config.base.log_fp, 
-            file_mode=self.config.base.log_mode,
-            file_level=self.config.base.log_level,
+            console=True if not self.config.log.fp else False,
+            console_level=self.config.log.level,
+            file_name=self.config.log.fp, 
+            file_mode=self.config.log.mode,
+            file_level=self.config.log.level,
         ).start(__name__)
 
     def search(self, 
@@ -295,7 +296,7 @@ class SearchEngine:
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
         self.crawl_id = crawl_id
-        self.user_agent = self.config.requests.headers['User-Agent']
+        self.user_agent = self.headers['User-Agent']
 
         try:
             self._send_request()
@@ -310,7 +311,7 @@ class SearchEngine:
             self._handle_response()
 
     def _send_request(self):
-        self.response = self.config.requests.sesh.get(self.url, timeout=10)
+        self.response = self.sesh.get(self.url, timeout=10)
         self.response_code = self.response.status_code
         log_msg = f"{self.response_code} | {self.qry}"
         log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
