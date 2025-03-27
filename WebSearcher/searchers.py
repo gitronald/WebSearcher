@@ -2,6 +2,7 @@ from . import parsers
 from . import webutils as wu
 from . import utils
 from . import logger
+from .searchers.selenium_searcher import SeleniumDriver
 from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod, SearchParams
 from .models.data import BaseSERP
 
@@ -14,13 +15,7 @@ import pandas as pd
 from typing import Dict, Optional, Union
 from datetime import datetime, timezone
 
-# selenium updates
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
+# selenium imports no longer needed here as they're in selenium_utils.py
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
@@ -52,15 +47,43 @@ class SearchEngine:
             "requests": RequestsConfig.create(requests_config),
         })
 
+        # Set a log file, prints to console by default
+        self.log = logger.Logger(
+            console=True if not self.config.log.fp else False,
+            console_level=self.config.log.level,
+            file_name=self.config.log.fp, 
+            file_mode=self.config.log.mode,
+            file_level=self.config.log.level,
+        ).start(__name__)
+
         # Initialize searcher
         if self.config.method == SearchMethod.REQUESTS:
             self.headers = headers or self.config.requests.headers
             self.sesh = self.config.requests.sesh or wu.start_sesh(headers=self.headers)
         elif self.config.method == SearchMethod.SELENIUM:
-            self.driver = None
+            self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
+            self.selenium_driver.driver = None
 
         self.search_params = SearchParams.create()
 
+        # Initialize search details
+        self.serp = {
+            'version': self.version,
+            'method': self.config.method.value,
+            'crawl_id': None,
+            'serp_id': None,
+            'qry': None,
+            'loc': None,
+            'lang': None,
+            'url': None,
+            'response_code': None,
+            'user_agent': None,
+            'timestamp': None,
+            'serp_id': None,
+            'html': None,
+            'results': [],
+            'features': {},
+        }
 
         # Initialize search details
         self.timestamp: str = None
@@ -73,15 +96,6 @@ class SearchEngine:
         self.results: list = []
         self.serp_features: dict = {}
         self.serp: dict = {}
-
-        # Set a log file, prints to console by default
-        self.log = logger.Logger(
-            console=True if not self.config.log.fp else False,
-            console_level=self.config.log.level,
-            file_name=self.config.log.fp, 
-            file_mode=self.config.log.mode,
-            file_level=self.config.log.level,
-        ).start(__name__)
 
     def search(self, 
             qry: str, 
@@ -123,154 +137,38 @@ class SearchEngine:
     # ==========================================================================
     # Selenium method
 
-    def _init_chromedriver(self) -> None:
-        """Initialize Chrome driver with selenium-specific config"""
-        self.log.debug(f'SERP | init uc chromedriver | kwargs: {self.config.selenium.__dict__}')
-        self.driver = uc.Chrome(**self.config.selenium.__dict__)
-        self.user_agent = self.driver.execute_script('return navigator.userAgent')
-        self.response_code = None
-        
-        # Log version information
-        self.browser_info = {
-            'browser_id': "",
-            'browser_name': self.driver.capabilities['browserName'],
-            'browser_version': self.driver.capabilities['browserVersion'],
-            'driver_version': self.driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0],
-        }
-        self.browser_info['browser_id'] = utils.hash_id(json.dumps(self.browser_info))
-        self.log.debug(json.dumps(self.browser_info, indent=4))
-
-    def _send_chromedriver_typed_query(self):
-        """Send a typed query to the search box"""
-        time.sleep(2)
-        self.driver.get('https://www.google.com')
-        time.sleep(2)
-        search_box = self.driver.find_element(By.ID, "APjFqb")
-        search_box.clear()
-        search_box.send_keys(self.search_params.qry)
-        search_box.send_keys(Keys.RETURN)
-
-    def _send_chromedriver_request(self):
-        """Use a prepared URL to conduct a search"""
-
-        time.sleep(2)
-        self.driver.get(self.search_params.url)
-        time.sleep(2)
-        
-        # wait for the page to load
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, "search")) 
-        )
-        time.sleep(2) #including a sleep to allow the page to fully load
-
-        self.html = self.driver.page_source
-        self.selenium_url = self.driver.current_url
-        self.response_code = 0
-        log_msg = f"{self.response_code} | {self.search_params.qry}"
-        log_msg = f"{log_msg} | {self.search_params.loc}" if self.search_params.loc else log_msg
-        self.log.info(log_msg)
-
     def _conduct_search_chromedriver(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
-        if not self.driver:
-            self._init_chromedriver()
+        if not self.selenium_driver.driver:
+            self.selenium_driver.init_driver()
+        
+        self.crawl_id = crawl_id
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         str_to_hash = self.search_params.qry + self.search_params.loc + self.timestamp
         self.serp_id = serp_id if serp_id else utils.hash_id(str_to_hash)
-        self.crawl_id = crawl_id
+        
         try:
-            self._send_chromedriver_request()
-            self.html = self.driver.page_source
+            response_data = self.selenium_driver.send_request(self.search_params.url)
+            self.html = response_data['html']
+            self.selenium_url = response_data['url']
+            self.response_code = response_data['response_code']
+            self.user_agent = self.selenium_driver.user_agent
+            
+            log_msg = f"{self.response_code} | {self.search_params.qry}"
+            log_msg = f"{log_msg} | {self.search_params.loc}" if self.search_params.loc else log_msg
+            self.log.info(log_msg)
+            
         except Exception as e:
             self.log.exception(f'SERP | Chromedriver error | {self.serp_id}: {str(e)}')
 
         if ai_expand:
-            self._expand_ai_overview()
+            expanded_html = self.selenium_driver.expand_ai_overview()
+            if expanded_html:
+                self.log.debug(f'SERP | overwriting expanded content | len diff: {len(expanded_html) - len(self.html)}')
+                self.html = expanded_html
         
         # Only delete cookies, don't close the driver here
-        # The driver will be closed when cleanup() is called
-        if self.driver:
-            try:
-                self.driver.delete_all_cookies()
-            except Exception as e:
-                self.log.warning(f"Failed to delete cookies: {str(e)}")
-
-    def _expand_ai_overview(self):
-        """Expand AI overview box by clicking it"""
-        show_more_button_xpath = "//div[@jsname='rPRdsc' and @role='button']"
-        show_all_button_xpath = '//div[contains(@class, "trEk7e") and @role="button"]'
-
-        try:
-            self.driver.find_element(By.XPATH, show_more_button_xpath)
-            show_more_button_exists = True
-        except NoSuchElementException:
-            show_more_button_exists = False
-        
-        if show_more_button_exists:
-            try:
-                show_more_button = WebDriverWait(self.driver, 1).until(
-                    EC.element_to_be_clickable((By.XPATH, show_more_button_xpath))
-                )
-                if show_more_button is not None:
-                    show_more_button.click()
-                    try:
-                        time.sleep(2) # Wait for additional content to load
-                        show_all_button = WebDriverWait(self.driver, 1).until(
-                            EC.element_to_be_clickable((By.XPATH, show_all_button_xpath))
-                        )
-                        show_all_button.click()
-                    except Exception:
-                        pass
-                    
-                     # Overwrite html with expanded content
-                    new_html = self.driver.page_source
-                    self.log.debug(f'SERP | overwriting expanded content | len diff: {len(new_html) - len(self.html)}')
-                    self.html = new_html
-
-            except Exception:
-                pass
-
-    def cleanup(self):
-        """Clean up resources, particularly Selenium's browser instance
-        
-        Returns:
-            bool: True if cleanup was successful or not needed, False if cleanup failed
-        """
-        if self.config.method == SearchMethod.SELENIUM and hasattr(self, 'driver') and self.driver:
-            try:
-                # Try a more thorough cleanup
-                try:
-                    self.driver.delete_all_cookies()
-                except Exception:
-                    pass
-                
-                try:
-                    # Close all tabs/windows
-                    original_handle = self.driver.current_window_handle
-                    for handle in self.driver.window_handles:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-                except Exception:
-                    pass
-                
-                # Finally quit the driver
-                self.driver.quit()
-                self.driver = None
-                self.log.debug(f'Browser successfully closed')
-                return True
-            except Exception as e:
-                self.log.warning(f'Failed to close browser: {e}')
-                # Force driver to be None so we create a fresh instance next time
-                self.driver = None
-                return False
-        return True
-    
-    def __del__(self):
-        """Destructor to ensure browser is closed when object is garbage collected"""
-        try:
-            self.cleanup()
-        except Exception:
-            pass
+        self.selenium_driver.delete_cookies()
 
     # ==========================================================================
     # Requests method
@@ -440,4 +338,24 @@ class SearchEngine:
                 utils.write_lines(self.results, fp)
         else:
             self.log.info(f'No parsed results for serp_id: {self.serp_id}')
+
+    def cleanup(self):
+        """Clean up resources, particularly Selenium's browser instance
+        
+        Returns:
+            bool: True if cleanup was successful or not needed, False if cleanup failed
+        """
+        if self.config.method == SearchMethod.SELENIUM and hasattr(self, 'selenium_driver'):
+            result = self.selenium_driver.cleanup()
+            if result:
+                self.selenium_driver.driver = None  # Update the reference
+            return result
+        return True
+    
+    def __del__(self):
+        """Destructor to ensure browser is closed when object is garbage collected"""
+        try:
+            self.cleanup()
+        except Exception:
+            pass
 
