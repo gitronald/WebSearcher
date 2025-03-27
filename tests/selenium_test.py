@@ -10,15 +10,15 @@ app = typer.Typer()
 
 @app.command()
 def main(
-        query: str = typer.Argument("why is the sky blue?", help="Search query to use"),
-        method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
-        headless: bool = typer.Option(False, help="Run browser in headless mode"),
-        use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
-        version_main: int = typer.Option(133, help="Main version of Chrome to use"),
-        ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
-        driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
-        output_prefix: str = typer.Option("output", help="Prefix for output files")
-    ) -> None:
+    query: str = typer.Argument("why is the sky blue?", help="Search query to use"),
+    method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
+    headless: bool = typer.Option(False, help="Run browser in headless mode"),
+    use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
+    version_main: int = typer.Option(133, help="Main version of Chrome to use"),
+    ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
+    driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
+    output_prefix: str = typer.Option("output", help="Prefix for output files")
+) -> None:
     typer.echo(f"query: {query}\nmethod: {method}")
     se = ws.SearchEngine(
         method=method,
@@ -31,11 +31,8 @@ def main(
     )
     se.search(qry=query, ai_expand=ai_expand)
     se.parse_results()
-    
-    # Save results with the specified prefix
     se.save_serp(append_to=f'{output_prefix}_serps.json')
-    se.save_search(append_to=f'{output_prefix}_searches.json')
-    se.save_results(append_to=f'{output_prefix}_results.json')
+    se.save_parsed(append_to=f'{output_prefix}_parsed.json')
     se.cleanup()
 
 if __name__ == "__main__":

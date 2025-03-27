@@ -40,7 +40,7 @@ class SearchParams(BaseConfig):
         timestamp = datetime.now().isoformat()
         return hash_id(f"{self.qry}{self.loc}{timestamp}")
     
-    def to_dict_output(self) -> Dict[str, Any]:
+    def to_serp_output(self) -> Dict[str, Any]:
         """Outputs the variables needed for SERPDetails as a dictionary"""
         timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         return {
@@ -51,26 +51,3 @@ class SearchParams(BaseConfig):
             "serp_id": hash_id(f"{self.qry}{self.loc}{timestamp}"),
             "timestamp": timestamp,
         }
-
-
-class SERPDetails(BaseConfig):
-    """
-    Contains details about a Search Engine Results Page (SERP).
-    
-    This class stores all the information related to a SERP, including
-    search parameters, response data, parsed results and features.
-    """
-    version: str = Field(None, description="WebSearcher version")
-    method: str = Field(None, description="Search method used (requests or selenium)")
-    crawl_id: Optional[str] = Field(None, description="ID for the crawl session")
-    serp_id: Optional[str] = Field(None, description="Unique ID for this SERP")
-    qry: Optional[str] = Field(None, description="Search query")
-    loc: Optional[str] = Field(None, description="Location used for search")
-    lang: Optional[str] = Field(None, description="Language used for search")
-    url: Optional[str] = Field(None, description="Full search URL")
-    response_code: Optional[int] = Field(None, description="HTTP response code")
-    user_agent: Optional[str] = Field(None, description="User agent used for request")
-    timestamp: Optional[str] = Field(None, description="ISO timestamp of search")
-    html: Optional[str] = Field(None, description="Raw HTML response")
-    results: List[Dict[str, Any]] = Field(default_factory=list, description="Parsed search results")
-    features: Dict[str, Any] = Field(default_factory=dict, description="Extracted SERP features")

@@ -32,14 +32,14 @@ def parse_serp(
     for cmpt in component_list:
         cmpt.classify_component()
         cmpt.parse_component()
-    
     results = component_list.export_component_results()
     
     if extract_features:
-        # Extract features from the same soup object to avoid parsing twice
-        features = FeatureExtractor.extract_features(soup)
-        return results, features
-        
+        return {
+            "features": FeatureExtractor.extract_features(soup),
+            "results": results
+        }
+    
     return results
 
 
