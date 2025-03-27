@@ -2,20 +2,18 @@ from . import parsers
 from . import webutils as wu
 from . import utils
 from . import logger
-from .searchers.selenium_searcher import SeleniumDriver
-from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod, SearchParams
+from .search_methods.selenium_searcher import SeleniumDriver
+from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
+from .models.searches import SearchParams, SERPDetails
 from .models.data import BaseSERP
 
 import os
 import time
-import json
 import brotli
 import requests
 import pandas as pd
 from typing import Dict, Optional, Union
 from datetime import datetime, timezone
-
-# selenium imports no longer needed here as they're in selenium_utils.py
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
@@ -40,6 +38,7 @@ class SearchEngine:
 
         # Initialize configuration
         self.version = WS_VERSION
+        self.method = method.value if isinstance(method, SearchMethod) else method
         self.config = SearchConfig.create({
             "method": SearchMethod.create(method),
             "log": LogConfig.create(log_config),
@@ -64,38 +63,18 @@ class SearchEngine:
             self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
             self.selenium_driver.driver = None
 
+        # Initialize search params and output
         self.search_params = SearchParams.create()
-
-        # Initialize search details
-        self.serp = {
-            'version': self.version,
-            'method': self.config.method.value,
-            'crawl_id': None,
-            'serp_id': None,
-            'qry': None,
-            'loc': None,
-            'lang': None,
-            'url': None,
-            'response_code': None,
-            'user_agent': None,
-            'timestamp': None,
-            'serp_id': None,
-            'html': None,
-            'results': [],
-            'features': {},
-        }
-
-        # Initialize search details
-        self.timestamp: str = None
-        self.serp_id: str = None
-        self.crawl_id: str = None
+        self.serp_template = SERPDetails.create({'version': self.version, 'method': self.config.method.value})
 
         # Initialize search outputs
-        self.response = None  # type: Optional[requests.Response]
-        self.html: str = None
+        self._response = {
+            "url": None,
+            "response_code": None,
+            "html": None,
+        }
         self.results: list = []
         self.serp_features: dict = {}
-        self.serp: dict = {}
 
     def search(self, 
             qry: str, 
@@ -103,7 +82,6 @@ class SearchEngine:
             lang: str = None, 
             num_results: int = None, 
             ai_expand: bool = False,
-            serp_id: str = '', 
             crawl_id: str = ''
         ):
         """Conduct a search and save HTML
@@ -118,7 +96,7 @@ class SearchEngine:
         """
 
         self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
-        self._conduct_search(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
+        self._conduct_search(crawl_id=crawl_id, ai_expand=ai_expand)
 
     def _prepare_search(self, qry: str, location: str, lang: str, num_results: int):
         self.search_params = SearchParams.create({
@@ -128,44 +106,29 @@ class SearchEngine:
             'num_results': num_results,
         })
 
-    def _conduct_search(self, serp_id:str = '', crawl_id:str = '', ai_expand:bool = False):
+    def _conduct_search(self, crawl_id: str = '', ai_expand: bool = False):
         if self.config.method == SearchMethod.SELENIUM:
-            self._conduct_search_chromedriver(serp_id=serp_id, crawl_id=crawl_id, ai_expand=ai_expand)
+            self._conduct_search_chromedriver(crawl_id=crawl_id, ai_expand=ai_expand)
         elif self.config.method == SearchMethod.REQUESTS:
-            self._conduct_search_requests(serp_id=serp_id, crawl_id=crawl_id)
+            self._conduct_search_requests(crawl_id=crawl_id)
 
     # ==========================================================================
     # Selenium method
 
-    def _conduct_search_chromedriver(self, serp_id: str = '', crawl_id: str = '', ai_expand = False):
+    def _conduct_search_chromedriver(self, crawl_id: str = '', ai_expand = False):
         """Send a search request and handle errors"""
         if not self.selenium_driver.driver:
             self.selenium_driver.init_driver()
-        
-        self.crawl_id = crawl_id
-        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-        str_to_hash = self.search_params.qry + self.search_params.loc + self.timestamp
-        self.serp_id = serp_id if serp_id else utils.hash_id(str_to_hash)
-        
-        try:
-            response_data = self.selenium_driver.send_request(self.search_params.url)
-            self.html = response_data['html']
-            self.selenium_url = response_data['url']
-            self.response_code = response_data['response_code']
-            self.user_agent = self.selenium_driver.user_agent
-            
-            log_msg = f"{self.response_code} | {self.search_params.qry}"
-            log_msg = f"{log_msg} | {self.search_params.loc}" if self.search_params.loc else log_msg
-            self.log.info(log_msg)
-            
-        except Exception as e:
-            self.log.exception(f'SERP | Chromedriver error | {self.serp_id}: {str(e)}')
+        response_output = self.selenium_driver.send_request(self.search_params.url)
+        serp = self.search_params.to_dict_output() | response_output
+        self.serp = BaseSERP(version=self.version, method=self.method, crawl_id=crawl_id, **serp).model_dump()
+        self.log.info(" | ".join([f"{k}: {self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
 
         if ai_expand:
             expanded_html = self.selenium_driver.expand_ai_overview()
             if expanded_html:
-                self.log.debug(f'SERP | overwriting expanded content | len diff: {len(expanded_html) - len(self.html)}')
-                self.html = expanded_html
+                self.log.debug(f"SERP | expanded html | len diff: {len(expanded_html) - len(self.serp['html'])}")
+                self.serp['html'] = expanded_html
         
         # Only delete cookies, don't close the driver here
         self.selenium_driver.delete_cookies()
@@ -175,7 +138,7 @@ class SearchEngine:
 
     def _conduct_search_requests(self, serp_id: str = '', crawl_id: str = ''):
         """Send a search request and handle errors"""
-
+        
         self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         str_to_hash = self.search_params.qry + self.search_params.loc + self.timestamp
         self.serp_id = serp_id if serp_id else utils.hash_id(str_to_hash)
@@ -239,26 +202,26 @@ class SearchEngine:
 
     def parse_all(self):
         """Parse results and extract SERP features in a single pass"""
-        assert self.html, "No HTML found"
+        assert self.serp['html'], "No HTML found"
         try:
             # Use the enhanced parse_serp function to get both results and features in one pass
-            self.results, self.serp_features = parsers.parse_serp(self.html, extract_features=True)
+            self.results, self.serp_features = parsers.parse_serp(self.serp['html'], extract_features=True)
         except Exception:
             self.log.exception(f'Combined parsing error | serp_id : {self.serp_id}')
 
     def parse_results(self):
         """Parse a SERP - see parsers.py"""
-        assert self.html, "No HTML found"
+        assert self.serp['html'], "No HTML found"
         try:
-            self.results = parsers.parse_serp(self.html)
+            self.results = parsers.parse_serp(self.serp['html'])
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
 
     def parse_serp_features(self):
         """Extract SERP features - see parsers.py"""
-        assert self.html, "No HTML found"
+        assert self.serp['html'], "No HTML found"
         try:
-            self.serp_features = parsers.FeatureExtractor.extract_features(self.html)
+            self.serp_features = parsers.FeatureExtractor.extract_features(self.serp['html'])
         except Exception:
             self.log.exception(f'Feature extraction error | serp_id : {self.serp_id}')
 
@@ -267,16 +230,16 @@ class SearchEngine:
 
     def prepare_serp_save(self):
         self.serp = BaseSERP(
-            qry=self.search_params.qry,
-            loc=self.search_params.loc,
-            lang=self.search_params.lang,
-            url=self.search_params.url, 
-            html=self.html,
-            response_code=self.response_code,
-            user_agent=self.user_agent,
-            timestamp=self.timestamp,
-            serp_id=self.serp_id,
-            crawl_id=self.crawl_id,
+            qry=self.serp['qry'],
+            loc=self.serp['loc'],
+            lang=self.serp['lang'],
+            url=self.serp['url'], 
+            html=self.serp['html'],
+            response_code=self.serp['response_code'],
+            user_agent=self.serp['user_agent'],
+            timestamp=self.serp['timestamp'],
+            serp_id=self.serp['serp_id'],
+            crawl_id=self.serp['crawl_id'],
             version=self.version,
             method=self.config.method.value
         ).model_dump()
@@ -288,7 +251,7 @@ class SearchEngine:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.html`
             append_to (str, optional): Append results to this file path
         """
-        assert self.html, "No HTML found"
+        assert self.serp['html'], "No HTML found"
         assert save_dir or append_to, "Must provide a save_dir or append_to file path"
 
         if append_to:
@@ -298,7 +261,7 @@ class SearchEngine:
         else:
             fp = os.path.join(save_dir, f'{self.serp_id}.html')
             with open(fp, 'w') as outfile:
-                outfile.write(self.html)
+                outfile.write(self.serp['html'])
 
     def save_search(self, append_to: str = ""):
         """Save search metadata (excludes HTML) to file
@@ -306,7 +269,7 @@ class SearchEngine:
         Args:
             append_to (str, optional): Append results to this file path
         """
-        assert self.html, "No HTML found"
+        assert self.serp['html'], "No HTML found"
         assert append_to, "Must provide an append_to file path"
 
         if not self.serp:
@@ -330,7 +293,11 @@ class SearchEngine:
 
         if self.results:
             if append_to:
-                result_metadata = {'crawl_id': self.crawl_id, 'serp_id': self.serp_id, 'version': self.version}
+                result_metadata = {
+                    'crawl_id': self.serp["crawl_id"], 
+                    'serp_id': self.serp["serp_id"], 
+                    'version': self.version
+                }
                 results_output = [{**result, **result_metadata} for result in self.results]
                 utils.write_lines(results_output, append_to)
             else:

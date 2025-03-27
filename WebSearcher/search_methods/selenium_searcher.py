@@ -12,7 +12,6 @@ from selenium.common.exceptions import NoSuchElementException
 from .. import utils
 from ..models.configs import SeleniumConfig
 
-
 class SeleniumDriver:
     """Handle Selenium-based web interactions for search engines"""
     
@@ -26,16 +25,12 @@ class SeleniumDriver:
         self.config = config
         self.log = logger
         self.driver = None
-        self.user_agent = None
-        self.response_code = None
         self.browser_info = {}
         
     def init_driver(self) -> None:
         """Initialize Chrome driver with selenium-specific config"""
         self.log.debug(f'SERP | init uc chromedriver | kwargs: {self.config.__dict__}')
         self.driver = uc.Chrome(**self.config.__dict__)
-        self.user_agent = self.driver.execute_script('return navigator.userAgent')
-        self.response_code = None
         
         # Log version information
         self.browser_info = {
@@ -43,6 +38,7 @@ class SeleniumDriver:
             'browser_name': self.driver.capabilities['browserName'],
             'browser_version': self.driver.capabilities['browserVersion'],
             'driver_version': self.driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0],
+            'user_agent': self.driver.execute_script('return navigator.userAgent'),
         }
         self.browser_info['browser_id'] = utils.hash_id(json.dumps(self.browser_info))
         self.log.debug(json.dumps(self.browser_info, indent=4))
@@ -58,40 +54,34 @@ class SeleniumDriver:
         search_box.send_keys(Keys.RETURN)
         
     def send_request(self, url: str) -> Dict[str, Any]:
-        """Use a prepared URL to conduct a search
-        
-        Args:
-            url (str): The URL to request
-            
-        Returns:
-            Dict[str, Any]: Dictionary containing response data
-        """
-        time.sleep(2)
-        self.driver.get(url)
-        time.sleep(2)
-        
-        # wait for the page to load
-        WebDriverWait(self.driver, 10).until(
-            EC.presence_of_element_located((By.ID, "search")) 
-        )
-        time.sleep(2) #including a sleep to allow the page to fully load
+        """Visit a URL with selenium and save HTML response"""
 
-        html = self.driver.page_source
-        selenium_url = self.driver.current_url
-        self.response_code = 0
-        
-        return {
-            'html': html,
-            'url': selenium_url,
-            'response_code': self.response_code,
-        }
-        
+        try:
+            self.driver.get(url)
+            time.sleep(2)
+            WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.ID, "search")) 
+            )
+            time.sleep(2)
+            response_output = {
+                'html': self.driver.page_source,
+                'url': self.driver.current_url,
+                'user_agent': self.browser_info['user_agent'],
+                'response_code': 200,
+            }
+        except Exception as e:
+            self.log.exception(f'SERP | Chromedriver error | {str(e)}')
+            response_output = {
+                'html': '',
+                'url': '',
+                'user_agent': self.browser_info['user_agent'],
+                'response_code': 0,
+            }
+        finally:
+            return response_output
+
     def expand_ai_overview(self):
-        """Expand AI overview box by clicking it
-        
-        Returns:
-            str: Updated HTML if expansion occurred, None otherwise
-        """
+        """Expand AI overview box by clicking it"""
         show_more_button_xpath = "//div[@jsname='rPRdsc' and @role='button']"
         show_all_button_xpath = '//div[contains(@class, "trEk7e") and @role="button"]'
 
