@@ -82,10 +82,6 @@ class SearchEngine:
             crawl_id (str, optional): An identifier for this crawl
         """
 
-        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
-        self._conduct_search(crawl_id=crawl_id, ai_expand=ai_expand)
-
-    def _prepare_search(self, qry: str, location: str, lang: str, num_results: int):
         self.search_params = SearchParams.create({
             'qry': str(qry),
             'loc': str(location) if not pd.isnull(location) else '',
@@ -93,7 +89,6 @@ class SearchEngine:
             'num_results': num_results,
         })
 
-    def _conduct_search(self, crawl_id: str = '', ai_expand: bool = False):
         if self.config.method == SearchMethod.SELENIUM:
             self._conduct_search_chromedriver(crawl_id=crawl_id, ai_expand=ai_expand)
         elif self.config.method == SearchMethod.REQUESTS:
@@ -109,17 +104,13 @@ class SearchEngine:
 
         # Conduct search
         serp_output = self.search_params.to_serp_output()
+        serp_output['version'] = self.version
+        serp_output['method'] = self.method
+        serp_output['crawl_id'] = crawl_id
         response_output = self.selenium_driver.send_request(self.search_params.url)
         serp_output.update(response_output)
-
-        # Store output
-        self.serp = BaseSERP(
-            version=self.version, 
-            method=self.method, 
-            crawl_id=crawl_id, 
-            **serp_output
-        ).model_dump()
-        self.log.info(" | ".join([f"{k}: {self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
+        self.serp = BaseSERP(**serp_output).model_dump()
+        self.log.info(" | ".join([f"{self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
 
         # Expand AI overview
         if ai_expand:
@@ -145,16 +136,16 @@ class SearchEngine:
         response_output = self.requests_searcher.send_request(self.search_params)
         serp_output.update(response_output)
         self.serp = BaseSERP(**serp_output).model_dump()
-        self.log.info(" | ".join([f"{k}: {self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
+        self.log.info(" | ".join([f"{self.serp[k]}" for k in {'qry','response_code','loc'} if self.serp[k]]))
 
     # ==========================================================================
     # Parsing
 
     def parse_serp(self, extract_features=True):
         try:
-            metadata = {k:v for k,v in self.serp.items() if k not in ['html']}
+            parsed_metadata = {k:v for k,v in self.serp.items() if k in ['crawl_id', 'serp_id', 'version', 'method']}
             parsed = parsers.parse_serp(self.serp['html'], extract_features=extract_features)
-            self.parsed = metadata | parsed
+            self.parsed = parsed_metadata | parsed
         except Exception:
             self.log.exception(f'Parsing error | serp_id : {self.serp["serp_id"]}')
 
