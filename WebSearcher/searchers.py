@@ -1,89 +1,63 @@
 from . import parsers
-from . import locations
-from . import webutils as wu
 from . import utils
 from . import logger
-from .models import BaseSERP
+from .search_methods.selenium_searcher import SeleniumDriver
+from .search_methods.requests_searcher import RequestsSearcher
+from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
+from .models.searches import SearchParams
+from .models.data import BaseSERP
 
 import os
-import time
-import brotli
-import requests
-import subprocess
 import pandas as pd
-from datetime import datetime, timezone
-from typing import Any, Dict, Optional
+from typing import Dict, Union
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
-# Default headers to send with requests (i.e. device fingerprint)
-DEFAULT_HEADERS = {
-    'Host': 'www.google.com',
-    'Referer': 'https://www.google.com/',
-    'Accept': '*/*',
-    'Accept-Encoding': 'gzip,deflate,br',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
-}
-
-
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
     def __init__(self, 
-            headers: Dict[str, str] = DEFAULT_HEADERS,
-            sesh: Optional[requests.Session] = None, 
-            ssh_tunnel: Optional[subprocess.Popen] = None, 
-            unzip: bool = True,
-            log_fp: str = '', 
-            log_mode: str = 'a+',
-            log_level: str ='INFO',
+            method: Union[str, SearchMethod] = SearchMethod.SELENIUM,
+            log_config: Union[dict, LogConfig] = {},
+            selenium_config: Union[dict, SeleniumConfig] = {},
+            requests_config: Union[dict, RequestsConfig] = {},
+            crawl_id: str = '',
         ) -> None:
-        """Initialize a `requests.Session` to conduct searches through or
-        pass an existing one with an optional SSH tunnel.
-        
-        Args:
-            headers (dict, optional): Headers to send with requests.
-            unzip (bool, optional): Unzip brotli zipped html responses.
-            sesh (None, optional): A `requests.Session` object.
-            ssh_tunnel (None, optional): An SSH tunnel subprocess from `webutils`.
-            log_fp (str, optional): A file to log function process output to.
-            log_mode (str, optional): Write over the log file or append to it.
-            log_level (str, optional): The file logging level.
+        """Initialize the search engine
+
+        Args: 
+            method (Union[str, SearchMethod], optional): The method to use for searching, either 'requests' or 'selenium'. Defaults to SearchMethod.SELENIUM.
+            log_config (Union[dict, LogConfig], optional): Common search configuration. Defaults to None.
+            selenium_config (Union[dict, SeleniumConfig], optional): Selenium-specific configuration. Defaults to None.
+            requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
         """
 
-        # Initialize data storage
-        self.version: str = WS_VERSION
-        self.base_url: str = 'https://www.google.com/search'
-        self.headers: Dict[str, str] = headers
-        self.sesh: requests.Session = sesh if sesh else wu.start_sesh(headers=self.headers)
-        self.ssh_tunnel: subprocess.Popen = ssh_tunnel
-        self.unzip: bool = unzip
-        self.params: Dict[str, Any] = {}
-
-        # Initialize search details
-        self.qry: str = None
-        self.loc: str = None
-        self.lang: str = None
-        self.num_results = None
-        self.url: str = None
-        self.timestamp: str = None
-        self.serp_id: str = None
-        self.crawl_id: str = None
-        self.response: requests.Response = None
-        self.html: str = None
-        self.results: list = []
-        self.serp_features: dict = {}
-        self.serp: dict = {}
-
+        # Initialize configuration
+        self.method = method.value if isinstance(method, SearchMethod) else method
+        self.config = SearchConfig.create({
+            "method": SearchMethod.create(method),
+            "log": LogConfig.create(log_config),
+            "selenium": SeleniumConfig.create(selenium_config),
+            "requests": RequestsConfig.create(requests_config),
+        })
+        self.session_data = {
+            "method": self.config.method.value,
+            "version": WS_VERSION,
+            "crawl_id": crawl_id,
+        }
+        
         # Set a log file, prints to console by default
         self.log = logger.Logger(
-            console=True if not log_fp else False,
-            console_level=log_level,
-            file_name=log_fp, 
-            file_mode=log_mode,
-            file_level=log_level,
+            console=True if not self.config.log.fp else False,
+            console_level=self.config.log.level,
+            file_name=self.config.log.fp, 
+            file_mode=self.config.log.mode,
+            file_level=self.config.log.level,
         ).start(__name__)
+
+        # Initialize search params and output
+        self.search_params = SearchParams.create()
+        self.parsed = {'results': [], 'features': {}}
 
 
     def search(self, 
@@ -91,134 +65,60 @@ class SearchEngine:
             location: str = None, 
             lang: str = None, 
             num_results: int = None, 
-            serp_id: str = '', 
-            crawl_id: str = ''
+            ai_expand: bool = False,
+            headers: Dict[str, str] = {},
         ):
         """Conduct a search and save HTML
         
         Args:
             qry (str): The search query
-            location (str, optional): A location's Canonical Name.
-            num_results (int, optional): The number of results to return.
-            serp_id (str, optional): A unique identifier for this SERP
+            location (str, optional): A location's Canonical Name
+            num_results (int, optional): The number of results to return
+            ai_expand: (bool, optional): Whether to use selenium to expand AI overviews
             crawl_id (str, optional): An identifier for this crawl
         """
-        self._prepare_search(qry=qry, location=location, lang=lang, num_results=num_results)
-        self._conduct_search(serp_id=serp_id, crawl_id=crawl_id)
-        self._handle_response()
 
+        self.search_params = SearchParams.create({
+            'qry': str(qry),
+            'loc': str(location) if not pd.isnull(location) else '',
+            'lang': str(lang) if not pd.isnull(lang) else '',
+            'num_results': num_results,
+        })
 
-    def _prepare_search(self, qry: str, location: str = None, lang: str = None, num_results: int = None):
-        """Prepare a search URL and metadata for the given query and location"""
-        self.qry = str(qry)
-        self.loc = str(location) if not pd.isnull(location) else ''
-        self.lang = str(lang) if not pd.isnull(lang) else ''
-        self.num_results = num_results
-        self.params = {}
-        self.params['q'] = wu.encode_param_value(self.qry)
-        if self.num_results:
-            self.params['num'] = self.num_results
-        if self.lang and self.lang not in {'None', 'nan'}:
-            self.params['hl'] = self.lang
-        if self.loc and self.loc not in {'None', 'nan'}:
-            self.params['uule'] = locations.convert_canonical_name_to_uule(self.loc)
-
-
-    def _conduct_search(self, serp_id: str = '', crawl_id: str = ''):
-        """Send a search request and handle errors"""
-
-        self.timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
-        self.serp_id = serp_id if serp_id else utils.hash_id(self.qry + self.loc + self.timestamp)
-        self.crawl_id = crawl_id
-        try:
-            self._send_request()
-        except requests.exceptions.ConnectionError:
-            self.log.exception(f'SERP | Connection error | {self.serp_id}')
-            self._reset_ssh_tunnel()
-        except requests.exceptions.Timeout:
-            self.log.exception(f'SERP | Timeout error | {self.serp_id}')
-        except Exception:
-            self.log.exception(f'SERP | Unknown error | {self.serp_id}')
-
-
-    def _send_request(self):
-        self.url = f"{self.base_url}?{wu.join_url_quote(self.params)}"
-        self.response = self.sesh.get(self.url, timeout=10)
-        log_msg = f"{self.response.status_code} | {self.qry}"
-        log_msg = f"{log_msg} | {self.loc}" if self.loc else log_msg
-        self.log.info(log_msg)
-
-
-    def _reset_ssh_tunnel(self):
-        if self.ssh_tunnel:
-            self.ssh_tunnel.tunnel.kill()
-            self.ssh_tunnel.open_tunnel()
-            self.log.info(f'SERP | Restarted SSH tunnel | {self.serp_id}')
-            time.sleep(10) # Allow time to establish connection
-
-
-    def _handle_response(self):
-        try:
-            if self.unzip:  
-                self._unzip_html()
-            else:
-                self.html = self.response.content
-            self.html = self.html.decode('utf-8', 'ignore')
-        except Exception:
-            self.log.exception(f'Response handling error')
-
-
-    def _unzip_html(self):
-        """Unzip brotli zipped html 
-
-        Can allow zipped responses by setting the header `"Accept-Encoding"`.
-        Zipped reponses are the default because it is more efficient.
+        if self.config.method == SearchMethod.SELENIUM:
+            self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
+            self.selenium_driver.init_driver()
+            self.response_output = self.selenium_driver.send_request(self.search_params, ai_expand=ai_expand)
         
-        Returns:
-            str: Decompressed html
-        """
+        elif self.config.method == SearchMethod.REQUESTS:
+            self.config.requests.update_headers(headers)
+            self.requests_searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
+            self.response_output = self.requests_searcher.send_request(self.search_params)
 
-        rcontent = self.response.content
+        serp_output = self.search_params.to_serp_output()
+        serp_output.update(self.session_data)
+        serp_output.update(self.response_output)
+        self.serp = BaseSERP(**serp_output).model_dump()
+        self.log.info(" | ".join([f"{self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
+
+    # ==========================================================================
+    # Parsing
+
+    def parse_serp(self, extract_features: bool = True):
         try:
-            self.html = brotli.decompress(rcontent)
-        except brotli.error:
-            self.html = rcontent
+            parsed_metadata = {k:v for k,v in self.serp.items() if k in ['crawl_id', 'serp_id', 'version', 'method']}
+            parsed = parsers.parse_serp(self.serp['html'], extract_features=extract_features)
+            self.parsed = parsed_metadata | parsed
         except Exception:
-            self.log.exception(f'unzip error | serp_id : {self.serp_id}')
-            self.html = rcontent
+            self.log.exception(f'Parsing error | serp_id : {self.serp["serp_id"]}')
 
     def parse_results(self):
-        """Parse a SERP - see parsers.py"""
+        """Backwards compatibility for parsing results"""
+        self.parse_serp()
+        self.results = self.parsed['results']
 
-        assert self.html, "No HTML found"
-        try:
-            self.results = parsers.parse_serp(self.html)
-        except Exception:
-            self.log.exception(f'Parsing error | serp_id : {self.serp_id}')
-
-    def parse_serp_features(self):
-        """Extract SERP features - see parsers.py"""
-
-        assert self.html, "No HTML found"
-        try:
-            self.serp_features = parsers.FeatureExtractor.extract_features(self.html)
-        except Exception:
-            self.log.exception(f'Feature extraction error | serp_id : {self.serp_id}')
-
-    def prepare_serp_save(self):
-        self.serp = BaseSERP(
-            qry=self.qry, 
-            loc=self.loc, 
-            lang=self.lang,
-            url=self.url, 
-            html=self.html,
-            response_code=self.response.status_code,
-            user_agent=self.headers['User-Agent'],
-            timestamp=self.timestamp,
-            serp_id=self.serp_id,
-            crawl_id=self.crawl_id,
-            version=self.version,
-        ).model_dump()
+    # ==========================================================================
+    # Saving
 
     def save_serp(self, save_dir: str = "", append_to: str = ""):
         """Save SERP to file
@@ -227,35 +127,35 @@ class SearchEngine:
             save_dir (str, optional): Save results as `save_dir/{serp_id}.html`
             append_to (str, optional): Append results to this file path
         """
-        assert self.html, "No HTML found"
-        assert save_dir or append_to, "Must provide a save_dir or append_to file path"
-
-        if append_to:
-            self.prepare_serp_save()
+        if not save_dir and not append_to:
+            self.log.warning("Must provide a save_dir or append_to file path to save a SERP")
+            return
+        elif append_to:
             utils.write_lines([self.serp], append_to)
-
-        else:
-            fp = os.path.join(save_dir, f'{self.serp_id}.html')
+        elif save_dir:
+            fp = os.path.join(save_dir, f'{self.serp["serp_id"]}.html')
             with open(fp, 'w') as outfile:
-                outfile.write(self.html)
+                outfile.write(self.serp['html'])
+
+    def save_parsed(self, save_dir: str = "", append_to: str = ""):
+        """Save parsed SERP to file"""
+        if not save_dir and not append_to:
+            self.log.warning("Must provide a save_dir or append_to file path to save parsed SERP")
+            return
+        if not self.parsed:
+            self.log.warning("No parsed SERP available to save")
+            return
+        
+        fp = append_to if append_to else os.path.join(save_dir, 'parsed.json')
+        utils.write_lines([self.parsed], fp)
 
     def save_search(self, append_to: str = ""):
-        """Save search metadata (excludes HTML) to file
-
-        Args:
-            append_to (str, optional): Append results to this file path
-        """
-        assert self.html, "No HTML found"
-        assert append_to, "Must provide an append_to file path"
-
-        if not self.serp:
-            self.prepare_serp_save()
-        
-        if not self.serp_features:
-            self.parse_serp_features()
+        """Save SERP metadata (excludes HTML) to file"""
+        if not append_to:
+            self.log.warning("Must provide an append_to file path to save SERP metadata")
+            return
         
         self.serp_metadata = {k: v for k, v in self.serp.items() if k != 'html'}
-        self.serp_metadata.update(self.serp_features)
         utils.write_lines([self.serp_metadata], append_to)
 
     def save_results(self, save_dir: str = "", append_to: str = ""):
@@ -265,15 +165,15 @@ class SearchEngine:
             save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
             append_to (bool, optional): Append results to this file path
         """
-        assert save_dir or append_to, "Must provide a save_dir or append_to file path"
+        if not save_dir and not append_to:
+            self.log.warning("Must provide a save_dir or append_to file path to save results")
+            return
+        if not self.parsed["results"]:
+            self.log.warning(f'No parsed results to save')
+            return
 
-        if self.results:
-            if append_to:
-                result_metadata = {'crawl_id': self.crawl_id, 'serp_id': self.serp_id, 'version': self.version}
-                results_output = [{**result, **result_metadata} for result in self.results]
-                utils.write_lines(results_output, append_to)
-            else:
-                fp = os.path.join(save_dir, 'results', f'{self.serp_id}.json')
-                utils.write_lines(self.results, fp)
-        else:
-            self.log.info(f'No parsed results for serp_id: {self.serp_id}')
+        # Add metadata to results
+        result_metadata = {k: self.serp[k] for k in ['crawl_id', 'serp_id', 'version']}
+        results_output = [{**result, **result_metadata} for result in self.parsed["results"]]
+        fp = append_to if append_to else os.path.join(save_dir, 'results.json')        
+        utils.write_lines(results_output, fp)

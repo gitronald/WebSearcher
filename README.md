@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
 This package provides tools for conducting algorithm audits of web search and 
-includes a scraper built on `requests` with tools for geolocating, conducting, 
+includes a scraper built on `selenium` with tools for geolocating, conducting, 
 and saving searches. It also includes a modular parser built on `BeautifulSoup` 
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
@@ -12,6 +12,10 @@ and position-based specifications.
 
 Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
 
+
+`0.6.0` 
+- method for collecting data with selenium; requests no longer works without a redirect
+- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
 
 `0.5.2`
 - Added support for Spanish component headers by text
@@ -113,7 +117,7 @@ drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
 -rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
 ```
 
-### Step by Step
+### Step by Step 
 
 Example search and parse pipeline:
 
@@ -132,35 +136,17 @@ se.save_results(append_to='results.json')  # 5. Save parsed results
 ```python
 import WebSearcher as ws
 
-# Initialize collector with optional defaults (headers, logs, ssh tunnels)
-se = ws.SearchEngine()
-
-# Show collector settings
-vars(se)
-{'version': '0.4.1',
- 'base_url': 'https://www.google.com/search',
- 'headers': {'Host': 'www.google.com',
-  'Referer': 'https://www.google.com/',
-  'Accept': '*/*',
-  'Accept-Encoding': 'gzip,deflate,br',
-  'Accept-Language': 'en-US,en;q=0.5',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0'},
- 'sesh': <requests.sessions.Session at 0x7f9ac018ece0>,
- 'ssh_tunnel': None,
- 'unzip': True,
- 'params': {},
- 'qry': None,
- 'loc': None,
- 'num_results': None,
- 'url': None,
- 'timestamp': None,
- 'serp_id': None,
- 'crawl_id': None,
- 'response': None,
- 'html': None,
- 'results': [],
- 'log': <Logger WebSearcher.searchers (DEBUG)>}
-```
+# Initialize collector with method and other settings
+se = ws.SearchEngine(
+    method="selenium", 
+    selenium_config = {
+        "headless": False,
+        "use_subprocess": False,
+        "driver_executable_path": "",
+        "version_main": 133,
+    }
+)
+```   
 
 #### 2. Conduct a Search
 

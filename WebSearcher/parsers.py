@@ -5,12 +5,23 @@ log = Logger().start(__name__)
 
 import re
 from bs4 import BeautifulSoup
-from typing import Union, List, Dict
+from typing import Union, List, Dict, Tuple
 
 
-def parse_serp(serp: Union[str, BeautifulSoup]) -> List[Dict]:
-    """Parse a Search Engine Result Page (SERP)"""
-
+def parse_serp(
+        serp: Union[str, BeautifulSoup], 
+        extract_features: bool = False
+    ) -> Union[List[Dict], Tuple[List[Dict], Dict]]:
+    """Parse a Search Engine Result Page (SERP)
+    
+    Args:
+        serp (Union[str, BeautifulSoup]): The HTML content of the SERP or a BeautifulSoup object
+        extract_features (bool, optional): Whether to also extract SERP features. Defaults to False.
+        
+    Returns:
+        Union[List[Dict], Tuple[List[Dict], Dict]]: If extract_features is False, returns a list of result components.
+            If extract_features is True, returns a tuple of (results, features).
+    """
     # Extract components
     soup = webutils.make_soup(serp)
     extractor = Extractor(soup)
@@ -21,19 +32,39 @@ def parse_serp(serp: Union[str, BeautifulSoup]) -> List[Dict]:
     for cmpt in component_list:
         cmpt.classify_component()
         cmpt.parse_component()
+    results = component_list.export_component_results()
     
-    return component_list.export_component_results()
+    if extract_features:
+        return {
+            "features": FeatureExtractor.extract_features(soup),
+            "results": results
+        }
+    
+    return results
 
 
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html: str) -> dict:
-        rx_estimate = re.compile(r'<div id="result-stats">.*?</div>')
-        rx_language = re.compile(r'<html[^>]*\slang="([^"]+)"')
-        rx_no_results = re.compile(r"Your search - .*? - did not match any documents\.")
+    def extract_features(html_or_soup: Union[str, BeautifulSoup]) -> dict:
+        """Extract SERP features from HTML or a BeautifulSoup object
+        
+        Args:
+            html_or_soup (Union[str, BeautifulSoup]): The HTML content or a BeautifulSoup object
+            
+        Returns:
+            dict: The extracted features
+        """
+        
         output = {}
+        if isinstance(html_or_soup, BeautifulSoup):
+            soup = html_or_soup
+            html = str(soup)
+        else:
+            html = html_or_soup
+            soup = webutils.make_soup(html)
 
         # Extract result estimate count and time
+        rx_estimate = re.compile(r'<div id="result-stats">.*?</div>')
         match = rx_estimate.search(html)
         result_estimate_div = match.group(0) if match else None
         if result_estimate_div is None:
@@ -46,23 +77,21 @@ class FeatureExtractor:
             output["result_estimate_time"] = float(time_match.group(1)) if time_match else None
 
         # Extract language
+        rx_language = re.compile(r'<html[^>]*\slang="([^"]+)"')
         match = rx_language.search(html)
         output['language'] = match.group(1) if match else None
 
         # No results notice
+        rx_no_results = re.compile(r"Your search - .*? - did not match any documents\.")
         match = rx_no_results.search(html)
         output['notice_no_results'] = bool(match)
 
-        # Shortened query notice
-        pattern = "(and any subsequent words) was ignored because we limit queries to 32 words."
-        output['notice_shortened_query'] = (pattern in html)
-
-        # Server error notice
-        pattern = "We're sorry but it appears that there has been an internal server error while processing your request."
-        output['notice_server_error'] = (pattern in html)
-
-        # Infinity scroll button
-        pattern = '<span class="RVQdVd">More results</span>'
-        output['infinity_scroll'] = (pattern in html)
-
+        string_match_dict = {
+            'notice_shortened_query': "(and any subsequent words) was ignored because we limit queries to 32 words.",
+            'notice_server_error': "We're sorry but it appears that there has been an internal server error while processing your request.",
+            'infinity_scroll': '<span class="RVQdVd">More results</span>'
+        }
+        for key, pattern in string_match_dict.items():
+            output[key] = (pattern in html)
+        
         return output

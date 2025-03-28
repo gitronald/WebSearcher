@@ -1,4 +1,4 @@
-from .models import BaseResult
+from .models.data import BaseResult
 from .classifiers import ClassifyMain, ClassifyFooter, ClassifyHeaderComponent
 from .component_parsers import main_parser_dict, footer_parser_dict, header_parser_dict
 from .component_parsers import parse_unknown, parse_not_implemented
