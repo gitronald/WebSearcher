@@ -1,15 +1,15 @@
 import time
 import brotli
 import requests
-from typing import Dict, Optional, Any
-from datetime import datetime, timezone
+from typing import Dict, Any
 
-from .. import utils
+from ..models.configs import RequestsConfig
+from ..models.searches import SearchParams
 
 class RequestsSearcher:
     """Handle Requests-based web interactions for search engines"""
     
-    def __init__(self, config, headers, logger):
+    def __init__(self, config: RequestsConfig, logger):
         """Initialize a Requests searcher with the given configuration
         
         Args:
@@ -18,17 +18,16 @@ class RequestsSearcher:
             logger: Logger instance
         """
         self.config = config
-        self.headers = headers
         self.log = logger
         self.sesh = self.config.sesh or self._start_session()
         
     def _start_session(self):
         """Start a new requests session with the configured headers"""
         session = requests.Session()
-        session.headers.update(self.headers)
+        session.headers.update(self.config.headers)
         return session
         
-    def send_request(self, search_params) -> Dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> Dict[str, Any]:
         """Send a request and handle the response
         
         Args:
@@ -40,17 +39,17 @@ class RequestsSearcher:
             Dictionary with response data
         """
         
-        response_data = {
+        response_output = {
             'html': '',
             'url': search_params.url,
-            'user_agent': self.headers.get('User-Agent'),
+            'user_agent': self.config.headers.get('User-Agent'),
             'response_code': 0,
         }
         
         try:
             response = self.sesh.get(search_params.url, timeout=10)
-            response_data['html'] = self._handle_response_content(response)
-            response_data['response_code'] = response.status_code
+            response_output['html'] = self._handle_response_content(response)
+            response_output['response_code'] = response.status_code
         except requests.exceptions.ConnectionError:
             self.log.exception(f'Requests | Connection error')
             self._reset_ssh_tunnel()
@@ -59,7 +58,7 @@ class RequestsSearcher:
         except Exception:
             self.log.exception(f'Requests | Unknown error')
         finally:
-            return response_data
+            return response_output
 
     def _handle_response_content(self, response):
         try:

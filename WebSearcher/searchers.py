@@ -21,7 +21,7 @@ class SearchEngine:
             log_config: Union[dict, LogConfig] = {},
             selenium_config: Union[dict, SeleniumConfig] = {},
             requests_config: Union[dict, RequestsConfig] = {},
-            headers: Dict[str, str] = None
+            crawl_id: str = '',
         ) -> None:
         """Initialize the search engine
 
@@ -33,7 +33,6 @@ class SearchEngine:
         """
 
         # Initialize configuration
-        self.version = WS_VERSION
         self.method = method.value if isinstance(method, SearchMethod) else method
         self.config = SearchConfig.create({
             "method": SearchMethod.create(method),
@@ -41,7 +40,12 @@ class SearchEngine:
             "selenium": SeleniumConfig.create(selenium_config),
             "requests": RequestsConfig.create(requests_config),
         })
-
+        self.session_data = {
+            "method": self.config.method.value,
+            "version": WS_VERSION,
+            "crawl_id": crawl_id,
+        }
+        
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not self.config.log.fp else False,
@@ -50,14 +54,6 @@ class SearchEngine:
             file_mode=self.config.log.mode,
             file_level=self.config.log.level,
         ).start(__name__)
-
-        # Initialize searcher
-        if self.config.method == SearchMethod.REQUESTS:
-            self.headers = headers or self.config.requests.headers
-            self.requests_searcher = RequestsSearcher(config=self.config.requests, headers=self.headers, logger=self.log)
-        elif self.config.method == SearchMethod.SELENIUM:
-            self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
-            self.selenium_driver.driver = None
 
         # Initialize search params and output
         self.search_params = SearchParams.create()
@@ -70,7 +66,7 @@ class SearchEngine:
             lang: str = None, 
             num_results: int = None, 
             ai_expand: bool = False,
-            crawl_id: str = ''
+            headers: Dict[str, str] = {},
         ):
         """Conduct a search and save HTML
         
@@ -90,58 +86,25 @@ class SearchEngine:
         })
 
         if self.config.method == SearchMethod.SELENIUM:
-            self._conduct_search_chromedriver(crawl_id=crawl_id, ai_expand=ai_expand)
-        elif self.config.method == SearchMethod.REQUESTS:
-            self._conduct_search_requests(crawl_id=crawl_id)
-
-    # ==========================================================================
-    # Selenium method
-
-    def _conduct_search_chromedriver(self, crawl_id: str = '', ai_expand = False):
-        """Send a search request and handle errors"""
-        if not self.selenium_driver.driver:
+            self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
             self.selenium_driver.init_driver()
+            self.response_output = self.selenium_driver.send_request(self.search_params, ai_expand=ai_expand)
+        
+        elif self.config.method == SearchMethod.REQUESTS:
+            self.config.requests.update_headers(headers)
+            self.requests_searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
+            self.response_output = self.requests_searcher.send_request(self.search_params)
 
-        # Conduct search
         serp_output = self.search_params.to_serp_output()
-        serp_output['version'] = self.version
-        serp_output['method'] = self.method
-        serp_output['crawl_id'] = crawl_id
-        response_output = self.selenium_driver.send_request(self.search_params.url)
-        serp_output.update(response_output)
+        serp_output.update(self.session_data)
+        serp_output.update(self.response_output)
         self.serp = BaseSERP(**serp_output).model_dump()
         self.log.info(" | ".join([f"{self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
-
-        # Expand AI overview
-        if ai_expand:
-            expanded_html = self.selenium_driver.expand_ai_overview()
-            if expanded_html:
-                self.log.debug(f"SERP | expanded html | len diff: {len(expanded_html) - len(self.serp['html'])}")
-                self.serp['html'] = expanded_html
-
-        # Delete cookies
-        self.selenium_driver.delete_cookies()
-
-    # ==========================================================================
-    # Requests method
-
-    def _conduct_search_requests(self, crawl_id: str = ''):
-        """Send a search request using the requests library"""
-
-        # Conduct search
-        serp_output = self.search_params.to_serp_output()
-        serp_output['version'] = self.version
-        serp_output['method'] = self.method
-        serp_output['crawl_id'] = crawl_id
-        response_output = self.requests_searcher.send_request(self.search_params)
-        serp_output.update(response_output)
-        self.serp = BaseSERP(**serp_output).model_dump()
-        self.log.info(" | ".join([f"{self.serp[k]}" for k in {'qry','response_code','loc'} if self.serp[k]]))
 
     # ==========================================================================
     # Parsing
 
-    def parse_serp(self, extract_features=True):
+    def parse_serp(self, extract_features: bool = True):
         try:
             parsed_metadata = {k:v for k,v in self.serp.items() if k in ['crawl_id', 'serp_id', 'version', 'method']}
             parsed = parsers.parse_serp(self.serp['html'], extract_features=extract_features)

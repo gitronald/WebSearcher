@@ -1,6 +1,6 @@
 import time
 import json
-from typing import Dict, Optional, Any
+from typing import Dict, Any
 
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
@@ -11,6 +11,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 from .. import utils
 from ..models.configs import SeleniumConfig
+from ..models.searches import SearchParams
 
 class SeleniumDriver:
     """Handle Selenium-based web interactions for search engines"""
@@ -53,31 +54,38 @@ class SeleniumDriver:
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
         
-    def send_request(self, url: str) -> Dict[str, Any]:
+    def send_request(self, search_params: SearchParams, ai_expand: bool = False) -> Dict[str, Any]:
         """Visit a URL with selenium and save HTML response"""
 
+        response_output = {
+            'html': '',
+            'url': search_params.url,
+            'user_agent': self.browser_info['user_agent'],
+            'response_code': 0,
+        }
+
         try:
-            self.driver.get(url)
+            self.driver.get(search_params.url)
             time.sleep(2)
             WebDriverWait(self.driver, 10).until(
                 EC.presence_of_element_located((By.ID, "search")) 
             )
             time.sleep(2)
-            response_output = {
-                'html': self.driver.page_source,
-                'url': self.driver.current_url,
-                'user_agent': self.browser_info['user_agent'],
-                'response_code': 200,
-            }
+            response_output['html'] = self.driver.page_source
+            response_output['url'] = self.driver.current_url
+            response_output['response_code'] = 200
+
+            # Expand AI overview if requested
+            if ai_expand:
+                expanded_html = self.expand_ai_overview()
+                if expanded_html:
+                    self.log.debug(f"SERP | expanded html | len diff: {len(expanded_html) - len(self.serp['html'])}")
+                    response_output['html'] = expanded_html
+
         except Exception as e:
             self.log.exception(f'SERP | Chromedriver error | {str(e)}')
-            response_output = {
-                'html': '',
-                'url': '',
-                'user_agent': self.browser_info['user_agent'],
-                'response_code': 0,
-            }
         finally:
+            self.delete_cookies()
             return response_output
 
     def expand_ai_overview(self):

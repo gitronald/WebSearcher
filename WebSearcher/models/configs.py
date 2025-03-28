@@ -39,6 +39,12 @@ class RequestsConfig(BaseConfig):
     ssh_tunnel: Optional[subprocess.Popen] = None
     unzip: bool = True
 
+    def update_headers(self, new_headers: Dict[str, str]) -> None:
+        """Update the headers dictionary with new values."""
+        self.headers.update(new_headers)
+
+
+
 class SearchMethod(Enum):
     REQUESTS = "requests"
     SELENIUM = "selenium"
