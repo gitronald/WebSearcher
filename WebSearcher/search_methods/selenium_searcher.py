@@ -79,7 +79,8 @@ class SeleniumDriver:
             if ai_expand:
                 expanded_html = self.expand_ai_overview()
                 if expanded_html:
-                    self.log.debug(f"SERP | expanded html | len diff: {len(expanded_html) - len(self.serp['html'])}")
+                    len_diff = len(expanded_html) - len(response_output['html'])
+                    self.log.debug(f"SERP | expanded html | len diff: {len_diff}")
                     response_output['html'] = expanded_html
 
         except Exception as e:

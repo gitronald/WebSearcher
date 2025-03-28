@@ -2,45 +2,58 @@
 """
 
 import os
-import argparse
+import typer
 import pandas as pd
 import WebSearcher as ws
 
-pd.set_option('display.width', 120, 
+pd.set_option('display.width', 160, 
               'display.max_rows', None, 
               'display.max_columns', None,
               'display.max_colwidth', 40)
 
-def main():
-    # Settings
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-q", "--query", type=str, help="A search query", required=True)
-    parser.add_argument("-d", "--data_dir", type=str, help="Directory to save data", 
-                        default=os.path.join("data", f"demo-ws-v{ws.__version__}"))
-    args = parser.parse_args()
-    print(f'WebSearcher v{ws.__version__}\nSearch Query: {args.query}\nOutput Dir: {args.data_dir}\n')
+DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
 
+app = typer.Typer()
+
+@app.command()
+def main(
+    query: str = typer.Argument("why is the sky blue?", help="Search query to use"),
+    method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
+    data_dir: str = typer.Option(DEFAULT_DATA_DIR, help="Prefix for output files"),
+    headless: bool = typer.Option(False, help="Run browser in headless mode"),
+    use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
+    version_main: int = typer.Option(133, help="Main version of Chrome to use"),
+    ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
+    driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
+) -> None:
+    
     # Filepaths
-    fp_serps = os.path.join(args.data_dir, 'serps.json')
-    fp_results = os.path.join(args.data_dir, 'results.json')
-    fp_searches = os.path.join(args.data_dir, 'searches.json')
-    dir_html = os.path.join(args.data_dir, 'html')
-    os.makedirs(dir_html, exist_ok=True)
+    fps = {k: os.path.join(data_dir, f"{k}.json") for k in ["serps", "parsed", "searches"]}
+    os.makedirs(data_dir, exist_ok=True)
+    print(f'WebSearcher v{ws.__version__}\nSearch Query: {query}\nOutput Dir: {data_dir}\n')
 
-    # Search, parse, and save
-    se = ws.SearchEngine()                  # Initialize searcher
-    se.launch_chromedriver(headless =False) # Launch browser
-    se.search(args.query)                   # Conduct Search
-    se.parse_results()                      # Parse Results
-    se.save_serp(append_to=fp_serps)        # Save SERP to json (html + metadata)
-    se.save_results(append_to=fp_results)   # Save results to json
-    se.save_serp(save_dir=dir_html)         # Save SERP html to dir (no metadata)
-    se.save_search(append_to=fp_searches)   # Save search metadata + extracted features
+    # Setup search engine
+    se = ws.SearchEngine(
+        method=method, 
+        selenium_config={
+            "headless": headless,
+            "use_subprocess": use_subprocess,
+            "driver_executable_path": driver_executable_path,
+            "version_main": version_main,
+        }
+    )
+
+    # Search and parse
+    se.search(query, ai_expand=ai_expand)      # Conduct Search
+    se.parse_results()                         # Parse Results
+    se.save_serp(append_to=fps['serps'])       # Save SERP to json (html + metadata)
+    se.save_search(append_to=fps['searches'])  # Save search metadata to json
+    se.save_parsed(append_to=fps['parsed'])    # Save results/features to json
 
     # Convert results to dataframe and print select columns
-    if se.results:
-        results = pd.DataFrame(se.results)
-        print(results[['type', 'title', 'url']])
+    if se.parsed["results"]:
+        results = pd.DataFrame(se.parsed["results"])
+        print(results[['type', 'sub_type', 'title', 'url']])
 
 if __name__ == "__main__":
-    main()
+    app()
