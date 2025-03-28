@@ -123,21 +123,8 @@ class SeleniumDriver:
         """
         if self.driver:
             try:
-                # Try a more thorough cleanup
-                try:
-                    self.driver.delete_all_cookies()
-                except Exception:
-                    pass
-                
-                try:
-                    # Close all tabs/windows
-                    original_handle = self.driver.current_window_handle
-                    for handle in self.driver.window_handles:
-                        self.driver.switch_to.window(handle)
-                        self.driver.close()
-                except Exception:
-                    pass
-                
+                self.delete_cookies()      
+                self.close_all_windows()          
                 # Finally quit the driver
                 self.driver.quit()
                 self.driver = None
@@ -149,6 +136,18 @@ class SeleniumDriver:
                 self.driver = None
                 return False
         return True
+    
+    def close_all_windows(self):
+        try:
+            # Close all tabs/windows
+            original_handle = self.driver.current_window_handle
+            for handle in self.driver.window_handles:
+                self.driver.switch_to.window(handle)
+                self.driver.close()
+            self.driver.switch_to.window(original_handle)
+            self.driver.close()
+        except Exception:
+            pass
     
     def delete_cookies(self):
         """Delete all cookies from the browser"""

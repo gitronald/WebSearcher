@@ -32,8 +32,8 @@ def main(
     se.search(qry=query, ai_expand=ai_expand)
     se.parse_results()
     se.save_serp(append_to=f'{output_prefix}_serps.json')
+    se.save_search(append_to=f'{output_prefix}_searches.json')
     se.save_parsed(append_to=f'{output_prefix}_parsed.json')
-    se.cleanup()
 
 if __name__ == "__main__":
     app()

@@ -218,29 +218,8 @@ class SearchEngine:
             self.log.warning(f'No parsed results to save')
             return
 
-        # Add metadta to results
+        # Add metadata to results
         result_metadata = {k: self.serp[k] for k in ['crawl_id', 'serp_id', 'version']}
         results_output = [{**result, **result_metadata} for result in self.parsed["results"]]
         fp = append_to if append_to else os.path.join(save_dir, 'results.json')        
         utils.write_lines(results_output, fp)
-
-    def cleanup(self):
-        """Clean up resources, particularly Selenium's browser instance
-        
-        Returns:
-            bool: True if cleanup was successful or not needed, False if cleanup failed
-        """
-        if self.config.method == SearchMethod.SELENIUM and hasattr(self, 'selenium_driver'):
-            result = self.selenium_driver.cleanup()
-            if result:
-                self.selenium_driver.driver = None  # Update the reference
-            return result
-        return True
-    
-    def __del__(self):
-        """Destructor to ensure browser is closed when object is garbage collected"""
-        try:
-            self.cleanup()
-        except Exception:
-            pass
-
