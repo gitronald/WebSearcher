@@ -1,5 +1,5 @@
 import time
-import json
+import orjson
 from datetime import datetime, timezone
 from typing import Dict, Any
 
@@ -42,8 +42,8 @@ class SeleniumDriver:
             'driver_version': self.driver.capabilities['chrome']['chromedriverVersion'].split(' ')[0],
             'user_agent': self.driver.execute_script('return navigator.userAgent'),
         }
-        self.browser_info['browser_id'] = utils.hash_id(json.dumps(self.browser_info))
-        self.log.debug(json.dumps(self.browser_info, indent=4))
+        self.browser_info['browser_id'] = utils.hash_id(orjson.dumps(self.browser_info).decode('utf-8'))
+        self.log.debug(orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2))
         
     def send_typed_query(self, query: str):
         """Send a typed query to the search box"""

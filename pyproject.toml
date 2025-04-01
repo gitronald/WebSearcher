@@ -18,6 +18,7 @@ dependencies = [
     "undetected-chromedriver>=3.5.5",
     "selenium>=4.9.0",
     "protobuf (>=6.30.0,<7.0.0)",
+    "orjson (>=3.10.16,<4.0.0)",
 ]
 
 [project.urls]

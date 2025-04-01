@@ -1,10 +1,9 @@
 import re
 import os
-import json
+import orjson
 import random
 import hashlib
 import itertools
-from timeit import default_timer
 from string import ascii_letters, digits
 
 # Files ------------------------------------------------------------------------
@@ -24,7 +23,7 @@ def read_lines(fp):
 
     with open(fp, 'r') as infile:
         if is_json:
-            return [json.loads(line) for line in infile]
+            return [orjson.loads(line) for line in infile]
         else:
             return [line.strip() for line in infile]
 
@@ -38,7 +37,10 @@ def write_lines(iter_data, fp, overwrite=False):
 
     with open(fp, mode) as outfile:
         for data in iter_data:
-            line_output = json.dumps(data) if is_json else data
+            if is_json:
+                line_output = orjson.dumps(data).decode('utf-8')
+            else:
+                line_output = data
             outfile.write(f"{line_output}\n")
 
 
