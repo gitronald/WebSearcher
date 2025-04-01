@@ -1,8 +1,10 @@
 from . import parsers
 from . import utils
 from . import logger
+
 from .search_methods.selenium_searcher import SeleniumDriver
 from .search_methods.requests_searcher import RequestsSearcher
+
 from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
 from .models.searches import SearchParams
 from .models.data import BaseSERP
@@ -30,8 +32,9 @@ class SearchEngine:
             log_config (Union[dict, LogConfig], optional): Common search configuration. Defaults to None.
             selenium_config (Union[dict, SeleniumConfig], optional): Selenium-specific configuration. Defaults to None.
             requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
+            crawl_id (str, optional): A unique identifier for the crawl. Defaults to ''.
         """
-
+  
         # Initialize configuration
         self.method = method.value if isinstance(method, SearchMethod) else method
         self.config = SearchConfig.create({
@@ -40,12 +43,14 @@ class SearchEngine:
             "selenium": SeleniumConfig.create(selenium_config),
             "requests": RequestsConfig.create(requests_config),
         })
+
+        # Initialize session data
         self.session_data = {
             "method": self.config.method.value,
             "version": WS_VERSION,
             "crawl_id": crawl_id,
         }
-        
+
         # Set a log file, prints to console by default
         self.log = logger.Logger(
             console=True if not self.config.log.fp else False,
@@ -54,6 +59,12 @@ class SearchEngine:
             file_mode=self.config.log.mode,
             file_level=self.config.log.level,
         ).start(__name__)
+
+        if self.config.method == SearchMethod.SELENIUM:
+            self.searcher = SeleniumDriver(config=self.config.selenium, logger=self.log)
+            self.searcher.init_driver()
+        elif self.config.method == SearchMethod.REQUESTS:
+            self.searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
 
         # Initialize search params and output
         self.search_params = SearchParams.create()
@@ -73,28 +84,23 @@ class SearchEngine:
         Args:
             qry (str): The search query
             location (str, optional): A location's Canonical Name
+            lang (str, optional): A language code (e.g., 'en')
             num_results (int, optional): The number of results to return
             ai_expand: (bool, optional): Whether to use selenium to expand AI overviews
-            crawl_id (str, optional): An identifier for this crawl
+            headers (Dict[str, str], optional): Custom headers to include in the request
         """
 
+        self.log.warning('starting search config')
         self.search_params = SearchParams.create({
             'qry': str(qry),
             'loc': str(location) if not pd.isnull(location) else '',
             'lang': str(lang) if not pd.isnull(lang) else '',
             'num_results': num_results,
+            'ai_expand': ai_expand,
+            'headers': headers,
         })
 
-        if self.config.method == SearchMethod.SELENIUM:
-            self.selenium_driver = SeleniumDriver(config=self.config.selenium, logger=self.log)
-            self.selenium_driver.init_driver()
-            self.response_output = self.selenium_driver.send_request(self.search_params, ai_expand=ai_expand)
-        
-        elif self.config.method == SearchMethod.REQUESTS:
-            self.config.requests.update_headers(headers)
-            self.requests_searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
-            self.response_output = self.requests_searcher.send_request(self.search_params)
-
+        self.response_output = self.searcher.send_request(self.search_params)
         serp_output = self.search_params.to_serp_output()
         serp_output.update(self.session_data)
         serp_output.update(self.response_output)

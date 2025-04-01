@@ -1,6 +1,7 @@
 import time
 import brotli
 import requests
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 from ..models.configs import RequestsConfig
@@ -38,12 +39,16 @@ class RequestsSearcher:
         Returns:
             Dictionary with response data
         """
+
+        if search_params.headers:
+            self.sesh.headers.update(search_params.headers)
         
         response_output = {
             'html': '',
             'url': search_params.url,
             'user_agent': self.config.headers.get('User-Agent'),
             'response_code': 0,
+            'timestamp': datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         }
         
         try:

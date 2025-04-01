@@ -2,7 +2,7 @@ import requests
 import subprocess
 from enum import Enum
 from typing import Dict, Optional, Union
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
 
 class BaseConfig(BaseModel):
     """Base class for all configuration classes"""
@@ -35,14 +35,15 @@ class RequestsConfig(BaseConfig):
         'Accept-Language': 'en-US,en;q=0.5',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
     })
-    sesh: Optional[requests.Session] = None
     ssh_tunnel: Optional[subprocess.Popen] = None
     unzip: bool = True
 
-    def update_headers(self, new_headers: Dict[str, str]) -> None:
-        """Update the headers dictionary with new values."""
-        self.headers.update(new_headers)
-
+    @computed_field
+    def sesh(self) -> requests.Session:
+        """Create and configure a requests session with the current headers."""
+        sesh = requests.Session()
+        sesh.headers.update(self.headers)
+        return sesh
 
 
 class SearchMethod(Enum):
