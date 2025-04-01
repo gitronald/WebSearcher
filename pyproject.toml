@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.6.2"
+version = "0.6.3"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "<rer@acm.org>"}]
 keywords = ["web", "search", "parser"]
@@ -18,6 +18,7 @@ dependencies = [
     "undetected-chromedriver>=3.5.5",
     "selenium>=4.9.0",
     "protobuf (>=6.30.0,<7.0.0)",
+    "orjson (>=3.10.16,<4.0.0)",
 ]
 
 [project.urls]
