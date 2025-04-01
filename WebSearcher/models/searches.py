@@ -1,6 +1,6 @@
 from pydantic import Field, computed_field
 from typing import Dict, Optional, Any, List
-from datetime import datetime, timezone
+from datetime import datetime
 
 from ..utils import hash_id
 from ..import webutils as wu
@@ -15,6 +15,8 @@ class SearchParams(BaseConfig):
     lang: Optional[str] = Field(None, description="Language code (e.g., 'en')")
     loc: Optional[str] = Field(None, description="Location in Canonical Name format")
     base_url: str = Field("https://www.google.com/search", description="Base search engine URL")
+    ai_expand: bool = Field(False, description="Expand AI overviews if present")
+    headers: Dict[str, str] = Field(default_factory=dict, description="Custom headers")
     
     @computed_field
     def url_params(self) -> Dict[str, Any]:
@@ -36,18 +38,13 @@ class SearchParams(BaseConfig):
     
     @computed_field
     def serp_id(self) -> str:
-        """Computes a unique SERP ID based on query, location, and timestamp"""
-        timestamp = datetime.now().isoformat()
-        return hash_id(f"{self.qry}{self.loc}{timestamp}")
+        return hash_id(f"{self.qry}{self.loc}{datetime.now().isoformat()}")
     
     def to_serp_output(self) -> Dict[str, Any]:
-        """Outputs the variables needed for SERPDetails as a dictionary"""
-        timestamp = datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         return {
             "qry": self.qry,
             "loc": self.loc,
             "lang": self.lang,
             "url": self.url,
-            "serp_id": hash_id(f"{self.qry}{self.loc}{timestamp}"),
-            "timestamp": timestamp,
+            "serp_id": self.serp_id,
         }

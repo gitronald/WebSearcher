@@ -1,5 +1,6 @@
 import time
 import json
+from datetime import datetime, timezone
 from typing import Dict, Any
 
 import undetected_chromedriver as uc
@@ -54,7 +55,7 @@ class SeleniumDriver:
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
         
-    def send_request(self, search_params: SearchParams, ai_expand: bool = False) -> Dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> Dict[str, Any]:
         """Visit a URL with selenium and save HTML response"""
 
         response_output = {
@@ -62,6 +63,7 @@ class SeleniumDriver:
             'url': search_params.url,
             'user_agent': self.browser_info['user_agent'],
             'response_code': 0,
+            'timestamp': datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
         }
 
         try:
@@ -76,7 +78,7 @@ class SeleniumDriver:
             response_output['response_code'] = 200
 
             # Expand AI overview if requested
-            if ai_expand:
+            if search_params.ai_expand:
                 expanded_html = self.expand_ai_overview()
                 if expanded_html:
                     len_diff = len(expanded_html) - len(response_output['html'])
