@@ -1,5 +1,5 @@
-.pytest_cache
 .venv
+.archive
 
 build
 data
@@ -9,4 +9,5 @@ notebooks
 *__pycache__
 
 # Ignore test data
+.pytest_cache
 tests/__snapshots__/*
