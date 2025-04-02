@@ -90,7 +90,7 @@ class SearchEngine:
             headers (Dict[str, str], optional): Custom headers to include in the request
         """
 
-        self.log.warning('starting search config')
+        self.log.debug('starting search config')
         self.search_params = SearchParams.create({
             'qry': str(qry),
             'loc': str(location) if not pd.isnull(location) else '',
