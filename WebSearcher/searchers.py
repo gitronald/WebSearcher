@@ -35,7 +35,7 @@ class SearchEngine:
             crawl_id (str, optional): A unique identifier for the crawl. Defaults to ''.
         """
   
-        # Initialize configuration
+        # Initialize config settings, log, and session data
         self.method = method.value if isinstance(method, SearchMethod) else method
         self.config = SearchConfig.create({
             "method": SearchMethod.create(method),
@@ -43,23 +43,14 @@ class SearchEngine:
             "selenium": SeleniumConfig.create(selenium_config),
             "requests": RequestsConfig.create(requests_config),
         })
-
-        # Initialize session data
+        self.log = logger.Logger(**self.config.log.model_dump()).start(__name__)
         self.session_data = {
             "method": self.config.method.value,
             "version": WS_VERSION,
             "crawl_id": crawl_id,
         }
 
-        # Set a log file, prints to console by default
-        self.log = logger.Logger(
-            console=True if not self.config.log.fp else False,
-            console_level=self.config.log.level,
-            file_name=self.config.log.fp, 
-            file_mode=self.config.log.mode,
-            file_level=self.config.log.level,
-        ).start(__name__)
-
+        # Initialize searcher based on method
         if self.config.method == SearchMethod.SELENIUM:
             self.searcher = SeleniumDriver(config=self.config.selenium, logger=self.log)
             self.searcher.init_driver()
@@ -69,7 +60,6 @@ class SearchEngine:
         # Initialize search params and output
         self.search_params = SearchParams.create()
         self.parsed = {'results': [], 'features': {}}
-
 
     def search(self, 
             qry: str, 
