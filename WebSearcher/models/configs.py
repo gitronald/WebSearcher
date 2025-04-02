@@ -15,9 +15,13 @@ class BaseConfig(BaseModel):
         return config or cls()
 
 class LogConfig(BaseConfig):
-    fp: str = ''
-    mode: str = 'a'
-    level: str = 'INFO'
+    console: bool = True
+    console_format: str = 'medium'
+    console_level: str = 'INFO'
+    file_name: str = ''
+    file_mode: str = 'a'
+    file_format: str = 'detailed'
+    file_level: str = 'INFO'
 
 class SeleniumConfig(BaseConfig):
     headless: bool = False
@@ -44,7 +48,6 @@ class RequestsConfig(BaseConfig):
         sesh = requests.Session()
         sesh.headers.update(self.headers)
         return sesh
-
 
 class SearchMethod(Enum):
     REQUESTS = "requests"
