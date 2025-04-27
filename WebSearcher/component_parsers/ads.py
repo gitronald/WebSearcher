@@ -6,6 +6,7 @@ Changelog
 - added new div class for text field
 - added labels (e.g., "Provides abortions") from <span class="mXsQRe">, appended to text field
 
+2025-04-27: added carousel sub_type, global parsed output
 
 """
 
