@@ -75,7 +75,7 @@ class ClassifyMain:
                 "format-01": cmpt.attrs["class"] == ["g"],
                 "format-02": ( ("g" in cmpt.attrs["class"]) &                            
                                any(s in ["Ww4FFb"] for s in cmpt.attrs["class"]) ),
-                "format-03": any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]),
+                "format-03": any(s in ["hlcw0c", "MjjYud", "PmEWq"] for s in cmpt.attrs["class"]),
                 "format-04": cmpt.find('div', {'class': ['g', 'Ww4FFb']}),
             }
         else: 
