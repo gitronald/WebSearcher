@@ -14,6 +14,7 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
+            ClassifyMain.discussions_and_forums, # Check discussions and forums
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
             ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
@@ -40,6 +41,12 @@ class ClassifyMain:
         
         return cmpt_type
 
+    @staticmethod
+    def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
+        conditions = [
+            cmpt.find("div", {"class": "IFnjPb"}),
+        ]
+        return 'discussions_and_forums' if all(conditions) else "unknown"
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
