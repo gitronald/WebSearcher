@@ -121,7 +121,7 @@ def get_img_url(sub):
         try:
             url = func(sub)
             if url.startswith('data:image'):
-                raise ValueError(f"Data URL: {img_src}")
+                raise ValueError(f"Data URL: {url}")
             else:
                 return url
         except Exception as e:

@@ -103,7 +103,6 @@ def parse_ad_carousel(cmpt: bs4.element.Tag, sub_type: str, filter_visible: bool
             parser_func = parser_details['parser']
             kwargs = parser_details['find_kwargs']
             sub_cmpts = webutils.find_all_divs(ad_carousel, **kwargs)
-            print(f"sub_cmpts: {len(sub_cmpts)}")
             if sub_cmpts:
                 for sub_rank, sub in enumerate(sub_cmpts):
                     parsed = parser_func(sub, sub_type, sub_rank)
