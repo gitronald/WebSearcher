@@ -203,7 +203,7 @@ class Extractor:
         top_bar_divs = Extractor.extract_from_top_bar_divs(self.layout_divs['top-bars'])
         column.extend(top_bar_divs)
         
-        rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
+        rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':['sATSHe','vtSz8d', 'cUnQKe','g']})
         if rso_layout_divs:
             self.layout_label = 'top-bars-divs'
             layout_column = [div for div in rso_layout_divs if div.name not in drop_tags]
