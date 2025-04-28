@@ -202,8 +202,19 @@ class Extractor:
 
         top_bar_divs = Extractor.extract_from_top_bar_divs(self.layout_divs['top-bars'])
         column.extend(top_bar_divs)
-        
-        rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':['sATSHe','vtSz8d', 'cUnQKe','g']})
+        # No duplicates, but missing data
+        # rso_layout_divs = self.layout_divs['rso'].find_all('div', {'class':'sATSHe'})
+
+        div_classes = [
+            'cUnQKe', # people also ask
+            'g',      # general
+            'Lv2Cle', # images-medium
+            'oIk2Cb', # searches_related
+            'Ww4FFb', # discussions_and_forums
+            'vtSz8d', # videos
+        ]
+        rso_layout_divs = self.layout_divs['rso'].find_all('div', attrs={'class': div_classes}, recursive=True)
+
         if rso_layout_divs:
             self.layout_label = 'top-bars-divs'
             layout_column = [div for div in rso_layout_divs if div.name not in drop_tags]
