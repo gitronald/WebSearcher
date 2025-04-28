@@ -8,14 +8,7 @@ Changelog
 from ..webutils import get_text, get_link, get_div
 
 def parse_images(cmpt) -> list:
-    """Parse an image component
-    
-    Args:
-        cmpt (bs4 object): an image component
-    
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
+    """Parse an images component"""
 
     parsed_list = []
 
@@ -42,14 +35,7 @@ def parse_images(cmpt) -> list:
     return parsed_list
 
 def parse_image_multimedia(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images multimedia subcomponent"""
     return {
         "type": "images",
         "sub_type": "multimedia",
@@ -60,14 +46,7 @@ def parse_image_multimedia(sub, sub_rank=0) -> dict:
     }
 
 def parse_image_medium(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images medium subcomponent"""
     
     title_div = get_div(sub, 'a', {'class':'EZAeBe'})
     title = get_text(title_div) if title_div else get_text(sub, 'span', {'class':'Yt787'})
@@ -89,14 +68,8 @@ def parse_image_medium(sub, sub_rank=0) -> dict:
     }
 
 def parse_image_small(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images small subcomponent"""
+
     return {
         "type": "images", 
         "sub_type": "small",
