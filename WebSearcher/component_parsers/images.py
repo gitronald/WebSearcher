@@ -1,3 +1,10 @@
+""" Parsers for image components
+
+Changelog
+2025-04-28: added div subcomponent class and sub_type labels
+
+"""
+
 from ..webutils import get_text, get_link, get_div
 
 def parse_images(cmpt) -> list:
@@ -25,7 +32,7 @@ def parse_images(cmpt) -> list:
         parsed_list.extend(parsed_subs)
     else:
         # Medium images with titles and urls
-        subs = cmpt.find_all('div', {'class':'eA0Zlc'})
+        subs = cmpt.find_all('div', {'class': ['eA0Zlc', 'vCUuC']})
         parsed_subs = [parse_image_medium(sub, sub_rank + len(parsed_list)) for sub_rank, sub in enumerate(subs)]
         parsed_list.extend(parsed_subs)
 
@@ -63,8 +70,13 @@ def parse_image_medium(sub, sub_rank=0) -> dict:
     """
     
     title_div = get_div(sub, 'a', {'class':'EZAeBe'})
-    title = get_text(title_div) if title_div else get_img_alt(sub)
+    title = get_text(title_div) if title_div else get_text(sub, 'span', {'class':'Yt787'})
     url = get_link(sub) if title_div else get_img_url(sub)
+
+    if not title:
+        title = get_img_alt(sub)
+    if not url:
+        url = get_link(sub, attrs={'class':['EZAeBe', 'ddkIM']})
 
     return {
         "type": "images",
