@@ -116,7 +116,6 @@ class Extractor:
     #     if shopping_ads:
     #         self.components.add_component(shopping_ads, section='main', type='shopping_ads')
 
-
     def extract_main_ads_top(self):
         """Extract the main ads section of the SERP"""
         ads = self.soup.find('div', {'id':'tads'})
@@ -212,6 +211,7 @@ class Extractor:
             'oIk2Cb', # searches_related
             'Ww4FFb', # discussions_and_forums
             'vtSz8d', # videos
+            'uVMCKf', # videos
         ]
         rso_layout_divs = self.layout_divs['rso'].find_all('div', attrs={'class': div_classes}, recursive=True)
 
