@@ -38,12 +38,12 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
         parsed_list = [parse_ad_secondary(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     elif sub_type == 'standard':
         subs = webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
-        for sub in subs:
+        for sub_rank, sub in enumerate(subs):
             sub_classes = sub.attrs.get("class", [])
             if "commercial-unit-desktop-top" in sub_classes:
                 parsed_list.extend(parse_shopping_ads(sub))
             elif "uEierd" in sub_classes:
-                parsed_list.append(parse_ad(sub))
+                parsed_list.append(parse_ad(sub, sub_rank=sub_rank))
     elif sub_type == 'carousel':
         parsed_list = parse_ad_carousel(cmpt, sub_type)
     return parsed_list
