@@ -128,7 +128,7 @@ def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty
 
 def filter_empty_divs(divs):
     divs = [c for c in divs if c]
-    divs = [c for c in divs if c.text != '']
+    divs = [c for c in divs if c.text.strip() != '']
     return divs
 
 def find_children(soup, name: str, attrs: dict = {}, filter_empty: bool = False):
