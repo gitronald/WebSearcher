@@ -150,6 +150,7 @@ class ClassifyMain:
             cmpt.find("h1", {"class": "VW3apb"}),
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
+            cmpt.find("div", {"jscontroller": "qTdDb"}),
             webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
         ]
         return 'knowledge' if any(conditions) else "unknown"
