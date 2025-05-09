@@ -90,7 +90,8 @@ class ClassifyHeaderText:
         "local_results": [
             "Local Results",
             "Locations",
-            "Places", "Sitios"
+            "Places", 
+            "Sitios",
             "Businesses",
             "locations",
         ],
