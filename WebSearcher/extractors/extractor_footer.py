@@ -20,7 +20,6 @@ class ExtractorFooter:
                 self.soup, 'div', {'id': ['bres', 'brs']}
             )
             if footer_component_divs:
-                log.debug(f"footer_components: {len(footer_component_divs):,}")
                 for footer_component_div in footer_component_divs:
                     expanded_divs = webutils.find_all_divs(
                         footer_component_div, "div", {"class": "MjjYud"}
