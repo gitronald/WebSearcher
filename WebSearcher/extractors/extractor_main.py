@@ -102,30 +102,30 @@ class ExtractorMain:
         standard_layouts = {
             "standard-0": rso_div.find('div', {'id':'kp-wp-tab-overview'}),
             "standard-1": rso_div.find('div', {'id':'kp-wp-tab-Songs'}),
+            "standard-2": rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}),
         }
         for layout_name, layout_div in standard_layouts.items():
             if layout_div:
                 if layout_div.find_all("div"):
-                    return self._extract_from_standard(layout_name)
+                    return self._extract_from_standard_sub_type(layout_name)
 
-                # self.layout_label = layout_name
-                # return self._extract_from_standard(layout_name)
-    
+        top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
         col = ExtractorMain.extract_children(rso_div, drop_tags)
+        col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
         if not col:
-            self.layout_label = 'standard-2'
+            self.layout_label = 'standard-3'
             log.debug(f"main_layout: {self.layout_label} (update)")
             divs = rso_div.find_all('div', {'id':'kp-wp-tab-overview'})
             col = sum([d.find_all('div', {'class':'TzHB6b'}) for d in divs], [])
         return col
 
-    def _extract_from_standard(self, sub_type:str = "") -> list:
+    def _extract_from_standard_sub_type(self, sub_type:str = "") -> list:
         
         self.layout_label = sub_type
         rso_div = self.layout_divs['rso']
         log.debug(f"main_layout: {self.layout_label} (update)")
-                   
+        
         if self.layout_label == "standard-0":
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
@@ -139,6 +139,16 @@ class ExtractorMain:
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
             main_divs = rso_div.find('div', {'id':'kp-wp-tab-Songs'}).children or []
+            column.extend(top_divs)
+            column.extend(main_divs)
+            column = [div for div in column if div.name not in {'script', 'style'}]
+            column = webutils.filter_empty_divs(column)
+            return column
+        
+        if self.layout_label == "standard-2":
+            column = []
+            top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
+            main_divs = rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}).children or []
             column.extend(top_divs)
             column.extend(main_divs)
             column = [div for div in column if div.name not in {'script', 'style'}]
