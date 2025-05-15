@@ -122,6 +122,8 @@ def get_link_list(soup: BeautifulSoup, attrs: dict = {}, key: str = 'href', filt
     return [link.attrs.get(key, None) for link in links] if links else None
 
 def find_all_divs(soup: BeautifulSoup, name: str, attrs: dict = {}, filter_empty: bool = True) -> list:
+    if not soup:
+        return []
     divs = soup.find_all(name, attrs) if attrs else soup.find_all(name)
     divs = filter_empty_divs(divs) if filter_empty else divs
     return divs

@@ -43,10 +43,9 @@ class ExtractorMain:
         layout_divs = {}
         layout_divs['rso'] = self.soup.find('div', {'id':'rso'})
         layout_divs['left-bar'] = self.soup.find('div', {'class': 'OeVqAd'})
-        # layout_divs['top-bars'] = self.soup.find_all('div', {'class': ['XqFnDf', 'M8OgIe']})
         
         rcnt = self.soup.find('div', {'id':'rcnt'})
-        layout_divs['top-bars'] = rcnt.find_all('div', {'class': ['XqFnDf', 'M8OgIe']}, recursive=False)
+        layout_divs['top-bars'] = webutils.find_all_divs(rcnt, 'div', {'class': ['XqFnDf', 'M8OgIe']})
         
         # Layout classifications
         layouts = {}
