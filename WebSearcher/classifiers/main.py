@@ -1,9 +1,9 @@
+import bs4
 from .. import logger
 log = logger.Logger().start(__name__)
 
 from .header_text import ClassifyHeaderText
 from .. import webutils
-import bs4
 
 class ClassifyMain:
     """Classify a component from the main section based on its bs4.element.Tag """
@@ -151,7 +151,8 @@ class ClassifyMain:
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
             cmpt.find("div", {"jscontroller": "qTdDb"}),
-            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
+            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
+            cmpt.find('div', {'class':'obcontainer'})
         ]
         return 'knowledge' if any(conditions) else "unknown"
 
@@ -187,10 +188,9 @@ class ClassifyMain:
     @staticmethod
     def news_quotes(cmpt: bs4.element.Tag) -> str:
         """Classify top stories components"""
-        conditions = [
-            cmpt.find("g-tray-header", role="heading"),
-        ]
-        return 'news_quotes' if all(conditions) else "unknown"
+        header_div = cmpt.find("g-tray-header", role="heading")
+        condition = webutils.get_text(header_div, strip=True) == "News quotes"
+        return 'news_quotes' if condition else "unknown"
 
     @staticmethod
     def twitter(cmpt: bs4.element.Tag) -> str:
