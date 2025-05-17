@@ -100,7 +100,7 @@ class ExtractorMain:
         rso_div = self.layout_divs['rso']
         standard_layouts = {
             "standard-0": rso_div.find('div', {'id':'kp-wp-tab-overview'}),
-            "standard-1": rso_div.find('div', {'id':'kp-wp-tab-Songs'}),
+            "standard-1": rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}),
             "standard-2": rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}),
         }
         for layout_name, layout_div in standard_layouts.items():
