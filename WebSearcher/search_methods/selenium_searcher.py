@@ -136,14 +136,12 @@ class SeleniumDriver:
             try:
                 self.delete_cookies()      
                 self.close_all_windows()          
-                # Finally quit the driver
                 self.driver.quit()
                 self.driver = None
                 self.log.debug(f'Browser successfully closed')
                 return True
             except Exception as e:
                 self.log.warning(f'Failed to close browser: {e}')
-                # Force driver to be None so we create a fresh instance next time
                 self.driver = None
                 return False
         return True

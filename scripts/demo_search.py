@@ -22,7 +22,7 @@ def main(
     data_dir: str = typer.Option(DEFAULT_DATA_DIR, help="Prefix for output files"),
     headless: bool = typer.Option(False, help="Run browser in headless mode"),
     use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
-    version_main: int = typer.Option(133, help="Main version of Chrome to use"),
+    version_main: int = typer.Option(141, help="Main version of Chrome to use"),
     ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
     driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
 ) -> None:

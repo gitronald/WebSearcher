@@ -119,7 +119,7 @@ drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
 
 ### Step by Step 
 
-Example search and parse pipeline:
+Example search and parse pipeline (via requests):
 
 ```python
 import WebSearcher as ws
@@ -143,7 +143,7 @@ se = ws.SearchEngine(
         "headless": False,
         "use_subprocess": False,
         "driver_executable_path": "",
-        "version_main": 133,
+        "version_main": 141,
     }
 )
 ```   
