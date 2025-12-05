@@ -12,20 +12,15 @@ and position-based specifications.
 
 Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
 
+`0.6.6`
+- Update packages with dependabot alerts (brotli, urllib3)
 
-`0.6.0` 
-- method for collecting data with selenium; requests no longer works without a redirect
+`0.6.5`
+- Add GitHub Actions section to README
+
+`0.6.0`
+- Method for collecting data with selenium; requests no longer works without a redirect
 - Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
-
-`0.5.2`
-- Added support for Spanish component headers by text
-- Pull request [#74](https://github.com/gitronald/WebSearcher/pull/74)
-
-`0.5.1`
-- Fixed canonical name -> UULE converter using `protobuf`, see [this gist](https://gist.github.com/gitronald/66cac42194ea2d489ff3a1e32651e736) for details
-- Added lang arg to specify language in se.search, uses hl URL param and does not change Accept-Language request header (which defaults to en-US), but works in tests.
-- Fixed null location/language arg input handling (again)
-- Pull Request [#76](https://github.com/gitronald/WebSearcher/pull/76)
 
 ## Table of Contents
 
@@ -272,6 +267,17 @@ To release a new version:
 
 ---
 ## Update Log
+
+
+`0.5.2`
+- Added support for Spanish component headers by text
+- Pull request [#74](https://github.com/gitronald/WebSearcher/pull/74)
+
+`0.5.1`
+- Fixed canonical name -> UULE converter using `protobuf`, see [this gist](https://gist.github.com/gitronald/66cac42194ea2d489ff3a1e32651e736) for details
+- Added lang arg to specify language in se.search, uses hl URL param and does not change Accept-Language request header (which defaults to en-US), but works in tests.
+- Fixed null location/language arg input handling (again)
+- Pull Request [#76](https://github.com/gitronald/WebSearcher/pull/76)
 
 `0.5.0`
 - configuration now using poetry v2
