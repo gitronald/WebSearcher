@@ -1,14 +1,14 @@
+""" Parsers for image components
+
+Changelog
+2025-04-28: added div subcomponent class and sub_type labels
+
+"""
+
 from ..webutils import get_text, get_link, get_div
 
 def parse_images(cmpt) -> list:
-    """Parse an image component
-    
-    Args:
-        cmpt (bs4 object): an image component
-    
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
+    """Parse an images component"""
 
     parsed_list = []
 
@@ -25,7 +25,7 @@ def parse_images(cmpt) -> list:
         parsed_list.extend(parsed_subs)
     else:
         # Medium images with titles and urls
-        subs = cmpt.find_all('div', {'class':'eA0Zlc'})
+        subs = cmpt.find_all('div', {'class': ['eA0Zlc', 'vCUuC']})
         parsed_subs = [parse_image_medium(sub, sub_rank + len(parsed_list)) for sub_rank, sub in enumerate(subs)]
         parsed_list.extend(parsed_subs)
 
@@ -35,14 +35,7 @@ def parse_images(cmpt) -> list:
     return parsed_list
 
 def parse_image_multimedia(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images multimedia subcomponent"""
     return {
         "type": "images",
         "sub_type": "multimedia",
@@ -53,18 +46,16 @@ def parse_image_multimedia(sub, sub_rank=0) -> dict:
     }
 
 def parse_image_medium(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images medium subcomponent"""
     
     title_div = get_div(sub, 'a', {'class':'EZAeBe'})
-    title = get_text(title_div) if title_div else get_img_alt(sub)
+    title = get_text(title_div) if title_div else get_text(sub, 'span', {'class':'Yt787'})
     url = get_link(sub) if title_div else get_img_url(sub)
+
+    if not title:
+        title = get_img_alt(sub)
+    if not url:
+        url = get_link(sub, attrs={'class':['EZAeBe', 'ddkIM']})
 
     return {
         "type": "images",
@@ -77,14 +68,8 @@ def parse_image_medium(sub, sub_rank=0) -> dict:
     }
 
 def parse_image_small(sub, sub_rank=0) -> dict:
-    """Parse an image subcomponent
-    
-    Args:
-        sub (bs4 object): an image subcomponent
-    
-    Returns:
-        dict : parsed subresult
-    """
+    """Parse an images small subcomponent"""
+
     return {
         "type": "images", 
         "sub_type": "small",
@@ -121,7 +106,7 @@ def get_img_url(sub):
         try:
             url = func(sub)
             if url.startswith('data:image'):
-                raise ValueError(f"Data URL: {img_src}")
+                raise ValueError(f"Data URL: {url}")
             else:
                 return url
         except Exception as e:

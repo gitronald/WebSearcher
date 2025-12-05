@@ -1,9 +1,9 @@
+import bs4
 from .. import logger
 log = logger.Logger().start(__name__)
 
 from .header_text import ClassifyHeaderText
 from .. import webutils
-import bs4
 
 class ClassifyMain:
     """Classify a component from the main section based on its bs4.element.Tag """
@@ -14,6 +14,7 @@ class ClassifyMain:
         # Ordered list of classifiers to try
         component_classifiers = [
             ClassifyMain.top_stories,        # Check top stories
+            ClassifyMain.discussions_and_forums, # Check discussions and forums
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
             ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
@@ -40,6 +41,12 @@ class ClassifyMain:
         
         return cmpt_type
 
+    @staticmethod
+    def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
+        conditions = [
+            cmpt.find("div", {"class": "IFnjPb", "role": "heading"}),
+        ]
+        return 'discussions_and_forums' if all(conditions) else "unknown"
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
@@ -68,7 +75,7 @@ class ClassifyMain:
                 "format-01": cmpt.attrs["class"] == ["g"],
                 "format-02": ( ("g" in cmpt.attrs["class"]) &                            
                                any(s in ["Ww4FFb"] for s in cmpt.attrs["class"]) ),
-                "format-03": any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]),
+                "format-03": any(s in ["hlcw0c", "MjjYud", "PmEWq"] for s in cmpt.attrs["class"]),
                 "format-04": cmpt.find('div', {'class': ['g', 'Ww4FFb']}),
             }
         else: 
@@ -143,7 +150,9 @@ class ClassifyMain:
             cmpt.find("h1", {"class": "VW3apb"}),
             cmpt.find("div", {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]}),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
-            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
+            cmpt.find("div", {"jscontroller": "qTdDb"}),
+            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
+            cmpt.find('div', {'class':'obcontainer'})
         ]
         return 'knowledge' if any(conditions) else "unknown"
 
@@ -179,10 +188,9 @@ class ClassifyMain:
     @staticmethod
     def news_quotes(cmpt: bs4.element.Tag) -> str:
         """Classify top stories components"""
-        conditions = [
-            cmpt.find("g-tray-header", role="heading"),
-        ]
-        return 'news_quotes' if all(conditions) else "unknown"
+        header_div = cmpt.find("g-tray-header", role="heading")
+        condition = webutils.get_text(header_div, strip=True) == "News quotes"
+        return 'news_quotes' if condition else "unknown"
 
     @staticmethod
     def twitter(cmpt: bs4.element.Tag) -> str:

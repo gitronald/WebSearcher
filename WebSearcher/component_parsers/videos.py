@@ -1,8 +1,9 @@
 """ Parsers for video components
 
 Changelog
-2021-05-08: added find_all for divs with class 'VibNM'
-2021-05-08: added adjustment for new cite and timestamp
+2024-05-08: added find_all for divs with class 'VibNM'
+2024-05-08: added adjustment for new cite and timestamp
+2025-04-27: added div subcomponent class and sub_type labels
 
 """
 
@@ -23,24 +24,25 @@ def parse_videos(cmpt) -> list:
     # Get known div structures
     divs = []
     name_attrs = [
-        {'name':'g-inner-card'},
-        {'name':'div', 'attrs':{'class':'VibNM'}},
-        {'name':'div', 'attrs':{'class':'mLmaBd'}},
-        {'name':'div', 'attrs':{'class':'RzdJxc'}},
+        ({'name':'g-inner-card'}, 'unspecified-0'),
+        ({'name':'div', 'attrs':{'class':'VibNM'}},  'unspecified-1'),
+        ({'name':'div', 'attrs':{'class':'mLmaBd'}}, 'unspecified-2'),
+        ({'name':'div', 'attrs':{'class':'RzdJxc'}}, 'unspecified-3'),
+        ({'name':'div', 'attrs':{'class':'sHEJob'}}, 'vertical'),
     ]
-    for kwargs in name_attrs:
+    for kwargs, sub_type in name_attrs:
         divs = webutils.find_all_divs(cmpt, **kwargs)
         if divs:
             break
     divs = list(filter(None, divs))
 
     if divs:
-        return [parse_video(div, i) for i, div in enumerate(divs)]
+        return [parse_video(div, sub_type, i) for i, div in enumerate(divs)]
     else:
         return [{'type': 'videos', 'sub_rank': 0, 'error': 'No subcomponents found'}]
 
 
-def parse_video(sub, sub_rank=0) -> dict:
+def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
     """Parse a videos subcomponent
     
     Args:
@@ -52,6 +54,7 @@ def parse_video(sub, sub_rank=0) -> dict:
 
     parsed = {
         'type': 'videos',
+        'sub_type': sub_type,
         'sub_rank': sub_rank,
         'url': get_url(sub),
         'title': webutils.get_text(sub, 'div', {'role':'heading'}),
@@ -81,7 +84,6 @@ def parse_video(sub, sub_rank=0) -> dict:
         # parsed.timestamp = webutils.get_text(sub, "div", {'class':'hMJ0yc'})
 
     return parsed
-
 
 def get_url(sub):
     """Get video URL by filtering for non-hash links"""

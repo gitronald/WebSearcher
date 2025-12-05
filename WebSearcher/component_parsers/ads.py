@@ -6,12 +6,23 @@ Changelog
 - added new div class for text field
 - added labels (e.g., "Provides abortions") from <span class="mXsQRe">, appended to text field
 
+2025-04-27: added carousel sub_type, global parsed output
 
 """
 
 from .. import webutils
 from .shopping_ads import parse_shopping_ads
 import bs4
+
+PARSED = {
+    'type': 'ad',
+    'sub_type': '',
+    'sub_rank': 0,
+    'title': '',
+    'url': '',
+    'cite': '',
+    'text': '',
+}
 
 def parse_ads(cmpt: bs4.element.Tag) -> list:
     """Parse ads from ad component"""
@@ -27,12 +38,14 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
         parsed_list = [parse_ad_secondary(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     elif sub_type == 'standard':
         subs = webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
-        for sub in subs:
+        for sub_rank, sub in enumerate(subs):
             sub_classes = sub.attrs.get("class", [])
             if "commercial-unit-desktop-top" in sub_classes:
                 parsed_list.extend(parse_shopping_ads(sub))
             elif "uEierd" in sub_classes:
-                parsed_list.append(parse_ad(sub))
+                parsed_list.append(parse_ad(sub, sub_rank=sub_rank))
+    elif sub_type == 'carousel':
+        parsed_list = parse_ad_carousel(cmpt, sub_type)
     return parsed_list
 
 
@@ -41,7 +54,8 @@ def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     label_divs = {
         "legacy": webutils.find_all_divs(cmpt, 'div', {'class': 'ad_cclk'}),
         "secondary": webutils.find_all_divs(cmpt, 'div', {'class': 'd5oMvf'}),
-        "standard": webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']})
+        "standard": webutils.find_all_divs(cmpt, 'div', {'class': ['uEierd', 'commercial-unit-desktop-top']}),
+        "carousel": webutils.find_all_divs(cmpt, 'g-scrolling-carousel'),
     }
     for label, divs in label_divs.items():
         if divs:
@@ -49,12 +63,62 @@ def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     return 'unknown'
 
 
+def parse_ad_carousel(cmpt: bs4.element.Tag, sub_type: str, filter_visible: bool = True) -> list:
+
+    def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
+        """Parse ad carousel div, seen 2025-02-06"""
+        parsed = PARSED.copy()
+        parsed['sub_type'] = sub_type
+        parsed['sub_rank'] = sub_rank
+        parsed['title'] = webutils.get_text(sub, 'div', {'class':'e7SMre'})
+        parsed['url'] = webutils.get_link(sub)
+        parsed['text'] = webutils.get_text(sub, 'div', {"class":"vrAZpb"})
+        parsed['cite'] = webutils.get_text(sub, 'div', {"class":"zpIwr"})
+        parsed['visible'] = not (sub.has_attr('data-has-shown') and sub['data-has-shown'] == 'false')
+        return parsed
+    
+    def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
+        """Parse ad carousel card, seen 2024-09-21"""
+        parsed = PARSED.copy()
+        parsed['sub_type'] = sub_type
+        parsed['sub_rank'] = sub_rank
+        parsed['title'] = webutils.get_text(sub, 'div', {'class':'gCv54b'})
+        parsed['url'] = webutils.get_link(sub, {"class": "KTsHxd"})
+        parsed['text'] = webutils.get_text(sub, 'div', {"class":"VHpBje"})
+        parsed['cite'] = webutils.get_text(sub, 'div', {"class":"j958Pd"})
+        parsed['visible'] = not (sub.has_attr('data-viewurl') and sub['data-viewurl'])
+        return parsed
+
+    ad_carousel_parsers = [
+        {'find_kwargs': {'name': 'g-inner-card'}, 
+         'parser': parse_ad_carousel_card},
+        {'find_kwargs': {'name': 'div', 'attrs': {'class': 'ZPze1e'}},
+         'parser': parse_ad_carousel_div}
+    ]
+
+    output_list = []
+    ad_carousel = cmpt.find('g-scrolling-carousel')
+    if ad_carousel:
+        for parser_details in ad_carousel_parsers:
+            parser_func = parser_details['parser']
+            kwargs = parser_details['find_kwargs']
+            sub_cmpts = webutils.find_all_divs(ad_carousel, **kwargs)
+            if sub_cmpts:
+                for sub_rank, sub in enumerate(sub_cmpts):
+                    parsed = parser_func(sub, sub_type, sub_rank)
+                    output_list.append(parsed)
+
+    if filter_visible:
+        output_list = [{k:v for k,v in x.items() if k != 'visible'} for x in output_list if x['visible']]
+    return output_list
+
+
 def parse_ad(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """Parse details of a single ad subcomponent, similar to general"""
-    parsed = {"type": "ad", 
-              "sub_type": "standard", 
-              "sub_rank": sub_rank}
-    
+    parsed = PARSED.copy()
+    parsed["sub_type"] = "standard"
+    parsed["sub_rank"] = sub_rank
+
     parsed['title'] = webutils.get_text(sub, 'div', {'role':'heading'})
     parsed['url'] = webutils.get_link(sub, {"class":"sVXRqc"})
     parsed['cite'] = webutils.get_text(sub, 'span', {"role":"text"})
@@ -96,13 +160,14 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
 
 def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """Parse details of a single ad subcomponent, similar to general"""
+    parsed = PARSED.copy()
+    parsed["sub_type"] = "secondary"
+    parsed["sub_rank"] = sub_rank
 
-    parsed = {"type": "ad", 
-              "sub_type": "secondary", 
-              "sub_rank": sub_rank}
-    parsed['title'] = sub.find('div', {'role':'heading'}).text
-    parsed['url'] = sub.find('div', {'class':'d5oMvf'}).find('a')['href']
-    parsed['cite'] = sub.find('span', {'class':'gBIQub'}).text
+    parsed['title'] = webutils.get_text(sub, 'div', {'role':'heading'})
+    link_div = sub.find('div', {'class':'d5oMvf'})
+    parsed['url'] = webutils.get_link(link_div) if link_div else ''
+    parsed['cite'] = webutils.get_text(sub, 'span', {'class':'gBIQub'})
 
     # Take the top div with this class, should be main result abstract
     text_divs = sub.find_all('div', {'class':'yDYNvb'})
@@ -123,14 +188,14 @@ def parse_ad_secondary(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
 def parse_ad_legacy(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     """[legacy] Parse details of a single ad subcomponent, similar to general"""
-
-    parsed = {"type": "ad", 
-              "sub_type": "legacy", 
-              "sub_rank": sub_rank}
+    parsed = PARSED.copy()
+    parsed["sub_type"] = "legacy"
+    parsed["sub_rank"] = sub_rank
+    
     header = sub.find('div', {'class':'ad_cclk'})
-    parsed['title'] = header.find('h3').text
-    parsed['url'] = header.find('cite').text
-    parsed['text'] = sub.find('div', {'class':'ads-creative'}).text
+    parsed['title'] = webutils.get_text(header, 'h3')
+    parsed['url'] = webutils.get_text(header, 'cite')
+    parsed['text'] = webutils.get_text(sub, 'div', {'class':'ads-creative'})
     
     bottom_text = sub.find('ul')
     if bottom_text:

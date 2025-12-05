@@ -47,6 +47,7 @@ Below are some details about recent updates. For a longer list, see the [Update 
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
     - [Testing](#testing)
+  - [GitHub Actions](#github-actions)
   - [Update Log](#update-log)
   - [Similar Packages](#similar-packages)
   - [License](#license)
@@ -119,7 +120,7 @@ drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
 
 ### Step by Step 
 
-Example search and parse pipeline:
+Example search and parse pipeline (via requests):
 
 ```python
 import WebSearcher as ws
@@ -143,7 +144,7 @@ se = ws.SearchEngine(
         "headless": False,
         "use_subprocess": False,
         "driver_executable_path": "",
-        "version_main": 133,
+        "version_main": 141,
     }
 )
 ```   
@@ -252,6 +253,22 @@ With the `-k` flag you can run a test for a specific html file:
 ```
 pytest -k "1684837514.html"
 ```
+
+---
+## GitHub Actions
+
+This repository uses GitHub Actions for automated publishing:
+
+**Release Workflow** (`.github/workflows/publish.yml`)
+Automatically publishes to PyPI when a pull request is merged into `master`. The workflow:
+- Triggers on merged PRs to `master`
+- Builds the package using Poetry
+- Publishes to PyPI using trusted publishing (no API tokens required)
+
+To release a new version:
+1. Update the version in `pyproject.toml`
+2. Create a PR to `master`
+3. Once merged, the package is automatically published to PyPI
 
 ---
 ## Update Log

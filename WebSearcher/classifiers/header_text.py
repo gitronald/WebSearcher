@@ -90,7 +90,8 @@ class ClassifyHeaderText:
         "local_results": [
             "Local Results",
             "Locations",
-            "Places", "Sitios"
+            "Places", 
+            "Sitios",
             "Businesses",
             "locations",
         ],
@@ -116,6 +117,7 @@ class ClassifyHeaderText:
                         "News", 
                         "Noticias",
                         "Market news"],
+        "recent_posts": ["Recent posts"],
         "twitter": ["Twitter Results"],
         "videos": ["Videos"]
     }

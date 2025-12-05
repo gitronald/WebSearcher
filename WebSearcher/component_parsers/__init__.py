@@ -15,6 +15,7 @@ from .top_stories import parse_top_stories
 from .latest_from import parse_latest_from
 from .local_news import parse_local_news
 from .perspectives import parse_perspectives
+from .recent_posts import parse_recent_posts
 
 from .local_results import parse_local_results
 from .map_results import parse_map_results
@@ -57,6 +58,7 @@ main_parsers = [
     ('news_quotes', parse_news_quotes, 'News Quotes'),
     ('people_also_ask', parse_people_also_ask, 'People Also Ask'),
     ('perspectives', parse_perspectives, 'Perspectives & Opinions'),
+    ('recent_posts', parse_recent_posts, 'Recent Posts'),
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('searches_related', parse_searches_related, 'Related Searches'),
     ('shopping_ads', parse_shopping_ads, 'Shopping Ad'),
