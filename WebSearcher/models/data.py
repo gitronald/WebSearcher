@@ -1,5 +1,13 @@
 from pydantic import BaseModel, Field
 from typing import Any
+from dataclasses import dataclass
+
+@dataclass
+class DetailsItem:
+    """Represents a details item within a search result."""
+    url: str = ''
+    title: str = ''
+    text: str = ''
 
 
 class BaseResult(BaseModel):
