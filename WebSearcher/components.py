@@ -7,27 +7,43 @@ log = Logger().start(__name__)
 
 import bs4
 import traceback
-from typing import Dict
+from collections.abc import Callable
 
 class Component:
-    def __init__(self, elem: bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None):
-        self.elem: bs4.element.Tag = elem
-        self.section: str = section
+    """A SERP component extracted from HTML"""
+
+    def __init__(
+            self,
+            elem: bs4.element.Tag,
+            section: str = "unknown",
+            type: str = "unknown",
+            cmpt_rank: int | None = None
+        ) -> None:
+        """Initialize a Component
+
+        Args:
+            elem: The BeautifulSoup Tag element containing the component HTML
+            section: The SERP section (header, main, footer, rhs)
+            type: The component type (e.g., general, ads, top_stories)
+            cmpt_rank: The component's rank position on the SERP
+        """
+        self.elem = elem
+        self.section = section
         self.type = type
         self.cmpt_rank = cmpt_rank
-        self.result_list = []
+        self.result_list: list[dict] = []
         self.result_counter = 0
 
     def __str__(self) -> str:
         return str(vars(self))
 
-    def to_dict(self) -> Dict:
+    def to_dict(self) -> dict:
         return self.__dict__
-    
-    def get_metadata(self, key_filter=["section", "cmpt_rank"]) -> Dict:
+
+    def get_metadata(self, key_filter=["section", "cmpt_rank"]) -> dict:
         return {k:v for k,v in self.to_dict().items() if k in key_filter}
     
-    def classify_component(self, classify_type_func: callable = None):
+    def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""
         if classify_type_func:
             self.type = classify_type_func(self.elem)
@@ -41,7 +57,7 @@ class Component:
                 elif self.section == "footer":
                     self.type = ClassifyFooter.classify(self.elem)
 
-    def select_parser(self, parser_type_func: callable = None) -> callable:
+    def select_parser(self, parser_type_func: Callable | None = None) -> Callable:
         if parser_type_func:
             parser_func = parser_type_func
         else:
@@ -57,7 +73,7 @@ class Component:
                 parser_func = parse_not_implemented
         return parser_func
 
-    def run_parser(self, parser_func: callable) -> list:
+    def run_parser(self, parser_func: Callable) -> list:
         log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
         try:
             if parser_func in {parse_unknown, parse_not_implemented}:
@@ -68,7 +84,7 @@ class Component:
             parsed_list = self.create_parsed_list_error("parsing exception", is_exception=True)
         return parsed_list
 
-    def parse_component(self, parser_type_func: callable = None):
+    def parse_component(self, parser_type_func: Callable | None = None):
         
         if not self.type:
             parsed_list = self.create_parsed_list_error("null component type")

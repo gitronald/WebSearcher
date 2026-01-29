@@ -2,7 +2,6 @@
 """
 
 import logging.config
-from typing import Optional
 
 # Setting
 LOG_LEVEL_DEFAULT = 'INFO'
@@ -98,6 +97,6 @@ class Logger:
             'loggers': loggers
         }
         
-    def start(self, name: Optional[str] = __name__) -> logging.Logger:
+    def start(self, name: str | None = __name__) -> logging.Logger:
         logging.config.dictConfig(self.log_config)
         return logging.getLogger(name)

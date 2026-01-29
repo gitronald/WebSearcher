@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Any, Optional, List, Dict
+from typing import Any
 
 
 class BaseResult(BaseModel):
@@ -11,13 +11,13 @@ class BaseResult(BaseModel):
     """
     sub_rank: int = Field(0, description="Position within a results component")
     type: str = Field('unclassified', description="Result type (general, ad, etc.)")
-    sub_type: Optional[str] = Field(None, description="Result sub-type (e.g., header, item)")
-    title: Optional[str] = Field(None, description="Title of the search result")
-    url: Optional[str] = Field(None, description="URL of the search result")
-    text: Optional[str] = Field(None, description="Snippet text from the search result") 
-    cite: Optional[str] = Field(None, description="Citation or source information")
-    details: Optional[Any] = Field(None, description="Additional structured details specific to result type")
-    error: Optional[str] = Field(None, description="Error message if result parsing failed")
+    sub_type: str | None = Field(None, description="Result sub-type (e.g., header, item)")
+    title: str | None = Field(None, description="Title of the search result")
+    url: str | None = Field(None, description="URL of the search result")
+    text: str | None = Field(None, description="Snippet text from the search result")
+    cite: str | None = Field(None, description="Citation or source information")
+    details: Any | None = Field(None, description="Additional structured details specific to result type")
+    error: str | None = Field(None, description="Error message if result parsing failed")
 
 
 class BaseSERP(BaseModel):
@@ -28,8 +28,8 @@ class BaseSERP(BaseModel):
     raw HTML response, metadata about the request, and identifiers for tracking.
     """
     qry: str = Field(..., description="Search query")
-    loc: Optional[str] = Field(None, description="Location if set, in Canonical Name format")
-    lang: Optional[str] = Field(None, description="Language code if set")
+    loc: str | None = Field(None, description="Location if set, in Canonical Name format")
+    lang: str | None = Field(None, description="Language code if set")
     url: str = Field(..., description="URL of the SERP")
     html: str = Field(..., description="Raw HTML of the SERP")
     timestamp: str = Field(..., description="ISO format timestamp of the crawl")
