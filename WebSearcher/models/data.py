@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Any
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 
 @dataclass
 class DetailsItem:
@@ -8,6 +8,7 @@ class DetailsItem:
     url: str = ''
     title: str = ''
     text: str = ''
+    misc: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return asdict(self)
