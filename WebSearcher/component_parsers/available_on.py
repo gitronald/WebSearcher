@@ -1,4 +1,4 @@
-from ..models.data import DetailsItem
+from ..models.data import DetailsItem, DetailsList
 
 
 def parse_available_on(cmpt, sub_rank=0) -> list:
@@ -17,8 +17,10 @@ def parse_available_on(cmpt, sub_rank=0) -> list:
 
     parsed['title'] = cmpt.find('span', {'class': 'GzssTd'}).text
 
-    options = cmpt.find_all('div', {'class': 'kno-fb-ctx'})
-    parsed['details'] = [parse_available_on_item(o).to_dict() for o in options]
+    details = DetailsList()
+    for o in cmpt.find_all('div', {'class': 'kno-fb-ctx'}):
+        details.append(parse_available_on_item(o))
+    parsed['details'] = details.to_dicts()
     return [parsed]
 
 
