@@ -1,3 +1,6 @@
+from ..models.data import DetailsItem
+
+
 def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel
 
@@ -106,4 +109,4 @@ def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
 
 
 def parse_alink(a):
-    return {'url': a['href'], 'text': a.text}
+    return DetailsItem(url=a['href'], text=a.text).to_dict()

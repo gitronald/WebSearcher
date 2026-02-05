@@ -1,4 +1,5 @@
 import re
+from ..models.data import DetailsItem
 from ..webutils import get_text, get_link
 
 def parse_general_results(cmpt) -> list:
@@ -72,8 +73,8 @@ def parse_general_result(sub, sub_rank=0) -> dict:
     return parsed
 
 
-def parse_alink(a): 
-    return {'text':a.text,'url':a.attrs['href']}
+def parse_alink(a):
+    return DetailsItem(url=a.attrs['href'], text=a.text).to_dict()
 
 
 def parse_alink_list(alinks):

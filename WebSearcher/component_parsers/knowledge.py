@@ -1,4 +1,5 @@
 from .. import webutils
+from ..models.data import DetailsItem
 from .general import parse_general_result
 
 
@@ -120,4 +121,4 @@ def get_text(div):
     return '|'.join([d.get_text(separator=' ') for d in div if d.text])
 
 def parse_alink(a):
-    return {'url': a['href'], 'text': a.get_text('|')}
+    return DetailsItem(url=a['href'], text=a.get_text('|')).to_dict()

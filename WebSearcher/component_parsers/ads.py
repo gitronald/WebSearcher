@@ -11,8 +11,6 @@ Changelog
 """
 
 import bs4
-from dataclasses import asdict
-
 from .. import webutils
 from ..models.data import BaseResult, DetailsItem
 from .shopping_ads import parse_shopping_ads
@@ -86,7 +84,7 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
         bottom_text = sub.find('ul')
         if bottom_text:
             bottom_text_list = bottom_text.find_all('li')
-            details_list = [asdict(DetailsItem(text=li.get_text(separator=' '))) for li in bottom_text_list]
+            details_list = [DetailsItem(text=li.get_text(separator=' ')).to_dict() for li in bottom_text_list]
         return details_list
 
     return _parse_ad_legacy(cmpt)
@@ -125,7 +123,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
             details_section = sub.find('div', selector)
             if details_section:
                 urls = webutils.get_link_list(details_section)
-                return [asdict(DetailsItem(url=url)) for url in urls] if urls else None
+                return [DetailsItem(url=url).to_dict() for url in urls] if urls else None
     
     return _parse_ad_secondary(cmpt)
 
@@ -184,7 +182,7 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
     parsed_items = []
     menu_items = sub.find_all('div', {'class': 'MhgNwc'})
     for item in menu_items:
-        parsed_item = asdict(DetailsItem())
+        parsed_item = DetailsItem().to_dict()
         item_divs = item.find_all('div', {'class': 'MUxGbd'})
         for div in item_divs:
             if webutils.check_dict_value(div.attrs, 'role', 'listitem'):

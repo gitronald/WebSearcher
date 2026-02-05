@@ -1,4 +1,5 @@
 from .. import webutils
+from ..models.data import DetailsItem
 
 class Footer:
 
@@ -13,7 +14,7 @@ class Footer:
         parsed['title'] = webutils.get_text(sub, "div", {'aria-level':"3", "role":"heading"})
         images = sub.find_all('img')
         if images:
-            parsed['details'] = [{'text':i['alt'], 'url':i['src']} for i in images]
+            parsed['details'] = [DetailsItem(url=i['src'], text=i['alt']).to_dict() for i in images]
         return parsed
 
     @staticmethod
