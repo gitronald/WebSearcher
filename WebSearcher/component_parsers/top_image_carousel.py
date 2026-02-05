@@ -1,4 +1,6 @@
 from .. import webutils
+from ..models.data import DetailsItem, DetailsList
+
 
 def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     """parse image carousel that appears at top of page above search results
@@ -23,17 +25,14 @@ def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     else:
         alinks = cmpt.find('g-scrolling-carousel').find_all('a')
     
-    parsed['details'] = [
-        parse_alink(a) for a in alinks
-        if 'href' in a.attrs or 'data-url' in a.attrs
-    ]
+    details = DetailsList()
+    for a in alinks:
+        if 'href' in a.attrs or 'data-url' in a.attrs:
+            details.append(parse_alink(a))
+    parsed['details'] = details.to_dicts()
 
     return [parsed]
 
-def parse_alink(a): 
-    parsed = {'text': a.get_text('|')}
-    if 'href' in a.attrs:
-        parsed['url'] = a['href']
-    elif 'data-url' in a.attrs:
-        parsed['url'] = a['data-url']
-    return parsed  
+def parse_alink(a):
+    url = a.attrs.get('href') or a.attrs.get('data-url', '')
+    return DetailsItem(url=url, text=a.get_text('|'))

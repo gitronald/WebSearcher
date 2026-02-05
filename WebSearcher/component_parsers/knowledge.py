@@ -1,4 +1,5 @@
 from .. import webutils
+from ..models.data import DetailsItem, DetailsList
 from .general import parse_general_result
 
 
@@ -30,11 +31,11 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
 
     alinks = cmpt.find_all('a')
     if alinks:
-        details['urls'] = [
-            parse_alink(a) 
-            for a in alinks 
-            if 'href' in a.attrs and a['href'] != '#'
-        ] 
+        urls = DetailsList()
+        for a in alinks:
+            if 'href' in a.attrs and a['href'] != '#':
+                urls.append(parse_alink(a))
+        details['urls'] = urls.to_dicts()
 
     # Get all text
     if cmpt.find("div", {"class": "Fzsovc"}):
@@ -120,4 +121,4 @@ def get_text(div):
     return '|'.join([d.get_text(separator=' ') for d in div if d.text])
 
 def parse_alink(a):
-    return {'url': a['href'], 'text': a.get_text('|')}
+    return DetailsItem(url=a['href'], text=a.get_text('|'))

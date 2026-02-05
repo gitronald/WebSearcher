@@ -1,7 +1,6 @@
 import requests
 import subprocess
 from enum import Enum
-from typing import Dict, Optional, Union
 from pydantic import BaseModel, Field, computed_field
 
 class BaseConfig(BaseModel):
@@ -25,13 +24,13 @@ class LogConfig(BaseConfig):
 
 class SeleniumConfig(BaseConfig):
     headless: bool = False
-    version_main: int = 141
+    version_main: int = 144
     use_subprocess: bool = False
     driver_executable_path: str = ""
 
 class RequestsConfig(BaseConfig):
     model_config = {"arbitrary_types_allowed": True}
-    headers: Dict[str, str] = Field(default_factory=lambda: {
+    headers: dict[str, str] = Field(default_factory=lambda: {
         'Host': 'www.google.com',
         'Referer': 'https://www.google.com/',
         'Accept': '*/*',
@@ -39,7 +38,7 @@ class RequestsConfig(BaseConfig):
         'Accept-Language': 'en-US,en;q=0.5',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0',
     })
-    ssh_tunnel: Optional[subprocess.Popen] = None
+    ssh_tunnel: subprocess.Popen | None = None
     unzip: bool = True
 
     @computed_field
@@ -69,7 +68,7 @@ class SearchMethod(Enum):
         raise TypeError(f"Expected string or SearchMethod, got {type(method)}")
 
 class SearchConfig(BaseConfig):
-    method: Union[str, SearchMethod] = SearchMethod.SELENIUM
+    method: str | SearchMethod = SearchMethod.SELENIUM
     log: LogConfig = Field(default_factory=LogConfig)
     selenium: SeleniumConfig = Field(default_factory=SeleniumConfig)
     requests: RequestsConfig = Field(default_factory=RequestsConfig)

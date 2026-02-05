@@ -1,9 +1,11 @@
 .venv
 .archive
+.claude
 
 build
 data
 notebooks
+scripts/ads-no-subtype
 
 *.egg-info
 *__pycache__
