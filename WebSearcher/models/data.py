@@ -1,5 +1,29 @@
 from pydantic import BaseModel, Field
 from typing import Any
+from dataclasses import asdict, dataclass, field
+
+@dataclass
+class DetailsItem:
+    """Represents a details item within a search result."""
+    url: str = ''
+    title: str = ''
+    text: str = ''
+    misc: dict = field(default_factory=dict)
+
+    def to_dict(self) -> dict:
+        return asdict(self)
+
+
+class DetailsList(list):
+    """A list of DetailsItem objects with conversion to dicts."""
+
+    def append(self, item: DetailsItem):
+        if not isinstance(item, DetailsItem):
+            raise TypeError(f"Expected DetailsItem, got {type(item).__name__}")
+        super().append(item)
+
+    def to_dicts(self) -> list[dict]:
+        return [item.to_dict() for item in self]
 
 
 class BaseResult(BaseModel):
