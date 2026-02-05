@@ -1,4 +1,4 @@
-from ..models.data import DetailsItem
+from ..models.data import DetailsItem, DetailsList
 
 
 def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
@@ -75,9 +75,11 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
         if description.parent.previous_sibling:
             alinks += description.parent.previous_sibling.find_all('a')
         if len(alinks) > 1:  # 1st match has main description
-            parsed['details']['urls'] = [
-                parse_alink(a) for a in alinks[1:] if 'href' in a.attrs
-            ]
+            urls = DetailsList()
+            for a in alinks[1:]:
+                if 'href' in a.attrs:
+                    urls.append(parse_alink(a))
+            parsed['details']['urls'] = urls.to_dicts()
 
     if not len(parsed['details']):
         parsed['details'] = None
@@ -103,10 +105,14 @@ def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
 
     alinks = sub.find_all('a')
     if alinks:
-        parsed['details'] = [parse_alink(a) for a in alinks if 'href' in a.attrs]
+        details = DetailsList()
+        for a in alinks:
+            if 'href' in a.attrs:
+                details.append(parse_alink(a))
+        parsed['details'] = details.to_dicts()
 
     return parsed
 
 
 def parse_alink(a):
-    return DetailsItem(url=a['href'], text=a.text).to_dict()
+    return DetailsItem(url=a['href'], text=a.text)

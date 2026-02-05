@@ -1,5 +1,5 @@
 import re
-from ..models.data import DetailsItem
+from ..models.data import DetailsItem, DetailsList
 from ..webutils import get_text, get_link
 
 def parse_general_results(cmpt) -> list:
@@ -74,11 +74,15 @@ def parse_general_result(sub, sub_rank=0) -> dict:
 
 
 def parse_alink(a):
-    return DetailsItem(url=a.attrs['href'], text=a.text).to_dict()
+    return DetailsItem(url=a.attrs['href'], text=a.text)
 
 
 def parse_alink_list(alinks):
-    return [parse_alink(a) for a in alinks if 'href' in a.attrs]
+    details = DetailsList()
+    for a in alinks:
+        if 'href' in a.attrs:
+            details.append(parse_alink(a))
+    return details.to_dicts()
 
 
 def parse_subtype_details(sub, parsed) -> dict:

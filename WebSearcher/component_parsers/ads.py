@@ -12,7 +12,7 @@ Changelog
 
 import bs4
 from .. import webutils
-from ..models.data import BaseResult, DetailsItem
+from ..models.data import BaseResult, DetailsItem, DetailsList
 from .shopping_ads import parse_shopping_ads
 
 SUB_TYPES = [
@@ -80,12 +80,12 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
         return parsed
 
     def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> list:
-        details_list = []
+        details_list = DetailsList()
         bottom_text = sub.find('ul')
         if bottom_text:
-            bottom_text_list = bottom_text.find_all('li')
-            details_list = [DetailsItem(text=li.get_text(separator=' ')).to_dict() for li in bottom_text_list]
-        return details_list
+            for li in bottom_text.find_all('li'):
+                details_list.append(DetailsItem(text=li.get_text(separator=' ')))
+        return details_list.to_dicts()
 
     return _parse_ad_legacy(cmpt)
 
@@ -123,7 +123,12 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
             details_section = sub.find('div', selector)
             if details_section:
                 urls = webutils.get_link_list(details_section)
-                return [DetailsItem(url=url).to_dict() for url in urls] if urls else None
+                if urls:
+                    details_list = DetailsList()
+                    for url in urls:
+                        details_list.append(DetailsItem(url=url))
+                    return details_list.to_dicts()
+                return None
     
     return _parse_ad_secondary(cmpt)
 
@@ -179,19 +184,19 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
 def parse_ad_menu(sub: bs4.element.Tag) -> list:
     """Parse menu items for a large ad with additional subresults"""
 
-    parsed_items = []
+    parsed_items = DetailsList()
     menu_items = sub.find_all('div', {'class': 'MhgNwc'})
     for item in menu_items:
-        parsed_item = DetailsItem().to_dict()
+        parsed_item = DetailsItem()
         item_divs = item.find_all('div', {'class': 'MUxGbd'})
         for div in item_divs:
             if webutils.check_dict_value(div.attrs, 'role', 'listitem'):
-                parsed_item['url'] = webutils.get_link(div)
-                parsed_item['title'] = webutils.get_text(div)
+                parsed_item.url = webutils.get_link(div) or ''
+                parsed_item.title = webutils.get_text(div) or ''
             else:
-                parsed_item['text'] = webutils.get_text(div)
+                parsed_item.text = webutils.get_text(div) or ''
         parsed_items.append(parsed_item)
-    return parsed_items
+    return parsed_items.to_dicts()
 
 
 # ------------------------------------------------------------------------------
