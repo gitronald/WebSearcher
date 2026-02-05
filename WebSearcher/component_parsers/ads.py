@@ -40,6 +40,7 @@ def classify_ad_type(cmpt: bs4.element.Tag) -> str:
             return label
     return 'unknown'
 
+
 def parse_ads(cmpt: bs4.element.Tag) -> list:
     """Parse ads from ad component"""
 
@@ -173,18 +174,18 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
         ).model_dump()
         return parsed
 
-
     subs = webutils.find_all_divs(cmpt, 'div', {'class': 'uEierd'})
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+
 
 def parse_ad_menu(sub: bs4.element.Tag) -> list:
     """Parse menu items for a large ad with additional subresults"""
 
     parsed_items = []
-    menu_items = sub.find_all('div', {'class':'MhgNwc'})
+    menu_items = sub.find_all('div', {'class': 'MhgNwc'})
     for item in menu_items:
         parsed_item = asdict(DetailsItem())
-        item_divs = item.find_all('div', {'class':'MUxGbd'})
+        item_divs = item.find_all('div', {'class': 'MUxGbd'})
         for div in item_divs:
             if webutils.check_dict_value(div.attrs, 'role', 'listitem'):
                 parsed_item['url'] = webutils.get_link(div)
@@ -207,11 +208,9 @@ def parse_ad_carousel(
         """Check if carousel div is visible"""
         return not (sub.has_attr('data-has-shown') and sub['data-has-shown'] == 'false')
 
-
     def is_visible_card(sub: bs4.element.Tag) -> bool:
         """Check if carousel card is visible"""
         return not (sub.has_attr('data-viewurl') and sub['data-viewurl'])
-
 
     def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
         """Parse ad carousel div, seen 2025-02-06"""
@@ -226,7 +225,6 @@ def parse_ad_carousel(
             details=None,
             error=None
         ).model_dump()
-    
 
     def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
         """Parse ad carousel card, seen 2024-09-21"""
@@ -265,5 +263,3 @@ def parse_ad_carousel(
                     output_list.append(output)
                     
     return output_list
-
-
