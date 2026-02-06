@@ -1,5 +1,6 @@
 """Test SERP parsing pipeline end-to-end"""
 
+import bz2
 import json
 from pathlib import Path
 
@@ -12,17 +13,14 @@ from syrupy.extensions.json import JSONSnapshotExtension
 # Data loading
 # ---------------------------------------------------------------------------
 
-DATA_DIR = Path(__file__).parent.parent / "data" / "demo-ws-v0.6.7a2"
-SERPS_PATH = DATA_DIR / "serps.json"
+FIXTURES_DIR = Path(__file__).parent / "fixtures"
+SERPS_PATH = FIXTURES_DIR / "serps-v0.6.7.json.bz2"
 
 
 def load_serps(path: Path) -> list[dict]:
-    """Load SERP records from a JSON-lines file"""
-    records = []
-    with open(path) as f:
-        for line in f:
-            records.append(json.loads(line))
-    return records
+    """Load SERP records from a bz2-compressed JSON-lines file"""
+    with bz2.open(path, "rt") as f:
+        return [json.loads(line) for line in f]
 
 
 # ---------------------------------------------------------------------------
