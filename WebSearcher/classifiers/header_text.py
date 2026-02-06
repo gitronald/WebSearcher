@@ -28,8 +28,7 @@ class ClassifyHeaderText:
         header_list = []
         header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
         header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x", "mfMhoc"]}))
-        header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "role":"heading"}))
-        header_list.extend(cmpt.find_all("div", {"aria-level":f"{level}", "class":"XmmGVd"}))
+        header_list.extend(cmpt.find_all(attrs={"aria-level": f"{level}", "role": "heading"}))
 
         # Check header text for known title matches
         for header in filter(None, header_list):
@@ -83,7 +82,6 @@ class ClassifyHeaderText:
                       "Artworks", "Obras de arte",
                       "Songs", "Canciones",
                       "Albums", "Álbumes",
-                      "What people are saying",
                       "About", "Información",
                       "Profiles", "Perfiles"],
         "local_news": ["Local news", "Noticias Locales"],
@@ -101,8 +99,9 @@ class ClassifyHeaderText:
                         "Hotel"],
         "omitted_notice": ["Notices about Filtered Results"],
         "people_also_ask": ["People also ask", "Más preguntas"],
-        "perspectives": ["Perspectives & opinions", 
-                         "Perspectives"],
+        "perspectives": ["Perspectives & opinions",
+                         "Perspectives",
+                         "What people are saying"],
         "searches_related": ["Additional searches", 
                              "More searches", "Ver más",
                              "Other searches", 
