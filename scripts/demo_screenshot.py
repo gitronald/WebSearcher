@@ -41,20 +41,25 @@ def load_serp_html(serps_path: str, index: int = 0) -> str:
 
 
 def highlight_components(html: str) -> tuple[str, dict]:
-    """Extract, classify, and inject highlights into the actual HTML.
+    """Extract, classify, and inject highlights into the raw HTML.
 
-    Uses the same extractor and classifier pipeline as parse_serp, then
-    modifies the BeautifulSoup elements in-place with colored borders
-    and type labels before serializing back to HTML.
+    Runs the extractor/classifier on a working soup, then applies highlights
+    directly to the component elements. Extracted elements (e.g. the RHS panel
+    removed by the extractor) are re-inserted into the soup so the screenshot
+    faithfully represents the raw HTML.
 
     Returns:
         (modified_html, type_counts)
     """
-    from bs4 import Tag
-
     soup = ws.make_soup(html)
     ext = ws.Extractor(soup)
     ext.extract_components()
+
+    # Re-insert any elements that were extracted (removed) from the tree
+    # by the extractor pipeline (e.g. RHS panel)
+    for cmpt in ext.components:
+        if not cmpt.elem.parent:
+            soup.body.append(cmpt.elem)
 
     type_counts = {}
     for cmpt in ext.components:
@@ -65,7 +70,6 @@ def highlight_components(html: str) -> tuple[str, dict]:
         color = TYPE_COLORS.get(ctype, DEFAULT_COLOR)
         elem = cmpt.elem
 
-        # Add border style to the element
         existing_style = elem.get("style", "")
         border_style = (
             f"border: 3px solid {color} !important; "
@@ -75,7 +79,6 @@ def highlight_components(html: str) -> tuple[str, dict]:
         )
         elem["style"] = f"{existing_style}; {border_style}"
 
-        # Create a label tag
         label = soup.new_tag("div")
         label.string = f"{cmpt.cmpt_rank}: {ctype}"
         label["style"] = (
