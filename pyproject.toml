@@ -17,8 +17,8 @@ dependencies = [
     "pandas>=2.2.3",
     "undetected-chromedriver>=3.5.5",
     "selenium>=4.9.0",
-    "protobuf (>=6.31.1,<7.0.0)",
-    "orjson (>=3.10.16,<4.0.0)",
+    "protobuf (>=6.33.5,<7.0.0)",
+    "orjson (>=3.11.5,<4.0.0)",
 ]
 
 [project.urls]
