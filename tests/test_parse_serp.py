@@ -1,8 +1,9 @@
 """Test SERP parsing pipeline end-to-end"""
 
 import bz2
-import json
 from pathlib import Path
+
+import orjson
 
 import pytest
 import WebSearcher as ws
@@ -20,7 +21,7 @@ SERPS_PATH = FIXTURES_DIR / "serps-v0.6.7.json.bz2"
 def load_serps(path: Path) -> list[dict]:
     """Load SERP records from a bz2-compressed JSON-lines file"""
     with bz2.open(path, "rt") as f:
-        return [json.loads(line) for line in f]
+        return [orjson.loads(line) for line in f]
 
 
 # ---------------------------------------------------------------------------

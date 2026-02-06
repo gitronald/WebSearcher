@@ -1,9 +1,8 @@
 """Condense prerelease demo data into a single bz2-compressed test fixture"""
 
 import bz2
-import json
-import os
 
+import orjson
 import typer
 
 app = typer.Typer()
@@ -34,7 +33,7 @@ def main(
             continue
         with open(fp) as f:
             for line in f:
-                r = json.loads(line)
+                r = orjson.loads(line)
                 all_records[r["serp_id"]] = r
                 total += 1
         print(f"  {d.name}: {sum(1 for _ in open(fp))} records")
@@ -48,9 +47,9 @@ def main(
     out_path.mkdir(parents=True, exist_ok=True)
     out_file = out_path / f"serps-v{version}.json.bz2"
 
-    with bz2.open(out_file, "wt") as f:
+    with bz2.open(out_file, "wb") as f:
         for r in all_records.values():
-            f.write(json.dumps(r) + "\n")
+            f.write(orjson.dumps(r) + b"\n")
 
     size_mb = out_file.stat().st_size / 1024 / 1024
     print(f"\n  total: {total} records, {len(all_records)} unique")
