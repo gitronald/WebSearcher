@@ -1,4 +1,5 @@
 import re
+from ..models.data import DetailsItem, DetailsList
 from ..webutils import get_text, get_link
 
 def parse_general_results(cmpt) -> list:
@@ -7,38 +8,40 @@ def parse_general_results(cmpt) -> list:
     The ubiquitous blue title, green citation, and black text summary results.
     Sometimes grouped into components of multiple general results. The
     subcomponent general results tend to have a similar theme.
-    
+
     Args:
         cmpt (bs4 object): A general component
-    
+
     Returns:
         list : list of parsed subcomponent dictionaries
     """
+    subs = find_subcomponents(cmpt)
+    return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-    # Legacy compatibility
-    subs = cmpt.find_all('div', {'class':'g'})
 
-    # 2023.05.09 - finds subs
+def find_subcomponents(cmpt) -> list:
+    """Find subcomponents within a general component, trying known formats"""
+
+    # Standard format
+    subs = cmpt.find_all('div', {'class': 'g'})
+    if subs:
+        parent_g = cmpt.find('div', {'class': 'g'})
+        if parent_g and parent_g.find_all('div', {'class': 'g'}):
+            return [parent_g]  # Nested .g dedup
+        return subs
+
+    # Sub-results format (2023+)
     additional = cmpt.find_all('div', {'class': 'd4rhi'})
     if additional:
-        # Catch general_subresult
-        # this means that there is a sub-element, with class d4rhi
-        # the first div child of the div.g is the first sub element
-        first = cmpt.find('div')
-        subs = [first] + additional
+        return [cmpt.find('div')] + additional
 
-    # 2023.05.09 - handles duplicate .g tags within one component
-    if cmpt.find('div', {'class':'g'}):
-        parent_g = cmpt.find('div', {'class':'g'})
-        if parent_g.find_all('div', {'class':'g'}):
-            # this means that there is a .g element inside of another .g element,
-            # and it would otherwise get double-counted
-            # we just want to keep the parent .g element in this case
-            subs = [parent_g]
-    subs = subs if subs else [cmpt]
+    # Video results
+    subs = cmpt.find_all('div', {'class': 'PmEWq'})
+    if subs:
+        return subs
 
-    parsed_list = [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-    return parsed_list
+    # Fallback: treat entire component as single result
+    return [cmpt]
    
 
 def parse_general_result(sub, sub_rank=0) -> dict:
@@ -72,12 +75,16 @@ def parse_general_result(sub, sub_rank=0) -> dict:
     return parsed
 
 
-def parse_alink(a): 
-    return {'text':a.text,'url':a.attrs['href']}
+def parse_alink(a):
+    return DetailsItem(url=a.attrs['href'], text=a.text)
 
 
 def parse_alink_list(alinks):
-    return [parse_alink(a) for a in alinks if 'href' in a.attrs]
+    details = DetailsList()
+    for a in alinks:
+        if 'href' in a.attrs:
+            details.append(parse_alink(a))
+    return details.to_dicts()
 
 
 def parse_subtype_details(sub, parsed) -> dict:

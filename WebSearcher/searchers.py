@@ -11,28 +11,27 @@ from .models.data import BaseSERP
 
 import os
 import pandas as pd
-from typing import Dict, Union
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
 
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
-    def __init__(self, 
-            method: Union[str, SearchMethod] = SearchMethod.SELENIUM,
-            log_config: Union[dict, LogConfig] = {},
-            selenium_config: Union[dict, SeleniumConfig] = {},
-            requests_config: Union[dict, RequestsConfig] = {},
+    def __init__(self,
+            method: str | SearchMethod = SearchMethod.SELENIUM,
+            log_config: dict | LogConfig = {},
+            selenium_config: dict | SeleniumConfig = {},
+            requests_config: dict | RequestsConfig = {},
             crawl_id: str = '',
         ) -> None:
         """Initialize the search engine
 
-        Args: 
-            method (Union[str, SearchMethod], optional): The method to use for searching, either 'requests' or 'selenium'. Defaults to SearchMethod.SELENIUM.
-            log_config (Union[dict, LogConfig], optional): Common search configuration. Defaults to None.
-            selenium_config (Union[dict, SeleniumConfig], optional): Selenium-specific configuration. Defaults to None.
-            requests_config (Union[dict, RequestsConfig], optional): Requests-specific configuration. Defaults to None.
-            crawl_id (str, optional): A unique identifier for the crawl. Defaults to ''.
+        Args:
+            method: The method to use for searching, either 'requests' or 'selenium'. Defaults to SearchMethod.SELENIUM.
+            log_config: Common search configuration. Defaults to {}.
+            selenium_config: Selenium-specific configuration. Defaults to {}.
+            requests_config: Requests-specific configuration. Defaults to {}.
+            crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
   
         # Initialize config settings, log, and session data
@@ -61,23 +60,23 @@ class SearchEngine:
         self.search_params = SearchParams.create()
         self.parsed = {'results': [], 'features': {}}
 
-    def search(self, 
-            qry: str, 
-            location: str = None, 
-            lang: str = None, 
-            num_results: int = None, 
+    def search(self,
+            qry: str,
+            location: str | None = None,
+            lang: str | None = None,
+            num_results: int | None = None,
             ai_expand: bool = False,
-            headers: Dict[str, str] = {},
+            headers: dict[str, str] = {},
         ):
         """Conduct a search and save HTML
         
         Args:
-            qry (str): The search query
-            location (str, optional): A location's Canonical Name
-            lang (str, optional): A language code (e.g., 'en')
-            num_results (int, optional): The number of results to return
-            ai_expand: (bool, optional): Whether to use selenium to expand AI overviews
-            headers (Dict[str, str], optional): Custom headers to include in the request
+            qry: The search query
+            location: A location's Canonical Name
+            lang: A language code (e.g., 'en')
+            num_results: The number of results to return
+            ai_expand: Whether to use selenium to expand AI overviews
+            headers: Custom headers to include in the request
         """
 
         self.log.debug('starting search config')

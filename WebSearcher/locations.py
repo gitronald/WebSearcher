@@ -5,7 +5,7 @@ import base64
 import zipfile
 import requests
 from google.protobuf.internal import decoder, encoder  # poetry add protobuf
-from typing import Dict, Union, Any
+from typing import Any
 
 from . import logger
 from . import webutils as wu
@@ -23,7 +23,7 @@ def convert_canonical_name_to_uule(canon_name: str) -> str:
     return f'w+{encoded_string}'
 
 
-def encode_protobuf_string(fields: Dict[int, Union[str, int]]) -> str:
+def encode_protobuf_string(fields: dict[int, str | int]) -> str:
     """
     Encode a dictionary of field numbers and values into a base64-encoded protobuf string.
     Args: fields: A dictionary where keys are protobuf field numbers and values are the data to encode
@@ -47,7 +47,7 @@ def encode_protobuf_string(fields: Dict[int, Union[str, int]]) -> str:
     return base64.b64encode(bytes(encoded)).decode('utf-8')   # Convert to base64 and decode to string
 
 
-def decode_protobuf_string(encoded_string: str) -> Dict[int, Any]:
+def decode_protobuf_string(encoded_string: str) -> dict[int, Any]:
     """
     Decode a base64-encoded protobuf string into a dictionary of field numbers and values.
     Args: encoded_string: A base64-encoded protobuf message

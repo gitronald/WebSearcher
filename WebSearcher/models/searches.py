@@ -1,5 +1,5 @@
 from pydantic import Field, computed_field
-from typing import Dict, Optional, Any, List
+from typing import Any
 from datetime import datetime
 
 from ..utils import hash_id
@@ -11,15 +11,15 @@ from .configs import BaseConfig
 class SearchParams(BaseConfig):
     """Contains parameters for a search request and utility methods for URL generation"""
     qry: str = Field('', description="The search query text")
-    num_results: Optional[int] = Field(None, description="Number of results to return")
-    lang: Optional[str] = Field(None, description="Language code (e.g., 'en')")
-    loc: Optional[str] = Field(None, description="Location in Canonical Name format")
+    num_results: int | None = Field(None, description="Number of results to return")
+    lang: str | None = Field(None, description="Language code (e.g., 'en')")
+    loc: str | None = Field(None, description="Location in Canonical Name format")
     base_url: str = Field("https://www.google.com/search", description="Base search engine URL")
     ai_expand: bool = Field(False, description="Expand AI overviews if present")
-    headers: Dict[str, str] = Field(default_factory=dict, description="Custom headers")
-    
+    headers: dict[str, str] = Field(default_factory=dict, description="Custom headers")
+
     @computed_field
-    def url_params(self) -> Dict[str, Any]:
+    def url_params(self) -> dict[str, Any]:
         """Generates a dictionary of URL parameters based on the search parameters"""
         params = {'q': wu.encode_param_value(self.qry)}
         opt_params = {
@@ -40,7 +40,7 @@ class SearchParams(BaseConfig):
     def serp_id(self) -> str:
         return hash_id(f"{self.qry}{self.loc}{datetime.now().isoformat()}")
     
-    def to_serp_output(self) -> Dict[str, Any]:
+    def to_serp_output(self) -> dict[str, Any]:
         return {
             "qry": self.qry,
             "loc": self.loc,

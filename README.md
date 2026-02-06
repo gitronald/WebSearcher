@@ -8,53 +8,45 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
-## Recent Updates
-
-Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
-
-`0.6.6`
-- Update packages with dependabot alerts (brotli, urllib3)
-
-`0.6.5`
-- Add GitHub Actions section to README
-
-`0.6.0`
-- Method for collecting data with selenium; requests no longer works without a redirect
-- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
-
 ## Table of Contents
 
 - [WebSearcher](#websearcher)
-  - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
-  - [Recent Updates](#recent-updates)
-  - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
     - [Example Search Script](#example-search-script)
     - [Step by Step](#step-by-step)
-      - [1. Initialize Collector](#1-initialize-collector)
-      - [2. Conduct a Search](#2-conduct-a-search)
-      - [3. Parse Search Results](#3-parse-search-results)
-      - [4. Save HTML and Metadata](#4-save-html-and-metadata)
-      - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
   - [Contributing](#contributing)
-    - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
-    - [Add a Parser](#add-a-parser)
-    - [Testing](#testing)
   - [GitHub Actions](#github-actions)
+  - [Recent Updates](#recent-updates)
   - [Update Log](#update-log)
   - [Similar Packages](#similar-packages)
   - [License](#license)
 
----  
+---
+## Recent Updates
+
+### 0.6.7
+
+- Added `get_text_by_selectors()` to `webutils` -- centralizes multi-selector fallback pattern across 7 component parsers
+- Added `perspectives`, `recent_posts`, and `latest_from` component classifiers
+- Added `sub_type` to perspectives parser from header text
+- Added CI test workflow on push to dev branch
+- Added compressed test fixtures with `condense_fixtures.py` script
+- Updated dependency lower bounds for security patches (protobuf, orjson)
+- Updated GitHub Actions to checkout v6 and setup-python v6
+
+---
 ## Getting Started
 
 ```bash
-# Install pip version
+# Install from PyPI
 pip install WebSearcher
 
-# Install Github development version - less stable, more fun!
+# Or install with Poetry
+poetry add WebSearcher
+
+# Install development version from GitHub
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
@@ -229,45 +221,68 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 3. Add new parser to imports and catalogue in `/component_parsers/__init__.py`  
 
 ### Testing
+
 Run tests:
-```
-pytest
+```bash
+poetry run pytest tests/ -q
 ```
 
 Update snapshots:
-```
-pytest --snapshot-update
-```
-
-Running pytest with the `-vv` flag will show a diff of the snapshots that have changed:
-```
-pytest -vv
+```bash
+poetry run pytest tests/ --snapshot-update
 ```
 
-With the `-k` flag you can run a test for a specific html file:
+Show snapshot diffs with `-vv`:
+```bash
+poetry run pytest tests/ -vv
 ```
-pytest -k "1684837514.html"
+
+Run a specific snapshot test by serp_id prefix:
+```bash
+poetry run pytest tests/ -k "45b6e019bfa2"
+```
+
+### Test Fixtures
+
+Tests load from compressed fixtures in `tests/fixtures/`. To update fixtures after collecting new demo data:
+
+```bash
+poetry run python scripts/condense_fixtures.py 0.6.7
+poetry run pytest tests/ --snapshot-update
 ```
 
 ---
 ## GitHub Actions
 
-This repository uses GitHub Actions for automated publishing:
+**Test Workflow** (`.github/workflows/test.yml`)
+Runs the test suite on every push to `dev`.
 
 **Release Workflow** (`.github/workflows/publish.yml`)
-Automatically publishes to PyPI when a pull request is merged into `master`. The workflow:
-- Triggers on merged PRs to `master`
+Publishes to PyPI when a pull request is merged into `master`:
 - Builds the package using Poetry
-- Publishes to PyPI using trusted publishing (no API tokens required)
+- Publishes using trusted publishing (no API tokens required)
 
 To release a new version:
-1. Update the version in `pyproject.toml`
-2. Create a PR to `master`
-3. Once merged, the package is automatically published to PyPI
+1. Merge `dev` into `master` via PR
+2. Once merged, the package is automatically published to PyPI
 
 ---
 ## Update Log
 
+`0.6.7`
+- Add `get_text_by_selectors()` utility, CI test workflow, compressed test fixtures
+- Add `perspectives`, `recent_posts`, `latest_from` classifiers and `sub_type` for perspectives
+- Update dependency bounds for security patches, GitHub Actions to v6
+
+`0.6.6`
+- Update packages with dependabot alerts (brotli, urllib3)
+
+`0.6.5`
+- Add GitHub Actions section to README
+
+`0.6.0`
+- Method for collecting data with selenium; requests no longer works without a redirect
+- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
 
 `0.5.2`
 - Added support for Spanish component headers by text
@@ -376,7 +391,7 @@ Many of the packages I've found for collecting web search data via python are no
 ---  
 ## License
 
-Copyright (C) 2017-2024 Ronald E. Robertson <rer@acm.org>
+Copyright (C) 2017-2026 Ronald E. Robertson <rer@acm.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

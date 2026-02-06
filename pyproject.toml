@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.6.6"
+version = "0.6.7"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "<rer@acm.org>"}]
 keywords = ["web", "search", "parser"]
@@ -17,8 +17,8 @@ dependencies = [
     "pandas>=2.2.3",
     "undetected-chromedriver>=3.5.5",
     "selenium>=4.9.0",
-    "protobuf (>=6.31.1,<7.0.0)",
-    "orjson (>=3.10.16,<4.0.0)",
+    "protobuf (>=6.33.5,<7.0.0)",
+    "orjson (>=3.11.5,<4.0.0)",
 ]
 
 [project.urls]
@@ -39,6 +39,10 @@ pytest = "^8.3.4"
 syrupy = "^4.8.1"
 ipykernel = "^6.29.5"
 typer = "^0.15.2"
+pyarrow = "^23.0.0"
+polars = "^1.37.1"
+setuptools = "^80.9.0"
+tabulate = "^0.9.0"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

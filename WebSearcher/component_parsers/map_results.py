@@ -1,4 +1,9 @@
-from .. import webutils 
+from .. import webutils
+
+TITLE_SELECTORS = [
+    ('div', {'class': 'aiAXrc'}),
+]
+
 
 def parse_map_results(cmpt, sub_rank=0) -> list:
     """Parse a "Map Results" component
@@ -15,9 +20,5 @@ def parse_map_results(cmpt, sub_rank=0) -> list:
     return [{
         'type': 'map_results',
         'sub_rank': sub_rank,
-        'title': get_title(cmpt)
+        'title': webutils.get_text_by_selectors(cmpt, TITLE_SELECTORS)
     }]
-
-def get_title(cmpt):
-    # return webutils.get_text(cmpt, 'div', {'class':'desktop-title-content'})
-    return webutils.get_text(cmpt, 'div', {'class':'aiAXrc'})

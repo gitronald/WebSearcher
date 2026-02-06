@@ -5,22 +5,21 @@ log = Logger().start(__name__)
 
 import re
 from bs4 import BeautifulSoup
-from typing import Union, List, Dict, Tuple
 
 
 def parse_serp(
-        serp: Union[str, BeautifulSoup], 
+        serp: str | BeautifulSoup,
         extract_features: bool = False
-    ) -> Union[List[Dict], Tuple[List[Dict], Dict]]:
+    ) -> list[dict] | dict:
     """Parse a Search Engine Result Page (SERP)
-    
+
     Args:
-        serp (Union[str, BeautifulSoup]): The HTML content of the SERP or a BeautifulSoup object
-        extract_features (bool, optional): Whether to also extract SERP features. Defaults to False.
-        
+        serp: The HTML content of the SERP or a BeautifulSoup object
+        extract_features: Whether to also extract SERP features. Defaults to False.
+
     Returns:
-        Union[List[Dict], Tuple[List[Dict], Dict]]: If extract_features is False, returns a list of result components.
-            If extract_features is True, returns a tuple of (results, features).
+        If extract_features is False, returns a list of result components.
+        If extract_features is True, returns a dict with 'results' and 'features' keys.
     """
     # Extract components
     soup = webutils.make_soup(serp)
@@ -45,14 +44,14 @@ def parse_serp(
 
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html_or_soup: Union[str, BeautifulSoup]) -> dict:
+    def extract_features(html_or_soup: str | BeautifulSoup) -> dict:
         """Extract SERP features from HTML or a BeautifulSoup object
-        
+
         Args:
-            html_or_soup (Union[str, BeautifulSoup]): The HTML content or a BeautifulSoup object
-            
+            html_or_soup: The HTML content or a BeautifulSoup object
+
         Returns:
-            dict: The extracted features
+            The extracted features
         """
         
         output = {}
