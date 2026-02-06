@@ -92,5 +92,9 @@ class FeatureExtractor:
         }
         for key, pattern in string_match_dict.items():
             output[key] = (pattern in html)
-        
+
+        # Location prompt overlay (id="lb" with "precise location" text)
+        lb = soup.find('div', {'id': 'lb'})
+        output['overlay_precise_location'] = bool(lb and 'precise location' in lb.get_text().lower())
+
         return output
