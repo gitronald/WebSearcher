@@ -33,7 +33,7 @@ class FeatureExtractor:
             result_estimate_time = None
         else:
             count_match = re.search(r'([0-9,]+) results', result_estimate_div)
-            time_match = re.search(r'([0-9.]+) seconds', result_estimate_div)
+            time_match = re.search(r'\(([0-9.]+)s?\s*(?:seconds)?\)', result_estimate_div)
             result_estimate_count = float(count_match.group(1).replace(",","")) if count_match else None
             result_estimate_time = float(time_match.group(1)) if time_match else None
 
