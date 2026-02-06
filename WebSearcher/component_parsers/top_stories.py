@@ -41,12 +41,21 @@ def parse_top_story(sub, ctype, sub_rank=0) -> dict:
     parsed = {
         'type': ctype,
         'sub_rank': sub_rank,
-        'title': get_text(sub, 'div', {'class':'n0jPhd'}),
+        'title': get_title(sub),
         'url': get_link(sub, key='href'),
         'text': get_text(sub, "div", {'class': "GI74Re"}),
         'cite': get_cite(sub)
     }
     return parsed
+
+
+def get_title(sub):
+    """Get title from a subcomponent; try multiple, take first non-null"""
+    title_list = [
+        get_text(sub, 'div', {'class': 'n0jPhd'}),   # Top Stories
+        get_text(sub, 'div', {'class': 'eAaXgc'}),   # Perspectives
+    ]
+    return next((t for t in title_list if t), None)
 
 
 def get_cite(sub):

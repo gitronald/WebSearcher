@@ -43,10 +43,10 @@ class ClassifyMain:
 
     @staticmethod
     def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("div", {"class": "IFnjPb", "role": "heading"}),
-        ]
-        return 'discussions_and_forums' if all(conditions) else "unknown"
+        heading = cmpt.find("div", {"class": "IFnjPb", "role": "heading"})
+        if heading and heading.get_text(strip=True).startswith("Discussions and forums"):
+            return 'discussions_and_forums'
+        return "unknown"
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
