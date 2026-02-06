@@ -8,40 +8,15 @@ and saving searches. It also includes a modular parser built on `BeautifulSoup`
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications.
 
-## Recent Updates
-
-Below are some details about recent updates. For a longer list, see the [Update Log](#update-log).
-
-`0.6.6`
-- Update packages with dependabot alerts (brotli, urllib3)
-
-`0.6.5`
-- Add GitHub Actions section to README
-
-`0.6.0`
-- Method for collecting data with selenium; requests no longer works without a redirect
-- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
-
 ## Table of Contents
 
 - [WebSearcher](#websearcher)
-  - [Tools for conducting and parsing web searches](#tools-for-conducting-and-parsing-web-searches)
-  - [Recent Updates](#recent-updates)
-  - [Table of Contents](#table-of-contents)
   - [Getting Started](#getting-started)
   - [Usage](#usage)
     - [Example Search Script](#example-search-script)
     - [Step by Step](#step-by-step)
-      - [1. Initialize Collector](#1-initialize-collector)
-      - [2. Conduct a Search](#2-conduct-a-search)
-      - [3. Parse Search Results](#3-parse-search-results)
-      - [4. Save HTML and Metadata](#4-save-html-and-metadata)
-      - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
   - [Contributing](#contributing)
-    - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
-    - [Add a Parser](#add-a-parser)
-    - [Testing](#testing)
   - [GitHub Actions](#github-actions)
   - [Update Log](#update-log)
   - [Similar Packages](#similar-packages)
@@ -51,10 +26,13 @@ Below are some details about recent updates. For a longer list, see the [Update 
 ## Getting Started
 
 ```bash
-# Install pip version
+# Install from PyPI
 pip install WebSearcher
 
-# Install Github development version - less stable, more fun!
+# Or install with Poetry
+poetry add WebSearcher
+
+# Install development version from GitHub
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
@@ -268,6 +246,15 @@ To release a new version:
 ---
 ## Update Log
 
+`0.6.6`
+- Update packages with dependabot alerts (brotli, urllib3)
+
+`0.6.5`
+- Add GitHub Actions section to README
+
+`0.6.0`
+- Method for collecting data with selenium; requests no longer works without a redirect
+- Pull request [#72](https://github.com/gitronald/WebSearcher/pull/72)
 
 `0.5.2`
 - Added support for Spanish component headers by text
