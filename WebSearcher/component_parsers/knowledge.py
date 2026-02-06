@@ -32,9 +32,12 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
     alinks = cmpt.find_all('a')
     if alinks:
         urls = DetailsList()
+        seen_urls = set()
         for a in alinks:
             if 'href' in a.attrs and a['href'] != '#':
-                urls.append(parse_alink(a))
+                if a['href'] not in seen_urls:
+                    seen_urls.add(a['href'])
+                    urls.append(parse_alink(a))
         details['urls'] = urls.to_dicts()
 
     # Get all text
