@@ -109,7 +109,9 @@ MAIN_RESULT_TYPES = {
         "description": "Related questions that people search for",
         "sub_types": [],
     },
-    "perspectives": {"description": "Opinion and perspective results", "sub_types": []},
+    "perspectives": {"description": "Opinion and perspective results", "sub_types": [
+        "perspectives", "perspectives_&_opinions", "what_people_are_saying",
+    ]},
     "scholarly_articles": {"description": "Google Scholar results", "sub_types": []},
     "searches_related": {
         "description": "Related search terms",
