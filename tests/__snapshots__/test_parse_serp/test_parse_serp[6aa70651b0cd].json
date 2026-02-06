@@ -5,8 +5,9 @@
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
+    "overlay_precise_location": false,
     "result_estimate_count": 2980000000.0,
-    "result_estimate_time": null
+    "result_estimate_time": 0.28
   },
   "results": [
     {

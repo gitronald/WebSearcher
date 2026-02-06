@@ -1,6 +1,7 @@
 __version__ = "0.6.8a0"
 from .searchers import SearchEngine
-from .parsers import parse_serp, FeatureExtractor
+from .parsers import parse_serp
+from .feature_extractor import FeatureExtractor
 from .extractors import Extractor
 from .locations import download_locations
 from .classifiers import ClassifyMain, ClassifyFooter
