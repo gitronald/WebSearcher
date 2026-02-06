@@ -391,7 +391,7 @@ Many of the packages I've found for collecting web search data via python are no
 ---  
 ## License
 
-Copyright (C) 2017-2024 Ronald E. Robertson <rer@acm.org>
+Copyright (C) 2017-2026 Ronald E. Robertson <rer@acm.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
