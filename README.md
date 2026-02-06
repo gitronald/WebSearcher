@@ -18,11 +18,25 @@ and position-based specifications.
   - [Localization](#localization)
   - [Contributing](#contributing)
   - [GitHub Actions](#github-actions)
+  - [Recent Updates](#recent-updates)
   - [Update Log](#update-log)
   - [Similar Packages](#similar-packages)
   - [License](#license)
 
----  
+---
+## Recent Updates
+
+### 0.6.7
+
+- Added `get_text_by_selectors()` to `webutils` -- centralizes multi-selector fallback pattern across 7 component parsers
+- Added `perspectives`, `recent_posts`, and `latest_from` component classifiers
+- Added `sub_type` to perspectives parser from header text
+- Added CI test workflow on push to dev branch
+- Added compressed test fixtures with `condense_fixtures.py` script
+- Updated dependency lower bounds for security patches (protobuf, orjson)
+- Updated GitHub Actions to checkout v6 and setup-python v6
+
+---
 ## Getting Started
 
 ```bash
@@ -245,6 +259,11 @@ To release a new version:
 
 ---
 ## Update Log
+
+`0.6.7`
+- Add `get_text_by_selectors()` utility, CI test workflow, compressed test fixtures
+- Add `perspectives`, `recent_posts`, `latest_from` classifiers and `sub_type` for perspectives
+- Update dependency bounds for security patches, GitHub Actions to v6
 
 `0.6.6`
 - Update packages with dependabot alerts (brotli, urllib3)
