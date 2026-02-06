@@ -68,14 +68,20 @@ EXPECTED_KEYS = {
 
 
 @pytest.fixture(scope="module")
-def all_results():
-    """Parse all SERPs and collect results"""
+def all_parsed_serps():
+    """Parse all SERPs and return list of parsed outputs"""
     if not SERPS_PATH.exists():
         pytest.skip("Demo data not available")
+    return [ws.parse_serp(record["html"], extract_features=True)
+            for record in load_serps(SERPS_PATH)]
+
+
+@pytest.fixture(scope="module")
+def all_results(all_parsed_serps):
+    """Flat list of all results across SERPs"""
     results = []
-    for record in load_serps(SERPS_PATH):
-        parsed = ws.parse_serp(record["html"], extract_features=True)
-        results.extend(parsed["results"])
+    for serp in all_parsed_serps:
+        results.extend(serp["results"])
     return results
 
 
@@ -119,10 +125,11 @@ def test_perspectives_have_url(all_results):
             assert r["url"] is not None, f"perspectives sub {r['sub_rank']}: no url"
 
 
-def test_serp_rank_is_sequential(all_results):
-    """serp_rank values should be sequential from 0"""
-    ranks = [r["serp_rank"] for r in all_results]
-    assert ranks == list(range(len(ranks)))
+def test_serp_rank_is_sequential(all_parsed_serps):
+    """serp_rank values should be sequential from 0 within each SERP"""
+    for serp in all_parsed_serps:
+        ranks = [r["serp_rank"] for r in serp["results"]]
+        assert ranks == list(range(len(ranks)))
 
 
 def test_field_types(all_results):
