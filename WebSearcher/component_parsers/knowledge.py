@@ -102,6 +102,12 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
 
+    elif cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'}):
+        heading_span = cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'})
+        if heading_span and heading_span.text.strip() in ('Things to know', 'Cosas que debes saber'):
+            parsed['sub_type'] = 'things_to_know'
+            details['heading'] = heading_span.text.strip()
+
     else:
         parsed['sub_type'] = 'panel'
         div = cmpt.find_all(['span','div','a'], string=True)
