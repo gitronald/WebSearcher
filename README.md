@@ -254,18 +254,17 @@ poetry run pytest tests/ --snapshot-update
 ---
 ## GitHub Actions
 
-This repository uses GitHub Actions for automated publishing:
+**Test Workflow** (`.github/workflows/test.yml`)
+Runs the test suite on every push to `dev`.
 
 **Release Workflow** (`.github/workflows/publish.yml`)
-Automatically publishes to PyPI when a pull request is merged into `master`. The workflow:
-- Triggers on merged PRs to `master`
+Publishes to PyPI when a pull request is merged into `master`:
 - Builds the package using Poetry
-- Publishes to PyPI using trusted publishing (no API tokens required)
+- Publishes using trusted publishing (no API tokens required)
 
 To release a new version:
-1. Update the version in `pyproject.toml`
-2. Create a PR to `master`
-3. Once merged, the package is automatically published to PyPI
+1. Merge `dev` into `master` via PR
+2. Once merged, the package is automatically published to PyPI
 
 ---
 ## Update Log
