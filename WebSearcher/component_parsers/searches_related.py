@@ -1,5 +1,11 @@
 from .. import webutils
 
+HEADER_SELECTORS = [
+    ("h2", {"role": "heading"}),
+    ("div", {"aria-level": "2", "role": "heading"}),
+]
+
+
 def parse_searches_related(cmpt, sub_rank=0) -> list:
     """Parse a one or two column list of related search queries"""
 
@@ -9,12 +15,8 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
               'url': None}
 
     # Set first non-empty header as sub_type (e.g. "Additional searches" -> additional_searches)
-    header_list = [
-        webutils.get_text(cmpt, "h2", {"role":"heading"}),
-        webutils.get_text(cmpt, 'div', {'aria-level':"2", "role":"heading"}),
-    ]
-    header_list = list(filter(None, header_list))
-    parsed['sub_type'] = str(header_list[0]).lower().replace(" ", "_") if header_list else None
+    header = webutils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
+    parsed['sub_type'] = header.lower().replace(" ", "_") if header else None
 
     output_list = []
 

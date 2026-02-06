@@ -1,6 +1,12 @@
 from .. import utils
 from .. import webutils
 
+HEADER_SELECTORS = [
+    ("h2", {"role": "heading"}),
+    ("div", {"aria-level": "2", "role": "heading"}),
+]
+
+
 def parse_local_results(cmpt) -> list:
     """Parse a "Local Results" component
 
@@ -19,13 +25,9 @@ def parse_local_results(cmpt) -> list:
     if parsed_list:
 
         # Set first non-empty header as sub_type (e.g. "Places" -> places)
-        header_list = [
-            webutils.get_text(cmpt, "h2", {"role":"heading"}),
-            webutils.get_text(cmpt, 'div', {'aria-level':"2", "role":"heading"}),
-        ]
-        header_list = list(filter(None, header_list))
-        if header_list:
-            sub_type = str(header_list[0]).lower().replace(" ", "_")
+        header = webutils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
+        if header:
+            sub_type = header.lower().replace(" ", "_")
             for parsed in parsed_list:
                 parsed.update({'sub_type':sub_type})
 

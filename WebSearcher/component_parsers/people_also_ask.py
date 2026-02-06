@@ -1,5 +1,14 @@
 from .. import webutils
 
+QUESTION_SELECTORS = [
+    ('div', {'class': 'rc'}),
+    ('div', {'class': 'yuRUbf'}),
+    ('div', {'class': 'iDjcJe'}),    # 2023-01-01
+    ('div', {'class': 'JlqpRe'}),    # 2023-11-16
+    ('div', {'class': 'cbphWd'}),     # 2021-01-09
+]
+
+
 def parse_people_also_ask(cmpt, sub_rank=0) -> list:
     """Parse a "People Also Ask" component
 
@@ -31,19 +40,4 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
 
 def parse_question(question):
     """Parse an individual question in a "People Also Ask" component"""
-    
-    title_divs = [
-        question.find('div', {'class':'rc'}),
-        question.find('div', {'class':'yuRUbf'}),
-        question.find('div', {'class':'iDjcJe'}),  # 2023-01-01
-        question.find('div', {'class':'JlqpRe'}),  # 2023-11-16
-        question.find('div', {'class':'cbphWd'}),  # 2021-01-09
-    ]
-    
-    # Return first valid text found
-    for title_div in filter(None, title_divs):
-        text = webutils.get_text(title_div, strip=True)
-        if text:
-            return text
-    
-    return None
+    return webutils.get_text_by_selectors(question, QUESTION_SELECTORS, strip=True)

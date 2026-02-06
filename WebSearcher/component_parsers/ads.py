@@ -23,6 +23,11 @@ SUB_TYPES = [
     "carousel",
 ]
 
+AD_STANDARD_TEXT_SELECTORS = [
+    ('div', {'class': 'yDYNvb'}),
+    ('div', {'class': 'Va3FIb'}),
+]
+
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
@@ -151,14 +156,7 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
-            name_attrs = [
-                {'name': 'div', 'attrs': {'class': 'yDYNvb'}},
-                {'name': 'div', 'attrs': {'class': 'Va3FIb'}},
-            ]
-            for kwargs in name_attrs:
-                text = webutils.get_text(sub, **kwargs)
-                if text:
-                    break
+            text = webutils.get_text_by_selectors(sub, AD_STANDARD_TEXT_SELECTORS)
             label = webutils.get_text(sub, 'span', {'class': 'mXsQRe'})
             return f"{text} <label>{label}</label>" if label else text
         

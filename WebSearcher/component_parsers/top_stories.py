@@ -1,4 +1,9 @@
-from ..webutils import find_all_divs, find_children, get_text, get_link
+from ..webutils import find_all_divs, find_children, get_text, get_text_by_selectors, get_link
+
+TITLE_SELECTORS = [
+    ('div', {'class': 'n0jPhd'}),   # Top Stories
+    ('div', {'class': 'eAaXgc'}),   # Perspectives
+]
 
 
 def parse_top_stories(cmpt, ctype='top_stories') -> list:
@@ -41,21 +46,13 @@ def parse_top_story(sub, ctype, sub_rank=0) -> dict:
     parsed = {
         'type': ctype,
         'sub_rank': sub_rank,
-        'title': get_title(sub),
+        'title': get_text_by_selectors(sub, TITLE_SELECTORS),
         'url': get_link(sub, key='href'),
         'text': get_text(sub, "div", {'class': "GI74Re"}),
         'cite': get_cite(sub)
     }
     return parsed
 
-
-def get_title(sub):
-    """Get title from a subcomponent; try multiple, take first non-null"""
-    title_list = [
-        get_text(sub, 'div', {'class': 'n0jPhd'}),   # Top Stories
-        get_text(sub, 'div', {'class': 'eAaXgc'}),   # Perspectives
-    ]
-    return next((t for t in title_list if t), None)
 
 
 def get_cite(sub):

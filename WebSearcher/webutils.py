@@ -162,6 +162,21 @@ def get_link_list(
     return [link.attrs.get(key, None) for link in links] if links else None
 
 
+def get_text_by_selectors(
+    soup: Tag | None,
+    selectors: Sequence[tuple[str, Mapping[str, Any]]] | None = None,
+    strip: bool = False,
+) -> str | None:
+    """Get text by trying multiple selectors, return first non-null"""
+    if not soup or not selectors:
+        return None
+    for name, attrs in selectors:
+        text = get_text(soup, name, attrs, strip=strip)
+        if text:
+            return text
+    return None
+
+
 def find_all_divs(
     soup: Tag | None,
     name: str,
