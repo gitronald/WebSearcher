@@ -116,7 +116,8 @@ class ClassifyHeaderText:
                         "News", 
                         "Noticias",
                         "Market news"],
-        "recent_posts": ["Recent posts"],
+        "recent_posts": ["Recent posts",
+                        "Latest posts from"],
         "twitter": ["Twitter Results"],
         "videos": ["Videos"]
     }
