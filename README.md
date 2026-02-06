@@ -221,24 +221,34 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 3. Add new parser to imports and catalogue in `/component_parsers/__init__.py`  
 
 ### Testing
+
 Run tests:
-```
-pytest
+```bash
+poetry run pytest tests/ -q
 ```
 
 Update snapshots:
-```
-pytest --snapshot-update
-```
-
-Running pytest with the `-vv` flag will show a diff of the snapshots that have changed:
-```
-pytest -vv
+```bash
+poetry run pytest tests/ --snapshot-update
 ```
 
-With the `-k` flag you can run a test for a specific html file:
+Show snapshot diffs with `-vv`:
+```bash
+poetry run pytest tests/ -vv
 ```
-pytest -k "1684837514.html"
+
+Run a specific snapshot test by serp_id prefix:
+```bash
+poetry run pytest tests/ -k "45b6e019bfa2"
+```
+
+### Test Fixtures
+
+Tests load from compressed fixtures in `tests/fixtures/`. To update fixtures after collecting new demo data:
+
+```bash
+poetry run python scripts/condense_fixtures.py 0.6.7
+poetry run pytest tests/ --snapshot-update
 ```
 
 ---
