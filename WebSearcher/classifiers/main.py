@@ -25,6 +25,7 @@ class ClassifyMain:
             ClassifyMain.finance_panel,      # Check finance panel (classify as knowledge)
             ClassifyMain.map_result,         # Check for map results
             ClassifyMain.general_questions,  # Check hybrid general questions
+            ClassifyMain.short_videos,       # Check short videos carousel
             ClassifyMain.twitter,            # Check twitter cards and results
             ClassifyMain.general,            # Check general components
             ClassifyMain.people_also_ask,    # Check people also ask
@@ -175,6 +176,14 @@ class ClassifyMain:
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
         conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
         return 'people_also_ask' if conditions else "unknown"
+
+    @staticmethod
+    def short_videos(cmpt: bs4.element.Tag) -> str:
+        """Classify short videos carousel"""
+        heading = cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'})
+        if heading and heading.get_text(strip=True) == 'Short videos':
+            return 'short_videos'
+        return "unknown"
 
     @staticmethod
     def top_stories(cmpt: bs4.element.Tag) -> str:

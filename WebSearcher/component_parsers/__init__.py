@@ -23,6 +23,7 @@ from .news_quotes import parse_news_quotes
 from .people_also_ask import parse_people_also_ask
 from .scholarly_articles import parse_scholarly_articles
 from .searches_related import parse_searches_related
+from .short_videos import parse_short_videos
 from .shopping_ads import parse_shopping_ads
 from .twitter_cards import parse_twitter_cards
 from .twitter_result import parse_twitter_result
@@ -61,6 +62,7 @@ main_parsers = [
     ('recent_posts', parse_recent_posts, 'Recent Posts'),
     ('scholarly_articles', parse_scholarly_articles, 'Scholar Articles'),
     ('searches_related', parse_searches_related, 'Related Searches'),
+    ('short_videos', parse_short_videos, 'Short Videos'),
     ('shopping_ads', parse_shopping_ads, 'Shopping Ad'),
     ('top_stories', parse_top_stories, 'Top Stories'),
     ('twitter_cards', parse_twitter_cards, 'Twitter Cards'),

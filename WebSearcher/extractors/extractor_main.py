@@ -32,8 +32,8 @@ class ExtractorMain:
     def extract(self):
         self.get_layout()
         self._ads_top()
-        self._main_column()
         self._ads_bottom()
+        self._main_column()
         log.debug(f"main_components: {self.components.cmpt_rank_counter:,}")
 
     def get_layout(self):
