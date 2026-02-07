@@ -183,6 +183,8 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
     """Parse menu items for a large ad with additional subresults"""
 
     parsed_items = DetailsList()
+
+    # Format 1: MhgNwc items with MUxGbd sub-divs
     menu_items = sub.find_all('div', {'class': 'MhgNwc'})
     for item in menu_items:
         parsed_item = DetailsItem()
@@ -194,6 +196,17 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
             else:
                 parsed_item.text = webutils.get_text(div) or ''
         parsed_items.append(parsed_item)
+
+    # Format 2: bOeY0b sitelinks section
+    if not parsed_items:
+        sitelink_div = sub.find('div', {'class': 'bOeY0b'})
+        if sitelink_div:
+            for link in sitelink_div.find_all('a', href=True):
+                text = link.get_text(strip=True)
+                href = link.get('href', '')
+                if text and href:
+                    parsed_items.append(DetailsItem(url=href, title=text))
+
     return parsed_items.to_dicts()
 
 
