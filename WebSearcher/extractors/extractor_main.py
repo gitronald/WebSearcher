@@ -188,9 +188,19 @@ class ExtractorMain:
             if webutils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
                 kd = webutils.find_all_divs(tb, "div", {"jscontroller":["qTdDb","OWrb3e"]})
                 out.extend(kd)
+            elif ExtractorMain.is_dictionary_header(tb):
+                continue  # Skip dictionary word header (content is in definitions component)
             else:
                 out.append(tb)
         return out
+
+    @staticmethod
+    def is_dictionary_header(elem) -> bool:
+        """Check if element is a dictionary word header (redundant with definitions)"""
+        return (
+            bool(elem.find('div', {'class': 'kp-wholepage-osrp'})) and
+            bool(elem.find('div', {'data-attrid': 'title'}))
+        )
 
     def extract_from_left_bar(self, drop_tags:set={}) -> list:
         return self.soup.find_all('div', {'class':'TzHB6b'})
