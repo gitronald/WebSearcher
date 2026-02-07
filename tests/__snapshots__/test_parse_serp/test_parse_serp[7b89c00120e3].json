@@ -1,0 +1,295 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 3270000000.0,
+    "result_estimate_time": 0.43
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "location_choose_area",
+      "text": null,
+      "title": "Results for Palo Alto, CA 94301",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Results for Palo Alto, CA 94301",
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.google.com/intl/en_us/googlefinance/disclaimer"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions#:~:text=@javkoza%20In%20August%202025%2C%20Apple,Winning."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.inc.com/ava-levinson/tim-cook-apple-employees-immigration/91298666#:~:text=The%20Apple%20CEO%20pledged%20to,promise%20of%20calling%20for%20change."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.gurufocus.com/news/8591738/apple-aapl-sees-increased-options-activity-amid-bullish-sentiment#:~:text=Apple's%20iPhone%20makes%20up%20a,build%20its%20products%20and%20chips."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.britannica.com/money/Apple-Inc#:~:text=Encyclop%C3%A6dia%20Britannica%2C%20Inc.-,Key%20products%20and%20services,The%20genesis%20of%20Apple%20Inc."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://finance.yahoo.com/quote/AAPL/profile/#:~:text=In%20addition%2C%20the%20company%20offers,:%201;%20Compensation:%203."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.ebsco.com/research-starters/computer-science/apple-inc#:~:text=In%202007%2C%20Apple%20Computer%20changed,marketplaces%20to%20support%20these%20devices."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/#:~:text=Apple%2C%20Inc%20engages%20in%20the,is%20headquartered%20in%20Cupertino%2C%20CA."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.globaldata.com/company-profile/apple-inc/#:~:text=Apple%20Inc%20(Apple)%20designs%2C,Cupertino%2C%20California%2C%20the%20US."
+          },
+          {
+            "misc": {},
+            "text": "Learn more",
+            "title": "",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          },
+          {
+            "misc": {},
+            "text": "Privacy Policy",
+            "title": "",
+            "url": "https://policies.google.com/privacy?hl=en"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "ai_overview",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.apple.com",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Discover the innovative world of  Apple  and shop everything iPhone, iPad,  Apple  Watch, Mac, and  Apple  TV, plus explore accessories, entertainment, ...",
+      "title": "Apple",
+      "type": "general",
+      "url": "https://www.apple.com/"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Apple_Inc",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apple Inc. is  an American multinational technology company  headquartered in Cupertino, California, in Silicon Valley, best known for its consumer electronics, ... Read more",
+      "title": "Apple Inc.",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": [
+        "What if I invested $1000 in Apple in 1997?",
+        "What is the Apple Inc?",
+        "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc",
+        "What does inc stand for in Apple?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc<|>What does inc stand for in Apple?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "directions": "/maps/dir//Apple+Inc.,+1070+E+Arques+Ave,+Sunnyvale,+CA+94085/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb6196e0a7497:0xc4162eb5b073a9e4?sa=X&ved=1t:57443&ictx=111",
+        "website": "http://apple.com/"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "locations",
+      "text": "Apple Inc.<|>Sunnyvale, CA · (800) 692-7753<|> <|> <|> <|> <|> <|> <|>\"Ipads are the best!\"",
+      "title": "Apple Inc.",
+      "type": "local_results",
+      "url": "http://apple.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "directions": "/maps/dir//Apple,+10500+N+De+Anza+Blvd,+Cupertino,+CA+95014/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb5b13fdcecf7:0xdc5c21978a3d43f5?sa=X&ved=1t:57443&ictx=111",
+        "website": "http://apple.com/"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 1,
+      "sub_type": "locations",
+      "text": "Apple<|>Cupertino, CA · (408) 996-1010<|>Open<|> · Closes 5 PM<|> <|> <|> <|> <|> <|> <|>\"On the surface, it is a <|>company<|> defined by excellence.\"",
+      "title": "Apple",
+      "type": "local_results",
+      "url": "http://apple.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "directions": "/maps/dir//Apple+Palo+Alto,+340+University+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb38fa3f36f9:0xf5692002b984147?sa=X&ved=1t:57443&ictx=111",
+        "website": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 2,
+      "sub_type": "locations",
+      "text": "Apple Palo Alto<|>340 University Ave · (650) 798-2800<|>Open<|> · Closes 8 PM<|> <|> <|> <|> <|> <|> <|>\"They took it in and in 2 days it was back, super clean and functional.\"",
+      "title": "Apple Palo Alto",
+      "type": "local_results",
+      "url": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"
+    },
+    {
+      "cite": "https://finance.yahoo.com  › quote › AAPL › profile",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apple Inc . designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. Read more",
+      "title": "Apple Inc. (AAPL) Company Profile & Facts",
+      "type": "general",
+      "url": "https://finance.yahoo.com/quote/AAPL/profile/"
+    },
+    {
+      "cite": "https://www.britannica.com  › money › Apple-Inc",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 29, 2026  —  Apple Inc. is  an American multinational technology company  that revolutionized the technology sector through its innovation of computer software, personal ... Read more",
+      "title": "Apple Inc. | History, Products, Headquarters, & Facts",
+      "type": "general",
+      "url": "https://www.britannica.com/money/Apple-Inc"
+    },
+    {
+      "cite": "https://www.bloomberg.com  › quote › AAPL:US",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apple Inc . designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories. Read more",
+      "title": "AAPL: Apple Inc Stock Price Quote - NASDAQ GS",
+      "type": "general",
+      "url": "https://www.bloomberg.com/quote/AAPL:US"
+    },
+    {
+      "cite": "https://www.wsj.com  › Quotes",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apple Inc . engages in the design, manufacture, and sale of smartphones, personal computers, tablets, wearables and accessories, and other varieties of related ... Read more",
+      "title": "Apple Inc. (AAPL) Stock Price Today - WSJ",
+      "type": "general",
+      "url": "https://www.wsj.com/market-data/quotes/AAPL?gaa_at=eafs&gaa_n=AWEtsqcxTwOFf53qqkw9MMy0ZNkRJtpgwhlxFMo_7ppC9L66O7QkVLc6rWjT&gaa_ts=69868312&gaa_sig=HKOULwqQGtZ5u9GOzweSvIfh0TPLTL5ubEOfA9mkylLabsqROfDMxenTpilLiIBIMy5NJJYYrR4BeQG0D_6XZA%3D%3D"
+    },
+    {
+      "cite": "18.1M+ followers",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Company size: 10,001+ employees . Headquarters: Cupertino, California. Type: Public Company. Founded: 1976. Specialties: Innovative Product ... Read more",
+      "title": "Apple",
+      "type": "general",
+      "url": "https://www.linkedin.com/company/apple"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

@@ -1,0 +1,589 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 847000000.0,
+    "result_estimate_time": 0.51
+  },
+  "results": [
+    {
+      "cite": "https://www.kayak.com",
+      "cmpt_rank": 0,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Hotels from $124/night",
+          "url": "/aclk?sa=L&pf=1&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAEQRBoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_0My-ImSazb-_qglRkyp8UQ9xxVVA&adurl=https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html%3Faid%3D134292535167%26tid%3Dkwd-145794293%26locp%3D9031967%26loci%3D%26mt%3Db%26n%3Dg%26d%3Dc%26cid%3D763710666141%26pos%3D%26gad_source%3D1%26gad_campaignid%3D15484165362%26gbraid%3D0AAAAADroXTA62kPDsbqehCvq8bRKxn01d%26gclid%3DEAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&q="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "4-star hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:393&"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Low prices on great hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Luxury Hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "All-inclusive",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1459&"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Best NYC Hotels | Cheap hotel prices",
+      "title": "Best NYC Hotels | Cheap hotel prices",
+      "type": "ad",
+      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot"
+    },
+    {
+      "cite": "https://www.expedia.com/",
+      "cmpt_rank": 0,
+      "details": [],
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": "standard",
+      "text": "Hotel Rooms in Manhattan, NY | Stays from $136",
+      "title": "Hotel Rooms in Manhattan, NY | Stays from $136",
+      "type": "ad",
+      "url": "https://www.expedia.com/Hotel-Search?regionId=129440&locale=en_US&siteid=1"
+    },
+    {
+      "cite": "http://www.booking.com › manhattan › hotels",
+      "cmpt_rank": 0,
+      "details": [],
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": "standard",
+      "text": "Hotels in Manhattan, New York | Best Price Guarantee",
+      "title": "Hotels in Manhattan, New York | Best Price Guarantee",
+      "type": "ad",
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+    },
+    {
+      "cite": "https://www.kayak.com",
+      "cmpt_rank": 1,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "4-star hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:393&"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Low prices on great hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Hotel deals in New York",
+          "url": "/aclk?sa=L&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAIQDRoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAMYASAGEgIB8fD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_2r-8XkMa8zCw0x7msbEBZPE57ZaA&adurl=&q="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Luxury Hotels",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "All-inclusive",
+          "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:1459&"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Best NYC Hotels | Hotels from $124/night",
+      "title": "Best NYC Hotels | Hotels from $124/night",
+      "type": "ad",
+      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot"
+    },
+    {
+      "cite": "http://www.booking.com › manhattan › hotels",
+      "cmpt_rank": 1,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Best Hotels In Manhattan",
+          "url": "http://www.booking.com/district/us/new-york/manhattan.en.html?aid=336408%7Bignore%7D;label=district-manhattan"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Hotels at Great Prices",
+          "url": "https://www.booking.com/go.html?slc=gp;aid=336408;label="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Book Now",
+          "url": "https://www.booking.com/go.html?slc=bn;aid=336408;label="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Top Reviewed Hotels",
+          "url": "https://www.booking.com/go.html?slc=r1;aid=336408;label="
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 1,
+      "sub_type": "submenu",
+      "text": "Hotels in Manhattan, New York",
+      "title": "Hotels in Manhattan, New York",
+      "type": "ad",
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "error": "No subcomponents found",
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "top_stories",
+      "url": null
+    },
+    {
+      "cite": "https://www.hotels.com  › ... › New York Hotels",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Some of the best-rated luxury  hotels in Manhattan  include Faena New York, The Hotel Chelsea, and Pendry Manhattan West. Faena New York has a high guest rating ... Read more",
+      "title": "Top 10 Hotels in Manhattan, New York",
+      "type": "general",
+      "url": "https://www.hotels.com/nh1535616/hotels-in-manhattan-new-york-new-york/"
+    },
+    {
+      "cite": "https://www.tripadvisor.com  › ... › New York City",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find the right  hotel  for you · 1. Motto by Hilton  New York City  Chelsea · 2. The Evelyn  Hotel  · 3. Embassy Suites By Hilton New York  Manhattan  Times Square · 4. Read more",
+      "title": "THE 10 BEST Hotels in New York City 2026 (from $89)",
+      "type": "general",
+      "url": "https://www.tripadvisor.com/Hotels-g60763-New_York_City_New_York-Hotels.html"
+    },
+    {
+      "cite": "https://www.booking.com  › ... › New York",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Featured  Hotels in Manhattan  · The Wallace Hotel · Broadway Plaza Hotel · San Carlos Hotel New York · Artezen Hotel · Hilton Club The Central at 5th New York. Read more",
+      "title": "The best hotels in Manhattan, New York, United States",
+      "type": "general",
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": [
+        "10 Best Neighborhoods in NYC: Where to Stay (A Local's Guide) Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b... Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b...",
+        "Is it better to stay in Times Square or Midtown?",
+        "What hotels do the Kardashians stay at in NYC?",
+        "What is the number one hotel in NYC?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "10 Best Neighborhoods in NYC: Where to Stay (A Local's Guide) Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b... Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b...<|>Is it better to stay in Times Square or Midtown?<|>What hotels do the Kardashians stay at in NYC?<|>What is the number one hotel in NYC?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "heading": "Find related products & services",
+        "img_url": null,
+        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "urls": [
+          {
+            "misc": {},
+            "text": "Hotels in Manhattan |Downtown",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Downtown&mrq=1&mrqri=0&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAB6BAg1EAU"
+          },
+          {
+            "misc": {},
+            "text": "Hotels in manhattan |with view",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+manhattan+with+view&mrq=1&mrqri=1&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAF6BAg1EAY"
+          },
+          {
+            "misc": {},
+            "text": "Hotels in manhattan |near grand central station",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+manhattan+near+grand+central+station&mrq=1&mrqri=2&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAJ6BAg1EAc"
+          },
+          {
+            "misc": {},
+            "text": "Hotels in Manhattan |Upper West Side",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Upper+West+Side&mrq=1&mrqri=3&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAN6BAg1EAg"
+          },
+          {
+            "misc": {},
+            "text": "Hotels in Manhattan |ny near Times Square",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+ny+near+Times+Square&mrq=1&mrqri=4&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAR6BAg1EAk"
+          },
+          {
+            "misc": {},
+            "text": "Hotels in Manhattan |NY cheap",
+            "title": "",
+            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+NY+cheap&mrq=1&mrqri=5&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAV6BAg1EAo"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "error": "not implemented",
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "More<|>Hotels<|>This is information that Google gathered about hotels and other accommodations. Hotels are ranked by relevance, based on information like their location, price, reviews, and your search terms.<|>Learn more<|>Hotel and other lodging prices<|>come from Google's partners.<|>This is a search result, not an ad. Only ads are paid, and they'll always be labeled with 'Sponsored' or 'Ad'.<|>Reviews aren't verified by Google, but Google checks for and removes fake content when it's identified.<|>DoubleTree by Hilton Hotel New York Times Square West<|>$87<|>3.5<|>(6.5K)<|>·<|>4-star hotel<|>Deal<|>22% less than usual<|>Modern lodging with a bar & city views<|>The Westin New York at Times Square<|>$170<|>4.2<|>(5.7K)<|>·<|>5-star hotel<|>Great price<|>for a 5-star hotel<|>Upscale Times Square hotel with dining<|>Hilton Garden Inn New York/Central Park South-Midtown West<|>$100<|>3.7<|>(3.5K)<|>·<|>4-star hotel<|>Great deal<|>25% less than usual<|>Relaxed hotel with a steakhouse & bar",
+      "title": null,
+      "type": "hotels",
+      "url": null
+    },
+    {
+      "cite": "https://www.expedia.com  › ... › New York › New York",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Our top choices for  Manhattan  4-star  hotels  · Lotte New York Palace ·  Hotel  Edison Times Square · Empire  Hotel  · Sheraton New York Times Square  Hotel  · Hyatt ... Read more",
+      "title": "The Best 4 Star Hotels in Manhattan, NY from $121",
+      "type": "general",
+      "url": "https://www.expedia.com/4Star-Manhattan-New-York-Hotels.s40-n129440-0.Travel-Guide-Filter-Hotels"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "10 Cool hotels in NYC you need to stay a night at 🗽🇺🇸 🔗👇 Read More",
+      "type": "perspectives",
+      "url": "https://www.facebook.com/visitnewyorkcity/posts/10-cool-hotels-in-nyc-you-need-to-stay-a-night-at-read-more/934419629288032/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 1,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Hotel Suggestions Manhattan NYC",
+      "type": "perspectives",
+      "url": "https://www.reddit.com/r/hotels/comments/1qvakfl/hotel_suggestions_manhattan_nyc/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 2,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Where To Stay In New York City? Best Hotel View! Hyatt House Chelsea Hotel & Room Tour, Hotel Review",
+      "type": "perspectives",
+      "url": "https://www.youtube.com/watch?v=T7RaAP6OB4o"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 3,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "The 20 Best Hotels In New York City",
+      "type": "perspectives",
+      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-hotels-in-new-york-city/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 4,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "When it comes to New York City hotels, our readers crave a well-loved brand, where exceptional service is a must. Read more about their ranking at the link in bio. #nychotels #traveltips #luxuryhotel",
+      "type": "perspectives",
+      "url": "https://www.instagram.com/reel/DTS1IjbDmqe/?hl=en"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 5,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Struggling with deciding on a hotel. I wanted it in Manhattan close to attractions and subway entrance within a budget of less than 2000.00 for 5 nights. Most importantly---- CLEAN AND COMFORTABLE. Anyone stay somewhere that fits that criteria? IT MAY BE",
+      "type": "perspectives",
+      "url": "https://www.facebook.com/groups/3135585626680301/posts/4148091168763070/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 6,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "We Finally Found a Good Hotel in New York City?!",
+      "type": "perspectives",
+      "url": "https://www.youtube.com/watch?v=2FXz6sjriXU"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 7,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "The best Hotels in New York City 2026 (from $110) 🗽🇺🇸✈️ 🔗 https://bit.ly/Top-Hotels-New-York-City",
+      "type": "perspectives",
+      "url": "https://www.facebook.com/exploreusasince2022/posts/the-best-hotels-in-new-york-city-2026-from-110-%EF%B8%8F-httpsbitlytop-hotels-new-york-c/896583022974307/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 8,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "The Best Hotel Bars in NYC, From Classic Martini Haunts to Rooftops With Central Park Views",
+      "type": "perspectives",
+      "url": "https://www.cntraveler.com/gallery/best-hotel-bars-nyc"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 9,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "NYC Hotel Stay Recommendations",
+      "type": "perspectives",
+      "url": "https://www.reddit.com/r/travel/comments/1q8n9os/nyc_hotel_stay_recommendations/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 10,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "NYC Hotel Tour: Thompson Central Park 🏙️✨ If you’re looking for a place to stay in New York City - I’d HIGHLY recommend this hotel for location, luxury-vibes and room quality. @hyatt @thompsoncentralpark @chase \n\n#nychotels #thompsoncentralpark #hyatt #hotel #wheretostayinnyc",
+      "type": "perspectives",
+      "url": "https://www.instagram.com/reel/DUaKb2ejm5a/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 11,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "The best New York hotels that you need to visit right now",
+      "type": "perspectives",
+      "url": "https://www.gq-magazine.co.uk/gallery/new-york-best-hotels"
+    },
+    {
+      "cite": "https://www.parkcentralny.com",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Enjoy both the serenity of our  hotel  and our location near Central Park, Rockefeller Center, Carnegie Hall and other Midtown  Manhattan  landmarks and sights. Read more",
+      "title": "Park Central New York | Midtown Manhattan hotel near ...",
+      "type": "general",
+      "url": "https://www.parkcentralny.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": null,
+      "error": "not implemented",
+      "section": "main",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "More<|>Hotels<|>This is information that Google gathered about hotels and other accommodations. Hotels are ranked by relevance, based on information like their location, price, reviews, and your search terms.<|>Learn more<|>Hotel and other lodging prices<|>come from Google's partners.<|>This is a search result, not an ad. Only ads are paid, and they'll always be labeled with 'Sponsored' or 'Ad'.<|>Reviews aren't verified by Google, but Google checks for and removes fake content when it's identified.<|>Hilton Garden Inn New York Times Square South<|>$95<|>4.2<|>(1.9K)<|>·<|>3-star hotel<|>Warm Midtown hotel with dining & a bar<|>Eco-certified<|>·<|>Free Wi-Fi<|>citizenM New York Times Square<|>$139<|>4.6<|>(2.7K)<|>·<|>4-star hotel<|>Vibrant lodging with a rooftop bar<|>Free Wi-Fi<|>The Carnegie Hotel<|>$146<|>4.5<|>(519)<|>·<|>4-star hotel<|>Great deal<|>28% less than usual<|>Polished lodging with free breakfast",
+      "title": null,
+      "type": "hotels",
+      "url": null
+    },
+    {
+      "cite": "https://www.ihg.com  › ... › New York › New York › spnd",
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 27,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Stay steps from Broadway shows at The  Manhattan  at Times Square. Enjoy spacious rooms, prime location, and  NYC  charm.",
+      "title": "The Manhattan at Times Square Hotel",
+      "type": "general",
+      "url": "https://www.ihg.com/spnd/hotels/us/en/new-york/nycat/hoteldetail"
+    },
+    {
+      "cite": "http://www.forbestravelguide.com  › ... › United States",
+      "cmpt_rank": 14,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 28,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "View the best  hotels , restaurants and spas in  New York City , with Five-Star ratings and more from Forbes Travel Guide.",
+      "title": "New York City Luxury Hotels",
+      "type": "general",
+      "url": "http://www.forbestravelguide.com/destinations/new-york-city-new-york"
+    },
+    {
+      "cite": "https://www.hilton.com  › Locations › USA › New York",
+      "cmpt_rank": 15,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 29,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Explore  Hotels in Manhattan , NY. Search by destination, check the latest prices, or use the interactive map to find the location for your ...",
+      "title": "Hotels in Manhattan, NY - Find Hotels",
+      "type": "general",
+      "url": "https://www.hilton.com/en/locations/usa/new-york/manhattan/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": [
+        "Motto by Hilton New York City Chelsea",
+        "PUBLIC Hotel",
+        "The Evelyn",
+        "The Bryant Park Hotel",
+        "Hilton Garden Inn NYC Financial Center/Manhattan Downtown",
+        "Pod Times Square"
+      ],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 30,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Motto by Hilton New York City Chelsea<|>PUBLIC Hotel<|>The Evelyn<|>The Bryant Park Hotel<|>Hilton Garden Inn NYC Financial Center/Manhattan Downtown<|>Pod Times Square",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

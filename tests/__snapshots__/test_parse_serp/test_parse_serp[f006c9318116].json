@@ -1,0 +1,318 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 518.0,
+    "result_estimate_time": 0.59
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "Pfizer-BioNTech",
+            "title": "",
+            "url": "https://www.pfizer.com/"
+          },
+          {
+            "misc": {},
+            "text": "Novavax",
+            "title": "",
+            "url": "https://www.novavax.com/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.cdc.gov/covid/hcp/vaccine-considerations/routine-guidance.html#:~:text=At%20a%20glance,of%20COVID%2D19%20risk%20factors."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.cdc.gov/covid/vaccines/stay-up-to-date.html#:~:text=Keep%20in%20mind,individual%2Dbased%20decision%2Dmaking."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.bassett.org/news/are-covid-19-vaccine-ingredients-safe"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.aap.org/en/patient-care/covid-19/covid-19-vaccine-frequently-asked-questions/#:~:text=AAP%20recommends%20a%20single%20dose,AAP%20Policy%20Statement%20as%20follows:"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.pharmacytimes.com/view/fda-recommends-2025-2026-covid-19-vaccines-be-monovalent-target-lp-8-1-strain#:~:text=Based%20on%20VRBPAC%20Vote%2C%20FDA,a%20specific%20sublineage%20to%20target.&text=1%2C2-,LP.,recommendation%20could%20impact%20vaccine%20availability."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10507236/#:~:text=Rare%20adverse%20effects%20of%20COVID,%2C%20hearing%20changes%2C%20and%20tinnitus.&text=The%20overall%20risk%20of%20anaphylaxis,percentage%20of%20people%20after%20vaccination."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.fda.gov/media/167212/download#:~:text=Pfizer%2DBioNTech%20COVID%2D19%20Vaccine%20contains%20the%20following%20ingredients:,age%20also%20contains%20sodium%20chloride."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.hackensackmeridianhealth.org/HealthU/2021/01/11/a-simple-breakdown-of-the-ingredients-in-the-covid-vaccines/#:~:text=The%20Pfizer%2DBioNTech%20COVID%2D19,if%20exposed%20to%20the%20coronavirus."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.chop.edu/vaccine-education-center/vaccine-safety/vaccine-ingredients/ingredients-by-vaccine/covid-19-vaccines-ingredients#:~:text=Cholesterol%2C%20Potassium%20chloride%2C%20Phosphatidylcholine%2C,sodium%20hydroxide%20or%20hydrochloric%20acid.)"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.publichealth.columbia.edu/news/vaccine-misinformation-outpaces-efforts-counter-it#:~:text=Misinformation%20about%20vaccines%20has%20proliferated,flu%2C%20HPV%2C%20and%20more."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.sciencedirect.com/science/article/pii/S2772628224000098#:~:text=Among%20previously%20vaccinated%20individuals%2C%20belief,ongoing%20vaccine%20boosters%2C%20ceteris%20paribus."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.mskcc.org/coronavirus/for-people-with-cancer#:~:text=Is%20the%20COVID%2D19%20vaccine%20safe?,reported%20after%20COVID%2D19%20vaccination."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=hlOFL---m8A"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=hRZ1eTNX65w"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.rivm.nl/en/coronavirus-covid-19/vaccination/side-effects#:~:text=Most%20common%20side%20effects%20of,or%20days%20after%20the%20injection."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.mcgill.ca/oss/article/covid-19-health/dozen-misguided-influencers-spread-most-anti-vaccination-content-social-media#:~:text=You%20may%20have%20heard%20the,exactly%20is%20the%20Disinformation%20Dozen?"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.goodrx.com/conditions/covid-19/ingredients-covid-19-vaccine#:~:text=COVID%20vaccine%20are:-,SM%2D102,is%20the%20hepatitis%20B%20vaccine."
+          },
+          {
+            "misc": {},
+            "text": "Learn more",
+            "title": "",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          },
+          {
+            "misc": {},
+            "text": "Privacy Policy",
+            "title": "",
+            "url": "https://policies.google.com/privacy?hl=en"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "ai_overview",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "1.3K+ views  ·  2 weeks ago",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Dr . Glen Jeffery: Using Red Light to Improve Your  Health  & the  Harmful Effects  of LEDs. Andrew Huberman•255K views · 19:01. Go to channel Legal ... Read more",
+      "title": "Everything You're Afraid to Ask About Vaccines",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=fVxNCWm3_cs"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": [
+        "Why are people refusing the COVID vaccine?",
+        "Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid",
+        "Scientists Study People Who Never Had COVID - Boston University Boston University https://www.bu.edu  › articles › scientists-study-people-w... Boston University https://www.bu.edu  › articles › scientists-study-people-w...",
+        "What percentage of people have a serious side effect from the COVID vaccine?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Why are people refusing the COVID vaccine?<|>Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid<|>Scientists Study People Who Never Had COVID - Boston University Boston University https://www.bu.edu  › articles › scientists-study-people-w... Boston University https://www.bu.edu  › articles › scientists-study-people-w...<|>What percentage of people have a serious side effect from the COVID vaccine?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.ideastream.org  › lying-through-truth-misle...",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mar 25, 2021  —  ...  effort  to take down patently false  health  claims,  bad  actors are turning to cherry-picked  truths  to drive misleading narratives. Experts say ... Read more",
+      "title": "'Lying Through Truth': Misleading Facts Fuel Vaccine ...",
+      "type": "general",
+      "url": "https://www.ideastream.org/2021-03-25/lying-through-truth-misleading-facts-fuel-vaccine-misinformation"
+    },
+    {
+      "cite": "1.4K+ views  ·  2 months ago",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "It is time to stop politicizing vaccine injuries and start building meaningful recognition research competent care and fair and just compensation.",
+      "title": "Dr. McCullough's Shocking Senate Statement Goes Viral",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=oZ1hgVNRMmE"
+    },
+    {
+      "cite": "2.1M+ views  ·  5 years ago",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "(Dec. 8) Watch live as the U.S. Senate examines  Covid -19 solutions, focusing on early outpatient treatment in Washington, D.C., on Tuesday, ...",
+      "title": "Anti-Vaccine Doctor Testifies at Senate Homeland Security ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=k8RyV3VEDKI"
+    },
+    {
+      "cite": "9.2K+ views  ·  1 year ago",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The intent to vaccinating the United States was reduced by nearly three percentage points due to unflagged vaccine skeptical content.",
+      "title": "Covid Vaccine Misinformation or Disinformation? Which ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=jLieri_aweE"
+    },
+    {
+      "cite": "250+ reactions  ·  1 year ago",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Newly Leaked Emails Prove WHO Suppressing HPV  Vaccine's Harmful Effects  ... “It's almost like some people are trying to say this is ' good ' or ' bad  ... Read more",
+      "title": "“Big Pharma” is evil, scientists are ...",
+      "type": "general",
+      "url": "https://www.facebook.com/dr.andrealove/posts/the-most-infuriating-part-of-the-concerted-rejection-of-science-and-the-us-withd/122212951616208898/"
+    },
+    {
+      "cite": "2.4K+ views  ·  8 months ago",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The title of today's hearing is the corruption of science and federal health agencies how health officials downplayed and hid myocarditis.",
+      "title": "US Senate LIVE | Covid Vaccine 'TRUTH BOMB' Shocks USA",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=1P1Ui2eEjPw"
+    },
+    {
+      "cite": "1.6K+ views  ·  1 month ago",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "We have five witnesses who will tell how drug and vaccine injuries have impacted their lives.",
+      "title": "'They knew the risks, yet…': Shocking COVID vaccine side ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=z6U07WOas8E"
+    },
+    {
+      "cite": "https://www.factcheck.org  › 2024/01 › faulty-science-u...",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 5, 2024  —  Getting the latest  vaccine  provides additional protection against  poor  outcomes from  COVID -19. ... In 2022, the Florida Department of  Health  ... Read more",
+      "title": "Faulty Science Underpins Florida Surgeon General's Call ...",
+      "type": "general",
+      "url": "https://www.factcheck.org/2024/01/faulty-science-underpins-florida-surgeon-generals-call-to-halt-mrna-covid-19-vaccination/"
+    },
+    {
+      "cite": "26.1K+ views  ·  9 months ago",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Vaccines are one of the biggest success stories in medicine but they've also become one of the most debated and misunderstood topics.",
+      "title": "Are Anti-Vaxxers Right?: Science, Skepticism, and the ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=V0KQqqsaY-Y"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 432000000.0,
+    "result_estimate_time": 0.35
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "Netflix|Subscription|Watch",
+            "title": "",
+            "url": "https://www.netflix.com/watch/80057281?source=35"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.netflix.com  › title",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jul 6, 2016  —  When a young boy vanishes, a small town uncovers a mystery  involving secret experiments, terrifying supernatural forces and one strange ...",
+      "title": "Watch Stranger Things | Netflix Official Site",
+      "type": "general",
+      "url": "https://www.netflix.com/title/80057281"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": [
+        "Can I watch Stranger Things on anything other than Netflix?",
+        "It's stranger things eve Watch Stranger Things 5: Volume 2, out 26 ... Instagram https://www.instagram.com  › reel Instagram https://www.instagram.com  › reel",
+        "What streaming service is Stranger Things on?",
+        "Is Stranger Things season 5 release date on Netflix?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Can I watch Stranger Things on anything other than Netflix?<|>It's stranger things eve Watch Stranger Things 5: Volume 2, out 26 ... Instagram https://www.instagram.com  › reel Instagram https://www.instagram.com  › reel<|>What streaming service is Stranger Things on?<|>Is Stranger Things season 5 release date on Netflix?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "9 comments  ·  4 weeks ago",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "hello,  where can I watch the new season of Stranger Things for free  (if possible without ads) ? Anyone pls help? Read more",
+      "title": "hello, where can I watch the new season of Stranger ...",
+      "type": "general",
+      "url": "https://www.reddit.com/r/ask/comments/1q8fhjw/hello_where_can_i_watch_the_new_season_of/"
+    },
+    {
+      "cite": "https://www.justwatch.com  › tv-show › stranger-things",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Currently you are able to watch \" Stranger Things\" streaming on Netflix , Netflix Standard with Ads. Besides streaming, the series is also available on Blu- ... Read more",
+      "title": "Stranger Things - streaming tv show online",
+      "type": "general",
+      "url": "https://www.justwatch.com/us/tv-show/stranger-things"
+    },
+    {
+      "cite": "https://www.roku.com  › What's On › TV Shows",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Stranger Things , a teen tv shows series starring Winona Ryder, David Harbour, and Millie Brown is available to stream now. Watch it on Netflix on your Roku ... Read more",
+      "title": "How to watch and stream Stranger Things",
+      "type": "general",
+      "url": "https://www.roku.com/whats-on/tv-shows/stranger-things?id=1e3af5ec6fac591a97ebd6c2e209bd0c&srsltid=AfmBOorGCHGouXlr4G8gvHU0ebwGWqyeEShN65sjBzBJAAUzPM2GOHxQ"
+    },
+    {
+      "cite": "https://www.tvguide.com  › tvshows › stranger-things",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find out how to watch Stranger Things.  Stream the latest seasons and episodes , watch trailers, and more for Stranger Things at TV Guide.",
+      "title": "Stranger Things - Where to Watch and Stream",
+      "type": "general",
+      "url": "https://www.tvguide.com/tvshows/stranger-things/1030459291/"
+    },
+    {
+      "cite": "https://tv.apple.com  › show › stranger-things",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mysteries unravel in a small Midwestern town in the 1980s , involving supernatural forces, secret experiments and one strange girl. Read more",
+      "title": "Stranger Things",
+      "type": "general",
+      "url": "https://tv.apple.com/us/show/stranger-things/umc.cmc.6a4s868u4ocy2a9zg6ochi2nd"
+    },
+    {
+      "cite": "https://www.rottentomatoes.com  › stranger_things",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Watch Stranger Things — Season 5 with a subscription on Netflix . Stranger Things — Season 5. What to Know. Read more",
+      "title": "Season 5 – Stranger Things",
+      "type": "general",
+      "url": "https://www.rottentomatoes.com/tv/stranger_things/s05"
+    },
+    {
+      "cite": "20+ comments  ·  2 years ago",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Available on Prime, Tubi, and Roku Channel . I have a Roku tv and use the search feature to see what's available and where. “I don't want to ... Read more",
+      "title": "Where Can I Watch Stranger Things Apart From Netflix",
+      "type": "general",
+      "url": "https://www.facebook.com/groups/290086862161786/posts/1040629970440801/"
+    },
+    {
+      "cite": "9.4M+ views  ·  3 months ago",
+      "cmpt_rank": 10,
+      "details": {
+        "duration": null,
+        "source": null
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "Props to Noah Schnapp for turning back into a child forStranger Thingsseason 5. Such dedication as an actor.",
+      "title": "Stranger Things 5 | First Five Minutes | Netflix",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=vhFPHYgILN0"
+    },
+    {
+      "cite": "https://www.imdb.com  › title",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A group of young friends witness supernatural forces and secret government exploits . As they search for answers, the children unravel a series of extraordinary ... Read more",
+      "title": "Stranger Things (TV Series 2016–2025)",
+      "type": "general",
+      "url": "https://www.imdb.com/title/tt4574334/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

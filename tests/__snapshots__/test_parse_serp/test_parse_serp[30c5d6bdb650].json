@@ -1,0 +1,411 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 4060000000.0,
+    "result_estimate_time": 0.36
+  },
+  "results": [
+    {
+      "cite": "https://www.fairobserver.com › science › tech",
+      "cmpt_rank": 0,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Latest science news",
+          "url": "https://www.fairobserver.com/category/more/science/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "World News",
+          "url": "https://www.fairobserver.com/category/world-news/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Science news 2024",
+          "url": "/aclk?sa=L&ai=DChsSEwiBv9rKi8aSAxWCs4MHHTvOD3wYACICCAIQBxoCZWY&co=1&ase=2&gclid=EAIaIQobChMIgb_ayovGkgMVgrODBx07zg98EAMYASAHEgLrZPD_BwE&cid=CAASugHkaM6_nR2Y1-WNgAybVtKDkcdFam_-897gUEHlM1e3HFA1JEIRR6eIREBbIBig14-2q9GWztSURpc4PLuCZwZE7vTT5CYxJTXnG_PD7k2ZFBsPOuqoQrI5CLpqhsyN3xKtvjDJVrJ4jrDA_uSm6Xv9z80g82jndYYrV4MyhMgG6Y-37OV6WcoBvcdlJhgB560UAPfwyn8GUwZPnLQmn1yjEcHguG75f7hMKVjctY579I_Px1I9EpL1M9c&cce=2&category=acrcp_v1_32&sig=AOD64_1LICCufg99l0FEtMwusdarVTkFIg&adurl=&q="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "India News",
+          "url": "https://www.fairobserver.com/category/world-news/india-news/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Economics News",
+          "url": "https://www.fairobserver.com/category/economics/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "All Events",
+          "url": "https://www.fairobserver.com/events/"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Science and technology news | Computer science news",
+      "title": "Science and technology news | Computer science news",
+      "type": "ad",
+      "url": "https://www.fairobserver.com/category/more/science/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "1m|Bloomberg Podcasts|YouTube • Feb 5, 2026",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=XIMupMYgR5s&t=138"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.reuters.com/technology/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://finance.yahoo.com/topic/tech/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.technologyreview.com/#:~:text=Commercial%20space%20stations:%2010%20Breakthrough%20Technologies%202026,outpost%20is%20scheduled%20to%20launch%20this%20May."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.technewsworld.com/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://news.mit.edu/#:~:text=Terahertz%20microscope%20reveals%20the%20motion%20of%20superconducting,observe%20terahertz%20%E2%80%9Cjiggles%E2%80%9D%20in%20a%20superconducting%20fluid."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.nytimes.com/section/technology"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://indianexpress.com/section/technology/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.washingtonpost.com/business/technology/#:~:text=Young%20people%20in%20China%20have%20a%20new,and%20a%20digital%20ear%20for%20tech%20giants."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.washingtonpost.com/business/technology/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.technologyreview.com/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://news.mit.edu/"
+          },
+          {
+            "misc": {},
+            "text": "Learn more",
+            "title": "",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          },
+          {
+            "misc": {},
+            "text": "Privacy Policy",
+            "title": "",
+            "url": "https://policies.google.com/privacy?hl=en"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "ai_overview",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.reuters.com  › technology",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Technology ·  Big Tech's $600 billion spending plans exacerbate investors' AI headache  · Exclusive: Vista Equity Partners and Intel to lead investment in AI chip ... Read more",
+      "title": "Tech News | Today's Latest Technology News",
+      "type": "general",
+      "url": "https://www.reuters.com/technology/"
+    },
+    {
+      "cite": "https://www.wired.com",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "We bring you the future as it happens. From  the latest in science and technology  to the big stories in business and culture, we've got you covered.",
+      "title": "WIRED - The Latest in Technology, Science, Culture and ...",
+      "type": "general",
+      "url": "https://www.wired.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "iPhone 18 Pro Max Rumored to Deliver Next-Level Battery Life",
+      "type": "top_stories",
+      "url": "https://www.macrumors.com/2026/02/06/iphone-18-pro-max-next-level-battery-life/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Apple heads to moon after NASA chief approves iPhones for upcoming missions",
+      "type": "top_stories",
+      "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "New iPhone launching this month with four key changes: report",
+      "type": "top_stories",
+      "url": "https://9to5mac.com/2026/02/05/new-iphone-launching-soon-with-four-new-features/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": "One UI 8 Watch update is breaking the Galaxy Watch 5 Pro’s battery indicator",
+      "type": "top_stories",
+      "url": "https://www.sammobile.com/news/one-ui-8-watch-update-is-breaking-galaxy-watch-5-pro-battery-indicator/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 4,
+      "sub_type": null,
+      "text": null,
+      "title": "Google is expanding AirDrop support to more Android devices ‘very soon’",
+      "type": "top_stories",
+      "url": "https://www.theverge.com/tech/874736/android-quick-share-apple-airdrop-support-expansion"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 5,
+      "sub_type": null,
+      "text": null,
+      "title": "Steam Machine and Steam Frame delays are the latest product of the RAM crisis",
+      "type": "top_stories",
+      "url": "https://arstechnica.com/gadgets/2026/02/ram-shortage-delays-valves-steam-machine-desktop-and-steam-frame-headset/"
+    },
+    {
+      "cite": "https://www.cnbc.com  › technology",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Business news related to the technology industry , including Apple, Amazon, Microsoft, Google, and Facebook, plus consumer electronics, start-ups, ...",
+      "title": "Technology News",
+      "type": "general",
+      "url": "https://www.cnbc.com/technology/"
+    },
+    {
+      "cite": "https://www.cnn.com  › business › tech",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "View the latest  technology headlines , gadget and smartphone trends, and insights from tech industry leaders.",
+      "title": "Tech | CNN Business",
+      "type": "general",
+      "url": "https://www.cnn.com/business/tech"
+    },
+    {
+      "cite": "https://www.geekwire.com",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "GeekWire is a fast-growing, national technology news site  with strong roots ... news, expert analysis and unique insights into the technology industry.",
+      "title": "GeekWire – Breaking News in Technology & Business",
+      "type": "general",
+      "url": "https://www.geekwire.com/"
+    },
+    {
+      "cite": "https://news.google.com  › topics",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "No information is available for this page.",
+      "title": "Google News (Technology)",
+      "type": "general",
+      "url": "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US%3Aen"
+    },
+    {
+      "cite": "https://www.theguardian.com  › technology",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Latest Technology news, comment and analysis  from the Guardian, the world's leading liberal voice.",
+      "title": "Technology",
+      "type": "general",
+      "url": "https://www.theguardian.com/uk/technology"
+    },
+    {
+      "cite": "https://www.technewsworld.com",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Tech news , reviews and analysis of computing, enterprise IT, cybersecurity, mobile technology, cloud computing, tech industry trends, how-tos, ...",
+      "title": "TechNewsWorld - Technology News and Information",
+      "type": "general",
+      "url": "https://www.technewsworld.com/"
+    },
+    {
+      "cite": "https://techcrunch.com",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Prince Andrew advisor pitched Jeffrey Epstein on investing in EV startups  like Lucid Motors · Uber appoints new CFO as its AV plans accelerate · Apeiron Labs gets ... Read more",
+      "title": "TechCrunch | Startup and Technology News",
+      "type": "general",
+      "url": "https://techcrunch.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": [
+        "What is the newest news about technology?",
+        "Which technology is trending now?",
+        "Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...",
+        "What is the best site for tech news?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is the newest news about technology?<|>Which technology is trending now?<|>Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...<|>What is the best site for tech news?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}
