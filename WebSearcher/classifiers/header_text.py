@@ -52,7 +52,8 @@ class ClassifyHeaderText:
     TYPE_TO_H2_MAPPING = {
         "directions": ["Directions", 
                        "Ubicaciones"],
-        "discussions_and_forums": ["Discussions and forums"],
+        "discussions_and_forums": ["Discussions and forums",
+                                  "Questions & answers"],
         "general": ["Complementary Results",
                     "Web Result with Site Links",
                     "Web results",
@@ -84,7 +85,9 @@ class ClassifyHeaderText:
                       "Albums", "Álbumes",
                       "About", "Información",
                       "Profiles", "Perfiles"],
-        "local_news": ["Local news", "Noticias Locales"],
+        "latest_from": ["Latest from"],
+        "local_news": ["Local news", "Noticias Locales",
+                       "Latest in local"],
         "local_results": [
             "Local Results",
             "Locations",

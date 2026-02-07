@@ -19,6 +19,7 @@ class ClassifyMain:
             ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
+            ClassifyMain.ai_overview,        # Check AI overview
             ClassifyMain.knowledge_panel,    # Check knowledge panel
             ClassifyMain.knowledge_block,    # Check knowledge components
             ClassifyMain.banner,             # Check for banners
@@ -114,6 +115,15 @@ class ClassifyMain:
             cmpt.find("div", {"id":"iur"})
         ]
         return 'images' if any(conditions) else "unknown"
+
+    @staticmethod
+    def ai_overview(cmpt: bs4.element.Tag) -> str:
+        """Classify AI Overview components"""
+        conditions = [
+            cmpt.find("div", {"class": "Fzsovc"}),
+            cmpt.find("h2") and cmpt.find("h2").get_text(strip=True) == "AI Overview",
+        ]
+        return 'knowledge' if any(conditions) else "unknown"
 
     @staticmethod
     def knowledge_block(cmpt: bs4.element.Tag) -> str:
