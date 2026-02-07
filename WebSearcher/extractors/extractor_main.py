@@ -99,13 +99,16 @@ class ExtractorMain:
 
         rso_div = self.layout_divs['rso']
         standard_layouts = {
-            "standard-0": rso_div.find('div', {'id':'kp-wp-tab-overview'}),
-            "standard-1": rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}),
-            "standard-2": rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}),
+            "standard-0": (rso_div.find('div', {'id':'kp-wp-tab-overview'}), 'div', {'class':'TzHB6b'}),
+            "standard-1": (rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}), None, None),
+            "standard-2": (rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}), None, None),
         }
-        for layout_name, layout_div in standard_layouts.items():
+        for layout_name, (layout_div, check_tag, check_attrs) in standard_layouts.items():
             if layout_div:
-                if layout_div.find_all("div"):
+                if check_tag:
+                    if layout_div.find_all(check_tag, check_attrs):
+                        return self._extract_from_standard_sub_type(layout_name)
+                elif layout_div.find_all("div"):
                     return self._extract_from_standard_sub_type(layout_name)
 
         top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
