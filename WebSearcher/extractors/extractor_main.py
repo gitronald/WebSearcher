@@ -99,15 +99,16 @@ class ExtractorMain:
 
         rso_div = self.layout_divs['rso']
         standard_layouts = {
-            "standard-0": (rso_div.find('div', {'id':'kp-wp-tab-overview'}), 'div', {'class':'TzHB6b'}),
+            "standard-0": (rso_div.find('div', {'id':'kp-wp-tab-overview'}), 'div', [{'class':'TzHB6b'}, {'class':'A6K0A'}]),
             "standard-1": (rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}), None, None),
             "standard-2": (rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}), None, None),
         }
-        for layout_name, (layout_div, check_tag, check_attrs) in standard_layouts.items():
+        for layout_name, (layout_div, check_tag, check_attrs_list) in standard_layouts.items():
             if layout_div:
                 if check_tag:
-                    if layout_div.find_all(check_tag, check_attrs):
-                        return self._extract_from_standard_sub_type(layout_name)
+                    for check_attrs in (check_attrs_list if isinstance(check_attrs_list, list) else [check_attrs_list]):
+                        if layout_div.find_all(check_tag, check_attrs):
+                            return self._extract_from_standard_sub_type(layout_name)
                 elif layout_div.find_all("div"):
                     return self._extract_from_standard_sub_type(layout_name)
 
@@ -120,6 +121,8 @@ class ExtractorMain:
             log.debug(f"main_layout: {self.layout_label} (update)")
             divs = rso_div.find_all('div', {'id':'kp-wp-tab-overview'})
             col = sum([d.find_all('div', {'class':'TzHB6b'}) for d in divs], [])
+            if not col:
+                col = sum([d.find_all('div', {'class':'A6K0A'}, recursive=False) for d in divs], [])
         return col
 
     def _extract_from_standard_sub_type(self, sub_type:str = "") -> list:
@@ -131,7 +134,10 @@ class ExtractorMain:
         if self.layout_label == "standard-0":
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
-            main_divs = rso_div.find_all('div', {'class':'TzHB6b'}) or []
+            tab_overview = rso_div.find('div', {'id':'kp-wp-tab-overview'})
+            main_divs = tab_overview.find_all('div', {'class':'TzHB6b'}, recursive=False) if tab_overview else []
+            if not main_divs and tab_overview:
+                main_divs = tab_overview.find_all('div', {'class':'A6K0A'}, recursive=False)
             column.extend(top_divs)
             column.extend(main_divs)
             log.debug(f"main_components: {len(column):,}")
