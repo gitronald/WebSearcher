@@ -31,6 +31,7 @@ class ExtractorMain:
 
     def extract(self):
         self.get_layout()
+        self._ads_top_carousel()
         self._ads_top()
         self._main_column()
         self._ads_bottom()
@@ -71,6 +72,13 @@ class ExtractorMain:
         self.layouts.update(layouts)
         self.layout_divs.update(layout_divs)
 
+    def _ads_top_carousel(self):
+        """Extract sponsored carousel ads (e.g. Sponsored hotels via atvcap)"""
+        ads = self.soup.find('div', {'id':'atvcap'})
+        if ads and webutils.get_text(ads):
+            ads.extract()
+            self.components.add_component(ads, section='main', type='shopping_ads')
+
     def _ads_top(self):
         ads = self.soup.find('div', {'id':'tads'})
         if ads and webutils.get_text(ads):
@@ -99,13 +107,17 @@ class ExtractorMain:
 
         rso_div = self.layout_divs['rso']
         standard_layouts = {
-            "standard-0": rso_div.find('div', {'id':'kp-wp-tab-overview'}),
-            "standard-1": rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}),
-            "standard-2": rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}),
+            "standard-0": (rso_div.find('div', {'id':'kp-wp-tab-overview'}), 'div', [{'class':'TzHB6b'}, {'class':'A6K0A'}]),
+            "standard-1": (rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}), None, None),
+            "standard-2": (rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}), None, None),
         }
-        for layout_name, layout_div in standard_layouts.items():
+        for layout_name, (layout_div, check_tag, check_attrs_list) in standard_layouts.items():
             if layout_div:
-                if layout_div.find_all("div"):
+                if check_tag:
+                    for check_attrs in (check_attrs_list if isinstance(check_attrs_list, list) else [check_attrs_list]):
+                        if layout_div.find_all(check_tag, check_attrs):
+                            return self._extract_from_standard_sub_type(layout_name)
+                elif layout_div.find_all("div"):
                     return self._extract_from_standard_sub_type(layout_name)
 
         top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
@@ -117,6 +129,8 @@ class ExtractorMain:
             log.debug(f"main_layout: {self.layout_label} (update)")
             divs = rso_div.find_all('div', {'id':'kp-wp-tab-overview'})
             col = sum([d.find_all('div', {'class':'TzHB6b'}) for d in divs], [])
+            if not col:
+                col = sum([d.find_all('div', {'class':'A6K0A'}, recursive=False) for d in divs], [])
         return col
 
     def _extract_from_standard_sub_type(self, sub_type:str = "") -> list:
@@ -128,7 +142,10 @@ class ExtractorMain:
         if self.layout_label == "standard-0":
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
-            main_divs = rso_div.find_all('div', {'class':'TzHB6b'}) or []
+            tab_overview = rso_div.find('div', {'id':'kp-wp-tab-overview'})
+            main_divs = tab_overview.find_all('div', {'class':'TzHB6b'}, recursive=False) if tab_overview else []
+            if not main_divs and tab_overview:
+                main_divs = tab_overview.find_all('div', {'class':'A6K0A'}, recursive=False)
             column.extend(top_divs)
             column.extend(main_divs)
             log.debug(f"main_components: {len(column):,}")
@@ -187,10 +204,31 @@ class ExtractorMain:
         for tb in soup:
             if webutils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
                 kd = webutils.find_all_divs(tb, "div", {"jscontroller":["qTdDb","OWrb3e"]})
-                out.extend(kd)
+                if kd:
+                    out.extend(kd)
+                else:
+                    # Extract non-ad children (tvcap/tads handled by _ads_top)
+                    for ch in tb.children:
+                        if not hasattr(ch, 'name') or not ch.name:
+                            continue
+                        if ch.find('div', {'id': 'tvcap'}) or ch.find('div', {'id': 'tads'}):
+                            continue
+                        if ch.name == 'h1':
+                            continue
+                        out.append(ch)
+            elif ExtractorMain.is_dictionary_header(tb):
+                continue  # Skip dictionary word header (content is in definitions component)
             else:
                 out.append(tb)
         return out
+
+    @staticmethod
+    def is_dictionary_header(elem) -> bool:
+        """Check if element is a dictionary word header (redundant with definitions)"""
+        return (
+            bool(elem.find('div', {'class': 'kp-wholepage-osrp'})) and
+            bool(elem.find('div', {'data-attrid': 'title'}))
+        )
 
     def extract_from_left_bar(self, drop_tags:set={}) -> list:
         return self.soup.find_all('div', {'class':'TzHB6b'})
@@ -227,6 +265,8 @@ class ExtractorMain:
         if not c: return False
         bad = {"Main results","Twitter Results",""}
         if c.text in bad: return False
+        # Skip bottom ads wrapper (extracted separately)
+        if c.find('div', {'id': 'tadsb'}): return False
         # hidden survey
         cond = [
             c.find('promo-throttler'),

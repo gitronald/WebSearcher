@@ -74,6 +74,7 @@ MAIN_RESULT_TYPES = {
             "translate",
             "calculator",
             "election",
+            "things_to_know",
             "panel",
         ],
     },

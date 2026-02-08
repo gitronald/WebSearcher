@@ -1,0 +1,401 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": true,
+    "result_estimate_count": 155000000.0,
+    "result_estimate_time": 0.43
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "location_use_precise_location",
+      "text": null,
+      "title": "Results for Palo Alto, CA 94301",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": "https://www.sfspca.org",
+      "cmpt_rank": 1,
+      "details": [],
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "standard",
+      "text": "SFSPCA - San Francisco SPCA Official",
+      "title": "SFSPCA - San Francisco SPCA Official",
+      "type": "ad",
+      "url": "https://www.sfspca.org/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "directions": "/maps/dir//Camp+TLC+Goldens,+CAMP+TLC+GOLDENS,+2234+Leo+Pl,+Aromas,+CA+95004/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808e039404ffb2c7:0xf78fd0ffe3e7783c?sa=X&ved=1t:57443&ictx=111",
+        "website": "http://camptlcgoldens.com/"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "results_for__palo_alto,_ca_94301",
+      "text": "Camp TLC Goldens<|>5.0<|>(32)<|> · Dog breeder<|>35+ years in business · Aromas, CA · (408) 656-6402<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Our puppy is so well behaved, groomed, and adjusted.\"",
+      "title": "Camp TLC Goldens",
+      "type": "local_results",
+      "url": "http://camptlcgoldens.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "website": "https://www.sunsetretrievers.com/"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 1,
+      "sub_type": "results_for__palo_alto,_ca_94301",
+      "text": "Sunset Retrievers<|>4.9<|>(67)<|> · Dog breeder<|>3+ years in business · (530) 748-7024<|>Open<|> · Closes 6 PM<|> <|> <|> <|> <|> <|> <|>\"She is responsive, knowledgeable and helped us get the perfect <|>pup<|>.\"",
+      "title": "Sunset Retrievers",
+      "type": "local_results",
+      "url": "https://www.sunsetretrievers.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "website": "https://www.eastbaygoldenretrievers.com/"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 2,
+      "sub_type": "results_for__palo_alto,_ca_94301",
+      "text": "East Bay Golden Retrievers<|>4.8<|>(11)<|> · Dog breeder<|>3+ years in business · (510) 815-8338<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Sophie and Jonathan made the process so smooth when getting our puppy!\"",
+      "title": "East Bay Golden Retrievers",
+      "type": "local_results",
+      "url": "https://www.eastbaygoldenretrievers.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "directions": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQBRoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASACEgIQkfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_3Ak2FUEJSCDCYZl-A6LdM_8msBbg&ctype=50&q=&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhawBegQINBAS&adurl=",
+        "website": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl="
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 3,
+      "sub_type": "results_for__palo_alto,_ca_94301",
+      "text": "Sponsored<|>Humane Society Silicon Valley<|> <|>My Ad Center<|>4.7<|>(1.7K)<|> · Non-profit organization<|>10+ years in business · 901 Ames Avenue · (408) 262-2133<|>Open<|> · Closes 5 PM",
+      "title": "Humane Society Silicon Valley   My Ad Center",
+      "type": "local_results",
+      "url": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl="
+    },
+    {
+      "cite": "https://www.gooddog.com  › golden-retriever › palo-alt...",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find a Golden Retriever puppy from reputable breeders near you in Palo Alto, CA . Screened for quality. Transportation to Palo Alto, CA available.",
+      "title": "25 cute Golden Retriever puppies for sale in Palo ...",
+      "type": "general",
+      "url": "https://www.gooddog.com/golden-retriever/palo-alto-ca"
+    },
+    {
+      "cite": "https://puppies.com  › golden-retriever › california › pal...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find your perfect Golden Retriever puppy for sale in Palo Alto, CA  at Puppies.com, the #1 trusted site for adding a furry friend to your family!",
+      "title": "Golden Retriever puppies for sale in Palo Alto, CA",
+      "type": "general",
+      "url": "https://puppies.com/find-a-puppy/golden-retriever/california/palo-alto"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": [
+        "What is the average cost of a golden retriever puppy?",
+        "How much would you pay for a golden retriever puppy?",
+        "What is the hardest part of owning a golden retriever?",
+        "Is $2500 a lot for a golden retriever?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is the average cost of a golden retriever puppy?<|>How much would you pay for a golden retriever puppy?<|>What is the hardest part of owning a golden retriever?<|>Is $2500 a lot for a golden retriever?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://marketplace.akc.org  › Puppies",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find  Golden Retriever Puppies  and Breeders in your area and helpful Golden Retriever information. All Golden Retriever found here are from AKC-Registered ...",
+      "title": "Golden Retriever Puppies For Sale In San Jose, CA",
+      "type": "general",
+      "url": "https://marketplace.akc.org/puppies/golden-retriever/California/San-Jose"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "heading": "Find related products & services",
+        "img_url": null,
+        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "urls": [
+          {
+            "misc": {},
+            "text": "Golden Retriever puppies |adoption near me",
+            "title": "",
+            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+adoption+near+me&mrq=1&mrqri=0&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAB6BAhDEAU"
+          },
+          {
+            "misc": {},
+            "text": "Golden Retriever puppies |free",
+            "title": "",
+            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+free&mrq=1&mrqri=1&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAF6BAhDEAY"
+          },
+          {
+            "misc": {},
+            "text": "Golden Retriever puppies |shelter",
+            "title": "",
+            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+shelter&mrq=1&mrqri=2&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAJ6BAhDEAc"
+          },
+          {
+            "misc": {},
+            "text": "Golden Retriever puppies |sacramento under $500",
+            "title": "",
+            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+sacramento+under+$500&mrq=1&mrqri=3&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAN6BAhDEAg"
+          },
+          {
+            "misc": {},
+            "text": "Golden Retriever puppies |for sale under $300",
+            "title": "",
+            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+for+sale+under+$300&mrq=1&mrqri=4&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAR6BAhDEAk"
+          },
+          {
+            "misc": {},
+            "text": "English| Golden Retriever puppies |near me",
+            "title": "",
+            "url": "http://www.google.com/search?q=English+Golden+Retriever+puppies+near+me&mrq=1&mrqri=5&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAV6BAhDEAo"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.classicheritagegoldenretrievers.com",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Discover  premier English Cream Golden Retriever puppies in Northern CA —AKC champion lines, Foundations In Learning trained, health guaranteed.",
+      "title": "English Cream Golden Retriever Puppies",
+      "type": "general",
+      "url": "https://www.classicheritagegoldenretrievers.com/"
+    },
+    {
+      "cite": "https://goldenmeadowsretrievers.com",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "California's renowned breeder of top-quality Golden Retrievers  and Vizslas puppies. Our puppies come with a three-year health guarantee and early socialization ... Read more",
+      "title": "Golden Meadows Retrievers: Home",
+      "type": "general",
+      "url": "https://goldenmeadowsretrievers.com/"
+    },
+    {
+      "cite": "https://puppies.com  › find-a-puppy › california",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find your perfect Golden Retriever puppy for sale in California at  Puppies .com, the #1 trusted site for adding a furry friend to your family!",
+      "title": "Golden Retriever puppies for sale in California",
+      "type": "general",
+      "url": "https://puppies.com/find-a-puppy/golden-retriever/california"
+    },
+    {
+      "cite": "10+ comments  ·  4 years ago",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "They are a lot of puppy . I've been told multiple times that puppyhood lasts until the age of 2 in golden retrievers. Having said that, they are also incredibly ... Read more",
+      "title": "How are golden retrievers as puppies ? Are they ...",
+      "type": "general",
+      "url": "https://www.reddit.com/r/goldenretrievers/comments/rx0z9v/how_are_golden_retrievers_as_puppies_are_they/"
+    },
+    {
+      "cite": "https://summersgoldens.com  › California",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Summer's Goldens is an AKC-registered Golden Retriever breeder  located in northeast Indiana. Our puppies are raised by our family in a calm, rural environment ... Read more",
+      "title": "San Jose Golden Retriever Puppies for Sale",
+      "type": "general",
+      "url": "https://summersgoldens.com/golden-retriever-puppies-for-sale/california/san-jose"
+    },
+    {
+      "cite": "51.4K+ followers",
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Looking for a purebred golden ! Must have papers. Puppy-1 years old. Message me · Anna Baldridge · Emer O'Callaghan Whitty and 5 others. 6 ... Read more",
+      "title": "Golden retriever Puppies for Adoption And ...",
+      "type": "general",
+      "url": "https://www.facebook.com/groups/1074486702982750/"
+    },
+    {
+      "cite": "https://www.puppyspot.com",
+      "cmpt_rank": 14,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Litters Ready To Go Home Soon",
+          "url": "https://www.puppyspot.com/puppies-for-sale/breed/golden-retriever%7Bignore%7D?cq_src=google_ads&cq_cmp=%7Bcampaignid%7D&cq_term=%7Bkeyword%7D&cq_med=%7Badtype%7D&cq_plac=%7Bplacement%7D&cq_net=%7Bnetwork%7D&cq_plt=gp"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "AKC Approved & Authorized",
+          "url": "https://www.puppyspot.com/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Search Puppies",
+          "url": "https://www.puppyspot.com/puppies-for-sale/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "About Us",
+          "url": "https://www.puppyspot.com/about-us"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Golden Retriever In California | View All Available Puppies",
+      "title": "Golden Retriever In California | View All Available Puppies",
+      "type": "ad",
+      "url": "https://www.puppyspot.com/puppies-for-sale-by-breeders/breed/golden-retriever"
+    },
+    {
+      "cite": "https://www.rrdog.org",
+      "cmpt_rank": 14,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Puppies Available For Adoption",
+          "url": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAIQCBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEAMYAiAEEgKBQfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_2TjLcqkMLEP_05yBeuTQKYXYOr6A&adurl=&q="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Dogs Available for Adoption",
+          "url": "https://rrdog.org/adoption/adults/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "See List Of Available Puppies",
+          "url": "https://rrdog.org/adoption/availablepuppies/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Foster",
+          "url": "https://rrdog.org/foster-a-dog/"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 1,
+      "sub_type": "submenu",
+      "text": "Rescue Puppies For Adoption | Don't Shop, Adopt",
+      "title": "Rescue Puppies For Adoption | Don't Shop, Adopt",
+      "type": "ad",
+      "url": "https://rrdog.org/adoption/availablepuppies/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

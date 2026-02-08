@@ -1,0 +1,381 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 19000000.0,
+    "result_estimate_time": 0.3
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "Peekaboo Kidz|YouTube • May 13, 2015",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=D1Ymc311XS8&t=110"
+          },
+          {
+            "misc": {},
+            "text": "Light-Dependent Reactions",
+            "title": "",
+            "url": "https://www.google.com/search?q=Light-Dependent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAE"
+          },
+          {
+            "misc": {},
+            "text": "Light-Independent Reactions",
+            "title": "",
+            "url": "https://www.google.com/search?q=Light-Independent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAQ"
+          },
+          {
+            "misc": {},
+            "text": "Calvin Cycle",
+            "title": "",
+            "url": "https://www.google.com/search?q=Calvin+Cycle&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAU"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://education.nationalgeographic.org/resource/photosynthesis/"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=fTXh7A7Uc2M"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.life.illinois.edu/govindjee/page2.html#:~:text=Photosynthesis%20is%20the%20process%20by%20which%20plants,and%20NADP%20available%20to%20continue%20the%20process"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/Photosynthesis"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.sciencefocus.com/nature/how-does-photosynthesis-work"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.britannica.com/science/photosynthesis"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis#:~:text=Photosynthesis%20is%20essential%20for%20life%20on%20Earth.,to%20produce%20carbohydrates.%20Created%20by%20Sal%20Khan."
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=CL9A8YhwUps"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.knowatom.com/science-phenomena-videos/6th-grade-science/photosynthesis"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.life.illinois.edu/govindjee/page2.html"
+          },
+          {
+            "misc": {},
+            "text": "",
+            "title": "",
+            "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis"
+          },
+          {
+            "misc": {},
+            "text": "Learn more",
+            "title": "",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          },
+          {
+            "misc": {},
+            "text": "Privacy Policy",
+            "title": "",
+            "url": "https://policies.google.com/privacy?hl=en"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "ai_overview",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://education.nationalgeographic.org  › resource › p...",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 26, 2025  —  Photosynthesis is the process by which  plants use sunlight, water, and carbon dioxide  to create oxygen and energy in the form of sugar. Read more",
+      "title": "Photosynthesis - National Geographic Education",
+      "type": "general",
+      "url": "https://education.nationalgeographic.org/resource/photosynthesis/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": [
+        "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis",
+        "What are the 4 steps of photosynthesis?",
+        "photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis",
+        "Why is photosynthesis a short answer?"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis<|>What are the 4 steps of photosynthesis?<|>photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis<|>Why is photosynthesis a short answer?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.snexplores.org  › article › explainer-how-p...",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 28, 2020  —  Photosynthesis is the process of  creating sugar and oxygen from carbon dioxide, water and sunlight . It happens through a long series of chemical reactions. Read more",
+      "title": "Explainer: How photosynthesis works",
+      "type": "general",
+      "url": "https://www.snexplores.org/article/explainer-how-photosynthesis-works"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Photosynthesis",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Photosynthesis occurs in two stages . In the first stage, light-dependent reactions or light reactions capture the energy of light and use it to make the ...",
+      "title": "Photosynthesis",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Photosynthesis"
+    },
+    {
+      "cite": "5.5M+ views  ·  4 years ago",
+      "cmpt_rank": 5,
+      "details": {
+        "duration": null,
+        "source": null
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "In this Amoeba Sisters updated photosynthesis video, you will find a general overview of thelight dependent and light independent reactions( ...",
+      "title": "Photosynthesis (UPDATED)",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=CMiPYHNNg28"
+    },
+    {
+      "cite": "https://pmc.ncbi.nlm.nih.gov  › articles › PMC5264509",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 26, 2016  —  The light reactions  occur  in the chloroplast thylakoid membrane and involve the splitting of water into oxygen, protons and electrons. The ... Read more",
+      "title": "Photosynthesis - PMC - NIH",
+      "type": "general",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5264509/"
+    },
+    {
+      "cite": "https://plants.ifas.ufl.edu  › water-quality › photosynthesis",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 15, 2025  —  Using just three simple ingredients (carbon dioxide, water, and sunlight ) plants and bacteria are able to make their own food. Early forms of ... Read more",
+      "title": "Photosynthesis - Plant Management in Florida Waters",
+      "type": "general",
+      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/photosynthesis/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "discussions_and_forums",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1ir3x1x/eli5_how_does_photosynthesis_work/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Why Photosynthesis Shows Irreducible Complexity",
+      "type": "perspectives",
+      "url": "https://www.youtube.com/watch?v=wDHxu52hnH0"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 1,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "ELI5 how does photosynthesis work?",
+      "type": "perspectives",
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1p7bhnq/eli5_how_does_photosynthesis_work/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 2,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "How does photosynthesis actually convert light into energy?",
+      "type": "perspectives",
+      "url": "https://www.reddit.com/r/answers/comments/1qefeqg/how_does_photosynthesis_actually_convert_light/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 3,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Photosynthesis | A-Level Biology Revision Livestream",
+      "type": "perspectives",
+      "url": "https://www.youtube.com/watch?v=dtZVbrog_mU"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 4,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight 🌿",
+      "type": "perspectives",
+      "url": "https://www.youtube.com/shorts/r90D4XK42c4"
+    },
+    {
+      "cite": "https://www.monash.edu  › ... › Biology › Photosynthesis",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "During photosynthesis,  plants take in carbon dioxide from the air and water from the soil . Using sunlight, they transform these into glucose (a sugar) and ... Read more",
+      "title": "The process of photosynthesis - Student Academic Success",
+      "type": "general",
+      "url": "https://www.monash.edu/student-academic-success/biology/photosynthesis/the-process-of-photosynthesis"
+    },
+    {
+      "cite": "https://earthobservatory.sg  › miscellaneous › how-does-...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Photosynthesis  is the process through which plants, algae and some bacteria use the sun's energy to create organic matter. Read more",
+      "title": "How does photosynthesis work",
+      "type": "general",
+      "url": "https://earthobservatory.sg/earth-science-education/earth-science-faqs/miscellaneous/how-does-photosynthesis-work"
+    },
+    {
+      "cite": "https://insideucr.ucr.edu  › stories › 2023/05/23 › how-do...",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 23, 2023  —  The trio zero in on photosynthesis, the process by which  green plants and some other organisms use sunlight to synthesize foods  from carbon dioxide and water. Read more",
+      "title": "How does photosynthesis work so efficiently? - Inside UCR",
+      "type": "general",
+      "url": "https://insideucr.ucr.edu/stories/2023/05/23/how-does-photosynthesis-work-so-efficiently"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

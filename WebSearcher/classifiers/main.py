@@ -13,18 +13,21 @@ class ClassifyMain:
 
         # Ordered list of classifiers to try
         component_classifiers = [
+            ClassifyMain.locations,          # Check locations (hotels, etc.) before top_stories
             ClassifyMain.top_stories,        # Check top stories
             ClassifyMain.discussions_and_forums, # Check discussions and forums
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
             ClassifyMain.news_quotes,        # Check news quotes
             ClassifyMain.img_cards,          # Check image cards
             ClassifyMain.images,             # Check images
+            ClassifyMain.ai_overview,        # Check AI overview
             ClassifyMain.knowledge_panel,    # Check knowledge panel
             ClassifyMain.knowledge_block,    # Check knowledge components
             ClassifyMain.banner,             # Check for banners
             ClassifyMain.finance_panel,      # Check finance panel (classify as knowledge)
             ClassifyMain.map_result,         # Check for map results
             ClassifyMain.general_questions,  # Check hybrid general questions
+            ClassifyMain.short_videos,       # Check short videos carousel
             ClassifyMain.twitter,            # Check twitter cards and results
             ClassifyMain.general,            # Check general components
             ClassifyMain.people_also_ask,    # Check people also ask
@@ -115,6 +118,15 @@ class ClassifyMain:
         return 'images' if any(conditions) else "unknown"
 
     @staticmethod
+    def ai_overview(cmpt: bs4.element.Tag) -> str:
+        """Classify AI Overview components"""
+        conditions = [
+            cmpt.find("div", {"class": "Fzsovc"}),
+            cmpt.find("h2") and cmpt.find("h2").get_text(strip=True) == "AI Overview",
+        ]
+        return 'knowledge' if any(conditions) else "unknown"
+
+    @staticmethod
     def knowledge_block(cmpt: bs4.element.Tag) -> str:
         """Classify knowledge block components"""
         conditions = [
@@ -133,7 +145,7 @@ class ClassifyMain:
             bool(cmpt.find("div", {"jscontroller": "Z2bSc"}))
         )
         condition['maps'] = webutils.check_dict_value(attrs, "data-hveid", "CAMQAA")
-        condition['hotels'] = cmpt.find("div", {"class": "zd2Jbb"})
+        condition['locations'] = cmpt.find("div", {"class": "zd2Jbb"})
         condition['events'] = cmpt.find("g-card", {"class": "URhAHe"})
         condition['jobs'] = cmpt.find("g-card", {"class": "cvoI5e"})
         text_list = list(cmpt.stripped_strings)
@@ -175,6 +187,24 @@ class ClassifyMain:
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
         conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
         return 'people_also_ask' if conditions else "unknown"
+
+    @staticmethod
+    def short_videos(cmpt: bs4.element.Tag) -> str:
+        """Classify short videos carousel"""
+        heading = cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'})
+        if heading and heading.get_text(strip=True) == 'Short videos':
+            return 'short_videos'
+        return "unknown"
+
+    @staticmethod
+    def locations(cmpt: bs4.element.Tag) -> str:
+        """Classify locations components (hotels, etc.)"""
+        heading = cmpt.find(attrs={'role': 'heading'})
+        if heading:
+            text = heading.get_text(strip=True)
+            if text.startswith('Hotels') or text.startswith('More Hotels'):
+                return 'locations'
+        return "unknown"
 
     @staticmethod
     def top_stories(cmpt: bs4.element.Tag) -> str:

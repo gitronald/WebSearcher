@@ -79,12 +79,19 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
     ):
         parsed['sub_type'] = 'finance'
 
-    elif cmpt.find('div', {'role':'button'}) and cmpt.find('div', {'role':'button'}).text == 'Dictionary':
+    elif (
+        cmpt.find('div', {'data-attrid': 'DictionaryHeader'}) or
+        (cmpt.find('div', {'role':'button'}) and cmpt.find('div', {'role':'button'}).text == 'Dictionary')
+    ):
         parsed['sub_type'] = 'dictionary'
-        span_first = cmpt.find('span', {'jsslot':''})
-        if span_first:
-            span = span_first.find_all('span')
-            details['text'] = get_text(span).split('Translate')[0] if span else None
+        vmod = cmpt.find('div', {'class': 'vmod'})
+        if vmod:
+            details['text'] = vmod.get_text(' ', strip=True).split('Translate')[0]
+        else:
+            span_first = cmpt.find('span', {'jsslot':''})
+            if span_first:
+                span = span_first.find_all('span')
+                details['text'] = get_text(span).split('Translate')[0] if span else None
 
     elif (
         cmpt.find('h2') and cmpt.find('h2').text == 'Translation Result' or
@@ -101,6 +108,12 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
         parsed['sub_type'] = 'election'
         span = cmpt.find_all(['span'])
         details['text'] = get_text(span) if span else None
+
+    elif cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'}):
+        heading_span = cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'})
+        if heading_span and heading_span.text.strip() in ('Things to know', 'Cosas que debes saber'):
+            parsed['sub_type'] = 'things_to_know'
+            details['heading'] = heading_span.text.strip()
 
     else:
         parsed['sub_type'] = 'panel'
