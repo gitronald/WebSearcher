@@ -25,6 +25,8 @@ TYPE_COLORS = {
     "top_stories":            "#ff6d01",
     "people_also_ask":        "#46bdc6",
     "searches_related":       "#7b1fa2",
+    "locations":              "#ff9800",
+    "shopping_ads":           "#e91e63",
     "unknown":                "#d32f2f",
     "ad":                     "#f44336",
 }
@@ -52,21 +54,44 @@ def highlight_components(html: str) -> tuple[str, dict]:
         (modified_html, type_counts)
     """
     soup = ws.make_soup(html)
+
+    # Record original positions of elements the extractor will remove,
+    # so we can re-insert them exactly where they were.
+    original_positions = {}
+    for elem_id in ["atvcap", "tads", "tadsb"]:
+        elem = soup.find("div", {"id": elem_id})
+        if elem and elem.parent:
+            original_positions[elem_id] = {
+                "parent": elem.parent,
+                "next_sibling": elem.next_sibling,
+            }
+
     ext = ws.Extractor(soup)
     ext.extract_components()
 
-    # Re-insert any elements that were extracted (removed) from the tree
-    # by the extractor pipeline (e.g. RHS panel)
-    for cmpt in ext.components:
-        if not cmpt.elem.parent:
-            soup.body.append(cmpt.elem)
-
+    # Classify before re-insertion so the DOM matches extraction state
     type_counts = {}
     for cmpt in ext.components:
         cmpt.classify_component()
         ctype = cmpt.type
         type_counts[ctype] = type_counts.get(ctype, 0) + 1
 
+    # Re-insert extracted elements at their original positions
+    for cmpt in ext.components:
+        if not cmpt.elem.parent:
+            elem_id = cmpt.elem.get("id", "")
+            if elem_id in original_positions:
+                pos = original_positions[elem_id]
+                if pos["next_sibling"] and pos["next_sibling"].parent:
+                    pos["next_sibling"].insert_before(cmpt.elem)
+                else:
+                    pos["parent"].append(cmpt.elem)
+            else:
+                soup.body.append(cmpt.elem)
+
+    # Apply highlight borders and labels
+    for cmpt in ext.components:
+        ctype = cmpt.type
         color = TYPE_COLORS.get(ctype, DEFAULT_COLOR)
         elem = cmpt.elem
 

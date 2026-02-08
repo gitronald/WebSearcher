@@ -11,59 +11,8 @@
   },
   "results": [
     {
-      "cite": "https://www.fairobserver.com › science › tech",
-      "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Latest science news",
-          "url": "https://www.fairobserver.com/category/more/science/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "World News",
-          "url": "https://www.fairobserver.com/category/world-news/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Science news 2024",
-          "url": "/aclk?sa=L&ai=DChsSEwiBv9rKi8aSAxWCs4MHHTvOD3wYACICCAIQBxoCZWY&co=1&ase=2&gclid=EAIaIQobChMIgb_ayovGkgMVgrODBx07zg98EAMYASAHEgLrZPD_BwE&cid=CAASugHkaM6_nR2Y1-WNgAybVtKDkcdFam_-897gUEHlM1e3HFA1JEIRR6eIREBbIBig14-2q9GWztSURpc4PLuCZwZE7vTT5CYxJTXnG_PD7k2ZFBsPOuqoQrI5CLpqhsyN3xKtvjDJVrJ4jrDA_uSm6Xv9z80g82jndYYrV4MyhMgG6Y-37OV6WcoBvcdlJhgB560UAPfwyn8GUwZPnLQmn1yjEcHguG75f7hMKVjctY579I_Px1I9EpL1M9c&cce=2&category=acrcp_v1_32&sig=AOD64_1LICCufg99l0FEtMwusdarVTkFIg&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "India News",
-          "url": "https://www.fairobserver.com/category/world-news/india-news/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Economics News",
-          "url": "https://www.fairobserver.com/category/economics/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "All Events",
-          "url": "https://www.fairobserver.com/events/"
-        }
-      ],
-      "error": null,
-      "section": "main",
-      "serp_rank": 0,
-      "sub_rank": 0,
-      "sub_type": "submenu",
-      "text": "Science and technology news | Computer science news",
-      "title": "Science and technology news | Computer science news",
-      "type": "ad",
-      "url": "https://www.fairobserver.com/category/more/science/"
-    },
-    {
       "cite": null,
-      "cmpt_rank": 1,
+      "cmpt_rank": 0,
       "details": {
         "heading": null,
         "img_url": null,
@@ -156,7 +105,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 1,
+      "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "ai_overview",
       "text": null,
@@ -166,11 +115,11 @@
     },
     {
       "cite": "https://www.reuters.com  › technology",
-      "cmpt_rank": 2,
+      "cmpt_rank": 1,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 2,
+      "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Technology ·  Big Tech's $600 billion spending plans exacerbate investors' AI headache  · Exclusive: Vista Equity Partners and Intel to lead investment in AI chip ... Read more",
@@ -180,11 +129,11 @@
     },
     {
       "cite": "https://www.wired.com",
-      "cmpt_rank": 3,
+      "cmpt_rank": 2,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
       "text": "We bring you the future as it happens. From  the latest in science and technology  to the big stories in business and culture, we've got you covered.",
@@ -194,11 +143,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 3,
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
@@ -208,11 +157,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 4,
       "sub_rank": 1,
       "sub_type": null,
       "text": null,
@@ -222,11 +171,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 5,
       "sub_rank": 2,
       "sub_type": null,
       "text": null,
@@ -236,11 +185,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 6,
       "sub_rank": 3,
       "sub_type": null,
       "text": null,
@@ -250,11 +199,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 7,
       "sub_rank": 4,
       "sub_type": null,
       "text": null,
@@ -264,11 +213,11 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 4,
+      "cmpt_rank": 3,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 8,
       "sub_rank": 5,
       "sub_type": null,
       "text": null,
@@ -278,11 +227,11 @@
     },
     {
       "cite": "https://www.cnbc.com  › technology",
-      "cmpt_rank": 5,
+      "cmpt_rank": 4,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 9,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Business news related to the technology industry , including Apple, Amazon, Microsoft, Google, and Facebook, plus consumer electronics, start-ups, ...",
@@ -292,11 +241,11 @@
     },
     {
       "cite": "https://www.cnn.com  › business › tech",
-      "cmpt_rank": 6,
+      "cmpt_rank": 5,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 10,
       "sub_rank": 0,
       "sub_type": null,
       "text": "View the latest  technology headlines , gadget and smartphone trends, and insights from tech industry leaders.",
@@ -306,11 +255,11 @@
     },
     {
       "cite": "https://www.geekwire.com",
-      "cmpt_rank": 7,
+      "cmpt_rank": 6,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 11,
       "sub_rank": 0,
       "sub_type": null,
       "text": "GeekWire is a fast-growing, national technology news site  with strong roots ... news, expert analysis and unique insights into the technology industry.",
@@ -320,11 +269,11 @@
     },
     {
       "cite": "https://news.google.com  › topics",
-      "cmpt_rank": 8,
+      "cmpt_rank": 7,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "No information is available for this page.",
@@ -334,11 +283,11 @@
     },
     {
       "cite": "https://www.theguardian.com  › technology",
-      "cmpt_rank": 9,
+      "cmpt_rank": 8,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Latest Technology news, comment and analysis  from the Guardian, the world's leading liberal voice.",
@@ -348,11 +297,11 @@
     },
     {
       "cite": "https://www.technewsworld.com",
-      "cmpt_rank": 10,
+      "cmpt_rank": 9,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Tech news , reviews and analysis of computing, enterprise IT, cybersecurity, mobile technology, cloud computing, tech industry trends, how-tos, ...",
@@ -362,11 +311,11 @@
     },
     {
       "cite": "https://techcrunch.com",
-      "cmpt_rank": 11,
+      "cmpt_rank": 10,
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 15,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Prince Andrew advisor pitched Jeffrey Epstein on investing in EV startups  like Lucid Motors · Uber appoints new CFO as its AV plans accelerate · Apeiron Labs gets ... Read more",
@@ -376,7 +325,7 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 12,
+      "cmpt_rank": 11,
       "details": [
         "What is the newest news about technology?",
         "Which technology is trending now?",
@@ -385,13 +334,64 @@
       ],
       "error": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": null,
       "text": "What is the newest news about technology?<|>Which technology is trending now?<|>Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...<|>What is the best site for tech news?",
       "title": null,
       "type": "people_also_ask",
       "url": null
+    },
+    {
+      "cite": "https://www.fairobserver.com › science › tech",
+      "cmpt_rank": 12,
+      "details": [
+        {
+          "misc": {},
+          "text": "",
+          "title": "Latest science news",
+          "url": "https://www.fairobserver.com/category/more/science/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "World News",
+          "url": "https://www.fairobserver.com/category/world-news/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Science news 2024",
+          "url": "/aclk?sa=L&ai=DChsSEwiBv9rKi8aSAxWCs4MHHTvOD3wYACICCAIQBxoCZWY&co=1&ase=2&gclid=EAIaIQobChMIgb_ayovGkgMVgrODBx07zg98EAMYASAHEgLrZPD_BwE&cid=CAASugHkaM6_nR2Y1-WNgAybVtKDkcdFam_-897gUEHlM1e3HFA1JEIRR6eIREBbIBig14-2q9GWztSURpc4PLuCZwZE7vTT5CYxJTXnG_PD7k2ZFBsPOuqoQrI5CLpqhsyN3xKtvjDJVrJ4jrDA_uSm6Xv9z80g82jndYYrV4MyhMgG6Y-37OV6WcoBvcdlJhgB560UAPfwyn8GUwZPnLQmn1yjEcHguG75f7hMKVjctY579I_Px1I9EpL1M9c&cce=2&category=acrcp_v1_32&sig=AOD64_1LICCufg99l0FEtMwusdarVTkFIg&adurl=&q="
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "India News",
+          "url": "https://www.fairobserver.com/category/world-news/india-news/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "Economics News",
+          "url": "https://www.fairobserver.com/category/economics/"
+        },
+        {
+          "misc": {},
+          "text": "",
+          "title": "All Events",
+          "url": "https://www.fairobserver.com/events/"
+        }
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Science and technology news | Computer science news",
+      "title": "Science and technology news | Computer science news",
+      "type": "ad",
+      "url": "https://www.fairobserver.com/category/more/science/"
     },
     {
       "cite": null,

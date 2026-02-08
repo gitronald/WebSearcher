@@ -31,9 +31,10 @@ class ExtractorMain:
 
     def extract(self):
         self.get_layout()
+        self._ads_top_carousel()
         self._ads_top()
-        self._ads_bottom()
         self._main_column()
+        self._ads_bottom()
         log.debug(f"main_components: {self.components.cmpt_rank_counter:,}")
 
     def get_layout(self):
@@ -70,6 +71,13 @@ class ExtractorMain:
         self.layout_label = layout_label
         self.layouts.update(layouts)
         self.layout_divs.update(layout_divs)
+
+    def _ads_top_carousel(self):
+        """Extract sponsored carousel ads (e.g. Sponsored hotels via atvcap)"""
+        ads = self.soup.find('div', {'id':'atvcap'})
+        if ads and webutils.get_text(ads):
+            ads.extract()
+            self.components.add_component(ads, section='main', type='shopping_ads')
 
     def _ads_top(self):
         ads = self.soup.find('div', {'id':'tads'})
@@ -196,7 +204,18 @@ class ExtractorMain:
         for tb in soup:
             if webutils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
                 kd = webutils.find_all_divs(tb, "div", {"jscontroller":["qTdDb","OWrb3e"]})
-                out.extend(kd)
+                if kd:
+                    out.extend(kd)
+                else:
+                    # Extract non-ad children (tvcap/tads handled by _ads_top)
+                    for ch in tb.children:
+                        if not hasattr(ch, 'name') or not ch.name:
+                            continue
+                        if ch.find('div', {'id': 'tvcap'}) or ch.find('div', {'id': 'tads'}):
+                            continue
+                        if ch.name == 'h1':
+                            continue
+                        out.append(ch)
             elif ExtractorMain.is_dictionary_header(tb):
                 continue  # Skip dictionary word header (content is in definitions component)
             else:
@@ -246,6 +265,8 @@ class ExtractorMain:
         if not c: return False
         bad = {"Main results","Twitter Results",""}
         if c.text in bad: return False
+        # Skip bottom ads wrapper (extracted separately)
+        if c.find('div', {'id': 'tadsb'}): return False
         # hidden survey
         cond = [
             c.find('promo-throttler'),

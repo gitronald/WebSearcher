@@ -18,6 +18,7 @@ from .perspectives import parse_perspectives
 from .recent_posts import parse_recent_posts
 
 from .local_results import parse_local_results
+from .locations import parse_locations
 from .map_results import parse_map_results
 from .news_quotes import parse_news_quotes
 from .people_also_ask import parse_people_also_ask
@@ -55,6 +56,7 @@ main_parsers = [
     ('latest_from', parse_latest_from, 'Latest From'),
     ('local_news', parse_local_news, 'Local News'),
     ('local_results', parse_local_results, 'Local Results'),
+    ('locations', parse_locations, 'Locations'),
     ('map_results', parse_map_results, 'Map Results'),
     ('news_quotes', parse_news_quotes, 'News Quotes'),
     ('people_also_ask', parse_people_also_ask, 'People Also Ask'),

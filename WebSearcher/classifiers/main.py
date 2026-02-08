@@ -13,6 +13,7 @@ class ClassifyMain:
 
         # Ordered list of classifiers to try
         component_classifiers = [
+            ClassifyMain.locations,          # Check locations (hotels, etc.) before top_stories
             ClassifyMain.top_stories,        # Check top stories
             ClassifyMain.discussions_and_forums, # Check discussions and forums
             ClassifyHeaderText.classify,     # Check levels 2 & 3 header text
@@ -144,7 +145,7 @@ class ClassifyMain:
             bool(cmpt.find("div", {"jscontroller": "Z2bSc"}))
         )
         condition['maps'] = webutils.check_dict_value(attrs, "data-hveid", "CAMQAA")
-        condition['hotels'] = cmpt.find("div", {"class": "zd2Jbb"})
+        condition['locations'] = cmpt.find("div", {"class": "zd2Jbb"})
         condition['events'] = cmpt.find("g-card", {"class": "URhAHe"})
         condition['jobs'] = cmpt.find("g-card", {"class": "cvoI5e"})
         text_list = list(cmpt.stripped_strings)
@@ -193,6 +194,16 @@ class ClassifyMain:
         heading = cmpt.find('span', {'role': 'heading', 'class': 'IFnjPb'})
         if heading and heading.get_text(strip=True) == 'Short videos':
             return 'short_videos'
+        return "unknown"
+
+    @staticmethod
+    def locations(cmpt: bs4.element.Tag) -> str:
+        """Classify locations components (hotels, etc.)"""
+        heading = cmpt.find(attrs={'role': 'heading'})
+        if heading:
+            text = heading.get_text(strip=True)
+            if text.startswith('Hotels') or text.startswith('More Hotels'):
+                return 'locations'
         return "unknown"
 
     @staticmethod
