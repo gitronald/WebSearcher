@@ -140,18 +140,18 @@ def main(
 
     print(f"Running {len(queries)} queries, saving to {data_dir}")
 
-    for i, qry in enumerate(queries):
+    # Reuse a single browser session across all queries
+    se = ws.SearchEngine(
+        method=method,
+        selenium_config={
+            "headless": headless,
+            "use_subprocess": use_subprocess,
+            "driver_executable_path": driver_executable_path,
+            "version_main": version_main,
+        }
+    )
 
-        # Setup search engine
-        se = ws.SearchEngine(
-            method=method,
-            selenium_config={
-                "headless": headless,
-                "use_subprocess": use_subprocess,
-                "driver_executable_path": driver_executable_path,
-                "version_main": version_main,
-            }
-        )
+    for i, qry in enumerate(queries):
 
         # Search, parse, and save
         se.search(qry, ai_expand=ai_expand)       # Conduct Search
