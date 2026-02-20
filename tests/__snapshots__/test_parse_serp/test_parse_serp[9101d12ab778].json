@@ -13,20 +13,6 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
-      "error": "no subcomponents parsed",
-      "section": "main",
-      "serp_rank": 0,
-      "sub_rank": 0,
-      "sub_type": null,
-      "text": "Ads<|>Sponsored Car tire change | Palo Alto<|>My Ad Center<|>Stress-Free Auto Care<|>4.5<|>(<|>532<|>)<|>·<|>Car tire change<|>21+ years in business<|>·<|>Serves Palo Alto<|>Open now<|>·<|>Full warranty<|>·<|>Offers discounts<|>Get phone number<|>Stress-Free Auto Care<|>Scan to call<|>Specialized Auto Care Center<|>4.7<|>(<|>187<|>)<|>·<|>Car tire change<|>36+ years in business<|>·<|>Serves Palo Alto<|>Open now<|>Message<|>Get phone number<|>Specialized Auto Care Center<|>Scan to call<|>More Auto Repair Shops",
-      "title": null,
-      "type": "ad",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 1,
       "details": {
         "heading": null,
         "img_url": null,
@@ -119,12 +105,26 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 1,
+      "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "ai_overview",
       "text": null,
       "title": null,
       "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": null,
+      "error": "no subcomponents parsed",
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Ads<|>Sponsored Car tire change | Palo Alto<|>My Ad Center<|>Stress-Free Auto Care<|>4.5<|>(<|>532<|>)<|>·<|>Car tire change<|>21+ years in business<|>·<|>Serves Palo Alto<|>Open now<|>·<|>Full warranty<|>·<|>Offers discounts<|>Get phone number<|>Stress-Free Auto Care<|>Scan to call<|>Specialized Auto Care Center<|>4.7<|>(<|>187<|>)<|>·<|>Car tire change<|>36+ years in business<|>·<|>Serves Palo Alto<|>Open now<|>Message<|>Get phone number<|>Specialized Auto Care Center<|>Scan to call<|>More Auto Repair Shops",
+      "title": null,
+      "type": "ad",
       "url": null
     },
     {
