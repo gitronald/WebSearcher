@@ -17,6 +17,7 @@ from .shopping_ads import parse_shopping_ads
 
 SUB_TYPES = [
     "legacy",
+    "local_service",
     "secondary",
     "standard",
     "shopping",
@@ -33,6 +34,7 @@ def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
     label_divs = {
         "legacy": webutils.find_all_divs(cmpt, 'div', {'class': 'ad_cclk'}),
+        "local_service": cmpt.find_all('gls-profile-entrypoint'),
         "secondary": webutils.find_all_divs(cmpt, 'div', {'class': 'd5oMvf'}),
         "shopping": webutils.find_all_divs(cmpt, 'div', {'class': 'commercial-unit-desktop-top'}),
         "standard": webutils.find_all_divs(cmpt, 'div', {'class': 'uEierd'}),
@@ -49,6 +51,7 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
 
     subtype_parsers = {
         'legacy': parse_ad_legacy,
+        'local_service': parse_ad_local_service,
         'secondary': parse_ad_secondary,
         'shopping': parse_ad_shopping,
         'standard': parse_ad_standard,
@@ -93,6 +96,40 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
         return details_list.to_dicts()
 
     return _parse_ad_legacy(cmpt)
+
+# ------------------------------------------------------------------------------
+
+def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
+    """Parse local service ads (gls-profile-entrypoint elements)"""
+
+    def _parse_profile(profile: bs4.element.Tag, sub_rank: int) -> dict:
+        title = webutils.get_text(profile, 'span', {'class': 'bk5vhd'})
+        url = webutils.get_link(profile)
+
+        detail_rows = profile.find_all('div', {'class': 'P4vvKf'})
+        text = ' · '.join(
+            row.get_text(' ', strip=True) for row in detail_rows
+        ) if detail_rows else None
+
+        details = DetailsList()
+        rating_span = profile.find('span', attrs={'aria-label': True})
+        if rating_span:
+            details.append(DetailsItem(text=rating_span['aria-label']))
+
+        return BaseResult(
+            type='ad',
+            sub_type='local_service',
+            sub_rank=sub_rank,
+            title=title,
+            url=url,
+            cite=None,
+            text=text,
+            details=details.to_dicts(),
+            error=None
+        ).model_dump()
+
+    profiles = cmpt.find_all('gls-profile-entrypoint')
+    return [_parse_profile(p, i) for i, p in enumerate(profiles)]
 
 # ------------------------------------------------------------------------------
 
