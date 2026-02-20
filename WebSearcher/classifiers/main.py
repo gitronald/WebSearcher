@@ -29,6 +29,7 @@ class ClassifyMain:
             ClassifyMain.general_questions,  # Check hybrid general questions
             ClassifyMain.short_videos,       # Check short videos carousel
             ClassifyMain.twitter,            # Check twitter cards and results
+            ClassifyMain.flights,            # Check flights widgets
             ClassifyMain.general,            # Check general components
             ClassifyMain.people_also_ask,    # Check people also ask
             ClassifyMain.knowledge_box,      # Check flights, maps, hotels, events, jobs
@@ -68,6 +69,14 @@ class ClassifyMain:
     def finance_panel(cmpt: bs4.element.Tag) -> str:
         condition = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
         return 'knowledge' if condition else "unknown"
+
+    @staticmethod
+    def flights(cmpt: bs4.element.Tag) -> str:
+        """Classify Google Flights widgets (prices, status)"""
+        heading = cmpt.find(attrs={'role': 'heading'})
+        if heading and heading.get_text(strip=True).startswith('Flight'):
+            return 'flights'
+        return "unknown"
 
     @staticmethod
     def general(cmpt: bs4.element.Tag) -> str:
