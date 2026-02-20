@@ -149,6 +149,59 @@ class ComponentList:
         self.components.append(component)
         self.cmpt_rank_counter += 1
 
+    def reorder_by_dom_position(self, dom_positions):
+        """Reorder components by DOM position within each section, reassign cmpt_rank.
+
+        dom_positions maps id(element) -> (start_pos, end_pos) from a pre-order
+        traversal. When a component's element is an ancestor of another
+        component's element (detected via range containment), the ancestor's
+        effective position is shifted to the first child after the nested
+        component, since the ancestor's own position always precedes its
+        descendants in document order.
+        """
+        section_order = {"header": 0, "main": 1, "footer": 2, "rhs": 3}
+        main_components = [c for c in self.components if c.section == "main"]
+
+        def _effective_pos(cmpt):
+            rng = dom_positions.get(id(cmpt.elem))
+            if rng is None:
+                return float('inf')
+            start, end = rng
+
+            # Check if this element's range contains another component
+            for other in main_components:
+                if other is cmpt:
+                    continue
+                other_rng = dom_positions.get(id(other.elem))
+                if other_rng is None:
+                    continue
+                o_start, o_end = other_rng
+                if start <= o_start <= end:
+                    # cmpt.elem is an ancestor of other.elem — find
+                    # first direct child positioned after the nested subtree
+                    best = float('inf')
+                    for ch in cmpt.elem.children:
+                        if not hasattr(ch, 'name') or not ch.name:
+                            continue
+                        ch_rng = dom_positions.get(id(ch))
+                        if ch_rng and ch_rng[0] > o_end and ch_rng[0] < best:
+                            best = ch_rng[0]
+                    if best != float('inf'):
+                        return best
+
+            return start
+
+        def sort_key(cmpt):
+            section_idx = section_order.get(cmpt.section, 1)
+            if cmpt.section == "main":
+                return (section_idx, _effective_pos(cmpt))
+            return (section_idx, cmpt.cmpt_rank)
+
+        self.components.sort(key=sort_key)
+        for i, cmpt in enumerate(self.components):
+            cmpt.cmpt_rank = i
+        self.cmpt_rank_counter = len(self.components)
+
     def export_component_results(self):
         """Export the results of all components"""
         results = []
