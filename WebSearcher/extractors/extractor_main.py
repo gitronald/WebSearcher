@@ -33,8 +33,8 @@ class ExtractorMain:
         self.get_layout()
         self._ads_top_carousel()
         self._ads_top()
-        self._main_column()
         self._ads_bottom()
+        self._main_column()
         log.debug(f"main_components: {self.components.cmpt_rank_counter:,}")
 
     def get_layout(self):
@@ -110,6 +110,7 @@ class ExtractorMain:
             "standard-0": (rso_div.find('div', {'id':'kp-wp-tab-overview'}), 'div', [{'class':'TzHB6b'}, {'class':'A6K0A'}]),
             "standard-1": (rso_div.find('div', {'id':'kp-wp-tab-cont-Songs', 'role':'tabpanel'}), None, None),
             "standard-2": (rso_div.find('div', {'id':'kp-wp-tab-SportsStandings'}), None, None),
+            "standard-4": (rso_div.find('div', {'id':'kp-wp-tab-AIRFARES'}), 'div', [{'class':'A6K0A'}]),
         }
         for layout_name, (layout_div, check_tag, check_attrs_list) in standard_layouts.items():
             if layout_div:
@@ -169,6 +170,15 @@ class ExtractorMain:
             column.extend(main_divs)
             column = [div for div in column if div.name not in {'script', 'style'}]
             column = webutils.filter_empty_divs(column)
+            return column
+
+        if self.layout_label == "standard-4":
+            column = []
+            top_divs = ExtractorMain.extract_top_divs(self.layout_divs['top-bars']) or []
+            tab_airfares = rso_div.find('div', {'id':'kp-wp-tab-AIRFARES'})
+            main_divs = tab_airfares.find_all('div', {'class':'A6K0A'}, recursive=False) if tab_airfares else []
+            column.extend(top_divs)
+            column.extend(main_divs)
             return column
             
 
