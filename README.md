@@ -43,8 +43,8 @@ and position-based specifications.
 # Install from PyPI
 pip install WebSearcher
 
-# Or install with Poetry
-poetry add WebSearcher
+# Or install with uv
+uv add WebSearcher
 
 # Install development version from GitHub
 pip install git+https://github.com/gitronald/WebSearcher@dev
@@ -55,10 +55,10 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 
 ### Example Search Script
 
-There's an example search script that can be run from the command line with poetry with a search query argument (`-q` or `--query`).
+There's an example search script that can be run from the command line with uv with a search query argument (`-q` or `--query`).
 
 ```bash
-poetry run demo-search -q "election news"
+uv run demo-search -q "election news"
 ```
 
 Search results are constantly changing, especially for news, but just now (see timestamp below), that search returned the following details (only a subset of columns are shown):
@@ -224,22 +224,22 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 
 Run tests:
 ```bash
-poetry run pytest tests/ -q
+uv run pytest tests/ -q
 ```
 
 Update snapshots:
 ```bash
-poetry run pytest tests/ --snapshot-update
+uv run pytest tests/ --snapshot-update
 ```
 
 Show snapshot diffs with `-vv`:
 ```bash
-poetry run pytest tests/ -vv
+uv run pytest tests/ -vv
 ```
 
 Run a specific snapshot test by serp_id prefix:
 ```bash
-poetry run pytest tests/ -k "45b6e019bfa2"
+uv run pytest tests/ -k "45b6e019bfa2"
 ```
 
 ### Test Fixtures
@@ -247,8 +247,8 @@ poetry run pytest tests/ -k "45b6e019bfa2"
 Tests load from compressed fixtures in `tests/fixtures/`. To update fixtures after collecting new demo data:
 
 ```bash
-poetry run python scripts/condense_fixtures.py 0.6.7
-poetry run pytest tests/ --snapshot-update
+uv run python scripts/condense_fixtures.py 0.6.7
+uv run pytest tests/ --snapshot-update
 ```
 
 ---
@@ -259,7 +259,7 @@ Runs the test suite on every push to `dev`.
 
 **Release Workflow** (`.github/workflows/publish.yml`)
 Publishes to PyPI when a pull request is merged into `master`:
-- Builds the package using Poetry
+- Builds the package using uv
 - Publishes using trusted publishing (no API tokens required)
 
 To release a new version:

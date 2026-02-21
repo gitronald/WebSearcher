@@ -1,0 +1,264 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1400000000.0,
+    "result_estimate_time": 0.37
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "Netflix|Subscription|Watch",
+            "title": "",
+            "url": "https://www.netflix.com/watch/70143836?source=35"
+          },
+          {
+            "misc": {},
+            "text": "YouTube|From |$1.99|Watch",
+            "title": "",
+            "url": "https://www.youtube.com/watch?v=9VYSQkZP4Gc"
+          },
+          {
+            "misc": {},
+            "text": "Apple TV|$1.99|Watch",
+            "title": "",
+            "url": "https://tv.apple.com/us/episode/pilot/umc.cmc.6trodclp7sphpy2gelbgwb4fk?action=playSmartEpisode"
+          },
+          {
+            "misc": {},
+            "text": "Fandango at Home|$1.99|Watch",
+            "title": "",
+            "url": "https://athome.fandango.com/content/browse/details/Breaking-Bad-Felina/460653?cmp=OrganicSearch~Vudu~GoogleWatch"
+          },
+          {
+            "misc": {},
+            "text": "Amazon Prime Video|From |$1.99|Watch",
+            "title": "",
+            "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.f4a9f77c-aa6a-5843-447e-79083319cf7a?autoplay=0&ref_=atv_cf_strg_wb"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.netflix.com  › title",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A high school chemistry teacher dying of cancer teams with a former student to secure his family's future by manufacturing and selling crystal meth. Read more",
+      "title": "Watch Breaking Bad",
+      "type": "general",
+      "url": "https://www.netflix.com/title/70143836"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": [
+        "Where can I watch Breaking Bad all seasons?",
+        "Where can I watch Breaking Bad other than Netflix?",
+        "Breaking Bad Season 3 - Prime Video Prime Video https://www.primevideo.com  › detail › Breaking-Bad Prime Video https://www.primevideo.com  › detail › Breaking-Bad",
+        "Breaking Bad - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Where can I watch Breaking Bad all seasons?<|>Where can I watch Breaking Bad other than Netflix?<|>Breaking Bad Season 3 - Prime Video Prime Video https://www.primevideo.com  › detail › Breaking-Bad Prime Video https://www.primevideo.com  › detail › Breaking-Bad<|>Breaking Bad - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "50+ comments  ·  9 months ago",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "I watch it on  Plex  it's a free streaming service and they play BB and BCS 24/7 so there's commercials but it's free. Netlix on my Apple TV. Pop ... Read more",
+      "title": "How are you watching BB? : r/breakingbad",
+      "type": "general",
+      "url": "https://www.reddit.com/r/breakingbad/comments/1k7rhgd/how_are_you_watching_bb/"
+    },
+    {
+      "cite": "https://www.philo.com  › player › player › show",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Watch Breaking Bad Streaming Online on Philo . Mild-mannered high school chemistry teacher Walter White thinks his life can't get much worse. His salary barely ... Read more",
+      "title": "Watch Breaking Bad Streaming Online on Philo",
+      "type": "general",
+      "url": "https://www.philo.com/player/player/show/U2hvdzo2MDg1NDg4OTk2NDg0NDk4OTY"
+    },
+    {
+      "cite": "Reddit  ·  r/breakingbad  ·  10+ comments  ·  2 months ago",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Hello I’ve been looking to watch breaking bad, but I don’t know how to start",
+      "type": "discussions_and_forums",
+      "url": "https://www.reddit.com/r/breakingbad/comments/1pcditr/hello_ive_been_looking_to_watch_breaking_bad_but/"
+    },
+    {
+      "cite": "Facebook  ·  Easy and tasty recipes  ·  110+ comments  ·  10 months ago",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Hi where can i watch Breaking bad for free ?? Cuz im kinda broke lol",
+      "type": "discussions_and_forums",
+      "url": "https://www.facebook.com/groups/910449790414983/posts/1226444015482224/"
+    },
+    {
+      "cite": "Facebook  ·  Easy and tasty recipes  ·  40+ comments  ·  9 months ago",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "How to watch breaking bad full tv series please give me link❤",
+      "type": "discussions_and_forums",
+      "url": "https://www.facebook.com/groups/910449790414983/posts/1266490244810934/"
+    },
+    {
+      "cite": "https://www.imdb.com  › title",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine with a former student to secure his family's ... Read more",
+      "title": "Breaking Bad (TV Series 2008–2013)",
+      "type": "general",
+      "url": "https://www.imdb.com/title/tt0903747/"
+    },
+    {
+      "cite": "https://www.justwatch.com  › tv-show › breaking-bad",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Currently you are able to watch \"Breaking Bad\" streaming on  Netflix , Netflix Standard with Ads or buy it as download on Fandango At Home, Amazon Video, Apple TV ... Read more",
+      "title": "Breaking Bad - watch tv show streaming online",
+      "type": "general",
+      "url": "https://www.justwatch.com/us/tv-show/breaking-bad"
+    },
+    {
+      "cite": "https://www.amazon.com  › Breaking-Bad-Season-1",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Unassuming high school chemistry teacher Walter White (Bryan Cranston) discovers he has lung cancer. Desperate to secure his family's financial future. Read more",
+      "title": "Watch Breaking Bad - Season 01 | Prime Video",
+      "type": "general",
+      "url": "https://www.amazon.com/Breaking-Bad-Season-1/dp/B0012QRPU4"
+    },
+    {
+      "cite": "https://www.tvguide.com  › tvshows › breaking-bad",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find out how to watch  Breaking  Bad. Stream the latest seasons and episodes, watch trailers, and more for Breaking Bad at TV Guide.",
+      "title": "Breaking Bad - Where to Watch and Stream",
+      "type": "general",
+      "url": "https://www.tvguide.com/tvshows/breaking-bad/1030019630/"
+    },
+    {
+      "cite": "https://athome.fandango.com  › content › browse › details",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Watch Breaking Bad: The Final Season on Fandango at Home ! Buy and binge watch the entire series on Fandango at Home today.",
+      "title": "Buy & Watch Breaking Bad: The Final Season - Vudu",
+      "type": "general",
+      "url": "https://athome.fandango.com/content/browse/details/Breaking-Bad-The-Final-Season/460609"
+    },
+    {
+      "cite": "https://tv.youtube.com  › AMC",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Start a Free Trial to watch Breaking Bad on YouTube TV  (and cancel anytime). Stream live TV from ABC, CBS, FOX, NBC, ESPN & popular cable networks.",
+      "title": "Breaking Bad | YouTube TV (Free Trial)",
+      "type": "general",
+      "url": "https://tv.youtube.com/browse/breaking-bad-UCxoxXLn_0TfdvIVbVWIMdfw"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

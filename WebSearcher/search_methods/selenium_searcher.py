@@ -89,7 +89,8 @@ class SeleniumDriver:
             self.log.exception(f'SERP | Chromedriver error | {str(e)}')
         finally:
             self.delete_cookies()
-            return response_output
+
+        return response_output
 
     def expand_ai_overview(self):
         """Expand AI overview box by clicking it"""

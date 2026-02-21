@@ -25,6 +25,8 @@ TYPE_COLORS = {
     "top_stories":            "#ff6d01",
     "people_also_ask":        "#46bdc6",
     "searches_related":       "#7b1fa2",
+    "locations":              "#ff9800",
+    "shopping_ads":           "#e91e63",
     "unknown":                "#d32f2f",
     "ad":                     "#f44336",
 }
@@ -41,50 +43,83 @@ def load_serp_html(serps_path: str, index: int = 0) -> str:
 
 
 def highlight_components(html: str) -> tuple[str, dict]:
-    """Extract, classify, and inject highlights into the actual HTML.
+    """Classify components and inject CSS highlights without altering DOM layout.
 
-    Uses the same extractor and classifier pipeline as parse_serp, then
-    modifies the BeautifulSoup elements in-place with colored borders
-    and type labels before serializing back to HTML.
+    Runs the extractor/classifier on a copy of the soup to identify and classify
+    components. Tags the matching elements in the original soup with data
+    attributes, then applies highlights via a <style> block. This avoids DOM
+    mutations that break Google's CSS (e.g., oversized PAA chevrons).
 
     Returns:
         (modified_html, type_counts)
     """
-    from bs4 import Tag
+    import copy
 
     soup = ws.make_soup(html)
-    ext = ws.Extractor(soup)
+
+    # Tag every element with a unique ID so we can map between copy and original
+    for i, elem in enumerate(soup.find_all(True)):
+        elem["data-ws-id"] = str(i)
+
+    # Classify on a deep copy (extractor mutates the DOM)
+    soup_copy = copy.copy(soup)
+    ext = ws.Extractor(soup_copy)
     ext.extract_components()
 
     type_counts = {}
+    classifications = []  # (data-ws-id, rank, type)
     for cmpt in ext.components:
         cmpt.classify_component()
         ctype = cmpt.type
         type_counts[ctype] = type_counts.get(ctype, 0) + 1
+        ws_id = cmpt.elem.get("data-ws-id")
+        if ws_id:
+            classifications.append((ws_id, cmpt.cmpt_rank, ctype))
 
+    # Apply data attributes to the original soup
+    for ws_id, rank, ctype in classifications:
+        elem = soup.find(attrs={"data-ws-id": ws_id})
+        if elem:
+            elem["data-ws-rank"] = str(rank)
+            elem["data-ws-type"] = ctype
+
+    # Clean up temporary IDs
+    for elem in soup.find_all(attrs={"data-ws-id": True}):
+        del elem["data-ws-id"]
+
+    # Build highlight CSS
+    style_rules = []
+    for ws_id, rank, ctype in classifications:
         color = TYPE_COLORS.get(ctype, DEFAULT_COLOR)
-        elem = cmpt.elem
-
-        # Add border style to the element
-        existing_style = elem.get("style", "")
-        border_style = (
-            f"border: 3px solid {color} !important; "
-            f"border-radius: 4px !important; "
-            f"margin-top: 24px !important; "
-            f"position: relative !important; "
+        style_rules.append(
+            f'[data-ws-rank="{rank}"] {{'
+            f"  outline: 3px solid {color};"
+            f"  outline-offset: -3px;"
+            f"  border-radius: 4px;"
+            f"  margin-top: 24px;"
+            f"}}"
+            f'[data-ws-rank="{rank}"]::before {{'
+            f'  content: "{rank}: {ctype}";'
+            f"  display: inline-block;"
+            f"  font: bold 11px monospace;"
+            f"  color: {color};"
+            f"  background: white;"
+            f"  padding: 0 4px;"
+            f"  border: 1px solid {color};"
+            f"  border-radius: 2px;"
+            f"  position: relative;"
+            f"  top: -14px;"
+            f"  left: 4px;"
+            f"  z-index: 9999;"
+            f"}}"
         )
-        elem["style"] = f"{existing_style}; {border_style}"
 
-        # Create a label tag
-        label = soup.new_tag("div")
-        label.string = f"{cmpt.cmpt_rank}: {ctype}"
-        label["style"] = (
-            f"position: absolute; top: -18px; left: 4px; z-index: 9999; "
-            f"font: bold 11px monospace; color: {color}; "
-            f"background: white; padding: 0 4px; "
-            f"border: 1px solid {color}; border-radius: 2px; "
-        )
-        elem.insert(0, label)
+    highlight_style = soup.new_tag("style")
+    highlight_style.string = "\n".join(style_rules)
+    if soup.head:
+        soup.head.append(highlight_style)
+    else:
+        soup.insert(0, highlight_style)
 
     return str(soup), type_counts
 

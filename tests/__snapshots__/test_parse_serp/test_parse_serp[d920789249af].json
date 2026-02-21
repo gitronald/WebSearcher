@@ -1,0 +1,342 @@
+{
+  "features": {
+    "infinity_scroll": false,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 321000000.0,
+    "result_estimate_time": 0.67
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unknown",
+      "text": null,
+      "title": null,
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › United_States_Congress",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The United States Congress  is the legislative branch of the federal government of the United States. It is a bicameral legislature. Read more",
+      "title": "United States Congress",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/United_States_Congress"
+    },
+    {
+      "cite": "https://www.congress.gov",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "U.S. Congress legislation , Congressional Record debates, Members of Congress, legislative process educational resources presented by the Library of Congress.",
+      "title": "Congress.gov | Library of Congress",
+      "type": "general",
+      "url": "https://www.congress.gov/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": [
+        "The Legislative Branch Handout - USCIS USCIS https://www.uscis.gov  › files › document › lesson-plans USCIS https://www.uscis.gov  › files › document › lesson-plans",
+        "Which party controls Congress in the USA?",
+        "How Congress Works | Congressman Tim Walberg - House.gov Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works",
+        "House of Representatives and Senate: What's the Difference? - E S S AY E S S AY https://www.visitthecapitol.gov  › resources-and-activities E S S AY https://www.visitthecapitol.gov  › resources-and-activities"
+      ],
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Legislative Branch Handout - USCIS USCIS https://www.uscis.gov  › files › document › lesson-plans USCIS https://www.uscis.gov  › files › document › lesson-plans<|>Which party controls Congress in the USA?<|>How Congress Works | Congressman Tim Walberg - House.gov Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works<|>House of Representatives and Senate: What's the Difference? - E S S AY E S S AY https://www.visitthecapitol.gov  › resources-and-activities E S S AY https://www.visitthecapitol.gov  › resources-and-activities",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Supreme Court lets California use congressional map that favors Dems",
+      "type": "top_stories",
+      "url": "https://www.usatoday.com/story/news/politics/2026/02/04/supreme-court-california-redistrict-congressional-map-trump/88396246007/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "US Congress passes $50 billion foreign affairs bill",
+      "type": "top_stories",
+      "url": "https://www.devex.com/news/us-congress-passes-50-billion-foreign-affairs-bill-111821"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "DOJ to allow Congress to view unredacted Epstein files starting Feb. 9",
+      "type": "top_stories",
+      "url": "https://www.usatoday.com/story/news/politics/2026/02/06/jeffrey-epstein-files-unredacted-congress/88554181007/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": "SAVE Act voter ID bill is on the minds of Trump and Congress: What to know",
+      "type": "top_stories",
+      "url": "https://www.cnbc.com/2026/02/06/save-act-trump-congress-elections-voting.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "heading": "Things to know",
+        "img_url": null,
+        "urls": [
+          {
+            "misc": {},
+            "text": "United States Congress - Wikipedia|wikipedia.org|https://en.wikipedia.org| › wiki › United_States_Congress",
+            "title": "",
+            "url": "https://en.wikipedia.org/wiki/United_States_Congress#:~:text=A%20Congress%20covers%20two%20years,end%20on%20January%203%2C%202027."
+          },
+          {
+            "misc": {},
+            "text": "What is the current U.S. Congress?",
+            "title": "",
+            "url": "/search?sca_esv=7e23b67cda9c6a45&q=what+is+the+current+us+congress&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAP"
+          },
+          {
+            "misc": {},
+            "text": "The Legislative Branch | whitehouse.gov|archives.gov|https://obamawhitehouse.archives.gov| › legislative-branch",
+            "title": "",
+            "url": "https://obamawhitehouse.archives.gov/1600/legislative-branch#:~:text=Congress%2C%20as%20one%20of%20the,laws%20or%20change%20existing%20laws."
+          },
+          {
+            "misc": {},
+            "text": "What does Congress do?",
+            "title": "",
+            "url": "/search?sca_esv=7e23b67cda9c6a45&q=what+does+congress+do&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAe"
+          },
+          {
+            "misc": {},
+            "text": "Membership of the 119th Congress: A Profile|congress.gov|https://www.congress.gov| › crs-product",
+            "title": "",
+            "url": "https://www.congress.gov/crs-product/R48535#:~:text=The%20average%20age%20of%20Members,are%20four%2Dyear%20college%20graduates."
+          },
+          {
+            "misc": {},
+            "text": "Congress age",
+            "title": "",
+            "url": "/search?sca_esv=7e23b67cda9c6a45&q=congress+age&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAt"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": "things_to_know",
+      "text": "Composition .  What is the current U.S. Congress?",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "http://www.house.gov",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "History of the US House  Discover how Congress makes laws, schedule a school tour, & more. Visiting the House History of the US House Find Your Representative Read more",
+      "title": "Homepage | house.gov",
+      "type": "general",
+      "url": "http://www.house.gov/"
+    },
+    {
+      "cite": "https://www.congress.gov  › members",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Profiles of U.S. Representatives and Senators  that include their legislative activity.",
+      "title": "Members of the U.S. Congress",
+      "type": "general",
+      "url": "https://www.congress.gov/members"
+    },
+    {
+      "cite": "https://www.visitthecapitol.gov  › explore › about-congr...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Congress  is a bicameral legislature divided into two equal institutions: the House of Representatives and the Senate. Read more",
+      "title": "About Congress",
+      "type": "general",
+      "url": "https://www.visitthecapitol.gov/explore/about-congress"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "WATCH LIVE: Senate Democrats speak after House approves ... YouTube  ·  PBS NewsHour 3 days ago",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=TNK2xPZnS4Q"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "US Congress LIVE: Lawmaker Calls Trump a 'Fraud,' Flags ... YouTube  ·  Hook Global",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=BBmGQVWqMfk"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "US Congress shutdown: Senate unanimously agrees on two ... YouTube  ·  Al Jazeera English 6 days ago",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=igpUSp3-U2g"
+    },
+    {
+      "cite": "https://www.govtrack.us  › congress › members",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The  United States Congress  is made up of 100 senators, 435 representatives, and 6 delegates to the House of Representatives.",
+      "title": "Representatives and Senators in Congress",
+      "type": "general",
+      "url": "https://www.govtrack.us/congress/members"
+    },
+    {
+      "cite": "https://www.senate.gov",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Voting Origins & Foundations , The Senate & the Constitution, Electing & Appointing Senators, Committee System, Idea of the Senate, Parties & Leadership Read more",
+      "title": "U.S. Senate",
+      "type": "general",
+      "url": "https://www.senate.gov/"
+    },
+    {
+      "cite": "http://www.house.gov  › representatives › find-your-repr...",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "This service will assist you by  matching your ZIP code to your congressional district , with links to your member's website and contact page. Read more",
+      "title": "Find Your Representative",
+      "type": "general",
+      "url": "http://www.house.gov/representatives/find-your-representative"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": [],
+      "error": null,
+      "section": "footer",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "subtitle": "Governing body"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": "panel_rhs",
+      "text": "",
+      "title": "",
+      "type": "knowledge",
+      "url": ""
+    }
+  ]
+}
