@@ -4,7 +4,7 @@ import csv
 import base64
 import zipfile
 import requests
-from google.protobuf.internal import decoder, encoder  # poetry add protobuf
+from google.protobuf.internal import decoder, encoder  # uv add protobuf
 from typing import Any
 
 from . import logger

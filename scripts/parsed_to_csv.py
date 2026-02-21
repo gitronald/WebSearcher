@@ -5,8 +5,8 @@ flattens each result into a row with serp_id and version columns,
 and writes to CSV.
 
 Usage:
-    poetry run python scripts/parsed_to_csv.py data/demo-ws-v0.6.8a0/parsed.json
-    poetry run python scripts/parsed_to_csv.py data/demo-ws-v0.6.8a0/parsed.json -o results.csv
+    uv run python scripts/parsed_to_csv.py data/demo-ws-v0.6.8a0/parsed.json
+    uv run python scripts/parsed_to_csv.py data/demo-ws-v0.6.8a0/parsed.json -o results.csv
 """
 
 import argparse
