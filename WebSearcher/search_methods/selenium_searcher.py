@@ -1,7 +1,7 @@
 import time
 import orjson
 from datetime import datetime, timezone
-from typing import Dict, Any
+from typing import Any
 
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
@@ -55,7 +55,7 @@ class SeleniumDriver:
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
         
-    def send_request(self, search_params: SearchParams) -> Dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> dict[str, Any]:
         """Visit a URL with selenium and save HTML response"""
 
         response_output = {
