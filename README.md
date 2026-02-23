@@ -26,6 +26,16 @@ and position-based specifications.
 ---
 ## Recent Updates
 
+### 0.6.9
+
+- Fixed bugs in component parsers (class comparison, assignment operator, set literal)
+- Fixed `return` in `finally` block in requests searcher
+- Added captcha detection to feature extractor
+- Added captcha handling and jittered delay to demo searches
+- Dropped pandas from core dependencies
+- Cleaned up legacy typing imports
+- Removed poetry.toml
+
 ### 0.6.8
 
 - Migrated from Poetry to uv for dependency management
