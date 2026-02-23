@@ -58,11 +58,15 @@ class FeatureExtractor:
         lb = soup.find('div', {'id': 'lb'})
         overlay_precise_location = bool(lb and 'precise location' in lb.get_text().lower())
 
+        # CAPTCHA detection
+        captcha = webutils.has_captcha(soup)
+
         return SERPFeatures(
             result_estimate_count=result_estimate_count,
             result_estimate_time=result_estimate_time,
             language=language,
             notice_no_results=notice_no_results,
             overlay_precise_location=overlay_precise_location,
+            captcha=captcha,
             **string_matches,
         )

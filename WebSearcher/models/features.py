@@ -12,6 +12,7 @@ class SERPFeatures:
     notice_server_error: bool = False
     infinity_scroll: bool = False
     overlay_precise_location: bool = False
+    captcha: bool = False
 
     def to_dict(self) -> dict:
         return asdict(self)
