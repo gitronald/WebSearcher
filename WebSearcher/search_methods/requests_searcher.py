@@ -62,8 +62,8 @@ class RequestsSearcher:
             self.log.exception(f'Requests | Timeout error')
         except Exception:
             self.log.exception(f'Requests | Unknown error')
-        finally:
-            return response_output
+
+        return response_output
 
     def _handle_response_content(self, response):
         try:
