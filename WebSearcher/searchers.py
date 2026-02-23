@@ -10,7 +10,6 @@ from .models.searches import SearchParams
 from .models.data import BaseSERP
 
 import os
-import pandas as pd
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
@@ -82,8 +81,8 @@ class SearchEngine:
         self.log.debug('starting search config')
         self.search_params = SearchParams.create({
             'qry': str(qry),
-            'loc': str(location) if not pd.isnull(location) else '',
-            'lang': str(lang) if not pd.isnull(lang) else '',
+            'loc': str(location) if location is not None else '',
+            'lang': str(lang) if lang is not None else '',
             'num_results': num_results,
             'ai_expand': ai_expand,
             'headers': headers,
