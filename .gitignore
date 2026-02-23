@@ -1,6 +1,7 @@
 .venv
 .archive
 .claude
+TODO.md
 
 build
 data
