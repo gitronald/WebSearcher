@@ -27,7 +27,7 @@ def parse_sub(sub, sub_rank=0) -> dict:
         dict : parsed subresult
     """
     parsed = {'type':'view_more_news', 'sub_rank':sub_rank}
-    parsed['title'] = sub.find('div', {'class','jBgGLd'}).text
+    parsed['title'] = sub.find('div', {'class': 'jBgGLd'}).text
     parsed['url'] = sub.find('a').attrs['href']
 
     if sub.find('span', {'class':'wqg8ad'}):

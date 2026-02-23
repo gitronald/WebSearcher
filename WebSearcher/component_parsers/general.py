@@ -104,8 +104,8 @@ def parse_subtype_details(sub, parsed) -> dict:
 
     # Subtype specific detail parsing
     if 'class' in sub.attrs:
-        if sub.attrs['class'] == 'd4rhi':
-            parsed['sub_type'] == 'subresult'
+        if 'd4rhi' in sub.attrs.get('class', []):
+            parsed['sub_type'] = 'subresult'
     
     # Submenu - rating
     elif sub.find('g-review-stars'):
