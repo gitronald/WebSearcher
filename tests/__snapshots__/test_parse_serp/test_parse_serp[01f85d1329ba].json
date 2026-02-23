@@ -1,5 +1,6 @@
 {
   "features": {
+    "captcha": false,
     "infinity_scroll": false,
     "language": "en",
     "notice_no_results": false,

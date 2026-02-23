@@ -26,6 +26,25 @@ and position-based specifications.
 ---
 ## Recent Updates
 
+### 0.6.9
+
+- Fixed bugs in component parsers (class comparison, assignment operator, set literal)
+- Fixed `return` in `finally` block in requests searcher
+- Added captcha detection to feature extractor
+- Added captcha handling and jittered delay to demo searches
+- Dropped pandas from core dependencies
+- Cleaned up legacy typing imports
+- Removed poetry.toml
+
+### 0.6.8
+
+- Migrated from Poetry to uv for dependency management
+- Added Python 3.12-3.14 test matrix in GitHub Actions
+- Added `flights` classifier and `standard-4` layout
+- Added local service ad parser
+- Extracted bottom ads before main column
+- Fixed `return` in `finally` block warning in selenium searcher
+
 ### 0.6.7
 
 - Added `get_text_by_selectors()` to `webutils` -- centralizes multi-selector fallback pattern across 7 component parsers

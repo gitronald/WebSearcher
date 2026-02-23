@@ -2,7 +2,7 @@ import time
 import brotli
 import requests
 from datetime import datetime, timezone
-from typing import Dict, Any
+from typing import Any
 
 from ..models.configs import RequestsConfig
 from ..models.searches import SearchParams
@@ -28,7 +28,7 @@ class RequestsSearcher:
         session.headers.update(self.config.headers)
         return session
         
-    def send_request(self, search_params: SearchParams) -> Dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> dict[str, Any]:
         """Send a request and handle the response
         
         Args:
@@ -62,8 +62,8 @@ class RequestsSearcher:
             self.log.exception(f'Requests | Timeout error')
         except Exception:
             self.log.exception(f'Requests | Unknown error')
-        finally:
-            return response_output
+
+        return response_output
 
     def _handle_response_content(self, response):
         try:
