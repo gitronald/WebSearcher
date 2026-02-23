@@ -2,6 +2,7 @@
 
 import os
 import time
+import random
 import typer
 import pandas as pd
 import WebSearcher as ws
@@ -160,6 +161,16 @@ def main(
         se.save_search(append_to=fps['searches'])  # Save search to json (metadata only)
         se.save_parsed(append_to=fps['parsed'])    # Save parsed results and SERP features to json
 
+        # Check for CAPTCHA — retry once after waiting
+        if se.parsed.get('features', {}).get('captcha'):
+            print(f"\n[{i+1}/{len(queries)}] CAPTCHA detected for '{qry}', waiting 5 min...")
+            time.sleep(300)
+            se.search(qry, ai_expand=ai_expand)
+            se.parse_serp()
+            if se.parsed.get('features', {}).get('captcha'):
+                print(f"CAPTCHA still present, stopping.")
+                break
+
         # Convert results to dataframe and print select columns
         if se.parsed["results"]:
             results = pd.DataFrame(se.parsed["results"])
@@ -167,7 +178,7 @@ def main(
             print(results[['type', 'sub_type', 'title', 'url']])
 
         if i < len(queries) - 1:
-            time.sleep(30)
+            time.sleep(30 + random.uniform(0, 5))
 
 
 if __name__ == "__main__":
