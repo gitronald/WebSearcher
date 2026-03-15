@@ -1,6 +1,5 @@
 import time
 from datetime import datetime, timezone
-from typing import Any
 
 import orjson
 import undetected_chromedriver as uc
@@ -12,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from .. import utils
 from ..models.configs import SeleniumConfig
+from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
 
 
@@ -60,33 +60,31 @@ class SeleniumDriver:
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
 
-    def send_request(self, search_params: SearchParams) -> dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> ResponseOutput:
         """Visit a URL with selenium and save HTML response"""
 
-        response_output = {
-            "html": "",
-            "url": search_params.url,
-            "user_agent": self.browser_info["user_agent"],
-            "response_code": 0,
-            "timestamp": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
-        }
+        response_output = ResponseOutput(
+            url=search_params.url,
+            user_agent=self.browser_info.get("user_agent", ""),
+            timestamp=datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+        )
 
         try:
             self.driver.get(search_params.url)
             time.sleep(2)
             WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, "search")))
             time.sleep(2)
-            response_output["html"] = self.driver.page_source
-            response_output["url"] = self.driver.current_url
-            response_output["response_code"] = 200
+            response_output.html = self.driver.page_source
+            response_output.url = self.driver.current_url
+            response_output.response_code = 200
 
             # Expand AI overview if requested
             if search_params.ai_expand:
                 expanded_html = self.expand_ai_overview()
                 if expanded_html:
-                    len_diff = len(expanded_html) - len(response_output["html"])
+                    len_diff = len(expanded_html) - len(response_output.html)
                     self.log.debug(f"SERP | expanded html | len diff: {len_diff}")
-                    response_output["html"] = expanded_html
+                    response_output.html = expanded_html
 
         except Exception as e:
             self.log.exception(f"SERP | Chromedriver error | {str(e)}")

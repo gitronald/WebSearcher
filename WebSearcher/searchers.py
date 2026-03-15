@@ -101,7 +101,7 @@ class SearchEngine:
         self.response_output = self.searcher.send_request(self.search_params)
         serp_output = self.search_params.to_serp_output()
         serp_output.update(self.session_data)
-        serp_output.update(self.response_output)
+        serp_output.update(self.response_output.model_dump())
         self.serp = BaseSERP(**serp_output).model_dump()
         self.log.info(
             " | ".join([f"{self.serp[k]}" for k in {"response_code", "qry", "loc"} if self.serp[k]])

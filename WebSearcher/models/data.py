@@ -24,6 +24,16 @@ class DetailsList(list):
         return [item.model_dump() for item in self]
 
 
+class ResponseOutput(BaseModel):
+    """Response data from a search request."""
+
+    html: str = ""
+    url: str = ""
+    user_agent: str = ""
+    response_code: int = 0
+    timestamp: str = ""
+
+
 class BaseResult(BaseModel):
     """
     Represents a single search result item extracted from a SERP.

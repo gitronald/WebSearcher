@@ -1,11 +1,11 @@
 import time
 from datetime import datetime, timezone
-from typing import Any
 
 import brotli
 import requests
 
 from ..models.configs import RequestsConfig
+from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
 
 
@@ -30,33 +30,29 @@ class RequestsSearcher:
         session.headers.update(self.config.headers)
         return session
 
-    def send_request(self, search_params: SearchParams) -> dict[str, Any]:
+    def send_request(self, search_params: SearchParams) -> ResponseOutput:
         """Send a request and handle the response
 
         Args:
             search_params: SearchParams instance
-            serp_id: Optional SERP ID
-            crawl_id: Optional crawl ID
 
         Returns:
-            Dictionary with response data
+            ResponseOutput with response data
         """
 
         if search_params.headers:
             self.sesh.headers.update(search_params.headers)
 
-        response_output = {
-            "html": "",
-            "url": search_params.url,
-            "user_agent": self.config.headers.get("User-Agent"),
-            "response_code": 0,
-            "timestamp": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
-        }
+        response_output = ResponseOutput(
+            url=search_params.url,
+            user_agent=self.config.headers.get("User-Agent", ""),
+            timestamp=datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+        )
 
         try:
             response = self.sesh.get(search_params.url, timeout=10)
-            response_output["html"] = self._handle_response_content(response)
-            response_output["response_code"] = response.status_code
+            response_output.html = self._handle_response_content(response)
+            response_output.response_code = response.status_code
         except requests.exceptions.ConnectionError:
             self.log.exception("Requests | Connection error")
             self._reset_ssh_tunnel()
