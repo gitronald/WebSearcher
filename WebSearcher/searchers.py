@@ -9,7 +9,7 @@ from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchCon
 from .models.searches import SearchParams
 from .models.data import BaseSERP
 
-import os
+from pathlib import Path
 
 from importlib import metadata
 WS_VERSION = metadata.version('WebSearcher')
@@ -127,7 +127,7 @@ class SearchEngine:
         elif append_to:
             utils.write_lines([self.serp], append_to)
         elif save_dir:
-            fp = os.path.join(save_dir, f'{self.serp["serp_id"]}.html')
+            fp = Path(save_dir) / f'{self.serp["serp_id"]}.html'
             with open(fp, 'w') as outfile:
                 outfile.write(self.serp['html'])
 
@@ -140,7 +140,7 @@ class SearchEngine:
             self.log.warning("No parsed SERP available to save")
             return
         
-        fp = append_to if append_to else os.path.join(save_dir, 'parsed.json')
+        fp = append_to if append_to else Path(save_dir) / 'parsed.json'
         utils.write_lines([self.parsed], fp)
 
     def save_search(self, append_to: str = ""):
@@ -169,5 +169,5 @@ class SearchEngine:
         # Add metadata to results
         result_metadata = {k: self.serp[k] for k in ['crawl_id', 'serp_id', 'version']}
         results_output = [{**result, **result_metadata} for result in self.parsed["results"]]
-        fp = append_to if append_to else os.path.join(save_dir, 'results.json')        
+        fp = append_to if append_to else Path(save_dir) / 'results.json'        
         utils.write_lines(results_output, fp)

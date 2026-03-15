@@ -9,8 +9,8 @@ from . import logger
 
 log = logger.Logger().start(__name__)
 
-import os
 import re
+from pathlib import Path
 import atexit
 import brotli
 import requests
@@ -25,7 +25,7 @@ from bs4.element import NavigableString, Tag
 SoupElement = BeautifulSoup | Tag | NavigableString
 
 
-def load_html(fp: str | os.PathLike[str], zipped: bool = False) -> str | bytes:
+def load_html(fp: str | Path, zipped: bool = False) -> str | bytes:
     """Load html file, with option for brotli decompression"""
     read_func = lambda i: brotli.decompress(i.read()) if zipped else i.read()
     read_type = "rb" if zipped else "r"
@@ -33,7 +33,7 @@ def load_html(fp: str | os.PathLike[str], zipped: bool = False) -> str | bytes:
         return read_func(infile)
 
 
-def load_soup(fp: str | os.PathLike[str], zipped: bool = False) -> BeautifulSoup:
+def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
     return make_soup(load_html(fp, zipped))
 
 
@@ -247,15 +247,16 @@ def get_domain(url: str | None) -> str:
 
 
 def extract_html_json(
-    data_fp: str | os.PathLike[str],
-    extract_to: str | os.PathLike[str],
+    data_fp: str | Path,
+    extract_to: str | Path,
     id_col: str,
 ) -> None:
     """Save HTML to directory for viewing"""
-    os.makedirs(extract_to, exist_ok=True)
+    extract_to = Path(extract_to)
+    extract_to.mkdir(parents=True, exist_ok=True)
     data = utils.read_lines(data_fp)
     for row in data:
-        fp = os.path.join(extract_to, row[id_col] + ".html")
+        fp = extract_to / (row[id_col] + ".html")
         with open(fp, "wb") as outfile:
             outfile.write(row["html"])
 

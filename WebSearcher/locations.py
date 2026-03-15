@@ -1,5 +1,5 @@
-import os
 import io
+from pathlib import Path
 import csv
 import base64
 import zipfile
@@ -79,7 +79,7 @@ def decode_protobuf_string(encoded_string: str) -> dict[int, Any]:
 
 
 def download_locations(
-        data_dir: str = "data/locations", 
+        data_dir: str | Path = "data/locations",
         url: str = "https://developers.google.com/adwords/api/docs/appendix/geotargeting"
     ) -> None:
     """Download the latest geolocations, check if already exists locally first.
@@ -92,16 +92,17 @@ def download_locations(
         None: Saves to file in the default or selected data_dir
 
     """
-    os.makedirs(data_dir, exist_ok=True)
+    data_dir = Path(data_dir)
+    data_dir.mkdir(parents=True, exist_ok=True)
 
     url_latest = get_latest_url(url)
-    fp = os.path.join(data_dir, url_latest.split('/')[-1])
-    fp_unzip = fp.replace('.zip', '')
+    fp = data_dir / url_latest.split('/')[-1]
+    fp_unzip = fp.with_suffix('')
 
     # Check if the current version already exists
-    if os.path.exists(fp):
+    if fp.exists():
         print(f"Version up to date: {fp}")
-    elif os.path.exists(fp_unzip):
+    elif fp_unzip.exists():
         print(f"Version up to date: {fp_unzip}")
     else:
         print(f"Version out of date")
@@ -112,12 +113,12 @@ def download_locations(
         except Exception:
             log.exception('Failed to retrieve location data')
 
-        if fp.endswith('.zip'):
-            save_zip_response(response, fp_unzip)
+        if fp.suffix == '.zip':
+            save_zip_response(response, str(fp_unzip))
         else:
             lines = response.content.decode('utf-8').split('\n')
             locations = [l for l in csv.reader(lines, delimiter=',')]
-            write_csv(fp_unzip, locations)
+            write_csv(str(fp_unzip), locations)
 
 
 def get_latest_url(url:str):
