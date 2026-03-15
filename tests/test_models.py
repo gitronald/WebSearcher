@@ -163,9 +163,9 @@ def test_search_params_special_chars():
 # DetailsItem / DetailsList ----------------------------------------------------
 
 
-def test_details_item_to_dict():
+def test_details_item_model_dump():
     item = DetailsItem(url="https://example.com", title="Example", text="desc")
-    d = item.to_dict()
+    d = item.model_dump()
     assert d == {"url": "https://example.com", "title": "Example", "text": "desc", "misc": {}}
 
 

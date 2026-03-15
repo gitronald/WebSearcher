@@ -1,20 +1,15 @@
-from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from pydantic import BaseModel, Field
 
 
-@dataclass
-class DetailsItem:
+class DetailsItem(BaseModel):
     """Represents a details item within a search result."""
 
     url: str = ""
     title: str = ""
     text: str = ""
-    misc: dict = field(default_factory=dict)
-
-    def to_dict(self) -> dict:
-        return asdict(self)
+    misc: dict = Field(default_factory=dict)
 
 
 class DetailsList(list):
@@ -26,7 +21,7 @@ class DetailsList(list):
         super().append(item)
 
     def to_dicts(self) -> list[dict]:
-        return [item.to_dict() for item in self]
+        return [item.model_dump() for item in self]
 
 
 class BaseResult(BaseModel):
