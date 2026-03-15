@@ -29,8 +29,8 @@ print(f"WebSearcher v{ws.__version__} | Search Query: {args.query} | Output: {ar
 
 # Filepaths
 data_path = Path(args.data_dir)
-fp_serps = str(data_path / "serps.json")
-fp_results = str(data_path / "results.json")
+fp_serps = data_path / "serps.json"
+fp_results = data_path / "results.json"
 dir_html = data_path / "html"
 dir_html.mkdir(parents=True, exist_ok=True)
 
@@ -40,4 +40,4 @@ se.search(args.query)  # Conduct Search
 se.parse_results()  # Parse Results
 se.save_serp(append_to=fp_serps)  # Save SERP to json (html + metadata)
 se.save_results(append_to=fp_results)  # Save results to json
-se.save_serp(save_dir=str(dir_html))  # Save SERP html to dir (no metadata)
+se.save_serp(save_dir=dir_html)  # Save SERP html to dir (no metadata)

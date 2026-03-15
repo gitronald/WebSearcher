@@ -130,7 +130,7 @@ class SearchEngine:
     # ==========================================================================
     # Saving
 
-    def save_serp(self, save_dir: str = "", append_to: str = ""):
+    def save_serp(self, save_dir: str | Path = "", append_to: str | Path = ""):
         """Save SERP to file
 
         Args:
@@ -147,7 +147,7 @@ class SearchEngine:
             with open(fp, "w") as outfile:
                 outfile.write(self.serp["html"])
 
-    def save_parsed(self, save_dir: str = "", append_to: str = ""):
+    def save_parsed(self, save_dir: str | Path = "", append_to: str | Path = ""):
         """Save parsed SERP to file"""
         if not save_dir and not append_to:
             self.log.warning("Must provide a save_dir or append_to file path to save parsed SERP")
@@ -159,7 +159,7 @@ class SearchEngine:
         fp = append_to if append_to else Path(save_dir) / "parsed.json"
         utils.write_lines([self.parsed], fp)
 
-    def save_search(self, append_to: str = ""):
+    def save_search(self, append_to: str | Path = ""):
         """Save SERP metadata (excludes HTML) to file"""
         if not append_to:
             self.log.warning("Must provide an append_to file path to save SERP metadata")
@@ -168,7 +168,7 @@ class SearchEngine:
         self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
         utils.write_lines([self.serp_metadata], append_to)
 
-    def save_results(self, save_dir: str = "", append_to: str = ""):
+    def save_results(self, save_dir: str | Path = "", append_to: str | Path = ""):
         """Save parsed results
 
         Args:

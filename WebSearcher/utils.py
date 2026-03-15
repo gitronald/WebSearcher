@@ -1,35 +1,28 @@
 import hashlib
 import re
+from pathlib import Path
 
 import orjson
 
 # Files ------------------------------------------------------------------------
 
 
-def read_lines(fp):
-    try:
-        is_json = ".json" in fp
-    except TypeError:
-        is_json = ".json" in fp.__fspath__()
-
+def read_lines(fp: str | Path):
+    fp = Path(fp)
     with open(fp) as infile:
-        if is_json:
+        if fp.suffix == ".json":
             return [orjson.loads(line) for line in infile]
         else:
             return [line.strip() for line in infile]
 
 
-def write_lines(iter_data, fp, overwrite=False):
+def write_lines(iter_data, fp: str | Path, overwrite=False):
+    fp = Path(fp)
     mode = "w" if overwrite else "a+"
-
-    try:
-        is_json = ".json" in fp
-    except TypeError:
-        is_json = "json" in fp.__fspath__()
 
     with open(fp, mode) as outfile:
         for data in iter_data:
-            if is_json:
+            if fp.suffix == ".json":
                 line_output = orjson.dumps(data).decode("utf-8")
             else:
                 line_output = data

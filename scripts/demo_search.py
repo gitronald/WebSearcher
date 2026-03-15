@@ -26,7 +26,7 @@ def main(
 
     # Filepaths
     data_path = Path(data_dir)
-    fps = {k: str(data_path / f"{k}.json") for k in ["serps", "parsed", "searches"]}
+    fps = {k: data_path / f"{k}.json" for k in ["serps", "parsed", "searches"]}
     data_path.mkdir(parents=True, exist_ok=True)
     print(f"WebSearcher v{ws.__version__}\nSearch Query: {query}\nOutput Dir: {data_dir}\n")
 

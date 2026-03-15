@@ -9,7 +9,7 @@ import WebSearcher as ws
 # Retrieve and save latest location data
 data_dir = Path("data/google_locations")
 data_dir.mkdir(parents=True, exist_ok=True)
-ws.download_locations(str(data_dir))
+ws.download_locations(data_dir)
 
 # Read it back in
 f = sorted(data_dir.iterdir())[-1]  # Last file
@@ -100,5 +100,5 @@ if se.results:
 
 dir_html = Path("data/html")
 dir_html.mkdir(parents=True, exist_ok=True)
-se.save_search(append_to=str(dir_html / "searches.json"))
-se.save_serp(save_dir=str(dir_html))
+se.save_search(append_to=dir_html / "searches.json")
+se.save_serp(save_dir=dir_html)
