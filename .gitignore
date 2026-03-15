@@ -14,3 +14,4 @@ scripts/ads-no-subtype
 # Ignore caches
 .pytest_cache
 .ruff_cache
+.coverage
