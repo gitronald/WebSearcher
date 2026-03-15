@@ -25,7 +25,12 @@ def parse_local_results(cmpt) -> list:
         # Set first non-empty header as sub_type (e.g. "Places" -> places)
         header = utils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
         if header:
-            sub_type = header.lower().replace(" ", "_")
+            header_lower = header.lower()
+            sub_type = (
+                "results_for"
+                if header_lower.startswith("results for")
+                else header_lower.replace(" ", "_")
+            )
             for parsed in parsed_list:
                 parsed.update({"sub_type": sub_type})
 
