@@ -13,7 +13,7 @@ Changelog
 import bs4
 
 from .. import utils
-from ..models.data import BaseResult, DetailsItem, DetailsList
+from ..models.data import DetailsItem, DetailsList
 from .shopping_ads import parse_shopping_ads
 
 SUB_TYPES = [
@@ -77,18 +77,16 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
 
     def _parse_ad_legacy_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
         header = sub.find("div", {"class": "ad_cclk"})
-        parsed = BaseResult(
-            type="ad",
-            sub_type="legacy",
-            sub_rank=sub_rank,
-            title=utils.get_text(header, "h3"),
-            url=utils.get_text(header, "cite"),
-            cite=None,
-            text=utils.get_text(sub, "div", {"class": "ads-creative"}),
-            details=_parse_ad_legacy_sub_details(sub),
-            error=None,
-        ).model_dump()
-        return parsed
+        return {
+            "type": "ad",
+            "sub_type": "legacy",
+            "sub_rank": sub_rank,
+            "title": utils.get_text(header, "h3"),
+            "url": utils.get_text(header, "cite"),
+            "cite": None,
+            "text": utils.get_text(sub, "div", {"class": "ads-creative"}),
+            "details": _parse_ad_legacy_sub_details(sub),
+        }
 
     def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> list:
         details_list = DetailsList()
@@ -123,17 +121,16 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
         if rating_span:
             details.append(DetailsItem(text=rating_span["aria-label"]))
 
-        return BaseResult(
-            type="ad",
-            sub_type="local_service",
-            sub_rank=sub_rank,
-            title=title,
-            url=url,
-            cite=None,
-            text=text,
-            details=details.to_dicts(),
-            error=None,
-        ).model_dump()
+        return {
+            "type": "ad",
+            "sub_type": "local_service",
+            "sub_rank": sub_rank,
+            "title": title,
+            "url": url,
+            "cite": None,
+            "text": text,
+            "details": details.to_dicts(),
+        }
 
     profiles = cmpt.find_all("gls-profile-entrypoint")
     return [_parse_profile(p, i) for i, p in enumerate(profiles)]
@@ -149,17 +146,16 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
         return [_parse_ad_secondary_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
     def _parse_ad_secondary_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
-        return BaseResult(
-            type="ad",
-            sub_type="secondary",
-            sub_rank=sub_rank,
-            title=utils.get_text(sub, "div", {"role": "heading"}),
-            url=_parse_ad_secondary_sub_url(sub),
-            cite=utils.get_text(sub, "span", {"class": "gBIQub"}),
-            text=_parse_ad_secondary_sub_text(sub),
-            details=_parse_ad_secondary_sub_details(sub),
-            error=None,
-        ).model_dump()
+        return {
+            "type": "ad",
+            "sub_type": "secondary",
+            "sub_rank": sub_rank,
+            "title": utils.get_text(sub, "div", {"role": "heading"}),
+            "url": _parse_ad_secondary_sub_url(sub),
+            "cite": utils.get_text(sub, "span", {"class": "gBIQub"}),
+            "text": _parse_ad_secondary_sub_text(sub),
+            "details": _parse_ad_secondary_sub_details(sub),
+        }
 
     def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
         url_div = utils.get_div(sub, "div", {"class": "d5oMvf"})
@@ -211,18 +207,16 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
 
         submenu = parse_ad_menu(sub)
         sub_type = "submenu" if submenu else "standard"
-        parsed = BaseResult(
-            type="ad",
-            sub_type=sub_type,
-            sub_rank=sub_rank,
-            title=utils.get_text(sub, "div", {"role": "heading"}),
-            url=utils.get_link(sub, {"class": "sVXRqc"}),
-            cite=utils.get_text(sub, "span", {"role": "text"}),
-            text=_parse_ad_standard_text(sub),
-            details=submenu,
-            error=None,
-        ).model_dump()
-        return parsed
+        return {
+            "type": "ad",
+            "sub_type": sub_type,
+            "sub_rank": sub_rank,
+            "title": utils.get_text(sub, "div", {"role": "heading"}),
+            "url": utils.get_link(sub, {"class": "sVXRqc"}),
+            "cite": utils.get_text(sub, "span", {"role": "text"}),
+            "text": _parse_ad_standard_text(sub),
+            "details": submenu,
+        }
 
     subs = utils.find_all_divs(cmpt, "div", {"class": "uEierd"})
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
@@ -276,31 +270,27 @@ def parse_ad_carousel(
 
     def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
         """Parse ad carousel div, seen 2025-02-06"""
-        return BaseResult(
-            type="ad",
-            sub_type=sub_type,
-            sub_rank=sub_rank,
-            title=utils.get_text(sub, "div", {"class": "e7SMre"}),
-            url=utils.get_link(sub),
-            text=utils.get_text(sub, "div", {"class": "vrAZpb"}),
-            cite=utils.get_text(sub, "div", {"class": "zpIwr"}),
-            details=None,
-            error=None,
-        ).model_dump()
+        return {
+            "type": "ad",
+            "sub_type": sub_type,
+            "sub_rank": sub_rank,
+            "title": utils.get_text(sub, "div", {"class": "e7SMre"}),
+            "url": utils.get_link(sub),
+            "text": utils.get_text(sub, "div", {"class": "vrAZpb"}),
+            "cite": utils.get_text(sub, "div", {"class": "zpIwr"}),
+        }
 
     def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
         """Parse ad carousel card, seen 2024-09-21"""
-        return BaseResult(
-            type="ad",
-            sub_type=sub_type,
-            sub_rank=sub_rank,
-            title=utils.get_text(sub, "div", {"class": "gCv54b"}),
-            url=utils.get_link(sub, {"class": "KTsHxd"}),
-            text=utils.get_text(sub, "div", {"class": "VHpBje"}),
-            cite=utils.get_text(sub, "div", {"class": "j958Pd"}),
-            details=None,
-            error=None,
-        ).model_dump()
+        return {
+            "type": "ad",
+            "sub_type": sub_type,
+            "sub_rank": sub_rank,
+            "title": utils.get_text(sub, "div", {"class": "gCv54b"}),
+            "url": utils.get_link(sub, {"class": "KTsHxd"}),
+            "text": utils.get_text(sub, "div", {"class": "VHpBje"}),
+            "cite": utils.get_text(sub, "div", {"class": "j958Pd"}),
+        }
 
     # Possible ad carousel item types
     output_list = []
