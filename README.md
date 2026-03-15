@@ -26,6 +26,16 @@ and position-based specifications.
 ---
 ## Recent Updates
 
+### 0.6.10 (dev)
+
+- **Breaking:** `parse_serp()` now always returns a dict with `results` and `features` keys; the `extract_features` parameter has been removed
+- Replaced `os` with `pathlib.Path` throughout
+- Consolidated `webutils.py` into `utils.py`
+- Added ruff formatting, linting, and pre-commit hooks
+- Added test coverage reporting (69%)
+- Added unit tests for utils, locations, models, and feature extractor
+- Replaced pandas with polars in demo scripts
+
 ### 0.6.9
 
 - Fixed bugs in component parsers (class comparison, assignment operator, set literal)
@@ -164,14 +174,14 @@ se.search('immigration news')
 
 #### 3. Parse Search Results
 
-The example below is primarily for parsing search results as you collect HTML.  
+The example below is primarily for parsing search results as you collect HTML.
 See `ws.parse_serp(html)` for parsing existing HTML data.
 
 ```python
-se.parse_results()
+se.parse_serp()
 
 # Show first result
-se.results[0]
+se.parsed["results"][0]
 {'section': 'main',
  'cmpt_rank': 0,
  'sub_rank': 0,

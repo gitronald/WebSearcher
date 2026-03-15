@@ -61,7 +61,7 @@ def pytest_generate_tests(metafunc):
 @pytest.mark.skipif(not SERPS_PATHS, reason="Demo data not available")
 def test_parse_serp(snapshot_json, serp_record):
     """Parse SERP and compare to snapshot"""
-    parsed = ws.parse_serp(serp_record["html"], extract_features=True)
+    parsed = ws.parse_serp(serp_record["html"])
     assert parsed == snapshot_json
 
 
@@ -90,7 +90,7 @@ def all_parsed_serps():
     """Parse all SERPs and return list of parsed outputs"""
     if not SERPS_PATHS:
         pytest.skip("Demo data not available")
-    return [ws.parse_serp(record["html"], extract_features=True) for record in load_all_serps()]
+    return [ws.parse_serp(record["html"]) for record in load_all_serps()]
 
 
 @pytest.fixture(scope="module")

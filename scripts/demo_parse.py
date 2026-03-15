@@ -15,8 +15,8 @@ if not args.filepath:
 else:
     soup = ws.load_soup(args.filepath)
     parsed = ws.parse_serp(soup)
-    if parsed:
-        df = pl.DataFrame(parsed)
+    if parsed["results"]:
+        df = pl.DataFrame(parsed["results"])
         print(df.select("type", "title", "url"))
 
     # Obtain HTML component list for examination

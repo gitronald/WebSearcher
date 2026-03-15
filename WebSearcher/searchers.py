@@ -110,14 +110,14 @@ class SearchEngine:
     # ==========================================================================
     # Parsing
 
-    def parse_serp(self, extract_features: bool = True):
+    def parse_serp(self):
         try:
             parsed_metadata = {
                 k: v
                 for k, v in self.serp.items()
                 if k in ["crawl_id", "serp_id", "version", "method"]
             }
-            parsed = parsers.parse_serp(self.serp["html"], extract_features=extract_features)
+            parsed = parsers.parse_serp(self.serp["html"])
             self.parsed = parsed_metadata | parsed
         except Exception:
             self.log.exception(f"Parsing error | serp_id : {self.serp['serp_id']}")
