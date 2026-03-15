@@ -11,5 +11,6 @@ scripts/ads-no-subtype
 *.egg-info
 *__pycache__
 
-# Ignore test cache
+# Ignore caches
 .pytest_cache
+.ruff_cache

@@ -38,7 +38,26 @@ dev = [
     "setuptools>=80.9.0",
     "tabulate>=0.9.0",
     "pandas>=2.2.3",
+    "pre-commit>=4.5.1",
+    "ruff>=0.15.6",
 ]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "F",    # pyflakes
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "I",    # isort (import sorting)
+    "UP",   # pyupgrade (modern Python idioms)
+]
+ignore = ["E501"]  # line length handled by ruff format
+
+[tool.ruff.lint.isort]
+known-first-party = ["WebSearcher"]
 
 [build-system]
 requires = ["hatchling"]
