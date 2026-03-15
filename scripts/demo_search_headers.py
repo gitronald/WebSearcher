@@ -1,16 +1,9 @@
 """Test search and parse a single query from command line"""
 
 import argparse
-import os
-
-import pandas as pd
+from pathlib import Path
 
 import WebSearcher as ws
-
-pd.set_option("display.width", 120)
-pd.set_option("display.max_colwidth", 40)
-pd.set_option("display.max_rows", None)
-pd.set_option("display.max_columns", None)
 
 MODIFIED_HEADERS = {
     "Host": "www.google.com",
@@ -29,16 +22,17 @@ parser.add_argument(
     "--data_dir",
     type=str,
     help="Directory to save data",
-    default=os.path.join("data", f"demo-ws-v{ws.__version__}"),
+    default=str(Path("data") / f"demo-ws-v{ws.__version__}"),
 )
 args = parser.parse_args()
 print(f"WebSearcher v{ws.__version__} | Search Query: {args.query} | Output: {args.data_dir}")
 
 # Filepaths
-fp_serps = os.path.join(args.data_dir, "serps.json")
-fp_results = os.path.join(args.data_dir, "results.json")
-dir_html = os.path.join(args.data_dir, "html")
-os.makedirs(dir_html, exist_ok=True)
+data_path = Path(args.data_dir)
+fp_serps = str(data_path / "serps.json")
+fp_results = str(data_path / "results.json")
+dir_html = data_path / "html"
+dir_html.mkdir(parents=True, exist_ok=True)
 
 # Search, parse, and save
 se = ws.SearchEngine(headers=MODIFIED_HEADERS)  # Initialize searcher
@@ -46,4 +40,4 @@ se.search(args.query)  # Conduct Search
 se.parse_results()  # Parse Results
 se.save_serp(append_to=fp_serps)  # Save SERP to json (html + metadata)
 se.save_results(append_to=fp_results)  # Save results to json
-se.save_serp(save_dir=dir_html)  # Save SERP html to dir (no metadata)
+se.save_serp(save_dir=str(dir_html))  # Save SERP html to dir (no metadata)

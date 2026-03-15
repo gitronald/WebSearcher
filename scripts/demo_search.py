@@ -1,18 +1,13 @@
 """Test search and parse a single query from command line"""
 
-import os
+from pathlib import Path
 
-import pandas as pd
+import polars as pl
 import typer
 
 import WebSearcher as ws
 
-pd.set_option("display.width", 160)
-pd.set_option("display.max_rows", None)
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_colwidth", 40)
-
-DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
+DEFAULT_DATA_DIR = Path("data") / f"demo-ws-v{ws.__version__}"
 
 app = typer.Typer()
 
@@ -21,7 +16,7 @@ app = typer.Typer()
 def main(
     query: str = typer.Argument("why is the sky blue?", help="Search query to use"),
     method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
-    data_dir: str = typer.Option(DEFAULT_DATA_DIR, help="Prefix for output files"),
+    data_dir: str = typer.Option(str(DEFAULT_DATA_DIR), help="Prefix for output files"),
     headless: bool = typer.Option(False, help="Run browser in headless mode"),
     use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
     version_main: int = typer.Option(144, help="Main version of Chrome to use"),
@@ -30,8 +25,9 @@ def main(
 ) -> None:
 
     # Filepaths
-    fps = {k: os.path.join(data_dir, f"{k}.json") for k in ["serps", "parsed", "searches"]}
-    os.makedirs(data_dir, exist_ok=True)
+    data_path = Path(data_dir)
+    fps = {k: str(data_path / f"{k}.json") for k in ["serps", "parsed", "searches"]}
+    data_path.mkdir(parents=True, exist_ok=True)
     print(f"WebSearcher v{ws.__version__}\nSearch Query: {query}\nOutput Dir: {data_dir}\n")
 
     # Setup search engine
@@ -52,10 +48,10 @@ def main(
     se.save_search(append_to=fps["searches"])  # Save search metadata to json
     se.save_parsed(append_to=fps["parsed"])  # Save results/features to json
 
-    # Convert results to dataframe and print select columns
+    # Print select columns
     if se.parsed["results"]:
-        results = pd.DataFrame(se.parsed["results"])
-        print(results[["type", "sub_type", "title", "url"]])
+        df = pl.DataFrame(se.parsed["results"])
+        print(df.select("type", "sub_type", "title", "url"))
 
 
 if __name__ == "__main__":

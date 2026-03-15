@@ -2,14 +2,9 @@
 
 import argparse
 
-import pandas as pd
+import polars as pl
 
 import WebSearcher as ws
-
-pd.set_option("display.width", 120)
-pd.set_option("display.max_colwidth", 40)
-pd.set_option("display.max_rows", None)
-pd.set_option("display.max_columns", None)
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--filepath", help="The SERP html file")
@@ -21,8 +16,8 @@ else:
     soup = ws.load_soup(args.filepath)
     parsed = ws.parse_serp(soup)
     if parsed:
-        results = pd.DataFrame(parsed)
-        print(results[["type", "title", "url"]])
+        df = pl.DataFrame(parsed)
+        print(df.select("type", "title", "url"))
 
     # Obtain HTML component list for examination
     cmpts = ws.Extractor(soup).extract_components()

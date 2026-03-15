@@ -1,20 +1,15 @@
 """Search and parse queries designed to trigger diverse SERP component types"""
 
-import os
 import random
 import time
+from pathlib import Path
 
-import pandas as pd
+import polars as pl
 import typer
 
 import WebSearcher as ws
 
-pd.set_option("display.width", 160)
-pd.set_option("display.max_rows", None)
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_colwidth", 40)
-
-DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
+DEFAULT_DATA_DIR = str(Path("data") / f"demo-ws-v{ws.__version__}")
 
 # Queries organized by target component type, 3 per type
 # Some queries trigger multiple types (e.g. ads + shopping_ads)
@@ -133,8 +128,9 @@ def main(
 ) -> None:
 
     # Filepaths
-    fps = {k: os.path.join(data_dir, f"{k}.json") for k in ["serps", "parsed", "searches"]}
-    os.makedirs(data_dir, exist_ok=True)
+    data_path = Path(data_dir)
+    fps = {k: str(data_path / f"{k}.json") for k in ["serps", "parsed", "searches"]}
+    data_path.mkdir(parents=True, exist_ok=True)
 
     # Filter queries by type if specified
     if types:
@@ -173,11 +169,11 @@ def main(
                 print("CAPTCHA still present, stopping.")
                 break
 
-        # Convert results to dataframe and print select columns
+        # Print select columns
         if se.parsed["results"]:
-            results = pd.DataFrame(se.parsed["results"])
+            df = pl.DataFrame(se.parsed["results"])
             print(f"\n[{i + 1}/{len(queries)}] {qry}")
-            print(results[["type", "sub_type", "title", "url"]])
+            print(df.select("type", "sub_type", "title", "url"))
 
         if i < len(queries) - 1:
             time.sleep(30 + random.uniform(0, 5))
