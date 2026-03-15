@@ -28,7 +28,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -42,7 +44,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -56,7 +60,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -212,7 +218,8 @@
       "cmpt_rank": 10,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -227,14 +234,17 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [
-        "Abba Coffee Roasters",
-        "Deadstock Coffee Roasters",
-        "Kalesa Coffee",
-        "J Vein Caffé",
-        "Cathedral Coffee",
-        "Cadejo Coffee"
-      ],
+      "details": {
+        "items": [
+          "Abba Coffee Roasters",
+          "Deadstock Coffee Roasters",
+          "Kalesa Coffee",
+          "J Vein Caffé",
+          "Cathedral Coffee",
+          "Cadejo Coffee"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 15,

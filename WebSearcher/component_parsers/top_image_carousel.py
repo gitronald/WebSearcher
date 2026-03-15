@@ -1,5 +1,4 @@
 from .. import utils
-from ..models.data import DetailsItem, DetailsList
 
 
 def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
@@ -25,15 +24,15 @@ def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     else:
         alinks = cmpt.find("g-scrolling-carousel").find_all("a")
 
-    details = DetailsList()
+    items = []
     for a in alinks:
         if "href" in a.attrs or "data-url" in a.attrs:
-            details.append(parse_alink(a))
-    parsed["details"] = details.to_dicts()
+            items.append(parse_alink(a))
+    parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return [parsed]
 
 
 def parse_alink(a):
     url = a.attrs.get("href") or a.attrs.get("data-url", "")
-    return DetailsItem(url=url, text=a.get_text("|"))
+    return {"url": url, "text": a.get_text("|")}

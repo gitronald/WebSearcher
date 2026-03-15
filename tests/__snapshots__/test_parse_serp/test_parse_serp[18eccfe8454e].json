@@ -28,7 +28,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -42,7 +44,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -56,7 +60,9 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": {},
+      "details": {
+        "type": "ratings"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -70,12 +76,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com  › austinfood › comments › what... Reddit https://www.reddit.com  › austinfood › comments › what...",
-        "What food is Austin, Texas best known for?",
-        "Is $100 a good salary in Austin, Texas?",
-        "THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58..."
-      ],
+      "details": {
+        "items": [
+          "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com  › austinfood › comments › what... Reddit https://www.reddit.com  › austinfood › comments › what...",
+          "What food is Austin, Texas best known for?",
+          "Is $100 a good salary in Austin, Texas?",
+          "THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
@@ -453,14 +462,17 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [
-        "LENOIR",
-        "Emmer & Rye",
-        "Olamaie",
-        "Odd Duck",
-        "Lutie's",
-        "Comedor"
-      ],
+      "details": {
+        "items": [
+          "LENOIR",
+          "Emmer & Rye",
+          "Olamaie",
+          "Odd Duck",
+          "Lutie's",
+          "Comedor"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 31,

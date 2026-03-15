@@ -238,12 +238,15 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": [
-        "Is NY Times liberal or conservative?",
-        "Why did Bari Weiss leave the NYT?",
-        "What is Trump's favorite newspaper?",
-        "Submit a Letter to The Editor - The New York Times Help Center NYT's Help Center - The New York Times https://help.nytimes.com  › en-us › articles › 1150149252... NYT's Help Center - The New York Times https://help.nytimes.com  › en-us › articles › 1150149252..."
-      ],
+      "details": {
+        "items": [
+          "Is NY Times liberal or conservative?",
+          "Why did Bari Weiss leave the NYT?",
+          "What is Trump's favorite newspaper?",
+          "Submit a Letter to The Editor - The New York Times Help Center NYT's Help Center - The New York Times https://help.nytimes.com  › en-us › articles › 1150149252... NYT's Help Center - The New York Times https://help.nytimes.com  › en-us › articles › 1150149252..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -411,7 +414,7 @@
     {
       "cite": null,
       "cmpt_rank": 10,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 28,
@@ -426,7 +429,8 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
-        "subtitle": "Newspaper"
+        "subtitle": "Newspaper",
+        "type": "panel"
       },
       "error": null,
       "section": "rhs",

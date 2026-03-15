@@ -58,7 +58,7 @@ def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
         else:
             rating = rating_text
 
-    details = {}
+    details = {"type": "ratings"}
     if price_div:
         details["price"] = price_div.get_text(strip=True)
     if source_div:

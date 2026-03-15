@@ -1,27 +1,4 @@
-from typing import Any
-
 from pydantic import BaseModel, Field
-
-
-class DetailsItem(BaseModel):
-    """Represents a details item within a search result."""
-
-    url: str = ""
-    title: str = ""
-    text: str = ""
-    misc: dict = Field(default_factory=dict)
-
-
-class DetailsList(list):
-    """A list of DetailsItem objects with conversion to dicts."""
-
-    def append(self, item: DetailsItem):
-        if not isinstance(item, DetailsItem):
-            raise TypeError(f"Expected DetailsItem, got {type(item).__name__}")
-        super().append(item)
-
-    def to_dicts(self) -> list[dict]:
-        return [item.model_dump() for item in self]
 
 
 class ResponseOutput(BaseModel):
@@ -60,7 +37,7 @@ class BaseResult(BaseModel):
     url: str | None = Field(None, description="URL of the search result")
     text: str | None = Field(None, description="Snippet text from the search result")
     cite: str | None = Field(None, description="Citation or source information")
-    details: Any | None = Field(
+    details: dict | None = Field(
         None, description="Additional structured details specific to result type"
     )
     error: str | None = Field(None, description="Error message if result parsing failed")

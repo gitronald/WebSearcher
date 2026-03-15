@@ -17,125 +17,86 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://oversight.house.gov/release/hearing-wrap-up-americans-deserve-improved-vaccine-injury-and-compensation-systems/#:~:text=WASHINGTON%20%E2%80%94%20The%20Select%20Subcommittee%20on,a%20future%20public%20health%20crisis."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.congress.gov/event/119th-congress/senate-event/337242#:~:text=Hearings%20to%20examine%20voices%20of,Congress.gov%20%7C%20Library%20of%20Congress"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sciencedirect.com/science/article/pii/S0264410X22010283#:~:text=Pfizer%20and%20Moderna%20mRNA%20COVID%2D19%20vaccines%20were%20associated%20with,of%20serious%20COVID%2D19%20outcomes."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nejm.org/doi/full/10.1056/NEJMsa2514268#:~:text=The%20RSVpreF%20vaccine%20was%20associated,and%20the%20Alumbra%20Innovations%20Foundation.)"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://publichealth.jhu.edu/2025/virus-transmission-trends-winter-2025-26#:~:text=Is%20this%20year's%20flu%20vaccine,%2Drelated%20hospitalizations%20this%20season.%E2%80%9D"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.congress.gov/118/meeting/house/117004/documents/HHRG-118-VC00-Transcript-20240321.pdf"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.hrsa.gov/vaccine-compensation#:~:text=How%20does%20the%20VICP%20work,and%20individuals%20who%20are%20deceased."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.uchealth.org/today/everything-you-need-to-know-about-the-2025-26-covid-19-vaccine-and-flu-shots/#:~:text=To%20answer%20some%20of%20your,the%20late%20fall%20and%20winter."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.congress.gov/event/119th-congress/senate-event/336985#:~:text=Senate%20Event%20336985-,Hearings%20to%20examine%20science%20and%20Federal%20health%20agencies%2C%20focusing%20on,119th%20Congress%20(2025%2D2026)"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://biontechse.gcs-web.com/news-releases/news-release-details/pfizer-and-biontech-publish-preclinical-data-investigational/#:~:text=In%20clinical%20studies%2C%20adverse%20reactions,to%20complete%20the%20vaccination%20series."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cdc.gov/acip/downloads/slides-2025-09-18-19/10-levi-COVID-508.pdf"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cidrap.umn.edu/influenza-vaccines/current-flu-vaccine-provides-moderate-protection-against-severe-disease-interim#:~:text=Two%20new%20analyses%2C%20one%20from,in%20the%202024%E2%80%9325%20season."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://cardiovascularbusiness.com/topics/clinical/covid-19/cardiologists-false-claims-used-promote-fake-covid-19-vaccine-recall-fact#:~:text=Cardiologist%20Peter%20McCullough%20no%20stranger,his%20claims%20as%20%22misleading.%22"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cidrap.umn.edu/covid-19/report-spotlights-52-us-doctors-who-posted-potentially-harmful-covid-misinformation-online#:~:text=Major%20themes%20were%20disputing%20COVID,inflammation%20of%20the%20heart%20muscle)."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.healthychildren.org/English/safety-prevention/immunizations/Pages/vaccine-studies-examine-the-evidence.aspx#:~:text=Research%20continues%20to%20confirm%20that,and%20teens%20from%20serious%20diseases."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=aafUmBFS42Q"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nbcnews.com/think/opinion/covid-vaccine-treatment-misinformation-medical-malpractice-it-should-be-punished-ncna1287180#:~:text=But%20a%20vocal%20minority%20of,to%20hold%20these%20doctors%20accountable."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=oZ1hgVNRMmE"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -167,12 +128,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Why are people refusing the COVID vaccine?",
-        "Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid",
-        "What percentage of people have a serious side effect from the COVID vaccine?",
-        "Adverse Effects of Pfizer (BioNTech), Oxford-AstraZeneca (ChAdOx1 ... PMC - NIH https://pmc.ncbi.nlm.nih.gov  › articles › PMC9967558 PMC - NIH https://pmc.ncbi.nlm.nih.gov  › articles › PMC9967558"
-      ],
+      "details": {
+        "items": [
+          "Why are people refusing the COVID vaccine?",
+          "Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid",
+          "What percentage of people have a serious side effect from the COVID vaccine?",
+          "Adverse Effects of Pfizer (BioNTech), Oxford-AstraZeneca (ChAdOx1 ... PMC - NIH https://pmc.ncbi.nlm.nih.gov  › articles › PMC9967558 PMC - NIH https://pmc.ncbi.nlm.nih.gov  › articles › PMC9967558"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,

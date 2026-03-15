@@ -14,7 +14,7 @@
     {
       "cite": "https://www.progressive.com",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 0,
@@ -28,7 +28,7 @@
     {
       "cite": "https://www.compare.com › compare › quotes",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -42,32 +42,27 @@
     {
       "cite": "http://www.geico.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Get A Quote",
-          "url": "http://www.geico.com/landingpage/go558/?type=auto30&soa=48133"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Free Car Insurance Quotes",
-          "url": "http://www.geico.com/landingpage/go558/?type=auto81&soa=39825%7Bignore%7D&ds_kid=%7B_dstrackerid%7D&ds_kids=%7B_dskeywordid%7D&s_kwcid=AL!9960!3!%7Bcreative%7D!%7Bmatchtype%7D!%7Bplacement%7D!%7Bnetwork%7D!%7Bproduct_partition_id%7D!%7Bkeyword%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Free Online Quotes 24/7",
-          "url": "http://www.geico.com/landingpage/go558/?type=auto81&soa=39825%7Bignore%7D&ds_kid=%7B_dstrackerid%7D&ds_kids=%7B_dskeywordid%7D&s_kwcid=AL!9960!3!%7Bcreative%7D!%7Bmatchtype%7D!%7Bplacement%7D!%7Bnetwork%7D!%7Bproduct_partition_id%7D!%7Bkeyword%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Multi-Policy Discount",
-          "url": "http://www.geico.com/landingpage/go426a/?type=auto51&soa=23536"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Get A Quote",
+            "url": "http://www.geico.com/landingpage/go558/?type=auto30&soa=48133"
+          },
+          {
+            "title": "Free Car Insurance Quotes",
+            "url": "http://www.geico.com/landingpage/go558/?type=auto81&soa=39825%7Bignore%7D&ds_kid=%7B_dstrackerid%7D&ds_kids=%7B_dskeywordid%7D&s_kwcid=AL!9960!3!%7Bcreative%7D!%7Bmatchtype%7D!%7Bplacement%7D!%7Bnetwork%7D!%7Bproduct_partition_id%7D!%7Bkeyword%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "Free Online Quotes 24/7",
+            "url": "http://www.geico.com/landingpage/go558/?type=auto81&soa=39825%7Bignore%7D&ds_kid=%7B_dstrackerid%7D&ds_kids=%7B_dskeywordid%7D&s_kwcid=AL!9960!3!%7Bcreative%7D!%7Bmatchtype%7D!%7Bplacement%7D!%7Bnetwork%7D!%7Bproduct_partition_id%7D!%7Bkeyword%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "Multi-Policy Discount",
+            "url": "http://www.geico.com/landingpage/go426a/?type=auto51&soa=23536"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -81,7 +76,7 @@
     {
       "cite": "https://www.insurify.com",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -123,12 +118,15 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": [
-        "Who normally has the cheapest car insurance?",
-        "What's the best site for car insurance quotes?",
-        "Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c...",
-        "What is the cheapest auto insurance in FL?"
-      ],
+      "details": {
+        "items": [
+          "Who normally has the cheapest car insurance?",
+          "What's the best site for car insurance quotes?",
+          "Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c...",
+          "What is the cheapest auto insurance in FL?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -174,101 +172,70 @@
         "heading": "Affordable Auto Insurance",
         "img_url": null,
         "text": "Sponsored results|Sponsored results|Sponsored results|Sponsored results|Sponsored results|Sponsored results|Affordable Auto Insurance|Affordable Auto Insurance|Progressive|Progressive|Progressive|https://www.progressive.com|https://www.progressive.com|Progressive|Progressive|Progressive|https://www.progressive.com|https://www.progressive.com|My Ad Center|6 Minute Quote|Compare Rates|Compare Auto Insurance Rates|Get an Auto Quote Today|Compare Car Insurance Rates | Enter Your Zip Code|Compare Car Insurance Rates | Enter Your Zip Code|compare.com|compare.com|compare.com|https://www.compare.com › compare › quotes|https://www.compare.com › compare › quotes|compare.com|compare.com|compare.com|https://www.compare.com › compare › quotes|https://www.compare.com › compare › quotes|My Ad Center| | |Rating|2026 Cheap Car Insurance|Car Insurance Calculator|Cheap Car Insurance|Compare Car Insurance|100K+ visits in past month|100K+ visits in past month|100K+ visits in past month|100K+ visits in past month|100K+ visits in past month|Show sponsored results|Hide sponsored results|Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Affordable Auto Insurance|Progressive|https://www.progressive.com",
-            "title": "",
             "url": "https://www.progressive.com/lp/auto-compare/"
           },
           {
-            "misc": {},
             "text": "6 Minute Quote",
-            "title": "",
             "url": "https://www.progressive.com/lp/auto-easy/?code=8004300041&se=Google&kwd=%7Bkeyword%7D&mt=%7Bmatchtype%7D&psd=%7Bdevice%7D&spn=%7Bnetwork%7D&adid=%7Bcreative%7D&adpos=%7Badposition%7D&phone=80044&srcfrc=true"
           },
           {
-            "misc": {},
             "text": "Compare Rates",
-            "title": "",
             "url": "https://www.progressive.com/lp/auto-compare/?code=8004300042&se=Google&kwd=%7Bkeyword%7D&mt=%7Bmatchtype%7D&psd=%7Bdevice%7D&spn=%7Bnetwork%7D&adid=%7Bcreative%7D&adpos=%7Badposition%7D&phone=80044&srcfrc=true"
           },
           {
-            "misc": {},
             "text": "Compare Auto Insurance Rates",
-            "title": "",
             "url": "https://www.progressive.com/lp/auto-compare/?code=8004309008&se=Google&kwd=%7Bkeyword%7D&mt=%7Bmatchtype%7D&psd=%7Bdevice%7D&spn=%7Bnetwork%7D&adid=%7Bcreative%7D&adpos=%7Badposition%7D&phone=80044&phoneNum=1&srcfrc=true"
           },
           {
-            "misc": {},
             "text": "Compare Car Insurance Rates | Enter Your Zip Code|compare.com|https://www.compare.com › compare › quotes",
-            "title": "",
             "url": "https://www.compare.com/compare-lp-3/"
           },
           {
-            "misc": {},
             "text": "Rating",
-            "title": "",
             "url": "https://www.google.com/shopping/ratings/account/metrics?q=compare.com&c=US&v=19"
           },
           {
-            "misc": {},
             "text": "2026 Cheap Car Insurance",
-            "title": "",
             "url": "/aclk?sa=L&ai=DChsSEwjAuOz6hcaSAxWYT5EFHVutGUcYACICCAIQCBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIwLjs-oXGkgMVmE-RBR1brRlHEAMYAiAEEgLdXvD_BwE&cid=CAASugHkaArEEqd8oJDVR1GE9BHNFDxlkq1u5-GgaYQ49Um21jiXaliI1dgZUuR9aiIdd9xISYOJITv1rYCCx7LCoVTTPQEPhodiOQNvuUMw4ogXFClHEEAhZrWHZMOYtmDFzUAmpje5roG0B_9IVYGKUkgVWYMd5Klr84ENFiPGaCxyh8mZW9-6eFfuz1cKGKVvrr_7mCFrvjDglDxVZdF-aPnxgreL1lH-IyROyjkb6QoBq3WMJ0xsLIjb4G8&cce=2&category=acrcp_v1_32&sig=AOD64_1a83B19JlPSq_8C-tcYLUYMa3n-g&adurl=&q="
           },
           {
-            "misc": {},
             "text": "Car Insurance Calculator",
-            "title": "",
             "url": "https://www.compare.com/rlp/450"
           },
           {
-            "misc": {},
             "text": "Cheap Car Insurance",
-            "title": "",
             "url": "https://www.compare.com/cheap-car-insurance"
           },
           {
-            "misc": {},
             "text": "Compare Car Insurance",
-            "title": "",
             "url": "https://www.compare.com/auto-insurance/compare-insurance-companies"
           },
           {
-            "misc": {},
             "text": "Cheapest| car insurance |in California",
-            "title": "",
             "url": "http://www.google.com/search?q=Cheapest+car+insurance+in+California&mrq=1&mrqri=0&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAB6BAheEAU"
           },
           {
-            "misc": {},
             "text": "Car insurance quotes |cheapest",
-            "title": "",
             "url": "http://www.google.com/search?q=Car+insurance+quotes+cheapest&mrq=1&mrqri=1&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAF6BAheEAY"
           },
           {
-            "misc": {},
             "text": "Best| car insurance quotes",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+car+insurance+quotes&mrq=1&mrqri=2&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAJ6BAheEAc"
           },
           {
-            "misc": {},
             "text": "Car insurance quotes |full coverage cheap",
-            "title": "",
             "url": "http://www.google.com/search?q=Car+insurance+quotes+full+coverage+cheap&mrq=1&mrqri=3&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAN6BAheEAg"
           },
           {
-            "misc": {},
             "text": "Compare| car insurance quotes",
-            "title": "",
             "url": "http://www.google.com/search?q=Compare+car+insurance+quotes&mrq=1&mrqri=4&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAR6BAheEAk"
           },
           {
-            "misc": {},
             "text": "Best| car insurance",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+car+insurance&mrq=1&mrqri=5&mrqei=5nyGafP4Msun1fIP6OuB-A0&sa=X&ved=2ahUKEwjzg-X6hcaSAxXLU1UIHeh1AN8QyO0OKAV6BAheEAo"
           }
         ]
@@ -398,14 +365,17 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [
-        "The General",
-        "Direct Auto Insurance",
-        "Esurance",
-        "Allstate",
-        "Progressive",
-        "State Farm"
-      ],
+      "details": {
+        "items": [
+          "The General",
+          "Direct Auto Insurance",
+          "Esurance",
+          "Allstate",
+          "Progressive",
+          "State Farm"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 18,

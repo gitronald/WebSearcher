@@ -49,5 +49,5 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
         output_list.extend(filter(None, link_text))
 
     parsed["text"] = "<|>".join(output_list)
-    parsed["details"] = output_list
+    parsed["details"] = {"type": "text", "items": output_list} if output_list else None
     return [parsed]

@@ -13,7 +13,6 @@ Changelog
 import bs4
 
 from .. import utils
-from ..models.data import DetailsItem, DetailsList
 from .shopping_ads import parse_shopping_ads
 
 SUB_TYPES = [
@@ -88,13 +87,13 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
             "details": _parse_ad_legacy_sub_details(sub),
         }
 
-    def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> list:
-        details_list = DetailsList()
+    def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> dict | None:
+        items = []
         bottom_text = sub.find("ul")
         if bottom_text:
             for li in bottom_text.find_all("li"):
-                details_list.append(DetailsItem(text=li.get_text(separator=" ")))
-        return details_list.to_dicts()
+                items.append(li.get_text(separator=" "))
+        return {"type": "text", "items": items} if items else None
 
     return _parse_ad_legacy(cmpt)
 
@@ -116,10 +115,10 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
             else None
         )
 
-        details = DetailsList()
+        details = None
         rating_span = profile.find("span", attrs={"aria-label": True})
         if rating_span:
-            details.append(DetailsItem(text=rating_span["aria-label"]))
+            details = {"type": "text", "items": [rating_span["aria-label"]]}
 
         return {
             "type": "ad",
@@ -129,7 +128,7 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
             "url": url,
             "cite": None,
             "text": text,
-            "details": details.to_dicts(),
+            "details": details,
         }
 
     profiles = cmpt.find_all("gls-profile-entrypoint")
@@ -165,16 +164,13 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
         text_divs = sub.find_all("div", {"class": "yDYNvb"})
         return "|".join([d.text for d in text_divs]) if text_divs else ""
 
-    def _parse_ad_secondary_sub_details(sub: bs4.element.Tag) -> list:
+    def _parse_ad_secondary_sub_details(sub: bs4.element.Tag) -> dict | None:
         for selector in [{"role": "list"}, {"class": "bOeY0b"}]:
             details_section = sub.find("div", selector)
             if details_section:
                 urls = utils.get_link_list(details_section)
                 if urls:
-                    details_list = DetailsList()
-                    for url in urls:
-                        details_list.append(DetailsItem(url=url))
-                    return details_list.to_dicts()
+                    return {"type": "links", "items": urls}
                 return None
 
     return _parse_ad_secondary(cmpt)
@@ -222,35 +218,35 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_ad_menu(sub: bs4.element.Tag) -> list:
+def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
     """Parse menu items for a large ad with additional subresults"""
 
-    parsed_items = DetailsList()
+    items = []
 
     # Format 1: MhgNwc items with MUxGbd sub-divs
     menu_items = sub.find_all("div", {"class": "MhgNwc"})
     for item in menu_items:
-        parsed_item = DetailsItem()
+        parsed_item = {"url": "", "title": "", "text": ""}
         item_divs = item.find_all("div", {"class": "MUxGbd"})
         for div in item_divs:
             if utils.check_dict_value(div.attrs, "role", "listitem"):
-                parsed_item.url = utils.get_link(div) or ""
-                parsed_item.title = utils.get_text(div) or ""
+                parsed_item["url"] = utils.get_link(div) or ""
+                parsed_item["title"] = utils.get_text(div) or ""
             else:
-                parsed_item.text = utils.get_text(div) or ""
-        parsed_items.append(parsed_item)
+                parsed_item["text"] = utils.get_text(div) or ""
+        items.append(parsed_item)
 
     # Format 2: bOeY0b sitelinks section
-    if not parsed_items:
+    if not items:
         sitelink_div = sub.find("div", {"class": "bOeY0b"})
         if sitelink_div:
             for link in sitelink_div.find_all("a", href=True):
                 text = link.get_text(strip=True)
                 href = link.get("href", "")
                 if text and href:
-                    parsed_items.append(DetailsItem(url=href, title=text))
+                    items.append({"url": href, "title": text})
 
-    return parsed_items.to_dicts()
+    return {"type": "menu", "items": items} if items else None
 
 
 # ------------------------------------------------------------------------------

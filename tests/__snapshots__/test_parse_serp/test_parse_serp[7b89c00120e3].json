@@ -31,71 +31,50 @@
       "details": {
         "heading": "Results for Palo Alto, CA 94301",
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.google.com/intl/en_us/googlefinance/disclaimer"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions#:~:text=@javkoza%20In%20August%202025%2C%20Apple,Winning."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.inc.com/ava-levinson/tim-cook-apple-employees-immigration/91298666#:~:text=The%20Apple%20CEO%20pledged%20to,promise%20of%20calling%20for%20change."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.gurufocus.com/news/8591738/apple-aapl-sees-increased-options-activity-amid-bullish-sentiment#:~:text=Apple's%20iPhone%20makes%20up%20a,build%20its%20products%20and%20chips."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/money/Apple-Inc#:~:text=Encyclop%C3%A6dia%20Britannica%2C%20Inc.-,Key%20products%20and%20services,The%20genesis%20of%20Apple%20Inc."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/quote/AAPL/profile/#:~:text=In%20addition%2C%20the%20company%20offers,:%201;%20Compensation:%203."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.ebsco.com/research-starters/computer-science/apple-inc#:~:text=In%202007%2C%20Apple%20Computer%20changed,marketplaces%20to%20support%20these%20devices."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/#:~:text=Apple%2C%20Inc%20engages%20in%20the,is%20headquartered%20in%20Cupertino%2C%20CA."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.globaldata.com/company-profile/apple-inc/#:~:text=Apple%20Inc%20(Apple)%20designs%2C,Cupertino%2C%20California%2C%20the%20US."
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -141,12 +120,15 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": [
-        "What if I invested $1000 in Apple in 1997?",
-        "What is the Apple Inc?",
-        "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc",
-        "What does inc stand for in Apple?"
-      ],
+      "details": {
+        "items": [
+          "What if I invested $1000 in Apple in 1997?",
+          "What is the Apple Inc?",
+          "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc",
+          "What does inc stand for in Apple?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
@@ -162,6 +144,7 @@
       "cmpt_rank": 5,
       "details": {
         "directions": "/maps/dir//Apple+Inc.,+1070+E+Arques+Ave,+Sunnyvale,+CA+94085/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb6196e0a7497:0xc4162eb5b073a9e4?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://apple.com/"
       },
       "error": null,
@@ -179,6 +162,7 @@
       "cmpt_rank": 5,
       "details": {
         "directions": "/maps/dir//Apple,+10500+N+De+Anza+Blvd,+Cupertino,+CA+95014/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb5b13fdcecf7:0xdc5c21978a3d43f5?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://apple.com/"
       },
       "error": null,
@@ -196,6 +180,7 @@
       "cmpt_rank": 5,
       "details": {
         "directions": "/maps/dir//Apple+Palo+Alto,+340+University+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb38fa3f36f9:0xf5692002b984147?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"
       },
       "error": null,
@@ -281,7 +266,7 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 13,

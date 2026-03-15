@@ -17,47 +17,34 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Peacock|Subscription|Watch",
-            "title": "",
             "url": "https://www.peacocktv.com/watch-online/tv/the-office/4902514835143843112"
           },
           {
-            "misc": {},
             "text": "Sling TV|Subscription| |(|Requires add-on|)|Watch",
-            "title": "",
             "url": "https://watch.sling.com/1/franchise/c6efea3b949ad24f9a6d236e71b8b3cd/browse?trackingid=google-feed"
           },
           {
-            "misc": {},
             "text": "Amazon Prime Video|Subscription| |(|Requires add-on|)|Watch",
-            "title": "",
             "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.b2a10098-1876-492c-8857-dd091c87cd21?autoplay=0&ref_=atv_cf_strg_wb"
           },
           {
-            "misc": {},
             "text": "YouTube TV|Subscription| |(|Requires add-on|)|Watch",
-            "title": "",
             "url": "https://tv.youtube.com/browse/UCLqUTxeCVt9p90GLFKUsGFA?utm_source=onebox"
           },
           {
-            "misc": {},
             "text": "YouTube|From |$1.99|Watch",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=bxMy27_rGhs"
           },
           {
-            "misc": {},
             "text": "Fandango at Home|$1.99|Watch",
-            "title": "",
             "url": "https://athome.fandango.com/content/browse/details/The-Office-Finale-Pt-2/446371?cmp=OrganicSearch~Vudu~GoogleWatch"
           },
           {
-            "misc": {},
             "text": "Apple TV|$2.99|Watch",
-            "title": "",
             "url": "https://tv.apple.com/us/episode/the-dundies/umc.cmc.10237h1l57lzymzt2tsuinwhy?action=playSmartEpisode"
           }
         ]
@@ -131,12 +118,15 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": [
-        "Watch The Office Streaming | Peacock Peacock https://www.peacocktv.com  › stream-tv › the-office Peacock https://www.peacocktv.com  › stream-tv › the-office",
-        "The Office Removal from Netflix in the US - Facebook Facebook https://www.facebook.com  › groups › posts Facebook https://www.facebook.com  › groups › posts",
-        "Watch The Office | Season 1 Episode 1 | HBO Max HBO Max https://www.hbomax.com  › shows › office-2005 › e1-pilot HBO Max https://www.hbomax.com  › shows › office-2005 › e1-pilot",
-        "You Can Now Stream \"The Office\" For Free on Peacock - The Credits Motion Picture Association https://www.motionpictures.org  › 2021/03 › you-can-no... Motion Picture Association https://www.motionpictures.org  › 2021/03 › you-can-no..."
-      ],
+      "details": {
+        "items": [
+          "Watch The Office Streaming | Peacock Peacock https://www.peacocktv.com  › stream-tv › the-office Peacock https://www.peacocktv.com  › stream-tv › the-office",
+          "The Office Removal from Netflix in the US - Facebook Facebook https://www.facebook.com  › groups › posts Facebook https://www.facebook.com  › groups › posts",
+          "Watch The Office | Season 1 Episode 1 | HBO Max HBO Max https://www.hbomax.com  › shows › office-2005 › e1-pilot HBO Max https://www.hbomax.com  › shows › office-2005 › e1-pilot",
+          "You Can Now Stream \"The Office\" For Free on Peacock - The Credits Motion Picture Association https://www.motionpictures.org  › 2021/03 › you-can-no... Motion Picture Association https://www.motionpictures.org  › 2021/03 › you-can-no..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 5,
@@ -166,7 +156,8 @@
       "cmpt_rank": 7,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -183,7 +174,8 @@
       "cmpt_rank": 8,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -240,7 +232,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 12,

@@ -56,12 +56,15 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": [
-        "The Legislative Branch Handout - USCIS USCIS https://www.uscis.gov  › files › document › lesson-plans USCIS https://www.uscis.gov  › files › document › lesson-plans",
-        "Which party controls Congress in the USA?",
-        "How Congress Works | Congressman Tim Walberg - House.gov Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works",
-        "House of Representatives and Senate: What's the Difference? - E S S AY E S S AY https://www.visitthecapitol.gov  › resources-and-activities E S S AY https://www.visitthecapitol.gov  › resources-and-activities"
-      ],
+      "details": {
+        "items": [
+          "The Legislative Branch Handout - USCIS USCIS https://www.uscis.gov  › files › document › lesson-plans USCIS https://www.uscis.gov  › files › document › lesson-plans",
+          "Which party controls Congress in the USA?",
+          "How Congress Works | Congressman Tim Walberg - House.gov Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works Tim Walberg - House.gov https://walberg.house.gov  › about › how-congress-works",
+          "House of Representatives and Senate: What's the Difference? - E S S AY E S S AY https://www.visitthecapitol.gov  › resources-and-activities E S S AY https://www.visitthecapitol.gov  › resources-and-activities"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -134,41 +137,30 @@
       "details": {
         "heading": "Things to know",
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "United States Congress - Wikipedia|wikipedia.org|https://en.wikipedia.org| › wiki › United_States_Congress",
-            "title": "",
             "url": "https://en.wikipedia.org/wiki/United_States_Congress#:~:text=A%20Congress%20covers%20two%20years,end%20on%20January%203%2C%202027."
           },
           {
-            "misc": {},
             "text": "What is the current U.S. Congress?",
-            "title": "",
             "url": "/search?sca_esv=7e23b67cda9c6a45&q=what+is+the+current+us+congress&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAP"
           },
           {
-            "misc": {},
             "text": "The Legislative Branch | whitehouse.gov|archives.gov|https://obamawhitehouse.archives.gov| › legislative-branch",
-            "title": "",
             "url": "https://obamawhitehouse.archives.gov/1600/legislative-branch#:~:text=Congress%2C%20as%20one%20of%20the,laws%20or%20change%20existing%20laws."
           },
           {
-            "misc": {},
             "text": "What does Congress do?",
-            "title": "",
             "url": "/search?sca_esv=7e23b67cda9c6a45&q=what+does+congress+do&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAe"
           },
           {
-            "misc": {},
             "text": "Membership of the 119th Congress: A Profile|congress.gov|https://www.congress.gov| › crs-product",
-            "title": "",
             "url": "https://www.congress.gov/crs-product/R48535#:~:text=The%20average%20age%20of%20Members,are%20four%2Dyear%20college%20graduates."
           },
           {
-            "misc": {},
             "text": "Congress age",
-            "title": "",
             "url": "/search?sca_esv=7e23b67cda9c6a45&q=congress+age&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQrooIegQIUhAt"
           }
         ]
@@ -312,7 +304,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 18,
@@ -327,7 +319,8 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
-        "subtitle": "Governing body"
+        "subtitle": "Governing body",
+        "type": "panel"
       },
       "error": null,
       "section": "rhs",

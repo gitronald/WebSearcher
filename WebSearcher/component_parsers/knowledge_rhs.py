@@ -1,6 +1,3 @@
-from ..models.data import DetailsItem, DetailsList
-
-
 def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel
 
@@ -66,13 +63,15 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
         if description.parent.previous_sibling:
             alinks += description.parent.previous_sibling.find_all("a")
         if len(alinks) > 1:  # 1st match has main description
-            urls = DetailsList()
+            urls = []
             for a in alinks[1:]:
                 if "href" in a.attrs:
                     urls.append(parse_alink(a))
-            parsed["details"]["urls"] = urls.to_dicts()
+            parsed["details"]["urls"] = urls
 
-    if not len(parsed["details"]):
+    if parsed["details"]:
+        parsed["details"]["type"] = "panel"
+    else:
         parsed["details"] = None
 
     return [parsed]
@@ -96,14 +95,14 @@ def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
 
     alinks = sub.find_all("a")
     if alinks:
-        details = DetailsList()
+        items = []
         for a in alinks:
             if "href" in a.attrs:
-                details.append(parse_alink(a))
-        parsed["details"] = details.to_dicts()
+                items.append(parse_alink(a))
+        parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return parsed
 
 
 def parse_alink(a):
-    return DetailsItem(url=a["href"], text=a.text)
+    return {"url": a["href"], "text": a.text}

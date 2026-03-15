@@ -1,6 +1,5 @@
 import re
 
-from ..models.data import DetailsItem, DetailsList
 from ..utils import get_link, get_text
 
 
@@ -78,15 +77,15 @@ def parse_general_result(sub, sub_rank=0) -> dict:
 
 
 def parse_alink(a):
-    return DetailsItem(url=a.attrs["href"], text=a.text)
+    return {"url": a.attrs["href"], "text": a.text}
 
 
 def parse_alink_list(alinks):
-    details = DetailsList()
+    items = []
     for a in alinks:
         if "href" in a.attrs:
-            details.append(parse_alink(a))
-    return details.to_dicts()
+            items.append(parse_alink(a))
+    return items
 
 
 def parse_subtype_details(sub, parsed) -> dict:
@@ -118,6 +117,7 @@ def parse_subtype_details(sub, parsed) -> dict:
             if len(text):
                 ratings = parse_ratings(text.split("-"))
                 details.update(ratings)
+                details["type"] = "review"
 
     # Submenu - list format
     elif sub.find("div", {"class": ["P1usbc", "IThcWe"]}):
@@ -125,26 +125,30 @@ def parse_subtype_details(sub, parsed) -> dict:
         submenu_div = sub.find("div", {"class": ["P1usbc", "IThcWe"]})
         if submenu_div:
             alinks = submenu_div.find_all("a")
-            details["links"] = parse_alink_list(alinks)
+            details["type"] = "hyperlinks"
+            details["items"] = parse_alink_list(alinks)
 
     # Submenu - table format
     elif sub.find("table"):
         parsed["sub_type"] = "submenu"
         alinks = sub.find("table").find_all("a")
-        details["links"] = parse_alink_list(alinks)
+        details["type"] = "hyperlinks"
+        details["items"] = parse_alink_list(alinks)
 
     # Mini submenu
     elif sub.find("div", {"class": ["osl", "jYOxx"]}):
         parsed["sub_type"] = "submenu_mini"
         alinks = sub.find("div", {"class": ["osl", "jYOxx"]}).find_all("a")
-        details["links"] = parse_alink_list(alinks)
+        details["type"] = "hyperlinks"
+        details["items"] = parse_alink_list(alinks)
 
     elif sub.find("div", {"class": re.compile("fG8Fp")}):
         # Scholar results
         alinks = sub.find("div", {"class": re.compile("fG8Fp")}).find_all("a")
         if len(alinks) and "Cited by" in alinks[0].text:
             parsed["sub_type"] = "submenu_scholarly"
-            details["links"] = parse_alink_list(alinks)
+            details["type"] = "hyperlinks"
+            details["items"] = parse_alink_list(alinks)
 
         # Product results
         text = get_text(sub, "div", {"class": re.compile("fG8Fp")})
@@ -152,6 +156,7 @@ def parse_subtype_details(sub, parsed) -> dict:
             parsed["sub_type"] = "submenu_product"
             product_details = parse_product(text)
             details.update(product_details)
+            details["type"] = "product"
 
     parsed["details"] = details if details else None
     return parsed
@@ -234,6 +239,7 @@ def get_result_text(cmpt, selector, strip=True):
 
 def get_result_details(cmpt):
     details = {
+        "type": "video",
         "source": get_result_text(cmpt, ".gqF9jc", strip=False),
         "duration": get_result_text(cmpt, ".JIv15d"),
     }

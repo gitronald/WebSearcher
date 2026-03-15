@@ -31,11 +31,10 @@
       "details": {
         "heading": "6719°F°F°C °C",
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Google Weather",
-            "title": "",
             "url": "https://support.google.com/websearch/answer/13687874"
           }
         ]
@@ -193,7 +192,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 12,

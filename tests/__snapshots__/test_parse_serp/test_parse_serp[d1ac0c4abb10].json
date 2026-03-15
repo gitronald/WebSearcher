@@ -17,7 +17,8 @@
       "details": {
         "heading": "ThinkingSearchingThinking a little longer",
         "img_url": null,
-        "text": "An AI Overview is not available for this search|An AI Overview is not available for this search|Can't generate an AI overview right now. Try again later.|Can't generate an AI overview right now. Try again later.|Thinking|Thinking|Searching|Searching|Thinking a little longer|Thinking a little longer|My Ad Center"
+        "text": "An AI Overview is not available for this search|An AI Overview is not available for this search|Can't generate an AI overview right now. Try again later.|Can't generate an AI overview right now. Try again later.|Thinking|Thinking|Searching|Searching|Thinking a little longer|Thinking a little longer|My Ad Center",
+        "type": "panel"
       },
       "error": null,
       "section": "main",
@@ -46,12 +47,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "What to Do If You Test Positive for COVID-19 - CDPH CDPH - CA.gov https://www.cdph.ca.gov  › CID › DCDC › Pages › What... CDPH - CA.gov https://www.cdph.ca.gov  › CID › DCDC › Pages › What...",
-        "COVID-19 symptoms and what to do - NHS nhs.uk https://www.nhs.uk  › Conditions A to Z › COVID-19 nhs.uk https://www.nhs.uk  › Conditions A to Z › COVID-19",
-        "Staying Up to Date with COVID-19 Vaccines - CDC CDC https://www.cdc.gov  › covid › vaccines › stay-up-to-date CDC https://www.cdc.gov  › covid › vaccines › stay-up-to-date",
-        "9 Tips to Recover Faster from COVID-19 or Flu - UnityPoint Health UnityPoint Health https://www.unitypoint.org  › news-and-articles › 9-tips-t... UnityPoint Health https://www.unitypoint.org  › news-and-articles › 9-tips-t..."
-      ],
+      "details": {
+        "items": [
+          "What to Do If You Test Positive for COVID-19 - CDPH CDPH - CA.gov https://www.cdph.ca.gov  › CID › DCDC › Pages › What... CDPH - CA.gov https://www.cdph.ca.gov  › CID › DCDC › Pages › What...",
+          "COVID-19 symptoms and what to do - NHS nhs.uk https://www.nhs.uk  › Conditions A to Z › COVID-19 nhs.uk https://www.nhs.uk  › Conditions A to Z › COVID-19",
+          "Staying Up to Date with COVID-19 Vaccines - CDC CDC https://www.cdc.gov  › covid › vaccines › stay-up-to-date CDC https://www.cdc.gov  › covid › vaccines › stay-up-to-date",
+          "9 Tips to Recover Faster from COVID-19 or Flu - UnityPoint Health UnityPoint Health https://www.unitypoint.org  › news-and-articles › 9-tips-t... UnityPoint Health https://www.unitypoint.org  › news-and-articles › 9-tips-t..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -191,7 +195,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 12,

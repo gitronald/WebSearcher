@@ -17,119 +17,82 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Tectonic Plate Movement",
-            "title": "",
             "url": "https://www.google.com/search?q=Tectonic+Plate+Movement&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgAEAo"
           },
           {
-            "misc": {},
             "text": "Faults and Stress",
-            "title": "",
             "url": "https://www.google.com/search?q=Faults+and+Stress&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgAEAw"
           },
           {
-            "misc": {},
             "text": "Elastic Rebound Theory",
-            "title": "",
             "url": "https://www.google.com/search?q=Elastic+Rebound+Theory&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgBEAE"
           },
           {
-            "misc": {},
             "text": "Location of Release",
-            "title": "",
             "url": "https://www.google.com/search?q=Location+of+Release&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgCEAE"
           },
           {
-            "misc": {},
             "text": "Other Causes",
-            "title": "",
             "url": "https://www.google.com/search?q=Other+Causes&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgDEAE"
           },
           {
-            "misc": {},
             "text": "Transform Boundaries",
-            "title": "",
             "url": "https://www.google.com/search?q=Transform+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAE"
           },
           {
-            "misc": {},
             "text": "Convergent Boundaries",
-            "title": "",
             "url": "https://www.google.com/search?q=Convergent+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAM"
           },
           {
-            "misc": {},
             "text": "Divergent Boundaries",
-            "title": "",
             "url": "https://www.google.com/search?q=Divergent+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAU"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.mtu.edu/geo/community/seismology/learn/earthquake-cause/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://mauiready.wordpress.com/be-informed-2/earthquakes/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://study.com/learn/lesson/video/earthquake-causes-effects-locations.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/science/earthquake-geology"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.earthquakescanada.nrcan.gc.ca/info-gen/faq-en.php"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "http://www.seismo.ethz.ch/en/knowledge/faq/what-causes-earthquakes/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.bbc.co.uk/bitesize/guides/zcv7hyc/revision/3"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -161,12 +124,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause",
-        "What is a 7 letter word for earthquake?",
-        "Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies",
-        "Is a 4.8 earthquake bad?"
-      ],
+      "details": {
+        "items": [
+          "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause",
+          "What is a 7 letter word for earthquake?",
+          "Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies",
+          "Is a 4.8 earthquake bad?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -364,7 +330,8 @@
       "cmpt_rank": 8,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -421,7 +388,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 20,

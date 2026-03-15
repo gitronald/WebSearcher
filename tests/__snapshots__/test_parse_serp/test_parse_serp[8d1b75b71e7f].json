@@ -18,29 +18,22 @@
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
         "text": "ser·en·dip·i·ty / ˌserənˈdipədē / Learn to pronounce noun noun : serendipity ; plural noun : serendipities the occurrence and development of events by chance in a happy or beneficial way. \"a fortunate stroke of serendipity\" h Similar: chance happy chance accident happy accident fluke luck good luck good fortune fortuity fortuitousness providence coincidence happy coincidence Origin 1754: coined by Horace Walpole, suggested by The Three Princes of Serendip , the title of a fairy tale in which the heroes ‘were always making discoveries, by accidents and sagacity, of things they were not in quest of’.",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Oxford Languages",
-            "title": "",
             "url": "https://languages.oup.com/google-dictionary-en"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch/answer/10106608?hl=en"
           },
           {
-            "misc": {},
             "text": " | |Learn to pronounce| | ",
-            "title": "",
             "url": "/search?sca_esv=a23961d46812ec7b&q=how+to+pronounce+serendipity&stick=H4sIAAAAAAAAAOMIfcRoyy3w8sc9YSmTSWtOXmPU4-INKMrPK81LzkwsyczPExLnYglJLcoV4pfi5eIuTi1KzUvJLMgsqbRiUWJKzeNZxCqTkV-uUJKvUADUlg_Ul6qApAoA1EtmuWEAAAA&pron_lang=en&pron_country=us&sa=X&ved=2ahUKEwjfno-KiMaSAxU4hKgCHbt1MXwQ3eEDegQIMRAN"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "http://books.google.com/ngrams/graph?year_start=1800&year_end=2019&corpus=26&smoothing=7&case_insensitive=on&content=serendipity"
           }
         ]
@@ -58,12 +51,15 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        "What is the true meaning of serendipity?",
-        "What is an example of serendipity?",
-        "What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com  › blog › what-does-serendipity-m... Noisli https://www.noisli.com  › blog › what-does-serendipity-m...",
-        "What is the synonym of serendipity?"
-      ],
+      "details": {
+        "items": [
+          "What is the true meaning of serendipity?",
+          "What is an example of serendipity?",
+          "What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com  › blog › what-does-serendipity-m... Noisli https://www.noisli.com  › blog › what-does-serendipity-m...",
+          "What is the synonym of serendipity?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -415,7 +411,8 @@
       "cmpt_rank": 11,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -444,7 +441,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 28,

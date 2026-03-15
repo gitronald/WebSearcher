@@ -17,107 +17,74 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Peekaboo Kidz|YouTube • May 13, 2015",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=D1Ymc311XS8&t=110"
           },
           {
-            "misc": {},
             "text": "Light-Dependent Reactions",
-            "title": "",
             "url": "https://www.google.com/search?q=Light-Dependent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAE"
           },
           {
-            "misc": {},
             "text": "Light-Independent Reactions",
-            "title": "",
             "url": "https://www.google.com/search?q=Light-Independent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAQ"
           },
           {
-            "misc": {},
             "text": "Calvin Cycle",
-            "title": "",
             "url": "https://www.google.com/search?q=Calvin+Cycle&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAU"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://education.nationalgeographic.org/resource/photosynthesis/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=fTXh7A7Uc2M"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.life.illinois.edu/govindjee/page2.html#:~:text=Photosynthesis%20is%20the%20process%20by%20which%20plants,and%20NADP%20available%20to%20continue%20the%20process"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://en.wikipedia.org/wiki/Photosynthesis"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sciencefocus.com/nature/how-does-photosynthesis-work"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/science/photosynthesis"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis#:~:text=Photosynthesis%20is%20essential%20for%20life%20on%20Earth.,to%20produce%20carbohydrates.%20Created%20by%20Sal%20Khan."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=CL9A8YhwUps"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.knowatom.com/science-phenomena-videos/6th-grade-science/photosynthesis"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.life.illinois.edu/govindjee/page2.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -149,12 +116,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis",
-        "What are the 4 steps of photosynthesis?",
-        "photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis",
-        "Why is photosynthesis a short answer?"
-      ],
+      "details": {
+        "items": [
+          "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis",
+          "What are the 4 steps of photosynthesis?",
+          "photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis",
+          "Why is photosynthesis a short answer?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -198,7 +168,8 @@
       "cmpt_rank": 5,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -367,7 +338,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 17,

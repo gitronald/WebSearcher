@@ -17,89 +17,62 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "1m|Bloomberg Podcasts|YouTube • Feb 5, 2026",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=XIMupMYgR5s&t=138"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reuters.com/technology/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/topic/tech/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.technologyreview.com/#:~:text=Commercial%20space%20stations:%2010%20Breakthrough%20Technologies%202026,outpost%20is%20scheduled%20to%20launch%20this%20May."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.technewsworld.com/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://news.mit.edu/#:~:text=Terahertz%20microscope%20reveals%20the%20motion%20of%20superconducting,observe%20terahertz%20%E2%80%9Cjiggles%E2%80%9D%20in%20a%20superconducting%20fluid."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nytimes.com/section/technology"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://indianexpress.com/section/technology/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.washingtonpost.com/business/technology/#:~:text=Young%20people%20in%20China%20have%20a%20new,and%20a%20digital%20ear%20for%20tech%20giants."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.washingtonpost.com/business/technology/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.technologyreview.com/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://news.mit.edu/"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -327,12 +300,15 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [
-        "What is the newest news about technology?",
-        "Which technology is trending now?",
-        "Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...",
-        "What is the best site for tech news?"
-      ],
+      "details": {
+        "items": [
+          "What is the newest news about technology?",
+          "Which technology is trending now?",
+          "Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...",
+          "What is the best site for tech news?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -346,44 +322,35 @@
     {
       "cite": "https://www.fairobserver.com › science › tech",
       "cmpt_rank": 12,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Latest science news",
-          "url": "https://www.fairobserver.com/category/more/science/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "World News",
-          "url": "https://www.fairobserver.com/category/world-news/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Science news 2024",
-          "url": "/aclk?sa=L&ai=DChsSEwiBv9rKi8aSAxWCs4MHHTvOD3wYACICCAIQBxoCZWY&co=1&ase=2&gclid=EAIaIQobChMIgb_ayovGkgMVgrODBx07zg98EAMYASAHEgLrZPD_BwE&cid=CAASugHkaM6_nR2Y1-WNgAybVtKDkcdFam_-897gUEHlM1e3HFA1JEIRR6eIREBbIBig14-2q9GWztSURpc4PLuCZwZE7vTT5CYxJTXnG_PD7k2ZFBsPOuqoQrI5CLpqhsyN3xKtvjDJVrJ4jrDA_uSm6Xv9z80g82jndYYrV4MyhMgG6Y-37OV6WcoBvcdlJhgB560UAPfwyn8GUwZPnLQmn1yjEcHguG75f7hMKVjctY579I_Px1I9EpL1M9c&cce=2&category=acrcp_v1_32&sig=AOD64_1LICCufg99l0FEtMwusdarVTkFIg&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "India News",
-          "url": "https://www.fairobserver.com/category/world-news/india-news/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Economics News",
-          "url": "https://www.fairobserver.com/category/economics/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "All Events",
-          "url": "https://www.fairobserver.com/events/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Latest science news",
+            "url": "https://www.fairobserver.com/category/more/science/"
+          },
+          {
+            "title": "World News",
+            "url": "https://www.fairobserver.com/category/world-news/"
+          },
+          {
+            "title": "Science news 2024",
+            "url": "/aclk?sa=L&ai=DChsSEwiBv9rKi8aSAxWCs4MHHTvOD3wYACICCAIQBxoCZWY&co=1&ase=2&gclid=EAIaIQobChMIgb_ayovGkgMVgrODBx07zg98EAMYASAHEgLrZPD_BwE&cid=CAASugHkaM6_nR2Y1-WNgAybVtKDkcdFam_-897gUEHlM1e3HFA1JEIRR6eIREBbIBig14-2q9GWztSURpc4PLuCZwZE7vTT5CYxJTXnG_PD7k2ZFBsPOuqoQrI5CLpqhsyN3xKtvjDJVrJ4jrDA_uSm6Xv9z80g82jndYYrV4MyhMgG6Y-37OV6WcoBvcdlJhgB560UAPfwyn8GUwZPnLQmn1yjEcHguG75f7hMKVjctY579I_Px1I9EpL1M9c&cce=2&category=acrcp_v1_32&sig=AOD64_1LICCufg99l0FEtMwusdarVTkFIg&adurl=&q="
+          },
+          {
+            "title": "India News",
+            "url": "https://www.fairobserver.com/category/world-news/india-news/"
+          },
+          {
+            "title": "Economics News",
+            "url": "https://www.fairobserver.com/category/economics/"
+          },
+          {
+            "title": "All Events",
+            "url": "https://www.fairobserver.com/events/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -397,7 +364,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 18,

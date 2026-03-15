@@ -33,7 +33,7 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
         "type": "people_also_ask",
         "sub_rank": sub_rank,
         "text": "<|>".join(parsed_questions) if parsed_questions else None,
-        "details": parsed_questions if parsed_questions else None,
+        "details": {"type": "text", "items": parsed_questions} if parsed_questions else None,
     }
     return [parsed]
 

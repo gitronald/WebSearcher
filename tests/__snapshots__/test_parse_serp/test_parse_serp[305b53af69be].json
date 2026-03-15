@@ -17,35 +17,26 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump&udm=2&source=univ&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQnN8JegQIHBAD"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
           },
           {
-            "misc": {},
             "text": "Age|79 years|Jun 14, 1946",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump+age&stick=H4sIAAAAAAAAAOPgE-LUz9U3SC4ssTTQEs1OttIvSM0vyEkFUkXF-XlWiempi1gFUvLzEnNSFEqKSnMLFIBCAMqYnZc3AAAA&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQ18AJegQIJRAB"
           },
           {
-            "misc": {},
             "text": "Party|Republican Party",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=Republican+Party&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRrUdcsLX7-nPSpyKZYIqfOJDBGOdz2E57-99eIANe1Pl8wwO7G3XqVt3qiEO4uERO4KYYXvGXEXRT6jOHlGcixAxcLt6zGSb8XfSKPYd5JeDPjiWx1lTb4E4mlK9t2l0ky4-1M_qoJaYHMURBGCmYARFqYnA&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQ18AJegQIJBAB"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.instagram.com/p/DUYFnxqEZ16/"
           }
         ]
@@ -581,7 +572,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 38,

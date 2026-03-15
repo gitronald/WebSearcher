@@ -17,35 +17,26 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Netflix|Subscription|Watch",
-            "title": "",
             "url": "https://www.netflix.com/watch/70143836?source=35"
           },
           {
-            "misc": {},
             "text": "YouTube|From |$1.99|Watch",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=9VYSQkZP4Gc"
           },
           {
-            "misc": {},
             "text": "Apple TV|$1.99|Watch",
-            "title": "",
             "url": "https://tv.apple.com/us/episode/pilot/umc.cmc.6trodclp7sphpy2gelbgwb4fk?action=playSmartEpisode"
           },
           {
-            "misc": {},
             "text": "Fandango at Home|$1.99|Watch",
-            "title": "",
             "url": "https://athome.fandango.com/content/browse/details/Breaking-Bad-Felina/460653?cmp=OrganicSearch~Vudu~GoogleWatch"
           },
           {
-            "misc": {},
             "text": "Amazon Prime Video|From |$1.99|Watch",
-            "title": "",
             "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.f4a9f77c-aa6a-5843-447e-79083319cf7a?autoplay=0&ref_=atv_cf_strg_wb"
           }
         ]
@@ -77,12 +68,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Where can I watch Breaking Bad all seasons?",
-        "Where can I watch Breaking Bad other than Netflix?",
-        "Breaking Bad Season 3 - Prime Video Prime Video https://www.primevideo.com  › detail › Breaking-Bad Prime Video https://www.primevideo.com  › detail › Breaking-Bad",
-        "Breaking Bad - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad"
-      ],
+      "details": {
+        "items": [
+          "Where can I watch Breaking Bad all seasons?",
+          "Where can I watch Breaking Bad other than Netflix?",
+          "Breaking Bad Season 3 - Prime Video Prime Video https://www.primevideo.com  › detail › Breaking-Bad Prime Video https://www.primevideo.com  › detail › Breaking-Bad",
+          "Breaking Bad - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad Wikipedia https://en.wikipedia.org  › wiki › Breaking_Bad"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -250,7 +244,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 14,

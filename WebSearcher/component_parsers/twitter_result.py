@@ -33,5 +33,6 @@ def parse_twitter_result(cmpt, sub_rank=0) -> list:
     body, timestamp_url = cmpt.find("div", {"class": "tw-res"}).children
     parsed["text"] = get_text(body)
     parsed["timestamp"] = get_text(timestamp_url, "span")
-    parsed["details"] = get_link(timestamp_url)
+    tweet_url = get_link(timestamp_url)
+    parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None
     return [parsed]

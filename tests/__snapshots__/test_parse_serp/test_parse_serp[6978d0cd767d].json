@@ -17,7 +17,8 @@
       "details": {
         "heading": null,
         "img_url": null,
-        "text": null
+        "text": null,
+        "type": "panel"
       },
       "error": null,
       "section": "main",
@@ -46,12 +47,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5...",
-        "C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python",
-        "Was Elon Musk a coder?",
-        "Is 3 months enough for coding?"
-      ],
+      "details": {
+        "items": [
+          "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5...",
+          "C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python",
+          "Was Elon Musk a coder?",
+          "Is 3 months enough for coding?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -277,7 +281,8 @@
       "cmpt_rank": 7,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -336,7 +341,8 @@
       "cmpt_rank": 11,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -351,38 +357,31 @@
     {
       "cite": "https://www.techspaceseducation.org",
       "cmpt_rank": 12,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top Coding Languages in 2026",
-          "url": "https://techspaceseducation.org/articleview?articlename=best-programming-languages-2026"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Python vs. C++",
-          "url": "/aclk?sa=L&ai=DChsSEwjYkba4isaSAxV_hbkFHdf-PDkYACICCAIQBRoCdG0&co=1&ase=2&gclid=EAIaIQobChMI2JG2uIrGkgMVf4W5BR3X_jw5EAMYASAFEgJEwfD_BwE&cid=CAASugHkaNg0uVD75KkcRC-VlkRZnn1HfX6JYiV6_1tnH7ejSCmVXKYfdAcGD7J5WHA5hMV1rt9suvllHHn-69h9HanQhaxy9WDlV5v9ibI6lv3tUIBwCjlkioYYc4coSAgvur38XukJnd3JNMtPDTuyyKe72IUPR9Jmr_CcwXff3J3wLmZOI3uYj-gw-0-_jJbYwev2W8MTYenSBa4DL2Ik2DJaSwwiwUPaniaevKc3y_NVChhDHU9lVM-1p2E&cce=2&category=acrcp_v1_32&sig=AOD64_3XeoWZUPkfKR0NBbHFhrKVVbE7Aw&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Courses",
-          "url": "https://techspaceseducation.org/courses"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "About Us",
-          "url": "https://techspaceseducation.org/about"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Resources",
-          "url": "https://techspaceseducation.org/resources"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top Coding Languages in 2026",
+            "url": "https://techspaceseducation.org/articleview?articlename=best-programming-languages-2026"
+          },
+          {
+            "title": "Python vs. C++",
+            "url": "/aclk?sa=L&ai=DChsSEwjYkba4isaSAxV_hbkFHdf-PDkYACICCAIQBRoCdG0&co=1&ase=2&gclid=EAIaIQobChMI2JG2uIrGkgMVf4W5BR3X_jw5EAMYASAFEgJEwfD_BwE&cid=CAASugHkaNg0uVD75KkcRC-VlkRZnn1HfX6JYiV6_1tnH7ejSCmVXKYfdAcGD7J5WHA5hMV1rt9suvllHHn-69h9HanQhaxy9WDlV5v9ibI6lv3tUIBwCjlkioYYc4coSAgvur38XukJnd3JNMtPDTuyyKe72IUPR9Jmr_CcwXff3J3wLmZOI3uYj-gw-0-_jJbYwev2W8MTYenSBa4DL2Ik2DJaSwwiwUPaniaevKc3y_NVChhDHU9lVM-1p2E&cce=2&category=acrcp_v1_32&sig=AOD64_3XeoWZUPkfKR0NBbHFhrKVVbE7Aw&adurl=&q="
+          },
+          {
+            "title": "Courses",
+            "url": "https://techspaceseducation.org/courses"
+          },
+          {
+            "title": "About Us",
+            "url": "https://techspaceseducation.org/about"
+          },
+          {
+            "title": "Resources",
+            "url": "https://techspaceseducation.org/resources"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -396,14 +395,17 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [
-        "Programming language",
-        "Python",
-        "SQL",
-        "High-level programming language",
-        "Computer programming",
-        "Operating system"
-      ],
+      "details": {
+        "items": [
+          "Programming language",
+          "Python",
+          "SQL",
+          "High-level programming language",
+          "Computer programming",
+          "Operating system"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 24,

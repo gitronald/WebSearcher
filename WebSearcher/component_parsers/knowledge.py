@@ -1,5 +1,4 @@
 from .. import utils
-from ..models.data import DetailsItem, DetailsList
 from .general import parse_general_result
 
 
@@ -31,14 +30,14 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
 
     alinks = cmpt.find_all("a")
     if alinks:
-        urls = DetailsList()
+        urls = []
         seen_urls = set()
         for a in alinks:
             if "href" in a.attrs and a["href"] != "#":
                 if a["href"] not in seen_urls:
                     seen_urls.add(a["href"])
                     urls.append(parse_alink(a))
-        details["urls"] = urls.to_dicts()
+        details["urls"] = urls
 
     # Get all text
     if cmpt.find("div", {"class": "Fzsovc"}):
@@ -136,6 +135,7 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
     # Get image
     img_div = cmpt.find("div", {"class": "img-brk"})
     details["img_url"] = img_div.find("a")["href"] if img_div else None
+    details["type"] = "panel"
     parsed["details"] = details
 
     return [parsed]
@@ -146,4 +146,4 @@ def get_text(div):
 
 
 def parse_alink(a):
-    return DetailsItem(url=a["href"], text=a.get_text("|"))
+    return {"url": a["href"], "text": a.get_text("|")}

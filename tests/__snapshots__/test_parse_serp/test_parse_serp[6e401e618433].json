@@ -14,38 +14,31 @@
     {
       "cite": "https://www.expedia.com/",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Round Trip Flights",
-          "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypeflight%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "One-Way as Low as $27",
-          "url": "/aclk?sa=L&pf=1&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQDxoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0uSRwNzYkLfUeyLVUPmUa0kP8MhA&adurl=https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights%3Flocale%3Den_US%26siteid%3D1%26semcid%3DUS.MULTILOBF.GOOGLE.DT-c-EN.FLIGHT%26semdtl%3Da119825426710.b1146786747506.g1kwd-28177180.e1c.m1EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE.r1.c1.j19031967.k1.d1652478949003.h1e.i1.l1.n1.o1.p1.q1.s1cheap%2520flights%2520to%2520new%2520york.t1.x1.f1.u1.v1.w1%26gad_source%3D1%26gad_campaignid%3D19825426710%26gbraid%3D0AAAAACTxZ9ZlCUFi7eALxavi028qKk-p3%26gclid%3DEAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Last Minute Flight Deals",
-          "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights?locale=en_US&siteid=1"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Package Deals",
-          "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypepackage%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Hotel Deals",
-          "url": "https://www.expedia.com/Hotel-Search?regionId=%7B_regionid%7D&locale=en_US&siteid=1&sort=PRICE_LOW_TO_HIGH&useRewards=false&sl=hdl"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Round Trip Flights",
+            "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypeflight%7D"
+          },
+          {
+            "title": "One-Way as Low as $27",
+            "url": "/aclk?sa=L&pf=1&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQDxoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0uSRwNzYkLfUeyLVUPmUa0kP8MhA&adurl=https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights%3Flocale%3Den_US%26siteid%3D1%26semcid%3DUS.MULTILOBF.GOOGLE.DT-c-EN.FLIGHT%26semdtl%3Da119825426710.b1146786747506.g1kwd-28177180.e1c.m1EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE.r1.c1.j19031967.k1.d1652478949003.h1e.i1.l1.n1.o1.p1.q1.s1cheap%2520flights%2520to%2520new%2520york.t1.x1.f1.u1.v1.w1%26gad_source%3D1%26gad_campaignid%3D19825426710%26gbraid%3D0AAAAACTxZ9ZlCUFi7eALxavi028qKk-p3%26gclid%3DEAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYASAFEgLJG_D_BwE&q="
+          },
+          {
+            "title": "Last Minute Flight Deals",
+            "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights?locale=en_US&siteid=1"
+          },
+          {
+            "title": "Package Deals",
+            "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypepackage%7D"
+          },
+          {
+            "title": "Hotel Deals",
+            "url": "https://www.expedia.com/Hotel-Search?regionId=%7B_regionid%7D&locale=en_US&siteid=1&sort=PRICE_LOW_TO_HIGH&useRewards=false&sl=hdl"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 0,
@@ -59,32 +52,27 @@
     {
       "cite": "https://www.priceline.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Deals on Round Trip Flights",
-          "url": "https://www.priceline.com/r/?product=air&theme=citystate&lp=y&match=%7BMatchType%7D&kw=%7Bkeyword%7D&adp=%7Badposition%7D&destination=LGA&refid=PLGOOGLECPC&refclickid=D:%7BDevice%7DFlight16163556670%7BNetwork%7D%7BCreative%7D%7Bcampaignid%7D%7Btargetid%7D%7C%7Bloc_physical_ms%7D%7C%7Badposition%7D%7Bignore%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Book Cheap Round Trip Flights",
-          "url": "https://www.priceline.com/r/?product=air&theme=citystate&lp=y&match=%7BMatchType%7D&kw=%7Bkeyword%7D&adp=%7Badposition%7D&destination=LGA&refid=PLGOOGLECPC&refclickid=D:%7BDevice%7DFlight16163556670%7BNetwork%7D%7BCreative%7D%7Bcampaignid%7D%7Btargetid%7D%7C%7Bloc_physical_ms%7D%7C%7Badposition%7D%7Bignore%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Last Minute Flights",
-          "url": "https://www.priceline.com/r/?product=ASL&theme=SL&SLID=10026&semprod=air&refid=PLGOOGLECPCSL&refclickid=D:%7Bdevice%7D%7C%7BCampaignId%7D%7C%7BCreative%7D%7C%7BKeyword%7D%7C%7BMatchtype%7D%7C%7BNetwork%7D%7C%7Btargetid%7D%7C%7Bloc_physical_ms%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Express Deals®",
-          "url": "https://www.priceline.com/r/?product=APSL&theme=SL&SLID=10009&semprod=air&refid=PLGOOGLECPCSL&refclickid=D:%7Bdevice%7D%7C%7BCampaignId%7D%7C%7BCreative%7D%7C%7BKeyword%7D%7C%7BMatchtype%7D%7C%7BNetwork%7D%7C%7Btargetid%7D%7C%7Bloc_physical_ms%7D"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Deals on Round Trip Flights",
+            "url": "https://www.priceline.com/r/?product=air&theme=citystate&lp=y&match=%7BMatchType%7D&kw=%7Bkeyword%7D&adp=%7Badposition%7D&destination=LGA&refid=PLGOOGLECPC&refclickid=D:%7BDevice%7DFlight16163556670%7BNetwork%7D%7BCreative%7D%7Bcampaignid%7D%7Btargetid%7D%7C%7Bloc_physical_ms%7D%7C%7Badposition%7D%7Bignore%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "Book Cheap Round Trip Flights",
+            "url": "https://www.priceline.com/r/?product=air&theme=citystate&lp=y&match=%7BMatchType%7D&kw=%7Bkeyword%7D&adp=%7Badposition%7D&destination=LGA&refid=PLGOOGLECPC&refclickid=D:%7BDevice%7DFlight16163556670%7BNetwork%7D%7BCreative%7D%7Bcampaignid%7D%7Btargetid%7D%7C%7Bloc_physical_ms%7D%7C%7Badposition%7D%7Bignore%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "Last Minute Flights",
+            "url": "https://www.priceline.com/r/?product=ASL&theme=SL&SLID=10026&semprod=air&refid=PLGOOGLECPCSL&refclickid=D:%7Bdevice%7D%7C%7BCampaignId%7D%7C%7BCreative%7D%7C%7BKeyword%7D%7C%7BMatchtype%7D%7C%7BNetwork%7D%7C%7Btargetid%7D%7C%7Bloc_physical_ms%7D"
+          },
+          {
+            "title": "Express Deals®",
+            "url": "https://www.priceline.com/r/?product=APSL&theme=SL&SLID=10009&semprod=air&refid=PLGOOGLECPCSL&refclickid=D:%7Bdevice%7D%7C%7BCampaignId%7D%7C%7BCreative%7D%7C%7BKeyword%7D%7C%7BMatchtype%7D%7C%7BNetwork%7D%7C%7Btargetid%7D%7C%7Bloc_physical_ms%7D"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -98,32 +86,27 @@
     {
       "cite": "https://www.kayak.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Flight deals to New York",
-          "url": "https://www.kayak.com/semi/adwordssearch/flight_destination/15830/en.html?"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Find our cheapest flights",
-          "url": "https://www.kayak.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1230&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Flights to New York",
-          "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQDBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYAyAEEgIh4vD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0hKW2YfFrWWfOczsD8xLSSV0Zd6Q&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "One-way flights",
-          "url": "https://www.kayak.com/semi/adwordssearch/flight_general/any/en.html?cp_ft=ow&tags=m:658&"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Flight deals to New York",
+            "url": "https://www.kayak.com/semi/adwordssearch/flight_destination/15830/en.html?"
+          },
+          {
+            "title": "Find our cheapest flights",
+            "url": "https://www.kayak.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1230&"
+          },
+          {
+            "title": "Flights to New York",
+            "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQDBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYAyAEEgIh4vD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0hKW2YfFrWWfOczsD8xLSSV0Zd6Q&adurl=&q="
+          },
+          {
+            "title": "One-way flights",
+            "url": "https://www.kayak.com/semi/adwordssearch/flight_general/any/en.html?cp_ft=ow&tags=m:658&"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -137,32 +120,27 @@
     {
       "cite": "https://www.southwest.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Shop Our Lowest Ticket Prices",
-          "url": "https://www.southwest.com/en/flights/flights-to-new-york"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Find Best Flight Deals",
-          "url": "https://www.southwest.com/en/flights/flight-deals"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Shop Our Low Fares Today",
-          "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQFBoCbHI&ae=2&aspm=1&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYBCAEEgJJh_D_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_35&sig=AOD64_0zJc4VHdbTnGf3Wr1MeWK0MyiDFA&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Featured Offers",
-          "url": "http://www.southwest.com/special-offers/featured-offers/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Shop Our Lowest Ticket Prices",
+            "url": "https://www.southwest.com/en/flights/flights-to-new-york"
+          },
+          {
+            "title": "Find Best Flight Deals",
+            "url": "https://www.southwest.com/en/flights/flight-deals"
+          },
+          {
+            "title": "Shop Our Low Fares Today",
+            "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAEQFBoCbHI&ae=2&aspm=1&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAAYBCAEEgJJh_D_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_35&sig=AOD64_0zJc4VHdbTnGf3Wr1MeWK0MyiDFA&adurl=&q="
+          },
+          {
+            "title": "Featured Offers",
+            "url": "http://www.southwest.com/special-offers/featured-offers/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -344,7 +322,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -358,38 +336,31 @@
     {
       "cite": "https://www.cheapflights.com",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Flight deals to New York",
-          "url": "https://www.cheapflights.com/semi/adwordssearch/flight_destination/15830/en.html?"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Find our cheapest flights",
-          "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1230&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Flights to New York",
-          "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAIQChoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAMYASAFEgJyCvD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0a3o4i9nMWdYUK3IfzMtOU6fbq8Q&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "One-way flights",
-          "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1126&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Fly today",
-          "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1228&"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Flight deals to New York",
+            "url": "https://www.cheapflights.com/semi/adwordssearch/flight_destination/15830/en.html?"
+          },
+          {
+            "title": "Find our cheapest flights",
+            "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1230&"
+          },
+          {
+            "title": "Flights to New York",
+            "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAIQChoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAMYASAFEgJyCvD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_0a3o4i9nMWdYUK3IfzMtOU6fbq8Q&adurl=&q="
+          },
+          {
+            "title": "One-way flights",
+            "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1126&"
+          },
+          {
+            "title": "Fly today",
+            "url": "https://www.cheapflights.com/semi/adwordssearch/flight_general/any/en.html?tags=m:1228&"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -403,38 +374,31 @@
     {
       "cite": "https://www.expedia.com/",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Round Trip Flights",
-          "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypeflight%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "One-Way as Low as $27",
-          "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAIQCxoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAMYAiAFEgIksPD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_1frYAxcSpBOBMc7qMc5wSr_9KD5w&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Last Minute Flight Deals",
-          "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights?locale=en_US&siteid=1"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Package Deals",
-          "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypepackage%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Hotel Deals",
-          "url": "https://www.expedia.com/Hotel-Search?regionId=%7B_regionid%7D&locale=en_US&siteid=1&sort=PRICE_LOW_TO_HIGH&useRewards=false&sl=hdl"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Round Trip Flights",
+            "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypeflight%7D"
+          },
+          {
+            "title": "One-Way as Low as $27",
+            "url": "/aclk?sa=L&ai=DChsSEwiow6mMhsaSAxWeU5EFHZWNCrgYACICCAIQCxoCbHI&co=1&ase=2&gclid=EAIaIQobChMIqMOpjIbGkgMVnlORBR2VjQq4EAMYAiAFEgIksPD_BwE&cid=CAASugHkaFfijjxOC89cbjyQKg4HDrjTTPOy1b_5mJoWjHESV3WCutnQZQdM0uhJ_FxMi08weopog1m7PG66QEYEpTsVjd-SMZjFGJ6Pilix2ntNr0vJpW_IBzFv0SgOyH6V5tZo6D9iZVvJ4HZCG6l5xMI7VMppQMNlN_JKvHnQfoJtNxqBTCq6U6RAf8XYXVT7eSzNoVHdkBfeZ3P-QaphNoZtgFTePcsRSwpy25fF5sXE3u02lPU69Wr5hmM&cce=2&category=acrcp_v1_32&sig=AOD64_1frYAxcSpBOBMc7qMc5wSr_9KD5w&adurl=&q="
+          },
+          {
+            "title": "Last Minute Flight Deals",
+            "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights?locale=en_US&siteid=1"
+          },
+          {
+            "title": "Package Deals",
+            "url": "https://www.expedia.com/%7B_destprefix%7D%7B_regionid%7D%7B_pagetypepackage%7D"
+          },
+          {
+            "title": "Hotel Deals",
+            "url": "https://www.expedia.com/Hotel-Search?regionId=%7B_regionid%7D&locale=en_US&siteid=1&sort=PRICE_LOW_TO_HIGH&useRewards=false&sl=hdl"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,

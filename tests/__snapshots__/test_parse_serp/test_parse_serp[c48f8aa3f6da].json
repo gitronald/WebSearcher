@@ -28,12 +28,15 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org  › Blog Post National Building Museum https://nbm.org  › Blog Post",
-        "What are the four key features of Art Deco?",
-        "Why did America abandon Art Deco?",
-        "What is the difference between Art Nouveau and Art Deco?"
-      ],
+      "details": {
+        "items": [
+          "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org  › Blog Post National Building Museum https://nbm.org  › Blog Post",
+          "What are the four key features of Art Deco?",
+          "Why did America abandon Art Deco?",
+          "What is the difference between Art Nouveau and Art Deco?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -607,14 +610,17 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [
-        "Art Nouveau",
-        "Modern art",
-        "Art Deco",
-        "Gothic Revival architecture",
-        "Modernism",
-        "Impressionism"
-      ],
+      "details": {
+        "items": [
+          "Art Nouveau",
+          "Modern art",
+          "Art Deco",
+          "Gothic Revival architecture",
+          "Modernism",
+          "Impressionism"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 42,

@@ -112,12 +112,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "World News | Latest Top Stories - Reuters Reuters https://www.reuters.com  › world Reuters https://www.reuters.com  › world",
-        "Latest News Today: Breaking News and Top Headlines from India ... indianexpress.com https://indianexpress.com indianexpress.com https://indianexpress.com",
-        "What are current issues in the world right now?",
-        "Top & Breaking World News Today - AP News AP News https://apnews.com  › world-news AP News https://apnews.com  › world-news"
-      ],
+      "details": {
+        "items": [
+          "World News | Latest Top Stories - Reuters Reuters https://www.reuters.com  › world Reuters https://www.reuters.com  › world",
+          "Latest News Today: Breaking News and Top Headlines from India ... indianexpress.com https://indianexpress.com indianexpress.com https://indianexpress.com",
+          "What are current issues in the world right now?",
+          "Top & Breaking World News Today - AP News AP News https://apnews.com  › world-news AP News https://apnews.com  › world-news"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -271,44 +274,35 @@
     {
       "cite": "https://www.democracynow.org",
       "cmpt_rank": 11,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Headlines",
-          "url": "https://www.democracynow.org/headlines"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Global News and Analysis",
-          "url": "https://www.democracynow.org/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Climate Crisis",
-          "url": "https://www.democracynow.org/topics/climate_change"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Topics In The News",
-          "url": "https://www.democracynow.org/topics"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Watch Live",
-          "url": "https://www.democracynow.org/shows"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Columns",
-          "url": "https://www.democracynow.org/categories/weekly_column"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Headlines",
+            "url": "https://www.democracynow.org/headlines"
+          },
+          {
+            "title": "Global News and Analysis",
+            "url": "https://www.democracynow.org/"
+          },
+          {
+            "title": "Climate Crisis",
+            "url": "https://www.democracynow.org/topics/climate_change"
+          },
+          {
+            "title": "Topics In The News",
+            "url": "https://www.democracynow.org/topics"
+          },
+          {
+            "title": "Watch Live",
+            "url": "https://www.democracynow.org/shows"
+          },
+          {
+            "title": "Columns",
+            "url": "https://www.democracynow.org/categories/weekly_column"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -322,7 +316,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 19,

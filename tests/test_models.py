@@ -9,7 +9,7 @@ from WebSearcher.models.configs import (
     SearchMethod,
     SeleniumConfig,
 )
-from WebSearcher.models.data import BaseResult, DetailsItem, DetailsList
+from WebSearcher.models.data import BaseResult
 from WebSearcher.models.searches import SearchParams
 
 # BaseConfig.create ------------------------------------------------------------
@@ -158,38 +158,6 @@ def test_search_params_to_serp_output():
 def test_search_params_special_chars():
     params = SearchParams.create({"qry": "cats & dogs"})
     assert "q=cats+%26+dogs" in params.url
-
-
-# DetailsItem / DetailsList ----------------------------------------------------
-
-
-def test_details_item_model_dump():
-    item = DetailsItem(url="https://example.com", title="Example", text="desc")
-    d = item.model_dump()
-    assert d == {"url": "https://example.com", "title": "Example", "text": "desc", "misc": {}}
-
-
-def test_details_list_append_valid():
-    dl = DetailsList()
-    dl.append(DetailsItem(title="a"))
-    dl.append(DetailsItem(title="b"))
-    assert len(dl) == 2
-
-
-def test_details_list_append_invalid():
-    dl = DetailsList()
-    with pytest.raises(TypeError, match="Expected DetailsItem"):
-        dl.append({"title": "not a DetailsItem"})
-
-
-def test_details_list_to_dicts():
-    dl = DetailsList()
-    dl.append(DetailsItem(url="/a", title="A"))
-    dl.append(DetailsItem(url="/b", title="B"))
-    dicts = dl.to_dicts()
-    assert len(dicts) == 2
-    assert dicts[0]["url"] == "/a"
-    assert dicts[1]["title"] == "B"
 
 
 # BaseResult -------------------------------------------------------------------
