@@ -1,8 +1,7 @@
-from dataclasses import asdict, dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class SERPFeatures:
+class SERPFeatures(BaseModel):
     """Features extracted from a Search Engine Results Page (SERP)."""
 
     result_estimate_count: float | None = None
@@ -14,6 +13,3 @@ class SERPFeatures:
     infinity_scroll: bool = False
     overlay_precise_location: bool = False
     captcha: bool = False
-
-    def to_dict(self) -> dict:
-        return asdict(self)

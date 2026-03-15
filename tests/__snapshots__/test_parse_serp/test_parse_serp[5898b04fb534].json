@@ -16,9 +16,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "345",
         "price": "$96",
         "rating": "3.2",
-        "reviews": "(345)",
         "source": "Expedia.com",
         "stars": "3-star hotel"
       },
@@ -37,9 +37,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "2.1K",
         "price": "$89",
         "rating": "3.8",
-        "reviews": "(2.1K)",
         "source": "Booking.com",
         "stars": "3-star hotel"
       },
@@ -58,9 +58,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.9K",
         "price": "$110",
         "rating": "4.2",
-        "reviews": "(1.9K)",
         "source": "Hotels.com",
         "stars": "3-star hotel"
       },
@@ -79,9 +79,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "7.5K",
         "price": "$153",
         "rating": "4.7",
-        "reviews": "(7.5K)",
         "source": "RIU Plaza",
         "stars": "4-star hotel"
       },
@@ -100,9 +100,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.6K",
         "price": "$177",
         "rating": "3.9",
-        "reviews": "(3.6K)",
         "source": "The Lexington Hotel, Autograph Collection",
         "stars": "4-star hotel"
       },
@@ -121,9 +121,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.5K",
         "price": "$84",
         "rating": "3.8",
-        "reviews": "(1.5K)",
         "source": "Aloft New York Brooklyn",
         "stars": "3-star hotel"
       },
@@ -142,9 +142,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "2.9K",
         "price": "$123",
         "rating": "3.8",
-        "reviews": "(2.9K)",
         "source": "Hyatt Place New York City / Times Square",
         "stars": "4-star hotel"
       },
@@ -163,9 +163,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2.1K",
         "price": "$147",
         "rating": "3.5",
-        "reviews": "(2.1K)",
         "source": "Holiday Inn Express New York City Times Square by IHG",
         "stars": "3-star hotel"
       },
@@ -184,9 +184,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "3.4K",
         "price": "$282",
         "rating": "4.4",
-        "reviews": "(3.4K)",
         "source": "Hyatt Centric Times Square New York",
         "stars": "4-star hotel"
       },
@@ -205,9 +205,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2K",
         "price": "$164",
         "rating": "4.0",
-        "reviews": "(2K)",
         "source": "Dream Midtown, by Hyatt",
         "stars": "4-star hotel"
       },
@@ -226,9 +226,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "6.5K",
         "price": "$93",
         "rating": "3.5",
-        "reviews": "(6.5K)",
         "source": "Booking.com",
         "stars": "4-star hotel"
       },
@@ -247,9 +247,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.9K",
         "price": "$93",
         "rating": "4.2",
-        "reviews": "(1.9K)",
         "source": "Expedia.com",
         "stars": "3-star hotel"
       },
@@ -268,9 +268,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "4.9K",
         "price": "$142",
         "rating": "4.1",
-        "reviews": "(4.9K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -289,9 +289,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.7K",
         "price": "$103",
         "rating": "3.6",
-        "reviews": "(3.7K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -310,9 +310,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.2K",
         "price": "$101",
         "rating": "4.0",
-        "reviews": "(1.2K)",
         "source": "Booking.com",
         "stars": "3-star hotel"
       },
@@ -331,9 +331,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "1.8K",
         "price": "$105",
         "rating": "4.1",
-        "reviews": "(1.8K)",
         "source": "Expedia.com",
         "stars": "3-star hotel"
       },
@@ -352,9 +352,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "7.5K",
         "price": "$129",
         "rating": "3.9",
-        "reviews": "(7.5K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -373,9 +373,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "12K",
         "price": "$119",
         "rating": "3.9",
-        "reviews": "(12K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -394,9 +394,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "934",
         "price": "$106",
         "rating": "3.5",
-        "reviews": "(934)",
         "source": "Expedia.com",
         "stars": "3-star hotel"
       },
@@ -415,9 +415,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "9.8K",
         "price": "$137",
         "rating": "3.0",
-        "reviews": "(9.8K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -436,9 +436,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "8.4K",
         "price": "$182",
         "rating": "4.0",
-        "reviews": "(8.4K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -457,9 +457,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Bar",
+        "n_reviews": "936",
         "price": "$121",
         "rating": "4.7",
-        "reviews": "(936)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -478,9 +478,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "7.3K",
         "price": "$135",
         "rating": "3.4",
-        "reviews": "(7.3K)",
         "source": "Booking.com",
         "stars": "4-star hotel"
       },
@@ -499,9 +499,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "2.7K",
         "price": "$152",
         "rating": "4.6",
-        "reviews": "(2.7K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -520,9 +520,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.9K",
         "price": "$100",
         "rating": "4.1",
-        "reviews": "(3.9K)",
         "source": "Booking.com",
         "stars": "3-star hotel"
       },
@@ -541,9 +541,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "528",
         "price": "$118",
         "rating": "3.7",
-        "reviews": "(528)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -562,9 +562,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Fitness center",
+        "n_reviews": "289",
         "price": "$103",
         "rating": "4.2",
-        "reviews": "(289)",
         "source": "Expedia.com",
         "stars": "Pet-friendly"
       },
@@ -583,9 +583,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2.8K",
         "price": "$93",
         "rating": "3.7",
-        "reviews": "(2.8K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -604,9 +604,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "10K",
         "price": "$151",
         "rating": "4.5",
-        "reviews": "(10K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },
@@ -625,9 +625,9 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "12K",
         "price": "$186",
         "rating": "3.8",
-        "reviews": "(12K)",
         "source": "Expedia.com",
         "stars": "4-star hotel"
       },

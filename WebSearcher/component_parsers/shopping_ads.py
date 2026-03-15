@@ -49,12 +49,12 @@ def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
     # Rating text includes review count (e.g. "3.2(345)")
     rating_text = rating_span.get_text(strip=True) if rating_span else None
     rating = None
-    reviews = None
+    n_reviews = None
     if rating_text:
         paren = rating_text.find("(")
         if paren > 0:
             rating = rating_text[:paren]
-            reviews = rating_text[paren:]
+            n_reviews = rating_text[paren:].strip("()")
         else:
             rating = rating_text
 
@@ -63,10 +63,10 @@ def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
         details["price"] = price_div.get_text(strip=True)
     if source_div:
         details["source"] = source_div.get_text(strip=True)
-    if rating:
+    if rating is not None:
         details["rating"] = rating
-    if reviews:
-        details["reviews"] = reviews
+    if n_reviews is not None:
+        details["n_reviews"] = n_reviews
     if stars:
         details["stars"] = stars
     if amenity:

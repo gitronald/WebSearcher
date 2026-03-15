@@ -155,13 +155,13 @@ def test_extract_from_soup():
     assert features.result_estimate_time == 0.3
 
 
-# to_dict ----------------------------------------------------------------------
+# model_dump -------------------------------------------------------------------
 
 
-def test_features_to_dict():
+def test_features_model_dump():
     html = make_html('<div id="result-stats">About 10 results (0.1 seconds)</div>')
     features = FeatureExtractor.extract_features(html)
-    d = features.to_dict()
+    d = features.model_dump()
     assert isinstance(d, dict)
     assert d["result_estimate_count"] == 10
     assert d["captcha"] is False

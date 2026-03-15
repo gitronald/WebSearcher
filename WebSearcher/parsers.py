@@ -30,6 +30,6 @@ def parse_serp(serp: str | BeautifulSoup) -> dict:
     results = component_list.export_component_results()
 
     return {
-        "features": FeatureExtractor.extract_features(soup).to_dict(),
+        "features": FeatureExtractor.extract_features(soup).model_dump(),
         "results": results,
     }
