@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 from ..models.data import DetailsItem, DetailsList
 
 
@@ -17,7 +17,7 @@ def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     title = cmpt.find_all("span", {"class": "Wkr6U"})
     if title:
         parsed["title"] = "|".join([t.text for t in title])
-        parsed["url"] = webutils.get_link(cmpt)
+        parsed["url"] = utils.get_link(cmpt)
 
     images = cmpt.find("div", {"role": "list"})
     if images:

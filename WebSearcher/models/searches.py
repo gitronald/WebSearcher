@@ -3,8 +3,7 @@ from typing import Any
 
 from pydantic import Field, computed_field
 
-from .. import locations
-from .. import webutils as wu
+from .. import locations, utils
 from ..utils import hash_id
 from .configs import BaseConfig
 
@@ -23,7 +22,7 @@ class SearchParams(BaseConfig):
     @computed_field
     def url_params(self) -> dict[str, Any]:
         """Generates a dictionary of URL parameters based on the search parameters"""
-        params = {"q": wu.encode_param_value(self.qry)}
+        params = {"q": utils.encode_param_value(self.qry)}
         opt_params = {
             "num": self.num_results,
             "hl": self.lang,
@@ -36,7 +35,7 @@ class SearchParams(BaseConfig):
     @computed_field
     def url(self) -> str:
         """Returns the fully formed search URL with all parameters"""
-        return f"{self.base_url}?{wu.join_url_quote(self.url_params)}"
+        return f"{self.base_url}?{utils.join_url_quote(self.url_params)}"
 
     @computed_field
     def serp_id(self) -> str:

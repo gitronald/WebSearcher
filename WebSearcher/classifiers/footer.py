@@ -1,6 +1,6 @@
 import bs4
 
-from .. import webutils
+from .. import utils
 from .main import ClassifyMain
 
 
@@ -48,7 +48,7 @@ class ClassifyFooter:
     def omitted_notice(cmpt):
         conditions = [
             cmpt.find("p", {"id": "ofr"}),
-            (webutils.get_text(cmpt, "h2") == "Notices about Filtered Results"),
+            (utils.get_text(cmpt, "h2") == "Notices about Filtered Results"),
         ]
         return "omitted_notice" if any(conditions) else "unknown"
 

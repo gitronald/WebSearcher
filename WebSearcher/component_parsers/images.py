@@ -5,7 +5,7 @@ Changelog
 
 """
 
-from ..webutils import get_div, get_link, get_text
+from ..utils import get_div, get_link, get_text
 
 
 def parse_images(cmpt) -> list:

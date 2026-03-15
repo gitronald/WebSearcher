@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 
 QUESTION_SELECTORS = [
     ("div", {"class": "rc"}),
@@ -40,4 +40,4 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
 
 def parse_question(question):
     """Parse an individual question in a "People Also Ask" component"""
-    return webutils.get_text_by_selectors(question, QUESTION_SELECTORS, strip=True)
+    return utils.get_text_by_selectors(question, QUESTION_SELECTORS, strip=True)

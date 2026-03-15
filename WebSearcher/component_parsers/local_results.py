@@ -1,4 +1,4 @@
-from .. import utils, webutils
+from .. import utils
 
 HEADER_SELECTORS = [
     ("h2", {"role": "heading"}),
@@ -23,7 +23,7 @@ def parse_local_results(cmpt) -> list:
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
         # Set first non-empty header as sub_type (e.g. "Places" -> places)
-        header = webutils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
+        header = utils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
         if header:
             sub_type = header.lower().replace(" ", "_")
             for parsed in parsed_list:
@@ -34,7 +34,7 @@ def parse_local_results(cmpt) -> list:
         parsed = {
             "type": "local_results",
             "sub_rank": 0,
-            "text": webutils.get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
+            "text": utils.get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
         }
         return [parsed]
 
@@ -50,7 +50,7 @@ def parse_local_result(sub, sub_rank=0) -> dict:
     """
 
     parsed = {"type": "local_results", "sub_rank": sub_rank}
-    parsed["title"] = webutils.get_text(sub, "div", {"class": "dbg0pd"})
+    parsed["title"] = utils.get_text(sub, "div", {"class": "dbg0pd"})
 
     # Extract URL
     links = [a.attrs["href"] for a in sub.find_all("a") if "href" in a.attrs]
@@ -59,8 +59,8 @@ def parse_local_result(sub, sub_rank=0) -> dict:
     parsed["url"] = links_dict.get("website", None)
 
     # Extract text and label
-    text = webutils.get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
-    label = webutils.get_text(sub, "span", {"class": "X0w5lc"})
+    text = utils.get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
+    label = utils.get_text(sub, "span", {"class": "X0w5lc"})
     parsed["text"] = f"{text} <label>{label}</label>" if label else text
     parsed["details"] = parse_local_details(sub)
 

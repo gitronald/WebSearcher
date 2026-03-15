@@ -1,6 +1,6 @@
 import bs4
 
-from .. import logger, webutils
+from .. import logger, utils
 
 log = logger.Logger().start(__name__)
 
@@ -17,12 +17,10 @@ class ExtractorFooter:
         footer_component_list = []
 
         if footer_div:
-            footer_component_divs = webutils.find_all_divs(
-                self.soup, "div", {"id": ["bres", "brs"]}
-            )
+            footer_component_divs = utils.find_all_divs(self.soup, "div", {"id": ["bres", "brs"]})
             if footer_component_divs:
                 for footer_component_div in footer_component_divs:
-                    expanded_divs = webutils.find_all_divs(
+                    expanded_divs = utils.find_all_divs(
                         footer_component_div, "div", {"class": "MjjYud"}
                     )
                     if expanded_divs and len(expanded_divs) > 1:

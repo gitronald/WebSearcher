@@ -1,6 +1,6 @@
 import bs4
 
-from .. import logger, webutils
+from .. import logger, utils
 
 log = logger.Logger().start(__name__)
 
@@ -27,7 +27,7 @@ class ExtractorHeader:
 
     def extract_notices(self):
         """Append notices to the components list at the end."""
-        notices = webutils.find_all_divs(self.soup, "div", {"id": "oFNiHe"}, filter_empty=True)
+        notices = utils.find_all_divs(self.soup, "div", {"id": "oFNiHe"}, filter_empty=True)
         if notices:
             self.exists = True
             for notice in notices:

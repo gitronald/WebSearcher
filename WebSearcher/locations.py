@@ -8,8 +8,7 @@ from typing import Any
 import requests
 from google.protobuf.internal import decoder, encoder  # uv add protobuf
 
-from . import logger
-from . import webutils as wu
+from . import logger, utils
 
 log = logger.Logger().start(__name__)
 
@@ -138,8 +137,8 @@ def download_locations(
 def get_latest_url(url: str):
     try:
         html = requests.get(url).content
-        soup = wu.make_soup(html)
-        url_list = [url for url in wu.get_link_list(soup) if url and url != ""]
+        soup = utils.make_soup(html)
+        url_list = [url for url in utils.get_link_list(soup) if url and url != ""]
         geo_urls = [url for url in url_list if "geotargets" in url]
 
         # Get current CSV url and use as filename

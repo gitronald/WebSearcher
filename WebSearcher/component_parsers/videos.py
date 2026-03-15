@@ -7,7 +7,7 @@ Changelog
 
 """
 
-from .. import webutils
+from .. import utils
 
 
 def parse_videos(cmpt) -> list:
@@ -32,7 +32,7 @@ def parse_videos(cmpt) -> list:
         ({"name": "div", "attrs": {"class": "sHEJob"}}, "vertical"),
     ]
     for kwargs, sub_type in name_attrs:
-        divs = webutils.find_all_divs(cmpt, **kwargs)
+        divs = utils.find_all_divs(cmpt, **kwargs)
         if divs:
             break
     divs = list(filter(None, divs))
@@ -58,8 +58,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         "sub_type": sub_type,
         "sub_rank": sub_rank,
         "url": get_url(sub),
-        "title": webutils.get_text(sub, "div", {"role": "heading"}),
-        "text": webutils.get_text(sub, "div", {"class": "MjS0Lc"}),
+        "title": utils.get_text(sub, "div", {"role": "heading"}),
+        "text": utils.get_text(sub, "div", {"class": "MjS0Lc"}),
     }
 
     details = sub.find_all("div", {"class": "MjS0Lc"})
@@ -81,8 +81,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         parsed["cite"] = sub.text
         # parsed.timestamp = get_div_text(sub, {'class':'rjmdhd'})
     elif sub.find("cite"):
-        parsed["cite"] = webutils.get_text(sub, "cite")
-        # parsed.timestamp = webutils.get_text(sub, "div", {'class':'hMJ0yc'})
+        parsed["cite"] = utils.get_text(sub, "cite")
+        # parsed.timestamp = utils.get_text(sub, "div", {'class':'hMJ0yc'})
 
     return parsed
 

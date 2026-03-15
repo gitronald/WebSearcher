@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 
 
 def parse_short_videos(cmpt) -> list:
@@ -23,11 +23,11 @@ def parse_short_videos(cmpt) -> list:
             "type": "short_videos",
             "sub_rank": i,
             "url": card.get("href"),
-            "title": webutils.get_text(card, "div", {"role": "heading"}),
+            "title": utils.get_text(card, "div", {"role": "heading"}),
         }
 
         # Get source (YouTube, TikTok, etc.) and duration
-        cite = webutils.get_text(card, "span", {"class": "xFMKFe"})
+        cite = utils.get_text(card, "span", {"class": "xFMKFe"})
         if cite:
             parsed["cite"] = cite
 

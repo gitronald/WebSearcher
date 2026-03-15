@@ -1,6 +1,6 @@
 import bs4
 
-from .. import logger, webutils
+from .. import logger, utils
 
 log = logger.Logger().start(__name__)
 
@@ -34,7 +34,7 @@ class ExtractorRightHandSide:
     def _get_layout(self, rhs_div):
         rhs_layouts = {
             "rhs_complementary": rhs_div
-            if webutils.check_dict_value(rhs_div.attrs, "role", "complementary")
+            if utils.check_dict_value(rhs_div.attrs, "role", "complementary")
             else None,
             "rhs_knowledge": rhs_div.find(
                 "div", {"class": ["kp-wholepage", "knowledge-panel", "TzHB6b"]}

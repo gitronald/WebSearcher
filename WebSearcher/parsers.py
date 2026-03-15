@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from . import webutils
+from . import utils
 from .extractors import Extractor
 from .feature_extractor import FeatureExtractor
 from .logger import Logger
@@ -20,7 +20,7 @@ def parse_serp(serp: str | BeautifulSoup, extract_features: bool = False) -> lis
         If extract_features is True, returns a dict with 'results' and 'features' keys.
     """
     # Extract components
-    soup = webutils.make_soup(serp)
+    soup = utils.make_soup(serp)
     extractor = Extractor(soup)
     extractor.extract_components()
     component_list = extractor.components

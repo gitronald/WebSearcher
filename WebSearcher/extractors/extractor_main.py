@@ -1,6 +1,6 @@
 import bs4
 
-from .. import webutils
+from .. import utils
 from ..logger import Logger
 
 log = Logger().start(__name__)
@@ -48,9 +48,7 @@ class ExtractorMain:
         layout_divs["left-bar"] = self.soup.find("div", {"class": "OeVqAd"})
 
         rcnt = self.soup.find("div", {"id": "rcnt"})
-        layout_divs["top-bars"] = webutils.find_all_divs(
-            rcnt, "div", {"class": ["XqFnDf", "M8OgIe"]}
-        )
+        layout_divs["top-bars"] = utils.find_all_divs(rcnt, "div", {"class": ["XqFnDf", "M8OgIe"]})
 
         # Layout classifications
         layouts = {}
@@ -77,13 +75,13 @@ class ExtractorMain:
     def _ads_top_carousel(self):
         """Extract sponsored carousel ads (e.g. Sponsored hotels via atvcap)"""
         ads = self.soup.find("div", {"id": "atvcap"})
-        if ads and webutils.get_text(ads):
+        if ads and utils.get_text(ads):
             ads.extract()
             self.components.add_component(ads, section="main", type="shopping_ads")
 
     def _ads_top(self):
         ads = self.soup.find("div", {"id": "tads"})
-        if ads and webutils.get_text(ads):
+        if ads and utils.get_text(ads):
             ads.extract()
             self.components.add_component(ads, section="main", type="ad")
 
@@ -94,14 +92,14 @@ class ExtractorMain:
             raise ValueError(f"no extractor for layout_label: {self.layout_label}")
 
         column = extractor(drop_tags)
-        column = webutils.filter_empty_divs(column)
+        column = utils.filter_empty_divs(column)
         for c in column:
             if ExtractorMain.is_valid(c):
                 self.components.add_component(c, section="main")
 
     def _ads_bottom(self):
         ads = self.soup.find("div", {"id": "tadsb"})
-        if ads and webutils.get_text(ads):
+        if ads and utils.get_text(ads):
             ads.extract()
             self.components.add_component(ads, section="main", type="ad")
 
@@ -192,7 +190,7 @@ class ExtractorMain:
             column.extend(top_divs)
             column.extend(main_divs)
             column = [div for div in column if div.name not in {"script", "style"}]
-            column = webutils.filter_empty_divs(column)
+            column = utils.filter_empty_divs(column)
             return column
 
         if self.layout_label == "standard-2":
@@ -202,7 +200,7 @@ class ExtractorMain:
             column.extend(top_divs)
             column.extend(main_divs)
             column = [div for div in column if div.name not in {"script", "style"}]
-            column = webutils.filter_empty_divs(column)
+            column = utils.filter_empty_divs(column)
             return column
 
         if self.layout_label == "standard-4":
@@ -248,8 +246,8 @@ class ExtractorMain:
     def extract_top_divs(soup, drop_tags: set = {}) -> list:
         out = []
         for tb in soup:
-            if webutils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
-                kd = webutils.find_all_divs(tb, "div", {"jscontroller": ["qTdDb", "OWrb3e"]})
+            if utils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
+                kd = utils.find_all_divs(tb, "div", {"jscontroller": ["qTdDb", "OWrb3e"]})
                 if kd:
                     out.extend(kd)
                 else:
@@ -322,7 +320,7 @@ class ExtractorMain:
         # hidden survey
         cond = [
             c.find("promo-throttler"),
-            webutils.check_dict_value(c.attrs, "class", ["ULSxyf"]) if "attrs" in c else False,
+            utils.check_dict_value(c.attrs, "class", ["ULSxyf"]) if "attrs" in c else False,
         ]
         if all(cond):
             return False

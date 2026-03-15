@@ -1,6 +1,6 @@
 import bs4
 
-from .. import logger, webutils
+from .. import logger, utils
 from .header_text import ClassifyHeaderText
 
 log = logger.Logger().start(__name__)
@@ -56,7 +56,7 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
-        conditions = [("/Available on" in webutils.get_text(cmpt))]
+        conditions = [("/Available on" in utils.get_text(cmpt))]
         return "available_on" if any(conditions) else "unknown"
 
     @staticmethod
@@ -142,7 +142,7 @@ class ClassifyMain:
     def knowledge_block(cmpt: bs4.element.Tag) -> str:
         """Classify knowledge block components"""
         conditions = [
-            webutils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
+            utils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
             cmpt.find("block-component"),
         ]
         return "knowledge" if all(conditions) else "unknown"
@@ -152,10 +152,10 @@ class ClassifyMain:
         """Classify knowledge component types"""
         attrs = cmpt.attrs
         condition = {}
-        condition["flights"] = (webutils.check_dict_value(attrs, "jscontroller", "Z2bSc")) | bool(
+        condition["flights"] = (utils.check_dict_value(attrs, "jscontroller", "Z2bSc")) | bool(
             cmpt.find("div", {"jscontroller": "Z2bSc"})
         )
-        condition["maps"] = webutils.check_dict_value(attrs, "data-hveid", "CAMQAA")
+        condition["maps"] = utils.check_dict_value(attrs, "data-hveid", "CAMQAA")
         condition["locations"] = cmpt.find("div", {"class": "zd2Jbb"})
         condition["events"] = cmpt.find("g-card", {"class": "URhAHe"})
         condition["jobs"] = cmpt.find("g-card", {"class": "cvoI5e"})
@@ -177,7 +177,7 @@ class ClassifyMain:
             ),
             cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
             cmpt.find("div", {"jscontroller": "qTdDb"}),
-            webutils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
+            utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
             cmpt.find("div", {"class": "obcontainer"}),
         ]
         return "knowledge" if any(conditions) else "unknown"
@@ -199,7 +199,7 @@ class ClassifyMain:
     def people_also_ask(cmpt: bs4.element.Tag) -> str:
         """Secondary check for people also ask, see classify_header for primary"""
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
-        conditions = webutils.check_dict_value(cmpt.attrs, "class", class_list)
+        conditions = utils.check_dict_value(cmpt.attrs, "class", class_list)
         return "people_also_ask" if conditions else "unknown"
 
     @staticmethod
@@ -233,7 +233,7 @@ class ClassifyMain:
     def news_quotes(cmpt: bs4.element.Tag) -> str:
         """Classify top stories components"""
         header_div = cmpt.find("g-tray-header", role="heading")
-        condition = webutils.get_text(header_div, strip=True) == "News quotes"
+        condition = utils.get_text(header_div, strip=True) == "News quotes"
         return "news_quotes" if condition else "unknown"
 
     @staticmethod
@@ -247,7 +247,7 @@ class ClassifyMain:
         """Distinguish twitter types ('twitter_cards', 'twitter_result')"""
         conditions = [
             (cmpt_type == "twitter"),  # Check type (header text)
-            webutils.get_text(cmpt, strip=True) == "Twitter Results",  # Check text
+            utils.get_text(cmpt, strip=True) == "Twitter Results",  # Check text
         ]
         if any(conditions):
             # Differentiate twitter cards (carousel) and twitter result (single)

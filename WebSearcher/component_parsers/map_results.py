@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 
 TITLE_SELECTORS = [
     ("div", {"class": "aiAXrc"}),
@@ -21,6 +21,6 @@ def parse_map_results(cmpt, sub_rank=0) -> list:
         {
             "type": "map_results",
             "sub_rank": sub_rank,
-            "title": webutils.get_text_by_selectors(cmpt, TITLE_SELECTORS),
+            "title": utils.get_text_by_selectors(cmpt, TITLE_SELECTORS),
         }
     ]

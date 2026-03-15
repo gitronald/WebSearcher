@@ -1,4 +1,4 @@
-from ..webutils import (
+from ..utils import (
     find_all_divs,
     find_children,
     get_link,

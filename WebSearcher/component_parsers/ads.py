@@ -12,7 +12,7 @@ Changelog
 
 import bs4
 
-from .. import webutils
+from .. import utils
 from ..models.data import BaseResult, DetailsItem, DetailsList
 from .shopping_ads import parse_shopping_ads
 
@@ -34,12 +34,12 @@ AD_STANDARD_TEXT_SELECTORS = [
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
     label_divs = {
-        "legacy": webutils.find_all_divs(cmpt, "div", {"class": "ad_cclk"}),
+        "legacy": utils.find_all_divs(cmpt, "div", {"class": "ad_cclk"}),
         "local_service": cmpt.find_all("gls-profile-entrypoint"),
-        "secondary": webutils.find_all_divs(cmpt, "div", {"class": "d5oMvf"}),
-        "shopping": webutils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}),
-        "standard": webutils.find_all_divs(cmpt, "div", {"class": "uEierd"}),
-        "carousel": webutils.find_all_divs(cmpt, "g-scrolling-carousel"),
+        "secondary": utils.find_all_divs(cmpt, "div", {"class": "d5oMvf"}),
+        "shopping": utils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}),
+        "standard": utils.find_all_divs(cmpt, "div", {"class": "uEierd"}),
+        "carousel": utils.find_all_divs(cmpt, "g-scrolling-carousel"),
     }
     for label, divs in label_divs.items():
         if divs:
@@ -81,10 +81,10 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
             type="ad",
             sub_type="legacy",
             sub_rank=sub_rank,
-            title=webutils.get_text(header, "h3"),
-            url=webutils.get_text(header, "cite"),
+            title=utils.get_text(header, "h3"),
+            url=utils.get_text(header, "cite"),
             cite=None,
-            text=webutils.get_text(sub, "div", {"class": "ads-creative"}),
+            text=utils.get_text(sub, "div", {"class": "ads-creative"}),
             details=_parse_ad_legacy_sub_details(sub),
             error=None,
         ).model_dump()
@@ -108,8 +108,8 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
     """Parse local service ads (gls-profile-entrypoint elements)"""
 
     def _parse_profile(profile: bs4.element.Tag, sub_rank: int) -> dict:
-        title = webutils.get_text(profile, "span", {"class": "bk5vhd"})
-        url = webutils.get_link(profile)
+        title = utils.get_text(profile, "span", {"class": "bk5vhd"})
+        url = utils.get_link(profile)
 
         detail_rows = profile.find_all("div", {"class": "P4vvKf"})
         text = (
@@ -153,17 +153,17 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
             type="ad",
             sub_type="secondary",
             sub_rank=sub_rank,
-            title=webutils.get_text(sub, "div", {"role": "heading"}),
+            title=utils.get_text(sub, "div", {"role": "heading"}),
             url=_parse_ad_secondary_sub_url(sub),
-            cite=webutils.get_text(sub, "span", {"class": "gBIQub"}),
+            cite=utils.get_text(sub, "span", {"class": "gBIQub"}),
             text=_parse_ad_secondary_sub_text(sub),
             details=_parse_ad_secondary_sub_details(sub),
             error=None,
         ).model_dump()
 
     def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
-        url_div = webutils.get_div(sub, "div", {"class": "d5oMvf"})
-        return webutils.get_link(url_div)
+        url_div = utils.get_div(sub, "div", {"class": "d5oMvf"})
+        return utils.get_link(url_div)
 
     def _parse_ad_secondary_sub_text(sub) -> str:
         text_divs = sub.find_all("div", {"class": "yDYNvb"})
@@ -173,7 +173,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
         for selector in [{"role": "list"}, {"class": "bOeY0b"}]:
             details_section = sub.find("div", selector)
             if details_section:
-                urls = webutils.get_link_list(details_section)
+                urls = utils.get_link_list(details_section)
                 if urls:
                     details_list = DetailsList()
                     for url in urls:
@@ -189,7 +189,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 
 def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
     """Parse shopping ads from component"""
-    subs = webutils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"})
+    subs = utils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"})
     parsed_list = []
     for sub in subs:
         parsed_list.extend(parse_shopping_ads(sub))
@@ -205,8 +205,8 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
-            text = webutils.get_text_by_selectors(sub, AD_STANDARD_TEXT_SELECTORS)
-            label = webutils.get_text(sub, "span", {"class": "mXsQRe"})
+            text = utils.get_text_by_selectors(sub, AD_STANDARD_TEXT_SELECTORS)
+            label = utils.get_text(sub, "span", {"class": "mXsQRe"})
             return f"{text} <label>{label}</label>" if label else text
 
         submenu = parse_ad_menu(sub)
@@ -215,16 +215,16 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
             type="ad",
             sub_type=sub_type,
             sub_rank=sub_rank,
-            title=webutils.get_text(sub, "div", {"role": "heading"}),
-            url=webutils.get_link(sub, {"class": "sVXRqc"}),
-            cite=webutils.get_text(sub, "span", {"role": "text"}),
+            title=utils.get_text(sub, "div", {"role": "heading"}),
+            url=utils.get_link(sub, {"class": "sVXRqc"}),
+            cite=utils.get_text(sub, "span", {"role": "text"}),
             text=_parse_ad_standard_text(sub),
             details=submenu,
             error=None,
         ).model_dump()
         return parsed
 
-    subs = webutils.find_all_divs(cmpt, "div", {"class": "uEierd"})
+    subs = utils.find_all_divs(cmpt, "div", {"class": "uEierd"})
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
@@ -239,11 +239,11 @@ def parse_ad_menu(sub: bs4.element.Tag) -> list:
         parsed_item = DetailsItem()
         item_divs = item.find_all("div", {"class": "MUxGbd"})
         for div in item_divs:
-            if webutils.check_dict_value(div.attrs, "role", "listitem"):
-                parsed_item.url = webutils.get_link(div) or ""
-                parsed_item.title = webutils.get_text(div) or ""
+            if utils.check_dict_value(div.attrs, "role", "listitem"):
+                parsed_item.url = utils.get_link(div) or ""
+                parsed_item.title = utils.get_text(div) or ""
             else:
-                parsed_item.text = webutils.get_text(div) or ""
+                parsed_item.text = utils.get_text(div) or ""
         parsed_items.append(parsed_item)
 
     # Format 2: bOeY0b sitelinks section
@@ -280,10 +280,10 @@ def parse_ad_carousel(
             type="ad",
             sub_type=sub_type,
             sub_rank=sub_rank,
-            title=webutils.get_text(sub, "div", {"class": "e7SMre"}),
-            url=webutils.get_link(sub),
-            text=webutils.get_text(sub, "div", {"class": "vrAZpb"}),
-            cite=webutils.get_text(sub, "div", {"class": "zpIwr"}),
+            title=utils.get_text(sub, "div", {"class": "e7SMre"}),
+            url=utils.get_link(sub),
+            text=utils.get_text(sub, "div", {"class": "vrAZpb"}),
+            cite=utils.get_text(sub, "div", {"class": "zpIwr"}),
             details=None,
             error=None,
         ).model_dump()
@@ -294,10 +294,10 @@ def parse_ad_carousel(
             type="ad",
             sub_type=sub_type,
             sub_rank=sub_rank,
-            title=webutils.get_text(sub, "div", {"class": "gCv54b"}),
-            url=webutils.get_link(sub, {"class": "KTsHxd"}),
-            text=webutils.get_text(sub, "div", {"class": "VHpBje"}),
-            cite=webutils.get_text(sub, "div", {"class": "j958Pd"}),
+            title=utils.get_text(sub, "div", {"class": "gCv54b"}),
+            url=utils.get_link(sub, {"class": "KTsHxd"}),
+            text=utils.get_text(sub, "div", {"class": "VHpBje"}),
+            cite=utils.get_text(sub, "div", {"class": "j958Pd"}),
             details=None,
             error=None,
         ).model_dump()
@@ -307,10 +307,8 @@ def parse_ad_carousel(
     ad_carousel = cmpt.find("g-scrolling-carousel")
     if ad_carousel:
         ad_carousel_types = {
-            "carousel_card": webutils.find_all_divs(ad_carousel, name="g-inner-card"),
-            "carousel_div": webutils.find_all_divs(
-                ad_carousel, name="div", attrs={"class": "ZPze1e"}
-            ),
+            "carousel_card": utils.find_all_divs(ad_carousel, name="g-inner-card"),
+            "carousel_div": utils.find_all_divs(ad_carousel, name="div", attrs={"class": "ZPze1e"}),
         }
 
         for ad_carousel_type, sub_cmpts in ad_carousel_types.items():

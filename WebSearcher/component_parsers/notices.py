@@ -1,7 +1,7 @@
 import copy
 import re
 
-from ..webutils import get_text
+from ..utils import get_text
 
 
 def parse_notices(cmpt) -> list:

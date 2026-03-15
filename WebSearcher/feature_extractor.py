@@ -2,7 +2,7 @@ import re
 
 from bs4 import BeautifulSoup
 
-from . import webutils
+from . import utils
 from .models.features import SERPFeatures
 
 
@@ -23,7 +23,7 @@ class FeatureExtractor:
             html = str(soup)
         else:
             html = html_or_soup
-            soup = webutils.make_soup(html)
+            soup = utils.make_soup(html)
 
         # Extract result estimate count and time
         rx_estimate = re.compile(r'<div id="result-stats">.*?</div>')
@@ -62,7 +62,7 @@ class FeatureExtractor:
         overlay_precise_location = bool(lb and "precise location" in lb.get_text().lower())
 
         # CAPTCHA detection
-        captcha = webutils.has_captcha(soup)
+        captcha = utils.has_captcha(soup)
 
         return SERPFeatures(
             result_estimate_count=result_estimate_count,

@@ -1,7 +1,7 @@
 import re
 
 from ..models.data import DetailsItem, DetailsList
-from ..webutils import get_link, get_text
+from ..utils import get_link, get_text
 
 
 def parse_general_results(cmpt) -> list:

@@ -6,7 +6,7 @@ from .feature_extractor import FeatureExtractor
 from .locations import download_locations
 from .parsers import parse_serp
 from .searchers import SearchEngine
-from .webutils import load_html, load_soup, make_soup
+from .utils import load_html, load_soup, make_soup
 
 __all__ = [
     "ClassifyFooter",

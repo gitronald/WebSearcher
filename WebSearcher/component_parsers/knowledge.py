@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 from ..models.data import DetailsItem, DetailsList
 from .general import parse_general_result
 
@@ -17,11 +17,11 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
     # Get embedded result if it exists
     result = cmpt.find("div", {"class": "rc"})
     if result:
-        parsed["title"] = webutils.get_text(result, "h3")
-        parsed["url"] = webutils.get_link(result)
-        parsed["cite"] = webutils.get_text(result, "cite")
+        parsed["title"] = utils.get_text(result, "h3")
+        parsed["url"] = utils.get_link(result)
+        parsed["cite"] = utils.get_text(result, "cite")
 
-    parsed["text"] = webutils.get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
+    parsed["text"] = utils.get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
 
     # Get details
     details = {}
@@ -129,9 +129,9 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
         details["text"] = get_text(div) if div else None
 
         text_divs = cmpt.find_all("div", {"class": "sinMW"})
-        text_list = [webutils.get_text(div) for div in text_divs]
+        text_list = [utils.get_text(div) for div in text_divs]
         parsed["text"] = "<|>".join(text_list) if text_list else None
-        parsed["title"] = webutils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
+        parsed["title"] = utils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
 
     # Get image
     img_div = cmpt.find("div", {"class": "img-brk"})

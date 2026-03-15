@@ -1,4 +1,4 @@
-from ..webutils import get_link, get_text
+from ..utils import get_link, get_text
 
 
 def parse_twitter_result(cmpt, sub_rank=0) -> list:
