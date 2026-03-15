@@ -34,6 +34,17 @@ class ResponseOutput(BaseModel):
     timestamp: str = ""
 
 
+class ParsedSERP(BaseModel):
+    """Parsed output from a SERP."""
+
+    crawl_id: str = ""
+    serp_id: str = ""
+    version: str = ""
+    method: str = ""
+    features: dict = Field(default_factory=dict)
+    results: list[dict] = Field(default_factory=list)
+
+
 class BaseResult(BaseModel):
     """
     Represents a single search result item extracted from a SERP.

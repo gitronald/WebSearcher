@@ -9,7 +9,7 @@ from .models.configs import (
     SearchMethod,
     SeleniumConfig,
 )
-from .models.data import BaseSERP
+from .models.data import BaseSERP, ParsedSERP
 from .models.searches import SearchParams
 from .search_methods.requests_searcher import RequestsSearcher
 from .search_methods.selenium_searcher import SeleniumDriver
@@ -64,7 +64,7 @@ class SearchEngine:
 
         # Initialize search params and output
         self.search_params = SearchParams.create()
-        self.parsed = {"results": [], "features": {}}
+        self.parsed = ParsedSERP()
 
     def search(
         self,
@@ -112,20 +112,22 @@ class SearchEngine:
 
     def parse_serp(self):
         try:
-            parsed_metadata = {
-                k: v
-                for k, v in self.serp.items()
-                if k in ["crawl_id", "serp_id", "version", "method"]
-            }
             parsed = parsers.parse_serp(self.serp["html"])
-            self.parsed = parsed_metadata | parsed
+            self.parsed = ParsedSERP(
+                crawl_id=self.serp["crawl_id"],
+                serp_id=self.serp["serp_id"],
+                version=self.serp["version"],
+                method=self.serp["method"],
+                features=parsed["features"],
+                results=parsed["results"],
+            )
         except Exception:
             self.log.exception(f"Parsing error | serp_id : {self.serp['serp_id']}")
 
     def parse_results(self):
         """Backwards compatibility for parsing results"""
         self.parse_serp()
-        self.results = self.parsed["results"]
+        self.results = self.parsed.results
 
     # ==========================================================================
     # Saving
@@ -152,12 +154,12 @@ class SearchEngine:
         if not save_dir and not append_to:
             self.log.warning("Must provide a save_dir or append_to file path to save parsed SERP")
             return
-        if not self.parsed:
+        if not self.parsed.results and not self.parsed.features:
             self.log.warning("No parsed SERP available to save")
             return
 
         fp = append_to if append_to else Path(save_dir) / "parsed.json"
-        utils.write_lines([self.parsed], fp)
+        utils.write_lines([self.parsed.model_dump()], fp)
 
     def save_search(self, append_to: str | Path = ""):
         """Save SERP metadata (excludes HTML) to file"""
@@ -178,12 +180,12 @@ class SearchEngine:
         if not save_dir and not append_to:
             self.log.warning("Must provide a save_dir or append_to file path to save results")
             return
-        if not self.parsed["results"]:
+        if not self.parsed.results:
             self.log.warning("No parsed results to save")
             return
 
         # Add metadata to results
         result_metadata = {k: self.serp[k] for k in ["crawl_id", "serp_id", "version"]}
-        results_output = [{**result, **result_metadata} for result in self.parsed["results"]]
+        results_output = [{**result, **result_metadata} for result in self.parsed.results]
         fp = append_to if append_to else Path(save_dir) / "results.json"
         utils.write_lines(results_output, fp)
