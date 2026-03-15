@@ -1,18 +1,20 @@
 import time
-import brotli
-import requests
 from datetime import datetime, timezone
 from typing import Any
+
+import brotli
+import requests
 
 from ..models.configs import RequestsConfig
 from ..models.searches import SearchParams
 
+
 class RequestsSearcher:
     """Handle Requests-based web interactions for search engines"""
-    
+
     def __init__(self, config: RequestsConfig, logger):
         """Initialize a Requests searcher with the given configuration
-        
+
         Args:
             config: RequestsConfig instance
             headers: Dictionary of HTTP headers
@@ -21,59 +23,59 @@ class RequestsSearcher:
         self.config = config
         self.log = logger
         self.sesh = self.config.sesh or self._start_session()
-        
+
     def _start_session(self):
         """Start a new requests session with the configured headers"""
         session = requests.Session()
         session.headers.update(self.config.headers)
         return session
-        
+
     def send_request(self, search_params: SearchParams) -> dict[str, Any]:
         """Send a request and handle the response
-        
+
         Args:
             search_params: SearchParams instance
             serp_id: Optional SERP ID
             crawl_id: Optional crawl ID
-            
+
         Returns:
             Dictionary with response data
         """
 
         if search_params.headers:
             self.sesh.headers.update(search_params.headers)
-        
+
         response_output = {
-            'html': '',
-            'url': search_params.url,
-            'user_agent': self.config.headers.get('User-Agent'),
-            'response_code': 0,
-            'timestamp': datetime.now(timezone.utc).replace(tzinfo=None).isoformat()
+            "html": "",
+            "url": search_params.url,
+            "user_agent": self.config.headers.get("User-Agent"),
+            "response_code": 0,
+            "timestamp": datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
         }
-        
+
         try:
             response = self.sesh.get(search_params.url, timeout=10)
-            response_output['html'] = self._handle_response_content(response)
-            response_output['response_code'] = response.status_code
+            response_output["html"] = self._handle_response_content(response)
+            response_output["response_code"] = response.status_code
         except requests.exceptions.ConnectionError:
-            self.log.exception(f'Requests | Connection error')
+            self.log.exception("Requests | Connection error")
             self._reset_ssh_tunnel()
         except requests.exceptions.Timeout:
-            self.log.exception(f'Requests | Timeout error')
+            self.log.exception("Requests | Timeout error")
         except Exception:
-            self.log.exception(f'Requests | Unknown error')
+            self.log.exception("Requests | Unknown error")
 
         return response_output
 
     def _handle_response_content(self, response):
         try:
-            if self.config.unzip:  
+            if self.config.unzip:
                 html = self._unzip_html(response.content)
             else:
                 html = response.content
-            return html.decode('utf-8', 'ignore')
+            return html.decode("utf-8", "ignore")
         except Exception:
-            self.log.exception(f'Response handling error')
+            self.log.exception("Response handling error")
             return response.content
 
     def _unzip_html(self, content) -> bytes:
@@ -83,7 +85,7 @@ class RequestsSearcher:
         except brotli.error:
             return content
         except Exception:
-            self.log.exception(f'unzip error')
+            self.log.exception("unzip error")
             return content
 
     def _reset_ssh_tunnel(self):
@@ -91,5 +93,5 @@ class RequestsSearcher:
         if self.config.ssh_tunnel:
             self.config.ssh_tunnel.tunnel.kill()
             self.config.ssh_tunnel.open_tunnel()
-            self.log.info(f'SERP | Restarted SSH tunnel')
+            self.log.info("SERP | Restarted SSH tunnel")
             time.sleep(10)  # Allow time to establish connection

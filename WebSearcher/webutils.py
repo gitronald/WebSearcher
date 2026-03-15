@@ -4,33 +4,32 @@ Note on using socks5h, hostname resolution
 https://stackoverflow.com/questions/12601316/how-to-make-python-requests-work-via-socks-proxy
 """
 
-from . import utils
-from . import logger
-
-log = logger.Logger().start(__name__)
-
-import re
-from pathlib import Path
 import atexit
-import brotli
-import requests
+import re
 import subprocess
-import tldextract
 import urllib.parse as urlparse
 from collections.abc import Iterable, Mapping, Sequence
+from pathlib import Path
 from typing import Any
+
+import brotli
+import requests
+import tldextract
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
+
+from . import logger, utils
+
+log = logger.Logger().start(__name__)
 
 SoupElement = BeautifulSoup | Tag | NavigableString
 
 
 def load_html(fp: str | Path, zipped: bool = False) -> str | bytes:
     """Load html file, with option for brotli decompression"""
-    read_func = lambda i: brotli.decompress(i.read()) if zipped else i.read()
     read_type = "rb" if zipped else "r"
     with open(fp, read_type) as infile:
-        return read_func(infile)
+        return brotli.decompress(infile.read()) if zipped else infile.read()
 
 
 def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
@@ -107,7 +106,7 @@ def parse_lang(soup: BeautifulSoup) -> str | None:
     """Parse language from html tags"""
     try:
         return soup.find("html").attrs["lang"]
-    except Exception as e:
+    except Exception:
         log.exception("Error while parsing language")
         return None
 
@@ -272,9 +271,7 @@ def split_styles(soup: BeautifulSoup) -> list[str] | None:
 
     styles = soup.find_all("style")
     if styles:
-        style_chunks = [
-            chunk for chunk in map(split_style, styles) if chunk is not None
-        ]
+        style_chunks = [chunk for chunk in map(split_style, styles) if chunk is not None]
         return sum(style_chunks, [])
     else:
         return None

@@ -4,6 +4,7 @@ from dataclasses import asdict, dataclass
 @dataclass
 class SERPFeatures:
     """Features extracted from a Search Engine Results Page (SERP)."""
+
     result_estimate_count: float | None = None
     result_estimate_time: float | None = None
     language: str | None = None

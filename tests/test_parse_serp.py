@@ -4,11 +4,10 @@ import bz2
 from pathlib import Path
 
 import orjson
-
 import pytest
-import WebSearcher as ws
 from syrupy.extensions.json import JSONSnapshotExtension
 
+import WebSearcher as ws
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -36,6 +35,7 @@ def load_all_serps() -> list[dict]:
 # Fixtures
 # ---------------------------------------------------------------------------
 
+
 @pytest.fixture
 def snapshot_json(snapshot):
     return snapshot.use_extension(JSONSnapshotExtension)
@@ -57,6 +57,7 @@ def pytest_generate_tests(metafunc):
 # Snapshot tests
 # ---------------------------------------------------------------------------
 
+
 @pytest.mark.skipif(not SERPS_PATHS, reason="Demo data not available")
 def test_parse_serp(snapshot_json, serp_record):
     """Parse SERP and compare to snapshot"""
@@ -69,8 +70,18 @@ def test_parse_serp(snapshot_json, serp_record):
 # ---------------------------------------------------------------------------
 
 EXPECTED_KEYS = {
-    "section", "cmpt_rank", "sub_rank", "type", "sub_type",
-    "title", "url", "text", "cite", "details", "error", "serp_rank",
+    "section",
+    "cmpt_rank",
+    "sub_rank",
+    "type",
+    "sub_type",
+    "title",
+    "url",
+    "text",
+    "cite",
+    "details",
+    "error",
+    "serp_rank",
 }
 
 
@@ -79,8 +90,7 @@ def all_parsed_serps():
     """Parse all SERPs and return list of parsed outputs"""
     if not SERPS_PATHS:
         pytest.skip("Demo data not available")
-    return [ws.parse_serp(record["html"], extract_features=True)
-            for record in load_all_serps()]
+    return [ws.parse_serp(record["html"], extract_features=True) for record in load_all_serps()]
 
 
 @pytest.fixture(scope="module")
@@ -95,7 +105,9 @@ def all_results(all_parsed_serps):
 def test_results_have_expected_keys(all_results):
     """Every result dict has exactly the expected keys"""
     for r in all_results:
-        assert set(r.keys()) == EXPECTED_KEYS, f"cmpt {r.get('cmpt_rank')}: {set(r.keys()) ^ EXPECTED_KEYS}"
+        assert set(r.keys()) == EXPECTED_KEYS, (
+            f"cmpt {r.get('cmpt_rank')}: {set(r.keys()) ^ EXPECTED_KEYS}"
+        )
 
 
 def test_no_unclassified_results(all_results):

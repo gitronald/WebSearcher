@@ -1,18 +1,20 @@
-""" Download and use locations
-"""
+"""Download and use locations"""
+
 import os
+
 import pandas as pd
+
 import WebSearcher as ws
 
-# Retrieve and save latest location data 
-data_dir = 'data/google_locations'
+# Retrieve and save latest location data
+data_dir = "data/google_locations"
 os.makedirs(data_dir, exist_ok=True)
 ws.download_locations(data_dir)
 
 # Read it back in
-f  = os.listdir(data_dir)[-1]  # Last file
-fp = os.path.join(data_dir, f) # File path
-locs = pd.read_csv(fp)         # Read
+f = os.listdir(data_dir)[-1]  # Last file
+fp = os.path.join(data_dir, f)  # File path
+locs = pd.read_csv(fp)  # Read
 
 # locs.info()
 #
@@ -43,8 +45,8 @@ locs = pd.read_csv(fp)         # Read
 # Looking for Canonical Names
 
 ## Masks
-regex = r'(?=.*Boston)(?=.*Massachusetts)' # Has Boston and Massachusetts
-str_mask = locs['Canonical Name'].str.contains(regex)
+regex = r"(?=.*Boston)(?=.*Massachusetts)"  # Has Boston and Massachusetts
+str_mask = locs["Canonical Name"].str.contains(regex)
 
 locs[str_mask]
 # 5368                                      Boston,England,United Kingdom
@@ -64,10 +66,10 @@ locs[str_mask]
 
 
 # Set Canonical Name
-canon_name = 'Boston,Massachusetts,United States'
+canon_name = "Boston,Massachusetts,United States"
 
 # Get corresponding row
-name = locs[locs['Canonical Name'] == canon_name].iloc[0]
+name = locs[locs["Canonical Name"] == canon_name].iloc[0]
 name
 
 # Criteria ID                                  1018127
@@ -84,7 +86,7 @@ name
 se = ws.SearchEngine()
 
 # Conduct Search
-qry = 'pizza'
+qry = "pizza"
 se.search(qry, location=canon_name)
 
 # Parse Results
@@ -93,8 +95,8 @@ se.parse_results()
 # Shape as dataframe
 if se.results:
     results = pd.DataFrame(se.results)
-    with pd.option_context('display.max_colwidth', 80):
-        print(results[['type', 'title']])
+    with pd.option_context("display.max_colwidth", 80):
+        print(results[["type", "title"]])
 
 #             type                                                        title
 #    local_results                                FLORINA Pizzeria & Paninoteca
@@ -112,9 +114,9 @@ if se.results:
 #          general                        New Market Pizza - Boston, Boston, MA
 #          general   Home | Regina Pizzeria, Boston's Brick Oven Pizza - Boston
 # searches_related                                                         None
-#        knowledge                                                             
+#        knowledge
 
-dir_html = os.path.join("data", 'html')
+dir_html = os.path.join("data", "html")
 os.makedirs(dir_html, exist_ok=True)
 se.save_search(append_to=os.path.join(dir_html, "searches.json"))
 se.save_serp(save_dir=dir_html)

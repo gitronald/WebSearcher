@@ -1,39 +1,39 @@
 from .. import webutils
 
 QUESTION_SELECTORS = [
-    ('div', {'class': 'rc'}),
-    ('div', {'class': 'yuRUbf'}),
-    ('div', {'class': 'iDjcJe'}),    # 2023-01-01
-    ('div', {'class': 'JlqpRe'}),    # 2023-11-16
-    ('div', {'class': 'cbphWd'}),     # 2021-01-09
+    ("div", {"class": "rc"}),
+    ("div", {"class": "yuRUbf"}),
+    ("div", {"class": "iDjcJe"}),  # 2023-01-01
+    ("div", {"class": "JlqpRe"}),  # 2023-11-16
+    ("div", {"class": "cbphWd"}),  # 2021-01-09
 ]
 
 
 def parse_people_also_ask(cmpt, sub_rank=0) -> list:
     """Parse a "People Also Ask" component
 
-    These components contain a list of questions, which drop down to reveal  
-    summarized information and/or general component results. However, browser  
-    automation is required to preserve the information in the dropdown, which  
+    These components contain a list of questions, which drop down to reveal
+    summarized information and/or general component results. However, browser
+    automation is required to preserve the information in the dropdown, which
     only loads after a subcomponent is clicked.
-    
+
     Args:
         cmpt (bs4 object): A "People Also Ask" component
-    
+
     Returns:
         list : list of parsed subcomponent dictionaries
     """
 
     # questions = cmpt.find_all('g-accordion-expander')
     # questions = cmpt.find('section').find_all('div', {'class':'yTrXHe'})
-    questions = cmpt.find_all("div", {"class":"related-question-pair"})
+    questions = cmpt.find_all("div", {"class": "related-question-pair"})
     parsed_questions = [parse_question(q) for q in questions]
     parsed_questions = list(filter(None, parsed_questions))
     parsed = {
-        'type': 'people_also_ask',
-        'sub_rank': sub_rank,
-        'text': "<|>".join(parsed_questions) if parsed_questions else None,
-        'details': parsed_questions if parsed_questions else None
+        "type": "people_also_ask",
+        "sub_rank": sub_rank,
+        "text": "<|>".join(parsed_questions) if parsed_questions else None,
+        "details": parsed_questions if parsed_questions else None,
     }
     return [parsed]
 

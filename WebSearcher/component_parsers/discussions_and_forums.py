@@ -1,14 +1,15 @@
-from .. import webutils
 import bs4
 
+from .. import webutils
+
 TITLE_SELECTORS = [
-    ('div', {'class': 'zNWc4c'}),
-    ('div', {'class': 'qyp6xb'}),
+    ("div", {"class": "zNWc4c"}),
+    ("div", {"class": "qyp6xb"}),
 ]
 
 CITE_SELECTORS = [
-    ('div', {'class': 'LbKnXb'}),
-    ('div', {'class': 'VZGVuc'}),
+    ("div", {"class": "LbKnXb"}),
+    ("div", {"class": "VZGVuc"}),
 ]
 
 SUB_SELECTORS = [
@@ -43,7 +44,7 @@ def get_title(sub):
     """Get title from selectors or heading div"""
     title = webutils.get_text_by_selectors(sub, TITLE_SELECTORS)
     if not title:
-        title = webutils.get_text(sub, 'div', {'role': 'heading'})
+        title = webutils.get_text(sub, "div", {"role": "heading"})
     return title
 
 
@@ -54,7 +55,6 @@ def get_cite(sub):
 
 def get_url(sub):
     """Get URL from a subcomponent; try multiple, take first non-null"""
-    url_list = [webutils.get_link(sub, {"class": "v4kUNc"}),
-                webutils.get_link(sub)]
+    url_list = [webutils.get_link(sub, {"class": "v4kUNc"}), webutils.get_link(sub)]
     url_list = [url for url in url_list if url]
     return url_list[0] if url_list else None

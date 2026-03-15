@@ -1,16 +1,14 @@
+from bs4 import BeautifulSoup
+
 from . import webutils
 from .extractors import Extractor
 from .feature_extractor import FeatureExtractor
 from .logger import Logger
+
 log = Logger().start(__name__)
 
-from bs4 import BeautifulSoup
 
-
-def parse_serp(
-        serp: str | BeautifulSoup,
-        extract_features: bool = False
-    ) -> list[dict] | dict:
+def parse_serp(serp: str | BeautifulSoup, extract_features: bool = False) -> list[dict] | dict:
     """Parse a Search Engine Result Page (SERP)
 
     Args:
@@ -36,7 +34,7 @@ def parse_serp(
     if extract_features:
         return {
             "features": FeatureExtractor.extract_features(soup).to_dict(),
-            "results": results
+            "results": results,
         }
 
     return results

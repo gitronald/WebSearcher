@@ -1,4 +1,5 @@
 import re
+
 from bs4 import BeautifulSoup
 
 from . import webutils
@@ -32,9 +33,11 @@ class FeatureExtractor:
             result_estimate_count = None
             result_estimate_time = None
         else:
-            count_match = re.search(r'([0-9,]+) results', result_estimate_div)
-            time_match = re.search(r'\(([0-9.]+)s?\s*(?:seconds)?\)', result_estimate_div)
-            result_estimate_count = float(count_match.group(1).replace(",","")) if count_match else None
+            count_match = re.search(r"([0-9,]+) results", result_estimate_div)
+            time_match = re.search(r"\(([0-9.]+)s?\s*(?:seconds)?\)", result_estimate_div)
+            result_estimate_count = (
+                float(count_match.group(1).replace(",", "")) if count_match else None
+            )
             result_estimate_time = float(time_match.group(1)) if time_match else None
 
         # Extract language
@@ -48,15 +51,15 @@ class FeatureExtractor:
         notice_no_results = bool(match)
 
         string_match_dict = {
-            'notice_shortened_query': "(and any subsequent words) was ignored because we limit queries to 32 words.",
-            'notice_server_error': "We're sorry but it appears that there has been an internal server error while processing your request.",
-            'infinity_scroll': '<span class="RVQdVd">More results</span>'
+            "notice_shortened_query": "(and any subsequent words) was ignored because we limit queries to 32 words.",
+            "notice_server_error": "We're sorry but it appears that there has been an internal server error while processing your request.",
+            "infinity_scroll": '<span class="RVQdVd">More results</span>',
         }
         string_matches = {key: (pattern in html) for key, pattern in string_match_dict.items()}
 
         # Location prompt overlay (id="lb" with "precise location" text)
-        lb = soup.find('div', {'id': 'lb'})
-        overlay_precise_location = bool(lb and 'precise location' in lb.get_text().lower())
+        lb = soup.find("div", {"id": "lb"})
+        overlay_precise_location = bool(lb and "precise location" in lb.get_text().lower())
 
         # CAPTCHA detection
         captcha = webutils.has_captcha(soup)

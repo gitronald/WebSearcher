@@ -1,16 +1,18 @@
 """Search and parse queries designed to trigger diverse SERP component types"""
 
 import os
-import time
 import random
-import typer
+import time
+
 import pandas as pd
+import typer
+
 import WebSearcher as ws
 
-pd.set_option('display.width', 160)
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_colwidth', 40)
+pd.set_option("display.width", 160)
+pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", None)
+pd.set_option("display.max_colwidth", 40)
 
 DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
 
@@ -117,6 +119,7 @@ QUERIES = {
 
 app = typer.Typer()
 
+
 @app.command()
 def main(
     method: str = typer.Argument("selenium", help="Search method to use: 'selenium' or 'requests'"),
@@ -149,33 +152,32 @@ def main(
             "use_subprocess": use_subprocess,
             "driver_executable_path": driver_executable_path,
             "version_main": version_main,
-        }
+        },
     )
 
     for i, qry in enumerate(queries):
-
         # Search, parse, and save
-        se.search(qry, ai_expand=ai_expand)       # Conduct Search
-        se.parse_serp()                            # Parse Results
-        se.save_serp(append_to=fps['serps'])       # Save SERP to json (html + metadata)
-        se.save_search(append_to=fps['searches'])  # Save search to json (metadata only)
-        se.save_parsed(append_to=fps['parsed'])    # Save parsed results and SERP features to json
+        se.search(qry, ai_expand=ai_expand)  # Conduct Search
+        se.parse_serp()  # Parse Results
+        se.save_serp(append_to=fps["serps"])  # Save SERP to json (html + metadata)
+        se.save_search(append_to=fps["searches"])  # Save search to json (metadata only)
+        se.save_parsed(append_to=fps["parsed"])  # Save parsed results and SERP features to json
 
         # Check for CAPTCHA — retry once after waiting
-        if se.parsed.get('features', {}).get('captcha'):
-            print(f"\n[{i+1}/{len(queries)}] CAPTCHA detected for '{qry}', waiting 5 min...")
+        if se.parsed.get("features", {}).get("captcha"):
+            print(f"\n[{i + 1}/{len(queries)}] CAPTCHA detected for '{qry}', waiting 5 min...")
             time.sleep(300)
             se.search(qry, ai_expand=ai_expand)
             se.parse_serp()
-            if se.parsed.get('features', {}).get('captcha'):
-                print(f"CAPTCHA still present, stopping.")
+            if se.parsed.get("features", {}).get("captcha"):
+                print("CAPTCHA still present, stopping.")
                 break
 
         # Convert results to dataframe and print select columns
         if se.parsed["results"]:
             results = pd.DataFrame(se.parsed["results"])
-            print(f"\n[{i+1}/{len(queries)}] {qry}")
-            print(results[['type', 'sub_type', 'title', 'url']])
+            print(f"\n[{i + 1}/{len(queries)}] {qry}")
+            print(results[["type", "sub_type", "title", "url"]])
 
         if i < len(queries) - 1:
             time.sleep(30 + random.uniform(0, 5))

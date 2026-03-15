@@ -1,5 +1,6 @@
-from .. import webutils
 import bs4
+
+from .. import webutils
 
 
 class ClassifyHeaderComponent:
@@ -8,7 +9,7 @@ class ClassifyHeaderComponent:
     @staticmethod
     def classify(cmpt: bs4.element.Tag) -> str:
         """Classify the component type based on header text"""
-        
+
         cmpt_type = "unknown"
         if webutils.check_dict_value(cmpt.attrs, "id", ["taw", "topstuff"]):
             cmpt_type = "notice"

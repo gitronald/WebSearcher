@@ -1,13 +1,16 @@
-from pydantic import BaseModel, Field
-from typing import Any
 from dataclasses import asdict, dataclass, field
+from typing import Any
+
+from pydantic import BaseModel, Field
+
 
 @dataclass
 class DetailsItem:
     """Represents a details item within a search result."""
-    url: str = ''
-    title: str = ''
-    text: str = ''
+
+    url: str = ""
+    title: str = ""
+    text: str = ""
     misc: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
@@ -29,28 +32,32 @@ class DetailsList(list):
 class BaseResult(BaseModel):
     """
     Represents a single search result item extracted from a SERP.
-    
+
     Contains the structured data of one search result including its rank,
     type, title, URL, and other metadata.
     """
+
     sub_rank: int = Field(0, description="Position within a results component")
-    type: str = Field('unclassified', description="Result type (general, ad, etc.)")
+    type: str = Field("unclassified", description="Result type (general, ad, etc.)")
     sub_type: str | None = Field(None, description="Result sub-type (e.g., header, item)")
     title: str | None = Field(None, description="Title of the search result")
     url: str | None = Field(None, description="URL of the search result")
     text: str | None = Field(None, description="Snippet text from the search result")
     cite: str | None = Field(None, description="Citation or source information")
-    details: Any | None = Field(None, description="Additional structured details specific to result type")
+    details: Any | None = Field(
+        None, description="Additional structured details specific to result type"
+    )
     error: str | None = Field(None, description="Error message if result parsing failed")
 
 
 class BaseSERP(BaseModel):
     """
     Represents a complete Search Engine Results Page (SERP).
-    
+
     Contains all data related to a single search query including the query itself,
     raw HTML response, metadata about the request, and identifiers for tracking.
     """
+
     qry: str = Field(..., description="Search query")
     loc: str | None = Field(None, description="Location if set, in Canonical Name format")
     lang: str | None = Field(None, description="Language code if set")

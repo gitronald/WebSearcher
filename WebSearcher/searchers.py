@@ -1,28 +1,33 @@
-from . import parsers
-from . import utils
-from . import logger
-
-from .search_methods.selenium_searcher import SeleniumDriver
-from .search_methods.requests_searcher import RequestsSearcher
-
-from .models.configs import LogConfig, SeleniumConfig, RequestsConfig, SearchConfig, SearchMethod
-from .models.searches import SearchParams
-from .models.data import BaseSERP
-
+from importlib import metadata
 from pathlib import Path
 
-from importlib import metadata
-WS_VERSION = metadata.version('WebSearcher')
+from . import logger, parsers, utils
+from .models.configs import (
+    LogConfig,
+    RequestsConfig,
+    SearchConfig,
+    SearchMethod,
+    SeleniumConfig,
+)
+from .models.data import BaseSERP
+from .models.searches import SearchParams
+from .search_methods.requests_searcher import RequestsSearcher
+from .search_methods.selenium_searcher import SeleniumDriver
+
+WS_VERSION = metadata.version("WebSearcher")
+
 
 class SearchEngine:
     """Collect Search Engine Results Pages (SERPs)"""
-    def __init__(self,
-            method: str | SearchMethod = SearchMethod.SELENIUM,
-            log_config: dict | LogConfig = {},
-            selenium_config: dict | SeleniumConfig = {},
-            requests_config: dict | RequestsConfig = {},
-            crawl_id: str = '',
-        ) -> None:
+
+    def __init__(
+        self,
+        method: str | SearchMethod = SearchMethod.SELENIUM,
+        log_config: dict | LogConfig = {},
+        selenium_config: dict | SeleniumConfig = {},
+        requests_config: dict | RequestsConfig = {},
+        crawl_id: str = "",
+    ) -> None:
         """Initialize the search engine
 
         Args:
@@ -32,15 +37,17 @@ class SearchEngine:
             requests_config: Requests-specific configuration. Defaults to {}.
             crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
-  
+
         # Initialize config settings, log, and session data
         self.method = method.value if isinstance(method, SearchMethod) else method
-        self.config = SearchConfig.create({
-            "method": SearchMethod.create(method),
-            "log": LogConfig.create(log_config),
-            "selenium": SeleniumConfig.create(selenium_config),
-            "requests": RequestsConfig.create(requests_config),
-        })
+        self.config = SearchConfig.create(
+            {
+                "method": SearchMethod.create(method),
+                "log": LogConfig.create(log_config),
+                "selenium": SeleniumConfig.create(selenium_config),
+                "requests": RequestsConfig.create(requests_config),
+            }
+        )
         self.log = logger.Logger(**self.config.log.model_dump()).start(__name__)
         self.session_data = {
             "method": self.config.method.value,
@@ -57,18 +64,19 @@ class SearchEngine:
 
         # Initialize search params and output
         self.search_params = SearchParams.create()
-        self.parsed = {'results': [], 'features': {}}
+        self.parsed = {"results": [], "features": {}}
 
-    def search(self,
-            qry: str,
-            location: str | None = None,
-            lang: str | None = None,
-            num_results: int | None = None,
-            ai_expand: bool = False,
-            headers: dict[str, str] = {},
-        ):
+    def search(
+        self,
+        qry: str,
+        location: str | None = None,
+        lang: str | None = None,
+        num_results: int | None = None,
+        ai_expand: bool = False,
+        headers: dict[str, str] = {},
+    ):
         """Conduct a search and save HTML
-        
+
         Args:
             qry: The search query
             location: A location's Canonical Name
@@ -78,38 +86,46 @@ class SearchEngine:
             headers: Custom headers to include in the request
         """
 
-        self.log.debug('starting search config')
-        self.search_params = SearchParams.create({
-            'qry': str(qry),
-            'loc': str(location) if location is not None else '',
-            'lang': str(lang) if lang is not None else '',
-            'num_results': num_results,
-            'ai_expand': ai_expand,
-            'headers': headers,
-        })
+        self.log.debug("starting search config")
+        self.search_params = SearchParams.create(
+            {
+                "qry": str(qry),
+                "loc": str(location) if location is not None else "",
+                "lang": str(lang) if lang is not None else "",
+                "num_results": num_results,
+                "ai_expand": ai_expand,
+                "headers": headers,
+            }
+        )
 
         self.response_output = self.searcher.send_request(self.search_params)
         serp_output = self.search_params.to_serp_output()
         serp_output.update(self.session_data)
         serp_output.update(self.response_output)
         self.serp = BaseSERP(**serp_output).model_dump()
-        self.log.info(" | ".join([f"{self.serp[k]}" for k in {'response_code','qry','loc'} if self.serp[k]]))
+        self.log.info(
+            " | ".join([f"{self.serp[k]}" for k in {"response_code", "qry", "loc"} if self.serp[k]])
+        )
 
     # ==========================================================================
     # Parsing
 
     def parse_serp(self, extract_features: bool = True):
         try:
-            parsed_metadata = {k:v for k,v in self.serp.items() if k in ['crawl_id', 'serp_id', 'version', 'method']}
-            parsed = parsers.parse_serp(self.serp['html'], extract_features=extract_features)
+            parsed_metadata = {
+                k: v
+                for k, v in self.serp.items()
+                if k in ["crawl_id", "serp_id", "version", "method"]
+            }
+            parsed = parsers.parse_serp(self.serp["html"], extract_features=extract_features)
             self.parsed = parsed_metadata | parsed
         except Exception:
-            self.log.exception(f'Parsing error | serp_id : {self.serp["serp_id"]}')
+            self.log.exception(f"Parsing error | serp_id : {self.serp['serp_id']}")
 
     def parse_results(self):
         """Backwards compatibility for parsing results"""
         self.parse_serp()
-        self.results = self.parsed['results']
+        self.results = self.parsed["results"]
 
     # ==========================================================================
     # Saving
@@ -127,9 +143,9 @@ class SearchEngine:
         elif append_to:
             utils.write_lines([self.serp], append_to)
         elif save_dir:
-            fp = Path(save_dir) / f'{self.serp["serp_id"]}.html'
-            with open(fp, 'w') as outfile:
-                outfile.write(self.serp['html'])
+            fp = Path(save_dir) / f"{self.serp['serp_id']}.html"
+            with open(fp, "w") as outfile:
+                outfile.write(self.serp["html"])
 
     def save_parsed(self, save_dir: str = "", append_to: str = ""):
         """Save parsed SERP to file"""
@@ -139,8 +155,8 @@ class SearchEngine:
         if not self.parsed:
             self.log.warning("No parsed SERP available to save")
             return
-        
-        fp = append_to if append_to else Path(save_dir) / 'parsed.json'
+
+        fp = append_to if append_to else Path(save_dir) / "parsed.json"
         utils.write_lines([self.parsed], fp)
 
     def save_search(self, append_to: str = ""):
@@ -148,13 +164,13 @@ class SearchEngine:
         if not append_to:
             self.log.warning("Must provide an append_to file path to save SERP metadata")
             return
-        
-        self.serp_metadata = {k: v for k, v in self.serp.items() if k != 'html'}
+
+        self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
         utils.write_lines([self.serp_metadata], append_to)
 
     def save_results(self, save_dir: str = "", append_to: str = ""):
         """Save parsed results
-        
+
         Args:
             save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
             append_to (bool, optional): Append results to this file path
@@ -163,11 +179,11 @@ class SearchEngine:
             self.log.warning("Must provide a save_dir or append_to file path to save results")
             return
         if not self.parsed["results"]:
-            self.log.warning(f'No parsed results to save')
+            self.log.warning("No parsed results to save")
             return
 
         # Add metadata to results
-        result_metadata = {k: self.serp[k] for k in ['crawl_id', 'serp_id', 'version']}
+        result_metadata = {k: self.serp[k] for k in ["crawl_id", "serp_id", "version"]}
         results_output = [{**result, **result_metadata} for result in self.parsed["results"]]
-        fp = append_to if append_to else Path(save_dir) / 'results.json'        
+        fp = append_to if append_to else Path(save_dir) / "results.json"
         utils.write_lines(results_output, fp)

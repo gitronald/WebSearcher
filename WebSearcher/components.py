@@ -1,24 +1,32 @@
-from .models.data import BaseResult
-from .classifiers import ClassifyMain, ClassifyFooter, ClassifyHeaderComponent
-from .component_parsers import main_parser_dict, footer_parser_dict, header_parser_dict
-from .component_parsers import parse_unknown, parse_not_implemented
-from .logger import Logger
-log = Logger().start(__name__)
-
-import bs4
 import traceback
 from collections.abc import Callable
+
+import bs4
+
+from .classifiers import ClassifyFooter, ClassifyHeaderComponent, ClassifyMain
+from .component_parsers import (
+    footer_parser_dict,
+    header_parser_dict,
+    main_parser_dict,
+    parse_not_implemented,
+    parse_unknown,
+)
+from .logger import Logger
+from .models.data import BaseResult
+
+log = Logger().start(__name__)
+
 
 class Component:
     """A SERP component extracted from HTML"""
 
     def __init__(
-            self,
-            elem: bs4.element.Tag,
-            section: str = "unknown",
-            type: str = "unknown",
-            cmpt_rank: int | None = None
-        ) -> None:
+        self,
+        elem: bs4.element.Tag,
+        section: str = "unknown",
+        type: str = "unknown",
+        cmpt_rank: int | None = None,
+    ) -> None:
         """Initialize a Component
 
         Args:
@@ -41,8 +49,8 @@ class Component:
         return self.__dict__
 
     def get_metadata(self, key_filter=["section", "cmpt_rank"]) -> dict:
-        return {k:v for k,v in self.to_dict().items() if k in key_filter}
-    
+        return {k: v for k, v in self.to_dict().items() if k in key_filter}
+
     def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""
         if classify_type_func:
@@ -85,14 +93,14 @@ class Component:
         return parsed_list
 
     def parse_component(self, parser_type_func: Callable | None = None):
-        
+
         if not self.type:
             parsed_list = self.create_parsed_list_error("null component type")
         else:
             # Select and run parser
             parser_func = self.select_parser(parser_type_func)
             parsed_list = self.run_parser(parser_func)
-            
+
             # Check parsed_list
             if not isinstance(parsed_list, (list, dict)):
                 parsed_list = self.create_parsed_list_error("parser output not list or dict")
@@ -108,12 +116,14 @@ class Component:
             error_traceback = traceback.format_exc()
         else:
             log.debug(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
-        return [{
-            "type": self.type,
-            "cmpt_rank": self.cmpt_rank,
-            "text": self.elem.get_text("<|>", strip=True),
-            "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}"
-        }]
+        return [
+            {
+                "type": self.type,
+                "cmpt_rank": self.cmpt_rank,
+                "text": self.elem.get_text("<|>", strip=True),
+                "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}",
+            }
+        ]
 
     def add_parsed_result_list(self, parsed_result_list):
         for parsed_result in parsed_result_list:
@@ -126,7 +136,7 @@ class Component:
 
     def export_results(self):
         """Export the list of results"""
-        result_metadata = {"section":self.section, "cmpt_rank":self.cmpt_rank}
+        result_metadata = {"section": self.section, "cmpt_rank": self.cmpt_rank}
         results_list = [{**result_metadata, **result} for result in self.result_list]
         return results_list
 
@@ -138,10 +148,11 @@ class ComponentList:
         self.serp_rank_counter = 0
 
     def __iter__(self):
-        for component in self.components:
-            yield component
+        yield from self.components
 
-    def add_component(self, elem:bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None):
+    def add_component(
+        self, elem: bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None
+    ):
         """Add a component to the list of components"""
         cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
@@ -165,7 +176,7 @@ class ComponentList:
         def _effective_pos(cmpt):
             rng = dom_positions.get(id(cmpt.elem))
             if rng is None:
-                return float('inf')
+                return float("inf")
             start, end = rng
 
             # Check if this element's range contains another component
@@ -179,14 +190,14 @@ class ComponentList:
                 if start <= o_start <= end:
                     # cmpt.elem is an ancestor of other.elem — find
                     # first direct child positioned after the nested subtree
-                    best = float('inf')
+                    best = float("inf")
                     for ch in cmpt.elem.children:
-                        if not hasattr(ch, 'name') or not ch.name:
+                        if not hasattr(ch, "name") or not ch.name:
                             continue
                         ch_rng = dom_positions.get(id(ch))
                         if ch_rng and ch_rng[0] > o_end and ch_rng[0] < best:
                             best = ch_rng[0]
-                    if best != float('inf'):
+                    if best != float("inf"):
                         return best
 
             return start

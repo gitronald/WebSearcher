@@ -11,6 +11,7 @@ import os
 import tempfile
 
 import typer
+
 import WebSearcher as ws
 
 DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
@@ -18,17 +19,17 @@ DEFAULT_DATA_DIR = os.path.join("data", f"demo-ws-v{ws.__version__}")
 app = typer.Typer()
 
 TYPE_COLORS = {
-    "knowledge":              "#4285f4",
-    "general":                "#34a853",
+    "knowledge": "#4285f4",
+    "general": "#34a853",
     "discussions_and_forums": "#fbbc05",
-    "perspectives":           "#ea4335",
-    "top_stories":            "#ff6d01",
-    "people_also_ask":        "#46bdc6",
-    "searches_related":       "#7b1fa2",
-    "locations":              "#ff9800",
-    "shopping_ads":           "#e91e63",
-    "unknown":                "#d32f2f",
-    "ad":                     "#f44336",
+    "perspectives": "#ea4335",
+    "top_stories": "#ff6d01",
+    "people_also_ask": "#46bdc6",
+    "searches_related": "#7b1fa2",
+    "locations": "#ff9800",
+    "shopping_ads": "#e91e63",
+    "unknown": "#d32f2f",
+    "ad": "#f44336",
 }
 DEFAULT_COLOR = "#9e9e9e"
 
