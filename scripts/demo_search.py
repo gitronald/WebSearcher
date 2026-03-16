@@ -19,7 +19,9 @@ def main(
     data_dir: str = typer.Option(str(DEFAULT_DATA_DIR), help="Prefix for output files"),
     headless: bool = typer.Option(False, help="Run browser in headless mode"),
     use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
-    version_main: int = typer.Option(144, help="Main version of Chrome to use"),
+    version_main: int = typer.Option(
+        None, help="Main version of Chrome to use (auto-detects if not set)"
+    ),
     ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
     driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
 ) -> None:
@@ -43,14 +45,14 @@ def main(
 
     # Search and parse
     se.search(query, ai_expand=ai_expand)  # Conduct Search
-    se.parse_results()  # Parse Results
+    se.parse_serp()  # Parse Results
     se.save_serp(append_to=fps["serps"])  # Save SERP to json (html + metadata)
     se.save_search(append_to=fps["searches"])  # Save search metadata to json
     se.save_parsed(append_to=fps["parsed"])  # Save results/features to json
 
     # Print select columns
-    if se.parsed["results"]:
-        df = pl.DataFrame(se.parsed["results"])
+    if se.parsed.results:
+        df = pl.DataFrame(se.parsed.results)
         print(df.select("type", "sub_type", "title", "url"))
 
 

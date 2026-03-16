@@ -121,7 +121,9 @@ def main(
     data_dir: str = typer.Option(DEFAULT_DATA_DIR, help="Prefix for output files"),
     headless: bool = typer.Option(False, help="Run browser in headless mode"),
     use_subprocess: bool = typer.Option(False, help="Run browser in a separate subprocess"),
-    version_main: int = typer.Option(144, help="Main version of Chrome to use"),
+    version_main: int = typer.Option(
+        None, help="Main version of Chrome to use (auto-detects if not set)"
+    ),
     ai_expand: bool = typer.Option(True, help="Expand AI overviews if present"),
     driver_executable_path: str = typer.Option("", help="Path to ChromeDriver executable"),
     types: list[str] = typer.Option([], help="Only run queries for these target types"),
@@ -160,18 +162,18 @@ def main(
         se.save_parsed(append_to=fps["parsed"])  # Save parsed results and SERP features to json
 
         # Check for CAPTCHA — retry once after waiting
-        if se.parsed.get("features", {}).get("captcha"):
+        if se.parsed.features.get("captcha"):
             print(f"\n[{i + 1}/{len(queries)}] CAPTCHA detected for '{qry}', waiting 5 min...")
             time.sleep(300)
             se.search(qry, ai_expand=ai_expand)
             se.parse_serp()
-            if se.parsed.get("features", {}).get("captcha"):
+            if se.parsed.features.get("captcha"):
                 print("CAPTCHA still present, stopping.")
                 break
 
         # Print select columns
-        if se.parsed["results"]:
-            df = pl.DataFrame(se.parsed["results"])
+        if se.parsed.results:
+            df = pl.DataFrame(se.parsed.results)
             print(f"\n[{i + 1}/{len(queries)}] {qry}")
             print(df.select("type", "sub_type", "title", "url"))
 
