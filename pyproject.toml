@@ -26,6 +26,7 @@ repository = "http://github.com/gitronald/WebSearcher"
 
 [project.scripts]
 demo-search = 'scripts.demo_search:app'
+demo-searches = 'scripts.demo_searches:app'
 
 [dependency-groups]
 dev = [
