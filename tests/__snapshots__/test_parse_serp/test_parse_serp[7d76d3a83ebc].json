@@ -17,35 +17,26 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump&udm=2&source=univ&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQnN8JegQIFhAD"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://x.com/realDonaldTrump"
           },
           {
-            "misc": {},
             "text": "Age|79 years|Jun 14, 1946",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump+age&stick=H4sIAAAAAAAAAOPgE-LUz9U3SC4ssTTQEs1OttIvSM0vyEkFUkXF-XlWiempi1gFUvLzEnNSFEqKSnMLFIBCAMqYnZc3AAAA&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQ18AJegQILhAB"
           },
           {
-            "misc": {},
             "text": "Party|Republican Party",
-            "title": "",
             "url": "/search?sca_esv=bd16726c6a722966&q=Republican+Party&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRrUdcsLX7-nPSpyKZYIqfOJDBGOdz2E57-99eIANe1Pl8wwO7G3XqVt3qiEO4uERO4KYYXvGXEXRT6jOHlGcixAxcLt6zGSb8XfSKPYd5JeDPjiWx1lTb4E4mlK9t2l0ky4-1M_qoJaYHMURBGCmYARFqYnA&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQ18AJegQILxAB"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.facebook.com/DonaldTrump/posts/1470862751066207/"
           }
         ]
@@ -553,7 +544,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 36,

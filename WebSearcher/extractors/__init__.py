@@ -1,12 +1,14 @@
 import bs4
-from ..components import ComponentList
-from .extractor_rhs import ExtractorRightHandSide
-from .extractor_main import ExtractorMain
-from .extractor_header import ExtractorHeader
-from .extractor_footer import ExtractorFooter
 
 from .. import logger
+from ..components import ComponentList
+from .extractor_footer import ExtractorFooter
+from .extractor_header import ExtractorHeader
+from .extractor_main import ExtractorMain
+from .extractor_rhs import ExtractorRightHandSide
+
 log = logger.Logger().start(__name__)
+
 
 class Extractor:
     def __init__(self, soup: bs4.BeautifulSoup):
@@ -18,7 +20,7 @@ class Extractor:
         self.footer_handler = ExtractorFooter(self.soup, self.components)
 
     def extract_components(self):
-        log.debug(f"Extracting Components {'-'*50}")
+        log.debug(f"Extracting Components {'-' * 50}")
         dom_positions = self._get_dom_positions(self.soup)
         self.rhs_handler.extract()
         self.header_handler.extract()

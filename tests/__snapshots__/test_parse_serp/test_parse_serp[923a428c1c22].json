@@ -182,12 +182,15 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": [
-        "Ways to Watch - NASA NASA https://www.nasa.gov  › ways-to-watch NASA https://www.nasa.gov  › ways-to-watch",
-        "Who owns NASA and how is it funded? 6 interesting facts The Economic Times https://m.economictimes.com  › news › science › slideshow The Economic Times https://m.economictimes.com  › news › science › slideshow",
-        "Why is Artemis 2 delayed?",
-        "NASA Astronauts Get Paid HOW MUCH After 9 Months in Space?! YouTube https://www.youtube.com  · Benzinga YouTube https://www.youtube.com  · Benzinga"
-      ],
+      "details": {
+        "items": [
+          "Ways to Watch - NASA NASA https://www.nasa.gov  › ways-to-watch NASA https://www.nasa.gov  › ways-to-watch",
+          "Who owns NASA and how is it funded? 6 interesting facts The Economic Times https://m.economictimes.com  › news › science › slideshow The Economic Times https://m.economictimes.com  › news › science › slideshow",
+          "Why is Artemis 2 delayed?",
+          "NASA Astronauts Get Paid HOW MUCH After 9 Months in Space?! YouTube https://www.youtube.com  · Benzinga YouTube https://www.youtube.com  · Benzinga"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 12,
@@ -232,53 +235,38 @@
       "details": {
         "heading": "NASA",
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://en.wikipedia.org/wiki/NASA"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/topic/NASA"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.space.com/38700-nasa-history.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://m.economictimes.com/news/science/who-owns-nasa-and-how-is-it-funded-6-interesting-facts/nasa-leading-the-way-in-space-exploration/slideshow/112605825.cms"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://theweek.com/in-depth/1023601/what-is-nasa-working-on"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.federalregister.gov/agencies/national-aeronautics-and-space-administration"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.planetary.org/the-national-aeronautics-and-space-administration-nasa"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://nasa.fandom.com/wiki/NASA_(Wikipedia)"
           }
         ]
@@ -492,7 +480,7 @@
     {
       "cite": null,
       "cmpt_rank": 10,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 30,

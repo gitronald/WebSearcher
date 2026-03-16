@@ -18,11 +18,10 @@
         "heading": null,
         "img_url": null,
         "text": "Feedback",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "More info",
-            "title": "",
             "url": "https://support.google.com/websearch/answer/3284611?hl=en#unitconverter"
           }
         ]
@@ -40,12 +39,15 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com  › questions › what-is-100-deg... Cuemath https://www.cuemath.com  › questions › what-is-100-deg...",
-        "What is 100F in Celsius fever?",
-        "How do you convert F to C easily?",
-        "How much is 110 in Celsius?"
-      ],
+      "details": {
+        "items": [
+          "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com  › questions › what-is-100-deg... Cuemath https://www.cuemath.com  › questions › what-is-100-deg...",
+          "What is 100F in Celsius fever?",
+          "How do you convert F to C easily?",
+          "How much is 110 in Celsius?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -241,7 +243,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 15,

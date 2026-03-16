@@ -14,7 +14,7 @@
     {
       "cite": "https://www.sleepopolis.com › best › mattresses",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 0,
@@ -28,7 +28,7 @@
     {
       "cite": "https://www.mattressfirm.com",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -42,32 +42,27 @@
     {
       "cite": "https://www.wired.com › best › mattress",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "A Clear Winner Emerged",
-          "url": "https://www.wired.com/gallery/best-mattresses-1?%7Bignore%7D&g_acctid=102-367-3149&g_adgroupid=%7Badgroupid%7D&g_adid=%7Bcreative%7D&g_adtype=search&g_campaign=US%7C3ZWired%7CPS%7CNB%7CPHR%7CTP&g_campaignid=%7Bcampaignid%7D&g_keyword=%7Bkeyword%7D&g_keywordid=%7Btargetid%7D&g_network=%7Bnetwork%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Updated for 2026",
-          "url": "https://www.wired.com/gallery/best-mattresses-1?%7Bignore%7D&g_acctid=102-367-3149&g_adgroupid=%7Badgroupid%7D&g_adid=%7Bcreative%7D&g_adtype=search&g_campaign=US%7C3ZWired%7CPS%7CNB%7CPHR%7CTP&g_campaignid=%7Bcampaignid%7D&g_keyword=%7Bkeyword%7D&g_keywordid=%7Btargetid%7D&g_network=%7Bnetwork%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best For Side Sleepers",
-          "url": "https://www.wired.com/gallery/best-mattresses-1/#6744c6d3d637c52ee3e0af45"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Overall Mattress",
-          "url": "https://www.wired.com/gallery/best-mattresses-1/#6744bbaa05df4fffe2abbbe9"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "A Clear Winner Emerged",
+            "url": "https://www.wired.com/gallery/best-mattresses-1?%7Bignore%7D&g_acctid=102-367-3149&g_adgroupid=%7Badgroupid%7D&g_adid=%7Bcreative%7D&g_adtype=search&g_campaign=US%7C3ZWired%7CPS%7CNB%7CPHR%7CTP&g_campaignid=%7Bcampaignid%7D&g_keyword=%7Bkeyword%7D&g_keywordid=%7Btargetid%7D&g_network=%7Bnetwork%7D"
+          },
+          {
+            "title": "Updated for 2026",
+            "url": "https://www.wired.com/gallery/best-mattresses-1?%7Bignore%7D&g_acctid=102-367-3149&g_adgroupid=%7Badgroupid%7D&g_adid=%7Bcreative%7D&g_adtype=search&g_campaign=US%7C3ZWired%7CPS%7CNB%7CPHR%7CTP&g_campaignid=%7Bcampaignid%7D&g_keyword=%7Bkeyword%7D&g_keywordid=%7Btargetid%7D&g_network=%7Bnetwork%7D"
+          },
+          {
+            "title": "Best For Side Sleepers",
+            "url": "https://www.wired.com/gallery/best-mattresses-1/#6744c6d3d637c52ee3e0af45"
+          },
+          {
+            "title": "Best Overall Mattress",
+            "url": "https://www.wired.com/gallery/best-mattresses-1/#6744bbaa05df4fffe2abbbe9"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -81,7 +76,7 @@
     {
       "cite": "https://www.stearnsandfoster.com",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -112,137 +107,94 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "r/Mattress on Reddit",
-            "title": "",
             "url": "https://www.reddit.com/r/Mattress/"
           },
           {
-            "misc": {},
             "text": "NapLab",
-            "title": "",
             "url": "https://naplab.com/"
           },
           {
-            "misc": {},
             "text": "The Mattress Underground",
-            "title": "",
             "url": "https://mattressunderground.com/"
           },
           {
-            "misc": {},
             "text": "Sleep Foundation",
-            "title": "",
             "url": "https://www.sleepfoundation.org/best-mattress"
           },
           {
-            "misc": {},
             "text": "HifiGuides Forums",
-            "title": "",
             "url": "https://forum.hifiguides.com/t/need-some-help-to-choose-a-right-mattress/30570"
           },
           {
-            "misc": {},
             "text": "YouTube - Sleep Doctor",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=aVi59gVcJjI"
           },
           {
-            "misc": {},
             "text": "DreamCloud",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=QChKZrX9ILY"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/Mattress/#:~:text=Well%E2%80%A6%20after%20a%20few%20nights,my%20perspective%2C%20well%20worth%20it."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://mattressunderground.com/#:~:text=Consumer%20Self%2DEducation,Trusted%20Mattress%20Retailers/%20Manufacturers"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://forum.hifiguides.com/t/need-some-help-to-choose-a-right-mattress/30570#:~:text=I%20bought%20a%20mattress%20from,I%20sleep%20well%20on%20it."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/IAmA/comments/ssfzin/iama_professional_mattress_tester_in_the_last_6/#:~:text=I%20would%20go%20with%20the,experience%20a%20constant%20falling%20sensation."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/BuyItForLife/comments/1qcyffa/what_is_the_best_source_for_unbiased_mattress/#:~:text=EDIT:%20Sleepline%20is%20the%20best,reviews%20that%20I'm%20missing?"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sleepfoundation.org/best-mattress#:~:text=%E2%80%9CThe%20mattress%20feels%20medium%20firm,wife%20indicated%20she%20is%20comfortable.%E2%80%9D"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=QChKZrX9ILY&t=292"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://forum.mattressunderground.com/t/best-or-least-terrible-national-brands/35917#:~:text=I%20watched%20every%20affiliate%20website,have%20body%20profile%20mattress%20testing."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=aVi59gVcJjI&t=189"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=U7rch7jeayg&t=352"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.repcalgaryhomes.ca/blog/canada-mattress-reviews.html#:~:text=Forums%20and%20Subreddits:%20Platforms%20like%20Reddit%20have,where%20users%20share%20genuine%20experiences%20and%20advice."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://naplab.com/best-mattress/#:~:text=Our%20unique%20data%20set%20is%20what%20sets,across%20a%20wide%20range%20of%20performance%20categories."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://naplab.com/mattress-reviews/snooze-flip-mattress-review/#:~:text=Sex%20Test%20The%20best%20mattresses%20for%20sex,lower%20than%20the%20average%20score%20of%209.6."
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -306,41 +258,30 @@
         "heading": "Find related products & services",
         "img_url": null,
         "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Best |delivery| mattress",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+delivery+mattress&mrq=1&mrqri=0&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAB6BAhYEAU"
           },
           {
-            "misc": {},
             "text": "Best mattress |2026",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+mattress+2026&mrq=1&mrqri=1&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAF6BAhYEAY"
           },
           {
-            "misc": {},
             "text": "Best mattress |under $1000",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+mattress+under+$1000&mrq=1&mrqri=2&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAJ6BAhYEAc"
           },
           {
-            "misc": {},
             "text": "Best mattress |side sleeper",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+mattress+side+sleeper&mrq=1&mrqri=3&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAN6BAhYEAg"
           },
           {
-            "misc": {},
             "text": "Best |king mattresses",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+king+mattresses&mrq=1&mrqri=4&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAR6BAhYEAk"
           },
           {
-            "misc": {},
             "text": "Best mattress |queen",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+mattress+queen&mrq=1&mrqri=5&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAV6BAhYEAo"
           }
         ]
@@ -554,32 +495,27 @@
     {
       "cite": "https://www.sleepnumber.com › queen › mattress",
       "cmpt_rank": 13,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Presidents Day Sale",
-          "url": "https://www.sleepnumber.com/pages/presidents-day-mattress-sale"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Queen Size Mattresses",
-          "url": "https://www.sleepnumber.com/categories/all-mattresses/queen%7Bignore%7D?gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Mattress For Back Pain",
-          "url": "https://www.sleepnumber.com/categories/mattresses?test=2"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Take Our Bed Quiz",
-          "url": "https://www.sleepnumber.com/pages/bed-quiz"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Presidents Day Sale",
+            "url": "https://www.sleepnumber.com/pages/presidents-day-mattress-sale"
+          },
+          {
+            "title": "Queen Size Mattresses",
+            "url": "https://www.sleepnumber.com/categories/all-mattresses/queen%7Bignore%7D?gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "Mattress For Back Pain",
+            "url": "https://www.sleepnumber.com/categories/mattresses?test=2"
+          },
+          {
+            "title": "Take Our Bed Quiz",
+            "url": "https://www.sleepnumber.com/pages/bed-quiz"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 24,
@@ -593,26 +529,23 @@
     {
       "cite": "https://www.sleepopolis.com › best › mattresses",
       "cmpt_rank": 13,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top Rated Mattresses of 2026",
-          "url": "https://sleepopolis.com/pm/best-mattresses-2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Editor's #1 Pick For 2026",
-          "url": "https://sleepopolis.com/pm/best-mattresses-2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "King Size Mattresses",
-          "url": "https://sleepopolis.com/pm/best-king-mattress-dt/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top Rated Mattresses of 2026",
+            "url": "https://sleepopolis.com/pm/best-mattresses-2/"
+          },
+          {
+            "title": "Editor's #1 Pick For 2026",
+            "url": "https://sleepopolis.com/pm/best-mattresses-2/"
+          },
+          {
+            "title": "King Size Mattresses",
+            "url": "https://sleepopolis.com/pm/best-king-mattress-dt/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -626,26 +559,23 @@
     {
       "cite": "https://www.mattressfirm.com",
       "cmpt_rank": 13,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Get Our Military Discount",
-          "url": "https://www.mattressfirm.com/military-discount.html"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "$499.99 Adjustable Bed Set",
-          "url": "https://www.mattressfirm.com/en-us/stores/%7Bignore%7D?utm_kxconfid=t6c7wbovv&dma=%7Bloc_physical_ms%7D&geo_interest=%7Bloc_interest_ms%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "King Bed for a Queen Price",
-          "url": "https://www.mattressfirm.com/mattresses/5637147600.c%7Bignore%7D?utm_kxconfid=t6c7wbovv&dma=%7Bloc_physical_ms%7D&geo_interest=%7Bloc_interest_ms%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Get Our Military Discount",
+            "url": "https://www.mattressfirm.com/military-discount.html"
+          },
+          {
+            "title": "$499.99 Adjustable Bed Set",
+            "url": "https://www.mattressfirm.com/en-us/stores/%7Bignore%7D?utm_kxconfid=t6c7wbovv&dma=%7Bloc_physical_ms%7D&geo_interest=%7Bloc_interest_ms%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          },
+          {
+            "title": "King Bed for a Queen Price",
+            "url": "https://www.mattressfirm.com/mattresses/5637147600.c%7Bignore%7D?utm_kxconfid=t6c7wbovv&dma=%7Bloc_physical_ms%7D&geo_interest=%7Bloc_interest_ms%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 26,
@@ -659,7 +589,7 @@
     {
       "cite": null,
       "cmpt_rank": 14,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 27,

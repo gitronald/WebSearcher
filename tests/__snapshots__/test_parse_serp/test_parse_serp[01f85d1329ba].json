@@ -126,12 +126,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Northern Lights | When and where to see the Aurora Borealis Discover the World https://www.discover-the-world.com  › northern-lights Discover the World https://www.discover-the-world.com  › northern-lights",
-        "What time are the northern lights best tonight?",
-        "What causes the northern lights?",
-        "The best place to see the Northern Lights | The Aurora Zone Aurora Zone https://theaurorazone.com  › about-the-aurora › the-best-... Aurora Zone https://theaurorazone.com  › about-the-aurora › the-best-..."
-      ],
+      "details": {
+        "items": [
+          "Northern Lights | When and where to see the Aurora Borealis Discover the World https://www.discover-the-world.com  › northern-lights Discover the World https://www.discover-the-world.com  › northern-lights",
+          "What time are the northern lights best tonight?",
+          "What causes the northern lights?",
+          "The best place to see the Northern Lights | The Aurora Zone Aurora Zone https://theaurorazone.com  › about-the-aurora › the-best-... Aurora Zone https://theaurorazone.com  › about-the-aurora › the-best-..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -791,6 +794,7 @@
       "cmpt_rank": 12,
       "details": {
         "directions": "/maps/dir//Northern+Light+School,+3710+Dorisa+Ave,+Oakland,+CA+94605/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x56c896e8a09c2e03:0x214f4f09afa434a7?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://www.northernlightschool.com/"
       },
       "error": null,
@@ -808,6 +812,7 @@
       "cmpt_rank": 12,
       "details": {
         "directions": "/maps/dir//North+Light,+4915+Telegraph+Ave,+Oakland,+CA+94609/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x80857d885c87df5b:0x23d84cf6bd07309?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://northlight.bar/"
       },
       "error": null,
@@ -825,6 +830,7 @@
       "cmpt_rank": 12,
       "details": {
         "directions": "/maps/dir//Northern+Light+Venture+Capital,+2744+Sand+Hill+Rd+Suite+100,+Menlo+Park,+CA+94025/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fa4e3ed7ae611:0x61fcdeda34ed3060?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://www.nlvc.com/"
       },
       "error": null,
@@ -840,7 +846,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 58,

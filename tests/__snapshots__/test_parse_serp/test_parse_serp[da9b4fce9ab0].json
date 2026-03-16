@@ -14,32 +14,27 @@
     {
       "cite": "https://www.nerdwallet.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top 10 Credit Card Deals",
-          "url": "https://www.nerdwallet.com/ur/?nw_campaign_id=151060109504700800&utm_source=goog&utm_medium=cpc&utm_campaign=cc_mktg_paid_012716_branda&utm_term=%7Bkeyword%7D&utm_content=sl&mktg_hline=1126&mktg_place=5"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Compare 2026's Top Cards",
-          "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAEQDRoCbGU&ae=2&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAAYASADEgILSvD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_71&sig=AOD64_0k0w5A6hb_fiCS4eILKyJefbJjww&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Side-By-Side Comparisons",
-          "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAEQDhoCbGU&ae=2&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAAYASAEEgJlW_D_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_71&sig=AOD64_3hNBVdvPH30lLvMaP8v7K2BvIhHQ&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Cash Back Cards",
-          "url": "https://www.nerdwallet.com/ur/?nw_campaign_id=150238348949705700&utm_source=goog&utm_medium=cpc&utm_campaign=cc_mktg_paid_012716_branda&utm_term=%7Bkeyword%7D&utm_content=sl&mktg_hline=44&mktg_place=5"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top 10 Credit Card Deals",
+            "url": "https://www.nerdwallet.com/ur/?nw_campaign_id=151060109504700800&utm_source=goog&utm_medium=cpc&utm_campaign=cc_mktg_paid_012716_branda&utm_term=%7Bkeyword%7D&utm_content=sl&mktg_hline=1126&mktg_place=5"
+          },
+          {
+            "title": "Compare 2026's Top Cards",
+            "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAEQDRoCbGU&ae=2&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAAYASADEgILSvD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_71&sig=AOD64_0k0w5A6hb_fiCS4eILKyJefbJjww&adurl=&q="
+          },
+          {
+            "title": "Side-By-Side Comparisons",
+            "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAEQDhoCbGU&ae=2&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAAYASAEEgJlW_D_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_71&sig=AOD64_3hNBVdvPH30lLvMaP8v7K2BvIhHQ&adurl=&q="
+          },
+          {
+            "title": "Cash Back Cards",
+            "url": "https://www.nerdwallet.com/ur/?nw_campaign_id=150238348949705700&utm_source=goog&utm_medium=cpc&utm_campaign=cc_mktg_paid_012716_branda&utm_term=%7Bkeyword%7D&utm_content=sl&mktg_hline=44&mktg_place=5"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 0,
@@ -53,32 +48,27 @@
     {
       "cite": "https://www.forbes.com",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top Credit Cards of 2026",
-          "url": "https://www.forbes.com/advisor/l/top-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Cash Back Cards",
-          "url": "https://www.forbes.com/advisor/l/best-cash-back-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Travel Credit Cards",
-          "url": "https://www.forbes.com/advisor/l/best-travel-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best 0% APR Cards",
-          "url": "https://www.forbes.com/advisor/l/best-0-apr-credit-cards-v2/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top Credit Cards of 2026",
+            "url": "https://www.forbes.com/advisor/l/top-credit-cards-v2/"
+          },
+          {
+            "title": "Best Cash Back Cards",
+            "url": "https://www.forbes.com/advisor/l/best-cash-back-credit-cards-v2/"
+          },
+          {
+            "title": "Best Travel Credit Cards",
+            "url": "https://www.forbes.com/advisor/l/best-travel-credit-cards-v2/"
+          },
+          {
+            "title": "Best 0% APR Cards",
+            "url": "https://www.forbes.com/advisor/l/best-0-apr-credit-cards-v2/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -92,7 +82,7 @@
     {
       "cite": "https://www.thepointsguy.com",
       "cmpt_rank": 0,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -106,32 +96,27 @@
     {
       "cite": "https://creditcards.chase.com › creditcards › learnmore",
       "cmpt_rank": 0,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Compare CHASE® Cards",
-          "url": "https://creditcards.chase.com/?CELL=62FC&sitelink=1"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Chase Credit Cards",
-          "url": "https://creditcards.chase.com/?CELL=62FC&sitelink=3"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "CHASE® Travel Cards",
-          "url": "https://creditcards.chase.com/travel-credit-cards?CELL=62FC&sitelink=3"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Compare Travel Cards",
-          "url": "https://creditcards.chase.com/travel-credit-cards?CELL=62FC&sitelink=2"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Compare CHASE® Cards",
+            "url": "https://creditcards.chase.com/?CELL=62FC&sitelink=1"
+          },
+          {
+            "title": "Chase Credit Cards",
+            "url": "https://creditcards.chase.com/?CELL=62FC&sitelink=3"
+          },
+          {
+            "title": "CHASE® Travel Cards",
+            "url": "https://creditcards.chase.com/travel-credit-cards?CELL=62FC&sitelink=3"
+          },
+          {
+            "title": "Compare Travel Cards",
+            "url": "https://creditcards.chase.com/travel-credit-cards?CELL=62FC&sitelink=2"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -148,179 +133,122 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Chase Freedom Unlimited®",
-            "title": "",
             "url": "https://www.google.com/search?q=Chase+Freedom+Unlimited%C2%AE&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEAw"
           },
           {
-            "misc": {},
             "text": "Chase Sapphire Preferred® Card",
-            "title": "",
             "url": "https://www.google.com/search?q=Chase+Sapphire+Preferred%C2%AE+Card&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEA0"
           },
           {
-            "misc": {},
             "text": "Capital One Venture X",
-            "title": "",
             "url": "https://www.google.com/search?q=Capital+One+Venture+X&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEA4"
           },
           {
-            "misc": {},
             "text": "Wells Fargo Active Cash® Card",
-            "title": "",
             "url": "https://www.google.com/search?q=Wells+Fargo+Active+Cash%C2%AE+Card&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEA8"
           },
           {
-            "misc": {},
             "text": "Citi® Double Cash Card",
-            "title": "",
             "url": "https://www.google.com/search?q=Citi%C2%AE+Double+Cash+Card&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEBA"
           },
           {
-            "misc": {},
             "text": "Capital One Savor Cash Rewards",
-            "title": "",
             "url": "https://www.google.com/search?q=Capital+One+Savor+Cash+Rewards&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEBE"
           },
           {
-            "misc": {},
             "text": "Amex Platinum Card®",
-            "title": "",
             "url": "https://www.google.com/search?q=Amex+Platinum+Card%C2%AE&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgAEBI"
           },
           {
-            "misc": {},
             "text": "Annual Fee",
-            "title": "",
             "url": "https://www.google.com/search?q=Annual+Fee&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgEEAE"
           },
           {
-            "misc": {},
             "text": "Sign-up Bonus",
-            "title": "",
             "url": "https://www.google.com/search?q=Sign-up+Bonus&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgEEAM"
           },
           {
-            "misc": {},
             "text": "Rewards Structure",
-            "title": "",
             "url": "https://www.google.com/search?q=Rewards+Structure&sei=vnyGaersKO6PwPAPqr3E8Ac&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQgK4QegYIAAgEEAU"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.bankrate.com/credit-cards/best-credit-cards/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nerdwallet.com/credit-cards/best#:~:text=Browse%20the%20best%20credit%20cards%20of%202026,card%20for%20you%20and%20apply%20in%20seconds."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.forbes.com/advisor/credit-cards/best-credit-cards/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.creditcards.com/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://usa.visa.com/pay-with-visa/find-card/apply-credit-card/good"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/#:~:text=The%20Chase%20Sapphire%20Preferred%20continues%20to%20be,select%20streaming%20services%2C%20and%20online%20grocery%20purchases."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wallethub.com/answers/cc/which-credit-card-is-best-for-everything-2140781254/#:~:text=The%20best%20credit%20card%20for%20everything%20is,same%20rewards%20no%20matter%20what%20you%20buy."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wallethub.com/d/citi-double-cash-card-121c#:~:text=Citi%20Double%20Cash%20Card%20Review%20Citi%20Double,total%20of%202%25%20back%20on%20all%20purchases."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.creditcards.com/cash-back/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/bank-credit-card-174043611.html#:~:text=To%20start%2C%20you%20should%20compare%20welcome%20offers,least%20$500%20within%20the%20first%20three%20months."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cnet.com/personal-finance/credit-cards/eating-out-have-one-of-these-cards-in-your-wallet/#:~:text=After%20comparing%20long%2Dterm%20value%20via%20rewards%20rates,back%20after%20you%20meet%20a%20spending%20threshold."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nerdwallet.com/credit-cards/best"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wallethub.com/answers/cc/which-credit-card-is-best-for-everything-2140781254/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wallethub.com/d/citi-double-cash-card-121c"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/bank-credit-card-174043611.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cnet.com/personal-finance/credit-cards/eating-out-have-one-of-these-cards-in-your-wallet/"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -366,12 +294,15 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": [
-        "What is the very best credit card to get?",
-        "Which is the best credit card right now?",
-        "What credit score do you need for a $400,000 house?",
-        "How many Americans have $20,000 in credit card debt?"
-      ],
+      "details": {
+        "items": [
+          "What is the very best credit card to get?",
+          "Which is the best credit card right now?",
+          "What credit score do you need for a $400,000 house?",
+          "How many Americans have $20,000 in credit card debt?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -403,41 +334,30 @@
         "heading": "Find related products & services",
         "img_url": null,
         "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Best credit cards |2025 for everyday use",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+2025+for+everyday+use&mrq=1&mrqri=0&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAB6BAh1EAU"
           },
           {
-            "misc": {},
             "text": "Best credit cards |for business",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+for+business&mrq=1&mrqri=1&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAF6BAh1EAY"
           },
           {
-            "misc": {},
             "text": "Best credit cards |2025 for business",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+2025+for+business&mrq=1&mrqri=2&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAJ6BAh1EAc"
           },
           {
-            "misc": {},
             "text": "Best credit cards |balance transfer",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+balance+transfer&mrq=1&mrqri=3&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAN6BAh1EAg"
           },
           {
-            "misc": {},
             "text": "Best credit cards |2026",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+2026&mrq=1&mrqri=4&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAR6BAh1EAk"
           },
           {
-            "misc": {},
             "text": "Best credit cards |2026 for travel",
-            "title": "",
             "url": "http://www.google.com/search?q=Best+credit+cards+2026+for+travel&mrq=1&mrqri=5&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAV6BAh1EAo"
           }
         ]
@@ -735,32 +655,27 @@
     {
       "cite": "https://www.forbes.com",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top Credit Cards of 2026",
-          "url": "https://www.forbes.com/advisor/l/top-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Cash Back Cards",
-          "url": "https://www.forbes.com/advisor/l/best-cash-back-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Travel Credit Cards",
-          "url": "https://www.forbes.com/advisor/l/best-travel-credit-cards-v2/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best 0% APR Cards",
-          "url": "https://www.forbes.com/advisor/l/best-0-apr-credit-cards-v2/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top Credit Cards of 2026",
+            "url": "https://www.forbes.com/advisor/l/top-credit-cards-v2/"
+          },
+          {
+            "title": "Best Cash Back Cards",
+            "url": "https://www.forbes.com/advisor/l/best-cash-back-credit-cards-v2/"
+          },
+          {
+            "title": "Best Travel Credit Cards",
+            "url": "https://www.forbes.com/advisor/l/best-travel-credit-cards-v2/"
+          },
+          {
+            "title": "Best 0% APR Cards",
+            "url": "https://www.forbes.com/advisor/l/best-0-apr-credit-cards-v2/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 30,
@@ -774,26 +689,23 @@
     {
       "cite": "https://www.comparecredit.com",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top No Annual Fee Cards",
-          "url": "https://www.comparecredit.com/credit-cards/best/no-annual-fee/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "0% Intro APR Up to 21 Months",
-          "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDxoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAiAFEgJyufD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_2Hs2i7iT3J06alnGVkKfoc4in9ag&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Up to $300 Welcome Offer",
-          "url": "https://www.comparecredit.com/t/sem-cash-back-bonus"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Top No Annual Fee Cards",
+            "url": "https://www.comparecredit.com/credit-cards/best/no-annual-fee/"
+          },
+          {
+            "title": "0% Intro APR Up to 21 Months",
+            "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDxoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAiAFEgJyufD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_2Hs2i7iT3J06alnGVkKfoc4in9ag&adurl=&q="
+          },
+          {
+            "title": "Up to $300 Welcome Offer",
+            "url": "https://www.comparecredit.com/t/sem-cash-back-bonus"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 31,
@@ -807,32 +719,27 @@
     {
       "cite": "https://www.thepointsguy.com",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Guide to 2026's Best Cards",
-          "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDBoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAyADEgKuX_D_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_2kX6jY8bcGd4HS661Lyu1GgWkkqw&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Business Cards 2026",
-          "url": "https://thepointsguy.com/credit-cards/business-pm/?stlnk=best_business"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "February's Best Offers",
-          "url": "https://thepointsguy.com/credit-cards/best-pm/?stlnk=Monthly_Best"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Earn 75,000 Points",
-          "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDhoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAyAEEgL_svD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_0d0h7dkInQtAJF20h74mSNIaB6tQ&adurl=&q="
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Guide to 2026's Best Cards",
+            "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDBoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAyADEgKuX_D_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_2kX6jY8bcGd4HS661Lyu1GgWkkqw&adurl=&q="
+          },
+          {
+            "title": "Best Business Cards 2026",
+            "url": "https://thepointsguy.com/credit-cards/business-pm/?stlnk=best_business"
+          },
+          {
+            "title": "February's Best Offers",
+            "url": "https://thepointsguy.com/credit-cards/best-pm/?stlnk=Monthly_Best"
+          },
+          {
+            "title": "Earn 75,000 Points",
+            "url": "/aclk?sa=L&ai=DChsSEwjUnuvnhcaSAxW5IaIDHcXTC9YYACICCAIQDhoCbGU&co=1&ase=2&gclid=EAIaIQobChMI1J7r54XGkgMVuSGiAx3F0wvWEAMYAyAEEgL_svD_BwE&cid=CAASugHkaJbrYikyGRtxE5PVYIXZ_HJa4tzMyLgaxemZkdvThrdMfELuwZbR7dC2hFg_w1Jt2R3jWHwFRE4SN_iAoQOyVpuM1Skrx61h12Q787PdErny8havDOHcCeYixlzvBTm1J_TUWAyzFHY-TBThm2CwQvCetcQpECtJw-KuurC-bb6G7xntE65mUMxJK89GTYHjevd_TheGfyts9SJq75NBs79z_kuoUhvKgjAnwqD9dhUuMTBmRrRuGKw&cce=2&category=acrcp_v1_32&sig=AOD64_0d0h7dkInQtAJF20h74mSNIaB6tQ&adurl=&q="
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 32,
@@ -846,7 +753,7 @@
     {
       "cite": null,
       "cmpt_rank": 15,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 33,

@@ -1,5 +1,6 @@
 from .top_stories import parse_top_stories
 
+
 def parse_perspectives(cmpt):
     """Parse a "Perspectives & opinions" component
 
@@ -17,7 +18,7 @@ def parse_perspectives(cmpt):
         header = cmpt.find("h2", {"role": "heading"})
     sub_type = header.text.strip().lower().replace(" ", "_") if header else None
 
-    results = parse_top_stories(cmpt, ctype='perspectives')
+    results = parse_top_stories(cmpt, ctype="perspectives")
     for result in results:
-        result['sub_type'] = sub_type
+        result["sub_type"] = sub_type
     return results

@@ -17,23 +17,18 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Ined - Institut national d'études démographiques",
-            "title": "",
             "url": "https://www.ined.fr/en/news/press/the-french-population-is-still-increasing-but-for-how-long/"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -65,12 +60,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "What US state is France the size of?",
-        "Who is the top 1 world population?",
-        "UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com  › world › jan › uk-populat... The Guardian https://www.theguardian.com  › world › jan › uk-populat...",
-        "France Population (2026) - Worldometer Worldometer https://www.worldometers.info  › world-population › fr... Worldometer https://www.worldometers.info  › world-population › fr..."
-      ],
+      "details": {
+        "items": [
+          "What US state is France the size of?",
+          "Who is the top 1 world population?",
+          "UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com  › world › jan › uk-populat... The Guardian https://www.theguardian.com  › world › jan › uk-populat...",
+          "France Population (2026) - Worldometer Worldometer https://www.worldometers.info  › world-population › fr... Worldometer https://www.worldometers.info  › world-population › fr..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -322,7 +320,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 20,

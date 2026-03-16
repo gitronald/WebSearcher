@@ -16,11 +16,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "345",
         "price": "$96",
         "rating": "3.2",
-        "reviews": "(345)",
         "source": "Expedia.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -37,11 +38,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "2.1K",
         "price": "$89",
         "rating": "3.8",
-        "reviews": "(2.1K)",
         "source": "Booking.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -58,11 +60,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.9K",
         "price": "$110",
         "rating": "4.2",
-        "reviews": "(1.9K)",
         "source": "Hotels.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -79,11 +82,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "7.5K",
         "price": "$153",
         "rating": "4.7",
-        "reviews": "(7.5K)",
         "source": "RIU Plaza",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -100,11 +104,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.6K",
         "price": "$177",
         "rating": "3.9",
-        "reviews": "(3.6K)",
         "source": "The Lexington Hotel, Autograph Collection",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -121,11 +126,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.5K",
         "price": "$84",
         "rating": "3.8",
-        "reviews": "(1.5K)",
         "source": "Aloft New York Brooklyn",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -142,11 +148,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "2.9K",
         "price": "$123",
         "rating": "3.8",
-        "reviews": "(2.9K)",
         "source": "Hyatt Place New York City / Times Square",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -163,11 +170,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2.1K",
         "price": "$147",
         "rating": "3.5",
-        "reviews": "(2.1K)",
         "source": "Holiday Inn Express New York City Times Square by IHG",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -184,11 +192,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "3.4K",
         "price": "$282",
         "rating": "4.4",
-        "reviews": "(3.4K)",
         "source": "Hyatt Centric Times Square New York",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -205,11 +214,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2K",
         "price": "$164",
         "rating": "4.0",
-        "reviews": "(2K)",
         "source": "Dream Midtown, by Hyatt",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -226,11 +236,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "6.5K",
         "price": "$93",
         "rating": "3.5",
-        "reviews": "(6.5K)",
         "source": "Booking.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -247,11 +258,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.9K",
         "price": "$93",
         "rating": "4.2",
-        "reviews": "(1.9K)",
         "source": "Expedia.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -268,11 +280,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "4.9K",
         "price": "$142",
         "rating": "4.1",
-        "reviews": "(4.9K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -289,11 +302,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.7K",
         "price": "$103",
         "rating": "3.6",
-        "reviews": "(3.7K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -310,11 +324,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "1.2K",
         "price": "$101",
         "rating": "4.0",
-        "reviews": "(1.2K)",
         "source": "Booking.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -331,11 +346,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "1.8K",
         "price": "$105",
         "rating": "4.1",
-        "reviews": "(1.8K)",
         "source": "Expedia.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -352,11 +368,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "7.5K",
         "price": "$129",
         "rating": "3.9",
-        "reviews": "(7.5K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -373,11 +390,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "12K",
         "price": "$119",
         "rating": "3.9",
-        "reviews": "(12K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -394,11 +412,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "934",
         "price": "$106",
         "rating": "3.5",
-        "reviews": "(934)",
         "source": "Expedia.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -415,11 +434,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "9.8K",
         "price": "$137",
         "rating": "3.0",
-        "reviews": "(9.8K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -436,11 +456,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "8.4K",
         "price": "$182",
         "rating": "4.0",
-        "reviews": "(8.4K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -457,11 +478,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Bar",
+        "n_reviews": "936",
         "price": "$121",
         "rating": "4.7",
-        "reviews": "(936)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -478,11 +500,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Free cancellation",
+        "n_reviews": "7.3K",
         "price": "$135",
         "rating": "3.4",
-        "reviews": "(7.3K)",
         "source": "Booking.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -499,11 +522,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "2.7K",
         "price": "$152",
         "rating": "4.6",
-        "reviews": "(2.7K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -520,11 +544,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "3.9K",
         "price": "$100",
         "rating": "4.1",
-        "reviews": "(3.9K)",
         "source": "Booking.com",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -541,11 +566,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "528",
         "price": "$118",
         "rating": "3.7",
-        "reviews": "(528)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -562,11 +588,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Fitness center",
+        "n_reviews": "289",
         "price": "$103",
         "rating": "4.2",
-        "reviews": "(289)",
         "source": "Expedia.com",
-        "stars": "Pet-friendly"
+        "stars": "Pet-friendly",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -583,11 +610,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "2.8K",
         "price": "$93",
         "rating": "3.7",
-        "reviews": "(2.8K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -604,11 +632,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Restaurant",
+        "n_reviews": "10K",
         "price": "$151",
         "rating": "4.5",
-        "reviews": "(10K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -625,11 +654,12 @@
       "cmpt_rank": 0,
       "details": {
         "amenity": "Pet-friendly",
+        "n_reviews": "12K",
         "price": "$186",
         "rating": "3.8",
-        "reviews": "(12K)",
         "source": "Expedia.com",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "ratings"
       },
       "error": null,
       "section": "main",
@@ -644,38 +674,31 @@
     {
       "cite": "https://www.kayak.com",
       "cmpt_rank": 1,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Hotels from $124/night",
-          "url": "/aclk?sa=L&pf=1&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAEQRBoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_0My-ImSazb-_qglRkyp8UQ9xxVVA&adurl=https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html%3Faid%3D134292535167%26tid%3Dkwd-145794293%26locp%3D9031967%26loci%3D%26mt%3Db%26n%3Dg%26d%3Dc%26cid%3D763710666141%26pos%3D%26gad_source%3D1%26gad_campaignid%3D15484165362%26gbraid%3D0AAAAADroXTA62kPDsbqehCvq8bRKxn01d%26gclid%3DEAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "4-star hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:393&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Low prices on great hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Luxury Hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "All-inclusive",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1459&"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Hotels from $124/night",
+            "url": "/aclk?sa=L&pf=1&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAEQRBoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_0My-ImSazb-_qglRkyp8UQ9xxVVA&adurl=https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html%3Faid%3D134292535167%26tid%3Dkwd-145794293%26locp%3D9031967%26loci%3D%26mt%3Db%26n%3Dg%26d%3Dc%26cid%3D763710666141%26pos%3D%26gad_source%3D1%26gad_campaignid%3D15484165362%26gbraid%3D0AAAAADroXTA62kPDsbqehCvq8bRKxn01d%26gclid%3DEAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAAYASAGEgL9BPD_BwE&q="
+          },
+          {
+            "title": "4-star hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:393&"
+          },
+          {
+            "title": "Low prices on great hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
+          },
+          {
+            "title": "Luxury Hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
+          },
+          {
+            "title": "All-inclusive",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1459&"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 30,
@@ -689,7 +712,7 @@
     {
       "cite": "https://www.expedia.com/",
       "cmpt_rank": 1,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 31,
@@ -703,7 +726,7 @@
     {
       "cite": "http://www.booking.com › manhattan › hotels",
       "cmpt_rank": 1,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 32,
@@ -814,12 +837,15 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": [
-        "10 Best Neighborhoods in NYC: Where to Stay (A Local's Guide) Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b... Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b...",
-        "Is it better to stay in Times Square or Midtown?",
-        "What hotels do the Kardashians stay at in NYC?",
-        "What is the number one hotel in NYC?"
-      ],
+      "details": {
+        "items": [
+          "10 Best Neighborhoods in NYC: Where to Stay (A Local's Guide) Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b... Destination Dreamer Diaries https://www.destinationdreamerdiaries.com  › blog › 10-b...",
+          "Is it better to stay in Times Square or Midtown?",
+          "What hotels do the Kardashians stay at in NYC?",
+          "What is the number one hotel in NYC?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 39,
@@ -837,41 +863,30 @@
         "heading": "Find related products & services",
         "img_url": null,
         "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Hotels in Manhattan |Downtown",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Downtown&mrq=1&mrqri=0&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAB6BAg1EAU"
           },
           {
-            "misc": {},
             "text": "Hotels in manhattan |with view",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+manhattan+with+view&mrq=1&mrqri=1&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAF6BAg1EAY"
           },
           {
-            "misc": {},
             "text": "Hotels in manhattan |near grand central station",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+manhattan+near+grand+central+station&mrq=1&mrqri=2&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAJ6BAg1EAc"
           },
           {
-            "misc": {},
             "text": "Hotels in Manhattan |Upper West Side",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Upper+West+Side&mrq=1&mrqri=3&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAN6BAg1EAg"
           },
           {
-            "misc": {},
             "text": "Hotels in Manhattan |ny near Times Square",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+Manhattan+ny+near+Times+Square&mrq=1&mrqri=4&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAR6BAg1EAk"
           },
           {
-            "misc": {},
             "text": "Hotels in Manhattan |NY cheap",
-            "title": "",
             "url": "http://www.google.com/search?q=Hotels+in+Manhattan+NY+cheap&mrq=1&mrqri=5&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAV6BAg1EAo"
           }
         ]
@@ -1239,38 +1254,31 @@
     {
       "cite": "https://www.kayak.com",
       "cmpt_rank": 16,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "4-star hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:393&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Low prices on great hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Hotel deals in New York",
-          "url": "/aclk?sa=L&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAIQDRoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAMYASAGEgIB8fD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_2r-8XkMa8zCw0x7msbEBZPE57ZaA&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Luxury Hotels",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "All-inclusive",
-          "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:1459&"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "4-star hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:393&"
+          },
+          {
+            "title": "Low prices on great hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?"
+          },
+          {
+            "title": "Hotel deals in New York",
+            "url": "/aclk?sa=L&ai=DChsSEwiWi5_yicaSAxV-uykDHe9sE0YYACICCAIQDRoCdGI&co=1&ase=2&gclid=EAIaIQobChMIlouf8onGkgMVfrspAx3vbBNGEAMYASAGEgIB8fD_BwE&cid=CAASugHkaMFohy-mT2lmuGvId03LA7AIRCh_b97fdK_aD4uBjb5P7ztY7b_hKLpyLP8xsp7bv1NqWw9-P8FCMQQsw0NyVCYVNFVt8UoDBbbxpN2by_mEBACDcGYUcrIyLeCCw5PRjlDRwAaRC_ryXzN5wnbSrTMSTEpDORNRjVhrpDuCjV3crjEvhxtE4Zecenso4_zM8rAvXsW_q_LNQ_daZANas_UU5UGIYg618_nyrA0sRXhuU5Qjlxg8VgA&cce=2&category=acrcp_v1_32&sig=AOD64_2r-8XkMa8zCw0x7msbEBZPE57ZaA&adurl=&q="
+          },
+          {
+            "title": "Luxury Hotels",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_destination/15830/en.html?tags=f:1455&"
+          },
+          {
+            "title": "All-inclusive",
+            "url": "https://www.kayak.com/semi/adwordssearch/hotel_general/any/en.html?tags=f:1459&"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 64,
@@ -1284,32 +1292,27 @@
     {
       "cite": "http://www.booking.com › manhattan › hotels",
       "cmpt_rank": 16,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Best Hotels In Manhattan",
-          "url": "http://www.booking.com/district/us/new-york/manhattan.en.html?aid=336408%7Bignore%7D;label=district-manhattan"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Hotels at Great Prices",
-          "url": "https://www.booking.com/go.html?slc=gp;aid=336408;label="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Book Now",
-          "url": "https://www.booking.com/go.html?slc=bn;aid=336408;label="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Top Reviewed Hotels",
-          "url": "https://www.booking.com/go.html?slc=r1;aid=336408;label="
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Best Hotels In Manhattan",
+            "url": "http://www.booking.com/district/us/new-york/manhattan.en.html?aid=336408%7Bignore%7D;label=district-manhattan"
+          },
+          {
+            "title": "Hotels at Great Prices",
+            "url": "https://www.booking.com/go.html?slc=gp;aid=336408;label="
+          },
+          {
+            "title": "Book Now",
+            "url": "https://www.booking.com/go.html?slc=bn;aid=336408;label="
+          },
+          {
+            "title": "Top Reviewed Hotels",
+            "url": "https://www.booking.com/go.html?slc=r1;aid=336408;label="
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 65,
@@ -1323,14 +1326,17 @@
     {
       "cite": null,
       "cmpt_rank": 17,
-      "details": [
-        "Motto by Hilton New York City Chelsea",
-        "PUBLIC Hotel",
-        "The Evelyn",
-        "The Bryant Park Hotel",
-        "Hilton Garden Inn NYC Financial Center/Manhattan Downtown",
-        "Pod Times Square"
-      ],
+      "details": {
+        "items": [
+          "Motto by Hilton New York City Chelsea",
+          "PUBLIC Hotel",
+          "The Evelyn",
+          "The Bryant Park Hotel",
+          "Hilton Garden Inn NYC Financial Center/Manhattan Downtown",
+          "Pod Times Square"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 66,

@@ -35,8 +35,9 @@ def read_parsed_jsonl(filepath: str) -> pl.DataFrame:
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__,
-                                     formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     parser.add_argument("filepath", help="Path to parsed.json file")
     parser.add_argument("-o", "--output", help="Output CSV path (default: <input_dir>/results.csv)")
     args = parser.parse_args()

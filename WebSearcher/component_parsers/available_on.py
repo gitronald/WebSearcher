@@ -1,6 +1,3 @@
-from ..models.data import DetailsItem, DetailsList
-
-
 def parse_available_on(cmpt, sub_rank=0) -> list:
     """Parse an available component
 
@@ -13,28 +10,28 @@ def parse_available_on(cmpt, sub_rank=0) -> list:
     Returns:
         dict : parsed component
     """
-    parsed = {'type': 'available_on', 'sub_rank': sub_rank}
+    parsed = {"type": "available_on", "sub_rank": sub_rank}
 
-    parsed['title'] = cmpt.find('span', {'class': 'GzssTd'}).text
+    parsed["title"] = cmpt.find("span", {"class": "GzssTd"}).text
 
-    details = DetailsList()
-    for o in cmpt.find_all('div', {'class': 'kno-fb-ctx'}):
-        details.append(parse_available_on_item(o))
-    parsed['details'] = details.to_dicts()
+    items = []
+    for o in cmpt.find_all("div", {"class": "kno-fb-ctx"}):
+        items.append(parse_available_on_item(o))
+    parsed["details"] = {"type": "providers", "items": items} if items else None
     return [parsed]
 
 
-def parse_available_on_item(sub) -> DetailsItem:
+def parse_available_on_item(sub) -> dict:
     """Parse an available on item
 
     Args:
         sub (bs4 object): An available on option element
 
     Returns:
-        DetailsItem : parsed item with title, url, and cost in misc
+        dict : parsed item with title, url, and cost
     """
-    return DetailsItem(
-        title=sub.find('div', {'class': 'i3LlFf'}).text,
-        url=sub.find('a')['href'],
-        misc={'cost': sub.find('div', {'class': 'V8xno'}).text},
-    )
+    return {
+        "title": sub.find("div", {"class": "i3LlFf"}).text,
+        "url": sub.find("a")["href"],
+        "cost": sub.find("div", {"class": "V8xno"}).text,
+    }

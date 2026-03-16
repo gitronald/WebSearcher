@@ -1,8 +1,22 @@
-__version__ = "0.6.9"
-from .searchers import SearchEngine
-from .parsers import parse_serp
-from .feature_extractor import FeatureExtractor
+__version__ = "0.7.0"
+
+from .classifiers import ClassifyFooter, ClassifyMain
 from .extractors import Extractor
+from .feature_extractor import FeatureExtractor
 from .locations import download_locations
-from .classifiers import ClassifyMain, ClassifyFooter
-from .webutils import load_html, make_soup, load_soup
+from .parsers import parse_serp
+from .searchers import SearchEngine
+from .utils import load_html, load_soup, make_soup
+
+__all__ = [
+    "ClassifyFooter",
+    "ClassifyMain",
+    "Extractor",
+    "FeatureExtractor",
+    "download_locations",
+    "parse_serp",
+    "SearchEngine",
+    "load_html",
+    "load_soup",
+    "make_soup",
+]

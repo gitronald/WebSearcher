@@ -154,7 +154,7 @@
     {
       "cite": "https://www.missionlocal.org",
       "cmpt_rank": 10,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -168,14 +168,17 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [
-        "KICU-TV",
-        "KPIX-TV",
-        "KNTV",
-        "KTVU",
-        "KGO-TV",
-        "KTTV"
-      ],
+      "details": {
+        "items": [
+          "KICU-TV",
+          "KPIX-TV",
+          "KNTV",
+          "KTVU",
+          "KGO-TV",
+          "KTTV"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 11,

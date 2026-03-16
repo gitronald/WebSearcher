@@ -17,131 +17,90 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Pfizer-BioNTech",
-            "title": "",
             "url": "https://www.pfizer.com/"
           },
           {
-            "misc": {},
             "text": "Novavax",
-            "title": "",
             "url": "https://www.novavax.com/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cdc.gov/covid/hcp/vaccine-considerations/routine-guidance.html#:~:text=At%20a%20glance,of%20COVID%2D19%20risk%20factors."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.cdc.gov/covid/vaccines/stay-up-to-date.html#:~:text=Keep%20in%20mind,individual%2Dbased%20decision%2Dmaking."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.bassett.org/news/are-covid-19-vaccine-ingredients-safe"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.aap.org/en/patient-care/covid-19/covid-19-vaccine-frequently-asked-questions/#:~:text=AAP%20recommends%20a%20single%20dose,AAP%20Policy%20Statement%20as%20follows:"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.pharmacytimes.com/view/fda-recommends-2025-2026-covid-19-vaccines-be-monovalent-target-lp-8-1-strain#:~:text=Based%20on%20VRBPAC%20Vote%2C%20FDA,a%20specific%20sublineage%20to%20target.&text=1%2C2-,LP.,recommendation%20could%20impact%20vaccine%20availability."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10507236/#:~:text=Rare%20adverse%20effects%20of%20COVID,%2C%20hearing%20changes%2C%20and%20tinnitus.&text=The%20overall%20risk%20of%20anaphylaxis,percentage%20of%20people%20after%20vaccination."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.fda.gov/media/167212/download#:~:text=Pfizer%2DBioNTech%20COVID%2D19%20Vaccine%20contains%20the%20following%20ingredients:,age%20also%20contains%20sodium%20chloride."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.hackensackmeridianhealth.org/HealthU/2021/01/11/a-simple-breakdown-of-the-ingredients-in-the-covid-vaccines/#:~:text=The%20Pfizer%2DBioNTech%20COVID%2D19,if%20exposed%20to%20the%20coronavirus."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.chop.edu/vaccine-education-center/vaccine-safety/vaccine-ingredients/ingredients-by-vaccine/covid-19-vaccines-ingredients#:~:text=Cholesterol%2C%20Potassium%20chloride%2C%20Phosphatidylcholine%2C,sodium%20hydroxide%20or%20hydrochloric%20acid.)"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.publichealth.columbia.edu/news/vaccine-misinformation-outpaces-efforts-counter-it#:~:text=Misinformation%20about%20vaccines%20has%20proliferated,flu%2C%20HPV%2C%20and%20more."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sciencedirect.com/science/article/pii/S2772628224000098#:~:text=Among%20previously%20vaccinated%20individuals%2C%20belief,ongoing%20vaccine%20boosters%2C%20ceteris%20paribus."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.mskcc.org/coronavirus/for-people-with-cancer#:~:text=Is%20the%20COVID%2D19%20vaccine%20safe?,reported%20after%20COVID%2D19%20vaccination."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=hlOFL---m8A"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=hRZ1eTNX65w"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.rivm.nl/en/coronavirus-covid-19/vaccination/side-effects#:~:text=Most%20common%20side%20effects%20of,or%20days%20after%20the%20injection."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.mcgill.ca/oss/article/covid-19-health/dozen-misguided-influencers-spread-most-anti-vaccination-content-social-media#:~:text=You%20may%20have%20heard%20the,exactly%20is%20the%20Disinformation%20Dozen?"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.goodrx.com/conditions/covid-19/ingredients-covid-19-vaccine#:~:text=COVID%20vaccine%20are:-,SM%2D102,is%20the%20hepatitis%20B%20vaccine."
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -173,12 +132,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Why are people refusing the COVID vaccine?",
-        "Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid",
-        "Scientists Study People Who Never Had COVID - Boston University Boston University https://www.bu.edu  › articles › scientists-study-people-w... Boston University https://www.bu.edu  › articles › scientists-study-people-w...",
-        "What percentage of people have a serious side effect from the COVID vaccine?"
-      ],
+      "details": {
+        "items": [
+          "Why are people refusing the COVID vaccine?",
+          "Stanford Medicine study shows why mRNA COVID-19 vaccine can ... Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid Stanford Medicine - Stanford University https://med.stanford.edu  › myocarditis-vaccine-covid",
+          "Scientists Study People Who Never Had COVID - Boston University Boston University https://www.bu.edu  › articles › scientists-study-people-w... Boston University https://www.bu.edu  › articles › scientists-study-people-w...",
+          "What percentage of people have a serious side effect from the COVID vaccine?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,

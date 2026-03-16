@@ -59,113 +59,78 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Ben Parkes|YouTube • Jan 11, 2026",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg&t=36"
           },
           {
-            "misc": {},
             "text": "Running With Jane|YouTube • Sep 24, 2024",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=TAXvNyavl_c&t=495"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/1jsrdzq/any_tips_here_for_a_first_marathon_runner/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/#:~:text=Here%20are%20some%20tips%20for%20your%20first,Km32%20*%20Avoid%20sudden%20changes%20in%20pace"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=v7OCbZv2iEM"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/18r1rsq/first_time_marathon_runner_what_advice_did_you/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/running/comments/wllvue/your_number_one_tip_for_a_first_time_marathoner/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "http://www.runningandstuff.com/surviving-your-first-marathon"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/179mylo/what_are_some_things_you_wish_you_knew_before/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://coachdebbieruns.com/your-first-marathon/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=ZdOcD1UmLNs"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=kBo-q4DwqPM"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day#:~:text=Here%20are%20some%20tips%20for%20surviving%20your,to%20other%20runners%20*%20Enjoy%20the%20music"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -183,12 +148,15 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": [
-        "What is the 10-10-10 rule for marathons?",
-        "Training For a Marathon: How To Prepare | REI Expert Advice REI https://www.rei.com  › learn › training-for-your-first-mar... REI https://www.rei.com  › learn › training-for-your-first-mar...",
-        "What is the 80% rule in running?",
-        "Run your first marathon - TimeOutdoors TimeOutdoors https://www.timeoutdoors.com  › blog › running-your-fir... TimeOutdoors https://www.timeoutdoors.com  › blog › running-your-fir..."
-      ],
+      "details": {
+        "items": [
+          "What is the 10-10-10 rule for marathons?",
+          "Training For a Marathon: How To Prepare | REI Expert Advice REI https://www.rei.com  › learn › training-for-your-first-mar... REI https://www.rei.com  › learn › training-for-your-first-mar...",
+          "What is the 80% rule in running?",
+          "Run your first marathon - TimeOutdoors TimeOutdoors https://www.timeoutdoors.com  › blog › running-your-fir... TimeOutdoors https://www.timeoutdoors.com  › blog › running-your-fir..."
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
@@ -608,38 +576,31 @@
     {
       "cite": "https://www.runnersworld.com",
       "cmpt_rank": 12,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Treadmills",
-          "url": "https://www.runnersworld.com/gear/a20834859/the-best-treadmills-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20834859"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Advanced Running Watches",
-          "url": "https://www.runnersworld.com/gear/a20827055/advanced-gps-watches-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20827055"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Running Socks",
-          "url": "https://www.runnersworld.com/gear/a20809978/the-best-socks-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20809978"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Under Desk Treadmills",
-          "url": "https://www.runnersworld.com/health-injuries/g36353450/best-under-desk-treadmill/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_g36353450"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Steppers",
-          "url": "https://www.runnersworld.com/gear/g38971093/best-steppers/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_g38971093"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Treadmills",
+            "url": "https://www.runnersworld.com/gear/a20834859/the-best-treadmills-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20834859"
+          },
+          {
+            "title": "Advanced Running Watches",
+            "url": "https://www.runnersworld.com/gear/a20827055/advanced-gps-watches-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20827055"
+          },
+          {
+            "title": "Running Socks",
+            "url": "https://www.runnersworld.com/gear/a20809978/the-best-socks-for-runners/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_a20809978"
+          },
+          {
+            "title": "Under Desk Treadmills",
+            "url": "https://www.runnersworld.com/health-injuries/g36353450/best-under-desk-treadmill/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_g36353450"
+          },
+          {
+            "title": "Steppers",
+            "url": "https://www.runnersworld.com/gear/g38971093/best-steppers/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_rnw_ext_comm_org_us_g38971093"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 34,
@@ -653,7 +614,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 35,

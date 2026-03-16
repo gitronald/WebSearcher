@@ -1,14 +1,15 @@
-from .. import webutils
 import bs4
 
+from .. import utils
+
 TITLE_SELECTORS = [
-    ('div', {'class': 'zNWc4c'}),
-    ('div', {'class': 'qyp6xb'}),
+    ("div", {"class": "zNWc4c"}),
+    ("div", {"class": "qyp6xb"}),
 ]
 
 CITE_SELECTORS = [
-    ('div', {'class': 'LbKnXb'}),
-    ('div', {'class': 'VZGVuc'}),
+    ("div", {"class": "LbKnXb"}),
+    ("div", {"class": "VZGVuc"}),
 ]
 
 SUB_SELECTORS = [
@@ -41,20 +42,19 @@ def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
 def get_title(sub):
     """Get title from selectors or heading div"""
-    title = webutils.get_text_by_selectors(sub, TITLE_SELECTORS)
+    title = utils.get_text_by_selectors(sub, TITLE_SELECTORS)
     if not title:
-        title = webutils.get_text(sub, 'div', {'role': 'heading'})
+        title = utils.get_text(sub, "div", {"role": "heading"})
     return title
 
 
 def get_cite(sub):
     """Get cite from selectors"""
-    return webutils.get_text_by_selectors(sub, CITE_SELECTORS)
+    return utils.get_text_by_selectors(sub, CITE_SELECTORS)
 
 
 def get_url(sub):
     """Get URL from a subcomponent; try multiple, take first non-null"""
-    url_list = [webutils.get_link(sub, {"class": "v4kUNc"}),
-                webutils.get_link(sub)]
+    url_list = [utils.get_link(sub, {"class": "v4kUNc"}), utils.get_link(sub)]
     url_list = [url for url in url_list if url]
     return url_list[0] if url_list else None

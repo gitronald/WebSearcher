@@ -1,4 +1,4 @@
-from .. import webutils
+from .. import utils
 
 
 def parse_twitter_cards(cmpt) -> list:
@@ -10,57 +10,53 @@ def parse_twitter_cards(cmpt) -> list:
 
     Args:
         cmpt (bs4 object): A twitter cards component
-    
+
     Returns:
         list : list of parsed subcomponent dictionaries
     """
     # header, carousel = list(cmpt.find('g-section-with-header').children)[:2]
     parsed_header = parse_twitter_header(cmpt)
-    carousel = cmpt.find('g-scrolling-carousel')
-    subs = carousel.find_all('g-inner-card')
+    carousel = cmpt.find("g-scrolling-carousel")
+    subs = carousel.find_all("g-inner-card")
     parsed_cards = [parse_twitter_card(sub, sub_rank + 1) for sub_rank, sub in enumerate(subs)]
     parsed_list = [parsed_header] + parsed_cards
     return parsed_list
 
 
-def parse_twitter_header(cmpt, sub_rank:int = 0) -> dict:
+def parse_twitter_header(cmpt, sub_rank: int = 0) -> dict:
     """Parse a Twitter header from the main component"""
-    parsed = {"type": "twitter_cards", 
-              "sub_type": "header", 
-              "sub_rank": sub_rank}
-    element_current = cmpt.find('g-link')
-    element_legacy = cmpt.find('h3', {'class':'r'})
-    if cmpt.find('h3'):
+    parsed = {"type": "twitter_cards", "sub_type": "header", "sub_rank": sub_rank}
+    element_current = cmpt.find("g-link")
+    element_legacy = cmpt.find("h3", {"class": "r"})
+    if cmpt.find("h3"):
         if element_legacy:
-            parsed['url'] = webutils.url_unquote(element_legacy.get('href', ''))
-            parsed['title'] = webutils.get_text(element_legacy, 'a')
+            parsed["url"] = utils.url_unquote(element_legacy.get("href", ""))
+            parsed["title"] = utils.get_text(element_legacy, "a")
         elif element_current:
-            parsed['url'] = webutils.url_unquote(webutils.get_link(element_current))
-            parsed['title'] = webutils.get_text(element_current)
+            parsed["url"] = utils.url_unquote(utils.get_link(element_current))
+            parsed["title"] = utils.get_text(element_current)
     elif element_current:
-        parsed['url'] = webutils.get_link(element_current)
-        parsed['title'] = webutils.get_text(element_current)
-    parsed["cite"] = webutils.get_text(cmpt, 'cite')
+        parsed["url"] = utils.get_link(element_current)
+        parsed["title"] = utils.get_text(element_current)
+    parsed["cite"] = utils.get_text(cmpt, "cite")
 
     return parsed
 
 
-def parse_twitter_card(sub, sub_rank:int = 0) -> dict:
+def parse_twitter_card(sub, sub_rank: int = 0) -> dict:
     """Parse a Twitter card from a subcomponent"""
-    parsed = {"type": "twitter_cards",
-              "sub_type": "card",
-              "sub_rank": sub_rank}
+    parsed = {"type": "twitter_cards", "sub_type": "card", "sub_rank": sub_rank}
 
     # Tweet account
-    title = sub.find('g-link')
-    parsed["title"] = webutils.get_text(title, 'a') if title else None
+    title = sub.find("g-link")
+    parsed["title"] = utils.get_text(title, "a") if title else None
 
     # Bottom div containing details
-    div = sub.find('div', {'class':'Brgz0'})
+    div = sub.find("div", {"class": "Brgz0"})
     if div:
-        url = webutils.get_link(div)
-        parsed["url"] = webutils.url_unquote(url) if url else None
-        parsed["text"] = webutils.get_text(div, 'div', {'class':'xcQxib'})
-        parsed["cite"] = webutils.get_text(div, 'div', {'class':'rmxqbe'})
+        url = utils.get_link(div)
+        parsed["url"] = utils.url_unquote(url) if url else None
+        parsed["text"] = utils.get_text(div, "div", {"class": "xcQxib"})
+        parsed["cite"] = utils.get_text(div, "div", {"class": "rmxqbe"})
 
     return parsed

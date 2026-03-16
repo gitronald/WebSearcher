@@ -1,7 +1,8 @@
 import bs4
 
+
 class ClassifyHeaderText:
-    """Classify components based on header text (e.g. <h2>title</h2>)"""    
+    """Classify components based on header text (e.g. <h2>title</h2>)"""
 
     @staticmethod
     def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
@@ -12,7 +13,7 @@ class ClassifyHeaderText:
         return "unknown"
 
     @staticmethod
-    def classify_header_lvl2(cmpt: bs4.element.Tag) -> str:        
+    def classify_header_lvl2(cmpt: bs4.element.Tag) -> str:
         return ClassifyHeaderText._classify_header(cmpt, level=2)
 
     @staticmethod
@@ -26,8 +27,8 @@ class ClassifyHeaderText:
 
         # Collect list of potential header divs
         header_list = []
-        header_list.extend(cmpt.find_all(f"h{level}", {"role":"heading"}))
-        header_list.extend(cmpt.find_all(f"h{level}", {"class":["O3JH7", "q8U8x", "mfMhoc"]}))
+        header_list.extend(cmpt.find_all(f"h{level}", {"role": "heading"}))
+        header_list.extend(cmpt.find_all(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}))
         header_list.extend(cmpt.find_all(attrs={"aria-level": f"{level}", "role": "heading"}))
 
         # Check header text for known title matches
@@ -44,85 +45,102 @@ class ClassifyHeaderText:
     @staticmethod
     def _get_header_level_mapping(level) -> dict:
         """Return mapping of header level to header text"""
-        options = {2: ClassifyHeaderText.TYPE_TO_H2_MAPPING,
-                   3: ClassifyHeaderText.TYPE_TO_H3_MAPPING}
+        options = {
+            2: ClassifyHeaderText.TYPE_TO_H2_MAPPING,
+            3: ClassifyHeaderText.TYPE_TO_H3_MAPPING,
+        }
         return options.get(level, {})
 
     # WS type -> header level 2 text (e.g., <h2>title</h2>)
     TYPE_TO_H2_MAPPING = {
-        "directions": ["Directions", 
-                       "Ubicaciones"],
-        "discussions_and_forums": ["Discussions and forums",
-                                  "Questions & answers"],
-        "general": ["Complementary Results",
-                    "Web Result with Site Links",
-                    "Web results",
-                    "Resultados de la Web",
-                    "AI-powered overview",
-                    "Visión general creada por IA"],
-        "images": ["Images", 
-                   "Imágenes"],
-        "jobs": ["Jobs", 
-                 "Empleos"],
-        "knowledge": ["Things to know",
-                      "Cosas que debes saber",
-                      "Calculator Result",
-                      "Featured snippet from the web", "Fragmento destacado",
-                      "Finance Results", "Resumen de Mercado",
-                      "From sources across the web", 
-                      "Knowledge Result", 
-                      "Resultado de traducci\u00f3n", 
-                      "Sports Results", 
-                      "Table", "Posiciones",
-                      "Stat Leaders", "Líderes de estadísticas",
-                      "Teams", "Equipos",
-                      "Players", "Jugadores",
-                      "Translation Result", 
-                      "Unit Converter", 
-                      "Weather Result", "Clima",
-                      "Artworks", "Obras de arte",
-                      "Songs", "Canciones",
-                      "Albums", "Álbumes",
-                      "About", "Información",
-                      "Profiles", "Perfiles"],
+        "directions": ["Directions", "Ubicaciones"],
+        "discussions_and_forums": ["Discussions and forums", "Questions & answers"],
+        "general": [
+            "Complementary Results",
+            "Web Result with Site Links",
+            "Web results",
+            "Resultados de la Web",
+            "AI-powered overview",
+            "Visión general creada por IA",
+        ],
+        "images": ["Images", "Imágenes"],
+        "jobs": ["Jobs", "Empleos"],
+        "knowledge": [
+            "Things to know",
+            "Cosas que debes saber",
+            "Calculator Result",
+            "Featured snippet from the web",
+            "Fragmento destacado",
+            "Finance Results",
+            "Resumen de Mercado",
+            "From sources across the web",
+            "Knowledge Result",
+            "Resultado de traducci\u00f3n",
+            "Sports Results",
+            "Table",
+            "Posiciones",
+            "Stat Leaders",
+            "Líderes de estadísticas",
+            "Teams",
+            "Equipos",
+            "Players",
+            "Jugadores",
+            "Translation Result",
+            "Unit Converter",
+            "Weather Result",
+            "Clima",
+            "Artworks",
+            "Obras de arte",
+            "Songs",
+            "Canciones",
+            "Albums",
+            "Álbumes",
+            "About",
+            "Información",
+            "Profiles",
+            "Perfiles",
+        ],
         "latest_from": ["Latest from"],
-        "local_news": ["Local news", "Noticias Locales",
-                       "Latest in local"],
+        "local_news": ["Local news", "Noticias Locales", "Latest in local"],
         "local_results": [
             "Local Results",
             "Locations",
-            "Places", 
+            "Places",
             "Sitios",
             "Businesses",
             "locations",
         ],
-        "map_results": ["Map Results",
-                        "Choice Hotels", 
-                        "Hoteles", 
-                        "Hotel"],
+        "map_results": ["Map Results", "Choice Hotels", "Hoteles", "Hotel"],
         "omitted_notice": ["Notices about Filtered Results"],
         "people_also_ask": ["People also ask", "Más preguntas"],
-        "perspectives": ["Perspectives & opinions",
-                         "Perspectives",
-                         "What people are saying"],
-        "searches_related": ["Additional searches", 
-                             "More searches", "Ver más",
-                             "Other searches", 
-                             "People also search for", "También se buscó",
-                             "Related", 
-                             "Related searches", 
-                             "Related to this search",
-                             "Searches related to"],
-        "top_stories": ["Top stories", 
-                        "Noticias Destacadas", 
-                        "Noticias Principales",
-                        "News", 
-                        "Noticias",
-                        "Market news"],
-        "recent_posts": ["Recent posts",
-                        "Latest posts from"],
+        "perspectives": [
+            "Perspectives & opinions",
+            "Perspectives",
+            "What people are saying",
+        ],
+        "searches_related": [
+            "Additional searches",
+            "More searches",
+            "Ver más",
+            "Other searches",
+            "People also search for",
+            "También se buscó",
+            "Related",
+            "Related searches",
+            "Related to this search",
+            "Searches related to",
+        ],
+        "top_stories": [
+            "Top stories",
+            "Noticias Destacadas",
+            "Noticias Principales",
+            "News",
+            "Noticias",
+            "Market news",
+        ],
+        "recent_posts": ["Recent posts", "Latest posts from"],
         "twitter": ["Twitter Results"],
-        "videos": ["Videos"]
+        "videos": ["Videos"],
     }
 
     # WS type -> header level 2 text (e.g., <h3>title</h3>)
@@ -137,10 +155,9 @@ class ClassifyHeaderText:
         "top_stories": ["Top stories", "Noticias destacadas", "Noticias Principales"],
         "videos": ["Videos"],
         "view_more_news": ["View more news", "Más noticias", "Ver más"],
-        "view_more_videos": ["View more videos", "Más videos", "Ver más"]
+        "view_more_videos": ["View more videos", "Más videos", "Ver más"],
     }
 
     # Invert from {label: [text, ...]} to [{text: label}, ...]
     TYPE_TO_H2_MAPPING = {vv: k for k, v in TYPE_TO_H2_MAPPING.items() for vv in v}
     TYPE_TO_H3_MAPPING = {vv: k for k, v in TYPE_TO_H3_MAPPING.items() for vv in v}
-

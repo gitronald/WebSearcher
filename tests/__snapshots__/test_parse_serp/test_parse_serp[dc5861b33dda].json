@@ -17,107 +17,74 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "ocean acidification",
-            "title": "",
             "url": "https://www.google.com/search?q=ocean+acidification&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIARAE"
           },
           {
-            "misc": {},
             "text": "Mass Bleaching Events",
-            "title": "",
             "url": "https://www.google.com/search?q=Mass+Bleaching+Events&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIAxAB"
           },
           {
-            "misc": {},
             "text": "Ocean Acidification",
-            "title": "",
             "url": "https://www.google.com/search?q=Ocean+Acidification&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIAxAD"
           },
           {
-            "misc": {},
             "text": "National Ocean Service",
-            "title": "",
             "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html"
           },
           {
-            "misc": {},
             "text": "WWF-UK",
-            "title": "",
             "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html#:~:text=A%20warming%20ocean:%20causes%20thermal,Visit%20FishWatch.gov."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.barrierreef.org/the-reef/threats/climate-change#:~:text=When%20corals%20suffer%20heat%20stress,and%20conditions%20return%20to%20normal."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change#:~:text=Corals%20are%20very%20vulnerable%20to,we're%20destroying%20the%20world."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs#:~:text=Great%20Barrier%20Reef.-,Sadly%2C%20coral%20reefs%20have%20been%20deteriorating%20worldwide%20due%20to%20human,fatal%20when%20warming%20is%20prolonged."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=k__Lu5UhIoI&t=2"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://coralreefs.org/wp-content/uploads/2020/02/modified-consensus-statement-ICRS-2018.pdf"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=FHhysWpSgtM"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nationalgeographic.com/environment/article/coral-bleaching-causes-impacts#:~:text=Warming%20oceans%E2%80%94caused%20by%20climate,and%20widespread%20coral%20mortality%20occurred."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=U7VkFwURr6Q"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://impakter.com/fourth-and-furious-mass-coral-bleaching-84-of-reefs-now-under-threat/#:~:text=According%20to%20a%20new%20analysis%20by%20the,83.7%25%20of%20the%20world's%20coral%20reef%20area."
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -317,7 +284,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 14,

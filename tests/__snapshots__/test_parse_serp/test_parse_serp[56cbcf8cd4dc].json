@@ -28,7 +28,7 @@
     {
       "cite": "https://www.sfspca.org",
       "cmpt_rank": 1,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -44,13 +44,14 @@
       "cmpt_rank": 2,
       "details": {
         "directions": "/maps/dir//Camp+TLC+Goldens,+CAMP+TLC+GOLDENS,+2234+Leo+Pl,+Aromas,+CA+95004/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808e039404ffb2c7:0xf78fd0ffe3e7783c?sa=X&ved=1t:57443&ictx=111",
+        "type": "ratings",
         "website": "http://camptlcgoldens.com/"
       },
       "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
-      "sub_type": "results_for__palo_alto,_ca_94301",
+      "sub_type": "results_for",
       "text": "Camp TLC Goldens<|>5.0<|>(32)<|> · Dog breeder<|>35+ years in business · Aromas, CA · (408) 656-6402<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Our puppy is so well behaved, groomed, and adjusted.\"",
       "title": "Camp TLC Goldens",
       "type": "local_results",
@@ -60,13 +61,14 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "type": "ratings",
         "website": "https://www.sunsetretrievers.com/"
       },
       "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
-      "sub_type": "results_for__palo_alto,_ca_94301",
+      "sub_type": "results_for",
       "text": "Sunset Retrievers<|>4.9<|>(67)<|> · Dog breeder<|>3+ years in business · (530) 748-7024<|>Open<|> · Closes 6 PM<|> <|> <|> <|> <|> <|> <|>\"She is responsive, knowledgeable and helped us get the perfect <|>pup<|>.\"",
       "title": "Sunset Retrievers",
       "type": "local_results",
@@ -76,13 +78,14 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "type": "ratings",
         "website": "https://www.eastbaygoldenretrievers.com/"
       },
       "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
-      "sub_type": "results_for__palo_alto,_ca_94301",
+      "sub_type": "results_for",
       "text": "East Bay Golden Retrievers<|>4.8<|>(11)<|> · Dog breeder<|>3+ years in business · (510) 815-8338<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Sophie and Jonathan made the process so smooth when getting our puppy!\"",
       "title": "East Bay Golden Retrievers",
       "type": "local_results",
@@ -93,13 +96,14 @@
       "cmpt_rank": 2,
       "details": {
         "directions": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQBRoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASACEgIQkfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_3Ak2FUEJSCDCYZl-A6LdM_8msBbg&ctype=50&q=&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhawBegQINBAS&adurl=",
+        "type": "ratings",
         "website": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl="
       },
       "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,
-      "sub_type": "results_for__palo_alto,_ca_94301",
+      "sub_type": "results_for",
       "text": "Sponsored<|>Humane Society Silicon Valley<|> <|>My Ad Center<|>4.7<|>(1.7K)<|> · Non-profit organization<|>10+ years in business · 901 Ames Avenue · (408) 262-2133<|>Open<|> · Closes 5 PM",
       "title": "Humane Society Silicon Valley   My Ad Center",
       "type": "local_results",
@@ -136,12 +140,15 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": [
-        "What is the average cost of a golden retriever puppy?",
-        "How much would you pay for a golden retriever puppy?",
-        "What is the hardest part of owning a golden retriever?",
-        "Is $2500 a lot for a golden retriever?"
-      ],
+      "details": {
+        "items": [
+          "What is the average cost of a golden retriever puppy?",
+          "How much would you pay for a golden retriever puppy?",
+          "What is the hardest part of owning a golden retriever?",
+          "Is $2500 a lot for a golden retriever?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -173,41 +180,30 @@
         "heading": "Find related products & services",
         "img_url": null,
         "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Golden Retriever puppies |adoption near me",
-            "title": "",
             "url": "http://www.google.com/search?q=Golden+Retriever+puppies+adoption+near+me&mrq=1&mrqri=0&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAB6BAhDEAU"
           },
           {
-            "misc": {},
             "text": "Golden Retriever puppies |free",
-            "title": "",
             "url": "http://www.google.com/search?q=Golden+Retriever+puppies+free&mrq=1&mrqri=1&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAF6BAhDEAY"
           },
           {
-            "misc": {},
             "text": "Golden Retriever puppies |shelter",
-            "title": "",
             "url": "http://www.google.com/search?q=Golden+Retriever+puppies+shelter&mrq=1&mrqri=2&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAJ6BAhDEAc"
           },
           {
-            "misc": {},
             "text": "Golden Retriever puppies |sacramento under $500",
-            "title": "",
             "url": "http://www.google.com/search?q=Golden+Retriever+puppies+sacramento+under+$500&mrq=1&mrqri=3&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAN6BAhDEAg"
           },
           {
-            "misc": {},
             "text": "Golden Retriever puppies |for sale under $300",
-            "title": "",
             "url": "http://www.google.com/search?q=Golden+Retriever+puppies+for+sale+under+$300&mrq=1&mrqri=4&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAR6BAhDEAk"
           },
           {
-            "misc": {},
             "text": "English| Golden Retriever puppies |near me",
-            "title": "",
             "url": "http://www.google.com/search?q=English+Golden+Retriever+puppies+near+me&mrq=1&mrqri=5&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAV6BAhDEAo"
           }
         ]
@@ -309,32 +305,27 @@
     {
       "cite": "https://www.puppyspot.com",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Litters Ready To Go Home Soon",
-          "url": "https://www.puppyspot.com/puppies-for-sale/breed/golden-retriever%7Bignore%7D?cq_src=google_ads&cq_cmp=%7Bcampaignid%7D&cq_term=%7Bkeyword%7D&cq_med=%7Badtype%7D&cq_plac=%7Bplacement%7D&cq_net=%7Bnetwork%7D&cq_plt=gp"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "AKC Approved & Authorized",
-          "url": "https://www.puppyspot.com/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Search Puppies",
-          "url": "https://www.puppyspot.com/puppies-for-sale/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "About Us",
-          "url": "https://www.puppyspot.com/about-us"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Litters Ready To Go Home Soon",
+            "url": "https://www.puppyspot.com/puppies-for-sale/breed/golden-retriever%7Bignore%7D?cq_src=google_ads&cq_cmp=%7Bcampaignid%7D&cq_term=%7Bkeyword%7D&cq_med=%7Badtype%7D&cq_plac=%7Bplacement%7D&cq_net=%7Bnetwork%7D&cq_plt=gp"
+          },
+          {
+            "title": "AKC Approved & Authorized",
+            "url": "https://www.puppyspot.com/"
+          },
+          {
+            "title": "Search Puppies",
+            "url": "https://www.puppyspot.com/puppies-for-sale/"
+          },
+          {
+            "title": "About Us",
+            "url": "https://www.puppyspot.com/about-us"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -348,32 +339,27 @@
     {
       "cite": "https://www.rrdog.org",
       "cmpt_rank": 14,
-      "details": [
-        {
-          "misc": {},
-          "text": "",
-          "title": "Puppies Available For Adoption",
-          "url": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAIQCBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEAMYAiAEEgKBQfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_2TjLcqkMLEP_05yBeuTQKYXYOr6A&adurl=&q="
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Dogs Available for Adoption",
-          "url": "https://rrdog.org/adoption/adults/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "See List Of Available Puppies",
-          "url": "https://rrdog.org/adoption/availablepuppies/"
-        },
-        {
-          "misc": {},
-          "text": "",
-          "title": "Foster",
-          "url": "https://rrdog.org/foster-a-dog/"
-        }
-      ],
+      "details": {
+        "items": [
+          {
+            "title": "Puppies Available For Adoption",
+            "url": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAIQCBoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEAMYAiAEEgKBQfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_2TjLcqkMLEP_05yBeuTQKYXYOr6A&adurl=&q="
+          },
+          {
+            "title": "Dogs Available for Adoption",
+            "url": "https://rrdog.org/adoption/adults/"
+          },
+          {
+            "title": "See List Of Available Puppies",
+            "url": "https://rrdog.org/adoption/availablepuppies/"
+          },
+          {
+            "title": "Foster",
+            "url": "https://rrdog.org/foster-a-dog/"
+          }
+        ],
+        "type": "menu"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -387,7 +373,7 @@
     {
       "cite": null,
       "cmpt_rank": 15,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 19,

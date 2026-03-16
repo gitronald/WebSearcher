@@ -1,56 +1,56 @@
 from pydantic import BaseModel, Field
-from typing import Any
-from dataclasses import asdict, dataclass, field
-
-@dataclass
-class DetailsItem:
-    """Represents a details item within a search result."""
-    url: str = ''
-    title: str = ''
-    text: str = ''
-    misc: dict = field(default_factory=dict)
-
-    def to_dict(self) -> dict:
-        return asdict(self)
 
 
-class DetailsList(list):
-    """A list of DetailsItem objects with conversion to dicts."""
+class ResponseOutput(BaseModel):
+    """Response data from a search request."""
 
-    def append(self, item: DetailsItem):
-        if not isinstance(item, DetailsItem):
-            raise TypeError(f"Expected DetailsItem, got {type(item).__name__}")
-        super().append(item)
+    html: str = ""
+    url: str = ""
+    user_agent: str = ""
+    response_code: int = 0
+    timestamp: str = ""
 
-    def to_dicts(self) -> list[dict]:
-        return [item.to_dict() for item in self]
+
+class ParsedSERP(BaseModel):
+    """Parsed output from a SERP."""
+
+    crawl_id: str = ""
+    serp_id: str = ""
+    version: str = ""
+    method: str = ""
+    features: dict = Field(default_factory=dict)
+    results: list[dict] = Field(default_factory=list)
 
 
 class BaseResult(BaseModel):
     """
     Represents a single search result item extracted from a SERP.
-    
+
     Contains the structured data of one search result including its rank,
     type, title, URL, and other metadata.
     """
+
     sub_rank: int = Field(0, description="Position within a results component")
-    type: str = Field('unclassified', description="Result type (general, ad, etc.)")
+    type: str = Field("unclassified", description="Result type (general, ad, etc.)")
     sub_type: str | None = Field(None, description="Result sub-type (e.g., header, item)")
     title: str | None = Field(None, description="Title of the search result")
     url: str | None = Field(None, description="URL of the search result")
     text: str | None = Field(None, description="Snippet text from the search result")
     cite: str | None = Field(None, description="Citation or source information")
-    details: Any | None = Field(None, description="Additional structured details specific to result type")
+    details: dict | None = Field(
+        None, description="Additional structured details specific to result type"
+    )
     error: str | None = Field(None, description="Error message if result parsing failed")
 
 
 class BaseSERP(BaseModel):
     """
     Represents a complete Search Engine Results Page (SERP).
-    
+
     Contains all data related to a single search query including the query itself,
     raw HTML response, metadata about the request, and identifiers for tracking.
     """
+
     qry: str = Field(..., description="Search query")
     loc: str | None = Field(None, description="Location if set, in Canonical Name format")
     lang: str | None = Field(None, description="Language code if set")

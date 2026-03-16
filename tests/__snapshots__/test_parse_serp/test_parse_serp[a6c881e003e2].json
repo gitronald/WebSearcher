@@ -210,12 +210,15 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": [
-        "Video shows aftermath of six tornadoes hitting Houston area over ... YouTube https://www.youtube.com  · CBS TEXAS YouTube https://www.youtube.com  · CBS TEXAS",
-        "What is the nicest area of Houston to live in?",
-        "Is $100,000 a good salary in Houston?",
-        "What part of Houston to stay away from?"
-      ],
+      "details": {
+        "items": [
+          "Video shows aftermath of six tornadoes hitting Houston area over ... YouTube https://www.youtube.com  · CBS TEXAS YouTube https://www.youtube.com  · CBS TEXAS",
+          "What is the nicest area of Houston to live in?",
+          "Is $100,000 a good salary in Houston?",
+          "What part of Houston to stay away from?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -257,7 +260,7 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 17,

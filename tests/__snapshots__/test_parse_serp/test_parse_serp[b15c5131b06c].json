@@ -18,41 +18,30 @@
         "heading": "NBANBA",
         "img_url": null,
         "text": "NBANBA",
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "► 17:42",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=EfJoHaqW2u0&feature=onebox"
           },
           {
-            "misc": {},
             "text": "► 16:59",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=BizQrqQOoTE&feature=onebox"
           },
           {
-            "misc": {},
             "text": "► 15:27",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=yi87dpRsySg&feature=onebox"
           },
           {
-            "misc": {},
             "text": "► 16:42",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=lSVYt033aIY&feature=onebox"
           },
           {
-            "misc": {},
             "text": "► 16:49",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=7QLyUH31lYc&feature=onebox"
           },
           {
-            "misc": {},
             "text": "► 15:47",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=GC0NYWhUAiE&feature=onebox"
           }
         ]
@@ -308,14 +297,17 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": [
-        "ESPN College Basketball",
-        "ESPN Major League Baseball",
-        "NFL on ESPN",
-        "ESPN College Football",
-        "NBA on ESPN",
-        "NHL on ESPN"
-      ],
+      "details": {
+        "items": [
+          "ESPN College Basketball",
+          "ESPN Major League Baseball",
+          "NFL on ESPN",
+          "ESPN College Football",
+          "NBA on ESPN",
+          "NHL on ESPN"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 18,

@@ -17,11 +17,10 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Netflix|Subscription|Watch",
-            "title": "",
             "url": "https://www.netflix.com/watch/80057281?source=35"
           }
         ]
@@ -53,12 +52,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Can I watch Stranger Things on anything other than Netflix?",
-        "It's stranger things eve Watch Stranger Things 5: Volume 2, out 26 ... Instagram https://www.instagram.com  › reel Instagram https://www.instagram.com  › reel",
-        "What streaming service is Stranger Things on?",
-        "Is Stranger Things season 5 release date on Netflix?"
-      ],
+      "details": {
+        "items": [
+          "Can I watch Stranger Things on anything other than Netflix?",
+          "It's stranger things eve Watch Stranger Things 5: Volume 2, out 26 ... Instagram https://www.instagram.com  › reel Instagram https://www.instagram.com  › reel",
+          "What streaming service is Stranger Things on?",
+          "Is Stranger Things season 5 release date on Netflix?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -172,7 +174,8 @@
       "cmpt_rank": 10,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -201,7 +204,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 12,

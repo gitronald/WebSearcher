@@ -31,95 +31,66 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "AlphaFold2",
-            "title": "",
             "url": "https://www.nature.com/articles/s41586-021-03819-2"
           },
           {
-            "misc": {},
             "text": "RoseTTAFold",
-            "title": "",
             "url": "https://www.science.org/doi/10.1126/science.abj8754"
           },
           {
-            "misc": {},
             "text": "Quanta Magazine|YouTube • Feb 7, 2025",
-            "title": "",
             "url": "https://www.youtube.com/shorts/6RSxZxiUix4"
           },
           {
-            "misc": {},
             "text": "MapDiff",
-            "title": "",
             "url": "https://phys.org/news/2025-06-machine-method-accuracy-inverse-protein.html"
           },
           {
-            "misc": {},
             "text": "hybrid quantum algorithms like QFold",
-            "title": "",
             "url": "https://ui.adsabs.harvard.edu/abs/2022APS..MARG38009C/abstract"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pubmed.ncbi.nlm.nih.gov/40505455/#:~:text=Abstract,novel%20proteins%20for%20biotechnological%20applications."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://newsroom.uw.edu/news-releases/beyond-alphafold-ai-excels-creating-new-proteins#:~:text=Recently%2C%20powerful%20machine%20learning%20algorithms%20including%20AlphaFold,based%20solely%20on%20their%20amino%20acid%20sequences."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.quantamagazine.org/how-ai-revolutionized-protein-science-but-didnt-end-it-20240626/#:~:text=That%20week%2C%20a%20relative%20newcomer,of%20people%20were%20in%20denial.%E2%80%9D"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://theconversation.com/machine-learning-cracked-the-protein-folding-problem-and-won-the-2024-nobel-prize-in-chemistry-240937#:~:text=Proteins%20are%20the%20molecular%20machines%20of%20life.,*%20Alzheimer's%20*%20Cystic%20fibrosis%20*%20Diabetes"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sciencedirect.com/science/article/pii/S0959440X19301447#:~:text=Many%20aspects%20of%20the%20study,become%20mainstream%20in%20protein%20simulation."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pubmed.ncbi.nlm.nih.gov/31881449/#:~:text=Machine%20learning%20has%20had%20a%20significant%20impact,folding%20and%20dynamics%20in%20the%20near%20future."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959440X19301447"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://phys.org/news/2025-06-machine-method-accuracy-inverse-protein.html#:~:text=It%20also%20complements%20other%20recent,advancing%20next%2Dgeneration%20therapeutics.%22"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -389,7 +360,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 20,

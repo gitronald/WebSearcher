@@ -17,107 +17,74 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Rayleigh scattering",
-            "title": "",
             "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=f1yFadntLOaOwbkP6tLk-QY&ved=2ahUKEwjCo7718sOSAxXZi7AFHSGSC98QgK4QegYIAQgAEAY"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=Gases%20and%20particles%20in%20Earth's%20atmosphere%20scatter,a%20blue%20sky%20most%20of%20the%20time."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://morgridge.org/blue-sky/why-is-the-sky-blue/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/askscience/comments/14566ig/why_is_the_sky_blue_do_i_understand_it_correctly/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html#:~:text=We%20have%20three%20types%20of%20colour%20receptors%2C,visual%20system%20constructs%20the%20colours%20we%20see."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://kids.nationalgeographic.com/books/article/sky"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.uu.edu/dept/physics/scienceguys/2000Oct.cfm"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/#:~:text=When%20sunlight%20enters%20Earth's%20atmosphere%2C%20it%20encounters,sky%20appears%20blue%20on%20a%20sunny%20day."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -135,12 +102,15 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        "Why is the sky blue short answer?",
-        "What is the true color of our sky?",
-        "How to explain to a kid why the sky is blue?",
-        "Why is the Sky Blue? - YouTube YouTube https://www.youtube.com  · Patristic Nectar YouTube https://www.youtube.com  · Patristic Nectar"
-      ],
+      "details": {
+        "items": [
+          "Why is the sky blue short answer?",
+          "What is the true color of our sky?",
+          "How to explain to a kid why the sky is blue?",
+          "Why is the Sky Blue? - YouTube YouTube https://www.youtube.com  · Patristic Nectar YouTube https://www.youtube.com  · Patristic Nectar"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -394,7 +364,8 @@
       "cmpt_rank": 8,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -411,7 +382,8 @@
       "cmpt_rank": 9,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -454,7 +426,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 23,

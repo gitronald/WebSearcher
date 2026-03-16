@@ -17,77 +17,54 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Rayleigh scattering",
-            "title": "",
             "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=DX6GadapJbrIwPAPs6DakAQ&ved=2ahUKEwj3_L-Hh8aSAxWwCBAIHZSuDXkQgK4QegYIAQgAEAY"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.instagram.com/reel/DIZJjPvOtIN/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/#:~:text=In%20summer%2C%20the%20sun%20sits%20higher%20in,intensifying%20the%20blue%20appearance%20of%20the%20sky."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -105,12 +82,15 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        "Why is the sky blue short answer?",
-        "What is the true color of our sky?",
-        "How to explain to a kid why the sky is blue?",
-        "Why is the Sky Blue? - YouTube YouTube https://www.youtube.com  · Patristic Nectar YouTube https://www.youtube.com  · Patristic Nectar"
-      ],
+      "details": {
+        "items": [
+          "Why is the sky blue short answer?",
+          "What is the true color of our sky?",
+          "How to explain to a kid why the sky is blue?",
+          "Why is the Sky Blue? - YouTube YouTube https://www.youtube.com  · Patristic Nectar YouTube https://www.youtube.com  · Patristic Nectar"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -364,7 +344,8 @@
       "cmpt_rank": 8,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -381,7 +362,8 @@
       "cmpt_rank": 9,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -424,7 +406,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 23,

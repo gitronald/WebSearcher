@@ -17,83 +17,58 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Chlorophyll Degradation",
-            "title": "",
             "url": "https://www.google.com/search?q=Chlorophyll+Degradation&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgAEAo"
           },
           {
-            "misc": {},
             "text": "Ethylene Gas",
-            "title": "",
             "url": "https://www.google.com/search?q=Ethylene+Gas&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgAEAw"
           },
           {
-            "misc": {},
             "text": "Visual Recognition",
-            "title": "",
             "url": "https://www.google.com/search?q=Visual+Recognition&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgCEAE"
           },
           {
-            "misc": {},
             "text": "Ripening Process",
-            "title": "",
             "url": "https://www.google.com/search?q=Ripening+Process&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgCEAM"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=0WCErY3OYng"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.scienceabc.com/nature/bananas-change-colour-upon-ripening.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pekoproduce.com/blogs/produce-nutrition/green-to-yellow-to-spotty-how-do-bananas-ripen"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.quora.com/Why-are-bananas-yellow"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.ck12.org/flexi/physical-science/Light-in-Physics/what-makes-bananas-yellow/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pace.oceansciences.org/color_determination.cgi#:~:text=A%20banana%20appears%20yellow%20to%20the%20human,our%20brain%20recognizes%20as%20a%20%22YELLOW%20BANANA!%22%22"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://pace.oceansciences.org/color_determination.cgi"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -237,12 +212,15 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": [
-        "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com  › answers › comments › why_a... Reddit https://www.reddit.com  › answers › comments › why_a...",
-        "Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana",
-        "Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com  › blog › going-bananas The FruitGuys https://fruitguys.com  › blog › going-bananas",
-        "What color is the healthiest banana?"
-      ],
+      "details": {
+        "items": [
+          "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com  › answers › comments › why_a... Reddit https://www.reddit.com  › answers › comments › why_a...",
+          "Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana",
+          "Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com  › blog › going-bananas The FruitGuys https://fruitguys.com  › blog › going-bananas",
+          "What color is the healthiest banana?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -342,7 +320,8 @@
       "cmpt_rank": 9,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -385,7 +364,7 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 20,

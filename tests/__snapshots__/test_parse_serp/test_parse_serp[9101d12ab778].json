@@ -17,89 +17,62 @@
       "details": {
         "heading": null,
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "Dad Advice From Bo|YouTube • Jul 6, 2023",
-            "title": "",
             "url": "https://www.youtube.com/shorts/bInihYJPtEU"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/selfreliance/comments/iuliat/how_to_change_a_car_tire/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=QjZ5ohr7sGA"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.youtube.com/watch?v=A_SMlicOjxI"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.lesschwab.com/article/tires/how-to-change-a-tire.html"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire#:~:text=Here%20are%20some%20tips%20for%20changing%20a,out%20your%20owner's%20manual%20for%20more%20information."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.truecar.com/blog/change-tire-10-easy-steps/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.pitstoparabia.com/en/news/how-to-change-car-tyres"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -117,14 +90,12 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        {
-          "misc": {},
-          "text": "Rated 4.5 out of 5,",
-          "title": "",
-          "url": ""
-        }
-      ],
+      "details": {
+        "items": [
+          "Rated 4.5 out of 5,"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
@@ -138,14 +109,12 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": [
-        {
-          "misc": {},
-          "text": "Rated 4.7 out of 5,",
-          "title": "",
-          "url": ""
-        }
-      ],
+      "details": {
+        "items": [
+          "Rated 4.7 out of 5,"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -215,12 +184,15 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": [
-        "How to Change a Tire | Change a flat car tire step by step YouTube https://www.youtube.com  · Howdini YouTube https://www.youtube.com  · Howdini",
-        "What is the 3% rule for tires?",
-        "How to Change a Tire - Jack and Jill of All Tires Jack and Jill of All Tires https://jackandjillofalltires.com  › how-to-change-a-tire Jack and Jill of All Tires https://jackandjillofalltires.com  › how-to-change-a-tire",
-        "Which side to unscrew a tire?"
-      ],
+      "details": {
+        "items": [
+          "How to Change a Tire | Change a flat car tire step by step YouTube https://www.youtube.com  · Howdini YouTube https://www.youtube.com  · Howdini",
+          "What is the 3% rule for tires?",
+          "How to Change a Tire - Jack and Jill of All Tires Jack and Jill of All Tires https://jackandjillofalltires.com  › how-to-change-a-tire Jack and Jill of All Tires https://jackandjillofalltires.com  › how-to-change-a-tire",
+          "Which side to unscrew a tire?"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -236,7 +208,8 @@
       "cmpt_rank": 5,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -589,7 +562,8 @@
       "cmpt_rank": 10,
       "details": {
         "duration": null,
-        "source": null
+        "source": null,
+        "type": "video"
       },
       "error": null,
       "section": "main",
@@ -632,7 +606,7 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "footer",
       "serp_rank": 36,

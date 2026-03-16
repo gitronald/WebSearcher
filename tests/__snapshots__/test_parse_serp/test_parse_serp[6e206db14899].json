@@ -17,155 +17,106 @@
       "details": {
         "heading": "Interactive Online Tutorials (No Installation Required) ",
         "img_url": null,
+        "type": "panel",
         "urls": [
           {
-            "misc": {},
             "text": "W3Schools Python Tutorial",
-            "title": "",
             "url": "https://www.w3schools.com/python/"
           },
           {
-            "misc": {},
             "text": "LearnPython.org",
-            "title": "",
             "url": "https://www.learnpython.org/"
           },
           {
-            "misc": {},
             "text": "futurecoder",
-            "title": "",
             "url": "https://futurecoder.io/"
           },
           {
-            "misc": {},
             "text": "Official Python Beginner's Guide",
-            "title": "",
             "url": "https://wiki.python.org/moin/BeginnersGuide"
           },
           {
-            "misc": {},
             "text": "python.org downloads page",
-            "title": "",
             "url": "https://www.python.org/downloads/"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.w3schools.com/python/#:~:text=Module%20Reference,What%20is%20this?"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.forbes.com/advisor/education/it-and-tech/how-to-learn-python/#:~:text=Users%20can%20find%20stand%2Dalone,lessons%20at%20your%20own%20speed."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/#:~:text=Best%20resources%20to%20study%20Python,hattorihanzo14"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wiki.python.org/moin/BeginnersGuide#:~:text=Getting%20Python,list%20of%20Non%2DEnglish%20resources."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/learnpython/comments/1ilgq0w/best_beginners_course_for_learning_python_in_2025/#:~:text=Comments%20Section,OP%20%E2%80%A2%201y%20ago"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/learnpython/comments/1e4pvji/interactive_free_websites_to_learn_python/#:~:text=Freecodecamp%20have%20a%20huge%20youtube,Python%20syntax%20one%20(W3schools?)"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/learnpython/comments/10rlgnu/recommended_free_online_python_courses/#:~:text=Exercises:,Codingame%2C%20Codecombat%20%E2%80%94%20gaming%20based%20challenges"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.learnpython.org/#:~:text=Learn%20Python%20%2D%20Free%20Interactive%20Python,Printing%20on%20screen"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://futurecoder.io/#:~:text=About.%20futurecoder%20is%20a%20free%20and%20open%2Dsource,beginners%20to%20teach%20themselves%20programming%20in%20Python."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.reddit.com/r/learnpython/comments/18l6y75/how_to_start_python_for_a_complete_noob/#:~:text=The%20key%20is%20to%20stay,online%20or%20create%20your%20own."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.python.org/about/gettingstarted/#:~:text=Installing%20Python%20is%20generally%20easy,dry)%20explanation%20of%20Python's%20syntax."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.coursereport.com/blog/the-best-python-tutorial-for-beginners-top-10-list"
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.ko2.co.uk/c-plus-plus-vs-python/#:~:text=Python's%20syntax%20is%20a%20lot,to%20get%20to%20grips%20with."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://wiki.python.org/moin/BeginnersGuide/NonProgrammers#:~:text=Tutorials%20and%20Websites&text=Afternerd%2C%20by%20Karim%20Elghamrawy%2C%20is,/server%20introduction%2C%20with%20videos.&text=Letsfindcourse%20%2D%20Python:%20Best%20Python%20tutorials%20and%20courses%20recommended%20by%20experts.&text=Learn%20Python%20An%20Introductory%20yet,Questions%20and%20Answers%20with%20Examples."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://careerkarma.com/blog/how-to-learn-python/#:~:text=No%2C%20it%20(%20Python%20programming%20language%20),for%20learning%20Python%20programming%2C%20even%20for%20free."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://kinsta.com/blog/python-tutorials/#:~:text=In%20addition%2C%20you%20can%20use%20their%20(,by%20yourself%20and%20then%20view%20the%20results."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://realpython.com/python-idle/#:~:text=Python%20IDLE%20is%20Python's%20default%20integrated%20development,to%20write%2C%20edit%2C%20and%20execute%20Python%20code."
           },
           {
-            "misc": {},
             "text": "",
-            "title": "",
             "url": "https://www.facebook.com/groups/selftaughtprogrammers/posts/919833915047010/"
           },
           {
-            "misc": {},
             "text": "Learn more",
-            "title": "",
             "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
           },
           {
-            "misc": {},
             "text": "Privacy Policy",
-            "title": "",
             "url": "https://policies.google.com/privacy?hl=en"
           }
         ]
@@ -519,7 +470,7 @@
     {
       "cite": "https://www.pythoninstitute.org",
       "cmpt_rank": 11,
-      "details": [],
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -533,14 +484,17 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": [
-        "Python",
-        "JavaScript",
-        "Computer programming",
-        "Java",
-        "C++",
-        "PHP"
-      ],
+      "details": {
+        "items": [
+          "Python",
+          "JavaScript",
+          "Computer programming",
+          "Java",
+          "C++",
+          "PHP"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 26,

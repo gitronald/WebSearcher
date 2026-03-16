@@ -1,93 +1,98 @@
-from ..webutils import find_all_divs, find_children, get_text, get_text_by_selectors, get_link
+from ..utils import (
+    find_all_divs,
+    find_children,
+    get_link,
+    get_text,
+    get_text_by_selectors,
+)
 
 TITLE_SELECTORS = [
-    ('div', {'class': 'n0jPhd'}),   # Top Stories
-    ('div', {'class': 'eAaXgc'}),   # Perspectives
+    ("div", {"class": "n0jPhd"}),  # Top Stories
+    ("div", {"class": "eAaXgc"}),  # Perspectives
 ]
 
 
-def parse_top_stories(cmpt, ctype='top_stories') -> list:
+def parse_top_stories(cmpt, ctype="top_stories") -> list:
     """Parse a "Top Stories" component
 
     These components contain links to news articles and often feature an image.
     Sometimes the subcomponents are stacked vertically, and sometimes they are
-    stacked horizontally and feature a larger image, resembling the video 
+    stacked horizontally and feature a larger image, resembling the video
     component.
-    
+
     Args:
         cmpt (bs4 object): A "Top Stories" component
-    
+
     Returns:
         list : list of parsed subcomponent dictionaries
     """
-    
+
     # Known div structures
     divs = []
-    divs.extend(find_all_divs(cmpt, 'g-inner-card'))              # Top Stories  
-    divs.extend(find_children(cmpt, 'div', {'class': 'qmv19b'}))  # Top Stories
-    divs.extend(find_all_divs(cmpt, 'div', {'class': 'IJl0Z'}))   # Top Stories  
-    divs.extend(find_all_divs(cmpt, 'div', {'class': 'JJZKK'}))   # Perspectives
+    divs.extend(find_all_divs(cmpt, "g-inner-card"))  # Top Stories
+    divs.extend(find_children(cmpt, "div", {"class": "qmv19b"}))  # Top Stories
+    divs.extend(find_all_divs(cmpt, "div", {"class": "IJl0Z"}))  # Top Stories
+    divs.extend(find_all_divs(cmpt, "div", {"class": "JJZKK"}))  # Perspectives
 
     if not divs:
         # This will double count if divs already found above
-        link_divs = find_all_divs(cmpt, 'a', {'class': 'WlydOe'}) # Top Stories - Vertical
-        divs.extend([div.parent for div in link_divs])  
+        link_divs = find_all_divs(cmpt, "a", {"class": "WlydOe"})  # Top Stories - Vertical
+        divs.extend([div.parent for div in link_divs])
 
     divs = list(filter(None, divs))
 
     if divs:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
     else:
-        return [{'type': ctype, 'sub_rank': 0, 'error': 'No subcomponents found'}]
+        return [{"type": ctype, "sub_rank": 0, "error": "No subcomponents found"}]
 
 
 def parse_top_story(sub, ctype, sub_rank=0) -> dict:
     """Parse "Top Stories" component"""
     parsed = {
-        'type': ctype,
-        'sub_rank': sub_rank,
-        'title': get_text_by_selectors(sub, TITLE_SELECTORS),
-        'url': get_link(sub, key='href'),
-        'text': get_text(sub, "div", {'class': "GI74Re"}),
-        'cite': get_cite(sub)
+        "type": ctype,
+        "sub_rank": sub_rank,
+        "title": get_text_by_selectors(sub, TITLE_SELECTORS),
+        "url": get_link(sub, key="href"),
+        "text": get_text(sub, "div", {"class": "GI74Re"}),
+        "cite": get_cite(sub),
     }
     return parsed
 
 
-
 def get_cite(sub):
 
-    div_cite = sub.find("div", {'class': 'Dx69l'})
-    img_cite = sub.find('g-img', {'class': 'sL0zmc'})
-    span_cite = sub.find('g-img', {'class': 'QyR1Ze'})
-    
+    div_cite = sub.find("div", {"class": "Dx69l"})
+    img_cite = sub.find("g-img", {"class": "sL0zmc"})
+    span_cite = sub.find("g-img", {"class": "QyR1Ze"})
+
     if div_cite:
         # Perspectives
-        cite = get_text(sub, 'div', {'class': 'Dx69l'})
+        cite = get_text(sub, "div", {"class": "Dx69l"})
 
     elif img_cite:
         # Top Stories (image cite, get "alt" image text)
-        img = img_cite.find('img')
-        if img and 'alt' in img.attrs:
-            cite = img.attrs['alt']
+        img = img_cite.find("img")
+        if img and "alt" in img.attrs:
+            cite = img.attrs["alt"]
     elif span_cite:
-        cite = get_text(sub, 'span')  
+        cite = get_text(sub, "span")
     else:
-        cite = get_text(sub, 'cite')
+        cite = get_text(sub, "cite")
     return cite
 
 
 def get_top_story_details(sub):
     # Extract component specific details
     details = {}
-    details['img_url'] = get_img_url(sub)
-    details['orient'] = 'v' if sub.find('span', {'class':'uaCsqe'}) else 'h'
-    details['live_stamp'] = True if sub.find('span', {'class':'EugGe'}) else False
+    details["img_url"] = get_img_url(sub)
+    details["orient"] = "v" if sub.find("span", {"class": "uaCsqe"}) else "h"
+    details["live_stamp"] = True if sub.find("span", {"class": "EugGe"}) else False
     return details
 
 
 def get_img_url(soup):
-    """Extract image source"""    
-    img = soup.find('img')
-    if img and 'data-src' in img.attrs:
-        return img.attrs['data-src']
+    """Extract image source"""
+    img = soup.find("img")
+    if img and "data-src" in img.attrs:
+        return img.attrs["data-src"]
