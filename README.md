@@ -26,44 +26,20 @@ and position-based specifications.
 ---
 ## Recent Updates
 
-### 0.6.10 (dev)
+### 0.7.0 (dev)
 
+- **Breaking:** `details` field is now always `dict | None` with a self-describing `type` key (e.g. `{"type": "menu", "items": [...]}`)
 - **Breaking:** `parse_serp()` now always returns a dict with `results` and `features` keys; the `extract_features` parameter has been removed
+- Standardized all models on Pydantic BaseModel (removed dataclasses)
+- Added `ResponseOutput` and `ParsedSERP` typed models
+- Removed `DetailsItem`, `DetailsList` classes
+- Normalized `local_results` sub_type for location-specific headers
 - Replaced `os` with `pathlib.Path` throughout
 - Consolidated `webutils.py` into `utils.py`
 - Added ruff formatting, linting, and pre-commit hooks
 - Added test coverage reporting (69%)
 - Added unit tests for utils, locations, models, and feature extractor
 - Replaced pandas with polars in demo scripts
-
-### 0.6.9
-
-- Fixed bugs in component parsers (class comparison, assignment operator, set literal)
-- Fixed `return` in `finally` block in requests searcher
-- Added captcha detection to feature extractor
-- Added captcha handling and jittered delay to demo searches
-- Dropped pandas from core dependencies
-- Cleaned up legacy typing imports
-- Removed poetry.toml
-
-### 0.6.8
-
-- Migrated from Poetry to uv for dependency management
-- Added Python 3.12-3.14 test matrix in GitHub Actions
-- Added `flights` classifier and `standard-4` layout
-- Added local service ad parser
-- Extracted bottom ads before main column
-- Fixed `return` in `finally` block warning in selenium searcher
-
-### 0.6.7
-
-- Added `get_text_by_selectors()` to `webutils` -- centralizes multi-selector fallback pattern across 7 component parsers
-- Added `perspectives`, `recent_posts`, and `latest_from` component classifiers
-- Added `sub_type` to perspectives parser from header text
-- Added CI test workflow on push to dev branch
-- Added compressed test fixtures with `condense_fixtures.py` script
-- Updated dependency lower bounds for security patches (protobuf, orjson)
-- Updated GitHub Actions to checkout v6 and setup-python v6
 
 ---
 ## Getting Started
@@ -142,7 +118,7 @@ Example search and parse pipeline (via requests):
 import WebSearcher as ws
 se = ws.SearchEngine()                     # 1. Initialize collector
 se.search('immigration news')              # 2. Conduct a search
-se.parse_results()                         # 3. Parse search results
+se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
 se.save_results(append_to='results.json')  # 5. Save parsed results
 
@@ -181,7 +157,7 @@ See `ws.parse_serp(html)` for parsing existing HTML data.
 se.parse_serp()
 
 # Show first result
-se.parsed["results"][0]
+se.parsed.results[0]
 {'section': 'main',
  'cmpt_rank': 0,
  'sub_rank': 0,
@@ -298,10 +274,34 @@ To release a new version:
 ---
 ## Update Log
 
+`0.7.0`
+- Standardize data models on Pydantic, typed details field, remove DetailsItem/DetailsList
+
+`0.6.9`
+- Fixed bugs in component parsers (class comparison, assignment operator, set literal)
+- Fixed `return` in `finally` block in requests searcher
+- Added captcha detection to feature extractor
+- Added captcha handling and jittered delay to demo searches
+- Dropped pandas from core dependencies
+- Cleaned up legacy typing imports
+- Removed poetry.toml
+
+`0.6.8`
+- Migrated from Poetry to uv for dependency management
+- Added Python 3.12-3.14 test matrix in GitHub Actions
+- Added `flights` classifier and `standard-4` layout
+- Added local service ad parser
+- Extracted bottom ads before main column
+- Fixed `return` in `finally` block warning in selenium searcher
+
 `0.6.7`
-- Add `get_text_by_selectors()` utility, CI test workflow, compressed test fixtures
-- Add `perspectives`, `recent_posts`, `latest_from` classifiers and `sub_type` for perspectives
-- Update dependency bounds for security patches, GitHub Actions to v6
+- Added `get_text_by_selectors()` to `webutils` -- centralizes multi-selector fallback pattern across 7 component parsers
+- Added `perspectives`, `recent_posts`, and `latest_from` component classifiers
+- Added `sub_type` to perspectives parser from header text
+- Added CI test workflow on push to dev branch
+- Added compressed test fixtures with `condense_fixtures.py` script
+- Updated dependency lower bounds for security patches (protobuf, orjson)
+- Updated GitHub Actions to checkout v6 and setup-python v6
 
 `0.6.6`
 - Update packages with dependabot alerts (brotli, urllib3)
