@@ -28,7 +28,7 @@ class LogConfig(BaseConfig):
 
 class SeleniumConfig(BaseConfig):
     headless: bool = False
-    version_main: int = 144
+    version_main: int | None = None
     use_subprocess: bool = False
     driver_executable_path: str = ""
 

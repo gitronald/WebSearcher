@@ -74,7 +74,7 @@ def test_search_method_invalid_type():
 def test_selenium_config_defaults():
     cfg = SeleniumConfig()
     assert cfg.headless is False
-    assert cfg.version_main == 144
+    assert cfg.version_main is None
     assert cfg.use_subprocess is False
 
 
