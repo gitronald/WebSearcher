@@ -10,6 +10,9 @@ class ResponseOutput(BaseModel):
     response_code: int = 0
     timestamp: str = ""
 
+    def __getitem__(self, key: str):
+        return getattr(self, key)
+
 
 class ParsedSERP(BaseModel):
     """Parsed output from a SERP."""
