@@ -79,7 +79,7 @@ class SearchMethod(Enum):
 
 
 class SearchConfig(BaseConfig):
-    method: str | SearchMethod = SearchMethod.SELENIUM
+    method: SearchMethod = SearchMethod.SELENIUM
     log: LogConfig = Field(default_factory=LogConfig)
     selenium: SeleniumConfig = Field(default_factory=SeleniumConfig)
     requests: RequestsConfig = Field(default_factory=RequestsConfig)
