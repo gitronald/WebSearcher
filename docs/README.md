@@ -6,7 +6,7 @@
 |------|-------|--------|--------|---------|-----------|----|
 | 016 | [Standardize Data Models](plans/016-standardize-data-models.md) | done | dev | 2026-03-15 | 2026-03-15 | [#100](https://github.com/gitronald/WebSearcher/pull/100) |
 | 015 | [JS-Driven URL Collection](plans/015-js-driven-urls.md) | done |  | 2026-02-22 |  |  |
-| 014 | [Plan: Tidy up and bump to 0.6.9](plans/014-bump-0.6.9.md) | done | dev | 2026-02-22 | 2026-02-22 | [#97](https://github.com/gitronald/WebSearcher/pull/97) |
+| 014 | [Tidy up and bump to 0.6.9](plans/014-bump-0.6.9.md) | done | dev | 2026-02-22 | 2026-02-22 | [#97](https://github.com/gitronald/WebSearcher/pull/97) |
 | 013 | [DOM Position Reorder](plans/013-dom-position-reorder.md) | done | update/extractor-position-tracking | 2026-02-22 | 2026-02-20 | [#95](https://github.com/gitronald/WebSearcher/pull/95) |
 | 012 | [Parsing Diagnostics](plans/012-parsing-diagnostics.md) | done | update/extractor-position-tracking | 2026-02-22 | 2026-02-06 | [#95](https://github.com/gitronald/WebSearcher/pull/95) |
 | 011 | [Structured Data Sources in Google SERP HTML](plans/011-structured-data-in-html.md) | done |  | 2026-02-22 |  |  |
