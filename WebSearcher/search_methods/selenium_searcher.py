@@ -27,8 +27,13 @@ class SeleniumDriver:
         """
         self.config = config
         self.log = logger
-        self.driver = None
-        self.browser_info = {}
+        self.driver: uc.Chrome | None = None
+        self.browser_info: dict[str, str] = {}
+
+    def _require_driver(self) -> uc.Chrome:
+        if self.driver is None:
+            raise RuntimeError("Selenium driver not initialized; call init_driver() first")
+        return self.driver
 
     def init_driver(self) -> None:
         """Initialize Chrome driver with selenium-specific config"""
@@ -52,10 +57,11 @@ class SeleniumDriver:
 
     def send_typed_query(self, query: str):
         """Send a typed query to the search box"""
+        driver = self._require_driver()
         time.sleep(2)
-        self.driver.get("https://www.google.com")
+        driver.get("https://www.google.com")
         time.sleep(2)
-        search_box = self.driver.find_element(By.ID, "APjFqb")
+        search_box = driver.find_element(By.ID, "APjFqb")
         search_box.clear()
         search_box.send_keys(query)
         search_box.send_keys(Keys.RETURN)
@@ -70,12 +76,13 @@ class SeleniumDriver:
         )
 
         try:
-            self.driver.get(search_params.url)
+            driver = self._require_driver()
+            driver.get(search_params.url)
             time.sleep(2)
-            WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((By.ID, "search")))
+            WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "search")))
             time.sleep(2)
-            response_output.html = self.driver.page_source
-            response_output.url = self.driver.current_url
+            response_output.html = driver.page_source
+            response_output.url = driver.current_url
             response_output.response_code = 200
 
             # Expand AI overview if requested
@@ -95,25 +102,26 @@ class SeleniumDriver:
 
     def expand_ai_overview(self):
         """Expand AI overview box by clicking it"""
+        driver = self._require_driver()
         show_more_button_xpath = "//div[@jsname='rPRdsc' and @role='button']"
         show_all_button_xpath = '//div[contains(@class, "trEk7e") and @role="button"]'
 
         try:
-            self.driver.find_element(By.XPATH, show_more_button_xpath)
+            driver.find_element(By.XPATH, show_more_button_xpath)
             show_more_button_exists = True
         except NoSuchElementException:
             show_more_button_exists = False
 
         if show_more_button_exists:
             try:
-                show_more_button = WebDriverWait(self.driver, 1).until(
+                show_more_button = WebDriverWait(driver, 1).until(
                     EC.element_to_be_clickable((By.XPATH, show_more_button_xpath))
                 )
                 if show_more_button is not None:
                     show_more_button.click()
                     try:
                         time.sleep(2)  # Wait for additional content to load
-                        show_all_button = WebDriverWait(self.driver, 1).until(
+                        show_all_button = WebDriverWait(driver, 1).until(
                             EC.element_to_be_clickable((By.XPATH, show_all_button_xpath))
                         )
                         show_all_button.click()
@@ -121,7 +129,7 @@ class SeleniumDriver:
                         pass
 
                     # Return expanded content
-                    return self.driver.page_source
+                    return driver.page_source
 
             except Exception:
                 pass
@@ -150,13 +158,14 @@ class SeleniumDriver:
 
     def close_all_windows(self):
         try:
+            driver = self._require_driver()
             # Close all tabs/windows
-            original_handle = self.driver.current_window_handle
-            for handle in self.driver.window_handles:
-                self.driver.switch_to.window(handle)
-                self.driver.close()
-            self.driver.switch_to.window(original_handle)
-            self.driver.close()
+            original_handle = driver.current_window_handle
+            for handle in driver.window_handles:
+                driver.switch_to.window(handle)
+                driver.close()
+            driver.switch_to.window(original_handle)
+            driver.close()
         except Exception:
             pass
 

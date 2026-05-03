@@ -1,8 +1,9 @@
-import subprocess
 from enum import Enum
 
 import requests
 from pydantic import BaseModel, Field, computed_field
+
+from ..utils import SSH
 
 
 class BaseConfig(BaseModel):
@@ -45,10 +46,11 @@ class RequestsConfig(BaseConfig):
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/118.0",
         }
     )
-    ssh_tunnel: subprocess.Popen | None = None
+    ssh_tunnel: SSH | None = None
     unzip: bool = True
 
     @computed_field
+    @property
     def sesh(self) -> requests.Session:
         """Create and configure a requests session with the current headers."""
         sesh = requests.Session()

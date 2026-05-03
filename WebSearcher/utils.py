@@ -60,7 +60,8 @@ def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
 
 
 def get_between_parentheses(s, regex=r"\((.*?)\)"):
-    return re.search(regex, s).group(1)
+    match = re.search(regex, s)
+    return match.group(1) if match else ""
 
 
 # Hashing ----------------------------------------------------------------------
@@ -102,7 +103,7 @@ def get_div(
     """Utility for `soup.find(name)` with null attrs handling"""
     if not soup:
         return None
-    return soup.find(name, attrs) if attrs else soup.find(name)
+    return soup.find(name, attrs=dict(attrs)) if attrs else soup.find(name)
 
 
 def get_text(
@@ -127,7 +128,10 @@ def get_link(
 ) -> str | None:
     """Utility for `soup.find('a')['href']` with null key handling"""
     link = get_div(soup, "a", attrs)
-    return link.attrs.get(key, None) if link else None
+    if not isinstance(link, Tag):
+        return None
+    value = link.attrs.get(key, None)
+    return str(value) if value is not None else None
 
 
 def get_link_list(
@@ -138,7 +142,13 @@ def get_link_list(
 ) -> list[str] | None:
     """Utility for `soup.find_all('a')['href']` with null key handling"""
     links = find_all_divs(soup, "a", attrs, filter_empty)
-    return [link.attrs.get(key, None) for link in links] if links else None
+    if not links:
+        return None
+    return [
+        str(link.attrs.get(key, ""))
+        for link in links
+        if isinstance(link, Tag) and link.attrs.get(key)
+    ]
 
 
 def get_text_by_selectors(
@@ -183,7 +193,7 @@ def find_all_divs(
 ) -> list[SoupElement]:
     if not soup:
         return []
-    divs = soup.find_all(name, attrs) if attrs else soup.find_all(name)
+    divs = soup.find_all(name, attrs=dict(attrs)) if attrs else soup.find_all(name)
     divs = filter_empty_divs(divs) if filter_empty else divs
     return list(divs)
 
@@ -207,9 +217,12 @@ def find_children(
 ) -> Iterable[SoupElement]:
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    divs = div.children if div else []
-    divs = filter_empty_divs(divs) if filter_empty else divs
-    return divs
+    children: list[SoupElement] = (
+        [c for c in div.children if isinstance(c, BeautifulSoup | Tag | NavigableString)]
+        if isinstance(div, Tag)
+        else []
+    )
+    return filter_empty_divs(children) if filter_empty else children
 
 
 # URLs -------------------------------------------------------------------------

@@ -3,7 +3,6 @@
 import hashlib
 from pathlib import Path
 
-import pytest
 from bs4 import BeautifulSoup
 
 from WebSearcher import utils
@@ -32,8 +31,7 @@ def test_get_between_parentheses_first_match():
 
 
 def test_get_between_parentheses_no_match():
-    with pytest.raises(AttributeError):
-        utils.get_between_parentheses("no parens here")
+    assert utils.get_between_parentheses("no parens here") == ""
 
 
 # check_dict_value -------------------------------------------------------------

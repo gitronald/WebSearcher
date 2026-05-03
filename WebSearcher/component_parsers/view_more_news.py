@@ -11,10 +11,12 @@ def parse_view_more_news(cmpt) -> list:
         list : list of parsed subcomponent dictionaries
     """
 
-    if cmpt.find("div", {"class": "qmv19b"}):
-        subs = cmpt.find("div", {"class": "qmv19b"}).children
-    elif cmpt.find("g-scrolling-carousel"):
-        subs = cmpt.find("g-scrolling-carousel").find_all("g-inner-card")
+    container = cmpt.find("div", {"class": "qmv19b"})
+    if container:
+        subs = list(container.children)
+    else:
+        carousel = cmpt.find("g-scrolling-carousel")
+        subs = carousel.find_all("g-inner-card") if carousel else []
     return [parse_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 

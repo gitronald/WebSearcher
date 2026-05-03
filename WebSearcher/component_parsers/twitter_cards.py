@@ -1,3 +1,5 @@
+from typing import Any
+
 from .. import utils
 
 
@@ -25,7 +27,7 @@ def parse_twitter_cards(cmpt) -> list:
 
 def parse_twitter_header(cmpt, sub_rank: int = 0) -> dict:
     """Parse a Twitter header from the main component"""
-    parsed = {"type": "twitter_cards", "sub_type": "header", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "header", "sub_rank": sub_rank}
     element_current = cmpt.find("g-link")
     element_legacy = cmpt.find("h3", {"class": "r"})
     if cmpt.find("h3"):
@@ -33,7 +35,8 @@ def parse_twitter_header(cmpt, sub_rank: int = 0) -> dict:
             parsed["url"] = utils.url_unquote(element_legacy.get("href", ""))
             parsed["title"] = utils.get_text(element_legacy, "a")
         elif element_current:
-            parsed["url"] = utils.url_unquote(utils.get_link(element_current))
+            link = utils.get_link(element_current)
+            parsed["url"] = utils.url_unquote(link) if link else None
             parsed["title"] = utils.get_text(element_current)
     elif element_current:
         parsed["url"] = utils.get_link(element_current)
@@ -45,7 +48,7 @@ def parse_twitter_header(cmpt, sub_rank: int = 0) -> dict:
 
 def parse_twitter_card(sub, sub_rank: int = 0) -> dict:
     """Parse a Twitter card from a subcomponent"""
-    parsed = {"type": "twitter_cards", "sub_type": "card", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "card", "sub_rank": sub_rank}
 
     # Tweet account
     title = sub.find("g-link")

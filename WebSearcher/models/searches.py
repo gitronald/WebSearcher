@@ -20,9 +20,10 @@ class SearchParams(BaseConfig):
     headers: dict[str, str] = Field(default_factory=dict, description="Custom headers")
 
     @computed_field
+    @property
     def url_params(self) -> dict[str, Any]:
         """Generates a dictionary of URL parameters based on the search parameters"""
-        params = {"q": utils.encode_param_value(self.qry)}
+        params: dict[str, Any] = {"q": utils.encode_param_value(self.qry)}
         opt_params = {
             "num": self.num_results,
             "hl": self.lang,
@@ -33,11 +34,13 @@ class SearchParams(BaseConfig):
         return params
 
     @computed_field
+    @property
     def url(self) -> str:
         """Returns the fully formed search URL with all parameters"""
         return f"{self.base_url}?{utils.join_url_quote(self.url_params)}"
 
     @computed_field
+    @property
     def serp_id(self) -> str:
         return hash_id(f"{self.qry}{self.loc}{datetime.now().isoformat()}")
 

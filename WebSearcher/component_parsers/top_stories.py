@@ -66,6 +66,7 @@ def get_cite(sub):
     img_cite = sub.find("g-img", {"class": "sL0zmc"})
     span_cite = sub.find("g-img", {"class": "QyR1Ze"})
 
+    cite: str | None = None
     if div_cite:
         # Perspectives
         cite = get_text(sub, "div", {"class": "Dx69l"})

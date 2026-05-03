@@ -20,6 +20,8 @@ class ExtractorFooter:
             footer_component_divs = utils.find_all_divs(self.soup, "div", {"id": ["bres", "brs"]})
             if footer_component_divs:
                 for footer_component_div in footer_component_divs:
+                    if not isinstance(footer_component_div, bs4.element.Tag):
+                        continue
                     expanded_divs = utils.find_all_divs(
                         footer_component_div, "div", {"class": "MjjYud"}
                     )

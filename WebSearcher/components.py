@@ -108,6 +108,7 @@ class Component:
         self.add_parsed_result_list(parsed_list)
 
     def create_parsed_list_error(self, error_msg: str, is_exception: bool = False) -> list:
+        error_traceback = ""
         if is_exception:
             log.exception(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
             error_traceback = traceback.format_exc()

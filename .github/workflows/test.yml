@@ -22,4 +22,5 @@ jobs:
       - run: uv sync --all-groups --python ${{ matrix.python-version }}
       - run: uv run ruff check .
       - run: uv run ruff format --check .
+      - run: uv run pyrefly check
       - run: uv run pytest --cov --cov-report=term-missing

@@ -1,3 +1,5 @@
+from typing import Any
+
 import bs4
 
 from .. import utils
@@ -12,7 +14,7 @@ _CITE_SELECTORS = [
     ("div", {"class": "VZGVuc"}),
 ]
 
-_SUB_SELECTORS = [
+_SUB_SELECTORS: list[tuple[str, dict[str, Any]]] = [
     ("div", {"class": "LJ7wUe"}),
     ("div", {"class": "JlqpRe"}),
     ("div", {"class": "EDblX"}),
@@ -22,7 +24,7 @@ _SUB_SELECTORS = [
 def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
     """Parse a 'Discussions and forums' component"""
     for tag, attrs in _SUB_SELECTORS:
-        subs = cmpt.find_all(tag, attrs)
+        subs = cmpt.find_all(tag, attrs=attrs)
         if subs:
             return [parse_item(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     return []
