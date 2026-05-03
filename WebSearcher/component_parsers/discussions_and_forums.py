@@ -1,3 +1,9 @@
+"""Parse a "Discussions and forums" component.
+
+A list of forum/discussion threads (Reddit, Stack Overflow, etc.) with title,
+source, and link. Each row has multiple known card layouts.
+"""
+
 import bs4
 
 from .. import utils
@@ -21,7 +27,6 @@ _SUB_SELECTORS: list[Selector] = [
 
 
 def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
-    """Parse a 'Discussions and forums' component"""
     for sel in _SUB_SELECTORS:
         subs = cmpt.find_all(sel.name, attrs=sel.attrs)
         if subs:
@@ -30,7 +35,6 @@ def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
-    """Parse a 'Discussions and forums' subcomponent"""
     return {
         "type": "discussions_and_forums",
         "sub_type": None,
@@ -41,21 +45,19 @@ def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def get_title(sub):
-    """Get title from selectors or heading div"""
+def get_title(sub: bs4.element.Tag) -> str | None:
     title = utils.get_text_by_selectors(sub, _TITLE_SELECTORS)
     if not title:
         title = utils.get_text(sub, "div", {"role": "heading"})
     return title
 
 
-def get_cite(sub):
-    """Get cite from selectors"""
+def get_cite(sub: bs4.element.Tag) -> str | None:
     return utils.get_text_by_selectors(sub, _CITE_SELECTORS)
 
 
-def get_url(sub):
-    """Get URL from a subcomponent; try multiple, take first non-null"""
+def get_url(sub: bs4.element.Tag) -> str | None:
+    # Try multiple, take first non-null
     url_list = [utils.get_link(sub, {"class": "v4kUNc"}), utils.get_link(sub)]
     url_list = [url for url in url_list if url]
     return url_list[0] if url_list else None

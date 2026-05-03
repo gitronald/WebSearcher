@@ -1,13 +1,8 @@
-"""Parsers for ad components
+"""Parse ad components.
 
-Changelog
----------
-2024-05-08:
-- added new div class for text field
-- added labels (e.g., "Provides abortions") from <span class="mXsQRe">, appended to text field
-
-2025-04-27: added carousel sub_type, global parsed output
-
+Six layouts dispatched by classify_ad_type: legacy text ads, local-service
+profile cards, secondary text ads, shopping ads, standard text ads (with
+optional submenu sitelinks), and the horizontal sponsored carousel.
 """
 
 from typing import Any
@@ -29,7 +24,6 @@ _SUBTYPE_CLASSIFICATIONS: dict[str, Selector] = {
 
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
-    """Classify the type of ad component"""
     for label, sel in _SUBTYPE_CLASSIFICATIONS.items():
         if sel.name and utils.find_all_divs(cmpt, sel.name, sel.attrs):
             return label
@@ -37,8 +31,6 @@ def classify_ad_type(cmpt: bs4.element.Tag) -> str:
 
 
 def parse_ads(cmpt: bs4.element.Tag) -> list:
-    """Parse ads from ad component"""
-
     subtype_parsers = {
         "legacy": parse_ad_legacy,
         "local_service": parse_ad_local_service,
@@ -88,8 +80,7 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
-    """Parse local service ads (gls-profile-entrypoint elements)"""
-
+    # Local-service ads are gls-profile-entrypoint elements
     def _parse_profile(profile: bs4.element.Tag, sub_rank: int) -> dict:
         title = utils.get_text(profile, "span", {"class": "bk5vhd"})
         url = utils.get_link(profile)
@@ -170,11 +161,11 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
-    """Parse shopping ads from component"""
     subs = utils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"})
     parsed_list = []
     for sub in subs:
-        parsed_list.extend(parse_shopping_ads(sub))
+        if isinstance(sub, bs4.element.Tag):
+            parsed_list.extend(parse_shopping_ads(sub))
     return parsed_list
 
 
@@ -182,8 +173,6 @@ def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
-    """Parse standard ads from component"""
-
     def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
@@ -217,8 +206,7 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
-    """Parse menu items for a large ad with additional subresults"""
-
+    # Menu items / sitelinks for a large ad with additional sub-results
     items = []
 
     # Format 1: MhgNwc items with MUxGbd sub-divs
@@ -255,15 +243,12 @@ def parse_ad_carousel(
 ) -> list:
 
     def is_visible_div(sub: bs4.element.Tag) -> bool:
-        """Check if carousel div is visible"""
         return not (sub.has_attr("data-has-shown") and sub["data-has-shown"] == "false")
 
     def is_visible_card(sub: bs4.element.Tag) -> bool:
-        """Check if carousel card is visible"""
         return not (sub.has_attr("data-viewurl") and sub["data-viewurl"])
 
     def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
-        """Parse ad carousel div, seen 2025-02-06"""
         return {
             "type": "ad",
             "sub_type": sub_type,
@@ -275,7 +260,6 @@ def parse_ad_carousel(
         }
 
     def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
-        """Parse ad carousel card, seen 2024-09-21"""
         return {
             "type": "ad",
             "sub_type": sub_type,

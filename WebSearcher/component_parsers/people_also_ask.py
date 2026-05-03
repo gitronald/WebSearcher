@@ -1,3 +1,12 @@
+"""Parse a "People Also Ask" component.
+
+A list of questions whose answers are revealed via expand-on-click. Browser
+automation is required to capture the dropdown content; this parser only
+captures the question text.
+"""
+
+import bs4
+
 from .. import utils
 
 _QUESTION_SELECTORS = [
@@ -9,27 +18,11 @@ _QUESTION_SELECTORS = [
 ]
 
 
-def parse_people_also_ask(cmpt, sub_rank=0) -> list:
-    """Parse a "People Also Ask" component
-
-    These components contain a list of questions, which drop down to reveal
-    summarized information and/or general component results. However, browser
-    automation is required to preserve the information in the dropdown, which
-    only loads after a subcomponent is clicked.
-
-    Args:
-        cmpt (bs4 object): A "People Also Ask" component
-
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
-
-    # questions = cmpt.find_all('g-accordion-expander')
-    # questions = cmpt.find('section').find_all('div', {'class':'yTrXHe'})
+def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     questions = cmpt.find_all("div", {"class": "related-question-pair"})
     parsed_questions = [parse_question(q) for q in questions]
     parsed_questions = list(filter(None, parsed_questions))
-    parsed = {
+    parsed: dict = {
         "type": "people_also_ask",
         "sub_rank": sub_rank,
         "text": "<|>".join(parsed_questions) if parsed_questions else None,
@@ -38,6 +31,5 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
     return [parsed]
 
 
-def parse_question(question):
-    """Parse an individual question in a "People Also Ask" component"""
+def parse_question(question: bs4.element.Tag) -> str | None:
     return utils.get_text_by_selectors(question, _QUESTION_SELECTORS, strip=True)

@@ -1,27 +1,25 @@
+"""Parse the Right-Hand-Side Knowledge Panel.
+
+The wide-format entity panel that appears in the right-hand column. This
+includes the main panel (title, description, image grid, submenu links) and
+zero or more follow-on sections beneath it.
+"""
+
 from typing import Any
 
+import bs4
 
-def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
-    """Parse the Right-Hand-Side Knowledge Panel
 
-    Args:
-        cmpt (bs4 object): a right-hand-side knowledge component
-
-    Returns:
-        list: Return parsed dictionary in a list
-    """
+def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     parsed_list = parse_knowledge_rhs_main(cmpt)
     description = cmpt.find("h2", {"class": "Uo8X3b"})
     if description and description.parent:
-        subs = [s for s in description.parent.next_siblings]
-        parsed_subs = [parse_knowledge_rhs_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-        parsed_list.extend(parsed_subs)
+        tag_subs = [s for s in description.parent.next_siblings if isinstance(s, bs4.element.Tag)]
+        parsed_list.extend(parse_knowledge_rhs_sub(s, i) for i, s in enumerate(tag_subs))
     return parsed_list
 
 
-def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
-    """Parse the Right-Hand-Side Knowledge Panel main component"""
-
+def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
@@ -34,37 +32,46 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
     }
 
     # images
-    if cmpt.find("h3") and cmpt.find("h3").text == "Images":
-        sibling = cmpt.find("h3").next_sibling
-        if sibling:
+    h3 = cmpt.find("h3")
+    if h3 and h3.text == "Images":
+        sibling = h3.next_sibling
+        if isinstance(sibling, bs4.element.Tag):
             imgs = sibling.find_all("a")
             parsed["details"]["img_urls"] = [img["href"] for img in imgs if "href" in img.attrs]
 
     # title, subtitle
-    if cmpt.find("h2", {"data-attrid": "title"}):
-        parsed["title"] = cmpt.find("h2", {"data-attrid": "title"}).text
-    if cmpt.find("div", {"data-attrid": "subtitle"}):
-        parsed["details"]["subtitle"] = cmpt.find("div", {"data-attrid": "subtitle"}).text
+    title = cmpt.find("h2", {"data-attrid": "title"})
+    if title:
+        parsed["title"] = title.text
+    subtitle = cmpt.find("div", {"data-attrid": "subtitle"})
+    if subtitle:
+        parsed["details"]["subtitle"] = subtitle.text
 
-    # description
+    # description (heading-anchored)
     description = cmpt.find("h2", {"class": "Uo8X3b"})
     if description and description.parent:
-        if description.parent.find("span"):
-            parsed["text"] = description.parent.find("span").text
-        if description.parent.find("a") and "href" in description.parent.find("a").attrs:
-            parsed["url"] = description.parent.find("a")["href"]
+        span = description.parent.find("span")
+        if span:
+            parsed["text"] = span.text
+        a = description.parent.find("a")
+        if a and "href" in a.attrs:
+            parsed["url"] = a["href"]
 
+    # description (kno-rdesc)
     description = cmpt.find("div", {"class": "kno-rdesc"})
     if description:
-        parsed["text"] = description.find("span").text
-        if description.find("a") and "href" in description.find("a").attrs:
-            parsed["url"] = description.find("a")["href"]
+        span = description.find("span")
+        parsed["text"] = span.text if span else parsed["text"]
+        a = description.find("a")
+        if a and "href" in a.attrs:
+            parsed["url"] = a["href"]
 
     # submenu
     if description and description.parent:
         alinks = description.parent.find_all("a")
-        if description.parent.previous_sibling:
-            alinks += description.parent.previous_sibling.find_all("a")
+        prev = description.parent.previous_sibling
+        if isinstance(prev, bs4.element.Tag):
+            alinks += prev.find_all("a")
         if len(alinks) > 1:  # 1st match has main description
             urls = []
             for a in alinks[1:]:
@@ -80,10 +87,8 @@ def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
     return [parsed]
 
 
-def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
-    """Parse a Right-Hand-Side Knowledge Panel subcomponent"""
-
-    parsed = {
+def parse_knowledge_rhs_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    parsed: dict = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
         "sub_rank": sub_rank + 1,
@@ -107,5 +112,5 @@ def parse_knowledge_rhs_sub(sub, sub_rank=0) -> dict:
     return parsed
 
 
-def parse_alink(a):
+def parse_alink(a: bs4.element.Tag) -> dict:
     return {"url": a["href"], "text": a.text}

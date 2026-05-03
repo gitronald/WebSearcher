@@ -1,18 +1,16 @@
-def parse_available_on(cmpt, sub_rank=0) -> list:
-    """Parse an available component
+"""Parse an "Available on" component.
 
-    These components contain a carousel of thumbnail images with links to
-    entertainment relevant to query
+A carousel of thumbnail images linking to streaming providers / entertainment
+options relevant to the query.
+"""
 
-    Args:
-        cmpt (bs4 object): An available on component
+import bs4
 
-    Returns:
-        dict : parsed component
-    """
-    parsed = {"type": "available_on", "sub_rank": sub_rank}
 
-    parsed["title"] = cmpt.find("span", {"class": "GzssTd"}).text
+def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
+    title = cmpt.find("span", {"class": "GzssTd"})
+    parsed["title"] = title.text if title else None
 
     items = []
     for o in cmpt.find_all("div", {"class": "kno-fb-ctx"}):
@@ -21,17 +19,12 @@ def parse_available_on(cmpt, sub_rank=0) -> list:
     return [parsed]
 
 
-def parse_available_on_item(sub) -> dict:
-    """Parse an available on item
-
-    Args:
-        sub (bs4 object): An available on option element
-
-    Returns:
-        dict : parsed item with title, url, and cost
-    """
+def parse_available_on_item(sub: bs4.element.Tag) -> dict:
+    title = sub.find("div", {"class": "i3LlFf"})
+    a = sub.find("a")
+    cost = sub.find("div", {"class": "V8xno"})
     return {
-        "title": sub.find("div", {"class": "i3LlFf"}).text,
-        "url": sub.find("a")["href"],
-        "cost": sub.find("div", {"class": "V8xno"}).text,
+        "title": title.text if title else None,
+        "url": a["href"] if a else None,
+        "cost": cost.text if cost else None,
     }

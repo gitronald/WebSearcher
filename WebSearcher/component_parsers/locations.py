@@ -1,11 +1,14 @@
-"""Parser for locations components (hotels, etc.)"""
+"""Parse a locations component.
+
+Currently handles hotel listings: each item is an anchor pointing to a
+/travel/ URL with a name, price, rating, review count, star rating, and
+short description.
+"""
 
 import bs4
 
 
 def parse_locations(cmpt: bs4.element.Tag) -> list:
-    """Parse a locations component (e.g. hotel listings)"""
-
     sub_type = classify_locations_sub_type(cmpt)
     if sub_type == "hotels":
         return parse_hotels(cmpt)
@@ -13,22 +16,19 @@ def parse_locations(cmpt: bs4.element.Tag) -> list:
 
 
 def classify_locations_sub_type(cmpt: bs4.element.Tag) -> str:
-    """Classify the sub-type of a locations component"""
     heading = cmpt.find(attrs={"role": "heading"})
     if heading:
         text = heading.get_text(strip=True)
         if "Hotels" in text or "Hotel" in text:
             return "hotels"
-    # Check for /travel/ links as fallback
+    # Fallback: any /travel/ link present
     if cmpt.find("a", href=lambda h: h and "/travel/" in h):
         return "hotels"
     return "unknown"
 
 
 def parse_hotels(cmpt: bs4.element.Tag) -> list:
-    """Parse hotel items from a locations component"""
-
-    items = []
+    items: list = []
     for a in cmpt.find_all("a", href=True):
         href = a.get("href") or ""
         if "/travel/" not in href:
@@ -51,7 +51,6 @@ def parse_hotels(cmpt: bs4.element.Tag) -> list:
 
 
 def _parse_hotel_item(a: bs4.element.Tag, sub_rank: int) -> dict:
-    """Parse a single hotel item from an anchor tag"""
     name_div = a.find("div", {"class": "sxdlOc"}) or a.find("div", {"class": "BTPx6e"})
     price_span = a.find("span", {"class": "sRlU8b"})
     rating_span = a.find("span", {"class": "yi40Hd"})
@@ -71,9 +70,13 @@ def _parse_hotel_item(a: bs4.element.Tag, sub_rank: int) -> dict:
     }
 
 
-def _parse_hotel_details(price_span, rating_span, reviews_span, stars_span) -> dict | None:
-    """Extract hotel metadata"""
-    details = {}
+def _parse_hotel_details(
+    price_span: bs4.element.Tag | None,
+    rating_span: bs4.element.Tag | None,
+    reviews_span: bs4.element.Tag | None,
+    stars_span: bs4.element.Tag | None,
+) -> dict | None:
+    details: dict = {}
     if price_span:
         details["price"] = price_span.get_text(strip=True)
     if rating_span:

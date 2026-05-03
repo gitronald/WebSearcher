@@ -1,3 +1,12 @@
+"""Parse a "Searches related" component.
+
+A one- or two-column list of related search-query suggestions. Variants
+include the classic suggestion list, curated lists (e.g. song names),
+accordion-style sections, and link rows under "brs_col".
+"""
+
+import bs4
+
 from .. import utils
 
 _HEADER_SELECTORS = [
@@ -6,51 +15,45 @@ _HEADER_SELECTORS = [
 ]
 
 
-def parse_searches_related(cmpt, sub_rank=0) -> list:
-    """Parse a one or two column list of related search queries"""
-
-    parsed = {
+def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {
         "type": "searches_related",
         "sub_rank": sub_rank,
         "title": None,
         "url": None,
     }
 
-    # Set first non-empty header as sub_type (e.g. "Additional searches" -> additional_searches)
+    # First non-empty header becomes the sub_type (e.g. "Additional searches" -> additional_searches)
     header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
     parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
 
-    output_list = []
+    output_list: list[str] = []
 
     # Classic search query suggestions
     subs = utils.find_all_divs(cmpt, "a", {"class": "k8XOCe"})
-    text_list = [sub.text.strip() for sub in subs]
-    output_list.extend(filter(None, text_list))
+    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Curated list (e.g. song names)
     subs = utils.find_all_divs(cmpt, "div", {"class": "EASEnb"})
-    text_list = [sub.text.strip() for sub in subs]
-    output_list.extend(filter(None, text_list))
+    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Other list types
     subs = utils.find_all_divs(cmpt, "div", {"role": "listitem"})
-    text_list = [sub.text.strip() for sub in subs]
-    output_list.extend(filter(None, text_list))
+    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Accordion list
     if cmpt.find("explore-desktop-accordion"):
-        from bs4.element import Tag
-
         subs = utils.find_all_divs(cmpt, "div", {"class": "JXa4nd"})
         text_list = [
-            utils.get_text(sub, "div", {"class": "Cx1ZMc"}) for sub in subs if isinstance(sub, Tag)
+            utils.get_text(sub, "div", {"class": "Cx1ZMc"})
+            for sub in subs
+            if isinstance(sub, bs4.element.Tag)
         ]
         output_list.extend(filter(None, text_list))
 
     if cmpt.find("div", {"class": "brs_col"}):
         subs = utils.find_all_divs(cmpt, "a")
-        link_text = [sub.text.strip() for sub in subs]
-        output_list.extend(filter(None, link_text))
+        output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     parsed["text"] = "<|>".join(output_list)
     parsed["details"] = {"type": "text", "items": output_list} if output_list else None

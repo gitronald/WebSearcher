@@ -1,16 +1,14 @@
-"""Parser for shopping ads components"""
+"""Parse a shopping-ads component.
+
+Two layouts: the standard product-listing-ads grid (pla-unit) and the
+sponsored hotel carousel (role=listitem cards from atvcap). Each card
+captures price, source, rating, review count, stars, and amenity tags.
+"""
+
+import bs4
 
 
-def parse_shopping_ads(cmpt) -> list:
-    """Parse all shopping ads from a shopping ads carousel
-
-    Args:
-        cmpt (bs4 object): a shopping ads component
-
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
-
+def parse_shopping_ads(cmpt: bs4.element.Tag) -> list:
     # Sponsored hotel carousel (atvcap)
     cards = cmpt.find_all(attrs={"role": "listitem"})
     if cards:
@@ -21,11 +19,8 @@ def parse_shopping_ads(cmpt) -> list:
     return [_parse_pla_unit(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def _parse_pla_unit(sub, sub_rank=0) -> dict:
-    """Parse a standard product listing ad"""
-
-    parsed = {"type": "shopping_ads", "sub_rank": sub_rank}
-
+def _parse_pla_unit(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank}
     card = sub.find("a", {"class": "clickable-card"})
     if card:
         parsed["url"] = card["href"]
@@ -33,9 +28,7 @@ def _parse_pla_unit(sub, sub_rank=0) -> dict:
     return parsed
 
 
-def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
-    """Parse a sponsored hotel card from the atvcap carousel"""
-
+def _parse_sponsored_hotel(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     name_div = card.find("div", {"class": "KZYtMc"})
     price_div = card.find("div", {"class": "XO8mWb"})
     source_div = card.find("div", {"class": "sX5I1c"})
@@ -58,7 +51,7 @@ def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
         else:
             rating = rating_text
 
-    details = {"type": "ratings"}
+    details: dict = {"type": "ratings"}
     if price_div:
         details["price"] = price_div.get_text(strip=True)
     if source_div:
@@ -72,12 +65,13 @@ def _parse_sponsored_hotel(card, sub_rank=0) -> dict:
     if amenity:
         details["amenity"] = amenity
 
+    a = card.find("a", href=True)
     return {
         "type": "shopping_ads",
         "sub_type": "hotels",
         "sub_rank": sub_rank,
         "title": name_div.get_text(strip=True) if name_div else None,
-        "url": card.find("a", href=True).get("href") if card.find("a", href=True) else None,
+        "url": a.get("href") if a else None,
         "text": None,
         "cite": None,
         "details": details if details else None,

@@ -1,3 +1,10 @@
+"""Parse a "Map Results" component.
+
+An embedded map result without an associated list of subcomponent results.
+"""
+
+import bs4
+
 from .. import utils
 
 _TITLE_SELECTORS = [
@@ -5,18 +12,7 @@ _TITLE_SELECTORS = [
 ]
 
 
-def parse_map_results(cmpt, sub_rank=0) -> list:
-    """Parse a "Map Results" component
-
-    These components contain an embedded map that is not followed by
-    map results.
-
-    Args:
-        cmpt (bs4 object): A map results component
-
-    Returns:
-        dict : parsed result
-    """
+def parse_map_results(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [
         {
             "type": "map_results",

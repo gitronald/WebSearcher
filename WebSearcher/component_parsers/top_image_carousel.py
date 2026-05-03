@@ -1,17 +1,16 @@
+"""Parse an image carousel that appears at the top of the page above results.
+
+Each item is a thumbnail link; the component itself has a title and points
+at a parent listing.
+"""
+
+import bs4
+
 from .. import utils
 
 
-def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
-    """parse image carousel that appears at top of page above search results
-
-    Args:
-        cmpt (bs4 object): A top_image_carousel component
-
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
-
-    parsed = {"type": "top_image_carousel", "sub_rank": sub_rank}
+def parse_top_image_carousel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {"type": "top_image_carousel", "sub_rank": sub_rank}
 
     title = cmpt.find_all("span", {"class": "Wkr6U"})
     if title:
@@ -20,12 +19,15 @@ def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
 
     images = cmpt.find("div", {"role": "list"})
     if images:
-        alinks = images.children
+        alinks: list = list(images.children)
     else:
-        alinks = cmpt.find("g-scrolling-carousel").find_all("a")
+        carousel = cmpt.find("g-scrolling-carousel")
+        alinks = carousel.find_all("a") if carousel else []
 
     items = []
     for a in alinks:
+        if not isinstance(a, bs4.element.Tag):
+            continue
         if "href" in a.attrs or "data-url" in a.attrs:
             items.append(parse_alink(a))
     parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
@@ -33,6 +35,6 @@ def parse_top_image_carousel(cmpt, sub_rank=0) -> list:
     return [parsed]
 
 
-def parse_alink(a):
+def parse_alink(a: bs4.element.Tag) -> dict:
     url = a.attrs.get("href") or a.attrs.get("data-url", "")
     return {"url": url, "text": a.get_text("|")}

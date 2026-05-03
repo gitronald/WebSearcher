@@ -1,18 +1,28 @@
+"""Parse a query-notice component.
+
+Notices Google adds at the top of results: query edits ("Showing results
+for"), suggestions ("Did you mean"), location prompts ("Choose area" /
+"Use precise location"), and language tips. Each variant is dispatched to
+its own handler based on visible text.
+"""
+
 import copy
 import re
+
+import bs4
 
 from ..utils import get_text
 
 
-def parse_notices(cmpt) -> list:
-    notice_parser = NoticeParser()
-    return notice_parser.parse_notices(cmpt)
+def parse_notices(cmpt: bs4.element.Tag) -> list:
+    return NoticeParser().parse_notices(cmpt)
 
 
 class NoticeParser:
     def __init__(self):
-        self.parsed = {}
+        self.parsed: dict = {}
         self.sub_type = "unknown"
+        self.parsed_list: list = []
         self.sub_type_text = {
             "query_edit": {"Showing results for", "Including results for"},
             "query_edit_no_results": {"No results found for"},
@@ -36,18 +46,14 @@ class NoticeParser:
             "language_tip": self._parse_language_tip,
         }
 
-    def parse_notices(self, cmpt) -> list:
-        """Parse a query notices component"""
-
+    def parse_notices(self, cmpt: bs4.element.Tag) -> list:
         self._classify_sub_type(cmpt)
         self._parse_sub_type(cmpt)
         self._package_parsed()
         return self.parsed_list
 
-    def _classify_sub_type(self, cmpt) -> None:
-        """Classify the sub-type of a query notice component"""
-        cmpt_text = cmpt.text.strip()
-        cmpt_text = re.sub(r"\s+", " ", cmpt_text)
+    def _classify_sub_type(self, cmpt: bs4.element.Tag) -> None:
+        cmpt_text = re.sub(r"\s+", " ", cmpt.text.strip())
 
         for sub_type, text_list in self.sub_type_text.items():
             if sub_type.startswith("location_"):
@@ -63,12 +69,12 @@ class NoticeParser:
                     self.sub_type = sub_type
                     break
 
-    def _parse_sub_type(self, cmpt):
+    def _parse_sub_type(self, cmpt: bs4.element.Tag) -> None:
         sub_parser = self.parser_dict.get(self.sub_type, None)
         if sub_parser:
             self.parsed = sub_parser(cmpt)
 
-    def _package_parsed(self):
+    def _package_parsed(self) -> None:
         self.parsed_list = [
             {
                 "type": "notice",
@@ -79,8 +85,8 @@ class NoticeParser:
             }
         ]
 
-    def _parse_no_results_replacement(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
+    def _parse_no_results_replacement(self, cmpt: bs4.element.Tag) -> dict:
+        output: dict[str, str | None] = {"title": None, "text": None}
 
         cmpt = copy.copy(cmpt)
         div_title = cmpt.find("div", {"role": "heading", "aria-level": "2"})
@@ -94,7 +100,7 @@ class NoticeParser:
 
         return output
 
-    def _parse_query_edit(self, cmpt) -> dict:
+    def _parse_query_edit(self, cmpt: bs4.element.Tag) -> dict:
         output: dict[str, str | None] = {"title": None, "text": None}
         showing_results_span = cmpt.find("span", class_="gL9Hy")
         if showing_results_span:
@@ -102,8 +108,7 @@ class NoticeParser:
 
         modified_query_link = cmpt.find("a", id="fprsl")
         if modified_query_link and output["title"]:
-            modified_query = modified_query_link.text.strip()
-            output["title"] = f"{output['title']} {modified_query}"
+            output["title"] = f"{output['title']} {modified_query_link.text.strip()}"
 
         search_instead_span = cmpt.find("span", class_="spell_orig")
         if search_instead_span:
@@ -111,12 +116,11 @@ class NoticeParser:
 
         original_query_link = cmpt.find("a", class_="spell_orig")
         if original_query_link and output["text"]:
-            original_query = original_query_link.text.strip()
-            output["text"] = f"{output['text']} {original_query}"
+            output["text"] = f"{output['text']} {original_query_link.text.strip()}"
         return output
 
-    def _parse_query_suggestion(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
+    def _parse_query_suggestion(self, cmpt: bs4.element.Tag) -> dict:
+        output: dict[str, str | None] = {"title": None, "text": None}
 
         # check in div and span with same class
         cmpt_checks = {
@@ -134,38 +138,25 @@ class NoticeParser:
 
         return output
 
-    def _parse_location_choose_area(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
+    def _parse_location_choose_area(self, cmpt: bs4.element.Tag) -> dict:
+        return self._parse_location_heading(cmpt)
 
-        # Extract the main heading
+    def _parse_location_use_precise_location(self, cmpt: bs4.element.Tag) -> dict:
+        return self._parse_location_heading(cmpt)
+
+    def _parse_location_heading(self, cmpt: bs4.element.Tag) -> dict:
+        output: dict[str, str | None] = {"title": None, "text": None}
         heading = cmpt.find("div", class_="eKPi4")
         if heading:
             results_for_span = heading.find("span", class_="gm7Ysb")
             location_span = heading.find("span", class_="BBwThe")
-
             if results_for_span and location_span:
                 output["title"] = f"{results_for_span.text.strip()} {location_span.text.strip()}"
-
         return output
 
-    def _parse_location_use_precise_location(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
-
-        # Extract the main heading
-        heading = cmpt.find("div", class_="eKPi4")
-        if heading:
-            results_for_span = heading.find("span", class_="gm7Ysb")
-            location_span = heading.find("span", class_="BBwThe")
-
-            if results_for_span and location_span:
-                output["title"] = f"{results_for_span.text.strip()} {location_span.text.strip()}"
-
-        return output
-
-    def _parse_language_tip(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
+    def _parse_language_tip(self, cmpt: bs4.element.Tag) -> dict:
+        output: dict[str, str | None] = {"title": None, "text": None}
         title_div = cmpt.find("div", class_="Ww4FFb")
         if title_div:
             output["title"] = re.sub(r"\s+", " ", title_div.text)
-
         return output

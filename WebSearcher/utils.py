@@ -218,7 +218,7 @@ def filter_empty_divs(divs: Iterable[SoupElement]) -> list[SoupElement]:
 
 
 def find_children(
-    soup: BeautifulSoup | None,
+    soup: BeautifulSoup | Tag | None,
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = False,

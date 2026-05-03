@@ -1,40 +1,39 @@
-def parse_banner(cmpt) -> list:
-    """Parse a warning banner component
+"""Parse a warning banner component.
 
-    Args:
-        cmpt (bs4 object): A search suggestion component
+A header row plus a list of clickable suggestions Google offers when a query
+is flagged (e.g., misspellings, restricted topics).
+"""
 
-    Returns:
-        list: List of BannerResult objects, with the main component and its subcomponents
-    """
-    parsed_list = []
+import bs4
 
-    # Header subcomponent
-    banner_result_header = {
-        "type": "banner",
-        "sub_type": "header",
-        "sub_rank": 0,
-        "title": _get_result_text(cmpt, ".v3jTId"),
-        "text": _get_result_text(cmpt, ".Cy9gW"),
-    }
-    parsed_list.append(banner_result_header)
 
-    # Suggestion subcomponents
-    for i, suggestion in enumerate(cmpt.select(".TjBpC")):
-        banner_result_suggestion = {
+def parse_banner(cmpt: bs4.element.Tag) -> list:
+    parsed_list: list[dict] = []
+
+    parsed_list.append(
+        {
             "type": "banner",
-            "sub_type": "suggestion",
-            "sub_rank": i + 1,
-            "title": _get_result_text(suggestion, ".AbPV3"),
-            "url": suggestion.get("href"),
+            "sub_type": "header",
+            "sub_rank": 0,
+            "title": _get_result_text(cmpt, ".v3jTId"),
+            "text": _get_result_text(cmpt, ".Cy9gW"),
         }
-        parsed_list.append(banner_result_suggestion)
+    )
+
+    for i, suggestion in enumerate(cmpt.select(".TjBpC")):
+        parsed_list.append(
+            {
+                "type": "banner",
+                "sub_type": "suggestion",
+                "sub_rank": i + 1,
+                "title": _get_result_text(suggestion, ".AbPV3"),
+                "url": suggestion.get("href"),
+            }
+        )
 
     return parsed_list
 
 
-def _get_result_text(cmpt, selector) -> str:
-    if cmpt.select_one(selector):
-        return cmpt.select_one(selector).get_text(strip=True)
-    else:
-        return ""
+def _get_result_text(cmpt: bs4.element.Tag, selector: str) -> str:
+    match = cmpt.select_one(selector)
+    return match.get_text(strip=True) if match else ""
