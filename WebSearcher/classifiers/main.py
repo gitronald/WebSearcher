@@ -180,7 +180,7 @@ class ClassifyMain:
             {"name": "div", "attrs": {"class": "obcontainer"}},
         ]
         cmpt_check = utils.find_by_selectors(cmpt, selectors)
-        attr_check = utils.check_dict_value(cmpt.attrs, "data-hveid", "CAMQAA")
+        attr_check = utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
         if cmpt_check or attr_check:
             return "knowledge"
         return "unknown"
