@@ -15,33 +15,20 @@ import bs4
 from .. import utils
 from .shopping_ads import parse_shopping_ads
 
-SUB_TYPES = [
-    "legacy",
-    "local_service",
-    "secondary",
-    "standard",
-    "shopping",
-    "carousel",
-]
-
-AD_STANDARD_TEXT_SELECTORS = [
-    ("div", {"class": "yDYNvb"}),
-    ("div", {"class": "Va3FIb"}),
-]
+_SUBTYPE_CLASSIFICATIONS = {
+    "legacy": {"name": "div", "attrs": {"class": "ad_cclk"}},
+    "local_service": {"name": "gls-profile-entrypoint"},
+    "secondary": {"name": "div", "attrs": {"class": "d5oMvf"}},
+    "shopping": {"name": "div", "attrs": {"class": "commercial-unit-desktop-top"}},
+    "standard": {"name": "div", "attrs": {"class": "uEierd"}},
+    "carousel": {"name": "g-scrolling-carousel"},
+}
 
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
-    label_divs = {
-        "legacy": utils.find_all_divs(cmpt, "div", {"class": "ad_cclk"}),
-        "local_service": cmpt.find_all("gls-profile-entrypoint"),
-        "secondary": utils.find_all_divs(cmpt, "div", {"class": "d5oMvf"}),
-        "shopping": utils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}),
-        "standard": utils.find_all_divs(cmpt, "div", {"class": "uEierd"}),
-        "carousel": utils.find_all_divs(cmpt, "g-scrolling-carousel"),
-    }
-    for label, divs in label_divs.items():
-        if divs:
+    for label, sel in _SUBTYPE_CLASSIFICATIONS.items():
+        if utils.find_all_divs(cmpt, **sel):
             return label
     return "unknown"
 
@@ -197,7 +184,11 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
-            text = utils.get_text_by_selectors(sub, AD_STANDARD_TEXT_SELECTORS)
+            selectors = [
+                ("div", {"class": "yDYNvb"}),
+                ("div", {"class": "Va3FIb"}),
+            ]
+            text = utils.get_text_by_selectors(sub, selectors)
             label = utils.get_text(sub, "span", {"class": "mXsQRe"})
             return f"{text} <label>{label}</label>" if label else text
 

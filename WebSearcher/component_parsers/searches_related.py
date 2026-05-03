@@ -1,6 +1,6 @@
 from .. import utils
 
-HEADER_SELECTORS = [
+_HEADER_SELECTORS = [
     ("h2", {"role": "heading"}),
     ("div", {"aria-level": "2", "role": "heading"}),
 ]
@@ -17,7 +17,7 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
     }
 
     # Set first non-empty header as sub_type (e.g. "Additional searches" -> additional_searches)
-    header = utils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
+    header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
     parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
 
     output_list = []

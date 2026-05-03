@@ -1,6 +1,6 @@
 from .. import utils
 
-TITLE_SELECTORS = [
+_TITLE_SELECTORS = [
     ("div", {"class": "aiAXrc"}),
 ]
 
@@ -21,6 +21,6 @@ def parse_map_results(cmpt, sub_rank=0) -> list:
         {
             "type": "map_results",
             "sub_rank": sub_rank,
-            "title": utils.get_text_by_selectors(cmpt, TITLE_SELECTORS),
+            "title": utils.get_text_by_selectors(cmpt, _TITLE_SELECTORS),
         }
     ]

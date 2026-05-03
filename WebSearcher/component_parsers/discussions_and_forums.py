@@ -2,17 +2,17 @@ import bs4
 
 from .. import utils
 
-TITLE_SELECTORS = [
+_TITLE_SELECTORS = [
     ("div", {"class": "zNWc4c"}),
     ("div", {"class": "qyp6xb"}),
 ]
 
-CITE_SELECTORS = [
+_CITE_SELECTORS = [
     ("div", {"class": "LbKnXb"}),
     ("div", {"class": "VZGVuc"}),
 ]
 
-SUB_SELECTORS = [
+_SUB_SELECTORS = [
     ("div", {"class": "LJ7wUe"}),
     ("div", {"class": "JlqpRe"}),
     ("div", {"class": "EDblX"}),
@@ -21,7 +21,7 @@ SUB_SELECTORS = [
 
 def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
     """Parse a 'Discussions and forums' component"""
-    for tag, attrs in SUB_SELECTORS:
+    for tag, attrs in _SUB_SELECTORS:
         subs = cmpt.find_all(tag, attrs)
         if subs:
             return [parse_item(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
@@ -42,7 +42,7 @@ def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
 def get_title(sub):
     """Get title from selectors or heading div"""
-    title = utils.get_text_by_selectors(sub, TITLE_SELECTORS)
+    title = utils.get_text_by_selectors(sub, _TITLE_SELECTORS)
     if not title:
         title = utils.get_text(sub, "div", {"role": "heading"})
     return title
@@ -50,7 +50,7 @@ def get_title(sub):
 
 def get_cite(sub):
     """Get cite from selectors"""
-    return utils.get_text_by_selectors(sub, CITE_SELECTORS)
+    return utils.get_text_by_selectors(sub, _CITE_SELECTORS)
 
 
 def get_url(sub):

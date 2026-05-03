@@ -1,6 +1,6 @@
 from .. import utils
 
-HEADER_SELECTORS = [
+_HEADER_SELECTORS = [
     ("h2", {"role": "heading"}),
     ("div", {"aria-level": "2", "role": "heading"}),
 ]
@@ -23,7 +23,7 @@ def parse_local_results(cmpt) -> list:
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
         # Set first non-empty header as sub_type (e.g. "Places" -> places)
-        header = utils.get_text_by_selectors(cmpt, HEADER_SELECTORS)
+        header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
         if header:
             header_lower = header.lower()
             sub_type = (

@@ -6,7 +6,7 @@ from ..utils import (
     get_text_by_selectors,
 )
 
-TITLE_SELECTORS = [
+_TITLE_SELECTORS = [
     ("div", {"class": "n0jPhd"}),  # Top Stories
     ("div", {"class": "eAaXgc"}),  # Perspectives
 ]
@@ -52,7 +52,7 @@ def parse_top_story(sub, ctype, sub_rank=0) -> dict:
     parsed = {
         "type": ctype,
         "sub_rank": sub_rank,
-        "title": get_text_by_selectors(sub, TITLE_SELECTORS),
+        "title": get_text_by_selectors(sub, _TITLE_SELECTORS),
         "url": get_link(sub, key="href"),
         "text": get_text(sub, "div", {"class": "GI74Re"}),
         "cite": get_cite(sub),
