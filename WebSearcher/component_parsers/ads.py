@@ -76,10 +76,9 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
 
     def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> dict | None:
         items = []
-        bottom_text = sub.find("ul")
-        if bottom_text:
-            for li in bottom_text.find_all("li"):
-                items.append(li.get_text(separator=" "))
+        ulist = sub.find("ul")
+        if ulist:
+            items = [li.get_text(separator=" ") for li in ulist.find_all("li")]
         return {"type": "text", "items": items} if items else None
 
     return _parse_ad_legacy(cmpt)
@@ -295,10 +294,11 @@ def parse_ad_carousel(
                         if filter_visible and not is_visible_card(sub):
                             continue
                         output = parse_ad_carousel_card(sub, sub_type, sub_rank)
+                        output_list.append(output)
                     elif ad_carousel_type == "carousel_div":
                         if filter_visible and not is_visible_div(sub):
                             continue
                         output = parse_ad_carousel_div(sub, sub_type, sub_rank)
-                    output_list.append(output)
+                        output_list.append(output)
 
     return output_list
