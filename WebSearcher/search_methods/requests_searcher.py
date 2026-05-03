@@ -1,5 +1,5 @@
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import brotli
 import requests
@@ -46,7 +46,7 @@ class RequestsSearcher:
         response_output = ResponseOutput(
             url=search_params.url,
             user_agent=self.config.headers.get("User-Agent", ""),
-            timestamp=datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+            timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
         try:

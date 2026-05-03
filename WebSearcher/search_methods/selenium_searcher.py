@@ -1,5 +1,5 @@
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import orjson
 import undetected_chromedriver as uc
@@ -66,7 +66,7 @@ class SeleniumDriver:
         response_output = ResponseOutput(
             url=search_params.url,
             user_agent=self.browser_info.get("user_agent", ""),
-            timestamp=datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+            timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
         try:

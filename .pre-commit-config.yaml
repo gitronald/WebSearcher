@@ -5,3 +5,13 @@ repos:
       - id: ruff-format
       - id: ruff
         args: [--fix]
+  # TODO: re-enable once pyrefly errors are addressed
+  # - repo: local
+  #   hooks:
+  #     - id: pyrefly-check
+  #       name: pyrefly check
+  #       entry: uv run pyrefly check
+  #       language: system
+  #       types_or: [python, pyi]
+  #       pass_filenames: false
+  #       require_serial: true
