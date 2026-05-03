@@ -95,17 +95,6 @@ MAIN_RESULT_TYPES = {
         "description": "Quote snippets from news articles",
         "sub_types": [],
     },
-    "notice": {
-        "description": "Special notices about searches",
-        "sub_types": [
-            "query_edit",
-            "query_edit_no_results",
-            "query_suggestion",
-            "location_choose_area",
-            "location_use_precise_location",
-            "language_tip",
-        ],
-    },
     "people_also_ask": {
         "description": "Related questions that people search for",
         "sub_types": [],
