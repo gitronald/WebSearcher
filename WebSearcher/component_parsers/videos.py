@@ -23,17 +23,19 @@ def parse_videos(cmpt) -> list:
     """
 
     # Get known div structures
-    divs = []
-    name_attrs = [
-        ({"name": "g-inner-card"}, "unspecified-0"),
-        ({"name": "div", "attrs": {"class": "VibNM"}}, "unspecified-1"),
-        ({"name": "div", "attrs": {"class": "mLmaBd"}}, "unspecified-2"),
-        ({"name": "div", "attrs": {"class": "RzdJxc"}}, "unspecified-3"),
-        ({"name": "div", "attrs": {"class": "sHEJob"}}, "vertical"),
+    divs: list = []
+    sub_type = "unspecified-0"
+    name_attrs: list[tuple[str, dict | None, str]] = [
+        ("g-inner-card", None, "unspecified-0"),
+        ("div", {"class": "VibNM"}, "unspecified-1"),
+        ("div", {"class": "mLmaBd"}, "unspecified-2"),
+        ("div", {"class": "RzdJxc"}, "unspecified-3"),
+        ("div", {"class": "sHEJob"}, "vertical"),
     ]
-    for kwargs, sub_type in name_attrs:
-        divs = utils.find_all_divs(cmpt, **kwargs)
+    for name, attrs, label in name_attrs:
+        divs = utils.find_all_divs(cmpt, name, attrs)
         if divs:
+            sub_type = label
             break
     divs = list(filter(None, divs))
 

@@ -151,7 +151,7 @@ def parse_subtype_details(sub, parsed) -> dict:
             details["items"] = parse_alink_list(alinks)
 
         # Product results
-        text = get_text(sub, "div", {"class": re.compile("fG8Fp")})
+        text = get_text(sub, "div", {"class": re.compile("fG8Fp")}) or ""
         if not alinks and "$" in text:
             parsed["sub_type"] = "submenu_product"
             product_details = parse_product(text)

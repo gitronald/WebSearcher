@@ -10,6 +10,10 @@ from google.protobuf.internal import decoder, encoder  # uv add protobuf
 
 from . import logger, utils
 
+# Private protobuf APIs not exposed in stubs; access via getattr to silence type checker.
+_varint_bytes = getattr(encoder, "_VarintBytes")
+_decode_varint = getattr(decoder, "_DecodeVarint")
+
 log = logger.Logger().start(__name__)
 
 
@@ -35,15 +39,15 @@ def encode_protobuf_string(fields: dict[int, str | int]) -> str:
     for field_number, value in fields.items():
         wire_type = 2 if isinstance(value, str) else 0  # Determine wire type based on value type
         tag = field_number << 3 | wire_type  # Combine field number and wire type into tag
-        encoded.extend(encoder._VarintBytes(tag))  # Encode the tag into bytes
+        encoded.extend(_varint_bytes(tag))
 
         # Encode the value based on wire type
         if wire_type == 0:
-            encoded.extend(encoder._VarintBytes(value))  # Encode the integer as varint
-        if wire_type == 2:
-            value = value.encode("utf-8")  # Convert string to bytes
-            encoded.extend(encoder._VarintBytes(len(value)))  # Add length prefix
-            encoded.extend(value)  # Add the actual bytes
+            encoded.extend(_varint_bytes(value))
+        elif wire_type == 2 and isinstance(value, str):
+            value_bytes = value.encode("utf-8")
+            encoded.extend(_varint_bytes(len(value_bytes)))
+            encoded.extend(value_bytes)
 
     return base64.b64encode(bytes(encoded)).decode(
         "utf-8"
@@ -63,31 +67,23 @@ def decode_protobuf_string(encoded_string: str) -> dict[int, Any]:
     protobuf_bytes = base64.b64decode(encoded_string)  # Convert to protobuf bytes
     while pos < len(protobuf_bytes):
         # Get field number and wire type
-        tag, pos_new = decoder._DecodeVarint(
-            protobuf_bytes, pos
-        )  # Each protobuf field starts with a varint tag
-        field_number, wire_type = (
-            tag >> 3,
-            tag & 7,
-        )  # Extract field number and wire type from tag
+        tag, pos_new = _decode_varint(protobuf_bytes, pos)
+        field_number, wire_type = (tag >> 3, tag & 7)
 
         # Decode value based on wire type (0: varint, 2: length-delimited; others not supported)
+        value: Any = None
         if wire_type == 0:
-            value, pos_new = decoder._DecodeVarint(
-                protobuf_bytes, pos_new
-            )  # Get the varint value and new position
+            value, pos_new = _decode_varint(protobuf_bytes, pos_new)
         elif wire_type == 2:
-            length, pos_start = decoder._DecodeVarint(
-                protobuf_bytes, pos_new
-            )  # Get length and starting position
-            value = protobuf_bytes[
-                pos_start : pos_start + length
-            ]  # Extract data based on the length
-            pos_new = pos_start + length  # Update the new position
-            value = value.decode("utf-8")  # Assume UTF-8 encoding for strings
+            length, pos_start = _decode_varint(protobuf_bytes, pos_new)
+            value_bytes = protobuf_bytes[pos_start : pos_start + length]
+            pos_new = pos_start + length
+            value = value_bytes.decode("utf-8")
+        else:
+            raise ValueError(f"unsupported wire type: {wire_type}")
 
-        fields[field_number] = value  # Store the field number and value in the dictionary
-        pos = pos_new  # Move to the next field using the updated position
+        fields[field_number] = value
+        pos = pos_new
     return fields
 
 
@@ -119,12 +115,9 @@ def download_locations(
         print(f"Version up to date: {fp_unzip}")
     else:
         print("Version out of date")
-        # Download and save
-        try:
-            print(f"getting: {url_latest}")
-            response = requests.get(url_latest)
-        except Exception:
-            log.exception("Failed to retrieve location data")
+        print(f"getting: {url_latest}")
+        response = requests.get(url_latest)
+        response.raise_for_status()
 
         if fp.suffix == ".zip":
             save_zip_response(response, str(fp_unzip))
@@ -134,20 +127,16 @@ def download_locations(
             write_csv(str(fp_unzip), locations)
 
 
-def get_latest_url(url: str):
-    try:
-        html = requests.get(url).content
-        soup = utils.make_soup(html)
-        url_list = [url for url in utils.get_link_list(soup) if url and url != ""]
-        geo_urls = [url for url in url_list if "geotargets" in url]
+def get_latest_url(url: str) -> str:
+    html = requests.get(url).content
+    soup = utils.make_soup(html)
+    links = utils.get_link_list(soup) or []
+    url_list = [u for u in links if u]
+    geo_urls = [u for u in url_list if "geotargets" in u]
 
-        # Get current CSV url and use as filename
-        geo_url = sorted(geo_urls)[-1]
-        url_latest = "https://developers.google.com" + geo_url
-        return url_latest
-
-    except Exception:
-        log.exception("Failed to retrieve location data url")
+    # Get current CSV url and use as filename
+    geo_url = sorted(geo_urls)[-1]
+    return "https://developers.google.com" + geo_url
 
 
 def save_zip_response(response: requests.Response, fp: str) -> None:
@@ -159,7 +148,7 @@ def save_zip_response(response: requests.Response, fp: str) -> None:
                     write_csv(fp, reader=reader)
 
 
-def write_csv(fp: str, lines: list = None, reader: csv.reader = None) -> None:
+def write_csv(fp: str, lines: list | None = None, reader: Any = None) -> None:
     with open(fp, "w", encoding="utf-8") as outfile:
         writer = csv.writer(outfile)
         if reader:

@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel
 
@@ -19,7 +22,7 @@ def parse_knowledge_rhs(cmpt, sub_rank=0) -> list:
 def parse_knowledge_rhs_main(cmpt, sub_rank=0) -> list:
     """Parse the Right-Hand-Side Knowledge Panel main component"""
 
-    parsed = {
+    parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
         "sub_rank": sub_rank,

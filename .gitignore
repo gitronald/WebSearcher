@@ -1,17 +1,22 @@
-.venv
-.archive
+.venv/
+.archive/
 .claude
 TODO.md
 
-build
-data
-notebooks
-scripts/ads-no-subtype
+build/
+data/
+notebooks/
+scripts/ads-no-subtype/
 
 *.egg-info
 *__pycache__
 
-# Ignore caches
-.pytest_cache
-.ruff_cache
+# Caches
+.pytest_cache/
+.ruff_cache/
 .coverage
+
+# Environment files
+.env
+.env.*
+!.env.example

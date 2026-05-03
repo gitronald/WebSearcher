@@ -56,6 +56,7 @@ class SearchEngine:
         }
 
         # Initialize searcher based on method
+        self.searcher: SeleniumDriver | RequestsSearcher
         if self.config.method == SearchMethod.SELENIUM:
             self.searcher = SeleniumDriver(config=self.config.selenium, logger=self.log)
             self.searcher.init_driver()

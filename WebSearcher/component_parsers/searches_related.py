@@ -39,8 +39,12 @@ def parse_searches_related(cmpt, sub_rank=0) -> list:
 
     # Accordion list
     if cmpt.find("explore-desktop-accordion"):
+        from bs4.element import Tag
+
         subs = utils.find_all_divs(cmpt, "div", {"class": "JXa4nd"})
-        text_list = [utils.get_text(sub, "div", {"class": "Cx1ZMc"}) for sub in subs]
+        text_list = [
+            utils.get_text(sub, "div", {"class": "Cx1ZMc"}) for sub in subs if isinstance(sub, Tag)
+        ]
         output_list.extend(filter(None, text_list))
 
     if cmpt.find("div", {"class": "brs_col"}):

@@ -1,5 +1,5 @@
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import brotli
 import requests
@@ -46,7 +46,7 @@ class RequestsSearcher:
         response_output = ResponseOutput(
             url=search_params.url,
             user_agent=self.config.headers.get("User-Agent", ""),
-            timestamp=datetime.now(timezone.utc).replace(tzinfo=None).isoformat(),
+            timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
         try:
@@ -86,8 +86,9 @@ class RequestsSearcher:
 
     def _reset_ssh_tunnel(self):
         """Reset the SSH tunnel if configured"""
-        if self.config.ssh_tunnel:
-            self.config.ssh_tunnel.tunnel.kill()
-            self.config.ssh_tunnel.open_tunnel()
+        ssh_tunnel = self.config.ssh_tunnel
+        if ssh_tunnel and ssh_tunnel.tunnel:
+            ssh_tunnel.tunnel.kill()
+            ssh_tunnel.open_tunnel()
             self.log.info("SERP | Restarted SSH tunnel")
             time.sleep(10)  # Allow time to establish connection

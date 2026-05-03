@@ -30,7 +30,7 @@ def parse_hotels(cmpt: bs4.element.Tag) -> list:
 
     items = []
     for a in cmpt.find_all("a", href=True):
-        href = a.get("href", "")
+        href = a.get("href") or ""
         if "/travel/" not in href:
             continue
         name_div = a.find("div", {"class": "sxdlOc"}) or a.find("div", {"class": "BTPx6e"})
@@ -71,7 +71,7 @@ def _parse_hotel_item(a: bs4.element.Tag, sub_rank: int) -> dict:
     }
 
 
-def _parse_hotel_details(price_span, rating_span, reviews_span, stars_span) -> dict:
+def _parse_hotel_details(price_span, rating_span, reviews_span, stars_span) -> dict | None:
     """Extract hotel metadata"""
     details = {}
     if price_span:

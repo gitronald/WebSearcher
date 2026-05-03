@@ -28,12 +28,16 @@ class ClassifyHeaderText:
         header_dict = header_text_to_type(level)
 
         # Lazy generator over potential header divs (defers find_all until iterated)
-        selectors = [
-            {"name": f"h{level}", "attrs": {"role": "heading"}},
-            {"name": f"h{level}", "attrs": {"class": ["O3JH7", "q8U8x", "mfMhoc"]}},
-            {"attrs": {"aria-level": f"{level}", "role": "heading"}},
+        selectors: list[tuple[str | None, dict]] = [
+            (f"h{level}", {"role": "heading"}),
+            (f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
+            (None, {"aria-level": f"{level}", "role": "heading"}),
         ]
-        headers = (h for sel in selectors for h in cmpt.find_all(**sel))
+        headers = (
+            h
+            for name, attrs in selectors
+            for h in (cmpt.find_all(name, attrs=attrs) if name else cmpt.find_all(attrs=attrs))
+        )
 
         # Check header text for known title matches
         for header in filter(None, headers):
