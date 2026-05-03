@@ -385,7 +385,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="view_more_news",
         label="View More News",
         sections=("main",),
-        header_texts={3: ("View more news", "Más noticias", "Ver más")},
+        header_texts={3: ("View more news", "Más noticias")},
         description="News result expansion links",
     ),
     ComponentType(
