@@ -4,6 +4,7 @@ import bs4
 
 from .. import logger, utils
 from ..component_types import header_text_to_type
+from ..utils import Selector
 
 log = logger.Logger().start(__name__)
 
@@ -25,15 +26,19 @@ class ClassifyMainHeader:
         header_dict = header_text_to_type(level)
 
         # Lazy generator over potential header divs (defers find_all until iterated)
-        selectors: list[tuple[str | None, dict]] = [
-            (f"h{level}", {"role": "heading"}),
-            (f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
-            (None, {"aria-level": f"{level}", "role": "heading"}),
+        selectors: list[Selector] = [
+            Selector(f"h{level}", {"role": "heading"}),
+            Selector(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
+            Selector(None, {"aria-level": f"{level}", "role": "heading"}),
         ]
         headers = (
             h
-            for name, attrs in selectors
-            for h in (cmpt.find_all(name, attrs=attrs) if name else cmpt.find_all(attrs=attrs))
+            for sel in selectors
+            for h in (
+                cmpt.find_all(sel.name, attrs=sel.attrs)
+                if sel.name
+                else cmpt.find_all(attrs=sel.attrs)
+            )
         )
 
         # Check header text for known title matches
