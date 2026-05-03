@@ -5,7 +5,7 @@ import subprocess
 import urllib.parse as urlparse
 from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
-from typing import Any
+from typing import Any, NamedTuple
 
 import brotli
 import orjson
@@ -19,6 +19,14 @@ from . import logger
 log = logger.Logger().start(__name__)
 
 SoupElement = BeautifulSoup | Tag | NavigableString
+
+
+class Selector(NamedTuple):
+    """A bs4 tag selector: a tag name and optional attribute filter."""
+
+    name: str | None
+    attrs: dict[str, Any] | None = None
+
 
 # Files ------------------------------------------------------------------------
 
