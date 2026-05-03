@@ -25,14 +25,16 @@ class ClassifyHeaderText:
         """Check text in common headers for dict matches"""
         header_dict = ClassifyHeaderText._get_header_level_mapping(level)
 
-        # Collect list of potential header divs
-        header_list = []
-        header_list.extend(cmpt.find_all(f"h{level}", {"role": "heading"}))
-        header_list.extend(cmpt.find_all(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}))
-        header_list.extend(cmpt.find_all(attrs={"aria-level": f"{level}", "role": "heading"}))
+        # Collect potential header divs in a generator
+        selectors = [
+            {"name": f"h{level}", "attrs": {"role": "heading"}},
+            {"name": f"h{level}", "attrs": {"class": ["O3JH7", "q8U8x", "mfMhoc"]}},
+            {"attrs": {"aria-level": f"{level}", "role": "heading"}},
+        ]
+        headers = (h for sel in selectors for h in cmpt.find_all(**sel))
 
         # Check header text for known title matches
-        for header in filter(None, header_list):
+        for header in filter(None, headers):
             for text, label in header_dict.items():
                 if label == "local_results" and text == "locations":
                     if header.text.strip().endswith(text):

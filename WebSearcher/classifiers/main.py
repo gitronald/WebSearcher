@@ -123,11 +123,11 @@ class ClassifyMain:
 
     @staticmethod
     def images(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("div", {"id": "imagebox_bigimages"}),
-            cmpt.find("div", {"id": "iur"}),
+        selectors = [
+            {"name": "div", "attrs": {"id": "imagebox_bigimages"}},
+            {"name": "div", "attrs": {"id": "iur"}},
         ]
-        return "images" if any(conditions) else "unknown"
+        return "images" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
     def ai_overview(cmpt: bs4.element.Tag) -> str:
@@ -169,26 +169,29 @@ class ClassifyMain:
 
     @staticmethod
     def knowledge_panel(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("h1", {"class": "VW3apb"}),
-            cmpt.find(
-                "div",
-                {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]},
-            ),
-            cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
-            cmpt.find("div", {"jscontroller": "qTdDb"}),
-            utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
-            cmpt.find("div", {"class": "obcontainer"}),
+        selectors = [
+            {"name": "h1", "attrs": {"class": "VW3apb"}},
+            {
+                "name": "div",
+                "attrs": {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]},
+            },
+            {"name": "div", "attrs": {"aria-label": "Featured results", "role": "complementary"}},
+            {"name": "div", "attrs": {"jscontroller": "qTdDb"}},
+            {"name": "div", "attrs": {"class": "obcontainer"}},
         ]
-        return "knowledge" if any(conditions) else "unknown"
+        cmpt_check = utils.find_by_selectors(cmpt, selectors)
+        attr_check = utils.check_dict_value(cmpt.attrs, "data-hveid", "CAMQAA")
+        if cmpt_check or attr_check:
+            return "knowledge"
+        return "unknown"
 
     @staticmethod
     def local_results(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("div", {"class": "Qq3Lb"}),  # Places
-            cmpt.find("div", {"class": "VkpGBb"}),  # Local Results
+        selectors = [
+            {"name": "div", "attrs": {"class": "Qq3Lb"}},  # Places
+            {"name": "div", "attrs": {"class": "VkpGBb"}},  # Local Results
         ]
-        return "local_results" if any(conditions) else "unknown"
+        return "local_results" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
     def map_result(cmpt: bs4.element.Tag) -> str:

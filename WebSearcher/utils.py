@@ -156,6 +156,25 @@ def get_text_by_selectors(
     return None
 
 
+def find_by_selectors(
+    soup: Tag | None,
+    selectors: Sequence[Mapping[str, Any]] | None = None,
+) -> SoupElement | None:
+    """Find first matching element across multiple selectors.
+
+    Each selector is a dict of kwargs forwarded to ``soup.find(**sel)``,
+    e.g. ``{"name": "div", "attrs": {"id": "foo"}}``. Iteration is lazy:
+    later selectors are not evaluated once a match is found.
+    """
+    if not soup or not selectors:
+        return None
+    for sel in selectors:
+        match = soup.find(**sel)
+        if match:
+            return match
+    return None
+
+
 def find_all_divs(
     soup: Tag | None,
     name: str,
