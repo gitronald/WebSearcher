@@ -8,8 +8,8 @@ license = "GPL-3.0"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "requests>=2.32.4",
-    "lxml>=5.3.0",
+    "requests>=2.33.0",
+    "lxml>=6.1.0",
     "beautifulsoup4>=4.12.3",
     "tldextract>=5.1.2",
     "brotli>=1.1.0",
@@ -30,7 +30,7 @@ demo-searches = 'scripts.demo_searches:app'
 
 [dependency-groups]
 dev = [
-    "pytest>=8.3.4",
+    "pytest>=9.0.3",
     "syrupy>=4.8.1",
     "ipykernel>=6.29.5",
     "typer>=0.15.2",
