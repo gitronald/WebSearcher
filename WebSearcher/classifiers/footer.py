@@ -39,10 +39,7 @@ class ClassifyFooter:
 
     @staticmethod
     def discover_more(cmpt):
-        conditions = [
-            cmpt.find("g-scrolling-carousel"),
-        ]
-        return "discover_more" if all(conditions) else "unknown"
+        return "discover_more" if cmpt.find("g-scrolling-carousel") else "unknown"
 
     @staticmethod
     def omitted_notice(cmpt):

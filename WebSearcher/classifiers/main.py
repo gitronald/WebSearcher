@@ -1,9 +1,56 @@
+from typing import Any
+
 import bs4
 
 from .. import logger, utils
-from .header_text import ClassifyHeaderText
+from ..component_types import header_text_to_type
+from ..utils import Selector
 
 log = logger.Logger().start(__name__)
+
+
+class ClassifyMainHeader:
+    """Classify a main-section component by its h2/h3 header text."""
+
+    @staticmethod
+    def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
+        for level in levels:
+            header = ClassifyMainHeader._classify_header(cmpt, level)
+            if header != "unknown":
+                return header
+        return "unknown"
+
+    @staticmethod
+    def _classify_header(cmpt: bs4.element.Tag, level: int) -> str:
+        """Check text in common headers for dict matches"""
+        header_dict = header_text_to_type(level)
+
+        # Define selectors for classifying header divs
+        selectors: list[Selector] = [
+            Selector(f"h{level}", {"role": "heading"}),
+            Selector(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
+            Selector(None, {"aria-level": f"{level}", "role": "heading"}),
+        ]
+        headers = (
+            h
+            for sel in selectors
+            for h in (
+                cmpt.find_all(sel.name, attrs=sel.attrs)
+                if sel.name
+                else cmpt.find_all(attrs=sel.attrs)
+            )
+        )
+
+        # Filter header divs and check text against dict
+        for header in filter(None, headers):
+            for text, label in header_dict.items():
+                if label == "local_results" and text == "locations":
+                    if header.text.strip().endswith(text):
+                        return label
+                if header.text.strip().startswith(text):
+                    return label
+
+        return "unknown"
 
 
 class ClassifyMain:
@@ -17,7 +64,7 @@ class ClassifyMain:
             ClassifyMain.locations,  # Check locations (hotels, etc.) before top_stories
             ClassifyMain.top_stories,  # Check top stories
             ClassifyMain.discussions_and_forums,  # Check discussions and forums
-            ClassifyHeaderText.classify,  # Check levels 2 & 3 header text
+            ClassifyMainHeader.classify,  # Check levels 2 & 3 header text
             ClassifyMain.news_quotes,  # Check news quotes
             ClassifyMain.img_cards,  # Check image cards
             ClassifyMain.images,  # Check images
@@ -56,8 +103,8 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
-        conditions = [("/Available on" in utils.get_text(cmpt))]
-        return "available_on" if any(conditions) else "unknown"
+        text = utils.get_text(cmpt) or ""
+        return "available_on" if "/Available on" in text else "unknown"
 
     @staticmethod
     def banner(cmpt: bs4.element.Tag) -> str:
@@ -123,18 +170,19 @@ class ClassifyMain:
 
     @staticmethod
     def images(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("div", {"id": "imagebox_bigimages"}),
-            cmpt.find("div", {"id": "iur"}),
+        selectors = [
+            {"name": "div", "attrs": {"id": "imagebox_bigimages"}},
+            {"name": "div", "attrs": {"id": "iur"}},
         ]
-        return "images" if any(conditions) else "unknown"
+        return "images" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
     def ai_overview(cmpt: bs4.element.Tag) -> str:
         """Classify AI Overview components"""
+        h2 = cmpt.find("h2")
         conditions = [
             cmpt.find("div", {"class": "Fzsovc"}),
-            cmpt.find("h2") and cmpt.find("h2").get_text(strip=True) == "AI Overview",
+            h2 is not None and h2.get_text(strip=True) == "AI Overview",
         ]
         return "knowledge" if any(conditions) else "unknown"
 
@@ -151,7 +199,7 @@ class ClassifyMain:
     def knowledge_box(cmpt: bs4.element.Tag) -> str:
         """Classify knowledge component types"""
         attrs = cmpt.attrs
-        condition = {}
+        condition: dict[str, Any] = {}
         condition["flights"] = (utils.check_dict_value(attrs, "jscontroller", "Z2bSc")) | bool(
             cmpt.find("div", {"jscontroller": "Z2bSc"})
         )
@@ -169,26 +217,29 @@ class ClassifyMain:
 
     @staticmethod
     def knowledge_panel(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("h1", {"class": "VW3apb"}),
-            cmpt.find(
-                "div",
-                {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]},
-            ),
-            cmpt.find("div", {"aria-label": "Featured results", "role": "complementary"}),
-            cmpt.find("div", {"jscontroller": "qTdDb"}),
-            utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb"),
-            cmpt.find("div", {"class": "obcontainer"}),
+        selectors = [
+            {"name": "h1", "attrs": {"class": "VW3apb"}},
+            {
+                "name": "div",
+                "attrs": {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]},
+            },
+            {"name": "div", "attrs": {"aria-label": "Featured results", "role": "complementary"}},
+            {"name": "div", "attrs": {"jscontroller": "qTdDb"}},
+            {"name": "div", "attrs": {"class": "obcontainer"}},
         ]
-        return "knowledge" if any(conditions) else "unknown"
+        cmpt_check = utils.find_by_selectors(cmpt, selectors)
+        attr_check = utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
+        if cmpt_check or attr_check:
+            return "knowledge"
+        return "unknown"
 
     @staticmethod
     def local_results(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            cmpt.find("div", {"class": "Qq3Lb"}),  # Places
-            cmpt.find("div", {"class": "VkpGBb"}),  # Local Results
+        selectors = [
+            {"name": "div", "attrs": {"class": "Qq3Lb"}},  # Places
+            {"name": "div", "attrs": {"class": "VkpGBb"}},  # Local Results
         ]
-        return "local_results" if any(conditions) else "unknown"
+        return "local_results" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
     def map_result(cmpt: bs4.element.Tag) -> str:

@@ -128,7 +128,7 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
         details["text"] = get_text(div) if div else None
 
         text_divs = cmpt.find_all("div", {"class": "sinMW"})
-        text_list = [utils.get_text(div) for div in text_divs]
+        text_list = [t for t in (utils.get_text(div) for div in text_divs) if t]
         parsed["text"] = "<|>".join(text_list) if text_list else None
         parsed["title"] = utils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
 

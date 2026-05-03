@@ -10,38 +10,28 @@ Changelog
 
 """
 
+from typing import Any
+
 import bs4
 
 from .. import utils
+from ..utils import Selector
 from .shopping_ads import parse_shopping_ads
 
-SUB_TYPES = [
-    "legacy",
-    "local_service",
-    "secondary",
-    "standard",
-    "shopping",
-    "carousel",
-]
-
-AD_STANDARD_TEXT_SELECTORS = [
-    ("div", {"class": "yDYNvb"}),
-    ("div", {"class": "Va3FIb"}),
-]
+_SUBTYPE_CLASSIFICATIONS: dict[str, Selector] = {
+    "legacy": Selector("div", {"class": "ad_cclk"}),
+    "local_service": Selector("gls-profile-entrypoint"),
+    "secondary": Selector("div", {"class": "d5oMvf"}),
+    "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
+    "standard": Selector("div", {"class": "uEierd"}),
+    "carousel": Selector("g-scrolling-carousel"),
+}
 
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
-    label_divs = {
-        "legacy": utils.find_all_divs(cmpt, "div", {"class": "ad_cclk"}),
-        "local_service": cmpt.find_all("gls-profile-entrypoint"),
-        "secondary": utils.find_all_divs(cmpt, "div", {"class": "d5oMvf"}),
-        "shopping": utils.find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}),
-        "standard": utils.find_all_divs(cmpt, "div", {"class": "uEierd"}),
-        "carousel": utils.find_all_divs(cmpt, "g-scrolling-carousel"),
-    }
-    for label, divs in label_divs.items():
-        if divs:
+    for label, sel in _SUBTYPE_CLASSIFICATIONS.items():
+        if sel.name and utils.find_all_divs(cmpt, sel.name, sel.attrs):
             return label
     return "unknown"
 
@@ -57,12 +47,9 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
         "standard": parse_ad_standard,
         "carousel": parse_ad_carousel,
     }
-    parsed_list = []
     sub_type = classify_ad_type(cmpt)
-    if sub_type in subtype_parsers:
-        parser = subtype_parsers.get(sub_type)
-        parsed_list = parser(cmpt)
-    return parsed_list
+    parser = subtype_parsers.get(sub_type)
+    return parser(cmpt) if parser else []
 
 
 # ------------------------------------------------------------------------------
@@ -89,10 +76,9 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
 
     def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> dict | None:
         items = []
-        bottom_text = sub.find("ul")
-        if bottom_text:
-            for li in bottom_text.find_all("li"):
-                items.append(li.get_text(separator=" "))
+        ulist = sub.find("ul")
+        if ulist:
+            items = [li.get_text(separator=" ") for li in ulist.find_all("li")]
         return {"type": "text", "items": items} if items else None
 
     return _parse_ad_legacy(cmpt)
@@ -111,7 +97,7 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
         detail_rows = profile.find_all("div", {"class": "P4vvKf"})
         text = (
             " · ".join(row.get_text(" ", strip=True) for row in detail_rows)
-            if detail_rows
+            if list(detail_rows)
             else None
         )
 
@@ -158,20 +144,24 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 
     def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
         url_div = utils.get_div(sub, "div", {"class": "d5oMvf"})
-        return utils.get_link(url_div)
+        if not isinstance(url_div, bs4.element.Tag):
+            return ""
+        return utils.get_link(url_div) or ""
 
     def _parse_ad_secondary_sub_text(sub) -> str:
         text_divs = sub.find_all("div", {"class": "yDYNvb"})
         return "|".join([d.text for d in text_divs]) if text_divs else ""
 
     def _parse_ad_secondary_sub_details(sub: bs4.element.Tag) -> dict | None:
-        for selector in [{"role": "list"}, {"class": "bOeY0b"}]:
-            details_section = sub.find("div", selector)
+        selectors: list[dict[str, Any]] = [{"role": "list"}, {"class": "bOeY0b"}]
+        for selector in selectors:
+            details_section = sub.find("div", attrs=selector)
             if details_section:
                 urls = utils.get_link_list(details_section)
                 if urls:
                     return {"type": "links", "items": urls}
                 return None
+        return None
 
     return _parse_ad_secondary(cmpt)
 
@@ -197,7 +187,11 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
-            text = utils.get_text_by_selectors(sub, AD_STANDARD_TEXT_SELECTORS)
+            selectors = [
+                ("div", {"class": "yDYNvb"}),
+                ("div", {"class": "Va3FIb"}),
+            ]
+            text = utils.get_text_by_selectors(sub, selectors) or ""
             label = utils.get_text(sub, "span", {"class": "mXsQRe"})
             return f"{text} <label>{label}</label>" if label else text
 
@@ -214,7 +208,11 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
             "details": submenu,
         }
 
-    subs = utils.find_all_divs(cmpt, "div", {"class": "uEierd"})
+    subs = [
+        s
+        for s in utils.find_all_divs(cmpt, "div", {"class": "uEierd"})
+        if isinstance(s, bs4.element.Tag)
+    ]
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
@@ -298,16 +296,18 @@ def parse_ad_carousel(
         }
 
         for ad_carousel_type, sub_cmpts in ad_carousel_types.items():
-            if sub_cmpts:
-                for sub_rank, sub in enumerate(sub_cmpts):
-                    if ad_carousel_type == "carousel_card":
-                        if filter_visible and not is_visible_card(sub):
-                            continue
-                        output = parse_ad_carousel_card(sub, sub_type, sub_rank)
-                    elif ad_carousel_type == "carousel_div":
-                        if filter_visible and not is_visible_div(sub):
-                            continue
-                        output = parse_ad_carousel_div(sub, sub_type, sub_rank)
-                    output_list.append(output)
+            if not sub_cmpts:
+                continue
+            for sub_rank, sub in enumerate(sub_cmpts):
+                if not isinstance(sub, bs4.element.Tag):
+                    continue
+                if ad_carousel_type == "carousel_card":
+                    if filter_visible and not is_visible_card(sub):
+                        continue
+                    output_list.append(parse_ad_carousel_card(sub, sub_type, sub_rank))
+                elif ad_carousel_type == "carousel_div":
+                    if filter_visible and not is_visible_div(sub):
+                        continue
+                    output_list.append(parse_ad_carousel_div(sub, sub_type, sub_rank))
 
     return output_list

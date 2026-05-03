@@ -3,7 +3,7 @@ from collections.abc import Callable
 
 import bs4
 
-from .classifiers import ClassifyFooter, ClassifyHeaderComponent, ClassifyMain
+from .classifiers import ClassifyFooter, ClassifyMain
 from .component_parsers import (
     footer_parser_dict,
     header_parser_dict,
@@ -57,9 +57,6 @@ class Component:
             self.type = classify_type_func(self.elem)
         else:
             if self.type == "unknown":
-                if self.section == "header":
-                    self.type = ClassifyHeaderComponent.classify(self.elem)
-                    log.debug(f"header classification: {self.type}")
                 if self.section == "main":
                     self.type = ClassifyMain.classify(self.elem)
                 elif self.section == "footer":
@@ -111,6 +108,7 @@ class Component:
         self.add_parsed_result_list(parsed_list)
 
     def create_parsed_list_error(self, error_msg: str, is_exception: bool = False) -> list:
+        error_traceback = ""
         if is_exception:
             log.exception(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
             error_traceback = traceback.format_exc()

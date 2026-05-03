@@ -1,6 +1,6 @@
 from .. import utils
 
-QUESTION_SELECTORS = [
+_QUESTION_SELECTORS = [
     ("div", {"class": "rc"}),
     ("div", {"class": "yuRUbf"}),
     ("div", {"class": "iDjcJe"}),  # 2023-01-01
@@ -40,4 +40,4 @@ def parse_people_also_ask(cmpt, sub_rank=0) -> list:
 
 def parse_question(question):
     """Parse an individual question in a "People Also Ask" component"""
-    return utils.get_text_by_selectors(question, QUESTION_SELECTORS, strip=True)
+    return utils.get_text_by_selectors(question, _QUESTION_SELECTORS, strip=True)
