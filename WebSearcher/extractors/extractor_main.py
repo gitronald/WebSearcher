@@ -1,3 +1,5 @@
+from typing import Any
+
 import bs4
 
 from .. import utils
@@ -43,7 +45,7 @@ class ExtractorMain:
         """Divide and label the page layout"""
 
         # Layout soup subsets
-        layout_divs = {}
+        layout_divs: dict[str, Any] = {}
         layout_divs["rso"] = self.soup.find("div", {"id": "rso"})
         layout_divs["left-bar"] = self.soup.find("div", {"class": "OeVqAd"})
 
@@ -85,7 +87,11 @@ class ExtractorMain:
             ads.extract()
             self.components.add_component(ads, section="main", type="ad")
 
-    def _main_column(self, drop_tags: set = {"script", "style", None}):
+    def _main_column(self, drop_tags: set = set()):
+        if not drop_tags:
+            drop_tags = {"script", "style", None}
+        if self.layout_label is None:
+            raise ValueError("no layout_label set")
         try:
             extractor = self.layout_extractors[self.layout_label]
         except KeyError:
@@ -103,9 +109,11 @@ class ExtractorMain:
             ads.extract()
             self.components.add_component(ads, section="main", type="ad")
 
-    def extract_from_standard(self, drop_tags: set = {}) -> list:
+    def extract_from_standard(self, drop_tags: set = set()) -> list:
 
         rso_div = self.layout_divs["rso"]
+        if rso_div is None:
+            return []
         standard_layouts = {
             "standard-0": (
                 rso_div.find("div", {"id": "kp-wp-tab-overview"}),
@@ -165,6 +173,8 @@ class ExtractorMain:
 
         self.layout_label = sub_type
         rso_div = self.layout_divs["rso"]
+        if rso_div is None:
+            return []
         log.debug(f"main_layout: {self.layout_label} (update)")
 
         if self.layout_label == "standard-0":
@@ -186,7 +196,8 @@ class ExtractorMain:
         if self.layout_label == "standard-1":
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
-            main_divs = rso_div.find("div", {"id": "kp-wp-tab-Songs"}).children or []
+            songs_div = rso_div.find("div", {"id": "kp-wp-tab-Songs"})
+            main_divs = list(songs_div.children) if songs_div else []
             column.extend(top_divs)
             column.extend(main_divs)
             column = [div for div in column if div.name not in {"script", "style"}]
@@ -196,7 +207,8 @@ class ExtractorMain:
         if self.layout_label == "standard-2":
             column = []
             top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
-            main_divs = rso_div.find("div", {"id": "kp-wp-tab-SportsStandings"}).children or []
+            sports_div = rso_div.find("div", {"id": "kp-wp-tab-SportsStandings"})
+            main_divs = list(sports_div.children) if sports_div else []
             column.extend(top_divs)
             column.extend(main_divs)
             column = [div for div in column if div.name not in {"script", "style"}]
@@ -216,7 +228,9 @@ class ExtractorMain:
             column.extend(main_divs)
             return column
 
-    def extract_from_top_bar(self, drop_tags: set = {}) -> list:
+        return []
+
+    def extract_from_top_bar(self, drop_tags: set = set()) -> list:
         out = []
         tops = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"])
         out.extend(tops)
@@ -231,7 +245,8 @@ class ExtractorMain:
             "uVMCKf",  # videos
         ]
 
-        rso_divs = self.layout_divs["rso"].find_all("div", attrs={"class": div_classes})
+        rso_div = self.layout_divs["rso"]
+        rso_divs = rso_div.find_all("div", attrs={"class": div_classes}) if rso_div else []
         if rso_divs:
             self.layout_label = "top-bars-divs"
             col = [div for div in rso_divs if div.name not in drop_tags]
@@ -243,7 +258,7 @@ class ExtractorMain:
         return out
 
     @staticmethod
-    def extract_top_divs(soup, drop_tags: set = {}) -> list:
+    def extract_top_divs(soup, drop_tags: set = set()) -> list:
         out = []
         for tb in soup:
             if utils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
@@ -273,17 +288,20 @@ class ExtractorMain:
             elem.find("div", {"data-attrid": "title"})
         )
 
-    def extract_from_left_bar(self, drop_tags: set = {}) -> list:
+    def extract_from_left_bar(self, drop_tags: set = set()) -> list:
         return self.soup.find_all("div", {"class": "TzHB6b"})
 
-    def extract_from_no_rso(self, drop_tags: set = {}) -> list:
-        out = []
+    def extract_from_no_rso(self, drop_tags: set = set()) -> list:
+        out: list[Any] = []
         sec1 = self.soup.find_all("div", {"class": "UDZeY OTFaAf"})
         for div in sec1:
-            if div.find("h2") and div.find("h2").text == "Twitter Results":
-                out.append(div.find("div").parent)
-            elif div.find("g-section-with-header"):
-                out.append(div.find("g-section-with-header").parent)
+            h2 = div.find("h2")
+            if h2 is not None and h2.text == "Twitter Results":
+                inner_div = div.find("div")
+                if inner_div is not None:
+                    out.append(inner_div.parent)
+            elif (sec_header := div.find("g-section-with-header")) is not None:
+                out.append(sec_header.parent)
             elif div.find("g-more-link"):
                 out.append(div)
             elif div.find("div", {"class": "oIk2Cb"}):
@@ -293,10 +311,10 @@ class ExtractorMain:
             sec2 = self.soup.find("div", {"class": "WvKfwe a3spGf"})
             if sec2:
                 out.extend(sec2.children)
-        return [c for c in out if c.name not in drop_tags]
+        return [c for c in out if c is not None and c.name not in drop_tags]
 
     @staticmethod
-    def extract_children(soup, drop_tags: set = {}) -> list:
+    def extract_children(soup, drop_tags: set = set()) -> list:
         cts = []
         for ch in soup.children:
             if ch.name in drop_tags:

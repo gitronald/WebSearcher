@@ -44,7 +44,7 @@ class NoticeParser:
         self._package_parsed()
         return self.parsed_list
 
-    def _classify_sub_type(self, cmpt) -> str:
+    def _classify_sub_type(self, cmpt) -> None:
         """Classify the sub-type of a query notice component"""
         cmpt_text = cmpt.text.strip()
         cmpt_text = re.sub(r"\s+", " ", cmpt_text)
@@ -95,24 +95,24 @@ class NoticeParser:
         return output
 
     def _parse_query_edit(self, cmpt) -> dict:
-        output = {"title": None, "text": None}
+        output: dict[str, str | None] = {"title": None, "text": None}
         showing_results_span = cmpt.find("span", class_="gL9Hy")
         if showing_results_span:
             output["title"] = showing_results_span.text.strip()
 
         modified_query_link = cmpt.find("a", id="fprsl")
-        if modified_query_link:
+        if modified_query_link and output["title"]:
             modified_query = modified_query_link.text.strip()
-            output["title"] += f" {modified_query}"
+            output["title"] = f"{output['title']} {modified_query}"
 
         search_instead_span = cmpt.find("span", class_="spell_orig")
         if search_instead_span:
             output["text"] = search_instead_span.text.strip()
 
         original_query_link = cmpt.find("a", class_="spell_orig")
-        if original_query_link:
+        if original_query_link and output["text"]:
             original_query = original_query_link.text.strip()
-            output["text"] += f" {original_query}"
+            output["text"] = f"{output['text']} {original_query}"
         return output
 
     def _parse_query_suggestion(self, cmpt) -> dict:
@@ -129,9 +129,7 @@ class NoticeParser:
                 break
 
         suggestion_links = cmpt.find_all("a", class_="gL9Hy")
-        suggested_queries = [
-            get_text(suggestion_link) for suggestion_link in suggestion_links if suggestion_link
-        ]
+        suggested_queries = [t for t in (get_text(s) for s in suggestion_links if s) if t]
         output["text"] = "<|>".join(suggested_queries)
 
         return output

@@ -57,8 +57,14 @@ def parse_image_multimedia(sub, sub_rank=0) -> dict:
 def parse_image_medium(sub, sub_rank=0) -> dict:
     """Parse an images medium subcomponent"""
 
+    from bs4.element import Tag
+
     title_div = get_div(sub, "a", {"class": "EZAeBe"})
-    title = get_text(title_div) if title_div else get_text(sub, "span", {"class": "Yt787"})
+    title = (
+        get_text(title_div)
+        if isinstance(title_div, Tag)
+        else get_text(sub, "span", {"class": "Yt787"})
+    )
     url = get_link(sub) if title_div else get_img_url(sub)
 
     if not title:

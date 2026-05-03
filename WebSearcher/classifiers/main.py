@@ -1,3 +1,5 @@
+from typing import Any
+
 import bs4
 
 from .. import logger, utils
@@ -56,8 +58,8 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
-        conditions = [("/Available on" in utils.get_text(cmpt))]
-        return "available_on" if any(conditions) else "unknown"
+        text = utils.get_text(cmpt) or ""
+        return "available_on" if "/Available on" in text else "unknown"
 
     @staticmethod
     def banner(cmpt: bs4.element.Tag) -> str:
@@ -132,9 +134,10 @@ class ClassifyMain:
     @staticmethod
     def ai_overview(cmpt: bs4.element.Tag) -> str:
         """Classify AI Overview components"""
+        h2 = cmpt.find("h2")
         conditions = [
             cmpt.find("div", {"class": "Fzsovc"}),
-            cmpt.find("h2") and cmpt.find("h2").get_text(strip=True) == "AI Overview",
+            h2 is not None and h2.get_text(strip=True) == "AI Overview",
         ]
         return "knowledge" if any(conditions) else "unknown"
 
@@ -151,7 +154,7 @@ class ClassifyMain:
     def knowledge_box(cmpt: bs4.element.Tag) -> str:
         """Classify knowledge component types"""
         attrs = cmpt.attrs
-        condition = {}
+        condition: dict[str, Any] = {}
         condition["flights"] = (utils.check_dict_value(attrs, "jscontroller", "Z2bSc")) | bool(
             cmpt.find("div", {"jscontroller": "Z2bSc"})
         )

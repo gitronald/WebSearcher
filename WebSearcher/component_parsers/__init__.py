@@ -1,3 +1,4 @@
+from ..component_types import Section, types_in_section
 from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
@@ -29,59 +30,61 @@ from .twitter_result import parse_twitter_result
 from .videos import parse_videos
 from .view_more_news import parse_view_more_news
 
-# Header parsers
-header_parsers = [
-    ("notice", parse_notices, "Notices"),
-    ("top_image_carousel", parse_top_image_carousel, "Top Image Carousel"),
-]
-header_parser_dict = {i[0]: i[1] for i in header_parsers}  # Format {type: function}
-header_parser_labels = {i[0]: i[2] for i in header_parsers}  # Format {type: label}
+# Single source of parser dispatch: type name -> parser function.
+# Sections come from the component_types registry; labels come from each
+# type's ``label`` field. The dispatch dicts and label dicts below are
+# derived from this map joined against the registry.
+PARSERS = {
+    "ad": parse_ads,
+    "available_on": parse_available_on,
+    "banner": parse_banner,
+    "discover_more": Footer.parse_discover_more,
+    "discussions_and_forums": parse_discussions_and_forums,
+    "general": parse_general_results,
+    "general_questions": parse_general_questions,
+    "images": parse_images,
+    "img_cards": Footer.parse_image_cards,
+    "knowledge": parse_knowledge_panel,
+    "knowledge_rhs": parse_knowledge_rhs,
+    "latest_from": parse_latest_from,
+    "local_news": parse_local_news,
+    "local_results": parse_local_results,
+    "locations": parse_locations,
+    "map_results": parse_map_results,
+    "news_quotes": parse_news_quotes,
+    "notice": parse_notices,
+    "omitted_notice": Footer.parse_omitted_notice,
+    "people_also_ask": parse_people_also_ask,
+    "perspectives": parse_perspectives,
+    "recent_posts": parse_recent_posts,
+    "scholarly_articles": parse_scholarly_articles,
+    "searches_related": parse_searches_related,
+    "shopping_ads": parse_shopping_ads,
+    "short_videos": parse_short_videos,
+    "top_image_carousel": parse_top_image_carousel,
+    "top_stories": parse_top_stories,
+    "twitter_cards": parse_twitter_cards,
+    "twitter_result": parse_twitter_result,
+    "videos": parse_videos,
+    "view_more_news": parse_view_more_news,
+}
 
-# Component details dataframe
-columns = ["type", "func", "label"]
-main_parsers = [
-    ("ad", parse_ads, "Ad"),
-    ("available_on", parse_available_on, "Available On"),
-    ("banner", parse_banner, "Banner"),
-    ("discussions_and_forums", parse_discussions_and_forums, "Discussions & Forums"),
-    ("general", parse_general_results, "General"),
-    ("general_questions", parse_general_questions, "General Questions"),
-    ("images", parse_images, "Images"),
-    ("knowledge", parse_knowledge_panel, "Knowledge"),
-    ("latest_from", parse_latest_from, "Latest From"),
-    ("local_news", parse_local_news, "Local News"),
-    ("local_results", parse_local_results, "Local Results"),
-    ("locations", parse_locations, "Locations"),
-    ("map_results", parse_map_results, "Map Results"),
-    ("news_quotes", parse_news_quotes, "News Quotes"),
-    ("people_also_ask", parse_people_also_ask, "People Also Ask"),
-    ("perspectives", parse_perspectives, "Perspectives & Opinions"),
-    ("recent_posts", parse_recent_posts, "Recent Posts"),
-    ("scholarly_articles", parse_scholarly_articles, "Scholar Articles"),
-    ("searches_related", parse_searches_related, "Related Searches"),
-    ("short_videos", parse_short_videos, "Short Videos"),
-    ("shopping_ads", parse_shopping_ads, "Shopping Ad"),
-    ("top_stories", parse_top_stories, "Top Stories"),
-    ("twitter_cards", parse_twitter_cards, "Twitter Cards"),
-    ("twitter_result", parse_twitter_result, "Twitter Result"),
-    ("videos", parse_videos, "Videos"),
-    ("view_more_news", parse_view_more_news, "View More News"),
-    ("knowledge_rhs", parse_knowledge_rhs, "Knowledge RHS"),
-]
-main_parser_dict = {i[0]: i[1] for i in main_parsers}  # Format {type: function}
-main_parser_labels = {i[0]: i[2] for i in main_parsers}  # Format {type: label}
 
-# Footer parsers
-footer_parsers = [
-    ("img_cards", Footer.parse_image_cards, "Image Cards"),
-    ("searches_related", parse_searches_related, "Related Searches"),
-    ("discover_more", Footer.parse_discover_more, "Discover More"),
-    ("general", parse_general_results, "General"),
-    ("people_also_ask", parse_people_also_ask, "People Also Ask"),
-    ("omitted_notice", Footer.parse_omitted_notice, "Omitted Notice"),
-]
-footer_parser_dict = {i[0]: i[1] for i in footer_parsers}  # Format {type: function}
-footer_parser_labels = {i[0]: i[2] for i in footer_parsers}  # Format {type: label}
+def _section_parser_dict(section: Section) -> dict:
+    return {t.name: PARSERS[t.name] for t in types_in_section(section) if t.name in PARSERS}
+
+
+def _section_parser_labels(section: Section) -> dict:
+    return {t.name: t.label for t in types_in_section(section) if t.name in PARSERS}
+
+
+header_parser_dict = _section_parser_dict("header")
+main_parser_dict = _section_parser_dict("main")
+footer_parser_dict = _section_parser_dict("footer")
+
+header_parser_labels = _section_parser_labels("header")
+main_parser_labels = _section_parser_labels("main")
+footer_parser_labels = _section_parser_labels("footer")
 
 
 def parse_unknown(cmpt) -> list:

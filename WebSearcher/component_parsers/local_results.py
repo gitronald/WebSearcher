@@ -74,7 +74,7 @@ def parse_local_result(sub, sub_rank=0) -> dict:
 
 def parse_local_details(sub) -> dict:
 
-    local_details = {"type": "ratings"}
+    local_details: dict[str, str | int | float] = {"type": "ratings"}
 
     # Extract summary details
     detail_div = sub.find("span", {"class": "rllt__details"})
