@@ -25,7 +25,7 @@ class ClassifyMainHeader:
         """Check text in common headers for dict matches"""
         header_dict = header_text_to_type(level)
 
-        # Lazy generator over potential header divs (defers find_all until iterated)
+        # Define selectors for classifying header divs
         selectors: list[Selector] = [
             Selector(f"h{level}", {"role": "heading"}),
             Selector(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
@@ -41,7 +41,7 @@ class ClassifyMainHeader:
             )
         )
 
-        # Check header text for known title matches
+        # Filter header divs and check text against dict
         for header in filter(None, headers):
             for text, label in header_dict.items():
                 if label == "local_results" and text == "locations":
