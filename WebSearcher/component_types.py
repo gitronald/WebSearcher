@@ -5,13 +5,13 @@ Each :class:`ComponentType` describes a parsable result type:
 - ``label``: human-readable label (mirrors parser registry labels)
 - ``sections``: SERP sections this type belongs to (``header``, ``main``, or ``footer``)
 - ``header_texts``: per-heading-level header text → type matches used by
-  :class:`WebSearcher.classifiers.header_text.ClassifyHeaderText`
+  :class:`WebSearcher.classifiers.main.ClassifyMainHeader`
 - ``sub_types``: known sub_type values produced by the parser
 - ``description``: short human-readable description
 
 Consumers:
-- :mod:`WebSearcher.classifiers.header_text` reads ``header_texts`` via
-  :func:`header_text_to_type`
+- :class:`WebSearcher.classifiers.main.ClassifyMainHeader` reads ``header_texts``
+  via :func:`header_text_to_type`
 - :mod:`WebSearcher.component_parsers` derives per-section parser dispatch dicts
   and labels via :func:`types_in_section` and :data:`TYPES_BY_NAME`
 """

@@ -3,9 +3,54 @@ from typing import Any
 import bs4
 
 from .. import logger, utils
-from .header_text import ClassifyHeaderText
+from ..component_types import header_text_to_type
+from ..utils import Selector
 
 log = logger.Logger().start(__name__)
+
+
+class ClassifyMainHeader:
+    """Classify a main-section component by its h2/h3 header text."""
+
+    @staticmethod
+    def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
+        for level in levels:
+            header = ClassifyMainHeader._classify_header(cmpt, level)
+            if header != "unknown":
+                return header
+        return "unknown"
+
+    @staticmethod
+    def _classify_header(cmpt: bs4.element.Tag, level: int) -> str:
+        """Check text in common headers for dict matches"""
+        header_dict = header_text_to_type(level)
+
+        # Define selectors for classifying header divs
+        selectors: list[Selector] = [
+            Selector(f"h{level}", {"role": "heading"}),
+            Selector(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
+            Selector(None, {"aria-level": f"{level}", "role": "heading"}),
+        ]
+        headers = (
+            h
+            for sel in selectors
+            for h in (
+                cmpt.find_all(sel.name, attrs=sel.attrs)
+                if sel.name
+                else cmpt.find_all(attrs=sel.attrs)
+            )
+        )
+
+        # Filter header divs and check text against dict
+        for header in filter(None, headers):
+            for text, label in header_dict.items():
+                if label == "local_results" and text == "locations":
+                    if header.text.strip().endswith(text):
+                        return label
+                if header.text.strip().startswith(text):
+                    return label
+
+        return "unknown"
 
 
 class ClassifyMain:
@@ -19,7 +64,7 @@ class ClassifyMain:
             ClassifyMain.locations,  # Check locations (hotels, etc.) before top_stories
             ClassifyMain.top_stories,  # Check top stories
             ClassifyMain.discussions_and_forums,  # Check discussions and forums
-            ClassifyHeaderText.classify,  # Check levels 2 & 3 header text
+            ClassifyMainHeader.classify,  # Check levels 2 & 3 header text
             ClassifyMain.news_quotes,  # Check news quotes
             ClassifyMain.img_cards,  # Check image cards
             ClassifyMain.images,  # Check images

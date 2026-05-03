@@ -15,22 +15,23 @@ from typing import Any
 import bs4
 
 from .. import utils
+from ..utils import Selector
 from .shopping_ads import parse_shopping_ads
 
-_SUBTYPE_CLASSIFICATIONS: list[tuple[str, str, dict[str, str] | None]] = [
-    ("legacy", "div", {"class": "ad_cclk"}),
-    ("local_service", "gls-profile-entrypoint", None),
-    ("secondary", "div", {"class": "d5oMvf"}),
-    ("shopping", "div", {"class": "commercial-unit-desktop-top"}),
-    ("standard", "div", {"class": "uEierd"}),
-    ("carousel", "g-scrolling-carousel", None),
-]
+_SUBTYPE_CLASSIFICATIONS: dict[str, Selector] = {
+    "legacy": Selector("div", {"class": "ad_cclk"}),
+    "local_service": Selector("gls-profile-entrypoint"),
+    "secondary": Selector("div", {"class": "d5oMvf"}),
+    "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
+    "standard": Selector("div", {"class": "uEierd"}),
+    "carousel": Selector("g-scrolling-carousel"),
+}
 
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     """Classify the type of ad component"""
-    for label, name, attrs in _SUBTYPE_CLASSIFICATIONS:
-        if utils.find_all_divs(cmpt, name, attrs):
+    for label, sel in _SUBTYPE_CLASSIFICATIONS.items():
+        if sel.name and utils.find_all_divs(cmpt, sel.name, sel.attrs):
             return label
     return "unknown"
 
