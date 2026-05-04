@@ -7,11 +7,7 @@ businesses relevant to the query, with rating, contact, and address details.
 import bs4
 
 from .. import utils
-
-_HEADER_SELECTORS = [
-    ("h2", {"role": "heading"}),
-    ("div", {"aria-level": "2", "role": "heading"}),
-]
+from ..utils import Selector
 
 
 def parse_local_results(cmpt: bs4.element.Tag) -> list:
@@ -19,7 +15,11 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
         # First non-empty header becomes the sub_type (e.g. "Places" -> "places")
-        header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
+        header_selectors = [
+            Selector("h2", {"role": "heading"}),
+            Selector("div", {"aria-level": "2", "role": "heading"}),
+        ]
+        header = utils.get_text_by_selectors(cmpt, header_selectors)
         if header:
             header_lower = header.lower()
             sub_type = (

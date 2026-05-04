@@ -10,14 +10,6 @@ Changelog
 from .. import utils
 from ..utils import Selector
 
-_SUB_TYPE_SELECTORS: dict[str, Selector] = {
-    "unspecified-0": Selector("g-inner-card"),
-    "unspecified-1": Selector("div", {"class": "VibNM"}),
-    "unspecified-2": Selector("div", {"class": "mLmaBd"}),
-    "unspecified-3": Selector("div", {"class": "RzdJxc"}),
-    "vertical": Selector("div", {"class": "sHEJob"}),
-}
-
 
 def parse_videos(cmpt) -> list:
     """Parse a videos component
@@ -30,11 +22,18 @@ def parse_videos(cmpt) -> list:
     Returns:
         list : list of parsed subcomponent dictionaries
     """
+    subtype_selectors: dict[str, Selector] = {
+        "unspecified-0": Selector("g-inner-card"),
+        "unspecified-1": Selector("div", {"class": "VibNM"}),
+        "unspecified-2": Selector("div", {"class": "mLmaBd"}),
+        "unspecified-3": Selector("div", {"class": "RzdJxc"}),
+        "vertical": Selector("div", {"class": "sHEJob"}),
+    }
 
     # Get known div structures
     divs: list = []
     sub_type = "unspecified-0"
-    for label, sel in _SUB_TYPE_SELECTORS.items():
+    for label, sel in subtype_selectors.items():
         if sel.name is None:
             continue
         divs = utils.find_all_divs(cmpt, sel.name, sel.attrs)

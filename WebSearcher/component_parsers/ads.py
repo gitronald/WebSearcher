@@ -13,18 +13,17 @@ from .. import utils
 from ..utils import Selector
 from .shopping_ads import parse_shopping_ads
 
-_SUBTYPE_CLASSIFICATIONS: dict[str, Selector] = {
-    "legacy": Selector("div", {"class": "ad_cclk"}),
-    "local_service": Selector("gls-profile-entrypoint"),
-    "secondary": Selector("div", {"class": "d5oMvf"}),
-    "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
-    "standard": Selector("div", {"class": "uEierd"}),
-    "carousel": Selector("g-scrolling-carousel"),
-}
-
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
-    for label, sel in _SUBTYPE_CLASSIFICATIONS.items():
+    subtype_selectors: dict[str, Selector] = {
+        "legacy": Selector("div", {"class": "ad_cclk"}),
+        "local_service": Selector("gls-profile-entrypoint"),
+        "secondary": Selector("div", {"class": "d5oMvf"}),
+        "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
+        "standard": Selector("div", {"class": "uEierd"}),
+        "carousel": Selector("g-scrolling-carousel"),
+    }
+    for label, sel in subtype_selectors.items():
         if sel.name and utils.find_all_divs(cmpt, sel.name, sel.attrs):
             return label
     return "unknown"
@@ -177,8 +176,8 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
 
         def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
             selectors = [
-                ("div", {"class": "yDYNvb"}),
-                ("div", {"class": "Va3FIb"}),
+                Selector("div", {"class": "yDYNvb"}),
+                Selector("div", {"class": "Va3FIb"}),
             ]
             text = utils.get_text_by_selectors(sub, selectors) or ""
             label = utils.get_text(sub, "span", {"class": "mXsQRe"})

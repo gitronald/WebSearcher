@@ -9,17 +9,13 @@ component.
 import bs4
 
 from ..utils import (
+    Selector,
     find_all_divs,
     find_children,
     get_link,
     get_text,
     get_text_by_selectors,
 )
-
-_TITLE_SELECTORS = [
-    ("div", {"class": "n0jPhd"}),  # Top Stories
-    ("div", {"class": "eAaXgc"}),  # Perspectives
-]
 
 
 def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list:
@@ -43,10 +39,14 @@ def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list
 
 
 def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict:
+    title_selectors = [
+        Selector("div", {"class": "n0jPhd"}),  # Top Stories
+        Selector("div", {"class": "eAaXgc"}),  # Perspectives
+    ]
     return {
         "type": ctype,
         "sub_rank": sub_rank,
-        "title": get_text_by_selectors(sub, _TITLE_SELECTORS),
+        "title": get_text_by_selectors(sub, title_selectors),
         "url": get_link(sub, key="href"),
         "text": get_text(sub, "div", {"class": "GI74Re"}),
         "cite": get_cite(sub),

@@ -8,11 +8,7 @@ accordion-style sections, and link rows under "brs_col".
 import bs4
 
 from .. import utils
-
-_HEADER_SELECTORS = [
-    ("h2", {"role": "heading"}),
-    ("div", {"aria-level": "2", "role": "heading"}),
-]
+from ..utils import Selector
 
 
 def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -24,7 +20,11 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     }
 
     # First non-empty header becomes the sub_type (e.g. "Additional searches" -> additional_searches)
-    header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
+    header_selectors = [
+        Selector("h2", {"role": "heading"}),
+        Selector("div", {"aria-level": "2", "role": "heading"}),
+    ]
+    header = utils.get_text_by_selectors(cmpt, header_selectors)
     parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
 
     output_list: list[str] = []

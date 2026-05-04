@@ -8,14 +8,7 @@ captures the question text.
 import bs4
 
 from .. import utils
-
-_QUESTION_SELECTORS = [
-    ("div", {"class": "rc"}),
-    ("div", {"class": "yuRUbf"}),
-    ("div", {"class": "iDjcJe"}),  # 2023-01-01
-    ("div", {"class": "JlqpRe"}),  # 2023-11-16
-    ("div", {"class": "cbphWd"}),  # 2021-01-09
-]
+from ..utils import Selector
 
 
 def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -32,4 +25,11 @@ def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
 
 
 def parse_question(question: bs4.element.Tag) -> str | None:
-    return utils.get_text_by_selectors(question, _QUESTION_SELECTORS, strip=True)
+    question_selectors = [
+        Selector("div", {"class": "rc"}),
+        Selector("div", {"class": "yuRUbf"}),
+        Selector("div", {"class": "iDjcJe"}),  # 2023-01-01
+        Selector("div", {"class": "JlqpRe"}),  # 2023-11-16
+        Selector("div", {"class": "cbphWd"}),  # 2021-01-09
+    ]
+    return utils.get_text_by_selectors(question, question_selectors, strip=True)

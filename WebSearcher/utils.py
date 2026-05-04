@@ -161,14 +161,14 @@ def get_link_list(
 
 def get_text_by_selectors(
     soup: Tag | None,
-    selectors: Sequence[tuple[str, Mapping[str, Any]]] | None = None,
+    selectors: Sequence[Selector] | None = None,
     strip: bool = False,
 ) -> str | None:
     """Get text by trying multiple selectors, return first non-null"""
     if not soup or not selectors:
         return None
-    for name, attrs in selectors:
-        text = get_text(soup, name, attrs, strip=strip)
+    for sel in selectors:
+        text = get_text(soup, sel.name, sel.attrs, strip=strip)
         if text:
             return text
     return None

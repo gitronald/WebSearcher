@@ -8,6 +8,7 @@ its own handler based on visible text.
 
 import copy
 import re
+from collections.abc import Callable
 
 import bs4
 
@@ -21,9 +22,9 @@ def parse_notices(cmpt: bs4.element.Tag) -> list:
 class NoticeParser:
     def __init__(self):
         self.parsed: dict = {}
-        self.sub_type = "unknown"
+        self.sub_type: str = "unknown"
         self.parsed_list: list = []
-        self.sub_type_text = {
+        self.sub_type_text: dict[str, set[str]] = {
             "query_edit": {"Showing results for", "Including results for"},
             "query_edit_no_results": {"No results found for"},
             "query_suggestion": {
@@ -37,7 +38,7 @@ class NoticeParser:
             "location_use_precise_location": {"Results for", "Use precise location"},
             "language_tip": {"Tip:", "Learn more about filtering by language"},
         }
-        self.parser_dict = {
+        self.parser_dict: dict[str, Callable[[bs4.element.Tag], dict]] = {
             "query_edit": self._parse_query_edit,
             "query_edit_no_results": self._parse_no_results_replacement,
             "query_suggestion": self._parse_query_suggestion,
