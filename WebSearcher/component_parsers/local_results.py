@@ -6,8 +6,7 @@ businesses relevant to the query, with rating, contact, and address details.
 
 import bs4
 
-from .. import utils
-from ..utils import Selector
+from ..utils import Selector, get_between_parentheses, get_text, get_text_by_selectors
 
 
 def parse_local_results(cmpt: bs4.element.Tag) -> list:
@@ -19,7 +18,7 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
             Selector("h2", {"role": "heading"}),
             Selector("div", {"aria-level": "2", "role": "heading"}),
         ]
-        header = utils.get_text_by_selectors(cmpt, header_selectors)
+        header = get_text_by_selectors(cmpt, header_selectors)
         if header:
             header_lower = header.lower()
             sub_type = (
@@ -36,22 +35,22 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
             {
                 "type": "local_results",
                 "sub_rank": 0,
-                "text": utils.get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
+                "text": get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
             }
         ]
 
 
 def parse_local_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "local_results", "sub_rank": sub_rank}
-    parsed["title"] = utils.get_text(sub, "div", {"class": "dbg0pd"})
+    parsed["title"] = get_text(sub, "div", {"class": "dbg0pd"})
 
     links = [a.attrs["href"] for a in sub.find_all("a") if "href" in a.attrs]
     links_text = [a.text.lower() for a in sub.find_all("a") if "href" in a.attrs]
     links_dict = dict(zip(links_text, links))
     parsed["url"] = links_dict.get("website", None)
 
-    text = utils.get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
-    label = utils.get_text(sub, "span", {"class": "X0w5lc"})
+    text = get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
+    label = get_text(sub, "span", {"class": "X0w5lc"})
     parsed["text"] = f"{text} <label>{label}</label>" if label else text
     parsed["details"] = parse_local_details(sub)
 
@@ -69,7 +68,7 @@ def parse_local_details(sub: bs4.element.Tag) -> dict:
         rating = rating_div.find("span", {"class": "BTtC6e"})
         if rating:
             local_details["rating"] = float(rating.text)
-            n_reviews = utils.get_between_parentheses(rating_div.text).replace(",", "")
+            n_reviews = get_between_parentheses(rating_div.text).replace(",", "")
             local_details["n_reviews"] = int(n_reviews)
         local_details["loc_label"] = rating_div.text.split("·")[-1].strip()
 

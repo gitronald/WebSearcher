@@ -7,8 +7,7 @@ Changelog
 
 """
 
-from .. import utils
-from ..utils import Selector
+from ..utils import Selector, find_all_divs, get_text
 
 
 def parse_videos(cmpt) -> list:
@@ -36,7 +35,7 @@ def parse_videos(cmpt) -> list:
     for label, sel in subtype_selectors.items():
         if sel.name is None:
             continue
-        divs = utils.find_all_divs(cmpt, sel.name, sel.attrs)
+        divs = find_all_divs(cmpt, sel.name, sel.attrs)
         if divs:
             sub_type = label
             break
@@ -63,8 +62,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         "sub_type": sub_type,
         "sub_rank": sub_rank,
         "url": get_url(sub),
-        "title": utils.get_text(sub, "div", {"role": "heading"}),
-        "text": utils.get_text(sub, "div", {"class": "MjS0Lc"}),
+        "title": get_text(sub, "div", {"role": "heading"}),
+        "text": get_text(sub, "div", {"class": "MjS0Lc"}),
     }
 
     details = sub.find_all("div", {"class": "MjS0Lc"})
@@ -86,8 +85,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         parsed["cite"] = sub.text
         # parsed.timestamp = get_div_text(sub, {'class':'rjmdhd'})
     elif sub.find("cite"):
-        parsed["cite"] = utils.get_text(sub, "cite")
-        # parsed.timestamp = utils.get_text(sub, "div", {'class':'hMJ0yc'})
+        parsed["cite"] = get_text(sub, "cite")
+        # parsed.timestamp = get_text(sub, "div", {'class':'hMJ0yc'})
 
     return parsed
 

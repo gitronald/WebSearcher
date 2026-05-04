@@ -6,8 +6,7 @@ source, and link. Each row has multiple known card layouts.
 
 import bs4
 
-from .. import utils
-from ..utils import Selector
+from ..utils import Selector, get_link, get_text, get_text_by_selectors
 
 
 def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
@@ -39,9 +38,9 @@ def get_title(sub: bs4.element.Tag) -> str | None:
         Selector("div", {"class": "zNWc4c"}),
         Selector("div", {"class": "qyp6xb"}),
     ]
-    title = utils.get_text_by_selectors(sub, title_selectors)
+    title = get_text_by_selectors(sub, title_selectors)
     if not title:
-        title = utils.get_text(sub, "div", {"role": "heading"})
+        title = get_text(sub, "div", {"role": "heading"})
     return title
 
 
@@ -50,11 +49,11 @@ def get_cite(sub: bs4.element.Tag) -> str | None:
         Selector("div", {"class": "LbKnXb"}),
         Selector("div", {"class": "VZGVuc"}),
     ]
-    return utils.get_text_by_selectors(sub, cite_selectors)
+    return get_text_by_selectors(sub, cite_selectors)
 
 
 def get_url(sub: bs4.element.Tag) -> str | None:
     # Try multiple, take first non-null
-    url_list = [utils.get_link(sub, {"class": "v4kUNc"}), utils.get_link(sub)]
+    url_list = [get_link(sub, {"class": "v4kUNc"}), get_link(sub)]
     url_list = [url for url in url_list if url]
     return url_list[0] if url_list else None

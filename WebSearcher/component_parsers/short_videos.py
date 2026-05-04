@@ -6,7 +6,7 @@ with a heading, source, and duration.
 
 import bs4
 
-from .. import utils
+from ..utils import get_text
 
 
 def parse_short_videos(cmpt: bs4.element.Tag) -> list:
@@ -23,11 +23,11 @@ def parse_short_videos(cmpt: bs4.element.Tag) -> list:
             "type": "short_videos",
             "sub_rank": i,
             "url": card.get("href"),
-            "title": utils.get_text(card, "div", {"role": "heading"}),
+            "title": get_text(card, "div", {"role": "heading"}),
         }
 
         # Source (YouTube, TikTok, etc.) and duration
-        cite = utils.get_text(card, "span", {"class": "xFMKFe"})
+        cite = get_text(card, "span", {"class": "xFMKFe"})
         if cite:
             parsed["cite"] = cite
 

@@ -7,8 +7,7 @@ accordion-style sections, and link rows under "brs_col".
 
 import bs4
 
-from .. import utils
-from ..utils import Selector
+from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors
 
 
 def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -24,35 +23,35 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         Selector("h2", {"role": "heading"}),
         Selector("div", {"aria-level": "2", "role": "heading"}),
     ]
-    header = utils.get_text_by_selectors(cmpt, header_selectors)
+    header = get_text_by_selectors(cmpt, header_selectors)
     parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
 
     output_list: list[str] = []
 
     # Classic search query suggestions
-    subs = utils.find_all_divs(cmpt, "a", {"class": "k8XOCe"})
+    subs = find_all_divs(cmpt, "a", {"class": "k8XOCe"})
     output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Curated list (e.g. song names)
-    subs = utils.find_all_divs(cmpt, "div", {"class": "EASEnb"})
+    subs = find_all_divs(cmpt, "div", {"class": "EASEnb"})
     output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Other list types
-    subs = utils.find_all_divs(cmpt, "div", {"role": "listitem"})
+    subs = find_all_divs(cmpt, "div", {"role": "listitem"})
     output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Accordion list
     if cmpt.find("explore-desktop-accordion"):
-        subs = utils.find_all_divs(cmpt, "div", {"class": "JXa4nd"})
+        subs = find_all_divs(cmpt, "div", {"class": "JXa4nd"})
         text_list = [
-            utils.get_text(sub, "div", {"class": "Cx1ZMc"})
+            get_text(sub, "div", {"class": "Cx1ZMc"})
             for sub in subs
             if isinstance(sub, bs4.element.Tag)
         ]
         output_list.extend(filter(None, text_list))
 
     if cmpt.find("div", {"class": "brs_col"}):
-        subs = utils.find_all_divs(cmpt, "a")
+        subs = find_all_divs(cmpt, "a")
         output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     parsed["text"] = "<|>".join(output_list)

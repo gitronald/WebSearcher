@@ -6,13 +6,13 @@ that appear under the main results column.
 
 import bs4
 
-from .. import utils
+from ..utils import find_all_divs, get_text
 
 
 class Footer:
     @staticmethod
     def parse_image_cards(elem: bs4.element.Tag) -> list:
-        subs = utils.find_all_divs(elem, "div", {"class": "g"})
+        subs = find_all_divs(elem, "div", {"class": "g"})
         return [
             Footer.parse_image_card(sub, sub_rank)
             for sub_rank, sub in enumerate(subs)
@@ -22,7 +22,7 @@ class Footer:
     @staticmethod
     def parse_image_card(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         parsed: dict = {"type": "img_cards", "sub_rank": sub_rank}
-        parsed["title"] = utils.get_text(sub, "div", {"aria-level": "3", "role": "heading"})
+        parsed["title"] = get_text(sub, "div", {"aria-level": "3", "role": "heading"})
         images = sub.find_all("img")
         if images:
             items = [{"url": i["src"], "text": i["alt"]} for i in images]
@@ -37,4 +37,4 @@ class Footer:
 
     @staticmethod
     def parse_omitted_notice(elem: bs4.element.Tag) -> list:
-        return [{"type": "omitted_notice", "sub_rank": 0, "text": utils.get_text(elem)}]
+        return [{"type": "omitted_notice", "sub_rank": 0, "text": get_text(elem)}]

@@ -8,7 +8,7 @@ from typing import Any
 
 import bs4
 
-from .. import utils
+from ..utils import get_link, get_text, url_unquote
 
 
 def parse_twitter_cards(cmpt: bs4.element.Tag) -> list:
@@ -26,16 +26,16 @@ def parse_twitter_header(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
     if cmpt.find("h3"):
         if element_legacy:
             href = element_legacy.get("href", "")
-            parsed["url"] = utils.url_unquote(str(href)) if href else None
-            parsed["title"] = utils.get_text(element_legacy, "a")
+            parsed["url"] = url_unquote(str(href)) if href else None
+            parsed["title"] = get_text(element_legacy, "a")
         elif element_current:
-            link = utils.get_link(element_current)
-            parsed["url"] = utils.url_unquote(link) if link else None
-            parsed["title"] = utils.get_text(element_current)
+            link = get_link(element_current)
+            parsed["url"] = url_unquote(link) if link else None
+            parsed["title"] = get_text(element_current)
     elif element_current:
-        parsed["url"] = utils.get_link(element_current)
-        parsed["title"] = utils.get_text(element_current)
-    parsed["cite"] = utils.get_text(cmpt, "cite")
+        parsed["url"] = get_link(element_current)
+        parsed["title"] = get_text(element_current)
+    parsed["cite"] = get_text(cmpt, "cite")
 
     return parsed
 
@@ -45,14 +45,14 @@ def parse_twitter_card(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
     # Tweet account
     title = sub.find("g-link")
-    parsed["title"] = utils.get_text(title, "a") if title else None
+    parsed["title"] = get_text(title, "a") if title else None
 
     # Bottom div containing details
     div = sub.find("div", {"class": "Brgz0"})
     if div:
-        url = utils.get_link(div)
-        parsed["url"] = utils.url_unquote(url) if url else None
-        parsed["text"] = utils.get_text(div, "div", {"class": "xcQxib"})
-        parsed["cite"] = utils.get_text(div, "div", {"class": "rmxqbe"})
+        url = get_link(div)
+        parsed["url"] = url_unquote(url) if url else None
+        parsed["text"] = get_text(div, "div", {"class": "xcQxib"})
+        parsed["cite"] = get_text(div, "div", {"class": "rmxqbe"})
 
     return parsed

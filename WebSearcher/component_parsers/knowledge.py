@@ -8,7 +8,7 @@ election results, "things to know", and the generic panel layout.
 
 import bs4
 
-from .. import utils
+from ..utils import get_link, get_text
 from .general import parse_general_result
 
 
@@ -18,11 +18,11 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     # Get embedded result if it exists
     result = cmpt.find("div", {"class": "rc"})
     if result:
-        parsed["title"] = utils.get_text(result, "h3")
-        parsed["url"] = utils.get_link(result)
-        parsed["cite"] = utils.get_text(result, "cite")
+        parsed["title"] = get_text(result, "h3")
+        parsed["url"] = get_link(result)
+        parsed["cite"] = get_text(result, "cite")
 
-    parsed["text"] = utils.get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
+    parsed["text"] = get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
 
     details: dict = {}
 
@@ -52,7 +52,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     ):
         parsed["sub_type"] = "featured_snippet"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if list(span) else None
+        details["text"] = _join_texts(span) if list(span) else None
 
         # General component with no abstract
         g_div = cmpt.find("div", {"class": "g"})
@@ -66,7 +66,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     elif h2_text == "Unit Converter":
         parsed["sub_type"] = "unit_converter"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if list(span) else None
+        details["text"] = _join_texts(span) if list(span) else None
 
     elif h2_text == "Sports Results":
         parsed["sub_type"] = "sports"
@@ -92,12 +92,12 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
             span_first = cmpt.find("span", {"jsslot": ""})
             if span_first:
                 span = span_first.find_all("span")
-                details["text"] = get_text(span).split("Translate")[0] if list(span) else None
+                details["text"] = _join_texts(span).split("Translate")[0] if list(span) else None
 
     elif h2_text in ("Translation Result", "Resultado de traducción"):
         parsed["sub_type"] = "translate"
         span = cmpt.find_all("span")
-        details["text"] = get_text(span).split("Community Verified")[0] if list(span) else None
+        details["text"] = _join_texts(span).split("Community Verified")[0] if list(span) else None
 
     elif h2_text == "Calculator Result":
         parsed["sub_type"] = "calculator"
@@ -105,7 +105,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     elif details["heading"] == "2020 US election results":
         parsed["sub_type"] = "election"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if list(span) else None
+        details["text"] = _join_texts(span) if list(span) else None
 
     elif cmpt.find("span", {"role": "heading", "class": "IFnjPb"}):
         heading_span = cmpt.find("span", {"role": "heading", "class": "IFnjPb"})
@@ -120,12 +120,12 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         parsed["sub_type"] = "panel"
         # pyrefly: ignore[no-matching-overload]
         div = cmpt.find_all(["span", "div", "a"], string=True)
-        details["text"] = get_text(div) if list(div) else None
+        details["text"] = _join_texts(div) if list(div) else None
 
         text_divs = cmpt.find_all("div", {"class": "sinMW"})
-        text_list = [t for t in (utils.get_text(div) for div in text_divs) if t]
+        text_list = [t for t in (get_text(div) for div in text_divs) if t]
         parsed["text"] = "<|>".join(text_list) if text_list else None
-        parsed["title"] = utils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
+        parsed["title"] = get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
 
     img_div = cmpt.find("div", {"class": "img-brk"})
     if img_div:
@@ -139,7 +139,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def get_text(div) -> str:
+def _join_texts(div) -> str:
     return "|".join([d.get_text(separator=" ") for d in div if d.text])
 
 

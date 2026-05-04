@@ -6,7 +6,7 @@ at a parent listing.
 
 import bs4
 
-from .. import utils
+from ..utils import get_link
 
 
 def parse_top_image_carousel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -15,7 +15,7 @@ def parse_top_image_carousel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     title = cmpt.find_all("span", {"class": "Wkr6U"})
     if title:
         parsed["title"] = "|".join([t.text for t in title])
-        parsed["url"] = utils.get_link(cmpt)
+        parsed["url"] = get_link(cmpt)
 
     images = cmpt.find("div", {"role": "list"})
     if images:

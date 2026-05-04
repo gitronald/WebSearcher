@@ -7,8 +7,7 @@ captures the question text.
 
 import bs4
 
-from .. import utils
-from ..utils import Selector
+from ..utils import Selector, get_text_by_selectors
 
 
 def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -32,4 +31,4 @@ def parse_question(question: bs4.element.Tag) -> str | None:
         Selector("div", {"class": "JlqpRe"}),  # 2023-11-16
         Selector("div", {"class": "cbphWd"}),  # 2021-01-09
     ]
-    return utils.get_text_by_selectors(question, question_selectors, strip=True)
+    return get_text_by_selectors(question, question_selectors, strip=True)
