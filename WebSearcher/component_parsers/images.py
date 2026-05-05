@@ -44,11 +44,7 @@ def parse_image_multimedia(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
 
 def parse_image_medium(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     title_div = get_div(sub, "a", {"class": "EZAeBe"})
-    title = (
-        get_text(title_div)
-        if isinstance(title_div, bs4.element.Tag)
-        else get_text(sub, "span", {"class": "Yt787"})
-    )
+    title = get_text(title_div) if title_div else get_text(sub, "span", {"class": "Yt787"})
     url = get_link(sub) if title_div else get_img_url(sub)
 
     if not title:

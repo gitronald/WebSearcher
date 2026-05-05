@@ -142,7 +142,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 
     def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
         url_div = get_div(sub, "div", {"class": "d5oMvf"})
-        if not isinstance(url_div, bs4.element.Tag):
+        if not url_div:
             return ""
         return get_link(url_div) or ""
 
@@ -168,11 +168,9 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 
 
 def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
-    subs = find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"})
     parsed_list = []
-    for sub in subs:
-        if isinstance(sub, bs4.element.Tag):
-            parsed_list.extend(parse_shopping_ads(sub))
+    for sub in find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}):
+        parsed_list.extend(parse_shopping_ads(sub))
     return parsed_list
 
 
@@ -204,9 +202,7 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
             "details": submenu,
         }
 
-    subs = [
-        s for s in find_all_divs(cmpt, "div", {"class": "uEierd"}) if isinstance(s, bs4.element.Tag)
-    ]
+    subs = find_all_divs(cmpt, "div", {"class": "uEierd"})
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
@@ -288,8 +284,6 @@ def parse_ad_carousel(
             if not sub_cmpts:
                 continue
             for sub_rank, sub in enumerate(sub_cmpts):
-                if not isinstance(sub, bs4.element.Tag):
-                    continue
                 if ad_carousel_type == "carousel_card":
                     if filter_visible and not is_visible_card(sub):
                         continue

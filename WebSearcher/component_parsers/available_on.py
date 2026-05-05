@@ -6,25 +6,26 @@ options relevant to the query.
 
 import bs4
 
+from ..utils import find_all_divs, get_link, get_text
+
 
 def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
-    title = cmpt.find("span", {"class": "GzssTd"})
-    parsed["title"] = title.text if title else None
+    parsed["title"] = get_text(cmpt, "span", {"class": "GzssTd"})
+    parsed["details"] = None
 
-    items = []
-    for o in cmpt.find_all("div", {"class": "kno-fb-ctx"}):
-        items.append(parse_available_on_item(o))
-    parsed["details"] = {"type": "providers", "items": items} if items else None
+    items = find_all_divs(cmpt, "div", {"class": "kno-fb-ctx"})
+    if items:
+        parsed["details"] = {
+            "type": "providers",
+            "items": [parse_available_on_item(i) for i in items],
+        }
     return [parsed]
 
 
 def parse_available_on_item(sub: bs4.element.Tag) -> dict:
-    title = sub.find("div", {"class": "i3LlFf"})
-    a = sub.find("a")
-    cost = sub.find("div", {"class": "V8xno"})
     return {
-        "title": title.text if title else None,
-        "url": a["href"] if a else None,
-        "cost": cost.text if cost else None,
+        "title": get_text(sub, "div", {"class": "i3LlFf"}),
+        "url": get_link(sub),
+        "cost": get_text(sub, "div", {"class": "V8xno"}),
     }

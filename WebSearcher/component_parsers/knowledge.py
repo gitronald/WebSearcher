@@ -56,7 +56,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
 
         # General component with no abstract
         g_div = cmpt.find("div", {"class": "g"})
-        if isinstance(g_div, bs4.element.Tag):
+        if g_div:
             parsed_general = parse_general_result(g_div)
             parsed_general = {
                 k: v for k, v in parsed_general.items() if k in {"title", "url", "cite"}

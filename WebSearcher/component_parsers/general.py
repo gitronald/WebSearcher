@@ -51,9 +51,9 @@ def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     parsed: dict = {
         "type": "general",
         "sub_rank": sub_rank,
-        "title": get_text(title_div, "h3") if isinstance(title_div, bs4.element.Tag) else None,
-        "url": get_link(title_div) if isinstance(title_div, bs4.element.Tag) else None,
-        "text": get_text(body_div) if isinstance(body_div, bs4.element.Tag) else None,
+        "title": get_text(title_div, "h3") if title_div else None,
+        "url": get_link(title_div) if title_div else None,
+        "text": get_text(body_div) if body_div else None,
         "cite": get_text(sub, "cite"),
     }
 

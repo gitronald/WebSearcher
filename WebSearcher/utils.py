@@ -107,7 +107,7 @@ def get_div(
     soup: Tag | None,
     name: str | None,
     attrs: Mapping[str, Any] | None = None,
-) -> SoupElement | None:
+) -> Tag | None:
     """Utility for `soup.find(name)` with null attrs handling"""
     if not soup:
         return None
@@ -198,16 +198,15 @@ def find_all_divs(
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = True,
-) -> list[SoupElement]:
+) -> list[Tag]:
     if not soup:
         return []
     divs = soup.find_all(name, attrs=dict(attrs)) if attrs else soup.find_all(name)
-    divs = filter_empty_divs(divs) if filter_empty else divs
-    return list(divs)
+    return filter_empty_divs(divs) if filter_empty else list(divs)
 
 
-def filter_empty_divs(divs: Iterable[SoupElement]) -> list[SoupElement]:
-    filtered: list[SoupElement] = []
+def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
+    filtered: list[Tag] = []
     for candidate in divs:
         if not candidate:
             continue
@@ -222,14 +221,10 @@ def find_children(
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = False,
-) -> Iterable[SoupElement]:
+) -> Iterable[Tag]:
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    children: list[SoupElement] = (
-        [c for c in div.children if isinstance(c, BeautifulSoup | Tag | NavigableString)]
-        if isinstance(div, Tag)
-        else []
-    )
+    children: list[Tag] = [c for c in div.children if isinstance(c, Tag)] if div else []
     return filter_empty_divs(children) if filter_empty else children
 
 

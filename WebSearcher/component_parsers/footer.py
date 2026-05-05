@@ -13,11 +13,7 @@ class Footer:
     @staticmethod
     def parse_image_cards(elem: bs4.element.Tag) -> list:
         subs = find_all_divs(elem, "div", {"class": "g"})
-        return [
-            Footer.parse_image_card(sub, sub_rank)
-            for sub_rank, sub in enumerate(subs)
-            if isinstance(sub, bs4.element.Tag)
-        ]
+        return [Footer.parse_image_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
     @staticmethod
     def parse_image_card(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
