@@ -77,6 +77,7 @@ class ClassifyMain:
             ClassifyMain.map_result,  # Check for map results
             ClassifyMain.general_questions,  # Check hybrid general questions
             ClassifyMain.short_videos,  # Check short videos carousel
+            ClassifyMain.videos,  # Check video carousels (e.g. 'Trailers & clips')
             ClassifyMain.twitter,  # Check twitter cards and results
             ClassifyMain.flights,  # Check flights widgets
             ClassifyMain.general,  # Check general components
@@ -262,6 +263,17 @@ class ClassifyMain:
         heading = cmpt.find("span", {"role": "heading", "class": "IFnjPb"})
         if heading and heading.get_text(strip=True) == "Short videos":
             return "short_videos"
+        return "unknown"
+
+    @staticmethod
+    def videos(cmpt: bs4.element.Tag) -> str:
+        """Classify video carousel components (e.g. 'Trailers & clips' on entity SERPs).
+
+        Matches the layout-class vocabulary used by parse_videos for individual
+        video subcards. g-inner-card is intentionally excluded as too generic.
+        """
+        if cmpt.find("div", {"class": ["VibNM", "mLmaBd", "RzdJxc", "sHEJob"]}):
+            return "videos"
         return "unknown"
 
     @staticmethod

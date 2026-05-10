@@ -41,6 +41,15 @@ def parse_videos(cmpt) -> list:
             break
     divs = list(filter(None, divs))
 
+    section_labels = {
+        "Trailers & clips": "trailers-and-clips",
+    }
+    section_heading = cmpt.find("div", {"role": "heading", "aria-level": "2"})
+    if section_heading:
+        label = section_labels.get(section_heading.get_text(" ", strip=True))
+        if label:
+            sub_type = label
+
     if divs:
         return [parse_video(div, sub_type, i) for i, div in enumerate(divs)]
     else:
