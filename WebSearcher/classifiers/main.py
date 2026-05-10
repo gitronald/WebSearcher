@@ -69,6 +69,7 @@ class ClassifyMain:
             ClassifyMain.img_cards,  # Check image cards
             ClassifyMain.images,  # Check images
             ClassifyMain.ai_overview,  # Check AI overview
+            ClassifyMain.available_on,  # Check for available on (before knowledge_panel)
             ClassifyMain.knowledge_panel,  # Check knowledge panel
             ClassifyMain.knowledge_block,  # Check knowledge components
             ClassifyMain.banner,  # Check for banners
@@ -82,7 +83,6 @@ class ClassifyMain:
             ClassifyMain.people_also_ask,  # Check people also ask
             ClassifyMain.knowledge_box,  # Check flights, maps, hotels, events, jobs
             ClassifyMain.local_results,  # Check for local results
-            ClassifyMain.available_on,  # Check for available on
         ]
 
         # Default unknown, exit on first successful classification
@@ -103,6 +103,9 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
+        for heading in cmpt.find_all("span", class_="mgAbYb"):
+            if heading.get_text(strip=True) == "Available on":
+                return "available_on"
         text = utils.get_text(cmpt) or ""
         return "available_on" if "/Available on" in text else "unknown"
 
