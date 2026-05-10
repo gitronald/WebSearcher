@@ -88,9 +88,8 @@ def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
                 if a:
                     parsed["url"] = a["href"]
 
-    if "class" in sub.attrs:
-        if "d4rhi" in sub.attrs.get("class", []):
-            parsed["sub_type"] = "subresult"
+    if "d4rhi" in sub.attrs.get("class", []):
+        parsed["sub_type"] = "subresult"
 
     elif sub.find("g-review-stars"):
         # Submenu - rating
@@ -145,8 +144,34 @@ def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
             details.update(parse_product(text))
             details["type"] = "product"
 
+    elif rating_span := sub.find("span", {"class": ["Y0A0hc", "z3HNkc"]}):
+        # Modern rating widget (e.g. entertainment titles with star ratings)
+        ratings = parse_rating_aria_label(str(rating_span.get("aria-label", "")))
+        if ratings:
+            details["type"] = "ratings"
+            details.update(ratings)
+
     parsed["details"] = details if details else None
     return parsed
+
+
+_ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
+_ARIA_REVIEWS_RE = re.compile(r"\(([\d,]+)\)\s*user reviews?")
+
+
+def parse_rating_aria_label(aria_label: str) -> dict:
+    """Parse 'Rated 2.5 out of 5, (5,114) user reviews' into structured fields."""
+    rating_match = _ARIA_RATING_RE.search(aria_label or "")
+    if not rating_match:
+        return {}
+    result: dict = {
+        "rating": float(rating_match.group(1)),
+        "scale": int(rating_match.group(2)),
+    }
+    reviews_match = _ARIA_REVIEWS_RE.search(aria_label)
+    if reviews_match:
+        result["n_reviews"] = int(reviews_match.group(1).replace(",", ""))
+    return result
 
 
 def parse_ratings(text) -> dict:
