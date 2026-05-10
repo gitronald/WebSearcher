@@ -60,8 +60,10 @@ def main(
     data_dir: str = typer.Option(DEFAULT_DATA_DIR, help="Directory containing serps.json"),
     port: int = typer.Option(8765, help="localhost port"),
     list_queries: bool = typer.Option(False, "--list", help="List available queries and exit"),
-    keep_scripts: bool = typer.Option(
-        False, "--keep-scripts", help="Keep <script> tags (default: strip to avoid JS overlays)"
+    raw: bool = typer.Option(
+        False,
+        "--raw",
+        help="Serve the original HTML untouched (skip script stripping, overlay removal, and scroll-lock fix)",
     ),
 ) -> None:
     fp = Path(data_dir) / "serps.json"
@@ -91,16 +93,14 @@ def main(
         typer.echo(f"No SERP found for query {query!r}. Use --list to see available queries.")
         raise typer.Exit(1)
 
-    if not keep_scripts:
+    if not raw:
         html = _SCRIPT_RE.sub("", html)
-
-    html = strip_overlays(html)
-
-    # Body-scroll override in case anything else locks it
-    if "</head>" in html:
-        html = html.replace("</head>", _OVERLAY_RESET_CSS + "</head>", 1)
-    else:
-        html = _OVERLAY_RESET_CSS + html
+        html = strip_overlays(html)
+        # Body-scroll override in case anything else locks it
+        if "</head>" in html:
+            html = html.replace("</head>", _OVERLAY_RESET_CSS + "</head>", 1)
+        else:
+            html = _OVERLAY_RESET_CSS + html
 
     body = html.encode("utf-8")
 
