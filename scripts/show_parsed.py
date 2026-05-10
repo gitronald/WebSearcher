@@ -5,7 +5,6 @@ from pathlib import Path
 
 import polars as pl
 import typer
-from wcwidth import wcswidth
 
 import WebSearcher as ws
 
@@ -15,27 +14,10 @@ app = typer.Typer()
 
 
 def trunc(s, n: int = 55) -> str:
-    """Truncate and pad `s` to exactly `n` terminal cells, accounting for wide chars."""
     if s is None:
-        return "-".ljust(n)
+        return "-"
     s = str(s).replace("\n", " ")
-    # Strip variation selectors — they promote a base char to emoji presentation
-    # (2 cells in terminals) but polars + wcwidth still count the base as 1, so
-    # cells end up rendered 1+ cells wider than polars's column-width math.
-    s = s.replace("️", "").replace("︎", "")
-    out = ""
-    width = 0
-    for ch in s:
-        w = wcswidth(ch)
-        if w < 0:
-            continue  # control char
-        if width + w > n - 1:
-            out += "…"
-            width += 1
-            break
-        out += ch
-        width += w
-    return out + " " * (n - width)
+    return s if len(s) <= n else s[: n - 1] + "…"
 
 
 def show(s):
