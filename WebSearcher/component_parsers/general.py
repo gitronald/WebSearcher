@@ -228,9 +228,9 @@ def get_result_text(cmpt: bs4.element.Tag, selector: str, strip: bool = True) ->
     return element.get_text(strip=strip) if element else None
 
 
-def get_result_details(cmpt: bs4.element.Tag) -> dict:
-    return {
-        "type": "video",
-        "source": get_result_text(cmpt, ".gqF9jc", strip=False),
-        "duration": get_result_text(cmpt, ".JIv15d"),
-    }
+def get_result_details(cmpt: bs4.element.Tag) -> dict | None:
+    source = get_result_text(cmpt, ".gqF9jc", strip=False)
+    duration = get_result_text(cmpt, ".JIv15d")
+    if source is None and duration is None:
+        return None
+    return {"type": "video", "source": source, "duration": duration}
