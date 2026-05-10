@@ -3,10 +3,12 @@ from .ads import parse_ads
 from .available_on import parse_available_on
 from .banner import parse_banner
 from .discussions_and_forums import parse_discussions_and_forums
+from .flights import parse_flights
 from .footer import Footer
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
+from .jobs import parse_jobs
 from .knowledge import parse_knowledge_panel
 from .knowledge_rhs import parse_knowledge_rhs
 from .latest_from import parse_latest_from
@@ -40,10 +42,12 @@ PARSERS = {
     "banner": parse_banner,
     "discover_more": Footer.parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
+    "flights": parse_flights,
     "general": parse_general_results,
     "general_questions": parse_general_questions,
     "images": parse_images,
     "img_cards": Footer.parse_image_cards,
+    "jobs": parse_jobs,
     "knowledge": parse_knowledge_panel,
     "knowledge_rhs": parse_knowledge_rhs,
     "latest_from": parse_latest_from,

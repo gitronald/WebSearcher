@@ -130,6 +130,11 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Image search results",
     ),
     ComponentType(
+        name="flights",
+        label="Flights",
+        sections=("main",),
+    ),
+    ComponentType(
         name="jobs",
         label="Jobs",
         sections=("main",),
