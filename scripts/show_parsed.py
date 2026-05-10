@@ -19,6 +19,10 @@ def trunc(s, n: int = 55) -> str:
     if s is None:
         return "-".ljust(n)
     s = str(s).replace("\n", " ")
+    # Strip variation selectors — they promote a base char to emoji presentation
+    # (2 cells in terminals) but polars + wcwidth still count the base as 1, so
+    # cells end up rendered 1+ cells wider than polars's column-width math.
+    s = s.replace("️", "").replace("︎", "")
     out = ""
     width = 0
     for ch in s:
