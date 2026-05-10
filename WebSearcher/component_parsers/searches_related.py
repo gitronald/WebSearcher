@@ -22,6 +22,7 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     header_selectors = [
         Selector("h2", {"role": "heading"}),
         Selector("div", {"aria-level": "2", "role": "heading"}),
+        Selector("span", {"class": "mgAbYb"}),
     ]
     header = get_text_by_selectors(cmpt, header_selectors)
     parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
@@ -38,6 +39,10 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
 
     # Other list types
     subs = find_all_divs(cmpt, "div", {"role": "listitem"})
+    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+
+    # Current Google layout: anchor links
+    subs = find_all_divs(cmpt, "a", {"class": "ngTNl"})
     output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     # Accordion list
