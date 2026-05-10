@@ -1534,7 +1534,7 @@ wheels = [
 
 [[package]]
 name = "websearcher"
-version = "0.7.2"
+version = "0.7.3a0"
 source = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
