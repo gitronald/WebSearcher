@@ -116,6 +116,23 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
             parsed["sub_type"] = "things_to_know"
             details["heading"] = heading_span.text.strip()
 
+    elif cmpt.find("div", {"class": "JNkvid"}) and (
+        section_heading := cmpt.find(attrs={"role": "heading", "aria-level": "2"})
+    ):
+        heading_text = section_heading.get_text(" ", strip=True)
+        parsed["sub_type"] = heading_text.lower().replace(" & ", "-and-").replace(" ", "-")
+        parsed["title"] = heading_text
+        # Drop Google KG-navigation /search? links — they're internal entity redirects.
+        details["urls"] = [
+            u for u in details.get("urls", []) if not u["url"].startswith("/search?")
+        ]
+        items = [
+            h.get_text(" ", strip=True)
+            for h in cmpt.find_all(attrs={"role": "heading", "aria-level": "3"})
+        ]
+        if items:
+            details["items"] = items
+
     else:
         parsed["sub_type"] = "panel"
         # pyrefly: ignore[no-matching-overload]

@@ -78,6 +78,7 @@ class ClassifyMain:
             ClassifyMain.general_questions,  # Check hybrid general questions
             ClassifyMain.short_videos,  # Check short videos carousel
             ClassifyMain.videos,  # Check video carousels (e.g. 'Trailers & clips')
+            ClassifyMain.knowledge_subcard,  # Catch other entity-panel subcards
             ClassifyMain.twitter,  # Check twitter cards and results
             ClassifyMain.flights,  # Check flights widgets
             ClassifyMain.general,  # Check general components
@@ -275,6 +276,21 @@ class ClassifyMain:
         if cmpt.find("div", {"class": ["VibNM", "mLmaBd", "RzdJxc", "sHEJob"]}):
             return "videos"
         return "unknown"
+
+    @staticmethod
+    def knowledge_subcard(cmpt: bs4.element.Tag) -> str:
+        """Catch knowledge-panel extension subcards by structural pattern.
+
+        Entity-panel sections (e.g. Cast, Based on the book, Reviews, Behind the
+        scenes) share the JNkvid wrapper class and an aria-level=2 heading.
+        Specific classifiers (Header.classify, videos, images, people_also_ask)
+        must run earlier so their section types win for known headings.
+        """
+        if not cmpt.find("div", {"class": "JNkvid"}):
+            return "unknown"
+        if not cmpt.find(attrs={"role": "heading", "aria-level": "2"}):
+            return "unknown"
+        return "knowledge"
 
     @staticmethod
     def locations(cmpt: bs4.element.Tag) -> str:
