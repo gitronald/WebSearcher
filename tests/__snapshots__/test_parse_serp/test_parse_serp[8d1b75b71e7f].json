@@ -55,7 +55,7 @@
         "items": [
           "What is the true meaning of serendipity?",
           "What is an example of serendipity?",
-          "What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com  › blog › what-does-serendipity-m... Noisli https://www.noisli.com  › blog › what-does-serendipity-m...",
+          "What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com › blog › what-does-serendipity-m... Noisli https://www.noisli.com › blog › what-does-serendipity-m...",
           "What is the synonym of serendipity?"
         ],
         "type": "text"
@@ -65,7 +65,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What is the true meaning of serendipity?<|>What is an example of serendipity?<|>What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com  › blog › what-does-serendipity-m... Noisli https://www.noisli.com  › blog › what-does-serendipity-m...<|>What is the synonym of serendipity?",
+      "text": "What is the true meaning of serendipity?<|>What is an example of serendipity?<|>What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com › blog › what-does-serendipity-m... Noisli https://www.noisli.com › blog › what-does-serendipity-m...<|>What is the synonym of serendipity?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -409,11 +409,7 @@
     {
       "cite": "2K+ views  ·  3 years ago",
       "cmpt_rank": 11,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 26,
@@ -427,12 +423,28 @@
     {
       "cite": "10+ answers  ·  6 years ago",
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "What is serendipity?",
+            "url": "https://www.quora.com/What-is-serendipity"
+          },
+          {
+            "text": "What is serendipity in love?",
+            "url": "https://www.quora.com/What-is-serendipity-in-love"
+          },
+          {
+            "text": "More results from www.quora.com",
+            "url": "/search?q=define+serendipity+site:www.quora.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjfno-KiMaSAxU4hKgCHbt1MXwQrQIoAnoECEYQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Serendipity :  Serendipity  is an unsought,unintended and/ or unexpected but fortunate discovery and/or learning experience that happens by chance. Read more",
       "title": "In the simplest terms, what does serendipity mean?",
       "type": "general",
@@ -441,13 +453,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Define serendipity in a sentence",
+          "Serendipity in a sentence",
+          "Serendipity pronunciation",
+          "Serendipity synonyms",
+          "Serendipity movie",
+          "What is the opposite of serendipity",
+          "Serendipity in love meaning",
+          "Serendipity examples"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 28,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Define serendipity in a sentence<|>Serendipity in a sentence<|>Serendipity pronunciation<|>Serendipity synonyms<|>Serendipity movie<|>What is the opposite of serendipity<|>Serendipity in love meaning<|>Serendipity examples",
       "title": null,
       "type": "searches_related",
       "url": null

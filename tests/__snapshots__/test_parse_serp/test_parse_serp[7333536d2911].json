@@ -214,9 +214,9 @@
       "cmpt_rank": 2,
       "details": {
         "items": [
-          "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com  › answers › comments › why_a... Reddit https://www.reddit.com  › answers › comments › why_a...",
-          "Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana",
-          "Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com  › blog › going-bananas The FruitGuys https://fruitguys.com  › blog › going-bananas",
+          "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com › answers › comments › why_a... Reddit https://www.reddit.com › answers › comments › why_a...",
+          "Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org › wiki › Cavendish_banana",
+          "Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com › blog › going-bananas The FruitGuys https://fruitguys.com › blog › going-bananas",
           "What color is the healthiest banana?"
         ],
         "type": "text"
@@ -226,7 +226,7 @@
       "serp_rank": 10,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com  › answers › comments › why_a... Reddit https://www.reddit.com  › answers › comments › why_a...<|>Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org  › wiki › Cavendish_banana<|>Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com  › blog › going-bananas The FruitGuys https://fruitguys.com  › blog › going-bananas<|>What color is the healthiest banana?",
+      "text": "Why are bananas yellow? : r/answers - Reddit Reddit https://www.reddit.com › answers › comments › why_a... Reddit https://www.reddit.com › answers › comments › why_a...<|>Cavendish banana - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Cavendish_banana Wikipedia https://en.wikipedia.org › wiki › Cavendish_banana<|>Going Bananas: Your Complete Ripe Banana Guide - The FruitGuys The FruitGuys https://fruitguys.com › blog › going-bananas The FruitGuys https://fruitguys.com › blog › going-bananas<|>What color is the healthiest banana?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -234,12 +234,28 @@
     {
       "cite": "10+ comments  ·  1 year ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "ELI5: when you buy bananas that are green and not ...",
+            "url": "https://www.reddit.com/r/explainlikeimfive/comments/n164cp/eli5_when_you_buy_bananas_that_are_green_and_not/"
+          },
+          {
+            "text": "If Bananas are yellow when ripe and green when not ...",
+            "url": "https://www.reddit.com/r/NoStupidQuestions/comments/11v2yg5/if_bananas_are_yellow_when_ripe_and_green_when/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=why+are+bananas+yellow+site:www.reddit.com&sca_esv=96a94db6fa638bd7&sa=X&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQrQIoAnoECEEQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "The  yellow  pigment is called Xantophyll. When  bananas  ripen, the chlorophyll (green) breaks down and the  yellow  color is more visible. Read more",
       "title": "Why are bananas yellow? : r/answers",
       "type": "general",
@@ -276,12 +292,28 @@
     {
       "cite": "10+ answers  ·  5 years ago",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Have bananas always been yellow?",
+            "url": "https://www.quora.com/Have-bananas-always-been-yellow"
+          },
+          {
+            "text": "Why are bananas yellow?",
+            "url": "https://www.quora.com/Why-are-bananas-yellow"
+          },
+          {
+            "text": "More results from www.quora.com",
+            "url": "/search?q=why+are+bananas+yellow+site:www.quora.com&sca_esv=96a94db6fa638bd7&sa=X&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQrQIoAnoECEAQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "The yellow color in a banana indicates that  the peel is beginning to deteriorate  and releasing sugars into the rest of the fruit. This is when ... Read more",
       "title": "Why are supermarket bananas so yellow?",
       "type": "general",
@@ -318,11 +350,7 @@
     {
       "cite": "300+ views  ·  2 years ago",
       "cmpt_rank": 9,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -364,13 +392,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Why are bananas yellow joke",
+          "Why are bananas red",
+          "Why does a banana appear yellow to your eyes",
+          "Are bananas yellow or white",
+          "Why are my bananas still green after 2 weeks",
+          "What color are bananas naturally",
+          "Why are bananas curved",
+          "Do green bananas turn yellow after picking"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Why are bananas yellow joke<|>Why are bananas red<|>Why does a banana appear yellow to your eyes<|>Are bananas yellow or white<|>Why are my bananas still green after 2 weeks<|>What color are bananas naturally<|>Why are bananas curved<|>Do green bananas turn yellow after picking",
       "title": null,
       "type": "searches_related",
       "url": null

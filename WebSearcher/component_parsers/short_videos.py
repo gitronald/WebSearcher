@@ -1,15 +1,15 @@
-from .. import utils
+"""Parse a "Short videos" carousel component.
+
+A horizontal carousel of short-form video cards (YouTube Shorts, TikTok, etc.)
+with a heading, source, and duration.
+"""
+
+import bs4
+
+from ..utils import get_text
 
 
-def parse_short_videos(cmpt) -> list:
-    """Parse a short videos carousel component
-
-    Args:
-        cmpt (bs4 object): A short videos carousel component
-
-    Returns:
-        list: list of parsed subcomponent dictionaries
-    """
+def parse_short_videos(cmpt: bs4.element.Tag) -> list:
     # Filter to full card links (with heading), skip thumbnail-only duplicates
     cards = [
         a for a in cmpt.find_all("a", {"class": "rIRoqf"}) if a.find("div", {"role": "heading"})
@@ -23,11 +23,11 @@ def parse_short_videos(cmpt) -> list:
             "type": "short_videos",
             "sub_rank": i,
             "url": card.get("href"),
-            "title": utils.get_text(card, "div", {"role": "heading"}),
+            "title": get_text(card, "div", {"role": "heading"}),
         }
 
-        # Get source (YouTube, TikTok, etc.) and duration
-        cite = utils.get_text(card, "span", {"class": "xFMKFe"})
+        # Source (YouTube, TikTok, etc.) and duration
+        cite = get_text(card, "span", {"class": "xFMKFe"})
         if cite:
             parsed["cite"] = cite
 

@@ -107,7 +107,7 @@ def get_div(
     soup: Tag | None,
     name: str | None,
     attrs: Mapping[str, Any] | None = None,
-) -> SoupElement | None:
+) -> Tag | None:
     """Utility for `soup.find(name)` with null attrs handling"""
     if not soup:
         return None
@@ -127,8 +127,7 @@ def get_text(
     div = get_div(soup, name, attrs) if name else soup
     if not div:
         return None
-    text = div.get_text(separator=separator)
-    return text.strip() if strip else text
+    return div.get_text(separator=separator, strip=strip)
 
 
 def get_link(
@@ -161,14 +160,14 @@ def get_link_list(
 
 def get_text_by_selectors(
     soup: Tag | None,
-    selectors: Sequence[tuple[str, Mapping[str, Any]]] | None = None,
+    selectors: Sequence[Selector] | None = None,
     strip: bool = False,
 ) -> str | None:
     """Get text by trying multiple selectors, return first non-null"""
     if not soup or not selectors:
         return None
-    for name, attrs in selectors:
-        text = get_text(soup, name, attrs, strip=strip)
+    for sel in selectors:
+        text = get_text(soup, sel.name, sel.attrs, strip=strip)
         if text:
             return text
     return None
@@ -198,16 +197,15 @@ def find_all_divs(
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = True,
-) -> list[SoupElement]:
+) -> list[Tag]:
     if not soup:
         return []
     divs = soup.find_all(name, attrs=dict(attrs)) if attrs else soup.find_all(name)
-    divs = filter_empty_divs(divs) if filter_empty else divs
-    return list(divs)
+    return filter_empty_divs(divs) if filter_empty else list(divs)
 
 
-def filter_empty_divs(divs: Iterable[SoupElement]) -> list[SoupElement]:
-    filtered: list[SoupElement] = []
+def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
+    filtered: list[Tag] = []
     for candidate in divs:
         if not candidate:
             continue
@@ -218,18 +216,14 @@ def filter_empty_divs(divs: Iterable[SoupElement]) -> list[SoupElement]:
 
 
 def find_children(
-    soup: BeautifulSoup | None,
+    soup: BeautifulSoup | Tag | None,
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = False,
-) -> Iterable[SoupElement]:
+) -> Iterable[Tag]:
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    children: list[SoupElement] = (
-        [c for c in div.children if isinstance(c, BeautifulSoup | Tag | NavigableString)]
-        if isinstance(div, Tag)
-        else []
-    )
+    children: list[Tag] = [c for c in div.children if isinstance(c, Tag)] if div else []
     return filter_empty_divs(children) if filter_empty else children
 
 

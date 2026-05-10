@@ -169,18 +169,18 @@ def test_get_link_list_none_soup():
 
 def test_get_text_by_selectors_first_match():
     soup = utils.make_soup('<div><span class="a">first</span><span class="b">second</span></div>')
-    selectors = [("span", {"class": "a"}), ("span", {"class": "b"})]
+    selectors = [utils.Selector("span", {"class": "a"}), utils.Selector("span", {"class": "b"})]
     assert utils.get_text_by_selectors(soup, selectors) == "first"
 
 
 def test_get_text_by_selectors_fallback():
     soup = utils.make_soup('<div><span class="b">fallback</span></div>')
-    selectors = [("span", {"class": "a"}), ("span", {"class": "b"})]
+    selectors = [utils.Selector("span", {"class": "a"}), utils.Selector("span", {"class": "b"})]
     assert utils.get_text_by_selectors(soup, selectors) == "fallback"
 
 
 def test_get_text_by_selectors_none():
-    assert utils.get_text_by_selectors(None, [("div", {})]) is None
+    assert utils.get_text_by_selectors(None, [utils.Selector("div", {})]) is None
     soup = utils.make_soup("<div>hi</div>")
     assert utils.get_text_by_selectors(soup, None) is None
 

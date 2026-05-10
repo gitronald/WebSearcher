@@ -118,9 +118,9 @@
       "cmpt_rank": 2,
       "details": {
         "items": [
-          "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis",
+          "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu › ... › Biology › Photosynthesis Monash University https://www.monash.edu › ... › Biology › Photosynthesis",
           "What are the 4 steps of photosynthesis?",
-          "photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis",
+          "photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com › kids › article › photosynthesis Britannica Kids https://kids.britannica.com › kids › article › photosynthesis",
           "Why is photosynthesis a short answer?"
         ],
         "type": "text"
@@ -130,7 +130,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu  › ... › Biology › Photosynthesis Monash University https://www.monash.edu  › ... › Biology › Photosynthesis<|>What are the 4 steps of photosynthesis?<|>photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis Britannica Kids https://kids.britannica.com  › kids › article › photosynthesis<|>Why is photosynthesis a short answer?",
+      "text": "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu › ... › Biology › Photosynthesis Monash University https://www.monash.edu › ... › Biology › Photosynthesis<|>What are the 4 steps of photosynthesis?<|>photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com › kids › article › photosynthesis Britannica Kids https://kids.britannica.com › kids › article › photosynthesis<|>Why is photosynthesis a short answer?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -166,11 +166,7 @@
     {
       "cite": "5.5M+ views  ·  4 years ago",
       "cmpt_rank": 5,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 5,
@@ -338,13 +334,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "How does photosynthesis work step by step",
+          "What is photosynthesis",
+          "How does photosynthesis work simple",
+          "How does photosynthesis work in plants",
+          "How does photosynthesis work simple explanation",
+          "How does photosynthesis work diagram",
+          "How does photosynthesis work ai",
+          "How does photosynthesis work chemically"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 17,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "How does photosynthesis work step by step<|>What is photosynthesis<|>How does photosynthesis work simple<|>How does photosynthesis work in plants<|>How does photosynthesis work simple explanation<|>How does photosynthesis work diagram<|>How does photosynthesis work ai<|>How does photosynthesis work chemically",
       "title": null,
       "type": "searches_related",
       "url": null

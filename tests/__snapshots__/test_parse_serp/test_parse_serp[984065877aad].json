@@ -169,7 +169,7 @@
           "Why isn't Gen Z going to college?",
           "Is $70,000 a good salary out of college?",
           "Can you make $100,000 a year without a degree?",
-          "Why College Is Important - BigFuture BigFuture - College Board https://bigfuture.collegeboard.org  › get-started › why-col... BigFuture - College Board https://bigfuture.collegeboard.org  › get-started › why-col..."
+          "Why College Is Important - BigFuture BigFuture - College Board https://bigfuture.collegeboard.org › get-started › why-col... BigFuture - College Board https://bigfuture.collegeboard.org › get-started › why-col..."
         ],
         "type": "text"
       },
@@ -178,7 +178,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "Why isn't Gen Z going to college?<|>Is $70,000 a good salary out of college?<|>Can you make $100,000 a year without a degree?<|>Why College Is Important - BigFuture BigFuture - College Board https://bigfuture.collegeboard.org  › get-started › why-col... BigFuture - College Board https://bigfuture.collegeboard.org  › get-started › why-col...",
+      "text": "Why isn't Gen Z going to college?<|>Is $70,000 a good salary out of college?<|>Can you make $100,000 a year without a degree?<|>Why College Is Important - BigFuture BigFuture - College Board https://bigfuture.collegeboard.org › get-started › why-col... BigFuture - College Board https://bigfuture.collegeboard.org › get-started › why-col...",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -228,12 +228,28 @@
     {
       "cite": "490+ comments  ·  2 years ago",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Is college, especially in the U.S., even worth it ...",
+            "url": "https://www.reddit.com/r/findapath/comments/1k5lw18/is_college_especially_in_the_us_even_worth_it/"
+          },
+          {
+            "text": "Are university degrees still worth it in 2025? : r ...",
+            "url": "https://www.reddit.com/r/education/comments/1khliaq/are_university_degrees_still_worth_it_in_2025/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=is+college+worth+it+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjWxeTJisaSAxV6d_UHHYb1DF0QrQIoAnoECEUQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "College is worth it  but getting a degree definitely does not guarantee a good job. You have to get the right degree. Only certain degrees are ... Read more",
       "title": "Is college even worth it anymore? : r/findapath",
       "type": "general",
@@ -494,13 +510,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Is college worth it reddit",
+          "Is college worth it article",
+          "Is college worth it pros and cons",
+          "Is college worth it Essay",
+          "Is college worth it New York Times",
+          "Is college worth it scholarly articles",
+          "Is College Worth It book",
+          "Is College Worth It Pew Research"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 25,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Is college worth it reddit<|>Is college worth it article<|>Is college worth it pros and cons<|>Is college worth it Essay<|>Is college worth it New York Times<|>Is college worth it scholarly articles<|>Is College Worth It book<|>Is College Worth It Pew Research",
       "title": null,
       "type": "searches_related",
       "url": null

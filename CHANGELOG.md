@@ -7,12 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### [0.7.1a1] - 2026-05-03
+## [0.7.1] - 2026-05-03
 
-- Bump security floors: `requests>=2.33.0`, `lxml>=6.1.0`, `pytest>=9.0.3`
-- Pull in Dependabot patches for `requests`, `lxml`, `pygments`, and `pytest`
-- Fix `ResponseOutput` not subscriptable for dict-style access
-- Add `docs/plans/` development history with landing page
+- Added component type registry: consolidates header-text mappings, parser dispatch, and labels (supersedes `cmpt_mappings.py`)
+- Added `find_by_selectors` utility; applied to classifiers
+- Added `Selector` NamedTuple in `utils` for tag/attrs selector lists
+- Added pyrefly type checking; fixed all type errors across the codebase
+- Added structural tests for component type registry; resolved "Ver más" collision
+- Refactored ad parser and classifier; tidied carousel scope; edited local parser/classifier selectors
+- Restored `knowledge_panel` cmpt-attr check on `jscontroller qTdDb`
+- Moved `ClassifyHeaderText` into `main.py` as `ClassifyMainHeader`; removed dead `ClassifyHeaderComponent`
+- Updated CI: ruff lint + format checks, pyrefly check, coverage; matrix narrowed to 3.12-3.14
+- Switched publish workflow to tag-based with split build + publish jobs
+- Added Dependabot config, PR template, pre-commit ruff + pyrefly hooks
+- Bumped support floor: `requires-python = ">=3.12"`, ruff/pyrefly `target-version = py312`
+- Bumped security floors: `requests>=2.33.0`, `lxml>=6.1.0`, `pytest>=9.0.3`; pulled Dependabot patches for `pygments`
+- Fixed `ResponseOutput` not subscriptable for dict-style access
+- Added `CHANGELOG.md` and changelog guide (migrated from README)
+- Added `docs/plans/` development history with landing page
 
 ## [0.7.0] - 2026-03-15
 

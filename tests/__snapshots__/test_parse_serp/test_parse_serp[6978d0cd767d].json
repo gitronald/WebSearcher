@@ -33,12 +33,28 @@
     {
       "cite": "120+ comments  ·  2 years ago",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "What programming language is best to learn if you ...",
+            "url": "https://www.reddit.com/r/learnprogramming/comments/1dluq04/what_programming_language_is_best_to_learn_if_you/"
+          },
+          {
+            "text": "If you could only learn 4 programming languages ...",
+            "url": "https://www.reddit.com/r/learnprogramming/comments/19c7j2z/if_you_could_only_learn_4_programming_languages/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=best+programming+language+to+learn+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwiWo6u4isaSAxUnavUHHSqvOF0QrQIoAnoECBwQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Java  is a good middle ground. If you want to focus more on web development, learn Python or JavaScript. If you want to focus more on firmware ... Read more",
       "title": "Best programming language to learn? : r/AskProgramming",
       "type": "general",
@@ -49,8 +65,8 @@
       "cmpt_rank": 2,
       "details": {
         "items": [
-          "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5...",
-          "C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python",
+          "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu › about-us › newsroom › stem › 5...",
+          "C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk › c-plus-plus-vs-python",
           "Was Elon Musk a coder?",
           "Is 3 months enough for coding?"
         ],
@@ -61,7 +77,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu  › about-us › newsroom › stem › 5...<|>C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk  › c-plus-plus-vs-python<|>Was Elon Musk a coder?<|>Is 3 months enough for coding?",
+      "text": "5 Computer Science Languages to Learn Southern New Hampshire University https://www.snhu.edu › about-us › newsroom › stem › 5... Southern New Hampshire University https://www.snhu.edu › about-us › newsroom › stem › 5...<|>C++ vs Python - What You Need to Know | KO2 Recruitment KO2 Recruitment https://www.ko2.co.uk › c-plus-plus-vs-python KO2 Recruitment https://www.ko2.co.uk › c-plus-plus-vs-python<|>Was Elon Musk a coder?<|>Is 3 months enough for coding?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -279,11 +295,7 @@
     {
       "cite": "35.2K+ views  ·  3 months ago",
       "cmpt_rank": 7,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -339,11 +351,7 @@
     {
       "cite": "51K+ views  ·  10 months ago",
       "cmpt_rank": 11,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -402,7 +410,15 @@
           "SQL",
           "High-level programming language",
           "Computer programming",
-          "Operating system"
+          "Operating system",
+          "Best programming language to learn reddit",
+          "Best programming language to learn for future",
+          "Best programming language to learn for jobs",
+          "Best programming language to learn AI",
+          "Best programming language to learn for software engineering",
+          "Best programming language to learn for game development",
+          "Best programming language to learn for beginners",
+          "Best programming language to learn for robotics"
         ],
         "type": "text"
       },
@@ -410,8 +426,8 @@
       "section": "footer",
       "serp_rank": 24,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Programming language<|>Python<|>SQL<|>High-level programming language<|>Computer programming<|>Operating system",
+      "sub_type": "people_also_search_for",
+      "text": "Programming language<|>Python<|>SQL<|>High-level programming language<|>Computer programming<|>Operating system<|>Best programming language to learn reddit<|>Best programming language to learn for future<|>Best programming language to learn for jobs<|>Best programming language to learn AI<|>Best programming language to learn for software engineering<|>Best programming language to learn for game development<|>Best programming language to learn for beginners<|>Best programming language to learn for robotics",
       "title": null,
       "type": "searches_related",
       "url": null

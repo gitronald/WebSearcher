@@ -69,6 +69,7 @@ class ClassifyMain:
             ClassifyMain.img_cards,  # Check image cards
             ClassifyMain.images,  # Check images
             ClassifyMain.ai_overview,  # Check AI overview
+            ClassifyMain.available_on,  # Check for available on (before knowledge_panel)
             ClassifyMain.knowledge_panel,  # Check knowledge panel
             ClassifyMain.knowledge_block,  # Check knowledge components
             ClassifyMain.banner,  # Check for banners
@@ -76,13 +77,14 @@ class ClassifyMain:
             ClassifyMain.map_result,  # Check for map results
             ClassifyMain.general_questions,  # Check hybrid general questions
             ClassifyMain.short_videos,  # Check short videos carousel
+            ClassifyMain.videos,  # Check video carousels (e.g. 'Trailers & clips')
+            ClassifyMain.knowledge_subcard,  # Catch other entity-panel subcards
             ClassifyMain.twitter,  # Check twitter cards and results
             ClassifyMain.flights,  # Check flights widgets
             ClassifyMain.general,  # Check general components
             ClassifyMain.people_also_ask,  # Check people also ask
             ClassifyMain.knowledge_box,  # Check flights, maps, hotels, events, jobs
             ClassifyMain.local_results,  # Check for local results
-            ClassifyMain.available_on,  # Check for available on
         ]
 
         # Default unknown, exit on first successful classification
@@ -103,6 +105,9 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt: bs4.element.Tag) -> str:
+        for heading in cmpt.find_all("span", class_="mgAbYb"):
+            if heading.get_text(strip=True) == "Available on":
+                return "available_on"
         text = utils.get_text(cmpt) or ""
         return "available_on" if "/Available on" in text else "unknown"
 
@@ -260,6 +265,32 @@ class ClassifyMain:
         if heading and heading.get_text(strip=True) == "Short videos":
             return "short_videos"
         return "unknown"
+
+    @staticmethod
+    def videos(cmpt: bs4.element.Tag) -> str:
+        """Classify video carousel components (e.g. 'Trailers & clips' on entity SERPs).
+
+        Matches the layout-class vocabulary used by parse_videos for individual
+        video subcards. g-inner-card is intentionally excluded as too generic.
+        """
+        if cmpt.find("div", {"class": ["VibNM", "mLmaBd", "RzdJxc", "sHEJob"]}):
+            return "videos"
+        return "unknown"
+
+    @staticmethod
+    def knowledge_subcard(cmpt: bs4.element.Tag) -> str:
+        """Catch knowledge-panel extension subcards by structural pattern.
+
+        Entity-panel sections (e.g. Cast, Based on the book, Reviews, Behind the
+        scenes) share the JNkvid wrapper class and an aria-level=2 heading.
+        Specific classifiers (Header.classify, videos, images, people_also_ask)
+        must run earlier so their section types win for known headings.
+        """
+        if not cmpt.find("div", {"class": "JNkvid"}):
+            return "unknown"
+        if not cmpt.find(attrs={"role": "heading", "aria-level": "2"}):
+            return "unknown"
+        return "knowledge"
 
     @staticmethod
     def locations(cmpt: bs4.element.Tag) -> str:

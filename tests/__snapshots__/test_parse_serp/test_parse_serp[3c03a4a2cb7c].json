@@ -280,13 +280,19 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "items": [
+          "Elaboratetweet meaning",
+          "Elaboratetweet app"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 19,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Elaboratetweet meaning<|>Elaboratetweet app",
       "title": null,
       "type": "searches_related",
       "url": null

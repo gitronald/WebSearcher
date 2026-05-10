@@ -126,9 +126,9 @@
       "cmpt_rank": 2,
       "details": {
         "items": [
-          "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause",
+          "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu › geo › learn › earthquake-cause",
           "What is a 7 letter word for earthquake?",
-          "Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies",
+          "Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au › be-prepared-for-emergencies",
           "Is a 4.8 earthquake bad?"
         ],
         "type": "text"
@@ -138,7 +138,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu  › geo › learn › earthquake-cause<|>What is a 7 letter word for earthquake?<|>Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au  › be-prepared-for-emergencies<|>Is a 4.8 earthquake bad?",
+      "text": "Why Do Earthquakes Happen? Michigan Technological University https://www.mtu.edu › geo › learn › earthquake-cause Michigan Technological University https://www.mtu.edu › geo › learn › earthquake-cause<|>What is a 7 letter word for earthquake?<|>Preparing for an earthquake - Toowoomba Regional Council Toowoomba Regional Council https://www.tr.qld.gov.au › be-prepared-for-emergencies Toowoomba Regional Council https://www.tr.qld.gov.au › be-prepared-for-emergencies<|>Is a 4.8 earthquake bad?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -328,11 +328,7 @@
     {
       "cite": "1M+ views  ·  1 year ago",
       "cmpt_rank": 8,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -388,13 +384,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "10 causes of earthquakes",
+          "What is the main cause of an earthquake",
+          "Effects of earthquake",
+          "What causes earthquakes tectonic plates",
+          "What causes earthquakes for kids",
+          "What causes earthquakes today",
+          "7 causes of earthquakes",
+          "What are the 3 main causes of earthquakes"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "10 causes of earthquakes<|>What is the main cause of an earthquake<|>Effects of earthquake<|>What causes earthquakes tectonic plates<|>What causes earthquakes for kids<|>What causes earthquakes today<|>7 causes of earthquakes<|>What are the 3 main causes of earthquakes",
       "title": null,
       "type": "searches_related",
       "url": null

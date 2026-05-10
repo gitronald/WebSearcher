@@ -1,31 +1,23 @@
-def parse_scholarly_articles(cmpt) -> list:
-    """Parse a scholarly articles component
+"""Parse a "Scholarly articles" component.
 
-    These components contain links to academic articles via Google Scholar
+Links to academic articles surfaced via Google Scholar.
+"""
 
-    Args:
-        cmpt (bs4 object): A scholarly_articles component
+import bs4
 
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
+
+def parse_scholarly_articles(cmpt: bs4.element.Tag) -> list:
     subs = cmpt.find_all("tr")[1].find_all("div")
     return [parse_article(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_article(sub, sub_rank=0) -> dict:
-    """Parse a scholarly articles subcomponent
-
-    Args:
-        sub (bs4 object): A scholarly articles subcomponent
-
-    Returns:
-        dict : parsed subresult
-    """
-    parsed = {"type": "scholarly_articles", "sub_rank": sub_rank}
+def parse_article(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    parsed: dict = {"type": "scholarly_articles", "sub_rank": sub_rank}
     parsed["title"] = sub.text
-    if sub.find("a"):
-        parsed["url"] = sub.find("a").attrs["href"]
-        parsed["title"] = sub.find("a").text
-        parsed["cite"] = sub.find("span").text.replace(" - \u200e", "")
+    a = sub.find("a")
+    if a:
+        parsed["url"] = a.attrs["href"]
+        parsed["title"] = a.text
+        span = sub.find("span")
+        parsed["cite"] = span.text.replace(" - \u200e", "") if span else None
     return parsed

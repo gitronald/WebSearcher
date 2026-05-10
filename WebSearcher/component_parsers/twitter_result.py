@@ -1,38 +1,37 @@
+"""Parse a Twitter single-result component.
+
+Visually similar to a general result but linking to a Twitter account, with
+a tweet sometimes embedded in the snippet.
+"""
+
+import bs4
+
 from ..utils import get_link, get_text
 
 
-def parse_twitter_result(cmpt, sub_rank=0) -> list:
-    """Parse a Twitter single result component
+def parse_twitter_result(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {"type": "twitter_result", "sub_rank": sub_rank}
 
-    These components look like general components, but link to a Twitter account
-    and sometimes have a tweet in the summary.
-
-    Args:
-        cmpt (bs4 object): A twitter cards component
-
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
-    parsed = {"type": "twitter_result", "sub_rank": sub_rank}
-
-    # Header
     header = cmpt.find("div", {"class": "DOqJne"})
     if header:
         title = header.find("g-link")
-        # Get title
         if title:
-            parsed["title"] = title.find("a").text
-            parsed["url"] = title.find("a")["href"]
+            anchor = title.find("a")
+            if anchor:
+                parsed["title"] = anchor.text
+                parsed["url"] = anchor["href"]
 
-        # Get citation
         cite = header.find("cite")
         if cite:
             parsed["cite"] = cite.text
 
-    # Get snippet text, timestamp, and tweet url
-    body, timestamp_url = cmpt.find("div", {"class": "tw-res"}).children
-    parsed["text"] = get_text(body)
-    parsed["timestamp"] = get_text(timestamp_url, "span")
-    tweet_url = get_link(timestamp_url)
-    parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None
+    tw_res = cmpt.find("div", {"class": "tw-res"})
+    if tw_res:
+        body, timestamp_url = tw_res.children
+        if isinstance(body, bs4.element.Tag):
+            parsed["text"] = get_text(body)
+        if isinstance(timestamp_url, bs4.element.Tag):
+            parsed["timestamp"] = get_text(timestamp_url, "span")
+            tweet_url = get_link(timestamp_url)
+            parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None
     return [parsed]

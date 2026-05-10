@@ -1,37 +1,50 @@
-def parse_available_on(cmpt, sub_rank=0) -> list:
-    """Parse an available component
+"""Parse an "Available on" component.
 
-    These components contain a carousel of thumbnail images with links to
-    entertainment relevant to query
+A carousel of thumbnail images linking to streaming providers / entertainment
+options relevant to the query.
+"""
 
-    Args:
-        cmpt (bs4 object): An available on component
+import bs4
 
-    Returns:
-        dict : parsed component
-    """
-    parsed = {"type": "available_on", "sub_rank": sub_rank}
+from ..utils import find_all_divs, get_link, get_text
 
-    parsed["title"] = cmpt.find("span", {"class": "GzssTd"}).text
 
-    items = []
-    for o in cmpt.find_all("div", {"class": "kno-fb-ctx"}):
-        items.append(parse_available_on_item(o))
-    parsed["details"] = {"type": "providers", "items": items} if items else None
+def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
+    parsed["title"] = get_text(cmpt, "span", {"class": "GzssTd"}) or get_text(
+        cmpt, "span", {"class": "mgAbYb"}
+    )
+    parsed["details"] = None
+
+    items: list[dict] = []
+
+    # Legacy layout: tile divs inside the widget
+    legacy_items = find_all_divs(cmpt, "div", {"class": "kno-fb-ctx"})
+    items.extend(parse_available_on_item(i) for i in legacy_items)
+
+    # Current layout: anchors with provider-name and cost sub-divs
+    modern_widget = cmpt.find("div", {"class": "yTFeqb"})
+    if modern_widget:
+        for a in modern_widget.find_all("a", href=True):
+            if a.find("div", {"class": "bclEt"}):
+                items.append(parse_available_on_item_modern(a))
+
+    if items:
+        parsed["details"] = {"type": "hyperlinks", "items": items}
     return [parsed]
 
 
-def parse_available_on_item(sub) -> dict:
-    """Parse an available on item
-
-    Args:
-        sub (bs4 object): An available on option element
-
-    Returns:
-        dict : parsed item with title, url, and cost
-    """
+def parse_available_on_item(sub: bs4.element.Tag) -> dict:
     return {
-        "title": sub.find("div", {"class": "i3LlFf"}).text,
-        "url": sub.find("a")["href"],
-        "cost": sub.find("div", {"class": "V8xno"}).text,
+        "url": get_link(sub),
+        "text": get_text(sub, "div", {"class": "i3LlFf"}),
+        "cost": get_text(sub, "div", {"class": "V8xno"}),
+    }
+
+
+def parse_available_on_item_modern(a: bs4.element.Tag) -> dict:
+    return {
+        "url": a.get("href"),
+        "text": get_text(a, "div", {"class": "bclEt"}),
+        "cost": get_text(a, "div", {"class": "rsj3fb"}),
     }

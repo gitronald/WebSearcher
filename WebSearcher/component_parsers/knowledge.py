@@ -1,32 +1,33 @@
-from .. import utils
+"""Parse the Knowledge Box component.
+
+A wide-format panel surfaced on entity / topical queries. Sub_type covers a
+large set of variants: AI overview, featured results, featured snippet, unit
+converter, sports, weather, finance, dictionary, translation, calculator,
+election results, "things to know", and the generic panel layout.
+"""
+
+import bs4
+
+from ..utils import get_link, get_text
 from .general import parse_general_result
 
 
-def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
-    """Parse the Knowledge Box
-
-    Args:
-        cmpt (bs4 object): a knowledge component
-
-    Returns:
-        list: Return parsed dictionary in a list
-    """
-    parsed = {"type": "knowledge", "sub_rank": sub_rank}
+def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+    parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Get embedded result if it exists
     result = cmpt.find("div", {"class": "rc"})
     if result:
-        parsed["title"] = utils.get_text(result, "h3")
-        parsed["url"] = utils.get_link(result)
-        parsed["cite"] = utils.get_text(result, "cite")
+        parsed["title"] = get_text(result, "h3", strip=True)
+        parsed["url"] = get_link(result)
+        parsed["cite"] = get_text(result, "cite", strip=True)
 
-    parsed["text"] = utils.get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
+    parsed["text"] = get_text(cmpt, "div", {"role": "heading", "aria-level": "3"}, strip=True)
 
-    # Get details
-    details = {}
+    details: dict = {}
 
     heading = cmpt.find("div", {"role": "heading"})
-    details["heading"] = heading.text if heading else None
+    details["heading"] = heading.get_text(" ", strip=True) if heading else None
 
     alinks = cmpt.find_all("a")
     if alinks:
@@ -39,51 +40,49 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
                     urls.append(parse_alink(a))
         details["urls"] = urls
 
-    # Get all text
+    h2 = cmpt.find("h2")
+    h2_text = h2.text if h2 else ""
+
     if cmpt.find("div", {"class": "Fzsovc"}):
         parsed["sub_type"] = "ai_overview"
     elif cmpt.find("div", {"class": "pxiwBd"}):
         parsed["sub_type"] = "featured_results"
-    elif (
-        cmpt.find("h2")
-        and cmpt.find("h2").text == "Featured snippet from the web"
-        or cmpt.find("div", {"class": "answered-question"})
+    elif h2_text == "Featured snippet from the web" or cmpt.find(
+        "div", {"class": "answered-question"}
     ):
         parsed["sub_type"] = "featured_snippet"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if span else None
+        details["text"] = _join_texts(span) if list(span) else None
 
         # General component with no abstract
-        if cmpt.find("div", {"class": "g"}):
-            parsed_general = parse_general_result(cmpt.find("div", {"class": "g"}))
+        g_div = cmpt.find("div", {"class": "g"})
+        if g_div:
+            parsed_general = parse_general_result(g_div)
             parsed_general = {
                 k: v for k, v in parsed_general.items() if k in {"title", "url", "cite"}
             }
             parsed.update(parsed_general)
 
-    elif cmpt.find("h2") and cmpt.find("h2").text == "Unit Converter":
+    elif h2_text == "Unit Converter":
         parsed["sub_type"] = "unit_converter"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if span else None
+        details["text"] = _join_texts(span) if list(span) else None
 
-    elif cmpt.find("h2") and cmpt.find("h2").text == "Sports Results":
+    elif h2_text == "Sports Results":
         parsed["sub_type"] = "sports"
         div = cmpt.find("div", {"class": "SwsxUd"})
         details["text"] = div.text if div else None
 
-    elif cmpt.find("h2") and cmpt.find("h2").text == "Weather Result":
+    elif h2_text == "Weather Result":
         parsed["sub_type"] = "weather"
 
-    elif (
-        cmpt.find("h2")
-        and cmpt.find("h2").text == "Finance Results"
-        or cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
+    elif h2_text == "Finance Results" or cmpt.find(
+        "div", {"id": "knowledge-finance-wholepage__entity-summary"}
     ):
         parsed["sub_type"] = "finance"
 
     elif cmpt.find("div", {"data-attrid": "DictionaryHeader"}) or (
-        cmpt.find("div", {"role": "button"})
-        and cmpt.find("div", {"role": "button"}).text == "Dictionary"
+        (button := cmpt.find("div", {"role": "button"})) and button.text == "Dictionary"
     ):
         parsed["sub_type"] = "dictionary"
         vmod = cmpt.find("div", {"class": "vmod"})
@@ -93,25 +92,20 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
             span_first = cmpt.find("span", {"jsslot": ""})
             if span_first:
                 span = span_first.find_all("span")
-                details["text"] = get_text(span).split("Translate")[0] if span else None
+                details["text"] = _join_texts(span).split("Translate")[0] if list(span) else None
 
-    elif (
-        cmpt.find("h2")
-        and cmpt.find("h2").text == "Translation Result"
-        or cmpt.find("h2")
-        and cmpt.find("h2").text == "Resultado de traducción"
-    ):
+    elif h2_text in ("Translation Result", "Resultado de traducción"):
         parsed["sub_type"] = "translate"
         span = cmpt.find_all("span")
-        details["text"] = get_text(span).split("Community Verified")[0] if span else None
+        details["text"] = _join_texts(span).split("Community Verified")[0] if list(span) else None
 
-    elif cmpt.find("h2") and cmpt.find("h2").text == "Calculator Result":
+    elif h2_text == "Calculator Result":
         parsed["sub_type"] = "calculator"
 
     elif details["heading"] == "2020 US election results":
         parsed["sub_type"] = "election"
         span = cmpt.find_all(["span"])
-        details["text"] = get_text(span) if span else None
+        details["text"] = _join_texts(span) if list(span) else None
 
     elif cmpt.find("span", {"role": "heading", "class": "IFnjPb"}):
         heading_span = cmpt.find("span", {"role": "heading", "class": "IFnjPb"})
@@ -122,28 +116,49 @@ def parse_knowledge_panel(cmpt, sub_rank=0) -> list:
             parsed["sub_type"] = "things_to_know"
             details["heading"] = heading_span.text.strip()
 
+    elif cmpt.find("div", {"class": "JNkvid"}) and (
+        section_heading := cmpt.find(attrs={"role": "heading", "aria-level": "2"})
+    ):
+        heading_text = section_heading.get_text(" ", strip=True)
+        parsed["sub_type"] = heading_text.lower().replace(" & ", "-and-").replace(" ", "-")
+        parsed["title"] = heading_text
+        # Drop Google KG-navigation /search? links — they're internal entity redirects.
+        details["urls"] = [
+            u for u in details.get("urls", []) if not u["url"].startswith("/search?")
+        ]
+        items = [
+            h.get_text(" ", strip=True)
+            for h in cmpt.find_all(attrs={"role": "heading", "aria-level": "3"})
+        ]
+        if items:
+            details["items"] = items
+
     else:
         parsed["sub_type"] = "panel"
+        # pyrefly: ignore[no-matching-overload]
         div = cmpt.find_all(["span", "div", "a"], string=True)
-        details["text"] = get_text(div) if div else None
+        details["text"] = _join_texts(div) if list(div) else None
 
         text_divs = cmpt.find_all("div", {"class": "sinMW"})
-        text_list = [t for t in (utils.get_text(div) for div in text_divs) if t]
+        text_list = [t for t in (get_text(div, strip=True) for div in text_divs) if t]
         parsed["text"] = "<|>".join(text_list) if text_list else None
-        parsed["title"] = utils.get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
+        parsed["title"] = get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]}, strip=True)
 
-    # Get image
     img_div = cmpt.find("div", {"class": "img-brk"})
-    details["img_url"] = img_div.find("a")["href"] if img_div else None
+    if img_div:
+        a = img_div.find("a")
+        details["img_url"] = a["href"] if a else None
+    else:
+        details["img_url"] = None
     details["type"] = "panel"
     parsed["details"] = details
 
     return [parsed]
 
 
-def get_text(div):
+def _join_texts(div) -> str:
     return "|".join([d.get_text(separator=" ") for d in div if d.text])
 
 
-def parse_alink(a):
+def parse_alink(a: bs4.element.Tag) -> dict:
     return {"url": a["href"], "text": a.get_text("|")}

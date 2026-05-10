@@ -1,28 +1,23 @@
+"""Parse a "General" results component.
+
+The ubiquitous blue-title / green-citation / black-summary results, sometimes
+grouped into multi-result components with related themes. Subtypes include
+submenus (rating, list, table, mini), scholarly results, products, and videos.
+"""
+
 import re
+
+import bs4
 
 from ..utils import get_link, get_text
 
 
-def parse_general_results(cmpt) -> list:
-    """Parse a general component
-
-    The ubiquitous blue title, green citation, and black text summary results.
-    Sometimes grouped into components of multiple general results. The
-    subcomponent general results tend to have a similar theme.
-
-    Args:
-        cmpt (bs4 object): A general component
-
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
+def parse_general_results(cmpt: bs4.element.Tag) -> list:
     subs = find_subcomponents(cmpt)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def find_subcomponents(cmpt) -> list:
-    """Find subcomponents within a general component, trying known formats"""
-
+def find_subcomponents(cmpt: bs4.element.Tag) -> list:
     # Standard format
     subs = cmpt.find_all("div", {"class": "g"})
     if subs:
@@ -34,35 +29,26 @@ def find_subcomponents(cmpt) -> list:
     # Sub-results format (2023+)
     additional = cmpt.find_all("div", {"class": "d4rhi"})
     if additional:
-        return [cmpt.find("div")] + additional
+        first = cmpt.find("div")
+        return [first] + list(additional) if first else list(additional)
 
     # Video results
     subs = cmpt.find_all("div", {"class": "PmEWq"})
     if subs:
-        return subs
+        return list(subs)
 
     # Fallback: treat entire component as single result
     return [cmpt]
 
 
-def parse_general_result(sub, sub_rank=0) -> dict:
-    """Parse a general subcomponent
-
-    Args:
-        sub (bs4 object): A general subcomponent
-
-    Returns:
-        dict : parsed subresult
-    """
-
+def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     if is_general_video(sub):
         return parse_general_video(sub, sub_rank=sub_rank)
 
-    # Get title and text body divs
     title_div = sub.find("div", {"class": "rc"}) or sub.find("div", {"class": "yuRUbf"})
     body_div = sub.find("span", {"class": "st"}) or sub.find("div", {"class": "VwiC3b"})
 
-    parsed = {
+    parsed: dict = {
         "type": "general",
         "sub_rank": sub_rank,
         "title": get_text(title_div, "h3") if title_div else None,
@@ -71,27 +57,23 @@ def parse_general_result(sub, sub_rank=0) -> dict:
         "cite": get_text(sub, "cite"),
     }
 
-    # Get subtype details
-    parsed = parse_subtype_details(sub, parsed)
-    return parsed
+    return parse_subtype_details(sub, parsed)
 
 
-def parse_alink(a):
+def parse_alink(a: bs4.element.Tag) -> dict:
     return {"url": a.attrs["href"], "text": a.text}
 
 
-def parse_alink_list(alinks):
+def parse_alink_list(alinks) -> list:
     items = []
     for a in alinks:
-        if "href" in a.attrs:
+        if isinstance(a, bs4.element.Tag) and "href" in a.attrs:
             items.append(parse_alink(a))
     return items
 
 
-def parse_subtype_details(sub, parsed) -> dict:
-    # Check for subtype and parse details
-
-    details = {}
+def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
+    details: dict = {}
 
     # If top menu with children, ignore URLs and get correct title URL
     top_menu = sub.find("div", {"class": "yWc32e"})
@@ -100,18 +82,20 @@ def parse_subtype_details(sub, parsed) -> dict:
         if has_children:
             for child in top_menu.children:
                 child.decompose()
-            if sub.find("h3"):
-                parsed["url"] = sub.find("h3").find("a")["href"]
+            h3 = sub.find("h3")
+            if h3:
+                a = h3.find("a")
+                if a:
+                    parsed["url"] = a["href"]
 
-    # Subtype specific detail parsing
-    if "class" in sub.attrs:
-        if "d4rhi" in sub.attrs.get("class", []):
-            parsed["sub_type"] = "subresult"
+    if "d4rhi" in sub.attrs.get("class", []):
+        parsed["sub_type"] = "subresult"
 
-    # Submenu - rating
     elif sub.find("g-review-stars"):
+        # Submenu - rating
         parsed["sub_type"] = "submenu_rating"
-        sibling = sub.find("g-review-stars").next_sibling
+        stars = sub.find("g-review-stars")
+        sibling = stars.next_sibling if stars else None
         if sibling:
             text = str(sibling).strip()
             if len(text):
@@ -119,8 +103,8 @@ def parse_subtype_details(sub, parsed) -> dict:
                 details.update(ratings)
                 details["type"] = "review"
 
-    # Submenu - list format
     elif sub.find("div", {"class": ["P1usbc", "IThcWe"]}):
+        # Submenu - list format
         parsed["sub_type"] = "submenu"
         submenu_div = sub.find("div", {"class": ["P1usbc", "IThcWe"]})
         if submenu_div:
@@ -128,24 +112,27 @@ def parse_subtype_details(sub, parsed) -> dict:
             details["type"] = "hyperlinks"
             details["items"] = parse_alink_list(alinks)
 
-    # Submenu - table format
     elif sub.find("table"):
+        # Submenu - table format
         parsed["sub_type"] = "submenu"
-        alinks = sub.find("table").find_all("a")
+        table = sub.find("table")
+        alinks = table.find_all("a") if table else []
         details["type"] = "hyperlinks"
         details["items"] = parse_alink_list(alinks)
 
-    # Mini submenu
     elif sub.find("div", {"class": ["osl", "jYOxx"]}):
+        # Mini submenu
         parsed["sub_type"] = "submenu_mini"
-        alinks = sub.find("div", {"class": ["osl", "jYOxx"]}).find_all("a")
+        submenu = sub.find("div", {"class": ["osl", "jYOxx"]})
+        alinks = submenu.find_all("a") if submenu else []
         details["type"] = "hyperlinks"
         details["items"] = parse_alink_list(alinks)
 
     elif sub.find("div", {"class": re.compile("fG8Fp")}):
-        # Scholar results
-        alinks = sub.find("div", {"class": re.compile("fG8Fp")}).find_all("a")
+        scholar_div = sub.find("div", {"class": re.compile("fG8Fp")})
+        alinks = scholar_div.find_all("a") if scholar_div else []
         if len(alinks) and "Cited by" in alinks[0].text:
+            # Scholar results
             parsed["sub_type"] = "submenu_scholarly"
             details["type"] = "hyperlinks"
             details["items"] = parse_alink_list(alinks)
@@ -154,24 +141,44 @@ def parse_subtype_details(sub, parsed) -> dict:
         text = get_text(sub, "div", {"class": re.compile("fG8Fp")}) or ""
         if not alinks and "$" in text:
             parsed["sub_type"] = "submenu_product"
-            product_details = parse_product(text)
-            details.update(product_details)
+            details.update(parse_product(text))
             details["type"] = "product"
+
+    elif rating_span := sub.find("span", {"class": ["Y0A0hc", "z3HNkc"]}):
+        # Modern rating widget (e.g. entertainment titles with star ratings)
+        ratings = parse_rating_aria_label(str(rating_span.get("aria-label", "")))
+        if ratings:
+            details["type"] = "ratings"
+            details.update(ratings)
 
     parsed["details"] = details if details else None
     return parsed
 
 
-def parse_ratings(text) -> dict:
-    """Parse ratings that appear below some general components"""
+_ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
+_ARIA_REVIEWS_RE = re.compile(r"\(([\d,]+)\)\s*user reviews?")
 
+
+def parse_rating_aria_label(aria_label: str) -> dict:
+    """Parse 'Rated 2.5 out of 5, (5,114) user reviews' into structured fields."""
+    rating_match = _ARIA_RATING_RE.search(aria_label or "")
+    if not rating_match:
+        return {}
+    result: dict = {
+        "rating": float(rating_match.group(1)),
+        "scale": int(rating_match.group(2)),
+    }
+    reviews_match = _ARIA_REVIEWS_RE.search(aria_label)
+    if reviews_match:
+        result["n_reviews"] = int(reviews_match.group(1).replace(",", ""))
+    return result
+
+
+def parse_ratings(text) -> dict:
     text = [t.strip() for t in text]
     numeric = re.compile(r"^\d*[.]?\d*$")
     rating = re.split("Rating: ", text[0])[-1]
-    if numeric.match(rating):
-        details = {"rating": float(rating)}
-    else:
-        details = {"rating": rating}
+    details: dict = {"rating": float(rating)} if numeric.match(rating) else {"rating": rating}
 
     if len(text) > 1:
         str_match_0 = re.compile(" vote[s]?| review[s]?")
@@ -183,64 +190,47 @@ def parse_ratings(text) -> dict:
         elif str_match_1.search(text[1]):
             details["reviews"] = 1
 
-    # could parse other fields
-    # (price, os, category) for products
-    # (time, cals) for recipes
-
     return details
 
 
-def parse_product(text) -> dict:
-    """Parse price and stock that appears below some general components"""
+def parse_product(text: str) -> dict:
     split_match = re.compile("-|·")
-    text = re.split(split_match, text)
-    if len(text) == 1:
-        return {"price": text[0].strip()[1:]}
-    else:
-        return {"price": text[0].strip()[1:], "stock": text[1].strip()[1:]}
+    parts = re.split(split_match, text)
+    if len(parts) == 1:
+        return {"price": parts[0].strip()[1:]}
+    return {"price": parts[0].strip()[1:], "stock": parts[1].strip()[1:]}
 
 
-# ------------------------------------------------------------------------------
-
-# General Video Results
+# General Video Results -----------------------------------------------------
 
 
-def is_general_video(cmpt):
-    """Check for a unique class name specific to video results"""
-    class_list = cmpt.get("class", [])
+def is_general_video(cmpt: bs4.element.Tag) -> bool:
+    class_list = cmpt.get("class") or []
     return "PmEWq" in class_list
 
 
-def parse_general_video(sub, sub_rank: int = 0) -> dict:
-    """Parse a general video component
-
-    Args:
-        cmpt (bs4 object): A general video component
-
-    Returns:
-        VideoResult: Parsed information of the video
-    """
+def parse_general_video(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    a = sub.select_one("a[href]")
     return {
         "type": "general",
         "sub_type": "video",
         "sub_rank": sub_rank,
         "title": get_result_text(sub, "h3.LC20lb"),
-        "url": sub.select_one("a[href]").get("href", "") if sub.select_one("a[href]") else None,
+        "url": a.get("href", "") if a else None,
         "text": get_result_text(sub, ".ITZIwc"),
         "cite": get_result_text(sub, "cite", strip=False),
         "details": get_result_details(sub),
     }
 
 
-def get_result_text(cmpt, selector, strip=True):
+def get_result_text(cmpt: bs4.element.Tag, selector: str, strip: bool = True) -> str | None:
     element = cmpt.select_one(selector)
     return element.get_text(strip=strip) if element else None
 
 
-def get_result_details(cmpt):
-    details = {
-        "type": "video",
-        "source": get_result_text(cmpt, ".gqF9jc", strip=False),
-        "duration": get_result_text(cmpt, ".JIv15d"),
-    }
-    return details
+def get_result_details(cmpt: bs4.element.Tag) -> dict | None:
+    source = get_result_text(cmpt, ".gqF9jc", strip=False)
+    duration = get_result_text(cmpt, ".JIv15d")
+    if source is None and duration is None:
+        return None
+    return {"type": "video", "source": source, "duration": duration}

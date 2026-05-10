@@ -122,7 +122,7 @@
         "items": [
           "Who normally has the cheapest car insurance?",
           "What's the best site for car insurance quotes?",
-          "Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c...",
+          "Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c...",
           "What is the cheapest auto insurance in FL?"
         ],
         "type": "text"
@@ -132,7 +132,7 @@
       "serp_rank": 6,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "Who normally has the cheapest car insurance?<|>What's the best site for car insurance quotes?<|>Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com  › insurance › auto › cheap-c...<|>What is the cheapest auto insurance in FL?",
+      "text": "Who normally has the cheapest car insurance?<|>What's the best site for car insurance quotes?<|>Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c...<|>What is the cheapest auto insurance in FL?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -372,7 +372,15 @@
           "Esurance",
           "Allstate",
           "Progressive",
-          "State Farm"
+          "State Farm",
+          "car insurance quotes near palo alto, ca",
+          "car insurance quotes near san francisco, ca",
+          "Car insurance quotes California",
+          "Car insurance quotes GEICO",
+          "Car insurance quotes reddit",
+          "Car insurance quotes comparison",
+          "Full coverage car insurance quotes",
+          "Car insurance quotes Progressive"
         ],
         "type": "text"
       },
@@ -380,8 +388,8 @@
       "section": "footer",
       "serp_rank": 18,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "The General<|>Direct Auto Insurance<|>Esurance<|>Allstate<|>Progressive<|>State Farm",
+      "sub_type": "people_also_search_for",
+      "text": "The General<|>Direct Auto Insurance<|>Esurance<|>Allstate<|>Progressive<|>State Farm<|>car insurance quotes near palo alto, ca<|>car insurance quotes near san francisco, ca<|>Car insurance quotes California<|>Car insurance quotes GEICO<|>Car insurance quotes reddit<|>Car insurance quotes comparison<|>Full coverage car insurance quotes<|>Car insurance quotes Progressive",
       "title": null,
       "type": "searches_related",
       "url": null

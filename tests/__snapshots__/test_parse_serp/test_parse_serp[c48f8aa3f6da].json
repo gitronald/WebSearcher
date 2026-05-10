@@ -30,7 +30,7 @@
       "cmpt_rank": 1,
       "details": {
         "items": [
-          "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org  › Blog Post National Building Museum https://nbm.org  › Blog Post",
+          "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org › Blog Post National Building Museum https://nbm.org › Blog Post",
           "What are the four key features of Art Deco?",
           "Why did America abandon Art Deco?",
           "What is the difference between Art Nouveau and Art Deco?"
@@ -42,7 +42,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org  › Blog Post National Building Museum https://nbm.org  › Blog Post<|>What are the four key features of Art Deco?<|>Why did America abandon Art Deco?<|>What is the difference between Art Nouveau and Art Deco?",
+      "text": "Art Deco at 100: The Enduring Influence of Design National Building Museum https://nbm.org › Blog Post National Building Museum https://nbm.org › Blog Post<|>What are the four key features of Art Deco?<|>Why did America abandon Art Deco?<|>What is the difference between Art Nouveau and Art Deco?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -617,7 +617,15 @@
           "Art Deco",
           "Gothic Revival architecture",
           "Modernism",
-          "Impressionism"
+          "Impressionism",
+          "Art Deco architecture homes",
+          "Art deco architecture examples",
+          "Art Deco architecture characteristics",
+          "Art Deco architecture Miami",
+          "Art Deco interior design",
+          "Modern Art Deco architecture",
+          "Art deco architecture buildings",
+          "Famous art deco architecture"
         ],
         "type": "text"
       },
@@ -625,8 +633,8 @@
       "section": "footer",
       "serp_rank": 42,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Art Nouveau<|>Modern art<|>Art Deco<|>Gothic Revival architecture<|>Modernism<|>Impressionism",
+      "sub_type": "people_also_search_for",
+      "text": "Art Nouveau<|>Modern art<|>Art Deco<|>Gothic Revival architecture<|>Modernism<|>Impressionism<|>Art Deco architecture homes<|>Art deco architecture examples<|>Art Deco architecture characteristics<|>Art Deco architecture Miami<|>Art Deco interior design<|>Modern Art Deco architecture<|>Art deco architecture buildings<|>Famous art deco architecture",
       "title": null,
       "type": "searches_related",
       "url": null

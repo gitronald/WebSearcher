@@ -1,29 +1,26 @@
-from .. import utils
+"""Parse a "Local Results" component.
 
-_HEADER_SELECTORS = [
-    ("h2", {"role": "heading"}),
-    ("div", {"aria-level": "2", "role": "heading"}),
-]
+An embedded map followed by vertically stacked locations — typically
+businesses relevant to the query, with rating, contact, and address details.
+"""
+
+import re
+
+import bs4
+
+from ..utils import Selector, get_text, get_text_by_selectors
 
 
-def parse_local_results(cmpt) -> list:
-    """Parse a "Local Results" component
-
-    These components contain an embedded map followed by vertically
-    stacked subcomponents for locations. These locations are typically
-    businesses relevant to the query.
-
-    Args:
-        cmpt (bs4 object): A local results component
-
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
+def parse_local_results(cmpt: bs4.element.Tag) -> list:
     subs = cmpt.find_all("div", {"class": "VkpGBb"})
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
-        # Set first non-empty header as sub_type (e.g. "Places" -> places)
-        header = utils.get_text_by_selectors(cmpt, _HEADER_SELECTORS)
+        # First non-empty header becomes the sub_type (e.g. "Places" -> "places")
+        header_selectors = [
+            Selector("h2", {"role": "heading"}),
+            Selector("div", {"aria-level": "2", "role": "heading"}),
+        ]
+        header = get_text_by_selectors(cmpt, header_selectors)
         if header:
             header_lower = header.lower()
             sub_type = (
@@ -36,68 +33,96 @@ def parse_local_results(cmpt) -> list:
 
         return parsed_list
     else:
-        parsed = {
-            "type": "local_results",
-            "sub_rank": 0,
-            "text": utils.get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
-        }
-        return [parsed]
+        return [
+            {
+                "type": "local_results",
+                "sub_rank": 0,
+                "text": get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
+            }
+        ]
 
 
-def parse_local_result(sub, sub_rank=0) -> dict:
-    """Parse a "Local Results" subcomponent
+def parse_local_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    parsed: dict = {"type": "local_results", "sub_rank": sub_rank}
+    parsed["title"] = get_text(sub, "div", {"class": "dbg0pd"})
 
-    Args:
-        sub (bs4 object): A local results subcomponent
+    links_dict = _link_text_to_url(sub)
+    parsed["url"] = links_dict.get("website")
 
-    Returns:
-        dict : parsed subresult
-    """
-
-    parsed = {"type": "local_results", "sub_rank": sub_rank}
-    parsed["title"] = utils.get_text(sub, "div", {"class": "dbg0pd"})
-
-    # Extract URL
-    links = [a.attrs["href"] for a in sub.find_all("a") if "href" in a.attrs]
-    links_text = [a.text.lower() for a in sub.find_all("a") if "href" in a.attrs]
-    links_dict = dict(zip(links_text, links))
-    parsed["url"] = links_dict.get("website", None)
-
-    # Extract text and label
-    text = utils.get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
-    label = utils.get_text(sub, "span", {"class": "X0w5lc"})
+    text = get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
+    label = get_text(sub, "span", {"class": "X0w5lc"})
     parsed["text"] = f"{text} <label>{label}</label>" if label else text
-    parsed["details"] = parse_local_details(sub)
-
+    parsed["details"] = parse_local_details(sub, links_dict)
     return parsed
 
 
-def parse_local_details(sub) -> dict:
+def parse_local_details(sub: bs4.element.Tag, links_dict: dict[str, str]) -> dict:
+    details: dict = {"type": "place"}
+    rllt = sub.find(class_="rllt__details")
+    if rllt:
+        for row in rllt.find_all("div", recursive=False):
+            cls = row.get("class") or []
+            if "dbg0pd" in cls:
+                continue  # title; already extracted to top level
+            if "pJ3Ci" in cls:
+                snippet = row.get_text(" ", strip=True).strip('"').strip()
+                if snippet:
+                    details["review_snippet"] = snippet
+                continue
+            _classify_row(row.get_text(" ", strip=True), details)
 
-    local_details: dict[str, str | int | float] = {"type": "ratings"}
+    for key in ("website", "directions"):
+        if key in links_dict:
+            details[key] = links_dict[key]
+    return details
 
-    # Extract summary details
-    detail_div = sub.find("span", {"class": "rllt__details"})
-    detail_divs = detail_div.find_all("div") if detail_div else None
 
-    # Extract rating and location type
-    if detail_divs:
-        rating_div = detail_divs[0]
-        rating = rating_div.find("span", {"class": "BTtC6e"})
-        if rating:
-            local_details["rating"] = float(rating.text)
-            n_reviews = utils.get_between_parentheses(rating_div.text).replace(",", "")
-            local_details["n_reviews"] = int(n_reviews)
-        local_details["loc_label"] = rating_div.text.split("·")[-1].strip()
+_PHONE_RE = re.compile(r"^\(?\d{3}\)?[\s\-.]\d{3}[\s\-.]\d{4}$|^\+?\d{10,15}$")
+_RATING_RE = re.compile(r"^(\d+(?:\.\d+)?)\s*\(([\d,]+)\)$")
+_TIME_RE = re.compile(r"^\d{1,2}(:\d{2})?\s*(am|pm)", re.IGNORECASE)
+_YEARS_RE = re.compile(r"^\d+\+?\s+years?\s+in\s+business", re.IGNORECASE)
+_STREET_RE = re.compile(
+    r"\b(St|Ave|Blvd|Rd|Pl|Dr|Ln|Way|Center|Ctr|Pkwy|Sq|Ct|Hwy|Suite|Ste)\b",
+    re.IGNORECASE,
+)
+_HOURS_PREFIX = ("open", "closed", "closes", "opens")
 
-        # Extract contact details
-        if len(detail_divs) > 1:
-            contact_div = detail_divs[1]
-            local_details["contact"] = contact_div.text
 
-    # Extract various links
-    links = [a.attrs["href"] for a in sub.find_all("a") if "href" in a.attrs]
-    links_text = [a.text.lower() for a in sub.find_all("a") if "href" in a.attrs]
-    links_dict = dict(zip(links_text, links))
-    local_details.update(links_dict)
-    return local_details
+def _link_text_to_url(sub: bs4.element.Tag) -> dict[str, str]:
+    out: dict[str, str] = {}
+    for a in sub.find_all("a"):
+        if "href" not in a.attrs:
+            continue
+        key = a.get_text(strip=True).lower()
+        if key and key not in out:
+            out[key] = str(a.attrs["href"])
+    return out
+
+
+def _classify_row(text: str, details: dict) -> None:
+    """Classify each `·`-separated part of a local-result row into a detail field."""
+    for part in (p.strip() for p in re.split(r"\s*·\s*", text) if p.strip()):
+        rating_match = _RATING_RE.match(part)
+        if rating_match:
+            details["rating"] = float(rating_match.group(1))
+            details["n_reviews"] = int(rating_match.group(2).replace(",", ""))
+            continue
+        if part.lower() == "no reviews":
+            details.setdefault("n_reviews", 0)
+            continue
+        if part.startswith("$"):
+            details["price"] = part
+            continue
+        if _PHONE_RE.match(part):
+            details["phone"] = part
+            continue
+        if _YEARS_RE.match(part):
+            details["years_in_business"] = part
+            continue
+        if any(part.lower().startswith(h) for h in _HOURS_PREFIX) or _TIME_RE.match(part):
+            details["hours"] = details["hours"] + " · " + part if "hours" in details else part
+            continue
+        if "," in part or _STREET_RE.search(part) or re.match(r"^\d+\s+\w", part):
+            details["address"] = details["address"] + " · " + part if "address" in details else part
+            continue
+        details.setdefault("category", part)

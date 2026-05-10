@@ -1,18 +1,16 @@
+"""Parse a "Perspectives & opinions" component.
+
+Same shape as Top Stories with a different heading. The heading text is
+captured as the sub_type so downstream code can distinguish variants like
+"what people are saying".
+"""
+
+import bs4
+
 from .top_stories import parse_top_stories
 
 
-def parse_perspectives(cmpt):
-    """Parse a "Perspectives & opinions" component
-
-    These components are the same as Top Stories, but have a different heading.
-
-    Args:
-        cmpt (bs4 object): A latest from component
-
-    Returns:
-        dict : parsed result
-    """
-    # Extract header text as sub_type (e.g. "What people are saying" -> "what_people_are_saying")
+def parse_perspectives(cmpt: bs4.element.Tag) -> list:
     header = cmpt.find(attrs={"aria-level": "2", "role": "heading"})
     if not header:
         header = cmpt.find("h2", {"role": "heading"})

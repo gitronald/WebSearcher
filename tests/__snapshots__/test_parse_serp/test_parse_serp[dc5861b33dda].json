@@ -284,13 +284,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "How is climate change affecting coral reefs",
+          "How does climate change cause coral bleaching",
+          "Is coral adapting to climate change",
+          "How does pollution affect coral reefs",
+          "Ocean acidification coral reefs",
+          "Coral reef precipitation",
+          "What are artificial coral reefs",
+          "What are two ways in which climate change is affecting the way in which people earn their living"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 14,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "How is climate change affecting coral reefs<|>How does climate change cause coral bleaching<|>Is coral adapting to climate change<|>How does pollution affect coral reefs<|>Ocean acidification coral reefs<|>Coral reef precipitation<|>What are artificial coral reefs<|>What are two ways in which climate change is affecting the way in which people earn their living",
       "title": null,
       "type": "searches_related",
       "url": null

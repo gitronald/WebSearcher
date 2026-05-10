@@ -15,7 +15,7 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": "Interactive Online Tutorials (No Installation Required) ",
+        "heading": "Interactive Online Tutorials (No Installation Required)",
         "img_url": null,
         "type": "panel",
         "urls": [
@@ -126,7 +126,7 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "ai_overview",
-      "text": "Interactive Online Tutorials (No Installation Required)  ",
+      "text": "Interactive Online Tutorials (No Installation Required)",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -491,7 +491,15 @@
           "Computer programming",
           "Java",
           "C++",
-          "PHP"
+          "PHP",
+          "Python tutorial for beginners PDF",
+          "Python tutorial for beginners book",
+          "Python tutorial for beginners free",
+          "Python tutorial for beginners - youtube",
+          "Python programming examples",
+          "Python coding app",
+          "Best site to learn Python for free",
+          "Python coding online"
         ],
         "type": "text"
       },
@@ -499,8 +507,8 @@
       "section": "footer",
       "serp_rank": 26,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Python<|>JavaScript<|>Computer programming<|>Java<|>C++<|>PHP",
+      "sub_type": "people_also_search_for",
+      "text": "Python<|>JavaScript<|>Computer programming<|>Java<|>C++<|>PHP<|>Python tutorial for beginners PDF<|>Python tutorial for beginners book<|>Python tutorial for beginners free<|>Python tutorial for beginners - youtube<|>Python programming examples<|>Python coding app<|>Best site to learn Python for free<|>Python coding online",
       "title": null,
       "type": "searches_related",
       "url": null

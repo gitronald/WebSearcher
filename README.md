@@ -10,6 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.7.1`: Added component type registry and pyrefly type checking; refreshed CI/tooling (lint, format, type-check, tag-based publish); bumped Python floor to 3.12
 - `0.7.0`: Breaking changes, standardized data models on Pydantic, typed `details` field, and removed `DetailsItem`/`DetailsList`
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.

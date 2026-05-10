@@ -7,16 +7,7 @@ Changelog
 
 """
 
-from .. import utils
-from ..utils import Selector
-
-_SUB_TYPE_SELECTORS: dict[str, Selector] = {
-    "unspecified-0": Selector("g-inner-card"),
-    "unspecified-1": Selector("div", {"class": "VibNM"}),
-    "unspecified-2": Selector("div", {"class": "mLmaBd"}),
-    "unspecified-3": Selector("div", {"class": "RzdJxc"}),
-    "vertical": Selector("div", {"class": "sHEJob"}),
-}
+from ..utils import Selector, find_all_divs, get_text
 
 
 def parse_videos(cmpt) -> list:
@@ -30,18 +21,34 @@ def parse_videos(cmpt) -> list:
     Returns:
         list : list of parsed subcomponent dictionaries
     """
+    subtype_selectors: dict[str, Selector] = {
+        "unspecified-0": Selector("g-inner-card"),
+        "unspecified-1": Selector("div", {"class": "VibNM"}),
+        "unspecified-2": Selector("div", {"class": "mLmaBd"}),
+        "unspecified-3": Selector("div", {"class": "RzdJxc"}),
+        "vertical": Selector("div", {"class": "sHEJob"}),
+    }
 
     # Get known div structures
     divs: list = []
     sub_type = "unspecified-0"
-    for label, sel in _SUB_TYPE_SELECTORS.items():
+    for label, sel in subtype_selectors.items():
         if sel.name is None:
             continue
-        divs = utils.find_all_divs(cmpt, sel.name, sel.attrs)
+        divs = find_all_divs(cmpt, sel.name, sel.attrs)
         if divs:
             sub_type = label
             break
     divs = list(filter(None, divs))
+
+    section_labels = {
+        "Trailers & clips": "trailers-and-clips",
+    }
+    section_heading = cmpt.find("div", {"role": "heading", "aria-level": "2"})
+    if section_heading:
+        label = section_labels.get(section_heading.get_text(" ", strip=True))
+        if label:
+            sub_type = label
 
     if divs:
         return [parse_video(div, sub_type, i) for i, div in enumerate(divs)]
@@ -64,8 +71,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         "sub_type": sub_type,
         "sub_rank": sub_rank,
         "url": get_url(sub),
-        "title": utils.get_text(sub, "div", {"role": "heading"}),
-        "text": utils.get_text(sub, "div", {"class": "MjS0Lc"}),
+        "title": get_text(sub, "div", {"role": "heading"}),
+        "text": get_text(sub, "div", {"class": "MjS0Lc"}),
     }
 
     details = sub.find_all("div", {"class": "MjS0Lc"})
@@ -87,8 +94,8 @@ def parse_video(sub, sub_type: str, sub_rank=0) -> dict:
         parsed["cite"] = sub.text
         # parsed.timestamp = get_div_text(sub, {'class':'rjmdhd'})
     elif sub.find("cite"):
-        parsed["cite"] = utils.get_text(sub, "cite")
-        # parsed.timestamp = utils.get_text(sub, "div", {'class':'hMJ0yc'})
+        parsed["cite"] = get_text(sub, "cite")
+        # parsed.timestamp = get_text(sub, "div", {'class':'hMJ0yc'})
 
     return parsed
 

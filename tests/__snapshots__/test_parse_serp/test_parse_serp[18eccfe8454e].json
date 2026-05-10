@@ -29,7 +29,11 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "110 E 2nd St",
+        "category": "4.8 (17K)",
+        "price": "$$",
+        "review_snippet": "The wagyu burger was absolutely delicious as were the pollo asada tacos.",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -45,7 +49,11 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "621 Congress Ave. Suite 101",
+        "category": "4.8 (14K)",
+        "price": "$20–30",
+        "review_snippet": "The food was great, the drinks were great and our server, Aaron was AMAZING!",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -61,7 +69,11 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "304 E Cesar Chavez St",
+        "category": "4.8 (5.6K)",
+        "price": "$$",
+        "review_snippet": "The wagyu burger was cooked perfectly and the desserts were one of a kind!",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -78,10 +90,10 @@
       "cmpt_rank": 2,
       "details": {
         "items": [
-          "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com  › austinfood › comments › what... Reddit https://www.reddit.com  › austinfood › comments › what...",
+          "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com › austinfood › comments › what... Reddit https://www.reddit.com › austinfood › comments › what...",
           "What food is Austin, Texas best known for?",
           "Is $100 a good salary in Austin, Texas?",
-          "THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58..."
+          "THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58..."
         ],
         "type": "text"
       },
@@ -90,7 +102,7 @@
       "serp_rank": 4,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com  › austinfood › comments › what... Reddit https://www.reddit.com  › austinfood › comments › what...<|>What food is Austin, Texas best known for?<|>Is $100 a good salary in Austin, Texas?<|>THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com  › Restaurants-g30196-zfp58...",
+      "text": "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com › austinfood › comments › what... Reddit https://www.reddit.com › austinfood › comments › what...<|>What food is Austin, Texas best known for?<|>Is $100 a good salary in Austin, Texas?<|>THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58...",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -469,7 +481,15 @@
           "Olamaie",
           "Odd Duck",
           "Lutie's",
-          "Comedor"
+          "Comedor",
+          "Best restaurants near austin tx",
+          "Best restaurants in Austin downtown",
+          "Top 10 restaurants Austin TX",
+          "Italian restaurants near austin tx",
+          "Best casual restaurants in Austin",
+          "Best Restaurants in Austin with a view",
+          "Top 10 restaurants in downtown Austin",
+          "New restaurants near austin tx"
         ],
         "type": "text"
       },
@@ -477,8 +497,8 @@
       "section": "footer",
       "serp_rank": 31,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "LENOIR<|>Emmer & Rye<|>Olamaie<|>Odd Duck<|>Lutie's<|>Comedor",
+      "sub_type": "people_also_search_for",
+      "text": "LENOIR<|>Emmer & Rye<|>Olamaie<|>Odd Duck<|>Lutie's<|>Comedor<|>Best restaurants near austin tx<|>Best restaurants in Austin downtown<|>Top 10 restaurants Austin TX<|>Italian restaurants near austin tx<|>Best casual restaurants in Austin<|>Best Restaurants in Austin with a view<|>Top 10 restaurants in downtown Austin<|>New restaurants near austin tx",
       "title": null,
       "type": "searches_related",
       "url": null

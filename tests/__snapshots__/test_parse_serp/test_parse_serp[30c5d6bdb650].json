@@ -304,7 +304,7 @@
         "items": [
           "What is the newest news about technology?",
           "Which technology is trending now?",
-          "Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...",
+          "Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap...",
           "What is the best site for tech news?"
         ],
         "type": "text"
@@ -314,7 +314,7 @@
       "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What is the newest news about technology?<|>Which technology is trending now?<|>Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub  › bustechessentials › chap...<|>What is the best site for tech news?",
+      "text": "What is the newest news about technology?<|>Which technology is trending now?<|>Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap...<|>What is the best site for tech news?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -364,13 +364,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Technology news today in the world",
+          "Technology news today usa",
+          "Latest technology news in computers",
+          "Trending tech news",
+          "Technology news articles for students",
+          "Most reliable tech news",
+          "Technology current events This week",
+          "Technology news today cnn"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 18,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Technology news today in the world<|>Technology news today usa<|>Latest technology news in computers<|>Trending tech news<|>Technology news articles for students<|>Most reliable tech news<|>Technology current events This week<|>Technology news today cnn",
       "title": null,
       "type": "searches_related",
       "url": null

@@ -48,7 +48,7 @@
           "How do you politely say thank you in Korean?",
           "What does kamsahamnida mean?",
           "Do Koreans say Arigato?",
-          "How to Say 'Thank You' in Korean – LingQ Blog LingQ https://www.lingq.com  › blog › thank-you-in-korean LingQ https://www.lingq.com  › blog › thank-you-in-korean"
+          "How to Say 'Thank You' in Korean – LingQ Blog LingQ https://www.lingq.com › blog › thank-you-in-korean LingQ https://www.lingq.com › blog › thank-you-in-korean"
         ],
         "type": "text"
       },
@@ -57,7 +57,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "How do you politely say thank you in Korean?<|>What does kamsahamnida mean?<|>Do Koreans say Arigato?<|>How to Say 'Thank You' in Korean – LingQ Blog LingQ https://www.lingq.com  › blog › thank-you-in-korean LingQ https://www.lingq.com  › blog › thank-you-in-korean",
+      "text": "How do you politely say thank you in Korean?<|>What does kamsahamnida mean?<|>Do Koreans say Arigato?<|>How to Say 'Thank You' in Korean – LingQ Blog LingQ https://www.lingq.com › blog › thank-you-in-korean LingQ https://www.lingq.com › blog › thank-you-in-korean",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -261,12 +261,28 @@
     {
       "cite": "20+ comments  ·  3 years ago",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "What are all the ways to say thank you in Korean?",
+            "url": "https://www.reddit.com/r/Korean/comments/163s10a/what_are_all_the_ways_to_say_thank_you_in_korean/"
+          },
+          {
+            "text": "Different ways to say \"thank you\" : r/Korean",
+            "url": "https://www.reddit.com/r/Korean/comments/bn755i/different_ways_to_say_thank_you/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=translate+thank+you+to+korean+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwihy4G8icaSAxWiQzABHUmoAZQQrQIoAnoECCsQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Just say 감사합니다 (kamsahamnida ) which is the standard formal way to say Thank You. They're older than you and you're most likely total ... Read more",
       "title": "What is the correct Thank You! to use? : r/Korean",
       "type": "general",
@@ -471,13 +487,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Thank you in Korean informal",
+          "Translate thank you to korean informal",
+          "Translate thank you to korean audio",
+          "How to say thank you very much in Korean",
+          "Google translate thank you to korean",
+          "Thank you in Korean formal",
+          "How to say thank you in Korean pronunciation",
+          "How to say no thank you'' in Korean"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 28,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Thank you in Korean informal<|>Translate thank you to korean informal<|>Translate thank you to korean audio<|>How to say thank you very much in Korean<|>Google translate thank you to korean<|>Thank you in Korean formal<|>How to say thank you in Korean pronunciation<|>How to say no thank you'' in Korean",
       "title": null,
       "type": "searches_related",
       "url": null

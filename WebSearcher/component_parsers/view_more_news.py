@@ -1,54 +1,50 @@
-def parse_view_more_news(cmpt) -> list:
-    """Parse a "View more news" component
+"""Parse a "View more news" component.
 
-    These components are highly similar to the vertically stacked Top Stories
-    and Latest from results, but include a news icon in the top left.
+Highly similar to the vertically stacked Top Stories and Latest news layouts,
+but distinguished by a news icon in the top left.
+"""
 
-    Args:
-        cmpt (bs4 object): A local results component
+import bs4
 
-    Returns:
-        list : list of parsed subcomponent dictionaries
-    """
 
+def parse_view_more_news(cmpt: bs4.element.Tag) -> list:
     container = cmpt.find("div", {"class": "qmv19b"})
     if container:
-        subs = list(container.children)
+        subs: list = list(container.children)
     else:
         carousel = cmpt.find("g-scrolling-carousel")
         subs = carousel.find_all("g-inner-card") if carousel else []
-    return [parse_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    return [
+        parse_sub(sub, sub_rank)
+        for sub_rank, sub in enumerate(subs)
+        if isinstance(sub, bs4.element.Tag)
+    ]
 
 
-def parse_sub(sub, sub_rank=0) -> dict:
-    """Parse a "View more news" subcomponent
+def parse_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    parsed: dict = {"type": "view_more_news", "sub_rank": sub_rank}
+    title_div = sub.find("div", {"class": "jBgGLd"})
+    a = sub.find("a")
+    parsed["title"] = title_div.text if title_div else None
+    parsed["url"] = a.attrs["href"] if a else None
 
-    Args:
-        sub (bs4 object): A view more news subcomponent
+    cite_span = sub.find("span", {"class": "wqg8ad"})
+    cite_el = sub.find("cite")
+    if cite_span:
+        parsed["cite"] = cite_span.text
+    elif cite_el:
+        parsed["cite"] = cite_el.text
 
-    Returns:
-        dict : parsed subresult
-    """
-    parsed = {"type": "view_more_news", "sub_rank": sub_rank}
-    parsed["title"] = sub.find("div", {"class": "jBgGLd"}).text
-    parsed["url"] = sub.find("a").attrs["href"]
-
-    if sub.find("span", {"class": "wqg8ad"}):
-        parsed["cite"] = sub.find("span", {"class": "wqg8ad"}).text
-    elif sub.find("cite"):
-        parsed["cite"] = sub.find("cite").text
-
-    if sub.find("span", {"class": "FGlSad"}):
-        parsed["timestamp"] = sub.find("span", {"class": "FGlSad"}).text
-    elif sub.find("span", {"class": "f"}):
-        parsed["timestamp"] = sub.find("span", {"class": "f"}).text
+    timestamp_span = sub.find("span", {"class": "FGlSad"}) or sub.find("span", {"class": "f"})
+    if timestamp_span:
+        parsed["timestamp"] = timestamp_span.text
 
     parsed["img_url"] = get_img_url(sub)
     return parsed
 
 
-def get_img_url(soup):
-    """Extract image source"""
+def get_img_url(soup: bs4.element.Tag) -> str | None:
     img = soup.find("img")
     if img and "data-src" in img.attrs:
-        return img.attrs["data-src"]
+        return str(img.attrs["data-src"])
+    return None

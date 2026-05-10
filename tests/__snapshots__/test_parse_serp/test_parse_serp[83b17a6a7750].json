@@ -196,13 +196,25 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "items": [
+          "Effects of sleep deprivation on cognition pdf",
+          "10 cognitive effects of sleep deprivation",
+          "The effects of sleep deprivation on cognitive performance in college students",
+          "The impact of sleep on cognitive function",
+          "Does sleep deprivation lower IQ permanently",
+          "Long-term effects of sleep deprivation on the brain",
+          "Effects of sleep deprivation on cognitive and physical performance in university students",
+          "The consequences of sleep deprivation"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 13,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Effects of sleep deprivation on cognition pdf<|>10 cognitive effects of sleep deprivation<|>The effects of sleep deprivation on cognitive performance in college students<|>The impact of sleep on cognitive function<|>Does sleep deprivation lower IQ permanently<|>Long-term effects of sleep deprivation on the brain<|>Effects of sleep deprivation on cognitive and physical performance in university students<|>The consequences of sleep deprivation",
       "title": null,
       "type": "searches_related",
       "url": null

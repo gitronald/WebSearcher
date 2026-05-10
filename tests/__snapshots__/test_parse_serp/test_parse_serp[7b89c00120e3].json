@@ -92,12 +92,40 @@
     {
       "cite": "https://www.apple.com",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Careers at Apple",
+            "url": "https://www.apple.com/careers/us/"
+          },
+          {
+            "text": "Contact",
+            "url": "https://www.apple.com/contact/"
+          },
+          {
+            "text": "Careers",
+            "url": "https://www.apple.com/careers/us/work-at-apple.html"
+          },
+          {
+            "text": "Investor Relations",
+            "url": "https://investor.apple.com/investor-relations/default.aspx"
+          },
+          {
+            "text": "Business",
+            "url": "https://www.apple.com/business/"
+          },
+          {
+            "text": "More results from apple.com »",
+            "url": "/search?q=apple+inc+site:apple.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QrAN6BAg0EAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Discover the innovative world of  Apple  and shop everything iPhone, iPad,  Apple  Watch, Mac, and  Apple  TV, plus explore accessories, entertainment, ...",
       "title": "Apple",
       "type": "general",
@@ -124,7 +152,7 @@
         "items": [
           "What if I invested $1000 in Apple in 1997?",
           "What is the Apple Inc?",
-          "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc",
+          "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Apple_Inc Wikipedia https://en.wikipedia.org › wiki › Apple_Inc",
           "What does inc stand for in Apple?"
         ],
         "type": "text"
@@ -134,7 +162,7 @@
       "serp_rank": 4,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc<|>What does inc stand for in Apple?",
+      "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Apple_Inc Wikipedia https://en.wikipedia.org › wiki › Apple_Inc<|>What does inc stand for in Apple?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -143,8 +171,11 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "address": "Sunnyvale, CA",
         "directions": "/maps/dir//Apple+Inc.,+1070+E+Arques+Ave,+Sunnyvale,+CA+94085/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb6196e0a7497:0xc4162eb5b073a9e4?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
+        "phone": "(800) 692-7753",
+        "review_snippet": "Ipads are the best!",
+        "type": "place",
         "website": "http://apple.com/"
       },
       "error": null,
@@ -161,8 +192,12 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "address": "Cupertino, CA",
         "directions": "/maps/dir//Apple,+10500+N+De+Anza+Blvd,+Cupertino,+CA+95014/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb5b13fdcecf7:0xdc5c21978a3d43f5?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
+        "hours": "Open · Closes 5 PM",
+        "phone": "(408) 996-1010",
+        "review_snippet": "On the surface, it is a company defined by excellence.",
+        "type": "place",
         "website": "http://apple.com/"
       },
       "error": null,
@@ -179,8 +214,12 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "address": "340 University Ave",
         "directions": "/maps/dir//Apple+Palo+Alto,+340+University+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb38fa3f36f9:0xf5692002b984147?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
+        "hours": "Open · Closes 8 PM",
+        "phone": "(650) 798-2800",
+        "review_snippet": "They took it in and in 2 days it was back, super clean and functional.",
+        "type": "place",
         "website": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"
       },
       "error": null,
@@ -266,13 +305,25 @@
     {
       "cite": null,
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "items": [
+          "Apple Inc full form",
+          "Apple Inc address",
+          "Apple Inc stock",
+          "Apple Inc usa",
+          "Apple Inc website",
+          "Apple Inc investor relations",
+          "Apple Inc Headquarters",
+          "Apple Inc login"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 13,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Apple Inc full form<|>Apple Inc address<|>Apple Inc stock<|>Apple Inc usa<|>Apple Inc website<|>Apple Inc investor relations<|>Apple Inc Headquarters<|>Apple Inc login",
       "title": null,
       "type": "searches_related",
       "url": null

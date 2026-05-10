@@ -41,7 +41,7 @@
       "cmpt_rank": 1,
       "details": {
         "items": [
-          "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com  › questions › what-is-100-deg... Cuemath https://www.cuemath.com  › questions › what-is-100-deg...",
+          "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com › questions › what-is-100-deg... Cuemath https://www.cuemath.com › questions › what-is-100-deg...",
           "What is 100F in Celsius fever?",
           "How do you convert F to C easily?",
           "How much is 110 in Celsius?"
@@ -53,7 +53,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com  › questions › what-is-100-deg... Cuemath https://www.cuemath.com  › questions › what-is-100-deg...<|>What is 100F in Celsius fever?<|>How do you convert F to C easily?<|>How much is 110 in Celsius?",
+      "text": "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com › questions › what-is-100-deg... Cuemath https://www.cuemath.com › questions › what-is-100-deg...<|>What is 100F in Celsius fever?<|>How do you convert F to C easily?<|>How much is 110 in Celsius?",
       "title": null,
       "type": "people_also_ask",
       "url": null
@@ -229,12 +229,28 @@
     {
       "cite": "5 answers  ·  4 years ago",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "What is 100 Fahrenheit in Celsius? - Quora",
+            "url": "https://www.quora.com/What-is-100-Fahrenheit-in-Celsius"
+          },
+          {
+            "text": "How do I convert 100 F to Celsius with a solution ...",
+            "url": "https://www.quora.com/How-do-I-convert-100-F-to-Celsius-with-a-solution"
+          },
+          {
+            "text": "More results from www.quora.com",
+            "url": "/search?q=100+fahrenheit+to+celsius+site:www.quora.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjvmL6biMaSAxXESjABHZEtJxUQrQIoAnoECEgQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "100F into the first formula will give you an answer of  37.7C . By the way, from freezing to boiling takes 100 degrees in C but 180 degrees in F. Read more",
       "title": "If it is 100 degrees Fahrenheit, it is how many ...",
       "type": "general",
@@ -243,13 +259,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "100 Fahrenheit is fever",
+          "101 Fahrenheit to Celsius",
+          "110 Fahrenheit to Celsius",
+          "100 fahrenheit to celsius fever",
+          "120 Fahrenheit to Celsius",
+          "80 Fahrenheit to Celsius",
+          "100 fahrenheit to celsius fever child",
+          "75 Fahrenheit to Celsius"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 15,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "100 Fahrenheit is fever<|>101 Fahrenheit to Celsius<|>110 Fahrenheit to Celsius<|>100 fahrenheit to celsius fever<|>120 Fahrenheit to Celsius<|>80 Fahrenheit to Celsius<|>100 fahrenheit to celsius fever child<|>75 Fahrenheit to Celsius",
       "title": null,
       "type": "searches_related",
       "url": null

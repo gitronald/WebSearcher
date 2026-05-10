@@ -90,12 +90,28 @@
     {
       "cite": "970+ comments  ·  3 years ago",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Unbiased mattress review sites? - Reddit",
+            "url": "https://www.reddit.com/r/Mattress/comments/1dpu4fx/unbiased_mattress_review_sites/"
+          },
+          {
+            "text": "Could people who are happy with their mattresses ...",
+            "url": "https://www.reddit.com/r/Mattress/comments/1hz6hff/could_people_who_are_happy_with_their_mattresses/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=best+mattress+forum+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQrQIoAnoECBwQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "In general, I like  Tuft & Needle . They make good mattresses that are on par with a number of other bedinabox style mattresses. They aren't my ... Read more",
       "title": "IAmA Professional Mattress Tester. In the last 6 years I've ...",
       "type": "general",
@@ -226,12 +242,28 @@
     {
       "cite": "https://www.bogleheads.org  › forum › viewtopic",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Memory Foam Mattress Recomendations",
+            "url": "https://www.bogleheads.org/forum/viewtopic.php?t=227878"
+          },
+          {
+            "text": "What's the best mattress out there?",
+            "url": "https://www.bogleheads.org/forum/viewtopic.php?t=60663"
+          },
+          {
+            "text": "More results from www.bogleheads.org",
+            "url": "/search?q=best+mattress+forum+site:www.bogleheads.org&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQrQIoAnoECBYQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Feb 15, 2022  —  Best time of year to buy a mattress is May (Memorial Day sales). President Day sales are just around the corner. Read more",
       "title": "Mattress recommendations?",
       "type": "general",
@@ -589,13 +621,25 @@
     {
       "cite": null,
       "cmpt_rank": 14,
-      "details": null,
+      "details": {
+        "items": [
+          "Best mattress forum reddit",
+          "Best mattress forum complaints",
+          "Best mattress forum consumer reports",
+          "Best mattress Reddit",
+          "Top 50 mattress brands",
+          "Consumer Reports best mattress",
+          "Best memory foam mattress sleepline",
+          "Best mattress brands"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 27,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Best mattress forum reddit<|>Best mattress forum complaints<|>Best mattress forum consumer reports<|>Best mattress Reddit<|>Top 50 mattress brands<|>Consumer Reports best mattress<|>Best memory foam mattress sleepline<|>Best mattress brands",
       "title": null,
       "type": "searches_related",
       "url": null
