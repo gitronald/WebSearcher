@@ -26,8 +26,13 @@ def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list
     divs.extend(find_all_divs(cmpt, "div", {"class": "JJZKK"}))  # Perspectives
 
     if not divs:
-        # This will double count if divs already found above
-        link_divs = find_all_divs(cmpt, "a", {"class": "WlydOe"})  # Top Stories - Vertical
+        # Modern Perspectives: every carousel item is role=listitem (covers both
+        # standard cards and embedded tweets, including AI-themed sub-carousels).
+        divs.extend(cmpt.find_all(attrs={"role": "listitem"}))
+
+    if not divs:
+        # Older Top Stories vertical layout
+        link_divs = find_all_divs(cmpt, "a", {"class": "WlydOe"})
         divs.extend([div.parent for div in link_divs])
 
     divs = list(filter(None, divs))
@@ -42,6 +47,7 @@ def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict
     title_selectors = [
         Selector("div", {"class": "n0jPhd"}),  # Top Stories
         Selector("div", {"class": "eAaXgc"}),  # Perspectives
+        Selector("div", {"class": "xcQxib"}),  # Perspectives - embedded tweet text
     ]
     return {
         "type": ctype,
@@ -55,6 +61,7 @@ def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict
 
 def get_cite(sub: bs4.element.Tag) -> str | None:
     div_cite = sub.find("div", {"class": "Dx69l"})
+    tweet_cite = sub.find("div", {"class": "Du2Vwd"})
     img_cite = sub.find("g-img", {"class": "sL0zmc"})
     span_cite = sub.find("g-img", {"class": "QyR1Ze"})
 
@@ -62,6 +69,10 @@ def get_cite(sub: bs4.element.Tag) -> str | None:
     if div_cite:
         # Perspectives
         cite = get_text(sub, "div", {"class": "Dx69l"})
+
+    elif tweet_cite:
+        # Perspectives - embedded tweet ("{username} · X")
+        cite = get_text(sub, "div", {"class": "Du2Vwd"})
 
     elif img_cite:
         # Top Stories — image cite, get "alt" image text
