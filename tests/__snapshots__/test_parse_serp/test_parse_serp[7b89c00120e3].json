@@ -152,7 +152,7 @@
         "items": [
           "What if I invested $1000 in Apple in 1997?",
           "What is the Apple Inc?",
-          "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc",
+          "Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Apple_Inc Wikipedia https://en.wikipedia.org › wiki › Apple_Inc",
           "What does inc stand for in Apple?"
         ],
         "type": "text"
@@ -162,7 +162,7 @@
       "serp_rank": 4,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc Wikipedia https://en.wikipedia.org  › wiki › Apple_Inc<|>What does inc stand for in Apple?",
+      "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Apple_Inc Wikipedia https://en.wikipedia.org › wiki › Apple_Inc<|>What does inc stand for in Apple?",
       "title": null,
       "type": "people_also_ask",
       "url": null

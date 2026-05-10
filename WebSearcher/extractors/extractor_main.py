@@ -153,7 +153,12 @@ class ExtractorMain:
                 elif layout_div.find_all("div"):
                     return self._extract_from_standard_sub_type(layout_name)
 
-        top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
+        top_divs = (
+            ExtractorMain.extract_top_divs(
+                self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+            )
+            or []
+        )
         col = ExtractorMain.extract_children(rso_div, drop_tags)
         col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
@@ -179,7 +184,12 @@ class ExtractorMain:
 
         if self.layout_label == "standard-0":
             column = []
-            top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
+            top_divs = (
+                ExtractorMain.extract_top_divs(
+                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+                )
+                or []
+            )
             tab_overview = rso_div.find("div", {"id": "kp-wp-tab-overview"})
             main_divs = (
                 tab_overview.find_all("div", {"class": "TzHB6b"}, recursive=False)
@@ -195,7 +205,12 @@ class ExtractorMain:
 
         if self.layout_label == "standard-1":
             column = []
-            top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
+            top_divs = (
+                ExtractorMain.extract_top_divs(
+                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+                )
+                or []
+            )
             songs_div = rso_div.find("div", {"id": "kp-wp-tab-Songs"})
             main_divs = list(songs_div.children) if songs_div else []
             column.extend(top_divs)
@@ -206,7 +221,12 @@ class ExtractorMain:
 
         if self.layout_label == "standard-2":
             column = []
-            top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
+            top_divs = (
+                ExtractorMain.extract_top_divs(
+                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+                )
+                or []
+            )
             sports_div = rso_div.find("div", {"id": "kp-wp-tab-SportsStandings"})
             main_divs = list(sports_div.children) if sports_div else []
             column.extend(top_divs)
@@ -217,7 +237,12 @@ class ExtractorMain:
 
         if self.layout_label == "standard-4":
             column = []
-            top_divs = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"]) or []
+            top_divs = (
+                ExtractorMain.extract_top_divs(
+                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+                )
+                or []
+            )
             tab_airfares = rso_div.find("div", {"id": "kp-wp-tab-AIRFARES"})
             main_divs = (
                 tab_airfares.find_all("div", {"class": "A6K0A"}, recursive=False)
@@ -232,7 +257,9 @@ class ExtractorMain:
 
     def extract_from_top_bar(self, drop_tags: set = set()) -> list:
         out = []
-        tops = ExtractorMain.extract_top_divs(self.layout_divs["top-bars"])
+        tops = ExtractorMain.extract_top_divs(
+            self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
+        )
         out.extend(tops)
 
         div_classes = [
@@ -258,7 +285,7 @@ class ExtractorMain:
         return out
 
     @staticmethod
-    def extract_top_divs(soup, drop_tags: set = set()) -> list:
+    def extract_top_divs(soup, drop_tags: set = set(), rso=None) -> list:
         out = []
         for tb in soup:
             if utils.check_dict_value(tb.attrs, "class", ["M8OgIe"]):
@@ -275,17 +302,30 @@ class ExtractorMain:
                         if ch.name == "h1":
                             continue
                         out.append(ch)
-            elif ExtractorMain.is_dictionary_header(tb):
+            elif ExtractorMain.is_dictionary_header(tb, rso):
                 continue  # Skip dictionary word header (content is in definitions component)
             else:
                 out.append(tb)
         return out
 
     @staticmethod
-    def is_dictionary_header(elem) -> bool:
-        """Check if element is a dictionary word header (redundant with definitions)"""
-        return bool(elem.find("div", {"class": "kp-wholepage-osrp"})) and bool(
-            elem.find("div", {"data-attrid": "title"})
+    def is_dictionary_header(elem, rso=None) -> bool:
+        """Check if element is a dictionary word header that duplicates an inline
+        definitions component in the rso column.
+
+        kp-wholepage-osrp is the wrapper class for many entity panels (movies,
+        people, athletes, finance, streaming, dictionaries) — not just dictionary
+        headers. Only skip it when the rso column also has a DictionaryHeader
+        component, which is the duplication signal.
+        """
+        if not elem.find("div", {"class": "kp-wholepage-osrp"}):
+            return False
+        if rso is None:
+            return False
+        if rso.find("div", {"data-attrid": "DictionaryHeader"}):
+            return True
+        return any(
+            b.get_text(strip=True) == "Dictionary" for b in rso.find_all("div", {"role": "button"})
         )
 
     def extract_from_left_bar(self, drop_tags: set = set()) -> list:

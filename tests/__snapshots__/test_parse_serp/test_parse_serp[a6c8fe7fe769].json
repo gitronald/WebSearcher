@@ -64,8 +64,8 @@
         "items": [
           "What US state is France the size of?",
           "Who is the top 1 world population?",
-          "UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com  › world › jan › uk-populat... The Guardian https://www.theguardian.com  › world › jan › uk-populat...",
-          "France Population (2026) - Worldometer Worldometer https://www.worldometers.info  › world-population › fr... Worldometer https://www.worldometers.info  › world-population › fr..."
+          "UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com › world › jan › uk-populat... The Guardian https://www.theguardian.com › world › jan › uk-populat...",
+          "France Population (2026) - Worldometer Worldometer https://www.worldometers.info › world-population › fr... Worldometer https://www.worldometers.info › world-population › fr..."
         ],
         "type": "text"
       },
@@ -74,7 +74,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": null,
-      "text": "What US state is France the size of?<|>Who is the top 1 world population?<|>UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com  › world › jan › uk-populat... The Guardian https://www.theguardian.com  › world › jan › uk-populat...<|>France Population (2026) - Worldometer Worldometer https://www.worldometers.info  › world-population › fr... Worldometer https://www.worldometers.info  › world-population › fr...",
+      "text": "What US state is France the size of?<|>Who is the top 1 world population?<|>UK population exceeds that of France for first time on record, ONS data ... The Guardian https://www.theguardian.com › world › jan › uk-populat... The Guardian https://www.theguardian.com › world › jan › uk-populat...<|>France Population (2026) - Worldometer Worldometer https://www.worldometers.info › world-population › fr... Worldometer https://www.worldometers.info › world-population › fr...",
       "title": null,
       "type": "people_also_ask",
       "url": null

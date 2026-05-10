@@ -127,8 +127,7 @@ def get_text(
     div = get_div(soup, name, attrs) if name else soup
     if not div:
         return None
-    text = div.get_text(separator=separator)
-    return text.strip() if strip else text
+    return div.get_text(separator=separator, strip=strip)
 
 
 def get_link(

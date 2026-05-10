@@ -18,16 +18,16 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     # Get embedded result if it exists
     result = cmpt.find("div", {"class": "rc"})
     if result:
-        parsed["title"] = get_text(result, "h3")
+        parsed["title"] = get_text(result, "h3", strip=True)
         parsed["url"] = get_link(result)
-        parsed["cite"] = get_text(result, "cite")
+        parsed["cite"] = get_text(result, "cite", strip=True)
 
-    parsed["text"] = get_text(cmpt, "div", {"role": "heading", "aria-level": "3"})
+    parsed["text"] = get_text(cmpt, "div", {"role": "heading", "aria-level": "3"}, strip=True)
 
     details: dict = {}
 
     heading = cmpt.find("div", {"role": "heading"})
-    details["heading"] = heading.text if heading else None
+    details["heading"] = heading.get_text(" ", strip=True) if heading else None
 
     alinks = cmpt.find_all("a")
     if alinks:
@@ -123,9 +123,9 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         details["text"] = _join_texts(div) if list(div) else None
 
         text_divs = cmpt.find_all("div", {"class": "sinMW"})
-        text_list = [t for t in (get_text(div) for div in text_divs) if t]
+        text_list = [t for t in (get_text(div, strip=True) for div in text_divs) if t]
         parsed["text"] = "<|>".join(text_list) if text_list else None
-        parsed["title"] = get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]})
+        parsed["title"] = get_text(cmpt, "div", {"class": ["ZbhV9d", "HdbW6"]}, strip=True)
 
     img_div = cmpt.find("div", {"class": "img-brk"})
     if img_div:
