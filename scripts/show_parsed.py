@@ -5,6 +5,7 @@ from pathlib import Path
 
 import polars as pl
 import typer
+from wcwidth import wcswidth
 
 import WebSearcher as ws
 
@@ -14,10 +15,23 @@ app = typer.Typer()
 
 
 def trunc(s, n: int = 55) -> str:
+    """Truncate and pad `s` to exactly `n` terminal cells, accounting for wide chars."""
     if s is None:
-        return "-"
+        return "-".ljust(n)
     s = str(s).replace("\n", " ")
-    return s if len(s) <= n else s[: n - 1] + "…"
+    out = ""
+    width = 0
+    for ch in s:
+        w = wcswidth(ch)
+        if w < 0:
+            continue  # control char
+        if width + w > n - 1:
+            out += "…"
+            width += 1
+            break
+        out += ch
+        width += w
+    return out + " " * (n - width)
 
 
 def show(s):
