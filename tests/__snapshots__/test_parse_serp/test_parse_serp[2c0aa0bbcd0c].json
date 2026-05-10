@@ -42,11 +42,7 @@
     {
       "cite": "55.2M+ views  ·  12 years ago",
       "cmpt_rank": 2,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 2,
@@ -309,11 +305,7 @@
     {
       "cite": "5.9M+ views  ·  3 years ago",
       "cmpt_rank": 7,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -328,9 +320,17 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "address": "240 Stanford Shopping Center",
+        "category": "Yoga studio",
         "directions": "/maps/dir//YogaSix+Palo+Alto,+240+Stanford+Shopping+Center,+Palo+Alto,+CA+94304/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb2e2a95157b:0x9d9f771f7b7742bf?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
-        "website": "http://www.yogasix.com/palo-alto"
+        "hours": "Open · Closes 9 PM",
+        "n_reviews": 417,
+        "phone": "(650) 398-0889",
+        "rating": 4.9,
+        "review_snippet": "challenging classes and great instructors in a very pleasant environment!",
+        "type": "place",
+        "website": "http://www.yogasix.com/palo-alto",
+        "years_in_business": "3+ years in business"
       },
       "error": null,
       "section": "main",
@@ -346,10 +346,17 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "address": "158 Hamilton Ave",
+        "category": "Yoga studio",
         "directions": "/maps/dir//YogaSource,+158+Hamilton+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb3a3ff64567:0xb3bebd7e0ef7474d?sa=X&ved=1t:57443&ictx=111",
-        "schedule": "https://www.mindbodyonline.com/explore/locations/yogasource-palo-alto?hl=en-US&gei=iIOGacWOObeFxc8PiJ-3kQw&rwg_token=AFd1xnEdEpzcvpFj0nEOdY2PrCMkUSsEMJjPmGUqyCHZrSoH369qpKMz9sRtsQijKuuhZGSSy24dEcZL2s187bkygs_Abf-j7w%3D%3D&source=cat",
-        "type": "ratings",
-        "website": "http://yogasource.com/"
+        "hours": "Open · Closes 9 PM",
+        "n_reviews": 65,
+        "phone": "(650) 328-9642",
+        "rating": 4.3,
+        "review_snippet": "I am beginner in this and couldn't be more happy choosing this studio.",
+        "type": "place",
+        "website": "http://yogasource.com/",
+        "years_in_business": "30+ years in business"
       },
       "error": null,
       "section": "main",
@@ -365,9 +372,16 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "address": "Menlo Park, CA",
+        "category": "Yoga studio",
         "directions": "/maps/dir//Yogarok,+1100+Chestnut+St+Suite+718,+Menlo+Park,+CA+94025/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fa57c9f732d11:0xcdc92ba5a53d0f9?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
-        "website": "https://yogarok.com/"
+        "hours": "Closed · Opens 8:30 AM Sun",
+        "n_reviews": 6,
+        "rating": 5.0,
+        "review_snippet": "The classes are great - it’s definitely worth a visit!",
+        "type": "place",
+        "website": "https://yogarok.com/",
+        "years_in_business": "3+ years in business"
       },
       "error": null,
       "section": "main",
@@ -396,11 +410,7 @@
     {
       "cite": "7.1M+ views  ·  11 years ago",
       "cmpt_rank": 10,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -414,11 +424,7 @@
     {
       "cite": "10+ comments  ·  6 years ago",
       "cmpt_rank": 11,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 24,
@@ -432,11 +438,7 @@
     {
       "cite": "101.2K+ views  ·  2 months ago",
       "cmpt_rank": 12,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -464,13 +466,25 @@
     {
       "cite": null,
       "cmpt_rank": 14,
-      "details": null,
+      "details": {
+        "items": [
+          "Yoga for beginners free app",
+          "Yoga for beginners youtube",
+          "Yoga for beginners at home",
+          "Yoga for beginners female",
+          "Yoga for beginners 30 minutes",
+          "Free yoga for beginners",
+          "Yoga for beginners pdf",
+          "Yoga for Beginners kids"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 27,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Yoga for beginners free app<|>Yoga for beginners youtube<|>Yoga for beginners at home<|>Yoga for beginners female<|>Yoga for beginners 30 minutes<|>Free yoga for beginners<|>Yoga for beginners pdf<|>Yoga for Beginners kids",
       "title": null,
       "type": "searches_related",
       "url": null

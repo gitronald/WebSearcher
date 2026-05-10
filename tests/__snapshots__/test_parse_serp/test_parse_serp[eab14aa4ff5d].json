@@ -14,12 +14,28 @@
     {
       "cite": "360+ comments  ·  3 years ago",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Any tips here for a first marathon runner ? : r ...",
+            "url": "https://www.reddit.com/r/Marathon_Training/comments/1jsrdzq/any_tips_here_for_a_first_marathon_runner/"
+          },
+          {
+            "text": "What are some things you wish you knew before your ...",
+            "url": "https://www.reddit.com/r/Marathon_Training/comments/179mylo/what_are_some_things_you_wish_you_knew_before/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=tips+for+first+marathon+site:www.reddit.com&sca_esv=a6b2f659cc70f54c&sa=X&ved=2ahUKEwjrn7PdisaSAxX3bfUHHaHnDm4QrQIoAnoECBwQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Control your heart rate - make sure you measure your heart rate and try to avoid spending too much time in zone 4/5. · Build up your pace- run ... Read more",
       "title": "your number one tip for a first time marathoner? : r/running",
       "type": "general",
@@ -614,13 +630,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Tips for first marathon reddit",
+          "Top 10 tips for running your first marathon",
+          "Tips for first marathon beginners",
+          "Marathon tips for race day",
+          "My first marathon quotes",
+          "Marathon tips for beginners",
+          "First marathon training plan",
+          "Tips for running a marathon without training"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 35,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Tips for first marathon reddit<|>Top 10 tips for running your first marathon<|>Tips for first marathon beginners<|>Marathon tips for race day<|>My first marathon quotes<|>Marathon tips for beginners<|>First marathon training plan<|>Tips for running a marathon without training",
       "title": null,
       "type": "searches_related",
       "url": null

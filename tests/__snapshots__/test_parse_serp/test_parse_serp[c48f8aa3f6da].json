@@ -617,7 +617,15 @@
           "Art Deco",
           "Gothic Revival architecture",
           "Modernism",
-          "Impressionism"
+          "Impressionism",
+          "Art Deco architecture homes",
+          "Art deco architecture examples",
+          "Art Deco architecture characteristics",
+          "Art Deco architecture Miami",
+          "Art Deco interior design",
+          "Modern Art Deco architecture",
+          "Art deco architecture buildings",
+          "Famous art deco architecture"
         ],
         "type": "text"
       },
@@ -625,8 +633,8 @@
       "section": "footer",
       "serp_rank": 42,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Art Nouveau<|>Modern art<|>Art Deco<|>Gothic Revival architecture<|>Modernism<|>Impressionism",
+      "sub_type": "people_also_search_for",
+      "text": "Art Nouveau<|>Modern art<|>Art Deco<|>Gothic Revival architecture<|>Modernism<|>Impressionism<|>Art Deco architecture homes<|>Art deco architecture examples<|>Art Deco architecture characteristics<|>Art Deco architecture Miami<|>Art Deco interior design<|>Modern Art Deco architecture<|>Art deco architecture buildings<|>Famous art deco architecture",
       "title": null,
       "type": "searches_related",
       "url": null

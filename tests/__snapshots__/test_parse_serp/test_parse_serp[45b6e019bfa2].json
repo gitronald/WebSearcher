@@ -126,12 +126,28 @@
     {
       "cite": "160+ comments  ·  2 years ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Eli5: why is the sky blue? : r/explainlikeimfive - Reddit",
+            "url": "https://www.reddit.com/r/explainlikeimfive/comments/1iytxes/eli5_why_is_the_sky_blue/"
+          },
+          {
+            "text": "Why is the sky blue? Refraction. Why? Because ...",
+            "url": "https://www.reddit.com/r/askscience/comments/5tg0y2/why_is_the_sky_blue_refraction_why_because/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=why+is+the+sky+blue?+site:www.reddit.com&sca_esv=89aaa52b873f06b6&sa=X&ved=2ahUKEwiSt-LkwMOSAxXXm2oFHXpFH9kQrQIoAnoECCAQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Because the sun is intense, the scattering gives you lots of blueness in the sky . But because the sun doesn't travel very far through the ... Read more",
       "title": "Why is the sky blue? Do I understand it correctly",
       "type": "general",
@@ -350,11 +366,7 @@
     {
       "cite": "864K+ views  ·  5 years ago",
       "cmpt_rank": 8,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -368,11 +380,7 @@
     {
       "cite": "50+ reactions  ·  1 year ago",
       "cmpt_rank": 9,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -414,13 +422,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Why is the sky blue Class 10",
+          "Why is the sky blue for kids",
+          "Why is the sky blue no ai",
+          "Why is the sky blue reflection of ocean",
+          "Why is the sky blue and not violet",
+          "Why is the sky blue Army",
+          "Why is the sky blue long answer",
+          "Why is the sky blue essay"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 23,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Why is the sky blue Class 10<|>Why is the sky blue for kids<|>Why is the sky blue no ai<|>Why is the sky blue reflection of ocean<|>Why is the sky blue and not violet<|>Why is the sky blue Army<|>Why is the sky blue long answer<|>Why is the sky blue essay",
       "title": null,
       "type": "searches_related",
       "url": null

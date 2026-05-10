@@ -304,7 +304,15 @@
           "NFL on ESPN",
           "ESPN College Football",
           "NBA on ESPN",
-          "NHL on ESPN"
+          "NHL on ESPN",
+          "NBA scores all-time",
+          "NHL scores NBA scores",
+          "Live scores NBA finals",
+          "Nba scores schedule",
+          "NBA scores yesterday",
+          "NBA scores for tonight",
+          "Covers NBA scores",
+          "Nba buyout"
         ],
         "type": "text"
       },
@@ -312,8 +320,8 @@
       "section": "footer",
       "serp_rank": 18,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "ESPN College Basketball<|>ESPN Major League Baseball<|>NFL on ESPN<|>ESPN College Football<|>NBA on ESPN<|>NHL on ESPN",
+      "sub_type": "people_also_search_for",
+      "text": "ESPN College Basketball<|>ESPN Major League Baseball<|>NFL on ESPN<|>ESPN College Football<|>NBA on ESPN<|>NHL on ESPN<|>NBA scores all-time<|>NHL scores NBA scores<|>Live scores NBA finals<|>Nba scores schedule<|>NBA scores yesterday<|>NBA scores for tonight<|>Covers NBA scores<|>Nba buyout",
       "title": null,
       "type": "searches_related",
       "url": null

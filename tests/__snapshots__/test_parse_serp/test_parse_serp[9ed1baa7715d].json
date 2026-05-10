@@ -15,39 +15,44 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "items": [
           {
-            "text": "Peacock|Subscription|Watch",
+            "cost": "Subscription",
+            "text": "Peacock",
             "url": "https://www.peacocktv.com/watch-online/tv/the-office/4902514835143843112"
           },
           {
-            "text": "Sling TV|Subscription| |(|Requires add-on|)|Watch",
+            "cost": "Subscription   ( Requires add-on )",
+            "text": "Sling TV",
             "url": "https://watch.sling.com/1/franchise/c6efea3b949ad24f9a6d236e71b8b3cd/browse?trackingid=google-feed"
           },
           {
-            "text": "Amazon Prime Video|Subscription| |(|Requires add-on|)|Watch",
+            "cost": "Subscription   ( Requires add-on )",
+            "text": "Amazon Prime Video",
             "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.b2a10098-1876-492c-8857-dd091c87cd21?autoplay=0&ref_=atv_cf_strg_wb"
           },
           {
-            "text": "YouTube TV|Subscription| |(|Requires add-on|)|Watch",
+            "cost": "Subscription   ( Requires add-on )",
+            "text": "YouTube TV",
             "url": "https://tv.youtube.com/browse/UCLqUTxeCVt9p90GLFKUsGFA?utm_source=onebox"
           },
           {
-            "text": "YouTube|From |$1.99|Watch",
+            "cost": "From  $1.99",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=bxMy27_rGhs"
           },
           {
-            "text": "Fandango at Home|$1.99|Watch",
+            "cost": "$1.99",
+            "text": "Fandango at Home",
             "url": "https://athome.fandango.com/content/browse/details/The-Office-Finale-Pt-2/446371?cmp=OrganicSearch~Vudu~GoogleWatch"
           },
           {
-            "text": "Apple TV|$2.99|Watch",
+            "cost": "$2.99",
+            "text": "Apple TV",
             "url": "https://tv.apple.com/us/episode/the-dundies/umc.cmc.10237h1l57lzymzt2tsuinwhy?action=playSmartEpisode"
           }
-        ]
+        ],
+        "type": "hyperlinks"
       },
       "error": null,
       "section": "main",
@@ -55,8 +60,8 @@
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
-      "title": null,
-      "type": "knowledge",
+      "title": "Watch show",
+      "type": "available_on",
       "url": null
     },
     {
@@ -104,12 +109,28 @@
     {
       "cite": "40+ comments  ·  1 year ago",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "How do I watch The Office without Peacock? : r ...",
+            "url": "https://www.reddit.com/r/DunderMifflin/comments/14puai6/how_do_i_watch_the_office_without_peacock/"
+          },
+          {
+            "text": "Where are you guys watching your Office these days ...",
+            "url": "https://www.reddit.com/r/theoffice/comments/1o7idr8/where_are_you_guys_watching_your_office_these_days/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=watch+the+office+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjtw-CdhsaSAxWCBBAIHRpxLBMQrQIoAnoECB8QAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "It's not on Netflix in the US but you can use a VPN. Proton VPN is free. One of its free options is the Netherlands. The  Office  is on Netflix in the ... Read more",
       "title": "Where to watch the office if you don't have peacock? - Reddit",
       "type": "general",
@@ -154,11 +175,7 @@
     {
       "cite": "2.9M+ views  ·  3 months ago",
       "cmpt_rank": 7,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -172,11 +189,7 @@
     {
       "cite": "4.2M+ views  ·  8 months ago",
       "cmpt_rank": 8,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -232,13 +245,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Watch the office Season 1",
+          "How to watch the Office on Netflix",
+          "Watch the office Hulu",
+          "Where to watch the Office UK",
+          "The office season 1 - watch online",
+          "Where to watch the office reboot",
+          "Watch the office youtube",
+          "Peacock The Office"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 12,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Watch the office Season 1<|>How to watch the Office on Netflix<|>Watch the office Hulu<|>Where to watch the Office UK<|>The office season 1 - watch online<|>Where to watch the office reboot<|>Watch the office youtube<|>Peacock The Office",
       "title": null,
       "type": "searches_related",
       "url": null

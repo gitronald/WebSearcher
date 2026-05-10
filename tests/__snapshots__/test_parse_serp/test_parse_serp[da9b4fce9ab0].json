@@ -280,12 +280,28 @@
     {
       "cite": "20+ comments  ·  1 year ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "What credit cards are you actually keeping long-term ...",
+            "url": "https://www.reddit.com/r/CreditCards/comments/1ormfpg/what_credit_cards_are_you_actually_keeping/"
+          },
+          {
+            "text": "What are your favorite credit cards and why? : r ...",
+            "url": "https://www.reddit.com/r/CreditCards/comments/1p81k9b/what_are_your_favorite_credit_cards_and_why/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=best+credit+cards+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQrQIoAnoECCsQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Recommendations on credit cards ·  Capital One Venture Rewards or Capital One Venture X  · Chase Freedom Unlimited · Chase Sapphire Preferred. Read more",
       "title": "Recommendations on credit cards : r/CreditCards",
       "type": "general",
@@ -753,13 +769,25 @@
     {
       "cite": null,
       "cmpt_rank": 15,
-      "details": null,
+      "details": {
+        "items": [
+          "Best credit cards for travellers",
+          "Best credit cards for beginners",
+          "Best credit card in the world",
+          "Best credit cards Reddit",
+          "Best credit cards in USA",
+          "Best credit cards rewards",
+          "Best credit cards Visa",
+          "Best credit cards offers"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 33,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Best credit cards for travellers<|>Best credit cards for beginners<|>Best credit card in the world<|>Best credit cards Reddit<|>Best credit cards in USA<|>Best credit cards rewards<|>Best credit cards Visa<|>Best credit cards offers",
       "title": null,
       "type": "searches_related",
       "url": null

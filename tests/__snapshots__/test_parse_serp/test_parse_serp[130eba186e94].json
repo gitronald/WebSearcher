@@ -136,12 +136,28 @@
     {
       "cite": "50+ comments  ·  1 year ago",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "The Protein Folding story: A glimpse into how AGI ...",
+            "url": "https://www.reddit.com/r/singularity/comments/1gam5oi/the_protein_folding_story_a_glimpse_into_how_agi/"
+          },
+          {
+            "text": "Can someone please explain why protein folding is so ...",
+            "url": "https://www.reddit.com/r/bioinformatics/comments/10fhn7f/can_someone_please_explain_why_protein_folding_is/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=machine+learning+protein+folding+site:www.reddit.com&sca_esv=a6b2f659cc70f54c&sa=X&ved=2ahUKEwjnzvOUi8aSAxVMUvUHHd7QECcQrQIoAnoECCMQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Alphafold  just put that process into overdrive using bigger data sets and more complex machine learning calculators in place. Read more",
       "title": "Did the deep learning algorithm AlphaFord 2 'largely solve ...",
       "type": "general",
@@ -360,13 +376,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Machine learning protein folding pdf",
+          "Protein folding AI breakthrough",
+          "Protein folding AI Nobel Prize",
+          "AlphaFold 2",
+          "AI protein folding",
+          "AlphaFold Protein",
+          "Highly accurate protein structure prediction with AlphaFold",
+          "Did AlphaFold solve protein folding"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Machine learning protein folding pdf<|>Protein folding AI breakthrough<|>Protein folding AI Nobel Prize<|>AlphaFold 2<|>AI protein folding<|>AlphaFold Protein<|>Highly accurate protein structure prediction with AlphaFold<|>Did AlphaFold solve protein folding",
       "title": null,
       "type": "searches_related",
       "url": null

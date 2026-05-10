@@ -162,13 +162,25 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          "Amazon stock price",
+          "Apple share price nse today",
+          "Apple share price in 2007",
+          "AAPL stock news today",
+          "Microsoft stock",
+          "iPhone share price today",
+          "Google stock price",
+          "Apple share price chart"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Amazon stock price<|>Apple share price nse today<|>Apple share price in 2007<|>AAPL stock news today<|>Microsoft stock<|>iPhone share price today<|>Google stock price<|>Apple share price chart",
       "title": null,
       "type": "searches_related",
       "url": null

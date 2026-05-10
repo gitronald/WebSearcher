@@ -170,12 +170,28 @@
     {
       "cite": "10+ comments  ·  5 years ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "How to Change a Flat Tire 101 : r/selfreliance - Reddit",
+            "url": "https://www.reddit.com/r/selfreliance/comments/10risqa/how_to_change_a_flat_tire_101/"
+          },
+          {
+            "text": "EMSK: How to change a flat tire!! : r ...",
+            "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=how+to+change+a+tire+site:www.reddit.com&sca_esv=a6b2f659cc70f54c&sa=X&ved=2ahUKEwiW5ruRjMaSAxXXAtsEHT_1NKsQrQIoAnoECCEQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "1. Make Sure Car is on Flat Surface  Make sure car is on a level surface in a safe location  to change a tire. Engage your E-Brake. Turn on your hazard lights. ... Read more",
       "title": "How To Change A Car Tire : r/selfreliance",
       "type": "general",
@@ -206,11 +222,7 @@
     {
       "cite": "4.2M+ views  ·  18 years ago",
       "cmpt_rank": 5,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -560,11 +572,7 @@
     {
       "cite": "450.6K+ likes  ·  4 months ago",
       "cmpt_rank": 10,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 33,
@@ -606,13 +614,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Tire change near me",
+          "How to change a tire yourself",
+          "How to change a tire wheel",
+          "How to change a tire with a jack",
+          "How to change a tire step by step With pictures",
+          "How to change a tire on a rim by hand",
+          "How to change a tire on an suv",
+          "How to change a tire without a jack"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 36,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Tire change near me<|>How to change a tire yourself<|>How to change a tire wheel<|>How to change a tire with a jack<|>How to change a tire step by step With pictures<|>How to change a tire on a rim by hand<|>How to change a tire on an suv<|>How to change a tire without a jack",
       "title": null,
       "type": "searches_related",
       "url": null

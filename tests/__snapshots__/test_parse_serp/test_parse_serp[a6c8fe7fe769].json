@@ -320,13 +320,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Population of France vs UK",
+          "Population of france 2022",
+          "Population of france by race",
+          "Population of france by age",
+          "Population of France by religion",
+          "Population of france 2021",
+          "France population 2050",
+          "Population of France vs usa"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Population of France vs UK<|>Population of france 2022<|>Population of france by race<|>Population of france by age<|>Population of France by religion<|>Population of france 2021<|>France population 2050<|>Population of France vs usa",
       "title": null,
       "type": "searches_related",
       "url": null

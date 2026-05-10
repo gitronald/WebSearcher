@@ -175,7 +175,15 @@
           "KNTV",
           "KTVU",
           "KGO-TV",
-          "KTTV"
+          "KTTV",
+          "Local news san francisco today",
+          "Local news san francisco live",
+          "Breaking local news san francisco",
+          "Breaking news San Francisco Live",
+          "Breaking news San Francisco earthquake",
+          "San Francisco Bay Area News today",
+          "San Francisco News crime",
+          "Bay Area News live"
         ],
         "type": "text"
       },
@@ -183,8 +191,8 @@
       "section": "footer",
       "serp_rank": 11,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "KICU-TV<|>KPIX-TV<|>KNTV<|>KTVU<|>KGO-TV<|>KTTV",
+      "sub_type": "people_also_search_for",
+      "text": "KICU-TV<|>KPIX-TV<|>KNTV<|>KTVU<|>KGO-TV<|>KTTV<|>Local news san francisco today<|>Local news san francisco live<|>Breaking local news san francisco<|>Breaking news San Francisco Live<|>Breaking news San Francisco earthquake<|>San Francisco Bay Area News today<|>San Francisco News crime<|>Bay Area News live",
       "title": null,
       "type": "searches_related",
       "url": null

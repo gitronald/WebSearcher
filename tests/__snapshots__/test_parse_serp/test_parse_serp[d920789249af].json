@@ -304,13 +304,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "U.S. Congress members",
+          "U.S. Senate",
+          "U.S. House",
+          "What happened in Congress today",
+          "Congress bills passed today",
+          "Who elects Congress",
+          "United States House of Representatives",
+          "U.S. Congress vs Senate"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 18,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "U.S. Congress members<|>U.S. Senate<|>U.S. House<|>What happened in Congress today<|>Congress bills passed today<|>Who elects Congress<|>United States House of Representatives<|>U.S. Congress vs Senate",
       "title": null,
       "type": "searches_related",
       "url": null

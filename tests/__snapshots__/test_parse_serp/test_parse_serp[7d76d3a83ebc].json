@@ -544,13 +544,25 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Kaitlan collins trump",
+          "Savannah guthrie trump",
+          "Donald Trump approval rating",
+          "Donald Trump Truth Social",
+          "Donald Trump age",
+          "Donald Trump X",
+          "Donald Trump wife",
+          "Donald Trump impeachment"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 36,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Kaitlan collins trump<|>Savannah guthrie trump<|>Donald Trump approval rating<|>Donald Trump Truth Social<|>Donald Trump age<|>Donald Trump X<|>Donald Trump wife<|>Donald Trump impeachment",
       "title": null,
       "type": "searches_related",
       "url": null

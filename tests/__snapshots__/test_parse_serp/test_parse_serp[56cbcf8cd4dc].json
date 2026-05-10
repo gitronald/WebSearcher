@@ -43,9 +43,17 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "address": "Aromas, CA",
+        "category": "Dog breeder",
         "directions": "/maps/dir//Camp+TLC+Goldens,+CAMP+TLC+GOLDENS,+2234+Leo+Pl,+Aromas,+CA+95004/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808e039404ffb2c7:0xf78fd0ffe3e7783c?sa=X&ved=1t:57443&ictx=111",
-        "type": "ratings",
-        "website": "http://camptlcgoldens.com/"
+        "hours": "Open 24 hours",
+        "n_reviews": 32,
+        "phone": "(408) 656-6402",
+        "rating": 5.0,
+        "review_snippet": "Our puppy is so well behaved, groomed, and adjusted.",
+        "type": "place",
+        "website": "http://camptlcgoldens.com/",
+        "years_in_business": "35+ years in business"
       },
       "error": null,
       "section": "main",
@@ -61,8 +69,15 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
-        "type": "ratings",
-        "website": "https://www.sunsetretrievers.com/"
+        "category": "Dog breeder",
+        "hours": "Open · Closes 6 PM",
+        "n_reviews": 67,
+        "phone": "(530) 748-7024",
+        "rating": 4.9,
+        "review_snippet": "She is responsive, knowledgeable and helped us get the perfect pup .",
+        "type": "place",
+        "website": "https://www.sunsetretrievers.com/",
+        "years_in_business": "3+ years in business"
       },
       "error": null,
       "section": "main",
@@ -78,8 +93,15 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
-        "type": "ratings",
-        "website": "https://www.eastbaygoldenretrievers.com/"
+        "category": "Dog breeder",
+        "hours": "Open 24 hours",
+        "n_reviews": 11,
+        "phone": "(510) 815-8338",
+        "rating": 4.8,
+        "review_snippet": "Sophie and Jonathan made the process so smooth when getting our puppy!",
+        "type": "place",
+        "website": "https://www.eastbaygoldenretrievers.com/",
+        "years_in_business": "3+ years in business"
       },
       "error": null,
       "section": "main",
@@ -95,9 +117,14 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "address": "901 Ames Avenue",
+        "category": "Sponsored",
         "directions": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQBRoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASACEgIQkfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_3Ak2FUEJSCDCYZl-A6LdM_8msBbg&ctype=50&q=&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhawBegQINBAS&adurl=",
-        "type": "ratings",
-        "website": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl="
+        "hours": "Open · Closes 5 PM",
+        "phone": "(408) 262-2133",
+        "type": "place",
+        "website": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl=",
+        "years_in_business": "10+ years in business"
       },
       "error": null,
       "section": "main",
@@ -373,13 +400,25 @@
     {
       "cite": null,
       "cmpt_rank": 15,
-      "details": null,
+      "details": {
+        "items": [
+          "Golden Retriever puppies San Jose",
+          "Golden Retriever puppies Bay Area",
+          "Golden Retriever puppies California",
+          "Golden Retriever puppies for sale $500",
+          "Craigslist Golden Retriever Puppies",
+          "Golden Retriever puppies Sacramento",
+          "Golden Retriever puppies Modesto",
+          "Golden Retriever puppies Fresno"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "footer",
       "serp_rank": 19,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Golden Retriever puppies San Jose<|>Golden Retriever puppies Bay Area<|>Golden Retriever puppies California<|>Golden Retriever puppies for sale $500<|>Craigslist Golden Retriever Puppies<|>Golden Retriever puppies Sacramento<|>Golden Retriever puppies Modesto<|>Golden Retriever puppies Fresno",
       "title": null,
       "type": "searches_related",
       "url": null

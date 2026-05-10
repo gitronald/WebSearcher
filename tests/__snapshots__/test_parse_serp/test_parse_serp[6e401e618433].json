@@ -322,13 +322,25 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
+      "details": {
+        "items": [
+          "Round-trip flights to New York",
+          "New York flight ticket price",
+          "Google flights to New York",
+          "Nonstop flights to New York",
+          "Flights to New York tonight",
+          "Expedia flights to New York",
+          "Southwest flights to New York",
+          "Cheap flights to New York JFK"
+        ],
+        "type": "text"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "",
+      "sub_type": "people_also_search_for",
+      "text": "Round-trip flights to New York<|>New York flight ticket price<|>Google flights to New York<|>Nonstop flights to New York<|>Flights to New York tonight<|>Expedia flights to New York<|>Southwest flights to New York<|>Cheap flights to New York JFK",
       "title": null,
       "type": "searches_related",
       "url": null

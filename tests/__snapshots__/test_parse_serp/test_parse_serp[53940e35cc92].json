@@ -29,7 +29,13 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "11059 SE Division St",
+        "category": "Coffee shop",
+        "n_reviews": 270,
+        "price": "$10–20",
+        "rating": 4.7,
+        "review_snippet": "They have really good coffee , friendly staff, and the food is amazing!",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -45,7 +51,14 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "1003 SW 5th Ave",
+        "category": "Coffee shop",
+        "hours": "Closed · Opens 9 AM Sat",
+        "n_reviews": 426,
+        "price": "$1–10",
+        "rating": 4.8,
+        "review_snippet": "❤️ Their coffee choices are immensely unique and everything tastes so good.",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -61,7 +74,13 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "type": "ratings"
+        "address": "1100 SE Grand Ave",
+        "category": "Coffee shop",
+        "n_reviews": 192,
+        "price": "$1–10",
+        "rating": 4.8,
+        "review_snippet": "The staff were really friendly and the banana milk latte is to die for!",
+        "type": "place"
       },
       "error": null,
       "section": "main",
@@ -104,12 +123,28 @@
     {
       "cite": "210+ comments  ·  2 years ago",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "text": "Best coffee shops in Portland OR? : r/PortlandOR",
+            "url": "https://www.reddit.com/r/PortlandOR/comments/1kdupno/best_coffee_shops_in_portland_or/"
+          },
+          {
+            "text": "Best coffee shops in Portland? : r/askportland",
+            "url": "https://www.reddit.com/r/askportland/comments/1kdushh/best_coffee_shops_in_portland/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=coffee+shops+portland+oregon+site:www.reddit.com&sca_esv=a23961d46812ec7b&sa=X&ved=2ahUKEwjCj9zgicaSAxWaja8BHdlTJa4QrQIoAnoECB4QAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "submenu",
       "text": "Cathedral in North Portland gets my vote . Good coffee and seasonal drinks plus house-made pastries. Also a lovely spot with ample indoor and ... Read more",
       "title": "Where's the best coffee shop? : r/askportland",
       "type": "general",
@@ -216,11 +251,7 @@
     {
       "cite": "17K+ views  ·  1 year ago",
       "cmpt_rank": 10,
-      "details": {
-        "duration": null,
-        "source": null,
-        "type": "video"
-      },
+      "details": null,
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -241,7 +272,15 @@
           "Kalesa Coffee",
           "J Vein Caffé",
           "Cathedral Coffee",
-          "Cadejo Coffee"
+          "Cadejo Coffee",
+          "Best coffee shops portland oregon",
+          "Top 10 coffee shops in Portland, Oregon",
+          "Coffee shops portland oregon near me",
+          "New coffee shops portland oregon",
+          "Coffee shops portland oregon open",
+          "Black coffee shops portland oregon",
+          "Never coffee Portland",
+          "Keeper coffee Portland"
         ],
         "type": "text"
       },
@@ -249,8 +288,8 @@
       "section": "footer",
       "serp_rank": 15,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Abba Coffee Roasters<|>Deadstock Coffee Roasters<|>Kalesa Coffee<|>J Vein Caffé<|>Cathedral Coffee<|>Cadejo Coffee",
+      "sub_type": "people_also_search_for",
+      "text": "Abba Coffee Roasters<|>Deadstock Coffee Roasters<|>Kalesa Coffee<|>J Vein Caffé<|>Cathedral Coffee<|>Cadejo Coffee<|>Best coffee shops portland oregon<|>Top 10 coffee shops in Portland, Oregon<|>Coffee shops portland oregon near me<|>New coffee shops portland oregon<|>Coffee shops portland oregon open<|>Black coffee shops portland oregon<|>Never coffee Portland<|>Keeper coffee Portland",
       "title": null,
       "type": "searches_related",
       "url": null

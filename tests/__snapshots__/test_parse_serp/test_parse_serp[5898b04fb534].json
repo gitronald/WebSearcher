@@ -1333,7 +1333,15 @@
           "The Evelyn",
           "The Bryant Park Hotel",
           "Hilton Garden Inn NYC Financial Center/Manhattan Downtown",
-          "Pod Times Square"
+          "Pod Times Square",
+          "Hotels in Manhattan near Times Square",
+          "5-star Hotels in Manhattan",
+          "Hotels in Manhattan near Broadway",
+          "Best hotels in manhattan",
+          "Hotels in Manhattan reddit",
+          "Hotels in Manhattan NY Marriott",
+          "Cheap hotels in manhattan",
+          "Hotels in Manhattan Midtown"
         ],
         "type": "text"
       },
@@ -1341,8 +1349,8 @@
       "section": "footer",
       "serp_rank": 66,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Motto by Hilton New York City Chelsea<|>PUBLIC Hotel<|>The Evelyn<|>The Bryant Park Hotel<|>Hilton Garden Inn NYC Financial Center/Manhattan Downtown<|>Pod Times Square",
+      "sub_type": "people_also_search_for",
+      "text": "Motto by Hilton New York City Chelsea<|>PUBLIC Hotel<|>The Evelyn<|>The Bryant Park Hotel<|>Hilton Garden Inn NYC Financial Center/Manhattan Downtown<|>Pod Times Square<|>Hotels in Manhattan near Times Square<|>5-star Hotels in Manhattan<|>Hotels in Manhattan near Broadway<|>Best hotels in manhattan<|>Hotels in Manhattan reddit<|>Hotels in Manhattan NY Marriott<|>Cheap hotels in manhattan<|>Hotels in Manhattan Midtown",
       "title": null,
       "type": "searches_related",
       "url": null
