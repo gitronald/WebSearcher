@@ -57,6 +57,9 @@ def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         "cite": get_text(sub, "cite"),
     }
 
+    if parsed["title"] is None and parsed["url"] is None:
+        parsed["error"] = "no title or url"
+
     return parse_subtype_details(sub, parsed)
 
 
