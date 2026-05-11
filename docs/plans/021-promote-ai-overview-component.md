@@ -203,3 +203,48 @@ So both layouts (`sectioned` vs `flat`) need first-class support. About 1 in 4 h
 }
 ```
 
+### 2026-05-10 — Steps 2–7 implementation
+
+Implementation committed in two pieces:
+
+1. **Survey scripts + plan log** (commit `53341d`) — `scripts/survey_ai_overviews.py`, `inspect_ai_overview_structure.py`, `dump_ai_overview_html.py`.
+2. **Core change + tests** (commit `827b2e`) —
+   - `WebSearcher/component_types.py`: added `ai_overview` ComponentType, removed `ai_overview` from `knowledge.sub_types`.
+   - `WebSearcher/classifiers/main.py`: `ClassifyMain.ai_overview` now returns `"ai_overview"` (not `"knowledge"`) and explicitly skips the `h2="Related Links"` sibling.
+   - `WebSearcher/component_parsers/ai_overview.py`: new parser. Body extraction collects `div.Y3BBE` paragraphs, `div.otQkpb` section headings, and `ul.KsbFXc`/`ol.IaGLZe` lists in document order, splitting by heading. Sources come from `ul.bTFeG > li.CyMdWb`, with publisher names pulled from `span.Z1JFYc`.
+   - `WebSearcher/component_parsers/__init__.py`: import + register `parse_ai_overview` in `PARSERS`.
+   - `WebSearcher/component_parsers/knowledge.py`: removed the `Fzsovc` branch.
+   - `tests/__snapshots__/`: regenerated for 26 SERPs that contained AI overviews.
+
+**Regression check across 7 demo datasets:**
+
+| Dataset | Old (`knowledge,ai_overview`) | New (`ai_overview`) | with `sections` | with `sources` | avg text len | errors |
+|---|---|---|---|---|---|---|
+| `demo-ws-v0.6.10a0` | 21 | 21 | 3 | 19 | 1184 | 0 |
+| `demo-ws-v0.6.8a1`  | 21 | 21 | 2 | 21 | 1295 | 0 |
+| `demo-ws-v0.6.8a0`  | 13 | 17 | 1 | 17 | 1725 | 0 |
+| `demo-ws-v0.6.8a2`  | 14 | 14 | 1 | 14 | 1216 | 0 |
+| `demo-ws-v0.6.7a4`  | 1  | 1  | 0 | 1  | 1102 | 0 |
+| `demo-ws-v0.6.7a2`  | 3  | 3  | 0 | 3  | 1372 | 0 |
+| `demo-ws-v0.6.7a0`  | 4  | 4  | 0 | 4  | 1628 | 0 |
+| **total** | 77 | 81 | 7 | 79 | — | 0 |
+
+`demo-ws-v0.6.8a0` picked up 4 additional overviews — previously absorbed by an earlier classifier in the chain when the AI overview lived alongside richer structure.
+
+Full test suite passes (234 tests, 66 snapshots).
+
+**Downstream impact to flag for `~/repos/SearchAudits`** (per `reference_searchaudits` memory):
+
+- Any consumer keyed on `r["type"] == "knowledge" and r["sub_type"] == "ai_overview"` must switch to `r["type"] == "ai_overview"`.
+- `details["urls"]` (flat list of `{url, text}`) is replaced by `details["sources"]` (with publisher names) and optional `details["sections"]` (with their own `hyperlinks` lists).
+- `details["type"]` is now `"ai_overview"` instead of `"panel"` for these records.
+
+**Side effect: "Related Links" reclassification.**
+
+The "Related Links" sibling that previously matched `Fzsovc` and was misclassified as `knowledge.ai_overview` now returns `"unknown"` from `ClassifyMain.ai_overview` and falls through to the next classifier. It typically lands on `people_also_ask` (its dominant content) and expands into multiple PAA rows. This is an improvement (it was previously a single flat dump), and the snapshot updates capture it — but downstream code should be aware that some former `ai_overview` rows are now `people_also_ask` rows. Out of scope for cleanup here; track separately if the new routing is problematic.
+
+### Open follow-ups (out of scope)
+
+- Inline-link extraction for sectioned overviews is sparse (1 link in the "best credit cards" sample). When Google starts surfacing more inline citations, revisit.
+- The `Related Links` blob, now routed to `people_also_ask`, has substructure (multi-section follow-up summaries) that's still being flattened. A dedicated `related_links_expansion` component could be added later if downstream consumers need it.
+

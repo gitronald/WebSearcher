@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- **Breaking:** `ai_overview` is now a top-level component `type` (was `knowledge.sub_type=ai_overview`); new section-aware parser with `details.type="ai_overview"`, `details.sections`, and `details.sources` (publisher-labeled)
+- Added classifier guard so the "Related Links" sibling no longer matches `ai_overview`
+
 ## [0.7.1] - 2026-05-03
 
 - Added component type registry: consolidates header-text mappings, parser dispatch, and labels (supersedes `cmpt_mappings.py`)
