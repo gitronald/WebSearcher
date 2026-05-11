@@ -126,3 +126,80 @@ uv run python scripts/show_serp.py "<query>" --data-dir data/demo-ws-v0.6.10a0/
 - Do we want to keep a `sub_type` axis on `ai_overview` (e.g. `summary` vs. `comparison`), or is the section-list shape enough? Decide after the step 1 survey.
 - How aggressively should we dedupe `#:~:text=` fragment URLs against their base URLs in `sources`? Current `urls` lists include both forms; a downstream consumer may want each separately.
 - Should `ai_overview` move up in the `ClassifyMain.classify` chain to run even earlier (e.g. before `top_stories`)? Only if step 1 finds an overlap; otherwise leave the order.
+
+## Log
+
+### 2026-05-10 — Step 1 survey
+
+Wrote `scripts/survey_ai_overviews.py` and `scripts/inspect_ai_overview_structure.py` (+ `scripts/dump_ai_overview_html.py`) to inventory AI overview HTML.
+
+**Counts (per-component, from raw HTML — not the same as parsed.json counts):**
+
+| Dataset                  | Components flagged |
+|--------------------------|---|
+| `demo-ws-v0.6.10a0`      | 56 |
+| `demo-ws-v0.6.8a1`       | 56 |
+| `demo-ws-v0.6.8a0`       | 53 |
+| (older sets)             | likely fewer |
+
+**Key finding: the current classifier matches TWO different surfaces per SERP**
+
+Every SERP with an AI overview has two components containing `div.Fzsovc`:
+1. **The actual AI Overview** — compact widget, `h2 = None`, contains the synthesized answer + optional section subheadings (`role="heading" aria-level="3"`, class `otQkpb`) + a "Sources" tray.
+2. **A "Related Links" expansion** — `h2 = "Related Links"`, contains "People also ask" plus extended sectioned content. This is currently classified as `knowledge` and produces a flat dump too, OR is absorbed by earlier classifiers in the chain. **Out of scope for this plan**; the new classifier must explicitly skip it (`h2.get_text(strip=True) != "Related Links"`).
+
+That's why `parsed.json` reports ~21 `sub_type=ai_overview` records while the raw HTML survey finds 56 candidate components — many of the "Related Links" siblings reach `people_also_ask` or another classifier first.
+
+**Layout structure (confirmed on 4 representative samples):**
+
+The content body sits in `div.mZJni.Dn7Fzd`. Its inner sequence of children is:
+- `div.Y3BBE` — lede / intro paragraph(s)
+- `div.otQkpb` (`role=heading aria-level=3`) — section heading (when sectioned)
+- `<ul class="KsbFXc U6u95">` — bullet list following the heading
+- More `Y3BBE`/`otQkpb`/`ul` triples alternating
+
+Sources tray: `ul.bTFeG > li.CyMdWb`, where each `li` is a card with one `<a href>` (the URL — often a `#:~:text=` fragment URL) and one `<span>` carrying the visible publisher name (e.g. `"CNN"`, `"NASA Space Place (.gov)"`).
+
+Inline body anchors are rare (just 1 of 22 anchors in the "best credit cards" sample). The vast majority of anchors in the current flat `details.urls` come from the sources tray.
+
+**Section-count distribution across 4 sampled SERPs:**
+
+| Query | Lvl-3 section headings |
+|---|---|
+| `best credit cards` | 5 |
+| `why is the sky blue?` | 0 |
+| `best mattress forum` | 0 |
+| `car insurance quotes` | 0 |
+
+So both layouts (`sectioned` vs `flat`) need first-class support. About 1 in 4 has sections.
+
+### Resolved open questions
+
+- **`sub_type` axis:** keep simple — emit `sub_type="sectioned"` when there are aria-level-3 section headings, else `sub_type="flat"`. This is cheap and gives downstream consumers a coarse hint.
+- **Fragment URL dedup:** keep all source URLs as-is (including `#:~:text=` fragments). Downstream code can strip the fragment if it wants the base URL; we shouldn't lose information here.
+- **Classifier order:** leave at current position; the failure mode is that `Related Links` siblings get absorbed elsewhere, which we don't want to "fix" by reordering — we want to skip them in our matcher.
+
+### Final shape decision
+
+```python
+{
+  "type": "ai_overview",
+  "sub_type": "sectioned" | "flat",
+  "title": <first section heading or None>,
+  "text": <lede paragraph(s), joined with " ">,
+  "url": None,
+  "cite": None,
+  "details": {
+    "type": "ai_overview",
+    "sections": [
+      {"heading": str, "text": str | None, "hyperlinks": [{"url", "text"}, ...]},
+      ...
+    ],  # omitted when flat
+    "sources": [
+      {"url": str, "text": str},  # text = publisher name
+      ...
+    ],
+  }
+}
+```
+
