@@ -20,6 +20,24 @@ _OVERLAY_RESET_CSS = """
 </style>
 """
 
+# Block all external network requests so the SERP's inline scripts can't
+# phone home (telemetry, ad pixels, refinement fetches). Mirrors the behavior
+# of opening the saved HTML directly via file://, but over a real http origin
+# so scripts otherwise execute normally and the layout settles.
+_OFFLINE_CSP = (
+    '<meta http-equiv="Content-Security-Policy" content="'
+    "default-src 'self' data: blob:; "
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; "
+    "style-src 'self' 'unsafe-inline' data:; "
+    "img-src 'self' data: blob:; "
+    "font-src 'self' data:; "
+    "connect-src 'none'; "
+    "frame-src 'none'; "
+    "media-src 'none'; "
+    "object-src 'none';"
+    '">'
+)
+
 
 def strip_overlays(html: str) -> str:
     """Remove dialog elements and lightbox/scrim wrappers that lock scrolling."""
@@ -101,6 +119,14 @@ def main(
             html = html.replace("</head>", _OVERLAY_RESET_CSS + "</head>", 1)
         else:
             html = _OVERLAY_RESET_CSS + html
+
+    # Inject a strict CSP into <head> so external requests can't fire, even in
+    # --raw mode where scripts still execute. Without this, inline scripts get
+    # partial network responses and reshuffle the layout.
+    if "<head>" in html:
+        html = html.replace("<head>", "<head>" + _OFFLINE_CSP, 1)
+    else:
+        html = _OFFLINE_CSP + html
 
     body = html.encode("utf-8")
 
