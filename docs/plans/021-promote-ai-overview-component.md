@@ -33,7 +33,7 @@ URL counts per overview range from 7 to 32+ in the most recent set, indicating t
 1. Make `ai_overview` a first-class `type` (no longer `sub_type` of `knowledge`).
 2. Parse multi-section AI overviews into typed sections, each with its own heading, text, and hyperlinks — rather than a flat URL dump.
 3. Cover all 76 examples in the demo datasets without regressing the knowledge parser for non-AI-overview panels.
-4. Keep the dict-access compatibility surface that `~/repos/SearchAudits` relies on (see `reference_searchaudits` memory).
+4. Keep the dict-access compatibility surface that private downstream consumers rely on.
 
 ### Conceptual structure
 
@@ -95,7 +95,7 @@ Key shape decisions:
    - Spot-check 3–5 representative SERPs with `scripts/show_parsed.py "{query}" --data-dir data/demo-ws-v0.6.10a0/`.
    - Confirm non-AI-overview knowledge panels are byte-identical (use `/compare-parsed` filtered to `type=knowledge`).
 
-7. **Downstream-compat note.** Verify `~/repos/SearchAudits` still loads cleanly — its dict-style access on WS objects means any consumer reading `r["sub_type"] == "ai_overview"` will need to switch to `r["type"] == "ai_overview"`. Add a heads-up in the Log and reach out before bumping the next WS minor.
+7. **Downstream-compat note.** Any external consumer reading `r["sub_type"] == "ai_overview"` will need to switch to `r["type"] == "ai_overview"`. Add a heads-up in the Log; flag downstream owners before bumping the next WS minor.
 
 8. **CHANGELOG.** Add an entry under the next version per `feedback_changelog_format` (Keep a Changelog `## [VERSION] - DATE` heading).
 
@@ -233,7 +233,7 @@ Implementation committed in two pieces:
 
 Full test suite passes (234 tests, 66 snapshots).
 
-**Downstream impact to flag for `~/repos/SearchAudits`** (per `reference_searchaudits` memory):
+**Downstream impact to flag for external consumers:**
 
 - Any consumer keyed on `r["type"] == "knowledge" and r["sub_type"] == "ai_overview"` must switch to `r["type"] == "ai_overview"`.
 - `details["urls"]` (flat list of `{url, text}`) is replaced by `details["sources"]` (with publisher names) and optional `details["sections"]` (with their own `hyperlinks` lists).
