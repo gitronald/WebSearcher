@@ -15,68 +15,50 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Rayleigh scattering",
-            "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=DX6GadapJbrIwPAPs6DakAQ&ved=2ahUKEwj3_L-Hh8aSAxWwCBAIHZSuDXkQgK4QegYIAQgAEAY"
-          },
-          {
-            "text": "",
+            "text": "National Weather Service (.gov)",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "",
+            "text": "Britannica",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "National Environmental Satellite, Data, and Information Service (.gov)",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "University of California, Riverside",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
           },
           {
-            "text": "",
+            "text": "Instagram",
             "url": "https://www.instagram.com/reel/DIZJjPvOtIN/"
           },
           {
-            "text": "",
+            "text": "Royal Museums Greenwich",
             "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
           },
           {
-            "text": "",
+            "text": "Facebook",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "",
+            "text": "WSAV-TV",
             "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/#:~:text=In%20summer%2C%20the%20sun%20sits%20higher%20in,intensifying%20the%20blue%20appearance%20of%20the%20sky."
-          },
-          {
-            "text": "",
-            "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "The sky is blue due to Rayleigh scattering , a phenomenon where Earth's atmospheric molecules scatter blue light more effectively than other colors because blue light has shorter, smaller waves. Sunlight, composed of all colors, is scattered by gases like nitrogen and oxygen in the atmosphere; shorter blue wavelengths are scattered in all directions, saturating the sky with a blue appearance, though our eyes are more sensitive to blue than violet. The Role of Sunlight and Atmospheric Molecules Sunlight Composition : The white light from the sun is a mixture of all colors in the visible spectrum, each with different wavelengths. Atmospheric Scattering : When sunlight enters Earth's atmosphere, it interacts with gas molecules (primarily nitrogen and oxygen). Wavelength and Scattering : Shorter wavelengths of light, like blue and violet, are scattered much more strongly than longer wavelengths, such as red and orange. Why We See Blue, Not Violet Violet Scattering : Violet light has an even shorter wavelength than blue light and is scattered more. Eye Sensitivity : However, the sky appears blue rather than violet because human eyes are more sensitive to blue light. Sun's Emission : The sun also emits more energy as blue light than as violet light, contributing to the blue appearance. Factors Affecting Sky Color Atmospheric Path Length : Sunlight has a shorter path through the atmosphere at noon, and at sunset, it travels a longer path through more air. Sky Color at Sunset/Sunrise : As the path length increases, more blue light is scattered away, allowing the longer, reddish wavelengths to pass through, creating the reddish-orange colors of sunsets. High Altitudes : At higher altitudes, there are fewer atmospheric molecules, so less light is scattered. Space : In space, where there are virtually no molecules to scatter light, the sky appears black.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

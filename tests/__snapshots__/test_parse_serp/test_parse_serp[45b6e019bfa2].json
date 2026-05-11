@@ -15,76 +15,54 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Rayleigh scattering",
-            "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=7ieFabDdM-C4qtsP5diJ-AE&ved=2ahUKEwiSt-LkwMOSAxXXm2oFHXpFH9kQgK4QegYIAQgAEAY"
-          },
-          {
-            "text": "",
+            "text": "Facebook",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/askscience/comments/14566ig/why_is_the_sky_blue_do_i_understand_it_correctly/"
           },
           {
-            "text": "",
+            "text": "National Environmental Satellite, Data, and Information Service NESDIS (.gov)",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=Gases%20and%20particles%20in%20Earth's%20atmosphere%20scatter,a%20blue%20sky%20most%20of%20the%20time."
           },
           {
-            "text": "",
+            "text": "National Geographic Kids",
             "url": "https://kids.nationalgeographic.com/books/article/sky"
           },
           {
-            "text": "",
+            "text": "National Weather Service (.gov)",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "",
+            "text": "Britannica",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "Union University",
             "url": "https://www.uu.edu/dept/physics/scienceguys/2000Oct.cfm"
           },
           {
-            "text": "",
+            "text": "NASA+ (.gov)",
             "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/#:~:text=When%20sunlight%20enters%20Earth's%20atmosphere%2C%20it%20encounters,sky%20appears%20blue%20on%20a%20sunny%20day."
           },
           {
-            "text": "",
+            "text": "Morgridge Institute for Research -",
             "url": "https://morgridge.org/blue-sky/why-is-the-sky-blue/"
-          },
-          {
-            "text": "",
-            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
-          },
-          {
-            "text": "",
-            "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "The sky appears blue due to a phenomenon called Rayleigh scattering . Sunlight reaches Earth's atmosphere and is scattered in all directions by gases and particles in the air. Because blue light travels in shorter, smaller waves, it is scattered more strongly than other colors, making the sky appear blue to our eyes. Rayleigh Scattering: As sunlight (which contains all colors of the rainbow) passes through the atmosphere, it collides with oxygen and nitrogen molecules. Wavelength Matters: Short, choppy wavelengths—blue and violet—are scattered about four times more than longer, redder wavelengths. Why Not Violet? While violet light has an even shorter wavelength than blue, the sky appears blue because the sun emits more blue light than violet, and human eyes are more sensitive to blue light . Atmosphere vs. Space: The atmosphere acts as a filter; without it, as seen from the Moon, the sky appears black. Horizon Effects: Near the horizon, the sky appears lighter or white because the scattered blue light has to pass through more air, causing it to scatter away again before reaching the eye. Sunsets: During sunset, the sun is low on the horizon, and light must pass through much more of the atmosphere. The blue light is scattered away completely, leaving red and yellow light to pass through.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

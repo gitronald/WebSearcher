@@ -15,88 +15,62 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Rayleigh scattering",
-            "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=4IWFaar5B6mWwbkPmI2oiQE&ved=2ahUKEwi1uKmwmsSSAxW2QjABHazhBQcQgK4QegYIAQgAEAY"
-          },
-          {
-            "text": "",
-            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=Gases%20and%20particles%20in%20Earth's%20atmosphere%20scatter,a%20blue%20sky%20most%20of%20the%20time."
-          },
-          {
-            "text": "",
+            "text": "National Weather Service (.gov)",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "",
+            "text": "National Environmental Satellite, Data, and Information Service NESDIS (.gov)",
+            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=Gases%20and%20particles%20in%20Earth's%20atmosphere%20scatter,a%20blue%20sky%20most%20of%20the%20time."
+          },
+          {
+            "text": "Facebook",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "",
+            "text": "Morgridge Institute for Research -",
             "url": "https://morgridge.org/blue-sky/why-is-the-sky-blue/"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/askscience/comments/14566ig/why_is_the_sky_blue_do_i_understand_it_correctly/"
           },
           {
-            "text": "",
+            "text": "University of California, Riverside",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html#:~:text=We%20have%20three%20types%20of%20colour%20receptors%2C,visual%20system%20constructs%20the%20colours%20we%20see."
           },
           {
-            "text": "",
+            "text": "National Geographic Kids",
             "url": "https://kids.nationalgeographic.com/books/article/sky"
           },
           {
-            "text": "",
+            "text": "Union University",
             "url": "https://www.uu.edu/dept/physics/scienceguys/2000Oct.cfm"
           },
           {
-            "text": "",
+            "text": "Britannica",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "Montreal Science Centre",
             "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "NASA+ (.gov)",
             "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/#:~:text=When%20sunlight%20enters%20Earth's%20atmosphere%2C%20it%20encounters,sky%20appears%20blue%20on%20a%20sunny%20day."
-          },
-          {
-            "text": "",
-            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
-          },
-          {
-            "text": "",
-            "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/"
-          },
-          {
-            "text": "",
-            "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "The sky appears blue due to a phenomenon called Rayleigh scattering , where molecules and small particles in Earth's atmosphere scatter shorter, blue-wavelength sunlight in all directions more efficiently than other colors. Because this scattered blue light is distributed across the sky, our eyes perceive it as blue during the day. Key Details About Sky Color: Sunlight Composition: Sunlight appears white but is actually made up of all the colors of the rainbow. Rayleigh Scattering: As sunlight hits gas molecules (mostly nitrogen and oxygen) in the atmosphere, the light scatters. Blue light travels in smaller, shorter waves, causing it to scatter roughly four times more than red light . Why Not Violet? While violet light has an even shorter wavelength, the sky looks blue because the sun emits more blue light than violet, and human eyes are more sensitive to blue light. Sunsets/Sunrises: When the sun is low on the horizon, light passes through more atmosphere. This causes the blue light to scatter away entirely, leaving the longer red, yellow, and orange wavelengths to reach our eyes. Space is Black: Because space lacks an atmosphere and particles to scatter sunlight, the sky appears black, as seen from the Moon. The sky appears paler near the horizon because the scattered light must pass through more air, allowing more of the blue light to be scattered away before reaching the eyes.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

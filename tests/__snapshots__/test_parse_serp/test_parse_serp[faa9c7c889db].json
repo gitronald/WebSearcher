@@ -66,76 +66,42 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Konnichiwa",
-            "url": "https://www.google.com/search?q=Konnichiwa&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAB"
-          },
-          {
-            "text": "Ohayō",
-            "url": "https://www.google.com/search?q=Ohay%C5%8D&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAD"
-          },
-          {
-            "text": "Ohayō Gozaimasu",
-            "url": "https://www.google.com/search?q=Ohay%C5%8D+Gozaimasu&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAF"
-          },
-          {
-            "text": "Konbanwa",
-            "url": "https://www.google.com/search?q=Konbanwa&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAH"
-          },
-          {
-            "text": "Moshi Moshi",
-            "url": "https://www.google.com/search?q=Moshi+Moshi&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAJ"
-          },
-          {
-            "text": "Hajimemashite",
-            "url": "https://www.google.com/search?q=Hajimemashite&sei=RoCGaZDoF5-6wPAP1eqxkQs&mstk=AUtExfDF1DP_Av9YFoezpnP5xd6WyZSbFfGkmasLvLj5fftfGDvIECkiAmiI6Dt7hx3QFtPDBuhFW_JjITWCNmKTEEtooGkt6689X_g-wRzqiC7iISCSAK_9FglJwUulsVyRxkI&csui=3&ved=2ahUKEwjN7vqWicaSAxWBCRAIHftyAV4QgK4QegQIAxAL"
-          },
-          {
-            "text": "",
+            "text": "Busuu",
             "url": "https://www.busuu.com/en/japanese/greetings#:~:text=About:%20This%20is%20probably%20the,a%20casual%20hi%20in%20Japanese."
           },
           {
-            "text": "",
+            "text": "Kanpai Japan",
             "url": "https://www.kanpai-japan.com/learn-japanese/hello#:~:text=To%20say%20'hello'%20in%20Japanese%20*%20%E3%81%8A%E3%81%AF%E3%82%88%E3%81%86,ne):%20'it's%20been%20a%20while'%20(more%20polite)"
           },
           {
-            "text": "",
+            "text": "Fluent in 3 Months",
             "url": "https://www.fluentin3months.com/hello-in-japanese/#:~:text=say%20%E2%80%9Chi.%E2%80%9D-,%E2%80%9CHello%E2%80%9D%20in%20Japanese%20%E2%80%93%20%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%20(Konnichiwa),use%20it%20in%20the%20afternoon."
           },
           {
-            "text": "",
+            "text": "Tandem",
             "url": "https://tandem.net/blog/greetings-in-japanese#:~:text=1.,use%20it%20during%20the%20day."
           },
           {
-            "text": "",
+            "text": "Flexi Classes Forum",
             "url": "https://forum.flexiclasses.com/t/how-to-say-hello-in-japanese-is-konnichiwa-the-best-choice/2557"
           },
           {
-            "text": "",
+            "text": "AmazingTalker ｜ Find Professional Online Language Tutors and Teachers",
             "url": "https://en.amazingtalker.com/blog/en/japanese/46831/"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "The most common way to say \"hello\" in Japanese is Konnichiwa (こんにちは) , which is generally used from late morning through late afternoon. For morning, use Ohayō (おはよう). In the evening, use Konbanwa (こんばんは). Konnichiwa is polite, but not overly formal, making it suitable for most, even strangers. Key Hello Phrases in Japanese Konnichiwa (こんにちは): Hello / Good afternoon. Ohayō (おはよう): Good morning (informal). Ohayō Gozaimasu (おはようございます): Good morning (formal). Konbanwa (こんばんは): Good evening. Moshi Moshi (もしもし): Hello? (used when answering the phone). Hajimemashite (はじめまして): Nice to meet you. Contextual Notes Pronunciation: Konnichiwa (kohn-nee-chee-wah). Usage: While widely used, Konnichiwa is not typically used for friends or family, for whom casual greetings like Yaa (ya) or Yo (よ) are more appropriate.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

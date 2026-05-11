@@ -15,100 +15,90 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "",
-            "url": "https://oversight.house.gov/release/hearing-wrap-up-americans-deserve-improved-vaccine-injury-and-compensation-systems/#:~:text=WASHINGTON%20%E2%80%94%20The%20Select%20Subcommittee%20on,a%20future%20public%20health%20crisis."
-          },
-          {
-            "text": "",
-            "url": "https://www.congress.gov/event/119th-congress/senate-event/337242#:~:text=Hearings%20to%20examine%20voices%20of,Congress.gov%20%7C%20Library%20of%20Congress"
-          },
-          {
-            "text": "",
-            "url": "https://www.sciencedirect.com/science/article/pii/S0264410X22010283#:~:text=Pfizer%20and%20Moderna%20mRNA%20COVID%2D19%20vaccines%20were%20associated%20with,of%20serious%20COVID%2D19%20outcomes."
-          },
-          {
-            "text": "",
+            "text": "The New England Journal of Medicine",
             "url": "https://www.nejm.org/doi/full/10.1056/NEJMsa2514268#:~:text=The%20RSVpreF%20vaccine%20was%20associated,and%20the%20Alumbra%20Innovations%20Foundation.)"
           },
           {
-            "text": "",
+            "text": "Johns Hopkins Bloomberg School of Public Health",
             "url": "https://publichealth.jhu.edu/2025/virus-transmission-trends-winter-2025-26#:~:text=Is%20this%20year's%20flu%20vaccine,%2Drelated%20hospitalizations%20this%20season.%E2%80%9D"
           },
           {
-            "text": "",
+            "text": "House.gov",
+            "url": "https://oversight.house.gov/release/hearing-wrap-up-americans-deserve-improved-vaccine-injury-and-compensation-systems/#:~:text=WASHINGTON%20%E2%80%94%20The%20Select%20Subcommittee%20on,a%20future%20public%20health%20crisis."
+          },
+          {
+            "text": "Congress.gov",
+            "url": "https://www.congress.gov/event/119th-congress/senate-event/337242#:~:text=Hearings%20to%20examine%20voices%20of,Congress.gov%20%7C%20Library%20of%20Congress"
+          },
+          {
+            "text": "ScienceDirect.com",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0264410X22010283#:~:text=Pfizer%20and%20Moderna%20mRNA%20COVID%2D19%20vaccines%20were%20associated%20with,of%20serious%20COVID%2D19%20outcomes."
+          },
+          {
+            "text": "Congress.gov",
             "url": "https://www.congress.gov/118/meeting/house/117004/documents/HHRG-118-VC00-Transcript-20240321.pdf"
           },
           {
-            "text": "",
+            "text": "Health Resources and Services Administration | HRSA (.gov)",
             "url": "https://www.hrsa.gov/vaccine-compensation#:~:text=How%20does%20the%20VICP%20work,and%20individuals%20who%20are%20deceased."
           },
           {
-            "text": "",
+            "text": "UCHealth",
             "url": "https://www.uchealth.org/today/everything-you-need-to-know-about-the-2025-26-covid-19-vaccine-and-flu-shots/#:~:text=To%20answer%20some%20of%20your,the%20late%20fall%20and%20winter."
           },
           {
-            "text": "",
+            "text": "Congress.gov",
             "url": "https://www.congress.gov/event/119th-congress/senate-event/336985#:~:text=Senate%20Event%20336985-,Hearings%20to%20examine%20science%20and%20Federal%20health%20agencies%2C%20focusing%20on,119th%20Congress%20(2025%2D2026)"
           },
           {
-            "text": "",
+            "text": "BioNTech",
             "url": "https://biontechse.gcs-web.com/news-releases/news-release-details/pfizer-and-biontech-publish-preclinical-data-investigational/#:~:text=In%20clinical%20studies%2C%20adverse%20reactions,to%20complete%20the%20vaccination%20series."
           },
           {
-            "text": "",
+            "text": "Centers for Disease Control and Prevention | CDC (.gov)",
             "url": "https://www.cdc.gov/acip/downloads/slides-2025-09-18-19/10-levi-COVID-508.pdf"
           },
           {
-            "text": "",
+            "text": "CIDRAP",
             "url": "https://www.cidrap.umn.edu/influenza-vaccines/current-flu-vaccine-provides-moderate-protection-against-severe-disease-interim#:~:text=Two%20new%20analyses%2C%20one%20from,in%20the%202024%E2%80%9325%20season."
           },
           {
-            "text": "",
+            "text": "Cardiovascular Business",
             "url": "https://cardiovascularbusiness.com/topics/clinical/covid-19/cardiologists-false-claims-used-promote-fake-covid-19-vaccine-recall-fact#:~:text=Cardiologist%20Peter%20McCullough%20no%20stranger,his%20claims%20as%20%22misleading.%22"
           },
           {
-            "text": "",
+            "text": "CIDRAP",
             "url": "https://www.cidrap.umn.edu/covid-19/report-spotlights-52-us-doctors-who-posted-potentially-harmful-covid-misinformation-online#:~:text=Major%20themes%20were%20disputing%20COVID,inflammation%20of%20the%20heart%20muscle)."
           },
           {
-            "text": "",
+            "text": "HealthyChildren.org",
             "url": "https://www.healthychildren.org/English/safety-prevention/immunizations/Pages/vaccine-studies-examine-the-evidence.aspx#:~:text=Research%20continues%20to%20confirm%20that,and%20teens%20from%20serious%20diseases."
           },
           {
-            "text": "",
+            "text": "YouTube · Times Of India",
             "url": "https://www.youtube.com/watch?v=aafUmBFS42Q"
           },
           {
-            "text": "",
+            "text": "NBC News · Brian Castrucci",
             "url": "https://www.nbcnews.com/think/opinion/covid-vaccine-treatment-misinformation-medical-malpractice-it-should-be-punished-ncna1287180#:~:text=But%20a%20vocal%20minority%20of,to%20hold%20these%20doctors%20accountable."
           },
           {
-            "text": "",
+            "text": "YouTube · moneycontrol",
             "url": "https://www.youtube.com/watch?v=oZ1hgVNRMmE"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Based on recent reports, congressional testimony, and medical updates, the landscape surrounding COVID-19 and influenza vaccines in late 2025 and early 2026 continues to be polarized, featuring both high vaccination effectiveness data and ongoing concerns regarding rare side effects and, in some circles, allegations of cover-ups. Medical Evidence, Safety, and Ingredients (2025-2026) Effectiveness: Updated 2025-2026 COVID-19 mRNA vaccines for the KP.2 subvariant showed 68% effectiveness against hospitalization, while influenza vaccines provided moderate protection, with effectiveness higher in children (57.2%) than in older adults (25.3%–27.7%). Safety Profile: Major, peer-reviewed evidence continues to support the safety of vaccines, though rare risks like myocarditis (1.3 to 3.1 per 100,000 doses in male adolescents) are documented. Ingredients/Mechanism: mRNA vaccines (Pfizer/Moderna) utilize modified mRNA to instruct cells to produce a spike protein, triggering an immune response. Concerns/Injuries: Some studies have suggested that spike proteins or lipid nanoparticles might persist in the body, potentially contributing to rare \"post-vaccine syndrome\" (PVS). Data indicates serious adverse events of special interest, such as clotting issues, were higher in mRNA groups than placebo in initial trials. Pregnancy/Safety: Data on COVID-19 vaccine safety in pregnancy has been described as insufficient in some clinical trials, though public health guidance generally recommends them. Doctor Interviews, Truth, and \"Coverup\" Allegations Divergent Views: A vocal minority of doctors, such as Dr. Peter McCullough, have claimed that federal agencies, such as the CDC, purposefully concealed vaccine risks or withheld early treatments, a stance frequently labeled as misleading by major medical institutions. \"Disinformation\" Doctors: Conversely, reports have identified a \"cottage industry\" of doctors spreading unproven treatments (e.g., ivermectin) and misinformation about vaccine ingredients, often using their professional status to build social media followings. Suppression Claims: Some medical professionals have testified in Senate hearings that their findings regarding vaccine injuries were actively suppressed or dismissed as conspiracy theories. Congress, Trials, and Investigations Congressional Hearings: The 119th Congress (2025-2026) has continued to hold hearings investigating the \"voices of the vaccine injured,\" focusing on myocarditis, and reviewing the adequacy of CDC/FDA safety surveillance systems. Safety Systems: Testimony has suggested deficiencies in vaccine safety reporting (VAERS), with some witnesses arguing that systems were not designed to adequately track long-term adverse events. Liability: The National Vaccine Injury Compensation Program (VICP) is the established venue for injury claims, designed as a no-fault alternative to civil litigation. Influencer vs. Expert Narratives Vaccine Skepticism: Anti-vax influencers and alternative media figures frequently highlight individual anecdotes of injury to argue that the vaccines are unsafe, often focusing on the speed of development. Pro-Vaccine Stance: Health agencies (CDC) and major medical institutions maintain that vaccines are the most effective tool for preventing death and severe disease, stating that the benefits far outweigh the risks. Global Regime and Future Plan (USA) Ongoing Vaccination: The 2025-2026 strategy in the USA, in line with international bodies, continues to encourage annual, updated boosters for influenza and COVID-19 to manage seasonal surges. Policy Shifts: Changes in the vaccine advisory process in the U.S. have led to calls for more independent evidence reviews regarding future vaccine requirements. Disclaimer: Medical information changes rapidly. This summary reflects data reported up to early 2026. Always consult a licensed healthcare provider for personal medical advice.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

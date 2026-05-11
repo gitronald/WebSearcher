@@ -1,5 +1,6 @@
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
+from .ai_overview import parse_ai_overview
 from .available_on import parse_available_on
 from .banner import parse_banner
 from .discussions_and_forums import parse_discussions_and_forums
@@ -38,6 +39,7 @@ from .view_more_news import parse_view_more_news
 # derived from this map joined against the registry.
 PARSERS = {
     "ad": parse_ads,
+    "ai_overview": parse_ai_overview,
     "available_on": parse_available_on,
     "banner": parse_banner,
     "discover_more": Footer.parse_discover_more,

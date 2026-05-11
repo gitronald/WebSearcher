@@ -73,92 +73,66 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Ben Parkes|YouTube • Jan 11, 2026",
-            "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg&t=36"
-          },
-          {
-            "text": "Running With Jane|YouTube • Sep 24, 2024",
-            "url": "https://www.youtube.com/watch?v=TAXvNyavl_c&t=495"
-          },
-          {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/1jsrdzq/any_tips_here_for_a_first_marathon_runner/"
           },
           {
-            "text": "",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg"
           },
           {
-            "text": "",
+            "text": "42K Running",
             "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/#:~:text=Here%20are%20some%20tips%20for%20your%20first,Km32%20*%20Avoid%20sudden%20changes%20in%20pace"
           },
           {
-            "text": "",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=v7OCbZv2iEM"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/18r1rsq/first_time_marathon_runner_what_advice_did_you/"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/running/comments/wllvue/your_number_one_tip_for_a_first_time_marathoner/"
           },
           {
-            "text": "",
+            "text": "Running And Stuff",
             "url": "http://www.runningandstuff.com/surviving-your-first-marathon"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/179mylo/what_are_some_things_you_wish_you_knew_before/"
           },
           {
-            "text": "",
+            "text": "Coach Debbie Runs",
             "url": "https://coachdebbieruns.com/your-first-marathon/"
           },
           {
-            "text": "",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=ZdOcD1UmLNs"
           },
           {
-            "text": "",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=kBo-q4DwqPM"
           },
           {
-            "text": "",
+            "text": "highfive.co.uk",
             "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day#:~:text=Here%20are%20some%20tips%20for%20surviving%20your,to%20other%20runners%20*%20Enjoy%20the%20music"
-          },
-          {
-            "text": "",
-            "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/"
-          },
-          {
-            "text": "",
-            "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "For a successful first marathon, prioritize consistent, gradual training, never skip long runs, and avoid experimenting with new gear or nutrition on race day . Start at a conservative pace to save energy for the final 10km, fuel consistently, and focus on finishing rather than a specific time. Training Tips Consistency is Key: Follow a 15-18 week, progressive training plan, running 3-5 times per week. Long Runs: Prioritize weekly long runs to build endurance, building up to 20-22 miles. Slow Down: Most training runs should be at an easy, conversational pace to avoid burnout and injury . Strengthen: Incorporate strength training (squats, lunges, planks) at least once a week. Practice Fueling: Test energy gels, drinks, and snacks during long runs to know what works for you. This video provides a comprehensive guide to training for your first marathon: 56s Ben Parkes YouTube • Jan 11, 2026 Race Day Preparation Nothing New: Do not wear new shoes, socks, or clothes, and do not try new nutrition. Know the Route: Study the course map, including elevation changes, water stations, and, if possible, practice on similar terrain. Start Slow: Resist the urge to start fast; start slower than your goal pace to avoid \"hitting the wall\" later. Fuel Early and Often: Consume energy gels or liquids at planned intervals throughout the race, not just when you feel tired. Break it Down: Mentally break the 26.2 miles into smaller, manageable chunks. Here are five essential tips for a strong first marathon experience: 1m Running With Jane YouTube • Sep 24, 2024 Mental & Physical Tips Don't Chase a Time: For the first marathon, focus on finishing and enjoying the experience rather than a strict time goal. Hydrate: Drink water and electrolytes at aid stations, even if you do not feel thirsty early on. Use Mentors: Learn from experienced runners, and don't be afraid to ask for advice. Manage Taper Stress: Don't stress if you don't sleep well the night before; prioritize sleep two nights before the race. Post-Race Mobility: Keep moving slightly after finishing to reduce muscle stiffness, and consider changing into fresh clothes immediately.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {
