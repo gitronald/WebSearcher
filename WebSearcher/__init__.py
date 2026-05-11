@@ -1,4 +1,4 @@
-__version__ = "0.7.3a0"
+__version__ = "0.7.3a1"
 
 from .classifiers import ClassifyFooter, ClassifyMain
 from .extractors import Extractor
