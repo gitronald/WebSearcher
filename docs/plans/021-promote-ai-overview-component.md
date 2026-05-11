@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 branch: feature/promote-ai-overview-component
 created: 2026-05-10T18:46:52-07:00
 completed:
