@@ -67,7 +67,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="AI Overview",
         sections=("main",),
         sub_types=("flat", "sectioned"),
-        description="Google AI-generated synthesized answer panel",
+        description="AI-generated synthesized answer panel",
     ),
     ComponentType(
         name="available_on",

@@ -27,11 +27,7 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
     lede, sections = _extract_body(content) if content else ("", [])
     sources = _extract_sources(cmpt)
 
-    if sections:
-        parsed["sub_type"] = "sectioned"
-        parsed["title"] = sections[0]["heading"]
-    else:
-        parsed["sub_type"] = "flat"
+    parsed["sub_type"] = "sectioned" if sections else "flat"
 
     parsed["text"] = lede or None
 
