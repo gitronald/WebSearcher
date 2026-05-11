@@ -1,0 +1,319 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 18900000.0,
+    "result_estimate_time": 0.38
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "GU - Energy Original Sports Nutrition Energy Gel, Vegan, Gluten-Free, Kosher, and Dairy-Free On-the-Go Energy for Any Workout, 24-Count, Salted Caramel for $32.95 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/GU-Energy-Original-Nutrition-24-Count/dp/B00DYQWRC6?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "GU Energy - Original Sports Nutrition Energy Gel, Vegan, Gluten-Free, Kosher, and Dairy-Free On-the-Go Energy for Any Workout, 8-Count, Vanilla Bean for $12.95 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/GU-Energy-Original-Nutrition-Vanilla/dp/B000FJQ5VO?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "GU Energy - Original Sports Nutrition Energy Gel, Vegan, Gluten-Free, Kosher, and Dairy-Free On-the-Go Energy for Any Workout, 24-Count, Assorted for $35.39 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/GU-Energy-Original-Nutrition-Assorted/dp/B06XCLY3HK?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER"
+    },
+    {
+      "cite": "https://www.guenergy.com",
+      "cmpt_rank": 0,
+      "details": {
+        "items": [
+          {
+            "title": "GU Energy Gel",
+            "url": "https://guenergy.com/collections/gels"
+          },
+          {
+            "title": "GU Roctane Energy Gel",
+            "url": "https://guenergy.com/products/roctane-energy-gel"
+          },
+          {
+            "title": "Free Box of Orange Chews",
+            "url": "https://guenergy.com/products/energy-chews-for-runners-cyclists-triathletes?variant=31169143636019"
+          },
+          {
+            "title": "GU Energy Chews",
+            "url": "https://guenergy.com/products/energy-chews-for-runners-cyclists-triathletes"
+          }
+        ],
+        "type": "menu"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Shop GU Energy Gels",
+      "title": "Shop GU Energy Gels",
+      "type": "ad",
+      "url": "https://guenergy.com/collections/gels"
+    },
+    {
+      "cite": "https://guenergy.com  › products › energy-gel",
+      "cmpt_rank": 1,
+      "details": {
+        "price": "12.80 to $38.40",
+        "stock": "  60",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Created for daily training and competition, GU  Energy Gel  packs energy-dense calories in a portable packet to help sustain energy demands.",
+      "title": "GU Energy Gel",
+      "type": "general",
+      "url": "https://guenergy.com/products/energy-gel"
+    },
+    {
+      "cite": "https://www.amazon.com  › GU-Energy-Original-Nutriti...",
+      "cmpt_rank": 2,
+      "details": {
+        "price": "ating: 4.7",
+        "stock": "  6,791 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "GU Original  Energy Gel  comes in a wide variety of great tasting flavors. Each packet contains 450mg of Amino acids, 100 calories, and at least 21g total carbs.",
+      "title": "GU Energy Original Sports Nutrition Energy Gel, Vegan ...",
+      "type": "general",
+      "url": "https://www.amazon.com/GU-Energy-Original-Nutrition-Assorted/dp/B00CQ7QDQA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "Are Gu energy gels good for you?",
+          "When should I take Gu gels?",
+          "Can you eat GU without water?",
+          "How many GU's should I take during a marathon?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Are Gu energy gels good for you?<|>When should I take Gu gels?<|>Can you eat GU without water?<|>How many GU's should I take during a marathon?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "error": "no title or url",
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "general",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": null,
+      "error": "no title or url",
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "general",
+      "url": null
+    },
+    {
+      "cite": "https://guenergy.com  › collections › gels",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "From low-calorie hydration, to medium-carb hydration, to high-carb  energy , and even post-workout recovery, our range of drinks provide you with key ...",
+      "title": "Gels",
+      "type": "general",
+      "url": "https://guenergy.com/collections/gels"
+    },
+    {
+      "cite": "https://guenergy.com  › blogs › product-deep-dive › wha...",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A ROCTANE  Energy Gel  contains 3x the branched chain amino acids (BCAA's) and 2x the electrolytes compared to our original  Energy Gels . They also contain the ...",
+      "title": "What is Roctane? - GU Energy Labs",
+      "type": "general",
+      "url": "https://guenergy.com/blogs/product-deep-dive/what-is-roctane"
+    },
+    {
+      "cite": "http://fellrnr.com  › wiki › Comparison_of_Energy_Gels",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": "The main differences are that eGel is twice the size of  Gu , does not come in caffeinated varieties and has more electrolytes. While eGel has more electrolytes ...",
+      "title": "A comparison of the best energy gels - Fellrnr.com",
+      "type": "general",
+      "url": "http://fellrnr.com/wiki/Comparison_of_Energy_Gels"
+    },
+    {
+      "cite": "https://www.garagegymreviews.com  › Roundup",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": "Running gels, also called carb gels and  energy gels , are small packets of carbohydrates that endurance athletes consume to maintain adequate blood sugar ...",
+      "title": "Best Running Gels (2024) - Garage Gym Reviews",
+      "type": "general",
+      "url": "https://www.garagegymreviews.com/best-running-gels"
+    },
+    {
+      "cite": "https://thefeed.com  › collections › gu-energy",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Elevate your game with  GU gels  and more! Athlete-focused fuel from hydration tabs to flavored  energy gels . Shop now!",
+      "title": "Elevate Your Performance with GU Energy",
+      "type": "general",
+      "url": "https://thefeed.com/collections/gu-energy"
+    },
+    {
+      "cite": "https://www.rei.com  › ... › Energy Gels",
+      "cmpt_rank": 9,
+      "details": {
+        "price": "ating: 4.5",
+        "stock": "  270 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Sustain all forms of athletic activity with the highly compact, portable, and calorie-dense GU  Energy Gels . They are packed with carbohydrates that can be ...",
+      "title": "GU Energy Gel | REI Co-op",
+      "type": "general",
+      "url": "https://www.rei.com/product/610028/gu-energy-gel"
+    },
+    {
+      "cite": "https://www.walmart.com  › ... › Diet Foods and Drinks",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "GU Energy Original Sports Nutrition  Energy Gel , Vegan, Gluten-Free, Kosher, and Dairy-Free On-the-Go Energy for Any Workout, 8-Count, Vanilla Bean.",
+      "title": "Gu Energy Gel",
+      "type": "general",
+      "url": "https://www.walmart.com/c/kp/gu-energy-gel"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "items": [
+          "gu energy gel",
+          "gu energy gel how to use",
+          "gu gels near me",
+          "gu energy gel nutrition facts",
+          "gu energy gel ingredients",
+          "where to buy gu energy gel",
+          "gu energy gel review",
+          "gu energy chews"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "gu energy gel<|>gu energy gel how to use<|>gu gels near me<|>gu energy gel nutrition facts<|>gu energy gel ingredients<|>where to buy gu energy gel<|>gu energy gel review<|>gu energy chews",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "panel_rhs",
+      "text": "",
+      "title": "",
+      "type": "knowledge",
+      "url": ""
+    }
+  ]
+}

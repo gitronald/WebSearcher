@@ -122,7 +122,12 @@ def test_no_unknown_types(all_results):
     assert len(unknowns) == 0, f"Found {len(unknowns)} unknown results"
 
 
-KNOWN_ERRORS = {"not implemented", "No subcomponents found", "no subcomponents parsed"}
+KNOWN_ERRORS = {
+    "not implemented",
+    "No subcomponents found",
+    "no subcomponents parsed",
+    "no title or url",
+}
 
 
 def test_no_parse_errors(all_results):

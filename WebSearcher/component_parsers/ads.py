@@ -21,23 +21,30 @@ from ..utils import (
 )
 from .shopping_ads import parse_shopping_ads
 
+AD_SUBTYPE_SELECTORS: dict[str, Selector] = {
+    "legacy": Selector("div", {"class": "ad_cclk"}),
+    "local_service": Selector("gls-profile-entrypoint"),
+    "secondary": Selector("div", {"class": "d5oMvf"}),
+    "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
+    "standard": Selector("div", {"class": "uEierd"}),
+    "carousel": Selector("g-scrolling-carousel"),
+}
+
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
-    subtype_selectors: dict[str, Selector] = {
-        "legacy": Selector("div", {"class": "ad_cclk"}),
-        "local_service": Selector("gls-profile-entrypoint"),
-        "secondary": Selector("div", {"class": "d5oMvf"}),
-        "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
-        "standard": Selector("div", {"class": "uEierd"}),
-        "carousel": Selector("g-scrolling-carousel"),
-    }
-    for label, sel in subtype_selectors.items():
+    for label, sel in AD_SUBTYPE_SELECTORS.items():
         if sel.name and find_all_divs(cmpt, sel.name, sel.attrs):
             return label
     return "unknown"
 
 
 def parse_ads(cmpt: bs4.element.Tag) -> list:
+    """Parse every ad sub-type present in the component.
+
+    A single #tads element can host more than one ad layout (e.g. a shopping
+    carousel above a standard text ad). Walk through every selector and
+    aggregate results so no ad gets dropped.
+    """
     subtype_parsers = {
         "legacy": parse_ad_legacy,
         "local_service": parse_ad_local_service,
@@ -46,9 +53,13 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
         "standard": parse_ad_standard,
         "carousel": parse_ad_carousel,
     }
-    sub_type = classify_ad_type(cmpt)
-    parser = subtype_parsers.get(sub_type)
-    return parser(cmpt) if parser else []
+    parsed: list = []
+    for label, sel in AD_SUBTYPE_SELECTORS.items():
+        if sel.name and find_all_divs(cmpt, sel.name, sel.attrs):
+            parser = subtype_parsers.get(label)
+            if parser:
+                parsed.extend(parser(cmpt))
+    return parsed
 
 
 # ------------------------------------------------------------------------------
