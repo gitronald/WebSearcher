@@ -8,10 +8,7 @@ pr:
 
 # Directives reparse audit fixes
 
-Investigate the v1 (0.4.1.dev7) -> v2 (0.7.2a1) parse-diff items from the
-SearchAudits directives crawl report
-(`~/repos/SearchAudits/docs/reports/directives-reparse-0.4.1.dev7-to-0.7.2a1.md`)
-and fix the regressions and gaps it surfaced.
+Investigate local parse-diff items and fix the regressions and gaps it surfaced.
 
 ## Plan
 
