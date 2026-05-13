@@ -29,7 +29,7 @@ def iter_ai_overviews(serps_path: pathlib.Path):
             for cmpt in extractor.components:
                 if cmpt.section != "main":
                     continue
-                if ClassifyMain.ai_overview(cmpt.elem) == "knowledge":
+                if ClassifyMain.ai_overview(cmpt.elem) == "ai_overview":
                     yield rec.get("qry", ""), rec.get("serp_id", ""), cmpt.elem
 
 
