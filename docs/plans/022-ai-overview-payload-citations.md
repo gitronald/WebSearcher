@@ -126,3 +126,14 @@ Unattributed buttons with no payload data → skip entirely. Unattributed button
 - Two registrar tokens (`TgQPHd`, `Sv6Kpe`) — the `Sv6Kpe` variant has no `|` separator before its JSON.
 - 26 SERP snapshots will need regeneration (same set plan 021 touched).
 - Downstream consumers (SearchAudits) will see breaking changes on `sources[*]`. Mention in CHANGELOG under the next version's "Changed" section.
+
+## Log
+
+- 2026-05-13: Activated plan on branch `feature/ai-overview-payload-citations`.
+- 2026-05-13: Added `_ai_overview_payloads.py` regex/JSON extractor for all three delivery forms (`TgQPHd`, `Sv6Kpe`, `lDPB.push`), with 10 unit tests covering each shape, the unicode-escape pass, and the malformed/empty/unknown-shape skip paths.
+- 2026-05-13: Rewrote `_extract_sources` to new shape (`source_id, url, title, snippet, publisher, favicon`); walks `ul.bTFeG > li.CyMdWb` in document order, looks up `data-src-id` (found on the inner `div.MFrAxb`, not the `li` itself) against the flattened Type-A payload index. Tray rank order preserved.
+- 2026-05-13: Wired `button.rBl3me` decompose into `_extract_body` (kills the "Publisher +N" leak in section text) and emit per-section / lede `citations` lists. Publisher span is `iFMVXd`, not `QnvSdb` as the plan suggested. Skip rule: drop unattributed buttons that carry no Type-A source_ids (panel-open widgets).
+- 2026-05-13: Serialize the document root (walk `parent` chain) instead of the cmpt to catch `lDPB.push` payloads, which live in script tags outside the AI overview boundary.
+- 2026-05-13: Regenerated 25 ai_overview snapshots; full suite passes (244 tests). Regression sweep: 81 AI overviews across 8 demo datasets parse without error, 814 sources extracted with 98% payload coverage, 78 of 81 overviews have at least one button-derived citation attached.
+- 2026-05-13: Fixed stale `ClassifyMain.ai_overview(...) == "knowledge"` check in `scripts/survey_ai_overviews.py` (plan 021 had renamed the classifier label).
+- 2026-05-13: CHANGELOG entries added under `[Unreleased]` documenting the breaking `sources[*]` shape change and the new `citations` field.
