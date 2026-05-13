@@ -29,64 +29,54 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": "Results for Palo Alto, CA 94301",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "",
+            "text": "Google",
             "url": "https://www.google.com/intl/en_us/googlefinance/disclaimer"
           },
           {
-            "text": "",
+            "text": "Seeking Alpha",
             "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions#:~:text=@javkoza%20In%20August%202025%2C%20Apple,Winning."
           },
           {
-            "text": "",
+            "text": "www.inc.com",
             "url": "https://www.inc.com/ava-levinson/tim-cook-apple-employees-immigration/91298666#:~:text=The%20Apple%20CEO%20pledged%20to,promise%20of%20calling%20for%20change."
           },
           {
-            "text": "",
+            "text": "GuruFocus",
             "url": "https://www.gurufocus.com/news/8591738/apple-aapl-sees-increased-options-activity-amid-bullish-sentiment#:~:text=Apple's%20iPhone%20makes%20up%20a,build%20its%20products%20and%20chips."
           },
           {
-            "text": "",
+            "text": "Britannica",
             "url": "https://www.britannica.com/money/Apple-Inc#:~:text=Encyclop%C3%A6dia%20Britannica%2C%20Inc.-,Key%20products%20and%20services,The%20genesis%20of%20Apple%20Inc."
           },
           {
-            "text": "",
+            "text": "Yahoo Finance",
             "url": "https://finance.yahoo.com/quote/AAPL/profile/#:~:text=In%20addition%2C%20the%20company%20offers,:%201;%20Compensation:%203."
           },
           {
-            "text": "",
+            "text": "EBSCO",
             "url": "https://www.ebsco.com/research-starters/computer-science/apple-inc#:~:text=In%202007%2C%20Apple%20Computer%20changed,marketplaces%20to%20support%20these%20devices."
           },
           {
-            "text": "",
+            "text": "TradingView",
             "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/#:~:text=Apple%2C%20Inc%20engages%20in%20the,is%20headquartered%20in%20Cupertino%2C%20CA."
           },
           {
-            "text": "",
+            "text": "www.globaldata.com",
             "url": "https://www.globaldata.com/company-profile/apple-inc/#:~:text=Apple%20Inc%20(Apple)%20designs%2C,Cupertino%2C%20California%2C%20the%20US."
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Apple Inc. is a leading American multinational technology company headquartered in Cupertino, California, specializing in consumer electronics, software, and online services, including the iPhone, Mac, iPad, and Apple Watch . Founded in 1976 by Steve Jobs and Steve Wozniak, it is a major \"Big Tech\" company known for its integrated ecosystem. As of 2026, it is led by CEO Tim Cook and has recently announced significant, multi-year investments in U.S. manufacturing. Key Aspects of Apple Inc. (2026): Core Products & Services: iPhone (primary revenue driver), Mac, iPad, AirPods, Apple Watch, and Apple TV. Services include App Store, iCloud, Apple Music, Apple TV+, and Apple Pay. Leadership: Tim Cook serves as CEO. Operating System Ecosystem: iOS, macOS, iPadOS, watchOS. Manufacturing & Strategy: Focuses on designing its own software and semiconductors, with manufacturing partners like Foxconn and TSMC. In August 2025, it announced a $600 billion, four-year U.S. investment plan. Corporate Governance: The company is known for high-level governance and has recently focused on domestic manufacturing and environmental sustainability. Apple rebranded from Apple Computer, Inc. to Apple Inc. in 2007 to reflect its expansion beyond personal computers into broader consumer electronics.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

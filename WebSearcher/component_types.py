@@ -63,6 +63,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Advertisements displayed in search results",
     ),
     ComponentType(
+        name="ai_overview",
+        label="AI Overview",
+        sections=("main",),
+        sub_types=("flat", "sectioned"),
+        description="AI-generated synthesized answer panel",
+    ),
+    ComponentType(
         name="available_on",
         label="Available On",
         sections=("main",),
@@ -182,7 +189,6 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             ),
         },
         sub_types=(
-            "ai_overview",
             "featured_results",
             "featured_snippet",
             "unit_converter",

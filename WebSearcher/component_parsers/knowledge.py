@@ -1,9 +1,9 @@
 """Parse the Knowledge Box component.
 
 A wide-format panel surfaced on entity / topical queries. Sub_type covers a
-large set of variants: AI overview, featured results, featured snippet, unit
-converter, sports, weather, finance, dictionary, translation, calculator,
-election results, "things to know", and the generic panel layout.
+large set of variants: featured results, featured snippet, unit converter,
+sports, weather, finance, dictionary, translation, calculator, election
+results, "things to know", and the generic panel layout.
 """
 
 import bs4
@@ -43,9 +43,7 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     h2 = cmpt.find("h2")
     h2_text = h2.text if h2 else ""
 
-    if cmpt.find("div", {"class": "Fzsovc"}):
-        parsed["sub_type"] = "ai_overview"
-    elif cmpt.find("div", {"class": "pxiwBd"}):
+    if cmpt.find("div", {"class": "pxiwBd"}):
         parsed["sub_type"] = "featured_results"
     elif h2_text == "Featured snippet from the web" or cmpt.find(
         "div", {"class": "answered-question"}

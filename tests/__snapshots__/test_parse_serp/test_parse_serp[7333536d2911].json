@@ -15,72 +15,42 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Chlorophyll Degradation",
-            "url": "https://www.google.com/search?q=Chlorophyll+Degradation&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgAEAo"
-          },
-          {
-            "text": "Ethylene Gas",
-            "url": "https://www.google.com/search?q=Ethylene+Gas&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgAEAw"
-          },
-          {
-            "text": "Visual Recognition",
-            "url": "https://www.google.com/search?q=Visual+Recognition&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgCEAE"
-          },
-          {
-            "text": "Ripening Process",
-            "url": "https://www.google.com/search?q=Ripening+Process&sei=EzGGadziB-2i0PEP7eiguAU&ved=2ahUKEwiOiNrSvcWSAxVbePUHHYrbKukQgK4QegYIAQgCEAM"
-          },
-          {
-            "text": "",
+            "text": "YouTube",
             "url": "https://www.youtube.com/watch?v=0WCErY3OYng"
           },
           {
-            "text": "",
+            "text": "ScienceABC",
             "url": "https://www.scienceabc.com/nature/bananas-change-colour-upon-ripening.html"
           },
           {
-            "text": "",
+            "text": "pekoproduce.com",
             "url": "https://pekoproduce.com/blogs/produce-nutrition/green-to-yellow-to-spotty-how-do-bananas-ripen"
           },
           {
-            "text": "",
+            "text": "Quora",
             "url": "https://www.quora.com/Why-are-bananas-yellow"
           },
           {
-            "text": "",
+            "text": "CK-12 Foundation",
             "url": "https://www.ck12.org/flexi/physical-science/Light-in-Physics/what-makes-bananas-yellow/"
           },
           {
-            "text": "",
+            "text": "pace.oceansciences.org",
             "url": "https://pace.oceansciences.org/color_determination.cgi#:~:text=A%20banana%20appears%20yellow%20to%20the%20human,our%20brain%20recognizes%20as%20a%20%22YELLOW%20BANANA!%22%22"
-          },
-          {
-            "text": "",
-            "url": "https://pace.oceansciences.org/color_determination.cgi"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Bananas are yellow because, as they ripen, the ethylene gas they produce breaks down green chlorophyll in the peel, revealing yellow pigments called carotenoids . This natural, enzymatic process transforms the starch-heavy, green fruit into a softer, sweeter, and yellow product, which is visually recognized as ripe. Key Reasons for the Color Change: Chlorophyll Degradation : The green pigment (chlorophyll) disappears, allowing yellow-orange pigments (xanthophylls/carotenoids) to become visible. Ethylene Gas : This natural plant hormone acts as a signal, triggering the breakdown of starch into sugar and turning the peel yellow . Visual Recognition : The yellow color is the result of the peel absorbing all visible light wavelengths except for yellow, which is reflected back to the eye. Ripening Process : Bananas are harvested green and ripen through a process involving ethylene, which turns them from green to yellow, and eventually to brown (when the pulp is overripe). Bananas turn brown due to the oxidation of compounds, which creates melanin (the same pigment found in human skin/hair).",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

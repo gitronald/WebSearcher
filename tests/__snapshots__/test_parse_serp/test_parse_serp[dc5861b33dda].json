@@ -15,88 +15,58 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "ocean acidification",
-            "url": "https://www.google.com/search?q=ocean+acidification&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIARAE"
-          },
-          {
-            "text": "Mass Bleaching Events",
-            "url": "https://www.google.com/search?q=Mass+Bleaching+Events&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIAxAB"
-          },
-          {
-            "text": "Ocean Acidification",
-            "url": "https://www.google.com/search?q=Ocean+Acidification&sei=M4KGabvlJ7SOosUP9JPZsAg&ved=2ahUKEwjVia6Ci8aSAxVf8DQHHWxHIMYQgK4QegQIAxAD"
-          },
-          {
-            "text": "National Ocean Service",
-            "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html"
-          },
-          {
-            "text": "WWF-UK",
-            "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change"
-          },
-          {
-            "text": "",
+            "text": "National Ocean Service (.gov)",
             "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html#:~:text=A%20warming%20ocean:%20causes%20thermal,Visit%20FishWatch.gov."
           },
           {
-            "text": "",
-            "url": "https://www.barrierreef.org/the-reef/threats/climate-change#:~:text=When%20corals%20suffer%20heat%20stress,and%20conditions%20return%20to%20normal."
-          },
-          {
-            "text": "",
+            "text": "www.wwf.org.uk",
             "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change#:~:text=Corals%20are%20very%20vulnerable%20to,we're%20destroying%20the%20world."
           },
           {
-            "text": "",
+            "text": "Great Barrier Reef Foundation",
+            "url": "https://www.barrierreef.org/the-reef/threats/climate-change#:~:text=When%20corals%20suffer%20heat%20stress,and%20conditions%20return%20to%20normal."
+          },
+          {
+            "text": "MBARI",
             "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs#:~:text=Great%20Barrier%20Reef.-,Sadly%2C%20coral%20reefs%20have%20been%20deteriorating%20worldwide%20due%20to%20human,fatal%20when%20warming%20is%20prolonged."
           },
           {
-            "text": "",
+            "text": "YouTube · FRANCE 24 English",
             "url": "https://www.youtube.com/watch?v=k__Lu5UhIoI&t=2"
           },
           {
-            "text": "",
+            "text": "International Coral Reef Society",
             "url": "https://coralreefs.org/wp-content/uploads/2020/02/modified-consensus-statement-ICRS-2018.pdf"
           },
           {
-            "text": "",
+            "text": "YouTube · Bloomberg Philanthropies",
             "url": "https://www.youtube.com/watch?v=FHhysWpSgtM"
           },
           {
-            "text": "",
+            "text": "National Geographic",
             "url": "https://www.nationalgeographic.com/environment/article/coral-bleaching-causes-impacts#:~:text=Warming%20oceans%E2%80%94caused%20by%20climate,and%20widespread%20coral%20mortality%20occurred."
           },
           {
-            "text": "",
+            "text": "YouTube · Speak Up For Blue",
             "url": "https://www.youtube.com/watch?v=U7VkFwURr6Q"
           },
           {
-            "text": "",
+            "text": "Impakter",
             "url": "https://impakter.com/fourth-and-furious-mass-coral-bleaching-84-of-reefs-now-under-threat/#:~:text=According%20to%20a%20new%20analysis%20by%20the,83.7%25%20of%20the%20world's%20coral%20reef%20area."
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Climate change, primarily through rising ocean temperatures, is causing mass coral bleaching and widespread mortality , with up to 90% of reefs at risk of dying by 2050 if warming exceeds 1.5°C. Intense heat causes corals to expel symbiotic algae (bleaching), leading to starvation and disease. Other threats include ocean acidification , which weakens skeletons, and more frequent, severe storms. Key Impacts of Climate Change on Coral Reefs: Mass Bleaching Events : Increased sea surface temperatures trigger mass bleaching, where corals turn white and risk death if temperatures do not cool rapidly. Ocean Acidification : Rising C O 2 cap C cap O sub 2 𝐶 𝑂 2 levels lower ocean pH, decreasing corals' ability to build their calcium carbonate skeletons. High Mortality and Reduced Recovery Time: Frequent, severe bleaching events—such as the 2014-2017 global event—leave little time for reefs to recover, resulting in the loss of over 50% of living coral in some areas. Habitat Loss and Biodiversity Crisis: The degradation of reefs threatens the 30% of marine life that depends on them, causing a collapse in biodiversity. Loss of Coastal Protection: As reefs die and break down, coastal communities lose natural protection against storms and erosion. Major Threats & Consequences Temperature Rise: A 1-2°C increase can trigger widespread bleaching. Fourth Global Bleaching Event (2023-2025): Over 83% of the world's coral reefs have been affected, making it one of the most widespread events on record. Ecological and Socioeconomic Loss: Reef degradation threatens food security and livelihoods for millions of people. Recovery is possible, but only if temperatures stabilize and local pressures like pollution and overfishing are managed, according to the National Ocean Service and WWF-UK .",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

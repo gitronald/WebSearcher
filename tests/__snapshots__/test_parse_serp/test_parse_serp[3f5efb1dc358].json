@@ -15,96 +15,54 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Tectonic Plate Movement",
-            "url": "https://www.google.com/search?q=Tectonic+Plate+Movement&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgAEAo"
-          },
-          {
-            "text": "Faults and Stress",
-            "url": "https://www.google.com/search?q=Faults+and+Stress&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgAEAw"
-          },
-          {
-            "text": "Elastic Rebound Theory",
-            "url": "https://www.google.com/search?q=Elastic+Rebound+Theory&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgBEAE"
-          },
-          {
-            "text": "Location of Release",
-            "url": "https://www.google.com/search?q=Location+of+Release&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgCEAE"
-          },
-          {
-            "text": "Other Causes",
-            "url": "https://www.google.com/search?q=Other+Causes&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgDEAE"
-          },
-          {
-            "text": "Transform Boundaries",
-            "url": "https://www.google.com/search?q=Transform+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAE"
-          },
-          {
-            "text": "Convergent Boundaries",
-            "url": "https://www.google.com/search?q=Convergent+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAM"
-          },
-          {
-            "text": "Divergent Boundaries",
-            "url": "https://www.google.com/search?q=Divergent+Boundaries&sei=Xn6GaYH8D86yqwHB5YQY&ved=2ahUKEwiGnv2th8aSAxVmCBAIHRcaAXcQgK4QegYIAQgFEAU"
-          },
-          {
-            "text": "",
+            "text": "USGS (.gov)",
             "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen"
           },
           {
-            "text": "",
+            "text": "Michigan Technological University",
             "url": "https://www.mtu.edu/geo/community/seismology/learn/earthquake-cause/"
           },
           {
-            "text": "",
+            "text": "WordPress.com",
             "url": "https://mauiready.wordpress.com/be-informed-2/earthquakes/"
           },
           {
-            "text": "",
+            "text": "USGS (.gov)",
             "url": "https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes"
           },
           {
-            "text": "",
+            "text": "Study.com",
             "url": "https://study.com/learn/lesson/video/earthquake-causes-effects-locations.html"
           },
           {
-            "text": "",
+            "text": "Britannica",
             "url": "https://www.britannica.com/science/earthquake-geology"
           },
           {
-            "text": "",
+            "text": "Earthquakes Canada",
             "url": "https://www.earthquakescanada.nrcan.gc.ca/info-gen/faq-en.php"
           },
           {
-            "text": "",
+            "text": "Swiss Seismological Service",
             "url": "http://www.seismo.ethz.ch/en/knowledge/faq/what-causes-earthquakes/"
           },
           {
-            "text": "",
+            "text": "BBC",
             "url": "https://www.bbc.co.uk/bitesize/guides/zcv7hyc/revision/3"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Earthquakes are primarily caused by the sudden release of built-up stress along faults in the Earth’s crust, often triggered by the continuous, slow movement of tectonic plates . When these plates grind together, they become stuck at their edges due to friction, storing energy until the rock breaks, resulting in seismic waves. Key details regarding the causes of earthquakes: Tectonic Plate Movement : The Earth's surface is made of plates constantly moving at a rate of roughly 2 to 12 centimeters per year. Faults and Stress : Earthquakes mostly occur along fault lines, where tectonic plates meet, slide past each other, or collide . Elastic Rebound Theory : Rock on either side of a fault deforms under stress, and when the stress overcomes the friction, the rock snaps, releasing energy that causes shaking. Location of Release : The point where the rock first breaks is the hypocenter (or focus), and the point on the surface directly above it is the epicenter. Other Causes : While tectonic movements are the primary cause, earthquakes can also be triggered by volcanic activity, magma movement, or human-induced activities like mining, dam construction, or fracking. Main Types of Plate Boundaries Causing Earthquakes: Transform Boundaries : Plates slide horizontally past one another (e.g., San Andreas Fault). Convergent Boundaries : Plates collide, with one often subducting beneath the other. Divergent Boundaries : Plates pull apart.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

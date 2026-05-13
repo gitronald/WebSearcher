@@ -15,120 +15,138 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": "Interactive Online Tutorials (No Installation Required)",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sections": [
           {
-            "text": "W3Schools Python Tutorial",
-            "url": "https://www.w3schools.com/python/"
+            "heading": "Interactive Online Tutorials (No Installation Required)",
+            "hyperlinks": [
+              {
+                "text": "W3Schools Python Tutorial",
+                "url": "https://www.w3schools.com/python/"
+              },
+              {
+                "text": "LearnPython.org",
+                "url": "https://www.learnpython.org/"
+              },
+              {
+                "text": "futurecoder",
+                "url": "https://futurecoder.io/"
+              }
+            ],
+            "text": "W3Schools Python Tutorial : This site is excellent for quick, bite-sized lessons and has a \"Try it Yourself\" editor that lets you run code directly in your browser. It's a great way to grasp basic syntax immediately. LearnPython.org : This website offers a free, interactive tutorial that covers the basics, data types, loops, functions, and more, allowing you to practice coding in the browser. futurecoder : A free, open-source, and highly interactive platform designed for complete beginners, featuring an integrated debugger, hints, and detailed error explanations as you learn."
           },
           {
-            "text": "LearnPython.org",
-            "url": "https://www.learnpython.org/"
+            "heading": "Comprehensive Courses and Guides",
+            "text": "Python for Everybody (Coursera/edX) : Taught by Dr. Charles Severance, this renowned, free online course (part of a specialization) is designed for those with no prior programming experience and is highly recommended by the community. Harvard CS50's Introduction to Programming with Python (CS50P) : A highly regarded, self-paced, free course from Harvard that is often cited as a game-changer for beginners. Microsoft Learn's \"Python for Beginners\" Series : A free, 44-part video series on YouTube by Microsoft experts, walking you through common coding scenarios."
           },
           {
-            "text": "futurecoder",
-            "url": "https://futurecoder.io/"
+            "heading": "Official Documentation and Supplemental Resources",
+            "hyperlinks": [
+              {
+                "text": "Official Python Beginner's Guide",
+                "url": "https://wiki.python.org/moin/BeginnersGuide"
+              }
+            ],
+            "text": "Official Python Beginner's Guide : The official Python website provides extensive documentation, download instructions, and links to various tutorials tailored for both non-programmers and experienced coders. Book: Automate the Boring Stuff with Python : This popular book by Al Sweigart teaches Python by focusing on practical projects, and a portion of the course material is often available for free."
           },
           {
-            "text": "Official Python Beginner's Guide",
-            "url": "https://wiki.python.org/moin/BeginnersGuide"
-          },
+            "heading": "Getting Started Checklist",
+            "hyperlinks": [
+              {
+                "text": "python.org downloads page",
+                "url": "https://www.python.org/downloads/"
+              }
+            ],
+            "text": "Install Python 3: Download and install the latest version from the official python.org downloads page . Choose an Editor: For a simple start, you can use built-in IDLE (which comes with Python), or a beginner-friendly IDE like Thonny. More advanced options include VS Code or PyCharm Community Edition. Practice Consistently: The most important tip is to write code regularly. Don't just read or watch videos; actively type out code, experiment with it, and work on small projects to solidify your understanding."
+          }
+        ],
+        "sources": [
           {
-            "text": "python.org downloads page",
-            "url": "https://www.python.org/downloads/"
-          },
-          {
-            "text": "",
-            "url": "https://www.w3schools.com/python/#:~:text=Module%20Reference,What%20is%20this?"
-          },
-          {
-            "text": "",
-            "url": "https://www.forbes.com/advisor/education/it-and-tech/how-to-learn-python/#:~:text=Users%20can%20find%20stand%2Dalone,lessons%20at%20your%20own%20speed."
-          },
-          {
-            "text": "",
-            "url": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/#:~:text=Best%20resources%20to%20study%20Python,hattorihanzo14"
-          },
-          {
-            "text": "",
+            "text": "Python.org",
             "url": "https://wiki.python.org/moin/BeginnersGuide#:~:text=Getting%20Python,list%20of%20Non%2DEnglish%20resources."
           },
           {
-            "text": "",
+            "text": "W3Schools",
+            "url": "https://www.w3schools.com/python/#:~:text=Module%20Reference,What%20is%20this?"
+          },
+          {
+            "text": "Forbes",
+            "url": "https://www.forbes.com/advisor/education/it-and-tech/how-to-learn-python/#:~:text=Users%20can%20find%20stand%2Dalone,lessons%20at%20your%20own%20speed."
+          },
+          {
+            "text": "Reddit",
+            "url": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/#:~:text=Best%20resources%20to%20study%20Python,hattorihanzo14"
+          },
+          {
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/1ilgq0w/best_beginners_course_for_learning_python_in_2025/#:~:text=Comments%20Section,OP%20%E2%80%A2%201y%20ago"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/1e4pvji/interactive_free_websites_to_learn_python/#:~:text=Freecodecamp%20have%20a%20huge%20youtube,Python%20syntax%20one%20(W3schools?)"
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/10rlgnu/recommended_free_online_python_courses/#:~:text=Exercises:,Codingame%2C%20Codecombat%20%E2%80%94%20gaming%20based%20challenges"
           },
           {
-            "text": "",
+            "text": "Learn Python",
             "url": "https://www.learnpython.org/#:~:text=Learn%20Python%20%2D%20Free%20Interactive%20Python,Printing%20on%20screen"
           },
           {
-            "text": "",
+            "text": "Futurecoder",
             "url": "https://futurecoder.io/#:~:text=About.%20futurecoder%20is%20a%20free%20and%20open%2Dsource,beginners%20to%20teach%20themselves%20programming%20in%20Python."
           },
           {
-            "text": "",
+            "text": "Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/18l6y75/how_to_start_python_for_a_complete_noob/#:~:text=The%20key%20is%20to%20stay,online%20or%20create%20your%20own."
           },
           {
-            "text": "",
+            "text": "Python.org",
             "url": "https://www.python.org/about/gettingstarted/#:~:text=Installing%20Python%20is%20generally%20easy,dry)%20explanation%20of%20Python's%20syntax."
           },
           {
-            "text": "",
+            "text": "Course Report",
             "url": "https://www.coursereport.com/blog/the-best-python-tutorial-for-beginners-top-10-list"
           },
           {
-            "text": "",
+            "text": "KO2 Recruitment",
             "url": "https://www.ko2.co.uk/c-plus-plus-vs-python/#:~:text=Python's%20syntax%20is%20a%20lot,to%20get%20to%20grips%20with."
           },
           {
-            "text": "",
+            "text": "Python.org",
+            "url": "https://wiki.python.org/moin/BeginnersGuide"
+          },
+          {
+            "text": "Python.org",
             "url": "https://wiki.python.org/moin/BeginnersGuide/NonProgrammers#:~:text=Tutorials%20and%20Websites&text=Afternerd%2C%20by%20Karim%20Elghamrawy%2C%20is,/server%20introduction%2C%20with%20videos.&text=Letsfindcourse%20%2D%20Python:%20Best%20Python%20tutorials%20and%20courses%20recommended%20by%20experts.&text=Learn%20Python%20An%20Introductory%20yet,Questions%20and%20Answers%20with%20Examples."
           },
           {
-            "text": "",
+            "text": "Career Karma",
             "url": "https://careerkarma.com/blog/how-to-learn-python/#:~:text=No%2C%20it%20(%20Python%20programming%20language%20),for%20learning%20Python%20programming%2C%20even%20for%20free."
           },
           {
-            "text": "",
+            "text": "Kinsta",
             "url": "https://kinsta.com/blog/python-tutorials/#:~:text=In%20addition%2C%20you%20can%20use%20their%20(,by%20yourself%20and%20then%20view%20the%20results."
           },
           {
-            "text": "",
+            "text": "Real Python",
             "url": "https://realpython.com/python-idle/#:~:text=Python%20IDLE%20is%20Python's%20default%20integrated%20development,to%20write%2C%20edit%2C%20and%20execute%20Python%20code."
           },
           {
-            "text": "",
+            "text": "Facebook",
             "url": "https://www.facebook.com/groups/selftaughtprogrammers/posts/919833915047010/"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": "Interactive Online Tutorials (No Installation Required)",
+      "sub_type": "sectioned",
+      "text": "There are many excellent, often free, resources available to start learning Python , which is a popular and beginner-friendly programming language. Here are some recommended tutorials and resources:",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

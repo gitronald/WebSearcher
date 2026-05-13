@@ -15,60 +15,42 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "sources": [
           {
-            "text": "Rayleigh scattering",
-            "url": "https://www.google.com/search?q=Rayleigh+scattering&sei=uyFvaeSENcCKwbkPqPGKsAk&ved=2ahUKEwjSkYDkv5mSAxWXSDABHUvgByYQgK4QegYIAAgAEAY"
-          },
-          {
-            "text": "",
+            "text": "National Weather Service (.gov)",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "",
+            "text": "NASA Space Place (.gov)",
             "url": "https://spaceplace.nasa.gov/blue-sky/"
           },
           {
-            "text": "",
+            "text": "National Environmental Satellite, Data, and Information Service (.gov)",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=The%20sky%20appears%20blue%20because%20of%20the,we%20can%20see%20look%20blue%20or%20violet**"
           },
           {
-            "text": "",
+            "text": "Montreal Science Centre",
             "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue"
           },
           {
-            "text": "",
+            "text": "Facebook",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "",
+            "text": "Royal Museums Greenwich",
             "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
-          },
-          {
-            "text": "",
-            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "The sky is blue due to Rayleigh scattering , where Earth's atmosphere scatters sunlight, with shorter blue and violet wavelengths scattering more effectively than longer red wavelengths, filling the sky with blue light, though our eyes see blue more than violet. Here's a step-by-step breakdown: Sunlight is White Light: Sunlight appears white but contains all the colors of the rainbow (red, orange, yellow, green, blue, indigo, violet). Light Travels in Waves: Each color travels as a wave, with blue/violet having shorter, smaller waves and red/orange having longer waves. Atmosphere Scattering: As sunlight enters the atmosphere, it hits tiny molecules of nitrogen and oxygen . Blue Light Scattered Most: These small gas molecules scatter the shorter blue and violet wavelengths in all directions much more than they scatter the longer red and yellow wavelengths. Why Blue, Not Violet: While violet is scattered even more, our eyes are more sensitive to blue light, and the sun emits slightly more blue light, making the sky appear blue. Pale Near Horizon: Near the horizon, the sky looks paler because the blue light has traveled through more atmosphere, scattering away, leaving more white and yellow light to reach your eyes. This process explains why sunsets are red (blue is scattered away, leaving reds and oranges) and why space is black (no atmosphere to scatter light).",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {
