@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/promote-ai-overview-component
 created: 2026-05-10T18:46:52-07:00
-completed:
-pr:
+completed: 2026-05-13T13:15:04-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/115
 ---
 
 # Promote AI Overview to a top-level component with a structured, section-aware parser
