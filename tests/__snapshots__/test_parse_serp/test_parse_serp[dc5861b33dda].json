@@ -15,45 +15,115 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "9",
+              "14",
+              "13",
+              "7"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "4",
+              "8",
+              "3"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "15"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "National Ocean Service (.gov)",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://oceanservice.noaa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Ocean Service (.gov)",
+            "snippet": "A warming ocean: causes thermal stress that contributes to coral bleaching and infectious disease. Sea level rise: may lead to inc...",
+            "source_id": "7",
+            "title": "How does climate change affect coral reefs?",
             "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html#:~:text=A%20warming%20ocean:%20causes%20thermal,Visit%20FishWatch.gov."
           },
           {
-            "text": "www.wwf.org.uk",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.wwf.org.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "www.wwf.org.uk",
+            "snippet": "Corals are very vulnerable to climate change, as they are sensitive towards changes in ocean temperature. When the water gets too ...",
+            "source_id": "9",
+            "title": "Coral reefs and climate change - WWF-UK",
             "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change#:~:text=Corals%20are%20very%20vulnerable%20to,we're%20destroying%20the%20world."
           },
           {
-            "text": "Great Barrier Reef Foundation",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.barrierreef.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Great Barrier Reef Foundation",
+            "snippet": "When corals suffer heat stress, they expel the microscopic algae that live inside their tissues, revealing their white skeletons. ...",
+            "source_id": "13",
+            "title": "Climate Change - Great Barrier Reef Foundation",
             "url": "https://www.barrierreef.org/the-reef/threats/climate-change#:~:text=When%20corals%20suffer%20heat%20stress,and%20conditions%20return%20to%20normal."
           },
           {
-            "text": "MBARI",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://annualreport.mbari.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "MBARI",
+            "snippet": "Sadly, coral reefs have been deteriorating worldwide due to human activity. It is estimated that about half of the reefs are damag...",
+            "source_id": "1",
+            "title": "Measuring the impact of climate change on coral reefs",
             "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs#:~:text=Great%20Barrier%20Reef.-,Sadly%2C%20coral%20reefs%20have%20been%20deteriorating%20worldwide%20due%20to%20human,fatal%20when%20warming%20is%20prolonged."
           },
           {
-            "text": "YouTube · FRANCE 24 English",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "this is Apppropo the planet's tropical coral reefs have almost certainly crossed a point of no return that's according to a major ...",
+            "source_id": "3",
+            "title": "Coral reefs cross survival threshold in Earth's first major ...",
             "url": "https://www.youtube.com/watch?v=k__Lu5UhIoI&t=2"
           },
           {
-            "text": "International Coral Reef Society",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://coralreefs.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "International Coral Reef Society",
+            "snippet": "Coral reefs, however, are being eliminated from the planet rapidly by climate change. In particular, increasing sea temperatures h...",
+            "source_id": "4",
+            "title": "Climate Change Threatens the Survival of Coral Reefs Only ...",
             "url": "https://coralreefs.org/wp-content/uploads/2020/02/modified-consensus-statement-ICRS-2018.pdf"
           },
           {
-            "text": "YouTube · Bloomberg Philanthropies",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "question how are coral reefs affected by climate. change that's a good question how do I want to tackle that coral reefs are on th...",
+            "source_id": "2",
+            "title": "How Does Climate Change Affect Coral Reefs? | Bloomberg ...",
             "url": "https://www.youtube.com/watch?v=FHhysWpSgtM"
           },
           {
-            "text": "National Geographic",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.nationalgeographic.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Geographic",
+            "snippet": "Warming oceans—caused by climate change—are typically the cause of coral bleaching. It can also be triggered by pollution, acidifi...",
+            "source_id": "8",
+            "title": "What causes coral bleaching? Here’s how it threatens ocean and ...",
             "url": "https://www.nationalgeographic.com/environment/article/coral-bleaching-causes-impacts#:~:text=Warming%20oceans%E2%80%94caused%20by%20climate,and%20widespread%20coral%20mortality%20occurred."
           },
           {
-            "text": "YouTube · Speak Up For Blue",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "what if the world's coral reefs are no longer a future crisis like we're not predicting this anymore. but a crisis is already unde...",
+            "source_id": "14",
+            "title": "Coral reefs suffering from climate change: scientists warn we ...",
             "url": "https://www.youtube.com/watch?v=U7VkFwURr6Q"
           },
           {
-            "text": "Impakter",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://impakter.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Impakter",
+            "snippet": "According to a new analysis by the National Oceanic and Atmospheric Administration (NOAA), the current global coral bleaching even...",
+            "source_id": "15",
+            "title": "Fourth and Furious Mass Coral Bleaching: 84% of Reefs Now Under ...",
             "url": "https://impakter.com/fourth-and-furious-mass-coral-bleaching-84-of-reefs-now-under-threat/#:~:text=According%20to%20a%20new%20analysis%20by%20the,83.7%25%20of%20the%20world's%20coral%20reef%20area."
           }
         ],

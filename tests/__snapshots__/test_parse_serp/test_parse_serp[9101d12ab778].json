@@ -15,49 +15,118 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "5",
+              "2",
+              "6",
+              "8",
+              "3",
+              "10",
+              "13"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "7",
+              "12",
+              "11"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "but if it's too tough you can angle it and get the leverage that you'll need to lower the jack or to raise the jack. turn the jack...",
+            "source_id": "3",
+            "title": "How to Change a Tire | Change a flat car tire step by step - YouTube",
             "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ"
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "1. Make Sure Car is on Flat Surface. Make sure car is on a level surface in a safe location to change a tire. ! Engage your E-Brak...",
+            "source_id": "1",
+            "title": "How To Change A Car Tire : r/selfreliance - Reddit",
             "url": "https://www.reddit.com/r/selfreliance/comments/iuliat/how_to_change_a_car_tire/"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "and keep them in a safe place pull the flat tire off and replace it with your spare. likely it will be a smaller temporary tire or...",
+            "source_id": "13",
+            "title": "How to Change a Tire: A Step-by-Step Guide— Cars.com",
             "url": "https://www.youtube.com/watch?v=QjZ5ohr7sGA"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "everybody should know how to change a tire i'm going to show you how just check your owner's manual for the location of your tools...",
+            "source_id": "2",
+            "title": "How to change a tire in 60 seconds - YouTube",
             "url": "https://www.youtube.com/shorts/bInihYJPtEU"
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Comments Section * Apply parking brake. * Loosen bolts on tire before jacking up. * Locate jack and lift points. Newer model cars ...",
+            "source_id": "10",
+            "title": "EMSK: How to change a flat tire!! : r/everymanshouldknow - Reddit",
             "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Jack Up the Car: Position the jack on a sturdy, manufacturer-recommended contact point (often a reinforced metal lip along the und...",
+            "source_id": "8",
+            "title": "How to Change a Tire - YouTube",
             "url": "https://www.youtube.com/watch?v=A_SMlicOjxI"
           },
           {
-            "text": "Les Schwab",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.lesschwab.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Les Schwab",
+            "snippet": "Jump to Section: Find a Safe Location. Park, Set Parking Brake, and Turn on Hazards. Confirm You Have the Correct Tools. Jack the ...",
+            "source_id": "5",
+            "title": "How To Change a Tire | Les Schwab",
             "url": "https://www.lesschwab.com/article/tires/how-to-change-a-tire.html"
           },
           {
-            "text": "Michelin Tyres Africa",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://africa.michelin.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Michelin Tyres Africa",
+            "snippet": "Here are some tips for changing a car tire: * Loosen the lug nuts * Lift the car until the wheel is off the ground * Remove the lu...",
+            "source_id": "6",
+            "title": "Learn How to Change a Car Tire | Michelin",
             "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire#:~:text=Here%20are%20some%20tips%20for%20changing%20a,out%20your%20owner's%20manual%20for%20more%20information."
           },
           {
-            "text": "Michelin Tires",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.michelinman.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Michelin Tires",
+            "snippet": "Here are some tips for changing a Michelin tire: * **Changing the tire** * Move to the side of the road and put on your hazard lig...",
+            "source_id": "12",
+            "title": "How to Change a Car Tire?| Michelin USA",
             "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire"
           },
           {
-            "text": "TrueCar",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.truecar.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "TrueCar",
+            "snippet": "Here are 10 steps for changing a tire: 1. **Prepare the vehicle** * Park on a level surface * Apply the emergency brake * Put the ...",
+            "source_id": "11",
+            "title": "How to Change a Tire in 10 Easy Steps (VIDEO) - TrueCar Blog",
             "url": "https://www.truecar.com/blog/change-tire-10-easy-steps/"
           },
           {
-            "text": "PitStopArabia",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.pitstoparabia.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "PitStopArabia",
+            "snippet": "Here are some steps for changing a car tire: 1. Find a safe and flat place to park your car. 2. Apply the handbrake and put the ca...",
+            "source_id": "7",
+            "title": "How to Change Car Tire: Complete Guide",
             "url": "https://www.pitstoparabia.com/en/news/how-to-change-car-tyres"
           }
         ],

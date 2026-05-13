@@ -15,41 +15,100 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "5",
+              "2",
+              "7"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "8",
+              "9",
+              "11",
+              "12",
+              "6"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "USGS (.gov)",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.usgs.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "USGS (.gov)",
+            "snippet": "An earthquake is caused by a sudden slip on a fault. The tectonic plates are always slowly moving, but they get stuck at their edg...",
+            "source_id": "1",
+            "title": "What is an earthquake and what causes them to happen? - USGS.gov",
             "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen"
           },
           {
-            "text": "Michigan Technological University",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.mtu.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Michigan Technological University",
+            "snippet": "Most faults in the Earth's crust don't move for a long time. But in some cases, the rock on either side of a fault slowly deforms ...",
+            "source_id": "2",
+            "title": "Why Do Earthquakes Happen? - Michigan Technological University",
             "url": "https://www.mtu.edu/geo/community/seismology/learn/earthquake-cause/"
           },
           {
-            "text": "WordPress.com",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://mauiready.wordpress.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "WordPress.com",
+            "snippet": "Earthquakes are caused by the sudden slipping of tectonic plates on a fault. The plates that make up the earth's surface are const...",
+            "source_id": "5",
+            "title": "Earthquakes",
             "url": "https://mauiready.wordpress.com/be-informed-2/earthquakes/"
           },
           {
-            "text": "USGS (.gov)",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.usgs.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "USGS (.gov)",
+            "snippet": "Earthquakes are caused by the sudden slipping of two blocks of the earth past each other. The surface where they slip is called th...",
+            "source_id": "11",
+            "title": "The Science of Earthquakes | U.S. Geological Survey",
             "url": "https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes"
           },
           {
-            "text": "Study.com",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://study.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Study.com",
+            "snippet": "What Causes Earthquakes? Earthquakes are caused by tectonic plate movements. The Earth's crust is composed of tectonic plates, whi...",
+            "source_id": "9",
+            "title": "Video: Causes of Earthquakes | Explanation & Location - Study.com",
             "url": "https://study.com/learn/lesson/video/earthquake-causes-effects-locations.html"
           },
           {
-            "text": "Britannica",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.britannica.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Britannica",
+            "snippet": "Natural forces. Earthquakes are caused by the sudden release of energy within some limited region of the rocks of the Earth. The e...",
+            "source_id": "12",
+            "title": "Earthquake | Definition, Causes, Effects, & Facts - Britannica",
             "url": "https://www.britannica.com/science/earthquake-geology"
           },
           {
-            "text": "Earthquakes Canada",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.earthquakescanada.nrcan.gc.ca&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Earthquakes Canada",
+            "snippet": "Earthquakes are caused by the slow deformation of the outer, brittle portions of \"tectonic plates\", the earth's outermost layer of...",
+            "source_id": "8",
+            "title": "Frequently Asked Questions about Earthquakes (FAQ)",
             "url": "https://www.earthquakescanada.nrcan.gc.ca/info-gen/faq-en.php"
           },
           {
-            "text": "Swiss Seismological Service",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=http://www.seismo.ethz.ch&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Swiss Seismological Service",
+            "snippet": "Earthquakes are caused by a sudden release of stress along faults in the Earth's crust. The continuous motion of tectonic plates c...",
+            "source_id": "6",
+            "title": "What causes earthquakes? - Swiss Seismological Service",
             "url": "http://www.seismo.ethz.ch/en/knowledge/faq/what-causes-earthquakes/"
           },
           {
-            "text": "BBC",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.bbc.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "BBC",
+            "snippet": "Earthquakes are caused by the sudden movement of tectonic plates. Tectonic plates are the slow-moving plates that make up the Eart...",
+            "source_id": "7",
+            "title": "Earthquakes - Environmental hazards - National 5 Geography Revision - BBC Bitesize",
             "url": "https://www.bbc.co.uk/bitesize/guides/zcv7hyc/revision/3"
           }
         ],

@@ -73,53 +73,139 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "4",
+              "11",
+              "8",
+              "13",
+              "14"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "6",
+              "7"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "10",
+              "5"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "12"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "My advice, in no particular order: * Get fuel and fluids at all stations. * Start easy. No, easier than you think. You can always ...",
+            "source_id": "8",
+            "title": "Any tips here for a first marathon runner 🙂? : r/Marathon_Training",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/1jsrdzq/any_tips_here_for_a_first_marathon_runner/"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Training for a first marathon requires a plan of 15 to 18 weeks. Ideally, begin with three runs per week and gradually increase to...",
+            "source_id": "11",
+            "title": "How To Train For (AND SMASH) Your First Marathon - Ultimate Beginner's ...",
             "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg"
           },
           {
-            "text": "42K Running",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://42krunning.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "42K Running",
+            "snippet": "Here are some tips for your first marathon: * **Day of the race** * Don't improvise with nutrition and hydration * Follow your pla...",
+            "source_id": "4",
+            "title": "10 tips for your first marathon and those that come after",
             "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/#:~:text=Here%20are%20some%20tips%20for%20your%20first,Km32%20*%20Avoid%20sudden%20changes%20in%20pace"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "A key tip is to develop a race strategy that includes a pacing strategy for a first marathon. Instead of aiming for a very specifi...",
+            "source_id": "14",
+            "title": "5 Must-Know Tips for Your First Marathon",
             "url": "https://www.youtube.com/watch?v=v7OCbZv2iEM"
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "* Don't be afraid to plan training routes with lots of hills. Getting used to intense hills now makes marathon day much easier. * ...",
+            "source_id": "7",
+            "title": "First Time Marathon Runner- What Advice Did You Wish You Had?",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/18r1rsq/first_time_marathon_runner_what_advice_did_you/"
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Along with all the fantastic tips already mentioned: * Know the route, practice the route, visualise the route many times before r...",
+            "source_id": "1",
+            "title": "your number one tip for a first time marathoner? : r/running - Reddit",
             "url": "https://www.reddit.com/r/running/comments/wllvue/your_number_one_tip_for_a_first_time_marathoner/"
           },
           {
-            "text": "Running And Stuff",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=http://www.runningandstuff.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Running And Stuff",
+            "snippet": "For me, sleep is a bonus if I can get it the night before but I don't let it worry me if it doesn't happen. It is actually more im...",
+            "source_id": "2",
+            "title": "Surviving your first Marathon - RunningandStuff",
             "url": "http://www.runningandstuff.com/surviving-your-first-marathon"
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "* Dont shuffle for position in the first stage of the race, you will waste energy. Expect pace to be a bit slower than planned unt...",
+            "source_id": "12",
+            "title": "What are some things you wish you knew before your first marathon?",
             "url": "https://www.reddit.com/r/Marathon_Training/comments/179mylo/what_are_some_things_you_wish_you_knew_before/"
           },
           {
-            "text": "Coach Debbie Runs",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://coachdebbieruns.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Coach Debbie Runs",
+            "snippet": "Alternate hard days with easy or rest days. Avoid running two hard efforts back to back. Your body needs time to recover between t...",
+            "source_id": "6",
+            "title": "Your First Marathon: 26.2 Tips for Training (and Completing) Your ...",
             "url": "https://coachdebbieruns.com/your-first-marathon/"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Understanding the marathon route thoroughly is crucial. Familiarizing yourself with the course can prevent getting lost or missing...",
+            "source_id": "10",
+            "title": "7 Top Tips For Running Your First Marathon",
             "url": "https://www.youtube.com/watch?v=ZdOcD1UmLNs"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Maintain a consistent pacing goal throughout the race, and avoid starting too fast. If you're going too fast, slow down; it's impo...",
+            "source_id": "13",
+            "title": "Things I WISH I Knew Before Running My First Marathon - TIPS to Run ...",
             "url": "https://www.youtube.com/watch?v=kBo-q4DwqPM"
           },
           {
-            "text": "highfive.co.uk",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://highfive.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "highfive.co.uk",
+            "snippet": "Here are some tips for surviving your first marathon race day: * Focus on your own race * Don't go off too quickly * **Nutrition**",
+            "source_id": "5",
+            "title": "Top 5 Tips on Marathon Race Day | HIGH5 Sports Nutrition",
             "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day#:~:text=Here%20are%20some%20tips%20for%20surviving%20your,to%20other%20runners%20*%20Enjoy%20the%20music"
           }
         ],
