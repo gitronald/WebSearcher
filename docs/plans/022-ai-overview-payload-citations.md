@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 branch: feature/ai-overview-payload-citations
 created: 2026-05-13T13:09:20-07:00
 completed:
