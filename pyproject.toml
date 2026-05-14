@@ -16,7 +16,7 @@ dependencies = [
     "pydantic>=2.9.2",
     "undetected-chromedriver>=3.5.5",
     "selenium>=4.9.0",
-    "protobuf>=6.33.5,<7.0.0",
+    "protobuf>=6.33.5,<8.0.0",
     "orjson>=3.11.5,<4.0.0",
 ]
 
