@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Backfilled README `Recent Changes` to cover `0.8.0`, `0.8.1`, and `0.8.2`
+
 ## [0.8.2] - 2026-05-24
 
 - Reduced per-SERP `parse_serp` time ~24% (134 -> 102 ms over the fixture corpus) by replacing whole-document `str(soup)` re-serialization in feature extraction with structural lookups, gating the classifier chain on structural-signal preconditions, and trimming extraction-phase text and subtree walks
