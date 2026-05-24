@@ -370,3 +370,12 @@ code. Lesson: only compare benchmarks captured back-to-back in one session; neve
 diff against an absolute number from an earlier session.
 
 **Verification:** 251 tests pass, 66 snapshots green without updates.
+
+### 2026-05-24 -- fix the is_valid survey-filter guard (correctness)
+
+Fixed the latent bug flagged above: `ExtractorMain.is_valid` guarded the hidden-survey
+filter with `"attrs" in c`, which tests child membership (`Tag.__contains__`) rather
+than attribute presence, so the branch never fired. Changed to `hasattr(c, "attrs")`,
+so a `ULSxyf` container wrapping a `promo-throttler` is now correctly dropped. All 66
+snapshots stay green without updates (no fixture has such a component), so this is
+byte-identical on the corpus while enabling the intended filter for real SERPs.

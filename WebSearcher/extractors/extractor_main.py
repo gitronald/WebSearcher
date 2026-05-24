@@ -382,10 +382,11 @@ class ExtractorMain:
         # Skip bottom ads wrapper (extracted separately)
         if c.find("div", {"id": "tadsb"}):
             return False
-        # hidden survey: check the cheap root-class condition before the
-        # promo-throttler subtree search. ("attrs" in c preserved as-is.)
+        # hidden survey: drop components that wrap a promo-throttler in a ULSxyf
+        # container. (Was guarded by `"attrs" in c`, which tested child membership
+        # rather than attribute presence, so this branch never fired.)
         if (
-            "attrs" in c
+            hasattr(c, "attrs")
             and utils.check_dict_value(c.attrs, "class", ["ULSxyf"])
             and c.find("promo-throttler")
         ):
