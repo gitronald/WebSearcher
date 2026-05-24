@@ -403,3 +403,28 @@ correctness-neutral simplifications):
   risk. Left as-is.
 
 **Verification:** 66 snapshots green without updates, 182 tests pass.
+
+### 2026-05-24 -- double-traversal: investigated, recommend against (no code change)
+
+Traced the classify -> parse flow (`components.py`): `classify_component` runs
+`ClassifyMain.classify(elem)` (one `_ComponentSignals` descendants walk + gated
+`find()` classifiers), then `parse_component` independently runs the type parser,
+which does its own `find`/`find_all`. The signal walk is discarded after classify.
+
+A shared per-component scan feeding both phases is **not worth implementing**:
+
+- **Need mismatch:** classify needs *presence* (does class X exist); parsers need
+  *specific elements*. `_ComponentSignals`' presence sets can't feed parsers -- that
+  needs an element index (`class -> [elements]`), which is heavier to build than the
+  presence sets (the 3a "index construction may cancel savings" risk, worse).
+- **Heterogeneous parser queries:** parsers use multi-class OR, multi-attr AND,
+  `recursive=False`, nested-context finds, and finds by `jscontroller`/`data-*`/
+  `aria-label`. A class/id/tag index cannot serve these without large per-parser
+  rewrites.
+- **Blast radius:** realizing the win means rewriting `find` calls across dozens of
+  parser functions -- high risk to the byte-identical contract for an uncertain
+  fraction of the ~42% combined classify+parse cost.
+
+This is the opposite risk/reward profile of the banked wins. Recommendation: stop
+here with item 5 (dominant), 3a, 4a, and item 8 shipped; leave the double-traversal
+and the `make_soup`/extraction-handler costs as known-but-not-worth-it.
