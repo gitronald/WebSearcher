@@ -208,3 +208,41 @@ Machine: WSL2 (timer jitter is real here).
 Conclusion: revised rollout order holds. Proceed with item 5 first, then attack
 bs4 traversal (3a + double-traversal), then weigh a `SoupStrainer` for `make_soup`.
 Drop 2b as a perf item.
+
+### 2026-05-24 -- item 5: structural feature probes (str(soup) removal)
+
+First moved `feature_extractor.py` -> `extractors/extractor_serp_features.py` (the
+class name `FeatureExtractor` is unchanged; only the module path moved). Then split
+extraction into two paths:
+
+- **Raw-HTML path** (`_extract_from_html`): regex over the original markup,
+  byte-for-byte unchanged -- there is no `str(soup)` cost when the input is already
+  a string, so the historical behavior is preserved exactly (plan section 3).
+- **Soup path** (`_extract_from_soup`): structural lookups that never serialize the
+  whole document. Each probe is scoped to the smallest element so output is
+  byte-identical to the old regex-over-`str(soup)`:
+  - result-stats: `soup.find("div", {"id": "result-stats"})`, then the *same*
+    `RX_RESULT_STATS` regex applied to `str(stats_div)` (a div is serialized
+    identically whole-tree or alone, and the id is unique).
+  - language: `soup.find("html").get("lang")`.
+  - three text notices: a single `soup.get_text()` pass (replaces three scans of
+    `str(soup)`).
+  - infinity_scroll: `any(SPAN in str(span) for span in find_all("span", class RVQdVd))`
+    -- serializes only candidate spans, preserving the old exact-substring semantics
+    (extra attributes still break the match).
+  - overlay/captcha were already structural.
+
+**Verification:** all 66 snapshots green without updates (byte-identical features
+across the corpus), plus 7 new soup-path parity unit tests in
+`test_extractor_serp_features.py`.
+
+**Benchmark** (`--iterations 8 --runs 3`, same machine):
+
+| Metric | Baseline | After item 5 | Delta |
+|---|---|---|---|
+| Per-SERP median | 134.2 ms | 111.2 ms | -17.1% |
+| Corpus total | 10269 ms | 7559 ms | -26.4% |
+
+Well above the ~2.5% noise floor. Corpus-total gain exceeds the per-SERP median
+because large SERPs (where serialization dominated) benefit most -- consistent with
+the ~18.5% serialization share measured in the baseline profile.
