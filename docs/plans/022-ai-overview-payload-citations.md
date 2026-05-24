@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/ai-overview-payload-citations
 created: 2026-05-13T13:09:20-07:00
-completed:
-pr:
+completed: 2026-05-13T14:28:52-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/123
 ---
 
 # Enrich AI overview with payload-sourced citations and richer sources
@@ -137,3 +137,11 @@ Unattributed buttons with no payload data → skip entirely. Unattributed button
 - 2026-05-13: Regenerated 25 ai_overview snapshots; full suite passes (244 tests). Regression sweep: 81 AI overviews across 8 demo datasets parse without error, 814 sources extracted with 98% payload coverage, 78 of 81 overviews have at least one button-derived citation attached.
 - 2026-05-13: Fixed stale `ClassifyMain.ai_overview(...) == "knowledge"` check in `scripts/survey_ai_overviews.py` (plan 021 had renamed the classifier label).
 - 2026-05-13: CHANGELOG entries added under `[Unreleased]` documenting the breaking `sources[*]` shape change and the new `citations` field.
+
+## Retrospective
+
+- The payload-shape spec held up well against live HTML; the corrections were all selector specifics that only surface against real markup — the publisher span is `iFMVXd` (not `QnvSdb` as the plan guessed), and `data-src-id` lives on the inner `div.MFrAxb`, not on the `li.CyMdWb` itself.
+- The `lDPB.push` fallback payloads live in script tags *outside* the AI-overview component boundary, so `_extract_sources` had to serialize from the document root (walking the `parent` chain) rather than the component subtree. Worth remembering for any future parser that scans raw HTML comments or script pushes.
+- Emitting standalone citations for cited URLs missing from the inline `bTFeG` tray (rather than dropping them) was validated by the regression sweep: 98% of 814 sources across 8 demo datasets carry payload-derived title/snippet, and 78/81 overviews expose at least one button-derived citation.
+- Two breaking changes ship together — plan 021's `sub_type`→top-level-`type` promotion and this plan's `sources[*]` reshape. The known downstream consumer only flags AI-overview *presence* and stores `details` as an opaque string, so the real downstream fix is the promotion flag, not the `sources[*]` reshape (a TODO note was left in the consumer repo to that effect).
+- Follow-up: the CHANGELOG jumps from `[Unreleased]` straight to `[0.7.1]` with no `[0.8.0]` section despite the `v0.8.0` tag — backfill it on the next release.
