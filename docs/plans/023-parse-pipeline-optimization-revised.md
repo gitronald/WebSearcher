@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/parse-pipeline-optimization
 created: 2026-05-24T10:57:35-07:00
-completed:
+completed: 2026-05-24T13:38:13-07:00
 pr:
 ---
 
@@ -428,3 +428,41 @@ A shared per-component scan feeding both phases is **not worth implementing**:
 This is the opposite risk/reward profile of the banked wins. Recommendation: stop
 here with item 5 (dominant), 3a, 4a, and item 8 shipped; leave the double-traversal
 and the `make_soup`/extraction-handler costs as known-but-not-worth-it.
+
+## Retrospective
+
+**End-to-end result (back-to-back, one machine state):** re-benchmarked the
+pre-optimization commit (`5b7366b`, module-move only) against the final commit in the
+same session:
+
+| Metric | Pre-optimization | Final | Reduction |
+|---|---|---|---|
+| Per-SERP median | 134.0 ms | 102.2 ms | **-23.7%** |
+| Corpus total | 8,973 ms | 7,095 ms | **-20.9%** |
+
+Plus cold `import WebSearcher` ~205 -> ~148 ms (**-28%**) for parse-only consumers
+(item 8 -- import-time, not per-parse).
+
+**Honesty note on the numbers:** the very first baseline (10,269 ms) was measured
+under transient load (one run dipped to 9,380 ms; spread ~1 s), so chaining the
+per-step deltas overstated the total (~32%). The back-to-back re-measure above
+(~21% corpus / ~24% median) is the trustworthy end-to-end figure. The per-step deltas
+in the Log are each valid as same-session before/after, but must not be multiplied
+across sessions. Lesson reinforced repeatedly here: compare back-to-back in one
+session; never chain deltas or trust a noisy baseline. Item 5 (dropping the
+whole-document `str(soup)`) is the dominant contributor; 3a and 4a/is_valid added
+smaller increments.
+
+**What worked:** profiling first. It killed four would-be optimizations as noise
+(1a/1b/2a ~1%, 2b 0.1%) and one as neutral (4c), and pointed effort at the real cost
+(bs4 `find`/`find_all` volume plus `str(soup)`). Empirical checks overturned two
+review claims: bs4 `copy.copy` clones the subtree (so 6d's copy is load-bearing), and
+the 3a "net-neutral" worry did not hold (classify is miss-dominated, so one signal
+walk beats ~14 miss-walks).
+
+**What we left, with reasons:** the double-traversal (classify+parse shared scan,
+~42% combined) needs a large, risky per-parser rewrite for uncertain payoff;
+`make_soup` (18%) is `SoupStrainer`-unsafe because the parsers navigate the full tree.
+
+**Correctness side effect:** fixed a latent `is_valid` bug (the `"attrs" in c` guard
+that disabled the hidden-survey filter), byte-identical on the corpus.
