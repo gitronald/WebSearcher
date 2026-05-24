@@ -79,10 +79,10 @@ Derived from the review, to be re-confirmed against the baseline profile:
 
 | 017 item | Disposition | Reason |
 |---|---|---|
-| 1a single-pass DFS | Keep | Constant-factor win on the same full walk; low risk. |
-| 1b skip reorder when <=1 main cmpt | Keep, **fix impl** | Component count is only known *after* extraction -- the skip must be placed after the `extract()` calls, not before `dom_positions` is built. |
-| 2a stack-based reorder | Keep, verify | Must reproduce the "first child after nested subtree" ancestor fixup exactly; verify `cmpt_rank` on a fixture where one component nests another. |
-| 2b Pydantic round-trip | Keep, **demote + `model_construct` only** | See guardrails; cached-defaults variant rejected. |
+| 1a single-pass DFS | **DROP as perf** (profiled ~1%) | Constant-factor win on the same full walk; low risk. Optional readability only. |
+| 1b skip reorder when <=1 main cmpt | **DROP as perf** (profiled ~1%) | Component count is only known *after* extraction -- the skip must be placed after the `extract()` calls, not before `dom_positions` is built. |
+| 2a stack-based reorder | **DROP as perf** (reorder ~0%) | Must reproduce the "first child after nested subtree" ancestor fixup exactly; verify `cmpt_rank` on a fixture where one component nests another. |
+| 2b Pydantic round-trip | **DROP as perf** (profiled 0.1%) | See guardrails; cached-defaults variant rejected. |
 | 2c metadata merge | Keep | Trivial; do alongside 2b. |
 | 3a classifier pre-screen | **Revise** | Keep cheap root-attr/class preconditions; **drop the inner-tag presence map** (its construction traversal likely cancels the `find()` savings). Index must also cover the new `ai_overview` and `knowledge_subcard` classifiers. |
 | 3b cache header dispatch | Keep, **retarget** | `header_text_to_type` now lives in `WebSearcher/component_types.py`, not `classifiers/main.py`. Apply `lru_cache` there; do not mutate the returned dict. |
@@ -246,3 +246,33 @@ across the corpus), plus 7 new soup-path parity unit tests in
 Well above the ~2.5% noise floor. Corpus-total gain exceeds the per-SERP median
 because large SERPs (where serialization dominated) benefit most -- consistent with
 the ~18.5% serialization share measured in the baseline profile.
+
+### 2026-05-24 -- classify-vs-parse profiling (decision point)
+
+Cumulative-sorted profile (post item 5) to split the bs4 cost by phase. Phase
+cumtime as a share of `parse_serp` total:
+
+| Phase | % total | Note |
+|---|---|---|
+| `ExtractorMain.extract` (extraction) | **22.5%** | unplanned -- biggest single phase |
+| `parse_component` (parse) | 21.2% | |
+| `classify_component` (classify) | 20.9% | item 3a target |
+| `make_soup` (lxml) | 18.0% | structural |
+| `extract_features` | 3.5% | down from ~18% pre-item-5 |
+| `_get_dom_positions` + `reorder_by_dom_position` (1a/1b/2a) | **~1%** | noise |
+| `add_parsed_result` / pydantic (2b) | **0.1%** | noise |
+
+The universal cost is bs4 `find`/`find_all` volume: ~1290 calls per parse (255k over
+198 parses) funneling into `matches_tag` (44.5 s) and `_attribute_match` (20.5 s).
+
+**Decisions:**
+- **Drop 1a, 1b, 2a, and 2b as performance items** -- measured at ~1% and 0.1%, below
+  the noise floor. (1a/1b/2a may still be worth doing as readability, but not for speed.)
+- **Do item 3a next**: classify is 20.9% and find-dominated; cheap root-attr
+  preconditions replace subtree-walking `find()` probes with dict lookups. The
+  precondition index is also a stepping stone to the double-traversal win.
+- `make_soup` (18%) via `SoupStrainer` is likely **unsafe** -- the parser navigates
+  ancestors/siblings/full subtrees, which a strainer would prune. Deprioritize.
+- Biggest follow-on prize after 3a: the double-traversal between classify and parse
+  (~42% combined), plus targeted `ExtractorMain.extract` hot spots (`is_valid` calls
+  `c.text` and `c.find` per candidate component).
