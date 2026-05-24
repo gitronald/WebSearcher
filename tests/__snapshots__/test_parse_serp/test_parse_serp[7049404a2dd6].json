@@ -15,29 +15,73 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "2",
+              "15"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "5",
+              "14",
+              "9"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "National Weather Service (.gov)",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.weather.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Weather Service (.gov)",
+            "snippet": "While all colors are scattered by air molecules, violet and blue are scattered most. The sky looks blue, not violet, because our e...",
+            "source_id": "2",
+            "title": "Why Is The Sky Blue? - National Weather Service",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "NASA Space Place (.gov)",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://spaceplace.nasa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NASA Space Place (.gov)",
+            "snippet": "Sunlight reaches Earth's atmosphere and is scattered in all directions by all the gases and particles in the air. Blue light is sc...",
+            "source_id": "5",
+            "title": "Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids",
             "url": "https://spaceplace.nasa.gov/blue-sky/"
           },
           {
-            "text": "National Environmental Satellite, Data, and Information Service (.gov)",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.nesdis.noaa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Environmental Satellite, Data, and Information Service (.gov)",
+            "snippet": "The sky appears blue because of the scattering of sunlight by gases and particles in Earth's atmosphere. Blue light is scattered m...",
+            "source_id": "1",
+            "title": "Why Is the Sky Blue? | NESDIS | National Environmental Satellite, Data, and Information Service",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue#:~:text=The%20sky%20appears%20blue%20because%20of%20the,we%20can%20see%20look%20blue%20or%20violet**"
           },
           {
-            "text": "Montreal Science Centre",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.montrealsciencecentre.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Montreal Science Centre",
+            "snippet": "Wrapped around the Earth, the atmosphere is made up of a thin layer of gases, mainly nitrogen and oxygen. This is where the air we...",
+            "source_id": "9",
+            "title": "Why is the Sky Blue? - Montreal Science Centre",
             "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue"
           },
           {
-            "text": "Facebook",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.facebook.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Facebook",
+            "snippet": "The sky appears blue because of a phenomenon called Rayleigh scattering, which is the scattering of light by small particles or mo...",
+            "source_id": "15",
+            "title": "Why is the sky blue? It's an age old question that actually has a very ...",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "Royal Museums Greenwich",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.rmg.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Royal Museums Greenwich",
+            "snippet": "This content is hosted by a third party. Please allow all cookies to watch the video. ... These different colours have different w...",
+            "source_id": "14",
+            "title": "Why is the sky blue? | Royal Observatory",
             "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
           }
         ],

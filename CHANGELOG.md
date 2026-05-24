@@ -8,7 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ## [Unreleased]
 
 - **Breaking:** `ai_overview` is now a top-level component `type` (was `knowledge.sub_type=ai_overview`); new section-aware parser with `details.type="ai_overview"`, `details.sections`, and `details.sources` (publisher-labeled)
+- **Breaking:** `ai_overview` `details.sources[*]` shape replaced: `{url, text}` -> `{source_id, url, title, snippet, publisher, favicon}`; `text` (publisher label) is renamed to `publisher`, and `title`/`snippet`/`favicon`/`source_id` are added from the inline payload data
+- Added `citations` arrays to `ai_overview` `details.sections[*]` and `details` (lede-level): each entry is `{publisher, additional_count, source_ids}`, sourced from `button.rBl3me` widgets plus their backing payload data
 - Added classifier guard so the "Related Links" sibling no longer matches `ai_overview`
+- Fixed `Publisher +N` button labels leaking into `ai_overview` section text (buttons are now decomposed before text extraction)
 
 ## [0.7.1] - 2026-05-03
 

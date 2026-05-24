@@ -15,73 +15,184 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "13",
+              "5",
+              "6",
+              "4"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "3",
+              "14",
+              "9",
+              "10"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "15",
+              "11",
+              "46",
+              "47",
+              "48"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "53",
+              "54",
+              "55"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Franklin University",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.franklin.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Franklin University",
+            "snippet": "One of the most significant is access to more job opportunities and lower unemployment rates. According to the Bureau of Labor Sta...",
+            "source_id": "5",
+            "title": "Is College Worth The Cost - Franklin University",
             "url": "https://www.franklin.edu/blog/is-college-worth-the-cost"
           },
           {
-            "text": "College Board",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://bigfuture.collegeboard.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "College Board",
+            "snippet": "College does matter and is absolutely worth it - if you choose a program that matches your career goals, graduate on time, and avo...",
+            "source_id": "4",
+            "title": "Why College Is Important - BigFuture",
             "url": "https://bigfuture.collegeboard.org/plan-for-college/get-started/why-college-is-important#:~:text=College%20does%20matter%20and%20is%20absolutely%20worth,requires%20education%20or%20training%20beyond%20high%20school."
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "College broadly speaking is of questionable value in many cases but accounting is one of the few majors where the traditional dyna...",
+            "source_id": "15",
+            "title": "Is college even worth it anymore? : r/findapath - Reddit",
             "url": "https://www.reddit.com/r/findapath/comments/17foihd/is_college_even_worth_it_anymore/"
           },
           {
-            "text": "Public Policy Institute of California",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.ppic.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Public Policy Institute of California",
+            "snippet": "College is a good investment. Over the last decade, the college wage premium—the difference in wages between college graduates and...",
+            "source_id": "3",
+            "title": "Is College Worth It? - Public Policy Institute of California",
             "url": "https://www.ppic.org/publication/is-college-worth-it/"
           },
           {
-            "text": "Knox College",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.knox.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Knox College",
+            "snippet": "The sentiment that the expense of attaining a four-year degree, particularly at a private school, isn't worth the outcome is certa...",
+            "source_id": "2",
+            "title": "Yes, College is Worth It: Busting Myths about Higher Education - Features",
             "url": "https://www.knox.edu/magazine/spring-2018/features/yes-college-is-worth-it"
           },
           {
-            "text": "NBC News",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcnews.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NBC News",
+            "snippet": "Poll: In a dramatic shift, Americans no longer see four-year college degrees as worth the cost. The latest NBC News poll shows two...",
+            "source_id": "9",
+            "title": "Poll: In a dramatic shift, Americans no longer see four-year college ...",
             "url": "https://www.nbcnews.com/politics/politics-news/poll-dramatic-shift-americans-no-longer-see-four-year-college-degrees-rcna243672"
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Trades, apprenticeships, and businesses such as HVAC, plumbing, landscaping, and car washes are often overlooked career paths. The...",
+            "source_id": "14",
+            "title": "Is college still worth it, or is it just an expensive tradition we never ...",
             "url": "https://www.youtube.com/shorts/Ep0750U7M18#:~:text=Trades%2C%20apprenticeships%2C%20and%20businesses%20such%20as%20HVAC%2C,to%20which%20the%20MBA%20graduate%20is%20applying."
           },
           {
-            "text": "The University of Utah",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://magazine.utah.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The University of Utah",
+            "snippet": "Beyond the financial gains, her research uncovers another compelling reality: degree holders experience much higher measures of pe...",
+            "source_id": "6",
+            "title": "Is College Still Worth It? - The University of Utah Magazine",
             "url": "https://magazine.utah.edu/issues/fall-2024/is-college-still-worth-it/#:~:text=Beyond%20the%20financial%20gains%2C%20her%20research%20uncovers,their%20futures%20compared%20to%20those%20without%20degrees."
           },
           {
-            "text": "YouTube",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "without a name that no one has ever heard of It can be private It can be public It can be religious It can be secular It can be an...",
+            "source_id": "13",
+            "title": "Is College Still Worth It? Part 1",
             "url": "https://www.youtube.com/watch?v=AOVD1NMqYDk"
           },
           {
-            "text": "USA Today",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.usatoday.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "USA Today",
+            "snippet": "A political divide. People across age, race and gender demographics were all less likely to see college as important and worthwhil...",
+            "source_id": "10",
+            "title": "Is college worthwhile? Two-thirds of Americans say no, new poll finds",
             "url": "https://www.usatoday.com/story/news/nation/2025/12/02/college-degree-worth-cost-poll/87567664007/"
           },
           {
-            "text": "Chicago - Federal Reserve Bank",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.chicagofed.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Chicago - Federal Reserve Bank",
+            "snippet": "For example, research from College Board indicates that tuition sticker prices were rising from 2006-07 through 2020-2021 (and fel...",
+            "source_id": "11",
+            "title": "Is College a Worthwhile Investment? Examining the Benefits and ...",
             "url": "https://www.chicagofed.org/publications/chicago-fed-insights/2024/policy-brief-is-college-a-worthwhile-investment#:~:text=For%20example%2C%20research%20from%20College%20Board%20indicates,for%20both%20public%20and%20private%20non%2Dprofit%20colleges."
           },
           {
-            "text": "Forbes",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.forbes.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Forbes",
+            "snippet": "The analysis demonstrates that certain majors are likelier to pay off. Among four-year degrees, most engineering, computer science...",
+            "source_id": "46",
+            "title": "Is College Worth It? That’s The Wrong Question",
             "url": "https://www.forbes.com/sites/prestoncooper2/2024/05/17/is-college-worth-it-thats-the-wrong-question/#:~:text=The%20analysis%20demonstrates%20that%20certain%20majors%20are,their%20net%20lifetime%20earnings%20by%20over%20$500%2C000."
           },
           {
-            "text": "WCNC",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.wcnc.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "WCNC",
+            "snippet": "Researchers say investing in a college degree still pays off well with better returns that the stock market. Their second takeaway...",
+            "source_id": "47",
+            "title": "Why a 4-year college degree is still worth the money",
             "url": "https://www.wcnc.com/article/money/4-year-college-degree-worth-it-financial-analysis-money-education/275-8e064c56-b11b-4dd7-b30c-d9257dfe87ae#:~:text=Researchers%20say%20investing%20in%20a%20college%20degree,bringing%20home%20the%20most%20money%20on%20average."
           },
           {
-            "text": "College Flight Path",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.collegeflightpath.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "College Flight Path",
+            "snippet": "High-Paying College Majors & ROI by Major Certain fields have consistently shown high financial returns. Data from leading researc...",
+            "source_id": "48",
+            "title": "College ROI | Understanding Return on Investment for College Degrees",
             "url": "https://www.collegeflightpath.com/cfp-blog/understanding-the-roi-of-college-majors-financial-considerations#:~:text=High%2DPaying%20College%20Majors%20&%20ROI%20by%20Major,at%20the%20top%20of%20the%20ROI%20charts."
           },
           {
-            "text": "Inside Higher Ed",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.insidehighered.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Inside Higher Ed",
+            "snippet": "Who's paying for it? When confronted with this high price, many students say they turn to loans to pay for their degree, which can...",
+            "source_id": "53",
+            "title": "Cost of higher education not worth it to students",
             "url": "https://www.insidehighered.com/news/student-success/college-experience/2024/05/29/cost-higher-education-not-worth-it-students#:~:text=Who's%20paying%20for%20it?%20When%20confronted%20with,graduating%2C%20hurting%20the%20overall%20return%20on%20investment."
           },
           {
-            "text": "IvyWise",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.ivywise.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "IvyWise",
+            "snippet": "Studies have shown that a lack of clarity around one's academic interests and career goals can delay graduation, leading to increa...",
+            "source_id": "54",
+            "title": "Academic Advising for College Students",
             "url": "https://www.ivywise.com/admissions-counseling/academic-advising/#:~:text=Studies%20have%20shown%20that%20a%20lack%20of,year%20of%20college%20can%20cost%20around%20$68%2C000."
           },
           {
-            "text": "Reddit",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "If you go into with no career plan, no idea of how your degree is going to help you, and a terribly cynical attitude about it, the...",
+            "source_id": "55",
+            "title": "Is college a scam? : r/careeradvice",
             "url": "https://www.reddit.com/r/careeradvice/comments/1o1nm6d/is_college_a_scam/#:~:text=If%20you%20go%20into%20with%20no%20career,expect%20it%20to%20be%20a%20golden%20ticket."
           }
         ],

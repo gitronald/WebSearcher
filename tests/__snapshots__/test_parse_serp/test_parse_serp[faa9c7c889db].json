@@ -66,29 +66,73 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "7",
+              "5",
+              "8"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "4",
+              "10"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Busuu",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.busuu.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Busuu",
+            "snippet": "About: This is probably the most common way to say hello in Japanese. Konnichiwa is used broadly throughout the day and is what yo...",
+            "source_id": "1",
+            "title": "18 Ways to Say Hello in Japanese Like a Native Speaker",
             "url": "https://www.busuu.com/en/japanese/greetings#:~:text=About:%20This%20is%20probably%20the,a%20casual%20hi%20in%20Japanese."
           },
           {
-            "text": "Kanpai Japan",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.kanpai-japan.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Kanpai Japan",
+            "snippet": "To say 'hello' in Japanese * おはよう (ございます) ohayô (gozaimasu): 'hello' in the morning (more polite) * こんにちは konnichiwa: the classic,",
+            "source_id": "5",
+            "title": "How to say hello in Japanese - Kanpai Japan",
             "url": "https://www.kanpai-japan.com/learn-japanese/hello#:~:text=To%20say%20'hello'%20in%20Japanese%20*%20%E3%81%8A%E3%81%AF%E3%82%88%E3%81%86,ne):%20'it's%20been%20a%20while'%20(more%20polite)"
           },
           {
-            "text": "Fluent in 3 Months",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.fluentin3months.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Fluent in 3 Months",
+            "snippet": "“Hello” in Japanese – こんにちは (Konnichiwa) こんにちは is “hello” in Japanese, but it's not used as often as you would think. こんにちは is som...",
+            "source_id": "4",
+            "title": "Japanese Greetings: 17 Ways to Say “Hello” in ...",
             "url": "https://www.fluentin3months.com/hello-in-japanese/#:~:text=say%20%E2%80%9Chi.%E2%80%9D-,%E2%80%9CHello%E2%80%9D%20in%20Japanese%20%E2%80%93%20%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%20(Konnichiwa),use%20it%20in%20the%20afternoon."
           },
           {
-            "text": "Tandem",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://tandem.net&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Tandem",
+            "snippet": "1. こんにちは — Konnichiwa — Hello/Good afternoon. One of the most common greetings in Japanese really is Konnichiwa, and it can be use...",
+            "source_id": "7",
+            "title": "Greetings in Japanese - Tandem",
             "url": "https://tandem.net/blog/greetings-in-japanese#:~:text=1.,use%20it%20during%20the%20day."
           },
           {
-            "text": "Flexi Classes Forum",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://forum.flexiclasses.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Flexi Classes Forum",
+            "snippet": "The classic greeting \"こんにちは\" (konnichiwa) is the first version of hello that most people learn in Japanese. It's considered slight...",
+            "source_id": "8",
+            "title": "How to say hello in Japanese || is こんにちは (konnichiwa) the best choice? - Japanese 日本語 - Flexi Classes Forum",
             "url": "https://forum.flexiclasses.com/t/how-to-say-hello-in-japanese-is-konnichiwa-the-best-choice/2557"
           },
           {
-            "text": "AmazingTalker ｜ Find Professional Online Language Tutors and Teachers",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://en.amazingtalker.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "AmazingTalker ｜ Find Professional Online Language Tutors and Teachers",
+            "snippet": "The Japanese word *konnichiwa* (こんにちは) is a formal way to say \"hello\". It's typically used in semi-formal situations, like in an o...",
+            "source_id": "10",
+            "title": "22 Ways of Saying Hello in Japanese: Not Just Konnichiwa",
             "url": "https://en.amazingtalker.com/blog/en/japanese/46831/"
           }
         ],

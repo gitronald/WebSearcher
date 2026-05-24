@@ -15,37 +15,91 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "3",
+              "11",
+              "1",
+              "9"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "4",
+              "5",
+              "15"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Reuters",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reuters.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reuters",
+            "snippet": "Up next * TikTok charged with breaching EU online content rules. * TikTok charged with breaching EU rules over app's addictive fea...",
+            "source_id": "1",
+            "title": "Tech News | Today's Latest Technology News | Reuters",
             "url": "https://www.reuters.com/technology/"
           },
           {
-            "text": "Yahoo Finance",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://finance.yahoo.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Yahoo Finance",
+            "snippet": "Big Tech's $600 billion spending plans exacerbate investors' AI headache. A planned $600 billion artificial intelligence spending ...",
+            "source_id": "2",
+            "title": "Latest Technology News and Reviews - Yahoo Finance",
             "url": "https://finance.yahoo.com/topic/tech/"
           },
           {
-            "text": "MIT Technology Review",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.technologyreview.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "MIT Technology Review",
+            "snippet": "Commercial space stations: 10 Breakthrough Technologies 2026 The first commercial orbital outpost is scheduled to launch this May.",
+            "source_id": "9",
+            "title": "MIT Technology Review",
             "url": "https://www.technologyreview.com/#:~:text=Commercial%20space%20stations:%2010%20Breakthrough%20Technologies%202026,outpost%20is%20scheduled%20to%20launch%20this%20May."
           },
           {
-            "text": "TechNewsWorld",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.technewsworld.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "TechNewsWorld",
+            "snippet": "Top Stories. The Trillionaire's Paradox: Why Elon Musk Wants to Kill Money. Elon Musk argues AI-driven abundance will eventually m...",
+            "source_id": "4",
+            "title": "TechNewsWorld - Technology News and Information",
             "url": "https://www.technewsworld.com/"
           },
           {
-            "text": "MIT News",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://news.mit.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "MIT News",
+            "snippet": "Terahertz microscope reveals the motion of superconducting electrons. For the first time, the new scope allowed physicists to obse...",
+            "source_id": "5",
+            "title": "MIT News | Massachusetts Institute of Technology",
             "url": "https://news.mit.edu/#:~:text=Terahertz%20microscope%20reveals%20the%20motion%20of%20superconducting,observe%20terahertz%20%E2%80%9Cjiggles%E2%80%9D%20in%20a%20superconducting%20fluid."
           },
           {
-            "text": "The New York Times",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.nytimes.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The New York Times",
+            "snippet": "Highlights. Jeffrey Epstein's Money Mingled With Silicon Valley Start-Ups. The disgraced financier regularly courted tech industry...",
+            "source_id": "3",
+            "title": "Technology - The New York Times",
             "url": "https://www.nytimes.com/section/technology"
           },
           {
-            "text": "The Indian Express",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://indianexpress.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The Indian Express",
+            "snippet": "I spent a week with Motorola's Edge 70, an absolutely thin smartphone that is too hard to ignore. Anuj Bhatia. Fujifilm XE-5 revie...",
+            "source_id": "15",
+            "title": "Tech News, Latest Technology News Today, New Gadgets, Phones ...",
             "url": "https://indianexpress.com/section/technology/"
           },
           {
-            "text": "The Washington Post",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.washingtonpost.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The Washington Post",
+            "snippet": "Young people in China have a new alternative to marriage and babies: AI pets. Cute fluffy AI-powered “pets” are providing emotiona...",
+            "source_id": "11",
+            "title": "Technology - The Washington Post",
             "url": "https://www.washingtonpost.com/business/technology/#:~:text=Young%20people%20in%20China%20have%20a%20new,and%20a%20digital%20ear%20for%20tech%20giants."
           }
         ],

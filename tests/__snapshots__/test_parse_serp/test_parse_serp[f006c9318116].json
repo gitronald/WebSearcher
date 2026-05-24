@@ -15,73 +15,190 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "29",
+              "30",
+              "28",
+              "33",
+              "2",
+              "34"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "11",
+              "43"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "39",
+              "40",
+              "47",
+              "42"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "3",
+              "8",
+              "18",
+              "21"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "22"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Centers for Disease Control and Prevention | CDC (.gov)",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.cdc.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Centers for Disease Control and Prevention | CDC (.gov)",
+            "snippet": "At a glance * The 2025–2026 COVID-19 vaccine is recommended for people ages 6 months and older based on individual-based decision-",
+            "source_id": "28",
+            "title": "2025–2026 COVID-19 Vaccination Guidance - CDC",
             "url": "https://www.cdc.gov/covid/hcp/vaccine-considerations/routine-guidance.html#:~:text=At%20a%20glance,of%20COVID%2D19%20risk%20factors."
           },
           {
-            "text": "Centers for Disease Control and Prevention | CDC (.gov)",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.cdc.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Centers for Disease Control and Prevention | CDC (.gov)",
+            "snippet": "What to know * CDC recommends a 2025-2026 COVID-19 vaccine for people ages 6 months and older based on individual-based decision-m...",
+            "source_id": "30",
+            "title": "Staying Up to Date with COVID-19 Vaccines - CDC",
             "url": "https://www.cdc.gov/covid/vaccines/stay-up-to-date.html#:~:text=Keep%20in%20mind,individual%2Dbased%20decision%2Dmaking."
           },
           {
-            "text": "AAP",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.aap.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "AAP",
+            "snippet": "Side Effects/Safety * Are there any different side effects or safety concerns with the updated 2025-2026 formula mRNA vaccines? No...",
+            "source_id": "34",
+            "title": "COVID-19 Vaccine Frequently Asked Questions - AAP",
             "url": "https://www.aap.org/en/patient-care/covid-19/covid-19-vaccine-frequently-asked-questions/#:~:text=AAP%20recommends%20a%20single%20dose,AAP%20Policy%20Statement%20as%20follows:"
           },
           {
-            "text": "Pharmacy Times",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.pharmacytimes.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Pharmacy Times",
+            "snippet": "FDA Recommends 2025-2026 COVID-19 Vaccines Be Monovalent, Target LP. 8.1 Strain | Pharmacy Times. ... FDA Recommends 2025-2026 COV...",
+            "source_id": "33",
+            "title": "FDA Recommends 2025-2026 COVID-19 Vaccines Be Monovalent, ...",
             "url": "https://www.pharmacytimes.com/view/fda-recommends-2025-2026-covid-19-vaccines-be-monovalent-target-lp-8-1-strain#:~:text=Based%20on%20VRBPAC%20Vote%2C%20FDA,a%20specific%20sublineage%20to%20target.&text=1%2C2-,LP.,recommendation%20could%20impact%20vaccine%20availability."
           },
           {
-            "text": "Bassett Healthcare Network",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.bassett.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Bassett Healthcare Network",
+            "snippet": "There is No Live Virus in the Vaccines. Vaccines contain ingredients that help your body build immunity against a specific virus. ...",
+            "source_id": "43",
+            "title": "Are COVID-19 Vaccine Ingredients Safe? | Bassett Healthcare Network",
             "url": "https://www.bassett.org/news/are-covid-19-vaccine-ingredients-safe"
           },
           {
-            "text": "National Institutes of Health (NIH) | (.gov)",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://pmc.ncbi.nlm.nih.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Institutes of Health (NIH) | (.gov)",
+            "snippet": "Rare adverse effects of COVID-19 vaccines include anaphylaxis, blood clots, myocarditis, pericarditis, hearing changes, and tinnit...",
+            "source_id": "2",
+            "title": "Review of adverse events associated with COVID-19 vaccines ...",
             "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10507236/#:~:text=Rare%20adverse%20effects%20of%20COVID,%2C%20hearing%20changes%2C%20and%20tinnitus.&text=The%20overall%20risk%20of%20anaphylaxis,percentage%20of%20people%20after%20vaccination."
           },
           {
-            "text": "U.S. Food and Drug Administration (.gov)",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.fda.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "U.S. Food and Drug Administration (.gov)",
+            "snippet": "authorized for use in the United States. ... A single dose of Pfizer-BioNTech COVID-19 Vaccine is administered to individuals who ...",
+            "source_id": "39",
+            "title": "fact sheet for recipients and caregivers about pfizer-biontech",
             "url": "https://www.fda.gov/media/167212/download#:~:text=Pfizer%2DBioNTech%20COVID%2D19%20Vaccine%20contains%20the%20following%20ingredients:,age%20also%20contains%20sodium%20chloride."
           },
           {
-            "text": "Hackensack Meridian Health",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.hackensackmeridianhealth.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Hackensack Meridian Health",
+            "snippet": "This adenovirus has been engineered to enter the human cells and deliver the desired genetic information without replicating itsel...",
+            "source_id": "47",
+            "title": "A Simple Breakdown of the Ingredients in the COVID Vaccines",
             "url": "https://www.hackensackmeridianhealth.org/HealthU/2021/01/11/a-simple-breakdown-of-the-ingredients-in-the-covid-vaccines/#:~:text=The%20Pfizer%2DBioNTech%20COVID%2D19,if%20exposed%20to%20the%20coronavirus."
           },
           {
-            "text": "Children's Hospital of Philadelphia",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.chop.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Children's Hospital of Philadelphia",
+            "snippet": "Table_title: mRNA versions of COVID-19 vaccines Table_content: header: | Vaccine name* | Antigen | Adjuvant | Stabilizers | Preser...",
+            "source_id": "40",
+            "title": "Ingredients in COVID-19 Vaccines",
             "url": "https://www.chop.edu/vaccine-education-center/vaccine-safety/vaccine-ingredients/ingredients-by-vaccine/covid-19-vaccines-ingredients#:~:text=Cholesterol%2C%20Potassium%20chloride%2C%20Phosphatidylcholine%2C,sodium%20hydroxide%20or%20hydrochloric%20acid.)"
           },
           {
-            "text": "Columbia University Mailman School of Public Health",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.publichealth.columbia.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Columbia University Mailman School of Public Health",
+            "snippet": "Share this page * Misinformation about vaccines has proliferated on social media where it has led to rising levels of vaccine hesi...",
+            "source_id": "22",
+            "title": "Vaccine Misinformation Outpaces Efforts to Counter It",
             "url": "https://www.publichealth.columbia.edu/news/vaccine-misinformation-outpaces-efforts-counter-it#:~:text=Misinformation%20about%20vaccines%20has%20proliferated,flu%2C%20HPV%2C%20and%20more."
           },
           {
-            "text": "ScienceDirect.com",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sciencedirect.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "ScienceDirect.com",
+            "snippet": "Highlights * • Belief in misinformation remains high among previously vaccinated individuals. * Belief in misinformation is associ...",
+            "source_id": "21",
+            "title": "Belief in misinformation and acceptance of COVID-19 vaccine ...",
             "url": "https://www.sciencedirect.com/science/article/pii/S2772628224000098#:~:text=Among%20previously%20vaccinated%20individuals%2C%20belief,ongoing%20vaccine%20boosters%2C%20ceteris%20paribus."
           },
           {
-            "text": "Memorial Sloan Kettering Cancer Center",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.mskcc.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Memorial Sloan Kettering Cancer Center",
+            "snippet": "What to know about the 2025–2026 COVID-19 vaccine. The 2025–2026 COVID-19 vaccine targets the variants that are going around now a...",
+            "source_id": "29",
+            "title": "2025–2026 COVID-19 Vaccine for People With Cancer & Others ...",
             "url": "https://www.mskcc.org/coronavirus/for-people-with-cancer#:~:text=Is%20the%20COVID%2D19%20vaccine%20safe?,reported%20after%20COVID%2D19%20vaccination."
           },
           {
-            "text": "YouTube · Times Of India",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "they did not die of measles. and yet the press. and others consistently shout out that vaccines are safe and effective. they are v...",
+            "source_id": "8",
+            "title": "'Vaccine Damaged My Lung': Doctor's CHILLING Senate ...",
             "url": "https://www.youtube.com/watch?v=hlOFL---m8A"
           },
           {
-            "text": "YouTube · The Economic Times",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "it was clear why the CDC wanted to hide it it wanted to hide it because what it showed. was 7.7% of these vaccine enthusiasts repo...",
+            "source_id": "3",
+            "title": "'CDC knew COVID shot risks all along': Chilling testimony on ...",
             "url": "https://www.youtube.com/watch?v=hRZ1eTNX65w"
           },
           {
-            "text": "Rijksinstituut voor Volksgezondheid en Milieu | RIVM",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.rivm.nl&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Rijksinstituut voor Volksgezondheid en Milieu | RIVM",
+            "snippet": "Most common side effects of the COVID-19 vaccines After COVID-19 vaccination, you may experience side effects, which will generall...",
+            "source_id": "11",
+            "title": "Side effects of the COVID-19 vaccines - RIVM",
             "url": "https://www.rivm.nl/en/coronavirus-covid-19/vaccination/side-effects#:~:text=Most%20common%20side%20effects%20of,or%20days%20after%20the%20injection."
           },
           {
-            "text": "McGill University",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.mcgill.ca&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "McGill University",
+            "snippet": "You may have heard the myth that the COVID-19 vaccines make women infertile and that they have killed more people than the disease...",
+            "source_id": "18",
+            "title": "A Dozen Misguided Influencers Spread Most of the Anti-Vaccination ...",
             "url": "https://www.mcgill.ca/oss/article/covid-19-health/dozen-misguided-influencers-spread-most-anti-vaccination-content-social-media#:~:text=You%20may%20have%20heard%20the,exactly%20is%20the%20Disinformation%20Dozen?"
           },
           {
-            "text": "GoodRx",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.goodrx.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "GoodRx",
+            "snippet": "Key takeaways: * The COVID-19 vaccines available in the U.S. all target the SARS-CoV-2 spike protein. But they contain different i...",
+            "source_id": "42",
+            "title": "What Are the Ingredients in the COVID-19 Vaccines? - GoodRx",
             "url": "https://www.goodrx.com/conditions/covid-19/ingredients-covid-19-vaccine#:~:text=COVID%20vaccine%20are:-,SM%2D102,is%20the%20hepatitis%20B%20vaccine."
           }
         ],

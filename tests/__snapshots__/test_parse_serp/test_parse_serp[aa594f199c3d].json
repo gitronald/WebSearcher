@@ -15,37 +15,97 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "2",
+              "14",
+              "6"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "13",
+              "15"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "4",
+              "8"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "National Weather Service (.gov)",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.weather.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Weather Service (.gov)",
+            "snippet": "While all colors are scattered by air molecules, violet and blue are scattered most. The sky looks blue, not violet, because our e...",
+            "source_id": "14",
+            "title": "Why Is The Sky Blue? - National Weather Service",
             "url": "https://www.weather.gov/fgz/SkyBlue"
           },
           {
-            "text": "Britannica",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.britannica.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Britannica",
+            "snippet": "One of the perennial questions of childhood is “Why is the sky blue?” You may have asked this as a child, or you may have a child ...",
+            "source_id": "6",
+            "title": "Why Is the Sky Blue? | Britannica",
             "url": "https://www.britannica.com/story/why-is-the-sky-blue"
           },
           {
-            "text": "National Environmental Satellite, Data, and Information Service (.gov)",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.nesdis.noaa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Environmental Satellite, Data, and Information Service (.gov)",
+            "snippet": "The Short Answer. Gases and particles in Earth's atmosphere scatter sunlight in all directions. Blue light is scattered more than ...",
+            "source_id": "1",
+            "title": "Why Is the Sky Blue? | NESDIS",
             "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
           },
           {
-            "text": "University of California, Riverside",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://math.ucr.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "University of California, Riverside",
+            "snippet": "The sky is blue because molecules in the air scatter blue light from the sun more than they scatter red light. This is due to the ...",
+            "source_id": "2",
+            "title": "Why is the sky blue?",
             "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
           },
           {
-            "text": "Instagram",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.instagram.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Instagram",
+            "snippet": "Why Sun Changes Color Throughout the Day? 🌞 Sunset: red. Noon: white. What's happening? At noon, light travels straight down - 10...",
+            "source_id": "8",
+            "title": "Why is the sky blue? It's not. You might know that as sunlight ... - Instagram",
             "url": "https://www.instagram.com/reel/DIZJjPvOtIN/"
           },
           {
-            "text": "Royal Museums Greenwich",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.rmg.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Royal Museums Greenwich",
+            "snippet": "This content is hosted by a third party. Please allow all cookies to watch the video. ... These different colours have different w...",
+            "source_id": "13",
+            "title": "Why is the sky blue? | Royal Observatory",
             "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue"
           },
           {
-            "text": "Facebook",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.facebook.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Facebook",
+            "snippet": "The sky appears blue because of a phenomenon called Rayleigh scattering, which is the scattering of light by small particles or mo...",
+            "source_id": "15",
+            "title": "Why is the sky blue? It's an age old question that actually has a very ...",
             "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
           },
           {
-            "text": "WSAV-TV",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.wsav.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "WSAV-TV",
+            "snippet": "In summer, the sun sits higher in the sky, meaning sunlight has a shorter path through the atmosphere. In winter, the sun is lower...",
+            "source_id": "4",
+            "title": "Why the sky looks bluer in fall and winter - WSAV-TV",
             "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/#:~:text=In%20summer%2C%20the%20sun%20sits%20higher%20in,intensifying%20the%20blue%20appearance%20of%20the%20sky."
           }
         ],

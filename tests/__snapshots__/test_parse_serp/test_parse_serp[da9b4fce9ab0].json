@@ -131,49 +131,124 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "5",
+              "6",
+              "15"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "7",
+              "9",
+              "8"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "43",
+              "44",
+              "45"
+            ]
+          }
+        ],
         "sources": [
           {
-            "text": "Bankrate",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bankrate.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Bankrate",
+            "snippet": "+ Show Summary * Chase Freedom Unlimited®: Best standalone rewards card. * Wells Fargo Reflect® Card: Best for balance transfers. ...",
+            "source_id": "6",
+            "title": "Best Credit Cards of February 2026 - Bankrate",
             "url": "https://www.bankrate.com/credit-cards/best-credit-cards/"
           },
           {
-            "text": "NerdWallet",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.nerdwallet.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NerdWallet",
+            "snippet": "Browse the best credit cards of 2026 for cash back, travel rewards, 0% APR, credit building and more. Find the best card for you a...",
+            "source_id": "1",
+            "title": "Best Credit Cards - February 2026 - NerdWallet",
             "url": "https://www.nerdwallet.com/credit-cards/best#:~:text=Browse%20the%20best%20credit%20cards%20of%202026,card%20for%20you%20and%20apply%20in%20seconds."
           },
           {
-            "text": "Forbes",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.forbes.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Forbes",
+            "snippet": "Top 10 Credit Cards * Chase Sapphire Preferred® Card: Best Travel Card. * American Express® Gold Card: Best Card for Dining and Re...",
+            "source_id": "5",
+            "title": "Best Credit Cards Of February 2026 – Forbes Advisor",
             "url": "https://www.forbes.com/advisor/credit-cards/best-credit-cards/"
           },
           {
-            "text": "CreditCards.com",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.creditcards.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "CreditCards.com",
+            "snippet": "Wells Fargo Active Cash® Card. The Wells Fargo Active Cash Card is not just one of the best flat-rate cash rewards cards out there...",
+            "source_id": "2",
+            "title": "Credit cards: Find the Right Card For You at Creditcards.com",
             "url": "https://www.creditcards.com/"
           },
           {
-            "text": "usa.visa.com",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://usa.visa.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "usa.visa.com",
+            "snippet": "21 cards * Visa Signature®Visa Infinite®Credit Card. Chase Freedom Unlimited® Annual Fee:$0 |Regular APR:18.24% - 27.74% Variable.",
+            "source_id": "8",
+            "title": "Credit Cards for Good Credit Score - Visa",
             "url": "https://usa.visa.com/pay-with-visa/find-card/apply-credit-card/good"
           },
           {
-            "text": "Yahoo Finance",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://finance.yahoo.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Yahoo Finance",
+            "snippet": "The Chase Sapphire Preferred continues to be one of the best cards available because of its low annual fee and rewarding benefits.",
+            "source_id": "9",
+            "title": "Latest credit card rates, reviews, & comparisons - Yahoo Finance",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/#:~:text=The%20Chase%20Sapphire%20Preferred%20continues%20to%20be,select%20streaming%20services%2C%20and%20online%20grocery%20purchases."
           },
           {
-            "text": "WalletHub",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://wallethub.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "WalletHub",
+            "snippet": "The best credit card for everything is the Wells Fargo Active Cash card because it offers great rewards, a $0 annual fee, and low ...",
+            "source_id": "7",
+            "title": "Which Credit Card Is Best for Everything? (2026) - WalletHub",
             "url": "https://wallethub.com/answers/cc/which-credit-card-is-best-for-everything-2140781254/#:~:text=The%20best%20credit%20card%20for%20everything%20is,same%20rewards%20no%20matter%20what%20you%20buy."
           },
           {
-            "text": "WalletHub",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://wallethub.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "WalletHub",
+            "snippet": "Citi Double Cash Card Review Citi Double Cash is one of the best everyday credit cards available right now, combining low costs an...",
+            "source_id": "15",
+            "title": "Citi Double Cash Reviews: Is It a Good Credit Card? (2026)",
             "url": "https://wallethub.com/d/citi-double-cash-card-121c#:~:text=Citi%20Double%20Cash%20Card%20Review%20Citi%20Double,total%20of%202%25%20back%20on%20all%20purchases."
           },
           {
-            "text": "CreditCards.com",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.creditcards.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "CreditCards.com",
+            "snippet": "Sign-up bonus. When analyzing a credit card's overall value, we always think long-term: ongoing rewards rate, fees, etc. But a sig...",
+            "source_id": "43",
+            "title": "Best Cash Back Credit Cards of 2026: Top Offers | CreditCards.com",
             "url": "https://www.creditcards.com/cash-back/"
           },
           {
-            "text": "Yahoo Finance",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://finance.yahoo.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Yahoo Finance",
+            "snippet": "To start, you should compare welcome offers to make sure you're earning a competitive bonus. Many no annual fee cash-back credit c...",
+            "source_id": "44",
+            "title": "When to open a credit card with your bank — and when to look elsewhere",
             "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/bank-credit-card-174043611.html#:~:text=To%20start%2C%20you%20should%20compare%20welcome%20offers,least%20$500%20within%20the%20first%20three%20months."
           },
           {
-            "text": "CNET",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.cnet.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "CNET",
+            "snippet": "After comparing long-term value via rewards rates and benefits, you may also want to consider each card's welcome offer or welcome...",
+            "source_id": "45",
+            "title": "Eating Out? Have One of These Cards In Your Wallet",
             "url": "https://www.cnet.com/personal-finance/credit-cards/eating-out-have-one-of-these-cards-in-your-wallet/#:~:text=After%20comparing%20long%2Dterm%20value%20via%20rewards%20rates,back%20after%20you%20meet%20a%20spending%20threshold."
           }
         ],
