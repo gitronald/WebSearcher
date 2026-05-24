@@ -429,6 +429,26 @@ This is the opposite risk/reward profile of the banked wins. Recommendation: sto
 here with item 5 (dominant), 3a, 4a, and item 8 shipped; leave the double-traversal
 and the `make_soup`/extraction-handler costs as known-but-not-worth-it.
 
+### 2026-05-24 -- post-review test hardening
+
+A pre-merge code review of PR 125 flagged two correctness behaviors that were
+unpinned by tests. Added regression tests (no production code change):
+
+- `tests/test_extractor_main.py` -- pins `ExtractorMain.is_valid`, including the
+  now-live hidden-survey branch (the `hasattr(c, "attrs")` fix): `ULSxyf` +
+  `promo-throttler` is dropped, `ULSxyf` alone and `promo-throttler` alone are
+  kept (both conditions required), plus bad-label / `tadsb` / normal cases.
+- `tests/test_ads.py` -- pins `classify_ad_type`. The 6c `find_all_divs` ->
+  `cmpt.find` change keyed classification off container *presence* rather than
+  text, so an empty subtype container now classifies as its subtype instead of
+  `unknown`. Real ad containers are never empty, so this is corpus-invisible;
+  the test documents the loosening as intentional rather than silent.
+
+The text-notice soup-path divergence (review item 2) needs no fix -- it is a
+corpus-verified, slightly-more-correct behavior on the live path, not a defect.
+
+**Verification:** 262 passed (was 251 + 11 new), 66 snapshots green without updates.
+
 ## Retrospective
 
 **End-to-end result (back-to-back, one machine state):** re-benchmarked the
