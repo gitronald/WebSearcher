@@ -3,7 +3,7 @@ status: done
 branch: feature/parse-pipeline-optimization
 created: 2026-05-24T10:57:35-07:00
 completed: 2026-05-24T13:38:13-07:00
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/125
 ---
 
 # Parse Pipeline Optimization (Profiling-First Revision)
