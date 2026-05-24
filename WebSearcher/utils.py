@@ -200,7 +200,11 @@ def find_all_divs(
 ) -> list[Tag]:
     if not soup:
         return []
-    divs = soup.find_all(name, attrs=dict(attrs)) if attrs else soup.find_all(name)
+    divs = (
+        soup.find_all(name, attrs=attrs if isinstance(attrs, dict) else dict(attrs))
+        if attrs
+        else soup.find_all(name)
+    )
     return filter_empty_divs(divs) if filter_empty else list(divs)
 
 

@@ -379,3 +379,27 @@ than attribute presence, so the branch never fired. Changed to `hasattr(c, "attr
 so a `ULSxyf` container wrapping a `promo-throttler` is now correctly dropped. All 66
 snapshots stay green without updates (no fixture has such a component), so this is
 byte-identical on the corpus while enabling the intended filter for real SERPs.
+
+### 2026-05-24 -- remaining micro-fixes: 4b + 3c done; 6d + 6f skipped after review
+
+Both shipped changes are below-noise cleanup on non-hot paths (not benchmarked --
+correctness-neutral simplifications):
+
+- **4b (done):** `find_all_divs` only rebuilds the attrs dict when it isn't already a
+  dict (`attrs if isinstance(attrs, dict) else dict(attrs)`).
+- **3c (done):** `knowledge_box` reads the first stripped string via
+  `next(iter(cmpt.stripped_strings), None)` instead of materializing the whole list.
+
+- **6d (skipped):** dropping `copy.copy(cmpt)` in `notices.py` is **unsafe**. An
+  empirical check showed bs4's `copy.copy` *clones* the subtree (extracting from the
+  copy leaves the original intact) -- the opposite of the review's "shallow copy"
+  premise. The copy is load-bearing: it shields the original soup from
+  `div_title.extract()`. Dropping it would mutate the live tree. Left as-is.
+- **6f (skipped):** consolidating `top_stories`' four collection passes into one
+  `find_all` is not order-preserving -- they mix a tag (`g-inner-card`), direct-only
+  children (`qmv19b` via `find_children`), and recursive divs (`IJl0Z`/`JJZKK`),
+  concatenated in selector-priority order. A single query reorders cards (the flagged
+  `sub_rank` risk). `top_stories` is not a hot path, so the payoff does not justify the
+  risk. Left as-is.
+
+**Verification:** 66 snapshots green without updates, 182 tests pass.

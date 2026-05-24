@@ -261,9 +261,9 @@ class ClassifyMain:
         condition["locations"] = cmpt.find("div", {"class": "zd2Jbb"})
         condition["events"] = cmpt.find("g-card", {"class": "URhAHe"})
         condition["jobs"] = cmpt.find("g-card", {"class": "cvoI5e"})
-        text_list = list(cmpt.stripped_strings)
-        if text_list:
-            condition["covid_alert"] = text_list[0] == "COVID-19 alert"
+        first_text = next(iter(cmpt.stripped_strings), None)
+        if first_text is not None:
+            condition["covid_alert"] = first_text == "COVID-19 alert"
         for condition_type, conditions in condition.items():
             if conditions:
                 return condition_type
