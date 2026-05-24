@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added `citations` arrays to `ai_overview` `details.sections[*]` and `details` (lede-level): each entry is `{publisher, additional_count, source_ids}`, sourced from `button.rBl3me` widgets plus their backing payload data
 - Added classifier guard so the "Related Links" sibling no longer matches `ai_overview`
 - Fixed `Publisher +N` button labels leaking into `ai_overview` section text (buttons are now decomposed before text extraction)
+- Bumped security floors via Dependabot: `urllib3` 2.6.3 -> 2.7.0 (cross-origin header forwarding, decompression-bomb bypass) and `idna` 3.11 -> 3.15 (IDNA encode bypass)
+- Bumped dependencies via Dependabot: `requests` 2.33.0 -> 2.34.2, `protobuf` 6.33.5 -> 7.34.1, `pydantic` 2.12.5 -> 2.13.4, `polars` 1.38.1 -> 1.40.1, and `pytest-cov` 7.0.0 -> 7.1.0
 
 ## [0.8.0] - 2026-05-10
 
