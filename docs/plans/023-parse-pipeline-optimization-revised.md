@@ -178,3 +178,33 @@ Per change, the gate is:
   -- public API (incl. the lazy `SearchEngine`) still resolves.
 - A before/after run of `scripts/bench_parse.py` over the fixture corpus showing
   the item clears the noise threshold; record numbers in the Log.
+
+## Log
+
+### 2026-05-24 -- profiling baseline (section 1 deliverable)
+
+Added `scripts/bench_parse.py`: loads the full fixture corpus into memory first
+(decompression/JSON load excluded from the clock -- only `ws.parse_serp(html)` is
+timed), pauses gc during timing, sets the `WebSearcher` logger to WARNING, warms
+up untimed, and reports per-SERP median + MAD plus inter-run spread.
+
+Corpus: 66 SERPs (10 v0.6.7, 52 v0.6.8, 2 ads, 1 jobs, 1 knowledge-subcards).
+Machine: WSL2 (timer jitter is real here).
+
+**Timing** (`--iterations 8 --runs 3`):
+- median **134 ms/SERP**, MAD 41 ms; min 42, p90 242, max 338 ms.
+- corpus ~10.3 s/pass; inter-run MAD 127 ms.
+- **noise floor ~2.5%** (2x inter-run MAD) -- the gate every change must clear.
+
+**cProfile** (`--profile`, 198 parses, 135 s total, sorted by tottime):
+
+| Bucket | Key frame | cumtime | ~share | Implication |
+|---|---|---|---|---|
+| bs4 find/filter traversal | `filter.py:130(filter)` | 80.1 s | ~59% | Dominant cost. Real prize = item 3a preconditions + the missing "single per-component scan feeding classify+parse" (double traversal). |
+| HTML serialization `str(soup)` | `element.py:2570(decode)` | 25.0 s | ~18.5% | 273 calls (~1.4/parse). Confirms **item 5 as #1** -- biggest easily-removable chunk. |
+| lxml parse (`make_soup`) | `_lxml.py:488(feed)` | 21.6 s | ~16% | Structural; evaluate `SoupStrainer` (section 6). |
+| Pydantic round-trip (item 2b) | -- | -- | not in top 30 | Negligible -- confirms demotion; implement only if a later profile changes. |
+
+Conclusion: revised rollout order holds. Proceed with item 5 first, then attack
+bs4 traversal (3a + double-traversal), then weigh a `SoupStrainer` for `make_soup`.
+Drop 2b as a perf item.
