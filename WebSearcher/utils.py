@@ -209,8 +209,12 @@ def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
     for candidate in divs:
         if not candidate:
             continue
-        text_content = candidate.text if hasattr(candidate, "text") else str(candidate)
-        if text_content.strip() != "":
+        # Keep the candidate at the first non-blank descendant string, instead of
+        # materializing the whole subtree text just to test `.strip() != ""`.
+        if hasattr(candidate, "strings"):
+            if any(s != "" and not s.isspace() for s in candidate.strings):
+                filtered.append(candidate)
+        elif str(candidate).strip():
             filtered.append(candidate)
     return filtered
 

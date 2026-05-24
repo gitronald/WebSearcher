@@ -370,16 +370,24 @@ class ExtractorMain:
         if not c:
             return False
         bad = {"Main results", "Twitter Results", ""}
-        if c.text in bad:
+        # Bound the text scan: the longest bad label is 15 chars, so once the
+        # accumulated text exceeds that it cannot match and we stop walking.
+        text = ""
+        for s in c.strings:
+            text += s
+            if len(text) > 15:
+                break
+        if text in bad:
             return False
         # Skip bottom ads wrapper (extracted separately)
         if c.find("div", {"id": "tadsb"}):
             return False
-        # hidden survey
-        cond = [
-            c.find("promo-throttler"),
-            utils.check_dict_value(c.attrs, "class", ["ULSxyf"]) if "attrs" in c else False,
-        ]
-        if all(cond):
+        # hidden survey: check the cheap root-class condition before the
+        # promo-throttler subtree search. ("attrs" in c preserved as-is.)
+        if (
+            "attrs" in c
+            and utils.check_dict_value(c.attrs, "class", ["ULSxyf"])
+            and c.find("promo-throttler")
+        ):
             return False
         return True

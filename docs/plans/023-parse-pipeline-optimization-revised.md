@@ -309,3 +309,33 @@ Above the noise floor. Cumulative from baseline: corpus -30.9%, per-SERP median
 -22.2%. The reviewer's net-neutral worry did not materialize: classify is
 miss-dominated (each `find()` miss is a full subtree walk), so one signal walk plus
 set lookups beats ~14 miss-walks per component.
+
+### 2026-05-24 -- item 4a + ExtractorMain.is_valid (extraction hot spots)
+
+Extraction (`ExtractorMain.extract`) was the largest phase (22.5%). Two changes:
+
+- **4a `filter_empty_divs`**: keep a candidate at the first non-blank descendant
+  string (`any(s != "" and not s.isspace() for s in candidate.strings)`) instead of
+  building the full `.text` and stripping it. Same verdict, early-exit.
+- **`is_valid`**: (a) bound the bad-label text scan -- the longest bad label is 15
+  chars, so accumulate `c.strings` and stop once the text exceeds 15 (a normal
+  component bails after ~16 chars instead of walking its whole subtree); (b)
+  short-circuit the hidden-survey check on the cheap root-class condition before the
+  `promo-throttler` subtree search.
+
+**Latent bug preserved (not fixed here):** the survey check guards with `"attrs" in
+c`, which tests child membership (`Tag.__contains__`), not attribute existence -- so
+it is almost always False and the survey branch is effectively dead. "Fixing" it
+would change output, so it is preserved verbatim under this perf change and flagged
+for a separate follow-up.
+
+**Verification:** 66 snapshots green without updates, 126 tests pass.
+
+**Benchmark** (`--iterations 8 --runs 4`, spread 98 ms):
+
+| Metric | After item 3a | After 4a + is_valid | Delta |
+|---|---|---|---|
+| Per-SERP median | 104.4 ms | 97.5 ms | -6.6% |
+| Corpus total | 7096 ms | 6781 ms | -4.4% |
+
+Cumulative from baseline: corpus -34.0%, per-SERP median -27.4%.
