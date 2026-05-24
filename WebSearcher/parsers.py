@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 
 from . import utils
 from .extractors import Extractor
-from .feature_extractor import FeatureExtractor
+from .extractors.extractor_serp_features import FeatureExtractor
 from .logger import Logger
 
 log = Logger().start(__name__)

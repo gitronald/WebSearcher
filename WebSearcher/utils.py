@@ -200,7 +200,11 @@ def find_all_divs(
 ) -> list[Tag]:
     if not soup:
         return []
-    divs = soup.find_all(name, attrs=dict(attrs)) if attrs else soup.find_all(name)
+    divs = (
+        soup.find_all(name, attrs=attrs if isinstance(attrs, dict) else dict(attrs))
+        if attrs
+        else soup.find_all(name)
+    )
     return filter_empty_divs(divs) if filter_empty else list(divs)
 
 
@@ -209,8 +213,12 @@ def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
     for candidate in divs:
         if not candidate:
             continue
-        text_content = candidate.text if hasattr(candidate, "text") else str(candidate)
-        if text_content.strip() != "":
+        # Keep the candidate at the first non-blank descendant string, instead of
+        # materializing the whole subtree text just to test `.strip() != ""`.
+        if hasattr(candidate, "strings"):
+            if any(s != "" and not s.isspace() for s in candidate.strings):
+                filtered.append(candidate)
+        elif str(candidate).strip():
             filtered.append(candidate)
     return filtered
 

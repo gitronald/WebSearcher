@@ -1,3 +1,4 @@
+import itertools
 from typing import Any
 
 import bs4
@@ -7,6 +8,39 @@ from ..component_types import header_text_to_type
 from ..utils import Selector
 
 log = logger.Logger().start(__name__)
+
+_VIDEO_CLASSES = {"VibNM", "mLmaBd", "RzdJxc", "sHEJob"}
+_LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}
+
+
+class _ComponentSignals:
+    """One-pass summary of a component's class names, ids, and tag names.
+
+    The classifier chain consults this to skip a classifier whose necessary
+    structural signal is absent, replacing many full-subtree ``find()`` misses
+    with set lookups. Preconditions are necessary conditions only, so a skip can
+    never change a classification (pinned by the snapshot suite).
+    """
+
+    __slots__ = ("classes", "ids", "names")
+
+    def __init__(self, cmpt: bs4.element.Tag) -> None:
+        classes: set[str] = set()
+        ids: set[str] = set()
+        names: set[str] = set()
+        for el in itertools.chain((cmpt,), cmpt.descendants):
+            if not isinstance(el, bs4.element.Tag):
+                continue
+            names.add(el.name)
+            cls = el.attrs.get("class")
+            if isinstance(cls, list):  # "class" is multi-valued in bs4
+                classes.update(cls)
+            el_id = el.attrs.get("id")
+            if isinstance(el_id, str):
+                ids.add(el_id)
+        self.classes = classes
+        self.ids = ids
+        self.names = names
 
 
 class ClassifyMainHeader:
@@ -58,43 +92,51 @@ class ClassifyMain:
 
     @staticmethod
     def classify(cmpt: bs4.element.Tag) -> str:
+        signals = _ComponentSignals(cmpt)
 
-        # Ordered list of classifiers to try
+        # Ordered (classifier, precondition) chain. The precondition is a cheap
+        # NECESSARY structural signal -- when it is absent the classifier cannot
+        # match, so it is skipped without a full-subtree find(). None = always run
+        # (text/heading/root-class classifiers that general results also trigger).
         component_classifiers = [
-            ClassifyMain.locations,  # Check locations (hotels, etc.) before top_stories
-            ClassifyMain.top_stories,  # Check top stories
-            ClassifyMain.discussions_and_forums,  # Check discussions and forums
-            ClassifyMainHeader.classify,  # Check levels 2 & 3 header text
-            ClassifyMain.news_quotes,  # Check news quotes
-            ClassifyMain.img_cards,  # Check image cards
-            ClassifyMain.images,  # Check images
-            ClassifyMain.ai_overview,  # Check AI overview
-            ClassifyMain.available_on,  # Check for available on (before knowledge_panel)
-            ClassifyMain.knowledge_panel,  # Check knowledge panel
-            ClassifyMain.knowledge_block,  # Check knowledge components
-            ClassifyMain.banner,  # Check for banners
-            ClassifyMain.finance_panel,  # Check finance panel (classify as knowledge)
-            ClassifyMain.map_result,  # Check for map results
-            ClassifyMain.general_questions,  # Check hybrid general questions
-            ClassifyMain.short_videos,  # Check short videos carousel
-            ClassifyMain.videos,  # Check video carousels (e.g. 'Trailers & clips')
-            ClassifyMain.knowledge_subcard,  # Catch other entity-panel subcards
-            ClassifyMain.twitter,  # Check twitter cards and results
-            ClassifyMain.flights,  # Check flights widgets
-            ClassifyMain.general,  # Check general components
-            ClassifyMain.people_also_ask,  # Check people also ask
-            ClassifyMain.knowledge_box,  # Check flights, maps, hotels, events, jobs
-            ClassifyMain.local_results,  # Check for local results
+            (ClassifyMain.locations, None),  # hotels, etc. (heading text)
+            (ClassifyMain.top_stories, lambda s: "g-scrolling-carousel" in s.names),
+            (ClassifyMain.discussions_and_forums, lambda s: "IFnjPb" in s.classes),
+            (ClassifyMainHeader.classify, None),  # levels 2 & 3 header text
+            (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
+            (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
+            (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
+            (ClassifyMain.ai_overview, lambda s: "Fzsovc" in s.classes or "h2" in s.names),
+            (ClassifyMain.available_on, None),  # span.mgAbYb or text fallback
+            (ClassifyMain.knowledge_panel, None),  # several selectors incl. aria-label
+            (ClassifyMain.knowledge_block, lambda s: "block-component" in s.names),
+            (ClassifyMain.banner, lambda s: "uzjuFc" in s.classes),
+            (
+                ClassifyMain.finance_panel,
+                lambda s: "knowledge-finance-wholepage__entity-summary" in s.ids,
+            ),
+            (ClassifyMain.map_result, lambda s: "lu_map_section" in s.classes),
+            (ClassifyMain.general_questions, lambda s: "ifM9O" in s.classes),
+            (ClassifyMain.short_videos, lambda s: "IFnjPb" in s.classes),
+            (ClassifyMain.videos, lambda s: bool(s.classes & _VIDEO_CLASSES)),
+            (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
+            (ClassifyMain.twitter, None),  # div.eejeod or "Twitter Results" text
+            (ClassifyMain.flights, None),  # heading text
+            (ClassifyMain.general, None),  # root class
+            (ClassifyMain.people_also_ask, None),  # root class
+            (ClassifyMain.knowledge_box, None),  # several attr/structural paths
+            (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
         ]
 
-        # Default unknown, exit on first successful classification
-        cmpt_type = "unknown"
-        for classifier in component_classifiers:
-            if cmpt_type != "unknown":
-                break
+        # Default unknown, exit on first successful classification.
+        for classifier, precondition in component_classifiers:
+            if precondition is not None and not precondition(signals):
+                continue
             cmpt_type = classifier(cmpt)
+            if cmpt_type != "unknown":
+                return cmpt_type
 
-        return cmpt_type
+        return "unknown"
 
     @staticmethod
     def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
@@ -219,9 +261,9 @@ class ClassifyMain:
         condition["locations"] = cmpt.find("div", {"class": "zd2Jbb"})
         condition["events"] = cmpt.find("g-card", {"class": "URhAHe"})
         condition["jobs"] = cmpt.find("g-card", {"class": "cvoI5e"})
-        text_list = list(cmpt.stripped_strings)
-        if text_list:
-            condition["covid_alert"] = text_list[0] == "COVID-19 alert"
+        first_text = next(iter(cmpt.stripped_strings), None)
+        if first_text is not None:
+            condition["covid_alert"] = first_text == "COVID-19 alert"
         for condition_type, conditions in condition.items():
             if conditions:
                 return condition_type
