@@ -276,3 +276,36 @@ The universal cost is bs4 `find`/`find_all` volume: ~1290 calls per parse (255k 
 - Biggest follow-on prize after 3a: the double-traversal between classify and parse
   (~42% combined), plus targeted `ExtractorMain.extract` hot spots (`is_valid` calls
   `c.text` and `c.find` per candidate component).
+
+### 2026-05-24 -- item 3a: classifier signal preconditions
+
+Added `_ComponentSignals` (one `descendants` walk -> sets of class names, ids, and
+tag names) and converted `ClassifyMain.classify` to a `(classifier, precondition)`
+chain. 14 of the 24 classifiers are gated on a **necessary** structural signal
+(e.g. top_stories needs `g-scrolling-carousel`, videos needs one of the VibNM-family
+classes, local_results needs Qq3Lb/VkpGBb); when the signal is absent the classifier
+is skipped without a full-subtree `find()`. The 10 text/heading/root-class
+classifiers (locations, header, available_on, knowledge_panel, twitter, flights,
+general, people_also_ask, knowledge_box) always run -- general results trigger them
+anyway, so a signal gate would not skip them. Dropped the inner-tag *presence map*
+idea from 017; this is the lighter "necessary signal" form.
+
+Because each precondition is a necessary condition, a skip can only short-circuit a
+guaranteed miss -- classification is unchanged.
+
+**Verification:** 66 snapshots green without updates (byte-identical classification),
+130 tests pass.
+
+**Benchmark:** the first run was discarded (inter-run spread 4.4 s from external
+machine load -- MAD/spread ~20x the clean floor). Clean re-run (`--iterations 8
+--runs 4`, spread 85 ms):
+
+| Metric | After item 5 | After item 3a | Delta |
+|---|---|---|---|
+| Per-SERP median | 111.2 ms | 104.4 ms | -6.1% |
+| Corpus total | 7559 ms | 7096 ms | -6.1% |
+
+Above the noise floor. Cumulative from baseline: corpus -30.9%, per-SERP median
+-22.2%. The reviewer's net-neutral worry did not materialize: classify is
+miss-dominated (each `find()` miss is a full subtree walk), so one signal walk plus
+set lookups beats ~14 miss-walks per component.
