@@ -339,3 +339,34 @@ for a separate follow-up.
 | Corpus total | 7096 ms | 6781 ms | -4.4% |
 
 Cumulative from baseline: corpus -34.0%, per-SERP median -27.4%.
+
+### 2026-05-24 -- item 8 (lazy import) + 6b/6c micro-fixes; 4c dropped (neutral)
+
+- **Item 8 (kept):** lazy `SearchEngine` via PEP 562 module `__getattr__` (caches the
+  resolved attr) + `__dir__` returning `__all__` + a `TYPE_CHECKING` import for static
+  analysis; removed the eager `from .searchers import SearchEngine`. Cold
+  `import WebSearcher` ~205 ms -> ~148 ms (~28%), and `undetected_chromedriver` is no
+  longer imported for parse-only consumers. Per-parse time is unaffected (a warm
+  benchmark already has imports loaded) -- this is a cold-start win, not a hot-path one.
+- **6b (kept):** `find_subcomponents` reuses `subs[0]` instead of a second
+  `cmpt.find("div", {"class": "g"})`, and the nested-`.g` check uses `find`
+  (short-circuit) rather than `find_all`.
+- **6c (kept):** `classify_ad_type` / `parse_ads` use `cmpt.find(...)` for existence
+  instead of `find_all_divs` (which materializes all matches and runs `get_text` on
+  each). Verified byte-identical on the ads fixtures.
+- **4c (dropped):** `lru_cache` on `get_domain` measured **neutral** -- flat vs
+  reverted (~6,950 ms both). `get_domain` is too small a cost to matter, and keyed by
+  the full URL the cache rarely repeats in real workloads. Per the measurement gate,
+  not worth the added state; reverted (including the `functools` import).
+
+**Methodology note (controlled A/B):** this batch first looked like a ~2.5%
+regression (6,958 ms vs the 6,781 ms recorded after item 4a). A back-to-back A/B in
+one machine state settled it: stash the changes and re-benchmark the committed
+post-4a code (`ef7d19f`) -> **6,983.8 ms**, then the working tree (+6b/6c/8) ->
+**6,958 ms**. So the post-4a code *itself* drifted from 6,781 to 6,984 ms with zero
+code change, and the micro-fixes are a hair faster than post-4a back-to-back. The
+"regression" was cross-session baseline drift (CPU frequency/thermal state), not the
+code. Lesson: only compare benchmarks captured back-to-back in one session; never
+diff against an absolute number from an earlier session.
+
+**Verification:** 251 tests pass, 66 snapshots green without updates.

@@ -33,7 +33,7 @@ AD_SUBTYPE_SELECTORS: dict[str, Selector] = {
 
 def classify_ad_type(cmpt: bs4.element.Tag) -> str:
     for label, sel in AD_SUBTYPE_SELECTORS.items():
-        if sel.name and find_all_divs(cmpt, sel.name, sel.attrs):
+        if sel.name and cmpt.find(sel.name, attrs=sel.attrs):
             return label
     return "unknown"
 
@@ -55,7 +55,7 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
     }
     parsed: list = []
     for label, sel in AD_SUBTYPE_SELECTORS.items():
-        if sel.name and find_all_divs(cmpt, sel.name, sel.attrs):
+        if sel.name and cmpt.find(sel.name, attrs=sel.attrs):
             parser = subtype_parsers.get(label)
             if parser:
                 parsed.extend(parser(cmpt))
