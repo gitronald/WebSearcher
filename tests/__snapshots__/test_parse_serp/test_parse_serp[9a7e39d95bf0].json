@@ -15,88 +15,131 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "Peekaboo Kidz|YouTube • May 13, 2015",
-            "url": "https://www.youtube.com/watch?v=D1Ymc311XS8&t=110"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "3",
+              "7",
+              "2",
+              "6"
+            ]
           },
           {
-            "text": "Light-Dependent Reactions",
-            "url": "https://www.google.com/search?q=Light-Dependent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAE"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "10"
+            ]
           },
           {
-            "text": "Light-Independent Reactions",
-            "url": "https://www.google.com/search?q=Light-Independent+Reactions&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAQ"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "11"
+            ]
           },
           {
-            "text": "Calvin Cycle",
-            "url": "https://www.google.com/search?q=Calvin+Cycle&sei=Nn6GacymI9G1vr0P5NCG-QU&ved=2ahUKEwjnooibh8aSAxUCKRAIHcliOF8QgK4QegYIAAgDEAU"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "9"
+            ]
           },
           {
-            "text": "",
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "8"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://education.nationalgeographic.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Geographic Society",
+            "snippet": "Most life on Earth depends on photosynthesis. The process is carried out by plants, algae, and some types of bacteria, which captu...",
+            "source_id": "7",
+            "title": "Photosynthesis - National Geographic Education",
             "url": "https://education.nationalgeographic.org/resource/photosynthesis/"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Photosynthesis involves plants using sunlight, water, and carbon dioxide to produce oxygen and simple sugars like glucose. The pro...",
+            "source_id": "6",
+            "title": "Photosynthesis (in detail)",
             "url": "https://www.youtube.com/watch?v=fTXh7A7Uc2M"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.life.illinois.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "UIUC Life Sciences",
+            "snippet": "Photosynthesis is the process by which plants use sunlight to make food and oxygen from carbon dioxide and water. The process occu...",
+            "source_id": "2",
+            "title": "Photosynthesis",
             "url": "https://www.life.illinois.edu/govindjee/page2.html#:~:text=Photosynthesis%20is%20the%20process%20by%20which%20plants,and%20NADP%20available%20to%20continue%20the%20process"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://en.wikipedia.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Wikipedia",
+            "snippet": "Photosynthesis (/ˌfoʊtəˈsɪnθəsɪs/ FOH-tə-SINTH-ə-sis) is a system of biological processes by which photopigment-bearing autotrophi...",
+            "source_id": "8",
+            "title": "Photosynthesis - Wikipedia",
             "url": "https://en.wikipedia.org/wiki/Photosynthesis"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.sciencefocus.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "BBC Science Focus Magazine",
+            "snippet": "Photosynthesis is the process by which plants, algae, and certain bacteria convert sunlight, water, and carbon dioxide into oxygen...",
+            "source_id": "3",
+            "title": "Photosynthesis: What is it and how does it work? - BBC Science Focus Magazine",
             "url": "https://www.sciencefocus.com/nature/how-does-photosynthesis-work"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.britannica.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Britannica",
+            "snippet": "What is the basic formula for photosynthesis? The process of photosynthesis is commonly written as: 6CO2 + 6H2O → C6H12O6 + 6O2. T...",
+            "source_id": "11",
+            "title": "Photosynthesis | Definition, Formula, Process, Diagram, Reactants, ...",
             "url": "https://www.britannica.com/science/photosynthesis"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.khanacademy.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Khan Academy",
+            "snippet": "Photosynthesis is essential for life on Earth. Photosynthesis involves two stages: the light-dependent reactions, which require su...",
+            "source_id": "10",
+            "title": "Photosynthesis (video) | Cellular energetics - Khan Academy",
             "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis#:~:text=Photosynthesis%20is%20essential%20for%20life%20on%20Earth.,to%20produce%20carbohydrates.%20Created%20by%20Sal%20Khan."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Photosynthesis is a process essential for life. Photosynthetic organisms are the primary food producers, and without photosynthesi...",
+            "source_id": "9",
+            "title": "What Is Photosynthesis? | Biology | FuseSchool",
             "url": "https://www.youtube.com/watch?v=CL9A8YhwUps"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.knowatom.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "KnowAtom",
+            "snippet": "Photosynthesis is the process of turning sunlight, carbon dioxide, and water into glucose and oxygen. All plants carry out photosy...",
+            "source_id": "1",
+            "title": "Exploring Photosynthesis in Forest Ecosystems | KnowAtom",
             "url": "https://www.knowatom.com/science-phenomena-videos/6th-grade-science/photosynthesis"
-          },
-          {
-            "text": "",
-            "url": "https://www.life.illinois.edu/govindjee/page2.html"
-          },
-          {
-            "text": "",
-            "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Photosynthesis is the essential biological process where plants, algae, and certain bacteria convert sunlight, water ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ), and carbon dioxide ( C O 2 cap C cap O sub 2 𝐶 𝑂 2 ) into oxygen ( O 2 cap O sub 2 𝑂 2 ) and energy-rich glucose ( C 6 H 12 O 6 cap C sub 6 cap H sub 12 cap O sub 6 𝐶 6 𝐻 1 2 𝑂 6 ). This process occurs inside plant cell organelles called chloroplasts, which contain the green pigment chlorophyll that captures light energy. This video provides a visual explanation of how plants create their own food through photosynthesis: 1m Peekaboo Kidz YouTube • May 13, 2015 How the Process Works Photosynthesis consists of two main stages: Light-Dependent Reactions (In the Thylakoid Membranes): Chlorophyll absorbs solar energy, which splits water molecules ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ) into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the energy is converted into chemical energy (ATP and NADPH). Light-Independent Reactions / Calvin Cycle (In the Stroma): This phase does not require direct light but uses the ATP and NADPH produced in the first stage. Through a series of chemical reactions, carbon dioxide ( C O 2 cap C cap O sub 2 𝐶 𝑂 2 ) is captured from the air and converted into glucose ( C 6 H 12 O 6 cap C sub 6 cap H sub 12 cap O sub 6 𝐶 6 𝐻 1 2 𝑂 6 ), which serves as food for the plant. Chemical Equation The overall process can be summarized by this formula: 6 C O 2 + 6 H 2 O + Light Energy → C 6 H 12 O 6 + 6 O 2 6 cap C cap O sub 2 plus 6 cap H sub 2 cap O plus Light Energy right arrow cap C sub 6 cap H sub 12 cap O sub 6 plus 6 cap O sub 2 6 𝐶 𝑂 2 + 6 𝐻 2 𝑂 + L i g h t E n e r g y → 𝐶 6 𝐻 1 2 𝑂 6 + 6 𝑂 2 (Six molecules of carbon dioxide and six of water, powered by light, create one glucose molecule and six oxygen molecules) . Key Components Chloroplasts & Chlorophyll: The site of the reaction, with pigments that primarily absorb blue and red light while reflecting green. Stomata: Small pores on leaves that allow C O 2 cap C cap O sub 2 𝐶 𝑂 2 to enter and O 2 cap O sub 2 𝑂 2 to exit. Roots: Absorb water ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ) from the soil, which is transported to the leaves. Photosynthesis is crucial for life on Earth as it provides the primary energy source for nearly all organisms and produces the oxygen in the atmosphere.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

@@ -15,120 +15,273 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": "Interactive Online Tutorials (No Installation Required)",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "W3Schools Python Tutorial",
-            "url": "https://www.w3schools.com/python/"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "2",
+              "9",
+              "41",
+              "40",
+              "80"
+            ]
+          }
+        ],
+        "sections": [
+          {
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": null,
+                "source_ids": [
+                  "27",
+                  "29",
+                  "45",
+                  "82"
+                ]
+              }
+            ],
+            "heading": "Interactive Online Tutorials (No Installation Required)",
+            "hyperlinks": [
+              {
+                "text": "W3Schools Python Tutorial",
+                "url": "https://www.w3schools.com/python/"
+              },
+              {
+                "text": "LearnPython.org",
+                "url": "https://www.learnpython.org/"
+              },
+              {
+                "text": "futurecoder",
+                "url": "https://futurecoder.io/"
+              }
+            ],
+            "text": "W3Schools Python Tutorial : This site is excellent for quick, bite-sized lessons and has a \"Try it Yourself\" editor that lets you run code directly in your browser. It's a great way to grasp basic syntax immediately. LearnPython.org : This website offers a free, interactive tutorial that covers the basics, data types, loops, functions, and more, allowing you to practice coding in the browser. futurecoder : A free, open-source, and highly interactive platform designed for complete beginners, featuring an integrated debugger, hints, and detailed error explanations as you learn."
           },
           {
-            "text": "LearnPython.org",
-            "url": "https://www.learnpython.org/"
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": null,
+                "source_ids": [
+                  "56",
+                  "28",
+                  "43"
+                ]
+              }
+            ],
+            "heading": "Comprehensive Courses and Guides",
+            "text": "Python for Everybody (Coursera/edX) : Taught by Dr. Charles Severance, this renowned, free online course (part of a specialization) is designed for those with no prior programming experience and is highly recommended by the community. Harvard CS50's Introduction to Programming with Python (CS50P) : A highly regarded, self-paced, free course from Harvard that is often cited as a game-changer for beginners. Microsoft Learn's \"Python for Beginners\" Series : A free, 44-part video series on YouTube by Microsoft experts, walking you through common coding scenarios."
           },
           {
-            "text": "futurecoder",
-            "url": "https://futurecoder.io/"
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": null,
+                "source_ids": [
+                  "16",
+                  "17",
+                  "38"
+                ]
+              }
+            ],
+            "heading": "Official Documentation and Supplemental Resources",
+            "hyperlinks": [
+              {
+                "text": "Official Python Beginner's Guide",
+                "url": "https://wiki.python.org/moin/BeginnersGuide"
+              }
+            ],
+            "text": "Official Python Beginner's Guide : The official Python website provides extensive documentation, download instructions, and links to various tutorials tailored for both non-programmers and experienced coders. Book: Automate the Boring Stuff with Python : This popular book by Al Sweigart teaches Python by focusing on practical projects, and a portion of the course material is often available for free."
           },
           {
-            "text": "Official Python Beginner's Guide",
-            "url": "https://wiki.python.org/moin/BeginnersGuide"
-          },
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": null,
+                "source_ids": [
+                  "54",
+                  "20",
+                  "89",
+                  "90"
+                ]
+              }
+            ],
+            "heading": "Getting Started Checklist",
+            "hyperlinks": [
+              {
+                "text": "python.org downloads page",
+                "url": "https://www.python.org/downloads/"
+              }
+            ],
+            "text": "Install Python 3: Download and install the latest version from the official python.org downloads page . Choose an Editor: For a simple start, you can use built-in IDLE (which comes with Python), or a beginner-friendly IDE like Thonny. More advanced options include VS Code or PyCharm Community Edition. Practice Consistently: The most important tip is to write code regularly. Don't just read or watch videos; actively type out code, experiment with it, and work on small projects to solidify your understanding."
+          }
+        ],
+        "sources": [
           {
-            "text": "python.org downloads page",
-            "url": "https://www.python.org/downloads/"
-          },
-          {
-            "text": "",
-            "url": "https://www.w3schools.com/python/#:~:text=Module%20Reference,What%20is%20this?"
-          },
-          {
-            "text": "",
-            "url": "https://www.forbes.com/advisor/education/it-and-tech/how-to-learn-python/#:~:text=Users%20can%20find%20stand%2Dalone,lessons%20at%20your%20own%20speed."
-          },
-          {
-            "text": "",
-            "url": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/#:~:text=Best%20resources%20to%20study%20Python,hattorihanzo14"
-          },
-          {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://wiki.python.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Python.org",
+            "snippet": "Getting Python. Next, install the Python 3 interpreter on your computer. This is the program that reads Python programs and carrie...",
+            "source_id": "16",
+            "title": "Beginner's Guide to Python",
             "url": "https://wiki.python.org/moin/BeginnersGuide#:~:text=Getting%20Python,list%20of%20Non%2DEnglish%20resources."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.w3schools.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "W3Schools",
+            "snippet": "Module Reference. Built-in Modules Random Module Requests Module Statistics Module Math Module cMath Module. Python How To. Remove...",
+            "source_id": "2",
+            "title": "Python Tutorial - W3Schools",
+            "url": "https://www.w3schools.com/python/#:~:text=Module%20Reference,What%20is%20this?"
+          },
+          {
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.forbes.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Forbes",
+            "snippet": "10 Free Online Python Resources * freeCodeCamp provides more than 3,000 hours of free coding training that includes Python lecture...",
+            "source_id": "45",
+            "title": "How To Learn Python For Free: 10 Online Resources - Forbes",
+            "url": "https://www.forbes.com/advisor/education/it-and-tech/how-to-learn-python/#:~:text=Users%20can%20find%20stand%2Dalone,lessons%20at%20your%20own%20speed."
+          },
+          {
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "* cjcs. • 3y ago. Ultimately the best resource is the one you stick with. It's tempting to jump around between courses, completing...",
+            "source_id": "38",
+            "title": "Best resources to study Python : r/learnpython - Reddit",
+            "url": "https://www.reddit.com/r/learnpython/comments/10k55u9/best_resources_to_study_python/#:~:text=Best%20resources%20to%20study%20Python,hattorihanzo14"
+          },
+          {
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Start one and if you don't like it, hop to another. * Ron-Erez. • 1y ago. Top 1% Commenter. Harvard CS50p is a gentle introduction...",
+            "source_id": "54",
+            "title": "Best beginners course for learning Python in 2025 - Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/1ilgq0w/best_beginners_course_for_learning_python_in_2025/#:~:text=Comments%20Section,OP%20%E2%80%A2%201y%20ago"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Freecodecamp have a huge youtube library and they also have an extensive programming and Web development course on their site. Ok-",
+            "source_id": "28",
+            "title": "Interactive (free) websites to learn python? - Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/1e4pvji/interactive_free_websites_to_learn_python/#:~:text=Freecodecamp%20have%20a%20huge%20youtube,Python%20syntax%20one%20(W3schools?)"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Here are some to get started: * Python Programming — provided by University of Helsinki. * Harvard CS50's Introduction to Programm...",
+            "source_id": "43",
+            "title": "Recommended free online Python courses : r/learnpython - Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/10rlgnu/recommended_free_online_python_courses/#:~:text=Exercises:,Codingame%2C%20Codecombat%20%E2%80%94%20gaming%20based%20challenges"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.learnpython.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Learn Python",
+            "snippet": "Learn Python - Free Interactive Python Tutorial. Get started learning Python with DataCamp's free Intro to Python tutorial. Learn ...",
+            "source_id": "27",
+            "title": "Learn Python - Free Interactive Python Tutorial",
             "url": "https://www.learnpython.org/#:~:text=Learn%20Python%20%2D%20Free%20Interactive%20Python,Printing%20on%20screen"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://futurecoder.io&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Futurecoder",
+            "snippet": "About. futurecoder is a free and open-source platform and course for complete beginners to teach themselves programming in Python.",
+            "source_id": "29",
+            "title": "futurecoder: learn python from scratch",
             "url": "https://futurecoder.io/#:~:text=About.%20futurecoder%20is%20a%20free%20and%20open%2Dsource,beginners%20to%20teach%20themselves%20programming%20in%20Python."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "The key is to stay consistent and not give up. Here are some steps to help you get started with python: Install Python: The first ...",
+            "source_id": "20",
+            "title": "How to start python for a complete noob? : r/learnpython - Reddit",
             "url": "https://www.reddit.com/r/learnpython/comments/18l6y75/how_to_start_python_for_a_complete_noob/#:~:text=The%20key%20is%20to%20stay,online%20or%20create%20your%20own."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.python.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Python.org",
+            "snippet": "Installing Python is generally easy, and nowadays many Linux and UNIX distributions include a recent Python. Even some Windows com...",
+            "source_id": "17",
+            "title": "Python For Beginners",
             "url": "https://www.python.org/about/gettingstarted/#:~:text=Installing%20Python%20is%20generally%20easy,dry)%20explanation%20of%20Python's%20syntax."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.coursereport.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Course Report",
+            "snippet": "SCHOOLS IN THIS ARTICLE * Pluralsight. 3.0. * Udacity. 4.7. * Dataquest. 4.79. * Udacity. 4.7. ... The 10 Best Python Tutorials fo...",
+            "source_id": "56",
+            "title": "The Best Python Tutorial for Beginners (Top 10 List) - Course Report",
             "url": "https://www.coursereport.com/blog/the-best-python-tutorial-for-beginners-top-10-list"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.ko2.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "KO2 Recruitment",
+            "snippet": "Python's syntax is a lot closer to English and so it is easier to read and write, making it the simplest type of code to learn how...",
+            "source_id": "9",
+            "title": "C++ vs Python - What You Need to Know | KO2 Recruitment",
             "url": "https://www.ko2.co.uk/c-plus-plus-vs-python/#:~:text=Python's%20syntax%20is%20a%20lot,to%20get%20to%20grips%20with."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://wiki.python.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Python.org",
+            "snippet": "* Coding Bootcamps (non-free) * DataCamp (non-free) * Dataquest for Python for data science. ( free) * Genepy interactive exercise...",
+            "source_id": "41",
+            "title": "Beginner's Guide to Python",
+            "url": "https://wiki.python.org/moin/BeginnersGuide"
+          },
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://wiki.python.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Python.org",
+            "snippet": "Interactive Courses * A beginner-friendly and free Python tutorial with interactive code examples, explaining the Python language ...",
+            "source_id": "40",
+            "title": "BeginnersGuide/NonProgrammers - Python Wiki",
             "url": "https://wiki.python.org/moin/BeginnersGuide/NonProgrammers#:~:text=Tutorials%20and%20Websites&text=Afternerd%2C%20by%20Karim%20Elghamrawy%2C%20is,/server%20introduction%2C%20with%20videos.&text=Letsfindcourse%20%2D%20Python:%20Best%20Python%20tutorials%20and%20courses%20recommended%20by%20experts.&text=Learn%20Python%20An%20Introductory%20yet,Questions%20and%20Answers%20with%20Examples."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://careerkarma.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Career Karma",
+            "snippet": "No, it ( Python programming language ) 's not hard to learn Python. This is a beginner-friendly programming language that was upgr...",
+            "source_id": "80",
+            "title": "How to Learn Python",
             "url": "https://careerkarma.com/blog/how-to-learn-python/#:~:text=No%2C%20it%20(%20Python%20programming%20language%20),for%20learning%20Python%20programming%2C%20even%20for%20free."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://kinsta.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Kinsta",
+            "snippet": "In addition, you can use their ( W3Schools ) editor — “Try it Yourself” — to edit Python code all by yourself and then view the re...",
+            "source_id": "82",
+            "title": "Best Way to Learn Python (Free and Paid Python Tutorials)",
             "url": "https://kinsta.com/blog/python-tutorials/#:~:text=In%20addition%2C%20you%20can%20use%20their%20(,by%20yourself%20and%20then%20view%20the%20results."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://realpython.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Real Python",
+            "snippet": "Python IDLE is Python's default integrated development environment (IDE) that comes bundled with every Python installation, allowi...",
+            "source_id": "89",
+            "title": "Getting Started With Python IDLE",
             "url": "https://realpython.com/python-idle/#:~:text=Python%20IDLE%20is%20Python's%20default%20integrated%20development,to%20write%2C%20edit%2C%20and%20execute%20Python%20code."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.facebook.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Facebook",
+            "snippet": "2. First Setup: Get Ready Install Python — Download and install it from python. org Get a Code Editor — VS Code is a great free op...",
+            "source_id": "90",
+            "title": "Resources for learning Python framework and usage",
             "url": "https://www.facebook.com/groups/selftaughtprogrammers/posts/919833915047010/"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": "Interactive Online Tutorials (No Installation Required)",
+      "sub_type": "sectioned",
+      "text": "There are many excellent, often free, resources available to start learning Python , which is a popular and beginner-friendly programming language. Here are some recommended tutorials and resources:",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

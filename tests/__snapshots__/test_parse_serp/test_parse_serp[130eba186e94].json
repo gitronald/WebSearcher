@@ -29,80 +29,119 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "AlphaFold2",
-            "url": "https://www.nature.com/articles/s41586-021-03819-2"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "3",
+              "8",
+              "15",
+              "13"
+            ]
           },
           {
-            "text": "RoseTTAFold",
-            "url": "https://www.science.org/doi/10.1126/science.abj8754"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "6",
+              "1",
+              "2",
+              "4"
+            ]
           },
           {
-            "text": "Quanta Magazine|YouTube • Feb 7, 2025",
-            "url": "https://www.youtube.com/shorts/6RSxZxiUix4"
-          },
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "7"
+            ]
+          }
+        ],
+        "sources": [
           {
-            "text": "MapDiff",
-            "url": "https://phys.org/news/2025-06-machine-method-accuracy-inverse-protein.html"
-          },
-          {
-            "text": "hybrid quantum algorithms like QFold",
-            "url": "https://ui.adsabs.harvard.edu/abs/2022APS..MARG38009C/abstract"
-          },
-          {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://pubmed.ncbi.nlm.nih.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Institutes of Health (NIH) | (.gov)",
+            "snippet": "Abstract. Machine learning has revolutionized protein structure prediction and design. This review discusses current methods for p...",
+            "source_id": "3",
+            "title": "Artificial intelligencemethods for protein folding and design - PubMed",
             "url": "https://pubmed.ncbi.nlm.nih.gov/40505455/#:~:text=Abstract,novel%20proteins%20for%20biotechnological%20applications."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://newsroom.uw.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "UW Medicine - Newsroom",
+            "snippet": "Recently, powerful machine learning algorithms including AlphaFold and RoseTTAFold have been trained to predict the detailed shape...",
+            "source_id": "15",
+            "title": "Beyond AlphaFold: AI excels at creating new proteins - UW Medicine",
             "url": "https://newsroom.uw.edu/news-releases/beyond-alphafold-ai-excels-creating-new-proteins#:~:text=Recently%2C%20powerful%20machine%20learning%20algorithms%20including%20AlphaFold,based%20solely%20on%20their%20amino%20acid%20sequences."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.quantamagazine.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Quanta Magazine",
+            "snippet": "That week, a relative newcomer to the protein science community named John Jumper had presented a new artificial intelligence tool...",
+            "source_id": "8",
+            "title": "How AI Revolutionized Protein Science, but Didn't End It",
             "url": "https://www.quantamagazine.org/how-ai-revolutionized-protein-science-but-didnt-end-it-20240626/#:~:text=That%20week%2C%20a%20relative%20newcomer,of%20people%20were%20in%20denial.%E2%80%9D"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://theconversation.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The Conversation",
+            "snippet": "Proteins are the molecular machines of life. They make up a significant portion of our bodies, including: * Muscles * Enzymes * Ho...",
+            "source_id": "13",
+            "title": "Machine learning cracked the protein-folding problem and won the 2024 Nobel Prize in chemistry",
             "url": "https://theconversation.com/machine-learning-cracked-the-protein-folding-problem-and-won-the-2024-nobel-prize-in-chemistry-240937#:~:text=Proteins%20are%20the%20molecular%20machines%20of%20life.,*%20Alzheimer's%20*%20Cystic%20fibrosis%20*%20Diabetes"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sciencedirect.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "ScienceDirect.com",
+            "snippet": "Many aspects of the study of protein folding and dynamics have been affected by the recent advances in machine learning. Methods f...",
+            "source_id": "2",
+            "title": "Machine learning for protein folding and dynamics - ScienceDirect",
             "url": "https://www.sciencedirect.com/science/article/pii/S0959440X19301447#:~:text=Many%20aspects%20of%20the%20study,become%20mainstream%20in%20protein%20simulation."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://pubmed.ncbi.nlm.nih.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Institutes of Health (NIH) | (.gov)",
+            "snippet": "Machine learning has had a significant impact on many aspects of protein folding and dynamics. Machine learning methods are used f...",
+            "source_id": "1",
+            "title": "Machine learning for protein folding and dynamics - PubMed",
             "url": "https://pubmed.ncbi.nlm.nih.gov/31881449/#:~:text=Machine%20learning%20has%20had%20a%20significant%20impact,folding%20and%20dynamics%20in%20the%20near%20future."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sciencedirect.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "ScienceDirect.com",
+            "snippet": "* Machine learning for protein structure prediction. Structure prediction consists in the inference of the folded structure of a p...",
+            "source_id": "4",
+            "title": "Machine learning for protein folding and dynamics - ScienceDirect",
             "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959440X19301447"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://phys.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Phys.org",
+            "snippet": "It also complements other recent advances, such as AlphaFold, which predicts a protein's 3D structure by reversing the approach, s...",
+            "source_id": "6",
+            "title": "Machine learning method improves accuracy of inverse protein ...",
             "url": "https://phys.org/news/2025-06-machine-method-accuracy-inverse-protein.html#:~:text=It%20also%20complements%20other%20recent,advancing%20next%2Dgeneration%20therapeutics.%22"
           },
           {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://ui.adsabs.harvard.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Harvard University",
+            "snippet": "QFold is a hybrid quantum algorithm that uses quantum walks and deep learning to predict the 3D structure of proteins. The algorit...",
+            "source_id": "7",
+            "title": "QFold: Quantum Walks and Deep Learning to Solve Protein Folding - ADS",
+            "url": "https://ui.adsabs.harvard.edu/abs/2022APS..MARG38009C/abstract"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Machine learning has revolutionized protein science by enabling, via tools like AlphaFold2 and RoseTTAFold , near-accurate prediction of 3D protein structures from amino acid sequences, solving a 50-year-old \"grand challenge\". These models, often leveraging evolutionary data, have transformed structural biology, drug design, and our understanding of protein function. This video explains how AI, specifically AlphaFold2, revolutionized protein structure prediction: 01:42 Quanta Magazine YouTube • Feb 7, 2025 Key aspects of machine learning in protein folding include: Structure Prediction: AlphaFold2, RoseTTAFold, and ESMFold predict 3D structures with high accuracy, often better than physical modeling alone. Protein Design: AI is used to create novel proteins (e.g., RFdiffusion, ProteinMPNN, MapDiff ) by designing sequences to adopt specific 3D shapes, accelerating therapeutic development. Force-field Design: Machine learning is improving the simulation of energy landscapes for protein folding/unfolding. Molecular Dynamics: ML helps analyze large simulation datasets and sample rare conformational changes, enhancing our understanding of dynamics. Inverse Folding: Tools like ProteinMPNN and ESM-IF, also known as design tools, reverse the process, finding amino acid sequences that fold into a desired structure. While these tools excel at prediction, they still grapple with the fundamental physics of protein folding. Continued advancements in ML, including hybrid quantum algorithms like QFold , promise to further enhance our ability to predict, simulate, and design proteins.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

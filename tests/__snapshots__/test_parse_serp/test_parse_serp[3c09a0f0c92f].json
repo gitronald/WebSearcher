@@ -15,100 +15,212 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "",
-            "url": "https://oversight.house.gov/release/hearing-wrap-up-americans-deserve-improved-vaccine-injury-and-compensation-systems/#:~:text=WASHINGTON%20%E2%80%94%20The%20Select%20Subcommittee%20on,a%20future%20public%20health%20crisis."
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "10",
+              "11",
+              "30",
+              "36",
+              "18",
+              "40"
+            ]
           },
           {
-            "text": "",
-            "url": "https://www.congress.gov/event/119th-congress/senate-event/337242#:~:text=Hearings%20to%20examine%20voices%20of,Congress.gov%20%7C%20Library%20of%20Congress"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "35",
+              "32",
+              "4"
+            ]
           },
           {
-            "text": "",
-            "url": "https://www.sciencedirect.com/science/article/pii/S0264410X22010283#:~:text=Pfizer%20and%20Moderna%20mRNA%20COVID%2D19%20vaccines%20were%20associated%20with,of%20serious%20COVID%2D19%20outcomes."
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "54",
+              "58",
+              "52",
+              "55",
+              "57"
+            ]
           },
           {
-            "text": "",
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "29",
+              "7",
+              "17"
+            ]
+          },
+          {
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "14"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.nejm.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "The New England Journal of Medicine",
+            "snippet": "Abstract * Background. Changes in the vaccine advisory process in the United States have disrupted immunization guidance, which re...",
+            "source_id": "10",
+            "title": "Updated Evidence for Covid-19, RSV, and Influenza Vaccines ...",
             "url": "https://www.nejm.org/doi/full/10.1056/NEJMsa2514268#:~:text=The%20RSVpreF%20vaccine%20was%20associated,and%20the%20Alumbra%20Innovations%20Foundation.)"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://publichealth.jhu.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Johns Hopkins Bloomberg School of Public Health",
+            "snippet": "Is this year's flu vaccine effective against the flu viruses circulating this year? Yes, this year's flu vaccine provides effectiv...",
+            "source_id": "17",
+            "title": "How Bad Will This Winter Be for Flu, COVID, RSV, and Measles?",
             "url": "https://publichealth.jhu.edu/2025/virus-transmission-trends-winter-2025-26#:~:text=Is%20this%20year's%20flu%20vaccine,%2Drelated%20hospitalizations%20this%20season.%E2%80%9D"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://oversight.house.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "House.gov",
+            "snippet": "WASHINGTON — The Select Subcommittee on the Coronavirus Pandemic held a hearing titled “Assessing America's Vaccine Safety Systems...",
+            "source_id": "52",
+            "title": "Hearing Wrap Up: Americans Deserve Improved Vaccine ...",
+            "url": "https://oversight.house.gov/release/hearing-wrap-up-americans-deserve-improved-vaccine-injury-and-compensation-systems/#:~:text=WASHINGTON%20%E2%80%94%20The%20Select%20Subcommittee%20on,a%20future%20public%20health%20crisis."
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.congress.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Congress.gov",
+            "snippet": "Table_title: Senate Committee Meeting Table_content: header: | Committee: | Senate Homeland Security and Governmental Affairs | ro...",
+            "source_id": "54",
+            "title": "Hearings to examine voices of the vaccine injured.",
+            "url": "https://www.congress.gov/event/119th-congress/senate-event/337242#:~:text=Hearings%20to%20examine%20voices%20of,Congress.gov%20%7C%20Library%20of%20Congress"
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.sciencedirect.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "ScienceDirect.com",
+            "snippet": "Results. Pfizer and Moderna mRNA COVID-19 vaccines were associated with an excess risk of serious adverse events of special intere...",
+            "source_id": "40",
+            "title": "Serious adverse events of special interest following mRNA ...",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0264410X22010283#:~:text=Pfizer%20and%20Moderna%20mRNA%20COVID%2D19%20vaccines%20were%20associated%20with,of%20serious%20COVID%2D19%20outcomes."
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.congress.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Congress.gov",
+            "snippet": "Dr. David Gortler is a pharmacist and pharmacologist who has experience as an investigational medicine scientist at Pfizer, as a p...",
+            "source_id": "55",
+            "title": "assessing america's vaccine safety systems part ii hearing",
             "url": "https://www.congress.gov/118/meeting/house/117004/documents/HHRG-118-VC00-Transcript-20240321.pdf"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.hrsa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Health Resources and Services Administration | HRSA (.gov)",
+            "snippet": "How does the VICP work? The National Vaccine Injury Compensation Program is a no-fault alternative to the traditional legal system...",
+            "source_id": "57",
+            "title": "National Vaccine Injury Compensation Program - HRSA",
             "url": "https://www.hrsa.gov/vaccine-compensation#:~:text=How%20does%20the%20VICP%20work,and%20individuals%20who%20are%20deceased."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.uchealth.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "UCHealth",
+            "snippet": "To answer some of your top questions about the 2025-2026 COVID-19 and flu vaccines, we consulted with infectious disease expert, D...",
+            "source_id": "14",
+            "title": "What you need to know about the 2025-26 COVID-19 vaccine ...",
             "url": "https://www.uchealth.org/today/everything-you-need-to-know-about-the-2025-26-covid-19-vaccine-and-flu-shots/#:~:text=To%20answer%20some%20of%20your,the%20late%20fall%20and%20winter."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.congress.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Congress.gov",
+            "snippet": "Hearings to examine science and Federal health agencies, focusing on Myocarditis and other events associated with the COVID-19 vac...",
+            "source_id": "58",
+            "title": "Senate Committee Meeting - Congress.gov",
             "url": "https://www.congress.gov/event/119th-congress/senate-event/336985#:~:text=Senate%20Event%20336985-,Hearings%20to%20examine%20science%20and%20Federal%20health%20agencies%2C%20focusing%20on,119th%20Congress%20(2025%2D2026)"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://biontechse.gcs-web.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "BioNTech",
+            "snippet": "In clinical studies, adverse reactions in participants 16 years of age and older included pain at the injection site (84.1%), fati...",
+            "source_id": "36",
+            "title": "Pfizer and BioNTech Publish Preclinical Data from ...",
             "url": "https://biontechse.gcs-web.com/news-releases/news-release-details/pfizer-and-biontech-publish-preclinical-data-investigational/#:~:text=In%20clinical%20studies%2C%20adverse%20reactions,to%20complete%20the%20vaccination%20series."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.cdc.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Centers for Disease Control and Prevention | CDC (.gov)",
+            "snippet": "Some of the observed symptoms and conditions may include insomnia, chronic pain and fatigue, dysautonomia (e.g., POTS), immune dys...",
+            "source_id": "18",
+            "title": "COVID-19 Vaccine Discussion Framing, 2025-2026 - CDC",
             "url": "https://www.cdc.gov/acip/downloads/slides-2025-09-18-19/10-levi-COVID-508.pdf"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.cidrap.umn.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "CIDRAP",
+            "snippet": "Current flu vaccine provides moderate protection against severe disease, interim analyses suggest * Two new analyses, one from Fra...",
+            "source_id": "11",
+            "title": "Current flu vaccine provides moderate protection against ...",
             "url": "https://www.cidrap.umn.edu/influenza-vaccines/current-flu-vaccine-provides-moderate-protection-against-severe-disease-interim#:~:text=Two%20new%20analyses%2C%20one%20from,in%20the%202024%E2%80%9325%20season."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://cardiovascularbusiness.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Cardiovascular Business",
+            "snippet": "Cardiologist Peter McCullough no stranger to the COVID-related controversy. McCullough has gained significant popularity since the...",
+            "source_id": "35",
+            "title": "Cardiologist’s false claims used to promote fake COVID-19 vaccine ...",
             "url": "https://cardiovascularbusiness.com/topics/clinical/covid-19/cardiologists-false-claims-used-promote-fake-covid-19-vaccine-recall-fact#:~:text=Cardiologist%20Peter%20McCullough%20no%20stranger,his%20claims%20as%20%22misleading.%22"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.cidrap.umn.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "CIDRAP",
+            "snippet": "Major themes were disputing COVID-19 vaccine safety and effectiveness, promoting non–evidence-based medical treatments or those la...",
+            "source_id": "29",
+            "title": "Report spotlights 52 US doctors who posted potentially ...",
             "url": "https://www.cidrap.umn.edu/covid-19/report-spotlights-52-us-doctors-who-posted-potentially-harmful-covid-misinformation-online#:~:text=Major%20themes%20were%20disputing%20COVID,inflammation%20of%20the%20heart%20muscle)."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.healthychildren.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "HealthyChildren.org",
+            "snippet": "Research continues to confirm that vaccines are safe and effective—and they protect children and teens from serious diseases.",
+            "source_id": "7",
+            "title": "Vaccine Safety: Examine the Evidence - HealthyChildren.org",
             "url": "https://www.healthychildren.org/English/safety-prevention/immunizations/Pages/vaccine-studies-examine-the-evidence.aspx#:~:text=Research%20continues%20to%20confirm%20that,and%20teens%20from%20serious%20diseases."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "and what people are denying. they're not denying the potential effectiveness of vaccines i I think most of us think yeah they prob...",
+            "source_id": "30",
+            "title": "'Vaccine Didn't End Covid...': Dr Toby Rogers' EXPLOSIVE ...",
             "url": "https://www.youtube.com/watch?v=aafUmBFS42Q"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.nbcnews.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NBC News",
+            "snippet": "Unless state medical boards begin to hold these physicians accountable, the trust of the entire medical profession is in jeopardy.",
+            "source_id": "32",
+            "title": "Covid vaccine and treatment misinformation is medical ...",
             "url": "https://www.nbcnews.com/think/opinion/covid-vaccine-treatment-misinformation-medical-malpractice-it-should-be-punished-ncna1287180#:~:text=But%20a%20vocal%20minority%20of,to%20hold%20these%20doctors%20accountable."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "here our hearing was actively suppressed scrubbed off YouTube. so just just so just so just to clarify. not only were your viewpoi...",
+            "source_id": "4",
+            "title": "LIVE: 'COVID Vaccines caused 74% deaths': Dr. McCullough's ...",
             "url": "https://www.youtube.com/watch?v=oZ1hgVNRMmE"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "Based on recent reports, congressional testimony, and medical updates, the landscape surrounding COVID-19 and influenza vaccines in late 2025 and early 2026 continues to be polarized, featuring both high vaccination effectiveness data and ongoing concerns regarding rare side effects and, in some circles, allegations of cover-ups. Medical Evidence, Safety, and Ingredients (2025-2026) Effectiveness: Updated 2025-2026 COVID-19 mRNA vaccines for the KP.2 subvariant showed 68% effectiveness against hospitalization, while influenza vaccines provided moderate protection, with effectiveness higher in children (57.2%) than in older adults (25.3%–27.7%). Safety Profile: Major, peer-reviewed evidence continues to support the safety of vaccines, though rare risks like myocarditis (1.3 to 3.1 per 100,000 doses in male adolescents) are documented. Ingredients/Mechanism: mRNA vaccines (Pfizer/Moderna) utilize modified mRNA to instruct cells to produce a spike protein, triggering an immune response. Concerns/Injuries: Some studies have suggested that spike proteins or lipid nanoparticles might persist in the body, potentially contributing to rare \"post-vaccine syndrome\" (PVS). Data indicates serious adverse events of special interest, such as clotting issues, were higher in mRNA groups than placebo in initial trials. Pregnancy/Safety: Data on COVID-19 vaccine safety in pregnancy has been described as insufficient in some clinical trials, though public health guidance generally recommends them. Doctor Interviews, Truth, and \"Coverup\" Allegations Divergent Views: A vocal minority of doctors, such as Dr. Peter McCullough, have claimed that federal agencies, such as the CDC, purposefully concealed vaccine risks or withheld early treatments, a stance frequently labeled as misleading by major medical institutions. \"Disinformation\" Doctors: Conversely, reports have identified a \"cottage industry\" of doctors spreading unproven treatments (e.g., ivermectin) and misinformation about vaccine ingredients, often using their professional status to build social media followings. Suppression Claims: Some medical professionals have testified in Senate hearings that their findings regarding vaccine injuries were actively suppressed or dismissed as conspiracy theories. Congress, Trials, and Investigations Congressional Hearings: The 119th Congress (2025-2026) has continued to hold hearings investigating the \"voices of the vaccine injured,\" focusing on myocarditis, and reviewing the adequacy of CDC/FDA safety surveillance systems. Safety Systems: Testimony has suggested deficiencies in vaccine safety reporting (VAERS), with some witnesses arguing that systems were not designed to adequately track long-term adverse events. Liability: The National Vaccine Injury Compensation Program (VICP) is the established venue for injury claims, designed as a no-fault alternative to civil litigation. Influencer vs. Expert Narratives Vaccine Skepticism: Anti-vax influencers and alternative media figures frequently highlight individual anecdotes of injury to argue that the vaccines are unsafe, often focusing on the speed of development. Pro-Vaccine Stance: Health agencies (CDC) and major medical institutions maintain that vaccines are the most effective tool for preventing death and severe disease, stating that the benefits far outweigh the risks. Global Regime and Future Plan (USA) Ongoing Vaccination: The 2025-2026 strategy in the USA, in line with international bodies, continues to encourage annual, updated boosters for influenza and COVID-19 to manage seasonal surges. Policy Shifts: Changes in the vaccine advisory process in the U.S. have led to calls for more independent evidence reviews regarding future vaccine requirements. Disclaimer: Medical information changes rapidly. This summary reflects data reported up to early 2026. Always consult a licensed healthcare provider for personal medical advice.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

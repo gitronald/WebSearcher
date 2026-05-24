@@ -15,76 +15,131 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "Dad Advice From Bo|YouTube • Jul 6, 2023",
-            "url": "https://www.youtube.com/shorts/bInihYJPtEU"
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "1",
+              "5",
+              "2",
+              "6",
+              "8",
+              "3",
+              "10",
+              "13"
+            ]
           },
           {
-            "text": "",
+            "additional_count": 0,
+            "publisher": null,
+            "source_ids": [
+              "7",
+              "12",
+              "11"
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "but if it's too tough you can angle it and get the leverage that you'll need to lower the jack or to raise the jack. turn the jack...",
+            "source_id": "3",
+            "title": "How to Change a Tire | Change a flat car tire step by step - YouTube",
             "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "1. Make Sure Car is on Flat Surface. Make sure car is on a level surface in a safe location to change a tire. ! Engage your E-Brak...",
+            "source_id": "1",
+            "title": "How To Change A Car Tire : r/selfreliance - Reddit",
             "url": "https://www.reddit.com/r/selfreliance/comments/iuliat/how_to_change_a_car_tire/"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "and keep them in a safe place pull the flat tire off and replace it with your spare. likely it will be a smaller temporary tire or...",
+            "source_id": "13",
+            "title": "How to Change a Tire: A Step-by-Step Guide— Cars.com",
             "url": "https://www.youtube.com/watch?v=QjZ5ohr7sGA"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "everybody should know how to change a tire i'm going to show you how just check your owner's manual for the location of your tools...",
+            "source_id": "2",
+            "title": "How to change a tire in 60 seconds - YouTube",
+            "url": "https://www.youtube.com/shorts/bInihYJPtEU"
+          },
+          {
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Reddit",
+            "snippet": "Comments Section * Apply parking brake. * Loosen bolts on tire before jacking up. * Locate jack and lift points. Newer model cars ...",
+            "source_id": "10",
+            "title": "EMSK: How to change a flat tire!! : r/everymanshouldknow - Reddit",
             "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Jack Up the Car: Position the jack on a sturdy, manufacturer-recommended contact point (often a reinforced metal lip along the und...",
+            "source_id": "8",
+            "title": "How to Change a Tire - YouTube",
             "url": "https://www.youtube.com/watch?v=A_SMlicOjxI"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.lesschwab.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Les Schwab",
+            "snippet": "Jump to Section: Find a Safe Location. Park, Set Parking Brake, and Turn on Hazards. Confirm You Have the Correct Tools. Jack the ...",
+            "source_id": "5",
+            "title": "How To Change a Tire | Les Schwab",
             "url": "https://www.lesschwab.com/article/tires/how-to-change-a-tire.html"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://africa.michelin.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Michelin Tyres Africa",
+            "snippet": "Here are some tips for changing a car tire: * Loosen the lug nuts * Lift the car until the wheel is off the ground * Remove the lu...",
+            "source_id": "6",
+            "title": "Learn How to Change a Car Tire | Michelin",
             "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire#:~:text=Here%20are%20some%20tips%20for%20changing%20a,out%20your%20owner's%20manual%20for%20more%20information."
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.michelinman.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Michelin Tires",
+            "snippet": "Here are some tips for changing a Michelin tire: * **Changing the tire** * Move to the side of the road and put on your hazard lig...",
+            "source_id": "12",
+            "title": "How to Change a Car Tire?| Michelin USA",
             "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.truecar.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "TrueCar",
+            "snippet": "Here are 10 steps for changing a tire: 1. **Prepare the vehicle** * Park on a level surface * Apply the emergency brake * Put the ...",
+            "source_id": "11",
+            "title": "How to Change a Tire in 10 Easy Steps (VIDEO) - TrueCar Blog",
             "url": "https://www.truecar.com/blog/change-tire-10-easy-steps/"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.pitstoparabia.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "PitStopArabia",
+            "snippet": "Here are some steps for changing a car tire: 1. Find a safe and flat place to park your car. 2. Apply the handbrake and put the ca...",
+            "source_id": "7",
+            "title": "How to Change Car Tire: Complete Guide",
             "url": "https://www.pitstoparabia.com/en/news/how-to-change-car-tyres"
-          },
-          {
-            "text": "",
-            "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire"
-          },
-          {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
-          },
-          {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy?hl=en"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "ai_overview",
-      "text": null,
+      "sub_type": "flat",
+      "text": "To change a flat tire, securely park on a flat surface, turn on hazard lights, and apply the parking brake. Loosen the lug nuts slightly, jack up the vehicle, remove the lug nuts and flat tire, then mount the spare. Tighten the lug nuts in a star pattern, lower the car, and tighten again . This video provides a quick overview of the tire changing process: 01:01 Dad Advice From Bo YouTube • Jul 6, 2023 Step-by-Step Instructions: Safety First: Park on level ground, turn on hazards, and engage the parking brake. If available, use wheel chocks on the opposite corner of the flat tire to prevent rolling. Gather Tools: Retrieve the spare tire, lug wrench, and jack. Loosen Lug Nuts: Using the lug wrench, turn the lug nuts counter-clockwise about a quarter-turn to break them loose, but do not remove them yet . Jack Up the Car: Place the jack under the vehicle's designated frame jack point (check your owner's manual) and lift until the tire is a few inches off the ground. Remove Flat Tire: Remove the loosened lug nuts completely, pull the flat tire off, and place it under the car as a safety precaution. Mount Spare Tire: Align the spare tire with the lug bolts and push it into place. Hand-Tighten Lug Nuts: Replace the lug nuts and tighten them by hand in a star/crisscross pattern. Lower the Vehicle: Lower the jack until the spare tire touches the ground and supports some weight, but not the full weight of the car. Fully Tighten Lug Nuts: Use the wrench to firmly tighten the lug nuts in a star pattern to ensure even pressure. Lower Completely: Lower the vehicle fully to the ground and remove the jack. Secure Equipment: Store the flat tire and tools, ensuring the jack and wrench are secured. Important Tips: Safety Warning: Never put any part of your body under the vehicle while it is supported only by the jack. Spare Tire Limits: Compact \"donut\" spares are not designed for high speeds or long distances; check the sidewall for speed limitations (usually 50 mph or 80 kph). Check Pressure: Ensure the spare tire is properly inflated.",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

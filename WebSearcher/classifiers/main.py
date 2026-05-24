@@ -183,13 +183,20 @@ class ClassifyMain:
 
     @staticmethod
     def ai_overview(cmpt: bs4.element.Tag) -> str:
-        """Classify AI Overview components"""
+        """Classify AI Overview components.
+
+        Skip the sibling "Related Links" expansion that also contains a
+        ``Fzsovc`` div — that surface is a different component (extended
+        sources and follow-up sections) and is not parsed here.
+        """
         h2 = cmpt.find("h2")
+        if h2 is not None and h2.get_text(strip=True) == "Related Links":
+            return "unknown"
         conditions = [
             cmpt.find("div", {"class": "Fzsovc"}),
             h2 is not None and h2.get_text(strip=True) == "AI Overview",
         ]
-        return "knowledge" if any(conditions) else "unknown"
+        return "ai_overview" if any(conditions) else "unknown"
 
     @staticmethod
     def knowledge_block(cmpt: bs4.element.Tag) -> str:
