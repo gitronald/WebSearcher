@@ -2,8 +2,8 @@ import re
 
 from bs4 import BeautifulSoup
 
-from . import utils
-from .models.features import SERPFeatures
+from .. import utils
+from ..models.features import SERPFeatures
 
 
 class FeatureExtractor:

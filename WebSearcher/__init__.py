@@ -2,7 +2,7 @@ __version__ = "0.8.2a0"
 
 from .classifiers import ClassifyFooter, ClassifyMain
 from .extractors import Extractor
-from .feature_extractor import FeatureExtractor
+from .extractors.extractor_serp_features import FeatureExtractor
 from .locations import download_locations
 from .parsers import parse_serp
 from .searchers import SearchEngine

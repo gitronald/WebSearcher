@@ -1,6 +1,6 @@
 """Tests for SERP feature extraction"""
 
-from WebSearcher.feature_extractor import FeatureExtractor
+from WebSearcher.extractors.extractor_serp_features import FeatureExtractor
 
 
 def make_html(body="", lang="en"):
