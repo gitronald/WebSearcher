@@ -10,6 +10,9 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.8.2`: Parse pipeline optimization — ~24% faster per-SERP `parse_serp` (dropped whole-document `str(soup)`, classifier signal preconditions, lazy `SearchEngine` import); fixed the dormant `is_valid` hidden-survey filter
+- `0.8.1`: Breaking — `ai_overview` promoted to a top-level component type with a section-aware parser, restructured `details.sources`, and section/lede `citations`; security and dependency bumps
+- `0.8.0`: Added `jobs`, `flights`, `videos`, and `knowledge_subcard` parsers/classifiers; expanded `local_results` details; modernized `available_on`, `perspectives`, `searches_related`, and rating-widget selectors; added inspection scripts
 - `0.7.1`: Added component type registry and pyrefly type checking; refreshed CI/tooling (lint, format, type-check, tag-based publish); bumped Python floor to 3.12
 - `0.7.0`: Breaking changes, standardized data models on Pydantic, typed `details` field, and removed `DetailsItem`/`DetailsList`
 

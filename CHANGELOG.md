@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.2] - 2026-05-24
+
 - Reduced per-SERP `parse_serp` time ~24% (134 -> 102 ms over the fixture corpus) by replacing whole-document `str(soup)` re-serialization in feature extraction with structural lookups, gating the classifier chain on structural-signal preconditions, and trimming extraction-phase text and subtree walks
 - Lazy-loaded `SearchEngine` so `import WebSearcher` no longer imports Selenium / undetected-chromedriver for parse-only use (~28% faster cold import); `WebSearcher.SearchEngine` still resolves on access
 - Moved the feature extractor module to `WebSearcher.extractors.extractor_serp_features` (the public `WebSearcher.FeatureExtractor` is unchanged)
