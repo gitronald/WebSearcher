@@ -1,10 +1,20 @@
 ---
-status: proposed
-branch: claude/optimization-plan-xPp3P
+status: abandoned
+branch: feature/parse-pipeline-optimization
 created: 2026-05-10T16:36:46+00:00
+completed: 2026-05-24T10:57:35-07:00
+pr:
 ---
 
 # Parse Pipeline Optimization
+
+> **Superseded by [plan 023](023-parse-pipeline-optimization-revised.md).** This
+> catalogue was never implemented. A four-lens expert review (2026-05-24) found
+> the priorities were set by intuition without profiling, a few items would
+> silently change output, and several were already implemented or are
+> measurement-noise. Plan 023 carries the corrected, profiling-first approach and
+> the per-item dispositions; the detailed candidate-change catalogue below is
+> retained for reference.
 
 Reduce per-SERP parse cost without changing public API surface (`parse_serp`,
 `SearchEngine`, `Extractor`, `ClassifyMain`, `ClassifyFooter`,

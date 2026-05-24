@@ -1,6 +1,6 @@
 """Tests for SERP feature extraction"""
 
-from WebSearcher.feature_extractor import FeatureExtractor
+from WebSearcher.extractors.extractor_serp_features import FeatureExtractor
 
 
 def make_html(body="", lang="en"):
@@ -153,6 +153,70 @@ def test_extract_from_soup():
     features = FeatureExtractor.extract_features(soup)
     assert features.result_estimate_count == 99
     assert features.result_estimate_time == 0.3
+
+
+# BeautifulSoup input -- soup-path parity (no str(soup)) -----------------------
+
+
+def make_soup(body="", lang="en"):
+    from bs4 import BeautifulSoup
+
+    return BeautifulSoup(make_html(body, lang), "lxml")
+
+
+def test_soup_language():
+    features = FeatureExtractor.extract_features(make_soup("<p>hola</p>", lang="es"))
+    assert features.language == "es"
+
+
+def test_soup_no_results_notice():
+    features = FeatureExtractor.extract_features(
+        make_soup("Your search - <b>asdfqwerty</b> - did not match any documents.")
+    )
+    assert features.notice_no_results is True
+
+
+def test_soup_shortened_query_notice():
+    features = FeatureExtractor.extract_features(
+        make_soup("(and any subsequent words) was ignored because we limit queries to 32 words.")
+    )
+    assert features.notice_shortened_query is True
+
+
+def test_soup_server_error_notice():
+    features = FeatureExtractor.extract_features(
+        make_soup(
+            "We're sorry but it appears that there has been an internal server error "
+            "while processing your request."
+        )
+    )
+    assert features.notice_server_error is True
+
+
+def test_soup_infinity_scroll():
+    features = FeatureExtractor.extract_features(
+        make_soup('<span class="RVQdVd">More results</span>')
+    )
+    assert features.infinity_scroll is True
+
+
+def test_soup_infinity_scroll_extra_attrs_not_matched():
+    # Exact-substring parity with the old str(soup) check: extra attributes on the
+    # span break the literal match, so infinity_scroll stays False.
+    features = FeatureExtractor.extract_features(
+        make_soup('<span class="RVQdVd" data-x="y">More results</span>')
+    )
+    assert features.infinity_scroll is False
+
+
+def test_soup_clean_page_no_features():
+    features = FeatureExtractor.extract_features(make_soup("<div>clean page</div>"))
+    assert features.notice_no_results is False
+    assert features.notice_shortened_query is False
+    assert features.notice_server_error is False
+    assert features.infinity_scroll is False
+    assert features.overlay_precise_location is False
+    assert features.captcha is False
 
 
 # model_dump -------------------------------------------------------------------

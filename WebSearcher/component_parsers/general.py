@@ -21,8 +21,8 @@ def find_subcomponents(cmpt: bs4.element.Tag) -> list:
     # Standard format
     subs = cmpt.find_all("div", {"class": "g"})
     if subs:
-        parent_g = cmpt.find("div", {"class": "g"})
-        if parent_g and parent_g.find_all("div", {"class": "g"}):
+        parent_g = subs[0]  # first .g in document order (== cmpt.find("div", {"class": "g"}))
+        if parent_g.find("div", {"class": "g"}):
             return [parent_g]  # Nested .g dedup
         return subs
 
