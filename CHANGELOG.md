@@ -7,11 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.1] - 2026-05-24
+
 - **Breaking:** `ai_overview` is now a top-level component `type` (was `knowledge.sub_type=ai_overview`); new section-aware parser with `details.type="ai_overview"`, `details.sections`, and `details.sources` (publisher-labeled)
 - **Breaking:** `ai_overview` `details.sources[*]` shape replaced: `{url, text}` -> `{source_id, url, title, snippet, publisher, favicon}`; `text` (publisher label) is renamed to `publisher`, and `title`/`snippet`/`favicon`/`source_id` are added from the inline payload data
 - Added `citations` arrays to `ai_overview` `details.sections[*]` and `details` (lede-level): each entry is `{publisher, additional_count, source_ids}`, sourced from `button.rBl3me` widgets plus their backing payload data
 - Added classifier guard so the "Related Links" sibling no longer matches `ai_overview`
 - Fixed `Publisher +N` button labels leaking into `ai_overview` section text (buttons are now decomposed before text extraction)
+
+## [0.8.0] - 2026-05-10
+
+- Added `jobs` and `flights` parsers (`flights` previously emitted a "not implemented" placeholder)
+- Added `videos` classifier and a `trailers-and-clips` sub_type
+- Added `knowledge_subcard` classifier for entity-panel sections
+- Updated `parse_ads` to capture mixed ad layouts; added ad regression fixtures
+- Expanded `local_results` details with rating, price, category, address, phone, hours, and review snippet
+- Captured modern `perspectives` items, including embedded tweets, via a `role=listitem` fallback
+- Updated `available_on` parser and classifier for the current Google layout
+- Added current-layout selectors to `searches_related` so related terms are extracted again
+- Captured the modern rating widget and unblocked submenu detection in the `general` parser
+- Updated knowledge-panel extraction and normalized text whitespace
+- Dropped empty `video` details when both source and duration are null
+- Added `scripts/show_parsed.py` (parsed-results table) and `scripts/show_serp.py` (serve saved SERP HTML locally, with `--raw`)
+- Added project `CLAUDE.md` with inspection-script references and parser conventions
+- Narrowed `Tag` types and standardized imports, `Selector` usage, and docstrings across the component parsers
 
 ## [0.7.1] - 2026-05-03
 
