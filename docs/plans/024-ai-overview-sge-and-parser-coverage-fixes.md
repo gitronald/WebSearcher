@@ -351,6 +351,18 @@ green (267 passed, 66 snapshots). Confirmed no current-DOM regression: all 108
 0 corpus SERPs reach the legacy branch (every `ai_overview` row co-occurs with
 `mZJni`).
 
+**Follow-up — record the "Google declined" state.** A detected-but-empty AIO
+was indistinguishable from a parser miss (both `text=null`, `details=null`).
+Added a `sub_type="unavailable"` for AIOs that extract no content *and* carry the
+decline message ("An AI Overview is not available for this search"). The decline
+message is shipped hidden on *every* AIO page, so it is only consulted when no
+content was extracted — content-bearing overviews never reach the check. Applies
+uniformly to both current-DOM and legacy paths (`_is_unavailable`). Empties with
+no decline marker stay `flat` (possible miss bucket). Verified: legacy failures
++ the two current-DOM empties in demo (`golden retriever puppies`, `restaurants
+near austin tx`) now report `unavailable`; 0 snapshot fixtures change. Test
+extended to assert the new sub_type.
+
 ### Phase 2 — recipes parser: done
 
 `recipes` was a registered `main`-section type with no entry in `PARSERS`, so

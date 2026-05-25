@@ -6,6 +6,10 @@ top of a SERP. It comes in two layouts:
 - ``flat`` — a single answer block (intro paragraph + optional bullet list)
 - ``sectioned`` — an intro lede followed by N section subheadings (each with its
   own bullet list and optional inline links)
+- ``unavailable`` — the component was detected but Google declined to synthesize
+  an overview ("An AI Overview is not available for this search"). No body or
+  sources; recorded explicitly so a decline is distinguishable from a parser
+  miss (which stays ``flat`` with empty output).
 
 Both layouts share a "Sources" tray at the bottom that lists the publishers the
 overview drew from. Per-section ``button.rBl3me`` widgets carry citation
@@ -65,12 +69,33 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
         details["sources"] = sources
 
     parsed["details"] = details if len(details) > 1 else None
+
+    # Distinguish a genuine "Google declined to generate" panel from a parser
+    # miss: both otherwise yield empty output. The decline message is shipped
+    # (hidden) on every AI-overview page, so it is only meaningful when no
+    # content was extracted.
+    if parsed["text"] is None and parsed["details"] is None and _is_unavailable(cmpt):
+        parsed["sub_type"] = "unavailable"
+
     return [parsed]
 
 
 _BODY_PARA_CLASS = "Y3BBE"
 _BODY_HEADING_CLASS = "otQkpb"
 _LIST_CLASSES = ("KsbFXc", "IaGLZe")
+
+# Messages shown when Google declines to synthesize an overview. Both are
+# present (hidden) on every AI-overview page, so they only carry meaning when
+# no overview content was extracted. The second is apostrophe-agnostic.
+_UNAVAILABLE_MARKERS = (
+    "An AI Overview is not available for this search",
+    "generate an AI overview right now",
+)
+
+
+def _is_unavailable(cmpt: bs4.element.Tag) -> bool:
+    text = cmpt.get_text(" ", strip=True)
+    return any(marker in text for marker in _UNAVAILABLE_MARKERS)
 
 
 def _root_html(cmpt: bs4.element.Tag) -> str:
