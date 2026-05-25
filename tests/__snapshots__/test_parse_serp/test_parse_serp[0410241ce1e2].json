@@ -304,16 +304,24 @@
     {
       "cite": null,
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "items": [
+          "Purpose",
+          "Calories",
+          "When to use",
+          "Benefits"
+        ],
+        "type": "panel"
+      },
       "error": null,
       "section": "rhs",
       "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "panel_rhs",
-      "text": "",
-      "title": "",
+      "text": null,
+      "title": "Things to know",
       "type": "knowledge",
-      "url": ""
+      "url": null
     }
   ]
 }

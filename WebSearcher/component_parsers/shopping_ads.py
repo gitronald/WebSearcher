@@ -14,9 +14,14 @@ def parse_shopping_ads(cmpt: bs4.element.Tag) -> list:
     if cards:
         return [_parse_sponsored_hotel(card, i) for i, card in enumerate(cards)]
 
-    # Standard product listing ads (pla-unit)
+    # Standard product listing ads (legacy mnr-c pla-unit wrapper)
     subs = cmpt.find_all("div", {"class": "mnr-c pla-unit"})
-    return [_parse_pla_unit(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+    if subs:
+        return [_parse_pla_unit(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+
+    # Modern PLA: each product is a clickable-card anchor (no mnr-c wrapper).
+    cards = cmpt.find_all("a", {"class": "clickable-card"})
+    return [_parse_pla_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
 def _parse_pla_unit(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
@@ -26,6 +31,49 @@ def _parse_pla_unit(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         parsed["url"] = card["href"]
         parsed["title"] = card["aria-label"]
     return parsed
+
+
+def _parse_pla_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+    """Parse a modern product-listing-ad card (``a.clickable-card``).
+
+    Title comes from the card's ``aria-label`` (full product name) with the
+    truncated ``span.pymv4e`` as fallback; price/source/review count are read
+    from the surrounding ``div.pla-unit`` into a ``ratings`` details block.
+    """
+    unit = card.find_parent("div", {"class": "pla-unit"}) or card
+
+    title = card.get("aria-label") or _card_text(unit, "span", "pymv4e")
+    parsed: dict = {
+        "type": "shopping_ads",
+        "sub_type": "product",
+        "sub_rank": sub_rank,
+        "title": title or None,
+        "url": card.get("href"),
+        "text": None,
+        "cite": None,
+    }
+
+    details: dict = {"type": "ratings"}
+    price = _card_text(unit, "span", "e10twf")
+    if price:
+        details["price"] = price
+    source = _card_text(unit, "span", "zPEcBd")
+    if source:
+        details["source"] = source
+    n_reviews = _card_text(unit, "span", "pbAs0b")
+    if n_reviews:
+        details["n_reviews"] = n_reviews.strip("()")
+
+    parsed["details"] = details if len(details) > 1 else None
+    return parsed
+
+
+def _card_text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
+    el = node.find(tag, {"class": class_})
+    if el is None:
+        return None
+    text = el.get_text(" ", strip=True)
+    return text or None
 
 
 def _parse_sponsored_hotel(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
