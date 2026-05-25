@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Trimmed the published source distribution (`sdist`) from ~24MB to ~100KB by restricting it to the package, `scripts/`, and metadata (excluding `docs/`, `tests/` fixtures, and dev config); the installed wheel was already package-only, so this affects only the PyPI source archive (no runtime or `pip install` change)
+
 ## [0.8.4] - 2026-05-25
 
 - Added a `products` component type (sub_types `grid` and `brands`) for organic shopping packs that previously slipped into `general` and emitted hollow "no title or url" rows; modern (`apg-product-result`) and older (`product-viewer-group` + `g-inner-card`) product grids now yield title, store, and a `ratings` details block, and "Explore brands" carousels yield brand title, merchant url, and store rating
