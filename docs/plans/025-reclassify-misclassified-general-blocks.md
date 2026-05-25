@@ -156,6 +156,21 @@ Changes:
 Result on `men's old school wears`: 4 hollow `general` rows -> 0; 27 populated
 `products` rows (3 brands + 24 grid); the 7 genuine `general` results unchanged.
 
+### 2026-05-25 — follow-on: `general` `image_strip` sub_type
+
+While reviewing the same SERP, several genuine `general` results were found to
+carry a horizontal strip of `<g-img>` thumbnail previews (wrapper
+`div.d86Vh.KUuaG`) — e.g. Pinterest boards, Etsy markets, shop category pages.
+These already parsed correctly (title + url + cite); this adds a `sub_type`
+flag. The thumbnails are JS-driven `data:` placeholders with no per-image url
+or alt text, so the probe found nothing that fits an existing details schema —
+only a thumbnail count — so `details` is left `None` (per the details-schema
+discipline). Change: detect the wrapper in `parse_subtype_details`
+(`general.py`), add `image_strip` to the `general` `sub_types`, plus
+`test_general_image_strip_subtype`. Corpus-wide: 10 `image_strip` rows, all
+still carrying a url (pure enrichment); regenerated the `taylor swift` and
+`gu gels` snapshots.
+
 ### Still open (broader corpus, deferred)
 
 `apg-product-result` + "Explore brands" cover 7 of the 29 corpus-wide hollow
