@@ -3,6 +3,7 @@ from .ads import parse_ads
 from .ai_overview import parse_ai_overview
 from .available_on import parse_available_on
 from .banner import parse_banner
+from .buying_guide import parse_buying_guide
 from .discussions_and_forums import parse_discussions_and_forums
 from .flights import parse_flights
 from .footer import Footer
@@ -17,10 +18,13 @@ from .local_news import parse_local_news
 from .local_results import parse_local_results
 from .locations import parse_locations
 from .map_results import parse_map_results
+from .most_read_articles import parse_most_read_articles
 from .news_quotes import parse_news_quotes
 from .notices import parse_notices
 from .people_also_ask import parse_people_also_ask
 from .perspectives import parse_perspectives
+from .products import parse_products
+from .promo import parse_promo
 from .recent_posts import parse_recent_posts
 from .recipes import parse_recipes
 from .scholarly_articles import parse_scholarly_articles
@@ -43,6 +47,7 @@ PARSERS = {
     "ai_overview": parse_ai_overview,
     "available_on": parse_available_on,
     "banner": parse_banner,
+    "buying_guide": parse_buying_guide,
     "discover_more": Footer.parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
     "flights": parse_flights,
@@ -58,11 +63,14 @@ PARSERS = {
     "local_results": parse_local_results,
     "locations": parse_locations,
     "map_results": parse_map_results,
+    "most_read_articles": parse_most_read_articles,
     "news_quotes": parse_news_quotes,
     "notice": parse_notices,
     "omitted_notice": Footer.parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
+    "products": parse_products,
+    "promo": parse_promo,
     "recent_posts": parse_recent_posts,
     "recipes": parse_recipes,
     "scholarly_articles": parse_scholarly_articles,

@@ -30,19 +30,28 @@ def test_is_valid_rejects_bottom_ads_wrapper():
     assert ExtractorMain.is_valid(comp('<div id="tadsb">bottom ads</div>')) is False
 
 
-# is_valid: hidden-survey filter (now-live branch) -----------------------------
-# This branch was dead before the `"attrs" in c` -> `hasattr(c, "attrs")` fix
-# (the old guard tested child membership, not attribute presence). These tests
-# pin the intended behavior: a ULSxyf container wrapping a promo-throttler is
-# dropped, and both conditions are required.
+# is_valid: promo-throttler filter ---------------------------------------------
+# A ULSxyf wrapping a promo-throttler is dropped only when it ALSO holds organic
+# results (div.g) -- the redundant main-results wrapper whose results are
+# extracted individually elsewhere. A pure promo banner (no div.g, e.g. the
+# "Save with deals / Shop deals" CTA) is kept and classified as `promo`.
 
 
-def test_is_valid_drops_hidden_survey():
-    # The component itself must carry class="ULSxyf" for the filter to fire.
+def test_is_valid_drops_promo_results_wrapper():
+    # ULSxyf + promo-throttler + div.g -> redundant results wrapper, dropped.
     ulsxyf = utils.make_soup(
-        '<div class="ULSxyf">Take our survey<promo-throttler></promo-throttler></div>'
+        '<div class="ULSxyf"><promo-throttler></promo-throttler>'
+        '<div class="g">a web result</div></div>'
     ).find("div", {"class": "ULSxyf"})
     assert ExtractorMain.is_valid(ulsxyf) is False
+
+
+def test_is_valid_keeps_promo_banner():
+    # ULSxyf + promo-throttler, no div.g -> pure promo banner, kept for `promo`.
+    ulsxyf = utils.make_soup(
+        '<div class="ULSxyf">Save with deals<promo-throttler></promo-throttler></div>'
+    ).find("div", {"class": "ULSxyf"})
+    assert ExtractorMain.is_valid(ulsxyf) is True
 
 
 def test_is_valid_keeps_ulsxyf_without_throttler():

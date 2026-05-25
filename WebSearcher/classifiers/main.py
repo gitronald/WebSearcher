@@ -122,6 +122,11 @@ class ClassifyMain:
             (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
             (ClassifyMain.twitter, None),  # div.eejeod or "Twitter Results" text
             (ClassifyMain.flights, None),  # heading text
+            (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
+            (
+                ClassifyMain.products,
+                lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
+            ),
             (ClassifyMain.general, None),  # root class
             (ClassifyMain.people_also_ask, None),  # root class
             (ClassifyMain.knowledge_box, None),  # several attr/structural paths
@@ -306,6 +311,42 @@ class ClassifyMain:
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
         conditions = utils.check_dict_value(cmpt.attrs, "class", class_list)
         return "people_also_ask" if conditions else "unknown"
+
+    @staticmethod
+    def products(cmpt: bs4.element.Tag) -> str:
+        """Classify organic shopping packs that otherwise fall into ``general``.
+
+        Three layouts: the modern popular-products grid (each product is a
+        ``data-attrid="apg-product-result"`` card), the older grid (a
+        ``product-viewer-group`` of ``g-inner-card`` products), and the "Explore
+        brands" merchant carousel. Runs before ``general`` so these are not
+        claimed by its greedy ``MjjYud``/``hlcw0c`` (``format-03``) and
+        nested-``div.g`` (``format-04``) markers; the positive signal is the
+        product/brand structure itself, not the shared container class.
+
+        ``g-inner-card`` is required alongside ``product-viewer-group`` because
+        ``local_results`` packs also embed a ``product-viewer-group`` (with no
+        ``g-inner-card``) and must still reach the ``local_results`` classifier.
+        """
+        if cmpt.find(attrs={"data-attrid": "apg-product-result"}):
+            return "products"
+        if cmpt.find("product-viewer-group") and cmpt.find("g-inner-card"):
+            return "products"
+        heading = cmpt.find(attrs={"role": "heading"})
+        if heading and heading.get_text(strip=True) == "Explore brands":
+            return "products"
+        return "unknown"
+
+    @staticmethod
+    def promo(cmpt: bs4.element.Tag) -> str:
+        """Classify a promotional banner built around a ``<promo-throttler>``.
+
+        Currently the "Save with deals / Shop deals" shopping CTA. The extractor
+        (``is_valid``) only keeps promo-throttler blocks that carry no organic
+        results (``div.g``), so any that reach classification are pure promos;
+        the redundant results-wrapper variant is dropped before this runs.
+        """
+        return "promo" if cmpt.find("promo-throttler") else "unknown"
 
     @staticmethod
     def short_videos(cmpt: bs4.element.Tag) -> str:

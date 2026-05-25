@@ -82,6 +82,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Banner notifications shown at top of results",
     ),
     ComponentType(
+        name="buying_guide",
+        label="Buying Guide",
+        sections=("main",),
+        header_texts={2: ("Buying guide",)},
+        description="Faceted buying-guide accordion (label -> question rows)",
+    ),
+    ComponentType(
         name="directions",
         label="Directions",
         sections=("main",),
@@ -116,6 +123,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "submenu_scholarly",
             "submenu_product",
             "subresult",
+            "image_strip",
         ),
         description="Standard web search results",
     ),
@@ -257,6 +265,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Map-only results",
     ),
     ComponentType(
+        name="most_read_articles",
+        label="Most-read Articles",
+        sections=("main",),
+        header_texts={2: ("Most-read articles",)},
+        description="Editorial article carousel (one card per publisher)",
+    ),
+    ComponentType(
         name="news_quotes",
         label="News Quotes",
         sections=("main",),
@@ -293,6 +308,15 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="Products",
         sections=("main",),
         header_texts={3: ("Popular products",)},
+        sub_types=("grid", "brands"),
+        description="Organic shopping packs: popular-products grids and brand carousels",
+    ),
+    ComponentType(
+        name="promo",
+        label="Promo",
+        sections=("main",),
+        sub_types=("shopping",),
+        description="Promotional banner (e.g. 'Save with deals / Shop deals' shopping CTA)",
     ),
     ComponentType(
         name="recent_posts",
