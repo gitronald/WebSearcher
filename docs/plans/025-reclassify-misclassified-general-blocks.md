@@ -218,3 +218,32 @@ blocks. The other 22 (e.g. `red skin peanuts`, `file folder`, `prouve`,
 grids without `apg-product-result`, and two are non-product widgets
 ("Most-read articles", "Buying guide: Graphics Tablets"). Extending the
 `products` signals/parser to those markups is follow-up work.
+
+### 2026-05-25 — title-agnostic structural scan of the new types (deferred hardening)
+
+Swept the corpus by each new type's HTML/CSS signal (ignoring heading text) to
+confirm each catches all instances and isn't shared by another type:
+
+- `products` (all 3 variants — `apg-product-result`, `product-viewer-group`
+  +`g-inner-card`, `gON1yc` brands): every structural match is already
+  `products`. Signals are unique in-corpus.
+- `buying_guide` (`div.ITWcLb`/`QbRPId` facet rows): matches exactly the one
+  component we classify; the structural markers are *more* unique than the
+  "Buying guide" header text it's currently classified on.
+- `promo` (`<promo-throttler>`): catches all 8 deals banners, but the tag is
+  **not globally unique** — it also appears nested in `central park new york`'s
+  RHS "Central Park" `knowledge_rhs` panel (and its dropped main wrapper).
+  Neither becomes a wrong `promo`: the classifier runs only on main-section
+  components (the RHS panel is typed via a different path) and `is_valid` drops
+  the main wrapper (it has `div.g`). Correct in-corpus, but relies on those two
+  guardrails rather than tag uniqueness.
+- `most_read_articles`: **no unique structural signal** — it shares the
+  carousel-nav + article-card structure with `perspectives`, `short_videos`,
+  `recent_posts`, etc. Heading text is the only discriminator, so a
+  differently-titled instance could slip through (none does in-corpus).
+
+**Deferred hardening opportunity:** `buying_guide` and `products/brands` are
+classified by header text but have clean, unique structural signals (`ITWcLb`,
+`gON1yc`) that would be title-agnostic and catch any-heading variants. Worth a
+broader audit of header-text vs structural classification across classifiers —
+deferred, see TODO.
