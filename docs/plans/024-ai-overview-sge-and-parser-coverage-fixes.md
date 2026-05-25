@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 branch: feature/ai-overview-sge-and-parser-coverage-fixes
 created: 2026-05-24T17:13:20-07:00
 completed:
@@ -91,6 +91,13 @@ markup, so `content` is `None`, `_extract_body` short-circuits, and
    - `scripts/inspect_ai_overview_structure.py` — structural skeleton
    - `scripts/dump_ai_overview_html.py` — dump the real overview HTML
    - `scripts/survey_ai_overviews.py` — cross-SERP structural summary
+
+   **Stale helper to fix in this phase:** `dump_ai_overview_html.py`'s
+   `is_real_ai_overview` still checks `ClassifyMain.ai_overview(...) != "knowledge"`,
+   which predates plan 021's promotion of `ai_overview` to a top-level type — the
+   classifier now returns `"ai_overview"`/`"unknown"`, so the helper currently
+   matches nothing. Update it (and check `survey_ai_overviews.py` for the same
+   stale check) before relying on these scripts.
 2. Generalize the selectors to accept current-or-legacy class sets rather than
    single literals — e.g. make `content = cmpt.find("div", {"class": "mZJni"})`
    fall back to the legacy body class; widen `_BODY_PARA_CLASS` /
@@ -296,3 +303,20 @@ markup in the content fixtures (none of which the current parser targets):
 
 The current `div.Fzsovc` marker (detection) holds only the "AI Overview" label
 (or "Searching" on mid-load captures), not the answer body.
+
+**Stale helper found (fix in Phase 1, not yet done).**
+`scripts/dump_ai_overview_html.py::is_real_ai_overview` gates on
+`ClassifyMain.ai_overview(...) != "knowledge"`, which predates plan 021's
+promotion of `ai_overview` to a top-level type. On current code the classifier
+returns `"ai_overview"`/`"unknown"`, so the helper matches nothing (its scan
+over all 15,003 AI-overview SERPs returned zero). `survey_ai_overviews.py`
+likely shares the same stale gate. Both need updating before they're used in
+Phase 1 discovery.
+
+### Branch
+
+Created `feature/ai-overview-sge-and-parser-coverage-fixes` and moved the
+Phase 0 commits (plan + fixtures, originally committed on `dev` while the plan
+was a draft) onto it; `dev` restored to `origin/dev`. Status flipped
+`draft -> active`. The two commits were local-only, so no shared history was
+rewritten.
