@@ -122,6 +122,7 @@ class ClassifyMain:
             (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
             (ClassifyMain.twitter, None),  # div.eejeod or "Twitter Results" text
             (ClassifyMain.flights, None),  # heading text
+            (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
             (
                 ClassifyMain.products,
                 lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
@@ -335,6 +336,17 @@ class ClassifyMain:
         if heading and heading.get_text(strip=True) == "Explore brands":
             return "products"
         return "unknown"
+
+    @staticmethod
+    def promo(cmpt: bs4.element.Tag) -> str:
+        """Classify a promotional banner built around a ``<promo-throttler>``.
+
+        Currently the "Save with deals / Shop deals" shopping CTA. The extractor
+        (``is_valid``) only keeps promo-throttler blocks that carry no organic
+        results (``div.g``), so any that reach classification are pure promos;
+        the redundant results-wrapper variant is dropped before this runs.
+        """
+        return "promo" if cmpt.find("promo-throttler") else "unknown"
 
     @staticmethod
     def short_videos(cmpt: bs4.element.Tag) -> str:

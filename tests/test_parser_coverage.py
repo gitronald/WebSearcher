@@ -206,3 +206,38 @@ def test_general_image_strip_subtype(serps_by_qry):
         assert r["title"]
         assert r["url"] and r["url"].startswith("http")
         assert r["error"] is None
+
+
+# --- promo / most_read_articles / buying_guide (plan 025) ------------------
+
+
+@pytest.mark.parametrize("qry", ["men's old school wears", "drawing tablet"])
+def test_promo_shopping_banner(serps_by_qry, qry):
+    """The 'Save with deals / Shop deals' banner is captured as promo/shopping."""
+    rows = _rows(serps_by_qry[qry]["html"], "promo")
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["sub_type"] == "shopping"
+    assert r["title"] and "deals" in r["title"].lower()
+    assert r["text"]  # CTA label
+    assert r["error"] is None
+
+
+def test_most_read_articles(serps_by_qry):
+    """Most-read articles carousel: each card has a title + article url."""
+    rows = _rows(serps_by_qry["drawing tablet"]["html"], "most_read_articles")
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert r["error"] is None
+
+
+def test_buying_guide(serps_by_qry):
+    """Buying guide accordion: each facet has a label (title) + question (text)."""
+    rows = _rows(serps_by_qry["drawing tablet"]["html"], "buying_guide")
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]  # facet label
+        assert r["text"]  # facet question/value
+        assert r["error"] is None
