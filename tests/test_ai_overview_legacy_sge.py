@@ -23,6 +23,8 @@ CONTENT_QRYS = {
     "my work is done why wait",
     "metropolitan los angeles area",
     "barclays job cuts",
+    "cancer deaths per year in the usa",  # flat (no sections)
+    "problems with bible translations",  # multi-section
 }
 FAILURE_QRYS = {
     "tesla manifesto",
@@ -55,12 +57,27 @@ def test_legacy_sge_recovers_content(serps_by_qry, qry):
     assert row["text"] and len(row["text"]) > 50
     details = row["details"]
     assert details is not None and details["type"] == "ai_overview"
-    # sources recovered from the legacy tray with url + title
+    # sources recovered from the legacy tray with url + title + publisher
     sources = details.get("sources") or []
     assert sources, f"{qry}: no sources recovered"
     for src in sources:
         assert src["url"] and src["url"] != "#"
         assert src["title"]
+        assert src["publisher"]
+
+
+def test_legacy_sge_layouts(serps_by_qry):
+    """Flat (no heading) and multi-section legacy overviews both parse."""
+    flat = _ai_overview_rows(serps_by_qry["cancer deaths per year in the usa"]["html"])[0]
+    assert flat["sub_type"] == "flat"
+    assert flat["text"]
+    assert not (flat["details"] or {}).get("sections")
+
+    multi = _ai_overview_rows(serps_by_qry["problems with bible translations"]["html"])[0]
+    assert multi["sub_type"] == "sectioned"
+    sections = multi["details"]["sections"]
+    assert len(sections) >= 2
+    assert all(s["heading"] for s in sections)
 
 
 @pytest.mark.parametrize("qry", sorted(FAILURE_QRYS))

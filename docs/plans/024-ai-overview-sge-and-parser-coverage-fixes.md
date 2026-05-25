@@ -363,6 +363,37 @@ no decline marker stay `flat` (possible miss bucket). Verified: legacy failures
 near austin tx`) now report `unavailable`; 0 snapshot fixtures change. Test
 extended to assert the new sub_type.
 
+### Phase 1 — corpus validation (1,200 SERPs)
+
+Ran the legacy parser over a 1,200-SERP corpus sample to validate beyond the
+5-SERP fixture:
+
+- **33.9% content / 66.1% `unavailable`** — matches the downstream note's
+  ~32%/~68% split closely, confirming correct classification.
+- **0 mislabeled misses** — no `unavailable` row has recoverable `rPeykc`
+  content behind it (the "decline message is universal -> masks misses" risk is
+  not occurring).
+- **All layouts parse** — section-count distribution flat=73, 1=271, 2=57, 3=6;
+  sources/overview avg 3.0 (**max 3** — 2024 SGE rendered <=3 sources inline,
+  the rest were JS-loaded and absent from the HTML, so this is a data limit, not
+  a parser gap); lede text avg 242 chars.
+
+### Phase 1 — refinements
+
+1. **Perf:** moved `extract_payloads(_root_html(cmpt))` (serializes the whole
+   document) inside the current-DOM branch — legacy SERPs never have payloads,
+   so this was wasted on every legacy SERP.
+2. **Fixture coverage:** added a flat (0-section) and a multi-section legacy SERP
+   to `serps-sge-2024.json.bz2` so those layouts are regression-protected (the
+   fixture previously held only single-section content).
+3. **Doc:** noted the <=3-sources data limit in `_extract_sources_legacy`.
+4. **Spot check:** the 2 content-rows-with-0-sources are genuinely sourceless
+   overviews (no `li.LLtSOc` in the HTML), not a parser miss.
+5. **Publisher:** the legacy tray *does* carry a publisher label (`div.R8BTeb`,
+   e.g. "Wikipedia", "Times of India") that the first pass missed — sources now
+   populate `publisher` from it instead of `""`, matching the human-label style
+   of the current-DOM path.
+
 ### Phase 2 — recipes parser: done
 
 `recipes` was a registered `main`-section type with no entry in `PARSERS`, so

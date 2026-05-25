@@ -45,11 +45,12 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
         "cite": None,
     }
 
-    payloads = extract_payloads(_root_html(cmpt))
-    type_a_by_src_id = _index_type_a_by_src_id(payloads)
-
     content = cmpt.find("div", {"class": "mZJni"})
     if content is not None:
+        # Payload extraction serializes the whole document; only the current
+        # DOM ships these JSON citation payloads, so skip it for legacy SERPs.
+        payloads = extract_payloads(_root_html(cmpt))
+        type_a_by_src_id = _index_type_a_by_src_id(payloads)
         lede, lede_citations, sections = _extract_body(content, payloads)
         sources = _extract_sources(cmpt, type_a_by_src_id)
     else:
@@ -463,10 +464,12 @@ def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
     """Build the sources list from the legacy ``li.LLtSOc`` tray cards.
 
     These captures predate the JSON citation payloads, so each source is read
-    straight from the rendered card: ``a.KEVENd`` href + ``aria-label`` title,
-    ``div.mNme1d`` title fallback, ``span.gxZfx`` snippet. ``source_id`` and
-    ``favicon`` (a large base64 data URI here) are left ``None``. Tray order is
-    Google's curated ranking and is preserved.
+    straight from the rendered card: ``a.KEVENd`` href + ``aria-label`` title
+    (``div.mNme1d`` fallback), publisher label ``div.R8BTeb``, snippet
+    ``span.gxZfx``. ``source_id`` and ``favicon`` (a large base64 data URI here)
+    are left ``None``. 2024 SGE renders at most ~3 sources inline (the rest were
+    JS-loaded and are absent from the saved HTML); tray order is Google's curated
+    ranking and is preserved.
     """
     sources: list[dict] = []
     seen: set[str] = set()
@@ -483,6 +486,8 @@ def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
         if not title:
             title_div = li.find("div", {"class": "mNme1d"})
             title = title_div.get_text(" ", strip=True) if title_div else None
+        publisher_div = li.find("div", {"class": "R8BTeb"})
+        publisher = publisher_div.get_text(" ", strip=True) if publisher_div else ""
         snippet_span = li.find("span", {"class": "gxZfx"})
         snippet = snippet_span.get_text(" ", strip=True) if snippet_span else None
 
@@ -492,7 +497,7 @@ def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
                 "url": href,
                 "title": title or None,
                 "snippet": snippet or None,
-                "publisher": "",
+                "publisher": publisher,
                 "favicon": None,
             }
         )
