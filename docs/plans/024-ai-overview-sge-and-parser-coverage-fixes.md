@@ -350,3 +350,24 @@ green (267 passed, 66 snapshots). Confirmed no current-DOM regression: all 108
 `mZJni` AI overviews in demo/fixtures still extract text+sources+citations, and
 0 corpus SERPs reach the legacy branch (every `ai_overview` row co-occurs with
 `mZJni`).
+
+### Phase 2 — recipes parser: done
+
+`recipes` was a registered `main`-section type with no entry in `PARSERS`, so
+it fell through to `parse_not_implemented` (the observed `<|>`-joined blob). Added
+`component_parsers/recipes.py::parse_recipes` and registered it.
+
+Each card is an `a.a-no-hover-decoration` anchor; fields read from stable
+era-specific classes (consistent with how the rest of the codebase targets
+Google's obfuscated classes): title `div.hfac6d`, source `div.g6wEbd`, rating
+`span.z3HNkc` aria-label (matches the `Y0A0hc`/`z3HNkc` rating convention noted
+in CLAUDE.md; falls back to `span.yi40Hd` text), review count `span.RDApEe`,
+cook time `div.z8gr9e`, ingredients `div.LDr9cf`. Output is `title` + `url` plus
+a `details.type="ratings"` block (reusing the existing label per schema
+discipline — same precedent as `shopping_ads`, which already buckets
+source/price under `ratings`); `details=None` when no metadata is present.
+
+**Verification.** New `tests/test_parser_coverage.py` (2 recipe cases) asserts
+title+url, no `<|>` blob, no error, and a `ratings` details block. No snapshot
+churn (0 `recipes` components in the `serps-v*` snapshot fixtures). Full suite
+green (269 passed).
