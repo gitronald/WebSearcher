@@ -468,3 +468,36 @@ where the title is now recovered. Annotated the TODO item.
 
 **Verification.** 2 new coverage tests (`@handle` title + text + url). No
 snapshot churn. Full suite green (282 passed).
+
+### Phase 5 — shopping_ads done; general deferred
+
+**`shopping_ads` (done).** The error rows were the modern product-listing-ad
+layout: `parse_shopping_ads` only looked for the legacy `div.mnr-c.pla-unit`
+wrapper, so the cmpt produced "no subcomponents parsed". Modern PLA renders each
+product as an `a.clickable-card` (class also `pla-unit-single-clickable-target`).
+Added a fallback that parses those directly (`_parse_pla_card`): title from the
+card `aria-label` (fallback `span.pymv4e`), `url` from href, and price
+(`span.e10twf`) / source (`span.zPEcBd`) / review count (`span.pbAs0b`) into a
+`ratings` details block. Legacy `pla-unit` and hotel-carousel paths unchanged.
+`drawing tablet` 1 error row -> 12 products; `kelly kettle` -> 8. 2 new tests, no
+snapshot churn (the ads fixture uses the legacy layout).
+
+**`general` extraction errors (deferred — follow-up filed).** Diagnosed: the
+hollow rows are **misclassified non-general blocks** — "People also ask"
+(`div.MjjYud`) and image/filter packs (`div.ULSxyf`) classified as `general`,
+which hit `find_subcomponents`' whole-component fallback and emit a row with no
+title/url/text/cite. This is **not fixable in the general parser**:
+- `components.py:104` replaces any empty parser output with a "no subcomponents
+  parsed" error row, so dropping the hollow rows just swaps one error for
+  another.
+- The real cause is the classifier: `MjjYud` is a *deliberate* `general` marker
+  (`general` "format-03"), shared with `img_cards` and `general_questions`, and
+  `general` runs before `people_also_ask` in the chain. `people_also_ask` only
+  matches `["g","kno-kp","mnr-c","g-blk"]`, so these MjjYud PAA blocks fall
+  through to general.
+
+A correct fix is a classifier change to a load-bearing shared marker, which must
+be validated against the full corpus (not 2 fixtures) to avoid reclassifying
+legitimate general results. Given it's the lowest-impact note item (1.7%) and
+carries real regression risk, deferred to a dedicated follow-up rather than
+rushed here. Filed as a TODO.

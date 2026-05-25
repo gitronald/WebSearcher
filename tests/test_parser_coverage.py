@@ -116,3 +116,19 @@ def test_twitter_card_title_from_handle(serps_by_qry, qry):
         assert r["title"] and r["title"].startswith("@")
         assert r["text"]  # tweet body still extracts
         assert r["url"]
+
+
+# --- shopping_ads: modern PLA cards (phase 5) ------------------------------
+
+
+@pytest.mark.parametrize("qry", ["drawing tablet", "kelly kettle"])
+def test_shopping_ads_modern_pla(serps_by_qry, qry):
+    rows = _rows(serps_by_qry[qry]["html"], "shopping_ads")
+    # modern clickable-card layout: multiple products, each with title + url
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"]
+        assert r["error"] is None
+        # price/source captured in a ratings details block
+        assert r["details"] is None or r["details"]["type"] == "ratings"
