@@ -98,3 +98,21 @@ def test_knowledge_panel_rhs_entity_title(serps_by_qry):
     row = _knowledge(serps_by_qry["prouve"]["html"], "panel_rhs")[0]
     assert row["title"] == "Jean Prouvé"
     assert row["text"] and row["url"]
+
+
+# --- twitter_cards: legacy card title (phase 4) ----------------------------
+
+
+@pytest.mark.parametrize("qry", ["movement", "oscar the grouch"])
+def test_twitter_card_title_from_handle(serps_by_qry, qry):
+    rows = [
+        r
+        for r in ws.parse_serp(serps_by_qry[qry]["html"])["results"]
+        if r["type"] == "twitter_cards" and r.get("sub_type") == "card"
+    ]
+    assert rows
+    for r in rows:
+        # single-account carousel: title recovered as the author handle (@...)
+        assert r["title"] and r["title"].startswith("@")
+        assert r["text"]  # tweet body still extracts
+        assert r["url"]

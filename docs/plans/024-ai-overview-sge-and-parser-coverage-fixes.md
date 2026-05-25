@@ -447,3 +447,24 @@ things-to-know topics) or a harmless `""`->`None`; the one initial regression
 (`aapl` ticker noise overwriting a good headline + an internal disclaimer url)
 was fixed before updating snapshots. Full suite green (280 passed, 66 snapshots,
 11 updated).
+
+### Phase 4 — twitter_cards card title: done
+
+Validated against the sample (348 card rows): the note's "tweet text does not
+extract" is **outdated** — text 98%, url 100%, cite 100% already. The real gap
+is `title` (only 3% populated). These are single-account tweet carousels: the
+account lives in the header, and the cards have no inline `g-link`, so the old
+`title = g-link` path yields `None`.
+
+Fix: when a card has no inline account link, derive the author handle from the
+tweet permalink (`twitter.com|x.com/{handle}/status/...` -> `@{handle}`) in
+`parse_twitter_card`. Multi-account carousels (the 3% with an inline `g-link`)
+keep their existing title. text/url/cite extraction is unchanged.
+
+**TODO reconciliation:** the standing "twitter_cards never fire on modern SERPs"
+item is era-specific and correct — they don't fire on current Google (0 in the
+`serps-v*` snapshot fixtures, hence no snapshot churn) but do on the 2024 crawl,
+where the title is now recovered. Annotated the TODO item.
+
+**Verification.** 2 new coverage tests (`@handle` title + text + url). No
+snapshot churn. Full suite green (282 passed).
