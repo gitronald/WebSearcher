@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.3] - 2026-05-25
+
+- Added legacy 2024-SGE markup support to the `ai_overview` parser so historical crawls recover synthesized answer text and sources (detection already worked; content extraction returned empty against the current-DOM-only selectors)
+- Added `ai_overview` `sub_type="unavailable"` to mark detected-but-declined overviews ("An AI Overview is not available for this search"), distinguishing a genuine decline from a parser miss
+- Added a `recipes` parser (the component was unmapped and emitted a `<|>`-joined text blob); recipe cards now yield `title`/`url` plus a `ratings` details block (source, rating, n_reviews, duration, ingredients)
+- Recovered empty `knowledge` sub_types: `featured_results` (panel text + source url), `dictionary` (headword + definitions via `data-attrid`), and `panel_rhs` (entity titles, "Things to know" topics; hollow placeholder rows dropped)
+- Recovered `twitter_cards` card `title` from the tweet permalink handle on single-account carousels
+- Added modern product-listing-ad support to `shopping_ads` (the `clickable-card` layout that previously emitted "no subcomponents parsed"), with price, source, and review-count details
 - Backfilled README `Recent Changes` to cover `0.8.0`, `0.8.1`, and `0.8.2`
 
 ## [0.8.2] - 2026-05-24
