@@ -179,3 +179,18 @@ def test_products_grid(serps_by_qry):
         assert r["error"] is None
     # at least some grid cards carry a structured price
     assert any(r["details"] and r["details"].get("price") for r in rows)
+
+
+def test_general_image_strip_subtype(serps_by_qry):
+    """General results with a g-img thumbnail strip get sub_type=image_strip,
+    while keeping their title + url (pure enrichment, no hollow rows)."""
+    rows = [
+        r
+        for r in _rows(serps_by_qry["men's old school wears"]["html"], "general")
+        if r["sub_type"] == "image_strip"
+    ]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert r["error"] is None

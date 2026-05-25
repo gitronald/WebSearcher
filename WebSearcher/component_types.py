@@ -116,6 +116,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "submenu_scholarly",
             "submenu_product",
             "subresult",
+            "image_strip",
         ),
         description="Standard web search results",
     ),
