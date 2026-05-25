@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 branch: feature/reclassify-general-blocks
 created: 2026-05-25T00:37:41-07:00
 completed:
