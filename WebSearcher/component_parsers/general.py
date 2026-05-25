@@ -94,6 +94,14 @@ def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
     if "d4rhi" in sub.attrs.get("class", []):
         parsed["sub_type"] = "subresult"
 
+    elif sub.find("div", {"class": "d86Vh"}):
+        # Image thumbnail strip (e.g. Pinterest board, Etsy market, shop pages):
+        # a horizontal row of g-img previews that all link back to the result.
+        # The thumbnails are JS-driven data: placeholders with no per-image url
+        # or alt text, so only the layout is flagged -- there is nothing that
+        # fits an existing details schema to capture.
+        parsed["sub_type"] = "image_strip"
+
     elif sub.find("g-review-stars"):
         # Submenu - rating
         parsed["sub_type"] = "submenu_rating"

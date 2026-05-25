@@ -382,13 +382,17 @@ class ExtractorMain:
         # Skip bottom ads wrapper (extracted separately)
         if c.find("div", {"id": "tadsb"}):
             return False
-        # hidden survey: drop components that wrap a promo-throttler in a ULSxyf
-        # container. (Was guarded by `"attrs" in c`, which tested child membership
-        # rather than attribute presence, so this branch never fired.)
+        # Drop the redundant results-wrapper variant of a promo-throttler block:
+        # a ULSxyf that wraps both a promo-throttler AND organic results (div.g),
+        # whose results are already extracted individually elsewhere (e.g. the
+        # "central park new york" main-results wrapper). A pure promo banner (a
+        # ULSxyf + promo-throttler with no div.g, e.g. "Save with deals / Shop
+        # deals") is kept and classified as `promo`.
         if (
             hasattr(c, "attrs")
             and utils.check_dict_value(c.attrs, "class", ["ULSxyf"])
             and c.find("promo-throttler")
+            and c.find("div", {"class": "g"})
         ):
             return False
         return True

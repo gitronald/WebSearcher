@@ -132,3 +132,112 @@ def test_shopping_ads_modern_pla(serps_by_qry, qry):
         assert r["error"] is None
         # price/source captured in a ratings details block
         assert r["details"] is None or r["details"]["type"] == "ratings"
+
+
+# --- products: organic shopping packs out of general (plan 025) -------------
+
+
+def _hollow_general(html):
+    return [
+        r
+        for r in ws.parse_serp(html)["results"]
+        if r["type"] == "general"
+        and all(r[k] is None for k in ("sub_type", "title", "url", "text", "cite"))
+    ]
+
+
+def test_products_no_hollow_general(serps_by_qry):
+    """The shopping packs no longer leak hollow rows into general."""
+    assert _hollow_general(serps_by_qry["men's old school wears"]["html"]) == []
+
+
+def test_products_brands_carousel(serps_by_qry):
+    """'Explore brands' carousel: each merchant card has a title + merchant url."""
+    rows = [
+        r
+        for r in _rows(serps_by_qry["men's old school wears"]["html"], "products")
+        if r["sub_type"] == "brands"
+    ]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert r["error"] is None
+        assert r["details"] is None or r["details"]["type"] == "ratings"
+
+
+def test_products_grid(serps_by_qry):
+    """Immersive product grid: title + store, price/rating in ratings details."""
+    rows = [
+        r
+        for r in _rows(serps_by_qry["men's old school wears"]["html"], "products")
+        if r["sub_type"] == "grid"
+    ]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]  # product name (no url: JS-driven cards)
+        assert r["error"] is None
+    # at least some grid cards carry a structured price
+    assert any(r["details"] and r["details"].get("price") for r in rows)
+
+
+@pytest.mark.parametrize("qry", ["red skin peanuts", "file folder", "kelly kettle"])
+def test_products_grid_older_markup(serps_by_qry, qry):
+    """Older product grids (product-viewer-group + g-inner-card, no
+    apg-product-result) also route to products/grid with no hollow rows."""
+    assert _hollow_general(serps_by_qry[qry]["html"]) == []
+    rows = [r for r in _rows(serps_by_qry[qry]["html"], "products") if r["sub_type"] == "grid"]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["error"] is None
+
+
+def test_general_image_strip_subtype(serps_by_qry):
+    """General results with a g-img thumbnail strip get sub_type=image_strip,
+    while keeping their title + url (pure enrichment, no hollow rows)."""
+    rows = [
+        r
+        for r in _rows(serps_by_qry["men's old school wears"]["html"], "general")
+        if r["sub_type"] == "image_strip"
+    ]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert r["error"] is None
+
+
+# --- promo / most_read_articles / buying_guide (plan 025) ------------------
+
+
+@pytest.mark.parametrize("qry", ["men's old school wears", "drawing tablet"])
+def test_promo_shopping_banner(serps_by_qry, qry):
+    """The 'Save with deals / Shop deals' banner is captured as promo/shopping."""
+    rows = _rows(serps_by_qry[qry]["html"], "promo")
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["sub_type"] == "shopping"
+    assert r["title"] and "deals" in r["title"].lower()
+    assert r["text"]  # CTA label
+    assert r["error"] is None
+
+
+def test_most_read_articles(serps_by_qry):
+    """Most-read articles carousel: each card has a title + article url."""
+    rows = _rows(serps_by_qry["drawing tablet"]["html"], "most_read_articles")
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert r["error"] is None
+
+
+def test_buying_guide(serps_by_qry):
+    """Buying guide accordion: each facet has a label (title) + question (text)."""
+    rows = _rows(serps_by_qry["drawing tablet"]["html"], "buying_guide")
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]  # facet label
+        assert r["text"]  # facet question/value
+        assert r["error"] is None

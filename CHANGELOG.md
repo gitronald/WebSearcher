@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.4] - 2026-05-25
+
+- Added a `products` component type (sub_types `grid` and `brands`) for organic shopping packs that previously slipped into `general` and emitted hollow "no title or url" rows; modern (`apg-product-result`) and older (`product-viewer-group` + `g-inner-card`) product grids now yield title, store, and a `ratings` details block, and "Explore brands" carousels yield brand title, merchant url, and store rating
+- Added a `promo` component type (`sub_type="shopping"`) that captures the "Save with deals / Shop deals" banner; narrowed the extractor's `is_valid` promo-throttler guard to drop only the results-wrapper variant (carrying `div.g`) so the pure promo banner is no longer discarded
+- Added a `most_read_articles` component type for the editorial article carousel (title and url per publisher card)
+- Added a `buying_guide` component type for the faceted buying-guide accordion (one row per label/question facet)
+- Added a `general` `sub_type="image_strip"` flag for results carrying a `g-img` thumbnail strip (Pinterest boards, Etsy markets, shop pages)
+- Eliminated all remaining hollow `general` "no title or url" rows (29 -> 0 across the fixture corpus) by routing these misclassified blocks to their correct types
+
 ## [0.8.3] - 2026-05-25
 
 - Added legacy 2024-SGE markup support to the `ai_overview` parser so historical crawls recover synthesized answer text and sources (detection already worked; content extraction returned empty against the current-DOM-only selectors)
