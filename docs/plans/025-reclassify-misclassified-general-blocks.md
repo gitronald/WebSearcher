@@ -171,7 +171,46 @@ discipline). Change: detect the wrapper in `parse_subtype_details`
 still carrying a url (pure enrichment); regenerated the `taylor swift` and
 `gu gels` snapshots.
 
-### Still open (broader corpus, deferred)
+### 2026-05-25 — broader corpus closed out (0 hollow rows corpus-wide)
+
+Resolved the remaining 22 (the "Still open" note below is now superseded).
+
+- **Older-markup product grids (20 rows).** They share `<product-viewer-group>`
+  with the modern grids but use `g-inner-card` cards (no `apg-product-result`)
+  with the same inner field classes. Extended `ClassifyMain.products` to also
+  match `product-viewer-group` + `g-inner-card`, and `parse_products` to fall
+  back to `g-inner-card`. Corpus-validated: `product-viewer-group` alone also
+  appears in 7 `local_results` packs (which have no `g-inner-card`), so the
+  `g-inner-card` conjunct is required to avoid stealing them — 0 false
+  positives. Tests: `test_products_grid_older_markup`.
+- **Two non-product widgets → two new types.** `most_read_articles` (editorial
+  article carousel; classified by the "Most-read articles" header text — a
+  corpus scan confirmed no other heading maps to the same unclassified
+  carousel) and `buying_guide` (faceted accordion; "Buying guide" header text,
+  one row per `div.ITWcLb` label→question facet). Tests: `test_most_read_articles`,
+  `test_buying_guide`.
+
+### 2026-05-25 — follow-on: `promo` type (deals banner, was extractor-dropped)
+
+A "Save with deals on apparel, electronics, and more / Shop deals" banner
+(`div.ULSxyf` wrapping `<promo-throttler>`) was being **dropped by the extractor**
+(`is_valid`), not misclassified. The maintainer opted to capture it as a
+shopping-intent signal (`promo` / `sub_type=shopping`). The `is_valid` guard was
+too broad — it also dropped the `central park new york` main-results wrapper
+(same `ULSxyf`+`promo-throttler`, but **with** `div.g` results). Discriminator:
+the deals banner has **no `div.g`** (the wrapper has 7). Narrowed `is_valid` to
+drop only the `div.g`-bearing wrapper (central park unchanged), keeping pure
+promo banners for classification; added `ClassifyMain.promo` (anchored on the
+stable `<promo-throttler>` tag, not the localizable "Shop deals" text) and
+`parse_promo`. Tests: `test_promo_shopping_banner`, plus updated
+`test_is_valid_*` to pin the new keep/drop behavior.
+
+**Result: 0 hollow `general` rows corpus-wide** (was 29). New-type row counts
+across fixtures: products 206, promo 8, buying_guide 8, most_read_articles 3.
+No snapshot changes from this batch (all new types occur only in the coverage
+fixture; central park's wrapper still drops).
+
+### Still open (broader corpus, deferred) — SUPERSEDED 2026-05-25
 
 `apg-product-result` + "Explore brands" cover 7 of the 29 corpus-wide hollow
 blocks. The other 22 (e.g. `red skin peanuts`, `file folder`, `prouve`,
