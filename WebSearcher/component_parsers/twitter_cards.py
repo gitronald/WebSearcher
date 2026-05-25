@@ -4,6 +4,7 @@ A linked header (account or topic) plus a horizontal carousel of tweets;
 each card has tweet text, source, and a deep-link URL.
 """
 
+import re
 from typing import Any
 
 import bs4
@@ -55,4 +56,16 @@ def parse_twitter_card(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         parsed["text"] = get_text(div, "div", {"class": "xcQxib"})
         parsed["cite"] = get_text(div, "div", {"class": "rmxqbe"})
 
+    # Single-account carousels carry no per-card account link; fall back to the
+    # author handle from the tweet permalink (twitter.com/{handle}/status/...).
+    if not parsed.get("title"):
+        parsed["title"] = _handle_from_url(parsed.get("url"))
+
     return parsed
+
+
+def _handle_from_url(url: str | None) -> str | None:
+    if not url:
+        return None
+    match = re.search(r"(?:twitter|x)\.com/([^/?]+)/status/", url)
+    return f"@{match.group(1)}" if match else None

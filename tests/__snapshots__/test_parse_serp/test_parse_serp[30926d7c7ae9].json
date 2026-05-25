@@ -441,6 +441,11 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "items": [
+          "Things to do",
+          "Cost",
+          "Secrets"
+        ],
         "subtitle": "4.8267,582 Google reviews Park in New York",
         "type": "panel"
       },
@@ -450,7 +455,7 @@
       "sub_rank": 0,
       "sub_type": "panel_rhs",
       "text": "Central Park is an urban park between the Upper West Side and Upper East Side neighborhoods of Manhattan in New York City that was the first landscaped park in the United States.",
-      "title": "",
+      "title": "Central Park",
       "type": "knowledge",
       "url": "https://en.wikipedia.org/wiki/Central_Park"
     }

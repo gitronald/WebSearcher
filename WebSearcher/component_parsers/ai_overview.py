@@ -6,12 +6,27 @@ top of a SERP. It comes in two layouts:
 - ``flat`` — a single answer block (intro paragraph + optional bullet list)
 - ``sectioned`` — an intro lede followed by N section subheadings (each with its
   own bullet list and optional inline links)
+- ``unavailable`` — the component was detected but Google declined to synthesize
+  an overview ("An AI Overview is not available for this search"). No body or
+  sources; recorded explicitly so a decline is distinguishable from a parser
+  miss (which stays ``flat`` with empty output).
 
 Both layouts share a "Sources" tray at the bottom that lists the publishers the
 overview drew from. Per-section ``button.rBl3me`` widgets carry citation
 metadata sourced from JSON payloads that Google ships in HTML comments / script
 pushes alongside the rendered markup. See ``_ai_overview_payloads`` for the
 extraction details.
+
+Historical (2024-era) SGE captures use a different DOM with none of the current
+classes: the body container ``div.mZJni`` is absent, paragraphs are
+``div.rPeykc``, section headings are a ``span[role=heading]`` nested inside a
+``rPeykc`` div, content bullets are plain ``ul``/``ol`` lists, and the sources
+tray is ``li.LLtSOc`` cards (anchor ``a.KEVENd``, title in the anchor's
+``aria-label`` / ``div.mNme1d``, snippet in ``span.gxZfx``). When the current
+body container is missing we fall back to the legacy extractors below; those
+captures predate the JSON citation payloads, so legacy sources come straight
+from the rendered tray. "Can't generate an AI overview right now" failures carry
+none of these markers and correctly yield empty output.
 """
 
 from __future__ import annotations
@@ -30,12 +45,18 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
         "cite": None,
     }
 
-    payloads = extract_payloads(_root_html(cmpt))
-    type_a_by_src_id = _index_type_a_by_src_id(payloads)
-
     content = cmpt.find("div", {"class": "mZJni"})
-    lede, lede_citations, sections = _extract_body(content, payloads) if content else ("", [], [])
-    sources = _extract_sources(cmpt, type_a_by_src_id)
+    if content is not None:
+        # Payload extraction serializes the whole document; only the current
+        # DOM ships these JSON citation payloads, so skip it for legacy SERPs.
+        payloads = extract_payloads(_root_html(cmpt))
+        type_a_by_src_id = _index_type_a_by_src_id(payloads)
+        lede, lede_citations, sections = _extract_body(content, payloads)
+        sources = _extract_sources(cmpt, type_a_by_src_id)
+    else:
+        # Legacy SGE (2024) markup: the current-DOM body container is absent.
+        lede, lede_citations, sections = _extract_body_legacy(cmpt)
+        sources = _extract_sources_legacy(cmpt)
 
     parsed["sub_type"] = "sectioned" if sections else "flat"
     parsed["text"] = lede or None
@@ -49,12 +70,33 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
         details["sources"] = sources
 
     parsed["details"] = details if len(details) > 1 else None
+
+    # Distinguish a genuine "Google declined to generate" panel from a parser
+    # miss: both otherwise yield empty output. The decline message is shipped
+    # (hidden) on every AI-overview page, so it is only meaningful when no
+    # content was extracted.
+    if parsed["text"] is None and parsed["details"] is None and _is_unavailable(cmpt):
+        parsed["sub_type"] = "unavailable"
+
     return [parsed]
 
 
 _BODY_PARA_CLASS = "Y3BBE"
 _BODY_HEADING_CLASS = "otQkpb"
 _LIST_CLASSES = ("KsbFXc", "IaGLZe")
+
+# Messages shown when Google declines to synthesize an overview. Both are
+# present (hidden) on every AI-overview page, so they only carry meaning when
+# no overview content was extracted. The second is apostrophe-agnostic.
+_UNAVAILABLE_MARKERS = (
+    "An AI Overview is not available for this search",
+    "generate an AI overview right now",
+)
+
+
+def _is_unavailable(cmpt: bs4.element.Tag) -> bool:
+    text = cmpt.get_text(" ", strip=True)
+    return any(marker in text for marker in _UNAVAILABLE_MARKERS)
 
 
 def _root_html(cmpt: bs4.element.Tag) -> str:
@@ -342,3 +384,121 @@ def _tray_publisher(li: bs4.element.Tag) -> str | None:
         return None
     text = span.get_text(" ", strip=True)
     return text or None
+
+
+# --- Legacy SGE (2024) markup ---------------------------------------------
+
+_LEGACY_PARA_CLASS = "rPeykc"
+_LEGACY_SOURCE_LI_CLASS = "LLtSOc"
+_SOURCES_UL_CLASS = "zVKf0d"
+
+
+def _extract_body_legacy(
+    content: bs4.element.Tag,
+) -> tuple[str, list[dict], list[dict]]:
+    """Walk the 2024 SGE body into lede + sections (no payload citations).
+
+    The body is a document-order mix of ``div.rPeykc`` blocks and plain
+    ``ul``/``ol`` content lists. A ``rPeykc`` whose subtree holds a
+    ``[role=heading]`` (other than the ``Fzsovc`` "AI Overview" label) starts a
+    new section; other ``rPeykc`` blocks and the content lists carry text.
+    The sources tray (``ul.zVKf0d`` / ``li.LLtSOc``) is excluded here.
+    """
+    paragraphs = content.find_all("div", {"class": _LEGACY_PARA_CLASS})
+    lists = [
+        lst
+        for lst in content.find_all(["ul", "ol"])
+        if _SOURCES_UL_CLASS not in (lst.attrs.get("class") or [])
+        and lst.find_parent("li", {"class": _LEGACY_SOURCE_LI_CLASS}) is None
+    ]
+    elements = _drop_nested_descendants(list(paragraphs) + list(lists))
+    elements = sorted(elements, key=_doc_position)
+    if not elements:
+        return "", [], []
+
+    lede_parts: list[str] = []
+    sections: list[dict] = []
+    current: dict | None = None
+
+    for elem in elements:
+        heading = _legacy_section_heading(elem)
+        if heading is not None:
+            current = {"heading": heading, "text": None, "hyperlinks": []}
+            sections.append(current)
+            continue
+
+        text = elem.get_text(" ", strip=True)
+        hyperlinks = _collect_inline_links(elem)
+        if current is None:
+            if text:
+                lede_parts.append(text)
+        else:
+            if text:
+                current["text"] = text if current["text"] is None else f"{current['text']} {text}"
+            current["hyperlinks"].extend(hyperlinks)
+
+    for sec in sections:
+        if not sec["hyperlinks"]:
+            del sec["hyperlinks"]
+
+    return " ".join(lede_parts).strip(), [], sections
+
+
+def _legacy_section_heading(elem: bs4.element.Tag) -> str | None:
+    """Return the section-heading text if ``elem`` wraps a SGE section heading.
+
+    Section headings are a ``[role=heading]`` node nested in a ``rPeykc`` div.
+    The ``Fzsovc`` "AI Overview" component label is also a role-heading and must
+    not be treated as a section.
+    """
+    heading = elem.find(attrs={"role": "heading"})
+    if heading is None:
+        return None
+    if "Fzsovc" in (heading.attrs.get("class") or []):
+        return None
+    text = heading.get_text(" ", strip=True)
+    return text or None
+
+
+def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
+    """Build the sources list from the legacy ``li.LLtSOc`` tray cards.
+
+    These captures predate the JSON citation payloads, so each source is read
+    straight from the rendered card: ``a.KEVENd`` href + ``aria-label`` title
+    (``div.mNme1d`` fallback), publisher label ``div.R8BTeb``, snippet
+    ``span.gxZfx``. ``source_id`` and ``favicon`` (a large base64 data URI here)
+    are left ``None``. 2024 SGE renders at most ~3 sources inline (the rest were
+    JS-loaded and are absent from the saved HTML); tray order is Google's curated
+    ranking and is preserved.
+    """
+    sources: list[dict] = []
+    seen: set[str] = set()
+    for li in cmpt.find_all("li", {"class": _LEGACY_SOURCE_LI_CLASS}):
+        a = li.find("a", href=True)
+        if a is None:
+            continue
+        href = str(a["href"])
+        if not href or href == "#" or href in seen:
+            continue
+        seen.add(href)
+
+        title = a.get("aria-label")
+        if not title:
+            title_div = li.find("div", {"class": "mNme1d"})
+            title = title_div.get_text(" ", strip=True) if title_div else None
+        publisher_div = li.find("div", {"class": "R8BTeb"})
+        publisher = publisher_div.get_text(" ", strip=True) if publisher_div else ""
+        snippet_span = li.find("span", {"class": "gxZfx"})
+        snippet = snippet_span.get_text(" ", strip=True) if snippet_span else None
+
+        sources.append(
+            {
+                "source_id": None,
+                "url": href,
+                "title": title or None,
+                "snippet": snippet or None,
+                "publisher": publisher,
+                "favicon": None,
+            }
+        )
+    return sources

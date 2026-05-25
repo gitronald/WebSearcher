@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.3] - 2026-05-25
+
+- Added legacy 2024-SGE markup support to the `ai_overview` parser so historical crawls recover synthesized answer text and sources (detection already worked; content extraction returned empty against the current-DOM-only selectors)
+- Added `ai_overview` `sub_type="unavailable"` to mark detected-but-declined overviews ("An AI Overview is not available for this search"), distinguishing a genuine decline from a parser miss
+- Added a `recipes` parser (the component was unmapped and emitted a `<|>`-joined text blob); recipe cards now yield `title`/`url` plus a `ratings` details block (source, rating, n_reviews, duration, ingredients)
+- Recovered empty `knowledge` sub_types: `featured_results` (panel text + source url), `dictionary` (headword + definitions via `data-attrid`), and `panel_rhs` (entity titles, "Things to know" topics; hollow placeholder rows dropped)
+- Recovered `twitter_cards` card `title` from the tweet permalink handle on single-account carousels
+- Added modern product-listing-ad support to `shopping_ads` (the `clickable-card` layout that previously emitted "no subcomponents parsed"), with price, source, and review-count details
+- Backfilled README `Recent Changes` to cover `0.8.0`, `0.8.1`, and `0.8.2`
+
+## [0.8.2] - 2026-05-24
+
 - Reduced per-SERP `parse_serp` time ~24% (134 -> 102 ms over the fixture corpus) by replacing whole-document `str(soup)` re-serialization in feature extraction with structural lookups, gating the classifier chain on structural-signal preconditions, and trimming extraction-phase text and subtree walks
 - Lazy-loaded `SearchEngine` so `import WebSearcher` no longer imports Selenium / undetected-chromedriver for parse-only use (~28% faster cold import); `WebSearcher.SearchEngine` still resolves on access
 - Moved the feature extractor module to `WebSearcher.extractors.extractor_serp_features` (the public `WebSearcher.FeatureExtractor` is unchanged)

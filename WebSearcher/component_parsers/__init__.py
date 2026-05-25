@@ -22,6 +22,7 @@ from .notices import parse_notices
 from .people_also_ask import parse_people_also_ask
 from .perspectives import parse_perspectives
 from .recent_posts import parse_recent_posts
+from .recipes import parse_recipes
 from .scholarly_articles import parse_scholarly_articles
 from .searches_related import parse_searches_related
 from .shopping_ads import parse_shopping_ads
@@ -63,6 +64,7 @@ PARSERS = {
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
     "recent_posts": parse_recent_posts,
+    "recipes": parse_recipes,
     "scholarly_articles": parse_scholarly_articles,
     "searches_related": parse_searches_related,
     "shopping_ads": parse_shopping_ads,

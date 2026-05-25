@@ -16,7 +16,7 @@ from WebSearcher.extractors import Extractor
 
 
 def is_real_ai_overview(cmpt_elem: bs4.element.Tag) -> bool:
-    if ClassifyMain.ai_overview(cmpt_elem) != "knowledge":
+    if ClassifyMain.ai_overview(cmpt_elem) != "ai_overview":
         return False
     h2 = cmpt_elem.find("h2")
     if h2 and h2.get_text(strip=True) == "Related Links":
