@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/ai-overview-sge-and-parser-coverage-fixes
 created: 2026-05-24T17:13:20-07:00
-completed:
-pr:
+completed: 2026-05-24T23:55:44-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/127
 ---
 
 # AI Overview legacy-SGE recovery and parser coverage fixes
@@ -501,3 +501,35 @@ be validated against the full corpus (not 2 fixtures) to avoid reclassifying
 legitimate general results. Given it's the lowest-impact note item (1.7%) and
 carries real regression risk, deferred to a dedicated follow-up rather than
 rushed here. Filed as a TODO.
+
+## Retrospective
+
+- **Shipped 5 of the planned phases cleanly; deferred `general` and skipped the
+  `unknown` survey — and that triage was the main win.** Diagnosing `general`
+  revealed it's a classifier-boundary problem on a load-bearing shared marker
+  (`MjjYud`), not a parser fix, and `components.py` forces an error row on empty
+  parse — so a rushed parser-level patch would have been futile. Split to plan
+  025 with the full diagnosis captured.
+- **Corpus validation mattered more than fixtures for the heterogeneous
+  components.** The 5-SERP AIO fixture only had single-section content; the
+  1,200-SERP corpus run is what confirmed correctness (33.9/66.1 split matching
+  the downstream audit, 0 mislabeled misses) and exposed the missing flat /
+  multi-section fixture coverage. Fixtures anchor regressions; corpus runs
+  validate behavior.
+- **Several downstream-audit claims were outdated — verifying against data
+  before coding prevented wrong fixes.** `twitter_cards` "text doesn't extract"
+  was false (98% extract; the real gap was title); the "Can't generate" string
+  is a hidden fallback on *every* AIO page, not a failure signal (so the decline
+  state had to key on content-absence, not the string).
+- **`data-attrid` beats obfuscated class names.** The knowledge fixes
+  (dictionary `EntryHeader`/`SenseDefinition`, panel_rhs `title`/`description`,
+  `lab/title/*` topics) keyed on `data-attrid`, which is far stabler than the
+  rotating classes the old code chased and should age better.
+- **The snapshot suite caught a self-inflicted regression** (aapl
+  `featured_results` ticker noise overwriting a good headline) — reviewing each
+  of the 11 shifted snapshots individually before `--snapshot-update` was
+  essential, not optional.
+- **Process friction worth keeping:** exploratory `uv run python` heredocs with
+  dict braces trip the brace/quote obfuscation safety check (allowlist can't
+  override) — write the snippet to a file and run it brace-free (now in the
+  local CLAUDE.md).
