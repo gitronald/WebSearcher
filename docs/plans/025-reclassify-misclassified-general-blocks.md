@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/reclassify-general-blocks
 created: 2026-05-25T00:37:41-07:00
-completed:
-pr:
+completed: 2026-05-25T14:59:53-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/129
 ---
 
 # Reclassify people-also-ask / image-filter blocks out of `general`
@@ -247,3 +247,34 @@ classified by header text but have clean, unique structural signals (`ITWcLb`,
 `gON1yc`) that would be title-agnostic and catch any-heading variants. Worth a
 broader audit of header-text vs structural classification across classifiers —
 deferred, see TODO.
+
+## Retrospective
+
+- **The deferred diagnosis was wrong, and verifying first paid off.** The plan
+  assumed PAA/image blocks; dumping the raw HTML showed they were shopping
+  packs. Re-deriving the problem from the artifacts before coding kept the fix
+  aimed at reality (shopping `products`, not PAA routing).
+- **Corpus-wide signal validation was decisive, repeatedly.** Candidate signals
+  that looked perfect on a handful of blocks failed at scale: obfuscated
+  shopping classes hit 140 genuine `general` results; `product-viewer-group`
+  alone stole 7 `local_results` (fixed by also requiring `g-inner-card`);
+  `<promo-throttler>` turned out non-unique (also in an RHS panel). Every signal
+  was checked against all `serps-*` fixtures for false positives before landing.
+- **Scope grew well beyond the original spec** — from "reclassify out of
+  `general`" to four new types (`products`, `promo`, `most_read_articles`,
+  `buying_guide`), an `image_strip` sub_type, and an extractor change — because
+  the maintainer drove it interactively (inspect HTML → decide type → verify
+  table). Result: 29 hollow rows → 0 corpus-wide.
+- **Fix at the right layer.** Hollow rows were a *classifier* problem (route
+  before `general`), not a parser one; the deals banner was an *extractor* drop
+  (`is_valid`), not a classification miss — each fixed at its source.
+- **Honest `details`.** JS-driven cards/strips carry `data:` placeholders and no
+  URLs; rows are title + `ratings` details (or just a `sub_type` flag for
+  `image_strip`) with `url=None`, rather than fabricating data.
+- **Two fixture tiers matter:** the snapshot corpus (`serps-v*`) froze full
+  output; the curated coverage fixture caught the targeted cases. Most work
+  touched the coverage fixture (no snapshot churn); worth considering adding it
+  to the snapshot set now that it's clean (deferred).
+- **Left title-dependent where structure can't distinguish:** `most_read_articles`
+  shares its carousel structure with `perspectives`/`short_videos`, so header
+  text is the only discriminator — flagged, not forced.
