@@ -132,18 +132,75 @@ again.
 ## Act IV — The renaissance (2023–2024)
 
 Something changes in 2023: commits triple to 131, then nearly double again to
-**227 in 2024**. This is the great rewrite. The parser stops being a pile of
-functions and becomes an architecture:
+**227 in 2024**. This is the great rewrite — the moment WebSearcher stops being
+a pile of functions and becomes an architecture.
 
-- `update: rewrite extractors as class that tracks and passes along Component classes`
-- `update: restructure parser to use component classes`
-- `update: refactor notices parser as class`
+### From functions to a Component pipeline
+
+Until mid-2024 the parser was procedural. Three loose modules —
+`component_classifier.py`, `extractors.py`, and `parsers.py` — passed raw
+BeautifulSoup tags and integer ranks around as bare arguments, and a misstep
+was fatal: the dispatcher literally ran `assert cmpt_type, 'Null component
+type'`. Classify a chunk wrong, or hand the wrong thing down the chain, and the
+parse could simply throw.
+
+Over one week in May 2024 that all gets rebuilt around objects, and a new file
+appears — `components.py`:
+
+```text
+2024-05-23  rewrite extractors as class that tracks and passes along Component classes
+2024-05-25  add: move component classes to new file        ← components.py is born
+2024-05-26  move footer classifier to main, added map in component_parsers init
+2024-05-27  remove classifier file, use classes from folder
+2024-05-27  restructure parser to use component classes, footer holds cmpt parser funcs only
+```
+
+The idea in `components.py` is that a search result is no longer a tag you pass
+to a function — it's a `Component` that manages its own life. Each one holds its
+element, section, type, and rank, and knows how to **classify itself**, **select
+its own parser** from a per-section dispatch dict, **run it**, and **validate**
+every row it produces (later, through a Pydantic model). A `ComponentList`
+holds the whole SERP, hands out rank numbers, and — by 2026 — can
+`reorder_by_dom_position` so results come back in true visual order.
+
+The most important line in the new design is the one that *doesn't* throw. Where
+the old code asserted and died, a `Component` now degrades gracefully:
+
+```python
+except Exception:
+    parsed_list = self.create_parsed_list_error("parsing exception", is_exception=True)
+```
+
+When a parser breaks — and given the moving target, one always eventually does —
+the component emits an error row carrying the raw text and the traceback, and the
+*rest of the SERP still parses*. The 2024 commits hardening this path
+(`raise error instead of assert`, `better parse_component logic, func for error
+output`) are the architecture quietly making its peace with the project's own
+thesis: things will break, so break softly. Two years later this gets a third
+pillar, `component_types.py` — a single source of truth that finally
+consolidates type names, labels, header-text matches, and sub_types in one place.
+
+### The catalog keeps growing
+
+The number of distinct result types WebSearcher can parse has climbed the entire
+time, from **16 component parsers at the initial commit to 38 today**:
+
+![Component parsers over time](component_growth.png)
+
+It's mostly a staircase up — `scholarly_articles` in 2019, `shopping_ads` and
+knowledge subtypes in 2021–2022, `perspectives` and `recipes`, then the 2026
+surge of `ai_overview`, `products`, `promo`, `buying_guide`, and friends. But
+look closely and there are small *dips*: moments where two parsers were merged
+or a speculative type was pulled back (`small fixes for 2023/24 data. consolidate
+some fields.`). Google adds surfaces faster than anyone can retire them, so the
+curve only ever trends one way — and in the last week of the data it jumps
+almost vertically.
 
 And running underneath it all, the **eternal struggle of a SERP scraper**:
 Google keeps redesigning the page.
 
 - `add: initial extract from left-bar layout`
-- `small fixes for 2023/24 data`
+- `update: extract from top bar for 2025 serps`
 - `restore knowledge_panel cmpt-attr check to jscontroller qTdDb`
 
 That last one is the whole job in a single line. WebSearcher's correctness
@@ -245,5 +302,7 @@ straight up, which means the work is nowhere near done. It never will be.
 *Artifacts in this directory:*
 - `get_commits.py` — dumps every commit to `commits.csv` (hash, timestamp, message)
 - `plot_activity.py` — renders `commit_activity.png` (commits per quarter)
+- `component_growth.py` — counts parser modules over history, renders `component_growth.png`
 - `commits.csv` — the raw data this story was read from
-- `commit_activity.png` — the activity chart above
+- `commit_activity.png` — the activity chart in the intro
+- `component_growth.png` — the component-parser growth chart in Act IV
