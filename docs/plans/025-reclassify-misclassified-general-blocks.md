@@ -108,3 +108,59 @@ shared):
 - Parsing/enriching the PAA or image blocks beyond correct classification (their
   existing parsers handle content once routed correctly).
 - The `general` video/subtype `elif` chain in `general.py` (unrelated).
+
+## Log
+
+### 2026-05-25 — corrected diagnosis (the original spec above was wrong)
+
+Reproducing the hollow rows and dumping the raw HTML of every offending block
+(saved to `data/tmp_025/`, gitignored) showed the original diagnosis is
+**incorrect**: these are **not** "People also ask" (`MjjYud`) or image/filter
+(`ULSxyf`) blocks. They are **organic shopping packs** — product grids and
+"Explore brands" merchant carousels — that slip into `general` via `format-03`
+(`MjjYud`/`hlcw0c` root class) or `format-04` (nested `div.g`/`Ww4FFb`). Every
+hollow block carries product names, prices, stores, and ratings.
+
+Corpus scan (all `serps-*.json.bz2`): 29 hollow `general` components — 27 in the
+coverage fixture, 2 in the `serps-v0.7.2-ads` snapshot corpus (`gu gels`). The
+candidate static signals from the original plan do not separate them:
+`no yuRUbf/rc` catches all 29 but mis-fires on 45 genuine general results;
+the obfuscated shopping classes (`RDApEe`/`Y0A0hc`/...) hit 140 genuine general
+results. So a class-only guard is unsafe.
+
+### 2026-05-25 — approach (scoped to `men's old school wears` first)
+
+Decision (with the maintainer): route both shopping families to the existing
+but unimplemented `products` type, with sub_types `grid` and `brands`. The
+product grids are JS-driven and carry **no links**, so their rows are
+title + `ratings` details (price/store/rating) with `url=None` — confirmed no
+href or url-bearing data-attribute is recoverable.
+
+Stable, corpus-clean signals (0 false positives on genuine general):
+- **grid** — each product is a `data-attrid="apg-product-result"` card.
+- **brands** — a `role=heading` "Explore brands" carousel.
+
+Changes:
+- `classifiers/main.py`: new `ClassifyMain.products`, placed **before**
+  `general` in the chain, precondition `product-viewer-group`/`g-more-link` in
+  the component's tag names.
+- `component_parsers/products.py`: new `parse_products` (grid + brands),
+  reusing the `ratings` details schema from `shopping_ads`.
+- registered in `component_parsers/__init__.py`; `products` type gains
+  `sub_types=("grid", "brands")` in `component_types.py`.
+- `tests/test_parser_coverage.py`: `test_products_no_hollow_general`,
+  `test_products_brands_carousel`, `test_products_grid`.
+- regenerated the `gu gels` snapshot (its "Explore brands" block now parses to
+  `products`/`brands`).
+
+Result on `men's old school wears`: 4 hollow `general` rows -> 0; 27 populated
+`products` rows (3 brands + 24 grid); the 7 genuine `general` results unchanged.
+
+### Still open (broader corpus, deferred)
+
+`apg-product-result` + "Explore brands" cover 7 of the 29 corpus-wide hollow
+blocks. The other 22 (e.g. `red skin peanuts`, `file folder`, `prouve`,
+`kelly kettle`, plus the `gu gels` rank-5 grid) are **older-markup** product
+grids without `apg-product-result`, and two are non-product widgets
+("Most-read articles", "Buying guide: Graphics Tablets"). Extending the
+`products` signals/parser to those markups is follow-up work.
