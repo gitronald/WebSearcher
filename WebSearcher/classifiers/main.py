@@ -315,14 +315,21 @@ class ClassifyMain:
     def products(cmpt: bs4.element.Tag) -> str:
         """Classify organic shopping packs that otherwise fall into ``general``.
 
-        Two layouts: the immersive popular-products grid (each product is a
-        ``data-attrid="apg-product-result"`` card) and the "Explore brands"
-        merchant carousel. Runs before ``general`` so these are not claimed by
-        its greedy ``MjjYud``/``hlcw0c`` (``format-03``) and nested-``div.g``
-        (``format-04``) markers; the positive signal is the product/brand
-        structure itself, not the shared container class.
+        Three layouts: the modern popular-products grid (each product is a
+        ``data-attrid="apg-product-result"`` card), the older grid (a
+        ``product-viewer-group`` of ``g-inner-card`` products), and the "Explore
+        brands" merchant carousel. Runs before ``general`` so these are not
+        claimed by its greedy ``MjjYud``/``hlcw0c`` (``format-03``) and
+        nested-``div.g`` (``format-04``) markers; the positive signal is the
+        product/brand structure itself, not the shared container class.
+
+        ``g-inner-card`` is required alongside ``product-viewer-group`` because
+        ``local_results`` packs also embed a ``product-viewer-group`` (with no
+        ``g-inner-card``) and must still reach the ``local_results`` classifier.
         """
         if cmpt.find(attrs={"data-attrid": "apg-product-result"}):
+            return "products"
+        if cmpt.find("product-viewer-group") and cmpt.find("g-inner-card"):
             return "products"
         heading = cmpt.find(attrs={"role": "heading"})
         if heading and heading.get_text(strip=True) == "Explore brands":

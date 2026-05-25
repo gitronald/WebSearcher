@@ -181,6 +181,18 @@ def test_products_grid(serps_by_qry):
     assert any(r["details"] and r["details"].get("price") for r in rows)
 
 
+@pytest.mark.parametrize("qry", ["red skin peanuts", "file folder", "kelly kettle"])
+def test_products_grid_older_markup(serps_by_qry, qry):
+    """Older product grids (product-viewer-group + g-inner-card, no
+    apg-product-result) also route to products/grid with no hollow rows."""
+    assert _hollow_general(serps_by_qry[qry]["html"]) == []
+    rows = [r for r in _rows(serps_by_qry[qry]["html"], "products") if r["sub_type"] == "grid"]
+    assert len(rows) > 1
+    for r in rows:
+        assert r["title"]
+        assert r["error"] is None
+
+
 def test_general_image_strip_subtype(serps_by_qry):
     """General results with a g-img thumbnail strip get sub_type=image_strip,
     while keeping their title + url (pure enrichment, no hollow rows)."""

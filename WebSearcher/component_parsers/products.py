@@ -21,8 +21,12 @@ _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
 
 def parse_products(cmpt: bs4.element.Tag) -> list:
-    # Family B: immersive product grid (apg-product-result cards, no links)
+    # Family B: immersive product grid (no links). Modern cards are
+    # data-attrid="apg-product-result"; older cards are g-inner-card. Both use
+    # the same inner field classes, so _parse_grid_card handles either.
     grid_cards = cmpt.find_all(attrs={"data-attrid": "apg-product-result"})
+    if not grid_cards:
+        grid_cards = cmpt.find_all("g-inner-card")
     if grid_cards:
         return [_parse_grid_card(card, i) for i, card in enumerate(grid_cards)]
 
