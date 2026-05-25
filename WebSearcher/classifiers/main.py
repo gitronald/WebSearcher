@@ -122,6 +122,10 @@ class ClassifyMain:
             (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
             (ClassifyMain.twitter, None),  # div.eejeod or "Twitter Results" text
             (ClassifyMain.flights, None),  # heading text
+            (
+                ClassifyMain.products,
+                lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
+            ),
             (ClassifyMain.general, None),  # root class
             (ClassifyMain.people_also_ask, None),  # root class
             (ClassifyMain.knowledge_box, None),  # several attr/structural paths
@@ -306,6 +310,24 @@ class ClassifyMain:
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
         conditions = utils.check_dict_value(cmpt.attrs, "class", class_list)
         return "people_also_ask" if conditions else "unknown"
+
+    @staticmethod
+    def products(cmpt: bs4.element.Tag) -> str:
+        """Classify organic shopping packs that otherwise fall into ``general``.
+
+        Two layouts: the immersive popular-products grid (each product is a
+        ``data-attrid="apg-product-result"`` card) and the "Explore brands"
+        merchant carousel. Runs before ``general`` so these are not claimed by
+        its greedy ``MjjYud``/``hlcw0c`` (``format-03``) and nested-``div.g``
+        (``format-04``) markers; the positive signal is the product/brand
+        structure itself, not the shared container class.
+        """
+        if cmpt.find(attrs={"data-attrid": "apg-product-result"}):
+            return "products"
+        heading = cmpt.find(attrs={"role": "heading"})
+        if heading and heading.get_text(strip=True) == "Explore brands":
+            return "products"
+        return "unknown"
 
     @staticmethod
     def short_videos(cmpt: bs4.element.Tag) -> str:

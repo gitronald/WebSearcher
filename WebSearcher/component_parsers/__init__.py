@@ -21,6 +21,7 @@ from .news_quotes import parse_news_quotes
 from .notices import parse_notices
 from .people_also_ask import parse_people_also_ask
 from .perspectives import parse_perspectives
+from .products import parse_products
 from .recent_posts import parse_recent_posts
 from .recipes import parse_recipes
 from .scholarly_articles import parse_scholarly_articles
@@ -63,6 +64,7 @@ PARSERS = {
     "omitted_notice": Footer.parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
+    "products": parse_products,
     "recent_posts": parse_recent_posts,
     "recipes": parse_recipes,
     "scholarly_articles": parse_scholarly_articles,
