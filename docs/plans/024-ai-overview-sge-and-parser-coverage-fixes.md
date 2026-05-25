@@ -320,3 +320,33 @@ Phase 0 commits (plan + fixtures, originally committed on `dev` while the plan
 was a draft) onto it; `dev` restored to `origin/dev`. Status flipped
 `draft -> active`. The two commits were local-only, so no shared history was
 rewritten.
+
+### Phase 1 — AI Overview legacy SGE: done
+
+Added a legacy branch to `parse_ai_overview`: when the current-DOM body
+container `div.mZJni` is absent, fall back to `_extract_body_legacy` +
+`_extract_sources_legacy`. The current path is left byte-identical (only
+restructured into an `if/else`), and the legacy branch is unreachable on any
+current-DOM SERP, so there is no regression risk.
+
+- **Body** — walk `div.rPeykc` blocks + plain content `ul`/`ol` lists in
+  document order; a `rPeykc` wrapping a `[role=heading]` (other than the
+  `Fzsovc` "AI Overview" label) opens a section. Legacy captures predate the
+  JSON citation payloads, so `lede_citations` is always empty here.
+- **Sources** — read straight from `li.LLtSOc` tray cards: `a.KEVENd` href +
+  `aria-label` title (fallback `div.mNme1d`), snippet `span.gxZfx`. `source_id`
+  and `favicon` (a large base64 data URI) left `None`; `publisher` `""`.
+- **Failures** — "Can't generate" panels have none of these markers, so the
+  branch yields empty `text`/`details` (verified the "Can't generate" string is
+  a hidden fallback on *every* AI-overview page, including content-bearing ones,
+  so it is not used as a signal).
+
+Fixed the stale helper `scripts/dump_ai_overview_html.py` (`!= "knowledge"` ->
+`!= "ai_overview"`); `survey_ai_overviews.py` already used the correct gate.
+
+**Verification.** New `tests/test_ai_overview_legacy_sge.py` (5 cases) asserts
+content recovery (text + sources w/ url+title) and empty-on-failure. Full suite
+green (267 passed, 66 snapshots). Confirmed no current-DOM regression: all 108
+`mZJni` AI overviews in demo/fixtures still extract text+sources+citations, and
+0 corpus SERPs reach the legacy branch (every `ai_overview` row co-occurs with
+`mZJni`).
