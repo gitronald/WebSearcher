@@ -2,6 +2,7 @@
 .archive/
 .claude
 TODO.md
+CLAUDE.md
 
 build/
 data/
