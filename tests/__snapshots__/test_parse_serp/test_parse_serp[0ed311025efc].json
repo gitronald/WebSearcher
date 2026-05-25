@@ -477,10 +477,10 @@
       "serp_rank": 29,
       "sub_rank": 0,
       "sub_type": "panel_rhs",
-      "text": "",
-      "title": "",
+      "text": null,
+      "title": "The New York Times",
       "type": "knowledge",
-      "url": ""
+      "url": null
     }
   ]
 }

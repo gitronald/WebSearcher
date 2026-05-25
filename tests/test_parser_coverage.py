@@ -51,3 +51,50 @@ def test_recipes_structured(serps_by_qry, qry):
         details = r["details"]
         assert details is not None and details["type"] == "ratings"
         assert details.get("source")
+
+
+# --- knowledge: empty sub_types (phase 3) ----------------------------------
+
+
+def _knowledge(html, sub_type):
+    return [
+        r
+        for r in ws.parse_serp(html)["results"]
+        if r["type"] == "knowledge" and r.get("sub_type") == sub_type
+    ]
+
+
+@pytest.mark.parametrize(
+    "qry", ["mater (cars)", "pitbull i believe that we will win (world anthem)"]
+)
+def test_knowledge_featured_results(serps_by_qry, qry):
+    rows = _knowledge(serps_by_qry[qry]["html"], "featured_results")
+    assert rows
+    # recovers text + an absolute source url (was entirely empty before)
+    assert any(r["text"] and r["url"] and r["url"].startswith("http") for r in rows)
+
+
+@pytest.mark.parametrize("qry", ["cistern", "define judgement"])
+def test_knowledge_dictionary(serps_by_qry, qry):
+    rows = _knowledge(serps_by_qry[qry]["html"], "dictionary")
+    assert rows
+    row = rows[0]
+    # headword + definition text recovered (was entirely empty before)
+    assert row["title"]
+    assert row["text"] and len(row["text"]) > 20
+
+
+@pytest.mark.parametrize("qry", ["prouve", "red skin peanuts", "file folder"])
+def test_knowledge_panel_rhs_not_empty(serps_by_qry, qry):
+    rows = _knowledge(serps_by_qry[qry]["html"], "panel_rhs")
+    assert rows
+    for r in rows:
+        # no longer a hollow placeholder: has a title and/or text and/or details
+        assert r["title"] or r["text"] or r["details"]
+
+
+def test_knowledge_panel_rhs_entity_title(serps_by_qry):
+    """Entity panels recover their title from the data-attrid (was empty)."""
+    row = _knowledge(serps_by_qry["prouve"]["html"], "panel_rhs")[0]
+    assert row["title"] == "Jean Prouvé"
+    assert row["text"] and row["url"]

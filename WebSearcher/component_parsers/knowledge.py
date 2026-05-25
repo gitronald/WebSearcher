@@ -43,8 +43,17 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     h2 = cmpt.find("h2")
     h2_text = h2.text if h2 else ""
 
-    if cmpt.find("div", {"class": "pxiwBd"}):
+    if (pxiwbd := cmpt.find("div", {"class": "pxiwBd"})) is not None:
         parsed["sub_type"] = "featured_results"
+        # Heterogeneous panel (video carousel, lyrics, featured snippet); the
+        # primary link's text bundles title + description, so we recover text +
+        # url only and leave the unreliable title unset. Prefer the heading text
+        # already captured above (a finance/ticker pxiwBd is digit noise).
+        if not parsed["text"]:
+            parsed["text"] = pxiwbd.get_text(" ", strip=True) or None
+        primary = _first_external_link(pxiwbd)
+        if primary:
+            parsed["url"] = primary["url"]
     elif h2_text == "Featured snippet from the web" or cmpt.find(
         "div", {"class": "answered-question"}
     ):
@@ -83,14 +92,32 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         (button := cmpt.find("div", {"role": "button"})) and button.text == "Dictionary"
     ):
         parsed["sub_type"] = "dictionary"
-        vmod = cmpt.find("div", {"class": "vmod"})
-        if vmod:
-            details["text"] = vmod.get_text(" ", strip=True).split("Translate")[0]
+        # Modern dictionary panels expose structured data-attrid entries.
+        entry = cmpt.find(attrs={"data-attrid": "EntryHeader"})
+        if entry:
+            # "cis·tern / ˈsistərn / Learn to pronounce" -> "cistern"
+            word = entry.get_text(" ", strip=True).split("/")[0].replace("·", "").strip()
+            parsed["title"] = word or None
+        definitions = [
+            text
+            for d in cmpt.find_all(attrs={"data-attrid": "SenseDefinition"})
+            if (text := d.get_text(" ", strip=True))
+        ]
+        if definitions:
+            parsed["text"] = " | ".join(definitions)
+            details["text"] = parsed["text"]
         else:
-            span_first = cmpt.find("span", {"jsslot": ""})
-            if span_first:
-                span = span_first.find_all("span")
-                details["text"] = _join_texts(span).split("Translate")[0] if list(span) else None
+            # Legacy layout fallback.
+            vmod = cmpt.find("div", {"class": "vmod"})
+            if vmod:
+                details["text"] = vmod.get_text(" ", strip=True).split("Translate")[0]
+            else:
+                span_first = cmpt.find("span", {"jsslot": ""})
+                if span_first:
+                    span = span_first.find_all("span")
+                    details["text"] = (
+                        _join_texts(span).split("Translate")[0] if list(span) else None
+                    )
 
     elif h2_text in ("Translation Result", "Resultado de traducción"):
         parsed["sub_type"] = "translate"
@@ -156,6 +183,20 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
 
 def _join_texts(div) -> str:
     return "|".join([d.get_text(separator=" ") for d in div if d.text])
+
+
+def _first_external_link(node: bs4.element.Tag) -> dict | None:
+    """Return the first absolute (external) anchor (url + text) within ``node``.
+
+    Skips root-relative Google links (``/search?``, ``/intl/...`` disclaimers,
+    etc.) — only ``http(s)://`` targets count.
+    """
+    for a in node.find_all("a", href=True):
+        href = str(a["href"])
+        if not href.startswith(("http://", "https://")):
+            continue
+        return {"url": href, "text": a.get_text(" ", strip=True)}
+    return None
 
 
 def parse_alink(a: bs4.element.Tag) -> dict:

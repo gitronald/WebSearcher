@@ -414,3 +414,36 @@ source/price under `ratings`); `details=None` when no metadata is present.
 title+url, no `<|>` blob, no error, and a `ratings` details block. No snapshot
 churn (0 `recipes` components in the `serps-v*` snapshot fixtures). Full suite
 green (269 passed).
+
+### Phase 3 — knowledge empties: done
+
+Three distinct gaps, all confirmed against fixtures (selectors located via
+`data-attrid`, which is stabler than the obfuscated class names the old code
+chased):
+
+- **`featured_results`** (`knowledge.py`) — was detected but extracted nothing.
+  Now reads the answer panel `div.pxiwBd`: `text` from its content (only when the
+  existing heading text is empty — a finance/ticker `pxiwBd` is digit noise) and
+  `url` from the first absolute (http/https) source link. Title left unset
+  (the primary anchor bundles title+description; unreliable across the
+  video/lyrics/snippet variants).
+- **`dictionary`** (`knowledge.py`) — the `div.vmod`/`span[jsslot]` selectors
+  were stale. Now reads the structured `data-attrid` entries: headword from
+  `EntryHeader` (e.g. "cis·tern / …" -> `title="cistern"`), definitions from
+  `SenseDefinition` joined into `text` (legacy selectors kept as fallback).
+- **`panel_rhs`** (`knowledge_rhs.py`) — empty placeholders had two causes:
+  (a) title was read only from `h2[data-attrid=title]` while entity panels carry
+  it on a non-`h2` `[data-attrid=title]` (fixed -> "Jean Prouvé", "United States
+  Congress", etc.); (b) "Things to know" RHS panels carry topic sections on
+  `lab/title/*` attrs and no description, so they extracted nothing — now surface
+  a `Things to know` title + topic `items`. Added a `[data-attrid=description]`
+  text fallback, switched `""` inits to `None`, and drop genuinely hollow main
+  and follow-on rows.
+
+**Verification.** 8 new coverage tests (featured_results / dictionary /
+panel_rhs incl. the entity-title regression case). Reviewed all 11 shifted
+snapshots — every change is a recovery (titles, definitions, source urls,
+things-to-know topics) or a harmless `""`->`None`; the one initial regression
+(`aapl` ticker noise overwriting a good headline + an internal disclaimer url)
+was fixed before updating snapshots. Full suite green (280 passed, 66 snapshots,
+11 updated).
