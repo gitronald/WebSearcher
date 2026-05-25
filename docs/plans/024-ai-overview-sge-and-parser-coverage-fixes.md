@@ -254,3 +254,45 @@ the relevant parser.
 Phase 0 (fixtures) → Phase 1 (AI Overview) → Phase 2 (recipes) →
 Phase 3 (knowledge) → Phase 4 (twitter_cards) → Phase 5 (general + shopping_ads)
 → Phase 6 (unknown survey). One commit per phase.
+
+## Log
+
+### Phase 0 — fixtures built
+
+Selected verified SERPs by parsing candidates with current WS (0.8.3a0) and
+confirming each exhibits its issue, rather than by query name (the downstream
+note's example queries were drawn from the full crawl, not the seeded sample).
+Records stripped to the existing fixture key shape; internal `crawl_id` blanked.
+
+**`tests/fixtures/serps-sge-2024.json.bz2`** (583 KB, 5 SERPs) — every SERP
+produces an `ai_overview` row that current code leaves `text=null` (the gap):
+- content-bearing (real `div.rPeykc` answer text): `my work is done why wait`
+  (flagship — sources with `#:~:text=` fragments + an "Explanation" section),
+  `metropolitan los angeles area`, `barclays job cuts`
+- genuine empties (`rPeykc_n=0`): `tesla manifesto`, `honeywell c level
+  management figures`
+
+**`tests/fixtures/serps-parser-coverage.json.bz2`** (3.2 MB, 15 SERPs) — 2 per
+issue plus one non-empty `panel_rhs` for regression coverage:
+- recipes: `birthday cake with candles`, `biscuit and gravy recipe`
+- knowledge/featured_results (empty): `mater (cars)`, `pitbull i believe that we will win`
+- knowledge/dictionary (empty): `cistern`, `define judgement`
+- knowledge/panel_rhs (empty): `red skin peanuts`, `file folder`
+- knowledge/panel_rhs (non-empty, regression anchor): `prouve`
+- twitter_cards/card (no title): `movement`, `oscar the grouch`
+- general error (null sub_type+url+text+cite): `men's old school wears`, `kaka boots`
+- shopping_ads error (no url/title): `drawing tablet`, `kelly kettle`
+
+**Discovery for Phase 1 (2024-SGE selectors).** The "Can't generate an AI
+overview right now" string is a hidden fallback present on *every* AI-overview
+page (including content-bearing ones), so it is **not** a content-vs-failure
+discriminator — presence of `div.rPeykc` body text is. Located the 2024-SGE
+markup in the content fixtures (none of which the current parser targets):
+- body answer paragraphs: `div.rPeykc` (nested under `div.WaaZC` /
+  `div.LT6XE` / `div.UxeQfc`) — vs current `div.mZJni` / `Y3BBE`
+- section heading label: `"Explanation"` heading observed in the flagship SERP
+- source links: `a.KEVENd` anchors inside `li.LLtSOc` cards, carrying
+  `#:~:text=` deep-link fragments — vs current `ul.bTFeG` / `li.CyMdWb`
+
+The current `div.Fzsovc` marker (detection) holds only the "AI Overview" label
+(or "Searching" on mid-load captures), not the answer body.
