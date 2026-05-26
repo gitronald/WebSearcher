@@ -79,33 +79,33 @@ uv run python scripts/show_parsed.py "election news" --cat-width 12
 ```
 qry='election news', components=23
 
-┌──────┬─────┬────────┬──────────────┬──────────────┬──────────────────────────────┬──────────────────────────────┬────────────┐
-│ rank ┆ sub ┆ sec    ┆ type         ┆ sub_type     ┆ title                        ┆ url                          ┆ details    │
-╞══════╪═════╪════════╪══════════════╪══════════════╪══════════════════════════════╪══════════════════════════════╪════════════╡
-│ 0    ┆ 0   ┆ main   ┆ ad           ┆ standard     ┆ Latest Election News         ┆ https://www.election-integr… ┆ -          │
-│ 1    ┆ 0   ┆ main   ┆ top_stories  ┆ -            ┆ 2026 Texas primary runoff e… ┆ https://www.cbsnews.com/tex… ┆ -          │
-│ 1    ┆ 1   ┆ main   ┆ top_stories  ┆ -            ┆ Texas runoff election live … ┆ https://www.usatoday.com/st… ┆ -          │
-│ 1    ┆ 2   ┆ main   ┆ top_stories  ┆ -            ┆ Texas’ raucous primary runo… ┆ https://www.texastribune.or… ┆ -          │
-│ 1    ┆ 3   ┆ main   ┆ top_stories  ┆ -            ┆ Where to vote in El Paso, w… ┆ https://www.elpasotimes.com… ┆ -          │
-│ 1    ┆ 4   ┆ main   ┆ top_stories  ┆ -            ┆ Texas voters head to polls … ┆ https://www.audacy.com/krld… ┆ -          │
-│ 1    ┆ 5   ┆ main   ┆ top_stories  ┆ -            ┆ Texas elections live update… ┆ https://www.nbcnews.com/pol… ┆ -          │
-│ 1    ┆ 6   ┆ main   ┆ top_stories  ┆ -            ┆ Trump claims 2020 election … ┆ https://www.reuters.com/wor… ┆ -          │
-│ 2    ┆ 0   ┆ main   ┆ local_news   ┆ -            ┆ Get up to speed fast on the… ┆ https://www.mv-voice.com/ca… ┆ -          │
-│ 2    ┆ 1   ┆ main   ┆ local_news   ┆ -            ┆ Column: My pick for Califor… ┆ https://www.latimes.com/cal… ┆ -          │
-│ 2    ┆ 2   ┆ main   ┆ local_news   ┆ -            ┆ Voter turnout remains low i… ┆ https://www.cbs8.com/video/… ┆ -          │
-│ 2    ┆ 3   ┆ main   ┆ local_news   ┆ -            ┆ California gubernatorial el… ┆ https://abc7news.com/post/c… ┆ -          │
-│ 3    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Last-minute voter guide for… ┆ https://calmatters.org/poli… ┆ -          │
-│ 4    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Matt Mahan facing campaign … ┆ https://abc7news.com/post/c… ┆ -          │
-│ 5    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Election 2026: Results, new… ┆ https://www.cnn.com/electio… ┆ -          │
-│ 6    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Ballotpedia.org              ┆ https://ballotpedia.org/Mai… ┆ -          │
-│ 7    ┆ 0   ┆ main   ┆ videos       ┆ vertical     ┆ Voter turnout remains low i… ┆ https://www.youtube.com/wat… ┆ -          │
-│ 7    ┆ 1   ┆ main   ┆ videos       ┆ vertical     ┆ Thomas Massie files stateme… ┆ https://www.youtube.com/wat… ┆ -          │
-│ 7    ┆ 2   ┆ main   ┆ videos       ┆ vertical     ┆ Breaking down the Democrats… ┆ https://www.youtube.com/wat… ┆ -          │
-│ 8    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Elections 2026               ┆ https://www.npr.org/section… ┆ -          │
-│ 9    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Department of Elections      ┆ https://www.sf.gov/departme… ┆ -          │
-│ 10   ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Everything You Need to Vote… ┆ https://www.vote.org/        ┆ -          │
-│ 11   ┆ 0   ┆ footer ┆ searches_re… ┆ people_also… ┆ -                            ┆ -                            ┆ text (n=8) │
-└──────┴─────┴────────┴──────────────┴──────────────┴──────────────────────────────┴──────────────────────────────┴────────────┘
+┌──────────────┬────────────────────────────────────────────────────┬────────────────────────────────────────────────────┐
+│ type         ┆ title                                              ┆ url                                                │
+╞══════════════╪════════════════════════════════════════════════════╪════════════════════════════════════════════════════╡
+│ ad           ┆ Latest Election News                               ┆ https://www.election-integrity.org/news            │
+│ top_stories  ┆ 2026 Texas primary runoff election results         ┆ https://www.cbsnews.com/texas/live-updates/2026-t… │
+│ top_stories  ┆ Texas runoff election live updates: Cornyn vs. Pa… ┆ https://www.usatoday.com/story/news/politics/elec… │
+│ top_stories  ┆ Texas’ raucous primary runoffs end today. Here’s … ┆ https://www.texastribune.org/2026/05/26/texas-pri… │
+│ top_stories  ┆ Where to vote in El Paso, what time do polls open… ┆ https://www.elpasotimes.com/story/news/politics/e… │
+│ top_stories  ┆ Texas voters head to polls today for primary runo… ┆ https://www.audacy.com/krld/news/local/texas-prim… │
+│ top_stories  ┆ Texas elections live updates: Trump-backed Ken Pa… ┆ https://www.nbcnews.com/politics/2026-election/li… │
+│ top_stories  ┆ Trump claims 2020 election 'rigged' at least 107 … ┆ https://www.reuters.com/world/us/trump-claims-202… │
+│ local_news   ┆ Get up to speed fast on the California election w… ┆ https://www.mv-voice.com/calmatters/2026/05/26/ge… │
+│ local_news   ┆ Column: My pick for California governor is ... I'… ┆ https://www.latimes.com/california/newsletter/202… │
+│ local_news   ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.cbs8.com/video/news/local/voter-turno… │
+│ local_news   ┆ California gubernatorial election: Matt Mahan fac… ┆ https://abc7news.com/post/california-gubernatoria… │
+│ general      ┆ Last-minute voter guide for California governor e… ┆ https://calmatters.org/politics/elections/2026/05… │
+│ general      ┆ Matt Mahan facing campaign questions, political j… ┆ https://abc7news.com/post/california-gubernatoria… │
+│ general      ┆ Election 2026: Results, news and analysis          ┆ https://www.cnn.com/election/2026                  │
+│ general      ┆ Ballotpedia.org                                    ┆ https://ballotpedia.org/Main_Page                  │
+│ videos       ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.youtube.com/watch?v=UnJEjKYuXCI        │
+│ videos       ┆ Thomas Massie files statement of candidacy for 20… ┆ https://www.youtube.com/watch?v=tLu_eWYW8Pc        │
+│ videos       ┆ Breaking down the Democrats' 2024 election autops… ┆ https://www.youtube.com/watch?v=exTN-Jgb6Vo        │
+│ general      ┆ Elections 2026                                     ┆ https://www.npr.org/sections/elections/            │
+│ general      ┆ Department of Elections                            ┆ https://www.sf.gov/departments--department-electi… │
+│ general      ┆ Everything You Need to Vote - Vote.org             ┆ https://www.vote.org/                              │
+│ searches_re… ┆ -                                                  ┆ -                                                  │
+└──────────────┴────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 ```
 
 By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
@@ -129,7 +129,7 @@ Example search and parse pipeline (via requests):
 ```python
 import WebSearcher as ws
 se = ws.SearchEngine()                     # 1. Initialize collector
-se.search('immigration news')              # 2. Conduct a search
+se.search('election news')                 # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
 se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
@@ -156,8 +156,8 @@ se = ws.SearchEngine(
 #### 2. Conduct a Search
 
 ```python
-se.search('immigration news')
-# 2024-08-19 14:09:18.502 | INFO | WebSearcher.searchers | 200 | immigration news
+se.search('election news')
+# 2026-05-26 09:14:22.318 | INFO | WebSearcher.searchers | 200 | election news
 ```
 
 #### 3. Parse Search Results
@@ -173,12 +173,12 @@ se.parsed.results[0]
 {'section': 'main',
  'cmpt_rank': 0,
  'sub_rank': 0,
- 'type': 'top_stories',
- 'sub_type': None,
- 'title': 'Biden citizenship program for migrant spouses in US launches',
- 'url': 'https://www.newsnationnow.com/us-news/immigration/biden-citizenship-program-migrant-spouses-us-launches/',
- 'text': None,
- 'cite': 'NewsNation',
+ 'type': 'ad',
+ 'sub_type': 'standard',
+ 'title': 'Latest Election News',
+ 'url': 'https://www.election-integrity.org/news',
+ 'text': 'Latest Election News',
+ 'cite': 'https://www.election-integrity.org',
  'details': None,
  'error': None,
  'serp_rank': 0}

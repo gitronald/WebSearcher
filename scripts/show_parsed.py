@@ -56,8 +56,9 @@ def main(
     list_queries: bool = typer.Option(False, "--list", help="List available queries and exit"),
     width: int = typer.Option(500, help="Table width in characters"),
     cat_width: int = typer.Option(
-        None, help="Max char width for the type and sub_type columns (uncapped if unset)"
+        None, help="Max char width for the type column (uncapped if unset)"
     ),
+    details: bool = typer.Option(False, "--details", help="Include the details summary column"),
 ) -> None:
     fp = Path(data_dir) / "serps.json"
     if not fp.exists():
@@ -98,16 +99,10 @@ def main(
     df = pl.DataFrame(
         [
             {
-                "rank": r.get("cmpt_rank"),
-                "sub": r.get("sub_rank"),
-                "sec": r.get("section"),
                 "type": trunc(r.get("type"), cat_width) if cat_width else r.get("type"),
-                "sub_type": (
-                    trunc(r.get("sub_type"), cat_width) if cat_width else show(r.get("sub_type"))
-                ),
                 "title": trunc(r.get("title")),
                 "url": show(r.get("url")),
-                "details": details_summary(r.get("details")),
+                **({"details": details_summary(r.get("details"))} if details else {}),
             }
             for r in results
         ]
