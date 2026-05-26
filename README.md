@@ -64,10 +64,10 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 
 ### Example Search Script
 
-There's an example search script that can be run from the command line with uv with a search query argument (`-q` or `--query`).
+There's an example search script that can be run from the command line with uv, passing the search query as the first argument.
 
 ```bash
-uv run demo-search -q "election news"
+uv run demo-search "election news"
 ```
 
 Search results are constantly changing, especially for news, but just now (see timestamp below), that search returned the following details (only a subset of columns are shown):
