@@ -30,7 +30,13 @@ def main(
     data_path = Path(data_dir)
     fps = {k: data_path / f"{k}.json" for k in ["serps", "parsed", "searches"]}
     data_path.mkdir(parents=True, exist_ok=True)
-    print(f"WebSearcher v{ws.__version__}\nSearch Query: {query}\nOutput Dir: {data_dir}\n")
+    header = f"WebSearcher v{ws.__version__}\nSearch Query: {query}\n"
+    if method == "selenium":
+        from WebSearcher.search_methods.selenium_searcher import detect_chrome_version
+
+        header += f"Chrome Version: {detect_chrome_version() or 'unknown'}\n"
+    header += f"Output Dir: {data_dir}\n"
+    print(header)
 
     # Setup search engine
     se = ws.SearchEngine(

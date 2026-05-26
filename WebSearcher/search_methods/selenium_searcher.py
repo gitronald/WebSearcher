@@ -17,10 +17,11 @@ from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
 
 
-def detect_chrome_major_version() -> int | None:
-    """Detect the major version of the installed Chrome/Chromium browser.
+def detect_chrome_version() -> str | None:
+    """Detect the full version of the installed Chrome/Chromium browser.
 
-    Returns the major version (e.g. 148) or None if it can't be determined.
+    Returns the version string (e.g. "148.0.7778.179") or None if it can't be
+    determined.
     """
     chrome_path = uc.find_chrome_executable()
     if not chrome_path:
@@ -31,8 +32,17 @@ def detect_chrome_major_version() -> int | None:
         )
     except (OSError, subprocess.SubprocessError):
         return None
-    match = re.search(r"\b(\d+)\.\d+\.\d+", output)
-    return int(match.group(1)) if match else None
+    match = re.search(r"\b(\d+\.\d+\.\d+(?:\.\d+)?)\b", output)
+    return match.group(1) if match else None
+
+
+def detect_chrome_major_version() -> int | None:
+    """Detect the major version of the installed Chrome/Chromium browser.
+
+    Returns the major version (e.g. 148) or None if it can't be determined.
+    """
+    version = detect_chrome_version()
+    return int(version.split(".")[0]) if version else None
 
 
 class SeleniumDriver:
