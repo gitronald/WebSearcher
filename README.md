@@ -70,47 +70,55 @@ There's an example search script that can be run from the command line with uv, 
 uv run demo-search "election news"
 ```
 
-Search results are constantly changing, especially for news, but just now (see timestamp below), that search returned the following details (only a subset of columns are shown):
+This collects the SERP, parses it, and saves the outputs (described below). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
 
-```
-WebSearcher v0.4.2.dev0
-Search Query: election news
-Output Dir: data/demo-ws-v0.4.2.dev0
-
-2024-11-11 10:55:27.362 | INFO | WebSearcher.searchers | 200 | election news
-
-                type                                    title                                      url
-0        top_stories  There’s a Lot of Fighting Over Why H...  https://slate.com/news-and-politics/...
-1        top_stories  Dearborn’s Arab Americans feel vindi...  https://www.politico.com/news/2024/1...
-2        top_stories  Former Kamala Harris aide says Joe B...  https://www.usatoday.com/story/news/...
-3        top_stories  Election live updates: Control of Co...  https://apnews.com/live/house-senate...
-4        top_stories  Undecided races of the 2024 election...  https://abcnews.go.com/538/live-upda...
-5         local_news  These Southern California House race...  https://www.nbclosangeles.com/decisi...
-6         local_news  Election Day is over in California. ...  https://www.sacbee.com/news/politics...
-7         local_news  Why Haven’t Numerous California Hous...  https://www.democracydocket.com/news...
-8         local_news  Anti-slavery measure Prop. 6 fails, ...  https://calmatters.org/politics/elec...
-9            general  November 10, 2024, election and Trum...  https://www.cnn.com/politics/live-ne...
-10           general  When do states have to certify 2024 ...  https://www.cbsnews.com/news/state-e...
-11           general  US Election 2024 | Latest News & Ana...  https://www.bbc.com/news/topics/cj3e...
-12           unknown                                     None                                     None
-13           general                            2024 Election  https://www.npr.org/sections/elections/
-14           general  Politics, Policy, Political News - P...                https://www.politico.com/
-15           general  Presidential election highlights: No...  https://apnews.com/live/trump-harris...
-16           general  Election 2024: Latest News, Top Stor...  https://calmatters.org/category/poli...
-17  searches_related                                     None                                     None
+```bash
+uv run python scripts/show_parsed.py "election news" --cat-width 12
 ```
 
-By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) with the structure below. Within that, the script saves the HTML both to a single JSON lines file (`serps.json`), which is recommended because it includes metadata about the search, and to individual HTML files in a subdirectory (`html/`) for ease of viewing the SERPs (e.g., in a browser). The script also saves the parsed search results to a JSON file (`results.json`).
+```
+qry='election news', components=23
+
+┌──────┬─────┬────────┬──────────────┬──────────────┬──────────────────────────────┬──────────────────────────────┬────────────┐
+│ rank ┆ sub ┆ sec    ┆ type         ┆ sub_type     ┆ title                        ┆ url                          ┆ details    │
+╞══════╪═════╪════════╪══════════════╪══════════════╪══════════════════════════════╪══════════════════════════════╪════════════╡
+│ 0    ┆ 0   ┆ main   ┆ ad           ┆ standard     ┆ Latest Election News         ┆ https://www.election-integr… ┆ -          │
+│ 1    ┆ 0   ┆ main   ┆ top_stories  ┆ -            ┆ 2026 Texas primary runoff e… ┆ https://www.cbsnews.com/tex… ┆ -          │
+│ 1    ┆ 1   ┆ main   ┆ top_stories  ┆ -            ┆ Texas runoff election live … ┆ https://www.usatoday.com/st… ┆ -          │
+│ 1    ┆ 2   ┆ main   ┆ top_stories  ┆ -            ┆ Texas’ raucous primary runo… ┆ https://www.texastribune.or… ┆ -          │
+│ 1    ┆ 3   ┆ main   ┆ top_stories  ┆ -            ┆ Where to vote in El Paso, w… ┆ https://www.elpasotimes.com… ┆ -          │
+│ 1    ┆ 4   ┆ main   ┆ top_stories  ┆ -            ┆ Texas voters head to polls … ┆ https://www.audacy.com/krld… ┆ -          │
+│ 1    ┆ 5   ┆ main   ┆ top_stories  ┆ -            ┆ Texas elections live update… ┆ https://www.nbcnews.com/pol… ┆ -          │
+│ 1    ┆ 6   ┆ main   ┆ top_stories  ┆ -            ┆ Trump claims 2020 election … ┆ https://www.reuters.com/wor… ┆ -          │
+│ 2    ┆ 0   ┆ main   ┆ local_news   ┆ -            ┆ Get up to speed fast on the… ┆ https://www.mv-voice.com/ca… ┆ -          │
+│ 2    ┆ 1   ┆ main   ┆ local_news   ┆ -            ┆ Column: My pick for Califor… ┆ https://www.latimes.com/cal… ┆ -          │
+│ 2    ┆ 2   ┆ main   ┆ local_news   ┆ -            ┆ Voter turnout remains low i… ┆ https://www.cbs8.com/video/… ┆ -          │
+│ 2    ┆ 3   ┆ main   ┆ local_news   ┆ -            ┆ California gubernatorial el… ┆ https://abc7news.com/post/c… ┆ -          │
+│ 3    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Last-minute voter guide for… ┆ https://calmatters.org/poli… ┆ -          │
+│ 4    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Matt Mahan facing campaign … ┆ https://abc7news.com/post/c… ┆ -          │
+│ 5    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Election 2026: Results, new… ┆ https://www.cnn.com/electio… ┆ -          │
+│ 6    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Ballotpedia.org              ┆ https://ballotpedia.org/Mai… ┆ -          │
+│ 7    ┆ 0   ┆ main   ┆ videos       ┆ vertical     ┆ Voter turnout remains low i… ┆ https://www.youtube.com/wat… ┆ -          │
+│ 7    ┆ 1   ┆ main   ┆ videos       ┆ vertical     ┆ Thomas Massie files stateme… ┆ https://www.youtube.com/wat… ┆ -          │
+│ 7    ┆ 2   ┆ main   ┆ videos       ┆ vertical     ┆ Breaking down the Democrats… ┆ https://www.youtube.com/wat… ┆ -          │
+│ 8    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Elections 2026               ┆ https://www.npr.org/section… ┆ -          │
+│ 9    ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Department of Elections      ┆ https://www.sf.gov/departme… ┆ -          │
+│ 10   ┆ 0   ┆ main   ┆ general      ┆ -            ┆ Everything You Need to Vote… ┆ https://www.vote.org/        ┆ -          │
+│ 11   ┆ 0   ┆ footer ┆ searches_re… ┆ people_also… ┆ -                            ┆ -                            ┆ text (n=8) │
+└──────┴─────┴────────┴──────────────┴──────────────┴──────────────────────────────┴──────────────────────────────┴────────────┘
+```
+
+By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
 
 ```sh
-ls -hal data/demo-ws-v0.4.2.dev0/
+ls -hal data/demo-ws-v0.8.4/
 ```
 ```
 total 1020K
-drwxr-xr-x 3 user user 4.0K 2024-11-11 10:54 ./
+drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 ./
 drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
-drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 html/
--rw-r--r-- 1 user user  16K 2024-11-11 10:55 results.json
+-rw-r--r-- 1 user user  16K 2024-11-11 10:55 parsed.json
+-rw-r--r-- 1 user user 2.0K 2024-11-11 10:55 searches.json
 -rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
 ```
 
@@ -124,7 +132,7 @@ se = ws.SearchEngine()                     # 1. Initialize collector
 se.search('immigration news')              # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
-se.save_results(append_to='results.json')  # 5. Save parsed results
+se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
 
 ```
 
@@ -140,7 +148,7 @@ se = ws.SearchEngine(
         "headless": False,
         "use_subprocess": False,
         "driver_executable_path": "",
-        "version_main": 141,
+        "version_main": None,  # auto-detected from installed Chrome when None
     }
 )
 ```   
@@ -197,7 +205,7 @@ se.save_serp(save_dir='./serps')
 Save to a json lines file.
 
 ```python
-se.save_results(append_to='results.json')
+se.save_parsed(append_to='parsed.json')
 ```
 
 ---  
@@ -278,7 +286,7 @@ To release a new version:
 ---
 ## Similar Packages
 
-Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 25 without considering `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
+Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 45 without considering `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
 
 - https://github.com/jarun/googler
 - http://googolplex.sourceforge.net
