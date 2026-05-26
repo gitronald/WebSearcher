@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.8.5] - 2026-05-26
+
+- Updated demo scripts, examples, and documentation
 - Trimmed the published source distribution (`sdist`) from ~24MB to ~100KB by restricting it to the package, `scripts/`, and metadata (excluding `docs/`, `tests/` fixtures, and dev config); the installed wheel was already package-only, so this affects only the PyPI source archive (no runtime or `pip install` change)
 
 ## [0.8.4] - 2026-05-25

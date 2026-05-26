@@ -10,6 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.8.5`: Minor updates to packaging for pypi, demo scripts, and documentation
 - `0.8.4`: Reclassified shopping/commercial blocks that previously emitted hollow `general` rows (29 -> 0) into new component types — `products` (grid/brands), `promo` (shopping deals banner), `most_read_articles`, and `buying_guide` — plus a `general` `image_strip` sub_type
 - `0.8.3`: Recovered parser coverage for historical/edge layouts — legacy 2024-SGE `ai_overview` content + `unavailable` state, a new `recipes` parser, empty `knowledge` (featured_results/dictionary/panel_rhs) extraction, `twitter_cards` card titles, and modern `shopping_ads` PLA cards
 - `0.8.2`: Parse pipeline optimization — ~24% faster per-SERP `parse_serp` (dropped whole-document `str(soup)`, classifier signal preconditions, lazy `SearchEngine` import); fixed the dormant `is_valid` hidden-survey filter
