@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.8.4"
+version = "0.8.5"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "rer@acm.org"}]
 keywords = ["web", "search", "parser"]
@@ -78,3 +78,15 @@ known-first-party = ["WebSearcher"]
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.sdist]
+# Allowlist what the sdist ships. The wheel already contains only the
+# WebSearcher/ package; this trims the sdist to match (~24MB -> a few hundred KB).
+# Anything not listed here (docs, tests, CI config, dev dotfiles) stays in the
+# repo but is kept out of the distributed source archive. pyproject.toml,
+# README.md, and LICENSE are added automatically as project metadata.
+only-include = [
+    "WebSearcher",  # the importable package
+    "scripts",      # demo-search / demo-searches console entry points
+    "CHANGELOG.md",
+]

@@ -1,3 +1,5 @@
+import re
+import subprocess
 import time
 from datetime import UTC, datetime
 
@@ -13,6 +15,34 @@ from .. import utils
 from ..models.configs import SeleniumConfig
 from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
+
+
+def detect_chrome_version() -> str | None:
+    """Detect the full version of the installed Chrome/Chromium browser.
+
+    Returns the version string (e.g. "148.0.7778.179") or None if it can't be
+    determined.
+    """
+    chrome_path = uc.find_chrome_executable()
+    if not chrome_path:
+        return None
+    try:
+        output = subprocess.check_output(
+            [chrome_path, "--version"], stderr=subprocess.STDOUT, text=True, timeout=10
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    match = re.search(r"\b(\d+\.\d+\.\d+(?:\.\d+)?)\b", output)
+    return match.group(1) if match else None
+
+
+def detect_chrome_major_version() -> int | None:
+    """Detect the major version of the installed Chrome/Chromium browser.
+
+    Returns the major version (e.g. 148) or None if it can't be determined.
+    """
+    version = detect_chrome_version()
+    return int(version.split(".")[0]) if version else None
 
 
 class SeleniumDriver:
@@ -37,6 +67,13 @@ class SeleniumDriver:
 
     def init_driver(self) -> None:
         """Initialize Chrome driver with selenium-specific config"""
+        if self.config.version_main is None:
+            detected = detect_chrome_major_version()
+            if detected is not None:
+                self.config.version_main = detected
+                self.log.debug(f"SERP | detected chrome major version | {detected}")
+            else:
+                self.log.warning("SERP | could not detect chrome version; using uc default")
         self.log.debug(f"SERP | init uc chromedriver | kwargs: {self.config.__dict__}")
         self.driver = uc.Chrome(**self.config.__dict__)
 
