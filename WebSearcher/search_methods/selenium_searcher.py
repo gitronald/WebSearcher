@@ -1,3 +1,4 @@
+import logging
 import re
 import subprocess
 import time
@@ -174,37 +175,29 @@ class SeleniumDriver:
         return None
 
     def cleanup(self) -> bool:
-        """Clean up resources, particularly Selenium's browser instance
+        """Quit the browser, returning True on success or if there's nothing to do.
 
-        Returns:
-            bool: True if cleanup was successful or not needed, False if cleanup failed
+        ``driver.quit()`` already closes every window and ends the session, so no
+        per-window/cookie teardown is needed. During interpreter shutdown the
+        chromedriver session is often already gone, which makes quit() emit noisy
+        urllib3 connection-refused retries; mute that logger for the duration.
         """
-        if self.driver:
-            try:
-                self.delete_cookies()
-                self.close_all_windows()
-                self.driver.quit()
-                self.driver = None
-                self.log.debug("Browser successfully closed")
-                return True
-            except Exception as e:
-                self.log.warning(f"Failed to close browser: {e}")
-                self.driver = None
-                return False
-        return True
+        if not self.driver:
+            return True
 
-    def close_all_windows(self):
+        pool_logger = logging.getLogger("urllib3.connectionpool")
+        prev_level = pool_logger.level
+        pool_logger.setLevel(logging.ERROR)
         try:
-            driver = self._require_driver()
-            # Close all tabs/windows
-            original_handle = driver.current_window_handle
-            for handle in driver.window_handles:
-                driver.switch_to.window(handle)
-                driver.close()
-            driver.switch_to.window(original_handle)
-            driver.close()
-        except Exception:
-            pass
+            self.driver.quit()
+            self.log.debug("Browser successfully closed")
+            return True
+        except Exception as e:
+            self.log.debug(f"Browser already closed or unreachable: {e}")
+            return False
+        finally:
+            pool_logger.setLevel(prev_level)
+            self.driver = None
 
     def delete_cookies(self):
         """Delete all cookies from the browser"""
@@ -212,7 +205,7 @@ class SeleniumDriver:
             try:
                 self.driver.delete_all_cookies()
             except Exception as e:
-                self.log.warning(f"Failed to delete cookies: {str(e)}")
+                self.log.debug(f"Failed to delete cookies: {str(e)}")
 
     def __del__(self):
         """Destructor to ensure browser is closed when object is garbage collected"""

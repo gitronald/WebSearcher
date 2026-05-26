@@ -32,9 +32,14 @@ def main(
     data_path.mkdir(parents=True, exist_ok=True)
     header = f"WebSearcher v{ws.__version__}\nSearch Query: {query}\n"
     if method == "selenium":
-        from WebSearcher.search_methods.selenium_searcher import detect_chrome_version
+        try:
+            from WebSearcher.search_methods.selenium_searcher import detect_chrome_version
 
-        header += f"Chrome Version: {detect_chrome_version() or 'unknown'}\n"
+            chrome_version = detect_chrome_version() or "unknown"
+        except ImportError:
+            # Older installed WebSearcher without the helper (version skew)
+            chrome_version = "unknown"
+        header += f"Chrome Version: {chrome_version}\n"
     header += f"Output Dir: {data_dir}\n"
     print(header)
 
