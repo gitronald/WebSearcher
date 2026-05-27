@@ -41,6 +41,7 @@ dev = [
     "pyrefly",
     "ruff>=0.15.6",
     "pytest-cov>=7.0.0",
+    "selectolax>=0.4.10",
 ]
 
 [tool.pyrefly]

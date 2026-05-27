@@ -125,12 +125,13 @@ assumed:
 Mirroring 023's "profile/measure before optimizing" discipline. Before touching
 any parser:
 
-1. **Tree-diff harness.** Parse every fixture SERP with both `lxml`+bs4 and
-   `selectolax`, walk both trees, and report per-SERP divergences (tag name, attr
-   set, normalized text) keyed by DOM path. This **quantifies the §4 tree-shape
-   risk on real corpus markup** up front. Without it, a migration just turns the
-   snapshot suite red with no diagnosis. Add it as a committed script (e.g.
-   `scripts/diff_parsers.py`), corpus = the existing `tests/fixtures/serps-*.json.bz2`.
+1. **Tree-diff harness — DONE (`scripts/diff_parsers.py`, see Log 2026-05-27).**
+   Parses every fixture SERP with both `lxml`+bs4 and `selectolax` and reports
+   per-SERP structural divergence (element/tag-name counts) plus signal parity for
+   the exact class/id/tag/attr targets the classifier and extractor query. Result:
+   **zero divergence on every queried signal across 88 SERPs**; the only
+   structural diffs are inert (SVG name casing, `<tbody>` insertion). The §4
+   tree-shape risk is measured and small.
 2. **Bench parity.** Extend `scripts/bench_parse.py` with a selectolax code path
    so deltas are measured the same way (per-SERP median + MAD, gate on the
    ~3% / 2×-MAD noise floor). Record numbers in the Log; never chain deltas across
@@ -229,3 +230,49 @@ maintenance argument, so **B (full migration) is the end target** and option C
 binding constraint is now solely the byte-identical *output* snapshot suite
 (§2 #1) — which is exactly what the §5 parity harness and the §6-D pilot exist to
 de-risk. Sequencing is unchanged: harness → pilot → measure → commit to B.
+
+### 2026-05-27 — parity harness delivered; tree-shape risk measured as small
+
+Added `scripts/diff_parsers.py` (§5 item 1) and ran it over the full corpus
+(88 SERPs, all 7 `serps-*` fixtures). It parses each SERP with both
+`BeautifulSoup(html, "lxml")` (mirroring `utils.make_soup`) and selectolax
+`HTMLParser`, with no `import WebSearcher` (so it is unaffected by the env issue
+below). selectolax `0.4.10` added to the **dev** group only — not runtime
+`dependencies` (consistent with §5: ship it only when a pilot banks a win).
+
+**Result — the §4 "core risk" is empirically small on real Google markup:**
+
+- **Signal parity: zero divergence.** For every class/id/tag/attr signal the
+  classifier and extractor key on (rso/rcnt/tads/…, `g-*`/`promo-throttler`/…,
+  `g`/`ULSxyf`/`MjjYud`/`yuRUbf`/…, `[role=heading]`, `[data-attrid=…]`,
+  `[jscontroller=…]`), bs4 and selectolax match the **same number of nodes on all
+  88 SERPs**. The query class-token semantics were made provably equivalent
+  (`[class~="x"]` == bs4 `class_="x"`), so this is a real tree-agreement result,
+  not a selector artifact.
+- **Structural diffs (16/88 SERPs) are confined to two inert classes:**
+  1. **SVG element-name casing** — `clipPath`/`clippath`,
+     `feGaussianBlur`/`fegaussianblur`, `foreignObject`, `linearGradient`,
+     `feColorMatrix`, etc. These are net-zero camelCase↔lowercase pairs: lexbor
+     keeps the HTML5 SVG foreign-content casing; lxml lowercases. Same elements,
+     different case. **No parser queries SVG internals** (grep: none), so inert.
+  2. **`<tbody>` auto-insertion** (10 SERPs, ±1 each) — the two parsers differ on
+     inserting an implicit `tbody`. The only table-touching path
+     (`general.py` submenu: `sub.find("table").find_all("a")`) is recursive, so it
+     reaches the **same anchors regardless** — verified on two divergent SERPs
+     (`prouve`, `kelly kettle`): `table → a` counts identical (2/2, 5/5).
+
+Conclusion: the byte-identical-output risk from a parser swap is **much smaller
+than §4 feared** — on this corpus, lexbor and lxml agree on every node the
+pipeline actually looks at. The remaining work to bank the win is the API rewrite
+(query/attr/text/mutation translation, §3–§4), not tree-shape reconciliation. The
+§6-D `_ComponentSignals` pilot is the next step to get a measured speed delta.
+
+**Environment caveat (blocks the §2 #1 gate here, not the harness):**
+`uv run pytest` and `import WebSearcher` currently fail in this container —
+Python is `3.14.0rc2` and the pinned `pydantic 2.13.4` raises `AssertionError`
+in `eval_type_backport` while building `models/data.py`. This is a pre-existing
+deps/runtime mismatch, independent of selectolax. The snapshot-suite gate
+(`uv run pytest` green without updates) cannot be exercised until it is resolved
+(pin Python to 3.12/3.13 for the env, or bump pydantic to a 3.14-compatible
+release). Flagged for the maintainer; the parity harness sidesteps it by not
+importing the package.
