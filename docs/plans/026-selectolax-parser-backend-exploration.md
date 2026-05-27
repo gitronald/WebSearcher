@@ -32,24 +32,31 @@ at lower memory. 023 explicitly left both on the table as "known but not worth i
 **for bs4**." selectolax is the lever that could make them worth it.
 
 So the upside is real and aimed at the measured hot spots. The rest of this plan
-is about whether it can be banked **without breaking the byte-identical contract**.
+is about whether it can be banked **without breaking the byte-identical output
+contract** (§2 #1). The BeautifulSoup *input/return-type* contract has been
+cleared for breaking (§2 #2), so the migration is a one-way rewrite, not a
+dual-backend exercise.
 
-## 2. The two hard constraints (carried from 023/025)
+## 2. The binding constraint, and the one we're allowed to break
 
-1. **`uv run pytest` snapshots must stay green WITHOUT updates.** The snapshot
-   suite freezes full `parse_serp` output across the `serps-v*` corpus. Any parser
-   that changes one byte of output is a regression, not an optimization. This is
-   the gate every change in 023 and 025 had to clear, and it is the dominant
-   constraint here because **selectolax changes the parse tree, the query
-   semantics, and the text extraction all at once.**
-2. **Public API.** `parse_serp(serp: str | BeautifulSoup)` accepts a
-   `BeautifulSoup` object; `make_soup` / `load_soup` are exported and return
-   `BeautifulSoup`; `Extractor`, `ClassifyMain`, `ClassifyFooter`, and
-   `FeatureExtractor` all take/return bs4 `Tag`s; the README advertises a parser
-   "built on `BeautifulSoup`." A backend swap either drops `BeautifulSoup` support
-   (breaking change → major version) or runs **both** backends in parallel
-   (maintenance cost). This is a maintainer decision, not an implementation detail
-   — see §6.
+1. **HARD: `uv run pytest` snapshots must stay green WITHOUT updates.** The
+   snapshot suite freezes full `parse_serp` **output** (the result/feature dicts)
+   across the `serps-v*` corpus. Any parser that changes one byte of output is a
+   regression, not an optimization. This is the gate every change in 023 and 025
+   had to clear, and it is the dominant constraint here because **selectolax
+   changes the parse tree, the query semantics, and the text extraction all at
+   once.** Note this is about output *values*, independent of the input/return
+   *types* in #2 below.
+2. **RELAXED (maintainer decision, 2026-05-27): the BeautifulSoup public-API
+   contract may be broken.** `parse_serp(serp: str | BeautifulSoup)` accepting a
+   `BeautifulSoup` object, `make_soup` / `load_soup` returning `BeautifulSoup`,
+   the `Extractor` / `ClassifyMain` / `ClassifyFooter` / `FeatureExtractor` bs4
+   `Tag` signatures, and the README's "built on `BeautifulSoup`" claim are all
+   **fair game to change**. This removes the dual-backend burden: a full migration
+   (§6 option B) becomes a clean one-way rewrite rather than a parallel-backends
+   maintenance cost. It is a breaking change → ship under a major/minor version
+   bump and update the README accordingly. The byte-identical *output* contract
+   (#1) still holds regardless.
 
 ## 3. Blast radius: the bs4 API surface in the package
 
@@ -139,11 +146,14 @@ any parser:
   `.find_all` callers. There is no "just change the parser" option; a backend
   swap **is** a query-layer rewrite. State this plainly so it isn't proposed
   later.
-- **B. Full migration.** Reimplement the `utils` helpers on selectolax, then
-  rewrite every direct `.find`/`.find_all`/navigation/`.attrs` site across the
-  ~50 component parsers + classifier + extractor, and decide the §2 public-API
-  question. Highest reward (attacks both the ~16–18% parse cost and the ~60% query
-  cost), highest effort and risk against the byte-identical contract.
+- **B. Full migration (the end target).** Reimplement the `utils` helpers on
+  selectolax, then rewrite every direct `.find`/`.find_all`/navigation/`.attrs`
+  site across the ~50 component parsers + classifier + extractor. With the
+  BeautifulSoup contract cleared for breaking (§2 #2) this is a clean one-way
+  rewrite — `make_soup`/`load_soup` return selectolax nodes, `parse_serp` takes a
+  string (or a selectolax tree), and bs4 is dropped from `dependencies`. Highest
+  reward (attacks both the ~16–18% parse cost and the ~60% query cost), highest
+  effort, with the byte-identical **output** contract (§2 #1) as the only gate.
 - **C. bs4-compatible shim over selectolax.** A wrapper exposing
   `find`/`find_all`/`get_text`/`attrs`/`children` so per-file churn drops. Likely
   a **poor trade**: the Python-level shim reintroduces the per-call interpreter
@@ -166,13 +176,14 @@ any parser:
 
 ## 7. Open questions for the maintainer (decide before B)
 
-1. **Is breaking the `str | BeautifulSoup` public input acceptable** (and the
-   `make_soup`/`load_soup` return type, and "built on BeautifulSoup" in the
-   README)? Or must bs4 remain supported in parallel? This gates whether B is a
-   clean rewrite or a dual-backend maintenance burden.
+1. **RESOLVED (2026-05-27): breaking the BeautifulSoup contract is approved.** B
+   is therefore a clean one-way rewrite (drop bs4, change return/input types under
+   a version bump), not a dual-backend burden. See §2 #2.
 2. **What is the target — parse latency, memory, or both?** Selectolax helps both;
    the answer changes which path to pilot first.
 3. **Appetite for a ~50-file rewrite** vs banking only the pilot's contained win.
+   (With #1 resolved, the only remaining reason not to go straight to B is the
+   byte-identical-output risk that the pilot exists to de-risk.)
 
 ## 8. Success criteria (for whatever scope is chosen)
 
@@ -206,3 +217,15 @@ measured hot spots. Key findings driving the plan:
 - Recommended sequencing: parity harness → narrow pilot on `_ComponentSignals`
   (read-only, hot classify path) → measure → maintainer decision on full
   migration (B) vs stop. No deps added, no parser code changed yet.
+
+### 2026-05-27 — maintainer decision: BeautifulSoup contract may be broken
+
+Open question #1 resolved: we are free to break the BeautifulSoup public-API
+contract (drop the `str | BeautifulSoup` input, change `make_soup`/`load_soup`
+return types, drop bs4 from `dependencies`, update the README), under a version
+bump. This collapses the §6 option set: there is no longer a dual-backend
+maintenance argument, so **B (full migration) is the end target** and option C
+(bs4-compat shim) is off the table except as a throwaway measurement aid. The
+binding constraint is now solely the byte-identical *output* snapshot suite
+(§2 #1) — which is exactly what the §5 parity harness and the §6-D pilot exist to
+de-risk. Sequencing is unchanged: harness → pilot → measure → commit to B.
