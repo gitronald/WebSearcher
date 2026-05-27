@@ -164,6 +164,38 @@ def _normalize_attrs(name, attrs, kwargs) -> tuple[Any, dict]:
     return name, merged
 
 
+def _css_escape(value: str) -> str:
+    return value.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def _build_css(name: Any, attrs: dict) -> str | None:
+    """Translate a bs4 (name, attrs) query into a single CSS selector for the
+    lexbor engine, or None when the query has semantics CSS can't express exactly
+    (regex values, attr/class lists -> OR, multi-token class exact-match,
+    name lists). Those fall back to the Python matcher so output stays identical.
+
+    Uses ``[class~="x"]`` for class tokens -- provably equivalent to bs4
+    ``class_="x"`` token membership (validated against the corpus).
+    """
+    if isinstance(name, (list, tuple, set)) or callable(name):
+        return None
+    tag = "*" if (name is None or name is True) else name
+    parts = [tag]
+    for key, val in attrs.items():
+        if isinstance(val, re.Pattern) or isinstance(val, (list, tuple, set)):
+            return None
+        if key == "class":
+            v = str(val)
+            if " " in v.strip():  # multi-token = exact ordered match, not CSS AND
+                return None
+            parts.append(f'[class~="{_css_escape(v)}"]')
+        elif val is True:
+            parts.append(f"[{key}]")
+        else:
+            parts.append(f'[{key}="{_css_escape(str(val))}"]')
+    return "".join(parts)
+
+
 class SoupNode:
     """bs4-`Tag`-compatible wrapper around a selectolax ``Node``."""
 
@@ -341,10 +373,31 @@ class SoupNode:
         else:
             yield from self._raw.iter(include_text=False)
 
+    def _css_query(self, name: Any, merged: dict, string: Any, recursive: bool) -> str | None:
+        """CSS selector for the fast lexbor path, or None to use the Python matcher."""
+        if string is not None or not recursive:
+            return None
+        return _build_css(name, merged)
+
     def find(self, name: Any = None, attrs: dict | None = None, recursive: bool = True,
              string: Any = None, **kwargs) -> SoupNode | None:
+        if callable(name):  # bs4 callable filter: predicate over each tag
+            for raw in self._candidates(recursive):
+                w = self._wrap(raw)
+                if w is not None and w.name is not None and name(w):
+                    return w
+            return None
         name, merged = _normalize_attrs(name, attrs, kwargs)
         string = kwargs.get("string", string)
+        css = self._css_query(name, merged, string, recursive)
+        if css is not None:
+            if self._is_root and _matches(self._raw, name, merged, None):
+                return self._wrap(self._raw)
+            self_id = self._raw.mem_id
+            for raw in self._raw.css(css):  # css matches self too; bs4 = descendants only
+                if raw.mem_id != self_id:
+                    return self._wrap(raw)
+            return None
         for raw in self._candidates(recursive):
             if _matches(raw, name, merged, string):
                 return self._wrap(raw)
@@ -352,9 +405,31 @@ class SoupNode:
 
     def find_all(self, name: Any = None, attrs: dict | None = None, recursive: bool = True,
                  limit: int | None = None, string: Any = None, **kwargs) -> list[SoupNode]:
+        out: list[SoupNode] = []
+        if callable(name):  # bs4 callable filter
+            for raw in self._candidates(recursive):
+                w = self._wrap(raw)
+                if w is not None and w.name is not None and name(w):
+                    out.append(w)
+                    if limit and len(out) >= limit:
+                        break
+            return out
         name, merged = _normalize_attrs(name, attrs, kwargs)
         string = kwargs.get("string", string)
-        out: list[SoupNode] = []
+        css = self._css_query(name, merged, string, recursive)
+        if css is not None:
+            self_id = self._raw.mem_id
+            seen: set[int] = {self_id}  # exclude self: bs4 searches descendants only
+            if self._is_root and _matches(self._raw, name, merged, None):
+                out.append(SoupNode(self._raw, self._parser))
+            for raw in self._raw.css(css):
+                if raw.mem_id in seen:
+                    continue
+                seen.add(raw.mem_id)
+                out.append(SoupNode(raw, self._parser))
+                if limit and len(out) >= limit:
+                    break
+            return out
         for raw in self._candidates(recursive):
             if _matches(raw, name, merged, string):
                 out.append(SoupNode(raw, self._parser))
