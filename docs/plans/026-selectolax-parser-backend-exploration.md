@@ -319,3 +319,59 @@ substitute. Full suite green: 299 passed, 66 snapshots (Python 3.13).
 
 bs4/lxml are still imported for type annotations and a couple of helpers; fully
 removing them is follow-up. selectolax moved to runtime `dependencies`.
+
+### 2026-05-27 — latent fragility exposed by the native-`.text()` experiment
+
+The migration itself is byte-identical (the adapter's `get_text` reproduces bs4
+exactly), so none of the below are migration regressions. But the failed
+experiment to use selectolax's native `.text()` (whose `strip=True` strips each
+fragment yet keeps empties, instead of bs4's strip-then-drop-empties) surfaced
+several places where parser correctness leans on **incidental `get_text`
+whitespace behavior** rather than enforcing it. These are pre-existing loose
+foundations — worth a separate cleanup, independent of the backend.
+
+**1. Slug-style `sub_type` derivation doesn't normalize whitespace (4 sites).**
+- `knowledge.py:148` `heading_text.lower().replace(" & ", "-and-").replace(" ", "-")`
+- `local_results.py:29` `header_lower.replace(" ", "_")`
+- `searches_related.py:28` `header.lower().replace(" ", "_")`
+- `perspectives.py:17` `header.text.strip().lower().replace(" ", "_")`
+
+  Each maps a heading to a slug by replacing only the ASCII space. They look
+  clean on the corpus *only because* bs4 `get_text(" ", strip=True)` collapses
+  ASCII-space runs as a side effect (strip each fragment, drop empties, join with
+  a single space). They do **not** handle leading/trailing or doubled spaces
+  themselves, and a heading containing a non-breaking/unicode space (`\xa0`, etc.)
+  would yield a malformed slug (`co\xa0op`, double `__`) under **bs4 too** — the
+  corpus just never exercises it. Native `.text()` made the latent case real
+  (`" Cast "` → `-cast-`). Fix: normalize first, e.g. `"-".join(text.split())` /
+  `"_".join(text.split())` (a small shared `slugify` helper), which is robust to
+  any whitespace and backend-independent.
+
+**2. Link lookup keyed on visible anchor text (`local_results.py:91-99, 74-76`).**
+  `_link_text_to_url` builds `key = a.get_text(strip=True).lower()` and
+  `parse_local_details` then reads `links_dict["website"]` / `["directions"]` by
+  literal English key. This is fragile twice over: (a) it assumes `strip=True`
+  yields exactly `"directions"` with no stray whitespace (native `.text()`
+  produced `" directions "`, dropping the field), and (b) it is English-only —
+  localized SERPs ("Itinéraire", "Sitio web") silently miss `website`/
+  `directions`. Prefer a stable structural signal (icon/`data-*`/`aria-label`/
+  `jsname`) over visible text for these well-known links.
+
+**3. The `text` field captures incidental whitespace (`local_results.py:52`).**
+  `get_text(separator="<|>")` (strip=False) emits empty whitespace text nodes as
+  bare `<|> <|> <|>` segments; their count is parser-backend-dependent (this is
+  the source of the 10 benign whitespace-only snapshot updates). The stored
+  `text` value is noisy regardless of backend. If this field is meant for
+  consumption, consider `strip=True` or a normalization pass (a deliberate change
+  — it would move snapshots).
+
+**Why this matters beyond tidiness.** `parse_local_details._classify_row` is the
+*good* pattern — it classifies each `·`-part by content (regex for rating /
+phone / address / hours), so it is whitespace- and order-robust. The fragile
+sites instead treat `get_text` output as structured data via positional
+`replace`/dict-key. If items 1–2 were made whitespace- and structure-robust, the
+parsers would no longer depend on `get_text`'s exact semantics — which in turn
+would make selectolax's native C `.text()` a *safe* drop-in, unlocking a further
+speedup on top of the ~2x already banked. Recommend a small follow-up: a shared
+`slugify(text)` helper for the four `sub_type` sites and a structural rewrite of
+the local-results link lookup, each gated on the snapshot suite.
