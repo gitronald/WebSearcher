@@ -88,6 +88,14 @@ def _node_string(raw: Node) -> str | None:
     return _node_string(c)
 
 
+def _string_matches(text: str, string: Any) -> bool:
+    if string is True:
+        return bool(text)
+    if isinstance(string, re.Pattern):
+        return bool(string.search(text))
+    return text == string
+
+
 def _class_tokens(raw: Node) -> list[str]:
     cls = raw.attributes.get("class")
     return cls.split() if cls else []
@@ -285,8 +293,7 @@ class SoupNode:
     def get_text(self, separator: str = "", strip: bool = False) -> str:
         frags = _iter_text_fragments(self._raw)
         if strip:
-            parts = [s.strip() for s in frags]
-            parts = [s for s in parts if s]
+            parts = [s for s in (f.strip() for f in frags) if s]
         else:
             parts = list(frags)
         return separator.join(parts)
@@ -365,6 +372,16 @@ class SoupNode:
                 yield w
 
     # -- search ----------------------------------------------------------------
+    def _text_nodes(self, recursive: bool) -> Iterator[Node]:
+        if recursive:
+            for n in _walk(self._raw, include_text=True):
+                if n.tag == "-text":
+                    yield n
+        else:
+            for n in self._raw.iter(include_text=True):
+                if n.tag == "-text":
+                    yield n
+
     def _candidates(self, recursive: bool) -> Iterator[Node]:
         if self._is_root and _is_element(self._raw):
             yield self._raw
@@ -389,6 +406,13 @@ class SoupNode:
             return None
         name, merged = _normalize_attrs(name, attrs, kwargs)
         string = kwargs.get("string", string)
+        if string is not None and name is None and not merged:
+            # bs4 find(string=...): scan text nodes directly (O(text), not
+            # O(elements x subtree) -- the latter made has_captcha quadratic).
+            for tnode in self._text_nodes(recursive):
+                if _string_matches(_node_text(tnode), string):
+                    return self._wrap(tnode)
+            return None
         css = self._css_query(name, merged, string, recursive)
         if css is not None:
             if self._is_root and _matches(self._raw, name, merged, None):
@@ -416,6 +440,13 @@ class SoupNode:
             return out
         name, merged = _normalize_attrs(name, attrs, kwargs)
         string = kwargs.get("string", string)
+        if string is not None and name is None and not merged:
+            for tnode in self._text_nodes(recursive):
+                if _string_matches(_node_text(tnode), string):
+                    out.append(SoupNode(tnode, self._parser))
+                    if limit and len(out) >= limit:
+                        break
+            return out
         css = self._css_query(name, merged, string, recursive)
         if css is not None:
             self_id = self._raw.mem_id
