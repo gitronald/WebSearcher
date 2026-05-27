@@ -196,13 +196,13 @@ def _collect_body_elements(content: bs4.element.Tag) -> list[bs4.element.Tag]:
 
 
 def _drop_nested_descendants(elements: list[bs4.element.Tag]) -> list[bs4.element.Tag]:
-    elem_set = set(id(e) for e in elements)
+    elem_set = set(elements)
     kept = []
     for e in elements:
         parent = e.parent
         skip = False
         while parent is not None:
-            if id(parent) in elem_set:
+            if parent in elem_set:
                 skip = True
                 break
             parent = parent.parent

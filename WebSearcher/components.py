@@ -172,7 +172,7 @@ class ComponentList:
         main_components = [c for c in self.components if c.section == "main"]
 
         def _effective_pos(cmpt):
-            rng = dom_positions.get(id(cmpt.elem))
+            rng = dom_positions.get(cmpt.elem.mem_id)
             if rng is None:
                 return float("inf")
             start, end = rng
@@ -181,7 +181,7 @@ class ComponentList:
             for other in main_components:
                 if other is cmpt:
                     continue
-                other_rng = dom_positions.get(id(other.elem))
+                other_rng = dom_positions.get(other.elem.mem_id)
                 if other_rng is None:
                     continue
                 o_start, o_end = other_rng
@@ -192,7 +192,7 @@ class ComponentList:
                     for ch in cmpt.elem.children:
                         if not hasattr(ch, "name") or not ch.name:
                             continue
-                        ch_rng = dom_positions.get(id(ch))
+                        ch_rng = dom_positions.get(ch.mem_id)
                         if ch_rng and ch_rng[0] > o_end and ch_rng[0] < best:
                             best = ch_rng[0]
                     if best != float("inf"):

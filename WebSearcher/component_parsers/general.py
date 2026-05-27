@@ -9,6 +9,7 @@ import re
 
 import bs4
 
+from .._slx import is_tag
 from ..utils import get_link, get_text
 
 
@@ -70,7 +71,7 @@ def parse_alink(a: bs4.element.Tag) -> dict:
 def parse_alink_list(alinks) -> list:
     items = []
     for a in alinks:
-        if isinstance(a, bs4.element.Tag) and "href" in a.attrs:
+        if is_tag(a) and "href" in a.attrs:
             items.append(parse_alink(a))
     return items
 

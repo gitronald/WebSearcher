@@ -238,7 +238,7 @@
       "serp_rank": 5,
       "sub_rank": 0,
       "sub_type": "locations",
-      "text": "Apple Inc.<|>Sunnyvale, CA · (800) 692-7753<|> <|> <|> <|> <|> <|> <|>\"Ipads are the best!\"",
+      "text": "Apple Inc.<|>Sunnyvale, CA · (800) 692-7753<|> <|> <|> <|> <|> <|>  <|>\"Ipads are the best!\"",
       "title": "Apple Inc.",
       "type": "local_results",
       "url": "http://apple.com/"
@@ -260,7 +260,7 @@
       "serp_rank": 6,
       "sub_rank": 1,
       "sub_type": "locations",
-      "text": "Apple<|>Cupertino, CA · (408) 996-1010<|>Open<|> · Closes 5 PM<|> <|> <|> <|> <|> <|> <|>\"On the surface, it is a <|>company<|> defined by excellence.\"",
+      "text": "Apple<|>Cupertino, CA · (408) 996-1010<|>Open<|> · Closes 5 PM<|> <|> <|> <|> <|> <|>  <|>\"On the surface, it is a <|>company<|> defined by excellence.\"",
       "title": "Apple",
       "type": "local_results",
       "url": "http://apple.com/"
@@ -282,7 +282,7 @@
       "serp_rank": 7,
       "sub_rank": 2,
       "sub_type": "locations",
-      "text": "Apple Palo Alto<|>340 University Ave · (650) 798-2800<|>Open<|> · Closes 8 PM<|> <|> <|> <|> <|> <|> <|>\"They took it in and in 2 days it was back, super clean and functional.\"",
+      "text": "Apple Palo Alto<|>340 University Ave · (650) 798-2800<|>Open<|> · Closes 8 PM<|> <|> <|> <|> <|> <|>  <|>\"They took it in and in 2 days it was back, super clean and functional.\"",
       "title": "Apple Palo Alto",
       "type": "local_results",
       "url": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"

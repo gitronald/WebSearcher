@@ -1,8 +1,7 @@
 import re
 
-from bs4 import BeautifulSoup
-
 from .. import utils
+from .._slx import SoupNode
 from ..models.features import SERPFeatures
 
 # The raw-HTML path searches the original markup. The soup path scopes each probe
@@ -26,7 +25,7 @@ INFINITY_SCROLL_SPAN = '<span class="RVQdVd">More results</span>'
 
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html_or_soup: str | BeautifulSoup) -> SERPFeatures:
+    def extract_features(html_or_soup: str | SoupNode) -> SERPFeatures:
         """Extract SERP features from HTML or a BeautifulSoup object
 
         Args:
@@ -35,7 +34,7 @@ class FeatureExtractor:
         Returns:
             The extracted features
         """
-        if isinstance(html_or_soup, BeautifulSoup):
+        if isinstance(html_or_soup, SoupNode):
             soup = html_or_soup
             features = FeatureExtractor._extract_from_soup(soup)
         else:
@@ -81,7 +80,7 @@ class FeatureExtractor:
         }
 
     @staticmethod
-    def _extract_from_soup(soup: BeautifulSoup) -> dict:
+    def _extract_from_soup(soup: SoupNode) -> dict:
         """Structural lookups -- avoids serializing the whole document.
 
         Each probe is scoped to the smallest element so its result matches the

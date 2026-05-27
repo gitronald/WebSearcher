@@ -24,19 +24,22 @@ class _ComponentSignals:
 
     __slots__ = ("classes", "ids", "names")
 
-    def __init__(self, cmpt: bs4.element.Tag) -> None:
+    def __init__(self, cmpt) -> None:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-        for el in itertools.chain((cmpt,), cmpt.descendants):
-            if not isinstance(el, bs4.element.Tag):
+        raw = cmpt.raw
+        for el in itertools.chain((raw,), raw.traverse(include_text=False)):
+            tag = el.tag
+            if not tag or tag.startswith("-"):
                 continue
-            names.add(el.name)
-            cls = el.attrs.get("class")
-            if isinstance(cls, list):  # "class" is multi-valued in bs4
-                classes.update(cls)
-            el_id = el.attrs.get("id")
-            if isinstance(el_id, str):
+            names.add(tag)
+            attrs = el.attributes
+            cls = attrs.get("class")
+            if cls:  # "class" is whitespace-separated tokens
+                classes.update(cls.split())
+            el_id = attrs.get("id")
+            if el_id:
                 ids.add(el_id)
         self.classes = classes
         self.ids = ids

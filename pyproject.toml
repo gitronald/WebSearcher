@@ -11,6 +11,7 @@ dependencies = [
     "requests>=2.33.0",
     "lxml>=6.1.0",
     "beautifulsoup4>=4.12.3",
+    "selectolax>=0.4.10",
     "tldextract>=5.1.2",
     "brotli>=1.1.0",
     "pydantic>=2.9.2",
@@ -41,7 +42,6 @@ dev = [
     "pyrefly",
     "ruff>=0.15.6",
     "pytest-cov>=7.0.0",
-    "selectolax>=0.4.10",
 ]
 
 [tool.pyrefly]

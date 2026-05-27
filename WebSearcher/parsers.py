@@ -1,6 +1,5 @@
-from bs4 import BeautifulSoup
-
 from . import utils
+from ._slx import SoupNode
 from .extractors import Extractor
 from .extractors.extractor_serp_features import FeatureExtractor
 from .logger import Logger
@@ -8,11 +7,11 @@ from .logger import Logger
 log = Logger().start(__name__)
 
 
-def parse_serp(serp: str | BeautifulSoup) -> dict:
+def parse_serp(serp: str | SoupNode) -> dict:
     """Parse a Search Engine Result Page (SERP)
 
     Args:
-        serp: The HTML content of the SERP or a BeautifulSoup object
+        serp: The HTML content of the SERP or a parsed soup object
 
     Returns:
         A dict with 'results' and 'features' keys.

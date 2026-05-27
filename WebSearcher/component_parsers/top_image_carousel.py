@@ -6,6 +6,7 @@ at a parent listing.
 
 import bs4
 
+from .._slx import is_tag
 from ..utils import get_link
 
 
@@ -26,7 +27,7 @@ def parse_top_image_carousel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
 
     items = []
     for a in alinks:
-        if not isinstance(a, bs4.element.Tag):
+        if not is_tag(a):
             continue
         if "href" in a.attrs or "data-url" in a.attrs:
             items.append(parse_alink(a))

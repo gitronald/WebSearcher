@@ -11,14 +11,15 @@ import brotli
 import orjson
 import requests
 import tldextract
-from bs4 import BeautifulSoup
-from bs4.element import NavigableString, Tag
 
 from . import logger
+from ._slx import SoupNode, is_tag, make_soup_slx
 
 log = logger.Logger().start(__name__)
 
-SoupElement = BeautifulSoup | Tag | NavigableString
+Tag = SoupNode
+BeautifulSoup = SoupNode
+SoupElement = SoupNode
 
 
 class Selector(NamedTuple):
@@ -82,12 +83,9 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def make_soup(html: str | bytes | BeautifulSoup, parser: str = "lxml") -> BeautifulSoup:
-    """Create soup object"""
-    if isinstance(html, BeautifulSoup):
-        return html
-    else:
-        return BeautifulSoup(html, parser)
+def make_soup(html: str | bytes | SoupNode, parser: str = "lxml") -> SoupNode:
+    """Create a selectolax-backed soup object (bs4-compatible adapter)."""
+    return make_soup_slx(html)
 
 
 def has_captcha(soup: BeautifulSoup) -> bool:
@@ -231,7 +229,7 @@ def find_children(
 ) -> Iterable[Tag]:
     """Find all children of a div with a given name and attribute"""
     div = get_div(soup, name, attrs)
-    children: list[Tag] = [c for c in div.children if isinstance(c, Tag)] if div else []
+    children: list[Tag] = [c for c in div.children if is_tag(c)] if div else []
     return filter_empty_divs(children) if filter_empty else children
 
 

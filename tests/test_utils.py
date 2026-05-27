@@ -3,7 +3,7 @@
 import hashlib
 from pathlib import Path
 
-from bs4 import BeautifulSoup
+from WebSearcher._slx import SoupNode
 
 from WebSearcher import utils
 
@@ -58,7 +58,7 @@ def test_check_dict_value_list():
 
 def test_make_soup_from_string():
     soup = utils.make_soup("<html><body><p>hello</p></body></html>")
-    assert isinstance(soup, BeautifulSoup)
+    assert isinstance(soup, SoupNode)
     assert soup.find("p").text == "hello"
 
 
@@ -68,7 +68,7 @@ def test_make_soup_from_bytes():
 
 
 def test_make_soup_passthrough():
-    original = BeautifulSoup("<p>test</p>", "lxml")
+    original = utils.make_soup("<p>test</p>")
     result = utils.make_soup(original)
     assert result is original
 
@@ -332,5 +332,5 @@ def test_load_soup(tmp_path):
     fp = tmp_path / "page.html"
     fp.write_text("<html><body><p>soup test</p></body></html>")
     soup = utils.load_soup(fp)
-    assert isinstance(soup, BeautifulSoup)
+    assert isinstance(soup, SoupNode)
     assert soup.find("p").text == "soup test"

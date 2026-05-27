@@ -6,6 +6,8 @@ but distinguished by a news icon in the top left.
 
 import bs4
 
+from .._slx import is_tag
+
 
 def parse_view_more_news(cmpt: bs4.element.Tag) -> list:
     container = cmpt.find("div", {"class": "qmv19b"})
@@ -17,7 +19,7 @@ def parse_view_more_news(cmpt: bs4.element.Tag) -> list:
     return [
         parse_sub(sub, sub_rank)
         for sub_rank, sub in enumerate(subs)
-        if isinstance(sub, bs4.element.Tag)
+        if is_tag(sub)
     ]
 
 

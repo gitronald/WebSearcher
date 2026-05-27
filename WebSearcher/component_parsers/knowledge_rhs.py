@@ -9,12 +9,14 @@ from typing import Any
 
 import bs4
 
+from .._slx import is_tag
+
 
 def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     parsed_list = parse_knowledge_rhs_main(cmpt)
     description = cmpt.find("h2", {"class": "Uo8X3b"})
     if description and description.parent:
-        tag_subs = [s for s in description.parent.next_siblings if isinstance(s, bs4.element.Tag)]
+        tag_subs = [s for s in description.parent.next_siblings if is_tag(s)]
         for i, s in enumerate(tag_subs):
             sub = parse_knowledge_rhs_sub(s, i)
             # Skip hollow follow-on sections (no heading and no links).
@@ -39,7 +41,7 @@ def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     h3 = cmpt.find("h3")
     if h3 and h3.text == "Images":
         sibling = h3.next_sibling
-        if isinstance(sibling, bs4.element.Tag):
+        if is_tag(sibling):
             imgs = sibling.find_all("a")
             parsed["details"]["img_urls"] = [img["href"] for img in imgs if "href" in img.attrs]
 
@@ -74,7 +76,7 @@ def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     if description and description.parent:
         alinks = description.parent.find_all("a")
         prev = description.parent.previous_sibling
-        if isinstance(prev, bs4.element.Tag):
+        if is_tag(prev):
             alinks += prev.find_all("a")
         if len(alinks) > 1:  # 1st match has main description
             urls = []

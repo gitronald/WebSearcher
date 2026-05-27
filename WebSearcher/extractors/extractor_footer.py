@@ -1,6 +1,7 @@
 import bs4
 
 from .. import logger, utils
+from .._slx import is_tag
 
 log = logger.Logger().start(__name__)
 
@@ -20,7 +21,7 @@ class ExtractorFooter:
             footer_component_divs = utils.find_all_divs(self.soup, "div", {"id": ["bres", "brs"]})
             if footer_component_divs:
                 for footer_component_div in footer_component_divs:
-                    if not isinstance(footer_component_div, bs4.element.Tag):
+                    if not is_tag(footer_component_div):
                         continue
                     expanded_divs = utils.find_all_divs(
                         footer_component_div, "div", {"class": "MjjYud"}

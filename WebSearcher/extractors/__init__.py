@@ -38,12 +38,12 @@ class Extractor:
         inside element A when A.start <= B.start <= A.end.
         """
         all_tags = list(soup.find_all(True))
-        pos = {id(t): i for i, t in enumerate(all_tags)}
+        pos = {t.mem_id: i for i, t in enumerate(all_tags)}
         end = list(range(len(all_tags)))
         for i in range(len(all_tags) - 1, -1, -1):
             parent = all_tags[i].parent
-            if parent and id(parent) in pos:
-                pi = pos[id(parent)]
+            if parent and parent.mem_id in pos:
+                pi = pos[parent.mem_id]
                 if end[i] > end[pi]:
                     end[pi] = end[i]
-        return {id(t): (i, end[i]) for i, t in enumerate(all_tags)}
+        return {t.mem_id: (i, end[i]) for i, t in enumerate(all_tags)}
