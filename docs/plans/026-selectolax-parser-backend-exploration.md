@@ -1,0 +1,208 @@
+---
+status: draft
+branch: claude/selectolax-optimization-plan-dDKmP
+created: 2026-05-27T07:47:46+00:00
+completed:
+pr:
+---
+
+# Explore replacing bs4/lxml with selectolax in the parse path
+
+A scoping plan, not a commitment to migrate. It maps **where** selectolax
+(lexbor) could replace BeautifulSoup+lxml, what each replacement is worth against
+the profile we already have, and — more importantly — what makes a naive swap
+unsafe. The output of this plan is a go/no-go decision backed by a parity harness
+and a measured pilot, not a 50-file rewrite taken on faith.
+
+## 1. Why selectolax, and what 023 already told us
+
+Plan [023](023-parse-pipeline-optimization-revised.md) profiled `parse_serp` over
+the fixture corpus and found the cost split (post the `str(soup)` removal):
+
+| Phase | ~% of parse | 023's disposition |
+|---|---|---|
+| bs4 `find`/`find_all` traversal (classify + parse + extract) | **~60%** combined | The dominant cost. Partly attacked by 3a signal preconditions; the "shared per-component scan" was investigated and **rejected** as too risky for bs4. |
+| `make_soup` (lxml parse of a ~1 MB doc) | **~16–18%** | Treated as fixed. `SoupStrainer` judged unsafe (parsers navigate the full tree). |
+| `str(soup)` serialization | was ~18.5% | **Already removed** (023 item 5). |
+
+The two biggest remaining levers — lxml parse time and bs4 `find` traversal
+volume — are exactly what selectolax targets: lexbor is a C HTML5 parser with C
+CSS-selector queries, typically multiple× faster than lxml-parse + bs4-traverse,
+at lower memory. 023 explicitly left both on the table as "known but not worth it
+**for bs4**." selectolax is the lever that could make them worth it.
+
+So the upside is real and aimed at the measured hot spots. The rest of this plan
+is about whether it can be banked **without breaking the byte-identical contract**.
+
+## 2. The two hard constraints (carried from 023/025)
+
+1. **`uv run pytest` snapshots must stay green WITHOUT updates.** The snapshot
+   suite freezes full `parse_serp` output across the `serps-v*` corpus. Any parser
+   that changes one byte of output is a regression, not an optimization. This is
+   the gate every change in 023 and 025 had to clear, and it is the dominant
+   constraint here because **selectolax changes the parse tree, the query
+   semantics, and the text extraction all at once.**
+2. **Public API.** `parse_serp(serp: str | BeautifulSoup)` accepts a
+   `BeautifulSoup` object; `make_soup` / `load_soup` are exported and return
+   `BeautifulSoup`; `Extractor`, `ClassifyMain`, `ClassifyFooter`, and
+   `FeatureExtractor` all take/return bs4 `Tag`s; the README advertises a parser
+   "built on `BeautifulSoup`." A backend swap either drops `BeautifulSoup` support
+   (breaking change → major version) or runs **both** backends in parallel
+   (maintenance cost). This is a maintainer decision, not an implementation detail
+   — see §6.
+
+## 3. Blast radius: the bs4 API surface in the package
+
+Counts across `WebSearcher/` (the thing a migration has to touch):
+
+| bs4 API | Count | Migration note |
+|---|---|---|
+| `.find(...)` | 246 | The bulk. `find(name, attrs={dict})` has no selectolax equivalent — rewrite to `.css_first(css)`. |
+| `.find_all(...)` | 100 | → `.css(css)`. |
+| `.select` / `.select_one` (already CSS) | 4 (2 files) | The **only** spots that map 1:1 — `banner.py`, `general.py`. |
+| `recursive=False` | 5 | `.css` is always subtree-recursive; direct-children-only needs `>`-combinator/`.iter()` rework. |
+| `.extract()` | 9 | Detach-and-return; used as a side effect (e.g. `ads.extract()` then re-add as a component). selectolax detach semantics differ. |
+| `.decompose()` | 2 | Maps to selectolax `.decompose()`. |
+| `copy.copy(subtree)` | 1 (`notices.py`) | 023 proved this **clones** the subtree and is load-bearing. selectolax nodes are tied to their tree — no equivalent `copy.copy`. |
+| `find(..., re.compile(...))` (regex class match) | 3 (`general.py`) | CSS has no regex; needs `[class*=…]` substring + per-call equivalence check. |
+| `find(string=re.compile(...))` | 1 (`utils.has_captcha`) | Text-node search; do via `.text()` + regex. |
+| `.parent` | 19 | Maps (`node.parent`). |
+| `.children` / `.contents` | 18 | `node.iter(include_text=…)`; text-node inclusion differs from bs4. |
+| `.next_sibling` / `.previous_sibling` | 4 | `node.next` / `node.prev` — but bs4 yields text nodes between tags; semantics differ. |
+| `.descendants` | 1 (`_ComponentSignals`) | `node.traverse()`. |
+| `.strings` / `.stripped_strings` | 3 | selectolax text iteration; whitespace/empty handling differs. |
+| `NavigableString` | 2 | No direct equivalent; text nodes are a different concept in selectolax. |
+
+This is a large, pervasive surface. The util helpers in `utils.py`
+(`get_div`, `get_text`, `get_link`, `get_link_list`, `find_all_divs`,
+`find_children`, `find_by_selectors`, `get_text_by_selectors`, `Selector`) are a
+partial chokepoint — many parsers route through them — but **246 `.find` +
+100 `.find_all` calls are direct on `Tag`s**, so the helpers do not contain the
+blast radius on their own.
+
+## 4. Semantic gaps that will silently change output (the real risk)
+
+These are the traps that pass type-checking and break the snapshot suite — or
+worse, break it only on SERPs not in the corpus. Each must be audited, not
+assumed:
+
+- **Tree shape: lexbor vs lxml.** They are different HTML parsers. Divergences
+  show up on real Google markup: optional-tag insertion, foster-parenting of
+  table content, whitespace text nodes, and handling of Google's custom elements
+  (`g-img`, `promo-throttler`, `g-scrolling-carousel`, `product-viewer-group`,
+  `g-inner-card`, `g-accordion`, `g-tray-header`). A different tree → different
+  `find`/traversal results → snapshot diffs. **This is the core risk and must be
+  measured first (§5), before any rewrite.**
+- **Multi-valued class semantics.** bs4 `attrs={"class": ["a", "b"]}` matches an
+  element carrying **either** token (OR); a CSS compound `.a.b` requires **both**
+  (AND); `.a, .b` is the OR form. The codebase uses `{"class": [...]}` heavily
+  (e.g. `knowledge_panel`, `videos`, `general` submenu selectors). Translating
+  each to the *matching* CSS is per-call work — getting it backwards silently
+  changes which elements match.
+- **`.attrs["class"]` is a list in bs4, a string in selectolax.** Pervasive code
+  assumes a list: `cmpt.attrs["class"] == ["g"]`, `"g" in cmpt.attrs["class"]`,
+  `any(s in [...] for s in cmpt.attrs["class"])`, `_ComponentSignals`'
+  `isinstance(cls, list)`. selectolax `.attributes["class"]` is the raw string
+  (and valueless attrs are `None`). Every such site needs a `.split()` / rewrite.
+- **`.get_text(separator=" ", strip=…)` vs `.text(separator="", strip=False)`.**
+  Defaults and whitespace handling differ. `text`/`title`/`cite` field values are
+  produced by these calls — a different separator/strip is a direct byte-diff in
+  output.
+- **Tree mutation.** The extractor `extract()`s ad blocks out of the tree and
+  re-adds them as components; `general.py` `decompose()`s menu children before
+  re-reading the title; `notices.py` relies on `copy.copy` cloning. selectolax's
+  detach/clone model is different and must be re-derived, not transliterated.
+
+## 5. Prerequisite deliverable: a parser-parity harness (no production change)
+
+Mirroring 023's "profile/measure before optimizing" discipline. Before touching
+any parser:
+
+1. **Tree-diff harness.** Parse every fixture SERP with both `lxml`+bs4 and
+   `selectolax`, walk both trees, and report per-SERP divergences (tag name, attr
+   set, normalized text) keyed by DOM path. This **quantifies the §4 tree-shape
+   risk on real corpus markup** up front. Without it, a migration just turns the
+   snapshot suite red with no diagnosis. Add it as a committed script (e.g.
+   `scripts/diff_parsers.py`), corpus = the existing `tests/fixtures/serps-*.json.bz2`.
+2. **Bench parity.** Extend `scripts/bench_parse.py` with a selectolax code path
+   so deltas are measured the same way (per-SERP median + MAD, gate on the
+   ~3% / 2×-MAD noise floor). Record numbers in the Log; never chain deltas across
+   sessions (023's hard-won lesson).
+3. **Add `selectolax` to deps only when a pilot proves a banked win** — not
+   speculatively.
+
+## 6. Strategy options (ranked) — "where can we replace parts"
+
+- **A. Drop-in `make_soup` backend swap — NOT VIABLE.** Unlike `lxml` ↔
+  `html.parser` (both yield bs4 trees), selectolax yields a *different node type
+  with a different API*. Changing only `make_soup` breaks all 346 `.find`/
+  `.find_all` callers. There is no "just change the parser" option; a backend
+  swap **is** a query-layer rewrite. State this plainly so it isn't proposed
+  later.
+- **B. Full migration.** Reimplement the `utils` helpers on selectolax, then
+  rewrite every direct `.find`/`.find_all`/navigation/`.attrs` site across the
+  ~50 component parsers + classifier + extractor, and decide the §2 public-API
+  question. Highest reward (attacks both the ~16–18% parse cost and the ~60% query
+  cost), highest effort and risk against the byte-identical contract.
+- **C. bs4-compatible shim over selectolax.** A wrapper exposing
+  `find`/`find_all`/`get_text`/`attrs`/`children` so per-file churn drops. Likely
+  a **poor trade**: the Python-level shim reintroduces the per-call interpreter
+  overhead that is the whole reason bs4 is slow — it would keep selectolax's parse
+  win but erode its query win. Worth prototyping only to measure, not to ship.
+- **D. Narrow measured pilot (recommended first step).** Migrate one hot,
+  self-contained read-only path end-to-end onto selectolax behind the §5 parity
+  harness, measure, then decide B vs C vs stop. Best pilot candidates from 023's
+  profile:
+  - **`_ComponentSignals`** (`classifiers/main.py`): one `descendants` walk per
+    component building sets of class/id/tag names. Pure read, no mutation, on the
+    hot classify path (~21%), and a clean `node.traverse()` + `.attributes`
+    rewrite. Highest signal-to-risk pilot.
+  - **`FeatureExtractor` soup-path probes** (`extractors/extractor_serp_features.py`):
+    already small and scoped (post-023 item 5); a contained second pilot.
+
+  Recommendation: **do D first.** It produces a real measured delta and a concrete
+  read on the §4 semantic gaps at a fraction of B's risk, and it directly informs
+  the go/no-go.
+
+## 7. Open questions for the maintainer (decide before B)
+
+1. **Is breaking the `str | BeautifulSoup` public input acceptable** (and the
+   `make_soup`/`load_soup` return type, and "built on BeautifulSoup" in the
+   README)? Or must bs4 remain supported in parallel? This gates whether B is a
+   clean rewrite or a dual-backend maintenance burden.
+2. **What is the target — parse latency, memory, or both?** Selectolax helps both;
+   the answer changes which path to pilot first.
+3. **Appetite for a ~50-file rewrite** vs banking only the pilot's contained win.
+
+## 8. Success criteria (for whatever scope is chosen)
+
+- Parser-parity harness committed; tree-divergence count on the corpus enumerated
+  and explained.
+- Any shipped change: snapshots green **without updates**, and a `bench_parse`
+  before/after clearing the noise floor, recorded in the Log.
+- `selectolax` added to deps only alongside a change that banks a measured win.
+
+## 9. Out of scope
+
+- The Selenium/requests search path (`search_methods/`) — this plan is parse-only.
+- `BaseResult` / `SERPFeatures` schema changes (frozen by 023's constraints).
+- Re-litigating the items 023 already settled (e.g. `SoupStrainer`), except where
+  selectolax changes their risk/reward.
+
+## Log
+
+### 2026-05-27 — scoping pass (this document)
+
+Inventoried the bs4 API surface (§3) and the semantic gaps (§4) against the
+current tree, and cross-referenced 023's profile to point the pilot at the
+measured hot spots. Key findings driving the plan:
+
+- A `make_soup`-only swap is not viable (option A) — selectolax is a different
+  node API, so a backend swap is a 346-callsite query-layer rewrite.
+- The byte-identical snapshot contract is the binding constraint; the largest
+  unknown is lexbor-vs-lxml **tree-shape** divergence on Google's custom-element
+  markup, which is why the parser-parity harness (§5) is the prerequisite
+  deliverable before any production change.
+- Recommended sequencing: parity harness → narrow pilot on `_ComponentSignals`
+  (read-only, hot classify path) → measure → maintainer decision on full
+  migration (B) vs stop. No deps added, no parser code changed yet.
