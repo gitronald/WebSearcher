@@ -276,3 +276,46 @@ deps/runtime mismatch, independent of selectolax. The snapshot-suite gate
 (pin Python to 3.12/3.13 for the env, or bump pydantic to a 3.14-compatible
 release). Flagged for the maintainer; the parity harness sidesteps it by not
 importing the package.
+
+### 2026-05-27 — option B executed: full migration to selectolax, ~2x faster
+
+Maintainer green-lit breaking the bs4 contract and asked to push the migration
+through to green. Implemented option B via a bs4-compatible adapter
+(`WebSearcher/_slx.py`, `SoupNode`) so the ~50 parsers, classifier, and extractor
+run unchanged on a selectolax (lexbor) tree; `make_soup` returns the adapter.
+
+**Adapter faithfulness** (to keep `parse_serp` output byte-identical): bs4 class
+semantics (single-token / multi-token-exact / list-OR), `name=True` any-tag,
+`string=True` via bs4 `.string`, callable filters, `find_parent`, `recursive=False`,
+`.div`/`.span` first-descendant access. `get_text` skips script/style/template
+text (bs4+lxml does). `extract()` detaches via `remove(recursive=False)`,
+preserving the subtree and a stable node identity (`mem_id`) so DOM-position
+reordering still resolves — `id()`-keyed ordering switched to `mem_id`.
+
+**Performance.** The first cut matched `find`/`find_all` with a pure-Python
+descendant walk → ~451 ms/SERP (slower than bs4). Two fixes captured the win:
+1. route translatable `find`/`find_all` through the lexbor CSS engine
+   (`node.css()`); exclude self (css matches self, bs4 searches descendants only).
+2. `find(string=re.compile)` (has_captcha) scanned every element's full subtree
+   text — O(elements × subtree). Scan text nodes directly instead. This was the
+   dominant profile cost (~40 s of 54 s).
+
+Clean back-to-back A/B (same idle machine, 60-SERP subset, `.venv313` / Py 3.13):
+
+| Build | Per-SERP median | Corpus/pass |
+|---|---|---|
+| bs4+lxml (pre-migration `d4ead9e`) | 236.8 ms | 14,636 ms |
+| selectolax (this branch) | ~107–116 ms | ~7,175 ms |
+
+**~2.05x faster.** Validated against `_build_css`/native vs Python paths.
+
+**Snapshots:** 10 SERPs updated for benign whitespace-only differences in
+concatenated text fields (lexbor emits more whitespace-only text nodes than lxml;
+content byte-identical otherwise — verified by whitespace-collapse equality). All
+other output unchanged. `get_text` keeps the Python walker: selectolax native
+`.text()` changes whitespace in ways that *alter downstream parsing*
+(local_results address/directions, a knowledge sub_type) so it is not a safe
+substitute. Full suite green: 299 passed, 66 snapshots (Python 3.13).
+
+bs4/lxml are still imported for type annotations and a couple of helpers; fully
+removing them is follow-up. selectolax moved to runtime `dependencies`.
