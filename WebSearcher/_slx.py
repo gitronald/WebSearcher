@@ -7,6 +7,16 @@ Rather than rewrite every call site at once, this module wraps selectolax `Node`
 in a `SoupNode` that emulates that bs4 subset, so `make_soup` can return it and
 the existing code keeps working. Hot paths are then moved to native selectolax.
 
+This module is in transition (plan 026's "native rewrite" follow-up):
+- ``SoupNode`` (the bs4-compatible class) remains in place during the parser
+  migration so unmigrated call sites keep working.
+- Native parsers escape the wrapper via ``cmpt.raw`` (the underlying selectolax
+  ``Node``) and call this module's public ``get_text``/``class_tokens``/
+  ``find_text``/``reparse_fragment``/``node_string`` helpers for the bs4-faithful
+  bits that don't translate cleanly to native selectolax (text walker, class
+  parsing, etc.). When all parsers are native, the class is removed and
+  ``make_soup`` returns ``Node`` directly.
+
 Faithfulness rules pinned empirically against bs4+lxml (so the snapshot suite
 stays byte-identical):
 
@@ -546,3 +556,76 @@ def make_soup_slx(html: str | bytes | SoupNode) -> SoupNode:
         html = html.decode("utf-8", errors="replace")
     parser = HTMLParser(html)
     return SoupNode(parser.root, parser, is_root=True)
+
+
+# Public function-form helpers for the native-rewrite migration -----------------
+# Parsers being rewritten escape SoupNode via ``cmpt.raw`` and call these helpers
+# directly. When all parsers are native and SoupNode is removed, these become the
+# only module surface.
+
+
+def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str:
+    """bs4-faithful Tag.get_text: walk descendants, skip script/style/template,
+    join text fragments by ``separator``. When ``strip=True``, strip each fragment
+    AND drop empties before joining (selectolax native ``Node.text(strip=True)``
+    keeps empties, producing leading/trailing/extra separators — this differs and
+    breaks downstream parsing in the slug / link-key sites)."""
+    if node is None:
+        return ""
+    frags = _iter_text_fragments(node)
+    if strip:
+        parts = [s for s in (f.strip() for f in frags) if s]
+    else:
+        parts = list(frags)
+    return separator.join(parts)
+
+
+def class_tokens(node: Node) -> list[str]:
+    """Return the ``class`` attribute as a list of tokens (selectolax stores it
+    as a single whitespace-separated string)."""
+    return _class_tokens(node)
+
+
+def node_string(node: Node) -> str | None:
+    """bs4 ``Tag.string`` semantics: single direct text-node child's text, or
+    recurse through a single tag child. ``None`` when the node has zero or
+    multiple element/text children. Used by the one ``find(name_list, string=True)``
+    call site in ``knowledge.py``."""
+    return _node_string(node)
+
+
+def find_text(node: Node, pattern: re.Pattern[str]) -> Node | None:
+    """First descendant text node whose content matches ``pattern``.
+
+    bs4 ``find(string=re.compile(...))`` with no tag filter. Scans text nodes
+    directly (O(text), not O(elements x subtree) — the latter made
+    ``has_captcha`` quadratic, see plan 023/026)."""
+    for n in node.traverse(include_text=True):
+        if n.tag == "-text" and pattern.search(n.text(deep=False) or ""):
+            return n
+    return None
+
+
+def reparse_fragment(node: Node) -> Node:
+    """Re-parse ``node``'s outer HTML into an independent tree and return its
+    top element. Emulates bs4 ``copy.copy(tag)`` for the notices.py mutation
+    pattern, where a parser needs to ``.extract()`` from a clone without
+    mutating the source tree."""
+    parser = HTMLParser(node.html or "")
+    body = parser.body
+    if body is None:
+        return parser.root
+    for child in body.iter(include_text=False):
+        return child
+    return parser.root
+
+
+def make_soup_native(html: str | bytes | Node) -> Node:
+    """``make_soup`` of the post-migration world: returns a native selectolax
+    ``Node`` (the ``<html>`` root). Used by tests and by parsers being migrated;
+    becomes ``make_soup`` proper once ``SoupNode`` is removed."""
+    if isinstance(html, Node):
+        return html
+    if isinstance(html, bytes):
+        html = html.decode("utf-8", errors="replace")
+    return HTMLParser(html).root
