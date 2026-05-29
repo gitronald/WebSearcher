@@ -18,20 +18,13 @@ from ._slx import (
     _build_css,
     find_text,
     has_text,
+    make_soup,
+    subtree_css,
+    subtree_first,
 )
 from ._slx import get_text as _slx_get_text
-from ._slx import (
-    make_soup as _make_soup,
-)
 
 log = logger.Logger().start(__name__)
-
-# bs4-era type aliases. Selectolax has a single ``Node`` for both element and
-# document; the aliases stay so call sites that still type-hint ``Tag`` /
-# ``BeautifulSoup`` keep working without churn.
-Tag = Node
-BeautifulSoup = Node
-SoupElement = Node
 
 
 class Selector(NamedTuple):
@@ -73,7 +66,7 @@ def load_html(fp: str | Path, zipped: bool = False) -> str | bytes:
         return brotli.decompress(infile.read()) if zipped else infile.read()
 
 
-def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
+def load_soup(fp: str | Path, zipped: bool = False) -> Node:
     return make_soup(load_html(fp, zipped))
 
 
@@ -107,11 +100,6 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def make_soup(html: str | bytes | Node) -> Node:
-    """Parse HTML and return its native selectolax ``Node`` root."""
-    return _make_soup(html)
-
-
 _CAPTCHA_RE = re.compile("CAPTCHA")
 
 
@@ -139,13 +127,7 @@ def get_div(
     if soup is None:
         return None
     css = _build_css(name, dict(attrs) if attrs else {})
-    if css is None:
-        return None
-    self_id = soup.mem_id
-    for raw in soup.css(css):
-        if raw.mem_id != self_id:
-            return raw
-    return None
+    return subtree_first(soup, css) if css is not None else None
 
 
 def get_text(
@@ -158,12 +140,11 @@ def get_text(
     """``soup.find(name, attrs).get_text(separator, strip)`` with null handling."""
     if soup is None:
         return None
-    node = soup
     if name is not None:
-        node = get_div(node, name, attrs)
-        if node is None:
+        soup = get_div(soup, name, attrs)
+        if soup is None:
             return None
-    return _slx_get_text(node, separator, strip)
+    return _slx_get_text(soup, separator, strip)
 
 
 def get_link(
@@ -232,8 +213,7 @@ def find_all_divs(
     css = _build_css(name, dict(attrs) if attrs else {})
     if css is None:
         return []
-    self_id = soup.mem_id
-    divs = [raw for raw in soup.css(css) if raw.mem_id != self_id]
+    divs = subtree_css(soup, css)
     return [d for d in divs if has_text(d)] if filter_empty else divs
 
 

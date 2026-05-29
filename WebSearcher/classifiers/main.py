@@ -1,4 +1,3 @@
-import itertools
 from typing import Any
 
 from selectolax.parser import Node
@@ -28,12 +27,11 @@ class _ComponentSignals:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-        # walk_descendants is subtree-scoped; ``cmpt.traverse(...)`` would walk
-        # the entire document from this point forward and over-populate signals.
-        for el in itertools.chain((cmpt,), walk_descendants(cmpt, include_text=False)):
+
+        def _record(el: Node) -> None:
             tag = el.tag
             if not tag or tag.startswith("-"):
-                continue
+                return
             names.add(tag)
             attrs = el.attributes
             cls = attrs.get("class")
@@ -42,6 +40,12 @@ class _ComponentSignals:
             el_id = attrs.get("id")
             if el_id:
                 ids.add(el_id)
+
+        # walk_descendants is subtree-scoped; ``cmpt.traverse(...)`` would walk
+        # the entire document from this point forward and over-populate signals.
+        _record(cmpt)
+        for el in walk_descendants(cmpt, include_text=False):
+            _record(el)
         self.classes = classes
         self.ids = ids
         self.names = names

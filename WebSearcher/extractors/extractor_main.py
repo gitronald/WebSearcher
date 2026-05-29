@@ -2,7 +2,7 @@ from typing import Any
 
 from selectolax.parser import Node
 
-from .._slx import _iter_text_fragments, class_tokens, get_text, has_text
+from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtree_css
 from ..logger import Logger
 
 log = Logger().start(__name__)
@@ -13,10 +13,9 @@ def _filter_empty(nodes) -> list[Node]:
 
 
 def _find_all_with_class(node: Node, css: str, *, filter_empty: bool = True) -> list[Node]:
-    """``node.find_all`` with self-exclusion + optional empty-text filter."""
-    self_id = node.mem_id
-    out = [n for n in node.css(css) if n.mem_id != self_id]
-    return _filter_empty(out) if filter_empty else out
+    """``subtree_css`` + optional empty-text filter (bs4 ``find_all`` semantics)."""
+    out = subtree_css(node, css)
+    return [n for n in out if has_text(n)] if filter_empty else out
 
 
 class ExtractorMain:

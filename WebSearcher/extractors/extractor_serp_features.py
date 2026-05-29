@@ -37,7 +37,7 @@ class FeatureExtractor:
             features = FeatureExtractor._extract_from_html(html_or_soup)
 
         # Structural probes shared by both paths (cheap, scoped lookups).
-        lb = soup.css_first('div[id="lb"]') if soup is not None else None
+        lb = soup.css_first('div[id="lb"]')
         features["overlay_precise_location"] = bool(
             lb is not None and "precise location" in (get_text(lb) or "").lower()
         )

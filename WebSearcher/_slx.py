@@ -76,10 +76,11 @@ def _iter_text_fragments(raw: Node) -> Iterator[str]:
             yield from _iter_text_fragments(child)
 
 
-def _node_string(raw: Node) -> str | None:
-    """bs4 ``Tag.string``: the single string child (recursing through a lone tag
-    child), else None when the node has zero or multiple children."""
-    children = list(raw.iter(include_text=True))
+def node_string(node: Node) -> str | None:
+    """bs4 ``Tag.string`` semantics: the single string child's text (recursing
+    through a single tag child); ``None`` when the node has zero or multiple
+    children."""
+    children = list(node.iter(include_text=True))
     if len(children) != 1:
         return None
     c = children[0]
@@ -87,7 +88,7 @@ def _node_string(raw: Node) -> str | None:
         return _node_text(c)
     if c.tag.startswith("-"):
         return None
-    return _node_string(c)
+    return node_string(c)
 
 
 def make_soup(html: str | bytes | Node) -> Node:
@@ -137,12 +138,6 @@ def class_tokens(node: Node) -> list[str]:
     as a single whitespace-separated string)."""
     cls = node.attributes.get("class")
     return cls.split() if cls else []
-
-
-def node_string(node: Node) -> str | None:
-    """bs4 ``Tag.string`` semantics: single direct text-node child's text, or
-    recurse through a single tag child. ``None`` when zero or multiple children."""
-    return _node_string(node)
 
 
 def find_text(node: Node, pattern: re.Pattern[str]) -> Node | None:
@@ -243,12 +238,10 @@ def next_siblings(node: Node, include_text: bool = True) -> Iterator[Node]:
             found = True
 
 
-# Build a CSS selector from a bs4-style ``(name, attrs)`` query. Used by
-# utils.py to translate ``utils.get_div(soup, name, attrs)`` style calls. Returns
-# ``None`` when the query has semantics CSS can't express (regex values, value
-# lists, multi-token class exact-match, callable filters) -- callers that need
-# those shapes handle them inline.
-_MULTI_ATTRS = {"class", "rel"}
+# Build a CSS selector from a bs4-style ``(name, attrs)`` query (used by the
+# ``utils.get_div(soup, name, attrs)`` style helpers). Returns ``None`` when the
+# query has semantics CSS can't express (regex values, value lists, multi-token
+# class exact-match, callable filters) -- callers handle those shapes inline.
 
 
 def _css_escape(value: str) -> str:
