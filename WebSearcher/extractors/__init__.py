@@ -31,25 +31,11 @@ class Extractor:
         log.debug(f"total components: {self.components.cmpt_rank_counter:,}")
 
     @staticmethod
-    def _get_dom_positions(soup: Node) -> dict[int, tuple[int, int]]:
-        """Map ``mem_id -> (start_pos, end_pos)`` in pre-order traversal.
+    def _get_dom_positions(soup: Node) -> dict[int, int]:
+        """Map ``mem_id -> pre-order position`` for every element in the document.
 
-        ``end_pos`` is the position of the last descendant tag, so element B is
-        inside element A when A.start <= B.start <= A.end.
+        Just the starts; downstream code (``reorder_by_dom_position``) computes
+        ``end`` ranges per main-component element on demand instead of walking
+        ``.parent`` for every element of the document.
         """
-        # ``soup.css('*')`` returns self + all descendants in document order
-        # (selectolax CSS ``*`` matches self) -- a single C-level walk.
-        all_tags: list[Node] = list(soup.css("*"))
-        pos: dict[int, int] = {t.mem_id: i for i, t in enumerate(all_tags)}
-        end = list(range(len(all_tags)))
-        # Walk backwards: by the time we visit element i, end[i] already holds
-        # the max position of its descendants (set by later iterations), so
-        # propagating end[i] up to its parent chains the max correctly.
-        for i in range(len(all_tags) - 1, -1, -1):
-            parent = all_tags[i].parent
-            if parent is None:
-                continue
-            pi = pos.get(parent.mem_id)
-            if pi is not None and end[i] > end[pi]:
-                end[pi] = end[i]
-        return {t.mem_id: (i, end[i]) for i, t in enumerate(all_tags)}
+        return {t.mem_id: i for i, t in enumerate(soup.css("*"))}

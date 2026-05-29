@@ -31,10 +31,18 @@ none of these markers and correctly yield empty output.
 
 from __future__ import annotations
 
+import contextvars
+
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 from ._ai_overview_payloads import extract_payloads
+
+# Set by ``parse_serp`` so ``_root_html`` skips a full-document serialization
+# per AI overview component. ``None`` outside that context (e.g. direct tests).
+raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "raw_serp_html", default=None
+)
 
 
 def parse_ai_overview(cmpt, sub_rank: int = 0) -> list[dict]:
@@ -102,12 +110,17 @@ def _is_unavailable(node: Node) -> bool:
 
 
 def _root_html(node: Node) -> str:
-    """Serialize the document root (or the cmpt's highest ancestor) to HTML.
+    """Document HTML for payload extraction.
 
     The ``lDPB.push`` fallback payload form lives in script tags outside the
-    AI overview cmpt, so we serialize the full document to catch all three
-    payload delivery forms in one pass.
+    AI overview cmpt, so we need the full document. ``parse_serp`` publishes
+    the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
+    serializing the document root when called outside that context (e.g.
+    direct tests of the parser).
     """
+    cached = raw_serp_html.get()
+    if cached is not None:
+        return cached
     cur = node
     while cur.parent is not None:
         cur = cur.parent
