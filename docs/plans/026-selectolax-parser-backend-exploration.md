@@ -411,3 +411,57 @@ under native `.text()` (`local_results` address/directions and the knowledge
 selectolax `.text()` for `get_text` is the bs4 `strip=True` drop-empties
 semantics in general; the parser-level brittleness side of that wall is now
 gone.
+
+### 2026-05-29 — drop bs4/lxml from runtime deps; keep SoupNode adapter
+
+Trimmed the runtime dependency set to selectolax-only and cleaned the type
+surface to match the runtime, without touching the per-callsite bs4 idioms in
+the ~50 component parsers / classifier / extractor (the full SoupNode-removal
+rewrite stays as follow-up; size + risk did not fit one focused session).
+
+**What landed:**
+
+- `dependencies` no longer carries `beautifulsoup4` or `lxml`. Both moved to
+  the dev group (kept there because 6 html-inspection scripts in `scripts/`
+  use them: `show_serp.py`, `diff_parsers.py`, `dump_ai_overview_html.py`,
+  `inspect_ai_overview_structure.py`, `survey_ai_overviews.py`,
+  `demo_screenshot.py`).
+- Every `bs4.element.Tag` / `bs4.BeautifulSoup` annotation across `WebSearcher/`
+  rewritten to `Node`, sourced as `from .._slx import SoupNode as Node` so the
+  annotation resolves to the actual runtime class (the bs4-shim wrapper). The
+  `import bs4` lines are gone from the package; only docstrings still mention
+  the previous backend.
+- `is_tag` annotated as `TypeGuard[SoupNode]` so pyrefly narrows callers after
+  the check. Two `# type: ignore`s on the `mem_id` property cover a stub
+  discrepancy (selectolax declares `Node.mem_id` as a method while it's an
+  `int` attribute at runtime).
+- README's "built on `BeautifulSoup`" line now reads "built on `selectolax`
+  (lexbor)" to match.
+- `SoupNode` docstring rewritten to document the precise bs4-subset it
+  implements (find/find_all semantics, class semantics, get_text, attrs,
+  string=, extract) so future contributors don't have to reverse-engineer it
+  from the call sites.
+
+**Gates:**
+
+- `pytest` 299 passed / 66 snapshots, no snapshot updates needed.
+- `ruff check` clean; `ruff format --check` clean.
+- `pyrefly check WebSearcher` → 0 errors / 4 suppressed (baseline was 144 /
+  386 mid-migration). Improvement comes from the runtime-accurate types.
+- bench `scripts/bench_parse.py --limit 60 --iterations 20 --runs 3`
+  reported per-SERP medians 117.9 / 124.7 / 128.2 ms across 3 runs against a
+  122.4 ms ± 4.4 MAD baseline — within the ~7% noise floor; no perf
+  regression banked or lost.
+
+**What did not land (follow-up):** the per-callsite native rewrite that drops
+the `SoupNode` adapter class entirely. The 246 `find(...)` / 100 `find_all(...)`
+/ 19 `.parent` / 18 `.children` / etc. method calls across the parsers,
+classifiers, and extractors still go through the adapter. Removing the adapter
+needs the per-callsite work the plan §3-§4 / cheatsheet enumerate -- the cost
+is low risk per file but high cardinality, and the perf win is small (the bench
+shows we are already inside the noise floor and the call dispatch overhead is
+not the dominant cost in the profile). The right time to do it is alongside a
+companion change that benefits from the resulting clarity (e.g. moving to
+native `Node.text()` once the `strip=True` drop-empties parity gap is closed).
+
+bs4 stays in the dev-only group regardless, for the inspection scripts.
