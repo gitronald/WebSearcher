@@ -6,96 +6,88 @@ stacked horizontally and feature a larger image, resembling the video
 component.
 """
 
-import bs4
+from selectolax.parser import Node
 
-from ..utils import (
-    Selector,
-    find_all_divs,
-    find_children,
-    get_link,
-    get_text,
-    get_text_by_selectors,
-)
+from .._slx import get_text, has_text
 
 
-def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list:
-    divs: list = []
-    divs.extend(find_all_divs(cmpt, "g-inner-card"))  # Top Stories
-    divs.extend(find_children(cmpt, "div", {"class": "qmv19b"}))  # Top Stories
-    divs.extend(find_all_divs(cmpt, "div", {"class": "IJl0Z"}))  # Top Stories
-    divs.extend(find_all_divs(cmpt, "div", {"class": "JJZKK"}))  # Perspectives
+def parse_top_stories(cmpt, ctype: str = "top_stories") -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    divs: list[Node] = []
+    divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
+    # find_children equivalent: direct element children of div.qmv19b (no empty filter)
+    container = node.css_first("div.qmv19b")
+    if container is not None:
+        divs.extend(container.iter(include_text=False))
+    divs.extend(d for d in node.css("div.IJl0Z") if has_text(d))  # Top Stories
+    divs.extend(d for d in node.css("div.JJZKK") if has_text(d))  # Perspectives
 
     if not divs:
         # Modern Perspectives: every carousel item is role=listitem (covers both
         # standard cards and embedded tweets, including AI-themed sub-carousels).
-        divs.extend(cmpt.find_all(attrs={"role": "listitem"}))
+        divs.extend(node.css('[role="listitem"]'))
 
     if not divs:
         # Older Top Stories vertical layout
-        link_divs = find_all_divs(cmpt, "a", {"class": "WlydOe"})
-        divs.extend([div.parent for div in link_divs])
+        link_divs = [d for d in node.css("a.WlydOe") if has_text(d)]
+        divs.extend([div.parent for div in link_divs if div.parent is not None])
 
-    divs = list(filter(None, divs))
+    divs = [d for d in divs if d is not None]
 
     if divs:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
-    else:
-        return [{"type": ctype, "sub_rank": 0, "error": "No subcomponents found"}]
+    return [{"type": ctype, "sub_rank": 0, "error": "No subcomponents found"}]
 
 
-def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict:
-    title_selectors = [
-        Selector("div", {"class": "n0jPhd"}),  # Top Stories
-        Selector("div", {"class": "eAaXgc"}),  # Perspectives
-        Selector("div", {"class": "xcQxib"}),  # Perspectives - embedded tweet text
-    ]
+def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
+    title = None
+    for sel in ("div.n0jPhd", "div.eAaXgc", "div.xcQxib"):
+        t = get_text(sub.css_first(sel), " ")
+        if t:
+            title = t
+            break
+    a = sub.css_first("a")
+    url = a.attributes.get("href") if a is not None else None
     return {
         "type": ctype,
         "sub_rank": sub_rank,
-        "title": get_text_by_selectors(sub, title_selectors),
-        "url": get_link(sub, key="href"),
-        "text": get_text(sub, "div", {"class": "GI74Re"}),
+        "title": title,
+        "url": url,
+        "text": get_text(sub.css_first("div.GI74Re"), " "),
         "cite": get_cite(sub),
     }
 
 
-def get_cite(sub: bs4.element.Tag) -> str | None:
-    div_cite = sub.find("div", {"class": "Dx69l"})
-    tweet_cite = sub.find("div", {"class": "Du2Vwd"})
-    img_cite = sub.find("g-img", {"class": "sL0zmc"})
-    span_cite = sub.find("g-img", {"class": "QyR1Ze"})
+def get_cite(sub: Node) -> str | None:
+    div_cite = sub.css_first("div.Dx69l")  # Perspectives
+    if div_cite is not None:
+        return get_text(div_cite, " ")
 
-    cite: str | None = None
-    if div_cite:
-        # Perspectives
-        cite = get_text(sub, "div", {"class": "Dx69l"})
+    tweet_cite = sub.css_first("div.Du2Vwd")  # Perspectives - embedded tweet
+    if tweet_cite is not None:
+        return get_text(tweet_cite, " ")
 
-    elif tweet_cite:
-        # Perspectives - embedded tweet ("{username} · X")
-        cite = get_text(sub, "div", {"class": "Du2Vwd"})
+    img_cite = sub.css_first("g-img.sL0zmc")  # Top Stories - image cite
+    if img_cite is not None:
+        img = img_cite.css_first("img")
+        alt = img.attributes.get("alt") if img is not None else None
+        return str(alt) if alt else None
 
-    elif img_cite:
-        # Top Stories — image cite, get "alt" image text
-        img = img_cite.find("img")
-        if img and "alt" in img.attrs:
-            cite = str(img.attrs["alt"])
-    elif span_cite:
-        cite = get_text(sub, "span")
-    else:
-        cite = get_text(sub, "cite")
-    return cite
+    if sub.css_first("g-img.QyR1Ze") is not None:
+        return get_text(sub.css_first("span"), " ")
+    return get_text(sub.css_first("cite"), " ")
 
 
-def get_top_story_details(sub: bs4.element.Tag) -> dict:
-    details: dict = {}
-    details["img_url"] = get_img_url(sub)
-    details["orient"] = "v" if sub.find("span", {"class": "uaCsqe"}) else "h"
-    details["live_stamp"] = True if sub.find("span", {"class": "EugGe"}) else False
-    return details
+def get_top_story_details(sub: Node) -> dict:
+    return {
+        "img_url": get_img_url(sub),
+        "orient": "v" if sub.css_first("span.uaCsqe") is not None else "h",
+        "live_stamp": sub.css_first("span.EugGe") is not None,
+    }
 
 
-def get_img_url(soup: bs4.element.Tag) -> str | None:
-    img = soup.find("img")
-    if img and "data-src" in img.attrs:
-        return str(img.attrs["data-src"])
+def get_img_url(node: Node) -> str | None:
+    img = node.css_first("img")
+    if img is not None and "data-src" in img.attributes:
+        return str(img.attributes["data-src"])
     return None
