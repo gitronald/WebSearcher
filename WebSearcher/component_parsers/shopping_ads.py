@@ -11,7 +11,7 @@ from .._slx import class_tokens, get_text
 
 
 def parse_shopping_ads(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
     # Sponsored hotel carousel (atvcap)
     cards = list(node.css('[role="listitem"]'))
     if cards:

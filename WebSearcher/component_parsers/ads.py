@@ -7,44 +7,39 @@ optional submenu sitelinks), and the horizontal sponsored carousel.
 
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
-from ..utils import (
-    Selector,
-    check_dict_value,
-    find_all_divs,
-    get_div,
-    get_link,
-    get_link_list,
-    get_text,
-    get_text_by_selectors,
-)
+from .._slx import get_text, has_text
 from .shopping_ads import parse_shopping_ads
 
-AD_SUBTYPE_SELECTORS: dict[str, Selector] = {
-    "legacy": Selector("div", {"class": "ad_cclk"}),
-    "local_service": Selector("gls-profile-entrypoint"),
-    "secondary": Selector("div", {"class": "d5oMvf"}),
-    "shopping": Selector("div", {"class": "commercial-unit-desktop-top"}),
-    "standard": Selector("div", {"class": "uEierd"}),
-    "carousel": Selector("g-scrolling-carousel"),
+# bs4 ``find("div", {"class": "X"})`` -> CSS class selector. The order matters:
+# classify_ad_type returns the first label whose selector matches.
+AD_SUBTYPE_SELECTORS: dict[str, str] = {
+    "legacy": "div.ad_cclk",
+    "local_service": "gls-profile-entrypoint",
+    "secondary": "div.d5oMvf",
+    "shopping": "div.commercial-unit-desktop-top",
+    "standard": "div.uEierd",
+    "carousel": "g-scrolling-carousel",
 }
 
 
-def classify_ad_type(cmpt: bs4.element.Tag) -> str:
-    for label, sel in AD_SUBTYPE_SELECTORS.items():
-        if sel.name and cmpt.find(sel.name, attrs=sel.attrs):
+def classify_ad_type(cmpt) -> str:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    for label, css in AD_SUBTYPE_SELECTORS.items():
+        if node.css_first(css) is not None:
             return label
     return "unknown"
 
 
-def parse_ads(cmpt: bs4.element.Tag) -> list:
+def parse_ads(cmpt) -> list:
     """Parse every ad sub-type present in the component.
 
     A single #tads element can host more than one ad layout (e.g. a shopping
     carousel above a standard text ad). Walk through every selector and
     aggregate results so no ad gets dropped.
     """
+    node: Node = cmpt.raw
     subtype_parsers = {
         "legacy": parse_ad_legacy,
         "local_service": parse_ad_local_service,
@@ -54,181 +49,196 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
         "carousel": parse_ad_carousel,
     }
     parsed: list = []
-    for label, sel in AD_SUBTYPE_SELECTORS.items():
-        if sel.name and cmpt.find(sel.name, attrs=sel.attrs):
+    for label, css in AD_SUBTYPE_SELECTORS.items():
+        if node.css_first(css) is not None:
             parser = subtype_parsers.get(label)
             if parser:
-                parsed.extend(parser(cmpt))
+                parsed.extend(parser(node))
     return parsed
 
 
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
-
-    def _parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
-        subs = cmpt.find_all("li", {"class": "ads-ad"})
-        return [_parse_ad_legacy_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-
-    def _parse_ad_legacy_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
-        header = sub.find("div", {"class": "ad_cclk"})
-        return {
-            "type": "ad",
-            "sub_type": "legacy",
-            "sub_rank": sub_rank,
-            "title": get_text(header, "h3"),
-            "url": get_text(header, "cite"),
-            "cite": None,
-            "text": get_text(sub, "div", {"class": "ads-creative"}),
-            "details": _parse_ad_legacy_sub_details(sub),
-        }
-
-    def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> dict | None:
-        items = []
-        ulist = sub.find("ul")
-        if ulist:
-            items = [li.get_text(separator=" ") for li in ulist.find_all("li")]
-        return {"type": "text", "items": items} if items else None
-
-    return _parse_ad_legacy(cmpt)
+def parse_ad_legacy(cmpt) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    subs = list(node.css("li.ads-ad"))
+    return [_parse_ad_legacy_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-# ------------------------------------------------------------------------------
+def _parse_ad_legacy_sub(sub: Node, sub_rank: int) -> dict:
+    header = sub.css_first("div.ad_cclk")
+    h3 = header.css_first("h3") if header is not None else None
+    cite_el = header.css_first("cite") if header is not None else None
+    creative = sub.css_first("div.ads-creative")
+    return {
+        "type": "ad",
+        "sub_type": "legacy",
+        "sub_rank": sub_rank,
+        "title": get_text(h3, " ") if h3 is not None else None,
+        "url": get_text(cite_el, " ") if cite_el is not None else None,
+        "cite": None,
+        "text": get_text(creative, " ") if creative is not None else None,
+        "details": _parse_ad_legacy_sub_details(sub),
+    }
 
 
-def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
-    # Local-service ads are gls-profile-entrypoint elements
-    def _parse_profile(profile: bs4.element.Tag, sub_rank: int) -> dict:
-        title = get_text(profile, "span", {"class": "bk5vhd"})
-        url = get_link(profile)
-
-        detail_rows = profile.find_all("div", {"class": "P4vvKf"})
-        text = (
-            " · ".join(row.get_text(" ", strip=True) for row in detail_rows)
-            if list(detail_rows)
-            else None
-        )
-
-        details = None
-        rating_span = profile.find("span", attrs={"aria-label": True})
-        if rating_span:
-            details = {"type": "text", "items": [rating_span["aria-label"]]}
-
-        return {
-            "type": "ad",
-            "sub_type": "local_service",
-            "sub_rank": sub_rank,
-            "title": title,
-            "url": url,
-            "cite": None,
-            "text": text,
-            "details": details,
-        }
-
-    profiles = cmpt.find_all("gls-profile-entrypoint")
-    return [_parse_profile(p, i) for i, p in enumerate(profiles)]
-
-
-# ------------------------------------------------------------------------------
-
-
-def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
-
-    def _parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
-        subs = cmpt.find_all("li", {"class": "ads-fr"})
-        return [_parse_ad_secondary_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
-
-    def _parse_ad_secondary_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
-        return {
-            "type": "ad",
-            "sub_type": "secondary",
-            "sub_rank": sub_rank,
-            "title": get_text(sub, "div", {"role": "heading"}),
-            "url": _parse_ad_secondary_sub_url(sub),
-            "cite": get_text(sub, "span", {"class": "gBIQub"}),
-            "text": _parse_ad_secondary_sub_text(sub),
-            "details": _parse_ad_secondary_sub_details(sub),
-        }
-
-    def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
-        url_div = get_div(sub, "div", {"class": "d5oMvf"})
-        if not url_div:
-            return ""
-        return get_link(url_div) or ""
-
-    def _parse_ad_secondary_sub_text(sub) -> str:
-        text_divs = sub.find_all("div", {"class": "yDYNvb"})
-        return "|".join([d.text for d in text_divs]) if text_divs else ""
-
-    def _parse_ad_secondary_sub_details(sub: bs4.element.Tag) -> dict | None:
-        selectors: list[dict[str, Any]] = [{"role": "list"}, {"class": "bOeY0b"}]
-        for selector in selectors:
-            details_section = sub.find("div", attrs=selector)
-            if details_section:
-                urls = get_link_list(details_section)
-                if urls:
-                    return {"type": "links", "items": urls}
-                return None
+def _parse_ad_legacy_sub_details(sub: Node) -> dict | None:
+    ulist = sub.css_first("ul")
+    if ulist is None:
         return None
-
-    return _parse_ad_secondary(cmpt)
+    items = [get_text(li, " ") for li in ulist.css("li")]
+    items = [i for i in items if i is not None]
+    return {"type": "text", "items": items} if items else None
 
 
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
+def parse_ad_local_service(cmpt) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    profiles = list(node.css("gls-profile-entrypoint"))
+    return [_parse_local_service_profile(p, i) for i, p in enumerate(profiles)]
+
+
+def _parse_local_service_profile(profile: Node, sub_rank: int) -> dict:
+    title = get_text(profile.css_first("span.bk5vhd"), " ")
+    a = profile.css_first("a")
+    url = a.attributes.get("href") if a is not None else None
+
+    detail_rows = list(profile.css("div.P4vvKf"))
+    text = (
+        " · ".join((get_text(row, " ", strip=True) or "") for row in detail_rows)
+        if detail_rows
+        else None
+    )
+
+    details = None
+    rating_span = profile.css_first("span[aria-label]")
+    if rating_span is not None:
+        details = {"type": "text", "items": [rating_span.attributes["aria-label"]]}
+
+    return {
+        "type": "ad",
+        "sub_type": "local_service",
+        "sub_rank": sub_rank,
+        "title": title,
+        "url": url,
+        "cite": None,
+        "text": text,
+        "details": details,
+    }
+
+
+# ------------------------------------------------------------------------------
+
+
+def parse_ad_secondary(cmpt) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    subs = list(node.css("li.ads-fr"))
+    return [_parse_ad_secondary_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
+
+
+def _parse_ad_secondary_sub(sub: Node, sub_rank: int) -> dict:
+    return {
+        "type": "ad",
+        "sub_type": "secondary",
+        "sub_rank": sub_rank,
+        "title": get_text(sub.css_first('div[role="heading"]'), " "),
+        "url": _parse_ad_secondary_sub_url(sub),
+        "cite": get_text(sub.css_first("span.gBIQub"), " "),
+        "text": _parse_ad_secondary_sub_text(sub),
+        "details": _parse_ad_secondary_sub_details(sub),
+    }
+
+
+def _parse_ad_secondary_sub_url(sub: Node) -> str:
+    url_div = sub.css_first("div.d5oMvf")
+    if url_div is None:
+        return ""
+    a = url_div.css_first("a")
+    return (a.attributes.get("href") if a is not None else None) or ""
+
+
+def _parse_ad_secondary_sub_text(sub: Node) -> str:
+    text_divs = list(sub.css("div.yDYNvb"))
+    return "|".join((get_text(d) or "") for d in text_divs) if text_divs else ""
+
+
+def _parse_ad_secondary_sub_details(sub: Node) -> dict | None:
+    for css in ('div[role="list"]', "div.bOeY0b"):
+        details_section = sub.css_first(css)
+        if details_section is not None:
+            urls = [
+                str(a.attributes["href"])
+                for a in details_section.css("a")
+                if has_text(a) and a.attributes.get("href")
+            ]
+            if urls:
+                return {"type": "links", "items": urls}
+            return None
+    return None
+
+
+# ------------------------------------------------------------------------------
+
+
+def parse_ad_shopping(cmpt) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
     parsed_list = []
-    for sub in find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}):
-        parsed_list.extend(parse_shopping_ads(sub))
+    for sub in node.css("div.commercial-unit-desktop-top"):
+        if has_text(sub):
+            parsed_list.extend(parse_shopping_ads(sub))
     return parsed_list
 
 
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
-    def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
-
-        def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
-            selectors = [
-                Selector("div", {"class": "yDYNvb"}),
-                Selector("div", {"class": "Va3FIb"}),
-            ]
-            text = get_text_by_selectors(sub, selectors) or ""
-            label = get_text(sub, "span", {"class": "mXsQRe"})
-            return f"{text} <label>{label}</label>" if label else text
-
-        submenu = parse_ad_menu(sub)
-        sub_type = "submenu" if submenu else "standard"
-        return {
-            "type": "ad",
-            "sub_type": sub_type,
-            "sub_rank": sub_rank,
-            "title": get_text(sub, "div", {"role": "heading"}),
-            "url": get_link(sub, {"class": "sVXRqc"}),
-            "cite": get_text(sub, "span", {"role": "text"}),
-            "text": _parse_ad_standard_text(sub),
-            "details": submenu,
-        }
-
-    subs = find_all_divs(cmpt, "div", {"class": "uEierd"})
+def parse_ad_standard(cmpt) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    subs = [d for d in node.css("div.uEierd") if has_text(d)]
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
-    # Menu items / sitelinks for a large ad with additional sub-results
+def _parse_ad_standard_sub(sub: Node, sub_rank: int = 0) -> dict:
+    submenu = parse_ad_menu(sub)
+    sub_type = "submenu" if submenu else "standard"
+    sVXRqc = sub.css_first("a.sVXRqc")
+    return {
+        "type": "ad",
+        "sub_type": sub_type,
+        "sub_rank": sub_rank,
+        "title": get_text(sub.css_first('div[role="heading"]'), " "),
+        "url": sVXRqc.attributes.get("href") if sVXRqc is not None else None,
+        "cite": get_text(sub.css_first('span[role="text"]'), " "),
+        "text": _parse_ad_standard_text(sub),
+        "details": submenu,
+    }
+
+
+def _parse_ad_standard_text(sub: Node) -> str:
+    text = ""
+    for css in ("div.yDYNvb", "div.Va3FIb"):
+        t = get_text(sub.css_first(css), " ")
+        if t:
+            text = t
+            break
+    label = get_text(sub.css_first("span.mXsQRe"), " ")
+    return f"{text} <label>{label}</label>" if label else text
+
+
+def parse_ad_menu(sub: Node) -> dict | None:
+    """Menu items / sitelinks for a large ad with additional sub-results."""
     items = []
 
     # Format 1: MhgNwc items with MUxGbd sub-divs
-    menu_items = sub.find_all("div", {"class": "MhgNwc"})
-    for item in menu_items:
-        parsed_item = {"url": "", "title": "", "text": ""}
-        item_divs = item.find_all("div", {"class": "MUxGbd"})
-        for div in item_divs:
-            if check_dict_value(div.attrs, "role", "listitem"):
-                parsed_item["url"] = get_link(div) or ""
+    for item in sub.css("div.MhgNwc"):
+        parsed_item: dict[str, Any] = {"url": "", "title": "", "text": ""}
+        for div in item.css("div.MUxGbd"):
+            if div.attributes.get("role") == "listitem":
+                a = div.css_first("a")
+                parsed_item["url"] = (a.attributes.get("href") if a is not None else None) or ""
                 parsed_item["title"] = get_text(div) or ""
             else:
                 parsed_item["text"] = get_text(div) or ""
@@ -236,11 +246,11 @@ def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
 
     # Format 2: bOeY0b sitelinks section
     if not items:
-        sitelink_div = sub.find("div", {"class": "bOeY0b"})
-        if sitelink_div:
-            for link in sitelink_div.find_all("a", href=True):
-                text = link.get_text(strip=True)
-                href = link.get("href", "")
+        sitelink_div = sub.css_first("div.bOeY0b")
+        if sitelink_div is not None:
+            for link in sitelink_div.css("a[href]"):
+                text = get_text(link, strip=True) or ""
+                href = link.attributes.get("href", "") or ""
                 if text and href:
                     items.append({"url": href, "title": text})
 
@@ -250,58 +260,60 @@ def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_carousel(
-    cmpt: bs4.element.Tag, sub_type: str = "carousel", filter_visible: bool = True
-) -> list:
+def parse_ad_carousel(cmpt, sub_type: str = "carousel", filter_visible: bool = True) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
 
-    def is_visible_div(sub: bs4.element.Tag) -> bool:
-        return not (sub.has_attr("data-has-shown") and sub["data-has-shown"] == "false")
-
-    def is_visible_card(sub: bs4.element.Tag) -> bool:
-        return not (sub.has_attr("data-viewurl") and sub["data-viewurl"])
-
-    def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
-        return {
-            "type": "ad",
-            "sub_type": sub_type,
-            "sub_rank": sub_rank,
-            "title": get_text(sub, "div", {"class": "e7SMre"}),
-            "url": get_link(sub),
-            "text": get_text(sub, "div", {"class": "vrAZpb"}),
-            "cite": get_text(sub, "div", {"class": "zpIwr"}),
-        }
-
-    def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
-        return {
-            "type": "ad",
-            "sub_type": sub_type,
-            "sub_rank": sub_rank,
-            "title": get_text(sub, "div", {"class": "gCv54b"}),
-            "url": get_link(sub, {"class": "KTsHxd"}),
-            "text": get_text(sub, "div", {"class": "VHpBje"}),
-            "cite": get_text(sub, "div", {"class": "j958Pd"}),
-        }
-
-    # Possible ad carousel item types
     output_list = []
-    ad_carousel = cmpt.find("g-scrolling-carousel")
-    if ad_carousel:
-        ad_carousel_types = {
-            "carousel_card": find_all_divs(ad_carousel, name="g-inner-card"),
-            "carousel_div": find_all_divs(ad_carousel, name="div", attrs={"class": "ZPze1e"}),
-        }
+    ad_carousel = node.css_first("g-scrolling-carousel")
+    if ad_carousel is None:
+        return output_list
 
-        for ad_carousel_type, sub_cmpts in ad_carousel_types.items():
-            if not sub_cmpts:
+    # Possible ad carousel item types -- card layout first, then div fallback.
+    carousel_cards = [d for d in ad_carousel.css("g-inner-card") if has_text(d)]
+    if carousel_cards:
+        for sub_rank, sub in enumerate(carousel_cards):
+            if filter_visible and _is_hidden_card(sub):
                 continue
-            for sub_rank, sub in enumerate(sub_cmpts):
-                if ad_carousel_type == "carousel_card":
-                    if filter_visible and not is_visible_card(sub):
-                        continue
-                    output_list.append(parse_ad_carousel_card(sub, sub_type, sub_rank))
-                elif ad_carousel_type == "carousel_div":
-                    if filter_visible and not is_visible_div(sub):
-                        continue
-                    output_list.append(parse_ad_carousel_div(sub, sub_type, sub_rank))
+            output_list.append(_parse_ad_carousel_card(sub, sub_type, sub_rank))
+        return output_list
 
+    carousel_divs = [d for d in ad_carousel.css("div.ZPze1e") if has_text(d)]
+    for sub_rank, sub in enumerate(carousel_divs):
+        if filter_visible and _is_hidden_div(sub):
+            continue
+        output_list.append(_parse_ad_carousel_div(sub, sub_type, sub_rank))
     return output_list
+
+
+def _is_hidden_div(sub: Node) -> bool:
+    return sub.attributes.get("data-has-shown") == "false"
+
+
+def _is_hidden_card(sub: Node) -> bool:
+    return bool(sub.attributes.get("data-viewurl"))
+
+
+def _parse_ad_carousel_div(sub: Node, sub_type: str, sub_rank: int) -> dict:
+    a = sub.css_first("a")
+    return {
+        "type": "ad",
+        "sub_type": sub_type,
+        "sub_rank": sub_rank,
+        "title": get_text(sub.css_first("div.e7SMre"), " "),
+        "url": a.attributes.get("href") if a is not None else None,
+        "text": get_text(sub.css_first("div.vrAZpb"), " "),
+        "cite": get_text(sub.css_first("div.zpIwr"), " "),
+    }
+
+
+def _parse_ad_carousel_card(sub: Node, sub_type: str, sub_rank: int) -> dict:
+    a = sub.css_first("a.KTsHxd")
+    return {
+        "type": "ad",
+        "sub_type": sub_type,
+        "sub_rank": sub_rank,
+        "title": get_text(sub.css_first("div.gCv54b"), " "),
+        "url": a.attributes.get("href") if a is not None else None,
+        "text": get_text(sub.css_first("div.VHpBje"), " "),
+        "cite": get_text(sub.css_first("div.j958Pd"), " "),
+    }
