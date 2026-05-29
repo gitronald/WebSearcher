@@ -3,7 +3,7 @@
 Links to academic articles surfaced via Google Scholar.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_scholarly_articles(cmpt: Node) -> list:

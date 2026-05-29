@@ -5,7 +5,7 @@ Currently handles hotel listings: each item is an anchor pointing to a
 short description.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_locations(cmpt: Node) -> list:

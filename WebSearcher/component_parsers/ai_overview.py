@@ -31,8 +31,7 @@ none of these markers and correctly yield empty output.
 
 from __future__ import annotations
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ._ai_overview_payloads import extract_payloads
 
 

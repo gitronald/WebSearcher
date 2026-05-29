@@ -4,8 +4,7 @@ Visually similar to a general result but linking to a Twitter account, with
 a tweet sometimes embedded in the snippet.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .._slx import is_tag
 from ..utils import get_link, get_text
 

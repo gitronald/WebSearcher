@@ -15,7 +15,7 @@ schema produced by :mod:`WebSearcher.component_parsers.shopping_ads`.
 
 import re
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 

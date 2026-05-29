@@ -1,6 +1,5 @@
-from selectolax.parser import Node
-
 from .. import utils
+from .._slx import SoupNode as Node
 from .main import ClassifyMain
 
 

@@ -5,7 +5,7 @@ rows (``div.ITWcLb`` carrying "label: question"). No links. One result row per
 facet: ``title`` is the facet label, ``text`` is the question/value.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_buying_guide(cmpt: Node) -> list:

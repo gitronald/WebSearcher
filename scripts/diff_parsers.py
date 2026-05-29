@@ -85,21 +85,70 @@ class Probe:
 
 PROBES: list[Probe] = [
     # Layout / extraction ids
-    *(Probe("id", v) for v in ["rso", "rcnt", "atvcap", "tads", "tadsb", "tvcap",
-                               "imagebox_bigimages", "iur", "kp-wp-tab-overview",
-                               "kp-wp-tab-SportsStandings", "kp-wp-tab-AIRFARES"]),
+    *(
+        Probe("id", v)
+        for v in [
+            "rso",
+            "rcnt",
+            "atvcap",
+            "tads",
+            "tadsb",
+            "tvcap",
+            "imagebox_bigimages",
+            "iur",
+            "kp-wp-tab-overview",
+            "kp-wp-tab-SportsStandings",
+            "kp-wp-tab-AIRFARES",
+        ]
+    ),
     # Custom elements (highest tree-divergence risk between HTML5 parsers)
-    *(Probe("tag", v) for v in ["g-scrolling-carousel", "promo-throttler",
-                                "product-viewer-group", "g-inner-card", "block-component",
-                                "g-accordion", "g-tray-header", "g-card",
-                                "g-section-with-header", "g-more-link", "g-review-stars",
-                                "g-img"]),
+    *(
+        Probe("tag", v)
+        for v in [
+            "g-scrolling-carousel",
+            "promo-throttler",
+            "product-viewer-group",
+            "g-inner-card",
+            "block-component",
+            "g-accordion",
+            "g-tray-header",
+            "g-card",
+            "g-section-with-header",
+            "g-more-link",
+            "g-review-stars",
+            "g-img",
+        ]
+    ),
     # Classifier class signals
-    *(Probe("class", v) for v in ["g", "ULSxyf", "MjjYud", "hlcw0c", "PmEWq", "Ww4FFb",
-                                  "IFnjPb", "Fzsovc", "uzjuFc", "lu_map_section", "ifM9O",
-                                  "JNkvid", "eejeod", "Qq3Lb", "VkpGBb", "yuRUbf", "VwiC3b",
-                                  "d4rhi", "d86Vh", "knowledge-panel", "kp-wholepage-osrp",
-                                  "TzHB6b", "A6K0A", "VibNM"]),
+    *(
+        Probe("class", v)
+        for v in [
+            "g",
+            "ULSxyf",
+            "MjjYud",
+            "hlcw0c",
+            "PmEWq",
+            "Ww4FFb",
+            "IFnjPb",
+            "Fzsovc",
+            "uzjuFc",
+            "lu_map_section",
+            "ifM9O",
+            "JNkvid",
+            "eejeod",
+            "Qq3Lb",
+            "VkpGBb",
+            "yuRUbf",
+            "VwiC3b",
+            "d4rhi",
+            "d86Vh",
+            "knowledge-panel",
+            "kp-wholepage-osrp",
+            "TzHB6b",
+            "A6K0A",
+            "VibNM",
+        ]
+    ),
     # Attribute signals
     Probe("attr", "heading", "role"),
     Probe("attr", "apg-product-result", "data-attrid"),
@@ -227,7 +276,9 @@ def report_probes(diffs: list[SerpDiff], top: int) -> None:
     for label, serps in sorted(diverging.items(), key=lambda kv: -kv[1])[:top]:
         worst = max((d.probe_deltas.get(label, 0) for d in diffs), key=abs, default=0)
         net = sum(d.probe_deltas.get(label, 0) for d in diffs)
-        typer.echo(f"    {label:<28} diverges in {serps:>3} SERP(s)  net={net:<+5} worst={worst:+d}")
+        typer.echo(
+            f"    {label:<28} diverges in {serps:>3} SERP(s)  net={net:<+5} worst={worst:+d}"
+        )
 
 
 if __name__ == "__main__":

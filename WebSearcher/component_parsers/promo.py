@@ -6,7 +6,7 @@ It carries no organic result, so its value is the presence signal (shopping
 intent). The CTA link is an internal ``/search`` query, kept verbatim.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_promo(cmpt: Node) -> list:

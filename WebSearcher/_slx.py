@@ -25,7 +25,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Iterator
-from typing import Any
+from typing import Any, TypeGuard
 
 from selectolax.parser import HTMLParser, Node
 
@@ -245,14 +245,20 @@ class SoupNode:
     def mem_id(self) -> int:
         """Stable identity of the underlying DOM node (survives re-wrapping and
         detachment). Used for document-position bookkeeping where bs4 relied on
-        Python ``id()`` of a stable Tag object."""
-        return self._raw.mem_id
+        Python ``id()`` of a stable Tag object.
+
+        Note: ``Node.mem_id`` is exposed by selectolax as a cython attribute
+        (runtime ``int``) but the pyrefly stubs declare it as a method; the
+        ``# type: ignore`` silences the resulting spurious "method object"
+        diagnostic at the few sites that read it.
+        """
+        return self._raw.mem_id  # type: ignore[return-value]
 
     def __eq__(self, other: object) -> bool:
         return isinstance(other, SoupNode) and self._raw.mem_id == other._raw.mem_id
 
     def __hash__(self) -> int:
-        return self._raw.mem_id
+        return self._raw.mem_id  # type: ignore[return-value]
 
     # -- attributes ------------------------------------------------------------
     @property
@@ -462,14 +468,15 @@ class SoupNode:
             return out
         css = self._css_query(name, merged, string, recursive)
         if css is not None:
-            self_id = self._raw.mem_id
+            self_id: int = self._raw.mem_id  # type: ignore[assignment]
             seen: set[int] = {self_id}  # exclude self: bs4 searches descendants only
             if self._is_root and _matches(self._raw, name, merged, None):
                 out.append(SoupNode(self._raw, self._parser))
             for raw in self._raw.css(css):
-                if raw.mem_id in seen:
+                rid: int = raw.mem_id  # type: ignore[assignment]
+                if rid in seen:
                     continue
-                seen.add(raw.mem_id)
+                seen.add(rid)
                 out.append(SoupNode(raw, self._parser))
                 if limit and len(out) >= limit:
                     break
@@ -531,9 +538,10 @@ class SoupNode:
         return _reparse_fragment(self._raw.html or "")
 
 
-def is_tag(obj: Any) -> bool:
+def is_tag(obj: Any) -> TypeGuard[SoupNode]:
     """Replacement for the legacy ``isinstance(x, bs4.element.Tag)`` guard --
-    True for an element ``SoupNode`` (not a text/comment node)."""
+    True for an element ``SoupNode`` (not a text/comment node). Annotated as a
+    ``TypeGuard`` so pyrefly narrows the value after the check."""
     return isinstance(obj, SoupNode) and obj.name is not None
 
 
@@ -541,13 +549,14 @@ def _reparse_fragment(html: str) -> SoupNode:
     """Parse a fragment and return its top element as an independent SoupNode."""
     parser = HTMLParser(html)
     body = parser.body
-    top = None
+    top: Node | None = None
     if body is not None:
         for child in body.iter(include_text=False):
             top = child
             break
     if top is None:
         top = parser.root
+    assert top is not None  # both branches above guarantee this
     return SoupNode(top, parser)
 
 
@@ -557,4 +566,6 @@ def make_soup_slx(html: str | bytes | SoupNode) -> SoupNode:
     if isinstance(html, bytes):
         html = html.decode("utf-8", errors="replace")
     parser = HTMLParser(html)
-    return SoupNode(parser.root, parser, is_root=True)
+    root = parser.root
+    assert root is not None  # HTMLParser always synthesizes an <html> root
+    return SoupNode(root, parser, is_root=True)

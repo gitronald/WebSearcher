@@ -1,8 +1,7 @@
 import traceback
 from collections.abc import Callable
 
-from selectolax.parser import Node
-
+from ._slx import SoupNode as Node
 from .classifiers import ClassifyFooter, ClassifyMain
 from .component_parsers import (
     footer_parser_dict,

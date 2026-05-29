@@ -3,9 +3,8 @@
 import hashlib
 from pathlib import Path
 
-from WebSearcher._slx import SoupNode
-
 from WebSearcher import utils
+from WebSearcher._slx import SoupNode
 
 # hash_id ----------------------------------------------------------------------
 

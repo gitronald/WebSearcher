@@ -10,8 +10,7 @@ import copy
 import re
 from collections.abc import Callable
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import get_text
 
 

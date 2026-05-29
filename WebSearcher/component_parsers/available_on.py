@@ -4,8 +4,7 @@ A carousel of thumbnail images linking to streaming providers / entertainment
 options relevant to the query.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import find_all_divs, get_link, get_text
 
 

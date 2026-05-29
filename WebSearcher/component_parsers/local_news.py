@@ -3,8 +3,7 @@
 Same shape as Top Stories, just a different heading.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .top_stories import parse_top_stories
 
 

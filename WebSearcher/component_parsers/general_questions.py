@@ -3,8 +3,7 @@
 A general result followed by a People Also Ask cluster (typically 3 questions).
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .general import parse_general_results
 from .people_also_ask import parse_people_also_ask
 

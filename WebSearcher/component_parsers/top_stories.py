@@ -6,8 +6,7 @@ stacked horizontally and feature a larger image, resembling the video
 component.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import (
     Selector,
     find_all_divs,

@@ -7,8 +7,7 @@ optional submenu sitelinks), and the horizontal sponsored carousel.
 
 from typing import Any
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import (
     Selector,
     check_dict_value,

@@ -4,8 +4,7 @@ Each item is a thumbnail link; the component itself has a title and points
 at a parent listing.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .._slx import is_tag
 from ..utils import get_link
 

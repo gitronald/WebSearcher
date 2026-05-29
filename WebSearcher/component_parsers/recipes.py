@@ -9,7 +9,7 @@ card into ``title`` / ``url`` plus a ``ratings`` details block.
 
 import re
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 _CARD_CLASS = "a-no-hover-decoration"
 _TITLE_CLASS = "hfac6d"

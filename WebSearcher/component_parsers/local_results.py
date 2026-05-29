@@ -6,8 +6,7 @@ businesses relevant to the query, with rating, contact, and address details.
 
 import re
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import Selector, get_text, get_text_by_selectors, slugify
 
 

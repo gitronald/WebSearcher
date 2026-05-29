@@ -7,8 +7,7 @@ zero or more follow-on sections beneath it.
 
 from typing import Any
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .._slx import is_tag
 
 

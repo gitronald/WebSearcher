@@ -4,8 +4,7 @@ A list of forum/discussion threads (Reddit, Stack Overflow, etc.) with title,
 source, and link. Each row has multiple known card layouts.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import Selector, get_link, get_text, get_text_by_selectors
 
 

@@ -1,6 +1,5 @@
-from selectolax.parser import Node
-
 from .. import logger, utils
+from .._slx import SoupNode as Node
 from .._slx import is_tag
 
 log = logger.Logger().start(__name__)

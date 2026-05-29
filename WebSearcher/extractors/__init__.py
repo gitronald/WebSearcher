@@ -1,6 +1,5 @@
-from selectolax.parser import Node
-
 from .. import logger
+from .._slx import SoupNode as Node
 from ..components import ComponentList
 from .extractor_footer import ExtractorFooter
 from .extractor_header import ExtractorHeader

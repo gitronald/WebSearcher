@@ -4,7 +4,7 @@ A header row plus a list of clickable suggestions Google offers when a query
 is flagged (e.g., misspellings, restricted topics).
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_banner(cmpt: Node) -> list:

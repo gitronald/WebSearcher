@@ -5,8 +5,7 @@ title and URL), and a multimedia carousel (image / video previews without
 text). Each subcomponent is tagged with the matching sub_type.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import get_div, get_link, get_text
 
 

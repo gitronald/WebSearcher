@@ -7,8 +7,7 @@ submenus (rating, list, table, mini), scholarly results, products, and videos.
 
 import re
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .._slx import is_tag
 from ..utils import get_link, get_text
 

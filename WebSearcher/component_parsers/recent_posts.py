@@ -3,8 +3,7 @@
 Carousel similar to Top Stories and Perspectives.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from .top_stories import parse_top_stories
 
 

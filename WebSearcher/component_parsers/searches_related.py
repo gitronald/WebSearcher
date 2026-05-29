@@ -5,8 +5,7 @@ include the classic suggestion list, curated lists (e.g. song names),
 accordion-style sections, and link rows under "brs_col".
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors, slugify
 
 

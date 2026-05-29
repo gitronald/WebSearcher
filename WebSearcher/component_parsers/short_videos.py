@@ -4,8 +4,7 @@ A horizontal carousel of short-form video cards (YouTube Shorts, TikTok, etc.)
 with a heading, source, and duration.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import get_text
 
 

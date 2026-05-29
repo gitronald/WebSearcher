@@ -1,9 +1,8 @@
 import itertools
 from typing import Any
 
-from selectolax.parser import Node
-
 from .. import logger, utils
+from .._slx import SoupNode as Node
 from ..component_types import header_text_to_type
 from ..utils import Selector
 

@@ -6,7 +6,7 @@ and an aria-level-3 heading; the carousel also holds empty placeholder slots,
 which are skipped.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_most_read_articles(cmpt: Node) -> list:

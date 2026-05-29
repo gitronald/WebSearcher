@@ -7,8 +7,7 @@ each card has tweet text, source, and a deep-link URL.
 import re
 from typing import Any
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import get_link, get_text, url_unquote
 
 

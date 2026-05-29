@@ -3,8 +3,7 @@
 An embedded map result without an associated list of subcomponent results.
 """
 
-from selectolax.parser import Node
-
+from .._slx import SoupNode as Node
 from ..utils import Selector, get_text_by_selectors
 
 

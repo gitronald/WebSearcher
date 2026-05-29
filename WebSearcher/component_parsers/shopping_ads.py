@@ -5,7 +5,7 @@ sponsored hotel carousel (role=listitem cards from atvcap). Each card
 captures price, source, rating, review count, stars, and amenity tags.
 """
 
-from selectolax.parser import Node
+from .._slx import SoupNode as Node
 
 
 def parse_shopping_ads(cmpt: Node) -> list:

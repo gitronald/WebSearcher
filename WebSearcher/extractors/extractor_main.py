@@ -1,8 +1,7 @@
 from typing import Any
 
-from selectolax.parser import Node
-
 from .. import utils
+from .._slx import SoupNode as Node
 from ..logger import Logger
 
 log = Logger().start(__name__)
