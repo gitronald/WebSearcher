@@ -584,6 +584,16 @@ def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str
     return separator.join(parts)
 
 
+def walk_descendants(node: Node, include_text: bool = False) -> Iterator[Node]:
+    """Pre-order DFS over descendants in document order, EXCLUDING ``node`` itself.
+
+    Use this instead of selectolax ``node.traverse(...)``, which walks the
+    entire document from ``node``'s position forward (not just its subtree),
+    and instead of ``node.css(...)``, which groups results by comma-branch
+    rather than preserving document order."""
+    return _walk(node, include_text=include_text)
+
+
 def has_text(node: Node | None) -> bool:
     """True if ``node``'s subtree contains at least one non-whitespace text
     fragment (short-circuits at the first hit). The replacement for the
