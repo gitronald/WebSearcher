@@ -17,9 +17,8 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
     node: Node = cmpt
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
-    # Get embedded result if it exists. ``utils.get_text`` defaulted to
-    # ``separator=" "`` -- preserve that explicitly so multi-fragment text is
-    # space-joined (titles like "Donald Trump 45th and 47th U.S. President").
+    # Embedded result: space-join multi-fragment text so titles like
+    # "Donald Trump 45th and 47th U.S. President" stay readable.
     result = node.css_first("div.rc")
     if result is not None:
         h3 = result.css_first("h3")

@@ -28,9 +28,7 @@ call:
 
 from __future__ import annotations
 
-import re
 from collections.abc import Iterator
-from typing import Any
 
 from selectolax.lexbor import LexborHTMLParser as HTMLParser
 from selectolax.lexbor import LexborNode as Node
@@ -98,8 +96,8 @@ def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str
     keeps empties, producing leading/trailing/extra separators -- this differs
     and breaks downstream parsing in the slug / link-key sites).
 
-    Returns ``None`` for a ``None`` input (matching ``utils.get_text``'s
-    convention so parsers can chain ``css_first`` + ``get_text``)."""
+    Returns ``None`` for a ``None`` input so parsers can chain ``css_first``
+    + ``get_text``."""
     if node is None:
         return None
     frags = _iter_text_fragments(node)
@@ -212,31 +210,3 @@ def next_siblings(node: Node, include_text: bool = True) -> Iterator[Node]:
             found = True
 
 
-# Build a CSS selector from a bs4-style ``(name, attrs)`` query (used by the
-# ``utils.get_div(soup, name, attrs)`` style helpers). Returns ``None`` when the
-# query has semantics CSS can't express (regex values, value lists, multi-token
-# class exact-match, callable filters) -- callers handle those shapes inline.
-
-
-def _css_escape(value: str) -> str:
-    return value.replace("\\", "\\\\").replace('"', '\\"')
-
-
-def _build_css(name: Any, attrs: dict) -> str | None:
-    if isinstance(name, (list, tuple, set)) or callable(name):
-        return None
-    tag = "*" if (name is None or name is True) else name
-    parts = [tag]
-    for key, val in attrs.items():
-        if isinstance(val, re.Pattern) or isinstance(val, (list, tuple, set)):
-            return None
-        if key == "class":
-            v = str(val)
-            if " " in v.strip():  # multi-token = exact ordered match, not CSS AND
-                return None
-            parts.append(f'[class~="{_css_escape(v)}"]')
-        elif val is True:
-            parts.append(f"[{key}]")
-        else:
-            parts.append(f'[{key}="{_css_escape(str(val))}"]')
-    return "".join(parts)

@@ -3,9 +3,8 @@ import hashlib
 import re
 import subprocess
 import urllib.parse as urlparse
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any, NamedTuple
 
 import brotli
 import orjson
@@ -14,23 +13,9 @@ import tldextract
 from selectolax.lexbor import LexborNode as Node
 
 from . import logger
-from ._slx import (
-    _build_css,
-    has_text,
-    make_soup,
-    subtree_css,
-    subtree_first,
-)
-from ._slx import get_text as _slx_get_text
+from ._slx import has_text, make_soup
 
 log = logger.Logger().start(__name__)
-
-
-class Selector(NamedTuple):
-    """A bs4 tag selector: a tag name and optional attribute filter."""
-
-    name: str | None
-    attrs: dict[str, Any] | None = None
 
 
 # Files ------------------------------------------------------------------------
@@ -114,130 +99,16 @@ def has_captcha(soup: Node | None, html: str | None = None) -> bool:
     return "CAPTCHA" in (soup.text(deep=True) or "")
 
 
-def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
-    """Check if a key exists in a dictionary and is equal to a input value"""
-    return (d[key] == value) if key in d else False
-
-
-# Get divs, links, and text ----------------------------------------------------
-
-
-def get_div(
-    soup: Node | None,
-    name: str | None,
-    attrs: Mapping[str, Any] | None = None,
-) -> Node | None:
-    """``soup.find(name, attrs)`` -- descendants only (excludes ``soup``)."""
+def get_link_list(soup: Node | None) -> list[str] | None:
+    """All descendant anchor ``href``s in document order; ``None`` when none."""
     if soup is None:
         return None
-    css = _build_css(name, dict(attrs) if attrs else {})
-    return subtree_first(soup, css) if css is not None else None
-
-
-def get_text(
-    soup: Node | None,
-    name: str | None = None,
-    attrs: Mapping[str, Any] | None = None,
-    separator: str = " ",
-    strip: bool = False,
-) -> str | None:
-    """``soup.find(name, attrs).get_text(separator, strip)`` with null handling."""
-    if soup is None:
-        return None
-    if name is not None:
-        soup = get_div(soup, name, attrs)
-        if soup is None:
-            return None
-    return _slx_get_text(soup, separator, strip)
-
-
-def get_link(
-    soup, attrs: Mapping[str, Any] | None = None, key: str = "href"
-) -> str | None:
-    """First descendant anchor's ``href`` (or other attribute), or ``None``."""
-    link = get_div(soup, "a", attrs)
-    if link is None:
-        return None
-    value = link.attributes.get(key)
-    return str(value) if value is not None else None
-
-
-def get_link_list(
-    soup,
-    attrs: Mapping[str, Any] | None = None,
-    key: str = "href",
-    filter_empty: bool = True,
-) -> list[str] | None:
-    """All descendant anchor ``href``s -- skips anchors missing the attribute."""
-    links = find_all_divs(soup, "a", attrs, filter_empty)
-    if not links:
-        return None
-    out = [str(link.attributes[key]) for link in links if link.attributes.get(key)]
+    out = [
+        str(a.attributes["href"])
+        for a in soup.css("a")
+        if a.attributes.get("href") and has_text(a)
+    ]
     return out or None
-
-
-def get_text_by_selectors(
-    soup,
-    selectors: Sequence["Selector"] | None = None,
-    strip: bool = False,
-) -> str | None:
-    """Get text by trying multiple selectors, return first non-null."""
-    if soup is None or not selectors:
-        return None
-    for sel in selectors:
-        text = get_text(soup, sel.name, sel.attrs, strip=strip)
-        if text:
-            return text
-    return None
-
-
-def find_by_selectors(
-    soup,
-    selectors: Sequence[Mapping[str, Any]] | None = None,
-) -> Node | None:
-    """First matching element across multiple ``{"name":..., "attrs":...}`` dicts."""
-    if soup is None or not selectors:
-        return None
-    for sel in selectors:
-        match = get_div(soup, sel.get("name"), sel.get("attrs"))
-        if match is not None:
-            return match
-    return None
-
-
-def find_all_divs(
-    soup: Node | None,
-    name: str | None,
-    attrs: Mapping[str, Any] | None = None,
-    filter_empty: bool = True,
-) -> list[Node]:
-    """All descendants matching the bs4-style ``(name, attrs)`` query."""
-    if soup is None:
-        return []
-    css = _build_css(name, dict(attrs) if attrs else {})
-    if css is None:
-        return []
-    divs = subtree_css(soup, css)
-    return [d for d in divs if has_text(d)] if filter_empty else divs
-
-
-def filter_empty_divs(divs: Iterable[Node]) -> list[Node]:
-    """Keep elements whose subtree contains at least one non-whitespace fragment."""
-    return [d for d in divs if d is not None and has_text(d)]
-
-
-def find_children(
-    soup,
-    name: str,
-    attrs: Mapping[str, Any] | None = None,
-    filter_empty: bool = False,
-) -> Iterable[Node]:
-    """Direct element children of the first descendant matching ``(name, attrs)``."""
-    div = get_div(soup, name, attrs)
-    if div is None:
-        return []
-    children = list(div.iter(include_text=False))
-    return filter_empty_divs(children) if filter_empty else children
 
 
 # URLs -------------------------------------------------------------------------

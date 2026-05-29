@@ -19,8 +19,7 @@ def parse_available_on(cmpt, sub_rank: int = 0) -> list:
 
     items: list[dict] = []
 
-    # Legacy layout: tile divs inside the widget (filter empties to match the
-    # original utils.find_all_divs default).
+    # Legacy layout: tile divs inside the widget; skip the empty ones.
     for item in node.css("div.kno-fb-ctx"):
         if has_text(item):
             items.append(parse_available_on_item(item))
