@@ -27,9 +27,6 @@ class _ComponentSignals:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-        # cmpt.css('*') runs in C and returns self + element descendants in
-        # document order; selectolax's CSS engine doesn't match pseudo-tags so
-        # the ``tag`` here is always a real, non-empty element name.
         for el in cmpt.css("*"):
             names.add(el.tag)
             attrs = el.attributes
@@ -44,39 +41,18 @@ class _ComponentSignals:
         self.names = names
 
 
+_HEADER_CSS_BY_LEVEL: dict[int, tuple[str, ...]] = {
+    level: (
+        f'h{level}[role="heading"]',
+        f"h{level}.O3JH7, h{level}.q8U8x, h{level}.mfMhoc",
+        f'[aria-level="{level}"][role="heading"]',
+    )
+    for level in (2, 3)
+}
+
+
 class ClassifyMainHeader:
     """Classify a main-section component by its h2/h3 header text."""
-
-    # Per-level CSS selectors + precompiled startswith/endswith marker tables,
-    # built once at import time so each component classification only does the
-    # CSS queries + the marker scans.
-    _CSS_BY_LEVEL: dict[int, tuple[str, ...]] = {
-        level: (
-            f'h{level}[role="heading"]',
-            f"h{level}.O3JH7, h{level}.q8U8x, h{level}.mfMhoc",
-            f'[aria-level="{level}"][role="heading"]',
-        )
-        for level in (2, 3)
-    }
-    # (markers, label) pairs split by predicate. ``local_results``'s
-    # ``locations`` marker is the only ``endswith`` marker; everything else
-    # uses ``startswith``.
-    _STARTSWITH_BY_LEVEL: dict[int, tuple[tuple[str, str], ...]] = {
-        level: tuple(
-            (marker, label)
-            for marker, label in header_text_to_type(level).items()
-            if not (label == "local_results" and marker == "locations")
-        )
-        for level in (2, 3)
-    }
-    _ENDSWITH_BY_LEVEL: dict[int, tuple[tuple[str, str], ...]] = {
-        level: tuple(
-            (marker, label)
-            for marker, label in header_text_to_type(level).items()
-            if label == "local_results" and marker == "locations"
-        )
-        for level in (2, 3)
-    }
 
     @staticmethod
     def classify(cmpt, levels: tuple[int, ...] = (2, 3)) -> str:
@@ -90,17 +66,16 @@ class ClassifyMainHeader:
     @staticmethod
     def _classify_header(node: Node, level: int) -> str:
         """Check text in common headers for dict matches."""
-        starts = ClassifyMainHeader._STARTSWITH_BY_LEVEL.get(level, ())
-        ends = ClassifyMainHeader._ENDSWITH_BY_LEVEL.get(level, ())
-        # bs4 ``find_all("h{level}", {"class": ["O3JH7","q8U8x","mfMhoc"]})``:
-        # list of class tokens = OR. CSS class lists with commas = OR.
-        for css in ClassifyMainHeader._CSS_BY_LEVEL.get(level, ()):
+        markers = header_text_to_type(level)
+        for css in _HEADER_CSS_BY_LEVEL[level]:
             for header in node.css(css):
                 text = (get_text(header) or "").strip()
-                for marker, label in ends:
-                    if text.endswith(marker):
-                        return label
-                for marker, label in starts:
+                # local_results' "locations" is the lone endswith marker.
+                if text.endswith("locations"):
+                    return "local_results"
+                for marker, label in markers.items():
+                    if marker == "locations":
+                        continue
                     if text.startswith(marker):
                         return label
         return "unknown"

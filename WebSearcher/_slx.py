@@ -18,9 +18,6 @@ call:
   ``find``/``find_all`` semantics; selectolax ``.css`` matches self too).
 - ``next_sibling`` / ``previous_sibling`` / ``next_siblings`` -- text-inclusive,
   matching bs4 (selectolax ``.next`` may skip text nodes).
-- ``find_text`` -- text-node regex search (bs4 ``find(string=...)`` with no tag
-  filter). Scans text nodes directly so ``has_captcha`` stays O(text), not
-  O(elements x subtree).
 - ``node_string`` -- bs4 ``Tag.string`` semantics (single-string-child, recursing
   through a single tag child). Used by the one ``find(name_list, string=True)``
   call site in ``knowledge.py``.
@@ -48,13 +45,7 @@ def _node_text(raw: Node) -> str:
 
 
 def _iter_text_fragments(raw: Node) -> Iterator[str]:
-    """Text fragments in document order, skipping script/style/template subtrees.
-
-    Iterative pre-order DFS: each frame is the iterator over a node's children;
-    we descend into an element child immediately (preserving document order
-    between interleaved text/element siblings) and resume the parent's iterator
-    on stack pop. Includes ``raw``'s own text if it is itself a text node.
-    """
+    """Text fragments in document order, skipping script/style/template subtrees."""
     if raw.tag == "-text":
         yield _node_text(raw)
         return
@@ -137,18 +128,6 @@ def class_tokens(node: Node) -> list[str]:
     return cls.split() if cls else []
 
 
-def find_text(node: Node, pattern: re.Pattern[str]) -> Node | None:
-    """First descendant text node whose content matches ``pattern``.
-
-    bs4 ``find(string=re.compile(...))`` with no tag filter -- scans text nodes
-    directly (O(text), not O(elements x subtree); the latter made ``has_captcha``
-    quadratic per plan 023/026)."""
-    for n in node.traverse(include_text=True):
-        if n.tag == "-text" and pattern.search(n.text(deep=False) or ""):
-            return n
-    return None
-
-
 def reparse_fragment(node: Node) -> Node:
     """Re-parse ``node``'s outer HTML into an independent tree and return its
     top element. Emulates bs4 ``copy.copy(tag)`` for ``notices.py``."""
@@ -184,14 +163,9 @@ def subtree_css(node: Node, css: str) -> list[Node]:
 
 
 def walk_descendants(node: Node) -> Iterator[Node]:
-    """Pre-order DFS over element descendants in document order, EXCLUDING
-    ``node`` itself.
-
-    Backed by selectolax ``node.css('*')`` (a single C-level walk) with the
-    self-match filtered out. ``node.traverse(...)`` is not safe -- it walks
-    the entire document from ``node``'s position forward, not just its
-    subtree -- and naive ``node.css(...)`` with a comma-branch selector
-    groups results by branch rather than preserving document order."""
+    """Pre-order element descendants of ``node`` in document order, excluding
+    ``node`` itself. Backed by ``node.css('*')`` (one C-level walk) -- safer
+    than ``traverse`` (whole-document) and ``css(comma)`` (branch-grouped)."""
     self_id = node.mem_id
     return (n for n in node.css("*") if n.mem_id != self_id)
 

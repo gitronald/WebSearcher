@@ -31,27 +31,21 @@ class FeatureExtractor:
         html_or_soup: str | bytes | Node,
         soup: Node | None = None,
     ) -> SERPFeatures:
-        """Extract SERP features.
-
-        When called with a string/bytes, regex over the original markup is used
-        (cheap, no document re-walk). When called with a ``Node``, the soup
-        path runs ``get_text`` over the document for the notice substring
-        checks. ``parse_serp`` calls this with both -- the raw HTML for the
-        cheap path AND the already-parsed soup for the shared lb/captcha
-        probes -- which avoids re-parsing.
-        """
-        raw_html: str | None = None
+        """Extract SERP features. ``parse_serp`` passes both the raw HTML and
+        the already-parsed soup so the regex path skips a re-parse and the
+        shared structural probes (lb, captcha) reuse the soup."""
         if isinstance(html_or_soup, Node):
+            raw_html: str | None = None
             soup = html_or_soup
             features = FeatureExtractor._extract_from_soup(soup)
         else:
-            if soup is None:
-                soup = utils.make_soup(html_or_soup)
             raw_html = (
                 html_or_soup
                 if isinstance(html_or_soup, str)
                 else html_or_soup.decode("utf-8", errors="replace")
             )
+            if soup is None:
+                soup = utils.make_soup(raw_html)
             features = FeatureExtractor._extract_from_html(raw_html)
 
         # Structural probes shared by both paths (cheap, scoped lookups).
@@ -59,13 +53,7 @@ class FeatureExtractor:
         features["overlay_precise_location"] = bool(
             lb is not None and "precise location" in (get_text(lb) or "").lower()
         )
-        # Cheap pre-check: if "CAPTCHA" doesn't appear in the raw markup, the
-        # text-walk has_captcha is guaranteed to return False, so the typical
-        # SERP short-circuits a full-document deep-text traversal.
-        if raw_html is not None and "CAPTCHA" not in raw_html:
-            features["captcha"] = False
-        else:
-            features["captcha"] = utils.has_captcha(soup)
+        features["captcha"] = utils.has_captcha(soup, html=raw_html)
         return SERPFeatures(**features)
 
     @staticmethod

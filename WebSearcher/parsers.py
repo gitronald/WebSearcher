@@ -29,10 +29,9 @@ def parse_serp(serp: str | Node) -> dict:
         cmpt.parse_component()
     results = component_list.export_component_results()
 
-    # Pass the raw HTML when available so feature extraction takes the cheap
-    # regex path and skips a full-document text walk for the notice checks.
-    features_input = serp if isinstance(serp, (str, bytes)) else soup
     return {
-        "features": FeatureExtractor.extract_features(features_input, soup=soup).model_dump(),
+        # Forward raw HTML (when available) + soup so feature extraction takes
+        # the regex path and reuses the already-parsed soup for shared probes.
+        "features": FeatureExtractor.extract_features(serp, soup=soup).model_dump(),
         "results": results,
     }

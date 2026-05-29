@@ -99,12 +99,16 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def has_captcha(soup: Node | None) -> bool:
+def has_captcha(soup: Node | None, html: str | None = None) -> bool:
     """Boolean for 'CAPTCHA' appearance in the document text.
 
-    Uses ``soup.text(deep=True)`` (single C-level walk over the document) and a
-    substring check; cheaper than walking text nodes individually.
+    If ``html`` (the raw markup) is provided, a substring check rules out the
+    common no-captcha case without a document text walk. Falls back to
+    ``soup.text(deep=True)`` so script/style/template content doesn't
+    false-positive on JS that happens to contain the literal.
     """
+    if html is not None and "CAPTCHA" not in html:
+        return False
     if soup is None:
         return False
     return "CAPTCHA" in (soup.text(deep=True) or "")
