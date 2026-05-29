@@ -1,0 +1,1083 @@
+commit,timestamp,message
+cc28933c7d1e375e733e49f8fe71e9a17495d61f,2026-05-25T15:16:12-07:00,version [prerelease]: 0.8.5a0
+53ca27eec94db75c026d2fe3a2690b8bb80c1e2c,2026-05-25T15:16:12-07:00,Merge branch 'master' into dev
+fc31e74a8e548a04edf9c6efd794b9c5d7255002,2026-05-25T15:16:09-07:00,Merge pull request #130 from gitronald/dev
+07253d2fc66f6a205c4e819a5509bf42fa41f929,2026-05-25T15:14:38-07:00,version [patch]: 0.8.4
+d411a0b6cc7f5046a7f71704a13f6f83a1b887e8,2026-05-25T15:10:33-07:00,update changelog and readme for 0.8.4 release
+c60bc240d169d5eeddca36aa9ee771cfd38c6873,2026-05-25T15:03:01-07:00,Merge pull request #129 from gitronald/feature/reclassify-general-blocks
+a5afe2c4178790f6da41761b58866c47729b6c45,2026-05-25T15:01:46-07:00,close plan 025: reclassify misclassified general blocks
+6a94c6b8730f9fc578555d8b4671e53c78972f3e,2026-05-25T14:59:53-07:00,note deferred title-agnostic classification hardening in plan 025
+cde685bedaf14d4d1b48ef8cb41e25cf1334a00b,2026-05-25T14:41:58-07:00,"update plan 025 log: broader corpus closed, promo type added"
+b3c5533f5ea74ec328c003323e674f75fe9174da,2026-05-25T14:41:28-07:00,"add promo, most_read_articles, and buying_guide component types"
+e50822f9d1b610f0f1eb0f18043298de3610bc13,2026-05-25T14:17:20-07:00,extend products classifier and parser to older product-grid markup
+66fdda03f33a30adf85d9ba2d8c93f0b5c2bb462,2026-05-25T14:00:48-07:00,update plan 025 log with image_strip sub_type
+c30dab14bfcde7f4d1977a90f58d218cca2c5322,2026-05-25T14:00:44-07:00,add image_strip general sub_type for thumbnail-strip results
+bdf214eddb890028ed4426f1a641b8d3b6bb315e,2026-05-25T13:39:48-07:00,update plan 025 log with corrected diagnosis and products approach
+c1fea1470b3e50678743aa49aa8b2c636e02e5e3,2026-05-25T13:39:43-07:00,add products classifier and parser for organic shopping packs
+4f1bf3d63b46fe514de9e18ce361f89b96070dcd,2026-05-25T13:09:11-07:00,activate plan 025: reclassify people-also-ask / image-filter blocks out of general
+eee6dadf680ac104d5668ad62a82ee434ccfc794,2026-05-25T01:59:45-07:00,version [prerelease]: 0.8.4a0
+71e90876f96dcf3abc5e87aaffb555748ced3371,2026-05-25T01:59:44-07:00,Merge branch 'master' into dev
+a5ef22dbf9db310407c15220ba81e28cae47adac,2026-05-25T01:59:41-07:00,Merge pull request #128 from gitronald/dev
+264278e3505d2dabc96d831e9e328fc671f08d95,2026-05-25T01:45:52-07:00,version [patch]: 0.8.3
+2e3a72bd663b16350e994f0f226bfb3c272f0383,2026-05-25T01:42:03-07:00,update changelog and readme for 0.8.3 release
+1ad71009c92606c653c2e536c19e23880d0f9bcb,2026-05-25T01:18:08-07:00,version [prerelease]: 0.8.3a1
+4357eab0e0c1f39389cb59d790b2f1433df9fd91,2026-05-25T00:57:38-07:00,Merge pull request #127 from gitronald/feature/ai-overview-sge-and-parser-coverage-fixes
+fc846094c7b520f61843ef2edc5370394a265894,2026-05-25T00:57:26-07:00,close plan 024: ai overview legacy-sge recovery and parser coverage fixes
+a66ec31e488fee2f5179e75b1986dc1fdc353198,2026-05-25T00:42:03-07:00,add plan 025 for reclassifying misclassified general blocks
+b8c5c7d388250d8c0a30012771e0c830a68a0552,2026-05-25T00:25:26-07:00,untrack and gitignore CLAUDE.md (local-only project instructions)
+318dfa26101ec439b8dd90c36c66c273279f99a7,2026-05-24T23:55:44-07:00,fix modern shopping_ads pla card extraction; defer general reclassification (plan 024 phase 5)
+9712019ed49990cb6de638489385af5850018e77,2026-05-24T23:14:16-07:00,recover twitter_cards card title from tweet permalink (plan 024 phase 4)
+6c9e6d2d680f58df1ce244319487b8616b558831,2026-05-24T22:52:32-07:00,fix empty knowledge featured_results/dictionary/panel_rhs extraction (plan 024 phase 3)
+df04cbae70bc35ac61edde29caa4b559527e37a8,2026-05-24T22:20:05-07:00,"refine legacy ai_overview: skip payloads, publisher, flat/multi-section fixtures (plan 024)"
+fb1a8b085d3ef8cb47acaab736378a7254c81f29,2026-05-24T21:52:57-07:00,record unavailable ai_overview state for declined overviews (plan 024)
+900e412a50df91c1cea5edbc387851047cdce81d,2026-05-24T21:43:38-07:00,add recipes parser (plan 024 phase 2)
+08d8958e2721b81315b45e56fa9bb70e44957534,2026-05-24T21:33:42-07:00,add legacy sge markup support to ai_overview parser (plan 024 phase 1)
+dd4615f5153db82343ddb29832e6870ba2166a81,2026-05-24T20:46:09-07:00,activate plan 024; note stale ai_overview dump helper to fix in phase 1
+7754ccaafddf13b880c4a47b777d1d540e5ee427,2026-05-24T20:29:45-07:00,add fixtures for plan 024 parser coverage and legacy-sge ai overview
+e11d00599ee38c39b991b00415700270bdbeaed6,2026-05-24T17:22:12-07:00,add plan for ai-overview-sge-and-parser-coverage-fixes
+cf27e925b2ced84cb5ae0f1a41edadd9dc6e9523,2026-05-24T15:21:08-07:00,start unreleased changelog section for 0.8.3
+5300d1e078a9b2bb518a0b138d225b10633aa3b5,2026-05-24T15:09:23-07:00,update readme recent changes (0.8.0-0.8.2); promote changelog 0.8.2 from unreleased
+855ca28e21c2dc5877859747707e9711375a4c7e,2026-05-24T14:53:55-07:00,version [prerelease]: 0.8.3a0
+3808ba0429a167dc56e5019bd5a2ce142b607820,2026-05-24T14:53:55-07:00,Merge branch 'master' into dev
+aca9f985bfb4492c3173d567270533d753896af2,2026-05-24T14:53:52-07:00,Merge pull request #126 from gitronald/dev
+a12a8d042ee3b94713c70e80ee5f5cf14ab3f70f,2026-05-24T14:53:29-07:00,version [patch]: 0.8.2
+fb8a6894d5078f23ceb016c2da6dc75ff0fad2bc,2026-05-24T14:17:21-07:00,Merge pull request #125 from gitronald/feature/parse-pipeline-optimization
+d7cd13884928b2535a74b76085b4886cb8ac1b2b,2026-05-24T14:17:15-07:00,plan 023: log post-review test hardening
+50f4ef154dd3a4ba796793da62b49c08fec58f09,2026-05-24T14:05:49-07:00,add tests pinning is_valid survey filter and ad subtype existence check
+a0c919bdfc8d7dae6f0d86dba5233e6e2566a680,2026-05-24T13:55:00-07:00,plan 023: record pr link
+fec5d22f13d50404b2aa3b63bf9febe47871c2a6,2026-05-24T13:54:32-07:00,close plan 023: retrospective with back-to-back benchmark and changelog
+cd6df65376a6c0099c6051fb87693b4a41acf276,2026-05-24T13:38:13-07:00,"plan 023: investigate double-traversal, recommend against (uncertain ROI, high risk)"
+f47d3fa2dabca50625d076ac03762480383095ec,2026-05-24T13:35:19-07:00,4b/3c micro-fixes: skip redundant attrs copy and lazy first stripped string
+379723ce591b1d24db8d54c64724b2f7076d5920,2026-05-24T13:31:58-07:00,"update is_valid survey-filter guard: hasattr(c, attrs) not child-membership check"
+21f22477d0f56daa6b69cd258771d5f38c130d25,2026-05-24T13:11:58-07:00,item 8 lazy SearchEngine import; 6b/6c find micro-fixes (4c dropped as neutral)
+ef7d19f5a97ce9cc516f01fe73449dc79e3e6452,2026-05-24T12:22:26-07:00,item 4a: early-terminate filter_empty_divs and bound is_valid text scan
+fc5c02bb98e2cc7805a12a5ce389d3be5f33404c,2026-05-24T12:09:50-07:00,item 3a: gate classifier chain on necessary structural signals
+a7cfdff4358ecaef41b348003a4e708c6dfd5f65,2026-05-24T11:50:25-07:00,"plan 023: log classify-vs-parse profiling, drop 1a/1b/2a/2b as noise"
+7a8d36effe6c705d85182797a0f183fa8a4781e4,2026-05-24T11:27:34-07:00,item 5: structural feature probes to drop str(soup) from parse hot path
+5b7366b469cd24b198f64cba525422a3408e3117,2026-05-24T11:21:37-07:00,move feature_extractor into extractors as extractor_serp_features
+4d23648191a9c2d191050d853879612532b9af85,2026-05-24T11:14:32-07:00,add bench_parse profiling harness and record plan 023 baseline
+af0e459f84213e8210b57c3010358de4332b7285,2026-05-24T11:00:39-07:00,add plan 023 parse pipeline optimization revision; abandon superseded plan 017
+3d211788d853b2036769b5dfd1bf3956b652b189,2026-05-24T09:58:06-07:00,version [prerelease]: 0.8.2a0
+a70ec52a0a6a81a524a84c0a9676c1883f67ab5f,2026-05-24T09:58:06-07:00,Merge branch 'master' into dev
+6d1f6b0d5f2960736ed6eeec3f32e8f4f38c42ac,2026-05-24T09:58:03-07:00,Merge pull request #124 from gitronald/dev
+d630441d30db3e8fad240f5e276ec715d14f5e90,2026-05-24T09:57:56-07:00,version [patch]: 0.8.1
+4b7f96c3f518376865cb8c0d86fad09c2ebad825,2026-05-24T09:54:31-07:00,version [prerelease]: 0.8.1a1
+d7e1abc29f23d695709a7fd088fd3957da9ba1aa,2026-05-24T09:45:42-07:00,update changelog 0.8.1 with dependabot dependency bumps
+f84d05ca523b82a1ce18a971371f90cf18da3b5a,2026-05-24T09:37:28-07:00,Merge pull request #116 from gitronald/dependabot/uv/polars-1.40.1
+e69ee2a100e6a1b96cad7d5048f96aa82c621b58,2026-05-24T09:35:15-07:00,Merge pull request #117 from gitronald/dependabot/uv/pytest-cov-7.1.0
+251f41322bcf7babccadeccf791d1f07a54da005,2026-05-24T09:34:45-07:00,Merge pull request #118 from gitronald/dependabot/uv/requests-2.34.2
+6cc125fc625df8dcfa1d73e436c2df3278b391a3,2026-05-24T09:29:32-07:00,Merge pull request #119 from gitronald/dependabot/uv/pydantic-2.13.4
+7b5592b15db9f6ec40fe3462121cf554219180bf,2026-05-24T09:26:47-07:00,Merge pull request #120 from gitronald/dependabot/uv/protobuf-7.34.1
+cd0c740e8426a3f19bd2b4326bc365550c5b7584,2026-05-24T09:25:09-07:00,Merge pull request #121 from gitronald/dependabot/uv/idna-3.15
+600743d1b623730e46f29d9f0924966e49b83ed8,2026-05-24T09:20:14-07:00,Merge pull request #122 from gitronald/dependabot/uv/urllib3-2.7.0
+ec5850f525698912e6fb03e79a03359f56210be7,2026-05-24T09:07:50-07:00,backfill changelog 0.8.0 and add 0.8.1 section for release prep
+9d7a0410448530e0c95a5ec4cf0032ad5f2c8b44,2026-05-24T08:55:58-07:00,Merge pull request #123 from gitronald/feature/ai-overview-payload-citations
+ffa955ce0aede9c2d3adf846a8465a4c62e853cb,2026-05-24T08:55:47-07:00,close plan 022: enrich ai overview with payload-sourced citations and richer sources
+927edae2f2aef4a5e7d472e40d76cc948fb15ec6,2026-05-20T04:14:00+00:00,build(deps): bump urllib3 from 2.6.3 to 2.7.0
+f5753843332dec5adf5ae784ad2544a8fab158b1,2026-05-19T22:27:41+00:00,build(deps): bump idna from 3.11 to 3.15
+aabf8fc4b7e5e828129dcf85fc54de1c492f9c20,2026-05-14T23:27:40+00:00,build(deps): bump protobuf from 6.33.5 to 7.34.1
+d1ff67ff394ed26243b92ea31829d7d489cfa498,2026-05-14T23:27:30+00:00,build(deps): bump pydantic from 2.12.5 to 2.13.4
+8555868234f3e1afa34aee5184c6dbe1abd94324,2026-05-14T23:27:21+00:00,build(deps): bump requests from 2.33.0 to 2.34.2
+07cf2c4ef867fe302acb794f0186e44ed6322e97,2026-05-14T23:27:14+00:00,build(deps-dev): bump pytest-cov from 7.0.0 to 7.1.0
+f10a1b7196f74effc95474fcadfa64c4a71f53be,2026-05-14T23:27:06+00:00,build(deps-dev): bump polars from 1.38.1 to 1.40.1
+e03b77ffc75d50af2ce98d8a86fcc8a647b79c19,2026-05-13T14:28:52-07:00,plan 022: log implementation notes
+99f0b790d41684b374c4379e6da2df6fa9445c7b,2026-05-13T14:18:48-07:00,plan 022: update survey script for renamed ai_overview classifier label
+a9cc71883bb89d77a79de5316268ea4dee5cd900,2026-05-13T14:16:28-07:00,plan 022: changelog entries for ai overview sources schema and citations
+1b745f945976d3112f6a516f3b454af2c2caff79,2026-05-13T14:16:07-07:00,plan 022: regenerate ai overview snapshots for richer sources and citations
+51e072f856a7697f31b86f8681ccd7b85345b4f9,2026-05-13T14:14:15-07:00,"plan 022: wire payload citations into ai overview sections, lede, and sources"
+6963c5732628666c9b1c10a78f12bfb96d067d43,2026-05-13T14:00:58-07:00,plan 022: add ai overview payload extraction module
+8f1157778fabea6b6e7b8059f81be660bb6bc2ee,2026-05-13T13:52:27-07:00,activate plan 022: enrich ai overview with payload-sourced citations and richer sources
+c0be777072aff16963c20dc64c6feb12621d6a50,2026-05-13T13:37:05-07:00,Merge pull request #114 from gitronald/dependabot/uv/urllib3-2.7.0
+eebe1666ee19a0b1f220e24f95d0dbb3c52039a9,2026-05-13T13:30:56-07:00,Merge pull request #115 from gitronald/feature/promote-ai-overview-component
+0818b69fea87981e7bfdd9d74ddca3085043a014,2026-05-13T13:30:50-07:00,close plan 021: promote ai_overview to a top-level component
+83bd954e485f7d3ab5f54f442c5384cfdc63bea2,2026-05-13T13:28:38-07:00,plan 021: add retrospective
+0981ebfa6995d166bdaebd23209c83f3878b7a22,2026-05-13T13:15:04-07:00,plan 021: point follow-ups at plan 022
+a20a51da515b09d49fc72ecdb98b076f1760e733,2026-05-13T13:10:22-07:00,add plan for ai-overview-payload-citations
+371914481306402b70439d32575644c75e659484,2026-05-11T18:48:41+00:00,build(deps): bump urllib3 from 2.6.3 to 2.7.0
+c9e138c72e12da20b8c6fda0549f0be154df8358,2026-05-10T21:51:10-07:00,"log plan 021 follow-ups: citation buttons, richer sources, viewer CSP"
+652dbc91be88abe564366a7f43cf9799df16ba78,2026-05-10T21:49:54-07:00,show_serp: inject offline CSP so served pages can't phone home
+eb540f6827f25c3cccb677f271c217bb07c4d28e,2026-05-10T21:49:48-07:00,"ai_overview: drop first-section-heading-as-title, tidy description"
+cd4f8994f5ea405c541e2e3f7503d4b518fcc01f,2026-05-10T21:21:08-07:00,scrub private repo references from plan 021
+0ed33640a1933ddfd53320cca7e613c084698910,2026-05-10T21:14:46-07:00,log plan 021 implementation and changelog entry
+827b2e1091c9fe9a5e3c9a80f3c1fcf809024632,2026-05-10T21:13:51-07:00,promote ai_overview to top-level component type
+53341de015da2ef7f1056a841dfd27d8496d40fd,2026-05-10T21:01:24-07:00,add ai_overview survey scripts and log step-1 findings on plan 021
+147339d1096857e9f51204586d9810339ac99dcc,2026-05-10T18:58:54-07:00,activate plan 021: promote ai_overview to top-level component
+2ad86cf511dda81f7ce53a1d9c77b54032b18cf1,2026-05-10T18:49:46-07:00,add plan for promoting ai_overview to a top-level component
+4364b640f3a837e17e28449f94bc91d3fea3058d,2026-05-10T17:34:52-07:00,version [prerelease]: 0.8.1a0
+9508e1e27b565ab4533900c3c30da91e5d422206,2026-05-10T17:34:52-07:00,Merge branch 'master' into dev
+3c65a6dae7247c0138f73d1ad7b2596e8ae404f4,2026-05-10T17:34:49-07:00,Merge pull request #113 from gitronald/dev
+2f5fe5cb7a55a22059167be9023332a5a1442a3c,2026-05-10T17:34:42-07:00,version [minor]: 0.8.0
+5ba957673c5f2391c43a4e4c20f147a35e323c4e,2026-05-10T17:30:46-07:00,version [prerelease]: 0.7.3a1
+1c9417b26cb146fe02cb99b3c58be0c32c63f55a,2026-05-10T17:30:15-07:00,small plan update
+6e25c73f8ba92b6113dd64bf25d565942aded3cf,2026-05-10T17:18:39-07:00,add plan 020 directives reparse audit fixes
+cb80f1ecdfbee28232080f9d76dd882dacb3b310,2026-05-10T16:21:52-07:00,add jobs and flights parsers
+430367626419ff6efa0f10b0a391bb645f8fc458,2026-05-10T15:54:11-07:00,update parse_ads to capture mixed ad layouts and add regression fixtures
+cad0563ba8da883ac730e65c68e9368ecc8c42d1,2026-05-10T15:14:29-07:00,version [prerelease]: 0.7.3a0
+26abda123974a383995ddc585d509f0230bd9094,2026-05-10T15:14:29-07:00,Merge branch 'master' into dev
+9d7a83698035f5e62cd6923dc862942fff45fe90,2026-05-10T15:14:26-07:00,Merge pull request #112 from gitronald/dev
+6b25980c5d1207cc9b6106d99215ba6b0c8be7db,2026-05-10T15:14:18-07:00,version [patch]: 0.7.2
+872380c847f7e432eb8aa03b43aece209488f6b4,2026-05-10T15:14:07-07:00,version [prerelease]: 0.7.2a3
+5a480d4252209bd25696a1c0334f4bdb456c6d1e,2026-05-10T15:12:55-07:00,add knowledge_subcard classifier for entity-panel sections
+013404acacd0958d6b6c3e6eb582ee3eef7e1524,2026-05-10T14:29:34-07:00,add videos classifier and trailers-and-clips sub_type
+7a2c4b095235372489b33f14229566c7cef6e68c,2026-05-10T14:03:20-07:00,update knowledge panel extraction and text whitespace normalization
+77c856e3be0059811d822552b20c2568c621f036,2026-05-10T12:59:20-07:00,update parse_serp snapshots for session parser improvements
+8eae3603e5eefea91102af1e6198f93fb464ce00,2026-05-10T12:55:56-07:00,drop unused tabulate dev dep and document why setuptools is needed
+1bb4c01a40d4d2b59858add61e9f5cde52fbb41b,2026-05-10T12:44:29-07:00,Merge pull request #111 from gitronald/dependabot/uv/tabulate-0.10.0
+a5c5fd0f21cae114ba925386f6b713ea31725e72,2026-05-10T12:44:27-07:00,Merge pull request #110 from gitronald/dependabot/uv/pyarrow-24.0.0
+fce2468cbfff90f035a9955d25761a9f4892b577,2026-05-10T12:44:24-07:00,Merge pull request #109 from gitronald/dependabot/uv/typer-0.25.1
+e170006687271712a0282e9338af5957f8798507,2026-05-10T12:44:22-07:00,Merge pull request #108 from gitronald/dependabot/uv/setuptools-82.0.1
+0f84a28e961c877e9af38dccdbe784290e5447a3,2026-05-10T12:44:10-07:00,Merge pull request #107 from gitronald/dependabot/uv/ruff-0.15.12
+2a27fcc172b650d9beb67eb863fbf81e1020c743,2026-05-10T12:37:28-07:00,add project CLAUDE.md with inspection script references and parser conventions
+f6824877754dc26c380a5cba17894b773efd98f1,2026-05-10T12:31:46-07:00,add plan for video-details-from-evlb-cards
+b0131547819cdf91593b3529cce27793d6475a4e,2026-05-10T12:21:23-07:00,drop display-width padding from show_parsed since terminal emoji rendering varies
+4548c60e50f667c7834197941e1445867fb8436e,2026-05-10T12:15:11-07:00,strip variation selectors from titles to fix table column alignment
+d4bbc53ed6189a3899d5eb10897c2d4b32e0a466,2026-05-10T12:07:29-07:00,pad titles by display width in show_parsed for emoji alignment
+a5f06d0311ae277960f20cbae1ee25ade006b766,2026-05-10T12:02:46-07:00,add show_parsed script for displaying parsed-results tables
+f1be73f167eab4664396f542e8a3261035676502,2026-05-10T12:00:17-07:00,version [prerelease]: 0.7.2a2
+7915b84bd35ae070680a708dc2b2419c1a7ee8f0,2026-05-10T11:25:20-07:00,"expand local_results details with rating, price, category, address, phone, hours, and review snippet"
+edda6469fe217f194773518fcff7427a44840ec7,2026-05-10T11:13:49-07:00,merge claude/optimization-plan-xPp3P: add plan 017 for parse pipeline optimization
+b3d189ff855e13ddda3d2d93a548d5208f751af0,2026-05-10T11:11:56-07:00,capture modern perspectives items including embedded tweets via role=listitem fallback
+8785812019d4b86ddbc386a3e34e6a6d186e0a7c,2026-05-10T11:11:03-07:00,note AI sub-section heading and summary preservation in plan 018
+d74de9e4618e99fe1ade6e3d1b03ae9e190b14f9,2026-05-10T11:07:56-07:00,expand plan 018 with concrete file paths and reproducible examples
+d9dfaedebf0d3eee437f724ce09b1b4ed3b546eb,2026-05-10T11:06:05-07:00,add plan for visible-flag-on-results
+ba5a0509214c98feb9a50992a23aa81571ebe2d7,2026-05-10T10:45:54-07:00,rename --keep-scripts to --raw and skip all cleanup when set
+51cb9767a69355eb4101917074d054740440a931,2026-05-10T10:44:14-07:00,add show_serp script for serving saved SERP HTML on localhost
+2e8a1cf94aaf716a574df0c5c5ddfe8bbc066130,2026-05-10T10:29:30-07:00,drop empty video details when source and duration are both null
+d0e9870de23ec85f3b1dc0cf2db07c220d17713f,2026-05-10T10:28:47-07:00,capture modern rating widget and unblock submenu detection in general parser
+79e4b8427b287495e7701f0c3c03baffd8d27486,2026-05-10T10:28:18-07:00,update available_on parser and classifier for current google layout
+bb4e4e9c64f12f4f894e78be1440343c4f6e0e07,2026-05-10T16:39:04+00:00,docs(plans): add 017 parse pipeline optimization plan
+3415859bcef384ed2009f404b294a423b8aad5c9,2026-05-10T09:38:35-07:00,add current-layout selectors to searches_related parser
+90ae2a7a7b862d3e0401ad59096363f0c92f2726,2026-05-04T20:14:49-07:00,narrow Tag types in utils helpers and drop redundant isinstance checks
+da2d378124e12cb8e52a42af9983eeca02be4a93,2026-05-04T11:49:09-07:00,use explicit utils imports across component parser files
+649f2fe56db54fc8c6a2c7c8930625586096691a,2026-05-04T11:28:23-07:00,use Selector type for get_text_by_selectors and inline single-use selector globals
+b44f70a168a6d185584323f65bdb62739b35aa94,2026-05-04T10:29:03-07:00,version [prerelease]: 0.7.2a1
+2f7e02d3f9333c6f4c9e68e4bb69252ca41c1944,2026-05-04T10:11:10-07:00,refactor notices parser to use get_text utility
+57da1a77e1f288ff537a313df2266338458b1c20,2026-05-03T16:49:48-07:00,standardize component_parsers docstrings and add type hints
+6c976fb00cad1a9805826a507809444e9bb81e93,2026-05-03T15:20:19-07:00,document 0.7.1 release in changelog and readme
+59650491fc6445181b6e85b2cf90078d7e1e452b,2026-05-03T22:18:46+00:00,build(deps-dev): bump tabulate from 0.9.0 to 0.10.0
+86684562c8418abe8d75b8520b3c52808e5e7e00,2026-05-03T22:18:39+00:00,build(deps-dev): bump pyarrow from 23.0.1 to 24.0.0
+ff9355a27bc4006699e656c93d4890e6cb03f3c9,2026-05-03T22:18:26+00:00,build(deps-dev): bump typer from 0.24.0 to 0.25.1
+7d03da8d40ad494d2dbe3a632cbaa2c234cff87b,2026-05-03T22:18:15+00:00,build(deps-dev): bump setuptools from 82.0.0 to 82.0.1
+0434307e31baa093ea625eb2966f0d80526fd937,2026-05-03T22:18:03+00:00,build(deps-dev): bump ruff from 0.15.6 to 0.15.12
+35d983efbf1c6ba59f4ff2d65c485e54a842e6f7,2026-05-03T15:16:57-07:00,version [prerelease]: 0.7.2a0
+34a227dbdf8a7e7c7dd36b12ad3049d41900f647,2026-05-03T15:16:57-07:00,Merge branch 'master' into dev
+199c7e82fd37c1631463aeac784943993b725201,2026-05-03T15:16:53-07:00,Merge pull request #106 from gitronald/dev
+2fe35ad054d050ed89788f5b646c8d7ac93d05ff,2026-05-03T15:16:46-07:00,version [patch]: 0.7.1
+6e9de61d8d80c006162496994b5958612a4902b9,2026-05-03T15:13:27-07:00,merge refactor/classifiers into dev
+5a78d7a3d6d0162d1b398505918af568642135d4,2026-05-03T15:12:23-07:00,minor comment edits
+7a997ac02678218deda51f8a864ebf34edd64870,2026-05-03T15:07:16-07:00,merge refactor/selector-namedtuple into refactor/classifiers
+26254754f3a867c26e82e4735b74d5a263efd787,2026-05-03T15:04:52-07:00,introduce Selector NamedTuple for tag/attrs selector lists
+4b337f57c833ff3eabd5a7b223a2ed0a6322df59,2026-05-03T15:01:29-07:00,move ClassifyHeaderText into main.py as ClassifyMainHeader
+01c149cb01871c069167644d35fbbb9740010a23,2026-05-03T14:55:49-07:00,merge dev into refactor/classifiers
+3b0814da6cd452aef784398bc83ed8a3b59c455a,2026-05-03T14:50:36-07:00,Merge pull request #105 from gitronald/update/infra-and-ci
+2505f2b38d79d8b9bd2ca5fc77e733ba8aeb22a8,2026-05-03T14:43:09-07:00,fix pyrefly type errors across the codebase
+91b1aac69fe063a9e08733ce5dfcf3d139fa2746,2026-05-03T14:15:47-07:00,merge dev into update/infra-and-ci
+10025887b0c6f249662492f283b93008bffb6426,2026-05-03T14:15:03-07:00,Merge branch 'refactor/classifiers' into dev
+4b11eb53325cccd9b4cb6662f0f934f6cbdf0407,2026-05-03T14:14:54-07:00,version [prerelease]: 0.7.1a3
+a2709dbd9cd63c755f5c1e73fc1e07cdb526b432,2026-05-03T14:14:23-07:00,Merge branch 'refactor/classifiers' into dev
+a43ac34aafff0f24c82f65ace6f22ff2fe990d8f,2026-05-03T14:13:32-07:00,add structural tests for component type registry; resolve Ver más collision
+91c92af3e014dadef1cdda419f6153a1a4bd6bee,2026-05-03T14:10:25-07:00,update repo tooling from proj-template
+de923bf2b2038086b10808756c40bf2dceea7e08,2026-05-03T14:06:17-07:00,remove unused cmpt_mappings; superseded by component_types registry
+311a8f71c9702d46ebb4123bc9fd4e385d8c7f41,2026-05-03T14:04:49-07:00,derive parser dispatch dicts and labels from component type registry
+1868cae61ac1d9bcf2139434b1498468160ee8fb,2026-05-03T13:52:45-07:00,switch header_text classifier to read mappings from component type registry
+008d878d48c2f677a1d93bf31722db6e0a36fec0,2026-05-03T13:47:19-07:00,add component type registry (no consumer changes)
+5864e514207a4c179d8d7ed95ec62c374d791c6d,2026-05-03T13:39:21-07:00,version [prerelease]: 0.7.1a2
+312ef80314e9859e5f1c2a695c8c6d255345dceb,2026-05-03T13:37:18-07:00,restore knowledge_panel cmpt-attr check to jscontroller qTdDb
+c8771625153a3c37276d1869fb3aa9de0a6e2f4b,2026-05-03T13:30:16-07:00,"tidy ad parser: list comp for legacy details, fix carousel append scope"
+d9614c4df7c3a04df235f57e5aa8459a2ecfe14b,2026-05-03T13:15:05-07:00,edit local parser/classifier selectors and refactor ad classifier
+0852688dea9516be4632a0b9ba8c638b8eb8ada6,2026-05-03T12:32:27-07:00,add find_by_selectors util and apply to classifiers
+629fbf5ebe3dc389ed6071ddecfb9d78127d5c9c,2026-05-03T12:05:45-07:00,Merge branch 'dev' into refactor/classifiers
+6d7a756a3361466d78073cf15e232244576caf78,2026-05-03T12:05:26-07:00,"add a changelog and guide, migrate from readme"
+45a849d5e6702300f4bef6d4db3fffa0eb12bf24,2026-05-03T11:13:02-07:00,version [prerelease]: 0.7.1a1
+f5d54521c2fd2a9af02a76b4c9f48be8986fa172,2026-05-03T11:12:27-07:00,remove dead ClassifyHeaderComponent classifier
+e4320fa392ee176a873e9f8e0060ef5d9dba0db3,2026-05-03T10:59:36-07:00,"bump security floors for requests, lxml, and pytest"
+70bdfbe5362f70c115c5cc2350a9cc40d2b159fd,2026-05-03T10:49:24-07:00,Merge pull request #104 from gitronald/dependabot/uv/lxml-6.1.0
+da93dc48c5ffe622c63f9a94f07e4a030081fba4,2026-05-03T10:49:18-07:00,Merge pull request #103 from gitronald/dependabot/uv/pytest-9.0.3
+c84f3060dd17bfac7e4546e1152e29fd30e588b4,2026-05-03T10:49:10-07:00,Merge pull request #102 from gitronald/dependabot/uv/pygments-2.20.0
+97bbd13fad3678513078fc1bae8eab13ed343a34,2026-05-03T10:49:01-07:00,Merge pull request #101 from gitronald/dependabot/uv/requests-2.33.0
+5651f3222fee07a850b723bc5b7ba48e857d8093,2026-04-21T23:03:43+00:00,build(deps): bump lxml from 6.0.2 to 6.1.0
+8082a90dbbc8d875fc92b9dd3563426cc41fa232,2026-04-14T02:24:42+00:00,build(deps-dev): bump pytest from 9.0.2 to 9.0.3
+bd2b9815699a5f04eb9c2f94c9f9b5afa347de0f,2026-03-30T20:12:24+00:00,build(deps): bump pygments from 2.19.2 to 2.20.0
+153ccb5acfc9516a400869a8835865b537cdabfa,2026-03-29T13:10:42-07:00,replace auto-generated plan index with docs landing page
+bf104f1ae3b1bfe62c166853902c96a99bfc891a,2026-03-29T12:10:07-07:00,standardize plan titles and regenerate index
+21cba8f07193c3054569a301feb9b195b217b6a0,2026-03-29T11:46:49-07:00,add docs/plans with development plan history
+b86c6770bfd1a17d3af50664cb028297432ab676,2026-03-26T18:23:44+00:00,build(deps): bump requests from 2.32.5 to 2.33.0
+5b0be86738e03f7c20ecd05c299e1c10832b5980,2026-03-16T07:59:27-07:00,fix ResponseOutput not subscriptable for dict-style access
+39b24cb0f1ebc925cef9f07577d36051b078a001,2026-03-15T18:09:23-07:00,version [prerelease]: 0.7.1a0
+ba5a273015594ff9567f6c283040c18d400d2e6f,2026-03-15T18:09:23-07:00,Merge branch 'master' into dev
+c7fbde20c963c3de3fc46855f571ee5587a52403,2026-03-15T18:09:20-07:00,Merge pull request #100 from gitronald/dev
+0cb6d14969b8b781ecc08e77b2bf894f13183feb,2026-03-15T18:09:13-07:00,version [minor]: 0.7.0
+a4e7287ad0f302312cb11ff1c57bffacd1410fc6,2026-03-15T17:33:51-07:00,fix SearchConfig.method type annotation to SearchMethod only
+f461061eb143e3e3b72eced7893ae588e8e1065a,2026-03-15T17:23:06-07:00,update readme for v0.7.0 changes
+a1c5c7a23dead8a520d93e3951ce45fed77f49c9,2026-03-15T17:22:53-07:00,add demo-searches script entry point
+0eb5c79b57a6a8495e23f561132605ffd8212e68,2026-03-15T17:22:46-07:00,auto-detect chrome version by defaulting version_main to None
+c20ca90eff241b18b69495c539969ec333de23d6,2026-03-15T17:22:35-07:00,update demo scripts for ParsedSERP attribute access
+3406b2b56110b47d0fe1a37eeaff6f9f3d0bb11d,2026-03-15T16:22:04-07:00,update snapshots for local_results sub_type normalization
+d76cbe7340680b423d442978865f78f161258b89,2026-03-15T16:21:47-07:00,"normalize local_results sub_type for ""results for"" headers"
+9d6dedaa1cf6e0f88bc012d2067acfd5e5cf0808,2026-03-15T15:37:45-07:00,"consolidate details field to typed dicts, remove DetailsItem/DetailsList"
+a9a96fe5c7c1e5731f6c807b02df53f33a2320ce,2026-03-15T14:43:48-07:00,add ParsedSERP model for parsed output
+4cc50912c6996b8701ced764e7ae31d06cb19ab6,2026-03-15T14:42:09-07:00,add ResponseOutput model for search method returns
+b2036532424948652139d48002dd0b17357df3cd,2026-03-15T14:40:04-07:00,convert DetailsItem from dataclass to pydantic
+40bbe129b75d334299e16b1ac2a6df62675b46f4,2026-03-15T14:39:12-07:00,convert SERPFeatures from dataclass to pydantic
+25ddd60b54b8f7393931d34dabfb4db5af35b8a7,2026-03-15T12:38:03-07:00,remove BaseResult construction from ads parser
+3394b12bd4e6b492d9e5e0c2ef06f3f9176e9d91,2026-03-15T12:26:23-07:00,parse_serp always returns dict with results and features keys
+d59e9cbed73ef862d2407a8ad504520e9032ddbc,2026-03-15T12:23:14-07:00,Merge branch 'dependabot/uv/tornado-6.5.5' into dev
+f717dd1fb3ed3cfd554e234d9a29455a34a8460c,2026-03-15T11:49:03-07:00,"add unit tests for utils, locations, models, and feature extractor"
+f92114fafaa2805636dcecfe5e5de7c2ecd2109f,2026-03-15T11:36:02-07:00,add test coverage reporting
+353784ee80a57d3c35ad3b56e4bc5f0f08efa87a,2026-03-15T11:34:04-07:00,consolidate webutils into utils
+6ee78ce6e644d20414411222c1dab1282eec94fe,2026-03-15T11:25:01-07:00,"accept Path in utils and save methods, remove str() wrapping"
+487209f8e2c851e745119de7c09c083a51f6479d,2026-03-15T11:19:36-07:00,replace pandas with polars in scripts
+ee6bf2c87afd08c91652be534b7127a7813e050d,2026-03-15T11:15:02-07:00,apply ruff formatting and lint fixes
+1f55e1f77e319e1715fdd4eb05faaa7209cd2eec,2026-03-15T11:14:58-07:00,"add ruff formatting, linting, and pre-commit hooks"
+6d6c2deb73036f3abe72b030d0a1b9f771b7d4c7,2026-03-15T11:00:46-07:00,replace os with pathlib.Path
+081bcf95177019a595fad0ad1905c2d47fedd365,2026-03-15T10:54:33-07:00,remove unused functions and imports from utils
+34f561c9e1f617f83549aad50bdd056701561171,2026-03-12T00:34:04+00:00,build(deps): bump tornado from 6.5.4 to 6.5.5
+72365452c5926a9f8d56d50d29fef7dee48fa19f,2026-02-22T18:03:19-08:00,version [prerelease]: 0.6.10a0
+0bcf21cb1ca65b55aab6a74f1e1a31ae00d92cac,2026-02-22T18:03:19-08:00,Merge branch 'master' into dev
+449798eca6bfcd5e7d971f415a3bf3ea2a511a59,2026-02-22T21:03:15-05:00,Merge pull request #97 from gitronald/dev
+5213d079b544b61440db533b035c69f381c265f2,2026-02-22T18:03:08-08:00,version [patch]: 0.6.9
+ac73cf70957418533bd4d4161962d52a5f024e2e,2026-02-22T18:01:55-08:00,update lockfile
+8440bc2fabe4c2fd5a3599bd3b5cfb45532f55da,2026-02-22T17:58:20-08:00,update readme with 0.6.9 changes
+06c5950532aacad613e232aafebc233262096fea,2026-02-22T17:55:55-08:00,remove poetry.toml
+632098f0d553c37a544a76b0395dd69134229a6e,2026-02-22T17:55:29-08:00,clean up legacy typing imports
+195963e0103beddc0401246e8aae7fe0bd4af0ab,2026-02-22T17:53:19-08:00,drop pandas from core dependencies
+04f4b19ebcd9cecd9745c935d2b85d11fcec53ce,2026-02-22T17:51:44-08:00,add captcha handling and jittered delay to demo_searches
+ab5dee8478a704277e52ba1a4ea48a27d9254f18,2026-02-22T17:46:38-08:00,add captcha detection to feature extractor
+82c79a72757e504992b3d2b94ef4e7b474a0a601,2026-02-22T17:43:32-08:00,fix return in finally in requests_searcher
+55fea5cbdbbbe71231493e6cad2ffbb8c83a28fb,2026-02-22T17:22:03-08:00,fix bugs in component parsers
+3310b1e0cf5b882ffb53e39756970adabc72ac5d,2026-02-22T17:19:03-08:00,update gitignore list
+0e2a7769fcffc82b14bb93942c423f6ccb8608cd,2026-02-22T17:18:12-08:00,update readme with 0.6.8 changes
+3bf0b29d92ab49922fabfbe0943081d7657c09a3,2026-02-20T19:33:42-08:00,version [prerelease]: 0.6.9a0
+d2e6de28ebd6942e8228f3aa5a9f26eea78ec526,2026-02-20T19:33:42-08:00,Merge branch 'master' into dev
+0cbb5f2dd238448a4690bb425e2464cfff4fd75e,2026-02-20T22:33:38-05:00,Merge pull request #96 from gitronald/dev
+9ef6435219cb72c65f96d86664714c49b63dace7,2026-02-20T19:33:30-08:00,version [patch]: 0.6.8
+db4f6e0151ad349626d48c0f9f3ad8ce70bcd2d1,2026-02-20T19:31:54-08:00,version [prerelease]: 0.6.8a3
+d4c5f766c5b2cdcda4de9193511b5984df398a9d,2026-02-20T19:30:51-08:00,update to python 3.14 and test matrix for 3.12-3.14
+b3f0a84c671206a41b04d43032ef3c5334ffea32,2026-02-20T18:39:45-08:00,"update github actions, docs, and scripts from poetry to uv"
+448f3b8dae3f8510f2e95513e10c35ed8c5d98af,2026-02-20T18:39:08-08:00,migrate from poetry to uv
+67ab8dade16b2b404188fb34aabddc33e458a44d,2026-02-20T18:06:02-08:00,move return out of finally block to fix syntax warning
+5a801d2219d77fce2dbb1b6cd253905ce9b23308,2026-02-20T13:52:29-08:00,add flights classifier and standard-4 layout
+a75993683871cdfff0cd6174e5e82f711b24157f,2026-02-20T13:52:24-08:00,extract bottom ads before main column
+f61b2beb6f9cb79cbcb2b05ea93b4678ce05202e,2026-02-20T12:39:22-08:00,add local service ad parser
+4093be8297baaad4026bdd2180f2cd137f5d7c55,2026-02-20T15:38:05-05:00,Merge pull request #95 from gitronald/update/extractor-position-tracking
+f9b46932dab96f39b655fe272d021c5f79cbf48b,2026-02-20T12:17:04-08:00,version [prerelease]: 0.6.8a2
+4518b1bfa786ebb4d43485f77e0559628e77602c,2026-02-20T11:52:22-08:00,reorder main-section components by DOM position
+04aa31cc1d6c95f45dfd880b44995c3439414b46,2026-02-19T13:49:24-08:00,version [prerelease]: 0.6.8a1
+3fb40cbec32f61333dc0d7390c55f2eab7162fb1,2026-02-19T13:48:39-08:00,update demo searches to use a single browser session
+a6b2579ec87b02bb108409523d1a5e4fb44da2bf,2026-02-19T13:48:19-08:00,add temp utility script for getting csv from demo json data
+10bec8797625fbd7026c52e46a9724e7accf0c96,2026-02-19T13:47:56-08:00,update screenshot logic to avoid clobbering output via extractor
+551d74247161c0c47b22400e5df53a0698e11893,2026-02-07T18:28:37-08:00,Merge branch 'update/parser-updates' into dev
+9e0548dda930bb6ccbeb100464ccd1021f90d83c,2026-02-07T18:27:36-08:00,"add locations parser, sponsored hotel ads, update snapshots"
+d9499dc0d943db91f2a808b7a6edf58fe51f9798,2026-02-07T15:31:49-08:00,"add v0.6.8 test fixture with 52 serps, update snapshots"
+613f4a65af0b094346a6345207f97ce3f3973cd4,2026-02-07T15:31:44-08:00,add A6K0A as alternative content div for standard-0 layout
+2ee3f71f2df2978eeac98fd723130a0f35b2b57b,2026-02-07T13:09:55-08:00,fix standard-0 layout check to require TzHB6b content divs
+6d22f512bd127b42e72f7a6ee38a51c259dab973,2026-02-07T13:08:02-08:00,add bOeY0b sitelink format to ad menu parser
+a2e54cdcc88d74a3a2068ecf1572227b1d386ff1,2026-02-07T13:06:06-08:00,update discussions_and_forums parser for new sub-component selectors
+6dfbdfb2ef411e7b782f718ae47fd7bd912f685e,2026-02-07T13:03:31-08:00,"add ai_overview classifier, fix latest_from and local_news header detection"
+ffcc4ec994b6c7ea13a2dc72cadbba9e671c3c62,2026-02-07T12:59:09-08:00,"add short_videos classifier/parser, extract bottom ads before main column"
+e6a2c8add2a7c4d59e717c13de57dc5942118e47,2026-02-07T12:53:18-08:00,fix double knowledge component for dictionary queries
+722596769d8fd1424e29d6746ea5c597f95365ba,2026-02-07T12:12:18-08:00,"update demo_searches with inline queries, type filter, and fixes"
+21a8cb7eaa003d7e8c26a8e0c655a7e738c2be7f,2026-02-06T15:25:34-08:00,update screenshot to re-insert extracted elements
+e1404b6e43ad458e0a431b7b4c70dda4514b8874,2026-02-06T15:25:30-08:00,classify things to know as knowledge/things_to_know
+8008dd5131ea3ea2fa13a325901aa49261c4cfaf,2026-02-06T15:16:24-08:00,Merge branch 'update/serp-features' into dev
+70c24a947329b46ec4969c162e62345eeb6cf80d,2026-02-06T14:59:54-08:00,fix result_estimate_time regex to match short format (0.XXs)
+cfdc36d83ed1b9e57d5f5a1c72c0b69dae9e5c23,2026-02-06T14:14:25-08:00,move FeatureExtractor to own module with SERPFeatures dataclass
+bf8ee953b7867eafae3222928d857c79b3ee7297,2026-02-06T13:27:34-08:00,add overlay_precise_location to serp features
+a7ccbcb1f58130a7976f664423e32da37203bb4f,2026-02-06T12:31:46-08:00,version [prerelease]: 0.6.8a0
+4a910b2b157161e4b55e29ad380a14667d01ae69,2026-02-06T12:30:09-08:00,Merge branch 'master' into dev
+9a8454b00737b404ec19cbf300ef961b005b8adc,2026-02-06T12:26:32-08:00,Merge pull request #94 from gitronald/dev
+295d4e9e57242a0de12b16fa092f197acc8ad0d9,2026-02-06T12:15:40-08:00,version [patch]: 0.6.7
+91788a85729a3a804b97a6e15cc1eeab35a76911,2026-02-06T12:01:52-08:00,fix test workflow to install dev dependencies
+2a18e93ad494c46c49bc7006bcb1aa4656846bba,2026-02-06T11:58:45-08:00,update license year to 2026
+9ee532a1fa9022adca983ded2569ee5955b1f588,2026-02-06T11:57:56-08:00,update github actions section in readme with test workflow
+ccbbf699cba0988d0f5910a6732c22898ec4196a,2026-02-06T11:38:56-08:00,update testing section in readme with poetry and fixtures
+adf8fbaeb7c8e7503b70419d547b6206da153e11,2026-02-06T11:29:20-08:00,add recent updates section with 0.6.7 changes to readme
+7d66c5dc6e5dc8b3a83bf483d51b63dc0372f1db,2026-02-06T11:26:40-08:00,version [prerelease]: 0.6.7a6
+2cce8b1facd7138e53cf3624624545e8dbd29b6e,2026-02-06T11:21:41-08:00,use orjson in test and condense scripts
+f6b7330443ea67b74354764626c80450f1fee160,2026-02-06T11:19:01-08:00,track test snapshots for ci
+409786e26ade878282bd099c5252c9884a974524,2026-02-06T11:18:08-08:00,add compressed test fixtures and condense script for ci
+3f1ab6bb2f0df2ce675c7b03c25550b3fd819e0f,2026-02-06T10:52:38-08:00,add test workflow on push to dev
+d9e554dae9fc758f60c77e27c1ca040c37b3697f,2026-02-06T10:52:29-08:00,update checkout and setup-python actions to v6
+5c8963180b5d1b77366365b39ecf28e328b613cf,2026-02-06T10:46:22-08:00,version [prerelease]: 0.6.7a5
+cafbb84b12d3f591e47a392cf3b298fb49c12ba5,2026-02-06T10:46:13-08:00,update dependency lower bounds for security patches
+904602e7d123a7cd038c023749e1bc6fe415ce93,2026-02-06T10:30:55-08:00,fix serp_rank test to check per-serp sequentiality
+8054d25471e37fd039413fbaf1314d01f5f7df0e,2026-02-06T10:18:38-08:00,"add get_text_by_selectors to webutils, update 7 parsers"
+e370c7a52b94c0705ad40cf05cb278940aa9a4d2,2026-02-06T00:06:47-08:00,version [prerelease]: 0.6.7a4
+cce996420dfc00aedde2e0a353ada9e4fb66c24c,2026-02-06T00:06:39-08:00,"add ""latest posts from"" to recent_posts classifier"
+699dbb390993dfc5fb506558f3715cc18a619600,2026-02-05T23:16:23-08:00,version [prerelease]: 0.6.7a3
+6501f02b7df035d67306df47e065f7a604ce96e0,2026-02-05T23:10:23-08:00,"update readme: add poetry install, move updates to log"
+67f4dfbe161919ee21e0c8cf937da82f50f5f549,2026-02-05T23:03:25-08:00,add sub_type to perspectives parser from header text
+076dd8e3761b8e2b08ae3ddba3b57f5a14c9f0a5,2026-02-05T19:18:54-08:00,Merge pull request #93 from gitronald/parser-updates
+6bec20a93a1de803eaf60cd15a3616fb7787168b,2026-02-05T18:58:54-08:00,add demo screenshot script for visual serp inspection
+c34d5e5cba128442e896e891f12f24440bcf2c46,2026-02-05T18:58:51-08:00,rewrite test_parse_serp with snapshot and structural tests
+4035d19aa234b5fbc88f90b9dc699fb980b51543,2026-02-05T18:58:48-08:00,add get_title() helper to top stories parser for perspectives titles
+70e8ba93ef425a2870bc9620d07b9347b22621fd,2026-02-05T18:58:45-08:00,deduplicate urls in knowledge panel parser
+f5298f617f1425d7186b41dd939dec0a92794ae8,2026-02-05T18:58:42-08:00,"extract find_subcomponents() in general parser, add video format"
+bf6f21598ec6dbe534cdc251121bbab945cccad2,2026-02-05T18:58:39-08:00,"update classifiers: tag-agnostic heading search, tighten discussions_and_forums"
+a17185fcd72058b4d5be32eff4d448d38d9ba632,2026-02-05T14:59:04-08:00,version [prerelease]: 0.6.7a2
+b3dce3873f2d8b87a8fc7571a6f85a2e264fcb56,2026-02-05T14:56:16-08:00,update init version to 0.6.7a1
+bd41a0b72a42470c92e2652ea85288d86300a2cd,2026-02-05T14:22:21-08:00,Merge pull request #92 from gitronald/dependabot/pip/protobuf-6.33.5
+24222787e3eac635a4bed55e072532ffcd1896ee,2026-02-05T14:22:11-08:00,resolve poetry.lock merge conflict
+befa7c737bfeacada42eb8ba2cc94f390ce548a9,2026-02-05T14:15:11-08:00,version [prerelease]: 0.6.7a1
+91885036adcde40bb6b74a8eae1fae48429a0f86,2026-02-05T14:13:52-08:00,Merge branch 'component-details' into dev
+00010bd3c53c060b156df0d375e6895e7816774c,2026-02-05T14:12:41-08:00,use details list across component parsers
+e0d54bc529b5e26cd7b6e20c5de7372e792dd838,2026-02-05T14:05:42-08:00,add details list model and use in available on parser
+61d7019f57c38116c3c32075d8f6c0af25569e5d,2026-02-05T14:03:42-08:00,add misc field to details item and refactor available on parser
+a363037c504bd67a0e38c91ceffeafa5d2fd2efe,2026-02-05T13:57:15-08:00,add to_dict method to DetailsItem and use across parsers
+11003f30bd602a78ad74536cff3fe3a6d86132ff,2026-02-05T13:57:15-08:00,format ad parser pep 8 spacing and dict literals
+3491b7afc4d714f2c82c454f1874f164d7603e0e,2026-02-05T16:19:00+00:00,build(deps): bump protobuf from 6.33.1 to 6.33.5
+a8466a4936fd984112f133fba350155d479776fe,2026-01-29T13:35:48-08:00,refactor ad parser and add details item model
+94d729deb08392bdd159c3c30b4d1d93327d0f6f,2026-01-29T13:35:43-08:00,bump chrome version to 144
+333b4c3b6f4153cd78e91cce7133b9592c8b57c8,2026-01-29T13:26:11-08:00,Merge branch 'refactor/typehints-and-docs' into dev
+2ddfa20cf89a416f3d41e9e28d27c38bfc944c7e,2026-01-19T22:26:41-08:00,update poetry files and gitignore
+ee3b435b6aaf910491b9b29a4ab0f3e1366ac4d5,2026-01-19T22:21:48-08:00,format webutils with black and refine type hints
+6a8a4681c007a1fe408c355b6248c75b6c137ad1,2026-01-19T12:12:38-08:00,add type hints and fix proxy_port bug in webutils
+6a5f6bb67587de904c814cf4028f0eb2914785a6,2026-01-19T12:08:40-08:00,Merge branch 'dev' into refactor/typehints-and-docs
+f3b933866255ee6a02dd725323b1db2f63294bd9,2026-01-19T12:00:18-08:00,Merge pull request #91 from gitronald/master
+d93b0dd5da3e25f559b7d849ad42e0cc8ae38633,2026-01-19T11:55:33-08:00,Merge pull request #89 from gitronald/dependabot/pip/urllib3-2.6.3
+325644b3ec432cf5959fc0648972b122d4217138,2026-01-19T11:55:11-08:00,Merge pull request #90 from gitronald/dependabot/pip/filelock-3.20.3
+d9c78af085dae55998dbfcbf6f548aa0eb3425b6,2026-01-13T20:58:25+00:00,build(deps): bump filelock from 3.20.0 to 3.20.3
+0dcf78a6da5f0d9d824a21ba169b3263ea43f0a9,2026-01-08T06:31:54+00:00,build(deps): bump urllib3 from 2.6.0 to 2.6.3
+280b69a0ebd49f2f0d9dece9ba24c1491d5d962a,2025-12-05T14:25:55-08:00,refactor: modernize type hints in models/
+3ddaff26bf11e2e38b62a4b156b08fb5a7f816ad,2025-12-05T14:25:41-08:00,fix: update version in init
+e4fd5c3c1a27eba9d07c1e2edad343baa0186b86,2025-12-05T14:14:38-08:00,refactor: modernize type hints to Python 3.10+ syntax
+a4472ab7f1f7154982493d30769fa7a6c98b75a3,2025-12-05T14:08:24-08:00,version [prerelease]: 0.6.7a0
+3e791207368f13aa6379dea97a895064b9ea6880,2025-12-05T13:46:01-08:00,Merge pull request #87 from gitronald/dev
+86e9bf851ddf14b7d4850b88a629f3fa537edda1,2025-12-05T13:44:53-08:00,version: 0.6.6
+92e6bd72d16a77f5e08845cc0ed6747ee44b41c6,2025-12-05T13:38:38-08:00,Merge branch 'master' into dev
+751c435951a3dcfdb7bea716156c7ee60e218567,2025-12-05T13:38:16-08:00,update: poetry lock file
+2f84f56ebb2823855ae8dfd16cb440838e98bbc9,2025-12-05T13:27:25-08:00,Merge pull request #84 from gitronald/dev
+a864e09ccf4318d0b05c154c3be24397ba18f52a,2025-12-05T13:23:51-08:00,version: 0.6.5
+eb3cec9442463487e8d36cfea45b92f039a5ebf8,2025-12-05T13:19:56-08:00,update: github actions readme section
+3cb10932d00a107d57c7534d8efbcd5f35ba6b37,2025-10-14T08:57:02-07:00,update: regenerate poetry.lock
+1cb9ae5c274493d445b8c8069b6e1927103c9798,2025-10-14T08:54:55-07:00,update: bump requests to 2.32.4 and protobuf to 6.31.1
+f83ef9f5dafe4f5c2c48c737093704d74027dd40,2025-10-14T08:52:38-07:00,"merge: dependabot updates (h11, tornado, requests, protobuf, urllib3)"
+aedc28a96fc7dc8ecb7b45a7b0a1a5add91175c8,2025-10-14T08:52:21-07:00,merge: dependabot PR #82 (urllib3 2.3.0 → 2.5.0)
+5d283461b9719389e7f37daa0d60ecb66d138c07,2025-10-14T08:52:08-07:00,merge: dependabot PR #81 (protobuf 6.30.0 → 6.31.1)
+8b7e6a602a794c6f004d05a2bbaa59380b5502dc,2025-10-14T08:51:56-07:00,merge: dependabot PR #80 (requests 2.32.3 → 2.32.4)
+db590a5f9f42507c6f0274796ef77ac83ffba9a2,2025-10-14T08:51:27-07:00,merge: dependabot PR #79 (tornado 6.4.2 → 6.5.1)
+eaa43147fab9778f33fb2c99ad4a43b56a61c014,2025-10-14T08:50:07-07:00,merge: dependabot PR #78 (h11 0.14.0 → 0.16.0)
+cc33dea9b326a29b648b6ce073f335de6b921afe,2025-10-14T08:47:42-07:00,update: default Chrome version to 141
+bb938d5719d0aeb5db591795a5290ba1ea84bfa7,2025-10-14T08:29:41-07:00,update: version in __init__.py to match pyproject.toml
+e66515c8ec4e9ecc4fb9c4e27727d99f6a14a996,2025-10-14T08:29:30-07:00,fix: update demo-search entry point to use typer app
+b7cc70011c858c75e2e14468624c937c8dc1ecd1,2025-10-14T08:17:20-07:00,refactor: convert Footer methods to staticmethod
+0209fdba55fd70c6004f974ea7618ac55b420af9,2025-10-14T08:16:39-07:00,version: 0.6.5a0
+a05270efcd5e3601394fb4be8d04c18f74b3ea52,2025-06-19T04:51:01+00:00,build(deps): bump urllib3 from 2.3.0 to 2.5.0
+a4a4a3239e9bef32676aa4d9950ef8c287ab7513,2025-06-17T03:45:08+00:00,build(deps): bump protobuf from 6.30.0 to 6.31.1
+8daaec7a943840f10b95d04b6f98f8c2d5fdb6dc,2025-06-10T10:04:13+00:00,build(deps): bump requests from 2.32.3 to 2.32.4
+cc9a93884d6f6238b8965096643d148767c0d2d2,2025-05-23T19:35:41+00:00,build(deps-dev): bump tornado from 6.4.2 to 6.5.1
+ebcca84085ff55348699e46551e330c884969bfb,2025-05-17T15:17:25-07:00,fix: stricter parsing for songs id div
+22f639b2fcebbda71e6bf83161b31a486bb6ed69,2025-05-15T14:40:04-07:00,"update: stricter news_quotes classification, more knowledge classifier signals"
+951a5dac0c35d9f13b9733290e49fd7b69340cbd,2025-05-14T18:59:17-07:00,fix: handle serps with no rcnt div
+9955b7c591331277a62a34bf8c3477aec6bbcc70,2025-05-09T09:10:32-07:00,update: bump h11 per dependabot
+71e1a552bbb0683dfa741d1861fd528d24b2e216,2025-05-08T20:56:45-07:00,update: main column extractors
+bd02fa8983464f2bb6e13df06874848a64265e27,2025-05-08T20:56:19-07:00,fix: missing comma
+e0edd4e6b013cda8ede766d44f5efff6ffdf7c9b,2025-05-08T17:38:46-07:00,version: 0.6.5.dev5
+f775eac6a268bc6a407a0f21c2e4ac2c7e93a02f,2025-05-08T17:38:33-07:00,update: remove duplicate log
+1a32ee051950a9a27487f4179ae79fdfb1d0c5e4,2025-05-08T17:38:15-07:00,add: recent_posts variant of top_stories
+a3b7c006233415143c7fbc783e4c702e6c6d3073,2025-05-08T11:12:53-07:00,version: 0.6.5.dev4
+52c79f616b5149b4b313377783d82f0936cca92d,2025-05-08T11:09:28-07:00,add: breakout extractor functions into files by section
+b6be243a985201a7fbe3b1961cca233168d5da6a,2025-05-08T11:08:29-07:00,rename: extractors code
+a737aafa96c84c39c89b7ba92b8387140954689c,2025-05-08T11:07:49-07:00,move: extractors to dir
+ac79df03ae57df31ac475b2ed9bd85df4fd0d9c6,2025-05-08T11:05:23-07:00,update: result types dictionaries
+85f5766db982ad3565ae81ee06af757ef6b0e42f,2025-05-08T11:03:09-07:00,fix: count sub ranks for standard ads
+9d66539c15fd14b7f075494983a6b0624fcbfad6,2025-05-08T11:02:56-07:00,update: more knowledge panel identifiers
+2d017015cd03c7d6f0754d032ed4c197722d7cd3,2025-05-08T11:02:02-07:00,fix: no empty whitespace in filter_empty_divs func
+41cfba2b9202157da852c09ad5565cc7bd1bd8d0,2025-04-29T08:36:17-07:00,update: expand classes for video cmpt extraction
+e23e70bc486daec7a064fe9e3286d85ed24745f5,2025-04-29T08:35:48-07:00,update: more restrictive discussions classifier
+205bba576da3b674ad5299bbf0df13a2c1302b77,2025-04-28T11:25:06-07:00,version: 0.6.5.dev3
+036e67a6d108a5c9756ff2eed742a69e3ff56a65,2025-04-28T11:09:48-07:00,update: reduce doc strings
+5373a852eb11bac9b312c0dd17a411afd1050e06,2025-04-28T11:06:44-07:00,update: expand images sub cmpt class list and title/url parsing
+2f9bb28fd6dfdd2395012d5d5de278d73a3a5912,2025-04-28T11:03:40-07:00,update: extract from top bar for 2025 serps
+fa411b86dee3e2920284ea4eeb299b2ce6a34d45,2025-04-28T11:02:41-07:00,update: expand general classifier classes
+29d62c7df3c23e9d4939da0f6a08592d81a2e702,2025-04-28T11:02:21-07:00,fix: drop debug print and fix print var
+1c68ea84f51300720a12b15f1948715bdc3c3800,2025-04-27T17:04:22-07:00,version: 0.6.5.dev2
+cedc7d2ced5faea4c3a0c8d1150aef026ce830fe,2025-04-27T17:03:38-07:00,update: extract more divs for top_bar layout
+cc2395c5847ee0e9135031979f74208f5e4fb683,2025-04-27T17:03:07-07:00,update: discussions and forums classifier
+502a025acad207f89fd4adc1f749919c6f68cb07,2025-04-27T16:17:25-07:00,version: 0.6.5.dev1
+0f9dc401640e2084430aff484736b241e42ee62f,2025-04-27T16:17:10-07:00,update: videos component parser
+2ca408153a8c03be145d1f2ff800b803befc1390,2025-04-27T15:58:37-07:00,version: 0.6.5.dev0
+592c69b27bb77a6954b300a6907d18bfda34ef76,2025-04-27T15:58:24-07:00,update: ad component parsers
+70e774f0b4ee3ffa16ffa5dca8bb130784005271,2025-04-24T18:59:52+00:00,build(deps): bump h11 from 0.14.0 to 0.16.0
+fef3595d79e0c82e29b29a9f658d4f6cad8f5c04,2025-04-02T10:48:08-07:00,Merge branch 'master' into dev
+fad3e1dd9895631fdf04ac49c9782609b3ff8127,2025-04-02T10:47:55-07:00,version: 0.6.4
+e726acddb23292415d6877ba823cf955656b411a,2025-04-02T10:43:30-07:00,"update: breaking change for log config, using logger kwargs"
+d076e4f41b6486b75adf66945951afffba4daa8e,2025-04-02T09:44:52-07:00,fix: downgrade log warning to debug
+9aaf21042210650346485d8aee3ad45902311fa7,2025-04-01T10:24:32-07:00,Merge branch 'master' into dev
+7ce63b17f8b0ed76c7247489d36222946a7ed4f5,2025-04-01T10:24:15-07:00,version: 0.6.3
+48ae902d10c46d5ee5ffcbdac9b1095431073df7,2025-04-01T10:23:18-07:00,"update: archive result collector, ignore archive"
+6ee5209eab936f071632d042207a7d725376480c,2025-04-01T10:19:42-07:00,"update: using orjson for speed, must decode dumps to string"
+9e8a393bbfc91ebaad45c0921f8d3726891e00af,2025-04-01T08:07:23-07:00,Merge branch 'master' into dev
+f50b0e130778ccdb1f7e53fe0cc72f939557ad8e,2025-04-01T08:07:12-07:00,version: 0.6.2
+51ee3b2e7809c2275d1df5e587b302d0968c8e6f,2025-04-01T07:49:56-07:00,update: poetry lock
+16ba005e9a861accb14ce27aed39c4b98b0d073c,2025-04-01T07:48:47-07:00,"update: timestamp before request, ai expand as search param, load searcher method on se init"
+f8337cab240a4c01b89dd48803fd0bfe929e9d16,2025-03-28T11:38:32-07:00,Merge branch 'master' into dev
+c5b77ae1a8b7cc5b685642b003ab48788639db39,2025-03-28T11:37:31-07:00,version: 0.6.1
+64ee056fb3843345de1c755efa4dc224edd64f04,2025-03-28T11:35:23-07:00,update: demo scripts
+d5c753925b4c5e1a88f0debb16757366a2426fa1,2025-03-28T10:24:44-07:00,fix: selenium output reference
+bdb5975a0f3460940d8681338cb1d81d7114dd79,2025-03-28T10:13:08-07:00,"update: drop python version file, use python>=3.10 in pyproject"
+b8992714eeaceb7285e2f763411820f3d62715ab,2025-03-28T10:10:52-07:00,Merge branch 'master' into dev
+6a074a1e652d0d39ec1f6f5d8120b32e3d90e176,2025-03-28T10:09:57-07:00,version: 0.6.0
+3fd8e19cc0914d34d3fa00bdc765e733b8f4088c,2025-03-28T10:05:26-07:00,"update: simplify search logic, use SearchParams, ai expand logic in selenium file"
+82ef0dbe11324aac72badece2a3e9d9847fbff65,2025-03-28T09:23:40-07:00,update: consistent logging and serp handling
+0c959b945254c358834b5e5ec0c95e4de49b95e0,2025-03-28T09:22:33-07:00,update: cleaner selenium cleanup
+bd2b76eca850ab302d84c2f7049d20c20fee775c,2025-03-28T09:21:34-07:00,version: 0.6.0.dev5
+6d4642f187d6519334527814faf45895310248f4,2025-03-27T14:16:31-07:00,"add: file for requests code, update outputs"
+b725ace767dde113b8dae32cc52346c23f56b6ee,2025-03-27T10:27:04-07:00,add: searches directory for diff methods
+7ae02c6bfe71e54a9c1ab6d75c96a6e9d4b04665,2025-03-27T08:49:33-07:00,update: model docs
+083282fb71c386fd1942be19c1f8e6d571cc43b4,2025-03-27T08:49:26-07:00,update: move selenium to new searchers dir
+2fc420dfa769e118921704081a94bcff41a0e6d0,2025-03-26T15:05:08-07:00,update: use search params pydantic model
+d0a7aa9f93d02f18d43407e9826d78299a1ce202,2025-03-26T12:11:27-07:00,"update: clean log config, header as arg"
+4e87302bf403572c1cc48430dc430d89a73d4dae,2025-03-26T11:40:48-07:00,update: use baseconfig in searchconfig
+9b925ae2356c64762bbcd8f8fe27ba87d361f6f1,2025-03-26T11:10:07-07:00,"update: model directory with multiple files, new BaseConfig model"
+b77c413bb9abfbc5426436a7032fa6a23e3e1cd3,2025-03-26T10:28:13-07:00,update: use pydantic models for configs and defaults
+165f9e36a4770b081787d71e10c571fd8c73b16b,2025-03-26T10:25:47-07:00,"update: condense args, use currently reliable default query"
+6752498ad4077b4286ef41dcb2cb265c23b8fc72,2025-03-26T08:57:39-07:00,version: 0.6.0.dev4
+6270f5d8054731f024d7d9821170f2f0176daaba,2025-03-19T16:05:10-07:00,version: 0.6.0.dev3
+76fa069afb7646977f03aa780df0507fc146653e,2025-03-19T16:04:32-07:00,update: add parse both features and results options
+2a86a5abb2550ee705baafed0027478ee1a2ea98,2025-03-11T10:41:32-07:00,version: 0.6.0.dev2
+a7cfd5adb8459267117fff6372e0db02ac8ccb62,2025-03-11T10:37:41-07:00,"update: move driver init to search, add driver cleanup"
+dc00990cdc8505e760a499d58684f095431de73a,2025-03-11T09:37:40-07:00,version: 0.6.0.dev1
+b950989631d138f936299f32c75837529cab1593,2025-03-11T09:30:36-07:00,update: handle null links in tw result
+5ca2da7a774b07291197047c06e6f1cf8f03b5ab,2025-03-10T23:16:39-07:00,update: save method variable along with metadata
+82bf5078235bc613a1d947fbe2ed8598c654df48,2025-03-10T17:23:25-07:00,update: collection code and selenium test
+ea6eebc9850319447cff8cfd516f90e6887e0b54,2025-03-09T14:21:27-07:00,"update: specify args, headless not working locally"
+465c5538f8adc61147f8e5f25d8508befd940df1,2025-03-09T14:20:14-07:00,update: reorg selenium code
+80403f2f137dd6532cdf0f272e4a3f7cc080ce73,2025-03-09T14:20:01-07:00,update: poetry lock file
+acea0222933ae3987a6a80c79d02e0505f04050f,2025-03-09T13:52:25-07:00,"update: dedupe args, add version_main for chromedriver launch"
+7b4b95c818b36cc7f5d55fce2c9cbdfa7d49bfe6,2025-03-09T11:20:39-07:00,version: 0.6.0.dev0
+56f9699884ca72297afe20f69589198ecd8b71df,2025-03-09T11:16:26-07:00,Merge branch 'dev' into selenium
+15adc0acd06fb9e0f90b94e5d6cbc1268a439da9,2025-03-09T11:15:45-07:00,Merge branch 'master' into dev
+18a970eb7a59f5ee1fb1feae3da508e8f885d677,2025-03-09T11:13:29-07:00,version: 0.5.2 (#77)
+d25f07e79bcca0bbde96fcfd8e9eb28636414b13,2025-03-09T11:13:11-07:00,Merge branch 'master' into dev
+0730e6bbe37f91caa6dda6261d9c90e0b978dec0,2025-03-09T11:11:05-07:00,version: 0.5.2
+6ff62621bd08b13594504abc8fc6bd0e59671a11,2025-03-09T10:49:49-07:00,Merge pull request #72 from EvanUp/selenium-branch
+425f27afe838ac13e696c5d1f1dfd33ae022f2eb,2025-03-09T10:42:04-07:00,Merge branch 'selenium' into selenium-branch
+9d977b0a51f5fb15761458091a810fe2a6cf1fdc,2025-03-07T10:51:20-08:00,Merge branch 'master' into dev
+f701a9eb5dd7f6bd65c2eea0d3b8d9e8416e61db,2025-03-07T10:51:11-08:00,version: 0.5.2.dev0
+a136095af2a9da7efb59d647486e97bb2d0013ac,2025-03-07T10:48:34-08:00,"update: formatting, drop repeated Video labels"
+10a60a5a801d0e8611498271f9e866988d9f17d3,2025-03-07T10:42:22-08:00,Merge pull request #74 from mariaelissat/patch-2
+8ffbf34a171245888740f2b7d1d0982049818ec7,2025-03-07T10:34:28-08:00,Update WebSearcher/classifiers/header_text.py
+0ebe2931d616f009690d4cd5b01adcf639ef1949,2025-03-07T10:27:43-08:00,v0.5.1 (#76)
+e18eed58db021be98defb34e10f11a445a3bce1e,2025-03-07T10:19:44-08:00,version: 0.5.1
+6a72f9e6b479d3efd1294408adb33baabbe17053,2025-03-07T10:16:23-08:00,Merge pull request #75 from gitronald/locations
+74a1487169b48dce73ed750625a2d2817bff861a,2025-03-07T09:29:54-08:00,version: 0.5.1.dev5
+bddd4a1d927a58de88299a67bf073a41d720612c,2025-03-07T09:26:13-08:00,update: more specific dir name for geotargets csv download
+1ae28138382dfa3bca360e9230d65d8b5aa802e2,2025-03-07T09:23:43-08:00,fix: canonical name to uule converter with protobuf
+e547b888a8f344345c970c6fadb84171892c3c86,2025-03-06T01:42:27-08:00,version: 0.5.1.dev4
+3010788f8baf584dd8ca57cbd49d5c0890f7435c,2025-03-06T01:42:14-08:00,update: null arg handling
+19a94f916f4c390dd74e7710394e8de850e59f34,2025-03-01T15:16:12-05:00,Update header_text en español v2.py
+9377d753326f4324cfc83e19f20b1ba279eec85f,2025-02-26T14:58:02-08:00,version: 0.5.1.dev1
+e09030b00cdc3b8a5e7f6373c57aa753b601f17c,2025-02-26T14:57:30-08:00,update: add language to serp model
+834769bd1bdd95cec2601bc7e7da8d2b7dd2fde1,2025-02-26T14:51:18-08:00,update: add lang to output
+4bf035ba6e8f916f9c4dc087d1f5c3bbaa88d190,2025-02-26T13:11:19-08:00,version: 0.5.1.dev0
+002386bd315decae3134a0a8f3b144a7209e9c33,2025-02-26T13:11:04-08:00,update: add lang arg to search using hl url param
+1d5e2554f002423a1e67882f6a9248bb640ea181,2025-02-17T15:35:39-05:00,added code to expand ai overview text and urls
+63c4cc993cff3a767c68156184791aff158bae26,2025-02-10T15:24:54-05:00,switching from requests to selenium
+de18f239ecf2fcedf2c6b16ed336b1ba03e59cd4,2025-02-03T13:15:47-08:00,Merge pull request #71 from gitronald/dev
+d9f713bc797632666a9936a6f2672d125a5945a9,2025-02-03T13:14:41-08:00,version: 0.5.0
+049bef0b5d04e66a6a18b9e29b8d009cedc61091,2025-02-03T13:09:24-08:00,update: use group dev for optional dependencies
+d893bedabf269e6071292c53dc7e4072f5c7e7cb,2025-02-03T13:05:49-08:00,"fix: poetry build, use sync"
+1d3dd6c234c30ce87cd6c3e4fef3c23a7692b1da,2025-02-03T12:49:06-08:00,Merge pull request #70 from gitronald/dev
+81925cb1e1791d62e7033cb3868855d3ffa10c82,2025-02-03T12:47:25-08:00,Merge branch 'poetry' into dev
+b884e37c700408e1cd98e54bd6f6b4c7e5928ecb,2025-02-03T12:44:42-08:00,"update: pkg requirements, new recent update, keeping capitalized pkg name"
+bb45d769d5c6fbbcf3bd87993a69691297aa4093,2025-02-03T12:35:53-08:00,Update publish.yml
+2bd5ac68073c7fd679e0071b3e949b32b556b8cd,2025-02-03T12:34:24-08:00,"fix: move packages to tool.poetry, allows capital letters"
+02885c408081d9cd3fedf60c57b1b19ef48fe18e,2025-02-03T12:33:51-08:00,fix: poetry v2 cli args in publishing workflow
+cfe34f0561ea70e8588c4473b678d4241a50fb28,2025-02-03T12:25:35-08:00,Merge pull request #69 from gitronald/dev
+1074d29ba70c25fb0393d54fec1671a81f2afc27,2025-02-03T12:22:24-08:00,version: 0.5.0.dev0
+4c19d6e8af3933c8c99102c41b24ae9c5c6fba5e,2025-02-03T12:20:36-08:00,Merge branch 'dev' into poetry
+ef41e69e1699ac2b91c9b3026f1c4b79d3e6125f,2025-02-03T12:19:16-08:00,version: 0.4.9
+38c182baa158971f292e522817577f20b7406f6c,2025-02-03T12:18:51-08:00,update: readme highlight for breaking changes in future versions
+966bcd11f332dc0b0fbc4003a673a6dfd5d48543,2025-02-03T11:47:52-08:00,version: 0.4.8
+6f63581a49f545917710ff8e0108ef20e71e1e21,2025-02-03T11:31:12-08:00,update: poetry v2 config remap
+f065b74b0ccaae36fff0ef282c6cca4b0c5d7e73,2025-02-03T10:47:20-08:00,version: 0.4.8.dev2
+c06d87fc850e90080c1723bacde9934cd9a8b46f,2025-02-03T10:45:56-08:00,update: check for empty results in demo scripts
+b876d10d7c30e4b19d58a469386287e6499fe963,2025-02-03T10:21:08-08:00,fix: 'None' passed as location again
+752aa61eee8babc7aee46fe1922f06f4ea6c6ccf,2025-02-03T10:20:21-08:00,fix: extract local results circa 2022-08
+69f1097edae4b5cbb1239331c060fb0c844efef5,2025-01-17T09:08:49-08:00,version: 0.4.8.dev1
+efa96e50a124735ed5f0f8d12b0ede30198b873e,2025-01-17T09:08:23-08:00,fix: classify news quotes after header text
+4eb4b7dd636c78dee5f0f674b56d227074ad9b19,2025-01-17T09:08:00-08:00,update: use end of header text to identify local results
+fc86153aa37a0fc6a34fdc2b109136c21f327871,2025-01-17T09:07:23-08:00,update: expand header text classifications
+9fd0520c3225ed7fe8d51dd7f2d9e1ae79a56ee9,2025-01-17T09:05:29-08:00,version: 0.4.8.dev0
+8f8a4faadbb6ca9fe1ac2e45263ce1cc1c771824,2025-01-17T09:04:03-08:00,fix: convert generator to list before storing
+0e6f146f73a4ca4f150a31d607484963011a8752,2025-01-17T09:03:12-08:00,update: explicit return None
+e79d6002858761bfbf25ce68fe26897863d3cc7a,2025-01-16T13:14:32-08:00,version: 0.4.7
+ab2da2b62d26b60e2feadf449ea9b59a97f6b2e1,2025-01-16T13:11:43-08:00,version: 0.4.7.dev3
+8e05e6b839262f494f8f453818be8a05be74a0dc,2025-01-16T13:10:29-08:00,fix: text unbound error in ppa component circa Jan 2021
+89c8f304c2aa0c0097b08b290d61ac6041615de2,2025-01-16T13:09:08-08:00,update: return none instead of empty string in general fields
+f088075db527f5605e3461633d292861295294d8,2025-01-16T13:08:43-08:00,fix: news_quotes misclassified as knowledge panel
+b2f75ef4e24f21d28faefc18148f1f6fc069cfa8,2025-01-16T13:07:49-08:00,update: coverage for searches_related circa Jan 2021
+c7bc955f593ed637a4c86a5a2c13b6f2e2891410,2025-01-16T13:04:59-08:00,version: 0.4.7.dev2
+49e4c68b4edf20b93c8120059b0e70dab586f67a,2025-01-16T13:03:58-08:00,update: image url coverage for Jan 2021
+7e75e109fb792b3b1b5d8f21fb85014df656eeaa,2025-01-12T21:12:01-08:00,fix: use multiple img url checks
+e6954002e6fc40bc1849906e89a1d577543f92bb,2025-01-02T15:09:43-08:00,version: 0.4.7.dev1
+788ebcf161e61427543a1672728d75ea36a61332,2025-01-02T14:52:04-08:00,update: catch knowledge cmpts typically in header in main
+42c8770659d165de645b13b47f4f00480a4bb61d,2024-11-25T09:09:15-08:00,"update: classify knowledge, overview sub_type, logger in classifier"
+68a52eadfbe68e7122c29356030193cc3cccb26a,2024-11-25T09:07:46-08:00,update: formatting and logging
+60bc1cadb92571c52f38c913a5c33a722c6bd2e5,2024-11-23T16:48:24-08:00,update: extract top bar components: overviews and featured
+c325d2e7783a31bd8747bdf5645f1fdccb9ede09,2024-11-23T16:46:40-08:00,version: 0.4.7.dev0
+f168f7da85a54da8c2ca4c8874eb7fb320831747,2024-11-21T13:10:31-08:00,Merge pull request #66 from gitronald/dev
+0c977eeb8252467d8d9241c97c196fa641507552,2024-11-21T13:08:11-08:00,version: 0.4.6
+cd357898395750a2c34199fec7db32de10cea3ad,2024-11-21T13:02:14-08:00,update: resolve deprecation warning for bool inversion
+e564759b3f5f9fb15dd0b17b59bc35eb10289f5e,2024-11-21T12:53:58-08:00,update: use py3.12 for gh action
+997dddebfbde146f0e611fd42c3393c10b3a4ff7,2024-11-21T12:50:29-08:00,version: 0.4.6.dev2
+9a46a381481eb1080446afbdb9484732256ac931,2024-11-21T12:49:53-08:00,"update: poetry dependencies, using py3.12"
+0485d4a98c7847021727abf117d9e108f54a0c74,2024-11-21T12:21:53-08:00,"update: use dict in parser files, validate with BaseResult in Component class"
+c1c9c3a3055a6bea63c61f636e022d46df2cd7cd,2024-11-21T10:35:43-08:00,update: return parsed list error if null component type
+bd8715baf9eb1df22b56dd0f42068d36844829bd,2024-11-21T10:21:40-08:00,"update: better parse_component logic, func for error output"
+ddfb7a632180214ec7c41962053f8c7627bae80b,2024-11-21T10:19:27-08:00,version: 0.4.6.dev1
+d13df23fdc9d1b8af0c1ad742466b411bec5e339,2024-11-21T10:19:03-08:00,fix: init serp and serp_features dicts before checks
+6b6dba24ab296d2e6de1f9b3992fef1eb8902a06,2024-11-21T09:11:35-08:00,update: drop redunant parsed list checks and convert assert to raise err
+773baaf59537daa76da07245530bd6eb526e31d9,2024-11-21T09:06:22-08:00,"update: breakout parser select and run functions, better logic"
+66621c9dcae75d528750179544800c75e0f8265d,2024-11-21T08:52:36-08:00,update: raise error instead of assert
+b580a6fd1b520eef809c354e3da775df8bf19482,2024-11-20T11:38:57-08:00,version: 0.4.6.dev0
+6c833eee86161c16d8f9284fde6a7f59f0bfbb7d,2024-11-20T11:38:48-08:00,update: handle null location input
+b5b9cd04bc73ece13e3edc520885cea83ee0a656,2024-11-20T11:15:30-08:00,"update: more detailed logging, added todo for when footer_parser is None"
+b9aa6d1c6bbd7cca2d30df4823fe927c94497151,2024-11-12T10:52:50-08:00,Merge branch 'master' into dev
+95c74d27174b0c557cfcd3c940be266e4dff1050,2024-11-12T02:18:35-08:00,Merge dev: v0.4.5 (#65)
+e170d77198c6c8c38770fade7166e53a2667885e,2024-11-12T02:18:22-08:00,Merge branch 'master' into dev
+5d9f154df70f1f7c3557d163450b93c10c208f77,2024-11-12T02:04:26-08:00,version: 0.4.5
+8d4b9edaf6c3586ed1eb7da269f0ab5b42fac1ab,2024-11-12T01:17:51-08:00,fix: catch result_estimate_div is none
+1f8a0ad8f8d589c2044b76850107744bd8c76a08,2024-11-11T23:06:06-08:00,Merge dev: v0.4.4 (#64)
+5e0b65b1491e84feb1a7963ee51074df70a7a39b,2024-11-11T23:03:16-08:00,version: 0.4.4
+ce4d62c0abda60ac5a611c46e5dbf1096c1efabb,2024-11-11T20:02:16-08:00,version: 0.4.4.dev3
+d8cd61957b8def79b099e987cccbdefdd47a05ff,2024-11-11T20:00:04-08:00,update: save search metadata in demo
+42ede04fbdd90e78daf0a8150029d85595cc8d2e,2024-11-11T19:59:46-08:00,update: incorporate FeatureExtractor and add save_searches for search metadata
+b43ec01f6c400682a8c09c119b402c0557363319,2024-11-11T19:59:05-08:00,add: FeatureExtractor for parsing serp level features
+8bbd7702995db66aaf0eea7c22667eff829e42f1,2024-11-11T19:58:09-08:00,version: 0.4.4.dev2
+0928cfeef4a966175138f25ca386161eb232c3a7,2024-11-11T19:56:00-08:00,update: breakout code for prepping to save serp
+ffa7a5992d13562163505a5249424ff113cab09e,2024-11-11T18:54:37-08:00,"remove: pre-poetry setup, mainfest file"
+de549292eb66d7fb425ffd75df53ee23cf0247cd,2024-11-11T18:52:55-08:00,version: 0.4.4.dev1
+9446211c5624e3738a473c254c136a2ecaad2fc7,2024-11-11T18:49:43-08:00,update: more efficient dictionary updating
+f3a7489b416c5c4b46fde87a218efc7a40387621,2024-11-11T18:49:15-08:00,update: include results ids and ws version in save_results
+151c54c06b4c1c08ce0c4bac1856436a93daec21,2024-11-11T16:14:59-08:00,Merge branch 'master' into dev
+3859b0da96c399846c6ce0cffec4fe476ddb3f5e,2024-11-11T16:12:19-08:00,version: 0.4.4.dev0
+0dda91c370f91f9c5bc47016311539469e4861c0,2024-11-11T16:11:48-08:00,update: use underscore prefixed funcs for internal workings
+d4e810cf000463653cb9bb15eb74213ebf4bd791,2024-11-11T15:49:35-08:00,Merge dev: v0.4.3 (#63)
+145c823700b91af0886e9d4738fb774566d77260,2024-11-11T15:47:44-08:00,version: 0.4.3
+d3b9b099ed353644257f64d2135338d964cad314,2024-11-11T15:47:03-08:00,update: use closed type only
+f39151a92815b84b983fc99b4b60c848026308e3,2024-11-11T15:42:38-08:00,Merge branch 'master' into dev
+49c9d62b3e68dcf0070402e946c507e0044188a5,2024-11-11T15:38:48-08:00,update: add types to publish.yml
+37746ebed540cf94209185725d74f8a906c183fc,2024-11-11T15:28:24-08:00,update: publish.yml fixes
+e68adb6ec1ce85508da979332547bb9d8f8e6640,2024-11-11T15:18:23-08:00,Merge dev: v0.4.2 (#62)
+4eb4b0c3c3aef0c494086abf9cb10bd828bf1517,2024-11-11T15:13:30-08:00,Bump to version 0.4.2
+38985d6ae257eb1d42a410486cf7af4a89948530,2024-11-11T15:01:17-08:00,remove: pre-poetry setup files
+b8c1bd62fe8ebc17dc3b78ccebe97898f1efacf1,2024-11-11T15:01:00-08:00,fix: matching license in pyproject
+324701474d0fe6e42bb5dcf231ff299b50629c5e,2024-11-11T14:46:24-08:00,add: switch to poetry for pypi release via gh action
+fb90aaca73ebeb146925fc8a6b94bc43824f6f28,2024-11-11T14:21:46-08:00,update: cleanup gitignore
+cbd60c75f83eeb8ea4f1bb71619416e2a3e61c71,2024-11-11T14:21:15-08:00,update: rename test script
+fe86a11c3de295ecfab106bc67eb33d8f722b037,2024-11-11T13:42:17-08:00,"update: explain demo script with example, add to recent changes"
+2ca81adb642b2dc32f04c2b41e8e1df9e3b955c9,2024-11-11T13:41:25-08:00,update: demo search script via poetry cli
+51d5fd3e4a7eb18b2fc9982d065b22f60abec56f,2024-11-11T13:39:47-08:00,add: poetry setup
+a5f376fff383a32a60c2d274d6b1464c876e6e76,2024-11-11T13:37:40-08:00,"update: switch to bs4 string arg, text arg deprecated"
+c7b0df1099fd2c24d8ccc1042e812a47d943f8cb,2024-11-11T10:04:42-08:00,version: 0.4.2.dev0
+cc2ccb575759307ccf6f6b44fe75e20007bcb958,2024-10-04T12:37:10-07:00,update: requirements
+440fda0d516b60fbe97bd1031c2204170570372b,2024-10-04T12:36:48-07:00,add: default log level
+a415d262561b2bbb04fdeb3e575448f1bc1cad9d,2024-08-26T09:56:09-07:00,update: trigger on push to master with v tag
+22d181fdfe9e0317dd2ad512ca6004eeb846fc9d,2024-08-26T09:47:28-07:00,build(deps): bump urllib3 from 1.26.18 to 1.26.19 (#59)
+8664894f2cc4246d6326f979220c6784b5530439,2024-08-26T09:47:13-07:00,build(deps): bump certifi from 2023.7.22 to 2024.7.4 (#60)
+be745435619e9b54a818aa2ce2616f4ea8f6cf82,2024-08-26T09:42:31-07:00,Merge branch 'master' into dev
+2d3e607ad1e8823f7b3f6e02e4ea8dd7a2cb6add,2024-08-26T09:41:24-07:00,Merge dev: v0.4.1 (#61)
+f3df6d0b06b6acfb53360f72a1c590cc82083cc2,2024-08-26T09:27:17-07:00,Bump to 0.4.1
+ec14dff538f48f02b4c893bd4034780dfbf3a2db,2024-08-20T15:47:21-07:00,version: 0.4.1.dev7
+c7c8945593e9f2471892c4a11ddc2575f1986166,2024-08-20T15:46:51-07:00,fix: wrong get_url usage for images urls
+b8b746fd0378b0838d54ec4b028601e571d9f215,2024-08-20T15:46:16-07:00,update: grab notice divs more directly
+8b93415e1f345e723cf97b6abe4b6cc6e95d1ccf,2024-08-20T15:45:59-07:00,update: add language tip sub type
+1539ff8867257e1315cf4ef732b1564894f6248b,2024-08-20T12:41:38-07:00,version: 0.4.1.dev6
+32bb3295b857eed6924494fd3bca43ba4f3b86bd,2024-08-20T12:41:17-07:00,update: refactor notices parser as class
+6d97d31206a792aa7a62a577973175b522719d4e,2024-08-20T03:36:15-07:00,version: 0.4.1.dev5
+c3d2180bef697d1b902278dde5eef09e8aefda60,2024-08-20T03:35:42-07:00,"fix: renaming, include more query edit notices"
+629ff3e1ad0a627fc1a19bdc6baf3d712719f063,2024-08-20T01:38:24-07:00,version: 0.4.1.dev4
+4491bd8971e2255d67f29444fde0098c83086f78,2024-08-20T01:37:48-07:00,"update: rename query_notice to notice, includes location notices"
+da4e509843e5a684c6e576a545ca3a3e1b884eb9,2024-08-20T01:35:16-07:00,update: catch location query notices
+0ed73e1d5e2d4001e0ea2275a6ec6fe65bed78a9,2024-08-20T01:34:48-07:00,"update: reorg, clearer header extractors, handle shopping ads in ads"
+78135b06d2df3829f6651251ff56fcc9509dbb42,2024-08-20T00:39:50-07:00,update: assert parsed list is not empty
+32e7d7128cb28c5bcaa4e840cc79fd0fdb7032e4,2024-08-19T17:53:14-07:00,"update: add query suggestion variation, handle multiple suggestions, drop internal url"
+22e2c3d908fd04bcbd9b5277e0f37100fafe457f,2024-08-19T16:28:26-07:00,version: 0.4.1.dev3
+e436dabf8275d2f6a18b4c7885f335815e80c9b4,2024-08-19T15:55:08-07:00,update: readme example
+1a3086508af4a42b0bf399a1a1e2b9f1502eb147,2024-08-19T15:53:29-07:00,clean: quotation formatting
+7467150728cb105d120c0c01e50defa0c288b50c,2024-08-19T15:51:21-07:00,"update: handling for no subcomponents, pass error and text"
+823d559b643b60fba6cd89547d948d4b2226c306,2024-08-19T15:46:10-07:00,fix: handle ads and shopping ads extracted from same serp
+950312105593e3387be6578cd32bb97e7d781384,2024-08-19T15:45:19-07:00,"fix: broader filtering, sub_types, better title and url parser for medium"
+f00996a9eae9ecad2219c9df691ffe8d0f97a564,2024-08-19T14:15:00-07:00,"fix: missing cmpt_ranks due to empty ad components, filter before adding to the list"
+ad0ffb3331e23f2878bfa17eb5e4d83282453829,2024-08-19T11:50:25-07:00,version: 0.4.1.dev2
+c692829ce2545d10dcd8b71ff7c5cf7f7fda193a,2024-08-19T11:50:03-07:00,update: move top image parser to header section parsers
+86c128a56749e9243c5452d8a29c5fe35558fe99,2024-08-17T11:47:32-07:00,fix: initialize output dict
+32086b896f95b38a91feeff9300c606f11566660,2024-08-15T16:02:34-07:00,update: filter empty divs util function
+1263ccb546720a417a6e73cebcbb3ad9deb39ccc,2024-08-15T16:02:01-07:00,add: pipeline for query notices component
+4d767167a36e6f91d96bf7978da19a68cfa566bd,2024-08-15T13:09:51-07:00,update: rename header file for addtl clarity
+bf5d79c4770f6a7de3f5a99874216422beb18c8b,2024-08-15T13:07:08-07:00,update: rename text-based header classifier for clarity
+625de2bd50aa020fba8520609917dbbd67d73bdc,2024-08-15T11:13:54-07:00,version: 0.4.1.dev1
+81417ef9f519472b722739cb4bf4714327586e00,2024-08-15T11:13:30-07:00,update: add handling for layouts circa Mar 2024
+730280001eea893674477065175eaa15609b2a0e,2024-08-13T13:41:03-07:00,version: 0.4.1.dev0
+bf2f68e7d200fdb7e66ac31c57f93122d5d2b1ea,2024-08-13T13:40:29-07:00,update: clean code
+273b4a567eebf191e91000d3fca549ae2000d323,2024-08-13T13:38:33-07:00,update: classify and parse url for images-multimedia
+9fea7fe7de584505616a7557b2062ed5a37e0dff,2024-08-13T13:14:12-07:00,add: initial extract from left-bar layout
+7f43f9ffa81f086a3735e683a03e7e9710a06290,2024-05-27T19:36:47-07:00,fix: publishing workflow
+15eba1c563d0cf936e565e97a49b57aa63d16542,2024-05-27T19:29:57-07:00,--- (#56)
+87fbb469e05e7194cfeaec10f5a9b46ee6f3f2c2,2024-05-27T19:25:02-07:00,Merge pull request #58 from gitronald/dev
+d01614524e26d82460b8c42683e45e9e2cdc74b9,2024-05-27T19:19:00-07:00,Bump to 0.4.0
+4bef69f36def1511300f5392cb960bbb094efb95,2024-05-27T19:17:50-07:00,update: add serp id separately
+6f6aaffac4e2ae1018006f10b370d6a1d31f931f,2024-05-27T17:45:43-07:00,update: demo scripts
+5f5e0da75bead50c2127d72e70f760e788064c6b,2024-05-27T17:20:01-07:00,fix: no make_soup arg
+49210e91259f265dd231f83efad12ff7b15643bc,2024-05-27T14:57:09-07:00,add: footer and main classifier submodules
+90f555a7e4458cede2250217e1996a0f47467238,2024-05-27T14:56:50-07:00,"update: restructure parser to use component classes, footer class holds cmpt parser funcs only"
+718edb759c15393e17e6ae1e698fd8af96b512de,2024-05-27T14:46:28-07:00,"update: check if already soup in make_soup, and for null in get_text"
+aa9c8f3633fd994adadd970fe465e27d163a52a1,2024-05-27T11:50:24-07:00,"update: remove classifier file, use classes from folder, updated in parsers and components"
+a08b8245cf291851b3620b4eae34d7549e2172a6,2024-05-26T16:15:43-07:00,add: classifiers folder and ClassifyByHeader class for related functions
+dc475b699b43899c7f16cd7dc7757277fcb9db09,2024-05-26T15:36:07-07:00,"update: move footer classifier to main, added map in component_parsers init"
+9aa61956ed3dd9c7f104cc85f5b84119bc39d4ed,2024-05-25T15:36:19-07:00,"update: move parser finding func, component imports"
+44266795fe7be8d5459d5d3dd4ee4b98d80a1552,2024-05-25T15:35:10-07:00,update: rhs and main layout handling
+404c00de61d6817d329da411cfb6540819cd694b,2024-05-25T15:34:00-07:00,add: move component classes to new file
+654eb719fcc1ce1ef7badc1e1a772eb4b57b4c3d,2024-05-25T12:32:37-07:00,"update: small edits, arg types"
+d28ed5b2e31be535b0ce5abb25898148be2a426b,2024-05-24T12:10:23-07:00,version: 0.4.0.dev2
+f9cbce59ed5e68ab2df905b4e422a4e825919f2d,2024-05-24T12:10:08-07:00,fix: lost an s in shopping_ads
+200d3e3445a1b9e3d50c8cd57562adb2e08581f7,2024-05-24T12:09:44-07:00,fix: get footer parser from Footer
+240acd39639add49014fb1cfe4338c9077088d73,2024-05-24T01:13:03-07:00,version: 0.4.0.dev1
+3fc1e1705b2c85f5da5a497a406d9ec138960204,2024-05-24T01:11:07-07:00,"update: knowledge sub type parsers, added new searches_related header text and class"
+048f467e564b4977247a4948225fd0d1760cdf24,2024-05-24T01:10:11-07:00,fix: extract both top-bar layout knowledge components
+310b63cb5722711ba93e844d3d3481e7e65ce4ab,2024-05-24T00:23:45-07:00,update: incorporate Component and ComponentList in parsers
+ba3ee74535703edb53a6b9eafaca39ce8cb0b82e,2024-05-23T17:05:25-07:00,update: rewrite extractors as class that tracks and passes along Component classes
+7d94d1951b120ca3b33d37b1ce6f3bba2cbdc937,2024-05-23T17:01:30-07:00,update: add functionality to Component and ComponentList classes
+8114c455ee12f738948ee503c28aa762f0c03dde,2024-05-23T17:00:59-07:00,version: 0.4.0.dev0
+6c313c6013d0a8725b456a24043bce168f8401b3,2024-05-23T16:53:56-07:00,Bump to 0.3.13
+46dec17abdc9ddf87c128d4ea25a02da63ba4d74,2024-05-23T16:52:09-07:00,fix: catch videos with aria-label but new class
+0728e45d77dbd14dce609ab753c1b95910b32017,2024-05-23T16:51:19-07:00,fix: new divs by role for searches_related
+6d221d73dc1a695e14ec85c6ca7055da565ea062,2024-05-22T17:03:28-07:00,version: 0.3.13.dev11
+35a87482dd96910577444d6ee377473a7a8449bd,2024-05-22T17:02:42-07:00,update: move component and component list to models
+8274a72707fa79acb006dd1cd9f54d95d45a6872,2024-05-22T17:01:51-07:00,update: broader component class
+03576e417ed0d4f0ecc00c93c4fde1c9edfb03dc,2024-05-22T16:52:54-07:00,version: 0.3.13.dev10
+2f06733295bc70ec8a45a5a76023f77bcd6e1bed,2024-05-22T16:48:07-07:00,update: rename new footer parser
+073b71aa5b842b257d6505df0aab2b6205f15e4f,2024-05-22T16:46:04-07:00,version: 0.3.13.dev9
+a303f56dafcb8bdd9909500ebfb766e2b38fcaf7,2024-05-22T16:45:40-07:00,update: looser banner classification
+2ff7f3491dd6802171ddf34d650787d07d2895de,2024-05-22T16:45:09-07:00,version: 0.3.13.dev8
+dcb1134304d622cfdcaddbcd3f71c4e3a97347e1,2024-05-22T16:44:59-07:00,update: added sub component detail locations
+a93070f6352c9eb763270ef9c7518e4dbc3afd12,2024-05-17T14:04:00-07:00,version: 0.3.13.dev7
+f4378e709f90580556510652e8a63f181f590d79,2024-05-17T14:03:52-07:00,update: catch omitted cmpt by header and alt header class
+fc7921423b0055685875dcd3fb3a984c4fbd397c,2024-05-17T14:03:25-07:00,update: extract alternative main and rhs layouts
+358add14ea3dbcdc6cd9ac07152c94dafee7cc5d,2024-05-17T14:02:46-07:00,version: 0.3.13.dev6
+e7565f7ce5d375ec4ab599f98880c3944467761c,2024-05-17T14:02:15-07:00,add: new footer parser
+edc7d9b2b77cc4ce151111b32b4741f40367be9b,2024-05-17T14:00:27-07:00,fix: twitter cmpt classifier
+f8c7440b0ef06fc7114406927fcfe89c9e8316c3,2024-05-15T16:31:21-07:00,version: 0.3.13.dev5
+2a4fc2e58f4accaa4ba1d622d98cf35f17b4e46a,2024-05-15T16:30:29-07:00,update: reorg functions
+c3dc29318d425aad5709ef971431b543324926d6,2024-05-15T16:17:35-07:00,fix: main classifier check not conditional on conditions
+fc025cf19752c951edd319012c79ecdfea94125f,2024-05-13T12:33:20-07:00,version: 0.3.13.dev4
+795d86246eaf3bc9e61bfe1a36f095e702ce171c,2024-05-13T10:42:04-07:00,"update: incorporate BaseResult, fallback to main in footer classifier"
+be2c7195263aa2a7dab71c43a9433a668ceb2c29,2024-05-13T10:41:05-07:00,update: drop unused functions
+93073a0d3168c43cc5b5dccb55357b2fc8cae797,2024-05-13T10:15:28-07:00,"update: footer classifiers cmpt conditions, searches related classifier"
+5c6f18d7d33631dead2305d84d7ab3cf2c08cde0,2024-05-13T10:12:17-07:00,version: 0.3.13.dev3
+27f0f50dd990d104d538196395f8b9906318261b,2024-05-13T10:09:55-07:00,update: more info in exception
+a0298ebb4ba9bde755a023a1af598f9b877d5521,2024-05-13T10:04:59-07:00,"update: type hints, return unknown"
+862e1c0690a5c73f8cde216566321558449973f7,2024-05-10T12:20:04-07:00,"fix: classify and parse general_subresult as general, needs sub_type in cmpt parser"
+e8205b9eb491bd91ddd709da464a180523776b25,2024-05-10T12:15:23-07:00,"update: utcnow deprecation, maintain naive utc timestamp"
+127e833c9cd5a87a96877c7b8551854d27395343,2024-05-09T14:11:55-07:00,update: run publish workflow after pr is closed
+9ebe3f5d6eb4aad5618b4d2fb8c1a63670aba3d5,2024-05-09T14:11:20-07:00,update: pytest json snapshots
+a77d48368684459a75d9d01b0d32cef38fcf11cb,2024-05-09T13:29:52-07:00,Merge pull request #55 from gitronald/dev
+2e555d775c39c082cf59cfcd679ff4c349d53ad2,2024-05-09T13:13:00-07:00,Bump to 0.3.12
+3828f18e6507bfbd7fcca0e003caa18d6ca02446,2024-05-09T13:11:01-07:00,update: use raw string to resolve DeprecationWarning: invalid escape sequence
+a34784eb0ca785c77591a5a261375b75d3294324,2024-05-09T13:08:22-07:00,update: pkg_resources is depracated
+a6ebc630f7cb2c7be3ed24809b666084accdc757,2024-05-09T13:07:56-07:00,"update: cleanup functions, add option to filter empty link divs"
+9ddeac94bf96b489f586721dc4331ad31eb5646a,2024-05-09T13:04:57-07:00,add: num_results arg to main search to control results per page 0-100 (#54)
+5658a0458af991783504007a12800e01f92b6251,2024-05-09T00:51:36-07:00,update: local results text and labels
+6944dbdae334245a6a8beb82cd8d3f56aa017dd3,2024-05-09T00:50:00-07:00,update: more searches_related coverage
+fcd17400a4ec0c04340ecb7f49b053622a494a69,2024-05-09T00:48:22-07:00,update: filter hidden survey in extractors
+8be7cc0b385e0637c97551a6aec24c77697128bb,2024-05-08T14:46:41-07:00,update: reorg component extractor functions
+4f59707bea91879424c30ad11deb453e5f68e17a,2024-05-08T14:44:19-07:00,update: easier to extract ad label
+fa4f2a819baa56c6bf0f6ccbbffd5b74d7b57561,2024-05-08T09:19:42-07:00,Merge pull request #52 from gitronald/dev
+7dc560d0a7133e74b0c948a7a3b3c405125a8590,2024-05-08T09:12:09-07:00,Bump to 0.3.11
+abf91bab86af0e357d6d9fe1c240252967cb2799,2024-05-08T09:08:08-07:00,update: v0.3.11.dev2
+31a472fae11a87cc8ef3472ba89ca35cca04f7da,2024-05-08T09:07:41-07:00,add: parser for 'Discussions and forums' components
+49c0ad5ca54bca34e9a645754e532cd176a982f8,2024-05-08T08:45:00-07:00,update: v0.3.11.dev1
+ba44007288bf71015130663d83b3627308d88ab8,2024-05-08T08:43:20-07:00,"fix: catch ad text, add label parsing, add type hints, use model validation"
+8a88eaac62067b6b974456c5c578c56e7f5a28a6,2024-05-08T08:38:36-07:00,"update: clean up extractors, add type hints, check if already soup in parsers"
+e846b02f3ac6321f1e6ce7eba7203de65bb882f0,2024-05-06T11:55:54-07:00,Merge branch 'master' into dev
+b1acf2831a737f5ea076a34e6caa88c37166ca03,2024-05-06T11:35:52-07:00,Merge dev (#51)
+54594c3444116b5ffb2d3c11b83ddcbd3646b9bb,2024-05-06T11:34:07-07:00,Bump to 0.3.10
+f4c8cd694f9774e48aeae5427adc3e099930a2d8,2024-05-06T11:33:27-07:00,"update: move location guide to gist, changelog"
+5568d44b9d895162244b2beb4cd46465abc43b36,2024-05-06T11:00:28-07:00,update: more documentation
+cc5517eb4485889745ba736620cc2663a30e65db,2024-05-06T10:58:48-07:00,update: demo scripts
+399f53e77c1c802c0e759d6b8e86dca744b9b68e,2024-05-05T16:02:27-07:00,update: conditions for classifying type images
+b51d395f7fc16971f6fa147066792cd8404c8fc9,2024-05-05T15:53:08-07:00,"update: better error null handling, validate data after parse"
+c9123abf56979bb1e81c8b26658923a707e05298,2024-05-05T15:52:02-07:00,cleanup: old model attribute
+005b8c90b363aad1b9d6fdbe6dee016706018500,2024-05-05T15:51:05-07:00,"update: reorder component parser imports, make infile imports more explicit"
+fdf68be3cbcc31addf1d9814349ef8346690d33a,2024-05-05T15:47:53-07:00,update: exportable header text mappings
+949e6d7f49adfc107b80a0a95c1a61051f6312a6,2024-05-05T12:51:07-07:00,update: brotli unzip in load html
+ecb96a6386f9325fc03aee89625fb12d2f69e186,2024-04-24T12:26:50-07:00,Merge branch 'master' into dev
+031eb062743840eb5bf0b3fe58fa6c2f21de45bf,2024-04-24T12:26:38-07:00,update: latest checkout and setup-python versions
+d1c7e9140709695ee4e4f047fb11dc7f0effaabf,2024-04-24T12:23:40-07:00,build(deps): bump idna from 2.10 to 3.7 (#50)
+c3d190994757617dc8246ba9488667c7c82d91b1,2024-03-10T13:50:08-07:00,update: latest checkout and setup-python versions
+3c34500a46342cb05695a23912f06b1ecd80ace6,2024-02-25T19:32:13-08:00,Bump to 0.3.9
+0eea819d75db99781daabe0eae2871df2613c439,2024-02-25T19:20:08-08:00,update: return first known divs structure
+1f222cb4c82a8065cf111ec7b050e2ecf12e5386,2024-02-25T19:19:32-08:00,fix: use attrs dict attribute
+9524222346e405f619a4956da78a43798bc89ec5,2024-02-13T01:52:14-08:00,Bump to 0.3.8
+5c96222efad39f8dcfb0ac4e5a331da69551ea7a,2024-02-13T01:50:10-08:00,update: serp data model
+a9397b3d014c8e418548f7b8f5e9ad07247f61f4,2024-02-13T01:49:57-08:00,update: locations demo
+d0b1f22503629ce3ee002101da32c3327635aa2d,2024-02-13T01:40:26-08:00,"update: reorg, better init"
+5d84bfce19e26ddd6a2e1869829314fa7fa804ce,2024-02-09T13:55:34-08:00,add: pip publishing workflow
+592143d35356dd62ced2964648bb4055cea12236,2024-02-09T13:46:14-08:00,Merge branch 'master' into dev
+b08d0406e2973bd259fe89bee9698eb36d408a85,2024-02-09T13:26:53-08:00,Bump to 0.3.7 (#49)
+b9fe60d54400fa1dfaef13835b65a357d0eacf45,2024-02-09T13:12:48-08:00,Bump to 0.3.7
+06fea4cb76f124b873027e28276d50c13076a0bb,2024-02-09T13:10:39-08:00,"update: better setup, single version number"
+76e2c7810d440ae589710a79fedc844494a50bca,2024-02-09T13:10:17-08:00,update: documentation
+ed449c138fd65c3173c7010a7d075bb0a7ad4c11,2024-02-09T13:09:19-08:00,update: add version number to output
+cdf8f99bf9d07fcfd66345e25b19cb18a16e6b08,2024-02-09T13:08:35-08:00,update: demo scripts
+511b0b2f29eb7db4ab333dcddbf80776a36e4548,2024-02-09T13:08:19-08:00,"fix: locations downloader, filter null urls"
+245b5784bb632263e4498a33d9d68ea28c4d6e60,2024-02-09T13:06:46-08:00,"fix: don't urlencode uule, doh"
+2e08370b5c0c2a8eb20a7232017dbd292763abb2,2024-02-09T10:32:14-08:00,Merge remote-tracking branch 'origin/2024-fixes' into dev
+0ec584bd2fda06edf9bc24017e5c0c3403d8582e,2024-02-02T17:12:54-05:00,styling: fix double quotes
+4fdcdcb11be4916ff0b271c4cecec3fefbc4e0ae,2024-02-02T17:04:33-05:00,small fixes for 2023/24 data. consolidate some fields.
+adccc2b75b234d1aab4b882f661ad42ccc3f3305,2024-01-30T12:22:38-08:00,update: small improvements
+b022fcb8e9f24822b525e2004aaaf12837e7b8fe,2024-01-14T14:22:28-08:00,update: latest image subtypes
+f7dc18e8e6a45088bf91b3a1bb338b9e8e505a1e,2024-01-14T14:22:03-08:00,update: type check
+2bf68db7b22c99d3acad87e7989ee761c1796d6e,2024-01-14T14:21:52-08:00,fix: classify order
+65181766cc1d114eb9a0e85d52ab4ed6f182e4f8,2024-01-14T14:21:21-08:00,update: append rhs cmpts to the end of the results
+acda01d5bf9285384b54d39fe2dbd0692cc8360b,2024-01-14T14:20:06-08:00,update: add joined list as text
+567cc2f1a3f067f52acacdb42e1b05217d3b9a3b,2024-01-14T14:19:40-08:00,"add: standalone searches_related, better coverage, join text"
+b4fcb9fe4d140cd62d55f1374721a51ffed3281e,2024-01-14T14:18:55-08:00,update: better type name for omitted results notice
+1b3592660621c5518c00976906afd77f8ca6eb6c,2024-01-11T06:02:39-08:00,Merge branch 'misc' into dev
+64218382da24547d31914a497c591d4224c44645,2024-01-11T06:02:19-08:00,update: model column comments
+c3e781f050265a2d7e3e59edcf7f2ef45a20b391,2024-01-11T06:00:38-08:00,fix: missing model dump
+0dc317ef7f8d6d2124a0c5dcbcfbb0ab74f46e27,2024-01-11T06:00:20-08:00,"fix: initialize column, pass soup to no rso extractor"
+9e3aa983f1deb5dbd9fe2632d3eb4db9d9d75c89,2024-01-11T05:59:20-08:00,update: docs and cleanup
+f9f6296b8bc09d0fdf991990738c0c6d165f6ce1,2023-12-08T11:27:34-08:00,Merge branch 'master' into dev
+f18d32ef5893a316246ed77190187302c8086fc8,2023-12-08T11:26:37-08:00,Bump to 0.3.6
+a326c345396198a3eeee541eb1ffaea29a128089,2023-12-08T11:21:54-08:00,"latest updates - more pydantic, better parsing, extractors, layout assessment (#46)"
+3e1d70f45bfbc77f1a762622bb3c07c8685a846f,2023-12-08T11:03:42-08:00,Merge branch 'localized-serps' into dev
+22d607fea7471371dae079df34bca3fcc8cab299,2023-12-06T17:18:27-08:00,"update: use model, catch no results message"
+bf2f2986aa4c46c0ece57270b6a0458375248b76,2023-12-06T16:47:58-08:00,update: more title div classes
+d5f0240ae3e7ddb326e0ba782b9571d1bc94af21,2023-12-06T16:47:40-08:00,update: consistent sub_type key
+aeac6fccca60c449036e22c9189f06c0147033f1,2023-12-06T12:50:54-08:00,update: new empty paa class
+a5a99b24b4f9bcfddb27c8633e98624accd82dda,2023-12-06T12:50:15-08:00,update: default to INFO logging
+1f91096cf98aeef0d4a7f6a3118ad0759ab3d509,2023-12-04T14:41:24-08:00,add: local results class
+b36a4f3f2249da3cdbb84a7a4a80f9ee5ebbbdc2,2023-12-04T13:57:24-08:00,update: simpler write_lines
+a608068bf14ec0aca8d7126486b1352e9f8709d8,2023-12-04T13:57:06-08:00,add: BaseSERP model for data consistency/validation
+dea794034d977e790dd0430e54e4e04916e8610f,2023-12-04T13:53:30-08:00,update: include alternate top bar
+8679c9a11832b8b10f047b34c3a458e6d6f8838f,2023-12-04T13:04:16-08:00,"update: docs, cleanup"
+5d037d189598639bcfab6783c681993dc9710890,2023-12-04T13:02:18-08:00,"update: no queries in filenames, bad idea"
+4e67399c879081c872ee590a2eadc81fa9073ed4,2023-12-04T13:01:16-08:00,update: move hash_id to utils
+5aed15daf7d5492e99e6e858ad49e9556f557629,2023-12-04T12:58:47-08:00,update: demo scripts
+2607d15a8b22e36eedc27463ff6702c8492efcf3,2023-12-04T11:49:41-08:00,"update: layout detection, handle top-bar formats"
+3444a176945061444dc4bb1bdce28fa1741167ea,2023-12-04T11:46:09-08:00,update: more logger args and docs
+ec3270a354cf7982f93bece74d335c2c1de9893a,2023-12-04T09:58:55-08:00,update: clearer layout handling
+5255e71b9a01e9b5e45e3e82bf6c1e463049a6b4,2023-11-20T14:20:24-08:00,"Update extractors in new file, more model usage, logging defaults (#45)"
+636f01d6c491ddf63a5a26853b625910be36ff44,2023-11-20T14:16:56-08:00,Bump to 0.3.5
+4960db82ec9e99b49ae17298e06404659c881989,2023-11-20T14:15:47-08:00,update: switch main init to .extractors
+0c28f1b6ed15c0e1f44b7cae2dcc04803ef6d926,2023-11-20T14:11:31-08:00,update: include parse lang in webutils
+71d50fb84afeef15af72a04cdb81edba63739c66,2023-11-20T14:11:14-08:00,update: additional video div class
+06897d7e29db13666e5ba8f04331f14c318b3076,2023-11-20T14:10:45-08:00,add: local news wrapper for top stories
+8d98f6fc26f0a47e3c070c8f54d35ad3ee6b0e09,2023-11-20T14:10:20-08:00,update: handle layout shift extraction
+d13ffcfe6ac60ee8e0d7637ebf54f44a70f1b11c,2023-11-20T14:09:32-08:00,update: use models in main parsers
+6ae344d184de1895d8bba0f3c74f95c2f6f6972c,2023-11-20T12:31:38-08:00,"update: keep only text ppa suggestions, need selenium for more"
+d9fcf91893805cd91ed492d6cdfa66a0dd8aa795,2023-11-20T12:29:58-08:00,update: extractors in new file
+7bfa95f6b0322399b354c701c1aeaeff1be303a4,2023-11-20T12:12:32-08:00,Merge branch 'logs' into dev
+a326820aadd6d1ee4d9bae2e33a12f22dc4ed6bc,2023-11-20T12:12:22-08:00,update: turn off console log if log file provided
+6ed388088fe9e647ba76afc5ad22d166eef0d23e,2023-11-19T14:09:05-08:00,Merge branch 'master' into dev
+491d60593daa0273856b3de890b7486472cb4a8b,2023-11-19T14:06:49-08:00,"Update parsers and extractors, add empty component filtering (#44)"
+552b7b2eca7020ea5efda1e92542ceb6baf8e293,2023-11-19T14:00:03-08:00,Bump to 0.3.4
+5a0ec9845f4305dfe1555a94b1d225600fd89c34,2023-11-19T13:53:39-08:00,fix: convert filter to list for empty check
+92e369c767a45c90df3975929f039b362b477fa4,2023-11-19T13:53:18-08:00,update: account for vertical top stories
+fe04153191d474860608e2ef8aa14e5766d1404c,2023-11-19T13:52:51-08:00,update: grab children of blank div in main column
+12e02e6234e5b76c5d125f560b070b41d5cc9273,2023-11-19T13:51:54-08:00,update: classify knowledge components before general
+2eb8097c7660002755e9033e047c5d6990b2f796,2023-11-17T16:51:18-08:00,"add: filter-notice, filter hidden footer cmpts"
+336f7c7fdd561529a6c83be32a6090448265ac7b,2023-11-17T16:49:52-08:00,"update: minimal serp attrs, ignore hidden surveys"
+2dd8b953c834b61851d5fd56e950592a5ce59b15,2023-11-17T16:12:07-08:00,"update: use models, modern SERPs"
+f33807ae8bbf62ca341acdfadbb41cf80fa8952e,2023-11-17T16:11:53-08:00,update: classifier for map and local
+473f1e085cf297871376a8effb123035f8682fdd,2023-11-17T13:47:52-08:00,update: optional ID attrs at result level
+ca88068a2e0660f9754bc3d51e1246f61ac86516,2023-11-17T13:40:55-08:00,update: limit details
+1ddae936fd857b73ba4bf50b8a1238d84c660c4c,2023-11-17T13:35:22-08:00,"update: use models, current SERPs"
+6aa11b6842a4f9edbc8a0bf9ce62c98f4d99d85c,2023-11-17T13:35:06-08:00,"fix: tw card classifying, better header classifier"
+ac0c2fb7538d2bb24879cff84e0a6ad75b40ed79,2023-11-17T12:38:45-08:00,Bump to 0.3.3
+2dc1d90ea554c6545b159e8c45e18a7a918818c0,2023-11-17T11:49:55-08:00,"update: use models, limit details, recent SERPs"
+9f991c25b93753a551019a3a695416e40436ecc7,2023-11-17T11:41:35-08:00,"update: filter out hidden footer components, usually PAA"
+486c509ac09c246db81d159f0e2b54e203f76ab9,2023-11-17T11:40:44-08:00,"update: use models, limit details, recent SERPs"
+64d01fa88b3a808a80f63879068d4b562e674a2b,2023-11-17T10:44:24-08:00,"update: people also ask, use model"
+a24b21dc0b961a0cbc4481caa6b44f5aeff83401,2023-11-17T10:42:52-08:00,add: standalone models file
+465f24cacd8825e1405bf0251acf9c1284628c06,2023-11-17T10:40:49-08:00,update: parse 'complementary results' with general
+5712bf5680abea024169e3ea5cf19083d9ce6a92,2023-11-15T15:10:48-08:00,fix: use no attrs safe get_link
+e6dece877cfc72d6ea5e3a5c2c216b42972c9949,2023-11-15T14:06:47-08:00,fix: optional parsed values
+47147998d8ed5fb83020762b175ebb0356f4c00b,2023-11-15T12:28:16-08:00,"update: consistent args,docs in html parsing utils"
+7a23df9d7c87ab21930789cec9edde635e6bcc39,2023-11-15T12:20:26-08:00,add: general result with video sub type
+78a592272e571cd26cf20a92b8675c5d3423a120,2023-11-15T12:19:23-08:00,"update: use model, no timestamp, sub_type funcs"
+7e1b2cdcc2e8acc1b90cb17c0532ae102c802793,2023-11-14T02:54:55-08:00,Merge branch 'master' into dev
+8243c12649a1b48debc99a14d44438adc77fd886,2023-11-14T02:50:21-08:00,Merge cherry-picked commits from https://github.com/gitronald/WebSearcher/pull/33 (#43)
+5dfc9c9a763be373570119ac423d33d4fed9f462,2023-11-14T02:46:51-08:00,"update: removed load_serp, see load_html in ws.webutils"
+4a1e6c3cc9c65ba21c822b27f8e025e719fcf735,2023-11-14T02:44:24-08:00,Add function to load external html files
+51b07c42c50aac602f5e8a02cf5beb88bf5063da,2023-11-14T02:43:58-08:00,Replace dummy package bs4 with official name
+46304ad98218505a8b40f7d02eb000064113062e,2023-11-14T02:25:37-08:00,Merge branch 'master' into dev
+f9692d9d9aaf419d2efe576c033757a972f82dd9,2023-11-14T02:11:52-08:00,build(deps): bump urllib3 from 1.26.17 to 1.26.18 (#41)
+91f9e35f9b1312d14bfe3b2de1c78eeed148e401,2023-11-14T02:10:41-08:00,Bump to 0.3.2 (#42)
+1d5557e86fe6e4039e32b54000ef0b165fde3f7c,2023-11-14T02:08:33-08:00,Bump to 0.3.2
+80841e4207b3051827f514abe1914eb7a786ceec,2023-11-14T02:01:45-08:00,update: modularized component classifier
+356c979e3992043e4594cc94ff3c633cce8a128e,2023-11-14T02:01:09-08:00,fix: filter empty rso component
+31d6e7fe3dcf585883ca9c73081080cc08a4227d,2023-11-14T02:00:52-08:00,fix: nonetype has no attrs; ignore if no img
+f0e0d2b8477f5b3161c061901a3245510b62869d,2023-11-14T01:59:50-08:00,"fix: return model as dict, require pydantic"
+e98ed72efcd5141fa4e7e0c485c5aabfa4f50d13,2023-11-14T00:15:01-08:00,add: banner component parser
+85772be64bb6b112b78c0c5ebf6e30cb973b824f,2023-11-14T00:12:53-08:00,update: component classifier functions
+bd9f9e49053a69bc0adcb3b182419a041c4b4eac,2023-10-16T17:25:27-07:00,Bump to 0.3.1
+b2a540a4b6709bee5fd086442d9fe4074c57316b,2023-10-16T17:23:29-07:00,"update: clean, list serp metadata keys kept, add crawl_id arg"
+8f974fbf838c302a3f6969ba9026755c178ba536,2023-10-16T17:22:42-07:00,update: let requests handle query parameter encoding
+28bc83b0b937553ed5a4e144a251796a6fb5ba3f,2023-10-16T15:30:25-07:00,Bump to 0.3.0
+9b931af0302ebc1a5581e279bb4bcb2cfcfca158,2023-10-16T15:28:36-07:00,update: modernize user agent string
+d6d46f07cff7c0af8cc65e81eaa49258cb3d1238,2023-10-16T15:21:30-07:00,update: include demo for using custom headers
+0cfa0c989b65cf8d913bf96113557377853799b8,2023-10-16T14:13:17-07:00,"update: use save_serp, better default filenames"
+881cd279d025da1ecc3fff7463fb538ad27a06ef,2023-10-16T14:00:37-07:00,update: move indiv. result collector
+6085e4d8891bdfdef7b32b3f7471b466fbccc4c1,2023-10-16T13:44:07-07:00,build(deps): bump urllib3 from 1.26.5 to 1.26.17 (#40)
+7f35983817dba46a4c0b788043ab52eeafc95b96,2023-10-16T13:43:36-07:00,build(deps): bump certifi from 2022.12.7 to 2023.7.22 (#39)
+f5ec0d7899ca04696a955820f04ffc825801abaa,2023-10-16T13:40:15-07:00,update: test with ws.parse_serp
+e50bd769709c29961049f8d997e0c9ff00733b48,2023-10-16T13:38:01-07:00,update: can use ws.parse_serp
+6499d538246a4fdadec6983130df4a8976db1a62,2023-10-16T13:37:00-07:00,update: now using headers dict in SearchEngine
+09722184941629d42cf25ba8f30c4c9f7cef448f,2023-10-13T14:10:39-07:00,Bump to 2023.03.22
+07e2b64831ff54dbb17ce2937bfaa3f31b77d84a,2023-10-13T14:04:28-07:00,reorg: footer parser
+032c3d9c2ec84383fae258dfc72e72876336a19e,2023-10-13T14:04:06-07:00,add: catch indented general subresults
+7e04755ea4562949e7b7a0391e1d10f8eeead075,2023-07-13T09:24:56-07:00,fix: top stories subcomponent filtering
+e22eeca3f8d1c8f8dfb95733d743966fc063e8ff,2023-07-07T08:29:40-07:00,2023.05.19 / post-review (#37)
+3c8955e250308edde8bd2791f824dbf09900acd3,2023-06-20T16:58:21-07:00,Bump to 2022.07.08-a
+0b1286c64d08f87e6ffa680d463b2eccea56b9bb,2023-06-20T16:56:30-07:00,fix: parse missing top story subcomponents
+6e071a740ec9d7433ffbe8de34f9b977c98defa7,2023-06-20T16:55:52-07:00,update: detect missing general results
+6d9b9e46506b61319b0640251d38da1099df25d2,2023-06-20T11:08:37-07:00,Merge branch 'master' into dev
+ab9da6e992a0204304cbfe5816bb8dc385e98b0b,2023-06-09T08:35:46-07:00,build(deps): bump requests from 2.25.1 to 2.31.0 (#36)
+3019c9c07f14321f56ab0aed89df31f5d77a2bb6,2023-05-16T09:30:27-07:00,Update to version 2023.01.27-d (#34)
+a8d93a5865dc59f6b6a5e1fc1dd5d95c43f14618,2023-04-10T19:24:27-07:00,Bump to 2023.01.27-d
+13a00e4e28af4fce145dfb4b9c35a9afae2d86c5,2023-04-10T19:23:58-07:00,Bump to 2023.01.27-c
+2ec95b3abcf3ab8b620609b355daba10031b3f95,2023-04-10T19:20:01-07:00,fix: handle zipped geotargets file
+3bd36569c7af01097a94713bf6c80519f5d0155b,2023-04-10T19:18:33-07:00,update: consistent img cards component label
+c46f499a1fcac5d68f187eb3151dbdd9cb06eaa8,2023-03-27T15:32:11-07:00,Bump to 2023.01.27-b
+ca914b1c9e2aabb421f3bc2ce42d263fe63e3111,2023-03-27T15:19:38-07:00,update: set serp id and attributes once
+7b0028fe1f5333a688ed9224421bc347c348740d,2023-03-27T12:21:02-07:00,update: get general text
+d67f1f157f2f0900201a8055b6e004a7c6bdc044,2023-03-27T12:20:38-07:00,add: perspectives parser
+fcc95f82dba9dd90ec3b46f61d16285eb85a9deb,2023-03-27T11:26:46-07:00,"update: reorder header dicts by key, alphabetical"
+b7755ce525d0faa9c1cd75561206b4715e8b998e,2023-03-27T11:24:50-07:00,"fix: top stories update, added find_children util"
+bab701995ddc93ee39bbcd3f0da900df3a3b3a27,2023-03-27T08:05:21-07:00,"fix: top stories in h2 text, handle no subcmpts"
+a0d01d6c51466a587b54a27d63d05e802b2b13c8,2023-03-27T07:26:38-07:00,fix: handle no footer components found
+4b06a55e70fcf89ca78fe5cf7d9cabc7890cd8b3,2023-03-27T06:16:33-07:00,fix: check dict value with function
+2da519cf32f747603125a80a444e01864253f229,2023-03-25T13:01:53-07:00,update: test scripts
+c1b480a312522b0c95b28defb87243de05415cba,2023-03-25T13:01:25-07:00,update: clean up gitignore
+e9f9286feb3668c28d2b66acf2beaaa6108b4c0d,2023-03-25T12:28:02-07:00,Bump to 2023.01.27-a
+2036610392be11c1523c05ae802c42ede6ea3368,2023-03-25T12:20:37-07:00,update: manual versioning
+8cee6badfe2e0ff31f73843c728391d7cee4ca62,2023-03-25T12:14:24-07:00,update: handle no local result subcomponents
+ce6249ea0d48d28e08b686daa62416f3fab8988d,2023-03-25T12:09:18-07:00,update: handle main cmpts in footer
+5e7a8c164d52bd898bcb4be0957a95765bdfb4d3,2023-03-25T12:03:27-07:00,"update: classifier, new and unimplemented types"
+1efdc35df7598724c74afa5e5671d7262555b589,2023-02-15T11:46:23-08:00,"update: handle expanded footer components, comments"
+41f947ebf1081c7f847f70e4d52a627deb90a7b8,2023-02-14T17:16:26-08:00,update: combine header functions
+b94710f8222f0b0de8f49c78e956a2db77b05e82,2023-01-09T20:25:32-08:00,Bump to 2023.01.06
+89cf47c0349dda4b5186cd903b1f295f6cc24204,2023-01-09T20:21:51-08:00,update: people also ask classifier and parser
+7c4210e653063d18501ee3d9385ebcec5f55fde4,2023-01-04T15:18:25-08:00,Merge branch 'dev'
+b43b170cddef2a104ed84c7c51636a0134aa220e,2023-01-04T15:14:31-08:00,ad parser fixes and updates (#32)
+3f601f09d3a371d8b0b791a34eb9347dfd1db824,2023-01-04T14:52:40-08:00,Bump to 2023.01.04
+5caff9a46d798c4fd367087e4aead83d09545c71,2023-01-04T14:49:50-08:00,"add: ad menu parser, import webutils"
+80343c126fff058c2a153d6d2323fd12c4acec12,2023-01-04T14:49:10-08:00,update: import webutils
+b3558ad0871ee5ad336e06a0fc9aaab78e7781fa,2023-01-04T14:48:50-08:00,add: utils to check dicts and retrive bs4 text or urls
+d9a1eef8b9e9da42124efa3136ad21129183ddf3,2023-01-04T11:29:28-08:00,Merge branch 'dev' of https://github.com/gitronald/WebSearcher into dev
+e15add8d659781a4d7df5a052b65bff74c62bf1d,2023-01-04T11:28:18-08:00,fix: ad url parsing
+9f3db7f13d9953ac775db91fcbd25000a042de01,2023-01-04T11:25:43-08:00,fix: ad url parsing
+a88228a038974c707a9fe88ac724c53f6ef4b9b8,2022-12-21T10:13:57-08:00,Merge branch 'master' of https://github.com/gitronald/WebSearcher
+71b51227cee68aefa4dc4e4d9cac6d5b06a47f36,2022-12-21T10:11:39-08:00,merge remote
+a4735128eecbb7062a8f85ad97f27220b99f5490,2022-12-21T10:06:29-08:00,Bump to 2022.12.18
+9a28c015207e9e1e3a0826735446e173fc08b1f9,2022-12-21T10:04:05-08:00,"update: readme edits, toc update"
+e6664743d3b13f74b0bb994d38f2309f4b7267f3,2022-12-21T09:44:45-08:00,fix: check if list is empty
+9dc2eee350a56e6594bf2a1d12186b724cda0f44,2022-12-19T22:46:35-08:00,update: general classifier
+c495d0d50445203a7e2eaaee181c3ea366562ae5,2022-12-19T22:45:26-08:00,Bump to 2020.0.0
+fc204729c50aaff9d679b1b63924ab0e56d87af0,2022-12-19T22:45:04-08:00,update: toml for new readme
+7f9848a1bea8b1832ee9ed7b85cab7b1331778be,2022-12-19T22:44:10-08:00,update: readme note edit
+00244e17e5762cadd861b54cb4c9ffe27c7519ab,2022-12-19T22:02:57-08:00,"update: versioning change note, move recent changes"
+d5c258da25bc2343330e32f9a4d83a31b9cce9eb,2022-12-19T21:40:18-08:00,update: version numbering and files
+11f5d5658fc142c23057574f62588321b86449cb,2022-12-19T18:11:57-08:00,add: switching to tbump
+a898abde751759ba5c10461a6faaa9a0170085df,2022-12-19T18:05:39-08:00,update: ignore annoying dropbox file
+c507f57a210688d22b066ec403598a2c3fad3e86,2022-12-12T09:50:07-08:00,build(deps): bump certifi from 2020.12.5 to 2022.12.7 (#31)
+d91e863f829eae040477114608dd8ef7e0691a27,2022-12-06T01:31:33-08:00,"add: functions for complicated classifiers, additional header text checks"
+2762f72ee43cb2f6f3714f9769906ee8f33d56c7,2022-12-05T21:15:39-08:00,Merge branch 'dev' of https://github.com/gitronald/WebSearcher into dev
+e8a0235b287e0ea96ebc62bf6ad6e181fb69f916,2022-12-05T21:15:33-08:00,"update: ignore workspace, script comment"
+74f7e11b0f26f0d7e820629c2d15ca2a4e07184b,2022-11-17T08:10:10-08:00,Shopping ads (#29) (#30)
+5d33c287303a883f67eb6d058235c95b5b8bd078,2022-11-17T08:09:39-08:00,Shopping ads (#29)
+db58e0a6040c0d553294e9fc81f0c683c590a71d,2022-08-23T22:41:08-07:00,Merge remote-tracking branch 'origin/shopping-ads' into dev
+bf9872f9f18c5235714c5e45868d9d754cc72658,2022-08-23T22:38:55-07:00,Merge branch 'master' into dev
+46c83a2bbd177691b493e5c858217d74704a138b,2022-07-27T13:17:42-07:00,New Types (e.g. shopping_ads) (#26) (#28)
+324fb328ceb1eb2839841644aa28adde93afd792,2022-07-27T13:16:52-07:00,New Types (e.g. shopping_ads) (#26)
+3ccb777ace10f7b60beab04c750b59c3b8b5bd48,2022-07-27T13:14:46-07:00,build(deps): bump lxml from 4.6.5 to 4.9.1 (#27)
+5689a31b5ca5d4fbf7342f585ca24255ba8057b4,2022-05-27T18:24:17-04:00,Bump version: 0.2.13 → 0.2.14
+b2a58edd17b5cefbb192fa699a83178152e4b5ea,2022-05-27T18:23:20-04:00,update chanelog
+a11dbdede2a4dd6a11cb5e59b8cc0e36fe425a32,2022-05-27T18:13:25-04:00,small fix for general subtype with ratings
+e6a7da2d68a09a6ca7c5621f5def79bad42a2809,2022-05-27T18:11:24-04:00,"add shopping ads carousel, small fix for top image carousel"
+98444ca262846eedc68e82ade5dc0fcc12ba1ead,2022-05-27T18:10:33-04:00,"add knowledge subtypes: flights, hotels, events"
+1622fee8f689f987135af3de99536114c24e20d9,2022-02-17T11:26:13-08:00,Jg/dev (#24)
+e9cd095e6a9050c7784cc7dd7197781463e208c8,2021-12-17T15:23:25-08:00,Bump version: 0.2.11 → 0.2.12
+45712015852b297bec2727a3e65efa737aeb4679,2021-12-17T15:13:40-08:00,update: unzip html by default
+7b8acd9a2282684109f1916ecec415bb4ec14f13,2021-12-17T14:35:11-08:00,update: external module check
+27a6850e30b29c13bb6434dbf66b2f749ea9f8d9,2021-12-17T14:24:58-08:00,fix: cleanup merge artifacts
+78923686f0664d3ca780de5413ae193bb91a8beb,2021-12-17T13:38:06-08:00,merge: dev branch
+e28dccd68c43104470c4ae3f0a6dd3bb15ad02fb,2021-12-17T13:31:31-08:00,build(deps): bump lxml from 4.6.3 to 4.6.5 (#22)
+998421cce99df3e37019189119b4a2622b5e8ce2,2021-12-17T13:29:45-08:00,"update: save locations in new dir, mkdir if none"
+f8a6ae540f86d74f8961edad9ec4711484e46ff8,2021-11-15T10:04:50-08:00,Bump version: 0.2.10 → 0.2.11
+ed17784f124481de979e6d2778c6e20586bdf522,2021-11-15T10:00:29-08:00,update: changelog
+c419f2a18113a5dd6ec6300eb389c39221b0b2a8,2021-11-15T09:50:18-08:00,fix: return joined item list in general extra
+b4d96c1f294f40f1a6c8fd6ec8693422665c9851,2021-11-15T09:49:34-08:00,fix: handle no details div in local results
+9b9f4c6736cb61a631569cfa478d4f32b09e2cd2,2021-11-15T09:29:01-08:00,Merge branch 'dev' of https://github.com/gitronald/WebSearcher into dev
+c34d6da901e2ebafa5071c3da0b96b144c1375ca,2021-11-15T09:28:37-08:00,update: ignore notebooks dir
+bb32cba62b5a14096de18747a9969d92fb323bcf,2021-11-15T09:27:20-08:00,Jg/dev (#19) (#20)
+e4480ac021b90e56ed1c66b84a0e4b95c60de4ce,2021-11-15T09:26:16-08:00,Jg/dev (#19)
+73e47692d442265cb25c949abe6ef32771ef3f84,2021-10-21T11:39:12-07:00,update: merge requirements
+750d856274d809d77aa9aa926262f7f4f2f6d5c3,2021-05-19T09:36:57-04:00,merge: dev branch
+047d19260b8a4ba7684be6ecfa47681c8374d888,2021-05-19T09:24:44-04:00,"update: latest pkg dependencies, small readability fix"
+ca61d5cadf3a403e8a8d3c96d2d02a7cdc6681fa,2021-05-09T11:31:16-04:00,update: added function for handling missing div
+03b985fa980a8bf6788f0fbce63ee3b3d88fa585,2021-05-09T11:28:09-04:00,fix: repeat function define and doc
+3317e9d5305535598ff5b48abf31e341258b0e95,2021-05-08T16:59:53-04:00,Bump version: 0.2.8 → 0.2.9
+96c053fa1f221bc55e1738be792f9b93c6619042,2021-05-08T16:59:12-04:00,update: changelog
+5af9b8c2a8e32a10f6868beda66203d5ae18e82f,2021-05-08T16:54:40-04:00,update: catch footer components in main column
+8c90c76c272fca1d48cc0dab26208385ee98ea3b,2021-05-08T16:54:20-04:00,add: breakout main column code to new function
+8ecb90bc9482a85ae660b097ef05bf115e25d422,2021-05-08T16:53:43-04:00,update: zoom out on div grab for main section
+724d30aa409e1b5bfe7581cf9fade229ac8c3992,2021-05-08T16:52:06-04:00,update: use a more zoomed out div to id left side bar
+60a7f3a9d4f6bf39b829e4623b9d9b90022fc744,2021-05-08T16:50:54-04:00,add: include divs with 'view more' bottom link
+21f99ec0a7d1021dfd62323321515ffabe828cd0,2021-05-08T16:08:42-04:00,"add: adjustment for new cite and timestamp, changelog"
+8422e533011add2fc88d9a0c5b0295423db88022,2021-05-08T16:07:36-04:00,add: check for video 'key moments' interface
+130013bf44379b8a3e011c126981662f1de1d091,2021-05-08T16:05:05-04:00,add: new class 'VibNM' for finding subcomponents
+3767c145851f2c2fcab9b45161220fc8b10afaa1,2021-05-08T16:03:45-04:00,add: check non h2 header text with div class
+fe39f16dbc9e078aeba9a123d20c1671aa76c760,2021-05-03T11:09:59-04:00,Many small fixes (#16)
+f9dff77aa7b3ba58687ccdcf3d9051cd27197d23,2021-04-12T10:14:12-04:00,build(deps): bump lxml from 4.6.2 to 4.6.3 (#15)
+ddb2fed6e0aeb06dfbbf26cc7e281584b4d2b4d1,2021-03-17T11:26:29-04:00,Dev (#13)
+b64d3b8d5325c3942561ae50c2fc3cf92db1d4ee,2021-03-08T13:32:26-05:00,Bump version: 0.2.7 → 0.2.8
+b3618d0a0376f8acb0e656df437d78f9100af993,2021-03-08T13:31:15-05:00,update: more specific bumpversion replace string
+d2f6913f3d20388687035f943bc4c5b277e898b2,2021-03-08T13:14:25-05:00,update: requirements.txt
+3d156cf252454543b0598a0f9314ab44a6e11e5b,2021-03-08T13:13:47-05:00,fix: title and url parsing in general cmpts
+f11a5c6fe84a653aa97b07c59e0a02d48a52248a,2021-02-19T12:42:49-05:00,fix: general component urls
+2a4cecf4dea0762e30679e7f4fd43a91c4f3111f,2021-01-26T14:10:04-05:00,update: make brotli pkg optional
+aba2fd88ce204863fb6fb7172d47789a7e3153a0,2021-01-26T14:02:49-05:00,update: copy dictionary for unknown cmpts
+97e0fee3a8f4cc924f824cd473ebc03a93fa8cc9,2021-01-26T14:01:36-05:00,update: clean up main column parsing
+f727bb78862d3ad1e96dd658b8e7fb685806c9a6,2021-01-24T21:44:19-05:00,update: remove emoji requirement
+8b7ae5e55d13a6aedc9cfa06cf01bf7ff03441d8,2021-01-24T21:36:04-05:00,Merge branch 'dev' of https://github.com/gitronald/WebSearcher into dev
+f4ea3bb7a740b4a2597018de8d39af7cd5688b91,2021-01-24T21:34:38-05:00,removed emoji dependency  (#12)
+f07fdd0fcd21c13e99edf18e9e7881614531a559,2020-12-16T12:23:58-05:00,update: catch related searches footer with h3 text
+5e29fec4f82acf4d1621c04ffc64102da67caef1,2020-12-16T10:01:31-05:00,Merge branch 'dev' of https://github.com/gitronald/WebSearcher into dev
+2bffcc3b0629b4b08dffe19a78cdef5221a47876,2020-12-16T10:01:24-05:00,add: similar projects
+737103cb0adbcb74d850f1485992f14977e58f94,2020-12-16T09:52:19-05:00,Update news_quotes.py (#10)
+9ea42c8f520db63586bcc4be6d503c21bb8f84c9,2020-11-30T14:21:38-05:00,update: remove pandas requirements
+a5d98647489898b501d8be0284098dc74cff0412,2020-11-30T14:02:29-05:00,Merge branch 'dev'
+92aa93c687f67edeebbcf2ccc31fed140d8353b2,2020-11-30T13:53:26-05:00,remove: testing artifact
+4a93965376d8b9b34dea87b34bb80361118ad68a,2020-11-30T13:50:37-05:00,Bump version: 0.2.6 → 0.2.7
+e3b0565f846cb2b6e43392b6b1a3a1b37bcea393,2020-11-30T13:42:17-05:00,"update: drop unused url_table, use json from utils"
+05bd5e7d5f3fa38ceffc817bd78c91f5a1dc4bd2,2020-11-30T13:29:51-05:00,update: remove commented funcs and pd import
+952d93c95f514a42bbd243e76ad8e2a2323a30d2,2020-11-30T13:26:12-05:00,update: remove sql write functionality
+33291ada58d2f85f033edcf040c08d0aacfb3e28,2020-11-30T13:23:04-05:00,"update: uncomment result scraper, remove pandas"
+7cce5e5086b37bf46d795699aece5e4d30041a97,2020-11-30T12:37:31-05:00,update: clean loc download using csv and requests
+05dac0d2720d7f11f1d6a25c97e9cd2b34fa29a6,2020-11-30T11:57:38-05:00,remove: testing artifact
+d42bb0aefe4f1ab3d49aacd21ec2ce1c579feb91,2020-11-30T11:55:46-05:00,update: clean up component references
+16aed922b7d747bae4d4875852d59216d0ec2f47,2020-11-30T11:49:20-05:00,remove: testing artifact
+fb57e33d9ef87af1622a6ebcbd75e4ed04ec72ff,2020-11-30T11:48:18-05:00,"Revert ""Pandas remove (#7)"" (#9)"
+2d725aaed4a7d3c2c78b988c99eb1160c8f0acb3,2020-11-30T11:46:45-05:00,Merge branch 'master' into dev
+d4c7481745aa01050f6a1e4564c0e8d2a6186f08,2020-11-30T11:44:11-05:00,Pandas remove (#7)
+66288ad3057f9bac5e63ddee33e7f179c26271e4,2020-11-30T11:29:36-05:00,"update: init parsed dict, cleaner header handling"
+fcd336262421f09b1c718ffb2a4f2f9034ab1365,2020-11-30T11:09:46-05:00,remove: test.txt
+9b4e6cfd337cde7d636008d8282d5dcd91649518,2020-11-30T10:11:32-05:00,Merge pull request #6 from dzheng2019/dev
+d35b4c9fd0049eda74a34dde478d1dee024d04ce,2020-11-19T15:46:44-05:00,Update twitter_cards.py
+eaf4e2b1a62fea8e518e6657f4812609b7d9d5a1,2020-11-18T13:32:10-05:00,test
+bd8de42a638a35edebd4f81defb5e6a761600797,2020-11-18T11:17:38-05:00,Merge pull request #5 from dzheng2019/dev
+2555c2351edc619f8af6a8fab43235afc7a9934b,2020-11-15T16:34:10-05:00,added a checks to prevent key error
+e2f587ecf2342c39fa8a080a2a45bfd083dde8fc,2020-11-14T13:23:22-05:00,add: latest changes in README
+5d3b16d2223691ea1ee91e126e6dcd453c7a1296,2020-11-14T13:07:46-05:00,Bump version: 0.2.5 → 0.2.6
+e0c58e3d12a85b40d84fe218a4423db3c9fab21a,2020-11-14T13:06:55-05:00,Merge branch 'master' into dev
+655fe5696a10c8f49bb740a315c3c2af8f060309,2020-11-14T13:06:48-05:00,Merge branch 'ads_update' into dev
+d08f692cdd73c230185d2cb472a122b15c1c897c,2020-11-14T13:04:28-05:00,Merge branch 'ads_update'
+cb6f5ccc3fa37cfa571406c114bac870607f89b1,2020-11-14T13:04:04-05:00,update: drop pkgresources req
+b277c5f9476552aad0379895df22c357ee15ab5b,2020-11-14T13:03:27-05:00,update: ignore asyncio logger debug messages
+f2d7ee0c1e70624f3da8d706d993cad119c50db7,2020-11-14T13:01:15-05:00,"update: parse new ad format, maintain prior parser"
+c6f1940bd9c544db7777206db801ca9f62d6afbc,2020-11-01T16:28:14-05:00,updated parser
+0c24b2514069091ab37e40d40261725ede199737,2020-10-21T11:59:23-04:00,add: more similar projects
+43c73e35082b980985e5a053093a88884ff3424e,2020-07-24T12:35:30-04:00,Bump version: 0.2.4 → 0.2.5
+cc222b3de59c30da6a84c757def5791f7dc36b82,2020-07-24T12:31:39-04:00,"fix: query splitting, add base url, closes #3"
+e48b451d7b1bff8d38b509b8b32271c1ca70f72e,2020-06-22T11:33:04-04:00,Merge pull request #4 from sdmccabe/pathlib
+263f7e61f8f2c5e4e2dc3b5cb67239f1cbd89859,2020-06-10T21:30:24-04:00,Accept path-like inputs in utils.py
+44290f4bf3042cce6351830468e4586bb9e3c26a,2020-05-21T22:06:04-04:00,Merge pull request #2 from emmalurie/fix-knowledge-if-else
+24ac1eff88ea68cb8066a9bd7ae82ce7a158c005,2020-05-21T21:35:07-04:00,add: recent changes section with new version notes
+e2203f0f94427bc4858a5359fe0e4c49d3efcb3d,2020-05-21T20:59:31-04:00,Bump version: 0.2.3 → 0.2.4
+a65dd640c65855f5e5908d22687c8bc0eaf6aab0,2020-05-21T20:59:03-04:00,fix: footer details parser in searches related
+4d8ebac93c9cb2ee2f078df52065ae27747b9542,2020-05-21T14:45:00-04:00,Bump version: 0.2.2 → 0.2.3
+1fa0b305007685601f725797b852b1c3d451a293,2020-05-21T14:44:29-04:00,fix: filter out script and style tags
+c096cb11bc5778f495a2a2c0d9b79c50527de901,2020-05-21T14:43:59-04:00,fix: catch general components by class
+6cc1d71e80264fffbe6d6d89f743ea106ed70eb4,2020-05-21T14:22:07-04:00,fix: parse twitter card timestamp
+5204056a9530f1d49496dd9f85541120927030fc,2020-05-21T14:21:57-04:00,fix: parse general submenu
+5d361c404aa28bba2135a08fb4ce7c94d315eaa5,2020-05-21T14:21:34-04:00,fix: detect twitter
+b77646ddcedb2eca6100ca3f2e011a2d29a1a08a,2020-05-21T14:21:17-04:00,fix: main column parsing
+05529d2065286df6d0505e451b86f3997b4cd997,2020-05-13T21:44:22-04:00,changed if if else to if elif else
+9927046eb06570b8cc586e534cd6240dfcb6aa56,2020-04-22T20:41:59-04:00,remove excessive copyrights
+5788419144ab3c0e961571d96a0bf33c58ef2b83,2020-04-22T20:20:01-04:00,Update readme toc and license
+35245831c125b5ca0d75373b137db6303070c9e8,2020-04-22T20:08:01-04:00,fix for general component parser with new main col
+5d5b7e7871d39bf0ee5849a9cbd0e128cac2ce1d,2020-04-22T20:06:05-04:00,Fix write file to handle html string
+d4fc597c52e953dd9a7a80d47ca651ffe1bca6e3,2020-04-22T20:05:41-04:00,ignore notes and tests
+8d38ded7f1deef81e4f3a559ff9188036a019a55,2020-04-22T20:05:24-04:00,Update main column parsing
+430fbe9a9c3965c877392d8dc0b3075750b0e9ad,2020-04-14T18:46:22-04:00,Bump version: 0.2.1 → 0.2.2
+338f38f8a9d320e03fc3b8de32057ec49ac59001,2020-04-14T18:45:45-04:00,"Better id generator, force qry to string, exclude unzip arg in save"
+635d88091226642ddd72a9d855e987633fa3b951,2020-04-14T18:44:21-04:00,"log lang parse exception, less logging in parse"
+e881fb967ae3ae02da963002db16276c3f8445fb,2020-04-14T18:41:47-04:00,Print save location
+c999dfbe661280ef08798343eeb432f9f02908ac,2020-04-14T18:41:29-04:00,Update ignores
+013283322bc03d31182b750733f9e00d5b8aaa27,2020-03-10T16:39:30-04:00,Bump version: 0.2.0 → 0.2.1
+f52e0118c54f83cdfafc22ae8c7a2db45546b160,2020-03-10T16:37:34-04:00,"Set location as attribute, fix pd.datetime future warning"
+f34605d647d67f4b7ec60f20c74b96daadbd547b,2020-03-09T13:32:34-04:00,Add top stories div catch
+fcb9e91944d5cca26d43e68a99e43bf872749acf,2020-03-09T13:13:57-04:00,Merged
+254a1f641f22330c27af74ee72565572f4acb6fc,2020-03-09T13:03:43-04:00,Merge branch 'master' of https://github.com/gitronald/WebSearcher
+f1747c03f1dc6d49ef7d60b4d049099c20f923a4,2020-03-09T12:43:26-04:00,Update readme
+dde6fffd92f64d1af6e83027c042588fcc45ef87,2020-03-09T12:37:59-04:00,Update readme
+d9746e5af965494bf56105b2faf53210aab88a12,2020-03-09T12:32:41-04:00,Merge branch 'dev'
+9306a9771e0f49a6a7ffba08ce508a66f5417721,2020-03-09T12:31:08-04:00,Add save to test
+6a8d5a9c0e7ea6f6ff8980112b4d91a678418818,2020-03-09T12:09:10-04:00,Track location name
+cc570c1175100483e8f70622606efb93b675c000,2020-03-09T12:05:32-04:00,Fix write lines error writing only keys
+ac70fa9621490f95366f9b22ba6491878a64d39a,2020-03-09T11:58:55-04:00,"Log location, fix double decode"
+5a248545b1716a8887d67eec9b4898b113ad3169,2020-03-09T03:06:45-04:00,Bump version: 0.1.14 → 0.2.0
+5bc08837cc6c8d2f664271190a45501b024a9b56,2020-03-08T18:25:30-04:00,"Make unzip optional argument, default to False"
+df40c32d5795377c52b33f4862659d0fd98a8282,2020-03-08T17:57:40-04:00,Add explicit argument names
+cddaea55ac07bbb8f8043c9064675feea499a34d,2020-03-08T17:55:58-04:00,Deduped data key by making it more specific
+febf24c7fe432b271af8cdcff73751cd064cf10a,2020-03-08T17:53:58-04:00,Ignore archive
+aa52907b317253bdfd0c975b3482850f76985069,2020-03-08T17:52:45-04:00,Write data as sql row
+76278b5cac9417a2122427e8c0d18828dc83e52a,2020-03-08T17:24:33-04:00,Move twitter up the detection stack
+0eecb43cec66cd55d6f14cdb1f8a769578e788b0,2020-01-04T11:54:47-08:00,Rearrange logger args
+7ef61738c9aa361c17a329c138c94a760c936365,2019-12-31T14:58:47-05:00,Fix sql conn name
+0a002fd9beb3423cf507edc0b36600a84f019e30,2019-12-31T14:50:29-05:00,Add save to sql
+c3f6c20a335503a1257f3669ba29a8adb2562401,2019-12-10T18:38:31-05:00,"Always extract ads, should be removed posthoc if at all"
+166923ed5ff103157eb4a2f1713ac779c1b5ae20,2019-12-10T18:09:37-05:00,Bump version: 0.1.13 → 0.1.14
+f85509892a006bd7c1130bd7b7fa6ccaa60565a6,2019-12-10T18:08:59-05:00,Add package classfiers
+6a33d9f533720cb84f82ba41f6d87343953cdef6,2019-12-10T18:03:35-05:00,Fix for missing URLs in general component when citation and menu appear on top
+9fd7ace2cbdc7057c9911b7f90189c43ae682001,2019-12-10T18:02:22-05:00,Add scholarly articles component parser
+71d94e6198e04a6d30e6bf9dc839538d8d03d311,2019-12-10T18:01:19-05:00,"Overhaul of component classifier, add scholarly articles component"
+e3559d0e86589a17d70b9e3fbfb341337d1564b7,2019-12-05T16:38:20-05:00,Bump version: 0.1.12 → 0.1.13
+10cd17c6a9dec5c409a3244316a7983e0da5708a,2019-12-05T16:06:22-05:00,Remove unused and commented out code
+024d221c6d434ec0178594c5ba1b7991fe8f195d,2019-12-05T16:01:21-05:00,Fix missing image URLs by checking for key in attributes
+ba77e9f9a2472379005a27f7a026e9b013c3c7a1,2019-12-05T16:00:42-05:00,Modify classifier to always return a value
+67348c3b61bc130a045684e889af3204fee850b6,2019-11-12T15:03:23-05:00,Add parser for discover more
+db5289d95b77f147c741da1d20735d5eb1a97b0b,2019-11-12T14:50:26-05:00,Fix order because parse general questions uses other functions
+079983e9b3252502d24a04e8213718488bd8689a,2019-11-12T01:02:33-05:00,Add new parser to function list
+330b8f8313a898dea2a6d4730282a358a544de5a,2019-11-12T00:30:32-05:00,"Add general questions parser, first seen in Oct 2019"
+383a78ecffd337b167d98a4fd868bed5367306d5,2019-10-28T13:20:32-04:00,Bump version: 0.1.11 → 0.1.12
+933ddf9245dd55cbda015b5d8f2df3db3315c46c,2019-10-28T13:20:12-04:00,"Ignore location data, update name convention in test script"
+3d8de19994bd2a3cf34b2845cd9eaf2ad31c16a9,2019-10-28T13:19:02-04:00,Fix url extraction
+99b78cb32a13a7863cfe4634d77b90b392807207,2019-10-28T13:17:59-04:00,Assign details website to url if possible
+00af210081e1ea68e548bfa54ea8448b91e5dab5,2019-10-28T13:17:05-04:00,"Fix searcher, breakout snapshot code into function"
+d2eaf4f8bca5ce2fcf19f8ea70bb63a59a4da9b1,2019-10-20T12:39:53-04:00,Version 1.1.11
+b49c62b405c4cf56645856b0074c2fc63e15ce9d,2019-10-20T12:35:16-04:00,"Add unknown footer handling, better url params"
+9141a600e5fa2cd27437662bc57e8d1bf9f57641,2019-10-04T18:12:49-04:00,Bump version: 0.1.8 → 0.1.9
+d8d30fd7704cd457e7cd689013b9a7170d9b5178,2019-10-04T18:11:20-04:00,Fix video parsing with no timestamp
+89e7cac0ff0279052760fc2f8c7ef64235c3a68f,2019-10-04T18:10:16-04:00,Add version details
+8c675d95b9b7eefa7e15c1cd537d325442aee54e,2019-10-04T14:32:30-04:00,Bump version: 0.1.8 → 0.1.9
+821426fafc1ac12622add3760f11c56ee69146b9,2019-10-04T14:31:30-04:00,"Check for div before extracting, fix missing exception message"
+f3360f06e81e252d8d1e370a71778dc3564fcdfc,2019-10-04T14:30:48-04:00,Small edits
+c6ded9bef3c955e2bfd6e513a72ec096ed6b88a5,2019-09-30T10:56:52-04:00,"Add manifest to include readme in dist, add pip install"
+95acdcf6202aeedb1e0e19db251d20eeb87a863b,2019-09-25T13:40:23-04:00,"Fix double return, comment edits"
+ba7a059163f8410d9597b1fe2786b1bdb4d32a50,2019-09-24T00:14:24-04:00,Bump version: 0.1.6 → 0.1.7
+dcc1082f2f930c7607b756dda34ae3a7d0c647f8,2019-09-24T00:14:17-04:00,ignore build and dist dirs
+a9d8028fbd84bd3d9b1c7b9feaf9189d170162a1,2019-09-24T00:13:40-04:00,Fix bug when no location
+d2324a1d77c9402450e17a7707d6fb84f161f48e,2019-09-23T23:50:20-04:00,Bump version: 0.1.5 → 0.1.6
+ce1fcf7dcbe16efe625244525844e1d7eca483dc,2019-09-23T23:50:14-04:00,Using newlines
+0f44afdf1611073b4a105d2b924a49580daee42a,2019-09-23T23:37:15-04:00,Longer description
+c4de5b87f04967fca45843277155677d9106aaab,2019-09-23T23:23:46-04:00,Bump version: 0.1.4 → 0.1.5
+6f09a8dbf0820dbfae04c8485d8e154da100b19f,2019-09-23T23:22:39-04:00,Long description
+2230ec68efce7cb132a3d8d1d4f9a268260b7e7e,2019-09-23T18:15:58-04:00,"Fix cmpt rank numbering, add make_soup argument to parse_serp"
+54b6f1d449d396fb5334ee3eff4d4a15c4aa8b8b,2019-09-23T18:14:36-04:00,"Remove pandas dependency, add py version, and organize"
+7b0a528d44812a419c844f867df9f3e1e5c0433f,2019-09-23T18:13:07-04:00,Fix logger import
+0ce0317130dd9ef5cb7688cde34de41cce4538d6,2019-09-22T15:27:01-04:00,Fix bumpversion
+4fc5e059b4c95432960c87609bd5ea1cffcd166f,2019-09-22T14:59:54-04:00,"Remove prints, better exception logging, remove unused funcs"
+afe25e529cf1401216a7707363473d8c79e0e632,2019-09-17T11:37:26-04:00,Bump version: 0.1.2 → 0.1.3
+ae0b146daa61202f691432ae238fea05814522ea,2019-09-17T11:37:14-04:00,Bump version: 0.1.2 → 0.1.2
+e089f6bb335fd928c99361cdeddb1ca12f20b702,2019-09-17T11:31:32-04:00,Return locations dataframe on download by default
+947a088f3818ebe431cde459b059dc817873edb3,2019-09-17T11:30:18-04:00,Add SSH functions
+c9dd5cc1855ce5d935d2b02b497d3c610467d72e,2019-09-02T11:57:47-04:00,"Add localization documentation in readme and script, add table of contents to readme"
+cfda455bb7bf75902ed0415d442460e27eae0f1e,2019-09-02T11:56:12-04:00,Fix for persistent location after initial use
+a9fa48f0a5ee00305b9d67afe02a1f8f330cfa5a,2019-08-14T01:57:34-04:00,Improve readme
+f8f831a2c3d92fd61ac7bbd47e58fc1d03e7919a,2019-08-14T01:39:48-04:00,Initial commit
