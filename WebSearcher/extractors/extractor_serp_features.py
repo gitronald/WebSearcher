@@ -25,22 +25,15 @@ NOTICE_SERVER_ERROR = (
 INFINITY_SCROLL_SPAN = '<span class="RVQdVd">More results</span>'
 
 
-def _unwrap(soup) -> Node | None:
-    if soup is None:
-        return None
-    return soup.raw if hasattr(soup, "raw") else soup
-
-
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html_or_soup) -> SERPFeatures:
+    def extract_features(html_or_soup: str | bytes | Node) -> SERPFeatures:
         """Extract SERP features from an HTML string or a parsed soup ``Node``."""
-        if isinstance(html_or_soup, Node) or hasattr(html_or_soup, "raw"):
-            soup = _unwrap(html_or_soup)
+        if isinstance(html_or_soup, Node):
+            soup = html_or_soup
             features = FeatureExtractor._extract_from_soup(soup)
         else:
             soup = utils.make_soup(html_or_soup)
-            soup = _unwrap(soup)
             features = FeatureExtractor._extract_from_html(html_or_soup)
 
         # Structural probes shared by both paths (cheap, scoped lookups).

@@ -8,12 +8,6 @@ from ..logger import Logger
 log = Logger().start(__name__)
 
 
-def _unwrap(soup) -> Node | None:
-    if soup is None:
-        return None
-    return soup.raw if hasattr(soup, "raw") else soup
-
-
 def _filter_empty(nodes) -> list[Node]:
     return [n for n in nodes if n is not None and has_text(n)]
 
@@ -26,8 +20,8 @@ def _find_all_with_class(node: Node, css: str, *, filter_empty: bool = True) -> 
 
 
 class ExtractorMain:
-    def __init__(self, soup, components):
-        self.soup: Node | None = _unwrap(soup)
+    def __init__(self, soup: Node | None, components):
+        self.soup: Node | None = soup
         self.components = components
 
         self.layout_divs: dict[str, Any] = {

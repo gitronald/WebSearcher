@@ -15,28 +15,23 @@ from selectolax.parser import Node
 
 from . import logger
 from ._slx import (
-    SoupNode,
     _build_css,
     find_text,
     has_text,
-    make_soup_native,
 )
 from ._slx import get_text as _slx_get_text
+from ._slx import (
+    make_soup as _make_soup,
+)
 
 log = logger.Logger().start(__name__)
 
-# Type aliases (kept until SoupNode is fully removed).
+# bs4-era type aliases. Selectolax has a single ``Node`` for both element and
+# document; the aliases stay so call sites that still type-hint ``Tag`` /
+# ``BeautifulSoup`` keep working without churn.
 Tag = Node
 BeautifulSoup = Node
 SoupElement = Node
-
-
-def _unwrap(soup) -> Node | None:
-    if soup is None:
-        return None
-    if isinstance(soup, SoupNode):
-        return soup.raw
-    return soup
 
 
 class Selector(NamedTuple):
@@ -112,22 +107,19 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def make_soup(html: str | bytes | Node | SoupNode, parser: str = "lxml") -> Node:
+def make_soup(html: str | bytes | Node) -> Node:
     """Parse HTML and return its native selectolax ``Node`` root."""
-    if isinstance(html, SoupNode):
-        return html.raw
-    return make_soup_native(html)
+    return _make_soup(html)
 
 
 _CAPTCHA_RE = re.compile("CAPTCHA")
 
 
-def has_captcha(soup) -> bool:
+def has_captcha(soup: Node | None) -> bool:
     """Boolean for 'CAPTCHA' appearance in the document text."""
-    node = _unwrap(soup)
-    if node is None:
+    if soup is None:
         return False
-    return find_text(node, _CAPTCHA_RE) is not None
+    return find_text(soup, _CAPTCHA_RE) is not None
 
 
 def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
@@ -139,35 +131,34 @@ def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
 
 
 def get_div(
-    soup,
+    soup: Node | None,
     name: str | None,
     attrs: Mapping[str, Any] | None = None,
 ) -> Node | None:
     """``soup.find(name, attrs)`` -- descendants only (excludes ``soup``)."""
-    node = _unwrap(soup)
-    if node is None:
+    if soup is None:
         return None
     css = _build_css(name, dict(attrs) if attrs else {})
     if css is None:
         return None
-    self_id = node.mem_id
-    for raw in node.css(css):
+    self_id = soup.mem_id
+    for raw in soup.css(css):
         if raw.mem_id != self_id:
             return raw
     return None
 
 
 def get_text(
-    soup,
+    soup: Node | None,
     name: str | None = None,
     attrs: Mapping[str, Any] | None = None,
     separator: str = " ",
     strip: bool = False,
 ) -> str | None:
     """``soup.find(name, attrs).get_text(separator, strip)`` with null handling."""
-    node = _unwrap(soup)
-    if node is None:
+    if soup is None:
         return None
+    node = soup
     if name is not None:
         node = get_div(node, name, attrs)
         if node is None:
@@ -230,20 +221,19 @@ def find_by_selectors(
 
 
 def find_all_divs(
-    soup,
+    soup: Node | None,
     name: str | None,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = True,
 ) -> list[Node]:
     """All descendants matching the bs4-style ``(name, attrs)`` query."""
-    node = _unwrap(soup)
-    if node is None:
+    if soup is None:
         return []
     css = _build_css(name, dict(attrs) if attrs else {})
     if css is None:
         return []
-    self_id = node.mem_id
-    divs = [raw for raw in node.css(css) if raw.mem_id != self_id]
+    self_id = soup.mem_id
+    divs = [raw for raw in soup.css(css) if raw.mem_id != self_id]
     return [d for d in divs if has_text(d)] if filter_empty else divs
 
 

@@ -1,14 +1,14 @@
 from selectolax.parser import Node
 
 from .. import logger
-from .extractor_main import _find_all_with_class, _unwrap
+from .extractor_main import _find_all_with_class
 
 log = logger.Logger().start(__name__)
 
 
 class ExtractorFooter:
-    def __init__(self, soup, components):
-        self.soup: Node | None = _unwrap(soup)
+    def __init__(self, soup: Node | None, components):
+        self.soup: Node | None = soup
         self.components = components
 
     def extract(self):

@@ -1,13 +1,13 @@
 from selectolax.parser import Node
 
 from .._slx import class_tokens, get_text
-from .main import ClassifyMain, _unwrap
+from .main import ClassifyMain
 
 
 class ClassifyFooter:
     @staticmethod
-    def classify(cmpt) -> str:
-        node: Node = _unwrap(cmpt)
+    def classify(cmpt: Node) -> str:
+        node: Node = cmpt
         attrs = node.attributes
         layout_conditions = [
             "id" in attrs and attrs["id"] in {"bres", "brs"},
@@ -39,23 +39,21 @@ class ClassifyFooter:
         return cmpt_type
 
     @staticmethod
-    def discover_more(cmpt) -> str:
-        node = _unwrap(cmpt)
-        return "discover_more" if node.css_first("g-scrolling-carousel") is not None else "unknown"
+    def discover_more(cmpt: Node) -> str:
+        return "discover_more" if cmpt.css_first("g-scrolling-carousel") is not None else "unknown"
 
     @staticmethod
-    def omitted_notice(cmpt) -> str:
-        node = _unwrap(cmpt)
-        if node.css_first('p[id="ofr"]') is not None:
+    def omitted_notice(cmpt: Node) -> str:
+        if cmpt.css_first('p[id="ofr"]') is not None:
             return "omitted_notice"
-        h2 = node.css_first("h2")
+        h2 = cmpt.css_first("h2")
         if h2 is not None and (get_text(h2) or "") == "Notices about Filtered Results":
             return "omitted_notice"
         return "unknown"
 
     @staticmethod
-    def searches_related(cmpt) -> str:
-        node = _unwrap(cmpt)
+    def searches_related(cmpt: Node) -> str:
+        node = cmpt
         known_labels = {
             "Related",
             "Related searches",

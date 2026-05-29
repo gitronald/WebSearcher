@@ -13,10 +13,6 @@ _VIDEO_CLASSES = {"VibNM", "mLmaBd", "RzdJxc", "sHEJob"}
 _LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}
 
 
-def _unwrap(cmpt) -> Node:
-    return cmpt.raw if hasattr(cmpt, "raw") else cmpt
-
-
 class _ComponentSignals:
     """One-pass summary of a component's class names, ids, and tag names.
 
@@ -28,17 +24,13 @@ class _ComponentSignals:
 
     __slots__ = ("classes", "ids", "names")
 
-    def __init__(self, cmpt) -> None:
+    def __init__(self, cmpt: Node) -> None:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-        raw = _unwrap(cmpt)
-        # walk_descendants is subtree-scoped (excludes self + later document).
-        # selectolax ``raw.traverse(...)`` walks the entire document from this
-        # point forward and would over-populate the signals -- correctness was
-        # preserved (preconditions are necessary, not sufficient) but at a
-        # measurable perf cost.
-        for el in itertools.chain((raw,), walk_descendants(raw, include_text=False)):
+        # walk_descendants is subtree-scoped; ``cmpt.traverse(...)`` would walk
+        # the entire document from this point forward and over-populate signals.
+        for el in itertools.chain((cmpt,), walk_descendants(cmpt, include_text=False)):
             tag = el.tag
             if not tag or tag.startswith("-"):
                 continue
@@ -60,7 +52,7 @@ class ClassifyMainHeader:
 
     @staticmethod
     def classify(cmpt, levels: list[int] = [2, 3]) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         for level in levels:
             header = ClassifyMainHeader._classify_header(node, level)
             if header != "unknown":
@@ -96,7 +88,7 @@ class ClassifyMain:
 
     @staticmethod
     def classify(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         signals = _ComponentSignals(node)
 
         component_classifiers = [
@@ -144,7 +136,7 @@ class ClassifyMain:
 
     @staticmethod
     def discussions_and_forums(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         # bs4 ``find("div", {"class": "IFnjPb", "role": "heading"})`` = AND of
         # both conditions; CSS compound div.IFnjPb[role="heading"] = same.
         heading = node.css_first('div.IFnjPb[role="heading"]')
@@ -156,7 +148,7 @@ class ClassifyMain:
 
     @staticmethod
     def available_on(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         for heading in node.css("span.mgAbYb"):
             if (get_text(heading, strip=True) or "") == "Available on":
                 return "available_on"
@@ -165,14 +157,14 @@ class ClassifyMain:
 
     @staticmethod
     def banner(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if "ULSxyf" not in class_tokens(node):
             return "unknown"
         return "banner" if node.css_first("div.uzjuFc") is not None else "unknown"
 
     @staticmethod
     def finance_panel(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         return (
             "knowledge"
             if node.css_first('div[id="knowledge-finance-wholepage__entity-summary"]') is not None
@@ -181,7 +173,7 @@ class ClassifyMain:
 
     @staticmethod
     def flights(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         heading = node.css_first('[role="heading"]')
         if heading is not None and (get_text(heading, strip=True) or "").startswith("Flight"):
             return "flights"
@@ -190,7 +182,7 @@ class ClassifyMain:
     @staticmethod
     def general(cmpt) -> str:
         """Classify general components."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         node_id = node.mem_id
         cls = class_tokens(node)
         # bs4 distinguished "class" present vs absent via ``"class" in cmpt.attrs``
@@ -216,14 +208,14 @@ class ClassifyMain:
 
     @staticmethod
     def general_questions(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         hybrid = node.css_first("div.ifM9O")
         g_accordion = node.css_first("g-accordion")
         return "general_questions" if hybrid is not None and g_accordion is not None else "unknown"
 
     @staticmethod
     def img_cards(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if "class" not in node.attributes:
             return "unknown"
         cls = class_tokens(node)
@@ -233,7 +225,7 @@ class ClassifyMain:
 
     @staticmethod
     def images(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         for css in ('div[id="imagebox_bigimages"]', 'div[id="iur"]'):
             if node.css_first(css) is not None:
                 return "images"
@@ -247,7 +239,7 @@ class ClassifyMain:
         ``Fzsovc`` div -- that surface is a different component (extended
         sources and follow-up sections) and is not parsed here.
         """
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         h2 = node.css_first("h2")
         h2_text = (get_text(h2, strip=True) or "") if h2 is not None else ""
         if h2_text == "Related Links":
@@ -258,7 +250,7 @@ class ClassifyMain:
 
     @staticmethod
     def knowledge_block(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if class_tokens(node) != ["ULSxyf"]:
             return "unknown"
         return "knowledge" if node.css_first("block-component") is not None else "unknown"
@@ -266,7 +258,7 @@ class ClassifyMain:
     @staticmethod
     def knowledge_box(cmpt) -> str:
         """Classify knowledge component types."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         attrs = node.attributes
         condition: dict[str, Any] = {}
         condition["flights"] = (
@@ -310,7 +302,7 @@ class ClassifyMain:
 
     @staticmethod
     def knowledge_panel(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         for css in (
             "h1.VW3apb",
             "div.knowledge-panel, div.knavi, div.kp-blk, div.kp-wholepage-osrp",
@@ -326,7 +318,7 @@ class ClassifyMain:
 
     @staticmethod
     def local_results(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         for css in ("div.Qq3Lb", "div.VkpGBb"):
             if node.css_first(css) is not None:
                 return "local_results"
@@ -334,13 +326,13 @@ class ClassifyMain:
 
     @staticmethod
     def map_result(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         return "map_results" if node.css_first("div.lu_map_section") is not None else "unknown"
 
     @staticmethod
     def people_also_ask(cmpt) -> str:
         """Secondary check for people also ask (header text is primary)."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         # bs4 ``check_dict_value(cmpt.attrs, "class", ["g","kno-kp","mnr-c","g-blk"])``
         # is EXACT list equality on the class attribute.
         return "people_also_ask" if class_tokens(node) == ["g", "kno-kp", "mnr-c", "g-blk"] else "unknown"
@@ -348,7 +340,7 @@ class ClassifyMain:
     @staticmethod
     def products(cmpt) -> str:
         """Classify organic shopping packs that otherwise fall into ``general``."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if node.css_first('[data-attrid="apg-product-result"]') is not None:
             return "products"
         if (
@@ -363,12 +355,12 @@ class ClassifyMain:
 
     @staticmethod
     def promo(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         return "promo" if node.css_first("promo-throttler") is not None else "unknown"
 
     @staticmethod
     def short_videos(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         heading = node.css_first('span[role="heading"].IFnjPb')
         if heading is not None and (get_text(heading, strip=True) or "") == "Short videos":
             return "short_videos"
@@ -377,7 +369,7 @@ class ClassifyMain:
     @staticmethod
     def videos(cmpt) -> str:
         """Classify video carousel components."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         return (
             "videos"
             if node.css_first("div.VibNM, div.mLmaBd, div.RzdJxc, div.sHEJob") is not None
@@ -387,7 +379,7 @@ class ClassifyMain:
     @staticmethod
     def knowledge_subcard(cmpt) -> str:
         """Catch knowledge-panel extension subcards by structural pattern."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if node.css_first("div.JNkvid") is None:
             return "unknown"
         if node.css_first('[role="heading"][aria-level="2"]') is None:
@@ -397,7 +389,7 @@ class ClassifyMain:
     @staticmethod
     def locations(cmpt) -> str:
         """Classify locations components (hotels, etc.)."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         heading = node.css_first('[role="heading"]')
         if heading is not None:
             text = get_text(heading, strip=True) or ""
@@ -407,7 +399,7 @@ class ClassifyMain:
 
     @staticmethod
     def top_stories(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if node.css_first("g-scrolling-carousel") is None:
             return "unknown"
         if node.css_first('div[id="tvcap"]') is None:
@@ -416,21 +408,21 @@ class ClassifyMain:
 
     @staticmethod
     def news_quotes(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         header_div = node.css_first('g-tray-header[role="heading"]')
         text = get_text(header_div, strip=True) if header_div is not None else None
         return "news_quotes" if text == "News quotes" else "unknown"
 
     @staticmethod
     def twitter(cmpt) -> str:
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         cmpt_type = "twitter" if node.css_first("div.eejeod") is not None else "unknown"
         return ClassifyMain.twitter_type(node, cmpt_type)
 
     @staticmethod
     def twitter_type(cmpt, cmpt_type: str = "unknown") -> str:
         """Distinguish twitter types ('twitter_cards', 'twitter_result')."""
-        node = _unwrap(cmpt)
+        node: Node = cmpt
         if cmpt_type == "twitter" or (get_text(node, strip=True) or "") == "Twitter Results":
             return "twitter_cards" if node.css_first("g-scrolling-carousel") is not None else "twitter_result"
         return cmpt_type

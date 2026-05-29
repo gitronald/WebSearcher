@@ -4,15 +4,15 @@ from .. import logger
 from ..components import ComponentList
 from .extractor_footer import ExtractorFooter
 from .extractor_header import ExtractorHeader
-from .extractor_main import ExtractorMain, _unwrap
+from .extractor_main import ExtractorMain
 from .extractor_rhs import ExtractorRightHandSide
 
 log = logger.Logger().start(__name__)
 
 
 class Extractor:
-    def __init__(self, soup):
-        self.soup: Node = _unwrap(soup)
+    def __init__(self, soup: Node):
+        self.soup: Node = soup
         self.components = ComponentList()
         self.rhs_handler = ExtractorRightHandSide(self.soup, self.components)
         self.header_handler = ExtractorHeader(self.soup, self.components)

@@ -411,3 +411,35 @@ under native `.text()` (`local_results` address/directions and the knowledge
 selectolax `.text()` for `get_text` is the bs4 `strip=True` drop-empties
 semantics in general; the parser-level brittleness side of that wall is now
 gone.
+
+### 2026-05-29 — native rewrite complete (adapter removed)
+
+Final pass: ripped out the `SoupNode` adapter and the bs4 + lxml runtime deps.
+
+- **`_slx.py`** went from a 722-line bs4-compatible `Node` wrapper class to a
+  ~250-line module of pure functions (`make_soup`, `get_text`, `class_tokens`,
+  `walk_descendants`, `subtree_first` / `subtree_css`, `find_text`, `node_string`,
+  `next_sibling` / `previous_sibling` / `next_siblings`, `reparse_fragment`,
+  `has_text`, `_build_css`). The remaining helpers exist because selectolax's
+  native API differs from bs4 in ways that bit downstream parsers: native
+  `Node.text(strip=True)` keeps empty fragments; native `node.css()` matches
+  self; native `node.traverse()` walks the entire document; native `.next` may
+  skip text nodes; native `class` is a string, not a list.
+- **Adapter removal** propagated through `utils.py`, `components.py`,
+  `classifiers/main.py` + `footer.py`, all four extractors, and
+  `extractor_serp_features.py` — every `_unwrap(...)` call and every
+  `hasattr(elem, "raw")` shim is gone. Type hints are `Node` end-to-end. The
+  `Tag = BeautifulSoup = SoupElement = Node` aliases in `utils.py` stay (one is
+  in a function annotation; the others are public surface).
+- **Runtime deps** dropped `beautifulsoup4` and `lxml`; both moved to the dev
+  group for the six bench/dev scripts that still use them
+  (`diff_parsers`, `show_serp`, `dump_ai_overview_html`, `survey_ai_overviews`,
+  `inspect_ai_overview_structure`, `demo_screenshot`). Lockfile regenerated.
+- **README** swapped "built on `BeautifulSoup`" for "built on `selectolax`".
+
+**Bench (5 iter x 3 runs over 66 SERPs, py3.13, .venv313):**
+median 72.6 ms/SERP — vs the 122.4 ms bs4 baseline (`/tmp/bench_baseline_68b8423.txt`)
+and ~107-116 ms with the adapter. The remaining headroom over the adapter came
+from dropping the per-node Python wrapper class on every traversal/CSS query.
+
+Suite: 299 passed, 66 snapshots, ruff clean.
