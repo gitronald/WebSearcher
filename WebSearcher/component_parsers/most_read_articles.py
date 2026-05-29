@@ -6,17 +6,20 @@ and an aria-level-3 heading; the carousel also holds empty placeholder slots,
 which are skipped.
 """
 
-import bs4
+from selectolax.parser import Node
+
+from .._slx import get_text
 
 
-def parse_most_read_articles(cmpt: bs4.element.Tag) -> list:
+def parse_most_read_articles(cmpt) -> list:
+    node: Node = cmpt.raw
     out: list = []
-    for li in cmpt.find_all(attrs={"role": "listitem"}):
-        a = li.find("a", href=True)
-        heading = li.find(attrs={"aria-level": "3"})
+    for li in node.css('[role="listitem"]'):
+        a = li.css_first("a[href]")
+        heading = li.css_first('[aria-level="3"]')
         if a is None or heading is None:
             continue
-        title = heading.get_text(strip=True)
+        title = get_text(heading, strip=True)
         if not title:
             continue
         out.append(
@@ -24,7 +27,7 @@ def parse_most_read_articles(cmpt: bs4.element.Tag) -> list:
                 "type": "most_read_articles",
                 "sub_rank": len(out),
                 "title": title,
-                "url": a["href"],
+                "url": a.attributes["href"],
             }
         )
     return out
