@@ -3,7 +3,7 @@
 An embedded map result without an associated list of subcomponent results.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

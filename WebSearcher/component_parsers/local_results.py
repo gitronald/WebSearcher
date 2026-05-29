@@ -6,7 +6,7 @@ businesses relevant to the query, with rating, contact, and address details.
 
 import re
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text, subtree_css, subtree_first
 from ..utils import slugify

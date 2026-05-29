@@ -3,7 +3,7 @@
 import hashlib
 from pathlib import Path
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from WebSearcher import utils
 from WebSearcher._slx import get_text as _slx_get_text

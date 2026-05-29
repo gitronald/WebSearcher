@@ -31,7 +31,7 @@ none of these markers and correctly yield empty output.
 
 from __future__ import annotations
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 from ._ai_overview_payloads import extract_payloads

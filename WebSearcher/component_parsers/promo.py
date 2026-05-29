@@ -6,7 +6,7 @@ It carries no organic result, so its value is the presence signal (shopping
 intent). The CTA link is an internal ``/search`` query, kept verbatim.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

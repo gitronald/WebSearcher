@@ -5,7 +5,7 @@ sponsored hotel carousel (role=listitem cards from atvcap). Each card
 captures price, source, rating, review count, stars, and amenity tags.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 

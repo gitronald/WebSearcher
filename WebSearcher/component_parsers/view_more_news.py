@@ -4,7 +4,7 @@ Highly similar to the vertically stacked Top Stories and Latest news layouts,
 but distinguished by a news icon in the top left.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

@@ -5,7 +5,7 @@ captured as the sub_type so downstream code can distinguish variants like
 "what people are saying".
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 from ..utils import slugify

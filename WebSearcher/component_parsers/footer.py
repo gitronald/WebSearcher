@@ -4,7 +4,7 @@ Image-card grids, "discover more" carousels, and the omitted-results notice
 that appear under the main results column.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 

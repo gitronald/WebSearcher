@@ -1,4 +1,4 @@
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from . import utils
 from .extractors import Extractor

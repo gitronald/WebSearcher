@@ -5,7 +5,7 @@ automation is required to capture the dropdown content; this parser only
 captures the question text.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

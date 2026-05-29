@@ -1,7 +1,7 @@
 import traceback
 from collections.abc import Callable
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from ._slx import get_text
 from .classifiers import ClassifyFooter, ClassifyMain

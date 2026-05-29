@@ -11,12 +11,11 @@ import brotli
 import orjson
 import requests
 import tldextract
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from . import logger
 from ._slx import (
     _build_css,
-    find_text,
     has_text,
     make_soup,
     subtree_css,
@@ -100,14 +99,15 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-_CAPTCHA_RE = re.compile("CAPTCHA")
-
-
 def has_captcha(soup: Node | None) -> bool:
-    """Boolean for 'CAPTCHA' appearance in the document text."""
+    """Boolean for 'CAPTCHA' appearance in the document text.
+
+    Uses ``soup.text(deep=True)`` (single C-level walk over the document) and a
+    substring check; cheaper than walking text nodes individually.
+    """
     if soup is None:
         return False
-    return find_text(soup, _CAPTCHA_RE) is not None
+    return "CAPTCHA" in (soup.text(deep=True) or "")
 
 
 def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:

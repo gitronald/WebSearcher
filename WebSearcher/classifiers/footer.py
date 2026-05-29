@@ -1,4 +1,4 @@
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 from .main import ClassifyMain

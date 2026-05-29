@@ -4,7 +4,7 @@ A header row plus a list of clickable suggestions Google offers when a query
 is flagged (e.g., misspellings, restricted topics).
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

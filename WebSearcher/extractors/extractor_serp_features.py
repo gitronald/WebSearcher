@@ -1,6 +1,6 @@
 import re
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .. import utils
 from .._slx import get_text
@@ -40,24 +40,32 @@ class FeatureExtractor:
         cheap path AND the already-parsed soup for the shared lb/captcha
         probes -- which avoids re-parsing.
         """
+        raw_html: str | None = None
         if isinstance(html_or_soup, Node):
             soup = html_or_soup
             features = FeatureExtractor._extract_from_soup(soup)
         else:
             if soup is None:
                 soup = utils.make_soup(html_or_soup)
-            features = FeatureExtractor._extract_from_html(
+            raw_html = (
                 html_or_soup
                 if isinstance(html_or_soup, str)
                 else html_or_soup.decode("utf-8", errors="replace")
             )
+            features = FeatureExtractor._extract_from_html(raw_html)
 
         # Structural probes shared by both paths (cheap, scoped lookups).
         lb = soup.css_first('div[id="lb"]')
         features["overlay_precise_location"] = bool(
             lb is not None and "precise location" in (get_text(lb) or "").lower()
         )
-        features["captcha"] = utils.has_captcha(soup)
+        # Cheap pre-check: if "CAPTCHA" doesn't appear in the raw markup, the
+        # text-walk has_captcha is guaranteed to return False, so the typical
+        # SERP short-circuits a full-document deep-text traversal.
+        if raw_html is not None and "CAPTCHA" not in raw_html:
+            features["captcha"] = False
+        else:
+            features["captcha"] = utils.has_captcha(soup)
         return SERPFeatures(**features)
 
     @staticmethod

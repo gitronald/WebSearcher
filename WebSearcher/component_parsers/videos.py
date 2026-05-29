@@ -6,7 +6,7 @@ Changelog
 2025-04-27: added div subcomponent class and sub_type labels
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 

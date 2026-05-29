@@ -1,6 +1,6 @@
 from typing import Any
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtree_css
 from ..logger import Logger

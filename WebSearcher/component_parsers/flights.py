@@ -4,7 +4,7 @@ Renders as a section like "Flights to <destination>" followed by route cards
 linking to google.com/travel/flights with origin labels (e.g. "From Casablanca").
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

@@ -9,7 +9,7 @@ its own handler based on visible text.
 import re
 from collections.abc import Callable
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, reparse_fragment
 

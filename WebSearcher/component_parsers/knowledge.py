@@ -6,7 +6,7 @@ sports, weather, finance, dictionary, translation, calculator, election
 results, "things to know", and the generic panel layout.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, node_string, walk_descendants
 from ..utils import slugify

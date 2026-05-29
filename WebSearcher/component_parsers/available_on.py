@@ -4,7 +4,7 @@ A carousel of thumbnail images linking to streaming providers / entertainment
 options relevant to the query.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 

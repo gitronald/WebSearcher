@@ -7,7 +7,7 @@ zero or more follow-on sections beneath it.
 
 from typing import Any
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 

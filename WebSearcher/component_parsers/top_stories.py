@@ -6,7 +6,7 @@ stacked horizontally and feature a larger image, resembling the video
 component.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 

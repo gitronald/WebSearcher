@@ -6,7 +6,7 @@ and an aria-level-3 heading; the carousel also holds empty placeholder slots,
 which are skipped.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

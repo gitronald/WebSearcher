@@ -7,7 +7,7 @@ optional submenu sitelinks), and the horizontal sponsored carousel.
 
 from typing import Any
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 from .shopping_ads import parse_shopping_ads

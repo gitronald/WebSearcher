@@ -15,7 +15,7 @@ schema produced by :mod:`WebSearcher.component_parsers.shopping_ads`.
 
 import re
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

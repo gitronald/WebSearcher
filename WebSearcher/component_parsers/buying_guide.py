@@ -5,7 +5,7 @@ rows (``div.ITWcLb`` carrying "label: question"). No links. One result row per
 facet: ``title`` is the facet label, ``text`` is the question/value.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

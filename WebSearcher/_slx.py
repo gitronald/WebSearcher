@@ -35,7 +35,8 @@ import re
 from collections.abc import Iterator
 from typing import Any
 
-from selectolax.parser import HTMLParser, Node
+from selectolax.lexbor import LexborHTMLParser as HTMLParser
+from selectolax.lexbor import LexborNode as Node
 
 # Text under these never contributes to get_text (matches bs4+lxml).
 _SKIP_TEXT_TAGS = frozenset({"script", "style", "template"})

@@ -7,7 +7,7 @@ submenus (rating, list, table, mini), scholarly results, products, and videos.
 
 import re
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 

@@ -9,7 +9,7 @@ card into ``title`` / ``url`` plus a ``ratings`` details block.
 
 import re
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

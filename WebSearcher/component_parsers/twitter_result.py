@@ -4,7 +4,7 @@ Visually similar to a general result but linking to a Twitter account, with
 a tweet sometimes embedded in the snippet.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

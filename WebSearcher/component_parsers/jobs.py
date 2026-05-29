@@ -4,7 +4,7 @@ Renders as a section with a "Jobs" heading followed by individual job cards
 (each with its own aria-level=3 heading: job title).
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 

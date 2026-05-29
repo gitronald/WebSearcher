@@ -1,4 +1,4 @@
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .. import logger
 from .extractor_main import _find_all_with_class

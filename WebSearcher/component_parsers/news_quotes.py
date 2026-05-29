@@ -4,7 +4,7 @@ A horizontal carousel of news quotes, each pairing a pull-quote with the
 underlying article title, source, and timestamp.
 """
 
-from selectolax.parser import Node
+from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 
