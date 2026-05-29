@@ -375,3 +375,39 @@ would make selectolax's native C `.text()` a *safe* drop-in, unlocking a further
 speedup on top of the ~2x already banked. Recommend a small follow-up: a shared
 `slugify(text)` helper for the four `sub_type` sites and a structural rewrite of
 the local-results link lookup, each gated on the snapshot suite.
+
+### 2026-05-27 — acted on the fragility notes (slug helper + heading enrichment)
+
+Picked the cleanup up immediately rather than letting it bit-rot, since the
+notes pointed at a coherent change. Decisions:
+
+- **Slug helper.** Added `utils.slugify(text, sep)` and routed all four
+  `sub_type` derivations (`knowledge`, `local_results`, `searches_related`,
+  `perspectives`) through it. `sub_type` is now whitespace-robust (handles
+  nbsp/tabs/doubled spaces) and the `-cast-` class of latent bug can't surface
+  under either backend.
+- **Heading preservation goes in `details["heading"]`, not top-level `title`.**
+  `BaseResult.title` is documented as the *result's* title (e.g. the business
+  name on a local-results card, the story title on a perspectives card). Reusing
+  it for a component-level header would muddy that semantics. `details["heading"]`
+  is the established convention -- `knowledge.py` already uses it (3 prior
+  sites) -- so the three other parsers now match: `searches_related` and
+  `perspectives` and `local_results` each preserve the raw heading there.
+- **Local-results link lookup rewritten structurally.** `_link_text_to_url`
+  now keys off the stable classes (`a.L48Cpd` for website, `a.VDgVie` for
+  directions) instead of the localized visible anchor text. Backend- *and*
+  locale-independent, and unaffected by stray-whitespace stripping bugs.
+
+This is a deliberate output enrichment (new `details["heading"]` keys, cleaner
+slugs, stable links), not a migration regression -- 63 snapshots regenerated and
+the diff verified to contain only `details["heading"]` / `sub_type` / `website` /
+`directions` changes. Full suite green (299 passed, 66 snapshots).
+
+**Knock-on benefit toward the native-`.text()` ambition.** With the slug
+derivation no longer dependent on `get_text`'s exact whitespace behavior and the
+link lookup no longer keying on stripped anchor text, the two parsers that broke
+under native `.text()` (`local_results` address/directions and the knowledge
+`-cast-`) are now backend-independent. The remaining barrier to using native
+selectolax `.text()` for `get_text` is the bs4 `strip=True` drop-empties
+semantics in general; the parser-level brittleness side of that wall is now
+gone.
