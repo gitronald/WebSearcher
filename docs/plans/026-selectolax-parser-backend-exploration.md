@@ -443,3 +443,21 @@ and ~107-116 ms with the adapter. The remaining headroom over the adapter came
 from dropping the per-node Python wrapper class on every traversal/CSS query.
 
 Suite: 299 passed, 66 snapshots, ruff clean.
+
+### 2026-05-29 — head-to-head bench vs. pre-branch baseline
+
+Ran `scripts/bench_parse.py --iterations 50 --runs 5` over the same 5 fixtures
+(66 SERPs) on both the branch tip (`94bc682`) and the pre-branch merge-base
+(`9e633bf`, dev tip, bs4+lxml), same machine. The pre-branch worktree was so
+much slower that runs 3-5 were cut after two near-identical runs established the
+baseline (each old run is ~7 min; the two were within 2 ms of each other).
+
+| Metric          | Before (`9e633bf`, bs4+lxml) | This branch (selectolax) | Change       |
+|-----------------|------------------------------|--------------------------|--------------|
+| Corpus total    | ~6812 ms                     | ~1317 ms                 | ~5.2x faster |
+| Median / SERP   | ~98 ms                       | 19.0 ms                  | ~5.2x faster |
+| Inter-run spread| 6811.6 / 6813.8 ms (~2 ms)   | MAD 9.1 ms, spread 80.2 ms | both stable |
+
+New-branch per-SERP detail (final run): median 19.031 ms, MAD 4.402 ms, min
+6.927 / p90 31.638 / max 43.832 ms; corpus noise floor ~1.4%. The ~5x speedup is
+far above that floor.
