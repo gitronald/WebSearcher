@@ -5,8 +5,8 @@ from WebSearcher.extractors.extractor_main import ExtractorMain
 
 
 def comp(html: str):
-    """Build a single component Tag from an HTML fragment."""
-    return utils.make_soup(f'<div class="wrap">{html}</div>').find("div", {"class": "wrap"})
+    """Build a single component ``Node`` from an HTML fragment."""
+    return utils.make_soup(f'<div class="wrap">{html}</div>').css_first("div.wrap")
 
 
 # is_valid: bad-label / empty rejection ----------------------------------------
@@ -42,7 +42,7 @@ def test_is_valid_drops_promo_results_wrapper():
     ulsxyf = utils.make_soup(
         '<div class="ULSxyf"><promo-throttler></promo-throttler>'
         '<div class="g">a web result</div></div>'
-    ).find("div", {"class": "ULSxyf"})
+    ).css_first("div.ULSxyf")
     assert ExtractorMain.is_valid(ulsxyf) is False
 
 
@@ -50,19 +50,19 @@ def test_is_valid_keeps_promo_banner():
     # ULSxyf + promo-throttler, no div.g -> pure promo banner, kept for `promo`.
     ulsxyf = utils.make_soup(
         '<div class="ULSxyf">Save with deals<promo-throttler></promo-throttler></div>'
-    ).find("div", {"class": "ULSxyf"})
+    ).css_first("div.ULSxyf")
     assert ExtractorMain.is_valid(ulsxyf) is True
 
 
 def test_is_valid_keeps_ulsxyf_without_throttler():
-    ulsxyf = utils.make_soup('<div class="ULSxyf">A knowledge block, not a survey</div>').find(
-        "div", {"class": "ULSxyf"}
-    )
+    ulsxyf = utils.make_soup(
+        '<div class="ULSxyf">A knowledge block, not a survey</div>'
+    ).css_first("div.ULSxyf")
     assert ExtractorMain.is_valid(ulsxyf) is True
 
 
 def test_is_valid_keeps_throttler_without_ulsxyf():
     other = utils.make_soup(
         '<div class="other">content<promo-throttler></promo-throttler></div>'
-    ).find("div", {"class": "other"})
+    ).css_first("div.other")
     assert ExtractorMain.is_valid(other) is True

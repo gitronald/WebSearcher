@@ -1,15 +1,17 @@
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from .. import utils
+from .._slx import class_tokens, get_text
 from .main import ClassifyMain
 
 
 class ClassifyFooter:
     @staticmethod
-    def classify(cmpt: bs4.element.Tag) -> str:
+    def classify(cmpt: Node) -> str:
+        node: Node = cmpt
+        attrs = node.attributes
         layout_conditions = [
-            ("id" in cmpt.attrs and cmpt.attrs["id"] in {"bres", "brs"}),
-            ("class" in cmpt.attrs and cmpt.attrs["class"] == ["MjjYud"]),
+            "id" in attrs and attrs["id"] in {"bres", "brs"},
+            "class" in attrs and class_tokens(node) == ["MjjYud"],
         ]
 
         # Ordered list of classifiers to try
@@ -24,33 +26,34 @@ class ClassifyFooter:
                 ClassifyFooter.omitted_notice,
             ]
 
-        # Default unknown, exit on first successful classification
         cmpt_type = "unknown"
         for classifier in classifier_list:
             if cmpt_type != "unknown":
                 break
-            cmpt_type = classifier(cmpt)
+            cmpt_type = classifier(node)
 
         # Fall back to main classifier
         if cmpt_type == "unknown":
-            cmpt_type = ClassifyMain.classify(cmpt)
+            cmpt_type = ClassifyMain.classify(node)
 
         return cmpt_type
 
     @staticmethod
-    def discover_more(cmpt):
-        return "discover_more" if cmpt.find("g-scrolling-carousel") else "unknown"
+    def discover_more(cmpt: Node) -> str:
+        return "discover_more" if cmpt.css_first("g-scrolling-carousel") is not None else "unknown"
 
     @staticmethod
-    def omitted_notice(cmpt):
-        conditions = [
-            cmpt.find("p", {"id": "ofr"}),
-            (utils.get_text(cmpt, "h2") == "Notices about Filtered Results"),
-        ]
-        return "omitted_notice" if any(conditions) else "unknown"
+    def omitted_notice(cmpt: Node) -> str:
+        if cmpt.css_first('p[id="ofr"]') is not None:
+            return "omitted_notice"
+        h2 = cmpt.css_first("h2")
+        if h2 is not None and (get_text(h2) or "") == "Notices about Filtered Results":
+            return "omitted_notice"
+        return "unknown"
 
     @staticmethod
-    def searches_related(cmpt):
+    def searches_related(cmpt: Node) -> str:
+        node = cmpt
         known_labels = {
             "Related",
             "Related searches",
@@ -58,6 +61,8 @@ class ClassifyFooter:
             "Related to this search",
             "Searches related to",
         }
-        h3 = cmpt.find("h3")
-        h3_matches = [h3.text.strip().startswith(text) for text in known_labels] if h3 else []
-        return "searches_related" if any(h3_matches) else "unknown"
+        h3 = node.css_first("h3")
+        if h3 is None:
+            return "unknown"
+        text = (get_text(h3) or "").strip()
+        return "searches_related" if any(text.startswith(label) for label in known_labels) else "unknown"

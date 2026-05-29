@@ -4,16 +4,15 @@ A horizontal carousel of short-form video cards (YouTube Shorts, TikTok, etc.)
 with a heading, source, and duration.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import get_text
+from .._slx import get_text
 
 
-def parse_short_videos(cmpt: bs4.element.Tag) -> list:
-    # Filter to full card links (with heading), skip thumbnail-only duplicates
-    cards = [
-        a for a in cmpt.find_all("a", {"class": "rIRoqf"}) if a.find("div", {"role": "heading"})
-    ]
+def parse_short_videos(cmpt) -> list:
+    node: Node = cmpt
+    # Filter to full card links (with heading), skip thumbnail-only duplicates.
+    cards = [a for a in node.css("a.rIRoqf") if a.css_first('div[role="heading"]') is not None]
     if not cards:
         return [{"type": "short_videos", "sub_rank": 0}]
 
@@ -22,12 +21,12 @@ def parse_short_videos(cmpt: bs4.element.Tag) -> list:
         parsed = {
             "type": "short_videos",
             "sub_rank": i,
-            "url": card.get("href"),
-            "title": get_text(card, "div", {"role": "heading"}),
+            "url": card.attributes.get("href"),
+            "title": get_text(card.css_first('div[role="heading"]'), " "),
         }
 
         # Source (YouTube, TikTok, etc.) and duration
-        cite = get_text(card, "span", {"class": "xFMKFe"})
+        cite = get_text(card.css_first("span.xFMKFe"), " ")
         if cite:
             parsed["cite"] = cite
 

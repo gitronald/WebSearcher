@@ -15,31 +15,34 @@ schema produced by :mod:`WebSearcher.component_parsers.shopping_ads`.
 
 import re
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
+
+from .._slx import get_text
 
 _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
 
-def parse_products(cmpt: bs4.element.Tag) -> list:
+def parse_products(cmpt) -> list:
+    node: Node = cmpt
     # Family B: immersive product grid (no links). Modern cards are
     # data-attrid="apg-product-result"; older cards are g-inner-card. Both use
     # the same inner field classes, so _parse_grid_card handles either.
-    grid_cards = cmpt.find_all(attrs={"data-attrid": "apg-product-result"})
+    grid_cards = list(node.css('[data-attrid="apg-product-result"]'))
     if not grid_cards:
-        grid_cards = cmpt.find_all("g-inner-card")
+        grid_cards = list(node.css("g-inner-card"))
     if grid_cards:
         return [_parse_grid_card(card, i) for i, card in enumerate(grid_cards)]
 
     # Family A: "Explore brands" merchant carousel
-    brand_cards = cmpt.find_all("div", {"class": "gON1yc"})
+    brand_cards = list(node.css("div.gON1yc"))
     if brand_cards:
         return [_parse_brand_card(card, i) for i, card in enumerate(brand_cards)]
 
     return []
 
 
-def _parse_grid_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
-    title = _img_alt(card) or _text(card, "div", "gkQHve")
+def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict:
+    title = _img_alt(card) or _text(card, "div.gkQHve")
 
     parsed: dict = {
         "type": "products",
@@ -48,20 +51,20 @@ def _parse_grid_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
         "title": title or None,
         "url": None,  # JS-driven cards carry no href
         "text": None,
-        "cite": _text(card, "span", "WJMUdc"),  # store / merchant name
+        "cite": _text(card, "span.WJMUdc"),  # store / merchant name
     }
 
     details: dict = {"type": "ratings"}
-    price = _text(card, "span", "lmQWe") or _first_price(card)
+    price = _text(card, "span.lmQWe") or _first_price(card)
     if price:
         details["price"] = price
     source = parsed["cite"]
     if source:
         details["source"] = source
-    rating = _text(card, "span", "yi40Hd")
+    rating = _text(card, "span.yi40Hd")
     if rating:
         details["rating"] = rating
-    n_reviews = _text(card, "span", "RDApEe")
+    n_reviews = _text(card, "span.RDApEe")
     if n_reviews:
         details["n_reviews"] = n_reviews.strip("()")
 
@@ -69,25 +72,25 @@ def _parse_grid_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _parse_brand_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
-    link = card.find("a", {"class": "J0tlkf"})
-    brand = _text(card, "span", "V8apnb") or _img_alt(card)
+def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict:
+    link = card.css_first("a.J0tlkf")
+    brand = _text(card, "span.V8apnb") or _img_alt(card)
 
     parsed: dict = {
         "type": "products",
         "sub_type": "brands",
         "sub_rank": sub_rank,
         "title": brand or None,
-        "url": link["href"] if link and link.get("href") else None,
-        "text": _text(card, "div", "dw0Zb"),
+        "url": link.attributes.get("href") if link is not None else None,
+        "text": _text(card, "div.dw0Zb"),
         "cite": None,
     }
 
     details: dict = {"type": "ratings"}
-    rating = _text(card, "span", "yi40Hd")
+    rating = _text(card, "span.yi40Hd")
     if rating:
         details["rating"] = rating
-    n_reviews = _text(card, "span", "ZRQmE")
+    n_reviews = _text(card, "span.ZRQmE")
     if n_reviews:
         details["n_reviews"] = n_reviews.strip("()")
 
@@ -95,25 +98,20 @@ def _parse_brand_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
-    el = node.find(tag, {"class": class_})
-    if el is None:
-        return None
-    text = el.get_text(" ", strip=True)
+def _text(node: Node, css: str) -> str | None:
+    text = get_text(node.css_first(css), " ", strip=True)
     return text or None
 
 
-def _img_alt(node: bs4.element.Tag) -> str | None:
-    img = node.find("img", alt=True)
+def _img_alt(node: Node) -> str | None:
+    img = node.css_first("img[alt]")
     if img is None:
         return None
-    alt = img.get("alt")
-    if isinstance(alt, list):
-        alt = " ".join(alt)
-    alt = (alt or "").strip()
-    return alt or None
+    alt = img.attributes.get("alt") or ""
+    return alt.strip() or None
 
 
-def _first_price(card: bs4.element.Tag) -> str | None:
-    match = _PRICE_RE.search(card.get_text(" ", strip=True))
+def _first_price(card: Node) -> str | None:
+    text = get_text(card, " ", strip=True) or ""
+    match = _PRICE_RE.search(text)
     return match.group(0) if match else None

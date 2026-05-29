@@ -1,11 +1,10 @@
-import itertools
 from typing import Any
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from .. import logger, utils
+from .. import logger
+from .._slx import class_tokens, get_text
 from ..component_types import header_text_to_type
-from ..utils import Selector
 
 log = logger.Logger().start(__name__)
 
@@ -24,91 +23,87 @@ class _ComponentSignals:
 
     __slots__ = ("classes", "ids", "names")
 
-    def __init__(self, cmpt: bs4.element.Tag) -> None:
+    def __init__(self, cmpt: Node) -> None:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-        for el in itertools.chain((cmpt,), cmpt.descendants):
-            if not isinstance(el, bs4.element.Tag):
-                continue
-            names.add(el.name)
+        # ``el.attrs`` is a non-allocating view over the element's attribute
+        # table (vs ``el.attributes`` which materializes a dict per call);
+        # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
+        for el in cmpt.css("*"):
+            name = el.tag
+            if name:
+                names.add(name)
             cls = el.attrs.get("class")
-            if isinstance(cls, list):  # "class" is multi-valued in bs4
-                classes.update(cls)
-            el_id = el.attrs.get("id")
-            if isinstance(el_id, str):
+            if cls:
+                classes.update(cls.split())
+            el_id = el.id
+            if el_id:
                 ids.add(el_id)
         self.classes = classes
         self.ids = ids
         self.names = names
 
 
+_HEADER_CSS_BY_LEVEL: dict[int, tuple[str, ...]] = {
+    level: (
+        f'h{level}[role="heading"]',
+        f"h{level}.O3JH7, h{level}.q8U8x, h{level}.mfMhoc",
+        f'[aria-level="{level}"][role="heading"]',
+    )
+    for level in (2, 3)
+}
+
+
 class ClassifyMainHeader:
     """Classify a main-section component by its h2/h3 header text."""
 
     @staticmethod
-    def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
+    def classify(cmpt, levels: tuple[int, ...] = (2, 3)) -> str:
+        node: Node = cmpt
         for level in levels:
-            header = ClassifyMainHeader._classify_header(cmpt, level)
+            header = ClassifyMainHeader._classify_header(node, level)
             if header != "unknown":
                 return header
         return "unknown"
 
     @staticmethod
-    def _classify_header(cmpt: bs4.element.Tag, level: int) -> str:
-        """Check text in common headers for dict matches"""
-        header_dict = header_text_to_type(level)
-
-        # Define selectors for classifying header divs
-        selectors: list[Selector] = [
-            Selector(f"h{level}", {"role": "heading"}),
-            Selector(f"h{level}", {"class": ["O3JH7", "q8U8x", "mfMhoc"]}),
-            Selector(None, {"aria-level": f"{level}", "role": "heading"}),
-        ]
-        headers = (
-            h
-            for sel in selectors
-            for h in (
-                cmpt.find_all(sel.name, attrs=sel.attrs)
-                if sel.name
-                else cmpt.find_all(attrs=sel.attrs)
-            )
-        )
-
-        # Filter header divs and check text against dict
-        for header in filter(None, headers):
-            for text, label in header_dict.items():
-                if label == "local_results" and text == "locations":
-                    if header.text.strip().endswith(text):
+    def _classify_header(node: Node, level: int) -> str:
+        """Check text in common headers for dict matches."""
+        markers = header_text_to_type(level)
+        for css in _HEADER_CSS_BY_LEVEL[level]:
+            for header in node.css(css):
+                text = (get_text(header) or "").strip()
+                # local_results' "locations" is the lone endswith marker.
+                if text.endswith("locations"):
+                    return "local_results"
+                for marker, label in markers.items():
+                    if marker == "locations":
+                        continue
+                    if text.startswith(marker):
                         return label
-                if header.text.strip().startswith(text):
-                    return label
-
         return "unknown"
 
 
 class ClassifyMain:
-    """Classify a component from the main section based on its bs4.element.Tag"""
+    """Classify a component from the main section based on its selectolax Node."""
 
     @staticmethod
-    def classify(cmpt: bs4.element.Tag) -> str:
-        signals = _ComponentSignals(cmpt)
+    def classify(cmpt) -> str:
+        node: Node = cmpt
+        signals = _ComponentSignals(node)
 
-        # Ordered (classifier, precondition) chain. The precondition is a cheap
-        # NECESSARY structural signal -- when it is absent the classifier cannot
-        # match, so it is skipped without a full-subtree find(). None = always run
-        # (text/heading/root-class classifiers that general results also trigger).
         component_classifiers = [
-            (ClassifyMain.locations, None),  # hotels, etc. (heading text)
+            (ClassifyMain.locations, None),
             (ClassifyMain.top_stories, lambda s: "g-scrolling-carousel" in s.names),
             (ClassifyMain.discussions_and_forums, lambda s: "IFnjPb" in s.classes),
-            (ClassifyMainHeader.classify, None),  # levels 2 & 3 header text
+            (ClassifyMainHeader.classify, None),
             (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
             (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
             (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
             (ClassifyMain.ai_overview, lambda s: "Fzsovc" in s.classes or "h2" in s.names),
-            (ClassifyMain.available_on, None),  # span.mgAbYb or text fallback
-            (ClassifyMain.knowledge_panel, None),  # several selectors incl. aria-label
+            (ClassifyMain.available_on, None),
+            (ClassifyMain.knowledge_panel, None),
             (ClassifyMain.knowledge_block, lambda s: "block-component" in s.names),
             (ClassifyMain.banner, lambda s: "uzjuFc" in s.classes),
             (
@@ -120,153 +115,183 @@ class ClassifyMain:
             (ClassifyMain.short_videos, lambda s: "IFnjPb" in s.classes),
             (ClassifyMain.videos, lambda s: bool(s.classes & _VIDEO_CLASSES)),
             (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
-            (ClassifyMain.twitter, None),  # div.eejeod or "Twitter Results" text
-            (ClassifyMain.flights, None),  # heading text
+            (ClassifyMain.twitter, None),
+            (ClassifyMain.flights, None),
             (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
             (
                 ClassifyMain.products,
                 lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
             ),
-            (ClassifyMain.general, None),  # root class
-            (ClassifyMain.people_also_ask, None),  # root class
-            (ClassifyMain.knowledge_box, None),  # several attr/structural paths
+            (ClassifyMain.general, None),
+            (ClassifyMain.people_also_ask, None),
+            (ClassifyMain.knowledge_box, None),
             (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
         ]
 
-        # Default unknown, exit on first successful classification.
         for classifier, precondition in component_classifiers:
             if precondition is not None and not precondition(signals):
                 continue
-            cmpt_type = classifier(cmpt)
+            cmpt_type = classifier(node)
             if cmpt_type != "unknown":
                 return cmpt_type
-
         return "unknown"
 
     @staticmethod
-    def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
-        heading = cmpt.find("div", {"class": "IFnjPb", "role": "heading"})
-        if heading and heading.get_text(strip=True).startswith("Discussions and forums"):
+    def discussions_and_forums(cmpt) -> str:
+        node: Node = cmpt
+        # bs4 ``find("div", {"class": "IFnjPb", "role": "heading"})`` = AND of
+        # both conditions; CSS compound div.IFnjPb[role="heading"] = same.
+        heading = node.css_first('div.IFnjPb[role="heading"]')
+        if heading is not None and (get_text(heading, strip=True) or "").startswith(
+            "Discussions and forums"
+        ):
             return "discussions_and_forums"
         return "unknown"
 
     @staticmethod
-    def available_on(cmpt: bs4.element.Tag) -> str:
-        for heading in cmpt.find_all("span", class_="mgAbYb"):
-            if heading.get_text(strip=True) == "Available on":
+    def available_on(cmpt) -> str:
+        node: Node = cmpt
+        for heading in node.css("span.mgAbYb"):
+            if (get_text(heading, strip=True) or "") == "Available on":
                 return "available_on"
-        text = utils.get_text(cmpt) or ""
+        text = get_text(node) or ""
         return "available_on" if "/Available on" in text else "unknown"
 
     @staticmethod
-    def banner(cmpt: bs4.element.Tag) -> str:
-        conditions = [
-            "ULSxyf" in cmpt.attrs.get("class", []),
-            cmpt.find("div", {"class": "uzjuFc"}),
-        ]
-        return "banner" if all(conditions) else "unknown"
+    def banner(cmpt) -> str:
+        node: Node = cmpt
+        if "ULSxyf" not in class_tokens(node):
+            return "unknown"
+        return "banner" if node.css_first("div.uzjuFc") is not None else "unknown"
 
     @staticmethod
-    def finance_panel(cmpt: bs4.element.Tag) -> str:
-        condition = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
-        return "knowledge" if condition else "unknown"
+    def finance_panel(cmpt) -> str:
+        node: Node = cmpt
+        return (
+            "knowledge"
+            if node.css_first('div[id="knowledge-finance-wholepage__entity-summary"]') is not None
+            else "unknown"
+        )
 
     @staticmethod
-    def flights(cmpt: bs4.element.Tag) -> str:
-        """Classify Google Flights widgets (prices, status)"""
-        heading = cmpt.find(attrs={"role": "heading"})
-        if heading and heading.get_text(strip=True).startswith("Flight"):
+    def flights(cmpt) -> str:
+        node: Node = cmpt
+        heading = node.css_first('[role="heading"]')
+        if heading is not None and (get_text(heading, strip=True) or "").startswith("Flight"):
             return "flights"
         return "unknown"
 
     @staticmethod
-    def general(cmpt: bs4.element.Tag) -> str:
-        """Classify general components"""
-
-        if "class" in cmpt.attrs:
-            conditions_dict = {
-                "format-01": cmpt.attrs["class"] == ["g"],
-                "format-02": (
-                    ("g" in cmpt.attrs["class"]) & any(s in ["Ww4FFb"] for s in cmpt.attrs["class"])
+    def general(cmpt) -> str:
+        """Classify general components."""
+        node: Node = cmpt
+        node_id = node.mem_id
+        cls = class_tokens(node)
+        # bs4 distinguished "class" present vs absent via ``"class" in cmpt.attrs``
+        # -- preserve that distinction explicitly.
+        if "class" in node.attributes:
+            conditions = {
+                "format-01": cls == ["g"],
+                "format-02": ("g" in cls) and ("Ww4FFb" in cls),
+                "format-03": any(s in {"hlcw0c", "MjjYud", "PmEWq"} for s in cls),
+                # bs4 ``find("div", {"class": ["g","Ww4FFb"]})`` = OR of tokens.
+                "format-04": any(n.mem_id != node_id for n in node.css("div.g, div.Ww4FFb")),
+            }
+        else:
+            conditions = {
+                "format-05": all(
+                    any(n.mem_id != node_id for n in node.css(f"div.{c}")) for c in ("g", "d4rhi")
                 ),
-                "format-03": any(s in ["hlcw0c", "MjjYud", "PmEWq"] for s in cmpt.attrs["class"]),
-                "format-04": cmpt.find("div", {"class": ["g", "Ww4FFb"]}),
             }
-        else:
-            conditions_dict = {
-                "format-05": all(cmpt.find("div", {"class": c}) for c in ["g", "d4rhi"]),
-            }
-
-        layout_matches = [k for k, v in conditions_dict.items() if v]
-        # log.debug(f"general layout: {layout_matches}")
-
-        return "general" if any(layout_matches) else "unknown"
+        return "general" if any(conditions.values()) else "unknown"
 
     @staticmethod
-    def general_questions(cmpt: bs4.element.Tag) -> str:
-        hybrid = cmpt.find("div", {"class": "ifM9O"})
-        g_accordian = cmpt.find("g-accordion")
-        return "general_questions" if hybrid and g_accordian else "unknown"
+    def general_questions(cmpt) -> str:
+        node: Node = cmpt
+        hybrid = node.css_first("div.ifM9O")
+        g_accordion = node.css_first("g-accordion")
+        return "general_questions" if hybrid is not None and g_accordion is not None else "unknown"
 
     @staticmethod
-    def img_cards(cmpt: bs4.element.Tag) -> str:
-        """Classify image cards components"""
-        if "class" in cmpt.attrs:
-            conditions = [
-                any(s in ["hlcw0c", "MjjYud"] for s in cmpt.attrs["class"]),
-                cmpt.find("block-component"),
-            ]
-            return "img_cards" if all(conditions) else "unknown"
-        else:
+    def img_cards(cmpt) -> str:
+        node: Node = cmpt
+        if "class" not in node.attributes:
             return "unknown"
+        cls = class_tokens(node)
+        if not any(s in {"hlcw0c", "MjjYud"} for s in cls):
+            return "unknown"
+        return "img_cards" if node.css_first("block-component") is not None else "unknown"
 
     @staticmethod
-    def images(cmpt: bs4.element.Tag) -> str:
-        selectors = [
-            {"name": "div", "attrs": {"id": "imagebox_bigimages"}},
-            {"name": "div", "attrs": {"id": "iur"}},
-        ]
-        return "images" if utils.find_by_selectors(cmpt, selectors) else "unknown"
+    def images(cmpt) -> str:
+        node: Node = cmpt
+        for css in ('div[id="imagebox_bigimages"]', 'div[id="iur"]'):
+            if node.css_first(css) is not None:
+                return "images"
+        return "unknown"
 
     @staticmethod
-    def ai_overview(cmpt: bs4.element.Tag) -> str:
+    def ai_overview(cmpt) -> str:
         """Classify AI Overview components.
 
         Skip the sibling "Related Links" expansion that also contains a
-        ``Fzsovc`` div — that surface is a different component (extended
+        ``Fzsovc`` div -- that surface is a different component (extended
         sources and follow-up sections) and is not parsed here.
         """
-        h2 = cmpt.find("h2")
-        if h2 is not None and h2.get_text(strip=True) == "Related Links":
+        node: Node = cmpt
+        h2 = node.css_first("h2")
+        h2_text = (get_text(h2, strip=True) or "") if h2 is not None else ""
+        if h2_text == "Related Links":
             return "unknown"
-        conditions = [
-            cmpt.find("div", {"class": "Fzsovc"}),
-            h2 is not None and h2.get_text(strip=True) == "AI Overview",
-        ]
-        return "ai_overview" if any(conditions) else "unknown"
+        if node.css_first("div.Fzsovc") is not None or h2_text == "AI Overview":
+            return "ai_overview"
+        return "unknown"
 
     @staticmethod
-    def knowledge_block(cmpt: bs4.element.Tag) -> str:
-        """Classify knowledge block components"""
-        conditions = [
-            utils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
-            cmpt.find("block-component"),
-        ]
-        return "knowledge" if all(conditions) else "unknown"
+    def knowledge_block(cmpt) -> str:
+        node: Node = cmpt
+        if class_tokens(node) != ["ULSxyf"]:
+            return "unknown"
+        return "knowledge" if node.css_first("block-component") is not None else "unknown"
 
     @staticmethod
-    def knowledge_box(cmpt: bs4.element.Tag) -> str:
-        """Classify knowledge component types"""
-        attrs = cmpt.attrs
+    def knowledge_box(cmpt) -> str:
+        """Classify knowledge component types."""
+        node: Node = cmpt
+        attrs = node.attributes
         condition: dict[str, Any] = {}
-        condition["flights"] = (utils.check_dict_value(attrs, "jscontroller", "Z2bSc")) | bool(
-            cmpt.find("div", {"jscontroller": "Z2bSc"})
+        condition["flights"] = (
+            attrs.get("jscontroller") == "Z2bSc"
+            or node.css_first('div[jscontroller="Z2bSc"]') is not None
         )
-        condition["maps"] = utils.check_dict_value(attrs, "data-hveid", "CAMQAA")
-        condition["locations"] = cmpt.find("div", {"class": "zd2Jbb"})
-        condition["events"] = cmpt.find("g-card", {"class": "URhAHe"})
-        condition["jobs"] = cmpt.find("g-card", {"class": "cvoI5e"})
-        first_text = next(iter(cmpt.stripped_strings), None)
+        condition["maps"] = attrs.get("data-hveid") == "CAMQAA"
+        condition["locations"] = node.css_first("div.zd2Jbb") is not None
+        condition["events"] = node.css_first("g-card.URhAHe") is not None
+        condition["jobs"] = node.css_first("g-card.cvoI5e") is not None
+        # bs4 ``next(iter(cmpt.stripped_strings), None)`` -- first non-blank
+        # text fragment in the subtree. Use the _slx walker indirectly via
+        # iter_text_fragments-style filter.
+        first_text: str | None = None
+        for s in (get_text(node) or "").splitlines():
+            s2 = s.strip()
+            if s2:
+                first_text = s2
+                break
+        if first_text is None:
+            # fallback: pull first non-whitespace fragment from text walker
+            text = get_text(node) or ""
+            first_text = text.strip().split()[0] if text.strip() else None
+        # Simpler & more faithful: replicate stripped_strings exactly via the
+        # _slx iter_text_fragments walker.
+        from .._slx import _iter_text_fragments
+
+        for raw in _iter_text_fragments(node):
+            stripped = raw.strip()
+            if stripped:
+                first_text = stripped
+                break
+        else:
+            first_text = None
         if first_text is not None:
             condition["covid_alert"] = first_text == "COVID-19 alert"
         for condition_type, conditions in condition.items():
@@ -275,154 +300,136 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def knowledge_panel(cmpt: bs4.element.Tag) -> str:
-        selectors = [
-            {"name": "h1", "attrs": {"class": "VW3apb"}},
-            {
-                "name": "div",
-                "attrs": {"class": ["knowledge-panel", "knavi", "kp-blk", "kp-wholepage-osrp"]},
-            },
-            {"name": "div", "attrs": {"aria-label": "Featured results", "role": "complementary"}},
-            {"name": "div", "attrs": {"jscontroller": "qTdDb"}},
-            {"name": "div", "attrs": {"class": "obcontainer"}},
-        ]
-        cmpt_check = utils.find_by_selectors(cmpt, selectors)
-        attr_check = utils.check_dict_value(cmpt.attrs, "jscontroller", "qTdDb")
-        if cmpt_check or attr_check:
+    def knowledge_panel(cmpt) -> str:
+        node: Node = cmpt
+        for css in (
+            "h1.VW3apb",
+            "div.knowledge-panel, div.knavi, div.kp-blk, div.kp-wholepage-osrp",
+            'div[aria-label="Featured results"][role="complementary"]',
+            'div[jscontroller="qTdDb"]',
+            "div.obcontainer",
+        ):
+            if node.css_first(css) is not None:
+                return "knowledge"
+        if node.attrs.get("jscontroller") == "qTdDb":
             return "knowledge"
         return "unknown"
 
     @staticmethod
-    def local_results(cmpt: bs4.element.Tag) -> str:
-        selectors = [
-            {"name": "div", "attrs": {"class": "Qq3Lb"}},  # Places
-            {"name": "div", "attrs": {"class": "VkpGBb"}},  # Local Results
-        ]
-        return "local_results" if utils.find_by_selectors(cmpt, selectors) else "unknown"
+    def local_results(cmpt) -> str:
+        node: Node = cmpt
+        for css in ("div.Qq3Lb", "div.VkpGBb"):
+            if node.css_first(css) is not None:
+                return "local_results"
+        return "unknown"
 
     @staticmethod
-    def map_result(cmpt: bs4.element.Tag) -> str:
-        condition = cmpt.find("div", {"class": "lu_map_section"})
-        return "map_results" if condition else "unknown"
+    def map_result(cmpt) -> str:
+        node: Node = cmpt
+        return "map_results" if node.css_first("div.lu_map_section") is not None else "unknown"
 
     @staticmethod
-    def people_also_ask(cmpt: bs4.element.Tag) -> str:
-        """Secondary check for people also ask, see classify_header for primary"""
-        class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
-        conditions = utils.check_dict_value(cmpt.attrs, "class", class_list)
-        return "people_also_ask" if conditions else "unknown"
+    def people_also_ask(cmpt) -> str:
+        """Secondary check for people also ask (header text is primary)."""
+        node: Node = cmpt
+        # bs4 ``check_dict_value(cmpt.attrs, "class", ["g","kno-kp","mnr-c","g-blk"])``
+        # is EXACT list equality on the class attribute.
+        return (
+            "people_also_ask"
+            if class_tokens(node) == ["g", "kno-kp", "mnr-c", "g-blk"]
+            else "unknown"
+        )
 
     @staticmethod
-    def products(cmpt: bs4.element.Tag) -> str:
-        """Classify organic shopping packs that otherwise fall into ``general``.
-
-        Three layouts: the modern popular-products grid (each product is a
-        ``data-attrid="apg-product-result"`` card), the older grid (a
-        ``product-viewer-group`` of ``g-inner-card`` products), and the "Explore
-        brands" merchant carousel. Runs before ``general`` so these are not
-        claimed by its greedy ``MjjYud``/``hlcw0c`` (``format-03``) and
-        nested-``div.g`` (``format-04``) markers; the positive signal is the
-        product/brand structure itself, not the shared container class.
-
-        ``g-inner-card`` is required alongside ``product-viewer-group`` because
-        ``local_results`` packs also embed a ``product-viewer-group`` (with no
-        ``g-inner-card``) and must still reach the ``local_results`` classifier.
-        """
-        if cmpt.find(attrs={"data-attrid": "apg-product-result"}):
+    def products(cmpt) -> str:
+        """Classify organic shopping packs that otherwise fall into ``general``."""
+        node: Node = cmpt
+        if node.css_first('[data-attrid="apg-product-result"]') is not None:
             return "products"
-        if cmpt.find("product-viewer-group") and cmpt.find("g-inner-card"):
+        if (
+            node.css_first("product-viewer-group") is not None
+            and node.css_first("g-inner-card") is not None
+        ):
             return "products"
-        heading = cmpt.find(attrs={"role": "heading"})
-        if heading and heading.get_text(strip=True) == "Explore brands":
+        heading = node.css_first('[role="heading"]')
+        if heading is not None and (get_text(heading, strip=True) or "") == "Explore brands":
             return "products"
         return "unknown"
 
     @staticmethod
-    def promo(cmpt: bs4.element.Tag) -> str:
-        """Classify a promotional banner built around a ``<promo-throttler>``.
-
-        Currently the "Save with deals / Shop deals" shopping CTA. The extractor
-        (``is_valid``) only keeps promo-throttler blocks that carry no organic
-        results (``div.g``), so any that reach classification are pure promos;
-        the redundant results-wrapper variant is dropped before this runs.
-        """
-        return "promo" if cmpt.find("promo-throttler") else "unknown"
+    def promo(cmpt) -> str:
+        node: Node = cmpt
+        return "promo" if node.css_first("promo-throttler") is not None else "unknown"
 
     @staticmethod
-    def short_videos(cmpt: bs4.element.Tag) -> str:
-        """Classify short videos carousel"""
-        heading = cmpt.find("span", {"role": "heading", "class": "IFnjPb"})
-        if heading and heading.get_text(strip=True) == "Short videos":
+    def short_videos(cmpt) -> str:
+        node: Node = cmpt
+        heading = node.css_first('span[role="heading"].IFnjPb')
+        if heading is not None and (get_text(heading, strip=True) or "") == "Short videos":
             return "short_videos"
         return "unknown"
 
     @staticmethod
-    def videos(cmpt: bs4.element.Tag) -> str:
-        """Classify video carousel components (e.g. 'Trailers & clips' on entity SERPs).
-
-        Matches the layout-class vocabulary used by parse_videos for individual
-        video subcards. g-inner-card is intentionally excluded as too generic.
-        """
-        if cmpt.find("div", {"class": ["VibNM", "mLmaBd", "RzdJxc", "sHEJob"]}):
-            return "videos"
-        return "unknown"
+    def videos(cmpt) -> str:
+        """Classify video carousel components."""
+        node: Node = cmpt
+        return (
+            "videos"
+            if node.css_first("div.VibNM, div.mLmaBd, div.RzdJxc, div.sHEJob") is not None
+            else "unknown"
+        )
 
     @staticmethod
-    def knowledge_subcard(cmpt: bs4.element.Tag) -> str:
-        """Catch knowledge-panel extension subcards by structural pattern.
-
-        Entity-panel sections (e.g. Cast, Based on the book, Reviews, Behind the
-        scenes) share the JNkvid wrapper class and an aria-level=2 heading.
-        Specific classifiers (Header.classify, videos, images, people_also_ask)
-        must run earlier so their section types win for known headings.
-        """
-        if not cmpt.find("div", {"class": "JNkvid"}):
+    def knowledge_subcard(cmpt) -> str:
+        """Catch knowledge-panel extension subcards by structural pattern."""
+        node: Node = cmpt
+        if node.css_first("div.JNkvid") is None:
             return "unknown"
-        if not cmpt.find(attrs={"role": "heading", "aria-level": "2"}):
+        if node.css_first('[role="heading"][aria-level="2"]') is None:
             return "unknown"
         return "knowledge"
 
     @staticmethod
-    def locations(cmpt: bs4.element.Tag) -> str:
-        """Classify locations components (hotels, etc.)"""
-        heading = cmpt.find(attrs={"role": "heading"})
-        if heading:
-            text = heading.get_text(strip=True)
+    def locations(cmpt) -> str:
+        """Classify locations components (hotels, etc.)."""
+        node: Node = cmpt
+        heading = node.css_first('[role="heading"]')
+        if heading is not None:
+            text = get_text(heading, strip=True) or ""
             if text.startswith("Hotels") or text.startswith("More Hotels"):
                 return "locations"
         return "unknown"
 
     @staticmethod
-    def top_stories(cmpt: bs4.element.Tag) -> str:
-        """Classify top stories components"""
-        conditions = [
-            cmpt.find("g-scrolling-carousel"),
-            cmpt.find("div", {"id": "tvcap"}),
-        ]
-        return "top_stories" if all(conditions) else "unknown"
+    def top_stories(cmpt) -> str:
+        node: Node = cmpt
+        if node.css_first("g-scrolling-carousel") is None:
+            return "unknown"
+        if node.css_first('div[id="tvcap"]') is None:
+            return "unknown"
+        return "top_stories"
 
     @staticmethod
-    def news_quotes(cmpt: bs4.element.Tag) -> str:
-        """Classify top stories components"""
-        header_div = cmpt.find("g-tray-header", role="heading")
-        condition = utils.get_text(header_div, strip=True) == "News quotes"
-        return "news_quotes" if condition else "unknown"
+    def news_quotes(cmpt) -> str:
+        node: Node = cmpt
+        header_div = node.css_first('g-tray-header[role="heading"]')
+        text = get_text(header_div, strip=True) if header_div is not None else None
+        return "news_quotes" if text == "News quotes" else "unknown"
 
     @staticmethod
-    def twitter(cmpt: bs4.element.Tag) -> str:
-        cmpt_type = "twitter" if cmpt.find("div", {"class": "eejeod"}) else "unknown"
-        cmpt_type = ClassifyMain.twitter_type(cmpt, cmpt_type)
-        return cmpt_type
+    def twitter(cmpt) -> str:
+        node: Node = cmpt
+        cmpt_type = "twitter" if node.css_first("div.eejeod") is not None else "unknown"
+        return ClassifyMain.twitter_type(node, cmpt_type)
 
     @staticmethod
-    def twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown") -> str:
-        """Distinguish twitter types ('twitter_cards', 'twitter_result')"""
-        conditions = [
-            (cmpt_type == "twitter"),  # Check type (header text)
-            utils.get_text(cmpt, strip=True) == "Twitter Results",  # Check text
-        ]
-        if any(conditions):
-            # Differentiate twitter cards (carousel) and twitter result (single)
-            carousel = cmpt.find("g-scrolling-carousel")
-            cmpt_type = "twitter_cards" if carousel else "twitter_result"
+    def twitter_type(cmpt, cmpt_type: str = "unknown") -> str:
+        """Distinguish twitter types ('twitter_cards', 'twitter_result')."""
+        node: Node = cmpt
+        if cmpt_type == "twitter" or (get_text(node, strip=True) or "") == "Twitter Results":
+            return (
+                "twitter_cards"
+                if node.css_first("g-scrolling-carousel") is not None
+                else "twitter_result"
+            )
         return cmpt_type

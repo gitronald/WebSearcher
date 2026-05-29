@@ -5,15 +5,15 @@ automation is required to capture the dropdown content; this parser only
 captures the question text.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import Selector, get_text_by_selectors
+from .._slx import get_text
 
 
-def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
-    questions = cmpt.find_all("div", {"class": "related-question-pair"})
-    parsed_questions = [parse_question(q) for q in questions]
-    parsed_questions = list(filter(None, parsed_questions))
+def parse_people_also_ask(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt
+    questions = node.css("div.related-question-pair")
+    parsed_questions = list(filter(None, (parse_question(q) for q in questions)))
     parsed: dict = {
         "type": "people_also_ask",
         "sub_rank": sub_rank,
@@ -23,12 +23,9 @@ def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_question(question: bs4.element.Tag) -> str | None:
-    question_selectors = [
-        Selector("div", {"class": "rc"}),
-        Selector("div", {"class": "yuRUbf"}),
-        Selector("div", {"class": "iDjcJe"}),  # 2023-01-01
-        Selector("div", {"class": "JlqpRe"}),  # 2023-11-16
-        Selector("div", {"class": "cbphWd"}),  # 2021-01-09
-    ]
-    return get_text_by_selectors(question, question_selectors, strip=True)
+def parse_question(question: Node) -> str | None:
+    for sel in ("div.rc", "div.yuRUbf", "div.iDjcJe", "div.JlqpRe", "div.cbphWd"):
+        text = get_text(question.css_first(sel), " ", strip=True)
+        if text:
+            return text
+    return None

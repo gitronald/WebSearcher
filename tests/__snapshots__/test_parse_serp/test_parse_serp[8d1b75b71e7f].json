@@ -269,7 +269,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -283,7 +285,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -297,7 +301,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -311,7 +317,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -325,7 +333,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -339,7 +349,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 21,
@@ -353,7 +365,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -454,6 +468,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Define serendipity in a sentence",
           "Serendipity in a sentence",

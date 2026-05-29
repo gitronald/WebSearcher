@@ -20,6 +20,7 @@ Each UUID can have multiple payloads of three shapes:
 
 from __future__ import annotations
 
+import functools
 import html
 import json
 import re
@@ -34,11 +35,14 @@ _LDPB_PUSH = re.compile(
 )
 
 
+@functools.lru_cache(maxsize=2)
 def extract_payloads(raw_html: str) -> dict[str, dict]:
     """Return ``{uuid: {"header": payload | None, "type_a": [...], "type_b": [...]}}``.
 
     Scans the raw HTML string for all three delivery forms, decodes each JSON
-    blob, classifies by shape, and groups by UUID.
+    blob, classifies by shape, and groups by UUID. Cached so adjacent AI
+    overview cmpts within one parse skip the rescan; ``maxsize=2`` keeps the
+    cache from holding multiple SERPs' worth of payloads.
     """
     out: dict[str, dict] = {}
     for raw in _iter_payload_blobs(raw_html):

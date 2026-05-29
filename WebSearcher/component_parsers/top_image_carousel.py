@@ -4,37 +4,38 @@ Each item is a thumbnail link; the component itself has a title and points
 at a parent listing.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import get_link
+from .._slx import get_text
 
 
-def parse_top_image_carousel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_top_image_carousel(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt
     parsed: dict = {"type": "top_image_carousel", "sub_rank": sub_rank}
 
-    title = cmpt.find_all("span", {"class": "Wkr6U"})
-    if title:
-        parsed["title"] = "|".join([t.text for t in title])
-        parsed["url"] = get_link(cmpt)
+    titles = node.css("span.Wkr6U")
+    if titles:
+        parsed["title"] = "|".join((get_text(t) or "") for t in titles)
+        a = node.css_first("a")
+        parsed["url"] = a.attributes.get("href") if a is not None else None
 
-    images = cmpt.find("div", {"role": "list"})
-    if images:
-        alinks: list = list(images.children)
+    images = node.css_first('div[role="list"]')
+    if images is not None:
+        # bs4 .children with is_tag filter == element-only iteration here.
+        alinks = list(images.iter(include_text=False))
     else:
-        carousel = cmpt.find("g-scrolling-carousel")
-        alinks = carousel.find_all("a") if carousel else []
+        carousel = node.css_first("g-scrolling-carousel")
+        alinks = list(carousel.css("a")) if carousel is not None else []
 
     items = []
     for a in alinks:
-        if not isinstance(a, bs4.element.Tag):
-            continue
-        if "href" in a.attrs or "data-url" in a.attrs:
+        if "href" in a.attributes or "data-url" in a.attributes:
             items.append(parse_alink(a))
     parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return [parsed]
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
-    url = a.attrs.get("href") or a.attrs.get("data-url", "")
-    return {"url": url, "text": a.get_text("|")}
+def parse_alink(a: Node) -> dict:
+    url = a.attributes.get("href") or a.attributes.get("data-url", "")
+    return {"url": url, "text": get_text(a, "|")}

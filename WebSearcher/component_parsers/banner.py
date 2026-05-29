@@ -4,36 +4,38 @@ A header row plus a list of clickable suggestions Google offers when a query
 is flagged (e.g., misspellings, restricted topics).
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
+
+from .._slx import get_text
 
 
-def parse_banner(cmpt: bs4.element.Tag) -> list:
-    parsed_list: list[dict] = []
-
-    parsed_list.append(
+def parse_banner(cmpt) -> list:
+    node: Node = cmpt
+    parsed_list: list[dict] = [
         {
             "type": "banner",
             "sub_type": "header",
             "sub_rank": 0,
-            "title": _get_result_text(cmpt, ".v3jTId"),
-            "text": _get_result_text(cmpt, ".Cy9gW"),
+            "title": _get_result_text(node, ".v3jTId"),
+            "text": _get_result_text(node, ".Cy9gW"),
         }
-    )
+    ]
 
-    for i, suggestion in enumerate(cmpt.select(".TjBpC")):
+    for i, suggestion in enumerate(node.css(".TjBpC")):
         parsed_list.append(
             {
                 "type": "banner",
                 "sub_type": "suggestion",
                 "sub_rank": i + 1,
                 "title": _get_result_text(suggestion, ".AbPV3"),
-                "url": suggestion.get("href"),
+                "url": suggestion.attributes.get("href"),
             }
         )
 
     return parsed_list
 
 
-def _get_result_text(cmpt: bs4.element.Tag, selector: str) -> str:
-    match = cmpt.select_one(selector)
-    return match.get_text(strip=True) if match else ""
+def _get_result_text(node: Node, selector: str) -> str:
+    """Find first descendant matching ``selector`` and return its stripped text.
+    Returns ``""`` (not ``None``) when missing, matching the original behavior."""
+    return get_text(node.css_first(selector), strip=True) or ""

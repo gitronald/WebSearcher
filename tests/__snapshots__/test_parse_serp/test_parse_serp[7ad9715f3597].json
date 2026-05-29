@@ -89,7 +89,9 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
@@ -103,7 +105,9 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 5,
@@ -117,7 +121,9 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -131,7 +137,9 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -260,6 +268,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "People also search for",
         "items": [
           "100 Fahrenheit is fever",
           "101 Fahrenheit to Celsius",

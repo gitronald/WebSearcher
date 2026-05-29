@@ -467,9 +467,15 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
 TYPES_BY_NAME: dict[str, ComponentType] = {t.name: t for t in COMPONENT_TYPES}
 
 
+_HEADER_TEXT_TO_TYPE: dict[int, dict[str, str]] = {
+    level: {text: t.name for t in COMPONENT_TYPES for text in t.header_texts.get(level, ())}
+    for level in {lvl for t in COMPONENT_TYPES for lvl in t.header_texts}
+}
+
+
 def header_text_to_type(level: int) -> dict[str, str]:
     """Inverted: ``{header text: type name}`` for a given heading level."""
-    return {text: t.name for t in COMPONENT_TYPES for text in t.header_texts.get(level, ())}
+    return _HEADER_TEXT_TO_TYPE.get(level, {})
 
 
 def types_in_section(section: Section) -> tuple[ComponentType, ...]:

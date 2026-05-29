@@ -4,25 +4,21 @@ A list of forum/discussion threads (Reddit, Stack Overflow, etc.) with title,
 source, and link. Each row has multiple known card layouts.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import Selector, get_link, get_text, get_text_by_selectors
+from .._slx import get_text
 
 
-def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
-    sub_selectors: list[Selector] = [
-        Selector("div", {"class": "LJ7wUe"}),
-        Selector("div", {"class": "JlqpRe"}),
-        Selector("div", {"class": "EDblX"}),
-    ]
-    for sel in sub_selectors:
-        subs = cmpt.find_all(sel.name, attrs=sel.attrs)
+def parse_discussions_and_forums(cmpt) -> list:
+    node: Node = cmpt
+    for sel in ("div.LJ7wUe", "div.JlqpRe", "div.EDblX"):
+        subs = node.css(sel)
         if subs:
             return [parse_item(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     return []
 
 
-def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_item(cmpt: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "discussions_and_forums",
         "sub_type": None,
@@ -33,27 +29,27 @@ def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def get_title(sub: bs4.element.Tag) -> str | None:
-    title_selectors = [
-        Selector("div", {"class": "zNWc4c"}),
-        Selector("div", {"class": "qyp6xb"}),
-    ]
-    title = get_text_by_selectors(sub, title_selectors)
-    if not title:
-        title = get_text(sub, "div", {"role": "heading"})
-    return title
+def get_title(sub: Node) -> str | None:
+    for sel in ("div.zNWc4c", "div.qyp6xb"):
+        text = get_text(sub.css_first(sel), " ")
+        if text:
+            return text
+    return get_text(sub.css_first('div[role="heading"]'), " ")
 
 
-def get_cite(sub: bs4.element.Tag) -> str | None:
-    cite_selectors = [
-        Selector("div", {"class": "LbKnXb"}),
-        Selector("div", {"class": "VZGVuc"}),
-    ]
-    return get_text_by_selectors(sub, cite_selectors)
+def get_cite(sub: Node) -> str | None:
+    for sel in ("div.LbKnXb", "div.VZGVuc"):
+        text = get_text(sub.css_first(sel), " ")
+        if text:
+            return text
+    return None
 
 
-def get_url(sub: bs4.element.Tag) -> str | None:
-    # Try multiple, take first non-null
-    url_list = [get_link(sub, {"class": "v4kUNc"}), get_link(sub)]
-    url_list = [url for url in url_list if url]
-    return url_list[0] if url_list else None
+def get_url(sub: Node) -> str | None:
+    # Prefer the publisher anchor if present, fall back to the first anchor.
+    for sel in ("a.v4kUNc", "a"):
+        a = sub.css_first(sel)
+        href = a.attributes.get("href") if a is not None else None
+        if href:
+            return href
+    return None

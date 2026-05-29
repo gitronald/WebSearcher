@@ -111,7 +111,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 5,
@@ -125,7 +127,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -139,7 +143,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -153,7 +159,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -167,7 +175,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 9,
@@ -181,7 +191,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -195,7 +207,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 11,
@@ -209,7 +223,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 12,
@@ -223,7 +239,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
@@ -322,6 +340,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Population of France vs UK",
           "Population of france 2022",

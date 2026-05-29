@@ -31,12 +31,22 @@ none of these markers and correctly yield empty output.
 
 from __future__ import annotations
 
-import bs4
+import contextvars
 
+from selectolax.lexbor import LexborNode as Node
+
+from .._slx import class_tokens, get_text
 from ._ai_overview_payloads import extract_payloads
 
+# Set by ``parse_serp`` so ``_root_html`` skips a full-document serialization
+# per AI overview component. ``None`` outside that context (e.g. direct tests).
+raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "raw_serp_html", default=None
+)
 
-def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
+
+def parse_ai_overview(cmpt, sub_rank: int = 0) -> list[dict]:
+    node: Node = cmpt
     parsed: dict = {
         "type": "ai_overview",
         "sub_rank": sub_rank,
@@ -45,18 +55,18 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
         "cite": None,
     }
 
-    content = cmpt.find("div", {"class": "mZJni"})
+    content = node.css_first("div.mZJni")
     if content is not None:
         # Payload extraction serializes the whole document; only the current
         # DOM ships these JSON citation payloads, so skip it for legacy SERPs.
-        payloads = extract_payloads(_root_html(cmpt))
+        payloads = extract_payloads(_root_html(node))
         type_a_by_src_id = _index_type_a_by_src_id(payloads)
         lede, lede_citations, sections = _extract_body(content, payloads)
-        sources = _extract_sources(cmpt, type_a_by_src_id)
+        sources = _extract_sources(node, type_a_by_src_id)
     else:
         # Legacy SGE (2024) markup: the current-DOM body container is absent.
-        lede, lede_citations, sections = _extract_body_legacy(cmpt)
-        sources = _extract_sources_legacy(cmpt)
+        lede, lede_citations, sections = _extract_body_legacy(node)
+        sources = _extract_sources_legacy(node)
 
     parsed["sub_type"] = "sectioned" if sections else "flat"
     parsed["text"] = lede or None
@@ -75,7 +85,7 @@ def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
     # miss: both otherwise yield empty output. The decline message is shipped
     # (hidden) on every AI-overview page, so it is only meaningful when no
     # content was extracted.
-    if parsed["text"] is None and parsed["details"] is None and _is_unavailable(cmpt):
+    if parsed["text"] is None and parsed["details"] is None and _is_unavailable(node):
         parsed["sub_type"] = "unavailable"
 
     return [parsed]
@@ -94,40 +104,33 @@ _UNAVAILABLE_MARKERS = (
 )
 
 
-def _is_unavailable(cmpt: bs4.element.Tag) -> bool:
-    text = cmpt.get_text(" ", strip=True)
+def _is_unavailable(node: Node) -> bool:
+    text = get_text(node, " ", strip=True) or ""
     return any(marker in text for marker in _UNAVAILABLE_MARKERS)
 
 
-def _root_html(cmpt: bs4.element.Tag) -> str:
-    """Serialize the document root (or the cmpt's highest ancestor) to HTML.
+def _root_html(node: Node) -> str:
+    """Document HTML for payload extraction.
 
     The ``lDPB.push`` fallback payload form lives in script tags outside the
-    AI overview cmpt, so we serialize the full document to catch all three
-    payload delivery forms in one pass.
+    AI overview cmpt, so we need the full document. ``parse_serp`` publishes
+    the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
+    serializing the document root when called outside that context (e.g.
+    direct tests of the parser).
     """
-    node = cmpt
-    while node.parent is not None:
-        node = node.parent
-    return str(node)
+    cached = raw_serp_html.get()
+    if cached is not None:
+        return cached
+    cur = node
+    while cur.parent is not None:
+        cur = cur.parent
+    return cur.html or ""
 
 
 def _extract_body(
-    content: bs4.element.Tag, payloads: dict[str, dict]
+    content: Node, payloads: dict[str, dict]
 ) -> tuple[str, list[dict], list[dict]]:
-    """Walk the content area and split into lede + lede citations + sections.
-
-    The body is a flat document-order sequence of paragraph divs (``Y3BBE``),
-    section heading divs (``otQkpb``, ``role=heading aria-level=3``), and
-    bullet/ordered lists (``ul.KsbFXc`` / ``ol.IaGLZe``). Layout nests vary
-    (sometimes wrapped in an extra div, sometimes flush with ``mZJni``), so
-    we collect the elements via ``find_all`` and walk in document order.
-
-    Citation buttons (``button.rBl3me``) inside each element are decomposed
-    before text extraction (their visible text "Publisher +N" would otherwise
-    leak into the paragraph) and recorded as a ``citations`` list per section
-    (or attached to the lede if they precede any heading).
-    """
+    """Walk the content area and split into lede + lede citations + sections."""
     elements = _collect_body_elements(content)
     if not elements:
         return "", [], []
@@ -141,12 +144,12 @@ def _extract_body(
         button_citations = _extract_button_citations(elem, payloads)
         # Strip buttons before text extraction so the "Publisher +N" label
         # does not leak into the section text.
-        for button in elem.find_all("button", {"class": "rBl3me"}):
+        for button in elem.css("button.rBl3me"):
             button.decompose()
 
         if _is_section_heading(elem):
             current = {
-                "heading": elem.get_text(" ", strip=True),
+                "heading": get_text(elem, " ", strip=True) or "",
                 "text": None,
                 "hyperlinks": [],
                 "citations": [],
@@ -156,7 +159,7 @@ def _extract_body(
                 current["citations"].extend(button_citations)
             continue
 
-        text = elem.get_text(" ", strip=True)
+        text = get_text(elem, " ", strip=True) or ""
         hyperlinks = _collect_inline_links(elem)
 
         if current is None:
@@ -180,29 +183,32 @@ def _extract_body(
     return " ".join(lede_parts).strip(), lede_citations, sections
 
 
-def _collect_body_elements(content: bs4.element.Tag) -> list[bs4.element.Tag]:
+def _collect_body_elements(content: Node) -> list[Node]:
     """Collect paragraph/heading/list elements from the body in document order."""
-    paragraphs = content.find_all("div", {"class": _BODY_PARA_CLASS})
-    headings = content.find_all("div", {"class": _BODY_HEADING_CLASS})
-    lists = [
-        elem for cls in _LIST_CLASSES for elem in content.find_all(["ul", "ol"], {"class": cls})
-    ]
+    self_id = content.mem_id
+    paragraphs = [n for n in content.css(f"div.{_BODY_PARA_CLASS}") if n.mem_id != self_id]
+    headings = [n for n in content.css(f"div.{_BODY_HEADING_CLASS}") if n.mem_id != self_id]
+    lists: list[Node] = []
+    for cls in _LIST_CLASSES:
+        for elem in content.css(f"ul.{cls}, ol.{cls}"):
+            if elem.mem_id != self_id:
+                lists.append(elem)
 
-    elements = list(paragraphs) + list(headings) + list(lists)
+    elements = paragraphs + headings + lists
     # Deduplicate (Y3BBE divs can nest inside one another in some layouts)
     # and drop elements whose ancestor is already in the set.
     elements = _drop_nested_descendants(elements)
     return sorted(elements, key=_doc_position)
 
 
-def _drop_nested_descendants(elements: list[bs4.element.Tag]) -> list[bs4.element.Tag]:
-    elem_set = set(id(e) for e in elements)
+def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
+    elem_ids = {e.mem_id for e in elements}
     kept = []
     for e in elements:
         parent = e.parent
         skip = False
         while parent is not None:
-            if id(parent) in elem_set:
+            if parent.mem_id in elem_ids:
                 skip = True
                 break
             parent = parent.parent
@@ -211,65 +217,64 @@ def _drop_nested_descendants(elements: list[bs4.element.Tag]) -> list[bs4.elemen
     return kept
 
 
-def _doc_position(elem: bs4.element.Tag) -> tuple:
+def _doc_position(elem: Node) -> tuple:
     """Crude document position via ancestor chain indices."""
     path = []
-    node = elem
-    while node.parent is not None:
-        siblings = [c for c in node.parent.children if getattr(c, "name", None)]
-        try:
-            path.append(siblings.index(node))
-        except ValueError:
-            path.append(0)
+    node: Node | None = elem
+    while node is not None and node.parent is not None:
+        siblings = list(node.parent.iter(include_text=False))
+        node_id = node.mem_id
+        idx = next((i for i, s in enumerate(siblings) if s.mem_id == node_id), 0)
+        path.append(idx)
         node = node.parent
     return tuple(reversed(path))
 
 
-def _is_section_heading(elem: bs4.element.Tag) -> bool:
-    if elem.name != "div":
+def _is_section_heading(elem: Node) -> bool:
+    if elem.tag != "div":
         return False
-    classes = elem.attrs.get("class") or []
-    if _BODY_HEADING_CLASS in classes:
+    cls = class_tokens(elem)
+    if _BODY_HEADING_CLASS in cls:
         return True
-    return elem.attrs.get("role") == "heading" and elem.attrs.get("aria-level") == "3"
+    return (
+        elem.attributes.get("role") == "heading"
+        and elem.attributes.get("aria-level") == "3"
+    )
 
 
-def _collect_inline_links(elem: bs4.element.Tag) -> list[dict]:
+def _collect_inline_links(elem: Node) -> list[dict]:
     """Collect anchors from inline body content (skips sources tray and #)."""
     links = []
-    seen = set()
-    for a in elem.find_all("a", href=True):
-        href = str(a["href"])
+    seen: set[str] = set()
+    for a in elem.css("a[href]"):
+        href = str(a.attributes["href"])
         if href == "#" or href.startswith("/search?"):
             continue
-        if a.find_parent("ul", {"class": "bTFeG"}):
+        if _find_parent_tag_class(a, "ul", "bTFeG") is not None:
             continue
         if href in seen:
             continue
         seen.add(href)
-        links.append({"url": href, "text": a.get_text(" ", strip=True)})
+        links.append({"url": href, "text": get_text(a, " ", strip=True) or ""})
     return links
 
 
-def _extract_button_citations(elem: bs4.element.Tag, payloads: dict[str, dict]) -> list[dict]:
-    """Build citation dicts for ``button.rBl3me`` widgets within ``elem``.
+def _find_parent_tag_class(node: Node, tag: str, cls: str) -> Node | None:
+    """bs4 ``find_parent(tag, {"class": cls})``: walk ancestors only (never self),
+    match on tag + class-token membership."""
+    p = node.parent
+    while p is not None:
+        if p.tag == tag and cls in class_tokens(p):
+            return p
+        p = p.parent
+    return None
 
-    For each button we record:
 
-    - ``publisher`` — the visible publisher label (``span.QnvSdb``) or, for
-      unattributed buttons, ``None``.
-    - ``additional_count`` — the ``+N`` overflow count from ``span.IjM6od``,
-      zero when absent.
-    - ``source_ids`` — the list of ``data-src-id`` values from the button's
-      Type-A payloads, in payload order. May be shorter than the header
-      ``total`` when some cited sources have no resolved ``data-src-id``.
-
-    Unattributed buttons with no payload data are dropped silently
-    (Google's "View related links" panel-open widgets).
-    """
+def _extract_button_citations(elem: Node, payloads: dict[str, dict]) -> list[dict]:
+    """Build citation dicts for ``button.rBl3me`` widgets within ``elem``."""
     citations: list[dict] = []
-    for button in elem.find_all("button", {"class": "rBl3me"}):
-        uuid_raw = button.get("data-icl-uuid")
+    for button in elem.css("button.rBl3me"):
+        uuid_raw = button.attributes.get("data-icl-uuid")
         if not uuid_raw:
             continue
         uuid = str(uuid_raw)
@@ -293,25 +298,20 @@ def _extract_button_citations(elem: bs4.element.Tag, payloads: dict[str, dict]) 
     return citations
 
 
-def _button_publisher(button: bs4.element.Tag) -> str | None:
-    """Pull the publisher label from ``span.iFMVXd`` inside a ``rBl3me`` button.
-
-    Attributed buttons render ``Publisher +N`` with the publisher in
-    ``iFMVXd`` and the overflow count in a sibling ``IjM6od``. Unattributed
-    panel-open buttons have neither.
-    """
-    span = button.find("span", {"class": "iFMVXd"})
+def _button_publisher(button: Node) -> str | None:
+    """Pull the publisher label from ``span.iFMVXd`` inside a ``rBl3me`` button."""
+    span = button.css_first("span.iFMVXd")
     if span is None:
         return None
-    text = span.get_text(" ", strip=True)
+    text = get_text(span, " ", strip=True)
     return text or None
 
 
-def _button_additional_count(button: bs4.element.Tag) -> int:
-    span = button.find("span", {"class": "IjM6od"})
+def _button_additional_count(button: Node) -> int:
+    span = button.css_first("span.IjM6od")
     if span is None:
         return 0
-    text = span.get_text(" ", strip=True).lstrip("+").strip()
+    text = (get_text(span, " ", strip=True) or "").lstrip("+").strip()
     try:
         return int(text)
     except ValueError:
@@ -319,11 +319,7 @@ def _button_additional_count(button: bs4.element.Tag) -> int:
 
 
 def _index_type_a_by_src_id(payloads: dict[str, dict]) -> dict[str, dict]:
-    """Flatten all Type-A payloads into a ``data-src-id -> entry`` map.
-
-    Any UUID may carry an entry for a given source. We keep the first
-    occurrence per ``source_id`` (payload iteration order).
-    """
+    """Flatten all Type-A payloads into a ``data-src-id -> entry`` map."""
     out: dict[str, dict] = {}
     for bucket in payloads.values():
         for entry in bucket.get("type_a", []):
@@ -334,28 +330,19 @@ def _index_type_a_by_src_id(payloads: dict[str, dict]) -> dict[str, dict]:
     return out
 
 
-def _extract_sources(cmpt: bs4.element.Tag, type_a_by_src_id: dict[str, dict]) -> list[dict]:
-    """Build the sources list in tray (rank) order.
-
-    Walks ``ul.bTFeG > li.CyMdWb`` in document order. For each, reads the
-    ``data-src-id`` from the inner card and pulls ``title``/``snippet``/
-    ``favicon``/``publisher`` from the matching Type-A payload. Falls back to
-    the tray's ``span.Z1JFYc`` for ``publisher`` when the payload's publisher
-    slot is empty.
-
-    The tray order is Google's curated ranking and must not be reordered.
-    """
-    sources_ul = cmpt.find("ul", {"class": "bTFeG"})
-    if not sources_ul:
+def _extract_sources(node: Node, type_a_by_src_id: dict[str, dict]) -> list[dict]:
+    """Build the sources list in tray (rank) order."""
+    sources_ul = node.css_first("ul.bTFeG")
+    if sources_ul is None:
         return []
     sources = []
     seen_src_ids: set[str] = set()
-    for li in sources_ul.find_all("li", {"class": "CyMdWb"}):
-        src_id_node = li.find(attrs={"data-src-id": True})
-        src_id_raw = src_id_node.get("data-src-id") if src_id_node else None
+    for li in sources_ul.css("li.CyMdWb"):
+        src_id_node = li.css_first("[data-src-id]")
+        src_id_raw = src_id_node.attributes.get("data-src-id") if src_id_node is not None else None
         src_id = str(src_id_raw) if src_id_raw else None
-        a = li.find("a", href=True)
-        href = str(a["href"]) if a else None
+        a = li.css_first("a[href]")
+        href = str(a.attributes["href"]) if a is not None else None
         if not href or href == "#":
             continue
         if src_id and src_id in seen_src_ids:
@@ -378,11 +365,11 @@ def _extract_sources(cmpt: bs4.element.Tag, type_a_by_src_id: dict[str, dict]) -
     return sources
 
 
-def _tray_publisher(li: bs4.element.Tag) -> str | None:
-    span = li.find("span", {"class": "Z1JFYc"})
+def _tray_publisher(li: Node) -> str | None:
+    span = li.css_first("span.Z1JFYc")
     if span is None:
         return None
-    text = span.get_text(" ", strip=True)
+    text = get_text(span, " ", strip=True)
     return text or None
 
 
@@ -393,25 +380,18 @@ _LEGACY_SOURCE_LI_CLASS = "LLtSOc"
 _SOURCES_UL_CLASS = "zVKf0d"
 
 
-def _extract_body_legacy(
-    content: bs4.element.Tag,
-) -> tuple[str, list[dict], list[dict]]:
-    """Walk the 2024 SGE body into lede + sections (no payload citations).
-
-    The body is a document-order mix of ``div.rPeykc`` blocks and plain
-    ``ul``/``ol`` content lists. A ``rPeykc`` whose subtree holds a
-    ``[role=heading]`` (other than the ``Fzsovc`` "AI Overview" label) starts a
-    new section; other ``rPeykc`` blocks and the content lists carry text.
-    The sources tray (``ul.zVKf0d`` / ``li.LLtSOc``) is excluded here.
-    """
-    paragraphs = content.find_all("div", {"class": _LEGACY_PARA_CLASS})
+def _extract_body_legacy(content: Node) -> tuple[str, list[dict], list[dict]]:
+    """Walk the 2024 SGE body into lede + sections (no payload citations)."""
+    self_id = content.mem_id
+    paragraphs = [n for n in content.css(f"div.{_LEGACY_PARA_CLASS}") if n.mem_id != self_id]
     lists = [
         lst
-        for lst in content.find_all(["ul", "ol"])
-        if _SOURCES_UL_CLASS not in (lst.attrs.get("class") or [])
-        and lst.find_parent("li", {"class": _LEGACY_SOURCE_LI_CLASS}) is None
+        for lst in content.css("ul, ol")
+        if lst.mem_id != self_id
+        and _SOURCES_UL_CLASS not in class_tokens(lst)
+        and _find_parent_tag_class(lst, "li", _LEGACY_SOURCE_LI_CLASS) is None
     ]
-    elements = _drop_nested_descendants(list(paragraphs) + list(lists))
+    elements = _drop_nested_descendants(paragraphs + lists)
     elements = sorted(elements, key=_doc_position)
     if not elements:
         return "", [], []
@@ -427,7 +407,7 @@ def _extract_body_legacy(
             sections.append(current)
             continue
 
-        text = elem.get_text(" ", strip=True)
+        text = get_text(elem, " ", strip=True) or ""
         hyperlinks = _collect_inline_links(elem)
         if current is None:
             if text:
@@ -444,52 +424,38 @@ def _extract_body_legacy(
     return " ".join(lede_parts).strip(), [], sections
 
 
-def _legacy_section_heading(elem: bs4.element.Tag) -> str | None:
-    """Return the section-heading text if ``elem`` wraps a SGE section heading.
-
-    Section headings are a ``[role=heading]`` node nested in a ``rPeykc`` div.
-    The ``Fzsovc`` "AI Overview" component label is also a role-heading and must
-    not be treated as a section.
-    """
-    heading = elem.find(attrs={"role": "heading"})
+def _legacy_section_heading(elem: Node) -> str | None:
+    """Return the section-heading text if ``elem`` wraps a SGE section heading."""
+    heading = elem.css_first('[role="heading"]')
     if heading is None:
         return None
-    if "Fzsovc" in (heading.attrs.get("class") or []):
+    if "Fzsovc" in class_tokens(heading):
         return None
-    text = heading.get_text(" ", strip=True)
+    text = get_text(heading, " ", strip=True)
     return text or None
 
 
-def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
-    """Build the sources list from the legacy ``li.LLtSOc`` tray cards.
-
-    These captures predate the JSON citation payloads, so each source is read
-    straight from the rendered card: ``a.KEVENd`` href + ``aria-label`` title
-    (``div.mNme1d`` fallback), publisher label ``div.R8BTeb``, snippet
-    ``span.gxZfx``. ``source_id`` and ``favicon`` (a large base64 data URI here)
-    are left ``None``. 2024 SGE renders at most ~3 sources inline (the rest were
-    JS-loaded and are absent from the saved HTML); tray order is Google's curated
-    ranking and is preserved.
-    """
+def _extract_sources_legacy(node: Node) -> list[dict]:
+    """Build the sources list from the legacy ``li.LLtSOc`` tray cards."""
     sources: list[dict] = []
     seen: set[str] = set()
-    for li in cmpt.find_all("li", {"class": _LEGACY_SOURCE_LI_CLASS}):
-        a = li.find("a", href=True)
+    for li in node.css(f"li.{_LEGACY_SOURCE_LI_CLASS}"):
+        a = li.css_first("a[href]")
         if a is None:
             continue
-        href = str(a["href"])
+        href = str(a.attributes["href"])
         if not href or href == "#" or href in seen:
             continue
         seen.add(href)
 
-        title = a.get("aria-label")
+        title = a.attributes.get("aria-label")
         if not title:
-            title_div = li.find("div", {"class": "mNme1d"})
-            title = title_div.get_text(" ", strip=True) if title_div else None
-        publisher_div = li.find("div", {"class": "R8BTeb"})
-        publisher = publisher_div.get_text(" ", strip=True) if publisher_div else ""
-        snippet_span = li.find("span", {"class": "gxZfx"})
-        snippet = snippet_span.get_text(" ", strip=True) if snippet_span else None
+            title_div = li.css_first("div.mNme1d")
+            title = get_text(title_div, " ", strip=True) if title_div is not None else None
+        publisher_div = li.css_first("div.R8BTeb")
+        publisher = get_text(publisher_div, " ", strip=True) if publisher_div is not None else ""
+        snippet_span = li.css_first("span.gxZfx")
+        snippet = get_text(snippet_span, " ", strip=True) if snippet_span is not None else None
 
         sources.append(
             {

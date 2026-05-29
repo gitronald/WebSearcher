@@ -1,8 +1,9 @@
 import traceback
 from collections.abc import Callable
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
+from ._slx import get_text
 from .classifiers import ClassifyFooter, ClassifyMain
 from .component_parsers import (
     footer_parser_dict,
@@ -22,7 +23,7 @@ class Component:
 
     def __init__(
         self,
-        elem: bs4.element.Tag,
+        elem: Node,
         section: str = "unknown",
         type: str = "unknown",
         cmpt_rank: int | None = None,
@@ -30,12 +31,12 @@ class Component:
         """Initialize a Component
 
         Args:
-            elem: The BeautifulSoup Tag element containing the component HTML
+            elem: The selectolax ``Node`` containing the component HTML
             section: The SERP section (header, main, footer, rhs)
             type: The component type (e.g., general, ads, top_stories)
             cmpt_rank: The component's rank position on the SERP
         """
-        self.elem = elem
+        self.elem: Node = elem
         self.section = section
         self.type = type
         self.cmpt_rank = cmpt_rank
@@ -118,7 +119,7 @@ class Component:
             {
                 "type": self.type,
                 "cmpt_rank": self.cmpt_rank,
-                "text": self.elem.get_text("<|>", strip=True),
+                "text": get_text(self.elem, "<|>", strip=True),
                 "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}",
             }
         ]
@@ -148,9 +149,7 @@ class ComponentList:
     def __iter__(self):
         yield from self.components
 
-    def add_component(
-        self, elem: bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None
-    ):
+    def add_component(self, elem, section="unknown", type="unknown", cmpt_rank=None):
         """Add a component to the list of components"""
         cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
@@ -158,46 +157,53 @@ class ComponentList:
         self.components.append(component)
         self.cmpt_rank_counter += 1
 
-    def reorder_by_dom_position(self, dom_positions):
-        """Reorder components by DOM position within each section, reassign cmpt_rank.
+    def reorder_by_dom_position(self, positions):
+        """Reorder components by DOM position within each section.
 
-        dom_positions maps id(element) -> (start_pos, end_pos) from a pre-order
-        traversal. When a component's element is an ancestor of another
-        component's element (detected via range containment), the ancestor's
-        effective position is shifted to the first child after the nested
-        component, since the ancestor's own position always precedes its
-        descendants in document order.
+        ``positions`` maps ``mem_id -> pre-order index`` for every element in
+        the document. End ranges for main components are derived on demand
+        from ``cmpt.elem.css('*')`` (the last entry's index is the position of
+        the last descendant). When a component's range contains another
+        component's start, the ancestor's effective position shifts to the
+        first direct child positioned after the nested subtree.
         """
         section_order = {"header": 0, "main": 1, "footer": 2, "rhs": 3}
         main_components = [c for c in self.components if c.section == "main"]
 
+        def _range(elem):
+            start = positions.get(elem.mem_id)
+            if start is None:
+                return None
+            # css('*') returns self + descendants in document order; the last
+            # entry's position is the end of the subtree.
+            descendants = elem.css("*")
+            end = positions.get(descendants[-1].mem_id, start) if descendants else start
+            return start, end
+
+        ranges = {id(c): _range(c.elem) for c in main_components}
+
         def _effective_pos(cmpt):
-            rng = dom_positions.get(id(cmpt.elem))
+            rng = ranges[id(cmpt)]
             if rng is None:
                 return float("inf")
             start, end = rng
-
-            # Check if this element's range contains another component
             for other in main_components:
                 if other is cmpt:
                     continue
-                other_rng = dom_positions.get(id(other.elem))
+                other_rng = ranges[id(other)]
                 if other_rng is None:
                     continue
                 o_start, o_end = other_rng
                 if start <= o_start <= end:
-                    # cmpt.elem is an ancestor of other.elem — find
-                    # first direct child positioned after the nested subtree
+                    # cmpt.elem is an ancestor of other.elem -- find the first
+                    # direct child positioned after the nested subtree.
                     best = float("inf")
-                    for ch in cmpt.elem.children:
-                        if not hasattr(ch, "name") or not ch.name:
-                            continue
-                        ch_rng = dom_positions.get(id(ch))
-                        if ch_rng and ch_rng[0] > o_end and ch_rng[0] < best:
-                            best = ch_rng[0]
+                    for ch in cmpt.elem.iter(include_text=False):
+                        ch_start = positions.get(ch.mem_id)
+                        if ch_start is not None and o_end < ch_start < best:
+                            best = ch_start
                     if best != float("inf"):
                         return best
-
             return start
 
         def sort_key(cmpt):

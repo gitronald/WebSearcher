@@ -31,6 +31,7 @@
       "details": {
         "address": "110 E 2nd St",
         "category": "4.8 (17K)",
+        "heading": "Results for  Austin, TX",
         "price": "$$",
         "review_snippet": "The wagyu burger was absolutely delicious as were the pollo asada tacos.",
         "type": "place"
@@ -40,7 +41,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "results_for",
-      "text": "Corner Restaurant<|>4.8<|>(17K)<|> · <|>$$<|> · Restaurant<|>110 E 2nd St<|> <|> <|> <|> <|> <|> <|>\"The wagyu burger was absolutely delicious as were the pollo asada tacos.\"",
+      "text": "Corner Restaurant<|>4.8<|>(17K)<|> · <|>$$<|> · Restaurant<|>110 E 2nd St<|> <|> <|> <|> <|> <|>  <|>\"The wagyu burger was absolutely delicious as were the pollo asada tacos.\"",
       "title": "Corner Restaurant",
       "type": "local_results",
       "url": null
@@ -51,6 +52,7 @@
       "details": {
         "address": "621 Congress Ave. Suite 101",
         "category": "4.8 (14K)",
+        "heading": "Results for  Austin, TX",
         "price": "$20–30",
         "review_snippet": "The food was great, the drinks were great and our server, Aaron was AMAZING!",
         "type": "place"
@@ -60,7 +62,7 @@
       "serp_rank": 2,
       "sub_rank": 1,
       "sub_type": "results_for",
-      "text": "Caroline<|>4.8<|>(14K)<|> · <|>$20–30<|> · American<|>621 Congress Ave. Suite 101<|> <|> <|> <|> <|> <|> <|>\"The <|>food<|> was great, the drinks were great and our server, Aaron was AMAZING!\"",
+      "text": "Caroline<|>4.8<|>(14K)<|> · <|>$20–30<|> · American<|>621 Congress Ave. Suite 101<|> <|> <|> <|> <|> <|>  <|>\"The <|>food<|> was great, the drinks were great and our server, Aaron was AMAZING!\"",
       "title": "Caroline",
       "type": "local_results",
       "url": null
@@ -71,6 +73,7 @@
       "details": {
         "address": "304 E Cesar Chavez St",
         "category": "4.8 (5.6K)",
+        "heading": "Results for  Austin, TX",
         "price": "$$",
         "review_snippet": "The wagyu burger was cooked perfectly and the desserts were one of a kind!",
         "type": "place"
@@ -80,7 +83,7 @@
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "results_for",
-      "text": "Corinne Austin<|>4.8<|>(5.6K)<|> · <|>$$<|> · Restaurant<|>304 E Cesar Chavez St<|> <|> <|> <|> <|> <|> <|>\"The wagyu burger was cooked perfectly and the desserts were one of a kind!\"",
+      "text": "Corinne Austin<|>4.8<|>(5.6K)<|> · <|>$$<|> · Restaurant<|>304 E Cesar Chavez St<|> <|> <|> <|> <|> <|>  <|>\"The wagyu burger was cooked perfectly and the desserts were one of a kind!\"",
       "title": "Corinne Austin",
       "type": "local_results",
       "url": null
@@ -250,7 +253,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -264,7 +269,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -278,7 +285,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -292,7 +301,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -306,7 +317,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -320,7 +333,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -334,7 +349,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 21,
@@ -348,7 +365,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -362,7 +381,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -376,7 +397,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 24,
@@ -390,7 +413,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -404,7 +429,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 26,
@@ -475,6 +502,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "People also search for",
         "items": [
           "LENOIR",
           "Emmer & Rye",
