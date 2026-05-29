@@ -5,12 +5,14 @@ include the classic suggestion list, curated lists (e.g. song names),
 accordion-style sections, and link rows under "brs_col".
 """
 
-import bs4
+from selectolax.parser import Node
 
-from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors, slugify
+from .._slx import get_text, has_text
+from ..utils import slugify
 
 
-def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_searches_related(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt.raw
     parsed: dict = {
         "type": "searches_related",
         "sub_rank": sub_rank,
@@ -19,41 +21,45 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     }
 
     # First non-empty header becomes the sub_type (e.g. "Additional searches" -> additional_searches)
-    header_selectors = [
-        Selector("h2", {"role": "heading"}),
-        Selector("div", {"aria-level": "2", "role": "heading"}),
-        Selector("span", {"class": "mgAbYb"}),
-    ]
-    header = get_text_by_selectors(cmpt, header_selectors)
+    header = None
+    for sel in ('h2[role="heading"]', 'div[aria-level="2"][role="heading"]', "span.mgAbYb"):
+        found = node.css_first(sel)
+        text = get_text(found, " ") if found is not None else None
+        if text:
+            header = text
+            break
     parsed["sub_type"] = slugify(header.lower()) if header else None
 
     output_list: list[str] = []
 
+    def _push(items):
+        for item in items:
+            text = (get_text(item) or "").strip()
+            if text:
+                output_list.append(text)
+
     # Classic search query suggestions
-    subs = find_all_divs(cmpt, "a", {"class": "k8XOCe"})
-    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+    _push(s for s in node.css("a.k8XOCe") if has_text(s))
 
     # Curated list (e.g. song names)
-    subs = find_all_divs(cmpt, "div", {"class": "EASEnb"})
-    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+    _push(s for s in node.css("div.EASEnb") if has_text(s))
 
     # Other list types
-    subs = find_all_divs(cmpt, "div", {"role": "listitem"})
-    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+    _push(s for s in node.css('div[role="listitem"]') if has_text(s))
 
     # Current Google layout: anchor links
-    subs = find_all_divs(cmpt, "a", {"class": "ngTNl"})
-    output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+    _push(s for s in node.css("a.ngTNl") if has_text(s))
 
     # Accordion list
-    if cmpt.find("explore-desktop-accordion"):
-        subs = find_all_divs(cmpt, "div", {"class": "JXa4nd"})
-        text_list = [get_text(sub, "div", {"class": "Cx1ZMc"}) for sub in subs]
-        output_list.extend(filter(None, text_list))
+    if node.css_first("explore-desktop-accordion") is not None:
+        for s in node.css("div.JXa4nd"):
+            if has_text(s):
+                text = get_text(s.css_first("div.Cx1ZMc"), " ")
+                if text:
+                    output_list.append(text)
 
-    if cmpt.find("div", {"class": "brs_col"}):
-        subs = find_all_divs(cmpt, "a")
-        output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
+    if node.css_first("div.brs_col") is not None:
+        _push(s for s in node.css("a") if has_text(s))
 
     parsed["text"] = "<|>".join(output_list)
     if output_list:
