@@ -6,27 +6,29 @@ businesses relevant to the query, with rating, contact, and address details.
 
 import re
 
-import bs4
+from selectolax.parser import Node
 
-from ..utils import Selector, get_text, get_text_by_selectors, slugify
+from .._slx import class_tokens, get_text
+from ..utils import slugify
 
 
-def parse_local_results(cmpt: bs4.element.Tag) -> list:
-    subs = cmpt.find_all("div", {"class": "VkpGBb"})
+def parse_local_results(cmpt) -> list:
+    node: Node = cmpt.raw
+    subs = list(node.css("div.VkpGBb"))
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
         # First non-empty header becomes the sub_type (e.g. "Places" -> "places")
-        header_selectors = [
-            Selector("h2", {"role": "heading"}),
-            Selector("div", {"aria-level": "2", "role": "heading"}),
-        ]
-        header = get_text_by_selectors(cmpt, header_selectors)
+        header = None
+        for sel in ('h2[role="heading"]', 'div[aria-level="2"][role="heading"]'):
+            found = node.css_first(sel)
+            text = get_text(found, " ") if found is not None else None
+            if text:
+                header = text
+                break
         if header:
             header_lower = header.lower()
             sub_type = (
-                "results_for"
-                if header_lower.startswith("results for")
-                else slugify(header_lower)
+                "results_for" if header_lower.startswith("results for") else slugify(header_lower)
             )
             for parsed in parsed_list:
                 parsed["sub_type"] = sub_type
@@ -37,44 +39,46 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
                     details["heading"] = header
 
         return parsed_list
-    else:
-        return [
-            {
-                "type": "local_results",
-                "sub_rank": 0,
-                "text": get_text(cmpt, "div", {"class": "n6tePd"}),  # No results message
-            }
-        ]
+    return [
+        {
+            "type": "local_results",
+            "sub_rank": 0,
+            "text": get_text(node.css_first("div.n6tePd"), " "),  # No results message
+        }
+    ]
 
 
-def parse_local_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_local_result(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "local_results", "sub_rank": sub_rank}
-    parsed["title"] = get_text(sub, "div", {"class": "dbg0pd"})
+    parsed["title"] = get_text(sub.css_first("div.dbg0pd"), " ")
 
     links_dict = _link_text_to_url(sub)
     parsed["url"] = links_dict.get("website")
 
-    text = get_text(sub, "div", {"class": "rllt__details"}, separator="<|>")
-    label = get_text(sub, "span", {"class": "X0w5lc"})
+    text = get_text(sub.css_first("div.rllt__details"), separator="<|>")
+    label = get_text(sub.css_first("span.X0w5lc"), " ")
     parsed["text"] = f"{text} <label>{label}</label>" if label else text
     parsed["details"] = parse_local_details(sub, links_dict)
     return parsed
 
 
-def parse_local_details(sub: bs4.element.Tag, links_dict: dict[str, str]) -> dict:
+def parse_local_details(sub: Node, links_dict: dict[str, str]) -> dict:
     details: dict = {"type": "place"}
-    rllt = sub.find(class_="rllt__details")
-    if rllt:
-        for row in rllt.find_all("div", recursive=False):
-            cls = row.get("class") or []
+    rllt = sub.css_first(".rllt__details")
+    if rllt is not None:
+        # ``find_all("div", recursive=False)``: direct element children only.
+        for row in rllt.iter(include_text=False):
+            if row.tag != "div":
+                continue
+            cls = class_tokens(row)
             if "dbg0pd" in cls:
                 continue  # title; already extracted to top level
             if "pJ3Ci" in cls:
-                snippet = row.get_text(" ", strip=True).strip('"').strip()
+                snippet = (get_text(row, " ", strip=True) or "").strip('"').strip()
                 if snippet:
                     details["review_snippet"] = snippet
                 continue
-            _classify_row(row.get_text(" ", strip=True), details)
+            _classify_row(get_text(row, " ", strip=True) or "", details)
 
     for key in ("website", "directions"):
         if key in links_dict:
@@ -93,7 +97,7 @@ _STREET_RE = re.compile(
 _HOURS_PREFIX = ("open", "closed", "closes", "opens")
 
 
-def _link_text_to_url(sub: bs4.element.Tag) -> dict[str, str]:
+def _link_text_to_url(sub: Node) -> dict[str, str]:
     """Pull the well-known utility links out of a local-results card.
 
     Keys off stable structural classes (locale-independent) rather than the
@@ -102,12 +106,12 @@ def _link_text_to_url(sub: bs4.element.Tag) -> dict[str, str]:
     ``get_text(strip=True)`` left stray whitespace on the key.
     """
     out: dict[str, str] = {}
-    website = sub.find("a", {"class": "L48Cpd"})
-    if website is not None and website.get("href"):
-        out["website"] = str(website.attrs["href"])
-    directions = sub.find("a", {"class": "VDgVie"})
-    if directions is not None and directions.get("href"):
-        out["directions"] = str(directions.attrs["href"])
+    website = sub.css_first("a.L48Cpd")
+    if website is not None and website.attributes.get("href"):
+        out["website"] = str(website.attributes["href"])
+    directions = sub.css_first("a.VDgVie")
+    if directions is not None and directions.attributes.get("href"):
+        out["directions"] = str(directions.attributes["href"])
     return out
 
 

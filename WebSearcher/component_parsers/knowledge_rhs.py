@@ -7,16 +7,19 @@ zero or more follow-on sections beneath it.
 
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
-from .._slx import is_tag
+from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 
 
-def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
-    parsed_list = parse_knowledge_rhs_main(cmpt)
-    description = cmpt.find("h2", {"class": "Uo8X3b"})
-    if description and description.parent:
-        tag_subs = [s for s in description.parent.next_siblings if is_tag(s)]
+def parse_knowledge_rhs(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt.raw
+    parsed_list = parse_knowledge_rhs_main(node)
+    description = node.css_first("h2.Uo8X3b")
+    if description is not None and description.parent is not None:
+        tag_subs = [
+            s for s in next_siblings(description.parent) if s.tag and not s.tag.startswith("-")
+        ]
         for i, s in enumerate(tag_subs):
             sub = parse_knowledge_rhs_sub(s, i)
             # Skip hollow follow-on sections (no heading and no links).
@@ -25,7 +28,8 @@ def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return parsed_list
 
 
-def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_knowledge_rhs_main(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
     parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
@@ -38,67 +42,69 @@ def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     }
 
     # images
-    h3 = cmpt.find("h3")
-    if h3 and h3.text == "Images":
-        sibling = h3.next_sibling
-        if is_tag(sibling):
-            imgs = sibling.find_all("a")
-            parsed["details"]["img_urls"] = [img["href"] for img in imgs if "href" in img.attrs]
+    h3 = node.css_first("h3")
+    if h3 is not None and (get_text(h3) or "") == "Images":
+        sibling = next_sibling(h3)
+        if sibling is not None and sibling.tag and not sibling.tag.startswith("-"):
+            imgs = sibling.css("a")
+            parsed["details"]["img_urls"] = [
+                img.attributes["href"] for img in imgs if "href" in img.attributes
+            ]
 
     # title, subtitle (data-attrid carries the title on any tag, not just h2)
-    title = cmpt.find("h2", {"data-attrid": "title"}) or cmpt.find(attrs={"data-attrid": "title"})
-    if title:
-        parsed["title"] = title.get_text(" ", strip=True) or None
-    subtitle = cmpt.find("div", {"data-attrid": "subtitle"})
-    if subtitle:
-        parsed["details"]["subtitle"] = subtitle.text
+    title = node.css_first('h2[data-attrid="title"]') or node.css_first('[data-attrid="title"]')
+    if title is not None:
+        parsed["title"] = (get_text(title, " ", strip=True) or None)
+    subtitle = node.css_first('div[data-attrid="subtitle"]')
+    if subtitle is not None:
+        parsed["details"]["subtitle"] = get_text(subtitle)
 
     # description (heading-anchored)
-    description = cmpt.find("h2", {"class": "Uo8X3b"})
-    if description and description.parent:
-        span = description.parent.find("span")
-        if span:
-            parsed["text"] = span.text
-        a = description.parent.find("a")
-        if a and "href" in a.attrs:
-            parsed["url"] = a["href"]
+    description = node.css_first("h2.Uo8X3b")
+    if description is not None and description.parent is not None:
+        span = description.parent.css_first("span")
+        if span is not None:
+            parsed["text"] = get_text(span)
+        a = description.parent.css_first("a")
+        if a is not None and "href" in a.attributes:
+            parsed["url"] = a.attributes["href"]
 
     # description (kno-rdesc)
-    description = cmpt.find("div", {"class": "kno-rdesc"})
-    if description:
-        span = description.find("span")
-        parsed["text"] = span.text if span else parsed["text"]
-        a = description.find("a")
-        if a and "href" in a.attrs:
-            parsed["url"] = a["href"]
+    description = node.css_first("div.kno-rdesc")
+    if description is not None:
+        span = description.css_first("span")
+        parsed["text"] = get_text(span) if span is not None else parsed["text"]
+        a = description.css_first("a")
+        if a is not None and "href" in a.attributes:
+            parsed["url"] = a.attributes["href"]
 
     # submenu
-    if description and description.parent:
-        alinks = description.parent.find_all("a")
-        prev = description.parent.previous_sibling
-        if is_tag(prev):
-            alinks += prev.find_all("a")
+    if description is not None and description.parent is not None:
+        alinks = list(description.parent.css("a"))
+        prev = previous_sibling(description.parent)
+        if prev is not None and prev.tag and not prev.tag.startswith("-"):
+            alinks += list(prev.css("a"))
         if len(alinks) > 1:  # 1st match has main description
             urls = []
             for a in alinks[1:]:
-                if "href" in a.attrs:
+                if "href" in a.attributes:
                     urls.append(parse_alink(a))
             parsed["details"]["urls"] = urls
 
     # description fallback (entity panels whose description sits on a
     # data-attrid rather than Uo8X3b / kno-rdesc)
     if not parsed["text"]:
-        desc = cmpt.find(attrs={"data-attrid": "description"})
-        if desc:
-            parsed["text"] = desc.get_text(" ", strip=True) or None
+        desc = node.css_first("[data-attrid=description]")
+        if desc is not None:
+            parsed["text"] = (get_text(desc, " ", strip=True) or None)
 
     # "Things to know" RHS panels carry topic sections on lab/title/* attrs
-    # rather than a single description — surface the topics instead of an
+    # rather than a single description -- surface the topics instead of an
     # empty placeholder.
     topics = [
         attr.split("/")[-1]
-        for d in cmpt.find_all(attrs={"data-attrid": True})
-        if (attr := str(d.get("data-attrid"))).startswith("lab/title/")
+        for d in node.css("[data-attrid]")
+        if (attr := str(d.attributes.get("data-attrid") or "")).startswith("lab/title/")
     ]
     if topics:
         if not parsed["title"]:
@@ -122,7 +128,7 @@ def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_knowledge_rhs_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
@@ -132,20 +138,20 @@ def parse_knowledge_rhs_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         "rhs_column": True,
     }
 
-    heading = sub.find("div", {"role": "heading"})
-    if heading:
-        parsed["title"] = heading.get_text(" ") or None
+    heading = sub.css_first('div[role="heading"]')
+    if heading is not None:
+        parsed["title"] = get_text(heading, " ") or None
 
-    alinks = sub.find_all("a")
+    alinks = list(sub.css("a"))
     if alinks:
         items = []
         for a in alinks:
-            if "href" in a.attrs:
+            if "href" in a.attributes:
                 items.append(parse_alink(a))
         parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return parsed
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
-    return {"url": a["href"], "text": a.text}
+def parse_alink(a: Node) -> dict:
+    return {"url": a.attributes["href"], "text": get_text(a) or ""}

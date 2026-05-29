@@ -584,6 +584,48 @@ def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str
     return separator.join(parts)
 
 
+def next_sibling(node: Node, include_text: bool = True) -> Node | None:
+    """Next sibling in document order (text nodes included by default, matching
+    bs4 ``.next_sibling``). selectolax's native ``.next`` may skip text nodes."""
+    parent = node.parent
+    if parent is None:
+        return None
+    sibs = list(parent.iter(include_text=include_text))
+    node_id = node.mem_id
+    for i, sib in enumerate(sibs):
+        if sib.mem_id == node_id and i + 1 < len(sibs):
+            return sibs[i + 1]
+    return None
+
+
+def previous_sibling(node: Node, include_text: bool = True) -> Node | None:
+    """Previous sibling (text-inclusive, matching bs4 ``.previous_sibling``)."""
+    parent = node.parent
+    if parent is None:
+        return None
+    sibs = list(parent.iter(include_text=include_text))
+    node_id = node.mem_id
+    for i, sib in enumerate(sibs):
+        if sib.mem_id == node_id and i > 0:
+            return sibs[i - 1]
+    return None
+
+
+def next_siblings(node: Node, include_text: bool = True) -> Iterator[Node]:
+    """All next siblings (bs4 ``.next_siblings`` generator)."""
+    parent = node.parent
+    if parent is None:
+        return
+    sibs = list(parent.iter(include_text=include_text))
+    node_id = node.mem_id
+    found = False
+    for sib in sibs:
+        if found:
+            yield sib
+        elif sib.mem_id == node_id:
+            found = True
+
+
 def walk_descendants(node: Node, include_text: bool = False) -> Iterator[Node]:
     """Pre-order DFS over descendants in document order, EXCLUDING ``node`` itself.
 
