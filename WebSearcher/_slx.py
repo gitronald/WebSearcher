@@ -47,7 +47,9 @@ def _iter_text_fragments(raw: Node) -> Iterator[str]:
     if raw.tag == "-text":
         yield _node_text(raw)
         return
-    stack: list[Iterator[Node]] = [iter(raw.iter(include_text=True))]
+    # ``Node.iter`` is already a Cython generator, so it supports ``next()``
+    # directly -- no extra ``iter()`` wrap needed.
+    stack: list[Iterator[Node]] = [raw.iter(include_text=True)]
     while stack:
         child = next(stack[-1], None)
         if child is None:
@@ -59,7 +61,7 @@ def _iter_text_fragments(raw: Node) -> Iterator[str]:
         elif t in _SKIP_TEXT_TAGS or t.startswith("-"):
             continue
         else:
-            stack.append(iter(child.iter(include_text=True)))
+            stack.append(child.iter(include_text=True))
 
 
 def node_string(node: Node) -> str | None:
@@ -121,8 +123,9 @@ def has_text(node: Node | None) -> bool:
 
 def class_tokens(node: Node) -> list[str]:
     """Return the ``class`` attribute as a list of tokens (selectolax stores it
-    as a single whitespace-separated string)."""
-    cls = node.attributes.get("class")
+    as a single whitespace-separated string). Uses ``node.attrs`` (a view) so
+    no dict is allocated per call."""
+    cls = node.attrs.get("class")
     return cls.split() if cls else []
 
 

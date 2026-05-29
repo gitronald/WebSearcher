@@ -27,13 +27,15 @@ class _ComponentSignals:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
+        # ``el.attrs`` is a non-allocating view over the element's attribute
+        # table (vs ``el.attributes`` which materializes a dict per call);
+        # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
         for el in cmpt.css("*"):
             names.add(el.tag)
-            attrs = el.attributes
-            cls = attrs.get("class")
+            cls = el.attrs.get("class")
             if cls:
                 classes.update(cls.split())
-            el_id = attrs.get("id")
+            el_id = el.id
             if el_id:
                 ids.add(el_id)
         self.classes = classes
@@ -310,7 +312,7 @@ class ClassifyMain:
         ):
             if node.css_first(css) is not None:
                 return "knowledge"
-        if node.attributes.get("jscontroller") == "qTdDb":
+        if node.attrs.get("jscontroller") == "qTdDb":
             return "knowledge"
         return "unknown"
 
