@@ -5,10 +5,10 @@ rows (``div.ITWcLb`` carrying "label: question"). No links. One result row per
 facet: ``title`` is the facet label, ``text`` is the question/value.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_buying_guide(cmpt: bs4.element.Tag) -> list:
+def parse_buying_guide(cmpt: Node) -> list:
     out: list = []
     for row in cmpt.find_all("div", {"class": "ITWcLb"}):
         text = row.get_text(" ", strip=True)

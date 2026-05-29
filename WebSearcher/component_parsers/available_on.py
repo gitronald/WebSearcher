@@ -4,12 +4,12 @@ A carousel of thumbnail images linking to streaming providers / entertainment
 options relevant to the query.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import find_all_divs, get_link, get_text
 
 
-def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_available_on(cmpt: Node, sub_rank: int = 0) -> list:
     parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
     parsed["title"] = get_text(cmpt, "span", {"class": "GzssTd"}) or get_text(
         cmpt, "span", {"class": "mgAbYb"}
@@ -34,7 +34,7 @@ def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_available_on_item(sub: bs4.element.Tag) -> dict:
+def parse_available_on_item(sub: Node) -> dict:
     return {
         "url": get_link(sub),
         "text": get_text(sub, "div", {"class": "i3LlFf"}),
@@ -42,7 +42,7 @@ def parse_available_on_item(sub: bs4.element.Tag) -> dict:
     }
 
 
-def parse_available_on_item_modern(a: bs4.element.Tag) -> dict:
+def parse_available_on_item_modern(a: Node) -> dict:
     return {
         "url": a.get("href"),
         "text": get_text(a, "div", {"class": "bclEt"}),

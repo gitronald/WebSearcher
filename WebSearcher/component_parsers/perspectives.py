@@ -5,13 +5,13 @@ captured as the sub_type so downstream code can distinguish variants like
 "what people are saying".
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import slugify
 from .top_stories import parse_top_stories
 
 
-def parse_perspectives(cmpt: bs4.element.Tag) -> list:
+def parse_perspectives(cmpt: Node) -> list:
     header = cmpt.find(attrs={"aria-level": "2", "role": "heading"})
     if not header:
         header = cmpt.find("h2", {"role": "heading"})

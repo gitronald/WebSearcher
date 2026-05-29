@@ -1,4 +1,4 @@
-import bs4
+from selectolax.parser import Node
 
 from .. import utils
 from .main import ClassifyMain
@@ -6,7 +6,7 @@ from .main import ClassifyMain
 
 class ClassifyFooter:
     @staticmethod
-    def classify(cmpt: bs4.element.Tag) -> str:
+    def classify(cmpt: Node) -> str:
         layout_conditions = [
             ("id" in cmpt.attrs and cmpt.attrs["id"] in {"bres", "brs"}),
             ("class" in cmpt.attrs and cmpt.attrs["class"] == ["MjjYud"]),

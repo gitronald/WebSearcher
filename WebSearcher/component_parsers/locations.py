@@ -5,17 +5,17 @@ Currently handles hotel listings: each item is an anchor pointing to a
 short description.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_locations(cmpt: bs4.element.Tag) -> list:
+def parse_locations(cmpt: Node) -> list:
     sub_type = classify_locations_sub_type(cmpt)
     if sub_type == "hotels":
         return parse_hotels(cmpt)
     return [{"type": "locations", "sub_rank": 0, "error": f"unknown sub_type: {sub_type}"}]
 
 
-def classify_locations_sub_type(cmpt: bs4.element.Tag) -> str:
+def classify_locations_sub_type(cmpt: Node) -> str:
     heading = cmpt.find(attrs={"role": "heading"})
     if heading:
         text = heading.get_text(strip=True)
@@ -27,7 +27,7 @@ def classify_locations_sub_type(cmpt: bs4.element.Tag) -> str:
     return "unknown"
 
 
-def parse_hotels(cmpt: bs4.element.Tag) -> list:
+def parse_hotels(cmpt: Node) -> list:
     items: list = []
     for a in cmpt.find_all("a", href=True):
         href = a.get("href") or ""
@@ -50,7 +50,7 @@ def parse_hotels(cmpt: bs4.element.Tag) -> list:
     return items
 
 
-def _parse_hotel_item(a: bs4.element.Tag, sub_rank: int) -> dict:
+def _parse_hotel_item(a: Node, sub_rank: int) -> dict:
     name_div = a.find("div", {"class": "sxdlOc"}) or a.find("div", {"class": "BTPx6e"})
     price_span = a.find("span", {"class": "sRlU8b"})
     rating_span = a.find("span", {"class": "yi40Hd"})
@@ -71,10 +71,10 @@ def _parse_hotel_item(a: bs4.element.Tag, sub_rank: int) -> dict:
 
 
 def _parse_hotel_details(
-    price_span: bs4.element.Tag | None,
-    rating_span: bs4.element.Tag | None,
-    reviews_span: bs4.element.Tag | None,
-    stars_span: bs4.element.Tag | None,
+    price_span: Node | None,
+    rating_span: Node | None,
+    reviews_span: Node | None,
+    stars_span: Node | None,
 ) -> dict | None:
     details: dict = {}
     if price_span:

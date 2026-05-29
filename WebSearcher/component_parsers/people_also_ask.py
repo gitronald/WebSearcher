@@ -5,12 +5,12 @@ automation is required to capture the dropdown content; this parser only
 captures the question text.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import Selector, get_text_by_selectors
 
 
-def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_people_also_ask(cmpt: Node, sub_rank: int = 0) -> list:
     questions = cmpt.find_all("div", {"class": "related-question-pair"})
     parsed_questions = [parse_question(q) for q in questions]
     parsed_questions = list(filter(None, parsed_questions))
@@ -23,7 +23,7 @@ def parse_people_also_ask(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_question(question: bs4.element.Tag) -> str | None:
+def parse_question(question: Node) -> str | None:
     question_selectors = [
         Selector("div", {"class": "rc"}),
         Selector("div", {"class": "yuRUbf"}),

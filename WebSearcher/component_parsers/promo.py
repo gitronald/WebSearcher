@@ -6,10 +6,10 @@ It carries no organic result, so its value is the presence signal (shopping
 intent). The CTA link is an internal ``/search`` query, kept verbatim.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_promo(cmpt: bs4.element.Tag) -> list:
+def parse_promo(cmpt: Node) -> list:
     cta = cmpt.find("a", href=True)
     cta_url = cta["href"] if cta else None
 

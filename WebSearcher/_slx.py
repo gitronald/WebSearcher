@@ -396,8 +396,14 @@ class SoupNode:
             return None
         return _build_css(name, merged)
 
-    def find(self, name: Any = None, attrs: dict | None = None, recursive: bool = True,
-             string: Any = None, **kwargs) -> SoupNode | None:
+    def find(
+        self,
+        name: Any = None,
+        attrs: dict | None = None,
+        recursive: bool = True,
+        string: Any = None,
+        **kwargs,
+    ) -> SoupNode | None:
         if callable(name):  # bs4 callable filter: predicate over each tag
             for raw in self._candidates(recursive):
                 w = self._wrap(raw)
@@ -427,8 +433,15 @@ class SoupNode:
                 return self._wrap(raw)
         return None
 
-    def find_all(self, name: Any = None, attrs: dict | None = None, recursive: bool = True,
-                 limit: int | None = None, string: Any = None, **kwargs) -> list[SoupNode]:
+    def find_all(
+        self,
+        name: Any = None,
+        attrs: dict | None = None,
+        recursive: bool = True,
+        limit: int | None = None,
+        string: Any = None,
+        **kwargs,
+    ) -> list[SoupNode]:
         out: list[SoupNode] = []
         if callable(name):  # bs4 callable filter
             for raw in self._candidates(recursive):
@@ -470,8 +483,7 @@ class SoupNode:
 
     findAll = find_all
 
-    def find_parent(self, name: Any = None, attrs: dict | None = None,
-                    **kwargs) -> SoupNode | None:
+    def find_parent(self, name: Any = None, attrs: dict | None = None, **kwargs) -> SoupNode | None:
         name, merged = _normalize_attrs(name, attrs, kwargs)
         string = kwargs.get("string")
         raw = self._raw.parent
@@ -520,8 +532,8 @@ class SoupNode:
 
 
 def is_tag(obj: Any) -> bool:
-    """Replacement for ``isinstance(x, bs4.element.Tag)`` -- True for an element
-    SoupNode (not a text/comment node)."""
+    """Replacement for the legacy ``isinstance(x, bs4.element.Tag)`` guard --
+    True for an element ``SoupNode`` (not a text/comment node)."""
     return isinstance(obj, SoupNode) and obj.name is not None
 
 

@@ -4,13 +4,13 @@ Visually similar to a general result but linking to a Twitter account, with
 a tweet sometimes embedded in the snippet.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from .._slx import is_tag
 from ..utils import get_link, get_text
 
 
-def parse_twitter_result(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_twitter_result(cmpt: Node, sub_rank: int = 0) -> list:
     parsed: dict = {"type": "twitter_result", "sub_rank": sub_rank}
 
     header = cmpt.find("div", {"class": "DOqJne"})

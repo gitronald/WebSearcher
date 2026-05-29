@@ -6,10 +6,10 @@ and an aria-level-3 heading; the carousel also holds empty placeholder slots,
 which are skipped.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_most_read_articles(cmpt: bs4.element.Tag) -> list:
+def parse_most_read_articles(cmpt: Node) -> list:
     out: list = []
     for li in cmpt.find_all(attrs={"role": "listitem"}):
         a = li.find("a", href=True)

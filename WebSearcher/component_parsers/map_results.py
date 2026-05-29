@@ -3,12 +3,12 @@
 An embedded map result without an associated list of subcomponent results.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import Selector, get_text_by_selectors
 
 
-def parse_map_results(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_map_results(cmpt: Node, sub_rank: int = 0) -> list:
     title_selectors = [
         Selector("div", {"class": "aiAXrc"}),
     ]

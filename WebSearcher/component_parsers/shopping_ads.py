@@ -5,10 +5,10 @@ sponsored hotel carousel (role=listitem cards from atvcap). Each card
 captures price, source, rating, review count, stars, and amenity tags.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_shopping_ads(cmpt: bs4.element.Tag) -> list:
+def parse_shopping_ads(cmpt: Node) -> list:
     # Sponsored hotel carousel (atvcap)
     cards = cmpt.find_all(attrs={"role": "listitem"})
     if cards:
@@ -24,7 +24,7 @@ def parse_shopping_ads(cmpt: bs4.element.Tag) -> list:
     return [_parse_pla_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
-def _parse_pla_unit(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank}
     card = sub.find("a", {"class": "clickable-card"})
     if card:
@@ -33,7 +33,7 @@ def _parse_pla_unit(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _parse_pla_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
     """Parse a modern product-listing-ad card (``a.clickable-card``).
 
     Title comes from the card's ``aria-label`` (full product name) with the
@@ -68,7 +68,7 @@ def _parse_pla_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _card_text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
+def _card_text(node: Node, tag: str, class_: str) -> str | None:
     el = node.find(tag, {"class": class_})
     if el is None:
         return None
@@ -76,7 +76,7 @@ def _card_text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
     return text or None
 
 
-def _parse_sponsored_hotel(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
     name_div = card.find("div", {"class": "KZYtMc"})
     price_div = card.find("div", {"class": "XO8mWb"})
     source_div = card.find("div", {"class": "sX5I1c"})

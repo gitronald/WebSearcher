@@ -7,18 +7,18 @@ submenus (rating, list, table, mini), scholarly results, products, and videos.
 
 import re
 
-import bs4
+from selectolax.parser import Node
 
 from .._slx import is_tag
 from ..utils import get_link, get_text
 
 
-def parse_general_results(cmpt: bs4.element.Tag) -> list:
+def parse_general_results(cmpt: Node) -> list:
     subs = find_subcomponents(cmpt)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def find_subcomponents(cmpt: bs4.element.Tag) -> list:
+def find_subcomponents(cmpt: Node) -> list:
     # Standard format
     subs = cmpt.find_all("div", {"class": "g"})
     if subs:
@@ -42,7 +42,7 @@ def find_subcomponents(cmpt: bs4.element.Tag) -> list:
     return [cmpt]
 
 
-def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
     if is_general_video(sub):
         return parse_general_video(sub, sub_rank=sub_rank)
 
@@ -64,7 +64,7 @@ def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parse_subtype_details(sub, parsed)
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
+def parse_alink(a: Node) -> dict:
     return {"url": a.attrs["href"], "text": a.text}
 
 
@@ -76,7 +76,7 @@ def parse_alink_list(alinks) -> list:
     return items
 
 
-def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
+def parse_subtype_details(sub: Node, parsed: dict) -> dict:
     details: dict = {}
 
     # If top menu with children, ignore URLs and get correct title URL
@@ -216,12 +216,12 @@ def parse_product(text: str) -> dict:
 # General Video Results -----------------------------------------------------
 
 
-def is_general_video(cmpt: bs4.element.Tag) -> bool:
+def is_general_video(cmpt: Node) -> bool:
     class_list = cmpt.get("class") or []
     return "PmEWq" in class_list
 
 
-def parse_general_video(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
     a = sub.select_one("a[href]")
     return {
         "type": "general",
@@ -235,12 +235,12 @@ def parse_general_video(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def get_result_text(cmpt: bs4.element.Tag, selector: str, strip: bool = True) -> str | None:
+def get_result_text(cmpt: Node, selector: str, strip: bool = True) -> str | None:
     element = cmpt.select_one(selector)
     return element.get_text(strip=strip) if element else None
 
 
-def get_result_details(cmpt: bs4.element.Tag) -> dict | None:
+def get_result_details(cmpt: Node) -> dict | None:
     source = get_result_text(cmpt, ".gqF9jc", strip=False)
     duration = get_result_text(cmpt, ".JIv15d")
     if source is None and duration is None:

@@ -7,7 +7,7 @@ optional submenu sitelinks), and the horizontal sponsored carousel.
 
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import (
     Selector,
@@ -31,14 +31,14 @@ AD_SUBTYPE_SELECTORS: dict[str, Selector] = {
 }
 
 
-def classify_ad_type(cmpt: bs4.element.Tag) -> str:
+def classify_ad_type(cmpt: Node) -> str:
     for label, sel in AD_SUBTYPE_SELECTORS.items():
         if sel.name and cmpt.find(sel.name, attrs=sel.attrs):
             return label
     return "unknown"
 
 
-def parse_ads(cmpt: bs4.element.Tag) -> list:
+def parse_ads(cmpt: Node) -> list:
     """Parse every ad sub-type present in the component.
 
     A single #tads element can host more than one ad layout (e.g. a shopping
@@ -65,13 +65,13 @@ def parse_ads(cmpt: bs4.element.Tag) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
+def parse_ad_legacy(cmpt: Node) -> list:
 
-    def _parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
+    def _parse_ad_legacy(cmpt: Node) -> list:
         subs = cmpt.find_all("li", {"class": "ads-ad"})
         return [_parse_ad_legacy_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-    def _parse_ad_legacy_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
+    def _parse_ad_legacy_sub(sub: Node, sub_rank: int) -> dict:
         header = sub.find("div", {"class": "ad_cclk"})
         return {
             "type": "ad",
@@ -84,7 +84,7 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
             "details": _parse_ad_legacy_sub_details(sub),
         }
 
-    def _parse_ad_legacy_sub_details(sub: bs4.element.Tag) -> dict | None:
+    def _parse_ad_legacy_sub_details(sub: Node) -> dict | None:
         items = []
         ulist = sub.find("ul")
         if ulist:
@@ -97,9 +97,9 @@ def parse_ad_legacy(cmpt: bs4.element.Tag) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
+def parse_ad_local_service(cmpt: Node) -> list:
     # Local-service ads are gls-profile-entrypoint elements
-    def _parse_profile(profile: bs4.element.Tag, sub_rank: int) -> dict:
+    def _parse_profile(profile: Node, sub_rank: int) -> dict:
         title = get_text(profile, "span", {"class": "bk5vhd"})
         url = get_link(profile)
 
@@ -133,13 +133,13 @@ def parse_ad_local_service(cmpt: bs4.element.Tag) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
+def parse_ad_secondary(cmpt: Node) -> list:
 
-    def _parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
+    def _parse_ad_secondary(cmpt: Node) -> list:
         subs = cmpt.find_all("li", {"class": "ads-fr"})
         return [_parse_ad_secondary_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
-    def _parse_ad_secondary_sub(sub: bs4.element.Tag, sub_rank: int) -> dict:
+    def _parse_ad_secondary_sub(sub: Node, sub_rank: int) -> dict:
         return {
             "type": "ad",
             "sub_type": "secondary",
@@ -151,7 +151,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
             "details": _parse_ad_secondary_sub_details(sub),
         }
 
-    def _parse_ad_secondary_sub_url(sub: bs4.element.Tag) -> str:
+    def _parse_ad_secondary_sub_url(sub: Node) -> str:
         url_div = get_div(sub, "div", {"class": "d5oMvf"})
         if not url_div:
             return ""
@@ -161,7 +161,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
         text_divs = sub.find_all("div", {"class": "yDYNvb"})
         return "|".join([d.text for d in text_divs]) if text_divs else ""
 
-    def _parse_ad_secondary_sub_details(sub: bs4.element.Tag) -> dict | None:
+    def _parse_ad_secondary_sub_details(sub: Node) -> dict | None:
         selectors: list[dict[str, Any]] = [{"role": "list"}, {"class": "bOeY0b"}]
         for selector in selectors:
             details_section = sub.find("div", attrs=selector)
@@ -178,7 +178,7 @@ def parse_ad_secondary(cmpt: bs4.element.Tag) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
+def parse_ad_shopping(cmpt: Node) -> list:
     parsed_list = []
     for sub in find_all_divs(cmpt, "div", {"class": "commercial-unit-desktop-top"}):
         parsed_list.extend(parse_shopping_ads(sub))
@@ -188,10 +188,10 @@ def parse_ad_shopping(cmpt: bs4.element.Tag) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
-    def _parse_ad_standard_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_ad_standard(cmpt: Node) -> list:
+    def _parse_ad_standard_sub(sub: Node, sub_rank: int = 0) -> dict:
 
-        def _parse_ad_standard_text(sub: bs4.element.Tag) -> str:
+        def _parse_ad_standard_text(sub: Node) -> str:
             selectors = [
                 Selector("div", {"class": "yDYNvb"}),
                 Selector("div", {"class": "Va3FIb"}),
@@ -217,7 +217,7 @@ def parse_ad_standard(cmpt: bs4.element.Tag) -> list:
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
+def parse_ad_menu(sub: Node) -> dict | None:
     # Menu items / sitelinks for a large ad with additional sub-results
     items = []
 
@@ -250,17 +250,15 @@ def parse_ad_menu(sub: bs4.element.Tag) -> dict | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_carousel(
-    cmpt: bs4.element.Tag, sub_type: str = "carousel", filter_visible: bool = True
-) -> list:
+def parse_ad_carousel(cmpt: Node, sub_type: str = "carousel", filter_visible: bool = True) -> list:
 
-    def is_visible_div(sub: bs4.element.Tag) -> bool:
+    def is_visible_div(sub: Node) -> bool:
         return not (sub.has_attr("data-has-shown") and sub["data-has-shown"] == "false")
 
-    def is_visible_card(sub: bs4.element.Tag) -> bool:
+    def is_visible_card(sub: Node) -> bool:
         return not (sub.has_attr("data-viewurl") and sub["data-viewurl"])
 
-    def parse_ad_carousel_div(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
+    def parse_ad_carousel_div(sub: Node, sub_type: str, sub_rank: int) -> dict:
         return {
             "type": "ad",
             "sub_type": sub_type,
@@ -271,7 +269,7 @@ def parse_ad_carousel(
             "cite": get_text(sub, "div", {"class": "zpIwr"}),
         }
 
-    def parse_ad_carousel_card(sub: bs4.element.Tag, sub_type: str, sub_rank: int) -> dict:
+    def parse_ad_carousel_card(sub: Node, sub_type: str, sub_rank: int) -> dict:
         return {
             "type": "ad",
             "sub_type": sub_type,

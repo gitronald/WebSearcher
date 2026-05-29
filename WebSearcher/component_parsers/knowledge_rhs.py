@@ -7,12 +7,12 @@ zero or more follow-on sections beneath it.
 
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
 from .._slx import is_tag
 
 
-def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_knowledge_rhs(cmpt: Node, sub_rank: int = 0) -> list:
     parsed_list = parse_knowledge_rhs_main(cmpt)
     description = cmpt.find("h2", {"class": "Uo8X3b"})
     if description and description.parent:
@@ -25,7 +25,7 @@ def parse_knowledge_rhs(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return parsed_list
 
 
-def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_knowledge_rhs_main(cmpt: Node, sub_rank: int = 0) -> list:
     parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
@@ -122,7 +122,7 @@ def parse_knowledge_rhs_main(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_knowledge_rhs_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {
         "type": "knowledge",
         "sub_type": "panel_rhs",
@@ -147,5 +147,5 @@ def parse_knowledge_rhs_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
+def parse_alink(a: Node) -> dict:
     return {"url": a["href"], "text": a.text}

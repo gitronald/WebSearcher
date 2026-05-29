@@ -4,17 +4,17 @@ A horizontal carousel of news quotes, each pairing a pull-quote with the
 underlying article title, source, and timestamp.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from .._slx import is_tag
 
 
-def parse_news_quotes(cmpt: bs4.element.Tag) -> list:
+def parse_news_quotes(cmpt: Node) -> list:
     subs = cmpt.find_all("g-inner-card")
     return [parse_news_quote(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_news_quote(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "news_quotes", "sub_rank": sub_rank}
     children: list = list(sub.children)
 

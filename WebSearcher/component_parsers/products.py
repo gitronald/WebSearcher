@@ -15,12 +15,12 @@ schema produced by :mod:`WebSearcher.component_parsers.shopping_ads`.
 
 import re
 
-import bs4
+from selectolax.parser import Node
 
 _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
 
-def parse_products(cmpt: bs4.element.Tag) -> list:
+def parse_products(cmpt: Node) -> list:
     # Family B: immersive product grid (no links). Modern cards are
     # data-attrid="apg-product-result"; older cards are g-inner-card. Both use
     # the same inner field classes, so _parse_grid_card handles either.
@@ -38,7 +38,7 @@ def parse_products(cmpt: bs4.element.Tag) -> list:
     return []
 
 
-def _parse_grid_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict:
     title = _img_alt(card) or _text(card, "div", "gkQHve")
 
     parsed: dict = {
@@ -69,7 +69,7 @@ def _parse_grid_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _parse_brand_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict:
     link = card.find("a", {"class": "J0tlkf"})
     brand = _text(card, "span", "V8apnb") or _img_alt(card)
 
@@ -95,7 +95,7 @@ def _parse_brand_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
+def _text(node: Node, tag: str, class_: str) -> str | None:
     el = node.find(tag, {"class": class_})
     if el is None:
         return None
@@ -103,7 +103,7 @@ def _text(node: bs4.element.Tag, tag: str, class_: str) -> str | None:
     return text or None
 
 
-def _img_alt(node: bs4.element.Tag) -> str | None:
+def _img_alt(node: Node) -> str | None:
     img = node.find("img", alt=True)
     if img is None:
         return None
@@ -114,6 +114,6 @@ def _img_alt(node: bs4.element.Tag) -> str | None:
     return alt or None
 
 
-def _first_price(card: bs4.element.Tag) -> str | None:
+def _first_price(card: Node) -> str | None:
     match = _PRICE_RE.search(card.get_text(" ", strip=True))
     return match.group(0) if match else None

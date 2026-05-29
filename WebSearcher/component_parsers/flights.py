@@ -4,10 +4,10 @@ Renders as a section like "Flights to <destination>" followed by route cards
 linking to google.com/travel/flights with origin labels (e.g. "From Casablanca").
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_flights(cmpt: bs4.element.Tag) -> list:
+def parse_flights(cmpt: Node) -> list:
     heading = cmpt.find(attrs={"role": "heading", "aria-level": "2"})
     title = heading.get_text(" ", strip=True) if heading else None
     items = []

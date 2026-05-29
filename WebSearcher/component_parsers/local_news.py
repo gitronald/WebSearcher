@@ -3,10 +3,10 @@
 Same shape as Top Stories, just a different heading.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from .top_stories import parse_top_stories
 
 
-def parse_local_news(cmpt: bs4.element.Tag) -> list:
+def parse_local_news(cmpt: Node) -> list:
     return parse_top_stories(cmpt, ctype="local_news")

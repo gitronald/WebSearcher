@@ -4,10 +4,10 @@ A header row plus a list of clickable suggestions Google offers when a query
 is flagged (e.g., misspellings, restricted topics).
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_banner(cmpt: bs4.element.Tag) -> list:
+def parse_banner(cmpt: Node) -> list:
     parsed_list: list[dict] = []
 
     parsed_list.append(
@@ -34,6 +34,6 @@ def parse_banner(cmpt: bs4.element.Tag) -> list:
     return parsed_list
 
 
-def _get_result_text(cmpt: bs4.element.Tag, selector: str) -> str:
+def _get_result_text(cmpt: Node, selector: str) -> str:
     match = cmpt.select_one(selector)
     return match.get_text(strip=True) if match else ""

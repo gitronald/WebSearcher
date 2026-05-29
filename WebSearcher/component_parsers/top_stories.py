@@ -6,7 +6,7 @@ stacked horizontally and feature a larger image, resembling the video
 component.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import (
     Selector,
@@ -18,7 +18,7 @@ from ..utils import (
 )
 
 
-def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list:
+def parse_top_stories(cmpt: Node, ctype: str = "top_stories") -> list:
     divs: list = []
     divs.extend(find_all_divs(cmpt, "g-inner-card"))  # Top Stories
     divs.extend(find_children(cmpt, "div", {"class": "qmv19b"}))  # Top Stories
@@ -43,7 +43,7 @@ def parse_top_stories(cmpt: bs4.element.Tag, ctype: str = "top_stories") -> list
         return [{"type": ctype, "sub_rank": 0, "error": "No subcomponents found"}]
 
 
-def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict:
+def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
     title_selectors = [
         Selector("div", {"class": "n0jPhd"}),  # Top Stories
         Selector("div", {"class": "eAaXgc"}),  # Perspectives
@@ -59,7 +59,7 @@ def parse_top_story(sub: bs4.element.Tag, ctype: str, sub_rank: int = 0) -> dict
     }
 
 
-def get_cite(sub: bs4.element.Tag) -> str | None:
+def get_cite(sub: Node) -> str | None:
     div_cite = sub.find("div", {"class": "Dx69l"})
     tweet_cite = sub.find("div", {"class": "Du2Vwd"})
     img_cite = sub.find("g-img", {"class": "sL0zmc"})
@@ -86,7 +86,7 @@ def get_cite(sub: bs4.element.Tag) -> str | None:
     return cite
 
 
-def get_top_story_details(sub: bs4.element.Tag) -> dict:
+def get_top_story_details(sub: Node) -> dict:
     details: dict = {}
     details["img_url"] = get_img_url(sub)
     details["orient"] = "v" if sub.find("span", {"class": "uaCsqe"}) else "h"
@@ -94,7 +94,7 @@ def get_top_story_details(sub: bs4.element.Tag) -> dict:
     return details
 
 
-def get_img_url(soup: bs4.element.Tag) -> str | None:
+def get_img_url(soup: Node) -> str | None:
     img = soup.find("img")
     if img and "data-src" in img.attrs:
         return str(img.attrs["data-src"])

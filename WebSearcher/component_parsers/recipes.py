@@ -9,7 +9,7 @@ card into ``title`` / ``url`` plus a ``ratings`` details block.
 
 import re
 
-import bs4
+from selectolax.parser import Node
 
 _CARD_CLASS = "a-no-hover-decoration"
 _TITLE_CLASS = "hfac6d"
@@ -21,14 +21,14 @@ _RATING_TEXT_CLASS = "yi40Hd"
 _N_REVIEWS_CLASS = "RDApEe"
 
 
-def parse_recipes(cmpt: bs4.element.Tag) -> list:
+def parse_recipes(cmpt: Node) -> list:
     cards = cmpt.find_all("a", {"class": _CARD_CLASS})
     if not cards:
         cards = [a for a in cmpt.find_all("a", href=True) if a.find("div", {"class": _TITLE_CLASS})]
     return [_parse_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
-def _parse_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _parse_card(card: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {
         "type": "recipes",
         "sub_rank": sub_rank,
@@ -59,7 +59,7 @@ def _parse_card(card: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _text(card: bs4.element.Tag, class_: str) -> str | None:
+def _text(card: Node, class_: str) -> str | None:
     div = card.find("div", {"class": class_})
     if div is None:
         return None
@@ -67,7 +67,7 @@ def _text(card: bs4.element.Tag, class_: str) -> str | None:
     return text or None
 
 
-def _rating(card: bs4.element.Tag) -> str | None:
+def _rating(card: Node) -> str | None:
     """Read the rating from the ``z3HNkc`` aria-label, falling back to text."""
     span = card.find("span", {"class": _RATING_CLASS})
     if span is not None and span.get("aria-label"):
@@ -81,7 +81,7 @@ def _rating(card: bs4.element.Tag) -> str | None:
     return None
 
 
-def _n_reviews(card: bs4.element.Tag) -> str | None:
+def _n_reviews(card: Node) -> str | None:
     span = card.find("span", {"class": _N_REVIEWS_CLASS})
     if span is None:
         return None

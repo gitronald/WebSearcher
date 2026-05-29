@@ -4,9 +4,9 @@
 
 This package provides tools for conducting algorithm audits of web search and 
 includes a scraper built on `selenium` with tools for geolocating, conducting, 
-and saving searches. It also includes a modular parser built on `BeautifulSoup` 
-for decomposing a SERP into list of components with categorical classifications 
-and position-based specifications. 
+and saving searches. It also includes a modular parser built on `selectolax`
+(lexbor) for decomposing a SERP into list of components with categorical
+classifications and position-based specifications.
 
 ## Recent Changes
 

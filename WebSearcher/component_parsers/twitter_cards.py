@@ -7,12 +7,12 @@ each card has tweet text, source, and a deep-link URL.
 import re
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import get_link, get_text, url_unquote
 
 
-def parse_twitter_cards(cmpt: bs4.element.Tag) -> list:
+def parse_twitter_cards(cmpt: Node) -> list:
     parsed_header = parse_twitter_header(cmpt)
     carousel = cmpt.find("g-scrolling-carousel")
     subs = carousel.find_all("g-inner-card") if carousel else []
@@ -20,7 +20,7 @@ def parse_twitter_cards(cmpt: bs4.element.Tag) -> list:
     return [parsed_header] + parsed_cards
 
 
-def parse_twitter_header(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_twitter_header(cmpt: Node, sub_rank: int = 0) -> dict:
     parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "header", "sub_rank": sub_rank}
     element_current = cmpt.find("g-link")
     element_legacy = cmpt.find("h3", {"class": "r"})
@@ -41,7 +41,7 @@ def parse_twitter_header(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def parse_twitter_card(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_twitter_card(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "card", "sub_rank": sub_rank}
 
     # Tweet account

@@ -1,7 +1,7 @@
 import itertools
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
 from .. import logger, utils
 from ..component_types import header_text_to_type
@@ -50,7 +50,7 @@ class ClassifyMainHeader:
     """Classify a main-section component by its h2/h3 header text."""
 
     @staticmethod
-    def classify(cmpt: bs4.element.Tag, levels: list[int] = [2, 3]) -> str:
+    def classify(cmpt: Node, levels: list[int] = [2, 3]) -> str:
         for level in levels:
             header = ClassifyMainHeader._classify_header(cmpt, level)
             if header != "unknown":
@@ -58,7 +58,7 @@ class ClassifyMainHeader:
         return "unknown"
 
     @staticmethod
-    def _classify_header(cmpt: bs4.element.Tag, level: int) -> str:
+    def _classify_header(cmpt: Node, level: int) -> str:
         """Check text in common headers for dict matches"""
         header_dict = header_text_to_type(level)
 
@@ -91,10 +91,10 @@ class ClassifyMainHeader:
 
 
 class ClassifyMain:
-    """Classify a component from the main section based on its bs4.element.Tag"""
+    """Classify a component from the main section based on its Node"""
 
     @staticmethod
-    def classify(cmpt: bs4.element.Tag) -> str:
+    def classify(cmpt: Node) -> str:
         signals = _ComponentSignals(cmpt)
 
         # Ordered (classifier, precondition) chain. The precondition is a cheap
@@ -147,14 +147,14 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def discussions_and_forums(cmpt: bs4.element.Tag) -> str:
+    def discussions_and_forums(cmpt: Node) -> str:
         heading = cmpt.find("div", {"class": "IFnjPb", "role": "heading"})
         if heading and heading.get_text(strip=True).startswith("Discussions and forums"):
             return "discussions_and_forums"
         return "unknown"
 
     @staticmethod
-    def available_on(cmpt: bs4.element.Tag) -> str:
+    def available_on(cmpt: Node) -> str:
         for heading in cmpt.find_all("span", class_="mgAbYb"):
             if heading.get_text(strip=True) == "Available on":
                 return "available_on"
@@ -162,7 +162,7 @@ class ClassifyMain:
         return "available_on" if "/Available on" in text else "unknown"
 
     @staticmethod
-    def banner(cmpt: bs4.element.Tag) -> str:
+    def banner(cmpt: Node) -> str:
         conditions = [
             "ULSxyf" in cmpt.attrs.get("class", []),
             cmpt.find("div", {"class": "uzjuFc"}),
@@ -170,12 +170,12 @@ class ClassifyMain:
         return "banner" if all(conditions) else "unknown"
 
     @staticmethod
-    def finance_panel(cmpt: bs4.element.Tag) -> str:
+    def finance_panel(cmpt: Node) -> str:
         condition = cmpt.find("div", {"id": "knowledge-finance-wholepage__entity-summary"})
         return "knowledge" if condition else "unknown"
 
     @staticmethod
-    def flights(cmpt: bs4.element.Tag) -> str:
+    def flights(cmpt: Node) -> str:
         """Classify Google Flights widgets (prices, status)"""
         heading = cmpt.find(attrs={"role": "heading"})
         if heading and heading.get_text(strip=True).startswith("Flight"):
@@ -183,7 +183,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def general(cmpt: bs4.element.Tag) -> str:
+    def general(cmpt: Node) -> str:
         """Classify general components"""
 
         if "class" in cmpt.attrs:
@@ -206,13 +206,13 @@ class ClassifyMain:
         return "general" if any(layout_matches) else "unknown"
 
     @staticmethod
-    def general_questions(cmpt: bs4.element.Tag) -> str:
+    def general_questions(cmpt: Node) -> str:
         hybrid = cmpt.find("div", {"class": "ifM9O"})
         g_accordian = cmpt.find("g-accordion")
         return "general_questions" if hybrid and g_accordian else "unknown"
 
     @staticmethod
-    def img_cards(cmpt: bs4.element.Tag) -> str:
+    def img_cards(cmpt: Node) -> str:
         """Classify image cards components"""
         if "class" in cmpt.attrs:
             conditions = [
@@ -224,7 +224,7 @@ class ClassifyMain:
             return "unknown"
 
     @staticmethod
-    def images(cmpt: bs4.element.Tag) -> str:
+    def images(cmpt: Node) -> str:
         selectors = [
             {"name": "div", "attrs": {"id": "imagebox_bigimages"}},
             {"name": "div", "attrs": {"id": "iur"}},
@@ -232,7 +232,7 @@ class ClassifyMain:
         return "images" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
-    def ai_overview(cmpt: bs4.element.Tag) -> str:
+    def ai_overview(cmpt: Node) -> str:
         """Classify AI Overview components.
 
         Skip the sibling "Related Links" expansion that also contains a
@@ -249,7 +249,7 @@ class ClassifyMain:
         return "ai_overview" if any(conditions) else "unknown"
 
     @staticmethod
-    def knowledge_block(cmpt: bs4.element.Tag) -> str:
+    def knowledge_block(cmpt: Node) -> str:
         """Classify knowledge block components"""
         conditions = [
             utils.check_dict_value(cmpt.attrs, "class", ["ULSxyf"]),
@@ -258,7 +258,7 @@ class ClassifyMain:
         return "knowledge" if all(conditions) else "unknown"
 
     @staticmethod
-    def knowledge_box(cmpt: bs4.element.Tag) -> str:
+    def knowledge_box(cmpt: Node) -> str:
         """Classify knowledge component types"""
         attrs = cmpt.attrs
         condition: dict[str, Any] = {}
@@ -278,7 +278,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def knowledge_panel(cmpt: bs4.element.Tag) -> str:
+    def knowledge_panel(cmpt: Node) -> str:
         selectors = [
             {"name": "h1", "attrs": {"class": "VW3apb"}},
             {
@@ -296,7 +296,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def local_results(cmpt: bs4.element.Tag) -> str:
+    def local_results(cmpt: Node) -> str:
         selectors = [
             {"name": "div", "attrs": {"class": "Qq3Lb"}},  # Places
             {"name": "div", "attrs": {"class": "VkpGBb"}},  # Local Results
@@ -304,19 +304,19 @@ class ClassifyMain:
         return "local_results" if utils.find_by_selectors(cmpt, selectors) else "unknown"
 
     @staticmethod
-    def map_result(cmpt: bs4.element.Tag) -> str:
+    def map_result(cmpt: Node) -> str:
         condition = cmpt.find("div", {"class": "lu_map_section"})
         return "map_results" if condition else "unknown"
 
     @staticmethod
-    def people_also_ask(cmpt: bs4.element.Tag) -> str:
+    def people_also_ask(cmpt: Node) -> str:
         """Secondary check for people also ask, see classify_header for primary"""
         class_list = ["g", "kno-kp", "mnr-c", "g-blk"]
         conditions = utils.check_dict_value(cmpt.attrs, "class", class_list)
         return "people_also_ask" if conditions else "unknown"
 
     @staticmethod
-    def products(cmpt: bs4.element.Tag) -> str:
+    def products(cmpt: Node) -> str:
         """Classify organic shopping packs that otherwise fall into ``general``.
 
         Three layouts: the modern popular-products grid (each product is a
@@ -341,7 +341,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def promo(cmpt: bs4.element.Tag) -> str:
+    def promo(cmpt: Node) -> str:
         """Classify a promotional banner built around a ``<promo-throttler>``.
 
         Currently the "Save with deals / Shop deals" shopping CTA. The extractor
@@ -352,7 +352,7 @@ class ClassifyMain:
         return "promo" if cmpt.find("promo-throttler") else "unknown"
 
     @staticmethod
-    def short_videos(cmpt: bs4.element.Tag) -> str:
+    def short_videos(cmpt: Node) -> str:
         """Classify short videos carousel"""
         heading = cmpt.find("span", {"role": "heading", "class": "IFnjPb"})
         if heading and heading.get_text(strip=True) == "Short videos":
@@ -360,7 +360,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def videos(cmpt: bs4.element.Tag) -> str:
+    def videos(cmpt: Node) -> str:
         """Classify video carousel components (e.g. 'Trailers & clips' on entity SERPs).
 
         Matches the layout-class vocabulary used by parse_videos for individual
@@ -371,7 +371,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def knowledge_subcard(cmpt: bs4.element.Tag) -> str:
+    def knowledge_subcard(cmpt: Node) -> str:
         """Catch knowledge-panel extension subcards by structural pattern.
 
         Entity-panel sections (e.g. Cast, Based on the book, Reviews, Behind the
@@ -386,7 +386,7 @@ class ClassifyMain:
         return "knowledge"
 
     @staticmethod
-    def locations(cmpt: bs4.element.Tag) -> str:
+    def locations(cmpt: Node) -> str:
         """Classify locations components (hotels, etc.)"""
         heading = cmpt.find(attrs={"role": "heading"})
         if heading:
@@ -396,7 +396,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def top_stories(cmpt: bs4.element.Tag) -> str:
+    def top_stories(cmpt: Node) -> str:
         """Classify top stories components"""
         conditions = [
             cmpt.find("g-scrolling-carousel"),
@@ -405,20 +405,20 @@ class ClassifyMain:
         return "top_stories" if all(conditions) else "unknown"
 
     @staticmethod
-    def news_quotes(cmpt: bs4.element.Tag) -> str:
+    def news_quotes(cmpt: Node) -> str:
         """Classify top stories components"""
         header_div = cmpt.find("g-tray-header", role="heading")
         condition = utils.get_text(header_div, strip=True) == "News quotes"
         return "news_quotes" if condition else "unknown"
 
     @staticmethod
-    def twitter(cmpt: bs4.element.Tag) -> str:
+    def twitter(cmpt: Node) -> str:
         cmpt_type = "twitter" if cmpt.find("div", {"class": "eejeod"}) else "unknown"
         cmpt_type = ClassifyMain.twitter_type(cmpt, cmpt_type)
         return cmpt_type
 
     @staticmethod
-    def twitter_type(cmpt: bs4.element.Tag, cmpt_type="unknown") -> str:
+    def twitter_type(cmpt: Node, cmpt_type="unknown") -> str:
         """Distinguish twitter types ('twitter_cards', 'twitter_result')"""
         conditions = [
             (cmpt_type == "twitter"),  # Check type (header text)

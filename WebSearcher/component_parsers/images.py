@@ -5,12 +5,12 @@ title and URL), and a multimedia carousel (image / video previews without
 text). Each subcomponent is tagged with the matching sub_type.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import get_div, get_link, get_text
 
 
-def parse_images(cmpt: bs4.element.Tag) -> list:
+def parse_images(cmpt: Node) -> list:
     parsed_list: list = []
 
     if cmpt.find("g-expandable-container"):
@@ -31,7 +31,7 @@ def parse_images(cmpt: bs4.element.Tag) -> list:
     return [p for p in parsed_list if any([p["title"], p["url"]])]
 
 
-def parse_image_multimedia(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "images",
         "sub_type": "multimedia",
@@ -42,7 +42,7 @@ def parse_image_multimedia(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def parse_image_medium(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict:
     title_div = get_div(sub, "a", {"class": "EZAeBe"})
     title = get_text(title_div) if title_div else get_text(sub, "span", {"class": "Yt787"})
     url = get_link(sub) if title_div else get_img_url(sub)
@@ -63,7 +63,7 @@ def parse_image_medium(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def parse_image_small(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_image_small(sub: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "images",
         "sub_type": "small",
@@ -74,17 +74,17 @@ def parse_image_small(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def get_img_url(sub: bs4.element.Tag) -> str | None:
+def get_img_url(sub: Node) -> str | None:
     # Try several extraction strategies; rejecting embedded data URLs
-    def from_img_src(sub: bs4.element.Tag) -> str:
+    def from_img_src(sub: Node) -> str:
         img = sub.find("img")
         return str(img.attrs["src"]) if img else ""
 
-    def from_img_title(sub: bs4.element.Tag) -> str:
+    def from_img_title(sub: Node) -> str:
         img = sub.find("img")
         return str(img.attrs["title"]) if img else ""
 
-    def from_attrs(sub: bs4.element.Tag) -> str:
+    def from_attrs(sub: Node) -> str:
         return str(sub.attrs["data-lpage"])
 
     for func in (from_img_src, from_attrs, from_img_title):
@@ -97,7 +97,7 @@ def get_img_url(sub: bs4.element.Tag) -> str | None:
     return None
 
 
-def get_img_alt(sub: bs4.element.Tag) -> str | None:
+def get_img_alt(sub: Node) -> str | None:
     try:
         img = sub.find("img")
         return f"alt-text: {img.attrs['alt']}" if img else None

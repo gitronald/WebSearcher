@@ -3,10 +3,10 @@
 Carousel similar to Top Stories and Perspectives.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from .top_stories import parse_top_stories
 
 
-def parse_recent_posts(cmpt: bs4.element.Tag) -> list:
+def parse_recent_posts(cmpt: Node) -> list:
     return parse_top_stories(cmpt, ctype="recent_posts")

@@ -1,4 +1,4 @@
-import bs4
+from selectolax.parser import Node
 
 from .. import logger
 from ..components import ComponentList
@@ -11,7 +11,7 @@ log = logger.Logger().start(__name__)
 
 
 class Extractor:
-    def __init__(self, soup: bs4.BeautifulSoup):
+    def __init__(self, soup: Node):
         self.soup = soup
         self.components = ComponentList()
         self.rhs_handler = ExtractorRightHandSide(self.soup, self.components)

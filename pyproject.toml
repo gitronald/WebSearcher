@@ -9,8 +9,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "requests>=2.33.0",
-    "lxml>=6.1.0",
-    "beautifulsoup4>=4.12.3",
     "selectolax>=0.4.10",
     "tldextract>=5.1.2",
     "brotli>=1.1.0",
@@ -42,6 +40,8 @@ dev = [
     "pyrefly",
     "ruff>=0.15.6",
     "pytest-cov>=7.0.0",
+    "beautifulsoup4>=4.12.3",  # dev-only: used by the html-inspection scripts (show_serp, diff_parsers, dump_ai_overview_html, etc.)
+    "lxml>=6.1.0",             # dev-only: bs4 parser backend for those scripts
 ]
 
 [tool.pyrefly]

@@ -3,15 +3,15 @@
 Links to academic articles surfaced via Google Scholar.
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_scholarly_articles(cmpt: bs4.element.Tag) -> list:
+def parse_scholarly_articles(cmpt: Node) -> list:
     subs = cmpt.find_all("tr")[1].find_all("div")
     return [parse_article(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_article(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_article(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "scholarly_articles", "sub_rank": sub_rank}
     parsed["title"] = sub.text
     a = sub.find("a")

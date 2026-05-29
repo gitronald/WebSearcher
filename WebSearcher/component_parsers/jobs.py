@@ -4,10 +4,10 @@ Renders as a section with a "Jobs" heading followed by individual job cards
 (each with its own aria-level=3 heading: job title).
 """
 
-import bs4
+from selectolax.parser import Node
 
 
-def parse_jobs(cmpt: bs4.element.Tag) -> list:
+def parse_jobs(cmpt: Node) -> list:
     heading = cmpt.find(attrs={"role": "heading", "aria-level": "2"})
     title = heading.get_text(" ", strip=True) if heading else None
     items = [

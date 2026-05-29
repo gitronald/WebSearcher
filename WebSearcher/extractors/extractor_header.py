@@ -1,4 +1,4 @@
-import bs4
+from selectolax.parser import Node
 
 from .. import logger, utils
 
@@ -6,7 +6,7 @@ log = logger.Logger().start(__name__)
 
 
 class ExtractorHeader:
-    def __init__(self, soup: bs4.BeautifulSoup, components):
+    def __init__(self, soup: Node, components):
         self.soup = soup
         self.components = components
         self.exists = False

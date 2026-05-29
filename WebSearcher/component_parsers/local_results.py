@@ -6,12 +6,12 @@ businesses relevant to the query, with rating, contact, and address details.
 
 import re
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import Selector, get_text, get_text_by_selectors, slugify
 
 
-def parse_local_results(cmpt: bs4.element.Tag) -> list:
+def parse_local_results(cmpt: Node) -> list:
     subs = cmpt.find_all("div", {"class": "VkpGBb"})
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
     if parsed_list:
@@ -24,9 +24,7 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
         if header:
             header_lower = header.lower()
             sub_type = (
-                "results_for"
-                if header_lower.startswith("results for")
-                else slugify(header_lower)
+                "results_for" if header_lower.startswith("results for") else slugify(header_lower)
             )
             for parsed in parsed_list:
                 parsed["sub_type"] = sub_type
@@ -47,7 +45,7 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
         ]
 
 
-def parse_local_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_local_result(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "local_results", "sub_rank": sub_rank}
     parsed["title"] = get_text(sub, "div", {"class": "dbg0pd"})
 
@@ -61,7 +59,7 @@ def parse_local_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def parse_local_details(sub: bs4.element.Tag, links_dict: dict[str, str]) -> dict:
+def parse_local_details(sub: Node, links_dict: dict[str, str]) -> dict:
     details: dict = {"type": "place"}
     rllt = sub.find(class_="rllt__details")
     if rllt:
@@ -93,7 +91,7 @@ _STREET_RE = re.compile(
 _HOURS_PREFIX = ("open", "closed", "closes", "opens")
 
 
-def _link_text_to_url(sub: bs4.element.Tag) -> dict[str, str]:
+def _link_text_to_url(sub: Node) -> dict[str, str]:
     """Pull the well-known utility links out of a local-results card.
 
     Keys off stable structural classes (locale-independent) rather than the

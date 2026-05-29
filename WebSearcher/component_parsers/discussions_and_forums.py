@@ -4,12 +4,12 @@ A list of forum/discussion threads (Reddit, Stack Overflow, etc.) with title,
 source, and link. Each row has multiple known card layouts.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import Selector, get_link, get_text, get_text_by_selectors
 
 
-def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
+def parse_discussions_and_forums(cmpt: Node) -> list:
     sub_selectors: list[Selector] = [
         Selector("div", {"class": "LJ7wUe"}),
         Selector("div", {"class": "JlqpRe"}),
@@ -22,7 +22,7 @@ def parse_discussions_and_forums(cmpt: bs4.element.Tag) -> list:
     return []
 
 
-def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_item(cmpt: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "discussions_and_forums",
         "sub_type": None,
@@ -33,7 +33,7 @@ def parse_item(cmpt: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def get_title(sub: bs4.element.Tag) -> str | None:
+def get_title(sub: Node) -> str | None:
     title_selectors = [
         Selector("div", {"class": "zNWc4c"}),
         Selector("div", {"class": "qyp6xb"}),
@@ -44,7 +44,7 @@ def get_title(sub: bs4.element.Tag) -> str | None:
     return title
 
 
-def get_cite(sub: bs4.element.Tag) -> str | None:
+def get_cite(sub: Node) -> str | None:
     cite_selectors = [
         Selector("div", {"class": "LbKnXb"}),
         Selector("div", {"class": "VZGVuc"}),
@@ -52,7 +52,7 @@ def get_cite(sub: bs4.element.Tag) -> str | None:
     return get_text_by_selectors(sub, cite_selectors)
 
 
-def get_url(sub: bs4.element.Tag) -> str | None:
+def get_url(sub: Node) -> str | None:
     # Try multiple, take first non-null
     url_list = [get_link(sub, {"class": "v4kUNc"}), get_link(sub)]
     url_list = [url for url in url_list if url]

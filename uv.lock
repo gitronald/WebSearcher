@@ -1585,9 +1585,7 @@ name = "websearcher"
 version = "0.8.6"
 source = { editable = "." }
 dependencies = [
-    { name = "beautifulsoup4" },
     { name = "brotli" },
-    { name = "lxml" },
     { name = "orjson" },
     { name = "protobuf" },
     { name = "pydantic" },
@@ -1600,7 +1598,9 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "beautifulsoup4" },
     { name = "ipykernel" },
+    { name = "lxml" },
     { name = "polars" },
     { name = "pre-commit" },
     { name = "pyarrow" },
@@ -1615,9 +1615,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "beautifulsoup4", specifier = ">=4.12.3" },
     { name = "brotli", specifier = ">=1.1.0" },
-    { name = "lxml", specifier = ">=6.1.0" },
     { name = "orjson", specifier = ">=3.11.5,<4.0.0" },
     { name = "protobuf", specifier = ">=6.33.5,<8.0.0" },
     { name = "pydantic", specifier = ">=2.9.2" },
@@ -1630,7 +1628,9 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "beautifulsoup4", specifier = ">=4.12.3" },
     { name = "ipykernel", specifier = ">=6.29.5" },
+    { name = "lxml", specifier = ">=6.1.0" },
     { name = "polars", specifier = ">=1.37.1" },
     { name = "pre-commit", specifier = ">=4.5.1" },
     { name = "pyarrow", specifier = ">=23.0.0" },

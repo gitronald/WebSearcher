@@ -31,12 +31,12 @@ none of these markers and correctly yield empty output.
 
 from __future__ import annotations
 
-import bs4
+from selectolax.parser import Node
 
 from ._ai_overview_payloads import extract_payloads
 
 
-def parse_ai_overview(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list[dict]:
+def parse_ai_overview(cmpt: Node, sub_rank: int = 0) -> list[dict]:
     parsed: dict = {
         "type": "ai_overview",
         "sub_rank": sub_rank,
@@ -94,12 +94,12 @@ _UNAVAILABLE_MARKERS = (
 )
 
 
-def _is_unavailable(cmpt: bs4.element.Tag) -> bool:
+def _is_unavailable(cmpt: Node) -> bool:
     text = cmpt.get_text(" ", strip=True)
     return any(marker in text for marker in _UNAVAILABLE_MARKERS)
 
 
-def _root_html(cmpt: bs4.element.Tag) -> str:
+def _root_html(cmpt: Node) -> str:
     """Serialize the document root (or the cmpt's highest ancestor) to HTML.
 
     The ``lDPB.push`` fallback payload form lives in script tags outside the
@@ -112,9 +112,7 @@ def _root_html(cmpt: bs4.element.Tag) -> str:
     return str(node)
 
 
-def _extract_body(
-    content: bs4.element.Tag, payloads: dict[str, dict]
-) -> tuple[str, list[dict], list[dict]]:
+def _extract_body(content: Node, payloads: dict[str, dict]) -> tuple[str, list[dict], list[dict]]:
     """Walk the content area and split into lede + lede citations + sections.
 
     The body is a flat document-order sequence of paragraph divs (``Y3BBE``),
@@ -180,7 +178,7 @@ def _extract_body(
     return " ".join(lede_parts).strip(), lede_citations, sections
 
 
-def _collect_body_elements(content: bs4.element.Tag) -> list[bs4.element.Tag]:
+def _collect_body_elements(content: Node) -> list[Node]:
     """Collect paragraph/heading/list elements from the body in document order."""
     paragraphs = content.find_all("div", {"class": _BODY_PARA_CLASS})
     headings = content.find_all("div", {"class": _BODY_HEADING_CLASS})
@@ -195,7 +193,7 @@ def _collect_body_elements(content: bs4.element.Tag) -> list[bs4.element.Tag]:
     return sorted(elements, key=_doc_position)
 
 
-def _drop_nested_descendants(elements: list[bs4.element.Tag]) -> list[bs4.element.Tag]:
+def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
     elem_set = set(elements)
     kept = []
     for e in elements:
@@ -211,7 +209,7 @@ def _drop_nested_descendants(elements: list[bs4.element.Tag]) -> list[bs4.elemen
     return kept
 
 
-def _doc_position(elem: bs4.element.Tag) -> tuple:
+def _doc_position(elem: Node) -> tuple:
     """Crude document position via ancestor chain indices."""
     path = []
     node = elem
@@ -225,7 +223,7 @@ def _doc_position(elem: bs4.element.Tag) -> tuple:
     return tuple(reversed(path))
 
 
-def _is_section_heading(elem: bs4.element.Tag) -> bool:
+def _is_section_heading(elem: Node) -> bool:
     if elem.name != "div":
         return False
     classes = elem.attrs.get("class") or []
@@ -234,7 +232,7 @@ def _is_section_heading(elem: bs4.element.Tag) -> bool:
     return elem.attrs.get("role") == "heading" and elem.attrs.get("aria-level") == "3"
 
 
-def _collect_inline_links(elem: bs4.element.Tag) -> list[dict]:
+def _collect_inline_links(elem: Node) -> list[dict]:
     """Collect anchors from inline body content (skips sources tray and #)."""
     links = []
     seen = set()
@@ -251,7 +249,7 @@ def _collect_inline_links(elem: bs4.element.Tag) -> list[dict]:
     return links
 
 
-def _extract_button_citations(elem: bs4.element.Tag, payloads: dict[str, dict]) -> list[dict]:
+def _extract_button_citations(elem: Node, payloads: dict[str, dict]) -> list[dict]:
     """Build citation dicts for ``button.rBl3me`` widgets within ``elem``.
 
     For each button we record:
@@ -293,7 +291,7 @@ def _extract_button_citations(elem: bs4.element.Tag, payloads: dict[str, dict]) 
     return citations
 
 
-def _button_publisher(button: bs4.element.Tag) -> str | None:
+def _button_publisher(button: Node) -> str | None:
     """Pull the publisher label from ``span.iFMVXd`` inside a ``rBl3me`` button.
 
     Attributed buttons render ``Publisher +N`` with the publisher in
@@ -307,7 +305,7 @@ def _button_publisher(button: bs4.element.Tag) -> str | None:
     return text or None
 
 
-def _button_additional_count(button: bs4.element.Tag) -> int:
+def _button_additional_count(button: Node) -> int:
     span = button.find("span", {"class": "IjM6od"})
     if span is None:
         return 0
@@ -334,7 +332,7 @@ def _index_type_a_by_src_id(payloads: dict[str, dict]) -> dict[str, dict]:
     return out
 
 
-def _extract_sources(cmpt: bs4.element.Tag, type_a_by_src_id: dict[str, dict]) -> list[dict]:
+def _extract_sources(cmpt: Node, type_a_by_src_id: dict[str, dict]) -> list[dict]:
     """Build the sources list in tray (rank) order.
 
     Walks ``ul.bTFeG > li.CyMdWb`` in document order. For each, reads the
@@ -378,7 +376,7 @@ def _extract_sources(cmpt: bs4.element.Tag, type_a_by_src_id: dict[str, dict]) -
     return sources
 
 
-def _tray_publisher(li: bs4.element.Tag) -> str | None:
+def _tray_publisher(li: Node) -> str | None:
     span = li.find("span", {"class": "Z1JFYc"})
     if span is None:
         return None
@@ -394,7 +392,7 @@ _SOURCES_UL_CLASS = "zVKf0d"
 
 
 def _extract_body_legacy(
-    content: bs4.element.Tag,
+    content: Node,
 ) -> tuple[str, list[dict], list[dict]]:
     """Walk the 2024 SGE body into lede + sections (no payload citations).
 
@@ -444,7 +442,7 @@ def _extract_body_legacy(
     return " ".join(lede_parts).strip(), [], sections
 
 
-def _legacy_section_heading(elem: bs4.element.Tag) -> str | None:
+def _legacy_section_heading(elem: Node) -> str | None:
     """Return the section-heading text if ``elem`` wraps a SGE section heading.
 
     Section headings are a ``[role=heading]`` node nested in a ``rPeykc`` div.
@@ -460,7 +458,7 @@ def _legacy_section_heading(elem: bs4.element.Tag) -> str | None:
     return text or None
 
 
-def _extract_sources_legacy(cmpt: bs4.element.Tag) -> list[dict]:
+def _extract_sources_legacy(cmpt: Node) -> list[dict]:
     """Build the sources list from the legacy ``li.LLtSOc`` tray cards.
 
     These captures predate the JSON citation payloads, so each source is read

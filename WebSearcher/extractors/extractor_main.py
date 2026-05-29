@@ -1,6 +1,6 @@
 from typing import Any
 
-import bs4
+from selectolax.parser import Node
 
 from .. import utils
 from ..logger import Logger
@@ -9,7 +9,7 @@ log = Logger().start(__name__)
 
 
 class ExtractorMain:
-    def __init__(self, soup: bs4.BeautifulSoup, components):
+    def __init__(self, soup: Node, components):
         self.soup = soup
         self.components = components
 

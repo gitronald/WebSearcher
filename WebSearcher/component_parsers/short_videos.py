@@ -4,12 +4,12 @@ A horizontal carousel of short-form video cards (YouTube Shorts, TikTok, etc.)
 with a heading, source, and duration.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import get_text
 
 
-def parse_short_videos(cmpt: bs4.element.Tag) -> list:
+def parse_short_videos(cmpt: Node) -> list:
     # Filter to full card links (with heading), skip thumbnail-only duplicates
     cards = [
         a for a in cmpt.find_all("a", {"class": "rIRoqf"}) if a.find("div", {"role": "heading"})

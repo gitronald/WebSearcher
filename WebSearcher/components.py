@@ -1,7 +1,7 @@
 import traceback
 from collections.abc import Callable
 
-import bs4
+from selectolax.parser import Node
 
 from .classifiers import ClassifyFooter, ClassifyMain
 from .component_parsers import (
@@ -22,7 +22,7 @@ class Component:
 
     def __init__(
         self,
-        elem: bs4.element.Tag,
+        elem: Node,
         section: str = "unknown",
         type: str = "unknown",
         cmpt_rank: int | None = None,
@@ -148,9 +148,7 @@ class ComponentList:
     def __iter__(self):
         yield from self.components
 
-    def add_component(
-        self, elem: bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None
-    ):
+    def add_component(self, elem: Node, section="unknown", type="unknown", cmpt_rank=None):
         """Add a component to the list of components"""
         cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)

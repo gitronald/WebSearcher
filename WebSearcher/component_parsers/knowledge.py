@@ -6,13 +6,13 @@ sports, weather, finance, dictionary, translation, calculator, election
 results, "things to know", and the generic panel layout.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import get_link, get_text, slugify
 from .general import parse_general_result
 
 
-def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_knowledge_panel(cmpt: Node, sub_rank: int = 0) -> list:
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Get embedded result if it exists
@@ -186,7 +186,7 @@ def _join_texts(div) -> str:
     return "|".join([d.get_text(separator=" ") for d in div if d.text])
 
 
-def _first_external_link(node: bs4.element.Tag) -> dict | None:
+def _first_external_link(node: Node) -> dict | None:
     """Return the first absolute (external) anchor (url + text) within ``node``.
 
     Skips root-relative Google links (``/search?``, ``/intl/...`` disclaimers,
@@ -200,5 +200,5 @@ def _first_external_link(node: bs4.element.Tag) -> dict | None:
     return None
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
+def parse_alink(a: Node) -> dict:
     return {"url": a["href"], "text": a.get_text("|")}

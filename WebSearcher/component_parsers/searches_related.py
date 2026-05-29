@@ -5,12 +5,12 @@ include the classic suggestion list, curated lists (e.g. song names),
 accordion-style sections, and link rows under "brs_col".
 """
 
-import bs4
+from selectolax.parser import Node
 
 from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors, slugify
 
 
-def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_searches_related(cmpt: Node, sub_rank: int = 0) -> list:
     parsed: dict = {
         "type": "searches_related",
         "sub_rank": sub_rank,

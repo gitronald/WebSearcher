@@ -4,26 +4,22 @@ Highly similar to the vertically stacked Top Stories and Latest news layouts,
 but distinguished by a news icon in the top left.
 """
 
-import bs4
+from selectolax.parser import Node
 
 from .._slx import is_tag
 
 
-def parse_view_more_news(cmpt: bs4.element.Tag) -> list:
+def parse_view_more_news(cmpt: Node) -> list:
     container = cmpt.find("div", {"class": "qmv19b"})
     if container:
         subs: list = list(container.children)
     else:
         carousel = cmpt.find("g-scrolling-carousel")
         subs = carousel.find_all("g-inner-card") if carousel else []
-    return [
-        parse_sub(sub, sub_rank)
-        for sub_rank, sub in enumerate(subs)
-        if is_tag(sub)
-    ]
+    return [parse_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs) if is_tag(sub)]
 
 
-def parse_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_sub(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "view_more_news", "sub_rank": sub_rank}
     title_div = sub.find("div", {"class": "jBgGLd"})
     a = sub.find("a")
@@ -45,7 +41,7 @@ def parse_sub(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def get_img_url(soup: bs4.element.Tag) -> str | None:
+def get_img_url(soup: Node) -> str | None:
     img = soup.find("img")
     if img and "data-src" in img.attrs:
         return str(img.attrs["data-src"])
