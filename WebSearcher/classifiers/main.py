@@ -31,7 +31,9 @@ class _ComponentSignals:
         # table (vs ``el.attributes`` which materializes a dict per call);
         # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
         for el in cmpt.css("*"):
-            names.add(el.tag)
+            name = el.tag
+            if name:
+                names.add(name)
             cls = el.attrs.get("class")
             if cls:
                 classes.update(cls.split())
@@ -193,15 +195,12 @@ class ClassifyMain:
                 "format-02": ("g" in cls) and ("Ww4FFb" in cls),
                 "format-03": any(s in {"hlcw0c", "MjjYud", "PmEWq"} for s in cls),
                 # bs4 ``find("div", {"class": ["g","Ww4FFb"]})`` = OR of tokens.
-                "format-04": any(
-                    n.mem_id != node_id for n in node.css("div.g, div.Ww4FFb")
-                ),
+                "format-04": any(n.mem_id != node_id for n in node.css("div.g, div.Ww4FFb")),
             }
         else:
             conditions = {
                 "format-05": all(
-                    any(n.mem_id != node_id for n in node.css(f"div.{c}"))
-                    for c in ("g", "d4rhi")
+                    any(n.mem_id != node_id for n in node.css(f"div.{c}")) for c in ("g", "d4rhi")
                 ),
             }
         return "general" if any(conditions.values()) else "unknown"
@@ -335,7 +334,11 @@ class ClassifyMain:
         node: Node = cmpt
         # bs4 ``check_dict_value(cmpt.attrs, "class", ["g","kno-kp","mnr-c","g-blk"])``
         # is EXACT list equality on the class attribute.
-        return "people_also_ask" if class_tokens(node) == ["g", "kno-kp", "mnr-c", "g-blk"] else "unknown"
+        return (
+            "people_also_ask"
+            if class_tokens(node) == ["g", "kno-kp", "mnr-c", "g-blk"]
+            else "unknown"
+        )
 
     @staticmethod
     def products(cmpt) -> str:
@@ -424,5 +427,9 @@ class ClassifyMain:
         """Distinguish twitter types ('twitter_cards', 'twitter_result')."""
         node: Node = cmpt
         if cmpt_type == "twitter" or (get_text(node, strip=True) or "") == "Twitter Results":
-            return "twitter_cards" if node.css_first("g-scrolling-carousel") is not None else "twitter_result"
+            return (
+                "twitter_cards"
+                if node.css_first("g-scrolling-carousel") is not None
+                else "twitter_result"
+            )
         return cmpt_type

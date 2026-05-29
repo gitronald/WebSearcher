@@ -22,7 +22,7 @@ def parse_promo(cmpt) -> list:
     # Title is the promo description (full text minus the trailing CTA label).
     full = get_text(node, " ", strip=True)
     title = full
-    if cta_label and full.endswith(cta_label):
+    if cta_label and full and full.endswith(cta_label):
         title = full[: -len(cta_label)].strip()
 
     return [

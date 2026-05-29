@@ -58,7 +58,7 @@ def _iter_text_fragments(raw: Node) -> Iterator[str]:
         t = child.tag
         if t == "-text":
             yield _node_text(child)
-        elif t in _SKIP_TEXT_TAGS or t.startswith("-"):
+        elif t is None or t in _SKIP_TEXT_TAGS or t.startswith("-"):
             continue
         else:
             stack.append(child.iter(include_text=True))
@@ -72,9 +72,10 @@ def node_string(node: Node) -> str | None:
     if len(children) != 1:
         return None
     c = children[0]
-    if c.tag == "-text":
+    tag = c.tag
+    if tag == "-text":
         return _node_text(c)
-    if c.tag.startswith("-"):
+    if tag is None or tag.startswith("-"):
         return None
     return node_string(c)
 
@@ -88,7 +89,10 @@ def make_soup(html: str | bytes | Node) -> Node:
         return html
     if isinstance(html, bytes):
         html = html.decode("utf-8", errors="replace")
-    return HTMLParser(html).root
+    root = HTMLParser(html).root
+    if root is None:
+        raise ValueError("could not parse HTML into a root node")
+    return root
 
 
 def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str | None:
@@ -133,12 +137,15 @@ def reparse_fragment(node: Node) -> Node:
     """Re-parse ``node``'s outer HTML into an independent tree and return its
     top element. Emulates bs4 ``copy.copy(tag)`` for ``notices.py``."""
     parser = HTMLParser(node.html or "")
+    root = parser.root
+    if root is None:
+        raise ValueError("could not reparse fragment into a root node")
     body = parser.body
     if body is None:
-        return parser.root
+        return root
     for child in body.iter(include_text=False):
         return child
-    return parser.root
+    return root
 
 
 def subtree_first(node: Node, css: str) -> Node | None:
@@ -211,5 +218,3 @@ def next_siblings(node: Node, include_text: bool = True) -> Iterator[Node]:
             yield sib
         elif sib.mem_id == node_id:
             found = True
-
-
