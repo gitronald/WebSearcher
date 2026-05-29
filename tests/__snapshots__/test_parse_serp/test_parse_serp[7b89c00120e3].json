@@ -228,6 +228,7 @@
       "details": {
         "address": "Sunnyvale, CA",
         "directions": "/maps/dir//Apple+Inc.,+1070+E+Arques+Ave,+Sunnyvale,+CA+94085/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb6196e0a7497:0xc4162eb5b073a9e4?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Locations",
         "phone": "(800) 692-7753",
         "review_snippet": "Ipads are the best!",
         "type": "place",
@@ -249,6 +250,7 @@
       "details": {
         "address": "Cupertino, CA",
         "directions": "/maps/dir//Apple,+10500+N+De+Anza+Blvd,+Cupertino,+CA+95014/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fb5b13fdcecf7:0xdc5c21978a3d43f5?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Locations",
         "hours": "Open · Closes 5 PM",
         "phone": "(408) 996-1010",
         "review_snippet": "On the surface, it is a company defined by excellence.",
@@ -271,6 +273,7 @@
       "details": {
         "address": "340 University Ave",
         "directions": "/maps/dir//Apple+Palo+Alto,+340+University+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb38fa3f36f9:0xf5692002b984147?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Locations",
         "hours": "Open · Closes 8 PM",
         "phone": "(650) 798-2800",
         "review_snippet": "They took it in and in 2 days it was back, super clean and functional.",
@@ -361,6 +364,7 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Apple Inc full form",
           "Apple Inc address",

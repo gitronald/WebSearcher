@@ -137,7 +137,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -151,7 +153,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -165,7 +169,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -179,7 +185,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 9,
@@ -193,7 +201,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -207,7 +217,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 11,
@@ -221,7 +233,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 12,
@@ -235,7 +249,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
@@ -249,7 +265,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -263,7 +281,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -277,7 +297,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -291,7 +313,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -323,6 +347,7 @@
         "address": "240 Stanford Shopping Center",
         "category": "Yoga studio",
         "directions": "/maps/dir//YogaSix+Palo+Alto,+240+Stanford+Shopping+Center,+Palo+Alto,+CA+94304/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb2e2a95157b:0x9d9f771f7b7742bf?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Businesses",
         "hours": "Open · Closes 9 PM",
         "n_reviews": 417,
         "phone": "(650) 398-0889",
@@ -348,7 +373,8 @@
       "details": {
         "address": "158 Hamilton Ave",
         "category": "Yoga studio",
-        "directions": "/maps/dir//YogaSource,+158+Hamilton+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb3a3ff64567:0xb3bebd7e0ef7474d?sa=X&ved=1t:57443&ictx=111",
+        "directions": "https://www.mindbodyonline.com/explore/locations/yogasource-palo-alto?hl=en-US&gei=iIOGacWOObeFxc8PiJ-3kQw&rwg_token=AFd1xnEdEpzcvpFj0nEOdY2PrCMkUSsEMJjPmGUqyCHZrSoH369qpKMz9sRtsQijKuuhZGSSy24dEcZL2s187bkygs_Abf-j7w%3D%3D&source=cat",
+        "heading": "Businesses",
         "hours": "Open · Closes 9 PM",
         "n_reviews": 65,
         "phone": "(650) 328-9642",
@@ -375,6 +401,7 @@
         "address": "Menlo Park, CA",
         "category": "Yoga studio",
         "directions": "/maps/dir//Yogarok,+1100+Chestnut+St+Suite+718,+Menlo+Park,+CA+94025/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fa57c9f732d11:0xcdc92ba5a53d0f9?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Businesses",
         "hours": "Closed · Opens 8:30 AM Sun",
         "n_reviews": 6,
         "rating": 5.0,
@@ -467,6 +494,7 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Yoga for beginners free app",
           "Yoga for beginners youtube",

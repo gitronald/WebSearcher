@@ -7,7 +7,7 @@ accordion-style sections, and link rows under "brs_col".
 
 import bs4
 
-from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors
+from ..utils import Selector, find_all_divs, get_text, get_text_by_selectors, slugify
 
 
 def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
@@ -25,7 +25,7 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         Selector("span", {"class": "mgAbYb"}),
     ]
     header = get_text_by_selectors(cmpt, header_selectors)
-    parsed["sub_type"] = header.lower().replace(" ", "_") if header else None
+    parsed["sub_type"] = slugify(header.lower()) if header else None
 
     output_list: list[str] = []
 
@@ -56,5 +56,11 @@ def parse_searches_related(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         output_list.extend(filter(None, (sub.text.strip() for sub in subs)))
 
     parsed["text"] = "<|>".join(output_list)
-    parsed["details"] = {"type": "text", "items": output_list} if output_list else None
+    if output_list:
+        details: dict = {"type": "text", "items": output_list}
+        if header:
+            details["heading"] = header  # preserve the raw header text (the sub_type slug is lossy)
+        parsed["details"] = details
+    else:
+        parsed["details"] = None
     return [parsed]

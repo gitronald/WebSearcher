@@ -8,7 +8,7 @@ import re
 
 import bs4
 
-from ..utils import Selector, get_text, get_text_by_selectors
+from ..utils import Selector, get_text, get_text_by_selectors, slugify
 
 
 def parse_local_results(cmpt: bs4.element.Tag) -> list:
@@ -26,10 +26,15 @@ def parse_local_results(cmpt: bs4.element.Tag) -> list:
             sub_type = (
                 "results_for"
                 if header_lower.startswith("results for")
-                else header_lower.replace(" ", "_")
+                else slugify(header_lower)
             )
             for parsed in parsed_list:
-                parsed.update({"sub_type": sub_type})
+                parsed["sub_type"] = sub_type
+                # Preserve the raw component header (the sub_type slug is lossy
+                # and the per-result title is the business name, not this).
+                details = parsed.get("details")
+                if isinstance(details, dict):
+                    details["heading"] = header
 
         return parsed_list
     else:
@@ -89,13 +94,20 @@ _HOURS_PREFIX = ("open", "closed", "closes", "opens")
 
 
 def _link_text_to_url(sub: bs4.element.Tag) -> dict[str, str]:
+    """Pull the well-known utility links out of a local-results card.
+
+    Keys off stable structural classes (locale-independent) rather than the
+    visible anchor text -- the old text-keyed lookup missed
+    ``website``/``directions`` on localized SERPs and broke whenever
+    ``get_text(strip=True)`` left stray whitespace on the key.
+    """
     out: dict[str, str] = {}
-    for a in sub.find_all("a"):
-        if "href" not in a.attrs:
-            continue
-        key = a.get_text(strip=True).lower()
-        if key and key not in out:
-            out[key] = str(a.attrs["href"])
+    website = sub.find("a", {"class": "L48Cpd"})
+    if website is not None and website.get("href"):
+        out["website"] = str(website.attrs["href"])
+    directions = sub.find("a", {"class": "VDgVie"})
+    if directions is not None and directions.get("href"):
+        out["directions"] = str(directions.attrs["href"])
     return out
 
 

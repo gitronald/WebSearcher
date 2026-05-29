@@ -73,6 +73,18 @@ def get_between_parentheses(s, regex=r"\((.*?)\)"):
     return match.group(1) if match else ""
 
 
+def slugify(text: str, sep: str = "_") -> str:
+    """Whitespace-robust slug: collapse all whitespace runs to a single separator.
+
+    Equivalent to ``sep.join(text.split())`` -- handles ASCII space, tabs,
+    non-breaking space, and other unicode whitespace uniformly, so the result is
+    independent of incidental whitespace in source ``get_text`` output. The
+    parsers that derive a ``sub_type`` from a heading should use this rather than
+    a bare ``.replace(" ", sep)`` (which only normalizes ASCII space).
+    """
+    return sep.join(text.split())
+
+
 # Hashing ----------------------------------------------------------------------
 
 

@@ -335,7 +335,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -349,7 +351,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -363,7 +367,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -377,7 +383,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -532,6 +540,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Thank you in Korean informal",
           "Translate thank you to korean informal",

@@ -8,7 +8,7 @@ results, "things to know", and the generic panel layout.
 
 import bs4
 
-from ..utils import get_link, get_text
+from ..utils import get_link, get_text, slugify
 from .general import parse_general_result
 
 
@@ -145,7 +145,8 @@ def parse_knowledge_panel(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
         section_heading := cmpt.find(attrs={"role": "heading", "aria-level": "2"})
     ):
         heading_text = section_heading.get_text(" ", strip=True)
-        parsed["sub_type"] = heading_text.lower().replace(" & ", "-and-").replace(" ", "-")
+        # slugify first (whitespace-robust), then map the literal `&` token.
+        parsed["sub_type"] = slugify(heading_text.lower(), sep="-").replace("-&-", "-and-")
         parsed["title"] = heading_text
         # Drop Google KG-navigation /search? links — they're internal entity redirects.
         details["urls"] = [

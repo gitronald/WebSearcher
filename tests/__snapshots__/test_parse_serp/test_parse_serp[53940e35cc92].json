@@ -31,6 +31,7 @@
       "details": {
         "address": "11059 SE Division St",
         "category": "Coffee shop",
+        "heading": "Results for  Portland, OR",
         "n_reviews": 270,
         "price": "$10–20",
         "rating": 4.7,
@@ -53,6 +54,7 @@
       "details": {
         "address": "1003 SW 5th Ave",
         "category": "Coffee shop",
+        "heading": "Results for  Portland, OR",
         "hours": "Closed · Opens 9 AM Sat",
         "n_reviews": 426,
         "price": "$1–10",
@@ -76,6 +78,7 @@
       "details": {
         "address": "1100 SE Grand Ave",
         "category": "Coffee shop",
+        "heading": "Results for  Portland, OR",
         "n_reviews": 192,
         "price": "$1–10",
         "rating": 4.8,
@@ -266,6 +269,7 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Abba Coffee Roasters",
           "Deadstock Coffee Roasters",
