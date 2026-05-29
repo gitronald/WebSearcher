@@ -174,7 +174,7 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
         # not document-order). Check the single-string-child predicate in Python.
         div = [
             n
-            for n in walk_descendants(node, include_text=False)
+            for n in walk_descendants(node)
             if n.tag in ("span", "div", "a") and node_string(n) is not None
         ]
         details["text"] = _join_texts(div) if div else None

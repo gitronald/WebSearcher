@@ -3,7 +3,7 @@ from typing import Any
 from selectolax.parser import Node
 
 from .. import logger
-from .._slx import class_tokens, get_text, walk_descendants
+from .._slx import class_tokens, get_text
 from ..component_types import header_text_to_type
 
 log = logger.Logger().start(__name__)
@@ -27,11 +27,12 @@ class _ComponentSignals:
         classes: set[str] = set()
         ids: set[str] = set()
         names: set[str] = set()
-
-        def _record(el: Node) -> None:
+        # cmpt.css('*') is subtree-scoped (self + descendants) and runs in C;
+        # ``cmpt.traverse(...)`` would walk the entire document forward.
+        for el in cmpt.css("*"):
             tag = el.tag
             if not tag or tag.startswith("-"):
-                return
+                continue
             names.add(tag)
             attrs = el.attributes
             cls = attrs.get("class")
@@ -40,12 +41,6 @@ class _ComponentSignals:
             el_id = attrs.get("id")
             if el_id:
                 ids.add(el_id)
-
-        # walk_descendants is subtree-scoped; ``cmpt.traverse(...)`` would walk
-        # the entire document from this point forward and over-populate signals.
-        _record(cmpt)
-        for el in walk_descendants(cmpt, include_text=False):
-            _record(el)
         self.classes = classes
         self.ids = ids
         self.names = names

@@ -37,24 +37,19 @@ class Extractor:
         ``end_pos`` is the position of the last descendant tag, so element B is
         inside element A when A.start <= B.start <= A.end.
         """
-        # bs4 ``soup.find_all(True)`` = all tags in document order. Native:
-        # walk the entire tree (subtree of root + self if relevant). ``soup``
-        # here is the root html node; its subtree contains every element.
-        all_tags: list[Node] = [soup] + list(soup.css("*"))
-        # Dedupe by mem_id (root may appear in css if implementation quirks).
-        seen: set[int] = set()
-        unique_tags: list[Node] = []
-        for t in all_tags:
-            if t.mem_id not in seen:
-                seen.add(t.mem_id)
-                unique_tags.append(t)
-        all_tags = unique_tags
+        # ``soup.css('*')`` returns self + all descendants in document order
+        # (selectolax CSS ``*`` matches self) -- a single C-level walk.
+        all_tags: list[Node] = list(soup.css("*"))
         pos: dict[int, int] = {t.mem_id: i for i, t in enumerate(all_tags)}
         end = list(range(len(all_tags)))
+        # Walk backwards: by the time we visit element i, end[i] already holds
+        # the max position of its descendants (set by later iterations), so
+        # propagating end[i] up to its parent chains the max correctly.
         for i in range(len(all_tags) - 1, -1, -1):
             parent = all_tags[i].parent
-            if parent is not None and parent.mem_id in pos:
-                pi = pos[parent.mem_id]
-                if end[i] > end[pi]:
-                    end[pi] = end[i]
+            if parent is None:
+                continue
+            pi = pos.get(parent.mem_id)
+            if pi is not None and end[i] > end[pi]:
+                end[pi] = end[i]
         return {t.mem_id: (i, end[i]) for i, t in enumerate(all_tags)}

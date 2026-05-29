@@ -27,14 +27,30 @@ INFINITY_SCROLL_SPAN = '<span class="RVQdVd">More results</span>'
 
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html_or_soup: str | bytes | Node) -> SERPFeatures:
-        """Extract SERP features from an HTML string or a parsed soup ``Node``."""
+    def extract_features(
+        html_or_soup: str | bytes | Node,
+        soup: Node | None = None,
+    ) -> SERPFeatures:
+        """Extract SERP features.
+
+        When called with a string/bytes, regex over the original markup is used
+        (cheap, no document re-walk). When called with a ``Node``, the soup
+        path runs ``get_text`` over the document for the notice substring
+        checks. ``parse_serp`` calls this with both -- the raw HTML for the
+        cheap path AND the already-parsed soup for the shared lb/captcha
+        probes -- which avoids re-parsing.
+        """
         if isinstance(html_or_soup, Node):
             soup = html_or_soup
             features = FeatureExtractor._extract_from_soup(soup)
         else:
-            soup = utils.make_soup(html_or_soup)
-            features = FeatureExtractor._extract_from_html(html_or_soup)
+            if soup is None:
+                soup = utils.make_soup(html_or_soup)
+            features = FeatureExtractor._extract_from_html(
+                html_or_soup
+                if isinstance(html_or_soup, str)
+                else html_or_soup.decode("utf-8", errors="replace")
+            )
 
         # Structural probes shared by both paths (cheap, scoped lookups).
         lb = soup.css_first('div[id="lb"]')

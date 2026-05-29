@@ -41,18 +41,6 @@ from selectolax.parser import HTMLParser, Node
 _SKIP_TEXT_TAGS = frozenset({"script", "style", "template"})
 
 
-def _is_element(raw: Node) -> bool:
-    tag = raw.tag
-    return bool(tag) and not tag.startswith("-")
-
-
-def _walk(raw: Node, include_text: bool) -> Iterator[Node]:
-    """Pre-order DFS over descendants (excludes ``raw`` itself)."""
-    for child in raw.iter(include_text=include_text):
-        yield child
-        yield from _walk(child, include_text)
-
-
 def _node_text(raw: Node) -> str:
     """Raw text of a text node (whitespace preserved)."""
     return raw.text(deep=False)
@@ -61,19 +49,27 @@ def _node_text(raw: Node) -> str:
 def _iter_text_fragments(raw: Node) -> Iterator[str]:
     """Text fragments in document order, skipping script/style/template subtrees.
 
-    Includes ``raw``'s own text if it is itself a text node.
+    Iterative pre-order DFS: each frame is the iterator over a node's children;
+    we descend into an element child immediately (preserving document order
+    between interleaved text/element siblings) and resume the parent's iterator
+    on stack pop. Includes ``raw``'s own text if it is itself a text node.
     """
     if raw.tag == "-text":
         yield _node_text(raw)
         return
-    for child in raw.iter(include_text=True):
+    stack: list[Iterator[Node]] = [iter(raw.iter(include_text=True))]
+    while stack:
+        child = next(stack[-1], None)
+        if child is None:
+            stack.pop()
+            continue
         t = child.tag
         if t == "-text":
             yield _node_text(child)
         elif t in _SKIP_TEXT_TAGS or t.startswith("-"):
             continue
         else:
-            yield from _iter_text_fragments(child)
+            stack.append(iter(child.iter(include_text=True)))
 
 
 def node_string(node: Node) -> str | None:
@@ -186,14 +182,17 @@ def subtree_css(node: Node, css: str) -> list[Node]:
     return [n for n in node.css(css) if n.mem_id != self_id]
 
 
-def walk_descendants(node: Node, include_text: bool = False) -> Iterator[Node]:
-    """Pre-order DFS over descendants in document order, EXCLUDING ``node`` itself.
+def walk_descendants(node: Node) -> Iterator[Node]:
+    """Pre-order DFS over element descendants in document order, EXCLUDING
+    ``node`` itself.
 
-    Use this instead of selectolax ``node.traverse(...)``, which walks the
-    entire document from ``node``'s position forward (not just its subtree),
-    and instead of ``node.css(...)``, which groups results by comma-branch
-    rather than preserving document order."""
-    return _walk(node, include_text=include_text)
+    Backed by selectolax ``node.css('*')`` (a single C-level walk) with the
+    self-match filtered out. ``node.traverse(...)`` is not safe -- it walks
+    the entire document from ``node``'s position forward, not just its
+    subtree -- and naive ``node.css(...)`` with a comma-branch selector
+    groups results by branch rather than preserving document order."""
+    self_id = node.mem_id
+    return (n for n in node.css("*") if n.mem_id != self_id)
 
 
 def next_sibling(node: Node, include_text: bool = True) -> Node | None:
