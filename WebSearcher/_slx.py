@@ -626,6 +626,29 @@ def next_siblings(node: Node, include_text: bool = True) -> Iterator[Node]:
             found = True
 
 
+def subtree_first(node: Node, css: str) -> Node | None:
+    """``node.css_first(css)`` excluding ``node`` itself.
+
+    ``selectolax.Node.css(...)`` matches ``node`` too if it matches the selector;
+    bs4's ``find``/``find_all`` are descendants-only. Parsers that take a
+    component root often need descendants-only semantics — when the component
+    itself happens to match an inner selector (e.g. ``cmpt`` is a ``div.VkpGBb``
+    and the parser searches ``div.VkpGBb`` for inner businesses), self-inclusion
+    silently doubles up the wrapper as the first result.
+    """
+    self_id = node.mem_id
+    for n in node.css(css):
+        if n.mem_id != self_id:
+            return n
+    return None
+
+
+def subtree_css(node: Node, css: str) -> list[Node]:
+    """``node.css(css)`` excluding ``node`` itself (see ``subtree_first``)."""
+    self_id = node.mem_id
+    return [n for n in node.css(css) if n.mem_id != self_id]
+
+
 def walk_descendants(node: Node, include_text: bool = False) -> Iterator[Node]:
     """Pre-order DFS over descendants in document order, EXCLUDING ``node`` itself.
 

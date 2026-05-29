@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_flights(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     heading = node.css_first('[role="heading"][aria-level="2"]')
     title = get_text(heading, " ", strip=True) if heading is not None else None
     items = []

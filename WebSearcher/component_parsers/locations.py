@@ -11,7 +11,7 @@ from .._slx import get_text
 
 
 def parse_locations(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     sub_type = classify_locations_sub_type(node)
     if sub_type == "hotels":
         return parse_hotels(node)

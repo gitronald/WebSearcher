@@ -12,7 +12,7 @@ from .._slx import get_text
 
 
 def parse_most_read_articles(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     out: list = []
     for li in node.css('[role="listitem"]'):
         a = li.css_first("a[href]")

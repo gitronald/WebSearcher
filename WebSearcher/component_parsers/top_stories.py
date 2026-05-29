@@ -12,7 +12,7 @@ from .._slx import get_text, has_text
 
 
 def parse_top_stories(cmpt, ctype: str = "top_stories") -> list:
-    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    node: Node = cmpt
     divs: list[Node] = []
     divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
     # find_children equivalent: direct element children of div.qmv19b (no empty filter)

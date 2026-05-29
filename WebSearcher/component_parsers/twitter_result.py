@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_twitter_result(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed: dict = {"type": "twitter_result", "sub_rank": sub_rank}
 
     header = node.css_first("div.DOqJne")

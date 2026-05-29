@@ -13,7 +13,7 @@ from .top_stories import parse_top_stories
 
 
 def parse_perspectives(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     header = node.css_first('[aria-level="2"][role="heading"]') or node.css_first(
         'h2[role="heading"]'
     )

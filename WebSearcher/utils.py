@@ -11,15 +11,32 @@ import brotli
 import orjson
 import requests
 import tldextract
+from selectolax.parser import Node
 
 from . import logger
-from ._slx import SoupNode, is_tag, make_soup_slx
+from ._slx import (
+    SoupNode,
+    _build_css,
+    find_text,
+    has_text,
+    make_soup_native,
+)
+from ._slx import get_text as _slx_get_text
 
 log = logger.Logger().start(__name__)
 
-Tag = SoupNode
-BeautifulSoup = SoupNode
-SoupElement = SoupNode
+# Type aliases (kept until SoupNode is fully removed).
+Tag = Node
+BeautifulSoup = Node
+SoupElement = Node
+
+
+def _unwrap(soup) -> Node | None:
+    if soup is None:
+        return None
+    if isinstance(soup, SoupNode):
+        return soup.raw
+    return soup
 
 
 class Selector(NamedTuple):
@@ -95,14 +112,22 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def make_soup(html: str | bytes | SoupNode, parser: str = "lxml") -> SoupNode:
-    """Create a selectolax-backed soup object (bs4-compatible adapter)."""
-    return make_soup_slx(html)
+def make_soup(html: str | bytes | Node | SoupNode, parser: str = "lxml") -> Node:
+    """Parse HTML and return its native selectolax ``Node`` root."""
+    if isinstance(html, SoupNode):
+        return html.raw
+    return make_soup_native(html)
 
 
-def has_captcha(soup: BeautifulSoup) -> bool:
-    """Boolean for 'CAPTCHA' appearance in soup"""
-    return True if soup.find(string=re.compile("CAPTCHA")) else False
+_CAPTCHA_RE = re.compile("CAPTCHA")
+
+
+def has_captcha(soup) -> bool:
+    """Boolean for 'CAPTCHA' appearance in the document text."""
+    node = _unwrap(soup)
+    if node is None:
+        return False
+    return find_text(node, _CAPTCHA_RE) is not None
 
 
 def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
@@ -114,67 +139,74 @@ def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
 
 
 def get_div(
-    soup: Tag | None,
+    soup,
     name: str | None,
     attrs: Mapping[str, Any] | None = None,
-) -> Tag | None:
-    """Utility for `soup.find(name)` with null attrs handling"""
-    if not soup:
+) -> Node | None:
+    """``soup.find(name, attrs)`` -- descendants only (excludes ``soup``)."""
+    node = _unwrap(soup)
+    if node is None:
         return None
-    return soup.find(name, attrs=dict(attrs)) if attrs else soup.find(name)
+    css = _build_css(name, dict(attrs) if attrs else {})
+    if css is None:
+        return None
+    self_id = node.mem_id
+    for raw in node.css(css):
+        if raw.mem_id != self_id:
+            return raw
+    return None
 
 
 def get_text(
-    soup: Tag | None,
+    soup,
     name: str | None = None,
     attrs: Mapping[str, Any] | None = None,
     separator: str = " ",
     strip: bool = False,
 ) -> str | None:
-    """Utility for `soup.find(name).text` with null name handling"""
-    if not soup:
+    """``soup.find(name, attrs).get_text(separator, strip)`` with null handling."""
+    node = _unwrap(soup)
+    if node is None:
         return None
-    div = get_div(soup, name, attrs) if name else soup
-    if not div:
-        return None
-    return div.get_text(separator=separator, strip=strip)
+    if name is not None:
+        node = get_div(node, name, attrs)
+        if node is None:
+            return None
+    return _slx_get_text(node, separator, strip)
 
 
 def get_link(
-    soup: Tag | None, attrs: Mapping[str, Any] | None = None, key: str = "href"
+    soup, attrs: Mapping[str, Any] | None = None, key: str = "href"
 ) -> str | None:
-    """Utility for `soup.find('a')['href']` with null key handling"""
+    """First descendant anchor's ``href`` (or other attribute), or ``None``."""
     link = get_div(soup, "a", attrs)
-    if not isinstance(link, Tag):
+    if link is None:
         return None
-    value = link.attrs.get(key, None)
+    value = link.attributes.get(key)
     return str(value) if value is not None else None
 
 
 def get_link_list(
-    soup: Tag | None,
+    soup,
     attrs: Mapping[str, Any] | None = None,
     key: str = "href",
     filter_empty: bool = True,
 ) -> list[str] | None:
-    """Utility for `soup.find_all('a')['href']` with null key handling"""
+    """All descendant anchor ``href``s -- skips anchors missing the attribute."""
     links = find_all_divs(soup, "a", attrs, filter_empty)
     if not links:
         return None
-    return [
-        str(link.attrs.get(key, ""))
-        for link in links
-        if isinstance(link, Tag) and link.attrs.get(key)
-    ]
+    out = [str(link.attributes[key]) for link in links if link.attributes.get(key)]
+    return out or None
 
 
 def get_text_by_selectors(
-    soup: Tag | None,
-    selectors: Sequence[Selector] | None = None,
+    soup,
+    selectors: Sequence["Selector"] | None = None,
     strip: bool = False,
 ) -> str | None:
-    """Get text by trying multiple selectors, return first non-null"""
-    if not soup or not selectors:
+    """Get text by trying multiple selectors, return first non-null."""
+    if soup is None or not selectors:
         return None
     for sel in selectors:
         text = get_text(soup, sel.name, sel.attrs, strip=strip)
@@ -184,64 +216,53 @@ def get_text_by_selectors(
 
 
 def find_by_selectors(
-    soup: Tag | None,
+    soup,
     selectors: Sequence[Mapping[str, Any]] | None = None,
-) -> SoupElement | None:
-    """Find first matching element across multiple selectors.
-
-    Each selector is a dict of kwargs forwarded to ``soup.find(**sel)``,
-    e.g. ``{"name": "div", "attrs": {"id": "foo"}}``. Iteration is lazy:
-    later selectors are not evaluated once a match is found.
-    """
-    if not soup or not selectors:
+) -> Node | None:
+    """First matching element across multiple ``{"name":..., "attrs":...}`` dicts."""
+    if soup is None or not selectors:
         return None
     for sel in selectors:
-        match = soup.find(**sel)
-        if match:
+        match = get_div(soup, sel.get("name"), sel.get("attrs"))
+        if match is not None:
             return match
     return None
 
 
 def find_all_divs(
-    soup: Tag | None,
-    name: str,
+    soup,
+    name: str | None,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = True,
-) -> list[Tag]:
-    if not soup:
+) -> list[Node]:
+    """All descendants matching the bs4-style ``(name, attrs)`` query."""
+    node = _unwrap(soup)
+    if node is None:
         return []
-    divs = (
-        soup.find_all(name, attrs=attrs if isinstance(attrs, dict) else dict(attrs))
-        if attrs
-        else soup.find_all(name)
-    )
-    return filter_empty_divs(divs) if filter_empty else list(divs)
+    css = _build_css(name, dict(attrs) if attrs else {})
+    if css is None:
+        return []
+    self_id = node.mem_id
+    divs = [raw for raw in node.css(css) if raw.mem_id != self_id]
+    return [d for d in divs if has_text(d)] if filter_empty else divs
 
 
-def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
-    filtered: list[Tag] = []
-    for candidate in divs:
-        if not candidate:
-            continue
-        # Keep the candidate at the first non-blank descendant string, instead of
-        # materializing the whole subtree text just to test `.strip() != ""`.
-        if hasattr(candidate, "strings"):
-            if any(s != "" and not s.isspace() for s in candidate.strings):
-                filtered.append(candidate)
-        elif str(candidate).strip():
-            filtered.append(candidate)
-    return filtered
+def filter_empty_divs(divs: Iterable[Node]) -> list[Node]:
+    """Keep elements whose subtree contains at least one non-whitespace fragment."""
+    return [d for d in divs if d is not None and has_text(d)]
 
 
 def find_children(
-    soup: BeautifulSoup | Tag | None,
+    soup,
     name: str,
     attrs: Mapping[str, Any] | None = None,
     filter_empty: bool = False,
-) -> Iterable[Tag]:
-    """Find all children of a div with a given name and attribute"""
+) -> Iterable[Node]:
+    """Direct element children of the first descendant matching ``(name, attrs)``."""
     div = get_div(soup, name, attrs)
-    children: list[Tag] = [c for c in div.children if is_tag(c)] if div else []
+    if div is None:
+        return []
+    children = list(div.iter(include_text=False))
     return filter_empty_divs(children) if filter_empty else children
 
 

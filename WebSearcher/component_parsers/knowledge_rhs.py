@@ -13,7 +13,7 @@ from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 
 
 def parse_knowledge_rhs(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed_list = parse_knowledge_rhs_main(node)
     description = node.css_first("h2.Uo8X3b")
     if description is not None and description.parent is not None:
@@ -29,7 +29,7 @@ def parse_knowledge_rhs(cmpt, sub_rank: int = 0) -> list:
 
 
 def parse_knowledge_rhs_main(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+    node: Node = cmpt
     parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",

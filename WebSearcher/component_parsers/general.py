@@ -13,7 +13,7 @@ from .._slx import class_tokens, get_text
 
 
 def parse_general_results(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     subs = find_subcomponents(node)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 

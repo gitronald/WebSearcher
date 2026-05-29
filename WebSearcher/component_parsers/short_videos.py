@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_short_videos(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     # Filter to full card links (with heading), skip thumbnail-only duplicates.
     cards = [a for a in node.css("a.rIRoqf") if a.css_first('div[role="heading"]') is not None]
     if not cards:

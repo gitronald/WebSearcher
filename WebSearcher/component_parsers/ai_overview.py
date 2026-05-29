@@ -38,7 +38,7 @@ from ._ai_overview_payloads import extract_payloads
 
 
 def parse_ai_overview(cmpt, sub_rank: int = 0) -> list[dict]:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed: dict = {
         "type": "ai_overview",
         "sub_rank": sub_rank,

@@ -1,38 +1,38 @@
-import bs4
+from selectolax.parser import Node
 
-from .. import logger, utils
-from .._slx import is_tag
+from .. import logger
+from .extractor_main import _find_all_with_class, _unwrap
 
 log = logger.Logger().start(__name__)
 
 
 class ExtractorFooter:
-    def __init__(self, soup: bs4.BeautifulSoup, components):
-        self.soup = soup
+    def __init__(self, soup, components):
+        self.soup: Node | None = _unwrap(soup)
         self.components = components
 
     def extract(self):
-        """Extract the footer section of the SERP"""
+        """Extract the footer section of the SERP."""
+        assert self.soup is not None
+        footer_div = self.soup.css_first('div[id="botstuff"]')
+        footer_component_list: list[Node] = []
 
-        footer_div = self.soup.find("div", {"id": "botstuff"})
-        footer_component_list = []
+        if footer_div is not None:
+            # bs4 ``find_all("div", {"id": ["bres","brs"]})`` = OR.
+            footer_component_divs = _find_all_with_class(
+                self.soup, 'div[id="bres"], div[id="brs"]', filter_empty=True
+            )
+            for footer_component_div in footer_component_divs:
+                expanded_divs = _find_all_with_class(
+                    footer_component_div, "div.MjjYud", filter_empty=True
+                )
+                if expanded_divs and len(expanded_divs) > 1:
+                    footer_component_list.extend(expanded_divs)
+                else:
+                    footer_component_list.append(footer_component_div)
 
-        if footer_div:
-            footer_component_divs = utils.find_all_divs(self.soup, "div", {"id": ["bres", "brs"]})
-            if footer_component_divs:
-                for footer_component_div in footer_component_divs:
-                    if not is_tag(footer_component_div):
-                        continue
-                    expanded_divs = utils.find_all_divs(
-                        footer_component_div, "div", {"class": "MjjYud"}
-                    )
-                    if expanded_divs and len(expanded_divs) > 1:
-                        footer_component_list.extend(expanded_divs)
-                    else:
-                        footer_component_list.append(footer_component_div)
-
-        omitted_notice = self.soup.find("div", {"class": "ClPXac"})
-        if omitted_notice:
+        omitted_notice = self.soup.css_first("div.ClPXac")
+        if omitted_notice is not None:
             footer_component_list.append(omitted_notice)
 
         footer_component_list = [
@@ -44,11 +44,9 @@ class ExtractorFooter:
             self.components.add_component(footer_component, section="footer")
 
     @staticmethod
-    def is_hidden_footer(element):
+    def is_hidden_footer(element: Node) -> bool:
         """Filter out hidden footer components (no visual presence)."""
-        conditions = [
-            element.find("span", {"class": "oUAcPd"}),
-            element.find("div", {"class": "RTaUke"}),
-            element.find("div", {"class": "KJ7Tg"}),
-        ]
-        return any(conditions)
+        for css in ("span.oUAcPd", "div.RTaUke", "div.KJ7Tg"):
+            if element.css_first(css) is not None:
+                return True
+        return False

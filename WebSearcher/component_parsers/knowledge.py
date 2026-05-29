@@ -14,7 +14,7 @@ from .general import parse_general_result
 
 
 def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Get embedded result if it exists. ``utils.get_text`` defaulted to

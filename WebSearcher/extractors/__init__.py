@@ -1,18 +1,18 @@
-import bs4
+from selectolax.parser import Node
 
 from .. import logger
 from ..components import ComponentList
 from .extractor_footer import ExtractorFooter
 from .extractor_header import ExtractorHeader
-from .extractor_main import ExtractorMain
+from .extractor_main import ExtractorMain, _unwrap
 from .extractor_rhs import ExtractorRightHandSide
 
 log = logger.Logger().start(__name__)
 
 
 class Extractor:
-    def __init__(self, soup: bs4.BeautifulSoup):
-        self.soup = soup
+    def __init__(self, soup):
+        self.soup: Node = _unwrap(soup)
         self.components = ComponentList()
         self.rhs_handler = ExtractorRightHandSide(self.soup, self.components)
         self.header_handler = ExtractorHeader(self.soup, self.components)
@@ -31,18 +31,29 @@ class Extractor:
         log.debug(f"total components: {self.components.cmpt_rank_counter:,}")
 
     @staticmethod
-    def _get_dom_positions(soup):
-        """Map element id -> (start_pos, end_pos) in pre-order traversal.
+    def _get_dom_positions(soup: Node) -> dict[int, tuple[int, int]]:
+        """Map ``mem_id -> (start_pos, end_pos)`` in pre-order traversal.
 
-        end_pos is the position of the last descendant tag, so element B is
+        ``end_pos`` is the position of the last descendant tag, so element B is
         inside element A when A.start <= B.start <= A.end.
         """
-        all_tags = list(soup.find_all(True))
-        pos = {t.mem_id: i for i, t in enumerate(all_tags)}
+        # bs4 ``soup.find_all(True)`` = all tags in document order. Native:
+        # walk the entire tree (subtree of root + self if relevant). ``soup``
+        # here is the root html node; its subtree contains every element.
+        all_tags: list[Node] = [soup] + list(soup.css("*"))
+        # Dedupe by mem_id (root may appear in css if implementation quirks).
+        seen: set[int] = set()
+        unique_tags: list[Node] = []
+        for t in all_tags:
+            if t.mem_id not in seen:
+                seen.add(t.mem_id)
+                unique_tags.append(t)
+        all_tags = unique_tags
+        pos: dict[int, int] = {t.mem_id: i for i, t in enumerate(all_tags)}
         end = list(range(len(all_tags)))
         for i in range(len(all_tags) - 1, -1, -1):
             parent = all_tags[i].parent
-            if parent and parent.mem_id in pos:
+            if parent is not None and parent.mem_id in pos:
                 pi = pos[parent.mem_id]
                 if end[i] > end[pi]:
                     end[pi] = end[i]

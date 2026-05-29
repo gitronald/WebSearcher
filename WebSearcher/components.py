@@ -1,8 +1,9 @@
 import traceback
 from collections.abc import Callable
 
-import bs4
+from selectolax.parser import Node
 
+from ._slx import get_text
 from .classifiers import ClassifyFooter, ClassifyMain
 from .component_parsers import (
     footer_parser_dict,
@@ -22,7 +23,7 @@ class Component:
 
     def __init__(
         self,
-        elem: bs4.element.Tag,
+        elem,
         section: str = "unknown",
         type: str = "unknown",
         cmpt_rank: int | None = None,
@@ -30,12 +31,14 @@ class Component:
         """Initialize a Component
 
         Args:
-            elem: The BeautifulSoup Tag element containing the component HTML
+            elem: The selectolax ``Node`` containing the component HTML
             section: The SERP section (header, main, footer, rhs)
             type: The component type (e.g., general, ads, top_stories)
             cmpt_rank: The component's rank position on the SERP
         """
-        self.elem = elem
+        # Accept either a native ``Node`` or a transitional ``SoupNode`` wrapper
+        # (until the wrapper is removed entirely).
+        self.elem: Node = elem.raw if hasattr(elem, "raw") else elem
         self.section = section
         self.type = type
         self.cmpt_rank = cmpt_rank
@@ -118,7 +121,7 @@ class Component:
             {
                 "type": self.type,
                 "cmpt_rank": self.cmpt_rank,
-                "text": self.elem.get_text("<|>", strip=True),
+                "text": get_text(self.elem, "<|>", strip=True),
                 "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}",
             }
         ]
@@ -148,9 +151,7 @@ class ComponentList:
     def __iter__(self):
         yield from self.components
 
-    def add_component(
-        self, elem: bs4.element.Tag, section="unknown", type="unknown", cmpt_rank=None
-    ):
+    def add_component(self, elem, section="unknown", type="unknown", cmpt_rank=None):
         """Add a component to the list of components"""
         cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
@@ -189,9 +190,9 @@ class ComponentList:
                     # cmpt.elem is an ancestor of other.elem — find
                     # first direct child positioned after the nested subtree
                     best = float("inf")
-                    for ch in cmpt.elem.children:
-                        if not hasattr(ch, "name") or not ch.name:
-                            continue
+                    # bs4 ``.children`` guarded text nodes via ``hasattr(.,"name")
+                    # and .name``; element-only iter is the native equivalent.
+                    for ch in cmpt.elem.iter(include_text=False):
                         ch_rng = dom_positions.get(ch.mem_id)
                         if ch_rng and ch_rng[0] > o_end and ch_rng[0] < best:
                             best = ch_rng[0]

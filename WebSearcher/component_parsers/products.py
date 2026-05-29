@@ -23,7 +23,7 @@ _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
 
 def parse_products(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     # Family B: immersive product grid (no links). Modern cards are
     # data-attrid="apg-product-result"; older cards are g-inner-card. Both use
     # the same inner field classes, so _parse_grid_card handles either.

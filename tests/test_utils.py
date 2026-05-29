@@ -3,9 +3,10 @@
 import hashlib
 from pathlib import Path
 
-from WebSearcher._slx import SoupNode
+from selectolax.parser import Node
 
 from WebSearcher import utils
+from WebSearcher._slx import get_text as _slx_get_text
 
 # hash_id ----------------------------------------------------------------------
 
@@ -58,13 +59,13 @@ def test_check_dict_value_list():
 
 def test_make_soup_from_string():
     soup = utils.make_soup("<html><body><p>hello</p></body></html>")
-    assert isinstance(soup, SoupNode)
-    assert soup.find("p").text == "hello"
+    assert isinstance(soup, Node)
+    assert utils.get_text(soup, "p") == "hello"
 
 
 def test_make_soup_from_bytes():
     soup = utils.make_soup(b"<html><body><p>bytes</p></body></html>")
-    assert soup.find("p").text == "bytes"
+    assert utils.get_text(soup, "p") == "bytes"
 
 
 def test_make_soup_passthrough():
@@ -92,7 +93,7 @@ def test_has_captcha_false():
 def test_get_div_finds_element():
     soup = utils.make_soup("<div><span class='x'>hi</span></div>")
     div = utils.get_div(soup, "span", {"class": "x"})
-    assert div.text == "hi"
+    assert _slx_get_text(div) == "hi"
 
 
 def test_get_div_none_soup():
@@ -209,7 +210,7 @@ def test_find_all_divs_none_soup():
 
 def test_filter_empty_divs():
     soup = utils.make_soup("<div><p>content</p><p>  </p><p>more</p></div>")
-    all_p = soup.find_all("p")
+    all_p = soup.css("p")
     filtered = utils.filter_empty_divs(all_p)
     assert len(filtered) == 2
 
@@ -332,5 +333,5 @@ def test_load_soup(tmp_path):
     fp = tmp_path / "page.html"
     fp.write_text("<html><body><p>soup test</p></body></html>")
     soup = utils.load_soup(fp)
-    assert isinstance(soup, SoupNode)
-    assert soup.find("p").text == "soup test"
+    assert isinstance(soup, Node)
+    assert utils.get_text(soup, "p") == "soup test"

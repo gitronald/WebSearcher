@@ -14,7 +14,7 @@ from ..utils import url_unquote
 
 
 def parse_twitter_cards(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed_header = parse_twitter_header(node)
     carousel = node.css_first("g-scrolling-carousel")
     subs = list(carousel.css("g-inner-card")) if carousel is not None else []

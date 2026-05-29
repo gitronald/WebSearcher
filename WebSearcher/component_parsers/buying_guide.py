@@ -11,7 +11,7 @@ from .._slx import get_text
 
 
 def parse_buying_guide(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     out: list = []
     for row in node.css("div.ITWcLb"):
         text = get_text(row, " ", strip=True)

@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_banner(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed_list: list[dict] = [
         {
             "type": "banner",

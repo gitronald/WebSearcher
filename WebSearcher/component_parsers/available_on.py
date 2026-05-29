@@ -10,7 +10,7 @@ from .._slx import get_text, has_text
 
 
 def parse_available_on(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
     parsed["title"] = get_text(node.css_first("span.GzssTd"), " ") or get_text(
         node.css_first("span.mgAbYb"), " "

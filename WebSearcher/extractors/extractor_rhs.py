@@ -1,22 +1,24 @@
-import bs4
+from selectolax.parser import Node
 
-from .. import logger, utils
+from .. import logger
+from .extractor_main import _unwrap
 
 log = logger.Logger().start(__name__)
 
 
 class ExtractorRightHandSide:
-    def __init__(self, soup: bs4.BeautifulSoup, components):
-        self.soup = soup
+    def __init__(self, soup, components):
+        self.soup: Node | None = _unwrap(soup)
         self.components = components
-        self.rhs = {}
+        self.rhs: dict = {}
 
     def extract(self):
         """Extract the RHS Knowledge Panel, if present."""
-        rhs_div = self.soup.find("div", {"id": "rhs"})
-        if not rhs_div:
+        assert self.soup is not None
+        rhs_div = self.soup.css_first('div[id="rhs"]')
+        if rhs_div is None:
             return
-        rhs_div.extract()
+        rhs_div.remove(recursive=False)
         layout, div = self._get_layout(rhs_div)
         if layout:
             log.debug(f"rhs_layout: {layout}")
@@ -31,14 +33,10 @@ class ExtractorRightHandSide:
             self.components.add_component(**self.rhs)
             self.rhs = {}
 
-    def _get_layout(self, rhs_div):
-        rhs_layouts = {
-            "rhs_complementary": rhs_div
-            if utils.check_dict_value(rhs_div.attrs, "role", "complementary")
-            else None,
-            "rhs_knowledge": rhs_div.find(
-                "div", {"class": ["kp-wholepage", "knowledge-panel", "TzHB6b"]}
-            ),
-        }
-        found = next((name for name, node in rhs_layouts.items() if node), None)
-        return (found, rhs_div) if found else (None, rhs_div)
+    def _get_layout(self, rhs_div: Node) -> tuple[str | None, Node]:
+        if rhs_div.attributes.get("role") == "complementary":
+            return "rhs_complementary", rhs_div
+        # bs4 list-of-classes = OR -> CSS comma selector.
+        if rhs_div.css_first("div.kp-wholepage, div.knowledge-panel, div.TzHB6b") is not None:
+            return "rhs_knowledge", rhs_div
+        return None, rhs_div

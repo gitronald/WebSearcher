@@ -24,7 +24,7 @@ _N_REVIEWS_CLASS = "RDApEe"
 
 
 def parse_recipes(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     cards = list(node.css(f"a.{_CARD_CLASS}"))
     if not cards:
         cards = [a for a in node.css("a[href]") if a.css_first(f"div.{_TITLE_CLASS}") is not None]

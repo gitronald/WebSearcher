@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_discussions_and_forums(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     for sel in ("div.LJ7wUe", "div.JlqpRe", "div.EDblX"):
         subs = node.css(sel)
         if subs:

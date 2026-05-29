@@ -47,7 +47,7 @@ class NoticeParser:
         }
 
     def parse_notices(self, cmpt) -> list:
-        node: Node = cmpt.raw if hasattr(cmpt, "raw") else cmpt
+        node: Node = cmpt
         self._classify_sub_type(node)
         self._parse_sub_type(node)
         self._package_parsed()

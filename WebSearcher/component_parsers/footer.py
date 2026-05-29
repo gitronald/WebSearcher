@@ -12,7 +12,7 @@ from .._slx import get_text, has_text
 class Footer:
     @staticmethod
     def parse_image_cards(elem) -> list:
-        node: Node = elem.raw if hasattr(elem, "raw") else elem
+        node: Node = elem
         subs = [d for d in node.css("div.g") if d.mem_id != node.mem_id and has_text(d)]
         return [Footer.parse_image_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
@@ -34,7 +34,7 @@ class Footer:
 
     @staticmethod
     def parse_discover_more(elem) -> list:
-        node: Node = elem.raw if hasattr(elem, "raw") else elem
+        node: Node = elem
         carousel = node.css_first("g-scrolling-carousel")
         text = (
             "|".join((get_text(c) or "") for c in carousel.css("g-inner-card"))
@@ -45,5 +45,5 @@ class Footer:
 
     @staticmethod
     def parse_omitted_notice(elem) -> list:
-        node: Node = elem.raw if hasattr(elem, "raw") else elem
+        node: Node = elem
         return [{"type": "omitted_notice", "sub_rank": 0, "text": get_text(node)}]

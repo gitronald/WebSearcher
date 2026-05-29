@@ -10,7 +10,7 @@ from .._slx import get_text
 
 
 def parse_news_quotes(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     subs = list(node.css("g-inner-card"))
     return [parse_news_quote(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 

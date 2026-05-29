@@ -22,7 +22,7 @@ _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
 
 def parse_videos(cmpt) -> list:
     """Parse a videos component (links to videos, frequently YouTube)."""
-    node: Node = cmpt.raw
+    node: Node = cmpt
 
     divs: list[Node] = []
     sub_type = "unspecified-0"

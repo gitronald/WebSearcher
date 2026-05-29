@@ -1,7 +1,9 @@
 import re
 
+from selectolax.parser import Node
+
 from .. import utils
-from .._slx import SoupNode
+from .._slx import get_text
 from ..models.features import SERPFeatures
 
 # The raw-HTML path searches the original markup. The soup path scopes each probe
@@ -23,28 +25,28 @@ NOTICE_SERVER_ERROR = (
 INFINITY_SCROLL_SPAN = '<span class="RVQdVd">More results</span>'
 
 
+def _unwrap(soup) -> Node | None:
+    if soup is None:
+        return None
+    return soup.raw if hasattr(soup, "raw") else soup
+
+
 class FeatureExtractor:
     @staticmethod
-    def extract_features(html_or_soup: str | SoupNode) -> SERPFeatures:
-        """Extract SERP features from HTML or a BeautifulSoup object
-
-        Args:
-            html_or_soup: The HTML content or a BeautifulSoup object
-
-        Returns:
-            The extracted features
-        """
-        if isinstance(html_or_soup, SoupNode):
-            soup = html_or_soup
+    def extract_features(html_or_soup) -> SERPFeatures:
+        """Extract SERP features from an HTML string or a parsed soup ``Node``."""
+        if isinstance(html_or_soup, Node) or hasattr(html_or_soup, "raw"):
+            soup = _unwrap(html_or_soup)
             features = FeatureExtractor._extract_from_soup(soup)
         else:
             soup = utils.make_soup(html_or_soup)
+            soup = _unwrap(soup)
             features = FeatureExtractor._extract_from_html(html_or_soup)
 
         # Structural probes shared by both paths (cheap, scoped lookups).
-        lb = soup.find("div", {"id": "lb"})
+        lb = soup.css_first('div[id="lb"]') if soup is not None else None
         features["overlay_precise_location"] = bool(
-            lb and "precise location" in lb.get_text().lower()
+            lb is not None and "precise location" in (get_text(lb) or "").lower()
         )
         features["captcha"] = utils.has_captcha(soup)
         return SERPFeatures(**features)
@@ -65,7 +67,7 @@ class FeatureExtractor:
 
     @staticmethod
     def _extract_from_html(html: str) -> dict:
-        """Regex over the original markup -- no re-serialization cost (html is a string)."""
+        """Regex over the original markup -- no re-serialization cost."""
         stats_match = RX_RESULT_STATS.search(html)
         lang_match = RX_LANGUAGE.search(html)
         return {
@@ -80,26 +82,24 @@ class FeatureExtractor:
         }
 
     @staticmethod
-    def _extract_from_soup(soup: SoupNode) -> dict:
-        """Structural lookups -- avoids serializing the whole document.
+    def _extract_from_soup(soup: Node) -> dict:
+        """Structural lookups -- avoids serializing the whole document."""
+        stats_div = soup.css_first('div[id="result-stats"]')
+        stats_match = (
+            RX_RESULT_STATS.search(stats_div.html or "") if stats_div is not None else None
+        )
 
-        Each probe is scoped to the smallest element so its result matches the
-        old regex-over-str(soup) behavior byte-for-byte (pinned by the snapshot suite).
-        """
-        # result-stats: apply the same regex to just the matched div's markup.
-        stats_div = soup.find("div", {"id": "result-stats"})
-        stats_match = RX_RESULT_STATS.search(str(stats_div)) if stats_div is not None else None
-
-        # language: read the <html lang=...> attribute directly.
-        html_tag = soup.find("html")
-        language = html_tag.get("lang") if html_tag is not None else None
+        # language: read the <html lang=...> attribute directly. The root passed
+        # in is already <html>; for non-root inputs, descend to <html>.
+        html_tag = soup if soup.tag == "html" else soup.css_first("html")
+        language = html_tag.attributes.get("lang") if html_tag is not None else None
 
         # Text notices: one get_text() pass replaces three full-document scans.
-        page_text = soup.get_text()
+        page_text = get_text(soup) or ""
 
-        # infinity_scroll: serialize only candidate spans to keep exact-substring semantics.
+        # infinity_scroll: serialize only candidate spans for exact-substring match.
         infinity_scroll = any(
-            INFINITY_SCROLL_SPAN in str(span) for span in soup.find_all("span", {"class": "RVQdVd"})
+            INFINITY_SCROLL_SPAN in (span.html or "") for span in soup.css("span.RVQdVd")
         )
 
         return {

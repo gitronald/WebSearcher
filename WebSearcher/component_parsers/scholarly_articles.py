@@ -9,7 +9,7 @@ from .._slx import get_text
 
 
 def parse_scholarly_articles(cmpt) -> list:
-    node: Node = cmpt.raw
+    node: Node = cmpt
     rows = node.css("tr")
     if len(rows) < 2:
         return []
