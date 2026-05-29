@@ -564,20 +564,36 @@ def make_soup_slx(html: str | bytes | SoupNode) -> SoupNode:
 # only module surface.
 
 
-def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str:
+def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str | None:
     """bs4-faithful Tag.get_text: walk descendants, skip script/style/template,
     join text fragments by ``separator``. When ``strip=True``, strip each fragment
     AND drop empties before joining (selectolax native ``Node.text(strip=True)``
     keeps empties, producing leading/trailing/extra separators — this differs and
-    breaks downstream parsing in the slug / link-key sites)."""
+    breaks downstream parsing in the slug / link-key sites).
+
+    Returns ``None`` for a ``None`` input (matching ``utils.get_text``'s
+    null-handling convention so parsers can chain ``css_first`` + ``get_text``
+    without checking for ``None`` mid-chain)."""
     if node is None:
-        return ""
+        return None
     frags = _iter_text_fragments(node)
     if strip:
         parts = [s for s in (f.strip() for f in frags) if s]
     else:
         parts = list(frags)
     return separator.join(parts)
+
+
+def has_text(node: Node | None) -> bool:
+    """True if ``node``'s subtree contains at least one non-whitespace text
+    fragment (short-circuits at the first hit). The replacement for the
+    ``utils.filter_empty_divs`` element-keep predicate."""
+    if node is None:
+        return False
+    for s in _iter_text_fragments(node):
+        if s and not s.isspace():
+            return True
+    return False
 
 
 def class_tokens(node: Node) -> list[str]:

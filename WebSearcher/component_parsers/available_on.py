@@ -4,29 +4,32 @@ A carousel of thumbnail images linking to streaming providers / entertainment
 options relevant to the query.
 """
 
-import bs4
+from selectolax.parser import Node
 
-from ..utils import find_all_divs, get_link, get_text
+from .._slx import get_text, has_text
 
 
-def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
+def parse_available_on(cmpt, sub_rank: int = 0) -> list:
+    node: Node = cmpt.raw
     parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
-    parsed["title"] = get_text(cmpt, "span", {"class": "GzssTd"}) or get_text(
-        cmpt, "span", {"class": "mgAbYb"}
+    parsed["title"] = get_text(node.css_first("span.GzssTd"), " ") or get_text(
+        node.css_first("span.mgAbYb"), " "
     )
     parsed["details"] = None
 
     items: list[dict] = []
 
-    # Legacy layout: tile divs inside the widget
-    legacy_items = find_all_divs(cmpt, "div", {"class": "kno-fb-ctx"})
-    items.extend(parse_available_on_item(i) for i in legacy_items)
+    # Legacy layout: tile divs inside the widget (filter empties to match the
+    # original utils.find_all_divs default).
+    for item in node.css("div.kno-fb-ctx"):
+        if has_text(item):
+            items.append(parse_available_on_item(item))
 
     # Current layout: anchors with provider-name and cost sub-divs
-    modern_widget = cmpt.find("div", {"class": "yTFeqb"})
-    if modern_widget:
-        for a in modern_widget.find_all("a", href=True):
-            if a.find("div", {"class": "bclEt"}):
+    modern_widget = node.css_first("div.yTFeqb")
+    if modern_widget is not None:
+        for a in modern_widget.css("a[href]"):
+            if a.css_first("div.bclEt") is not None:
                 items.append(parse_available_on_item_modern(a))
 
     if items:
@@ -34,17 +37,18 @@ def parse_available_on(cmpt: bs4.element.Tag, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_available_on_item(sub: bs4.element.Tag) -> dict:
+def parse_available_on_item(sub: Node) -> dict:
+    a = sub.css_first("a")
     return {
-        "url": get_link(sub),
-        "text": get_text(sub, "div", {"class": "i3LlFf"}),
-        "cost": get_text(sub, "div", {"class": "V8xno"}),
+        "url": a.attributes.get("href") if a is not None else None,
+        "text": get_text(sub.css_first("div.i3LlFf"), " "),
+        "cost": get_text(sub.css_first("div.V8xno"), " "),
     }
 
 
-def parse_available_on_item_modern(a: bs4.element.Tag) -> dict:
+def parse_available_on_item_modern(a: Node) -> dict:
     return {
-        "url": a.get("href"),
-        "text": get_text(a, "div", {"class": "bclEt"}),
-        "cost": get_text(a, "div", {"class": "rsj3fb"}),
+        "url": a.attributes.get("href"),
+        "text": get_text(a.css_first("div.bclEt"), " "),
+        "cost": get_text(a.css_first("div.rsj3fb"), " "),
     }
