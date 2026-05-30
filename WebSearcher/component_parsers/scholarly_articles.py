@@ -8,8 +8,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_scholarly_articles(cmpt) -> list:
-    node: Node = cmpt
+def parse_scholarly_articles(elem) -> list:
+    node: Node = elem
     rows = node.css("tr")
     if len(rows) < 2:
         return []

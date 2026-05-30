@@ -12,8 +12,8 @@ from ..utils import slugify
 from .top_stories import parse_top_stories
 
 
-def parse_perspectives(cmpt) -> list:
-    node: Node = cmpt
+def parse_perspectives(elem) -> list:
+    node: Node = elem
     header = node.css_first('[aria-level="2"][role="heading"]') or node.css_first(
         'h2[role="heading"]'
     )

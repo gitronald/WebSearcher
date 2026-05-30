@@ -12,8 +12,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 
 
-def parse_knowledge_rhs(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     parsed_list = parse_knowledge_rhs_main(node)
     description = node.css_first("h2.Uo8X3b")
     if description is not None and description.parent is not None:
@@ -28,8 +28,8 @@ def parse_knowledge_rhs(cmpt, sub_rank: int = 0) -> list:
     return parsed_list
 
 
-def parse_knowledge_rhs_main(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_knowledge_rhs_main(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     parsed: dict[str, Any] = {
         "type": "knowledge",
         "sub_type": "panel_rhs",

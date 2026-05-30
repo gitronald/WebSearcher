@@ -45,8 +45,8 @@ raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
 )
 
 
-def parse_ai_overview(cmpt, sub_rank: int = 0) -> list[dict]:
-    node: Node = cmpt
+def parse_ai_overview(elem, sub_rank: int = 0) -> list[dict]:
+    node: Node = elem
     parsed: dict = {
         "type": "ai_overview",
         "sub_rank": sub_rank,

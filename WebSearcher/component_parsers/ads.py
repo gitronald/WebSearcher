@@ -24,22 +24,22 @@ AD_SUBTYPE_SELECTORS: dict[str, str] = {
 }
 
 
-def classify_ad_type(cmpt) -> str:
-    node: Node = cmpt
+def classify_ad_type(elem) -> str:
+    node: Node = elem
     for label, css in AD_SUBTYPE_SELECTORS.items():
         if node.css_first(css) is not None:
             return label
     return "unknown"
 
 
-def parse_ads(cmpt) -> list:
+def parse_ads(elem) -> list:
     """Parse every ad sub-type present in the component.
 
     A single #tads element can host more than one ad layout (e.g. a shopping
     carousel above a standard text ad). Walk through every selector and
     aggregate results so no ad gets dropped.
     """
-    node: Node = cmpt
+    node: Node = elem
     subtype_parsers = {
         "legacy": parse_ad_legacy,
         "local_service": parse_ad_local_service,
@@ -60,8 +60,8 @@ def parse_ads(cmpt) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_legacy(cmpt) -> list:
-    node: Node = cmpt
+def parse_ad_legacy(elem) -> list:
+    node: Node = elem
     subs = list(node.css("li.ads-ad"))
     return [_parse_ad_legacy_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
@@ -95,8 +95,8 @@ def _parse_ad_legacy_sub_details(sub: Node) -> dict | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_local_service(cmpt) -> list:
-    node: Node = cmpt
+def parse_ad_local_service(elem) -> list:
+    node: Node = elem
     profiles = list(node.css("gls-profile-entrypoint"))
     return [_parse_local_service_profile(p, i) for i, p in enumerate(profiles)]
 
@@ -133,8 +133,8 @@ def _parse_local_service_profile(profile: Node, sub_rank: int) -> dict:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_secondary(cmpt) -> list:
-    node: Node = cmpt
+def parse_ad_secondary(elem) -> list:
+    node: Node = elem
     subs = list(node.css("li.ads-fr"))
     return [_parse_ad_secondary_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
@@ -183,8 +183,8 @@ def _parse_ad_secondary_sub_details(sub: Node) -> dict | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_shopping(cmpt) -> list:
-    node: Node = cmpt
+def parse_ad_shopping(elem) -> list:
+    node: Node = elem
     parsed_list = []
     for sub in node.css("div.commercial-unit-desktop-top"):
         if has_text(sub):
@@ -195,8 +195,8 @@ def parse_ad_shopping(cmpt) -> list:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_standard(cmpt) -> list:
-    node: Node = cmpt
+def parse_ad_standard(elem) -> list:
+    node: Node = elem
     subs = [d for d in node.css("div.uEierd") if has_text(d)]
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
@@ -260,8 +260,8 @@ def parse_ad_menu(sub: Node) -> dict | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_carousel(cmpt, sub_type: str = "carousel", filter_visible: bool = True) -> list:
-    node: Node = cmpt
+def parse_ad_carousel(elem, sub_type: str = "carousel", filter_visible: bool = True) -> list:
+    node: Node = elem
 
     output_list = []
     ad_carousel = node.css_first("g-scrolling-carousel")

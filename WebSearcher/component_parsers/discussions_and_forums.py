@@ -9,8 +9,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_discussions_and_forums(cmpt) -> list:
-    node: Node = cmpt
+def parse_discussions_and_forums(elem) -> list:
+    node: Node = elem
     for sel in ("div.LJ7wUe", "div.JlqpRe", "div.EDblX"):
         subs = node.css(sel)
         if subs:

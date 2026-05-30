@@ -11,8 +11,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_most_read_articles(cmpt) -> list:
-    node: Node = cmpt
+def parse_most_read_articles(elem) -> list:
+    node: Node = elem
     out: list = []
     for li in node.css('[role="listitem"]'):
         a = li.css_first("a[href]")

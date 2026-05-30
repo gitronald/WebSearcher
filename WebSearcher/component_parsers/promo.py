@@ -11,8 +11,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_promo(cmpt) -> list:
-    node: Node = cmpt
+def parse_promo(elem) -> list:
+    node: Node = elem
 
     cta = node.css_first("a[href]")
     cta_url = cta.attributes["href"] if cta is not None else None

@@ -9,8 +9,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_banner(cmpt) -> list:
-    node: Node = cmpt
+def parse_banner(elem) -> list:
+    node: Node = elem
     parsed_list: list[dict] = [
         {
             "type": "banner",

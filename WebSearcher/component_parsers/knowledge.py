@@ -13,8 +13,8 @@ from ..utils import slugify
 from .general import parse_general_result
 
 
-def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like

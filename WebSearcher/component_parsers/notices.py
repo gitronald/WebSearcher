@@ -14,8 +14,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text, reparse_fragment
 
 
-def parse_notices(cmpt) -> list:
-    return NoticeParser().parse_notices(cmpt)
+def parse_notices(elem) -> list:
+    return NoticeParser().parse_notices(elem)
 
 
 class NoticeParser:

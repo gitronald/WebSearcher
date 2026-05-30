@@ -10,8 +10,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_images(cmpt) -> list:
-    node: Node = cmpt
+def parse_images(elem) -> list:
+    node: Node = elem
     parsed_list: list = []
 
     if node.css_first("g-expandable-container") is not None:
