@@ -172,7 +172,7 @@ proposed here. We accept `footer.py` as a deliberate section module.)
 
 ## Standardization Plan
 
-### Phase 0 — Establish the contract *and* apply it
+### Phase 0 — Establish the contract *and* apply it ✅ done
 
 Declaring the contract and making the code conform to it are the same step:
 the contract says the first parameter is `elem`, so this phase both writes it
