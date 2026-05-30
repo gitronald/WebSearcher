@@ -243,8 +243,8 @@ def parse_product(text: str) -> dict:
 # General Video Results -----------------------------------------------------
 
 
-def is_general_video(cmpt: Node) -> bool:
-    return "PmEWq" in class_tokens(cmpt)
+def is_general_video(sub: Node) -> bool:
+    return "PmEWq" in class_tokens(sub)
 
 
 def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
@@ -264,9 +264,9 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
     }
 
 
-def get_result_details(cmpt: Node) -> dict | None:
-    source_el = cmpt.css_first(".gqF9jc")
-    duration_el = cmpt.css_first(".JIv15d")
+def get_result_details(sub: Node) -> dict | None:
+    source_el = sub.css_first(".gqF9jc")
+    duration_el = sub.css_first(".JIv15d")
     source = get_text(source_el, strip=False) if source_el is not None else None
     duration = get_text(duration_el, strip=True) if duration_el is not None else None
     if source is None and duration is None:

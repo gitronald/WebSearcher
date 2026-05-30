@@ -18,14 +18,14 @@ def parse_discussions_and_forums(elem) -> list:
     return []
 
 
-def parse_item(cmpt: Node, sub_rank: int = 0) -> dict:
+def parse_item(sub: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "discussions_and_forums",
         "sub_type": None,
         "sub_rank": sub_rank,
-        "title": get_title(cmpt),
-        "url": get_url(cmpt),
-        "cite": get_cite(cmpt),
+        "title": get_title(sub),
+        "url": get_url(sub),
+        "cite": get_cite(sub),
     }
 
 
