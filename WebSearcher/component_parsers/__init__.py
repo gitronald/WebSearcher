@@ -7,13 +7,20 @@ registry below (:data:`PARSERS`) maps a component type name to its entry
 parser. ``Component.run_parser`` calls each entry parser with the component's
 selectolax node, so:
 
-- Entry parser signature: ``def parse_<type>(elem: Node, sub_rank: int = 0) -> list[dict]``
-- The first parameter is always ``elem`` -- a selectolax ``LexborNode``, never
-  the ``Component``. ``parse_unknown`` follows the same signature (it is the
-  catch-all for components classified as ``unknown``). Components with a known
-  type but no registered parser are reported by the ``Component`` itself as a
-  ``"not implemented"`` error, so there is no parser-side placeholder.
-- Returns ``list[dict]``; each dict carries at least ``type`` and ``sub_rank``.
+- Entry parser signature: ``def parse_<type>(elem: Node) -> list[dict]``. The
+  first parameter is always ``elem`` -- a selectolax ``LexborNode``, never the
+  ``Component`` -- because ``Component.run_parser`` calls ``parser_func(self.elem)``
+  with that single argument.
+- Some parsers also accept an optional ``sub_rank: int = 0`` second parameter so
+  they can be reused as sub-parsers (e.g. ``perspectives`` delegates to
+  ``top_stories``); the dispatcher never passes it.
+- ``parse_unknown`` is the catch-all for components classified as ``unknown``.
+  Components with a known type but no registered parser are reported by the
+  ``Component`` itself as a ``"not implemented"`` error -- there is no
+  parser-side placeholder.
+- Returns ``list[dict]``; each dict carries at least ``type``. Parsers that emit
+  multiple sub-results set ``sub_rank`` to order them; otherwise ``BaseResult``
+  defaults ``sub_rank`` to ``0``.
 - Per-item helpers take a sub-node and are named ``sub``:
   ``def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict``.
 - Module-level constants (selector tables, sub-type text maps) use
