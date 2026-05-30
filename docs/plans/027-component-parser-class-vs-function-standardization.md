@@ -216,7 +216,7 @@ selectolax's `LexborNode` does not have, so those paths would have raised
 `AttributeError` if hit (fixtures never hit them). Pinned by
 `tests/test_components.py`.
 
-### Phase 1 — `Footer` class → functions, `footer.py` stays a section module (low risk)
+### Phase 1 — `Footer` class → functions, `footer.py` stays a section module (low risk) ✅ done
 
 `footer.py` remains the home for all three footer-exclusive parsers (it is a
 deliberate section module — see "Why `footer.py` groups several parsers"

@@ -29,7 +29,7 @@ from .banner import parse_banner
 from .buying_guide import parse_buying_guide
 from .discussions_and_forums import parse_discussions_and_forums
 from .flights import parse_flights
-from .footer import Footer
+from .footer import parse_discover_more, parse_img_cards, parse_omitted_notice
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
@@ -71,13 +71,13 @@ PARSERS = {
     "available_on": parse_available_on,
     "banner": parse_banner,
     "buying_guide": parse_buying_guide,
-    "discover_more": Footer.parse_discover_more,
+    "discover_more": parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
     "flights": parse_flights,
     "general": parse_general_results,
     "general_questions": parse_general_questions,
     "images": parse_images,
-    "img_cards": Footer.parse_image_cards,
+    "img_cards": parse_img_cards,
     "jobs": parse_jobs,
     "knowledge": parse_knowledge_panel,
     "knowledge_rhs": parse_knowledge_rhs,
@@ -89,7 +89,7 @@ PARSERS = {
     "most_read_articles": parse_most_read_articles,
     "news_quotes": parse_news_quotes,
     "notice": parse_notices,
-    "omitted_notice": Footer.parse_omitted_notice,
+    "omitted_notice": parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
     "products": parse_products,
