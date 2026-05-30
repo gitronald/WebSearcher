@@ -235,41 +235,15 @@ is preserved.
 Covered by existing notices tests (`tests/test_component_types.py` and any
 notice fixtures) — behaviour must stay identical.
 
-### Phase 3 — (Optional, separate) reconcile `parse_alink`
+### Out of scope: `parse_alink` reconciliation + knowledge rethink
 
-`parse_alink` is defined in `general.py`, `knowledge.py`, `knowledge_rhs.py`,
-and `top_image_carousel.py`. **These are not hard duplicates** — they are three
-distinct behaviors (`get_text`'s default separator is `""`):
-
-| File | url access | text separator | `None`→`""` |
-|------|-----------|----------------|-------------|
-| `general.py` | `a.attributes["href"]` (strict) | `""` | yes |
-| `knowledge_rhs.py` | `["href"]` (strict) | `""` | yes |
-| `knowledge.py` | `["href"]` (strict) | `"\|"` | yes |
-| `top_image_carousel.py` | `.get("href") or .get("data-url","")` | `"\|"` | no |
-
-Only `general.py` and `knowledge_rhs.py` are byte-identical. The differences in
-the other two are intentional: `knowledge.py` joins multi-fragment link text
-with `"\|"`; `top_image_carousel.py` needs the `data-url` fallback (lazy-loaded
-carousel images) and leaves text un-coalesced.
-
-Caution: the strict `["href"]` variants raise `KeyError` on a missing href,
-which `run_parser` converts into a whole-component parse error. Collapsing to
-`.get("href")` would silently produce `url=None` instead — a **behavior
-change**, not a pure refactor.
-
-Options, smallest to largest:
-- **(i)** Dedup only the two identical ones (`general` ↔ `knowledge_rhs`) into
-  one shared helper; leave the other two as-is. Safe, low value.
-- **(ii)** One parameterized helper,
-  `parse_alink(a, sep="", data_url_fallback=False)`, called with explicit args
-  per site. Requires deciding the href-missing semantics (keep strict, or
-  switch to lenient `.get` and accept the behavior change) and the
-  coalescing rule for the carousel.
-
-Genuinely separate from the class→function standardization; do not fold into
-Phases 0–2. Recommend (i) unless we want to revisit the href-missing semantics
-deliberately.
+This audit surfaced that `parse_alink` is defined four times (`general.py`,
+`knowledge.py`, `knowledge_rhs.py`, `top_image_carousel.py`) with three subtly
+different behaviors — not hard duplicates. Reconciling them touches the
+knowledge parsers specifically, which we want to rethink more broadly. That
+work is **deferred to its own plan** (see
+`028-knowledge-parsers-and-alink-reconciliation.md`) and is explicitly **not**
+part of the class→function standardization here.
 
 ### Validation
 
@@ -295,10 +269,7 @@ separate commits/PRs.
 | `component_parsers/*.py` (~37) | 0b | Rename entry param `cmpt` → `elem` |
 | `component_parsers/footer.py` | 1 | Remove `Footer` class (keep module); methods → functions; `parse_image_card(s)` → `parse_img_card(s)` |
 | `component_parsers/notices.py` | 2 | Remove `NoticeParser`; methods → functions; dicts → module constants |
-| `_slx.py` / `_common.py` | 3 (opt) | Reconcile `parse_alink` (2 of 4 identical; others differ) |
-
 ## Open Questions
 
-1. Phase 3 `parse_alink` — option (i) dedup the two identical defs only, or
-   (ii) one parameterized helper that also revisits the href-missing
-   (`KeyError` vs `None`) semantics? Track separately either way.
+None blocking. `parse_alink` reconciliation and the broader knowledge rethink
+are tracked in `028-knowledge-parsers-and-alink-reconciliation.md`.
