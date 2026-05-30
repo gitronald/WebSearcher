@@ -26,6 +26,13 @@ remaining `details`-schema alignment is tracked separately in
   rather than raising. In practice every current call site already guards
   `"href" in a.attributes` / `href is not None`, so this is forward-looking
   insurance, not a snapshot change (verified: all four call sites guarded).
+  - **Carousel edge (reviewed, accepted on PR #141):** `top_image_carousel`'s
+    `data_url_fallback` path previously coalesced a missing url to `""`; the
+    unified lenient helper returns `None` instead. Kept uniform on purpose — the
+    carousel call site guards `"href" in a.attributes or "data-url" in
+    a.attributes`, so `None` is only reachable from an empty-string attribute
+    value (not observed; no snapshot/test moved). We accept `url=None` here
+    rather than making the carousel the lone site that coalesces to `""`.
 
 ## Why this is its own plan
 
