@@ -1,3 +1,23 @@
+"""Component parsers and the type-name → parser dispatch registry.
+
+Parser contract
+---------------
+Every component parser is a module-level function (no parser classes). The
+registry below (:data:`PARSERS`) maps a component type name to its entry
+parser. ``Component.run_parser`` calls each entry parser with the component's
+selectolax node, so:
+
+- Entry parser signature: ``def parse_<type>(elem: Node, sub_rank: int = 0) -> list[dict]``
+- The first parameter is ``elem`` -- a selectolax ``LexborNode``, never the
+  ``Component`` (``parse_unknown`` / ``parse_not_implemented`` are the only
+  exceptions: they receive the ``Component`` itself).
+- Returns ``list[dict]``; each dict carries at least ``type`` and ``sub_rank``.
+- Per-item helpers take a sub-node and are named ``sub``:
+  ``def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict``.
+- Module-level constants (selector tables, sub-type text maps) use
+  ``UPPER_SNAKE_CASE`` and are built once at import.
+"""
+
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
 from .ai_overview import parse_ai_overview
