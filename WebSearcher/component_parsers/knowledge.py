@@ -50,7 +50,7 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
         details["urls"] = urls
 
     h2 = node.css_first("h2")
-    h2_text = get_text(h2) if h2 is not None else ""
+    h2_text: str = get_text(h2) or ""
 
     # Ordered detect-and-handle dispatch (cf. ``classifiers/main.py``): the first
     # handler that recognizes the panel populates ``parsed``/``details`` and
