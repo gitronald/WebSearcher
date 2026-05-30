@@ -1,8 +1,8 @@
 ---
-status: in-progress
+status: completed
 branch: claude/post-merge-status-check-52Z1B
 created: 2026-05-30T00:00:00-07:00
-completed:
+completed: 2026-05-30T00:00:00-07:00
 pr:
 ---
 
@@ -99,13 +99,11 @@ type (`parse_knowledge_rhs` + main/sub helpers) and shares no code with
   *defining* the target schema — `001`/`002` documented the problem, not a
   target. Tracked below as the remaining work.
 
-### Remaining work — `details` schema alignment (own effort)
+### Remaining work — `details` schema alignment (split out)
 
-Out of scope for the dispatch/reconciliation phases above. Requires: (1) an
-inventory of every knowledge / knowledge_rhs `details` shape (the table in
-`001` is a start), (2) a decided typed-details target, (3) a migration that
-updates parsers + snapshots together. Best done as a focused follow-up so the
-snapshot churn is reviewable in isolation.
+Out of scope for the dispatch/reconciliation phases above, and deliberately
+deferred to keep its broad snapshot churn reviewable in isolation. Split into
+`029-knowledge-details-schema-alignment.md`.
 
 ## Inventory (step 1 — done)
 
