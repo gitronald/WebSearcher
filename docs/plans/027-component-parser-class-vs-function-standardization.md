@@ -237,7 +237,7 @@ above). We remove only the `class` wrapper.
 Behaviour is byte-for-byte identical (pure move + rename); the section grouping
 is preserved.
 
-### Phase 2 — Convert `NoticeParser` → functions (medium risk)
+### Phase 2 — Convert `NoticeParser` → functions (medium risk) ✅ done
 
 1. Hoist the two dicts to module constants: `_SUB_TYPE_TEXT` and a
    `_SUB_TYPE_PARSERS` map built from module-level `_parse_*` functions
