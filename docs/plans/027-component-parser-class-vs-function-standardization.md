@@ -1,0 +1,223 @@
+---
+status: draft
+branch: claude/component-parser-standardization-3w9XS
+created: 2026-05-30T00:00:00-07:00
+completed:
+pr:
+---
+
+# Component Parser Standardization: Class vs. Function
+
+## Goal
+
+The 39 parser modules in `WebSearcher/component_parsers/` mix two
+implementation styles: most are plain module-level functions, but two are
+built around classes. This plan maps every parser, determines which style is
+more efficient and maintainable, and lays out a phased standardization.
+
+---
+
+## Current Map
+
+### Dispatch contract (how parsers are actually called)
+
+`Component.run_parser` (`WebSearcher/components.py:82`) is the single call
+site for every registered parser:
+
+```python
+if parser_func in {parse_unknown, parse_not_implemented}:
+    parsed_list = parser_func(self)        # gets the Component
+else:
+    parsed_list = parser_func(self.elem)   # gets a selectolax Node
+```
+
+**Key fact:** every registered entry parser is handed `self.elem` — a
+selectolax `LexborNode`, *not* the `Component`. So the conventional first
+parameter name `cmpt` (used in 37 of 39 files) is a misnomer: the value is
+always the element node. `footer.py` already names it correctly (`elem`).
+
+The registry (`component_parsers/__init__.py` → `PARSERS`) maps a type-name
+string to a callable. Today that callable is one of three shapes:
+
+- a bare module function (`parse_ads`, `parse_general_results`, …) — 36 types
+- a **class static method** (`Footer.parse_discover_more`,
+  `Footer.parse_image_cards`, `Footer.parse_omitted_notice`) — 3 types
+- a **function that wraps a class** (`parse_notices` → `NoticeParser()`) — 1 type
+
+### Style breakdown
+
+| Style | Count | Files |
+|-------|-------|-------|
+| Module-level function(s) | 37 | everything except the two below |
+| Class — static-method namespace | 1 | `footer.py` (`Footer`) |
+| Class — per-call stateful instance | 1 | `notices.py` (`NoticeParser`) |
+
+### The two class-based parsers
+
+**`footer.py` — `Footer`** (`component_parsers/footer.py:12`)
+- Four `@staticmethod`s: `parse_image_cards`, `parse_image_card`,
+  `parse_discover_more`, `parse_omitted_notice`.
+- No `__init__`, no instance state, never instantiated. It is purely a
+  namespace; the methods are functions with a `Footer.` prefix.
+- First param is `elem` (correct).
+
+**`notices.py` — `NoticeParser`** (`component_parsers/notices.py:21`)
+- Instantiated fresh on every call through the `parse_notices(cmpt)` wrapper.
+- `__init__` rebuilds two dicts every call: `sub_type_text` (6 keys) and
+  `parser_dict` (6 bound-method entries).
+- Carries mutable scratch state (`self.parsed`, `self.sub_type`,
+  `self.parsed_list`) that lives only for the duration of one parse.
+- Methods (`_classify_sub_type`, `_parse_sub_type`, `_package_parsed`, and six
+  `_parse_*` sub-type handlers) are instance methods only because they read
+  that scratch state — none of it needs to persist.
+
+### The dominant function pattern (the de-facto standard)
+
+The 37 function-based modules already share a consistent shape:
+
+```python
+def parse_<type>(cmpt, sub_rank: int = 0) -> list:   # entry, gets a Node
+    ...
+    return [parse_<type>_item(sub, i) for i, sub in enumerate(subs)]
+
+def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict:
+    ...
+```
+
+Sub-type routing is done with module functions (`classify_ad_type` in
+`ads.py`, `find_subcomponents` in `general.py`, format detection in
+`images.py`/`videos.py`/`top_stories.py`) and module-level lookup — no
+classes required.
+
+---
+
+## Determination: functions are more efficient *and* more maintainable
+
+### Efficiency
+
+- **Functions:** one call, no allocation; module-level constants are built
+  once at import.
+- **`Footer` static methods:** behaviourally identical to functions plus one
+  extra attribute lookup on `Footer`. Negligible, but also zero benefit.
+- **`NoticeParser`:** strictly more work than the alternatives — it allocates
+  an object and **rebuilds the `sub_type_text` and `parser_dict` dicts on
+  every component parsed**. Those dicts are constant; they belong at module
+  scope, built once. This is the only style with measurable per-call overhead.
+
+Verdict: functions (with module-level constants) win; `Footer` ties; the
+`NoticeParser` instance pattern is the slowest.
+
+### Maintainability
+
+- **Consistency:** 37/39 modules are already functions. Two outliers force
+  contributors to learn three registry-reference styles
+  (`fn` vs `Class.method` vs `fn-wrapping-Class`) and two first-param
+  conventions (`cmpt` vs `elem`).
+- **No encapsulation earned:** neither class uses inheritance, polymorphism,
+  or persistent state. `Footer` is namespacing; `NoticeParser` is transient
+  scratch state that maps cleanly onto local variables and function args.
+- **Discoverability:** `grep "def parse_<type>"` locates a function parser
+  immediately; class methods are nested and the notices entry point is a
+  thin wrapper indirecting to a class.
+- **Testing:** functions and module constants are trivially importable and
+  callable in isolation; the stateful class requires constructing an instance.
+
+Verdict: functions are clearly more maintainable here. Classes would only earn
+their keep if a parser needed shared state across calls or a real type
+hierarchy — neither exists in this codebase.
+
+**Conclusion: standardize on module-level functions + module-level
+constants. Retire both classes.**
+
+---
+
+## Standardization Plan
+
+### Phase 0 — Write down the contract (no code change)
+
+Add a short "Parser contract" section to `component_parsers/__init__.py`'s
+module docstring (or a `CONTRIBUTING` note):
+
+- Entry parser signature: `def parse_<type>(elem: Node, sub_rank: int = 0) -> list[dict]`
+- First parameter is **`elem`** (a selectolax `LexborNode`), never `cmpt`.
+- Returns `list[dict]`; each dict has at least `type` and `sub_rank`.
+- Per-item helper: `def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict`.
+- Constants (selector tables, sub-type text maps) live at module scope in
+  `UPPER_SNAKE_CASE`, built once at import.
+
+### Phase 1 — Convert `Footer` → functions (low risk)
+
+1. In `footer.py`, drop `class Footer:` and dedent the four methods into
+   module functions: `parse_image_cards`, `parse_image_card`,
+   `parse_discover_more`, `parse_omitted_notice`.
+2. In `component_parsers/__init__.py`: `from .footer import parse_discover_more,
+   parse_image_cards, parse_omitted_notice` and change the three `PARSERS`
+   entries (`discover_more`, `img_cards`, `omitted_notice`) from
+   `Footer.parse_*` to the bare functions.
+3. Update any references to `Footer` in tests/scripts (grep `Footer`).
+
+Behaviour is byte-for-byte identical; this is a pure move.
+
+### Phase 2 — Convert `NoticeParser` → functions (medium risk)
+
+1. Hoist the two dicts to module constants: `_SUB_TYPE_TEXT` and a
+   `_SUB_TYPE_PARSERS` map built from module-level `_parse_*` functions
+   (built once at import, not per call).
+2. Rewrite the six `_parse_*` instance methods as module functions taking
+   `node: Node` and returning a `dict` (they already only read the node).
+3. Make `_classify_sub_type(node) -> str` and `_package_parsed(sub_type,
+   parsed) -> list` plain functions.
+4. `parse_notices(elem)` becomes: classify → dispatch → package, with no class
+   and no per-call dict construction.
+
+Covered by existing notices tests (`tests/test_component_types.py` and any
+notice fixtures) — behaviour must stay identical.
+
+### Phase 3 — Normalize the first-param name `cmpt` → `elem` (cosmetic)
+
+Mechanically rename the entry-parser first parameter from `cmpt` to `elem` in
+the 37 affected files so the name matches reality (a Node). Positional call
+site is unaffected. Can be a single sweep or folded into Phases 1–2; keep it
+as its own commit for a clean diff. Leave genuine `cmpt: Node` *helper*
+params that already take sub-nodes alone — only the entry parser's first arg
+is the misnamed one.
+
+### Phase 4 — (Optional, separate) dedupe `parse_alink`
+
+`parse_alink` is independently defined in `general.py`, `knowledge.py`,
+`knowledge_rhs.py`, and `top_image_carousel.py`. Not a class/function-style
+issue, but surfaced by this audit. Consider a single shared helper (e.g. in
+`_slx.py` or a `component_parsers/_common.py`). Flag only; out of scope for
+the class→function standardization.
+
+### Validation
+
+After each phase:
+
+```
+pytest tests/test_component_types.py tests/test_parser_coverage.py \
+       tests/test_ads.py tests/test_ai_overview_payloads.py
+pytest                       # full suite
+python scripts/diff_parsers.py   # optional: confirm parsed output unchanged
+```
+
+Each phase is independently shippable and test-covered, so they can land as
+separate commits/PRs.
+
+---
+
+## File Change Summary
+
+| File | Phase | Change |
+|------|-------|--------|
+| `component_parsers/__init__.py` | 0,1 | Add contract docstring; import Footer fns; update 3 PARSERS entries |
+| `component_parsers/footer.py` | 1 | Remove `Footer` class; methods → module functions |
+| `component_parsers/notices.py` | 2 | Remove `NoticeParser`; methods → functions; dicts → module constants |
+| `component_parsers/*.py` (37) | 3 | Rename entry param `cmpt` → `elem` |
+| `_slx.py` / `_common.py` | 4 (opt) | Shared `parse_alink` |
+
+## Open Questions
+
+1. Phase 3 rename — do it now (clarity) or defer to avoid a wide cosmetic
+   diff across 37 files?
+2. Phase 4 `parse_alink` dedup — fold in now or track as its own cleanup?
