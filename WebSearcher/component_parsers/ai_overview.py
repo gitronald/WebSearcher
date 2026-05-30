@@ -127,9 +127,7 @@ def _root_html(node: Node) -> str:
     return cur.html or ""
 
 
-def _extract_body(
-    content: Node, payloads: dict[str, dict]
-) -> tuple[str, list[dict], list[dict]]:
+def _extract_body(content: Node, payloads: dict[str, dict]) -> tuple[str, list[dict], list[dict]]:
     """Walk the content area and split into lede + lede citations + sections."""
     elements = _collect_body_elements(content)
     if not elements:
@@ -236,10 +234,7 @@ def _is_section_heading(elem: Node) -> bool:
     cls = class_tokens(elem)
     if _BODY_HEADING_CLASS in cls:
         return True
-    return (
-        elem.attributes.get("role") == "heading"
-        and elem.attributes.get("aria-level") == "3"
-    )
+    return elem.attributes.get("role") == "heading" and elem.attributes.get("aria-level") == "3"
 
 
 def _collect_inline_links(elem: Node) -> list[dict]:

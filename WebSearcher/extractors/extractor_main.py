@@ -70,9 +70,7 @@ class ExtractorMain:
             "no-rso": layout_divs["rso"] is None,
         }
         layouts["standard"] = (
-            layout_divs["rso"] is not None
-            and not layouts["top-bars"]
-            and not layouts["left-bar"]
+            layout_divs["rso"] is not None and not layouts["top-bars"] and not layouts["left-bar"]
         )
 
         if layouts["top-bars"] and layout_divs["rso"] is not None and not layouts["left-bar"]:
@@ -202,9 +200,7 @@ class ExtractorMain:
             if tab_overview is not None:
                 # recursive=False: direct children matching the class token.
                 main_divs = [
-                    c
-                    for c in tab_overview.iter(include_text=False)
-                    if "TzHB6b" in class_tokens(c)
+                    c for c in tab_overview.iter(include_text=False) if "TzHB6b" in class_tokens(c)
                 ]
                 if not main_divs:
                     main_divs = [
@@ -291,8 +287,7 @@ class ExtractorMain:
         out.extend(tops)
 
         div_classes_css = ", ".join(
-            f"div.{c}"
-            for c in ("cUnQKe", "g", "Lv2Cle", "oIk2Cb", "Ww4FFb", "vtSz8d", "uVMCKf")
+            f"div.{c}" for c in ("cUnQKe", "g", "Lv2Cle", "oIk2Cb", "Ww4FFb", "vtSz8d", "uVMCKf")
         )
         rso_div = self.layout_divs["rso"]
         rso_divs = (
@@ -357,8 +352,7 @@ class ExtractorMain:
         if rso.css_first('div[data-attrid="DictionaryHeader"]') is not None:
             return True
         return any(
-            (get_text(b, strip=True) or "") == "Dictionary"
-            for b in rso.css('div[role="button"]')
+            (get_text(b, strip=True) or "") == "Dictionary" for b in rso.css('div[role="button"]')
         )
 
     def extract_from_left_bar(self, drop_tags: set | None = None) -> list:
@@ -371,9 +365,7 @@ class ExtractorMain:
         out: list[Node] = []
         # bs4 ``find_all("div", {"class": "UDZeY OTFaAf"})`` is multi-token EXACT.
         sec1 = [
-            d
-            for d in self.soup.css("div.UDZeY.OTFaAf")
-            if class_tokens(d) == ["UDZeY", "OTFaAf"]
+            d for d in self.soup.css("div.UDZeY.OTFaAf") if class_tokens(d) == ["UDZeY", "OTFaAf"]
         ]
         for div in sec1:
             h2 = div.css_first("h2")
@@ -389,9 +381,7 @@ class ExtractorMain:
             elif div.css_first("div.oIk2Cb") is not None:
                 out.append(div)
             else:
-                out.extend(
-                    n for n in div.css("div.g") if n.mem_id != div.mem_id
-                )
+                out.extend(n for n in div.css("div.g") if n.mem_id != div.mem_id)
             sec2 = self.soup.css_first("div.WvKfwe.a3spGf")
             if sec2 is not None and class_tokens(sec2) == ["WvKfwe", "a3spGf"]:
                 out.extend(sec2.iter(include_text=True))

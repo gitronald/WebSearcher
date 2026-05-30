@@ -52,13 +52,11 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
         return parse_general_video(sub, sub_rank=sub_rank)
 
     sub_id = sub.mem_id
-    title_div = (
-        next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None)
-        or next((n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None)
+    title_div = next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None
     )
-    body_div = (
-        next((n for n in sub.css("span.st") if n.mem_id != sub_id), None)
-        or next((n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None)
+    body_div = next((n for n in sub.css("span.st") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None
     )
 
     title_h3 = title_div.css_first("h3") if title_div is not None else None
