@@ -45,8 +45,8 @@ raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
 )
 
 
-def parse_ai_overview(cmpt, sub_rank: int = 0) -> list[dict]:
-    node: Node = cmpt
+def parse_ai_overview(elem, sub_rank: int = 0) -> list[dict]:
+    node: Node = elem
     parsed: dict = {
         "type": "ai_overview",
         "sub_rank": sub_rank,
@@ -113,7 +113,7 @@ def _root_html(node: Node) -> str:
     """Document HTML for payload extraction.
 
     The ``lDPB.push`` fallback payload form lives in script tags outside the
-    AI overview cmpt, so we need the full document. ``parse_serp`` publishes
+    AI overview component, so we need the full document. ``parse_serp`` publishes
     the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
     serializing the document root when called outside that context (e.g.
     direct tests of the parser).
@@ -127,9 +127,7 @@ def _root_html(node: Node) -> str:
     return cur.html or ""
 
 
-def _extract_body(
-    content: Node, payloads: dict[str, dict]
-) -> tuple[str, list[dict], list[dict]]:
+def _extract_body(content: Node, payloads: dict[str, dict]) -> tuple[str, list[dict], list[dict]]:
     """Walk the content area and split into lede + lede citations + sections."""
     elements = _collect_body_elements(content)
     if not elements:
@@ -236,10 +234,7 @@ def _is_section_heading(elem: Node) -> bool:
     cls = class_tokens(elem)
     if _BODY_HEADING_CLASS in cls:
         return True
-    return (
-        elem.attributes.get("role") == "heading"
-        and elem.attributes.get("aria-level") == "3"
-    )
+    return elem.attributes.get("role") == "heading" and elem.attributes.get("aria-level") == "3"
 
 
 def _collect_inline_links(elem: Node) -> list[dict]:

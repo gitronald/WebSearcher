@@ -13,8 +13,8 @@ from ..utils import slugify
 from .general import parse_general_result
 
 
-def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like
@@ -58,9 +58,10 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
         primary = _first_external_link(pxiwbd)
         if primary:
             parsed["url"] = primary["url"]
-    elif h2_text == "Featured snippet from the web" or node.css_first(
-        "div.answered-question"
-    ) is not None:
+    elif (
+        h2_text == "Featured snippet from the web"
+        or node.css_first("div.answered-question") is not None
+    ):
         parsed["sub_type"] = "featured_snippet"
         span = list(node.css("span"))
         details["text"] = _join_texts(span) if span else None
@@ -88,9 +89,10 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
     elif h2_text == "Weather Result":
         parsed["sub_type"] = "weather"
 
-    elif h2_text == "Finance Results" or node.css_first(
-        'div[id="knowledge-finance-wholepage__entity-summary"]'
-    ) is not None:
+    elif (
+        h2_text == "Finance Results"
+        or node.css_first('div[id="knowledge-finance-wholepage__entity-summary"]') is not None
+    ):
         parsed["sub_type"] = "finance"
 
     elif node.css_first('div[data-attrid="DictionaryHeader"]') is not None or (
@@ -121,9 +123,7 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
                 span_first = node.css_first('span[jsslot=""]')
                 if span_first is not None:
                     span = list(span_first.css("span"))
-                    details["text"] = (
-                        _join_texts(span).split("Translate")[0] if span else None
-                    )
+                    details["text"] = _join_texts(span).split("Translate")[0] if span else None
 
     elif h2_text in ("Translation Result", "Resultado de traducción"):
         parsed["sub_type"] = "translate"
@@ -146,9 +146,10 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
             parsed["sub_type"] = "things_to_know"
             details["heading"] = (get_text(heading_span) or "").strip()
 
-    elif node.css_first("div.JNkvid") is not None and (
-        section_heading := node.css_first('[role="heading"][aria-level="2"]')
-    ) is not None:
+    elif (
+        node.css_first("div.JNkvid") is not None
+        and (section_heading := node.css_first('[role="heading"][aria-level="2"]')) is not None
+    ):
         heading_text = get_text(section_heading, " ", strip=True) or ""
         # slugify first (whitespace-robust), then map the literal `&` token.
         parsed["sub_type"] = slugify(heading_text.lower(), sep="-").replace("-&-", "-and-")
@@ -158,8 +159,7 @@ def parse_knowledge_panel(cmpt, sub_rank: int = 0) -> list:
             u for u in details.get("urls", []) if not u["url"].startswith("/search?")
         ]
         items = [
-            get_text(h, " ", strip=True) or ""
-            for h in node.css('[role="heading"][aria-level="3"]')
+            get_text(h, " ", strip=True) or "" for h in node.css('[role="heading"][aria-level="3"]')
         ]
         if items:
             details["items"] = items

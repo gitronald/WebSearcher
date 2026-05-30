@@ -12,9 +12,9 @@ from .._slx import class_tokens, get_text, subtree_css, subtree_first
 from ..utils import slugify
 
 
-def parse_local_results(cmpt) -> list:
-    node: Node = cmpt
-    # bs4 find_all is descendants-only; cmpt itself may carry ``VkpGBb`` and must
+def parse_local_results(elem) -> list:
+    node: Node = elem
+    # bs4 find_all is descendants-only; elem itself may carry ``VkpGBb`` and must
     # not be its own first sub-result.
     subs = subtree_css(node, "div.VkpGBb")
     parsed_list = [parse_local_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]

@@ -10,8 +10,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_images(cmpt) -> list:
-    node: Node = cmpt
+def parse_images(elem) -> list:
+    node: Node = elem
     parsed_list: list = []
 
     if node.css_first("g-expandable-container") is not None:
@@ -45,7 +45,11 @@ def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:
 
 def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict:
     title_a = sub.css_first("a.EZAeBe")
-    title = get_text(title_a, " ") if title_a is not None else get_text(sub.css_first("span.Yt787"), " ")
+    title = (
+        get_text(title_a, " ")
+        if title_a is not None
+        else get_text(sub.css_first("span.Yt787"), " ")
+    )
     if title_a is not None:
         first_a = sub.css_first("a")
         url = first_a.attributes.get("href") if first_a is not None else None

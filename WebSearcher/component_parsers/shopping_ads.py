@@ -10,8 +10,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import class_tokens, get_text
 
 
-def parse_shopping_ads(cmpt) -> list:
-    node: Node = cmpt
+def parse_shopping_ads(elem) -> list:
+    node: Node = elem
     # Sponsored hotel carousel (atvcap)
     cards = list(node.css('[role="listitem"]'))
     if cards:

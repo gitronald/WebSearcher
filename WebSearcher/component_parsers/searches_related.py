@@ -11,8 +11,8 @@ from .._slx import get_text, has_text
 from ..utils import slugify
 
 
-def parse_searches_related(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_searches_related(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     parsed: dict = {
         "type": "searches_related",
         "sub_rank": sub_rank,

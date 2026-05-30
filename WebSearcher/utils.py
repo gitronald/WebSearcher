@@ -104,9 +104,7 @@ def get_link_list(soup: Node | None) -> list[str] | None:
     if soup is None:
         return None
     out = [
-        str(a.attributes["href"])
-        for a in soup.css("a")
-        if a.attributes.get("href") and has_text(a)
+        str(a.attributes["href"]) for a in soup.css("a") if a.attributes.get("href") and has_text(a)
     ]
     return out or None
 

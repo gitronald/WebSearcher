@@ -55,9 +55,9 @@ def test_is_valid_keeps_promo_banner():
 
 
 def test_is_valid_keeps_ulsxyf_without_throttler():
-    ulsxyf = utils.make_soup(
-        '<div class="ULSxyf">A knowledge block, not a survey</div>'
-    ).css_first("div.ULSxyf")
+    ulsxyf = utils.make_soup('<div class="ULSxyf">A knowledge block, not a survey</div>').css_first(
+        "div.ULSxyf"
+    )
     assert ExtractorMain.is_valid(ulsxyf) is True
 
 

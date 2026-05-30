@@ -12,8 +12,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import class_tokens, get_text
 
 
-def parse_general_results(cmpt) -> list:
-    node: Node = cmpt
+def parse_general_results(elem) -> list:
+    node: Node = elem
     subs = find_subcomponents(node)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
@@ -52,13 +52,11 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
         return parse_general_video(sub, sub_rank=sub_rank)
 
     sub_id = sub.mem_id
-    title_div = (
-        next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None)
-        or next((n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None)
+    title_div = next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None
     )
-    body_div = (
-        next((n for n in sub.css("span.st") if n.mem_id != sub_id), None)
-        or next((n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None)
+    body_div = next((n for n in sub.css("span.st") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None
     )
 
     title_h3 = title_div.css_first("h3") if title_div is not None else None
@@ -243,8 +241,8 @@ def parse_product(text: str) -> dict:
 # General Video Results -----------------------------------------------------
 
 
-def is_general_video(cmpt: Node) -> bool:
-    return "PmEWq" in class_tokens(cmpt)
+def is_general_video(sub: Node) -> bool:
+    return "PmEWq" in class_tokens(sub)
 
 
 def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
@@ -264,9 +262,9 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
     }
 
 
-def get_result_details(cmpt: Node) -> dict | None:
-    source_el = cmpt.css_first(".gqF9jc")
-    duration_el = cmpt.css_first(".JIv15d")
+def get_result_details(sub: Node) -> dict | None:
+    source_el = sub.css_first(".gqF9jc")
+    duration_el = sub.css_first(".JIv15d")
     source = get_text(source_el, strip=False) if source_el is not None else None
     duration = get_text(duration_el, strip=True) if duration_el is not None else None
     if source is None and duration is None:

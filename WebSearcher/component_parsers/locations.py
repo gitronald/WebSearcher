@@ -10,8 +10,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_locations(cmpt) -> list:
-    node: Node = cmpt
+def parse_locations(elem) -> list:
+    node: Node = elem
     sub_type = classify_locations_sub_type(node)
     if sub_type == "hotels":
         return parse_hotels(node)

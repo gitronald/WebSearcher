@@ -10,8 +10,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_people_also_ask(cmpt, sub_rank: int = 0) -> list:
-    node: Node = cmpt
+def parse_people_also_ask(elem, sub_rank: int = 0) -> list:
+    node: Node = elem
     questions = node.css("div.related-question-pair")
     parsed_questions = list(filter(None, (parse_question(q) for q in questions)))
     parsed: dict = {

@@ -9,8 +9,8 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text
 
 
-def parse_view_more_news(cmpt) -> list:
-    node: Node = cmpt
+def parse_view_more_news(elem) -> list:
+    node: Node = elem
     container = node.css_first("div.qmv19b")
     if container is not None:
         # Bs4 .children yielded both Tags and NavigableStrings; the original

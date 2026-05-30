@@ -13,8 +13,8 @@ from .._slx import get_text
 from ..utils import url_unquote
 
 
-def parse_twitter_cards(cmpt) -> list:
-    node: Node = cmpt
+def parse_twitter_cards(elem) -> list:
+    node: Node = elem
     parsed_header = parse_twitter_header(node)
     carousel = node.css_first("g-scrolling-carousel")
     subs = list(carousel.css("g-inner-card")) if carousel is not None else []

@@ -65,4 +65,8 @@ class ClassifyFooter:
         if h3 is None:
             return "unknown"
         text = (get_text(h3) or "").strip()
-        return "searches_related" if any(text.startswith(label) for label in known_labels) else "unknown"
+        return (
+            "searches_related"
+            if any(text.startswith(label) for label in known_labels)
+            else "unknown"
+        )
