@@ -31,8 +31,13 @@ FIXTURE = Path(__file__).parent / "fixtures" / "serps-parser-coverage.json.bz2"
 
 
 def _sub_type(html):
-    """Parse a knowledge-panel HTML fragment and return the single row."""
-    return parse_knowledge_panel(make_soup(html))[0]
+    """Parse a knowledge-panel HTML fragment and return the single row.
+
+    Production calls ``parse_knowledge_panel`` with the component root
+    (``div.kp-blk``), not the document root, so select that node to mirror real
+    usage and avoid matches leaking outside the panel as fragments grow.
+    """
+    return parse_knowledge_panel(make_soup(html).css_first("div.kp-blk"))[0]
 
 
 # --- detector-only branches (synthetic markup) -----------------------------

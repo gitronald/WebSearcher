@@ -10,9 +10,11 @@ pr:
 
 ## Status
 
-In progress. Split out of
+Completed (phases 1–3a). Split out of
 `027-component-parser-class-vs-function-standardization.md`, which deliberately
-scoped this out. 027 (class→function) landed independently (PR #139).
+scoped this out. 027 (class→function) landed independently (PR #139). The
+remaining `details`-schema alignment is tracked separately in
+`029-knowledge-details-schema-alignment.md`.
 
 ## Decisions (locked)
 
