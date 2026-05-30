@@ -8,9 +8,11 @@ parser. ``Component.run_parser`` calls each entry parser with the component's
 selectolax node, so:
 
 - Entry parser signature: ``def parse_<type>(elem: Node, sub_rank: int = 0) -> list[dict]``
-- The first parameter is ``elem`` -- a selectolax ``LexborNode``, never the
-  ``Component`` (``parse_unknown`` / ``parse_not_implemented`` are the only
-  exceptions: they receive the ``Component`` itself).
+- The first parameter is always ``elem`` -- a selectolax ``LexborNode``, never
+  the ``Component``. ``parse_unknown`` follows the same signature (it is the
+  catch-all for components classified as ``unknown``). Components with a known
+  type but no registered parser are reported by the ``Component`` itself as a
+  ``"not implemented"`` error, so there is no parser-side placeholder.
 - Returns ``list[dict]``; each dict carries at least ``type`` and ``sub_rank``.
 - Per-item helpers take a sub-node and are named ``sub``:
   ``def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict``.
@@ -18,6 +20,7 @@ selectolax node, so:
   ``UPPER_SNAKE_CASE`` and are built once at import.
 """
 
+from .._slx import get_text
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
 from .ai_overview import parse_ai_overview
@@ -123,21 +126,6 @@ main_parser_labels = _section_parser_labels("main")
 footer_parser_labels = _section_parser_labels("footer")
 
 
-def parse_unknown(cmpt) -> list:
-    parsed_result = {
-        "type": cmpt.type,
-        "cmpt_rank": cmpt.cmpt_rank,
-        "text": cmpt.elem.get_text("<|>", strip=True) if cmpt.elem else None,
-    }
-    return [parsed_result]
-
-
-def parse_not_implemented(cmpt) -> list:
-    """Placeholder function for component parsers that are not implemented"""
-    parsed_result = {
-        "type": cmpt.type,
-        "cmpt_rank": cmpt.cmpt_rank,
-        "text": cmpt.elem.get_text("<|>", strip=True),
-        "error": "not implemented",
-    }
-    return [parsed_result]
+def parse_unknown(elem) -> list:
+    """Catch-all for components classified as ``unknown``: capture text only."""
+    return [{"type": "unknown", "text": get_text(elem, "<|>", strip=True)}]
