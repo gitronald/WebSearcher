@@ -127,7 +127,46 @@ their keep if a parser needed shared state across calls or a real type
 hierarchy — neither exists in this codebase.
 
 **Conclusion: standardize on module-level functions + module-level
-constants. Retire both classes.**
+constants. Retire both classes — but keep `footer.py`'s grouping (see below).**
+
+### Why `footer.py` groups several parsers — and why that stays
+
+`footer.py` is the only parser module exposing more than one registered type
+(`discover_more`, `img_cards`, `omitted_notice`). Before changing it, two
+things were established:
+
+1. **The class is a vestige, not a design.** Git history shows `Footer` began
+   as a `@classmethod` group (`b7cc700` later converted it to
+   `@staticmethod`). Its only purpose was letting `parse_image_cards` call its
+   sibling `parse_image_card` via `self.` — a pre-namespacing idiom. It has
+   never held state. A module gives sibling access for free, so the `class`
+   keyword earns nothing.
+
+2. **The *grouping* is deliberate and load-bearing.** "Footer" is a cohesive
+   section unit across four layers:
+
+   | Layer | Footer construct |
+   |-------|------------------|
+   | Registry (`component_types.py`) | `# ----- Footer section -----` block — the only 3 types with `sections=("footer",)` |
+   | Extractor (`extractor_footer.py`) | `ExtractorFooter` |
+   | Classifier (`classifiers/footer.py`) | `ClassifyFooter` (falls back to `ClassifyMain` for shared types) |
+   | Parser (`footer.py`) | the footer-exclusive parsers |
+
+   Types that appear in the footer but aren't footer-exclusive (`general`,
+   `searches_related`, `sections=("main","footer")`) are intentionally parsed
+   by their **main** parsers — which is why `ClassifyFooter` defers to
+   `ClassifyMain.classify`. So `footer.py` owns exactly the footer-native
+   types, mirroring `ClassifyFooter` / `ExtractorFooter`.
+
+Therefore: **drop the `class`, keep the module.** Splitting the three parsers
+into separate one-type-per-file modules would make the parser layer the only
+place that doesn't treat footer as a unit, breaking a symmetry the extractor,
+classifier, and registry all rely on. The lone wart is the `class` keyword.
+
+(Caveat for the record: this leaves one section-grouped parser module among 36
+type-grouped ones. The fully uniform alternative — section-grouping *all*
+parsers to match the classifier layer — is a much larger change and is **not**
+proposed here. We accept `footer.py` as a deliberate section module.)
 
 ---
 
@@ -145,18 +184,26 @@ module docstring (or a `CONTRIBUTING` note):
 - Constants (selector tables, sub-type text maps) live at module scope in
   `UPPER_SNAKE_CASE`, built once at import.
 
-### Phase 1 — Convert `Footer` → functions (low risk)
+### Phase 1 — `Footer` class → functions, `footer.py` stays a section module (low risk)
+
+`footer.py` remains the home for all three footer-exclusive parsers (it is a
+deliberate section module — see "Why `footer.py` groups several parsers"
+above). We remove only the `class` wrapper.
 
 1. In `footer.py`, drop `class Footer:` and dedent the four methods into
-   module functions: `parse_image_cards`, `parse_image_card`,
-   `parse_discover_more`, `parse_omitted_notice`.
+   module functions. Realign the names to the registry keys while doing so:
+   `parse_image_cards` → `parse_img_cards`, `parse_image_card` →
+   `parse_img_card` (the type is `img_cards`, not `image_cards`). Keep
+   `parse_discover_more` and `parse_omitted_notice`. Sibling calls become
+   direct (`parse_img_cards` → `parse_img_card`), no `self.`/`Footer.`.
 2. In `component_parsers/__init__.py`: `from .footer import parse_discover_more,
-   parse_image_cards, parse_omitted_notice` and change the three `PARSERS`
+   parse_img_cards, parse_omitted_notice` and change the three `PARSERS`
    entries (`discover_more`, `img_cards`, `omitted_notice`) from
    `Footer.parse_*` to the bare functions.
 3. Update any references to `Footer` in tests/scripts (grep `Footer`).
 
-Behaviour is byte-for-byte identical; this is a pure move.
+Behaviour is byte-for-byte identical (pure move + rename); the section grouping
+is preserved.
 
 ### Phase 2 — Convert `NoticeParser` → functions (medium risk)
 
@@ -211,7 +258,7 @@ separate commits/PRs.
 | File | Phase | Change |
 |------|-------|--------|
 | `component_parsers/__init__.py` | 0,1 | Add contract docstring; import Footer fns; update 3 PARSERS entries |
-| `component_parsers/footer.py` | 1 | Remove `Footer` class; methods → module functions |
+| `component_parsers/footer.py` | 1 | Remove `Footer` class (keep module); methods → functions; `parse_image_card(s)` → `parse_img_card(s)` |
 | `component_parsers/notices.py` | 2 | Remove `NoticeParser`; methods → functions; dicts → module constants |
 | `component_parsers/*.py` (37) | 3 | Rename entry param `cmpt` → `elem` |
 | `_slx.py` / `_common.py` | 4 (opt) | Shared `parse_alink` |
