@@ -76,22 +76,36 @@ Reconciliation options, smallest to largest:
 type (`parse_knowledge_rhs` + main/sub helpers) and shares no code with
 `knowledge.py` beyond its own copy of `parse_alink`.
 
-### Open questions to drive the rethink
+### Open questions to drive the rethink — resolutions
 
-- **Dispatch shape:** is the 13-branch cascade in `parse_knowledge_panel` the
-  right structure, or should sub_type detection/parsing be table-driven
-  (classifier → handler map), the way `notices.py` / `ads.py` route sub-types?
-- **`knowledge` vs `knowledge_rhs`:** two types, two files, overlapping intent.
-  Should they share extraction/link/details helpers, or stay fully separate?
-- **`details` schema consistency:** what shapes does each knowledge sub_type
-  emit, and do they conform to the typed-details direction from
-  `002-class-consolidation.md` / `001-component-parser-details-field.md`?
-- **The dynamic `slugify` sub_type branch:** is an open-ended sub_type space
-  desirable, or should sub_types be a closed registry set (cf. the
-  `sub_types=(...)` field on `ComponentType`)?
-- **Link parsing:** once the above is settled, where does the shared link
-  helper live (`_slx.py`, a `component_parsers/_common.py`, or per-parser),
-  and which `parse_alink` behavior wins per call site?
+- **Dispatch shape:** ✅ **table-driven.** `parse_knowledge_panel` now routes
+  through an ordered `(detect-and-handle)` registry (`_SUBTYPE_HANDLERS` +
+  `_subtype_panel` fallback), mirroring `classifiers/main.py`. (Phase 2)
+- **`knowledge` vs `knowledge_rhs`:** ✅ **stay separate, share the link helper.**
+  The only genuine duplication was `parse_alink` (now in `_common.py`). The two
+  parsers otherwise legitimately differ — a wide LHS panel with a sub_type
+  cascade vs. an RHS column with main + follow-on sections — so forcing a shared
+  spine beyond the link helper would add coupling without removing duplication.
+- **The dynamic `slugify` sub_type branch:** ✅ **kept open, now documented.**
+  Closing it would discard the section-heading slug (information loss) and change
+  output. The `knowledge` `ComponentType` now documents the open sub_type space
+  and registers `panel_rhs`. (Phase 3a)
+- **Link parsing:** ✅ lives in `component_parsers/_common.py`; lenient
+  `parse_alink(a, sep="", data_url_fallback=False)` per call site. (Phase 1)
+- **`details` schema consistency:** ⏳ **deferred — needs a concrete target.**
+  Each knowledge sub_type emits an ad-hoc `details` shape (`{heading, urls,
+  text, img_url, items, ...}`). Aligning these with the typed-details direction
+  (`001`/`002`) is a broad, output-changing redesign that first requires
+  *defining* the target schema — `001`/`002` documented the problem, not a
+  target. Tracked below as the remaining work.
+
+### Remaining work — `details` schema alignment (own effort)
+
+Out of scope for the dispatch/reconciliation phases above. Requires: (1) an
+inventory of every knowledge / knowledge_rhs `details` shape (the table in
+`001` is a start), (2) a decided typed-details target, (3) a migration that
+updates parsers + snapshots together. Best done as a focused follow-up so the
+snapshot churn is reviewable in isolation.
 
 ## Inventory (step 1 — done)
 
