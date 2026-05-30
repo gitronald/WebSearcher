@@ -199,6 +199,23 @@ misnamed. `footer.py` already uses `elem`, so it's exempt from the rename.
 Land 0a and 0b as two commits (doc, then mechanical sweep) for a clean,
 reviewable diff.
 
+**0c. Make the contract exception-free.** The two registry fallbacks
+(`parse_unknown`, `parse_not_implemented`) were the only "parsers" that
+received the `Component` instead of `elem`. Reconcile them:
+
+- `parse_unknown` now takes `elem` like every other parser — its type is
+  always `"unknown"`, so it needs nothing from the `Component`.
+- `parse_not_implemented` genuinely needed the component's classified type, so
+  it is removed entirely: `select_parser` returns `None` for a known type with
+  no registered parser, and `parse_component` reports it via the existing
+  `create_parsed_list_error("not implemented")`. The special-case branch in
+  `run_parser` is gone; dispatch is uniformly `parser_func(self.elem)`.
+
+This also fixed a latent bug — both functions called `Node.get_text`, which
+selectolax's `LexborNode` does not have, so those paths would have raised
+`AttributeError` if hit (fixtures never hit them). Pinned by
+`tests/test_components.py`.
+
 ### Phase 1 — `Footer` class → functions, `footer.py` stays a section module (low risk)
 
 `footer.py` remains the home for all three footer-exclusive parsers (it is a
@@ -265,8 +282,10 @@ separate commits/PRs.
 
 | File | Phase | Change |
 |------|-------|--------|
-| `component_parsers/__init__.py` | 0a,1 | Add contract docstring; import Footer fns; update 3 PARSERS entries |
+| `component_parsers/__init__.py` | 0a,0c,1 | Add contract docstring; `parse_unknown(elem)` + drop `parse_not_implemented`; import Footer fns; update 3 PARSERS entries |
 | `component_parsers/*.py` (~37) | 0b | Rename entry param `cmpt` → `elem` |
+| `components.py` | 0c | `select_parser` returns `None`; remove `run_parser` special branch; `not implemented` via `create_parsed_list_error` |
+| `tests/test_components.py` | 0c | New — pins unknown / not-implemented fallback behavior |
 | `component_parsers/footer.py` | 1 | Remove `Footer` class (keep module); methods → functions; `parse_image_card(s)` → `parse_img_card(s)` |
 | `component_parsers/notices.py` | 2 | Remove `NoticeParser`; methods → functions; dicts → module constants |
 ## Open Questions
