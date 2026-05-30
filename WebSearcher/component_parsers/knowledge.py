@@ -10,6 +10,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, node_string, walk_descendants
 from ..utils import slugify
+from ._common import parse_alink
 from .general import parse_general_result
 
 
@@ -45,7 +46,7 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
             href = a.attributes.get("href")
             if href is not None and href != "#" and href not in seen_urls:
                 seen_urls.add(href)
-                urls.append(parse_alink(a))
+                urls.append(parse_alink(a, "|"))
         details["urls"] = urls
 
     h2 = node.css_first("h2")
@@ -212,7 +213,3 @@ def _first_external_link(node: Node) -> dict | None:
             continue
         return {"url": href, "text": get_text(a, " ", strip=True) or ""}
     return None
-
-
-def parse_alink(a: Node) -> dict:
-    return {"url": a.attributes["href"], "text": get_text(a, "|") or ""}

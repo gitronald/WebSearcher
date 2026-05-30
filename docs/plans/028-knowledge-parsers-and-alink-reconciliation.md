@@ -1,6 +1,6 @@
 ---
-status: draft
-branch:
+status: in-progress
+branch: claude/post-merge-status-check-52Z1B
 created: 2026-05-30T00:00:00-07:00
 completed:
 pr:
@@ -10,10 +10,20 @@ pr:
 
 ## Status
 
-Deferred / not started. Split out of
+In progress. Split out of
 `027-component-parser-class-vs-function-standardization.md`, which deliberately
-scoped this out. 027 (class→function) can land independently of this plan;
-this plan does not block it.
+scoped this out. 027 (class→function) landed independently (PR #139).
+
+## Decisions (locked)
+
+- **Scope: full rethink.** Reconcile `parse_alink`, restructure the knowledge
+  dispatch to be table-driven, share a spine between `knowledge` and
+  `knowledge_rhs` where it pays off, align `details`, and close the sub_type
+  registry.
+- **`parse_alink` href-missing: lenient.** A missing `href` yields `url=None`
+  rather than raising. In practice every current call site already guards
+  `"href" in a.attributes` / `href is not None`, so this is forward-looking
+  insurance, not a snapshot change (verified: all four call sites guarded).
 
 ## Why this is its own plan
 
@@ -83,13 +93,50 @@ type (`parse_knowledge_rhs` + main/sub helpers) and shares no code with
   helper live (`_slx.py`, a `component_parsers/_common.py`, or per-parser),
   and which `parse_alink` behavior wins per call site?
 
-## Suggested sequencing (to be fleshed out)
+## Inventory (step 1 — done)
 
-1. Map every knowledge / knowledge_rhs sub_type to its current selectors,
-   output fields, and `details` shape (inventory before redesign).
-2. Decide dispatch shape + whether the two types share a spine.
-3. Settle link parsing and reconcile `parse_alink` as a byproduct of (2).
-4. Align `details` with the typed-details plan.
+Source-of-truth survey driving the redesign:
 
-(Intentionally left as a skeleton — fill in after 027 lands and we decide how
-far the knowledge rethink should go.)
+- **`parse_alink`**: 4 defs, 3 behaviors (table in Finding 1). All call sites
+  guard href presence today.
+- **Dispatch**: `parse_knowledge_panel` is a 13-branch `if/elif` cascade.
+  Branch order is significant and two branches are *conditional consumers*:
+  - `things_to_know` matches on `span[role=heading].IFnjPb` presence but only
+    sets `sub_type` when the heading text is in the known set — otherwise the
+    chain is consumed with **no `sub_type` key** (must be preserved).
+  - the dynamic `slugify` branch requires *both* `div.JNkvid` **and** a
+    `[role=heading][aria-level=2]`; with JNkvid but no section heading it falls
+    through to `panel`.
+- **Registry drift**: `extractor_rhs.py` assigns component `type="knowledge_rhs"`
+  (registry-valid), but `parse_knowledge_rhs` normalizes result rows to
+  `type="knowledge"`, `sub_type="panel_rhs"`. `"panel_rhs"` is **absent** from
+  the `knowledge` ComponentType's `sub_types` tuple. The dynamic `slugify`
+  branch also mints sub_types outside any closed set.
+- **Snapshot coverage** (the safety net): `panel`, `panel_rhs`,
+  `featured_results`, `translate`, `weather`, `unit_converter`,
+  `things_to_know`, `sports`, `dictionary`. **Uncovered**: `featured_snippet`,
+  `finance`, `calculator`, `election`, dynamic `slugify`. These need pinning
+  unit tests authored *before* the dispatch refactor.
+
+## Sequencing (resolved)
+
+**Phase 1 — `parse_alink` reconciliation.** New `component_parsers/_common.py`
+with one parameterized `parse_alink(a, sep="", data_url_fallback=False)` (lenient
+`.get`) + the shared `parse_alink_list`. Repoint all four parsers; delete the
+four private copies. Output-preserving (all call sites guarded; no carousel
+snapshots exist).
+
+**Phase 2 — table-driven knowledge dispatch.** Convert the 13-branch cascade to
+an ordered `(detector, handler)` registry mirroring `notices.py`/`classifiers`.
+Mechanical / behavior-preserving by construction. Author pinning unit tests for
+the five uncovered sub_types first.
+
+**Phase 3 — shared spine + `details` + registry close-out.** Factor the
+extraction helpers shared by `knowledge` and `knowledge_rhs` (link list, image
+grid, details assembly) into `_common.py`. Add `panel_rhs` to the registry;
+decide the dynamic `slugify` sub_type's fate (closed registry vs documented
+open set). Align `details` shapes with the typed-details direction
+(`001`/`002`).
+
+Each phase is a separate commit, gated on the full suite staying green
+(snapshots updated only where the lenient/coalescing change is intentional).

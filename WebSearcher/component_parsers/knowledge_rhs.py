@@ -10,6 +10,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, next_sibling, next_siblings, previous_sibling
+from ._common import parse_alink
 
 
 def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
@@ -151,7 +152,3 @@ def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict:
         parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return parsed
-
-
-def parse_alink(a: Node) -> dict:
-    return {"url": a.attributes["href"], "text": get_text(a) or ""}
