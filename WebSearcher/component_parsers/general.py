@@ -10,6 +10,7 @@ import re
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
+from ._common import parse_alink_list
 
 
 def parse_general_results(elem) -> list:
@@ -76,18 +77,6 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
         parsed["error"] = "no title or url"
 
     return parse_subtype_details(sub, parsed)
-
-
-def parse_alink(a: Node) -> dict:
-    return {"url": a.attributes["href"], "text": get_text(a) or ""}
-
-
-def parse_alink_list(alinks) -> list:
-    items = []
-    for a in alinks:
-        if a.tag and not a.tag.startswith("-") and "href" in a.attributes:
-            items.append(parse_alink(a))
-    return items
 
 
 def parse_subtype_details(sub: Node, parsed: dict) -> dict:
