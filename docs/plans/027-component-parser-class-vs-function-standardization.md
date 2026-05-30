@@ -172,10 +172,15 @@ proposed here. We accept `footer.py` as a deliberate section module.)
 
 ## Standardization Plan
 
-### Phase 0 — Write down the contract (no code change)
+### Phase 0 — Establish the contract *and* apply it
 
-Add a short "Parser contract" section to `component_parsers/__init__.py`'s
-module docstring (or a `CONTRIBUTING` note):
+Declaring the contract and making the code conform to it are the same step:
+the contract says the first parameter is `elem`, so this phase both writes it
+down and renames the misnamed `cmpt` parameters. Doing this first means the
+Phase 1/2 class conversions are written against an already-true contract.
+
+**0a. Write the contract.** Add a short "Parser contract" section to
+`component_parsers/__init__.py`'s module docstring (or a `CONTRIBUTING` note):
 
 - Entry parser signature: `def parse_<type>(elem: Node, sub_rank: int = 0) -> list[dict]`
 - First parameter is **`elem`** (a selectolax `LexborNode`), never `cmpt`.
@@ -183,6 +188,16 @@ module docstring (or a `CONTRIBUTING` note):
 - Per-item helper: `def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict`.
 - Constants (selector tables, sub-type text maps) live at module scope in
   `UPPER_SNAKE_CASE`, built once at import.
+
+**0b. Apply it — rename `cmpt` → `elem`.** Mechanically rename the entry-parser
+first parameter from `cmpt` to `elem` across the ~37 affected files so the name
+matches reality (it is always a Node). The positional call site
+(`parser_func(self.elem)`) is unaffected. Leave genuine `cmpt: Node` *helper*
+params that take sub-nodes alone — only the entry parser's first arg is
+misnamed. `footer.py` already uses `elem`, so it's exempt from the rename.
+
+Land 0a and 0b as two commits (doc, then mechanical sweep) for a clean,
+reviewable diff.
 
 ### Phase 1 — `Footer` class → functions, `footer.py` stays a section module (low risk)
 
@@ -220,16 +235,7 @@ is preserved.
 Covered by existing notices tests (`tests/test_component_types.py` and any
 notice fixtures) — behaviour must stay identical.
 
-### Phase 3 — Normalize the first-param name `cmpt` → `elem` (cosmetic)
-
-Mechanically rename the entry-parser first parameter from `cmpt` to `elem` in
-the 37 affected files so the name matches reality (a Node). Positional call
-site is unaffected. Can be a single sweep or folded into Phases 1–2; keep it
-as its own commit for a clean diff. Leave genuine `cmpt: Node` *helper*
-params that already take sub-nodes alone — only the entry parser's first arg
-is the misnamed one.
-
-### Phase 4 — (Optional, separate) dedupe `parse_alink`
+### Phase 3 — (Optional, separate) dedupe `parse_alink`
 
 `parse_alink` is independently defined in `general.py`, `knowledge.py`,
 `knowledge_rhs.py`, and `top_image_carousel.py`. Not a class/function-style
@@ -257,14 +263,12 @@ separate commits/PRs.
 
 | File | Phase | Change |
 |------|-------|--------|
-| `component_parsers/__init__.py` | 0,1 | Add contract docstring; import Footer fns; update 3 PARSERS entries |
+| `component_parsers/__init__.py` | 0a,1 | Add contract docstring; import Footer fns; update 3 PARSERS entries |
+| `component_parsers/*.py` (~37) | 0b | Rename entry param `cmpt` → `elem` |
 | `component_parsers/footer.py` | 1 | Remove `Footer` class (keep module); methods → functions; `parse_image_card(s)` → `parse_img_card(s)` |
 | `component_parsers/notices.py` | 2 | Remove `NoticeParser`; methods → functions; dicts → module constants |
-| `component_parsers/*.py` (37) | 3 | Rename entry param `cmpt` → `elem` |
-| `_slx.py` / `_common.py` | 4 (opt) | Shared `parse_alink` |
+| `_slx.py` / `_common.py` | 3 (opt) | Shared `parse_alink` |
 
 ## Open Questions
 
-1. Phase 3 rename — do it now (clarity) or defer to avoid a wide cosmetic
-   diff across 37 files?
-2. Phase 4 `parse_alink` dedup — fold in now or track as its own cleanup?
+1. Phase 3 `parse_alink` dedup — fold in now or track as its own cleanup?
