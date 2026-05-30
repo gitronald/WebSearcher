@@ -113,7 +113,7 @@ def _root_html(node: Node) -> str:
     """Document HTML for payload extraction.
 
     The ``lDPB.push`` fallback payload form lives in script tags outside the
-    AI overview cmpt, so we need the full document. ``parse_serp`` publishes
+    AI overview component, so we need the full document. ``parse_serp`` publishes
     the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
     serializing the document root when called outside that context (e.g.
     direct tests of the parser).
