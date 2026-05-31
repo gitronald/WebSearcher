@@ -206,12 +206,16 @@ a per-name recipe (the existing `_STANDARD_LAYOUTS` entries) is the wrong shape.
 election, book/author) were added to `tests/fixtures/serps.json.bz2` with baseline
 snapshots capturing the dropped state.
 
-## The fix (interim — superseded by [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md))
+## The fix (interim — now replaced by the sub-column model, [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md))
 
-> This `div.g → general` recovery is sound only for *uniformly-organic* tabs; check 4
-> showed it mislabels/misses content on rich tabs. Kept here as the worked example of
-> the iteration; the durable fix is sub-column parsing (plan 033). Read on for the
-> reasoning and the wrong turns it cost.
+> **The durable fix shipped.** The `div.g → general` recovery below was the interim
+> step; the sub-column model (plan 033) has since replaced it: `extract_from_standard`
+> detects when a `kp-wholepage` panel has collapsed the main column into its active
+> tab, then flattens that tab into its component blocks and routes each through the
+> normal classify→parse pipeline (so organics, `top_stories`, `videos`, knowledge
+> cards, and the new `election_*` widgets each land as their true type). This section
+> is kept as the worked example of the iteration — the reasoning and the wrong turns
+> the interim recovery cost — not as the current implementation.
 
 Give the swallowed case its **own layout** rather than force-fitting it into the
 generic `standard` extractor. In `extract_from_standard`, after the existing
