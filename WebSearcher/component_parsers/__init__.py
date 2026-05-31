@@ -35,6 +35,7 @@ from .available_on import parse_available_on
 from .banner import parse_banner
 from .buying_guide import parse_buying_guide
 from .discussions_and_forums import parse_discussions_and_forums
+from .elections import parse_election_dates, parse_election_resources, parse_election_results
 from .flights import parse_flights
 from .footer import parse_discover_more, parse_img_cards, parse_omitted_notice
 from .general import parse_general_results
@@ -80,6 +81,9 @@ PARSERS = {
     "buying_guide": parse_buying_guide,
     "discover_more": parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
+    "election_dates": parse_election_dates,
+    "election_resources": parse_election_resources,
+    "election_results": parse_election_results,
     "flights": parse_flights,
     "general": parse_general_results,
     "general_questions": parse_general_questions,

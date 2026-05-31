@@ -44,8 +44,29 @@ def find_subcomponents(node: Node) -> list[Node]:
     if subs:
         return subs
 
+    # Bare organics: several div.tF2Cxc with no div.g wrapper (e.g. a finance /
+    # airfares kp-wholepage tab groups multiple organics in one container). Split
+    # into one result per tF2Cxc so they are not collapsed into a single result.
+    # People-Also-Ask sources (a tF2Cxc inside div.related-question-pair) are not
+    # organics and are excluded. Gated to the multi-tF2Cxc case so single-result
+    # blocks keep the whole-node fallback below.
+    tfs = [n for n in node.css("div.tF2Cxc") if n.mem_id != self_id and not _in_paa_source(n, node)]
+    if len(tfs) > 1:
+        return tfs
+
     # Fallback: treat entire component as single result
     return [node]
+
+
+def _in_paa_source(sub: Node, root: Node) -> bool:
+    """True if ``sub`` sits inside a People-Also-Ask ``div.related-question-pair``
+    within ``root`` -- a PAA answer source, not an organic result."""
+    node = sub.parent
+    while node is not None and node.mem_id != root.mem_id:
+        if "related-question-pair" in class_tokens(node):
+            return True
+        node = node.parent
+    return False
 
 
 def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
