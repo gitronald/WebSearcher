@@ -3,7 +3,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from .. import logger
-from .._slx import class_tokens, get_text
+from .._slx import _iter_text_fragments, class_tokens, get_text
 from ..component_types import header_text_to_type
 
 log = logger.Logger().start(__name__)
@@ -186,10 +186,10 @@ class ClassifyMain:
         """Classify general components."""
         node: Node = cmpt
         node_id = node.mem_id
-        cls = class_tokens(node)
         # bs4 distinguished "class" present vs absent via ``"class" in cmpt.attrs``
         # -- preserve that distinction explicitly.
         if "class" in node.attributes:
+            cls = class_tokens(node)
             conditions = {
                 "format-01": cls == ["g"],
                 "format-02": ("g" in cls) and ("Ww4FFb" in cls),
@@ -268,30 +268,14 @@ class ClassifyMain:
         condition["locations"] = node.css_first("div.zd2Jbb") is not None
         condition["events"] = node.css_first("g-card.URhAHe") is not None
         condition["jobs"] = node.css_first("g-card.cvoI5e") is not None
-        # bs4 ``next(iter(cmpt.stripped_strings), None)`` -- first non-blank
-        # text fragment in the subtree. Use the _slx walker indirectly via
-        # iter_text_fragments-style filter.
+        # bs4 ``next(iter(cmpt.stripped_strings), None)`` -- first non-blank text
+        # fragment in the subtree; ``_iter_text_fragments`` replicates stripped_strings.
         first_text: str | None = None
-        for s in (get_text(node) or "").splitlines():
-            s2 = s.strip()
-            if s2:
-                first_text = s2
-                break
-        if first_text is None:
-            # fallback: pull first non-whitespace fragment from text walker
-            text = get_text(node) or ""
-            first_text = text.strip().split()[0] if text.strip() else None
-        # Simpler & more faithful: replicate stripped_strings exactly via the
-        # _slx iter_text_fragments walker.
-        from .._slx import _iter_text_fragments
-
         for raw in _iter_text_fragments(node):
             stripped = raw.strip()
             if stripped:
                 first_text = stripped
                 break
-        else:
-            first_text = None
         if first_text is not None:
             condition["covid_alert"] = first_text == "COVID-19 alert"
         for condition_type, conditions in condition.items():

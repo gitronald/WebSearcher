@@ -13,3 +13,6 @@ class SERPFeatures(BaseModel):
     infinity_scroll: bool = False
     overlay_precise_location: bool = False
     captcha: bool = False
+    # Main-section layout label assigned during extraction, e.g. "standard",
+    # "standard-overview". None when no layout was detected.
+    main_layout: str | None = None

@@ -28,9 +28,9 @@ class ClassifyFooter:
 
         cmpt_type = "unknown"
         for classifier in classifier_list:
+            cmpt_type = classifier(node)
             if cmpt_type != "unknown":
                 break
-            cmpt_type = classifier(node)
 
         # Fall back to main classifier
         if cmpt_type == "unknown":

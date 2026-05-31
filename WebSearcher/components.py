@@ -40,16 +40,12 @@ class Component:
         self.type = type
         self.cmpt_rank = cmpt_rank
         self.result_list: list[dict] = []
-        self.result_counter = 0
 
     def __str__(self) -> str:
         return str(vars(self))
 
     def to_dict(self) -> dict:
         return self.__dict__
-
-    def get_metadata(self, key_filter=["section", "cmpt_rank"]) -> dict:
-        return {k: v for k, v in self.to_dict().items() if k in key_filter}
 
     def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""
@@ -150,7 +146,7 @@ class ComponentList:
 
     def add_component(self, elem, section="unknown", type="unknown", cmpt_rank=None):
         """Add a component to the list of components"""
-        cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
+        cmpt_rank = self.cmpt_rank_counter if cmpt_rank is None else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
 
         self.components.append(component)
@@ -227,4 +223,4 @@ class ComponentList:
         return results
 
     def to_records(self):
-        return [Component.to_dict() for Component in self.components]
+        return [cmpt.to_dict() for cmpt in self.components]

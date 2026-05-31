@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": true,
     "language": "en",
+    "main_layout": "standard-overview",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
