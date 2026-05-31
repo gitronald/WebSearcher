@@ -146,7 +146,7 @@ class ComponentList:
 
     def add_component(self, elem, section="unknown", type="unknown", cmpt_rank=None):
         """Add a component to the list of components"""
-        cmpt_rank = self.cmpt_rank_counter if not cmpt_rank else cmpt_rank
+        cmpt_rank = self.cmpt_rank_counter if cmpt_rank is None else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
 
         self.components.append(component)

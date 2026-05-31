@@ -7,7 +7,7 @@ guards the fixed behavior.
 """
 
 from WebSearcher import utils
-from WebSearcher.components import Component
+from WebSearcher.components import Component, ComponentList
 
 
 def comp(inner: str):
@@ -45,3 +45,19 @@ def test_select_parser_returns_callable_for_unknown_and_registered():
     assert callable(unknown_c.select_parser())
     general_c = Component(comp("<span>x</span>"), section="main", type="general")
     assert callable(general_c.select_parser())
+
+
+def test_add_component_auto_increments_rank_from_zero():
+    cl = ComponentList()
+    cl.add_component(comp("<span>a</span>"), section="main")
+    cl.add_component(comp("<span>b</span>"), section="main")
+    assert [c.cmpt_rank for c in cl.components] == [0, 1]
+
+
+def test_add_component_honors_explicit_zero_rank():
+    # cmpt_rank=None is the "auto-assign" sentinel; an explicit 0 must be kept,
+    # not treated as falsy-missing (it would otherwise pick up the counter, 1).
+    cl = ComponentList()
+    cl.add_component(comp("<span>a</span>"), section="main")  # auto rank 0, counter -> 1
+    cl.add_component(comp("<span>b</span>"), section="main", cmpt_rank=0)
+    assert cl.components[1].cmpt_rank == 0
