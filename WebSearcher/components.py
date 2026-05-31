@@ -47,9 +47,6 @@ class Component:
     def to_dict(self) -> dict:
         return self.__dict__
 
-    def get_metadata(self, key_filter=["section", "cmpt_rank"]) -> dict:
-        return {k: v for k, v in self.to_dict().items() if k in key_filter}
-
     def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""
         if classify_type_func:
