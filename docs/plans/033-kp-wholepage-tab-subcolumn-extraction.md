@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/kp-wholepage-subcolumn
 created: 2026-05-31T15:16:14-07:00
-completed:
+completed: 2026-05-31T16:42:41-07:00
 pr:
 ---
 
@@ -271,3 +271,5 @@ alive, and made "recipe-native panels unchanged or improved" literally true. The
 adversarial audit (guide check 3/4) caught two regressions a green snapshot would have
 frozen: a feedback/onebox block mis-typed as `general`, and verifying the footloose URL
 overlap was two distinct components rather than a double-extraction.
+
+Merged into `feature/v0.9.0` via `--no-ff` on 2026-05-31 (local integration branch, no PR).
