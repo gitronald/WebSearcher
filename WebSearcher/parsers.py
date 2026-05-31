@@ -39,9 +39,12 @@ def parse_serp(serp: str | Node) -> dict:
     finally:
         raw_serp_html.reset(token)
 
+    # Forward raw HTML (when available) + soup so feature extraction takes the
+    # regex path and reuses the already-parsed soup for shared probes. The main
+    # layout label is internal to extraction, so surface it on the features here.
+    features = FeatureExtractor.extract_features(serp, soup=soup)
+    features.main_layout = extractor.main_handler.layout_label
     return {
-        # Forward raw HTML (when available) + soup so feature extraction takes
-        # the regex path and reuses the already-parsed soup for shared probes.
-        "features": FeatureExtractor.extract_features(serp, soup=soup).model_dump(),
+        "features": features.model_dump(),
         "results": results,
     }
