@@ -224,10 +224,16 @@ This keeps **3 sky-blue records** (the 2 rich reps `aa594f199c3d`/`6aa70651b0cd`
 the thin-shape representative `7049404a2dd6`), one of each near-duplicate pair
 (streaming, paragraph-query), and every record with a unique distinct-type sequence.
 
-- **Details confirmation (required before deletion):** for each of the 8, diff its
-  parsed `results` (including `details`) against its preserving record; only delete
-  if `details` adds no parser branch the survivor lacks. Use `scripts/reparse_demo.py`
-  / `scripts/show_parsed.py`.
+- **Details confirmation (DONE — all 8 cleared).** `scripts/verify_drops.py`
+  checks each drop's coverage (component, details key-shape, error, field-presence)
+  against the *whole* 80-record surviving corpus, not just its preserver: 0 drop-only
+  items on every metric. An 8-agent adversarial pass then did a value-level `details`
+  comparison, instructed to actively rescue: all 8 returned SAFE_TO_DROP. The only
+  value-level differences found were `ai_overview` citation/source **counts** (e.g.
+  drop has 3 citations/8 sources vs preserver's 2/6) — data variation, not a parser
+  branch (the citation extractor iterates without count-conditional logic), and those
+  count shapes are independently exercised by other survivors (`aa594f199c3d`,
+  `6aa70651b0cd`, `9101d12ab778`, `da9b4fce9ab0`). Safe to delete all 8.
 - Apply drops: remove the 8 records from the consolidated file and **delete the
   matching `tests/__snapshots__/test_parse_serp/test_parse_serp[<serp_id[:12]>].json`**.
   Keep `f6fae1c9a96e` regardless (sole snapshot-set `standard-overview`).
