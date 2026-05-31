@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed a `no-rso` layout bug where the trailing page-level section was appended once per preceding block, duplicating its content
 - Fixed `ComponentList.add_component` to honor an explicit `cmpt_rank` of `0` (the previous falsy check replaced rank `0` with the auto-counter)
 - Added characterization tests pinning every main-layout routing and extraction branch; package-wide simplification pass (dead-code removal, shared-helper reuse, hoisted regex compilation) with no behavior change
+- Parse whole-page knowledge-panel (`kp-wholepage`) tabs as a sub-column: when the panel has collapsed the main result column into its active tab, the tab's heterogeneous blocks (organics, `top_stories`, `videos`, knowledge cards, and specialized widgets) are each routed through the normal classify/parse pipeline instead of being emitted as one mislabeled component. Anchors on the stable `kp-wp-tab-cont-*` id and flattens grouping wrappers, recovering organics that were silently dropped on election/entity panels whose blocks nest under a wrapper the per-tab recipes could not reach (an Arizona-primaries-style panel went from 0 organics to the full column). The `standard-overview`/`standard-airfares` recipes still claim the panels they natively and fully handle (output unchanged); the sub-column model takes over only when a recipe under-extracts. Supersedes the interim `div.g`-only recovery
+- Split bare-`tF2Cxc` organic bundles in `general` components into one result per organic (excluding People-Also-Ask sources), instead of collapsing them to a single result — recovers the organics on finance-style panels (e.g. an `aapl stock price` panel went from 1 to 9 organics)
+- Added `election_dates`, `election_results`, and `election_resources` component types for the election widgets embedded in whole-page election panels
 
 ## [0.8.6] - 2026-05-26
 

@@ -102,6 +102,27 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Forum and discussion board results",
     ),
     ComponentType(
+        name="election_dates",
+        label="Election Dates",
+        sections=("main",),
+        header_texts={2: ("Election dates",)},
+        description="Calendar of upcoming primary/general election dates",
+    ),
+    ComponentType(
+        name="election_resources",
+        label="Election Resources",
+        sections=("main",),
+        header_texts={2: ("Election resources",)},
+        description="Official voter-resource panel (register, where/how to vote)",
+    ),
+    ComponentType(
+        name="election_results",
+        label="Election Results",
+        sections=("main",),
+        header_texts={2: ("Election results", "Presidential primary results")},
+        description="Live election-results tracker / primary-results panel",
+    ),
+    ComponentType(
         name="general",
         label="General",
         sections=("main", "footer"),

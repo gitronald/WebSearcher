@@ -1,8 +1,8 @@
 ---
-status: draft
+status: done
 branch: feature/kp-wholepage-subcolumn
 created: 2026-05-31T15:16:14-07:00
-completed:
+completed: 2026-05-31T16:42:41-07:00
 pr:
 ---
 
@@ -173,3 +173,103 @@ for structural diversity per [fixture-corpus.md](fixture-corpus.md).
   knowledge-tab cards — diff "central park"/"mater" output before/after.
 - **New-type scope**: the election widgets may be specific to election queries; decide
   whether they belong in shared classification or a kp-wholepage-only path.
+
+## Log
+
+### 2026-05-31 — implementation (branch `feature/kp-wholepage-subcolumn`)
+
+Implemented the sub-column model and the new component types. Suite green: **335
+passed, 4 skipped, 86 snapshots**; corpus integrity (`verify_drops.py`) passes.
+
+**Grounding (real SERPs).** Mapped the structure against `temp/serps/{az_primaries,
+us_election,aapl_stock,good_times_cast,carry_on_movies}.html` plus all 19
+`kp-wholepage` corpus records. Key findings that shaped the design:
+
+- The block container varies: az/us nest organics under a `HaEtFf` grouping wrapper;
+  good_times/carry_on/aapl put blocks as direct children of `kp-wp-tab-<Tab>`. So
+  "TzHB6b children" is the wrong anchor. The robust rule is: pick the active
+  `kp-wp-tab-cont-*` tab (most block markers), descend through sole non-marker
+  wrappers to the block container, then flatten any grouping wrapper inside it.
+- **Collapse gate.** Every mini-SERP case has `#rso` collapsed to the single panel
+  (`rso_children == 1`) with no `div.g` organics outside the panel; every
+  *complementary* side panel (define judgement, taylor swift, …) has organics
+  elsewhere or no `kp-wp-tab-cont-*`. Gate = `div.kp-wholepage` present, no organics
+  outside it, and the active tab has blocks. This fires on all 12 mini-SERPs and none
+  of the 7 side panels.
+
+**Recipe vs sub-column (the open question).** Decided to *keep* the `standard-overview`
+/`standard-airfares` recipes for panels they natively and fully handle (blocks are
+direct token children) and route through the sub-column only when a recipe
+*under-extracts* (`_kp_recipe_underextracts`: the sub-column finds more blocks than the
+recipe's direct `keep_tokens` children — the `HaEtFf`-nesting case). Result: the 7
+recipe-native corpus snapshots (mater, central park, oscar, doctor zhivago, pitbull,
+cheap flights, aapl) are byte-identical (aapl improved via the `tF2Cxc` split), and the
+`standard-overview`/`standard-airfares` labels survive (`test_features_expose_main_layout`).
+This honors "recipes that natively and fully handle their panel keep their label."
+
+**Changes.**
+- `extractors/extractor_main.py`: removed `_kp_wholepage_organics`; added
+  `_kp_active_tab`, `_kp_marker_ancestors`, `_kp_emit_blocks`, `_kp_subcolumn`,
+  `_kp_organics_outside`, `_kp_recipe_underextracts`; rewrote `extract_from_standard`
+  to try recipes first, fall through to the sub-column when a recipe under-extracts,
+  else detect the collapsed panel and return `top_divs + sub_column`.
+- `component_parsers/general.py`: `find_subcomponents` now splits a multi-`tF2Cxc`
+  no-`div.g` block into one result per organic, excluding PAA sources
+  (`div.related-question-pair`). Gated to the multi-`tF2Cxc` case.
+- Added `election_dates`, `election_results`, `election_resources` component types
+  (`component_types.py`), classified via `ClassifyMainHeader` header text
+  ("Election dates", "Election resources", "Election results"/"Presidential primary
+  results"); `election_results`' live tracker carries no `role="heading"`, so a
+  structural `ClassifyMain.election` anchors it on the stable `eer-masthead`/`eer-rc-b`
+  classes. Parser: `component_parsers/elections.py` (heading + outbound resource links).
+- `classifiers/main.py`: also classify the knowledge-vertical onebox
+  (`[id$="__onebox_content"]`, e.g. the pronunciation practice widget) as `knowledge`,
+  fixing a no-title `general` row exposed by the sub-column on `education pronunciation`.
+- Fixture: appended `az primaries` to `tests/fixtures/serps.json.bz2` (sole carrier of
+  all three election types — a kp-wholepage election mini-SERP) and regenerated its
+  snapshot. Re-audited and regenerated the 5 suspect `standard-kp-wholepage` snapshots
+  (alicia keys, education, footloose, election popular vote, books) by type and the
+  aapl snapshot.
+
+**Verification (guide checks).** Distinct organic URLs with no self-dupes; the only
+general/other URL overlaps are pre-existing (books → Wikipedia) or legitimately distinct
+components (footloose images carousel vs. organic); the only error rows are the
+pre-existing `knowledge_rhs` "no subcomponents parsed". az_primaries types every block
+correctly (10 organics + election_dates/results/resources + top_stories + knowledge +
+knowledge_rhs, in DOM order, zero `unknown`).
+
+**Finance variant — resolved.** The `aapl` overview tab carries only `top_stories`, a
+PAA block, a bare-`tF2Cxc` organics bundle (now split to 9), and `searches_related` —
+all existing types. The finance entity summary lives in the knowledge panel /
+`featured_results`. **No new finance component type is needed.**
+
+**Deferred.** `us_election.html` was *not* added as a fixture: its "From Ballotpedia and
+others &lt;date range&gt;" calendar variant of the dates widget carries no heading and no
+`eer-`/stable anchor, so it still classifies as `unknown`. az_primaries already covers
+all three new types; adding a structural signal for the headingless calendar needs a
+confirmed, drift-resistant marker (the obfuscated classes shared by az/us are not
+trustworthy) and is left for follow-up. "Presidential primary results" (`LWiyT`) is
+registered as an `election_results` header variant but does not surface as a top-level
+block in the current fixtures (it nests inside the panel).
+
+## Retrospective
+
+What worked: grounding every decision in real SERPs before writing code. The
+investigation surfaced three things the plan's spec had wrong or unknown — (1) the
+plan's named anchor classes (`kb0PBd`/`cvP2Ce`/`jGGQ5e`, `LWiyT`→results,
+`T6zPgb`→resources) are unreliable (generic kp classes appearing 30-40× per page, or
+mapped to the wrong widget); heading text + the semantic `eer-` prefix proved far more
+stable; (2) the block container is not uniformly "TzHB6b children" — it ranges from a
+deep `HaEtFf` wrapper to direct tab children, which forced the descend-then-flatten
+design; (3) the `format-06` classifier hack the plan said to remove was never actually
+committed. The `rso_children == 1` collapse signal cleanly separated mini-SERPs from
+complementary side panels across the whole corpus.
+
+The decision to keep the working recipes (rather than replace them wholesale) kept the
+blast radius to exactly the records that were broken, kept the witnessed layout labels
+alive, and made "recipe-native panels unchanged or improved" literally true. The
+adversarial audit (guide check 3/4) caught two regressions a green snapshot would have
+frozen: a feedback/onebox block mis-typed as `general`, and verifying the footloose URL
+overlap was two distinct components rather than a double-extraction.
+
+Merged into `feature/v0.9.0` via `--no-ff` on 2026-05-31 (local integration branch, no PR).

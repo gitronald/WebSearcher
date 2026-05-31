@@ -172,6 +172,36 @@ below until it was checked by hand. Four checks, all cheap:
    `unknown` to become new component types). A marker-based recovery is only safe for a
    region that is *uniformly* the type you assume.
 
+## If the region is a mini-SERP: parse it as a sub-column
+
+When check 4 shows a whole mini-SERP (organics interleaved with widgets, carousels,
+and Q&A panels), feed its blocks through the same `classify→parse` pipeline the main
+column uses, rather than cherry-picking by marker. Four things made this robust when
+it shipped (the kp-wholepage sub-column model, [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md)):
+
+- **Gate on the *collapse* signal, not the panel's mere presence.** Fire only when the
+  panel *is* the column — there are **no `div.g` organics in `#rso` outside the
+  panel**. A *complementary* side panel (one that sits beside an intact organic column)
+  has organics outside it, and must be left alone. This one predicate cleanly separated
+  every collapsed mini-SERP from every side panel across the corpus.
+- **Anchor on stable ids and heading text, not obfuscated wrapper classes.** Google's
+  block classes drift and overload: the same class names that "look" like anchors
+  (`HaEtFf`, `TzHB6b`, `kb0PBd`, `LWiyT`, `T6zPgb` …) recur 30–40× per page, get reused
+  for unrelated widgets, or map to a *different* widget than you guessed. Anchor on the
+  stable `kp-wp-tab-cont-*` id, on heading text, and on semantic id prefixes (e.g.
+  `eer-` for the election-results tracker) — and treat the obfuscated classes as hints
+  only, *pinned* by fixtures because they will drift.
+- **The block container isn't uniform — descend, then flatten.** Some panels nest the
+  blocks under a grouping wrapper (`HaEtFf`), others list them as direct tab children,
+  finance groups them in `A6K0A`. Descend through sole non-marker wrappers to the
+  container, then flatten any grouping wrapper so each block lands at top level — not
+  the wrapper emitted as one lump, and not a real block over-split.
+- **Keep the paths that already work; fall through only where they under-extract.**
+  Don't replace a recipe that fully handles its panel. Route to the sub-column only when
+  the existing path recovers *fewer* blocks than the tab actually holds. That keeps the
+  working outputs byte-identical, preserves their `main_layout` labels, and shrinks the
+  blast radius to exactly the records that were broken.
+
 ---
 
 ## Worked example: organics swallowed by `kp-wholepage` whole-page panels
@@ -206,12 +236,16 @@ a per-name recipe (the existing `_STANDARD_LAYOUTS` entries) is the wrong shape.
 election, book/author) were added to `tests/fixtures/serps.json.bz2` with baseline
 snapshots capturing the dropped state.
 
-## The fix (interim — superseded by [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md))
+## The fix (interim — now replaced by the sub-column model, [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md))
 
-> This `div.g → general` recovery is sound only for *uniformly-organic* tabs; check 4
-> showed it mislabels/misses content on rich tabs. Kept here as the worked example of
-> the iteration; the durable fix is sub-column parsing (plan 033). Read on for the
-> reasoning and the wrong turns it cost.
+> **The durable fix shipped.** The `div.g → general` recovery below was the interim
+> step; the sub-column model (plan 033) has since replaced it: `extract_from_standard`
+> detects when a `kp-wholepage` panel has collapsed the main column into its active
+> tab, then flattens that tab into its component blocks and routes each through the
+> normal classify→parse pipeline (so organics, `top_stories`, `videos`, knowledge
+> cards, and the new `election_*` widgets each land as their true type). This section
+> is kept as the worked example of the iteration — the reasoning and the wrong turns
+> the interim recovery cost — not as the current implementation.
 
 Give the swallowed case its **own layout** rather than force-fitting it into the
 generic `standard` extractor. In `extract_from_standard`, after the existing
@@ -285,9 +319,12 @@ It is correct only when a tab is *uniformly* organics (e.g. "footloose cast"). A
 really a **mini-SERP**: the marker-based recovery mislabeled an election-dates widget as
 `general` and missed an election-results panel, a `top_stories` block, and a resources
 panel entirely. And finance tabs ("aapl") render organics as bare `tF2Cxc` that a recipe
-extracts but whose general parser collapses to one result. The sound fix is to stop
+extracts but whose general parser collapses to one result. The sound fix was to stop
 cherry-picking and **parse the whole tab as a sub-column** through the normal
-classify→parse pipeline, adding component types for the specialized blocks — tracked in
-[plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md), which supersedes this
-recovery and the `format-06` classifier hack.
+classify→parse pipeline, adding component types for the specialized blocks — this
+shipped as the sub-column model in
+[plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md) (see *If the region
+is a mini-SERP* above), which superseded this recovery and added the `election_dates` /
+`election_results` / `election_resources` types. The `format-06` classifier hack the
+plan listed for removal was never actually committed.
 

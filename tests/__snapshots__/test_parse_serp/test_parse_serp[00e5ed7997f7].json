@@ -1,0 +1,361 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 3480000000.0,
+    "result_estimate_time": 0.59
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "2024 United States primary elections",
+        "img_url": null,
+        "text": "2024 United States primary elections|Arizona|Arizona|Overview|Overview|Overview|Dates|Dates|Dates|Results|Results|Results|How to vote|How to vote|How to vote|How to register|How to register|How to register|Where to vote|Where to vote|Where to vote",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "2024 United States primary elections Arizona Overview Dates Results How to vote How to register Where to vote",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://azsos.gov  › elections › voters › elections-calendar...",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Candidate  Filing for  Candidates  Participating in the  Presidential  Preference  Election  (PPE) on March19, 2024. Note:  Candidates  must be registered with a ...",
+      "title": "Elections Calendar & Upcoming Events",
+      "type": "general",
+      "url": "https://azsos.gov/elections/voters/elections-calendar-upcoming-events"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          {
+            "text": "Ballotpedia",
+            "url": "https://ballotpedia.org/Elections"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Election dates · Primaries · Arizona",
+      "type": "election_dates",
+      "url": null
+    },
+    {
+      "cite": "https://azsos.gov  › elections-calendar-upcoming-events",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Last day to register to vote for March 19, 2024  Presidential  Preference  Election  at 11:59 p.m.. February 21, 2024, Begin Early  Voting  for March 19, 2024 ...",
+      "title": "Election Dates | Arizona Secretary of State",
+      "type": "general",
+      "url": "https://azsos.gov/elections/voters/elections-calendar-upcoming-events/election-dates"
+    },
+    {
+      "cite": "https://www.azcleanelections.gov  › how-to-vote › primar...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "These elections may include U.S. Federal, Arizona Legislative, County, and local offices that are up for re-election.  Arizona Ballot  Box Banner.",
+      "title": "Primary Election",
+      "type": "general",
+      "url": "https://www.azcleanelections.gov/how-to-vote/primary-election"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "items": [
+          {
+            "text": "The Associated Press",
+            "url": "https://apnews.com/ap-elections-explained"
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/websearch?p=elections"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Election results for the 2020 US election are updated live and will refresh periodically. Turn off Live updates to avoid interruption.",
+      "type": "election_results",
+      "url": null
+    },
+    {
+      "cite": "https://ballotpedia.org  › Primary_elections_in_Arizona",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "In partisan  primaries , voters choose the  candidates  they prefer for a political party to nominate in the general  election . The laws governing  primary elections  ...",
+      "title": "Primary elections in Arizona",
+      "type": "general",
+      "url": "https://ballotpedia.org/Primary_elections_in_Arizona"
+    },
+    {
+      "cite": "https://www.azcleanelections.gov  › voting",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Election ,  Election  Type. May 21, 2024 Local  Elections , Coming Soon. July 30, 2024 Statewide  Primary Election , Coming Soon. November 05, 2024 Statewide ...",
+      "title": "Upcoming Arizona Elections",
+      "type": "general",
+      "url": "https://www.azcleanelections.gov/voting"
+    },
+    {
+      "cite": "https://www.usvotefoundation.org  › arizona-election-dat...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "There are many different deadlines associated with  Arizona elections , such as voter registration deadlines, absentee ballot request and ballot return deadlines, ...",
+      "title": "Arizona Election Dates and Deadlines",
+      "type": "general",
+      "url": "https://www.usvotefoundation.org/arizona-election-dates-and-deadlines"
+    },
+    {
+      "cite": "https://apnews.com  › projects › election-results-2024",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "AP will report available  results  after polls close on March 19 at 7 p.m..  Republican Democratic . AP logo estimates. 0% of votes counted ...",
+      "title": "Arizona primary results",
+      "type": "general",
+      "url": "https://apnews.com/projects/election-results-2024/arizona/"
+    },
+    {
+      "cite": "http://www.vote411.org  › node",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "If you are unaffiliated with any political party, you may request a  ballot  to vote in either the  Republican  or  Democratic primary . Note: The provision for an ...",
+      "title": "Arizona Primary Election Process",
+      "type": "general",
+      "url": "http://www.vote411.org/node/12130"
+    },
+    {
+      "cite": "https://www.arizona.vote",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Please put your early  ballot  in the mail 7 to 10 days before  Election  Day to ensure it arrives before the deadline! REMEMBER: This year, the  Democratic  and ...",
+      "title": "Arizona.Vote: Home",
+      "type": "general",
+      "url": "https://www.arizona.vote/"
+    },
+    {
+      "cite": "",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Biden, Trump likely to clinch nomination after Republican and Democratic \nprimaries in Washington, Georgia, Mississippi",
+      "type": "top_stories",
+      "url": "https://www.cbsnews.com/news/republican-primaries-washington-georgia-mississippi-trump-2024/"
+    },
+    {
+      "cite": "Arizona Secretary of State (.gov)",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "March Voter Registration Statistics Announced for 2024 Presidential \nPreference Election",
+      "type": "top_stories",
+      "url": "https://azsos.gov/news/398"
+    },
+    {
+      "cite": "Arizona Capitol Times",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "Arizona voters could have say on Tucson elections",
+      "type": "top_stories",
+      "url": "https://azcapitoltimes.com/news/2024/03/12/arizona-voters-could-have-say-on-tucson-elections/"
+    },
+    {
+      "cite": "https://elections.maricopa.gov  › voting › election-calendar",
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Voters have the option of  voting  in person, or if they are on the Active Early  Voting  List (AEVL) and receive a  ballot  by mail they have the options to return ...",
+      "title": "Important Election Dates and Deadlines",
+      "type": "general",
+      "url": "https://elections.maricopa.gov/voting/election-calendar.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "https://azsos.gov/",
+            "url": "https://azsos.gov/"
+          },
+          {
+            "text": "How do I vote?",
+            "url": "https://azsos.gov/elections/voters#voteinelections"
+          },
+          {
+            "text": "Am I eligible to vote?",
+            "url": "https://azsos.gov/block/political-party-affiliation"
+          },
+          {
+            "text": "What are the requirements to vote?",
+            "url": "https://azsos.gov/elections/voters/register-vote-update-voter-information/registration-requirements#:~:text=Qualifications%20for%20Registration,court%20of%20law."
+          },
+          {
+            "text": "How do I register to vote by mail?",
+            "url": "https://azsos.gov/elections/voters/register-vote-update-voter-information/registerupdate-vote#:~:text=Register/Update%20by,County%20Recorder%E2%80%99s%20office."
+          },
+          {
+            "text": "When is the deadline for voter registration?",
+            "url": "https://azsos.gov/elections/voters/register-vote-update-voter-information/registration-requirements"
+          },
+          {
+            "text": "How do I vote by mail?",
+            "url": "https://azsos.gov/votebymail"
+          },
+          {
+            "text": "How do I vote without going to my official polling station?",
+            "url": "https://azsos.gov/votebymail#:~:text=I%20will%20be%20out%20of%20town%20during%20the%20election.%20Will%20USPS%20forward%20my%20ballot%2Dby%2Dmail%20to%20my%20temporary%2Daway%20address%3F"
+          },
+          {
+            "text": "When are polling places open?",
+            "url": "https://azsos.gov/elections/about-elections/election-day-operations#:~:text=Polling%20locations%20will%20be%20open%20from%206%3A00%20a.m.%20to%207%3A00%20p.m.%20on%20Election%20Day."
+          },
+          {
+            "text": "What ID do I need to bring to vote?",
+            "url": "https://azsos.gov/elections/voters/voting-elections/election-day-voting"
+          },
+          {
+            "text": "https://my.arizona.vote/",
+            "url": "https://my.arizona.vote/"
+          },
+          {
+            "text": "How do I check my voter registration status?",
+            "url": "https://my.arizona.vote/WhereToVote.aspx?s=individual"
+          },
+          {
+            "text": "How do I vote if I'm in the military or live overseas?",
+            "url": "https://my.arizona.vote/UOCAVA2/default.aspx"
+          },
+          {
+            "text": "Where do I vote?",
+            "url": "https://my.arizona.vote/WhereToVote.aspx?s=address"
+          },
+          {
+            "text": "https://servicearizona.com/",
+            "url": "https://servicearizona.com/"
+          },
+          {
+            "text": "Can I register to vote online?",
+            "url": "https://servicearizona.com/VoterRegistration/selectLanguage"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Election resources · Arizona",
+      "type": "election_resources",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": null,
+      "error": "no subcomponents parsed",
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "knowledge_rhs",
+      "url": null
+    }
+  ]
+}
