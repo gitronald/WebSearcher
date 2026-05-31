@@ -29,14 +29,18 @@ import orjson
 import WebSearcher as ws
 
 FIXTURES_DIR = Path("tests/fixtures")
-# Bulk fixtures = everything except the curated single-component v0.7.2 set,
-# which already carries a per-record note.
-BULK_GLOBS = [
-    "serps-v0.6.7.json.bz2",
-    "serps-v0.6.8.json.bz2",
-    "serps-parser-coverage.json.bz2",
-    "serps-sge-2024.json.bz2",
-]
+# The consolidated corpus (plan 032). Falls back to the pre-consolidation bulk
+# files if the single file is absent.
+BULK_GLOBS = (
+    ["serps.json.bz2"]
+    if (FIXTURES_DIR / "serps.json.bz2").exists()
+    else [
+        "serps-v0.6.7.json.bz2",
+        "serps-v0.6.8.json.bz2",
+        "serps-parser-coverage.json.bz2",
+        "serps-sge-2024.json.bz2",
+    ]
+)
 
 
 def load(path: Path) -> list[dict]:

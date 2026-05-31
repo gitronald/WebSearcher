@@ -1,9 +1,9 @@
 ---
-status: draft
+status: done
 branch: feature/fixture-corpus-notes
 created: 2026-05-31T11:32:26-07:00
-completed:
-pr:
+completed: 2026-05-31T12:42:13-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/143
 ---
 
 # Annotate and prune the bulk SERP fixture corpus
@@ -244,8 +244,9 @@ These records are committed to a **public** repo. While rewriting the files:
 
 - Drop the private-repo name from any note text (the curated v0.7.2 notes currently
   say "Captured via SearchAudits ...") — use a neutral provenance clause.
-- Scrub the `GOOGLE_ABUSE_EXEMPTION` token + embedded IP from the `url` of
-  `serps-v0.6.7` record `7049404a2dd6` (mooted if that file is retired).
+- **Decided: keep** the `GOOGLE_ABUSE_EXEMPTION` token (with its embedded client IP)
+  on record `7049404a2dd6` as a deliberate artifact — it documents how the crawler
+  obtained an abuse exemption, which is worth preserving. Not scrubbed.
 
 ### 5. Consolidate into `serps.json.bz2` and update loaders
 
@@ -309,3 +310,46 @@ than retiring the file wholesale; consolidate into one version-less file.
 - **Should the freed budget be backfilled now** with new diverse captures, or left
   for a follow-up plan? Recommended: follow-up — keep this plan scoped to
   annotate + prune.
+
+## Log
+
+- **2026-05-31** — Implemented as specified across five commits:
+  - `ca43a31` — committed the methodology artifacts (fixture-corpus guide, this plan,
+    `scripts/profile_fixture_corpus.py`, `scripts/compare_drop_signatures.py`).
+  - `f5b6eb4` — recorded the Pass-B drop verification and added `scripts/verify_drops.py`
+    (per-drop coverage check against the whole surviving corpus: 0 drop-only items).
+  - `30dcaef` — consolidated all seven version-named fixtures into a single
+    `tests/fixtures/serps.json.bz2` (renamed from `serps-v0.6.8`, the six others deleted),
+    added a per-record `note` to every survivor via `scripts/build_fixture_corpus.py`,
+    dropped the 8 redundant records from §3, deleted their orphaned snapshots, and
+    `--snapshot-update`'d the ~22 newly-included parser-coverage/sge records. Repointed
+    the three test loaders at the single file.
+  - `7426854` — repointed `profile_fixture_corpus.py` / `compare_drop_signatures.py` at
+    `serps.json.bz2` and made them report-only.
+  - `4cc6aca` — clarified the specialized-components label in the cluster report.
+- **Final corpus:** 80 records in one `serps.json.bz2` (~21 MB). The 8 drops match the
+  §3 table exactly (5 sky-blue, 1 streaming, 1 paragraph-query, 1 college).
+- **Verify suite (§6) green** on close: `149 passed, 80 snapshots passed` across
+  `test_parse_serp`, `test_parser_coverage`, `test_ai_overview_legacy_sge`,
+  `test_extractor_serp_features`; `test_features_expose_main_layout` included, no
+  orphaned or missing snapshots, every single-carrier `(type, sub_type)` pair retained.
+- **2026-05-31** — Closed: PR #143 merged into `feature/v0.9.0` (the 0.9.0 integration
+  branch).
+
+## Retrospective
+
+- The two-pass drop policy (mechanical signature screen, then adversarial value-level
+  `details` rescue) earned its keep: the unordered pair-set screen flagged ~25 subset
+  candidates, but the decided distinct-type-order bar plus the rescue pass cut that to
+  exactly 8 — protecting 17 records the cruder screen would have over-dropped.
+- The one genuinely load-bearing constraint was mechanical, not structural: keeping
+  `f6fae1c9a96e` because it is the sole `standard-overview` carrier *within the
+  `serps-v*` glob* that `test_features_expose_main_layout` asserts against. Worth
+  re-checking that assertion's source set first on any future fixture surgery.
+- Consolidating to one version-less file widened `test_parse_serp` from the `serps-v*`
+  subset to the whole corpus (+~22 snapshots). That was the right default — provenance
+  already lives per-record in the `version` field, so the filename carried no
+  information the JSON didn't.
+- This branch sat fully implemented but with `status: draft` and no PR — the work and
+  the bookkeeping had drifted apart. Closing it promptly after the last impl commit
+  would have avoided the "did we execute this?" ambiguity.

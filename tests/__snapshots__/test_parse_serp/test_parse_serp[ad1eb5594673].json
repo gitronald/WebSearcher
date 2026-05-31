@@ -1,0 +1,240 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 2300000.0,
+    "result_estimate_time": 0.19
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "location_choose_area",
+      "text": null,
+      "title": "Results for Lower Manhattan, New York",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "sections": [
+          {
+            "heading": "Investment banking layoffs",
+            "text": "Hundreds of jobs Barclays plans to cut hundreds of jobs in its investment banking division, research, and global markets. This is part of a long-term strategy to cut costs and increase profitability."
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "Business Standard",
+            "snippet": "Dec 28, 2024 — Barclays recently terminated 15 bankers and traders in New York just before the holidays, opting to issue termination ...",
+            "source_id": null,
+            "title": "Barclays fires 15 bankers, denies bonuses ahead of holidays; faces flak",
+            "url": "https://www.business-standard.com/companies/news/barclays-layoffs-ny-bankers-denies-bonuses-holidays-backlash-124122800280_1.html#:~:text=Barclays%20recently%20terminated%2015%20bankers,should%20not%20be%20considered%20discretionary."
+          },
+          {
+            "favicon": null,
+            "publisher": "Bergen Record",
+            "snippet": "Jun 4, 2024 — “Banks are reducing back-office costs, and this includes people and head count reductions, unfortunately,” said Christo...",
+            "source_id": null,
+            "title": "Barclays cutting 70 North Jersey jobs as more layoffs hit financial sector",
+            "url": "https://www.northjersey.com/story/news/business/2024/06/04/barclays-laying-off-70-employees-in-north-jersey/73971878007/#:~:text=%E2%80%9CBanks%20are%20reducing%20back%2Doffice,in%20New%20Jersey%20this%20year."
+          },
+          {
+            "favicon": null,
+            "publisher": "Times of India",
+            "snippet": "Dec 28, 2024 — A Barclays spokesperson justified the layoffs, saying, “We regularly review our talent pool to ensure that we are inve...",
+            "source_id": null,
+            "title": "Barclays fires 15 bankers before Christmas | World News",
+            "url": "https://timesofindia.indiatimes.com/world/us/barclays-fires-15-wall-street-bankers-before-christmas-holidays-axes-bonuses-in-brutal-layoff-move-report/articleshow/116729071.cms#:~:text=A%20Barclays%20spokesperson%20justified%20the,cost%2Dcutting%20with%20employee%20morale."
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "sectioned",
+      "text": "Barclays has made several rounds of layoffs in recent months, including in its investment banking division, in New York, and in North Jersey . These layoffs are part of a long-term strategy to cut costs and increase profitability.",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.efinancialcareers.com  › news › barclays-is-c...",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 29, 2025  —  Sources at the bank say  Barclays yesterday cut 51 developers  working across credit, equities, fixed income, FX and prime services technology in ...",
+      "title": "Barclays is cutting technology jobs and mandating extra ...",
+      "type": "general",
+      "url": "https://www.efinancialcareers.com/news/barclays-is-cutting-technology-jobs-and-mandating-extra-office-days"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "Is Barclays laying off employees?",
+          "Will Barclays layoff in 2024?",
+          "Is Barclays bank closing in 2024?",
+          "Is Barclays financially stable?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Is Barclays laying off employees?<|>Will Barclays layoff in 2024?<|>Is Barclays bank closing in 2024?<|>Is Barclays financially stable?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.reuters.com  › business › finance › barclays...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 1, 2024  —  The bank axed  around 5,000 jobs in 2023  after dealmaking activities slumped across the industry. In November, Reuters exclusively reported the ...",
+      "title": "Barclays moves to cut 'a few hundred' investment bank ...",
+      "type": "general",
+      "url": "https://www.reuters.com/business/finance/barclays-moves-cut-a-few-hundred-investment-bank-underperformers-2024-05-01/"
+    },
+    {
+      "cite": "https://www.wallstreetoasis.com  › investment-banking",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apr 30, 2024  —  Least unexpected layoffs this year  after the Citi & UBS ones. Barclay's big deal makers were the ex-Lehman guys... a quarter of whom just left ...",
+      "title": "Big Layoff at Barclays - 5/1/24",
+      "type": "general",
+      "url": "https://www.wallstreetoasis.com/forum/investment-banking/big-layoff-at-barclays-5124"
+    },
+    {
+      "cite": "https://www.northjersey.com  › business › 2024/06/04",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jun 4, 2024  —  Barclays bank is laying off 70 employees in Whippany , the latest job cuts in New Jersey's financial services sector.",
+      "title": "Barclays laying off 70 in North Jersey",
+      "type": "general",
+      "url": "https://www.northjersey.com/story/news/business/2024/06/04/barclays-laying-off-70-employees-in-north-jersey/73971878007/"
+    },
+    {
+      "cite": "https://www.efinancialcareers.com  › news › barclays-lon...",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 2, 2024  —  Barclays  has announced its intention of cutting £188m in costs from its investment bank by 2026. There are likely to be more redundancies to ...",
+      "title": "Barclays' London bankers say one team was cut more than ...",
+      "type": "general",
+      "url": "https://www.efinancialcareers.com/news/barclays-london-bankers-say-one-team-was-cut-more-than-the-rest-yesterday"
+    },
+    {
+      "cite": "https://www.themiddlemarket.com  › news-analysis › ba...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 1, 2024  —  The cuts include  trading, advisory, capital markets  and the firm's international corporate bank.",
+      "title": "Barclays Begins Implementing Job Cuts Across Investment Bank",
+      "type": "general",
+      "url": "https://www.themiddlemarket.com/news-analysis/barclays-begins-implementing-job-cuts-across-investment-bank"
+    },
+    {
+      "cite": "https://www.bloomberg.com  › news › articles › barclays-...",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 1, 2024  —  Barclays Plc has begun cutting hundreds of jobs  as the firm embarks on a £2 billion cost-cutting drive that's part of Chief Executive ...",
+      "title": "Barclays Begins Implementing Job Cuts Across Investment ...",
+      "type": "general",
+      "url": "https://www.bloomberg.com/news/articles/2024-05-01/barclays-begins-implementing-job-cuts-across-investment-bank"
+    },
+    {
+      "cite": "https://www.theguardian.com  › business › feb › barclay...",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 20, 2024  —  Barclays to cut costs by £2bn , raising fears of further job losses. Bank announces drop in profits to £6.6bn as it says it plans to return more to shareholders.",
+      "title": "Barclays to cut costs by £2bn, raising fears of further job ...",
+      "type": "general",
+      "url": "https://www.theguardian.com/business/2024/feb/20/barclays-cut-costs-job-losses-profits"
+    },
+    {
+      "cite": "https://www.cityam.com  › barclays-starts-cutting-hundr...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 1, 2024  —  Barclays has reportedly started cutting hundreds of roles , including at its investment bank, as the group looks to cut costs and improve its share price.",
+      "title": "Barclays starts to cut hundreds of jobs in cost-saving bid ...",
+      "type": "general",
+      "url": "https://www.cityam.com/barclays-starts-cutting-hundreds-of-jobs-in-cost-saving-push-including-in-investment-bank/"
+    },
+    {
+      "cite": "https://finance.yahoo.com  › news › barclays-bcs-initiate...",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 3, 2024  —  Barclays PLC BCS has commenced job cuts  across investment banking (IB) and research division, per people familiar with the matter.",
+      "title": "Barclays (BCS) Initiates Job Cuts Across IB & Research Units",
+      "type": "general",
+      "url": "https://finance.yahoo.com/news/barclays-bcs-initiates-job-cuts-153300524.html"
+    }
+  ]
+}

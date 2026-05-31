@@ -1,0 +1,261 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 149000000.0,
+    "result_estimate_time": 0.33
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "query_suggestion",
+      "text": "cancer deaths per year in the us",
+      "title": "Did you mean:",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "American Cancer Society",
+            "snippet": "Estimated numbers of new cancer cases and deaths in 2022 (In 2022, there will be an estimated 1.9 million new cancer cases diagnos...",
+            "source_id": null,
+            "title": "Cancer Facts & Figures 2022 | American Cancer Society",
+            "url": "https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2022.html#:~:text=Estimated%20numbers%20of%20new%20cancer,factors%2C%20early%20detection%2C%20and%20treatment"
+          },
+          {
+            "favicon": null,
+            "publisher": "CDC",
+            "snippet": "Cancer * Number of deaths: 608,371. * Deaths per 100,000 population: 182.5. * Cause of death rank: 2.",
+            "source_id": null,
+            "title": "FastStats - Cancer - CDC",
+            "url": "https://www.cdc.gov/nchs/fastats/cancer.htm#:~:text=Cancer%20*%20Number%20of%20deaths:%20608%2C371.%20*,182.5.%20*%20Cause%20of%20death%20rank:%202."
+          },
+          {
+            "favicon": null,
+            "publisher": "Office of Disease Prevention and Health Promotion (.gov)",
+            "snippet": "The cancer death rate has declined in recent decades, but over 600,000 people still die from cancer each year in the United States...",
+            "source_id": null,
+            "title": "Cancer - Healthy People 2030 | odphp.health.gov",
+            "url": "https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/cancer#:~:text=The%20cancer%20death%20rate%20has%20declined%20in,cancers%20and%20in%20some%20racial/ethnic%20minority%20groups."
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "flat",
+      "text": "According to the American Cancer Society, in 2022, there were an estimated 609,360 cancer deaths in the United States. This represents approximately 183 deaths per 100,000 people . Here are some additional statistics: Lung cancer is the leading cause of cancer death, accounting for about 25% of all cancer deaths. Prostate cancer is the second leading cause of cancer death in men, while breast cancer is the second leading cause in women. The overall cancer death rate has been declining in recent years, but it is still higher in certain racial and ethnic groups.",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.cancer.org  › research › cancer-facts-statistics",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Estimated numbers of new cancer cases and deaths in 2021 (In 2021, there will be an estimated 1.9 million new cancer cases diagnosed and  608,570 cancer deaths  ...",
+      "title": "Cancer Facts & Figures 2021",
+      "type": "general",
+      "url": "https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2021.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "How many cancer deaths in the US per year?",
+          "Is cancer the #1 leading cause of death among Americans?",
+          "What are the top 5 cancer deaths in the US?",
+          "What US state has the highest cancer rate?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "How many cancer deaths in the US per year?<|>Is cancer the #1 leading cause of death among Americans?<|>What are the top 5 cancer deaths in the US?<|>What US state has the highest cancer rate?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.cdc.gov  › nchs › hus › topics › cancer-deat...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Age-adjusted  cancer deaths  per 100,000 population decreased from 173.5  in 2009  to 155.8 in 2016, and then decreased at a faster rate to 146.2 in 2019. A total ...",
+      "title": "Cancer deaths - Health, United States",
+      "type": "general",
+      "url": "https://www.cdc.gov/nchs/hus/topics/cancer-deaths.htm"
+    },
+    {
+      "cite": "https://seer.cancer.gov  › statfacts › html › all",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The death rate was  146.0 per 100,000 men and women per year . These rates are age-adjusted and based on 2017–2021 cases and 2018–2022 deaths. Lifetime Risk of ...",
+      "title": "Cancer Stat Facts: Cancer of Any Site",
+      "type": "general",
+      "url": "https://seer.cancer.gov/statfacts/html/all.html"
+    },
+    {
+      "cite": "https://www.cdc.gov  › nchs › fastats › cancer",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Cancer ·  Number of deaths: 608,371  · Deaths per 100,000 population: 182.5 · Cause of death rank: 2.",
+      "title": "FastStats - Cancer",
+      "type": "general",
+      "url": "https://www.cdc.gov/nchs/fastats/cancer.htm"
+    },
+    {
+      "cite": "https://www.cancer.org  › research › cancer-facts-statistics",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Estimated numbers of new cancer cases and deaths in 2022 (In 2022, there will be an estimated 1.9 million new cancer cases diagnosed and  609,360 cancer deaths  ...",
+      "title": "Cancer Facts & Figures 2022",
+      "type": "general",
+      "url": "https://www.cancer.org/research/cancer-facts-statistics/all-cancer-facts-figures/cancer-facts-figures-2022.html"
+    },
+    {
+      "cite": "https://usafacts.org  › Health › Articles",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "While total cancer deaths grew by 10.6% between 2000 and 2021, the annual mortality rate fell from 198.8 to  144.2 per 100,000 people  — a 27.5% decline. The ...",
+      "title": "how have cancer rates and mortality changed over time?",
+      "type": "general",
+      "url": "https://usafacts.org/articles/how-have-cancer-rates-changed-over-time/"
+    },
+    {
+      "cite": "https://seer.cancer.gov  › statfacts › html › common",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "In 2024,  an estimated 611,720 people will die of cancer in the United States . Lung and bronchus cancer is responsible for the most deaths with 125,070 people ...",
+      "title": "Cancer Stat Facts: Common Cancer Sites",
+      "type": "general",
+      "url": "https://seer.cancer.gov/statfacts/html/common.html"
+    },
+    {
+      "cite": "https://www.webmd.com  › Cancer › Reference",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jun 19, 2024  —  That's 1 out of every 6 deaths.  Over 610,000 cancer deaths happen in the U.S. each year  and about 80,000 in Canada. The rest happens in ...",
+      "title": "How Many People Die of Cancer a Year?",
+      "type": "general",
+      "url": "https://www.webmd.com/cancer/how-many-cancer-deaths-per-year"
+    },
+    {
+      "cite": "https://acsjournals.onlinelibrary.wiley.com  › doi › full",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "by RL Siegel  ·  2024  ·  Cited by 3811  —  In 2024, 2,001,140 new  cancer  cases and 611,720  cancer deaths  are projected to occur in the  United States .  Cancer mortality  continued to decline ...",
+      "title": "Cancer statistics, 2024 - CA: A Cancer Journal for Clinicians",
+      "type": "general",
+      "url": "https://acsjournals.onlinelibrary.wiley.com/doi/full/10.3322/caac.21820"
+    },
+    {
+      "cite": "https://pubmed.ncbi.nlm.nih.gov  › ...",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "by RL Siegel  ·  2023  ·  Cited by 12713  —  In 2023, 1,958,310 new cancer cases and  609,820 cancer deaths are projected to occur in the United States . Cancer incidence increased for prostate cancer by 3% ...",
+      "title": "Cancer statistics, 2023",
+      "type": "general",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36633525/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Cancer deaths per year worldwide",
+          "1 in how many get cancer",
+          "This year in the us how many deaths due to cancer every minute",
+          "Cancer deaths US 2023",
+          "Cancer statistics worldwide",
+          "How many people are diagnosed with cancer each year",
+          "Cancer rates over the last 100 years graph",
+          "Cancer statistics 2024"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Cancer deaths per year worldwide<|>1 in how many get cancer<|>This year in the us how many deaths due to cancer every minute<|>Cancer deaths US 2023<|>Cancer statistics worldwide<|>How many people are diagnosed with cancer each year<|>Cancer rates over the last 100 years graph<|>Cancer statistics 2024",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

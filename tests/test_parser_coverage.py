@@ -1,8 +1,8 @@
 """Targeted tests for parser-coverage fixes (plan 024).
 
-Each test loads the curated ``serps-parser-coverage.json.bz2`` fixture, whose
-SERPs were selected to exercise specific parser gaps. Tests are added per phase
-as the fixes land.
+Each test looks up curated SERPs by query in the consolidated ``serps.json.bz2``
+fixture; these queries were selected to exercise specific parser gaps. Tests are
+added per phase as the fixes land.
 """
 
 import bz2
@@ -13,7 +13,7 @@ import pytest
 
 import WebSearcher as ws
 
-FIXTURE = Path(__file__).parent / "fixtures" / "serps-parser-coverage.json.bz2"
+FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
 
 def _load():

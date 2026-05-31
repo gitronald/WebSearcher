@@ -14,7 +14,8 @@ import WebSearcher as ws
 # ---------------------------------------------------------------------------
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
-SERPS_PATHS = sorted(FIXTURES_DIR.glob("serps-v*.json.bz2"))
+SERPS_PATH = FIXTURES_DIR / "serps.json.bz2"
+SERPS_PATHS = [SERPS_PATH] if SERPS_PATH.exists() else []
 
 
 def load_serps(path: Path) -> list[dict]:
