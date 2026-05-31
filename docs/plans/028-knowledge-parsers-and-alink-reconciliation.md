@@ -1,9 +1,9 @@
 ---
-status: completed
+status: done
 branch: claude/post-merge-status-check-52Z1B
-created: 2026-05-30T00:00:00-07:00
-completed: 2026-05-30T00:00:00-07:00
-pr:
+created: 2026-05-30T09:56:48-07:00
+completed: 2026-05-30T16:05:44-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/141
 ---
 
 # Knowledge Parsers Rethink + `parse_alink` Reconciliation
