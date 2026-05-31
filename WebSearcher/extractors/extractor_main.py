@@ -175,6 +175,40 @@ class ExtractorMain:
             if ExtractorMain.is_valid(c):
                 self.components.add_component(c, section="main")
 
+    @staticmethod
+    def _kp_wholepage_organics(rso_div: Node) -> list[Node]:
+        """Organic results Google nests inside a ``kp-wholepage`` whole-page knowledge
+        panel's tabs (``kp-wp-tab-*``).
+
+        On these SERPs ``#rso``'s only attributed child is a ``div.ULSxyf`` wrapping the
+        panel, so the generic standard column is just that panel (one ``knowledge`` cmpt)
+        and the organic ``div.g`` blocks in its tabs are never surfaced as ``general``.
+        Return each so it parses as an ordinary organic, matching the non-kp layout.
+
+        Keyed on the organic marker (``div.tF2Cxc``) and its enclosing ``div.g`` wrapper,
+        so it is independent of the open-ended tab name (``FilmCast``, ``ElectionResults``,
+        ``Pronunciation``, ``default_tab:kc:*``…). Only ``div.g``-wrapped organics are
+        returned; a bare ``tF2Cxc`` (no wrapper) belongs to a panel-specific recipe
+        (e.g. AIRFARES) that already emits it, so it is skipped to avoid duplicate rows.
+        """
+        kp = rso_div.css_first("div.kp-wholepage")
+        if kp is None:
+            return []
+        organics: list[Node] = []
+        seen: set = set()
+        for tf in subtree_css(kp, "div.tF2Cxc"):
+            # climb to the enclosing div.g wrapper, bounded at the kp-wholepage root so
+            # we never walk off into non-element nodes.
+            g = tf
+            while g is not None and g.mem_id != kp.mem_id and "g" not in class_tokens(g):
+                g = g.parent
+            if g is None or g.mem_id == kp.mem_id:
+                continue
+            if g.mem_id not in seen and has_text(g):
+                seen.add(g.mem_id)
+                organics.append(g)
+        return organics
+
     def extract_from_standard(self, drop_tags: set | None = None) -> list:
         rso_div = self.layout_divs["rso"]
         if rso_div is None:
@@ -196,6 +230,17 @@ class ExtractorMain:
         col = ExtractorMain.extract_children(rso_div, drop_tags)
         col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
+
+        # A whole-page knowledge panel (kp-wholepage) collapses the main column into a
+        # single ULSxyf child, burying the organic results inside its kp-wp-tab-* tabs.
+        # When that has happened, label it a distinct layout and surface the organics so
+        # they parse as `general` alongside the knowledge panel (instead of being lost).
+        organics = ExtractorMain._kp_wholepage_organics(rso_div)
+        if organics:
+            self.layout_label = "standard-kp-wholepage"
+            log.debug(f"main_layout: {self.layout_label} (update)")
+            return col + organics
+
         if not col:
             self.layout_label = "standard-fallback"
             log.debug(f"main_layout: {self.layout_label} (update)")
