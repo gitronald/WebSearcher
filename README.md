@@ -10,6 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.9.0` (unreleased): Breaking internal rewrite onto `selectolax` (dropped the BeautifulSoup + lxml runtime deps); same public API and output schema, plus a new `features.main_layout` field, a data-driven `standard-*` layout dispatch with readable labels, a `no-rso` duplication fix, the `cmpt_rank=0` fix, and a package-wide simplification pass
+- `0.8.6`: Demo-script fixes (`demo_search_headers` for `requests`, `demo_locations` regex/main-guard, Chrome-version import) and quieter Selenium teardown
 - `0.8.5`: Minor updates to packaging for pypi, demo scripts, and documentation
 - `0.8.4`: Reclassified shopping/commercial blocks that previously emitted hollow `general` rows (29 -> 0) into new component types — `products` (grid/brands), `promo` (shopping deals banner), `most_read_articles`, and `buying_guide` — plus a `general` `image_strip` sub_type
 - `0.8.3`: Recovered parser coverage for historical/edge layouts — legacy 2024-SGE `ai_overview` content + `unavailable` state, a new `recipes` parser, empty `knowledge` (featured_results/dictionary/panel_rhs) extraction, `twitter_cards` card titles, and modern `shopping_ads` PLA cards
@@ -84,28 +86,28 @@ qry='election news', components=23
 │ type         ┆ title                                              ┆ url                                                │
 ╞══════════════╪════════════════════════════════════════════════════╪════════════════════════════════════════════════════╡
 │ ad           ┆ Latest Election News                               ┆ https://www.election-integrity.org/news            │
-│ top_stories  ┆ 2026 Texas primary runoff election results         ┆ https://www.cbsnews.com/texas/live-updates/2026-t… │
-│ top_stories  ┆ Texas runoff election live updates: Cornyn vs. Pa… ┆ https://www.usatoday.com/story/news/politics/elec… │
-│ top_stories  ┆ Texas’ raucous primary runoffs end today. Here’s … ┆ https://www.texastribune.org/2026/05/26/texas-pri… │
-│ top_stories  ┆ Where to vote in El Paso, what time do polls open… ┆ https://www.elpasotimes.com/story/news/politics/e… │
-│ top_stories  ┆ Texas voters head to polls today for primary runo… ┆ https://www.audacy.com/krld/news/local/texas-prim… │
-│ top_stories  ┆ Texas elections live updates: Trump-backed Ken Pa… ┆ https://www.nbcnews.com/politics/2026-election/li… │
-│ top_stories  ┆ Trump claims 2020 election 'rigged' at least 107 … ┆ https://www.reuters.com/world/us/trump-claims-202… │
-│ local_news   ┆ Get up to speed fast on the California election w… ┆ https://www.mv-voice.com/calmatters/2026/05/26/ge… │
-│ local_news   ┆ Column: My pick for California governor is ... I'… ┆ https://www.latimes.com/california/newsletter/202… │
-│ local_news   ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.cbs8.com/video/news/local/voter-turno… │
-│ local_news   ┆ California gubernatorial election: Matt Mahan fac… ┆ https://abc7news.com/post/california-gubernatoria… │
-│ general      ┆ Last-minute voter guide for California governor e… ┆ https://calmatters.org/politics/elections/2026/05… │
-│ general      ┆ Matt Mahan facing campaign questions, political j… ┆ https://abc7news.com/post/california-gubernatoria… │
+│ top_stories  ┆ 2026 Texas primary runoff election results         ┆ https://www.cbsnews.com/texas/live-updates/2026... │
+│ top_stories  ┆ Texas runoff election live updates: Cornyn vs. ... ┆ https://www.usatoday.com/story/news/politics/el... │
+│ top_stories  ┆ Texas' raucous primary runoffs end today. Here'... ┆ https://www.texastribune.org/2026/05/26/texas-p... │
+│ top_stories  ┆ Where to vote in El Paso, what time do polls op... ┆ https://www.elpasotimes.com/story/news/politics... │
+│ top_stories  ┆ Texas voters head to polls today for primary ru... ┆ https://www.audacy.com/krld/news/local/texas-pr... │
+│ top_stories  ┆ Texas elections live updates: Trump-backed Ken ... ┆ https://www.nbcnews.com/politics/2026-election/... │
+│ top_stories  ┆ Trump claims 2020 election 'rigged' at least 10... ┆ https://www.reuters.com/world/us/trump-claims-2... │
+│ local_news   ┆ Get up to speed fast on the California election... ┆ https://www.mv-voice.com/calmatters/2026/05/26/... │
+│ local_news   ┆ Column: My pick for California governor is ... ... ┆ https://www.latimes.com/california/newsletter/2... │
+│ local_news   ┆ Voter turnout remains low in CA primary as elec... ┆ https://www.cbs8.com/video/news/local/voter-tur... │
+│ local_news   ┆ California gubernatorial election: Matt Mahan f... ┆ https://abc7news.com/post/california-gubernator... │
+│ general      ┆ Last-minute voter guide for California governor... ┆ https://calmatters.org/politics/elections/2026/... │
+│ general      ┆ Matt Mahan facing campaign questions, political... ┆ https://abc7news.com/post/california-gubernator... │
 │ general      ┆ Election 2026: Results, news and analysis          ┆ https://www.cnn.com/election/2026                  │
 │ general      ┆ Ballotpedia.org                                    ┆ https://ballotpedia.org/Main_Page                  │
-│ videos       ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.youtube.com/watch?v=UnJEjKYuXCI        │
-│ videos       ┆ Thomas Massie files statement of candidacy for 20… ┆ https://www.youtube.com/watch?v=tLu_eWYW8Pc        │
-│ videos       ┆ Breaking down the Democrats' 2024 election autops… ┆ https://www.youtube.com/watch?v=exTN-Jgb6Vo        │
+│ videos       ┆ Voter turnout remains low in CA primary as elec... ┆ https://www.youtube.com/watch?v=UnJEjKYuXCI        │
+│ videos       ┆ Thomas Massie files statement of candidacy for ... ┆ https://www.youtube.com/watch?v=tLu_eWYW8Pc        │
+│ videos       ┆ Breaking down the Democrats' 2024 election auto... ┆ https://www.youtube.com/watch?v=exTN-Jgb6Vo        │
 │ general      ┆ Elections 2026                                     ┆ https://www.npr.org/sections/elections/            │
-│ general      ┆ Department of Elections                            ┆ https://www.sf.gov/departments--department-electi… │
+│ general      ┆ Department of Elections                            ┆ https://www.sf.gov/departments--department-elec... │
 │ general      ┆ Everything You Need to Vote - Vote.org             ┆ https://www.vote.org/                              │
-│ searches_re… ┆ -                                                  ┆ -                                                  │
+│ searches_... ┆ -                                                  ┆ -                                                  │
 └──────────────┴────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
 ```
 

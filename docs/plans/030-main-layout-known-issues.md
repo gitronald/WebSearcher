@@ -1,21 +1,23 @@
 ---
-status: draft
+status: done
 branch: claude/simplify-websearcher-pkg
 created: 2026-05-31T00:00:00-07:00
-completed:
-pr:
+completed: 2026-05-31T00:00:00-07:00
+pr: 142
 ---
 
 # Main-Section Layout: Known Issues & Follow-ups
 
 ## Status
 
-Draft / notes. Captures the layout-dispatch issues surfaced while making
-`ExtractorMain.layout_label` observable (added as `features.main_layout`),
-pinning every layout branch, refactoring the `standard-*` ladder into a
-data-driven table, and renaming the opaque `standard-N` labels.
+Done. The implementation work described below (making
+`ExtractorMain.layout_label` observable, pinning every layout branch,
+refactoring the `standard-*` ladder, renaming the labels) landed in PR #142,
+merged into `feature/v0.9.0`. The "Open issues" section records deferred layout
+problems that were intentionally not changed — they touch extraction branches
+no fixture exercises — and stands as the historical follow-up record.
 
-What already landed on `claude/simplify-websearcher-pkg`:
+What landed in #142:
 
 - `features.main_layout` exposes the main-section layout label in parsed output.
 - Characterization pins in `tests/test_extractor_main.py` cover every observable
