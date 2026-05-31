@@ -99,13 +99,18 @@ def main() -> None:
     shared = {sig: members for sig, members in clusters.items() if len(members) > 1}
 
     print("=" * 100)
-    print(f"DISTINCT-TYPE SIGNATURE CLUSTERS (>=2 records share a sequence): {len(shared)}")
+    print(
+        f"DISTINCT-TYPE SIGNATURE CLUSTERS (>=2 records share a component sequence): {len(shared)}"
+    )
     print("REVIEW ONLY -- confirm details-level structure + query-keyed tests before removing any.")
+    print("('general' = plain organic results, on nearly every SERP, so it carries no")
+    print(" signal; the line below names only the specialized component types in the")
+    print(" shared sequence -- the distinctive parser paths worth comparing.)")
     print("=" * 100)
     for sig, members in sorted(shared.items(), key=lambda kv: -len(kv[1])):
-        rich = sorted({rt for m in members for rt in m["rich_types"]})
+        specialized = sorted({rt for m in members for rt in m["rich_types"]})
         print(f"\n[{len(members)} records]  {sig}")
-        print(f"  rich (non-general) components in cluster: {rich or '(none)'}")
+        print(f"  specialized (non-'general') component types: {specialized or '(none)'}")
         for m in members:
             print(f"    {m['short']}  {m['qry'][:60]!r}")
 
