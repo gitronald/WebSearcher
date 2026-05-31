@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
@@ -6,6 +7,57 @@ from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtr
 from ..logger import Logger
 
 log = Logger().start(__name__)
+
+
+@dataclass(frozen=True)
+class _StandardLayout:
+    """A ``standard-*`` sub-layout recipe.
+
+    ``detect_css`` locates the tab container and ``detect_sels`` is the set of
+    descendant selectors that must match for the layout to claim the page.
+    Extraction then reads ``extract_css`` (sometimes a different container than
+    detection) via one of two shapes:
+
+    - ``keep_tokens`` set -> direct children carrying the first token that yields
+      any matches, concatenated with the top-divs *unfiltered*.
+    - ``keep_tokens`` is ``None`` -> all children (text-inclusive) concatenated
+      with the top-divs, then bad tags + empty nodes dropped.
+    """
+
+    detect_css: str
+    detect_sels: tuple[str, ...]
+    extract_css: str
+    keep_tokens: tuple[str, ...] | None
+
+
+# Detection precedence follows insertion order (0, 1, 2, 4); standard-3 is the
+# empty-rso fallback handled directly in ``extract_from_standard``.
+_STANDARD_LAYOUTS: dict[str, _StandardLayout] = {
+    "standard-0": _StandardLayout(
+        detect_css='div[id="kp-wp-tab-overview"]',
+        detect_sels=("div.TzHB6b", "div.A6K0A"),
+        extract_css='div[id="kp-wp-tab-overview"]',
+        keep_tokens=("TzHB6b", "A6K0A"),
+    ),
+    "standard-1": _StandardLayout(
+        detect_css='div[id="kp-wp-tab-cont-Songs"][role="tabpanel"]',
+        detect_sels=("div",),
+        extract_css='div[id="kp-wp-tab-Songs"]',
+        keep_tokens=None,
+    ),
+    "standard-2": _StandardLayout(
+        detect_css='div[id="kp-wp-tab-SportsStandings"]',
+        detect_sels=("div",),
+        extract_css='div[id="kp-wp-tab-SportsStandings"]',
+        keep_tokens=None,
+    ),
+    "standard-4": _StandardLayout(
+        detect_css='div[id="kp-wp-tab-AIRFARES"]',
+        detect_sels=("div.A6K0A",),
+        extract_css='div[id="kp-wp-tab-AIRFARES"]',
+        keep_tokens=("A6K0A",),
+    ),
+}
 
 
 def _filter_empty(nodes) -> list[Node]:
@@ -127,36 +179,12 @@ class ExtractorMain:
         if rso_div is None:
             return []
         drop_tags = drop_tags or {"script", "style", None}
-        standard_layouts = {
-            "standard-0": (
-                rso_div.css_first('div[id="kp-wp-tab-overview"]'),
-                "div",
-                ["div.TzHB6b", "div.A6K0A"],
-            ),
-            "standard-1": (
-                rso_div.css_first('div[id="kp-wp-tab-cont-Songs"][role="tabpanel"]'),
-                None,
-                None,
-            ),
-            "standard-2": (
-                rso_div.css_first('div[id="kp-wp-tab-SportsStandings"]'),
-                None,
-                None,
-            ),
-            "standard-4": (
-                rso_div.css_first('div[id="kp-wp-tab-AIRFARES"]'),
-                "div",
-                ["div.A6K0A"],
-            ),
-        }
-        for layout_name, (layout_div, check_tag, check_css_list) in standard_layouts.items():
-            if layout_div is not None:
-                if check_tag and check_css_list:
-                    for css in check_css_list:
-                        if _find_all_with_class(layout_div, css, filter_empty=False):
-                            return self._extract_from_standard_sub_type(layout_name)
-                elif _find_all_with_class(layout_div, "div", filter_empty=False):
-                    return self._extract_from_standard_sub_type(layout_name)
+        for layout_name, spec in _STANDARD_LAYOUTS.items():
+            container = rso_div.css_first(spec.detect_css)
+            if container is not None and any(
+                _find_all_with_class(container, sel, filter_empty=False) for sel in spec.detect_sels
+            ):
+                return self._extract_from_standard_sub_type(layout_name)
 
         top_divs = (
             ExtractorMain.extract_top_divs(
@@ -187,96 +215,39 @@ class ExtractorMain:
             return []
         log.debug(f"main_layout: {self.layout_label} (update)")
 
-        if self.layout_label == "standard-0":
-            column: list = []
-            top_divs = (
-                ExtractorMain.extract_top_divs(
-                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
-                )
-                or []
+        spec = _STANDARD_LAYOUTS[sub_type]
+        top_divs = (
+            ExtractorMain.extract_top_divs(
+                self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
             )
-            tab_overview = rso_div.css_first('div[id="kp-wp-tab-overview"]')
+            or []
+        )
+        container = rso_div.css_first(spec.extract_css)
+
+        if spec.keep_tokens is not None:
+            # Shape A: direct children carrying the first token that matches;
+            # result is top_divs + main_divs, returned unfiltered.
             main_divs: list[Node] = []
-            if tab_overview is not None:
-                # recursive=False: direct children matching the class token.
-                main_divs = [
-                    c for c in tab_overview.iter(include_text=False) if "TzHB6b" in class_tokens(c)
-                ]
-                if not main_divs:
-                    main_divs = [
-                        c
-                        for c in tab_overview.iter(include_text=False)
-                        if "A6K0A" in class_tokens(c)
-                    ]
-            column.extend(top_divs)
-            column.extend(main_divs)
+            if container is not None:
+                children = list(container.iter(include_text=False))
+                for token in spec.keep_tokens:
+                    main_divs = [c for c in children if token in class_tokens(c)]
+                    if main_divs:
+                        break
+            column = top_divs + main_divs
             log.debug(f"main_components: {len(column):,}")
             return column
 
-        if self.layout_label == "standard-1":
-            column = []
-            top_divs = (
-                ExtractorMain.extract_top_divs(
-                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
-                )
-                or []
-            )
-            songs_div = rso_div.css_first('div[id="kp-wp-tab-Songs"]')
-            # bs4 ``list(songs_div.children)`` then filter ``.name not in {script,style}``
-            # -- text nodes were dropped by the name filter (NavigableString.name is None
-            # which IS in {script,style,None} default... wait, not in {script,style}).
-            # The original kept text nodes here. To stay faithful, use include_text=True
-            # then filter by name; subsequent ``filter_empty_divs`` strips empties.
-            main_divs = list(songs_div.iter(include_text=True)) if songs_div is not None else []
-            column.extend(top_divs)
-            column.extend(main_divs)
-            column = [
-                d
-                for d in column
-                if d.tag and not d.tag.startswith("-") and d.tag not in {"script", "style"}
-            ]
-            column = _filter_empty(column)
-            return column
-
-        if self.layout_label == "standard-2":
-            column = []
-            top_divs = (
-                ExtractorMain.extract_top_divs(
-                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
-                )
-                or []
-            )
-            sports_div = rso_div.css_first('div[id="kp-wp-tab-SportsStandings"]')
-            main_divs = list(sports_div.iter(include_text=True)) if sports_div is not None else []
-            column.extend(top_divs)
-            column.extend(main_divs)
-            column = [
-                d
-                for d in column
-                if d.tag and not d.tag.startswith("-") and d.tag not in {"script", "style"}
-            ]
-            column = _filter_empty(column)
-            return column
-
-        if self.layout_label == "standard-4":
-            column = []
-            top_divs = (
-                ExtractorMain.extract_top_divs(
-                    self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
-                )
-                or []
-            )
-            tab_airfares = rso_div.css_first('div[id="kp-wp-tab-AIRFARES"]')
-            main_divs = (
-                [c for c in tab_airfares.iter(include_text=False) if "A6K0A" in class_tokens(c)]
-                if tab_airfares is not None
-                else []
-            )
-            column.extend(top_divs)
-            column.extend(main_divs)
-            return column
-
-        return []
+        # Shape B: all children (text-inclusive) + top_divs, then drop bad tags
+        # and empty nodes from the combined column.
+        main_divs = list(container.iter(include_text=True)) if container is not None else []
+        column = top_divs + main_divs
+        column = [
+            d
+            for d in column
+            if d.tag and not d.tag.startswith("-") and d.tag not in {"script", "style"}
+        ]
+        return _filter_empty(column)
 
     def extract_from_top_bar(self, drop_tags: set | None = None) -> list:
         drop_tags = drop_tags or {"script", "style", None}
