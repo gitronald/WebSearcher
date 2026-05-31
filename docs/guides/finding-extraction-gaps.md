@@ -115,12 +115,12 @@ states the gap explicitly (e.g. "embeds N organic tF2Cxc results … currently
 dropped"). Generate baseline snapshots **before** the fix so the post-fix snapshot
 diff *is* the proof the gap closed.
 
-## Verify the recovery is additive, not duplicative
+## Verify the recovery is additive, correctly typed, and complete
 
 A green snapshot suite does **not** prove the fix is right: snapshots record whatever
-the parser emits, so they happily freeze duplicate or over-split rows. When a fix
-*adds* components, audit it explicitly — a passing suite hid both failures below until
-they were checked by hand. Three checks, all cheap:
+the parser emits, so they happily freeze duplicate, over-split, *or mistyped* rows.
+When a fix *adds* components, audit it explicitly — a passing suite hid every failure
+below until it was checked by hand. Four checks, all cheap:
 
 1. **Don't re-extract what another path already emits (duplicates).** A recovery that
    fires for every layout will double-count on layouts that already handle the
@@ -154,6 +154,23 @@ they were checked by hand. Three checks, all cheap:
    `sub_rank`s/`details`, not become N top-level rows. Confirm the recovered nodes
    aren't nested inside one another (extracting both a wrapper and its child splits one
    result in two) and that `sub_type`/`details`-bearing results survive intact.
+
+4. **Verify each recovered block's *type* against the rendered HTML — not just its
+   URL.** This is the check that catches the deepest failure, and the only one a URL
+   audit cannot. A recovered block can dedupe perfectly and still be **the wrong
+   type**, and a region you assumed was "swallowed organics" can actually be a whole
+   **mini-SERP** — organics interleaved with widgets, carousels, and Q&A panels. In the
+   worked example, "recovering the organics" from an election panel produced 10 clean,
+   distinct `general` URLs that *passed checks 1–3* — yet one was a mislabeled
+   election-dates **widget**, and an election-results panel, a `top_stories` block, and
+   a resources panel were **missing entirely** (they aren't `div.g`, so a
+   `div.g → general` recovery never sees them). Open the actual SERP and walk the
+   region top to bottom: does every block you emit match what's rendered there, and is
+   every rendered block emitted? If the region is a mini-SERP, stop cherry-picking by
+   marker and instead **run the whole sub-column through the normal classify→parse
+   pipeline** so each block lands as its true type (and genuinely-new blocks surface as
+   `unknown` to become new component types). A marker-based recovery is only safe for a
+   region that is *uniformly* the type you assume.
 
 ---
 
@@ -189,7 +206,12 @@ a per-name recipe (the existing `_STANDARD_LAYOUTS` entries) is the wrong shape.
 election, book/author) were added to `tests/fixtures/serps.json.bz2` with baseline
 snapshots capturing the dropped state.
 
-## The fix
+## The fix (interim — superseded by [plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md))
+
+> This `div.g → general` recovery is sound only for *uniformly-organic* tabs; check 4
+> showed it mislabels/misses content on rich tabs. Kept here as the worked example of
+> the iteration; the durable fix is sub-column parsing (plan 033). Read on for the
+> reasoning and the wrong turns it cost.
 
 Give the swallowed case its **own layout** rather than force-fitting it into the
 generic `standard` extractor. In `extract_from_standard`, after the existing
@@ -257,11 +279,15 @@ organics are distinct (no duplicate URLs, no overlap with the panel) and carry r
 title/url (`test_general_results_have_title_or_url`). The 5 corpus `standard-overview`
 SERPs are untouched. Full suite: **331 passed, 4 skipped, 85 snapshots**.
 
-**Known limitation — a separate feature, deliberately not force-fit here.** Some
-`standard-overview` SERPs *also* bury their organics (e.g. "az primaries",
-"us election": `general = 0`, organics in `div.g` that fall outside the recipe's
-`TzHB6b`/`A6K0A` extraction), and finance panels expose bare `tF2Cxc` with no `div.g`
-("aapl stock price"). These are distinct layouts that warrant their own named handlers
-rather than overloading `standard-kp-wholepage`; recovering them needs dedup-awareness
-against what their recipe already emits. Tracked as follow-up.
+**Interim — this `div.g → general` recovery is unsound for rich tabs (see check 4).**
+It is correct only when a tab is *uniformly* organics (e.g. "footloose cast"). Auditing
+"az primaries" by type against the rendered HTML (check 4) showed a kp-wholepage tab is
+really a **mini-SERP**: the marker-based recovery mislabeled an election-dates widget as
+`general` and missed an election-results panel, a `top_stories` block, and a resources
+panel entirely. And finance tabs ("aapl") render organics as bare `tF2Cxc` that a recipe
+extracts but whose general parser collapses to one result. The sound fix is to stop
+cherry-picking and **parse the whole tab as a sub-column** through the normal
+classify→parse pipeline, adding component types for the specialized blocks — tracked in
+[plan 033](../plans/033-kp-wholepage-tab-subcolumn-extraction.md), which supersedes this
+recovery and the `format-06` classifier hack.
 
