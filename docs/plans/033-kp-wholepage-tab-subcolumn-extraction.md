@@ -126,19 +126,30 @@ widgets beyond bare-`tF2Cxc` organics that also need a type.
 3. Dedup against recipe output + relabel; verify the recipe-native panels
    ("central park", "mater", "cheap flights") are unchanged or improved.
 4. Remove the interim `_kp_wholepage_organics`/`standard-kp-wholepage` `div.g`-only
-   recovery once the sub-column model subsumes it.
+   recovery once the sub-column model subsumes it, and **re-audit + regenerate the 5
+   existing `standard-kp-wholepage` snapshots by type** (their interim baselines are
+   suspect — see Fixtures).
 5. Add the new component types one at a time, each with classifier + parser + fixture
    + snapshot; assert the previously-`unknown` blocks now type correctly.
 6. Finance variant.
 
 ## Fixtures
 
-Already captured this session (promote/keep): "alicia keys lyrics", "education
-pronunciation", "footloose cast", "election popular vote", "books by roger ebert"
-(corpus), plus `temp/serps/{az_primaries,us_election}.html` to add. "aapl stock
-price" and "cheap flights" are already corpus fixtures. Add one fixture per new
-component type, chosen for structural diversity per
-[fixture-corpus.md](fixture-corpus.md).
+Already captured this session: "alicia keys lyrics", "education pronunciation",
+"footloose cast", "election popular vote", "books by roger ebert" (corpus), plus
+`temp/serps/{az_primaries,us_election}.html` to add. "aapl stock price" and "cheap
+flights" are already corpus fixtures. Add one fixture per new component type, chosen
+for structural diversity per [fixture-corpus.md](fixture-corpus.md).
+
+> **Existing `standard-kp-wholepage` snapshots are suspect — re-audit by type, do not
+> trust them.** The 5 fixtures above were snapshotted under the *interim* `div.g →
+> general` recovery, which the green suite froze as-is. At least "election popular
+> vote" is an election panel like "az primaries", so its committed snapshot almost
+> certainly carries the same defects (a mislabeled election-dates widget as `general`,
+> plus missing results / `top_stories` / resources panels). Part of this plan is to
+> walk each of these five against its rendered HTML (guide check 4) and regenerate the
+> snapshots from the sub-column parse — a passing snapshot diff alone is not evidence
+> of correctness here, since the baseline itself is wrong.
 
 ## Verification (per the guide)
 
