@@ -135,8 +135,9 @@ clause plus what the record contributes:
 ```
 
 e.g. `"Bulk corpus capture, v0.6.7a0 crawl 2026-02-06. Sole carrier of
-knowledge/unit_converter."` Keep the provenance clause free of private-repo names
-and any embedded crawl tokens / IPs (scrub `GOOGLE_ABUSE_EXEMPTION` URLs).
+knowledge/unit_converter."` Keep the provenance clause free of private-repo names.
+One record (`7049404a2dd6`) intentionally retains a `GOOGLE_ABUSE_EXEMPTION` URL
+token as an artifact of how the crawler obtained an abuse exemption.
 
 ## Reproducing the corpus assessment
 

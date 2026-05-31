@@ -1,0 +1,293 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 64200000.0,
+    "result_estimate_time": 0.3
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Choose what you’re giving feedback on",
+        "img_url": null,
+        "text": "a tank for storing water, especially one supplying taps or as part of a flushing toilet. | an underground reservoir for rainwater .",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Oxford Languages",
+            "url": "https://languages.oup.com/google-dictionary-en"
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/websearch/answer/10106608?hl=en"
+          },
+          {
+            "text": " | |Learn to pronounce| | ",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=how+to+pronounce+cistern&stick=H4sIAAAAAAAAAOMIfcRoyS3w8sc9YSmDSWtOXmPU4uINKMrPK81LzkwsyczPExLmYglJLcoV4pbi5GJPziwuSS3Ks2JRYkrN41nEKpGRX65Qkq9QANSSD9STqgBVAQDb7UeKWQAAAA&pron_lang=en&pron_country=us&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ3eEDegQIKhAM"
+          },
+          {
+            "text": "supplying",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=supplying&si=AKbGX_onJk-q0LQUYzV7-GRhpJ5Dcp491JEo9xGGOogmfD72qMA2dnDhv-39t69a-nJTCQmkjJ8x3SdBFZ6796vpkHD7NXTHetnGv1fFRmGidhhQodOz6fo%3D&expnd=1"
+          },
+          {
+            "text": "taps",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=taps&si=AKbGX_o1kf-QqTkl_gxFsV7N2y1VIxXxokBXTaDQ5VYe_CCESwFq_yyPrvQAvXLfP3ngj90Mauqo20IinPmLH8uupBh1kYgAXg%3D%3D&expnd=1"
+          },
+          {
+            "text": "flushing",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=flushing&si=AKbGX_qNq0Y8zql7SxzZAf2-HTTOc2PQ9UUQ96IglJZNpqY7qqXQcYa9ke2xO0Fn8IriBAh-2tbyEDTkdb_WGqtYZ2VT-uX-O0Of22zI-UpIfOn9wNP1XFQ%3D&expnd=1"
+          },
+          {
+            "text": "reservoir",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=reservoir&si=AKbGX_onJk-q0LQUYzV7-GRhpJ5DJGyZxhtUTrqO4JoQo76fyRUiLIxj7y-zR68oHMYOqyzeOoBk41ESwyuAClbH5EK0VioTCg4Dq2nXygN7zfzVw-WVbNI%3D&expnd=1"
+          },
+          {
+            "text": "rainwater",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=rainwater&si=AKbGX_onJk-q0LQUYzV7-GRhpJ5DNOluQE4w-7_6PpCJqOf--sXPZNLqI1WMfjnpKWkwHwY6nhi4SPPpV7hpsLkNNRmhZtr0eEQRCGuuTX26rI340l5J8H0%3D&expnd=1"
+          },
+          {
+            "text": "See more",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=cistern&si=AKbGX_r0zqXEeLlZhGfi3fbO0QSWKGCL9sqcT40iNLNZLVskkyPJ6exvr9sNypbPonRnw6tihnfDNZjwUuDGhJRG2yw-sAVGig%3D%3D&expnd=1&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ2v4IegQIKhAj"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "dictionary",
+      "text": "a tank for storing water, especially one supplying taps or as part of a flushing toilet. | an underground reservoir for rainwater .",
+      "title": "cistern",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "items": [
+          "Why would a house have a cistern?",
+          "What was the purpose of a cistern?",
+          "What is the difference between a cistern and a well?",
+          "What is the difference between a cistern and a tank?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Why would a house have a cistern?<|>What was the purpose of a cistern?<|>What is the difference between a cistern and a well?<|>What is the difference between a cistern and a tank?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Cistern",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A  cistern  is a waterproof receptacle for holding liquids, usually water.  Cisterns  are often built to catch and store rainwater.  Cisterns  are distinguished ...",
+      "title": "Cistern",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Cistern"
+    },
+    {
+      "cite": "https://extension.psu.edu  › rainwater-cisterns-design-cons...",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Dec 7, 2022  —  Roof-catchment  cisterns  are systems used to collect and store rainwater for household and other uses. Save for later Print. Share. Updated:.",
+      "title": "Rainwater Cisterns: Design, Construction, and Treatment",
+      "type": "general",
+      "url": "https://extension.psu.edu/rainwater-cisterns-design-construction-and-treatment"
+    },
+    {
+      "cite": "https://www.merriam-webster.com  › dictionary › cistern",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mar 3, 2024  —  The meaning of  CISTERN  is an artificial reservoir (such as an underground tank) for storing liquids and especially water (such as ...",
+      "title": "Cistern Definition & Meaning",
+      "type": "general",
+      "url": "https://www.merriam-webster.com/dictionary/cistern"
+    },
+    {
+      "cite": "https://www.vocabulary.com  › dictionary › cistern",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A  cistern  is an underground tank that holds water. A long time ago,  cistern  water was used for drinking, but nowadays developed parts of the world mainly use it ...",
+      "title": "Cistern - Definition, Meaning & Synonyms",
+      "type": "general",
+      "url": "https://www.vocabulary.com/dictionary/cistern"
+    },
+    {
+      "cite": "https://www.esf.edu  › ere › GICalculator › CisternsIntro",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Cisterns  are large tanks that store rainwater collected from impervious surfaces for domestic uses or for consumption. collapse section Why use  Cisterns ?",
+      "title": "Cisterns",
+      "type": "general",
+      "url": "https://www.esf.edu/ere/endreny/GICalculator/CisternsIntro.html"
+    },
+    {
+      "cite": "https://dictionary.cambridge.org  › dictionary › cistern",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "CISTERN  meaning: 1. a container in which water is stored, especially one connected to a toilet or in the roof of a…. Learn more.",
+      "title": "CISTERN | definition in the Cambridge English Dictionary",
+      "type": "general",
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/cistern"
+    },
+    {
+      "cite": "https://www.currenenvironmental.com  › blog › what-is-a...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 16, 2023  —  A  cistern  is a buried tank, commonly made of brick & are typically associated with capturing and storing rainwater.  Cisterns  are not cess ...",
+      "title": "What is a Cistern?",
+      "type": "general",
+      "url": "https://www.currenenvironmental.com/blog/what-is-a-cistern"
+    },
+    {
+      "cite": "https://www.rainbrothers.com  › store › Underground-Ta...",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Need a concrete  cistern ? How about a durable high-density polyethylene plastic  cistern ? Check out our selection here. Precast Concrete Underground  Cisterns .",
+      "title": "Underground Tanks",
+      "type": "general",
+      "url": "https://www.rainbrothers.com/store/Underground-Tanks-c73647298"
+    },
+    {
+      "cite": "https://www.bobvila.com  › articles › what-is-a-cistern",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Nov 28, 2022  —  A  cistern  is a reservoir for collecting rainwater for household or garden use. · Fill pipe: The fill pipe (port) directs water to the  cistern  ...",
+      "title": "Solved! What Is a Cistern?",
+      "type": "general",
+      "url": "https://www.bobvila.com/articles/what-is-a-cistern/"
+    },
+    {
+      "cite": "https://www.merriam-webster.com  › thesaurus › cistern",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Synonyms for  CISTERN : tub, vat, drum, cask, scuttlebutt, pipe, keg, hogshead, tun, puncheon.",
+      "title": "Synonyms of cistern - Merriam-Webster Thesaurus",
+      "type": "general",
+      "url": "https://www.merriam-webster.com/thesaurus/cistern"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "cistern toilet",
+          "cisterns brain",
+          "Cistern for sale",
+          "cistern price",
+          "how to pronounce cistern",
+          "cistern underground",
+          "cistern anatomy",
+          "what is a cistern used for"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "cistern toilet<|>cisterns brain<|>Cistern for sale<|>cistern price<|>how to pronounce cistern<|>cistern underground<|>cistern anatomy<|>what is a cistern used for",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "img_urls": [
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C%252Fm%252F04n4fh%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTKJ0NWxnNgfllzHAPKtVqnD9YvBg&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_B16BAhaEAE#vhid=u7VaYxkWVrmveM&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAhiEAE#vhid=DS9gXhnQRXcw1M&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAhdEAE#vhid=568RMSFCsqdkeM&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAhgEAE#vhid=Mo3uC7riDHZrEM&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAheEAE#vhid=lJkV-sgFRd8NuM&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAhcEAE#vhid=Pt3fwumI-eHwdM&vssid=mosaic",
+          "/search?q=cistern&sca_esv=52b056e1a97f92b3&udm=2&source=iu&ictx=1&vet=1&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQ_h16BAhhEAE#vhid=_bGpjfPGwLFmSM&vssid=mosaic",
+          "/search?sca_esv=52b056e1a97f92b3&q=cistern&udm=2&source=univ&fir=u7VaYxkWVrmveM%252CzATw75NR6WxH1M%252C_%253BDS9gXhnQRXcw1M%252CzATw75NR6WxH1M%252C_%253B568RMSFCsqdkeM%252CYPkFp_AtnegJmM%252C_%253BMo3uC7riDHZrEM%252CUPMzGAVFxDyjkM%252C_%253BlJkV-sgFRd8NuM%252C0YmUXaW0uXBYEM%252C_%253BPt3fwumI-eHwdM%252C_tkgtlMhxMhIhM%252C_%253B_bGpjfPGwLFmSM%252CUPMzGAVFxDyjkM%252C_&usg=AI4_-kTMwZgJ_PzHFVkTpj7wX0epuv1Hsw&sa=X&ved=2ahUKEwigwZHuhPCEAxUWGVkFHaaDDWkQiR56BAhjEAI"
+        ],
+        "items": [
+          "Types",
+          "Size",
+          "Pipe"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "panel_rhs",
+      "text": "A cistern is a waterproof receptacle for holding liquids, usually water. Cisterns are often built to catch and store rainwater. Cisterns are distinguished from wells by their waterproof linings. Modern cisterns range in capacity from a few litres to thousands of cubic metres, effectively forming covered reservoirs.",
+      "title": "Cistern",
+      "type": "knowledge",
+      "url": "https://en.wikipedia.org/wiki/Cistern"
+    }
+  ]
+}

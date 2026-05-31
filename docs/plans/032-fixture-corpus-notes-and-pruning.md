@@ -244,8 +244,9 @@ These records are committed to a **public** repo. While rewriting the files:
 
 - Drop the private-repo name from any note text (the curated v0.7.2 notes currently
   say "Captured via SearchAudits ...") — use a neutral provenance clause.
-- Scrub the `GOOGLE_ABUSE_EXEMPTION` token + embedded IP from the `url` of
-  `serps-v0.6.7` record `7049404a2dd6` (mooted if that file is retired).
+- **Decided: keep** the `GOOGLE_ABUSE_EXEMPTION` token (with its embedded client IP)
+  on record `7049404a2dd6` as a deliberate artifact — it documents how the crawler
+  obtained an abuse exemption, which is worth preserving. Not scrubbed.
 
 ### 5. Consolidate into `serps.json.bz2` and update loaders
 
