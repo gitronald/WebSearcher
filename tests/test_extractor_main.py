@@ -130,24 +130,23 @@ def test_get_layout_label_top_bars_takes_precedence_over_left_bar():
     assert _layout_label(f'{_RCNT_TOPBAR}<div class="OeVqAd"></div>') == "top-bars"
 
 
-# extract_from_standard: standard-0/1/2/4 sub-type dispatch ---------------------
-# standard-0 (overview) and standard-4 (AIRFARES) are witnessed by fixtures;
-# standard-1 (Songs) and standard-2 (SportsStandings) are NOT, so they are
-# pinned here before any ladder refactor.
+# extract_from_standard: standard-* sub-type dispatch --------------------------
+# standard-overview and standard-airfares are witnessed by fixtures;
+# standard-songs and standard-sports-standings are NOT, so they are pinned here.
 
 
-def test_standard_0_overview_extracts_tzhb6b_children():
+def test_standard_overview_extracts_tzhb6b_children():
     em = _make_extractor(
         '<div id="rso"><div id="kp-wp-tab-overview">'
         '<div class="TzHB6b">ov 1</div><div class="TzHB6b">ov 2</div>'
         "</div></div>"
     )
     res = em.extract_from_standard()
-    assert em.layout_label == "standard-0"
+    assert em.layout_label == "standard-overview"
     assert _texts(res) == ["ov 1", "ov 2"]
 
 
-def test_standard_1_songs_extracts_tab_children():
+def test_standard_songs_extracts_tab_children():
     em = _make_extractor(
         '<div id="rso">'
         '<div id="kp-wp-tab-cont-Songs" role="tabpanel"><div>tabwrap</div></div>'
@@ -155,38 +154,38 @@ def test_standard_1_songs_extracts_tab_children():
         "</div>"
     )
     res = em.extract_from_standard()
-    assert em.layout_label == "standard-1"
+    assert em.layout_label == "standard-songs"
     assert _texts(res) == ["song A", "song B"]
 
 
-def test_standard_2_sports_standings_extracts_tab_children():
+def test_standard_sports_standings_extracts_tab_children():
     em = _make_extractor(
         '<div id="rso">'
         '<div id="kp-wp-tab-SportsStandings"><div>team 1</div><div>team 2</div></div>'
         "</div>"
     )
     res = em.extract_from_standard()
-    assert em.layout_label == "standard-2"
+    assert em.layout_label == "standard-sports-standings"
     assert _texts(res) == ["team 1", "team 2"]
 
 
-def test_standard_4_airfares_extracts_a6k0a_children():
+def test_standard_airfares_extracts_a6k0a_children():
     em = _make_extractor(
         '<div id="rso"><div id="kp-wp-tab-AIRFARES">'
         '<div class="A6K0A">fare 1</div><div class="A6K0A">fare 2</div>'
         "</div></div>"
     )
     res = em.extract_from_standard()
-    assert em.layout_label == "standard-4"
+    assert em.layout_label == "standard-airfares"
     assert _texts(res) == ["fare 1", "fare 2"]
 
 
-def test_standard_3_label_on_empty_rso_fallback():
+def test_standard_fallback_label_on_empty_rso():
     # No kp-wp-tab-* container matches and the generic extraction yields nothing,
-    # so the label settles on the standard-3 empty fallback.
+    # so the label settles on the standard-fallback empty path.
     em = _make_extractor('<div id="rso"><div></div></div>')
     res = em.extract_from_standard()
-    assert em.layout_label == "standard-3"
+    assert em.layout_label == "standard-fallback"
     assert _texts(res) == []
 
 

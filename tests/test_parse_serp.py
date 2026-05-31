@@ -178,12 +178,12 @@ def test_field_types(all_results):
 
 def test_features_expose_main_layout(all_parsed_serps):
     """Every SERP's features carries a str-or-None ``main_layout`` label, and
-    the witnessed fixture distribution (standard / standard-0 / standard-4) is
-    present -- pins the extractor->features wiring."""
+    the witnessed fixture distribution (standard / standard-overview /
+    standard-airfares) is present -- pins the extractor->features wiring."""
     seen = set()
     for serp in all_parsed_serps:
         assert "main_layout" in serp["features"]
         layout = serp["features"]["main_layout"]
         assert layout is None or isinstance(layout, str)
         seen.add(layout)
-    assert {"standard", "standard-0", "standard-4"} <= seen
+    assert {"standard", "standard-overview", "standard-airfares"} <= seen

@@ -30,28 +30,29 @@ class _StandardLayout:
     keep_tokens: tuple[str, ...] | None
 
 
-# Detection precedence follows insertion order (0, 1, 2, 4); standard-3 is the
-# empty-rso fallback handled directly in ``extract_from_standard``.
+# Names mirror the observable ``kp-wp-tab-*`` container each sub-layout detects;
+# detection precedence follows insertion order. ``standard-fallback`` is the
+# empty-rso fallback handled directly in ``extract_from_standard`` (no tab).
 _STANDARD_LAYOUTS: dict[str, _StandardLayout] = {
-    "standard-0": _StandardLayout(
+    "standard-overview": _StandardLayout(
         detect_css='div[id="kp-wp-tab-overview"]',
         detect_sels=("div.TzHB6b", "div.A6K0A"),
         extract_css='div[id="kp-wp-tab-overview"]',
         keep_tokens=("TzHB6b", "A6K0A"),
     ),
-    "standard-1": _StandardLayout(
+    "standard-songs": _StandardLayout(
         detect_css='div[id="kp-wp-tab-cont-Songs"][role="tabpanel"]',
         detect_sels=("div",),
         extract_css='div[id="kp-wp-tab-Songs"]',
         keep_tokens=None,
     ),
-    "standard-2": _StandardLayout(
+    "standard-sports-standings": _StandardLayout(
         detect_css='div[id="kp-wp-tab-SportsStandings"]',
         detect_sels=("div",),
         extract_css='div[id="kp-wp-tab-SportsStandings"]',
         keep_tokens=None,
     ),
-    "standard-4": _StandardLayout(
+    "standard-airfares": _StandardLayout(
         detect_css='div[id="kp-wp-tab-AIRFARES"]',
         detect_sels=("div.A6K0A",),
         extract_css='div[id="kp-wp-tab-AIRFARES"]',
@@ -196,7 +197,7 @@ class ExtractorMain:
         col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
         if not col:
-            self.layout_label = "standard-3"
+            self.layout_label = "standard-fallback"
             log.debug(f"main_layout: {self.layout_label} (update)")
             divs = _find_all_with_class(rso_div, 'div[id="kp-wp-tab-overview"]', filter_empty=False)
             col = []
