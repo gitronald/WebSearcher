@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Breaking (internal): rewrote the parse pipeline natively on [selectolax](https://github.com/rushter/selectolax) (lexbor backend), dropping the BeautifulSoup + lxml runtime dependencies. All classifiers, extractors, parsers, and DOM helpers now operate on selectolax nodes; the public `parse_serp` / `SearchEngine` API and output schema are unchanged (validated against a parser-parity harness over the fixture corpus), but any code reaching into internal node objects is affected
+- Added `features.main_layout` to `parse_serp` output, surfacing the main-section layout label (e.g. `standard`, `standard-overview`, `standard-airfares`) that was previously internal-only extractor state
+- Refactored the `standard-*` main-layout dispatch from a copy-pasted if-ladder into a data-driven `_StandardLayout` table, and renamed the opaque numeric labels to names derived from the `kp-wp-tab-*` container each detects (`standard-overview`, `standard-songs`, `standard-sports-standings`, `standard-airfares`, `standard-fallback`)
+- Fixed a `no-rso` layout bug where the trailing page-level section was appended once per preceding block, duplicating its content
+- Fixed `ComponentList.add_component` to honor an explicit `cmpt_rank` of `0` (the previous falsy check replaced rank `0` with the auto-counter)
+- Added characterization tests pinning every main-layout routing and extraction branch; package-wide simplification pass (dead-code removal, shared-helper reuse, hoisted regex compilation) with no behavior change
+
+## [0.8.6] - 2026-05-26
+
+- Fixed `demo_search_headers` for the `requests` method and current API, the `demo_locations` lookahead regex and multiprocessing main guard, and a demo-search Chrome-version import that broke against older installed `websearcher` versions
+- Quieted Selenium teardown (direct `quit()`, muted `urllib3` retry noise)
+
 ## [0.8.5] - 2026-05-26
 
 - Updated demo scripts, examples, and documentation
