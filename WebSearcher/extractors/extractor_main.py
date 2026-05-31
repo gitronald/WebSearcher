@@ -382,9 +382,10 @@ class ExtractorMain:
                 out.append(div)
             else:
                 out.extend(n for n in div.css("div.g") if n.mem_id != div.mem_id)
-            sec2 = self.soup.css_first("div.WvKfwe.a3spGf")
-            if sec2 is not None and class_tokens(sec2) == ["WvKfwe", "a3spGf"]:
-                out.extend(sec2.iter(include_text=True))
+        # Page-level trailing section -- appended once, not per sec1 div.
+        sec2 = self.soup.css_first("div.WvKfwe.a3spGf")
+        if sec2 is not None and class_tokens(sec2) == ["WvKfwe", "a3spGf"]:
+            out.extend(sec2.iter(include_text=True))
         return [
             c
             for c in out
