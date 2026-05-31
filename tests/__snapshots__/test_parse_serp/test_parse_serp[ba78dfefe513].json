@@ -1,0 +1,91 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 251000000.0,
+    "result_estimate_time": 1.15
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "2024 United States primary elections",
+        "img_url": null,
+        "text": "2024 United States primary elections|Overview|Overview|Overview|Dates|Dates|Dates|Results|Results|Results",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "2024 United States primary elections Overview Dates Results",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Breaking down the difference between the popular vote and ... YouTube  ·  We Are Iowa Local 5 News 1 minute, 8 seconds Oct 27, 2020",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=wnoCyRUKlPk"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "The National Popular Vote v. the Electoral College [POLICYbrief] YouTube  ·  The Federalist Society 3 minutes, 59 seconds Jun 24, 2020",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=ca7I25kD2e8"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Electoral vote vs. the popular vote: explained | Just The FAQs YouTube  ·  USA TODAY 1 minute, 33 seconds Oct 29, 2019",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=RiPL-XHKnCk"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "error": "no subcomponents parsed",
+      "section": "rhs",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "knowledge_rhs",
+      "url": null
+    }
+  ]
+}

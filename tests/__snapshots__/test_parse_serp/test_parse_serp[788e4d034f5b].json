@@ -1,0 +1,91 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1760000.0,
+    "result_estimate_time": 0.43
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "New York",
+        "img_url": null,
+        "text": "New York|Song by Alicia Keys|Song by Alicia Keys|Overview|Overview|Overview|Lyrics|Lyrics|Lyrics|Videos|Videos|Videos|Listen|Listen|Listen",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "New York Song by Alicia Keys Overview Lyrics Videos Listen",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Alicia Keys - Empire State Of Mind (Lyrics) YouTube  ·  Shadow Music 3 minutes, 34 seconds Mar 8, 2021",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=ZW2xa__89p0"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Alicia Keys - New York Empire State of Mind (Lyrics) YouTube  ·  VibersVibin 3 minutes, 38 seconds Feb 1, 2021",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=GoLerKmXQhU"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "JAY-Z - Empire State Of Mind (Lyrics) ft. Alicia Keys YouTube  ·  Loku 5 minutes, 8 seconds Aug 17, 2022",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "error": "no subcomponents parsed",
+      "section": "rhs",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Complementary Results<|>About<|>Artist<|>:<|>Alicia Keys<|>Feedback<|>People also search for<|>Empire State Of Mind lyrics<|>Jay-Z<|>Brand New Me lyrics<|>Alicia Keys<|>Girl on Fire lyrics<|>Alicia Keys<|>I'm Blessed lyrics<|>Charlie Wilson<|>See more",
+      "title": null,
+      "type": "knowledge_rhs",
+      "url": null
+    }
+  ]
+}

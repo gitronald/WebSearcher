@@ -1,0 +1,71 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Roger Ebert",
+        "img_url": null,
+        "text": "Roger Ebert|American film critic|American film critic|Overview|Overview|Overview|Movies and shows|Movies and shows|Movies and shows|Books|Books|Books|Videos|Videos|Videos",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Roger Ebert American film critic Overview Movies and shows Books Videos",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "items": [
+          "What is Roger Ebert's most famous review?",
+          "Did Oprah date Roger Ebert?",
+          "What kind of writing did Roger Ebert win a Pulitzer Prize for?",
+          "Who writes for Roger Ebert?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is Roger Ebert's most famous review?<|>Did Oprah date Roger Ebert?<|>What kind of writing did Roger Ebert win a Pulitzer Prize for?<|>Who writes for Roger Ebert?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "panel_rhs",
+      "text": "Roger Joseph Ebert was an American film critic, film historian, journalist, essayist, screenwriter, and author. He was a film critic for the Chicago Sun-Times from 1967 until his death in 2013. Ebert was known for his intimate, Midwestern writing voice and critical views informed by values of populism and humanism.",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+    }
+  ]
+}

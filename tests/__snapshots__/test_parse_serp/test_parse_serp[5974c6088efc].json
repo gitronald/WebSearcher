@@ -1,0 +1,124 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 5290000.0,
+    "result_estimate_time": 0.41
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Footloose",
+        "img_url": null,
+        "text": "Footloose|PG|PG| 1984 ‧ Dance/Musical ‧ 1h 47m|Overview|Overview|Overview|Cast|Cast|Cast|Songs|Songs|Songs|Trailers & clips|Trailers & clips|Trailers & clips|Watch movie|Watch movie|Watch movie|Behind the scenes|Behind the scenes|Behind the scenes|Quotes|Quotes|Quotes|Reviews|Reviews|Reviews",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Footloose PG 1984 ‧ Dance/Musical ‧ 1h 47m Overview Cast Songs Trailers & clips Watch movie Behind the scenes Quotes Reviews",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "text": "Kevin Bacon|Ren McCormack|Lori Singer|Ariel Moore|Chris Penn|Willard Hewitt|Sarah Jessica Parker|Rusty Rodriguez|John Lithgow|Reverend Shaw Moore|Dianne Wiest|Vi Moore|John Laughlin|Woody|Jim Youngs|Chuck Cranston|Show more|Show less",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Kevin Bacon|Ren McCormack",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Kevin+Bacon&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gAxTSxNTbSEspOt9NMyc3LBhFVyYnHJIlZu79SyzDwFp8Tk_DwAfNQMhzkAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAC"
+          },
+          {
+            "text": "Lori Singer|Ariel Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Lori+Singer&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjNNcyssC7SEspOt9NMyc3LBhFVyYnHJIlZun_yiTIXgzLz01CIABuN1PzoAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAE"
+          },
+          {
+            "text": "Chris Penn|Willard Hewitt",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Chris+Penn&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjNNqvLM07WEspOt9NMyc3LBhFVyYnHJIlYu54yizGKFgNS8PABMsMlHOQAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAG"
+          },
+          {
+            "text": "Sarah Jessica Parker|Rusty Rodriguez",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Sarah+Jessica+Parker&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gAxc83MyrWEspOt9NMyc3LBhFVyYnHJIlaR4MSixAwFr9Ti4szkRIWAxKLs1CIAmCcSCUIAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAI"
+          },
+          {
+            "text": "John Lithgow|Reverend Shaw Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Lithgow&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjMNK7MNjbWEspOt9NMyc3LBhFVyYnHJIlYer_yMPAWfzJKM9PxyAOCrSF07AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAK"
+          },
+          {
+            "text": "Dianne Wiest|Vi Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Dianne+Wiest&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjONKszLCrWEspOt9NMyc3LBhFVyYnHJIlYel8zEvLxUhfDM1OISAG47UI87AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAM"
+          },
+          {
+            "text": "John Laughlin|Woody",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Laughlin&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gIxTeINCrKrtISyk6300zJzcsGEVXJicckiVl6v_Iw8BZ_E0vSMnMw8AI0aX089AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAO"
+          },
+          {
+            "text": "Jim Youngs|Chuck Cranston",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Jim+Youngs&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gIzk9PLDY21hLKTrfTTMnNywYRVcmJxySJWLq_MXIXI_NK89GIAHtHa7zoAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAQ"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          "Did Kevin Bacon do his own dancing in Footloose?",
+          "How old was Kevin Bacon for Footloose?",
+          "Who starred in the 2011 version of Footloose?",
+          "Did Tom Cruise play in Footloose?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Did Kevin Bacon do his own dancing in Footloose?<|>How old was Kevin Bacon for Footloose?<|>Who starred in the 2011 version of Footloose?<|>Did Tom Cruise play in Footloose?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "panel_rhs",
+      "text": "Moving in from Chicago, newcomer Ren McCormack (Kevin Bacon) is in shock when he discovers the small Midwestern town he now calls home has made dancing and rock music illegal. As he struggles to fit in, Ren faces an uphill battle to change things. With the help of his new friend, Willard Hewitt (Christopher Penn), and defiant teen Ariel Moore (Lori Singer), he might loosen up this conservative town. But Ariel's influential father, Reverend Shaw Moore (John Lithgow), stands in the way.… MORE",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    }
+  ]
+}

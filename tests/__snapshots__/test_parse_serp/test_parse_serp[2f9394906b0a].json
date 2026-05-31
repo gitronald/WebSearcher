@@ -1,0 +1,91 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1590000000.0,
+    "result_estimate_time": 0.3
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "text": "education|education|Overview|Overview|Overview|Usage examples|Usage examples|Usage examples|Pronunciation|Pronunciation|Pronunciation|Similar and opposite words|Similar and opposite words|Similar and opposite words",
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "education Overview Usage examples Pronunciation Similar and opposite words",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "How to Pronounce Education? (CORRECTLY) Meaning & ... YouTube  ·  Julien Miquel 50 seconds Nov 10, 2020",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=UVbdqrqXMQw"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "How to Pronounce Education YouTube  ·  Julien Miquel 26 seconds Nov 25, 2021",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=CD9uZWyBDdI"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "How to pronounce EDUCATION in American English YouTube  ·  English with Collins Dictionary 13 seconds Oct 19, 2022",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=9aej8yOYK98"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "error": "no subcomponents parsed",
+      "section": "rhs",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "",
+      "title": null,
+      "type": "knowledge_rhs",
+      "url": null
+    }
+  ]
+}
