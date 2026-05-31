@@ -40,7 +40,6 @@ class Component:
         self.type = type
         self.cmpt_rank = cmpt_rank
         self.result_list: list[dict] = []
-        self.result_counter = 0
 
     def __str__(self) -> str:
         return str(vars(self))
@@ -227,4 +226,4 @@ class ComponentList:
         return results
 
     def to_records(self):
-        return [Component.to_dict() for Component in self.components]
+        return [cmpt.to_dict() for cmpt in self.components]

@@ -183,6 +183,10 @@ def _next_sibling_with_text(node: Node) -> Node | None:
 
 _ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
 _ARIA_REVIEWS_RE = re.compile(r"\(([\d,]+)\)\s*user reviews?")
+_RATING_NUMERIC_RE = re.compile(r"^\d*[.]?\d*$")
+_RATING_VOTES_RE = re.compile(r" vote[s]?| review[s]?")
+_RATING_REVIEW_BY_RE = re.compile("Review by")
+_PRODUCT_SPLIT_RE = re.compile("-|·")
 
 
 def parse_rating_aria_label(aria_label: str) -> dict:
@@ -202,26 +206,24 @@ def parse_rating_aria_label(aria_label: str) -> dict:
 
 def parse_ratings(text) -> dict:
     text = [t.strip() for t in text]
-    numeric = re.compile(r"^\d*[.]?\d*$")
     rating = re.split("Rating: ", text[0])[-1]
-    details: dict = {"rating": float(rating)} if numeric.match(rating) else {"rating": rating}
+    details: dict = (
+        {"rating": float(rating)} if _RATING_NUMERIC_RE.match(rating) else {"rating": rating}
+    )
 
     if len(text) > 1:
-        str_match_0 = re.compile(" vote[s]?| review[s]?")
-        str_match_1 = re.compile("Review by")
-        if str_match_0.search(text[1]):
-            reviews = re.split(str_match_0, text[1])[0]
+        if _RATING_VOTES_RE.search(text[1]):
+            reviews = re.split(_RATING_VOTES_RE, text[1])[0]
             reviews = reviews.replace(",", "")[1:]  # [1:] drops unicode char
             details["reviews"] = int(reviews)
-        elif str_match_1.search(text[1]):
+        elif _RATING_REVIEW_BY_RE.search(text[1]):
             details["reviews"] = 1
 
     return details
 
 
 def parse_product(text: str) -> dict:
-    split_match = re.compile("-|·")
-    parts = re.split(split_match, text)
+    parts = re.split(_PRODUCT_SPLIT_RE, text)
     if len(parts) == 1:
         return {"price": parts[0].strip()[1:]}
     return {"price": parts[0].strip()[1:], "stock": parts[1].strip()[1:]}

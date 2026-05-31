@@ -129,13 +129,9 @@ def get_domain(url: str | None) -> str:
     if not url:
         return ""
     domain = tldextract.extract(url)
-    without_subdomain = ".".join([domain.domain, domain.suffix])
-    with_subdomain = ".".join([domain.subdomain, domain.domain, domain.suffix])
-    if domain.subdomain:
-        domain_str = without_subdomain if domain.subdomain == "www" else with_subdomain
-    else:
-        domain_str = without_subdomain
-    return domain_str
+    if domain.subdomain and domain.subdomain != "www":
+        return ".".join([domain.subdomain, domain.domain, domain.suffix])
+    return ".".join([domain.domain, domain.suffix])
 
 
 # Sessions ---------------------------------------------------------------------
