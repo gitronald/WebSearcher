@@ -101,13 +101,15 @@ is unseen elsewhere. It is the conservative middle ground between the pair-set l
 
 ## Tooling
 
-Two scripts implement the analysis. Both run through `uv`.
+Three scripts, all run through `uv`. They are **report-only** — none mutates the
+corpus or auto-recommends deletions (the plan-032 drop decision is already applied;
+`scripts/build_fixture_corpus.py` is the one-time builder that produced the file).
 
 ### `scripts/profile_fixture_corpus.py`
 
 Parses every record and reports per-record provenance, `main_layout`, fired feature
 flags, the pair-set signature, parse errors, and corpus-wide rarity (which pairs /
-layouts have only 1–2 carriers) plus subset-coverage.
+layouts have only 1–2 carriers).
 
 ```bash
 uv run python scripts/profile_fixture_corpus.py            # human-readable report
@@ -116,13 +118,27 @@ uv run python scripts/profile_fixture_corpus.py --json     # machine-readable
 
 ### `scripts/compare_drop_signatures.py`
 
-Applies the signature readings above to the drop candidates, answers "does any
-candidate have a unique signature?" under all three readings, and prints the **final
-drop list under the distinct-type bar** — each dropped record annotated with the
-surviving record that preserves its signature.
+Reports the three signature readings and surfaces **distinct-type signature
+clusters** (records sharing a component sequence) for human review.
+
+It does NOT recommend drops, by design. A shared `(type, sub_type)` signature is
+blind to details-level structure: e.g. two `ai_overview/sectioned` records can
+differ in section *count* (1 vs 3), and `test_ai_overview_legacy_sge.py` depends on
+the multi-section one specifically. Always confirm at the details level — and check
+the query-keyed tests — before treating a cluster as redundant.
 
 ```bash
 uv run python scripts/compare_drop_signatures.py
+```
+
+### `scripts/verify_drops.py`
+
+Corpus-integrity guard: confirms the 8 plan-032 drops are absent, serp_ids are
+unique, every record carries a `note`, the three witnessed layouts survive, and
+every parsed `(type, sub_type)` has a carrier. Exits non-zero on failure (CI-usable).
+
+```bash
+uv run python scripts/verify_drops.py
 ```
 
 ## The `note` field
@@ -142,13 +158,16 @@ token as an artifact of how the crawler obtained an abuse exemption.
 ## Reproducing the corpus assessment
 
 ```bash
-# 1. Profile every record and find unique contributors + redundancy
+# 1. Profile every record: provenance, layouts, unique contributors, rarity
 uv run python scripts/profile_fixture_corpus.py
 
-# 2. Compute the drop list under the distinct-type-order bar
+# 2. Review distinct-type signature clusters (potential redundancy)
 uv run python scripts/compare_drop_signatures.py
 
-# 3. After any change, confirm tests + that no unique pair/layout was lost
+# 3. Corpus-integrity guard (drops absent, notes present, layouts + coverage intact)
+uv run python scripts/verify_drops.py
+
+# 4. After any change, confirm the tests pass
 uv run pytest tests/test_parse_serp.py tests/test_parser_coverage.py \
   tests/test_ai_overview_legacy_sge.py -q
 ```
