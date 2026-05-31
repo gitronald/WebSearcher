@@ -216,7 +216,10 @@ class ExtractorMain:
             return []
         log.debug(f"main_layout: {self.layout_label} (update)")
 
-        spec = _STANDARD_LAYOUTS[sub_type]
+        spec = _STANDARD_LAYOUTS.get(sub_type)
+        if spec is None:
+            # Unknown/empty sub_type -> no recipe; preserve "empty result".
+            return []
         top_divs = (
             ExtractorMain.extract_top_divs(
                 self.layout_divs["top-bars"], rso=self.layout_divs["rso"]

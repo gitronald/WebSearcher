@@ -189,6 +189,14 @@ def test_standard_fallback_label_on_empty_rso():
     assert _texts(res) == []
 
 
+def test_extract_from_standard_sub_type_unknown_returns_empty():
+    # A sub_type with no recipe in _STANDARD_LAYOUTS yields an empty result
+    # rather than raising (the method default is still "").
+    em = _make_extractor('<div id="rso"><div class="g">x</div></div>')
+    assert em._extract_from_standard_sub_type("not-a-layout") == []
+    assert em._extract_from_standard_sub_type() == []
+
+
 # extract_from_top_bar: top-bars-divs / top-bars-children ----------------------
 
 
