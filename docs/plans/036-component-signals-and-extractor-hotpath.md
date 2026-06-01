@@ -135,10 +135,22 @@ Directions (each byte-identical, pinned by the 87-snapshot suite):
    only fires on a structurally-identifiable shape), it can be gated or dropped.
    Pin with a targeted test before/after.
 
+   **Measured (2026-06-01):** the corpus has **2 `available_on` components (of 87
+   SERPs)**, and **both are caught by the cheap `span.mgAbYb` heading path** -- the
+   full-component `/Available on` text fallback fires **0 times** corpus-wide,
+   despite running ~4,320 times/pass. So the fallback is pure overhead on the
+   fixtures and cannot be *proven* necessary by snapshots. It presumably guards
+   real-world SERPs whose heading isn't `mgAbYb`, so deleting it outright is an
+   unpinnable behavior change -- but **gating it behind a structural precondition**
+   (direction 1) removes the per-component cost while preserving the real-world
+   path, and the snapshot suite confirms the corpus classification is unchanged.
+
 This is the highest-ROI single classifier change surfaced so far: a per-call
 cost (full-component text) paid on nearly every component, addressable without
-touching any parser. Start with direction 3 (measure whether the fallback fires),
-then 1/2 based on what the markup shows.
+touching any parser. The measurement above points the implementation at
+direction 1 (gate the fallback on a necessary signal) rather than removal; add a
+targeted test that pins a non-`mgAbYb` `available_on` shape so the gated fallback
+stays exercised.
 
 ## Verification gate (per change)
 
