@@ -278,12 +278,20 @@ class ExtractorMain:
 
     @staticmethod
     def _kp_organics_outside(rso_div: Node, kp: Node) -> bool:
-        """True if any ``div.g`` organic (``div.tF2Cxc`` inside) sits in ``#rso``
-        but outside the panel -- the tell that the panel is a *complementary* side
-        panel, not the collapsed main column."""
+        """True if any organic ``div.g`` sits in ``#rso`` but outside the panel --
+        the tell that the panel is a *complementary* side panel, not the collapsed
+        main column.
+
+        An organic is any ``div.g`` carrying a titled link (an ``h3`` and an
+        ``a[href]``), not just the classic ``div.tF2Cxc`` text result: a music/video
+        panel renders its organic video results as ``div.g`` siblings of the panel
+        (a YouTube ``div.g`` has the title+link but no inner ``div.tF2Cxc``). Keying
+        the guard on ``div.tF2Cxc`` alone missed those, so the gate misfired and the
+        sub-column path discarded the video organics. ``h3`` + ``a[href]`` matches
+        both shapes while still excluding chrome ``div.g`` wrappers."""
         kp_id = kp.mem_id
         for g in subtree_css(rso_div, "div.g"):
-            if g.css_first("div.tF2Cxc") is None:
+            if g.css_first("h3") is None or g.css_first("a[href]") is None:
                 continue
             node, inside = g, False
             while node is not None and node.mem_id != rso_div.mem_id:
