@@ -228,6 +228,13 @@ def _subtype_things_to_know(node: Node, parsed: dict, details: dict, h2_text: st
 def _subtype_dynamic_section(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
     if node.css_first("div.JNkvid") is None:
         return False
+    # A whole-page entity panel (kp-wholepage-osrp) is a generic "panel": an internal
+    # subcard (e.g. a 'People also search for' carousel, or a feedback affordance whose
+    # heading precedes it in document order) is a section of the panel, not the panel's
+    # defining sub_type. Defer to the ``_subtype_panel`` fallback so the whole component
+    # stays ``panel`` instead of inheriting a subcard/affordance heading.
+    if node.css_first("div.kp-wholepage-osrp") is not None:
+        return False
     section_heading = node.css_first('[role="heading"][aria-level="2"]')
     if section_heading is None:
         # JNkvid without a section heading falls through to the panel fallback.

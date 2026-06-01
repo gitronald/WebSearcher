@@ -61,6 +61,13 @@ class ClassifyMainHeader:
     @staticmethod
     def classify(cmpt, levels: tuple[int, ...] = (2, 3)) -> str:
         node: Node = cmpt
+        # A whole-page entity panel (``kp-wholepage-osrp``) can embed sub-carousels
+        # ("People also search for") and feedback affordances whose level-2 headings
+        # would mis-claim the entire panel (e.g. as ``searches_related``). Defer to the
+        # structural classifiers downstream (``available_on``, ``knowledge_panel``),
+        # which type these panels correctly.
+        if node.css_first("div.kp-wholepage-osrp") is not None:
+            return "unknown"
         for level in levels:
             header = ClassifyMainHeader._classify_header(node, level)
             if header != "unknown":
