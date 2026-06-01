@@ -288,7 +288,15 @@ class ExtractorMain:
         (a YouTube ``div.g`` has the title+link but no inner ``div.tF2Cxc``). Keying
         the guard on ``div.tF2Cxc`` alone missed those, so the gate misfired and the
         sub-column path discarded the video organics. ``h3`` + ``a[href]`` matches
-        both shapes while still excluding chrome ``div.g`` wrappers."""
+        both shapes while still excluding chrome ``div.g`` wrappers.
+
+        Assumption: a titled-link ``div.g`` is an *organic*, i.e. the tell of a
+        complementary panel. A genuinely collapsed panel that nonetheless renders
+        some titled-link ``div.g`` (a PAA block, a video-carousel item, an image
+        card with a heading link) *outside* the ``kp`` in ``#rso`` would wrongly
+        read as complementary here and skip the sub-column collapse. No such shape
+        is known (the collapsed "30 year mortgage rates" fixture keeps its organics
+        inside the panel); revisit this test if one surfaces."""
         kp_id = kp.mem_id
         for g in subtree_css(rso_div, "div.g"):
             if g.css_first("h3") is None or g.css_first("a[href]") is None:
