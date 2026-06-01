@@ -13,8 +13,10 @@ import bz2
 import cProfile
 import gc
 import logging
+import platform
 import pstats
 import statistics
+import sys
 import time
 from pathlib import Path
 
@@ -71,6 +73,12 @@ def main(
 ):
     """Benchmark or profile parse_serp over the fixture corpus."""
     logging.getLogger("WebSearcher").setLevel(logging.WARNING)
+
+    # Record the interpreter: timings are only comparable within one Python build.
+    typer.echo(
+        f"Python {platform.python_version()} "
+        f"({platform.python_implementation()}, {sys.platform}) | WebSearcher {ws.__version__}"
+    )
 
     paths = fixtures or sorted(FIXTURES_DIR.glob("serps-v*.json.bz2"))
     if not paths:
