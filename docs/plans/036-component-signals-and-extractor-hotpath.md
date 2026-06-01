@@ -8,9 +8,12 @@ created: 2026-06-01
 
 Follow-up to [plan 035](035-get-text-native-fastpath.md). With the `get_text`
 native fast path banked (~7% off `parse_serp`), the profile's #2 *optimizable*
-cost is now `classifiers/main.py:_ComponentSignals.__init__`, and the extractor
-phase is the largest unprofiled-in-detail bucket worth a pass. This plan scopes
-both. Same methodology as plans 023/035: per-SERP median + MAD, gate on the
+cost is now `classifiers/main.py:_ComponentSignals.__init__` (Lever 1); the
+extractor phase is the largest unprofiled-in-detail bucket worth a pass
+(Lever 2); and `get_text`-caller attribution surfaced the `available_on`
+classifier's full-component text fallback as the single most expensive
+`get_text` caller (Lever 3). This plan scopes all three. Same methodology as
+plans 023/035: per-SERP median + MAD, gate on the
 run-to-run noise floor (~0.3-0.5% on the current idle box), and trust only
 **back-to-back same-session A/B** numbers.
 
@@ -87,6 +90,55 @@ selectolax backend. Worth investigating:
 No commitment yet -- this lever is a profiling/scoping task that may or may not
 surface a gateable win. Capture a `--profile-sort cumulative` split by phase
 (as plan 023 did) before touching extractor code.
+
+## Lever 3: the `available_on` classifier full-component `get_text`
+
+`get_text`-caller attribution (`pstats.print_callers`, 435 parses) shows the
+single most *expensive* `get_text` caller is not a parser but the
+`ClassifyMain.available_on` classifier (`classifiers/main.py:162`): **4,320 calls,
+0.649 s cumtime** -- the highest of any caller. (For contrast, the entire
+`local_results`/`locations` family is ~1-3% of `get_text` calls; the dominant
+*volume* is `parse_general_result` ~10.5k and the knowledge genexpr ~9k, but
+those are scoped to small nodes. `available_on` is expensive per-call, not
+high-count.)
+
+The cost is structural to how the classifier is written:
+
+```python
+def available_on(cmpt) -> str:
+    for heading in cmpt.css("span.mgAbYb"):           # cheap, scoped
+        if (get_text(heading, strip=True) or "") == "Available on":
+            return "available_on"
+    text = get_text(cmpt) or ""                        # WHOLE-component walk
+    return "available_on" if "/Available on" in text else "unknown"
+```
+
+`available_on` sits in the chain with **precondition `None`**, so it runs for
+every component that reaches it (most do -- it is before `knowledge_panel`,
+`general`, etc.), and the fallback `get_text(cmpt)` materializes the entire
+component's text just to substring-test `"/Available on"`. That is a full-subtree
+text walk on the majority of components, every parse.
+
+Directions (each byte-identical, pinned by the 87-snapshot suite):
+
+1. **Gate it on a necessary structural signal.** Find what markup actually
+   carries the `"/Available on"` marker (it reads like breadcrumb/cite text, not
+   a heading) and add a precondition to `_ComponentSignals` -- the same 023
+   item-3a treatment the other classifiers got. If a necessary class/id exists,
+   the full-component `get_text` only runs on real candidates.
+2. **Scope the text probe.** If the marker always lives in a specific element
+   (e.g. a cite/breadcrumb span), probe that element's text instead of the whole
+   component -- turning a full-subtree walk into a scoped one.
+3. **Confirm the fallback still earns its place.** Check on the corpus whether the
+   `span.mgAbYb == "Available on"` heading path alone catches every
+   `available_on` component; if the `/Available on` text fallback never fires (or
+   only fires on a structurally-identifiable shape), it can be gated or dropped.
+   Pin with a targeted test before/after.
+
+This is the highest-ROI single classifier change surfaced so far: a per-call
+cost (full-component text) paid on nearly every component, addressable without
+touching any parser. Start with direction 3 (measure whether the fallback fires),
+then 1/2 based on what the markup shows.
 
 ## Verification gate (per change)
 
