@@ -18,7 +18,17 @@
       "details": {
         "heading": "Footloose",
         "img_url": null,
-        "text": "Footloose|PG|PG| 1984 ‧ Dance/Musical ‧ 1h 47m|Overview|Overview|Overview|Cast|Cast|Cast|Songs|Songs|Songs|Trailers & clips|Trailers & clips|Trailers & clips|Watch movie|Watch movie|Watch movie|Behind the scenes|Behind the scenes|Behind the scenes|Quotes|Quotes|Quotes|Reviews|Reviews|Reviews",
+        "subtitle": "PG 1984 ‧ Dance/Musical ‧ 1h 47m",
+        "tabs": [
+          "Overview",
+          "Cast",
+          "Songs",
+          "Trailers & clips",
+          "Watch movie",
+          "Behind the scenes",
+          "Quotes",
+          "Reviews"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +36,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Footloose PG 1984 ‧ Dance/Musical ‧ 1h 47m Overview Cast Songs Trailers & clips Watch movie Behind the scenes Quotes Reviews",
+      "text": "PG 1984 ‧ Dance/Musical ‧ 1h 47m",
+      "title": "Footloose",
       "type": "knowledge",
       "url": null
     },

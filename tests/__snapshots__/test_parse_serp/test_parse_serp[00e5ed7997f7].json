@@ -18,7 +18,15 @@
       "details": {
         "heading": "2024 United States primary elections",
         "img_url": null,
-        "text": "2024 United States primary elections|Arizona|Arizona|Overview|Overview|Overview|Dates|Dates|Dates|Results|Results|Results|How to vote|How to vote|How to vote|How to register|How to register|How to register|Where to vote|Where to vote|Where to vote",
+        "subtitle": "Arizona",
+        "tabs": [
+          "Overview",
+          "Dates",
+          "Results",
+          "How to vote",
+          "How to register",
+          "Where to vote"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +34,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "2024 United States primary elections Arizona Overview Dates Results How to vote How to register Where to vote",
+      "text": "Arizona",
+      "title": "2024 United States primary elections",
       "type": "knowledge",
       "url": null
     },

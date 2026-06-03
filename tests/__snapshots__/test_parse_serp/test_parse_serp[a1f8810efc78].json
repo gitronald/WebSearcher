@@ -18,7 +18,13 @@
       "details": {
         "heading": "Roger Ebert",
         "img_url": null,
-        "text": "Roger Ebert|American film critic|American film critic|Overview|Overview|Overview|Movies and shows|Movies and shows|Movies and shows|Books|Books|Books|Videos|Videos|Videos",
+        "subtitle": "American film critic",
+        "tabs": [
+          "Overview",
+          "Movies and shows",
+          "Books",
+          "Videos"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +32,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Roger Ebert American film critic Overview Movies and shows Books Videos",
+      "text": "American film critic",
+      "title": "Roger Ebert",
       "type": "knowledge",
       "url": null
     },

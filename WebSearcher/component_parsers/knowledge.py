@@ -16,6 +16,14 @@ from .general import parse_general_result
 
 def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     node: Node = elem
+
+    # kp-wholepage VisualDigest band: a digest of entity facts + a featured web
+    # result + a social post + an image collage. It carries multiple linked
+    # sub-results, so it parses to multiple rows -- handle it before the
+    # single-row handler chain below.
+    if node.css_first('[data-attrid^="VisualDigest"]') is not None:
+        return _parse_visual_digest(node)
+
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like
@@ -81,6 +89,39 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
 # Returning ``True`` *without* setting ``sub_type`` is intentional for the
 # "things to know" case: a matching heading-span container is claimed even when
 # its text is not in the known set, so the panel fallback does not also run.
+
+
+def _subtype_wholepage_header(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+    """The kp-wholepage panel header: entity title, descriptor, and the tab nav
+    strip (Overview / Songs / Albums / Events / ...).
+
+    Scoped to the whole-page header by the ``kp-wholepage-osrp`` wrapper plus a
+    ``subtitle`` fact, so regular knowledge panels (no wholepage wrapper) and the
+    section tabs (no ``subtitle``) are left to their own handlers. Emits a clean
+    title + descriptor instead of the tab-label mashup the generic fallback
+    produced, with the tab labels in ``details``.
+    """
+    if node.css_first("div.kp-wholepage-osrp") is None:
+        return False
+    subtitle_el = node.css_first('[data-attrid="subtitle"]')
+    if subtitle_el is None:
+        return False
+
+    parsed["sub_type"] = "panel"
+    title_el = node.css_first('[data-attrid="title"]')
+    parsed["title"] = get_text(title_el, " ", strip=True) if title_el is not None else None
+    subtitle = get_text(subtitle_el, " ", strip=True) or None
+    parsed["text"] = subtitle
+    details["subtitle"] = subtitle
+
+    # Tab labels live in the role="tab" strip (one node per tab, in document
+    # order). A plain span scan would also pick up header chrome ("Send
+    # feedback", "Claim this knowledge panel", "About this result"), so scope to
+    # the tablist.
+    tabs = [label for tab in node.css('[role="tab"]') if (label := get_text(tab, " ", strip=True))]
+    if tabs:
+        details["tabs"] = tabs
+    return True
 
 
 def _subtype_featured_results(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
@@ -276,6 +317,9 @@ def _subtype_panel(node: Node, parsed: dict, details: dict, h2_text: str) -> Non
 
 
 # Evaluated in order; first to return ``True`` wins (cf. the original if/elif).
+# ``_subtype_wholepage_header`` is last so the specialized handlers above still
+# claim a wholepage panel that is really a dictionary / finance / etc.; it only
+# catches the generic entity header before the ``_subtype_panel`` fallback.
 _SUBTYPE_HANDLERS = (
     _subtype_featured_results,
     _subtype_featured_snippet,
@@ -289,7 +333,94 @@ _SUBTYPE_HANDLERS = (
     _subtype_election,
     _subtype_things_to_know,
     _subtype_dynamic_section,
+    _subtype_wholepage_header,
 )
+
+
+# Known VisualDigest sub-result suffixes -> a stable ``kind``. Unknown suffixes
+# fall back to a slug of the suffix so a new sub-result type is captured (with a
+# best-effort kind) rather than silently dropped.
+_VISUAL_DIGEST_KIND = {
+    "FirstImageResult": "image",
+    "ImageResult": "image",
+    "WebResult": "web",
+    "VideoResult": "video",
+    "SocialMediaResult": "social",
+}
+
+
+def _visual_digest_kind(suffix: str) -> str:
+    if suffix in _VISUAL_DIGEST_KIND:
+        return _VISUAL_DIGEST_KIND[suffix]
+    return (suffix[: -len("Result")] if suffix.endswith("Result") else suffix).lower()
+
+
+def _parse_visual_digest(node: Node) -> list:
+    """Parse a kp-wholepage VisualDigest band (the ``featured_results`` panel).
+
+    The band is a ``div.pxiwBd`` container whose sub-results -- an image collage,
+    a featured web result, a video, entity facts (Age, Genre, Artist, ...), and a
+    social post -- are siblings, not nested under the web result. Each becomes its
+    own ``sub_rank`` row of one ``featured_results`` component, in document order;
+    a per-row ``details["kind"]`` records which sub-result it is. Any
+    ``VisualDigest*`` sub-result is handled (kind derived from the attrid) so a
+    new variant is captured rather than dropped. Image thumbnails are lazy-loaded
+    1x1 gifs in the static HTML, so only the caption is recoverable.
+    """
+    results: list[dict] = []
+    emitted: set[int] = set()
+    for n in node.css("[data-attrid]"):
+        attrid = n.attributes.get("data-attrid") or ""
+        is_digest = attrid.startswith("VisualDigest")
+        is_fact = attrid.startswith("lab/fact/")
+        if not (is_digest or is_fact):
+            continue
+
+        # Skip nodes nested inside an already-emitted sub-result (the outermost
+        # match per sub-result wins; guards against nested data-attrid markers).
+        p, nested = n.parent, False
+        while p is not None and p.mem_id != node.mem_id:
+            if p.mem_id in emitted:
+                nested = True
+                break
+            p = p.parent
+        if nested:
+            continue
+
+        if is_fact:
+            # Facts render as "Label|Value" (e.g. "Age|29 years", "Genre|Pop").
+            parts = [p for p in (get_text(n, "|", strip=True) or "").split("|") if p]
+            if len(parts) < 2:
+                continue
+            label, value = parts[0], parts[-1]
+            url, text = None, f"{label}: {value}"
+            details = {"kind": "fact", "label": label, "value": value}
+        else:
+            kind = _visual_digest_kind(attrid[len("VisualDigest") :])
+            text = get_text(n, " ", strip=True) or None
+            if kind == "image":
+                url = None
+                if not text:  # empty image-result placeholder
+                    continue
+            else:
+                a = n.css_first("a[href]")
+                url = a.attributes.get("href") if a is not None else None
+                if url is None and not text:
+                    continue
+            details = {"kind": kind}
+
+        emitted.add(n.mem_id)
+        results.append(
+            {
+                "type": "knowledge",
+                "sub_type": "featured_results",
+                "sub_rank": len(results),
+                "url": url,
+                "text": text,
+                "details": details,
+            }
+        )
+    return results
 
 
 def _join_texts(div: list[Node]) -> str:

@@ -36,7 +36,7 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|general feedback|My Life|Song by Billy Joel|Song by Billy Joel|Lyrics|Videos|Listen|iHeartRadio|iHeartRadio|Deezer|Deezer|People also search for|People also search for|People also search for|The River of Dreams|Billy Joel|It's Still Rock and Roll to Me|Billy Joel|She's Always a Woman|Billy Joel|Pressure|Billy Joel|See all",
+        "subtitle": "Song by Billy Joel",
         "type": "panel",
         "urls": [
           {
@@ -70,8 +70,8 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": null,
+      "text": "Song by Billy Joel",
+      "title": "My Life",
       "type": "knowledge",
       "url": null
     },

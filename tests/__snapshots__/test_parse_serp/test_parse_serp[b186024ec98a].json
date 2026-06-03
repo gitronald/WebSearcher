@@ -18,7 +18,17 @@
       "details": {
         "heading": "Doctor Zhivago",
         "img_url": null,
-        "text": "Doctor Zhivago|1965 ‧ Romance/War ‧ 3h 17m|1965 ‧ Romance/War ‧ 3h 17m|Overview|Overview|Overview|Cast|Cast|Cast|Watch movie|Watch movie|Watch movie|Trailers & clips|Trailers & clips|Trailers & clips|Reviews|Reviews|Reviews|Plot|Plot|Plot|Behind the scenes|Behind the scenes|Behind the scenes|Awards|Awards|Awards",
+        "subtitle": "1965 ‧ Romance/War ‧ 3h 17m",
+        "tabs": [
+          "Overview",
+          "Cast",
+          "Watch movie",
+          "Trailers & clips",
+          "Reviews",
+          "Plot",
+          "Behind the scenes",
+          "Awards"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +36,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Doctor Zhivago 1965 ‧ Romance/War ‧ 3h 17m Overview Cast Watch movie Trailers & clips Reviews Plot Behind the scenes Awards",
+      "text": "1965 ‧ Romance/War ‧ 3h 17m",
+      "title": "Doctor Zhivago",
       "type": "knowledge",
       "url": null
     },

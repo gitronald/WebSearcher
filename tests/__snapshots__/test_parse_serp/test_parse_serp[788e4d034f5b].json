@@ -18,7 +18,13 @@
       "details": {
         "heading": "New York",
         "img_url": null,
-        "text": "New York|Song by Alicia Keys|Song by Alicia Keys|Overview|Overview|Overview|Lyrics|Lyrics|Lyrics|Videos|Videos|Videos|Listen|Listen|Listen",
+        "subtitle": "Song by Alicia Keys",
+        "tabs": [
+          "Overview",
+          "Lyrics",
+          "Videos",
+          "Listen"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +32,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "New York Song by Alicia Keys Overview Lyrics Videos Listen",
+      "text": "Song by Alicia Keys",
+      "title": "New York",
       "type": "knowledge",
       "url": null
     },

@@ -18,7 +18,7 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|Apple Inc|NASDAQ: AAPL|NASDAQ: AAPL|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Send feedback",
+        "subtitle": "NASDAQ: AAPL",
         "type": "panel",
         "urls": []
       },
@@ -27,8 +27,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Apple Inc NASDAQ: AAPL About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Send feedback",
+      "text": "NASDAQ: AAPL",
+      "title": "Apple Inc",
       "type": "knowledge",
       "url": null
     },
@@ -36,54 +36,14 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": "Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Disclaimer",
-            "url": "/intl/en_us/googlefinance/disclaimer/?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q1AF6BAgrEAQ"
-          },
-          {
-            "text": "Yahoo Finance|Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock|The rally in artificial intelligence (AI) stocks has reversed course as markets get wary about tech companies' spending spree without...|.|5 hours ago",
-            "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
-          },
-          {
-            "text": "Microsoft Corp|401.14| USD|1.90%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+MSFT&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKty8uIteRax8vg5Brs4Blop-Aa7hQAAJFwipEkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAF"
-          },
-          {
-            "text": "Samsung Electronics 1 GDS Representing 25 Ord Shs|1,690.00| EUR|4.84%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=FRA:+SSUN&stick=H4sIAAAAAAAAAONgecRoxi3w8sc9YSndSWtOXmNU5-IKzsgvd80rySypFJLkYoOy-KV4ubj10_UNU8pMzJIqzXkWsXK6BTlaKQQHh_oBAMZYdqRHAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAG"
-          },
-          {
-            "text": "NVIDIA Corp|185.41| USD|7.87%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+NVDA&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKtycqpSeBax8vg5Brs4Blop-IW5OAIA9TcWekkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAH"
-          },
-          {
-            "text": "Amazon.com Inc|210.32| USD|5.55%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+AMZN&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKtyLA2yeRax8vg5Brs4BlopOPpG-QEA3pWyeEkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAI"
-          },
-          {
-            "text": "Add investments",
-            "url": "https://www.google.com/finance/portfolio/watchlist?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QnIcKegQILRAJ"
-          },
-          {
-            "text": " Disclaimer ",
-            "url": "/intl/en_us/googlefinance/disclaimer/"
-          },
-          {
-            "text": "More about Apple Inc",
-            "url": "https://www.google.com/finance/quote/AAPL:NASDAQ?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q3ecFKAV6BAgnEAY"
-          }
-        ]
+        "kind": "newsarticle"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock",
+      "text": "Yahoo Finance Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock The rally in artificial intelligence (AI) stocks has reversed course as markets get wary about tech companies' spending spree without... . 5 hours ago",
       "title": null,
       "type": "knowledge",
       "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
