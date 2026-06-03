@@ -379,15 +379,99 @@
     {
       "cite": null,
       "cmpt_rank": 14,
-      "details": null,
-      "error": "no subcomponents parsed",
+      "details": {
+        "items": [
+          {
+            "text": "YouTube Music",
+            "url": "https://music.youtube.com/watch?v=pCozL7zdINs&feature=gws_kp_track"
+          },
+          {
+            "text": "Apple Music",
+            "url": "https://music.apple.com/us/album/i-believe-that-we-will-win-world-anthem/1506242063?i=1506242070"
+          },
+          {
+            "text": "Spotify",
+            "url": "https://open.spotify.com/track/4Sq71vakNYzewI1nnZItEC?autoplay=true"
+          },
+          {
+            "text": "iHeartRadio",
+            "url": "https://www.iheart.com/artist/pitbull-42201/songs/i-believe-that-we-will-win-251245936/?autoplay=true"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
       "section": "rhs",
       "serp_rank": 21,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Complementary Results<|>Listen<|>YouTube Music<|>Apple Music<|>Spotify<|>iHeartRadio<|>About<|>Artist<|>:<|>Pitbull<|>Released<|>:<|>2020<|>Album<|>:<|>I Believe That We Will Win (World Anthem)<|>Genre<|>:<|>Pop<|>Feedback<|>People also search for<|>We Will Rock You<|>Queen<|>3 to Tango<|>Pitbull<|>Eye of the Tiger<|>Survivor<|>U Can’t Touch This<|>MC Hammer<|>See more",
-      "title": null,
-      "type": "knowledge_rhs",
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Listen",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Pitbull",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Armando+Christian+Perez&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcCmqWbQaFmXWpbSWMcBqD-oLsw1Jh67pG418bH1ruu8l4eB8ObKQ4pmoSKEhF0l_VPB4uBXJjZAgODyBApYfRmtjhZFzIZISJAFZupuc0O0a61xdKki1nXqccloaXyQMfkb8dNHzfC0qNRNTUxG1tfQ29NmtLcghZ695thQTX1cinAgS2A%3D%3D&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCIQAg"
+          },
+          {
+            "text": "I Believe That We Will Win (World Anthem)",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Pitbull+I+Believe+That+We+Will+Win+(World+Anthem)&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoQ6gRyyAJzo2cauQaxXmOeqOHymPed1i2M4pptACMSd-B6QsJlEKDiHEkhv8MTYRxelVv-Zmf_yhD77zvfGMOGkIZRdIk8zNiFj6p-NcbuT5R31zarzvZE-X-i5WQlvP0eqII6S2R5gDqME0HnghPbNphuvZuCA291vbZKTKoBRCA0eKViUPUYCCbEKNI86M5nD8jwzmTLp9UnlGSZZHRl63oNJ7&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCoQAg"
+          },
+          {
+            "text": "Pop",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoT6N7ACnZf_0ZZ5CuK6A0u_OVmamYA1ArcNGzW_q813HTyI5n-isp5k6jfGf7lbn4S6jPKbKksA_xicpbu0bCHRYqctQDSXENjBrJEQV2Lp06pAdreJRGtDgELdTVg4PShFtN0jyipAG9zAoUpuv7V7uto6k&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCEQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "About",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "We Will Rock You Queen",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rNw0aV2xaMSajixiwS9lmNu5OlNFGzE_NenPRGAlzGM8avOJKIzspp7TZhwJZdfIcdfNpEbdUMk5fEDVuBsUI0lI8EDZK6q7uK3HSuPOOCF_nRBxcgbV9cjJhCC2FL5TLrQsO6cOozFuuoFWGy2BDgV9pMSXTJDtUTGgtjXDRmkvpabrJbpbpiPBqu4LFe0vuPUpEt-KuZ7wIc2j2JSgzptZG646SBBAZ5govRNd4D5ElRY1US-aDoYkxS0WJKNrk8qgdADFP1DnYNUHJ2RUppYRXaLrSHKtxp6I5eive5uFHPa8QLc1hj3IcZA_zNEF3MEJWCTtOk0mUCVwqEasOrPjgD2A%3D%3D&q=queen+we+will+rock+you&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAB6BAggEAI"
+          },
+          {
+            "text": "3 to Tango Pitbull",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeofhbGxXPZPeZM16Zz31uMOapD3ptqsWcbstqMXR1Ispb6_qQ8SDZAkTV2NRgB4Y0Q2GWKuWsuFWxyVBkRWB5mameJhi39Nez-CP8DKEC3eenU0EfH1giVI-39PTp8yY0doAyMH28JEv5KhAH0obTw6kkJ-iLyQAKm_mbnNFUUb96f0SFrBpLB2aIqYRgzM2K2xXebPM5aFl69sP7R4GQpk5ZwwuP46qismAOSczw_Aj2dq09Kfaye3W4wdz5TQ1cao17se73-yKskn4s7S-caTde6u-T&q=pitbull+3+to+tango&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAF6BAggEAM"
+          },
+          {
+            "text": "Eye of the Tiger Survivor",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rNw0aV2xaMSajixiwS9lmNu5OlNFGzE_NenPRGAlzGM1czpk9KpTYBjFFb0wRPb7jx_o1D7bToLSHQ94W1aHlipbmKdcVjerHRp_m1XSgZGejESa_26Mjx63se2thThh83m0yomZOLAPYQuVK7VnFxxhVB23wNB3n-DuhZk0NceHWo-B3Okfg9u4DnpMyLHAVmqyFngpoU8AQcwBztRdirS-F59JzAOYzjoXpvQHP8GeNhge-1GTWa4f8ebOOAy2GdmkG49ZonmRDr3EIdAGTWRW0znSOtxoYATHG-n5iVms_4ZzBFxnUUURoX4tA9A3NBag0-veePnp8iaXWRYYk4khhu_w%3D%3D&q=survivor+eye+of+the+tiger&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAJ6BAggEAQ"
+          },
+          {
+            "text": "U Can’t Touch This MC Hammer",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoaFuX84X1oanFg_FYyMbT_O9r3Cvg6tnb2F7B2UNRw-FHsrigEvWL9v7jp1J2aaBY6yiUkmVFCMP5MnxXy35cRdTox1mAndm8At-BVeH1CWxHQIg12kigDUqshIy8v0ievEDKZlAnqCscyfoZi54svatZdw-U4Nn904FWzF2INmkWK-kDFpys5v0zFmIh6qp86k5LpVMOIGjN9fSFm7dUxUCMVFuqA6WjL4jLbqzvAbTMR63Xm0ZlEdpfijr79aK-Br-p6iGozFONjJ9imoeQi7TK1Uqh-4v4QUbWIVwlYTGyMP2Zw%3D%3D&q=mc+hammer+u+can%E2%80%99t+touch+this&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAN6BAggEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 2,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "People also search for",
+      "type": "knowledge",
       "url": null
     }
   ]

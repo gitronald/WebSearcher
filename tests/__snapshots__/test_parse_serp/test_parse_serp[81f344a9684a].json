@@ -288,6 +288,72 @@
       "title": "Cistern",
       "type": "knowledge",
       "url": "https://en.wikipedia.org/wiki/Cistern"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Cistern"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Types types of cisterns",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Cistern"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 2,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Size size of cistern",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Cistern"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 3,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Pipe piping a cistern",
+      "type": "knowledge",
+      "url": null
     }
   ]
 }

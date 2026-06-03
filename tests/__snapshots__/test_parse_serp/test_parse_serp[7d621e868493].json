@@ -456,6 +456,122 @@
       "title": null,
       "type": "knowledge",
       "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Spotify",
+            "url": "https://open.spotify.com/artist/2dX0vdWogRhm7Jz8DuB9t9?autoplay=true"
+          },
+          {
+            "text": "iHeartRadio",
+            "url": "https://www.iheart.com/artist/oscar-the-grouch-the-sesame-32282959/?autoplay=true"
+          },
+          {
+            "text": "Pandora",
+            "url": "http://www.pandora.com/?sc=miR1666425"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Listen",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 2,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "About",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "X (Twitter)",
+            "url": "https://twitter.com/OscarTheGrouch"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/@toomanchoo3"
+          },
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/SesameOscartheGrouch/"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 3,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Profiles",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Grover",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXqHi3umU_XfraeRcazdx0b0FNozl-u8xMeBUlCvBB-_qdz2U4LMfBvtQKwjYkZZv5QlTnHbqliQHSXn7a8q849iysCmXc_4kgPwAcT70lzD5gPZPKH8clfCqZQ2eg6ZJqVo3fjyhi1pfXlxHO2hBVyjRGwkM9U1rN0EMins_dvRXMCqmDZYL7FdWGeobKHfgxPA2go_EnBXu5ajvccp5512jyn2MhJLvcEOXoTbLxQPmJ4oK3gZtqe5vVqngcHlKGlBoAn0%3D&q=Grover+Monster&sa=X&ved=2ahUKEwjWqLHmivCEAxWHGFkFHVugAIYQs9oBKAB6BAgnEAI"
+          },
+          {
+            "text": "Big Bird",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXmBaDzdS4Rm6l0RX9M9DPn1Gou8Y7G-ma2-cejIDeiLKhv-3OA5i5QX48WIpkVdP_AjWNQT2Csndh25vHaru7yhJN7U53l06jhbsSEtpRCSTJALGOXSrsFaJAnHfoa9UMB_OExONaPllP8tOmVvIc5T60RglH8yl0n26Co-mvAEvZoSy4Z-G2qaVK3Ljn8q27SQxfCBGU-PAgMr9eyD570kfiA1Q11sbYOgtv_p5xMuiNUN0csiIZsAHn7wKIZb1bPz0o48%3D&q=Big+Bird&sa=X&ved=2ahUKEwjWqLHmivCEAxWHGFkFHVugAIYQs9oBKAF6BAgnEAM"
+          },
+          {
+            "text": "Cookie Monster",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rouVBZ31gK00NbdeGW7CuoECinTL7mLyi-WdYv_QQuZuSENz5XjLpkdxB2OxLEbQNSAXHCe2vIN8jTf8Im0SUDFS87rwgUPX3B5KyNQgp6omjFGdLU77iXWaN6ij86Te45RMYExGRIaTqSRGk0yVLxLjD5dlSTxJjeL0LWka4OBX0bAzTxTYLS0poW46lUADxIHSzy9uDN67WA1PNi9SAwLYa6I2QQQ7LoJ2DlJJLz8Spgak30tCiCTWBAuCsnV0i__P1fQ%3D&q=Cookie+Monster&sa=X&ved=2ahUKEwjWqLHmivCEAxWHGFkFHVugAIYQs9oBKAJ6BAgnEAQ"
+          },
+          {
+            "text": "Ernie",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoS_u1nihy22Ulxr40EB5V4MCCtjdl8m14gaUTZz2LircwMD7y4N7WZ2PbqUPhY_e5KZJ3ew6FIQFv7WYj4V9ZBxj6DjKN_zTsyHo3OariCnHYF3ljPJrSC6HVieUnH1iCylupkfObUrc6MiA1Z1eJHPuNMB3pYJW3vu0UYrhlYEziUHECtHNwKW6xUH9SB8lHPBQOAcCygcavUX5gH5cmt3KXlyC6565fMoQKRTarF2BS2mUVBBSiTGumSXUsAtW4n_DhxLpiZtu7oLMIsK6jTPzv-Yg&q=Ernie+(Sesame+Street)&sa=X&ved=2ahUKEwjWqLHmivCEAxWHGFkFHVugAIYQs9oBKAN6BAgnEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 4,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "People also search for",
+      "type": "knowledge",
+      "url": null
     }
   ]
 }

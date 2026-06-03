@@ -13,6 +13,15 @@ from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 from ._common import parse_alink
 
 
+# Chrome links that show up inside RHS boxes but are not content.
+_RHS_BOX_CHROME = {"Claim this knowledge panel", "Send feedback", "Feedback", "See more"}
+
+
+def _is_chrome_box(title: str) -> bool:
+    """Box headings that are affordances/ads, not content sections."""
+    return "feedback" in title.lower() or title == "Sponsored"
+
+
 def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
     node: Node = elem
     parsed_list = parse_knowledge_rhs_main(node)
@@ -26,7 +35,60 @@ def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
             # Skip hollow follow-on sections (no heading and no links).
             if sub["title"] or sub["details"]:
                 parsed_list.append(sub)
+    else:
+        # Complementary kp-wholepage RHS panel: its sections (Listen / About /
+        # Profiles / People also search for) are boxes anchored by aria-level=2
+        # headings rather than Uo8X3b follow-on siblings. Emit one sub_rank row
+        # per box, with the box's links in details.
+        parsed_list.extend(_parse_rhs_boxes(node, start_rank=len(parsed_list)))
     return parsed_list
+
+
+def _rhs_box_links(heading: Node) -> list:
+    """Links of the box a heading labels: climb to the first ancestor holding
+    links, then collect them (deduped, chrome dropped)."""
+    box = heading.parent
+    links: list = []
+    for _ in range(5):
+        if box is None:
+            return []
+        links = box.css("a[href]")
+        if links:
+            break
+        box = box.parent
+    items: list = []
+    seen: set = set()
+    for a in links:
+        href = a.attributes.get("href")
+        text = get_text(a, " ", strip=True) or ""
+        if not href or text in _RHS_BOX_CHROME or (text, href) in seen:
+            continue
+        seen.add((text, href))
+        items.append({"url": href, "text": text})
+    return items
+
+
+def _parse_rhs_boxes(node: Node, start_rank: int = 1) -> list:
+    """One ``panel_rhs`` row per aria-level=2 box (title = heading, links in details)."""
+    rows = []
+    for heading in node.css('[role="heading"][aria-level="2"]'):
+        title = get_text(heading, " ", strip=True)
+        if not title or _is_chrome_box(title):
+            continue
+        items = _rhs_box_links(heading)
+        if not items:
+            continue
+        rows.append(
+            {
+                "type": "knowledge",
+                "sub_type": "panel_rhs",
+                "sub_rank": start_rank + len(rows),
+                "title": title,
+                "details": {"type": "hyperlinks", "items": items},
+                "rhs_column": True,
+            }
+        )
+    return rows
 
 
 def parse_knowledge_rhs_main(elem, sub_rank: int = 0) -> list:

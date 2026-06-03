@@ -345,6 +345,40 @@
       "title": "United States Congress",
       "type": "knowledge",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Facebook",
+            "url": "#"
+          },
+          {
+            "text": "WhatsApp",
+            "url": "#"
+          },
+          {
+            "text": "X",
+            "url": "#"
+          },
+          {
+            "text": "Email",
+            "url": "#"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "United States Congress",
+      "type": "knowledge",
+      "url": null
     }
   ]
 }

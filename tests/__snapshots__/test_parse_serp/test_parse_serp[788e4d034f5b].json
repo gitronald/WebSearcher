@@ -261,15 +261,57 @@
     {
       "cite": null,
       "cmpt_rank": 13,
-      "details": null,
-      "error": "no subcomponents parsed",
+      "details": {
+        "items": [
+          {
+            "text": "Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Alicia+Keys&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rnDnOQyoIxnNYv9WO30B-BRtq6rxnvhtKCcWtnfHWg3eECmhLTm8f9R6wYdLKziuirUNeqRepasCgSZzfHS0aPMD8rM_8NGyfak4E05V4ZEZNq6dZEq3DnilQx4hH1lInGXtw3wTdYjj7EM2gyuAZRSZjQxW&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8QmxMoAHoECBYQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
       "section": "rhs",
       "serp_rank": 15,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Complementary Results<|>About<|>Artist<|>:<|>Alicia Keys<|>Feedback<|>People also search for<|>Empire State Of Mind lyrics<|>Jay-Z<|>Brand New Me lyrics<|>Alicia Keys<|>Girl on Fire lyrics<|>Alicia Keys<|>I'm Blessed lyrics<|>Charlie Wilson<|>See more",
-      "title": null,
-      "type": "knowledge_rhs",
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "About",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Empire State Of Mind lyrics Jay-Z",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rtvl4gHjpzPKpYolykTK-DwT7ha6dJftcynCd9eVgGN0Fxv1U9w4a8OKPmTXLV-G09gknBXazATX8qrOH4xgrRCgt2w29D_GZFs8kzVe-n6TS-oNJqVWT0uaGU66kfaXjShZ2HWsbC3PQHTgP-7r-Etbit1SXGV5Dp0tp-haIioMnsR4W9WnvRl1vCvtgjNNpwipU9Jd3lP61ZjMF1V5UN2wHwjcsGxqv2AY0oY1tP4gOMtwgtpJsuQPkN7YMnZ9YKdk3YRJmwK8i6Z-NiRv3LjIPJqYWXkB35cU_tTvjF5o8Egfw%3D&q=Empire+State+Of+Mind+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAB6BAgXEAI"
+          },
+          {
+            "text": "Brand New Me lyrics Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rdaVK-rhf5KHnOAD2drrRmADv7R3TkES869sRtvhJtAOFIxRuJ9oGiG6TvSdbxEwjG0RGdxwpJVvnMu7rboqUea_WZXi2op8y6anurvkhjtTzr_j9SUAIXIMM7B8X5zmoW9vJKP1H0vFBs1hTZNPkhVAuOllNmrAOJvm4hWU4cNSR2aiCBxJk9YQoAbw7N2Dd9fV4hZEA81VaOqxMSnKFQhSseTxYeV75TLQRALrSETF2WMAEhRtWsOLKM9_wJt_WRKC1eL0PanAOxlZSHUrtl_Nigxw%3D%3D&q=Brand+New+Me+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAF6BAgXEAM"
+          },
+          {
+            "text": "Girl on Fire lyrics Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rdaVK-rhf5KHnOAD2drrRmADv7R3TkES869sRtvhJtAOFIxRuJ9oGiG6TvSdbxEwgB1LTLXhzfFerOw-nSmXBJvOZh-rTp9cqdoQ8D7gmjkaFvo5L594B9fXDKWXC-LW1uuGhiqnyVBEl1JZtHJIfc6mMOHB_gHaF9B99ySUFPSX9sE1Hk4XD3UQSkf6PxXKmgXdObl2IKFCiNJTmow3kJFCNip1A17MP7MgVisNMEfV4lYglJmoUDwFwG0Cq7JgKcl4Ni6jX-ReQKoL3Wdql0BvkTtg%3D%3D&q=Girl+on+Fire+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAJ6BAgXEAQ"
+          },
+          {
+            "text": "I'm Blessed lyrics Charlie Wilson",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rtvl4gHjpzPKpYolykTK-DwT7ha6dJftcynCd9eVgGN0Fxv1U9w4a8OKPmTXLV-G2g6zovaFg6sxoFritPQxJ_0LMm1DzGlb7caxkmiXcuvsRfp2QtHhkCWCiXuRwEmyo9zdXgC0Gc0S6tzx8l-d5SPGZSjQBtHYaKlOWMShEfYJF0V0Mcl9AfFe07jeOiJIEnF8xqSW80TNlpox5ldRhXrIhIZ_AJSxmW9WQwlotaeH1nPTNb6Nfov73lB1sGdfLzwpGd6ENx_oY8cnjD90ZAsE06aw%3D%3D&q=I%27m+Blessed+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAN6BAgXEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "People also search for",
+      "type": "knowledge",
       "url": null
     }
   ]

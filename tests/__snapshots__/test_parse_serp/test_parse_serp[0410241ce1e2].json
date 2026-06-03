@@ -506,6 +506,94 @@
       "title": "Things to know",
       "type": "knowledge",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "general feedback",
+            "url": "#"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 1,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Purpose … what are gu gels for",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "general feedback",
+            "url": "#"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 2,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Calories … gu gels calories",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "general feedback",
+            "url": "#"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 3,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "When to use … when to use gu energy gel",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "general feedback",
+            "url": "#"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 4,
+      "sub_type": "panel_rhs",
+      "text": null,
+      "title": "Benefits … energy gel benefits",
+      "type": "knowledge",
+      "url": null
     }
   ]
 }
