@@ -255,16 +255,18 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "dropdown": [
+          "Sausage gravy recipe",
+          "Easy biscuits and gravy recipe",
+          "Biscuit recipe"
+        ],
         "heading": "Related searches",
         "items": [
           "pioneer woman biscuits and gravy",
           "biscuits and gravy without sausage",
           "biscuits and gravy near me",
           "biscuits and gravy ingredients",
-          "old fashioned sausage gravy",
-          "Sausage gravy recipe",
-          "Easy biscuits and gravy recipe",
-          "Biscuit recipe"
+          "old fashioned sausage gravy"
         ],
         "type": "text"
       },
@@ -273,7 +275,7 @@
       "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "related_searches",
-      "text": "pioneer woman biscuits and gravy<|>biscuits and gravy without sausage<|>biscuits and gravy near me<|>biscuits and gravy ingredients<|>old fashioned sausage gravy<|>Sausage gravy recipe<|>Easy biscuits and gravy recipe<|>Biscuit recipe",
+      "text": "pioneer woman biscuits and gravy<|>biscuits and gravy without sausage<|>biscuits and gravy near me<|>biscuits and gravy ingredients<|>old fashioned sausage gravy",
       "title": null,
       "type": "searches_related",
       "url": null

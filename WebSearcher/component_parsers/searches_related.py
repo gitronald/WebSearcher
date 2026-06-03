@@ -50,20 +50,25 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
     # Current Google layout: anchor links
     _push(s for s in node.css("a.ngTNl") if has_text(s))
 
-    # Accordion list
+    if node.css_first("div.brs_col") is not None:
+        _push(s for s in node.css("a") if has_text(s))
+
+    # Accordion (dropdown) half -- a second display that pairs a PAA-like
+    # dropdown widget with the grid above. Kept separate from the grid
+    # suggestions so the two displays stay distinguishable in ``details``.
+    dropdown_list: list[str] = []
     if node.css_first("explore-desktop-accordion") is not None:
         for s in node.css("div.JXa4nd"):
             if has_text(s):
                 text = get_text(s.css_first("div.Cx1ZMc"), " ")
                 if text:
-                    output_list.append(text)
-
-    if node.css_first("div.brs_col") is not None:
-        _push(s for s in node.css("a") if has_text(s))
+                    dropdown_list.append(text.strip())
 
     parsed["text"] = "<|>".join(output_list)
-    if output_list:
+    if output_list or dropdown_list:
         details: dict = {"type": "text", "items": output_list}
+        if dropdown_list:
+            details["dropdown"] = dropdown_list
         if header:
             details["heading"] = header  # preserve the raw header text (the sub_type slug is lossy)
         parsed["details"] = details
