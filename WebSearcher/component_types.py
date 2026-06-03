@@ -220,9 +220,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         # NB: ``knowledge`` is an *open* sub_type space. Beyond the fixed values
         # below, ``parse_knowledge_panel``'s JNkvid branch mints a slug from the
         # section heading (e.g. ``movies``, ``songs``, ``lyrics``, ``played-by``,
-        # ``cast-and-crew``), and ``panel_rhs`` is emitted by the RHS parser
-        # (registered separately as ``knowledge_rhs``). This tuple enumerates the
-        # closed set; the slug values are intentionally not exhaustive.
+        # ``cast-and-crew``). This tuple enumerates the closed set; the slug
+        # values are intentionally not exhaustive. (The RHS column, registered
+        # separately as ``knowledge_rhs``, emits its own ``type="side_bar"`` rows.)
         sub_types=(
             "featured_results",
             "featured_snippet",
@@ -236,7 +236,6 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "election",
             "things_to_know",
             "panel",
-            "panel_rhs",
         ),
         description="Knowledge panels and featured snippets",
     ),
@@ -244,8 +243,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="knowledge_rhs",
         label="Knowledge RHS",
         sections=("main",),
-        # Component type assigned to the RHS column container; its parser
-        # normalizes result rows to ``type="knowledge"``, ``sub_type="panel_rhs"``.
+        # Component type assigned to the RHS column container; its parser emits
+        # result rows as ``type="side_bar"`` with ``sub_type="panel"`` (the main
+        # entity panel) or ``sub_type="links"`` (link boxes).
         description="Knowledge panels in right-hand sidebar",
     ),
     ComponentType(

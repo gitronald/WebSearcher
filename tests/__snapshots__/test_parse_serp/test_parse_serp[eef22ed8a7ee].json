@@ -404,10 +404,10 @@
       "section": "rhs",
       "serp_rank": 21,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "Listen",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -434,10 +434,10 @@
       "section": "rhs",
       "serp_rank": 22,
       "sub_rank": 1,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "About",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -468,10 +468,10 @@
       "section": "rhs",
       "serp_rank": 23,
       "sub_rank": 2,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "People also search for",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

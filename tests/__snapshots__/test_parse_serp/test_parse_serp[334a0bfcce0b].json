@@ -514,10 +514,10 @@
       "section": "rhs",
       "serp_rank": 28,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "Jean Prouvé was a French metal worker, self-taught architect and designer. Le Corbusier designated Prouvé a constructeur, blending architecture and engineering. Prouvé's main achievement was transferring manufacturing technology from industry to architecture, without losing aesthetic qualities.",
       "title": "Jean Prouvé",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": "https://en.wikipedia.org/wiki/Jean_Prouv%C3%A9"
     },
     {
@@ -548,10 +548,10 @@
       "section": "rhs",
       "serp_rank": 29,
       "sub_rank": 1,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "Structures",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -582,10 +582,10 @@
       "section": "rhs",
       "serp_rank": 30,
       "sub_rank": 2,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "Books",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -616,10 +616,10 @@
       "section": "rhs",
       "serp_rank": 31,
       "sub_rank": 3,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "People also search for",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

@@ -455,183 +455,11 @@
       "section": "rhs",
       "serp_rank": 27,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "Central Park is an urban park between the Upper West Side and Upper East Side neighborhoods of Manhattan in New York City that was the first landscaped park in the United States.",
       "title": "Central Park",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": "https://en.wikipedia.org/wiki/Central_Park"
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 11,
-      "details": {
-        "items": [
-          {
-            "text": "267,582 Google reviews",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 28,
-      "sub_rank": 1,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Central Park",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 11,
-      "details": {
-        "items": [
-          {
-            "text": "Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Central_Park"
-          },
-          {
-            "text": "Address",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+address&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg4EAI"
-          },
-          {
-            "text": "Frederick Law Olmsted",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Frederick+Law+Olmsted&stick=H4sIAAAAAAAAAONgVuLQz9U3SIk3T1rEKupWlJqSWpSZnK3gk1iu4J-TW1ySmgIAtdFPIyQAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAHoECEcQAg"
-          },
-          {
-            "text": "Calvert Vaux",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Calvert+Vaux&stick=H4sIAAAAAAAAAONgVuLUz9U3ME6urKhaxMrjnJhTllpUohCWWFoBAMXhJ9YcAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAXoECEcQAw"
-          },
-          {
-            "text": "Hours",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+hours&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg3EAI"
-          },
-          {
-            "text": "(212) 310-6600",
-            "url": "#"
-          },
-          {
-            "text": "places.singleplatform.com",
-            "url": "http://places.singleplatform.com/mini-bar-central-park/menu?ref=google"
-          },
-          {
-            "text": "Suggest an edit",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 29,
-      "sub_rank": 2,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Things to do what is Central Park famous for",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 11,
-      "details": {
-        "items": [
-          {
-            "text": "Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Central_Park"
-          },
-          {
-            "text": "Address",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+address&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg4EAI"
-          },
-          {
-            "text": "Frederick Law Olmsted",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Frederick+Law+Olmsted&stick=H4sIAAAAAAAAAONgVuLQz9U3SIk3T1rEKupWlJqSWpSZnK3gk1iu4J-TW1ySmgIAtdFPIyQAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAHoECEcQAg"
-          },
-          {
-            "text": "Calvert Vaux",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Calvert+Vaux&stick=H4sIAAAAAAAAAONgVuLUz9U3ME6urKhaxMrjnJhTllpUohCWWFoBAMXhJ9YcAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAXoECEcQAw"
-          },
-          {
-            "text": "Hours",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+hours&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg3EAI"
-          },
-          {
-            "text": "(212) 310-6600",
-            "url": "#"
-          },
-          {
-            "text": "places.singleplatform.com",
-            "url": "http://places.singleplatform.com/mini-bar-central-park/menu?ref=google"
-          },
-          {
-            "text": "Suggest an edit",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 30,
-      "sub_rank": 3,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Cost Central Park cost",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 11,
-      "details": {
-        "items": [
-          {
-            "text": "Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Central_Park"
-          },
-          {
-            "text": "Address",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+address&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg4EAI"
-          },
-          {
-            "text": "Frederick Law Olmsted",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Frederick+Law+Olmsted&stick=H4sIAAAAAAAAAONgVuLQz9U3SIk3T1rEKupWlJqSWpSZnK3gk1iu4J-TW1ySmgIAtdFPIyQAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAHoECEcQAg"
-          },
-          {
-            "text": "Calvert Vaux",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Calvert+Vaux&stick=H4sIAAAAAAAAAONgVuLUz9U3ME6urKhaxMrjnJhTllpUohCWWFoBAMXhJ9YcAAAA&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQmxMoAXoECEcQAw"
-          },
-          {
-            "text": "Hours",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=central+park+hours&ludocid=13393458397880860953&sa=X&ved=2ahUKEwjp7c7zj_CEAxXTKlkFHeroDOgQ6BN6BAg3EAI"
-          },
-          {
-            "text": "(212) 310-6600",
-            "url": "#"
-          },
-          {
-            "text": "places.singleplatform.com",
-            "url": "http://places.singleplatform.com/mini-bar-central-park/menu?ref=google"
-          },
-          {
-            "text": "Suggest an edit",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 31,
-      "sub_rank": 4,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Secrets Central Park secrets",
-      "type": "knowledge",
-      "url": null
     },
     {
       "cite": null,
@@ -659,12 +487,12 @@
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 32,
-      "sub_rank": 5,
-      "sub_type": "panel_rhs",
+      "serp_rank": 28,
+      "sub_rank": 1,
+      "sub_type": "links",
       "text": null,
       "title": "Neighborhoods Near Central Park",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -701,12 +529,12 @@
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 33,
-      "sub_rank": 6,
-      "sub_type": "panel_rhs",
+      "serp_rank": 29,
+      "sub_rank": 2,
+      "sub_type": "links",
       "text": null,
       "title": "Experiences",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -717,14 +545,6 @@
           {
             "text": "Google policies",
             "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
-          },
-          {
-            "text": "Write a review",
-            "url": "#"
-          },
-          {
-            "text": "Add a photo",
-            "url": "#"
           },
           {
             "text": "",
@@ -749,22 +569,18 @@
           {
             "text": "\"Beautiful place to run, ride, sit, workout , drink coffee .\"",
             "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s114042846743883624225!2s0x89c2589a018531e3:0xb9df1f7387a94119?ved=1t:31295&ictx=111"
-          },
-          {
-            "text": "View all Google reviews",
-            "url": "#"
           }
         ],
         "type": "hyperlinks"
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 34,
-      "sub_rank": 7,
-      "sub_type": "panel_rhs",
+      "serp_rank": 30,
+      "sub_rank": 3,
+      "sub_type": "links",
       "text": null,
       "title": "Reviews",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -797,38 +613,12 @@
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 35,
-      "sub_rank": 8,
-      "sub_type": "panel_rhs",
+      "serp_rank": 31,
+      "sub_rank": 4,
+      "sub_type": "links",
       "text": null,
       "title": "Events",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 11,
-      "details": {
-        "items": [
-          {
-            "text": "Ask a question",
-            "url": "#"
-          },
-          {
-            "text": "See all questions (481)",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 36,
-      "sub_rank": 9,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Questions & Answers",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -857,12 +647,12 @@
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 37,
-      "sub_rank": 10,
-      "sub_type": "panel_rhs",
+      "serp_rank": 32,
+      "sub_rank": 5,
+      "sub_type": "links",
       "text": null,
       "title": "People also search for",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

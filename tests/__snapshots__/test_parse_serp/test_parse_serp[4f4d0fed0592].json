@@ -290,10 +290,10 @@
       "section": "rhs",
       "serp_rank": 14,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "Judgement is the evaluation of given circumstances to make a decision. Judgement is also the ability to make considered decisions. The term has at least five distinct uses.",
       "title": "Judgement",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": "https://en.wikipedia.org/wiki/Judgement"
     }
   ]

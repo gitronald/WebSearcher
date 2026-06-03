@@ -459,10 +459,10 @@
       "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "Moving in from Chicago, newcomer Ren McCormack (Kevin Bacon) is in shock when he discovers the small Midwestern town he now calls home has made dancing and rock music illegal. As he struggles to fit in, Ren faces an uphill battle to change things. With the help of his new friend, Willard Hewitt (Christopher Penn), and defiant teen Ariel Moore (Lori Singer), he might loosen up this conservative town. But Ariel's influential father, Reverend Shaw Moore (John Lithgow), stands in the way.… MORE",
       "title": null,
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -493,10 +493,10 @@
       "section": "rhs",
       "serp_rank": 27,
       "sub_rank": 1,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "Watch movie",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -539,10 +539,10 @@
       "section": "rhs",
       "serp_rank": 28,
       "sub_rank": 2,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "About",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -573,10 +573,10 @@
       "section": "rhs",
       "serp_rank": 29,
       "sub_rank": 3,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "People also search for",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

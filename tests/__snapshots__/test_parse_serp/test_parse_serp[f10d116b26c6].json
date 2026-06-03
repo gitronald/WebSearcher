@@ -941,98 +941,10 @@
       "section": "rhs",
       "serp_rank": 48,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "Things to know",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 18,
-      "details": {
-        "items": [
-          {
-            "text": "general feedback",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 49,
-      "sub_rank": 1,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Overview … What is a file folder?",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 18,
-      "details": {
-        "items": [
-          {
-            "text": "general feedback",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 50,
-      "sub_rank": 2,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Design … file folder designs",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 18,
-      "details": {
-        "items": [
-          {
-            "text": "general feedback",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 51,
-      "sub_rank": 3,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Types … Types of folders",
-      "type": "knowledge",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 18,
-      "details": {
-        "items": [
-          {
-            "text": "general feedback",
-            "url": "#"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "error": null,
-      "section": "rhs",
-      "serp_rank": 52,
-      "sub_rank": 4,
-      "sub_type": "panel_rhs",
-      "text": null,
-      "title": "Box … file folder box",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

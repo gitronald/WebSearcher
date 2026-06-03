@@ -357,10 +357,10 @@
       "section": "rhs",
       "serp_rank": 18,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "See results about",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

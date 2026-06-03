@@ -415,10 +415,10 @@
       "section": "rhs",
       "serp_rank": 23,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "During the Russian Revolution, Yuri Zhivago (Omar Sharif), is a young doctor who has been raised by his aunt and uncle following his father's suicide. Yuri falls in love with beautiful Lara Guishar (Julie Christie), who has been having an affair with her mother's lover, Victor Komarovsky (Rod Steiger), an unscrupulous businessman. Yuri, however, ends up marrying his cousin, Tonya (Geraldine Chaplin). But when he and Lara meet again years later, the spark of love reignites.… MORE",
       "title": null,
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -449,10 +449,10 @@
       "section": "rhs",
       "serp_rank": 24,
       "sub_rank": 1,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "Watch movie",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -511,10 +511,10 @@
       "section": "rhs",
       "serp_rank": 25,
       "sub_rank": 2,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "About",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     },
     {
@@ -545,10 +545,10 @@
       "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 3,
-      "sub_type": "panel_rhs",
+      "sub_type": "links",
       "text": null,
       "title": "People also search for",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]
