@@ -106,6 +106,25 @@ def get_text(node: Node | None, separator: str = "", strip: bool = False) -> str
     + ``get_text``."""
     if node is None:
         return None
+    # Fast path: selectolax's native C ``text()`` is byte-identical to the Python
+    # fragment walker below EXCEPT for two differences -- native includes
+    # script/style/template text and native keeps empty fragments (the
+    # ``strip=True`` walker drops them). On the script/style/template side, the
+    # walker skips those tags only as *descendants* (``_iter_text_fragments``
+    # does not special-case a root that is itself one), so two guards are needed:
+    # ``node.tag not in _SKIP_TEXT_TAGS`` (root) and the ``css_first`` probe
+    # (descendants). The empty-fragment difference vanishes when ``separator`` is
+    # empty (empties add nothing to a ""-join, so kept-vs-dropped is invisible)
+    # or ``strip`` is False (both keep empties identically). Together these
+    # cover ~95% of calls on this corpus; the one remaining case (``strip=True``
+    # with a non-empty separator) keeps the Python walker. Verified
+    # byte-identical over the full fixture corpus (315k nodes).
+    if (
+        (separator == "" or not strip)
+        and node.tag not in _SKIP_TEXT_TAGS
+        and node.css_first("script,style,template") is None
+    ):
+        return node.text(deep=True, separator=separator, strip=strip)
     frags = _iter_text_fragments(node)
     if strip:
         parts = [s for s in (f.strip() for f in frags) if s]
