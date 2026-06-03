@@ -328,10 +328,46 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
-        "heading": "Songs",
-        "img_url": null,
-        "type": "panel",
-        "urls": []
+        "items": [
+          {
+            "title": "The Grouch Anthem"
+          },
+          {
+            "album": "Sesame Street: Bert And Ernie Sing-Along",
+            "title": "I'll Give You A Song",
+            "year": "1975"
+          },
+          {
+            "album": "Havin' Fun With Ernie & Bert",
+            "title": "Simple Song",
+            "year": "1972"
+          },
+          {
+            "album": "Aren't You Glad You're You?",
+            "title": "Wonderful Me",
+            "year": "1977"
+          },
+          {
+            "album": "The Official Sesame Street 2 Book-and-Record Album",
+            "title": "The Grouch Song",
+            "year": "1971"
+          },
+          {
+            "album": "Sesame Disco",
+            "title": "Doin' the Trash",
+            "year": "1979"
+          },
+          {
+            "title": "Just Three Colors",
+            "year": "1974"
+          },
+          {
+            "album": "Camping in Canada",
+            "title": "What Do You Do on a Rainy Day?",
+            "year": "1981"
+          }
+        ],
+        "type": "songs"
       },
       "error": null,
       "section": "main",

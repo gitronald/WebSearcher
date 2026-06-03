@@ -24,6 +24,13 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     if node.css_first('[data-attrid^="VisualDigest"]') is not None:
         return _parse_visual_digest(node)
 
+    # kp-wholepage music-artist section tabs (songs / albums / events): a heading
+    # plus a role="list" of items that the generic panel parse collapses to an
+    # empty shell. Emit one row per item instead.
+    section_rows = _parse_music_section(node)
+    if section_rows is not None:
+        return section_rows
+
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like
@@ -421,6 +428,89 @@ def _parse_visual_digest(node: Node) -> list:
             }
         )
     return results
+
+
+# --- kp-wholepage music-artist sections (songs / albums / events) -----------
+#
+# Each is a knowledge component holding a ``[data-attrid="kc:/music/artist:<key>"]``
+# block with a ``role="list"`` of ``role="listitem"`` items. The section key maps
+# to a sub_type; a per-section item parser pulls the item's fields. Sections
+# without a registered item parser fall through to the generic handler chain.
+
+_MUSIC_SECTION_SUBTYPE = {
+    "songs": "songs",
+    "albums": "albums",
+    "upcoming events": "events",
+}
+
+
+def _list_strings(node: Node, tag: str) -> list[str]:
+    """Stripped single-string text of ``tag`` descendants, dropping separators."""
+    out = []
+    for el in node.css(tag):
+        s = node_string(el)
+        if s and (s := s.strip()) and s != "·":  # middot separator
+            out.append(s)
+    return out
+
+
+def _parse_song_item(li: Node) -> dict:
+    """A song listitem -> ``{title, album?, year?}``.
+
+    The year is a trailing standalone 4-digit span; the album is the remaining
+    span (some songs carry only one or the other).
+    """
+    titles = _list_strings(li, "div")
+    spans = _list_strings(li, "span")
+    year = spans.pop() if spans and spans[-1].isdigit() and len(spans[-1]) == 4 else None
+    album = spans[0] if spans else None
+    item = {"title": titles[0] if titles else None}
+    if album:
+        item["album"] = album
+    if year:
+        item["year"] = year
+    return item
+
+
+_MUSIC_ITEM_PARSERS = {
+    "songs": _parse_song_item,
+}
+
+
+def _parse_music_section(node: Node) -> list | None:
+    """Parse a kp-wholepage music-artist section into a single component row.
+
+    The section is kept as one ``knowledge`` row carrying the section label as
+    ``title``, with the per-item dicts stashed in ``details`` as
+    ``{"type": <sub_type>, "items": [...]}``. Returns ``None`` (so the caller
+    falls through to the generic handlers) when the component is not a recognized
+    music section or the section has no registered item parser yet.
+    """
+    block = node.css_first('[data-attrid^="kc:/music/artist:"]')
+    if block is None:
+        return None
+    key = (block.attributes.get("data-attrid") or "").split(":")[-1]
+    sub_type = _MUSIC_SECTION_SUBTYPE.get(key)
+    item_fn = _MUSIC_ITEM_PARSERS.get(sub_type) if sub_type else None
+    if item_fn is None:
+        return None
+
+    items = block.css('[role="listitem"]')
+    if not items:
+        return None
+
+    heading = node.css_first('[role="heading"]')
+    parsed_items = [item_fn(li) for li in items]
+    return [
+        {
+            "type": "knowledge",
+            "sub_type": sub_type,
+            "sub_rank": 0,
+            "title": get_text(heading, " ", strip=True) if heading is not None else None,
+            "text": None,
+            "details": {"type": sub_type, "items": parsed_items},
+        }
+    ]
 
 
 def _join_texts(div: list[Node]) -> str:
