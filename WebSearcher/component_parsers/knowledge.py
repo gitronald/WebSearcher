@@ -472,8 +472,20 @@ def _parse_song_item(li: Node) -> dict:
     return item
 
 
+def _parse_event_item(li: Node) -> dict:
+    """An upcoming-event listitem -> ``{date, time, location, venue}``.
+
+    The four fields render as single-string divs in that fixed order (some
+    events omit a trailing field).
+    """
+    fields = _list_strings(li, "div")
+    keys = ("date", "time", "location", "venue")
+    return {k: v for k, v in zip(keys, fields)}
+
+
 _MUSIC_ITEM_PARSERS = {
     "songs": _parse_song_item,
+    "events": _parse_event_item,
 }
 
 
