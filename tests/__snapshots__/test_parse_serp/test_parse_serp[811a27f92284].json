@@ -1320,63 +1320,56 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
-        "heading": "The Life of a Showgirl",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
+        "items": [
           {
-            "text": " |Albums| ",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=taylor+swift+album&si=AL3DRZH23Fro5hVHuxACFfZLtAUEjrP1mvS5IXc-sdo0mUIKqjYGyETUh3cmJXIRnkWjV4eSinMhIZvNahoMx3TmbqHWiPDqJQAkUBrYBfYIXKzL8CCSYxLkusCo6lIhIkyrNprXkdS8&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQw_oBegQIfhAB&ictx=1"
+            "title": "The Life of a Showgirl",
+            "year": "2025"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+The+Life+of+a+Showgirl&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0rMwoTrLMNsrWEs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsSqHJJYmZNfpBBcnplWohCSkargk5mWqpCfppCoEJyRX56eWZQDANnkUZRbAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAG"
+            "title": "Lover",
+            "year": "2019"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+Lover&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0TMspLjI3y8nSEs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsQqFJJYmZNfpBBcnplWouCTX5ZaBAAEtqTTSgAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAM"
+            "title": "The Tortured Poets Department",
+            "year": "2024"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+The+Tortured+Poets+Department&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0zEmxNM2yzKjUEs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsSqFZJYmZNfpBBcnplWohCSkaoQkl9UUlqUmqIQkJ9aUqzgkloA1JKbmlcCAOaU815iAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAS"
+            "title": "1989",
+            "year": "2014"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+1989&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4gYxDQ1zcrMN8rTEs5Ot9HNLizOT9ROLSjKLS6wSc5JKc4sXsQqGJFbm5BcpBJdnppUoGFpaWAIAvFC_3EcAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAY"
+            "title": "reputation",
+            "year": "2017"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+reputation&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0TDMwy07PNTfTEs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsQqHpJYmZNfpBBcnplWolCUWlBakliSmZ8HAG6csxdPAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAe"
+            "title": "Red",
+            "year": "2012"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+Red&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4gIxcyxyM8wrtcSzk630c0uLM5P1E4tKMotLrBJzkkpzixexCoQkVubkFykEl2emlSgEpaYAAJe856FFAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAk"
+            "title": "Midnights",
+            "year": "2022"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+Midnights&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0LDa3SLI0zTLREs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsQqFpJYmZNfpBBcnplWouCbmZKXmZ5RUgwAMbtWt04AAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAq"
+            "title": "folklore",
+            "year": "2020"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+folklore&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4tVP1zc0zDbNqsgqNzTSEs9OttLPLS3OTNZPLCrJLC6xSsxJKs0tXsQqGpJYmZNfpBBcnplWopCWn5MN5KUCAOK10xlNAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhAw"
+            "title": "Fearless",
+            "year": "2008"
           },
           {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=Taylor+Swift+Fearless&stick=H4sIAAAAAAAAAONgFuLUz9U3SMkxNTNX4gIxTdJziiqytMSzk630c0uLM5P1E4tKMotLrBJzkkpzixexioYkVubkFykEl2emlSi4pSYW5aQWFwMAQQ09x0oAAAA&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQgOQBegQIZhA2"
-          },
-          {
-            "text": "See more",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=taylor+swift+album&si=AL3DRZH23Fro5hVHuxACFfZLtAUEjrP1mvS5IXc-sdo0mUIKqjYGyETUh3cmJXIRnkWjV4eSinMhIZvNahoMx3TmbqHWiPDqJQAkUBrYBfYIXKzL8CCSYxLkusCo6lIhIkyrNprXkdS8&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQ9JYCegQIZhA6&ictx=1"
+            "title": "See more"
           }
-        ]
+        ],
+        "type": "albums"
       },
       "error": null,
       "section": "main",
       "serp_rank": 80,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "The Life of a Showgirl",
-      "title": null,
+      "sub_type": "albums",
+      "text": null,
+      "title": "Albums",
       "type": "knowledge",
       "url": null
     },

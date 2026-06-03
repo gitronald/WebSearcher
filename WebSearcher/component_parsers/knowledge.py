@@ -483,9 +483,25 @@ def _parse_event_item(li: Node) -> dict:
     return {k: v for k, v in zip(keys, fields)}
 
 
+def _parse_album_item(li: Node) -> dict:
+    """An album listitem -> ``{title, year}``.
+
+    Visually an image grid, but the cover thumbnails are lazy-loaded 1x1 gifs in
+    the static HTML (no usable src), so only title + year are recoverable. The
+    year renders twice (visible + duplicate); take the first 4-digit token.
+    """
+    divs = _list_strings(li, "div")
+    item = {"title": divs[0] if divs else None}
+    year = next((d for d in divs[1:] if d.isdigit() and len(d) == 4), None)
+    if year:
+        item["year"] = year
+    return item
+
+
 _MUSIC_ITEM_PARSERS = {
     "songs": _parse_song_item,
     "events": _parse_event_item,
+    "albums": _parse_album_item,
 }
 
 
