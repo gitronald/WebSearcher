@@ -233,7 +233,31 @@ class ExtractorMain:
         for ch in node.iter(include_text=False):
             if ch.tag in {"script", "style"} or not has_text(ch):
                 continue
-            if ch.mem_id in marker_ids:
+            # A *marker* wrapper that itself encloses the organic column (a
+            # ``TzHB6b`` grouping the active tab's ``div.g`` results) would be
+            # emitted whole by the marker check below, collapsing the whole organic
+            # column into one block. Descend into it so each organic lands on its
+            # own -- but only when it groups a genuine organic column (two or more
+            # titled-link ``div.g``: an ``h3`` + ``a[href]``), so single-widget
+            # marker blocks (a carousel, a Q&A box) are not split into empty
+            # fragments. Non-marker grouping wrappers keep descending via the
+            # ``ancestors`` branch below, unchanged.
+            organic_wrapper = ch.mem_id in marker_ids and (
+                len(
+                    [
+                        g
+                        for g in subtree_css(ch, "div.g")
+                        if g.mem_id != ch.mem_id
+                        and g.css_first("h3") is not None
+                        and g.css_first("a[href]") is not None
+                    ]
+                )
+                >= 2
+            )
+            if organic_wrapper:
+                inner = ExtractorMain._kp_emit_blocks(ch, marker_ids, ancestors)
+                blocks.extend(inner if inner else [ch])
+            elif ch.mem_id in marker_ids:
                 blocks.append(ch)
             elif ch.mem_id in ancestors:
                 inner = ExtractorMain._kp_emit_blocks(ch, marker_ids, ancestors)
@@ -354,6 +378,15 @@ class ExtractorMain:
             if container is not None and any(
                 _find_all_with_class(container, sel, filter_empty=False) for sel in spec.detect_sels
             ):
+                # A whole-page panel ships an empty placeholder tab shell for every
+                # *inactive* tab (no result-block markers); only the active tab
+                # carries content. Detection on "container exists + has any div"
+                # also matches those shells, so a recipe could claim the page off an
+                # inactive tab and drop the active tab's column -- worst with the
+                # keep_tokens=None recipes (songs), whose under-extract guard below
+                # is bypassed. Require the detect tab to actually carry markers.
+                if kp is not None and not ExtractorMain._kp_markers(container):
+                    continue
                 if kp is not None and ExtractorMain._kp_recipe_underextracts(rso_div, kp, spec):
                     break
                 return self._extract_from_standard_sub_type(layout_name)
