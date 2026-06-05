@@ -1,5 +1,5 @@
 ---
-status: draft
+status: active
 branch: feature/v0.9.0-script-cleanup
 created: 2026-06-05T09:53:50-07:00
 completed:
@@ -175,3 +175,42 @@ user first — this plan only proposes it; execution gets an explicit go-ahead.
   `demo_locations` absorb in step 3) before duplicating it.
 - No public-API or `BaseResult`/`SERPFeatures` schema changes; the snapshot suite must stay green
   throughout (`uv run pytest`).
+
+## Log
+
+### 2026-06-05 — bucket E done (ads-no-subtype retired) + salvage
+
+Activated. **Decision 3 resolved: retire the folder** — the user deleted
+`scripts/ads-no-subtype/`, reclaiming ~31 GiB. Before it went, its reusable kernel was salvaged
+into `scripts/_common.py` (commit `2da8dbc`): `parse_results` (rewritten for the current
+`{"results", ...}` envelope — the original treated `parse_serp` as a bare list and was already
+broken), the `(type, sub_type)` coverage summaries, the generalized `components_missing_subtype`
+classifier-gap check, and the parquet HTML cache/fetch helpers. The now-dead `.gitignore` rule was
+removed (commit `c34f7e3`). Also banked earlier on this branch: `bench_parse.py` logs to
+`tests/benchmarks/results.jsonl` + saves `.prof` dumps (`snakeviz` added to the dev group), and the
+stale fixture glob was fixed.
+
+### 2026-06-05 — bucket A: absorb demos (decision 1 = option a, full absorb)
+
+Root cause was worse than "typer/polars missing": the wheel ships only `WebSearcher/` (sdist
+`only-include` adds `scripts`, but the wheel does not), so the `scripts.demo_*:app` console entry
+points are unimportable on a wheel install *and* pull non-runtime deps. Both are fixed by moving the
+demos into the shipped package.
+
+Verified before writing: `import WebSearcher` loads neither polars nor typer; `download_locations`,
+`load_soup`, `parse_serp`, `Extractor`, `SearchEngine` are all public; `detect_chrome_version` lives
+at `WebSearcher.search_methods.selenium_searcher`. The four user demos use `polars` only to print a
+results table (and `demo_locations` to filter the geotargets CSV) — both replaceable with stdlib.
+
+Implementation:
+- New `WebSearcher/demo.py` (runtime-deps-only): `parse`, `search`, `headers`, `locations` runners +
+  a tiny stdlib table printer (replaces polars) + an `argparse` CLI (`python -m WebSearcher.demo
+  <cmd>`) and a `search_cli` entry. Standardized on `se.parse_serp()` / `se.parsed.results`.
+- Repointed `[project.scripts]`: `demo-search` -> `WebSearcher.demo:search_cli`; dropped the
+  `demo-searches` console script (that bulk corpus generator stays a `scripts/` dev tool, kept per
+  bucket C, and its entry point was already wheel-broken).
+- Dropped `scripts` from the sdist `only-include` (its only rationale was the now-moved entry points).
+- Deleted the four absorbed scripts (`demo_parse`, `demo_search`, `demo_search_headers`,
+  `demo_locations`); `demo_searches` stays.
+- Plan-031 loose end resolved: the geotargets download already lives in the package as
+  `ws.download_locations`, so the locations demo reuses it (no duplication).
