@@ -12,10 +12,41 @@ change and treated parse_serp's return value as a bare list, so they no longer r
 
 Heavy deps (WebSearcher, polars) are imported lazily inside the functions that need
 them, so importing one helper does not drag in the others.
+
+Also holds the shared bz2 SERP-corpus loader (``load_serp_records`` / ``serp_label``)
+consolidated from the corpus scripts and the retired ``diff_parsers.py``.
 """
 
+import bz2
 from collections import Counter
 from pathlib import Path
+
+import orjson
+
+# -----------------------------------------------------------------------------
+# Corpus loading  (bz2 JSON-lines SERP fixtures)
+# -----------------------------------------------------------------------------
+
+CORPUS_FIXTURE = Path(__file__).resolve().parent.parent / "tests" / "fixtures" / "serps.json.bz2"
+
+
+def load_serp_records(*fixtures, limit: int | None = None) -> list[dict]:
+    """Load SERP dict records from one or more bz2 JSON-lines fixtures.
+
+    Defaults to the consolidated corpus (``CORPUS_FIXTURE``) when no path is given.
+    """
+    paths = [Path(p) for p in fixtures] or [CORPUS_FIXTURE]
+    records: list[dict] = []
+    for path in paths:
+        with bz2.open(path, "rt") as f:
+            records.extend(orjson.loads(line) for line in f)
+    return records[:limit] if limit else records
+
+
+def serp_label(record: dict) -> str:
+    """Readable label for a SERP record: its query, else a short serp_id."""
+    return record.get("qry") or record.get("serp_id", "")[:16] or "?"
+
 
 # -----------------------------------------------------------------------------
 # Parsing

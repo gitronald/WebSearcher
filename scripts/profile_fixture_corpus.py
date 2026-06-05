@@ -19,33 +19,12 @@ Usage:
 """
 
 import argparse
-import bz2
 import json
 from collections import Counter, defaultdict
-from pathlib import Path
 
-import orjson
+from _common import CORPUS_FIXTURE, load_serp_records
 
 import WebSearcher as ws
-
-FIXTURES_DIR = Path("tests/fixtures")
-# The consolidated corpus (plan 032). Falls back to the pre-consolidation bulk
-# files if the single file is absent.
-BULK_GLOBS = (
-    ["serps.json.bz2"]
-    if (FIXTURES_DIR / "serps.json.bz2").exists()
-    else [
-        "serps-v0.6.7.json.bz2",
-        "serps-v0.6.8.json.bz2",
-        "serps-parser-coverage.json.bz2",
-        "serps-sge-2024.json.bz2",
-    ]
-)
-
-
-def load(path: Path) -> list[dict]:
-    with bz2.open(path, "rt") as f:
-        return [orjson.loads(line) for line in f]
 
 
 def profile_record(rec: dict) -> dict:
@@ -92,18 +71,10 @@ def main() -> None:
     args = ap.parse_args()
 
     profiles: list[dict] = []
-    source_of: dict[str, list[str]] = {}  # file -> [short_id]
-    for name in BULK_GLOBS:
-        path = FIXTURES_DIR / name
-        if not path.exists():
-            continue
-        ids = []
-        for rec in load(path):
-            p = profile_record(rec)
-            p["file"] = name
-            profiles.append(p)
-            ids.append(p["short_id"])
-        source_of[name] = ids
+    for rec in load_serp_records():
+        p = profile_record(rec)
+        p["file"] = CORPUS_FIXTURE.name
+        profiles.append(p)
 
     # Corpus-wide rarity: how many records carry each (type/sub_type) pair.
     pair_carriers: dict[str, set[str]] = defaultdict(set)
@@ -145,7 +116,7 @@ def main() -> None:
         return
 
     # Human-readable report -------------------------------------------------
-    print(f"BULK CORPUS: {len(profiles)} records across {len(source_of)} files\n")
+    print(f"CORPUS: {len(profiles)} records from {CORPUS_FIXTURE.name}\n")
     total_chars = sum(p["html_chars"] for p in profiles)
     print(f"total HTML: {total_chars / 1e6:.1f} MB uncompressed\n")
 

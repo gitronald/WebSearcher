@@ -22,20 +22,11 @@ Usage:
     uv run python scripts/compare_drop_signatures.py
 """
 
-import bz2
 from collections import Counter, defaultdict
-from pathlib import Path
 
-import orjson
+from _common import load_serp_records
 
 import WebSearcher as ws
-
-FIXTURE = Path("tests/fixtures") / "serps.json.bz2"
-
-
-def load_all() -> list[dict]:
-    with bz2.open(FIXTURE, "rt") as f:
-        return [orjson.loads(line) for line in f]
 
 
 def ordered_components(parsed: dict) -> list[tuple[str, str | None]]:
@@ -66,7 +57,7 @@ def sig_distinct(comps) -> str:
 
 def main() -> None:
     prof = {}
-    for r in load_all():
+    for r in load_serp_records():
         comps = ordered_components(ws.parse_serp(r["html"]))
         prof[r["serp_id"][:12]] = {
             "short": r["serp_id"][:12],
