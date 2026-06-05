@@ -6,6 +6,7 @@ from .headers import headers
 from .locations import locations
 from .parse import parse
 from .search import search, searches
+from .show import show
 
 
 def _add_engine_args(p: argparse.ArgumentParser) -> None:
@@ -54,6 +55,21 @@ def main(argv: list[str] | None = None) -> None:
     p_parse = sub.add_parser("parse", help="Parse a saved SERP .html file (offline)")
     p_parse.add_argument("filepath", help="Path to a saved SERP .html file")
 
+    p_show = sub.add_parser(
+        "show", help="Show the parsed-results table for a saved query (offline)"
+    )
+    p_show.add_argument("query", nargs="?", default=None, help="Query whose saved SERP to show")
+    p_show.add_argument(
+        "--data-dir",
+        default=None,
+        help="Directory containing serps.json (default: current version)",
+    )
+    p_show.add_argument(
+        "--list", dest="list_queries", action="store_true", help="List saved queries"
+    )
+    p_show.add_argument("--details", action="store_true", help="Include the details summary column")
+    p_show.add_argument("--max-width", type=int, default=60, help="Max cell width (chars)")
+
     _add_search_args(sub.add_parser("search", help="Search and parse one query"))
 
     p_searches = sub.add_parser(
@@ -87,6 +103,14 @@ def main(argv: list[str] | None = None) -> None:
     args = parser.parse_args(argv)
     if args.command == "parse":
         parse(args.filepath)
+    elif args.command == "show":
+        show(
+            args.query,
+            data_dir=args.data_dir,
+            list_queries=args.list_queries,
+            details=args.details,
+            max_width=args.max_width,
+        )
     elif args.command == "search":
         _run_search(args)
     elif args.command == "searches":

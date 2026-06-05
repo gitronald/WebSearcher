@@ -73,42 +73,30 @@ WebSearcher ships runnable demos inside the package, so they work straight after
 uv run ws-demo search "election news"
 ```
 
-This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
+This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse of one HTML file), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `ws-demo show` (add `--details` for a details column, `--list` to enumerate saved queries):
 
 ```bash
-uv run python scripts/show_parsed.py "election news" --cat-width 12
+uv run ws-demo show "election news"
 ```
 
 ```
-qry='election news', components=23
+WebSearcher v0.9.0a0 | qry='election news' | 22 components
 
-┌──────────────┬────────────────────────────────────────────────────┬────────────────────────────────────────────────────┐
-│ type         ┆ title                                              ┆ url                                                │
-╞══════════════╪════════════════════════════════════════════════════╪════════════════════════════════════════════════════╡
-│ ad           ┆ Latest Election News                               ┆ https://www.election-integrity.org/news            │
-│ top_stories  ┆ 2026 Texas primary runoff election results         ┆ https://www.cbsnews.com/texas/live-updates/2026... │
-│ top_stories  ┆ Texas runoff election live updates: Cornyn vs. ... ┆ https://www.usatoday.com/story/news/politics/el... │
-│ top_stories  ┆ Texas' raucous primary runoffs end today. Here'... ┆ https://www.texastribune.org/2026/05/26/texas-p... │
-│ top_stories  ┆ Where to vote in El Paso, what time do polls op... ┆ https://www.elpasotimes.com/story/news/politics... │
-│ top_stories  ┆ Texas voters head to polls today for primary ru... ┆ https://www.audacy.com/krld/news/local/texas-pr... │
-│ top_stories  ┆ Texas elections live updates: Trump-backed Ken ... ┆ https://www.nbcnews.com/politics/2026-election/... │
-│ top_stories  ┆ Trump claims 2020 election 'rigged' at least 10... ┆ https://www.reuters.com/world/us/trump-claims-2... │
-│ local_news   ┆ Get up to speed fast on the California election... ┆ https://www.mv-voice.com/calmatters/2026/05/26/... │
-│ local_news   ┆ Column: My pick for California governor is ... ... ┆ https://www.latimes.com/california/newsletter/2... │
-│ local_news   ┆ Voter turnout remains low in CA primary as elec... ┆ https://www.cbs8.com/video/news/local/voter-tur... │
-│ local_news   ┆ California gubernatorial election: Matt Mahan f... ┆ https://abc7news.com/post/california-gubernator... │
-│ general      ┆ Last-minute voter guide for California governor... ┆ https://calmatters.org/politics/elections/2026/... │
-│ general      ┆ Matt Mahan facing campaign questions, political... ┆ https://abc7news.com/post/california-gubernator... │
-│ general      ┆ Election 2026: Results, news and analysis          ┆ https://www.cnn.com/election/2026                  │
-│ general      ┆ Ballotpedia.org                                    ┆ https://ballotpedia.org/Main_Page                  │
-│ videos       ┆ Voter turnout remains low in CA primary as elec... ┆ https://www.youtube.com/watch?v=UnJEjKYuXCI        │
-│ videos       ┆ Thomas Massie files statement of candidacy for ... ┆ https://www.youtube.com/watch?v=tLu_eWYW8Pc        │
-│ videos       ┆ Breaking down the Democrats' 2024 election auto... ┆ https://www.youtube.com/watch?v=exTN-Jgb6Vo        │
-│ general      ┆ Elections 2026                                     ┆ https://www.npr.org/sections/elections/            │
-│ general      ┆ Department of Elections                            ┆ https://www.sf.gov/departments--department-elec... │
-│ general      ┆ Everything You Need to Vote - Vote.org             ┆ https://www.vote.org/                              │
-│ searches_... ┆ -                                                  ┆ -                                                  │
-└──────────────┴────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+type              title                                                         url
+----------------  ------------------------------------------------------------  ------------------------------------------------------------
+ad                Latest Election News                                          https://www.election-integrity.org/news
+top_stories       Latest on California governor election as public awaits r...  https://www.usatoday.com/story/news/politics/elections/20...
+top_stories       California election results still undecided as Los Angele...  https://www.foxnews.com/politics/california-election-resu...
+top_stories       California Governor Primary Election 2026 Live Results        https://www.nbcnews.com/politics/2026-primary-elections/c...
+local_news        San Mateo County elections division has more than 100K ba...  https://localnewsmatters.org/2026/06/05/san-mateo-county-...
+local_news        Sorry, Silicon Valley, it isn’t that easy to buy an election  https://sfstandard.com/2026/06/03/matt-mahan-silicon-vall...
+general           California pushes back on Trump's primary election ...        https://www.nbcsandiego.com/news/local/california-trump-c...
+general           5 things to know about California's election results          https://calmatters.org/politics/2026/06/primary-election-...
+videos            Latest on California governor, L.A. mayor primary electio...  https://www.youtube.com/watch?v=--eGQRVD6ms
+videos            KTLA 5 News Election Coverage: Votes continue to be ... Y...  https://www.youtube.com/watch?v=wMXxRGZHjKg
+general           Elections 2026                                                https://www.npr.org/sections/elections/
+general           Ballotpedia.org                                               https://ballotpedia.org/Main_Page
+general           Election Night Results                                        https://electionresults.sos.ca.gov/
 ```
 
 By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
