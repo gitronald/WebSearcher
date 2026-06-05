@@ -218,3 +218,26 @@ Implementation:
   interim `demo-search` -> `search_cli`, now removed), so all four subcommands run as
   `ws-demo <cmd>` without `python -m`. Chose `ws-demo` over a bare `demo`/`ws` to avoid the quiet
   last-one-wins console-script collision risk of a generic name. README updated.
+
+### 2026-06-05 — buckets C, D, B
+
+**Bucket C (consolidate keepers).** Salvaged `diff_parsers.py`'s reusable kernel — the bz2 corpus
+loader and `serp_label` — into `scripts/_common.py` as `load_serp_records` / `serp_label`, and
+rewired the three kept corpus scripts (`compare_drop_signatures`, `profile_fixture_corpus`,
+`verify_*`) onto it (dropping each one's private loader and the dead pre-consolidation glob fallback
+in `profile_fixture_corpus`). Generalized `verify_drops.py` -> `verify_corpus.py`: dropped the
+plan-032-specific `PLAN032_DROPS`/`REQUIRED_LAYOUTS` constants and the vacuous pair-carrier check;
+it's now a generic integrity guard (unique ids, every record noted, every record yields a
+`main_layout` and >=1 result). All three run green over the 80-record corpus.
+
+**Bucket D (retire one-offs).** Deleted `parsed_to_csv`, `build_fixture_corpus`, `condense_fixtures`,
+`dump_ai_overview_html`, `inspect_ai_overview_structure`, and `diff_parsers` (salvaged first). Fixed
+two stale README spots: the `condense_fixtures` fixtures workflow (now points at the consolidated
+corpus + `docs/guides/fixture-corpus.md`) and a snapshot-test example citing a dropped serp_id
+(`45b6e019bfa2` -> `4f4d0fed0592`, verified to match one test).
+
+**Bucket B (skills).** Per decision, built all four as new local skills under `.claude/skills/`
+(gitignored, the established pattern here): `serp-view`, `corpus-curate`, `parser-regression`,
+`parse-bench`. Discovered the repo already has overlapping/stale skills (`reparse`, `compare-parsed`
+use the old list API; `reparse`/`parser-update` reference the retired `serps-v*` glob) — left a TODO
+to reconcile and de-stale them in a follow-up rather than expand scope here.
