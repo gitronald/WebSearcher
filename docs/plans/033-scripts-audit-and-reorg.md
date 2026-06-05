@@ -252,3 +252,25 @@ it's just the `search` runner looping over a curated query battery. Absorbed it 
 and deleted the script. `ws-demo` now exposes `parse|search|searches|headers|locations`, and no demo
 remains outside the package. (`demo_screenshot.py` stays in `scripts/` — it's a parser-debug tool,
 not a demo.)
+
+### 2026-06-05 — split the crowded `demo.py` into a `WebSearcher/demos/` package
+
+The single ~400-line `WebSearcher/demo.py` had grown to hold all five runners, the QUERIES battery,
+the display/path helpers, and the whole argparse CLI. Split it into a package, one concern per
+module, with no behavior change:
+
+- `demos/_common.py` — shared stdlib display/path helpers (`_print_results_table`, `_default_data_dir`).
+- `demos/parse.py`, `search.py`, `headers.py`, `locations.py` — one runner each, with that runner's
+  own constants/helpers alongside it (`QUERIES`/`_chrome_version` in `search`, `MODIFIED_HEADERS` in
+  `headers`, `_find_location` in `locations`).
+- `demos/cli.py` — the argparse plumbing (`_add_engine_args`/`_add_search_args`/`_run_search`/`main`).
+- `demos/__init__.py` — re-exports `main` + the five runners + `QUERIES` via `__all__`.
+- `demos/__main__.py` — `python -m WebSearcher.demos`.
+
+The one wired change the rename forced (the "unless needed" part of the ask): the entry point moved
+`WebSearcher.demo:main` -> `WebSearcher.demos:main` in `pyproject.toml`, and the `_chrome_version`
+import deepened a level (`..search_methods`). The **user-facing CLI is byte-identical** — `ws-demo`
+plus every subcommand's `--help` diffs clean against a pre-split baseline. Verified: no `polars`/`typer`
+pulled in, `python -m WebSearcher.demos` runs, offline `ws-demo parse` works on stored HTML, ruff
+clean, and the full suite stays green (326 passed, 80 snapshots). Updated the `pyproject.toml` sdist
+comment and the CHANGELOG `[Unreleased]` demos line to say `WebSearcher.demos`.
