@@ -39,12 +39,11 @@ dev = [
     "pyrefly",
     "ruff>=0.15.6",
     "pytest-cov>=7.0.0",
-    # bs4 + lxml are dev-only: used by the bench/dev scripts in scripts/
-    # (diff_parsers, show_serp, dump_ai_overview_html, survey_ai_overviews,
-    # inspect_ai_overview_structure). Runtime parsing is selectolax-only.
+    # bs4 + lxml are dev-only: used by show_serp.py's overlay stripping (the
+    # serp-inspect skill). Runtime parsing is selectolax-only.
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
-    # snakeviz views the .prof dumps from scripts/bench_parse.py --profile
+    # snakeviz views the .prof dumps from the parse-bench skill's bench_parse.py --profile
     "snakeviz>=2.2.2",
 ]
 
