@@ -10,7 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
-- `0.9.0` (unreleased): Breaking internal rewrite onto `selectolax` (dropped the BeautifulSoup + lxml runtime deps); same public API and output schema, plus a new `features.main_layout` field, a data-driven `standard-*` layout dispatch with readable labels, a `no-rso` duplication fix, the `cmpt_rank=0` fix, and a package-wide simplification pass
+- `0.9.0` (unreleased): Breaking internal rewrite onto `selectolax` (dropped the BeautifulSoup + lxml runtime deps); same public API and output schema, plus a new `features.main_layout` field, a data-driven `standard-*` layout dispatch with readable labels, a `no-rso` duplication fix, the `cmpt_rank=0` fix, and a package-wide simplification pass; demos now ship in-package and run via `ws-demo`
 - `0.8.6`: Demo-script fixes (`demo_search_headers` for `requests`, `demo_locations` regex/main-guard, Chrome-version import) and quieter Selenium teardown
 - `0.8.5`: Minor updates to packaging for pypi, demo scripts, and documentation
 - `0.8.4`: Reclassified shopping/commercial blocks that previously emitted hollow `general` rows (29 -> 0) into new component types — `products` (grid/brands), `promo` (shopping deals banner), `most_read_articles`, and `buying_guide` — plus a `general` `image_strip` sub_type
