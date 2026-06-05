@@ -101,22 +101,24 @@ is unseen elsewhere. It is the conservative middle ground between the pair-set l
 
 ## Tooling
 
-Three scripts, all run through `uv`. They are **report-only** — none mutates the
-corpus or auto-recommends deletions (the plan-032 drop decision is already applied;
-`scripts/build_fixture_corpus.py` is the one-time builder that produced the file).
+Three scripts, all run through `uv` from the repo root. They are **report-only** —
+none mutates the corpus or auto-recommends deletions. They are bundled in the
+`corpus-curate` skill (`.claude/skills/corpus-curate/`, gitignored); invoke them via
+that skill or the paths below. (The one-time builder that produced the consolidated
+file, `build_fixture_corpus.py`, was retired after the merge — see plan 032's log.)
 
-### `scripts/profile_fixture_corpus.py`
+### `profile_fixture_corpus.py`
 
 Parses every record and reports per-record provenance, `main_layout`, fired feature
 flags, the pair-set signature, parse errors, and corpus-wide rarity (which pairs /
 layouts have only 1–2 carriers).
 
 ```bash
-uv run python scripts/profile_fixture_corpus.py            # human-readable report
-uv run python scripts/profile_fixture_corpus.py --json     # machine-readable
+uv run python .claude/skills/corpus-curate/profile_fixture_corpus.py            # human-readable report
+uv run python .claude/skills/corpus-curate/profile_fixture_corpus.py --json     # machine-readable
 ```
 
-### `scripts/compare_drop_signatures.py`
+### `compare_drop_signatures.py`
 
 Reports the three signature readings and surfaces **distinct-type signature
 clusters** (records sharing a component sequence) for human review.
@@ -128,17 +130,19 @@ the multi-section one specifically. Always confirm at the details level — and 
 the query-keyed tests — before treating a cluster as redundant.
 
 ```bash
-uv run python scripts/compare_drop_signatures.py
+uv run python .claude/skills/corpus-curate/compare_drop_signatures.py
 ```
 
-### `scripts/verify_drops.py`
+### `verify_corpus.py`
 
-Corpus-integrity guard: confirms the 8 plan-032 drops are absent, serp_ids are
-unique, every record carries a `note`, the three witnessed layouts survive, and
-every parsed `(type, sub_type)` has a carrier. Exits non-zero on failure (CI-usable).
+Generic corpus-integrity guard: serp_ids are unique, every record carries a `note`,
+every record parses to a non-null `features.main_layout`, and every record yields at
+least one result. Exits non-zero on failure, and adds a readable `--dump ID`. The
+same four assertions run in CI as the tracked `tests/test_corpus_integrity.py`.
 
 ```bash
-uv run python scripts/verify_drops.py
+uv run python .claude/skills/corpus-curate/verify_corpus.py
+uv run python .claude/skills/corpus-curate/verify_corpus.py --dump ID   # readable results+details dump
 ```
 
 ## The `note` field
@@ -159,15 +163,15 @@ token as an artifact of how the crawler obtained an abuse exemption.
 
 ```bash
 # 1. Profile every record: provenance, layouts, unique contributors, rarity
-uv run python scripts/profile_fixture_corpus.py
+uv run python .claude/skills/corpus-curate/profile_fixture_corpus.py
 
 # 2. Review distinct-type signature clusters (potential redundancy)
-uv run python scripts/compare_drop_signatures.py
+uv run python .claude/skills/corpus-curate/compare_drop_signatures.py
 
-# 3. Corpus-integrity guard (drops absent, notes present, layouts + coverage intact)
-uv run python scripts/verify_drops.py
+# 3. Corpus-integrity guard (unique ids, notes present, layout + results intact)
+uv run python .claude/skills/corpus-curate/verify_corpus.py
 
 # 4. After any change, confirm the tests pass
 uv run pytest tests/test_parse_serp.py tests/test_parser_coverage.py \
-  tests/test_ai_overview_legacy_sge.py -q
+  tests/test_ai_overview_legacy_sge.py tests/test_corpus_integrity.py -q
 ```
