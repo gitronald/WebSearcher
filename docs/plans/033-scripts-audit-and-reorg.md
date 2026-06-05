@@ -214,3 +214,7 @@ Implementation:
   `demo_locations`); `demo_searches` stays.
 - Plan-031 loose end resolved: the geotargets download already lives in the package as
   `ws.download_locations`, so the locations demo reuses it (no duplication).
+- Entry point finalized as a single unified `ws-demo` -> `WebSearcher.demo:main` (replacing the
+  interim `demo-search` -> `search_cli`, now removed), so all four subcommands run as
+  `ws-demo <cmd>` without `python -m`. Chose `ws-demo` over a bare `demo`/`ws` to avoid the quiet
+  last-one-wins console-script collision risk of a generic name. README updated.
