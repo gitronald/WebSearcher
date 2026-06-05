@@ -73,7 +73,7 @@ WebSearcher ships runnable demos inside the package, so they work straight after
 uv run ws-demo search "election news"
 ```
 
-This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
+This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
 
 ```bash
 uv run python scripts/show_parsed.py "election news" --cat-width 12

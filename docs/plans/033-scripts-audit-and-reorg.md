@@ -241,3 +241,14 @@ corpus + `docs/guides/fixture-corpus.md`) and a snapshot-test example citing a d
 `parse-bench`. Discovered the repo already has overlapping/stale skills (`reparse`, `compare-parsed`
 use the old list API; `reparse`/`parser-update` reference the retired `serps-v*` glob) — left a TODO
 to reconcile and de-stale them in a follow-up rather than expand scope here.
+
+### 2026-06-05 — folded demo_searches into the package (reclassified from bucket C)
+
+Reversed the bucket-C "keep in scripts/" call for `demo_searches.py`: it was the last demo still
+importing typer/polars (broken on a clean install, never shipped in the wheel), and structurally
+it's just the `search` runner looping over a curated query battery. Absorbed it into
+`WebSearcher/demo.py` as `ws-demo searches` (the `QUERIES` battery + CAPTCHA-retry + jittered
+`--delay` moved in; typer->argparse, polars->stdlib table; factored a shared `_add_engine_args`),
+and deleted the script. `ws-demo` now exposes `parse|search|searches|headers|locations`, and no demo
+remains outside the package. (`demo_screenshot.py` stays in `scripts/` — it's a parser-debug tool,
+not a demo.)

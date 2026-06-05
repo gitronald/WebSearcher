@@ -10,15 +10,18 @@ Run a demo with the `ws-demo` console command (or `python -m WebSearcher.demo`):
 
     ws-demo parse path/to/serp.html      # offline: parse a saved SERP
     ws-demo search "why is the sky blue?"
+    ws-demo searches                     # battery of queries spanning component types
     ws-demo headers "pizza near me"      # requests method, custom headers
     ws-demo locations pizza              # localized search (downloads geotargets)
 
-The runner functions (`parse`, `search`, `headers`, `locations`) also return the parsed output /
-SearchEngine for interactive use.
+The runner functions (`parse`, `search`, `searches`, `headers`, `locations`) also return the parsed
+output / SearchEngine for interactive use.
 """
 
 import argparse
 import csv
+import random
+import time
 from pathlib import Path
 
 import WebSearcher as ws
@@ -30,6 +33,47 @@ MODIFIED_HEADERS = {
     "Accept-Encoding": "gzip,deflate,br",
     "Accept-Language": "en-US,en;q=0.5",
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0",
+}
+
+# Queries organized by target component type (3 per type) for the `searches` battery.
+# Some queries trigger multiple types (e.g. ad + shopping_ads).
+QUERIES = {
+    "ad": ["best credit cards", "car insurance quotes", "cheap flights to new york"],
+    "available_on": ["watch the office", "stream stranger things", "where to watch breaking bad"],
+    "discussions_and_forums": [
+        "best budget headphones reddit",
+        "is it worth learning rust reddit",
+        "best mattress forum",
+    ],
+    "general": ["why is the sky blue", "how does photosynthesis work", "what causes earthquakes"],
+    "images": ["golden retriever puppies", "northern lights", "art deco architecture"],
+    "knowledge": ["population of france", "define serendipity", "100 fahrenheit to celsius"],
+    "knowledge_panel": ["albert einstein", "apple inc", "taylor swift"],
+    "knowledge_live": ["weather today", "nba scores", "aapl stock price"],
+    "knowledge_translate": [
+        "translate hello to japanese",
+        "translate good morning to french",
+        "translate thank you to korean",
+    ],
+    "local_results": [
+        "restaurants near austin tx",
+        "coffee shops portland oregon",
+        "hotels in manhattan",
+    ],
+    "local_news": ["news near chicago", "local news san francisco", "houston news today"],
+    "perspectives": [
+        "best programming language to learn",
+        "is college worth it",
+        "tips for first marathon",
+    ],
+    "scholarly_articles": [
+        "effects of sleep deprivation on cognition",
+        "climate change coral reef impact",
+        "machine learning protein folding",
+    ],
+    "top_stories": ["latest world news", "election results", "technology news today"],
+    "twitter": ["@nasa", "@nytimes", "@elaboratetweet"],
+    "videos": ["how to change a tire", "yoga for beginners", "python tutorial for beginners"],
 }
 
 
@@ -138,6 +182,68 @@ def search(
     return se
 
 
+def searches(
+    types: list[str] | None = None,
+    method: str = "selenium",
+    data_dir: str | None = None,
+    headless: bool = False,
+    use_subprocess: bool = False,
+    version_main: int | None = None,
+    ai_expand: bool = True,
+    driver_executable_path: str = "",
+    delay: float = 30.0,
+):
+    """Search a battery of queries spanning SERP component types, reusing one browser session.
+
+    Saves serps/parsed/searches like ``search``. Pass ``types`` to limit to specific QUERIES
+    groups. Handles CAPTCHAs (waits 5 min and retries once) and jitters the inter-query delay.
+    """
+    data_path = Path(data_dir) if data_dir else _default_data_dir()
+    data_path.mkdir(parents=True, exist_ok=True)
+    fps = {k: data_path / f"{k}.json" for k in ("serps", "parsed", "searches")}
+
+    if types:
+        queries = [q for t in types if t in QUERIES for q in QUERIES[t]]
+    else:
+        queries = [q for group in QUERIES.values() for q in group]
+    print(f"Running {len(queries)} queries, saving to {data_path}")
+
+    se = ws.SearchEngine(
+        method=method,
+        selenium_config={
+            "headless": headless,
+            "use_subprocess": use_subprocess,
+            "driver_executable_path": driver_executable_path,
+            "version_main": version_main,
+        },
+    )
+
+    for i, qry in enumerate(queries):
+        se.search(qry, ai_expand=ai_expand)
+        se.parse_serp()
+        se.save_serp(append_to=fps["serps"])
+        se.save_search(append_to=fps["searches"])
+        se.save_parsed(append_to=fps["parsed"])
+
+        if se.parsed.features.get("captcha"):
+            print(f"\n[{i + 1}/{len(queries)}] CAPTCHA for {qry!r}, waiting 5 min...")
+            time.sleep(300)
+            se.search(qry, ai_expand=ai_expand)
+            se.parse_serp()
+            if se.parsed.features.get("captcha"):
+                print("CAPTCHA still present, stopping.")
+                break
+
+        if se.parsed.results:
+            print(f"\n[{i + 1}/{len(queries)}] {qry}")
+            _print_results_table(se.parsed.results)
+
+        if i < len(queries) - 1:
+            time.sleep(delay + random.uniform(0, 5))
+
+    return se
+
+
 def headers(query: str, data_dir: str | None = None):
     """Search and parse one query via the requests method with a custom header set."""
     data_path = Path(data_dir) if data_dir else _default_data_dir()
@@ -191,8 +297,7 @@ def locations(
 # -----------------------------------------------------------------------------
 
 
-def _add_search_args(p: argparse.ArgumentParser) -> None:
-    p.add_argument("query", nargs="?", default="why is the sky blue?", help="Search query")
+def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "method",
         nargs="?",
@@ -210,6 +315,11 @@ def _add_search_args(p: argparse.ArgumentParser) -> None:
         "--no-ai-expand", dest="ai_expand", action="store_false", help="Do not expand AI overviews"
     )
     p.add_argument("--driver-executable-path", default="", help="Path to ChromeDriver")
+
+
+def _add_search_args(p: argparse.ArgumentParser) -> None:
+    p.add_argument("query", nargs="?", default="why is the sky blue?", help="Search query")
+    _add_engine_args(p)
 
 
 def _run_search(args: argparse.Namespace) -> None:
@@ -235,6 +345,17 @@ def main(argv: list[str] | None = None) -> None:
 
     _add_search_args(sub.add_parser("search", help="Search and parse one query"))
 
+    p_searches = sub.add_parser(
+        "searches", help="Search a battery of queries spanning SERP component types"
+    )
+    _add_engine_args(p_searches)
+    p_searches.add_argument(
+        "--types", nargs="*", default=None, help="Only run queries for these target types"
+    )
+    p_searches.add_argument(
+        "--delay", type=float, default=30.0, help="Seconds between queries (plus jitter)"
+    )
+
     p_headers = sub.add_parser("headers", help="Search one query via requests with custom headers")
     p_headers.add_argument("query", help="Search query")
     p_headers.add_argument("--data-dir", default=None, help="Directory to save outputs")
@@ -257,6 +378,18 @@ def main(argv: list[str] | None = None) -> None:
         parse(args.filepath)
     elif args.command == "search":
         _run_search(args)
+    elif args.command == "searches":
+        searches(
+            types=args.types,
+            method=args.method,
+            data_dir=args.data_dir,
+            headless=args.headless,
+            use_subprocess=args.use_subprocess,
+            version_main=args.version_main,
+            ai_expand=args.ai_expand,
+            driver_executable_path=args.driver_executable_path,
+            delay=args.delay,
+        )
     elif args.command == "headers":
         headers(args.query, data_dir=args.data_dir)
     elif args.command == "locations":

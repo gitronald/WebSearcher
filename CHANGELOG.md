@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed a `no-rso` layout bug where the trailing page-level section was appended once per preceding block, duplicating its content
 - Fixed `ComponentList.add_component` to honor an explicit `cmpt_rank` of `0` (the previous falsy check replaced rank `0` with the auto-counter)
 - Added characterization tests pinning every main-layout routing and extraction branch; package-wide simplification pass (dead-code removal, shared-helper reuse, hoisted regex compilation) with no behavior change
-- **Breaking (demos):** moved the demos into the package (`WebSearcher.demo`) so they run after a plain `pip install WebSearcher`, via a single `ws-demo` command (`parse|search|headers|locations`); replaces the `demo-search`/`demo-searches` entry points
+- **Breaking (demos):** moved the demos into the package (`WebSearcher.demo`) so they run after a plain `pip install WebSearcher`, via a single `ws-demo` command (`parse|search|searches|headers|locations`); replaces the `demo-search`/`demo-searches` entry points
 - Dev tooling: `scripts/bench_parse.py` now logs version-stamped runs to `tests/benchmarks/results.jsonl` and saves `.prof` dumps for snakeviz; added `scripts/_common.py` with shared SERP-parse and component-coverage helpers
 
 ## [0.8.6] - 2026-05-26
