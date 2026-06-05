@@ -24,8 +24,7 @@ homepage = "http://github.com/gitronald/WebSearcher"
 repository = "http://github.com/gitronald/WebSearcher"
 
 [project.scripts]
-demo-search = 'scripts.demo_search:app'
-demo-searches = 'scripts.demo_searches:app'
+demo-search = 'WebSearcher.demo:search_cli'
 
 [dependency-groups]
 dev = [
@@ -92,7 +91,6 @@ build-backend = "hatchling.build"
 # repo but is kept out of the distributed source archive. pyproject.toml,
 # README.md, and LICENSE are added automatically as project metadata.
 only-include = [
-    "WebSearcher",  # the importable package
-    "scripts",      # demo-search / demo-searches console entry points
+    "WebSearcher",  # the importable package (includes the demos at WebSearcher/demo.py)
     "CHANGELOG.md",
 ]
