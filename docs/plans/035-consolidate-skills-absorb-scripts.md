@@ -256,3 +256,26 @@ instead of bundling it. Net: `scripts/` holds two tracked dev tools (`bench_pars
 `survey_ai_overviews.py`); the other skill-only scripts stay absorbed. `_common.py` was left absorbed
 in `corpus-curate` (only `bench_parse` was flagged). Smoke-tested `scripts/bench_parse.py --no-save`
 from repo root; ruff clean.
+
+### 2026-06-05 — revision: bench into the package, survey into a new skill, scripts/ removed
+
+Per follow-up direction, gave the last two `scripts/` files a permanent home and emptied `scripts/`:
+
+- **`bench_parse.py` -> `WebSearcher/bench.py`** (the "fold it in" option). Rewritten off `typer` to
+  `argparse`/stdlib so the package gains no dev dependency (verified `import WebSearcher.bench` pulls no
+  typer), mirroring the demos. Run via `python -m WebSearcher.bench` (no console entry point — unlike
+  `ws-demo` it needs the `tests/` tree and can't run from a bare wheel). `REPO_ROOT =
+  __file__.parent.parent` resolves to the repo root from `WebSearcher/bench.py` just as it did from
+  `scripts/`, so the `tests/benchmarks/results.jsonl` / `tests/fixtures` paths are unchanged. Added
+  `WebSearcher/bench.py` to the coverage `omit` (a dev tool, like `search_methods/`). Repointed
+  `parse-bench/SKILL.md`, the selectolax guide, the pyproject snakeviz comment, and the skills README.
+- **`survey_ai_overviews.py` -> new `explore-ai-overview` skill.** It already used argparse + cwd-relative
+  globbing, so it moved unchanged into `.claude/skills/explore-ai-overview/` with a new SKILL.md (survey
+  AI-overview HTML structure across demo datasets; also an AI-overview regression check). `git rm` from
+  `scripts/`.
+- **`scripts/` removed** — both remaining files moved out, stale `__pycache__` cleared, the empty dir
+  deleted. The repo no longer has a `scripts/` directory.
+
+Skills are now **5** (`serp-inspect`, `compare-parsed`, `corpus-curate`, `parse-bench`,
+`explore-ai-overview`). Verified: `uv run pytest` 408 passed / 80 snapshots, `python -m WebSearcher.bench
+--no-save` and the survey script both run from the repo root, ruff clean.

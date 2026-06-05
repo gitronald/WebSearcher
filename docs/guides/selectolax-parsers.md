@@ -197,7 +197,7 @@ Only when the bs4 semantic gap isn't expressible as a 2-3 line idiom at the call
 ## Bench + snapshot discipline
 
 - `tests/test_parse_serp.py` snapshots `parse_serp` output across 66 fixtures. Any change touching the parse path must keep them green.
-- `scripts/bench_parse.py` is the perf gate (wrapped by the `parse-bench` skill). Run `--iterations 5 --runs 3` and compare median ms/SERP against the baseline noted in the most recent perf commit message.
+- `python -m WebSearcher.bench` is the perf gate (wrapped by the `parse-bench` skill). Run `--iterations 5 --runs 3` and compare median ms/SERP against the baseline noted in the most recent perf commit message.
 - New parser? Add the fixture (if any) to `tests/fixtures/`, regenerate snapshots once with `pytest --snapshot-update`, and verify the diff is **only** your new component's rows.
 
 ## Reference
