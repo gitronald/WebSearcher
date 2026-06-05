@@ -9,6 +9,9 @@ data/
 notebooks/
 scripts/ads-no-subtype/
 
+# Benchmark profiles (binary cProfile dumps; regenerable). results.jsonl stays tracked.
+tests/benchmarks/profiles/
+
 *.egg-info
 *__pycache__
 
