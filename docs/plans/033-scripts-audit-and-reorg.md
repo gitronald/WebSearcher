@@ -303,3 +303,21 @@ without re-testing against the new backend:
 ruff clean on both. Net: every kept script now runs. Still open (tracked separately in TODO): the
 `.claude/skills` reconciliation, and the README still pointing end users at the dev-only
 `scripts/show_parsed.py` (typer+polars, never shipped) in the demo walkthrough.
+
+### 2026-06-05 — moved `reparse_demo.py` into the `/parser-regression` skill
+
+Audited which kept scripts are referenced by which existing skills: every one except
+`survey_ai_overviews.py` backs at least one skill, and `reparse_demo.py` is a clean 1:1 with
+`parser-regression` (no other skill or user touches it). Since `.claude/skills/` is gitignored, a
+script bundled there *persists across `git checkout`* — exactly what a cross-checkout regression
+harness wants (the harness stays constant while the parser code under test changes per branch). So
+`reparse_demo.py` moved out of `scripts/` (tracked) into `.claude/skills/parser-regression/` (local).
+Changes: `DATA_DIR` is now cwd-relative `Path("data")` (the skill runs from the repo root) instead of
+`__file__`-relative; the SKILL.md points at the bundled path and its stale `scripts/demo_searches.py`
+reference (deleted/absorbed into `ws-demo searches`) is fixed. Verified it still reparses the demo
+corpus from the new location (15 SERPs, 0 errors). `scripts/` is down to 9 files.
+
+Noted for the skills-reconciliation follow-up: `show_parsed.py` is the shared workhorse (4 skills:
+compare-parsed, parser-update, reparse, serp-view) so it can't collapse into one skill; `bench_parse.py`
+is the other clean 1:1 (parse-bench) and a future move candidate; `survey_ai_overviews.py` is the lone
+script no skill references.
