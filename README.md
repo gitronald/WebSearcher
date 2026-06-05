@@ -259,17 +259,18 @@ uv run pytest tests/ -vv
 
 Run a specific snapshot test by serp_id prefix:
 ```bash
-uv run pytest tests/ -k "45b6e019bfa2"
+uv run pytest tests/ -k "4f4d0fed0592"
 ```
 
 ### Test Fixtures
 
-Tests load from compressed fixtures in `tests/fixtures/`. To update fixtures after collecting new demo data:
+Tests load from the consolidated compressed corpus `tests/fixtures/serps.json.bz2`. After adding or updating records, refresh the snapshots:
 
 ```bash
-uv run python scripts/condense_fixtures.py 0.6.7
 uv run pytest tests/ --snapshot-update
 ```
+
+See [docs/guides/fixture-corpus.md](docs/guides/fixture-corpus.md) for how the corpus is curated, profiled, and pruned.
 
 ---
 ## GitHub Actions
