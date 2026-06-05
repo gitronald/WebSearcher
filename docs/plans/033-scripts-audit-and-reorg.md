@@ -321,3 +321,11 @@ Noted for the skills-reconciliation follow-up: `show_parsed.py` is the shared wo
 compare-parsed, parser-update, reparse, serp-view) so it can't collapse into one skill; `bench_parse.py`
 is the other clean 1:1 (parse-bench) and a future move candidate; `survey_ai_overviews.py` is the lone
 script no skill references.
+
+### 2026-06-05 — skills reconciliation done in plan 035
+
+The follow-up above is handled by [plan 035](035-consolidate-skills-absorb-scripts.md): the 8 skills
+collapse to 4 (`serp-inspect`, `compare-parsed`, `corpus-curate`, `parse-bench`) and `scripts/` sheds
+to a single file (`survey_ai_overviews.py`). The `show_parsed.py`-can't-collapse blocker dissolved by
+combining the four overlapping inspection skills and replacing the script with a package-native
+`ws-demo show`; `bench_parse.py` moved into `parse-bench` as predicted.
