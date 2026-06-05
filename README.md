@@ -67,13 +67,13 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 
 ### Example Search Script
 
-WebSearcher ships runnable demos inside the package, so they work straight after `pip install WebSearcher`. Search and parse a query with the `demo-search` command, passing the query as the first argument:
+WebSearcher ships runnable demos inside the package, so they work straight after `pip install WebSearcher`. Search and parse a query with `ws-demo search`, passing the query as the first argument:
 
 ```bash
-uv run demo-search "election news"
+uv run ws-demo search "election news"
 ```
 
-This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way via the package: `python -m WebSearcher.demo parse <file>` (offline parse), `headers <query>` (custom request headers), and `locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
+This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
 
 ```bash
 uv run python scripts/show_parsed.py "election news" --cat-width 12

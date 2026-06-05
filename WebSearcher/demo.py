@@ -2,19 +2,19 @@
 
 Absorbed from the old `scripts/demo_*.py` (plan 033). Those imported `polars` and `typer`,
 which are dev-only dependencies, and were wired as `scripts.*` console entry points that the
-wheel never shipped -- so the documented `demo-search` command failed on a clean install. This
-module depends only on WebSearcher's runtime deps: it prints results with a small stdlib table
-helper instead of polars and uses `argparse` instead of typer.
+wheel never shipped -- so the documented demo command failed on a clean install. This module
+depends only on WebSearcher's runtime deps: it prints results with a small stdlib table helper
+instead of polars and uses `argparse` instead of typer.
 
-Run a demo from the CLI::
+Run a demo with the `ws-demo` console command (or `python -m WebSearcher.demo`)::
 
-    python -m WebSearcher.demo parse path/to/serp.html      # offline: parse a saved SERP
-    python -m WebSearcher.demo search "why is the sky blue?"
-    python -m WebSearcher.demo headers "pizza near me"      # requests method, custom headers
-    python -m WebSearcher.demo locations pizza              # localized search (downloads geotargets)
+    ws-demo parse path/to/serp.html      # offline: parse a saved SERP
+    ws-demo search "why is the sky blue?"
+    ws-demo headers "pizza near me"      # requests method, custom headers
+    ws-demo locations pizza              # localized search (downloads geotargets)
 
-`demo-search` is the same as the `search` subcommand. The runner functions (`parse`, `search`,
-`headers`, `locations`) also return the parsed output / SearchEngine for interactive use.
+The runner functions (`parse`, `search`, `headers`, `locations`) also return the parsed output /
+SearchEngine for interactive use.
 """
 
 import argparse
@@ -226,10 +226,8 @@ def _run_search(args: argparse.Namespace) -> None:
 
 
 def main(argv: list[str] | None = None) -> None:
-    """CLI dispatcher for `python -m WebSearcher.demo <command>`."""
-    parser = argparse.ArgumentParser(
-        prog="python -m WebSearcher.demo", description="WebSearcher demos."
-    )
+    """CLI dispatcher for the `ws-demo` command (and `python -m WebSearcher.demo`)."""
+    parser = argparse.ArgumentParser(prog="ws-demo", description="WebSearcher demos.")
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_parse = sub.add_parser("parse", help="Parse a saved SERP .html file (offline)")
@@ -268,13 +266,6 @@ def main(argv: list[str] | None = None) -> None:
             locations_dir=args.locations_dir,
             data_dir=args.data_dir,
         )
-
-
-def search_cli(argv: list[str] | None = None) -> None:
-    """Console-script entry point for `demo-search`: search and parse one query."""
-    parser = argparse.ArgumentParser(prog="demo-search", description="Search and parse one query.")
-    _add_search_args(parser)
-    _run_search(parser.parse_args(argv))
 
 
 if __name__ == "__main__":
