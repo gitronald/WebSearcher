@@ -43,7 +43,7 @@ dev = [
     # serp-inspect skill). Runtime parsing is selectolax-only.
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
-    # snakeviz views the .prof dumps from the parse-bench skill's bench_parse.py --profile
+    # snakeviz views the .prof dumps from scripts/bench_parse.py --profile
     "snakeviz>=2.2.2",
 ]
 

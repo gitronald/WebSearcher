@@ -242,3 +242,17 @@ the 4-skill set.
 **Verification:** `uv run pytest` → 408 passed, 4 skipped, 80 snapshots. Each merged skill's primary
 command smoke-tested from repo root (`ws-demo show`, the three corpus scripts, `bench_parse --no-save`,
 `reparse_demo`). ruff clean across `.claude/skills/` and the package. Not pushed/merged.
+
+### 2026-06-05 — revision: keep `bench_parse.py` tracked in `scripts/`
+
+Reverted the `bench_parse.py` absorption (Decision 3 applied to it) at the user's request: unlike the
+other absorbed scripts, the bench is the **perf gate** — it writes to the *tracked*
+`tests/benchmarks/results.jsonl` and is cited by the tracked `docs/guides/selectolax-parsers.md`, so
+burying it in the gitignored skill tree was the wrong home. Restored the original
+`scripts/bench_parse.py` (with its `__file__`-relative `REPO_ROOT`, correct for `scripts/`), deleted
+the skill copy, and repointed `parse-bench/SKILL.md`, the guide, the pyproject comment, and the skills
+README back to `scripts/bench_parse.py` — the `parse-bench` skill now *wraps* the tracked script
+instead of bundling it. Net: `scripts/` holds two tracked dev tools (`bench_parse.py`,
+`survey_ai_overviews.py`); the other skill-only scripts stay absorbed. `_common.py` was left absorbed
+in `corpus-curate` (only `bench_parse` was flagged). Smoke-tested `scripts/bench_parse.py --no-save`
+from repo root; ruff clean.
