@@ -10,8 +10,8 @@ import json
 import pathlib
 from collections import Counter
 
-import bs4
-
+from WebSearcher import make_soup
+from WebSearcher._slx import Node, class_tokens, get_text, subtree_css, subtree_first
 from WebSearcher.classifiers.main import ClassifyMain
 from WebSearcher.extractors import Extractor
 
@@ -23,7 +23,7 @@ def iter_ai_overviews(serps_path: pathlib.Path):
             html = rec.get("html")
             if not html:
                 continue
-            soup = bs4.BeautifulSoup(html, "lxml")
+            soup = make_soup(html)
             extractor = Extractor(soup)
             extractor.extract_components()
             for cmpt in extractor.components:
@@ -33,35 +33,33 @@ def iter_ai_overviews(serps_path: pathlib.Path):
                     yield rec.get("qry", ""), rec.get("serp_id", ""), cmpt.elem
 
 
-def summarize(cmpt: bs4.element.Tag) -> dict:
+def summarize(cmpt: Node) -> dict:
     out: dict = {}
 
-    h2 = cmpt.find("h2")
-    out["h2"] = h2.get_text(" ", strip=True) if h2 else None
+    h2 = subtree_first(cmpt, "h2")
+    out["h2"] = get_text(h2, " ", strip=True) if h2 else None
 
     headings = []
-    for h in cmpt.find_all(attrs={"role": "heading"}):
-        level = h.attrs.get("aria-level")
-        text = h.get_text(" ", strip=True)
+    for h in subtree_css(cmpt, '[role="heading"]'):
+        level = h.attributes.get("aria-level")
+        text = get_text(h, " ", strip=True)
         if text:
             headings.append((level, text[:100]))
     out["headings"] = headings[:30]
 
-    fzsovc = cmpt.find_all("div", {"class": "Fzsovc"})
-    out["n_fzsovc_blocks"] = len(fzsovc)
+    out["n_fzsovc_blocks"] = len(subtree_css(cmpt, "div.Fzsovc"))
 
-    anchors = cmpt.find_all("a", href=True)
+    anchors = subtree_css(cmpt, "a[href]")
+    hrefs = [(a, a.attributes.get("href") or "") for a in anchors]
     out["n_anchors"] = len(anchors)
-    out["n_anchors_real"] = sum(1 for a in anchors if a["href"] != "#")
-    out["n_anchors_search"] = sum(1 for a in anchors if a["href"].startswith("/search?"))
-    out["n_anchors_fragment"] = sum(1 for a in anchors if "#:~:text=" in a["href"])
-    out["n_anchors_with_text"] = sum(
-        1 for a in anchors if a["href"] != "#" and a.get_text(strip=True)
-    )
+    out["n_anchors_real"] = sum(1 for _, h in hrefs if h != "#")
+    out["n_anchors_search"] = sum(1 for _, h in hrefs if h.startswith("/search?"))
+    out["n_anchors_fragment"] = sum(1 for _, h in hrefs if "#:~:text=" in h)
+    out["n_anchors_with_text"] = sum(1 for a, h in hrefs if h != "#" and get_text(a, strip=True))
 
     classes = Counter()
-    for d in cmpt.find_all("div", class_=True):
-        for c in d.attrs.get("class", []):
+    for d in subtree_css(cmpt, "div[class]"):
+        for c in class_tokens(d):
             classes[c] += 1
     out["top_classes"] = classes.most_common(15)
 

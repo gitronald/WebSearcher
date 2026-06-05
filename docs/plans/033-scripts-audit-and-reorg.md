@@ -274,3 +274,32 @@ plus every subcommand's `--help` diffs clean against a pre-split baseline. Verif
 pulled in, `python -m WebSearcher.demos` runs, offline `ws-demo parse` works on stored HTML, ruff
 clean, and the full suite stays green (326 passed, 80 snapshots). Updated the `pyproject.toml` sdist
 comment and the CHANGELOG `[Unreleased]` demos line to say `WebSearcher.demos`.
+
+### 2026-06-05 — verified the kept (bucket C) scripts; fixed two broken by the selectolax rewrite
+
+Exercised all 10 remaining `scripts/` against stored data to confirm the "Keep" disposition actually
+holds post-026. Eight run green as-is: `_common`, `verify_corpus`, `profile_fixture_corpus`,
+`compare_drop_signatures`, `bench_parse`, `reparse_demo`, `show_parsed`, and `show_serp` (the last uses
+a *standalone* bs4 for overlay stripping — a dev dep, never fed into the WS pipeline — so the selectolax
+switch didn't touch it).
+
+Two were silently **broken by the parallel selectolax rewrite** (plan 026) because they feed `bs4`
+objects into `Extractor`/`ClassifyMain`, which now expect selectolax nodes — the audit had kept them
+without re-testing against the new backend:
+
+- `survey_ai_overviews.py` — `bs4.BeautifulSoup(html, "lxml")` -> `Extractor` blew up on
+  `soup.css("*")` (`TypeError: 'CSS' object is not callable`). Ported the loader to `ws.make_soup` and
+  the `summarize()` traversal to the package's own `_slx` helpers (`get_text`, `class_tokens`,
+  `subtree_css`/`subtree_first`) — the faithful bs4-equivalents the parsers already use. Now reports
+  AI-overview structure again (e.g. 22 overviews in `demo-ws-v0.6.10a0`).
+- `demo_screenshot.py` — entire `highlight_components` was bs4 API (`find_all(True)`, item-assign,
+  `copy.copy`, `new_tag`, `head.append`); `ws.make_soup` now returns a `LexborNode` with none of those.
+  Reworked onto selectolax mutation (`node.attrs[...]=`, `del node.attrs[...]`, `css`/`css_first`),
+  re-parse the tagged HTML for the classify-on-a-copy step instead of `copy.copy`, and inject the
+  `<style>` overlay by string-splice on `</head>` (the function returns HTML anyway). Verified in
+  isolation: classifies 13 components on a stored SERP, emits the `<style>` block and `data-ws-rank`
+  targets, and strips the temporary `data-ws-id` tags. (selenium screenshot step unchanged.)
+
+ruff clean on both. Net: every kept script now runs. Still open (tracked separately in TODO): the
+`.claude/skills` reconciliation, and the README still pointing end users at the dev-only
+`scripts/show_parsed.py` (typer+polars, never shipped) in the demo walkthrough.

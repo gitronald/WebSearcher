@@ -3,7 +3,7 @@
 Renders raw HTML from serps.json in a headless browser and saves a full-page
 screenshot. Optionally highlights extracted components with colored borders
 showing their classified types. Highlights are injected directly into the
-BeautifulSoup elements the extractor actually finds, so borders match exactly.
+selectolax nodes the extractor actually finds, so borders match exactly.
 """
 
 import json
@@ -46,24 +46,23 @@ def load_serp_html(serps_path: str, index: int = 0) -> str:
 def highlight_components(html: str) -> tuple[str, dict]:
     """Classify components and inject CSS highlights without altering DOM layout.
 
-    Runs the extractor/classifier on a copy of the soup to identify and classify
-    components. Tags the matching elements in the original soup with data
+    Runs the extractor/classifier on a re-parsed copy of the soup to identify and
+    classify components. Tags the matching elements in the original soup with data
     attributes, then applies highlights via a <style> block. This avoids DOM
     mutations that break Google's CSS (e.g., oversized PAA chevrons).
 
     Returns:
         (modified_html, type_counts)
     """
-    import copy
-
     soup = ws.make_soup(html)
 
     # Tag every element with a unique ID so we can map between copy and original
-    for i, elem in enumerate(soup.find_all(True)):
-        elem["data-ws-id"] = str(i)
+    for i, elem in enumerate(soup.css("*")):
+        elem.attrs["data-ws-id"] = str(i)
 
-    # Classify on a deep copy (extractor mutates the DOM)
-    soup_copy = copy.copy(soup)
+    # Classify on a re-parsed copy (the extractor may mutate the DOM); the copy
+    # carries the same data-ws-id tags, so results map back to the original tree.
+    soup_copy = ws.make_soup(soup.html or "")
     ext = ws.Extractor(soup_copy)
     ext.extract_components()
 
@@ -73,20 +72,20 @@ def highlight_components(html: str) -> tuple[str, dict]:
         cmpt.classify_component()
         ctype = cmpt.type
         type_counts[ctype] = type_counts.get(ctype, 0) + 1
-        ws_id = cmpt.elem.get("data-ws-id")
+        ws_id = cmpt.elem.attributes.get("data-ws-id")
         if ws_id:
             classifications.append((ws_id, cmpt.cmpt_rank, ctype))
 
     # Apply data attributes to the original soup
     for ws_id, rank, ctype in classifications:
-        elem = soup.find(attrs={"data-ws-id": ws_id})
-        if elem:
-            elem["data-ws-rank"] = str(rank)
-            elem["data-ws-type"] = ctype
+        elem = soup.css_first(f'[data-ws-id="{ws_id}"]')
+        if elem is not None:
+            elem.attrs["data-ws-rank"] = str(rank)
+            elem.attrs["data-ws-type"] = ctype
 
     # Clean up temporary IDs
-    for elem in soup.find_all(attrs={"data-ws-id": True}):
-        del elem["data-ws-id"]
+    for elem in soup.css("[data-ws-id]"):
+        del elem.attrs["data-ws-id"]
 
     # Build highlight CSS
     style_rules = []
@@ -115,14 +114,14 @@ def highlight_components(html: str) -> tuple[str, dict]:
             f"}}"
         )
 
-    highlight_style = soup.new_tag("style")
-    highlight_style.string = "\n".join(style_rules)
-    if soup.head:
-        soup.head.append(highlight_style)
+    style_block = "<style>\n" + "\n".join(style_rules) + "\n</style>"
+    out_html = soup.html or ""
+    if "</head>" in out_html:
+        out_html = out_html.replace("</head>", style_block + "</head>", 1)
     else:
-        soup.insert(0, highlight_style)
+        out_html = style_block + out_html
 
-    return str(soup), type_counts
+    return out_html, type_counts
 
 
 @app.command()
