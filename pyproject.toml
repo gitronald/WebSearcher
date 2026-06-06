@@ -24,8 +24,7 @@ homepage = "http://github.com/gitronald/WebSearcher"
 repository = "http://github.com/gitronald/WebSearcher"
 
 [project.scripts]
-demo-search = 'scripts.demo_search:app'
-demo-searches = 'scripts.demo_searches:app'
+ws-demo = 'WebSearcher.demos:main'
 
 [dependency-groups]
 dev = [
@@ -40,11 +39,12 @@ dev = [
     "pyrefly",
     "ruff>=0.15.6",
     "pytest-cov>=7.0.0",
-    # bs4 + lxml are dev-only: used by the bench/dev scripts in scripts/
-    # (diff_parsers, show_serp, dump_ai_overview_html, survey_ai_overviews,
-    # inspect_ai_overview_structure). Runtime parsing is selectolax-only.
+    # bs4 + lxml are dev-only: used by show_serp.py's overlay stripping (the
+    # serp-inspect skill). Runtime parsing is selectolax-only.
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
+    # snakeviz views the .prof dumps from `python -m WebSearcher.bench --profile`
+    "snakeviz>=2.2.2",
 ]
 
 [tool.pyrefly]
@@ -56,7 +56,7 @@ addopts = "--cov=WebSearcher --cov-report=term-missing"
 
 [tool.coverage.run]
 source = ["WebSearcher"]
-omit = ["WebSearcher/search_methods/*"]
+omit = ["WebSearcher/search_methods/*", "WebSearcher/bench.py"]  # bench is a dev tool, run from a checkout
 
 [tool.coverage.report]
 show_missing = true
@@ -90,7 +90,6 @@ build-backend = "hatchling.build"
 # repo but is kept out of the distributed source archive. pyproject.toml,
 # README.md, and LICENSE are added automatically as project metadata.
 only-include = [
-    "WebSearcher",  # the importable package
-    "scripts",      # demo-search / demo-searches console entry points
+    "WebSearcher",  # the importable package (includes the demos at WebSearcher/demos/)
     "CHANGELOG.md",
 ]
