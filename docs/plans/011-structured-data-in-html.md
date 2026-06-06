@@ -1,9 +1,9 @@
 ---
 status: done
-branch:
+branch: null
 created: 2026-03-29T11:46:49-07:00
 completed: 2026-03-29T11:46:49-07:00
-pr:
+pr: null
 ---
 
 # Structured Data Sources in Google SERP HTML

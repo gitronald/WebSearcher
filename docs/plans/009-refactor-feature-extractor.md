@@ -3,7 +3,7 @@ status: done
 branch: update/serp-features
 created: 2026-03-29T11:46:49-07:00
 completed: 2026-02-06T14:14:25-08:00
-pr:
+pr: null
 ---
 
 # Refactor FeatureExtractor into own file with dataclass

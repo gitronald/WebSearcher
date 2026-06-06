@@ -1,9 +1,9 @@
 ---
 status: draft
-branch:
+branch: null
 created: 2026-05-10T12:31:46-07:00
-completed:
-pr:
+completed: null
+pr: null
 ---
 
 # Enrich video details from hidden `evlb_*` "About this result" cards

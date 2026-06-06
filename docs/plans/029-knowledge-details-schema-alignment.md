@@ -2,8 +2,8 @@
 status: draft
 branch: claude/plan-029-knowledge-details-schema
 created: 2026-05-30T14:10:38-07:00
-completed:
-pr:
+completed: null
+pr: null
 ---
 
 # Knowledge `details` Schema Alignment

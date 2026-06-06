@@ -3,7 +3,7 @@ status: done
 branch: feature/kp-wholepage-subcolumn
 created: 2026-05-31T15:20:56-07:00
 completed: 2026-05-31T16:50:49-07:00
-pr:
+pr: null
 ---
 
 # Parse kp-wholepage tabs as mini-SERP sub-columns
