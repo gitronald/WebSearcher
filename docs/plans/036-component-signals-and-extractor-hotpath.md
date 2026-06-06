@@ -1,6 +1,6 @@
 ---
-status: draft
-branch: feature/v0.9.0
+status: active
+branch: feature/v0.10.0-component-signals-hotpath
 created: 2026-06-01T13:35:50Z
 completed:
 pr:
@@ -160,3 +160,40 @@ stays exercised.
 - Back-to-back A/B of `scripts/bench_parse.py` over the fixture corpus, same
   session, clearing the noise floor; record numbers in this plan's Log.
 - `ruff check` / `ruff format --check` clean.
+
+## Status (2026-06-06)
+
+Picked up in the v0.10.0 cycle. **None of the three levers are implemented yet.**
+The only commits that reference this plan (`ff4ea24`, `92e24e1`) edited *this
+document* -- adding Lever 3 and recording its corpus evidence; no code changed.
+Verified against current source:
+
+- **Lever 1** -- `classifiers/main.py:_ComponentSignals.__init__` still does the
+  unconditional `names.add(name)` / `ids.add(el_id)` per element (no interest-set
+  restriction); matches the "before" state described above.
+- **Lever 3** -- `available_on` still carries precondition `None`
+  (`classifiers/main.py:112`) and the ungated full-component `get_text(node)`
+  fallback (`classifiers/main.py:170`).
+- **Lever 2** -- still uninvestigated (no dedicated extractor profiling pass on
+  record).
+
+**Tooling / baseline drift since the plan was written** (the baseline table above
+is plan-035's profile on Python 3.13.12 via `scripts/bench_parse.py`):
+
+- The benchmark moved into the package: `scripts/bench_parse.py` is gone. Run it
+  as `python -m WebSearcher.bench` -- `--profile`, `--profile-sort cumulative`,
+  `--top`, `--runs`, and `--iterations` all carry over. Read every
+  `scripts/bench_parse.py` reference in this plan (incl. the Verification gate) as
+  `python -m WebSearcher.bench`.
+- The fixture corpus is now the consolidated `tests/fixtures/serps.json.bz2` --
+  still 87 records, but reconsolidated, so the plan-035 self-times no longer map
+  1:1.
+- Python is now 3.14 (was 3.13.12).
+
+**Therefore, re-baseline before touching code.** Capture a fresh
+`python -m WebSearcher.bench --profile` (plus a `--profile-sort cumulative` split
+for Lever 2) on 3.14 over the current corpus, record it in the Log below, and gate
+every change against *that* baseline rather than the plan-035 table. Re-confirm the
+Lever 3 corpus evidence (fallback fires 0x; both `available_on` components caught
+by the `span.mgAbYb` heading path, measured 2026-06-01) on the current corpus
+before gating.
