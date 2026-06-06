@@ -197,3 +197,48 @@ every change against *that* baseline rather than the plan-035 table. Re-confirm 
 Lever 3 corpus evidence (fallback fires 0x; both `available_on` components caught
 by the `span.mgAbYb` heading path, measured 2026-06-01) on the current corpus
 before gating.
+
+## Log
+
+### 2026-06-06 -- fresh baseline (Python 3.14.3, 87-SERP corpus)
+
+`python -m WebSearcher.bench` (50 iterations x 5 runs, `--no-save`):
+
+- Inter-run corpus total: **median 1516.1 ms**, MAD 27.0 ms, spread 70.6 ms.
+- Per-SERP: median 15.353 ms, MAD 5.759 ms, p90 30.7 ms, max 42.9 ms.
+- **Noise floor ~3.6% (2x MAD)** -- roughly 10x the plan-035-era 0.3-0.5% (this is
+  a loaded WSL2 box). Any wall-clock win must clear ~4% to be provable here.
+
+### 2026-06-06 -- Lever 1, option 1 (names/ids interest sets)
+
+Implemented in `classifiers/main.py`: module-level `_NAME_SIGNALS` (7 tags) and
+`_ID_SIGNALS` (4 ids) -- the only `s.names`/`s.ids` tokens the chain gates on --
+and filtered the `__init__` walk to add only those (a leading truthiness guard
+narrows `str | None` for the type checker and short-circuits no-id elements before
+the membership test, so only interest-set tokens reach `set.add`). `classes` kept
+in full. Added sync-coupling comments at
+both the interest-set definition and the classifier chain, since a new
+precondition token not registered here would silently never fire.
+
+- **Byte-identical:** `uv run pytest` -- 87 snapshots passed **without updates**,
+  full suite 437 passed.
+- **Timing A/B** (same box/session, 50x5): 1516.1 -> **1502.3 ms** = **-0.9%**,
+  inside the ~4% noise floor -- not a provable wall-clock win.
+- **Profile A/B** (`--profile`, 10 iterations = 870 parses), `_ComponentSignals.__init__`:
+
+  | | self | cumtime | total calls/pass |
+  |---|---|---|---|
+  | old | 2.161 s | 2.801 s | 14.35M |
+  | Lever 1 | 1.957 s | 2.375 s | 11.90M |
+  | delta | **-0.20 s (-9.4%)** | **-0.43 s (-15.2%)** | **-2.45M** |
+
+  The -2.45M calls is the predicted ~2.47M `set.add` elimination, confirmed. The
+  frame got measurably cheaper; the absolute saving (~0.2 s self on an ~18.5 s run,
+  ~1.1%) tracks the timing A/B and stays under the box noise floor.
+
+**Read:** option 1 nets out in the *right* direction (the plan's open question) --
+real, profile-proven frame reduction -- but its wall-clock ceiling is low because
+the `css('*')` walk + `classes.update` (untouched) dominate the frame. This is the
+plan's defined decision point ("A/B option 1, then decide whether option 3's shared
+walk is worth the coupling"). Decision on keep-vs-pursue-option-3 pending; Levers 2
+and 3 not yet started.
