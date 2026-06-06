@@ -13,8 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Fixed a `no-rso` layout bug where the trailing page-level section was appended once per preceding block, duplicating its content
 - Fixed `ComponentList.add_component` to honor an explicit `cmpt_rank` of `0` (the previous falsy check replaced rank `0` with the auto-counter)
 - Added characterization tests pinning every main-layout routing and extraction branch; package-wide simplification pass (dead-code removal, shared-helper reuse, hoisted regex compilation) with no behavior change
-- **Breaking (demos):** moved the demos into the package (`WebSearcher.demos`, one module per demo) so they run after a plain `pip install WebSearcher`, via a single `ws-demo` command (`parse|search|searches|headers|locations`); replaces the `demo-search`/`demo-searches` entry points
-- Dev tooling: `scripts/bench_parse.py` now logs version-stamped runs to `tests/benchmarks/results.jsonl` and saves `.prof` dumps for snakeviz; added `scripts/_common.py` with shared SERP-parse and component-coverage helpers
+- **Breaking (demos):** moved the demos into the package (`WebSearcher.demos`, one module per demo) so they run after a plain `pip install WebSearcher`, via a single `ws-demo` command (`parse|show|search|searches|headers|locations`, where `ws-demo show "<query>"` renders the parsed-results table for a saved capture offline); replaces the `demo-search`/`demo-searches` entry points
+- Dev tooling: emptied `scripts/` by giving each dev tool one home — the parse benchmark moved into the package as `WebSearcher.bench` (`python -m WebSearcher.bench`; version-stamped runs to `tests/benchmarks/results.jsonl` + `.prof` dumps for snakeviz), the maintainer workflows (SERP inspection, parsed-output diffing, corpus curation, AI-overview survey) became local `.claude/skills/`, and a tracked `tests/test_corpus_integrity.py` now gates fixture-corpus integrity in CI
 
 ## [0.8.6] - 2026-05-26
 
