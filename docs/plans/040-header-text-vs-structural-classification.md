@@ -3,7 +3,7 @@ status: active
 branch: feature/v0.10.0-header-text-dependencies
 created: 2026-06-06T01:27:30-07:00
 completed:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/158
 ---
 
 # Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency
