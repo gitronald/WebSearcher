@@ -3,7 +3,7 @@ status: active
 branch: feature/v0.10.0-local-results-subtypes
 created: 2026-05-31T23:47:41-07:00
 completed:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/159
 ---
 
 # Replace the local_results sub_type header-slug with a closed category set
