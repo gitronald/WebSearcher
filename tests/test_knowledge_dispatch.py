@@ -27,7 +27,7 @@ import WebSearcher as ws
 from WebSearcher._slx import make_soup
 from WebSearcher.component_parsers.knowledge import parse_knowledge_panel
 
-FIXTURE = Path(__file__).parent / "fixtures" / "serps-parser-coverage.json.bz2"
+FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
 
 def _sub_type(html):

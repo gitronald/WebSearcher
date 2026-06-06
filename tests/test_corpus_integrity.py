@@ -32,7 +32,12 @@ RECORDS = load_records() if FIXTURE.exists() else []
 
 
 def _label(rec: dict) -> str:
-    return rec.get("qry") or rec.get("serp_id", "")[:16] or "?"
+    # serp_id is the corpus's unique key (test_serp_ids_unique); use it whole --
+    # truncating would assume a stable id length / prefix-uniqueness we don't
+    # guarantee. Pair with qry for readability when a case fails.
+    sid = rec.get("serp_id", "")
+    qry = rec.get("qry", "")
+    return f"{qry}:{sid}" if qry else (sid or "?")
 
 
 @pytest.mark.skipif(not RECORDS, reason="fixture corpus not present")
