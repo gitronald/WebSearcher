@@ -1,8 +1,8 @@
 ---
 status: done
 branch: feature/ai-overview-payload-citations
-created: 2026-05-13T13:09:20-07:00
-completed: 2026-05-13T14:28:52-07:00
+created: 2026-05-13T13:10:22-07:00
+completed: 2026-05-24T08:55:59-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/123
 ---
 

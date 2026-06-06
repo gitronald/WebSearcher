@@ -1,9 +1,9 @@
 ---
 status: done
-branch: update/extractor-position-tracking
-created: 2026-02-22T12:56:12-08:00
+branch: update/serp-features
+created: 2026-03-29T11:46:49-07:00
 completed: 2026-02-06T14:14:25-08:00
-pr: https://github.com/gitronald/WebSearcher/pull/95
+pr:
 ---
 
 # Refactor FeatureExtractor into own file with dataclass

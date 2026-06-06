@@ -1,8 +1,8 @@
 ---
 status: done
 branch: feature/kp-wholepage-subcolumn
-created: 2026-05-31T15:16:14-07:00
-completed: 2026-05-31T16:42:41-07:00
+created: 2026-05-31T15:20:56-07:00
+completed: 2026-05-31T16:50:49-07:00
 pr:
 ---
 

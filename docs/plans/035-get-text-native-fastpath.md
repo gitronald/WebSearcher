@@ -1,7 +1,9 @@
 ---
 status: done
 branch: claude/new-benchmark-PMegd
-created: 2026-06-01
+created: 2026-06-01T07:31:21Z
+completed: 2026-06-01T14:13:24Z
+pr: https://github.com/gitronald/WebSearcher/pull/145
 ---
 
 # `get_text` native-`text()` fast path (post-selectolax benchmark)
