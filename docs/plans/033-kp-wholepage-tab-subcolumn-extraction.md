@@ -22,8 +22,8 @@ specialized blocks.
 
 Found while auditing a 102k-SERP crawl: 1,046 SERPs had a knowledge panel and **zero
 organics**. Sampling proved the organics were present in the HTML but dropped. The
-fix evolved through several wrong turns (all documented in
-[finding-extraction-gaps.md](../guides/finding-extraction-gaps.md)):
+fix evolved through several wrong turns (documented below, and distilled into the
+`explore-extraction-gaps` skill):
 
 1. A `standard-kp-wholepage` layout that recovers `div.g`/`tF2Cxc` organics from the
    panel and emits them as `general` (shipped as an interim measure). It works when a
