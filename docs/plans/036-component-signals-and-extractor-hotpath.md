@@ -3,7 +3,7 @@ status: active
 branch: feature/v0.10.0-component-signals-hotpath
 created: 2026-06-01T13:35:50Z
 completed:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/157
 ---
 
 # `_ComponentSignals` consolidation + extractor hot-path review
