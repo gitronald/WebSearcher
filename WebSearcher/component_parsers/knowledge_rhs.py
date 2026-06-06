@@ -15,7 +15,6 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text, next_sibling, next_siblings, previous_sibling
 from ._common import parse_alink
 
-
 # Chrome links that show up inside RHS boxes but are not content.
 _RHS_BOX_CHROME = {"Claim this knowledge panel", "Send feedback", "Feedback", "See more"}
 
