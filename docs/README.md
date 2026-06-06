@@ -6,15 +6,16 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 
 | # | Plan | Status | Completed | PR |
 |---|------|--------|-----------|----|
+| 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage.md) | draft | — | — |
 | 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | draft | — | — |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
-| 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | draft | — | — |
 | 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download.md) | draft | — | — |
 | 029 | [Knowledge `details` Schema Alignment](plans/029-knowledge-details-schema-alignment.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards.md) | draft | — | — |
 | 018 | [Add a `visible` flag to parsed results](plans/018-visible-flag-on-results.md) | draft | — | — |
+| 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | done | 2026-06-06 | [#157](https://github.com/gitronald/WebSearcher/pull/157) |
 | 038 | [Consolidate .claude/skills from 8 to 4 and absorb every skill-only script](plans/038-consolidate-skills-absorb-scripts.md) | done | 2026-06-05 | [#152](https://github.com/gitronald/WebSearcher/pull/152) |
 | 037 | [Audit scripts/: absorb demos into the package, extract skills, retire one-offs](plans/037-scripts-audit-and-reorg.md) | done | 2026-06-05 | [#152](https://github.com/gitronald/WebSearcher/pull/152) |
 | 035 | [`get_text` native-`text()` fast path (post-selectolax benchmark)](plans/035-get-text-native-fastpath.md) | done | 2026-06-01 | [#145](https://github.com/gitronald/WebSearcher/pull/145) |
@@ -27,7 +28,6 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 025 | [Reclassify people-also-ask / image-filter blocks out of `general`](plans/025-reclassify-misclassified-general-blocks.md) | done | 2026-05-25 | [#129](https://github.com/gitronald/WebSearcher/pull/129) |
 | 024 | [AI Overview legacy-SGE recovery and parser coverage fixes](plans/024-ai-overview-sge-and-parser-coverage-fixes.md) | done | 2026-05-25 | [#127](https://github.com/gitronald/WebSearcher/pull/127) |
 | 023 | [Parse Pipeline Optimization (Profiling-First Revision)](plans/023-parse-pipeline-optimization-revised.md) | done | 2026-05-24 | [#125](https://github.com/gitronald/WebSearcher/pull/125) |
-| 017 | [Parse Pipeline Optimization](plans/017-parse-pipeline-optimization.md) | abandoned | 2026-05-24 | [#125](https://github.com/gitronald/WebSearcher/pull/125) |
 | 022 | [Enrich AI overview with payload-sourced citations and richer sources](plans/022-ai-overview-payload-citations.md) | done | 2026-05-24 | [#123](https://github.com/gitronald/WebSearcher/pull/123) |
 | 021 | [Promote AI Overview to a top-level component with a structured, section-aware parser](plans/021-promote-ai-overview-component.md) | done | 2026-05-13 | [#115](https://github.com/gitronald/WebSearcher/pull/115) |
 | 020 | [Directives reparse audit fixes](plans/020-directives-reparse-audit-fixes.md) | done | 2026-05-10 | [#113](https://github.com/gitronald/WebSearcher/pull/113) |
@@ -50,3 +50,4 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 005 | [Parser Updates (v0.6.7a2) — Completed](plans/005-parser-updates-v0.6.7a2.md) | done | 2026-02-05 | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
 | 043 | [Audit Twitter component parsers against 2024-2026 SERP evolution](plans/043-twitter-cards-modern-serps.md) | inactive | — | — |
 | 042 | [Investigate missing URLs in the results_for local results variant](plans/042-local-results-results-for-urls.md) | inactive | — | — |
+| 017 | [Parse Pipeline Optimization](plans/017-parse-pipeline-optimization.md) | abandoned | 2026-05-24 | [#125](https://github.com/gitronald/WebSearcher/pull/125) |

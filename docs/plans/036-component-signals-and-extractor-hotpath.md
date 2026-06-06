@@ -1,9 +1,9 @@
 ---
-status: draft
-branch: feature/v0.9.0
+status: done
+branch: feature/v0.10.0-component-signals-hotpath
 created: 2026-06-01T13:35:50Z
-completed:
-pr:
+completed: 2026-06-06T14:51:25-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/157
 ---
 
 # `_ComponentSignals` consolidation + extractor hot-path review
@@ -160,3 +160,225 @@ stays exercised.
 - Back-to-back A/B of `scripts/bench_parse.py` over the fixture corpus, same
   session, clearing the noise floor; record numbers in this plan's Log.
 - `ruff check` / `ruff format --check` clean.
+
+## Status (2026-06-06)
+
+Picked up in the v0.10.0 cycle. **None of the three levers are implemented yet.**
+The only commits that reference this plan (`ff4ea24`, `92e24e1`) edited *this
+document* -- adding Lever 3 and recording its corpus evidence; no code changed.
+Verified against current source:
+
+- **Lever 1** -- `classifiers/main.py:_ComponentSignals.__init__` still does the
+  unconditional `names.add(name)` / `ids.add(el_id)` per element (no interest-set
+  restriction); matches the "before" state described above.
+- **Lever 3** -- `available_on` still carries precondition `None`
+  (`classifiers/main.py:112`) and the ungated full-component `get_text(node)`
+  fallback (`classifiers/main.py:170`).
+- **Lever 2** -- still uninvestigated (no dedicated extractor profiling pass on
+  record).
+
+**Tooling / baseline drift since the plan was written** (the baseline table above
+is plan-035's profile on Python 3.13.12 via `scripts/bench_parse.py`):
+
+- The benchmark moved into the package: `scripts/bench_parse.py` is gone. Run it
+  as `python -m WebSearcher.bench` -- `--profile`, `--profile-sort cumulative`,
+  `--top`, `--runs`, and `--iterations` all carry over. Read every
+  `scripts/bench_parse.py` reference in this plan (incl. the Verification gate) as
+  `python -m WebSearcher.bench`.
+- The fixture corpus is now the consolidated `tests/fixtures/serps.json.bz2` --
+  still 87 records, but reconsolidated, so the plan-035 self-times no longer map
+  1:1.
+- Python is now 3.14 (was 3.13.12).
+
+**Therefore, re-baseline before touching code.** Capture a fresh
+`python -m WebSearcher.bench --profile` (plus a `--profile-sort cumulative` split
+for Lever 2) on 3.14 over the current corpus, record it in the Log below, and gate
+every change against *that* baseline rather than the plan-035 table. Re-confirm the
+Lever 3 corpus evidence (fallback fires 0x; both `available_on` components caught
+by the `span.mgAbYb` heading path, measured 2026-06-01) on the current corpus
+before gating.
+
+## Log
+
+### 2026-06-06 -- fresh baseline (Python 3.14.3, 87-SERP corpus)
+
+`python -m WebSearcher.bench` (50 iterations x 5 runs, `--no-save`):
+
+- Inter-run corpus total: **median 1516.1 ms**, MAD 27.0 ms, spread 70.6 ms.
+- Per-SERP: median 15.353 ms, MAD 5.759 ms, p90 30.7 ms, max 42.9 ms.
+- **Noise floor ~3.6% (2x MAD)** -- roughly 10x the plan-035-era 0.3-0.5% (this is
+  a loaded WSL2 box). Any wall-clock win must clear ~4% to be provable here.
+
+### 2026-06-06 -- Lever 1, option 1 (names/ids interest sets)
+
+Implemented in `classifiers/main.py`: module-level `_NAME_SIGNALS` (7 tags) and
+`_ID_SIGNALS` (4 ids) -- the only `s.names`/`s.ids` tokens the chain gates on --
+and filtered the `__init__` walk to add only those (a leading truthiness guard
+narrows `str | None` for the type checker and short-circuits no-id elements before
+the membership test, so only interest-set tokens reach `set.add`). `classes` kept
+in full. Added sync-coupling comments at
+both the interest-set definition and the classifier chain, since a new
+precondition token not registered here would silently never fire.
+
+- **Byte-identical:** `uv run pytest` -- 87 snapshots passed **without updates**,
+  full suite 437 passed.
+- **Timing A/B** (same box/session, 50x5): 1516.1 -> **1502.3 ms** = **-0.9%**,
+  inside the ~4% noise floor -- not a provable wall-clock win.
+- **Profile A/B** (`--profile`, 10 iterations = 870 parses), `_ComponentSignals.__init__`:
+
+  | | self | cumtime | total calls/pass |
+  |---|---|---|---|
+  | old | 2.161 s | 2.801 s | 14.35M |
+  | Lever 1 | 1.957 s | 2.375 s | 11.90M |
+  | delta | **-0.20 s (-9.4%)** | **-0.43 s (-15.2%)** | **-2.45M** |
+
+  The -2.45M calls is the predicted ~2.47M `set.add` elimination, confirmed. The
+  frame got measurably cheaper; the absolute saving (~0.2 s self on an ~18.5 s run,
+  ~1.1%) tracks the timing A/B and stays under the box noise floor.
+
+**Read:** option 1 nets out in the *right* direction (the plan's open question) --
+real, profile-proven frame reduction -- but its wall-clock ceiling is low because
+the `css('*')` walk + `classes.update` (untouched) dominate the frame. This is the
+plan's defined decision point ("A/B option 1, then decide whether option 3's shared
+walk is worth the coupling"). **Decision (user, 2026-06-06): keep Lever 1 and do
+Lever 3 next** (not option 3's shared walk). Lever 2 not started.
+
+### 2026-06-06 -- Lever 3 (gate available_on on mgAbYb)
+
+Re-confirmed the corpus evidence on the reconsolidated 87-SERP corpus
+(`.claude/lever3_confirm.py`): 1092 main components; 2 `available_on` components
+(`watch the office`, `where to watch breaking bad`), both caught by the cheap
+`span.mgAbYb == "Available on"` heading; the full-component `/Available on` text
+fallback fires **0x**. Both available_on components sit in a generic `ULSxyf`
+wrapper (shared with `banner`), so `mgAbYb` is the only specific signal.
+
+Gated the chain entry to `(ClassifyMain.available_on, lambda s: "mgAbYb" in
+s.classes)`, stopping the expensive full-component `get_text(cmpt)` fallback on the
+~10 non-available_on components/SERP that reach the classifier. The
+preserve-the-non-mgAbYb-path version (direction 1) is not achievable -- that path
+has no corpus example to identify a necessary signal -- so the speculative fallback
+is dropped as evidence-backed dead code (**accepted real-world behavior change**: a
+non-mgAbYb component carrying `/Available on` text would no longer type as
+available_on; unobserved on the corpus, so snapshots cannot pin it).
+
+- **Byte-identical on corpus:** 87 snapshots + 437 tests green, no updates;
+  pyrefly + ruff clean.
+- **Profile A/B** (cumulative, 870 parses): `available_on` cumtime **0.717 s -> ~0**
+  (drops out of the top 45); `get_text` cumtime 1.66 -> 1.15 s (-0.51 s); total
+  calls 11.90M -> 10.45M (**-1.45M**).
+- **Timing A/B** (50x5): baseline 1516.1 -> Lever 1 1502.3 -> **Lever 1+3 1463.3 ms**
+  (this run's noise floor ~1.1%). Lever 3 contributes **-39.0 ms (-2.6%)**; both
+  levers together **-52.8 ms (-3.5%)** vs the original baseline.
+
+**Read:** Lever 3 is the largest win in the plan so far and clears the noise floor
+(its -2.6% > this run's 1.1% floor; the profile evidence is decisive). Lever 2 (the
+extractor profiling pass) remains the open investigation.
+
+### 2026-06-06 -- Lever 2 (extractor hot-path review): investigated, no gateable win
+
+Captured the cumulative phase profile on the committed Lever 1+3 code
+(`--profile-sort cumulative`, 870 parses). The extractor phase
+(`ExtractorMain.extract` 2.23 s cum + `_get_dom_positions` 0.65 s + `reorder`
+0.32 s, ~17% of parse) is diffuse -- no single dominant frame like `available_on`.
+Biggest leaves and their verdicts:
+
+- `_get_dom_positions` (0.650 s self) -- one full-document `css('*')` -> position
+  map. `reorder._range` looks up arbitrary descendants in it, so the whole map is
+  needed without restructuring. Structural.
+- `subtree_css` (0.616 s self, 8,040 calls) -- `node.css(sel)` + self-exclude
+  filter behind `_find_all_with_class`/`_kp_markers`. The C walk dominates and the
+  semantics (exclude self, bs4 `find_all`) pin the shape.
+- `is_valid` (0.413 s self, 25,460 calls) -- the only byte-identical micro-opt is
+  hoisting its per-call `bad` set literal to a module constant (~25k set builds),
+  worth ~5 ms (< the 1-4% noise floor). The per-candidate
+  `css_first('div[id="tadsb"]')` is defensive (catches an *empty*, un-removed
+  bottom-ads wrapper) and not safely removable.
+- `extract_from_standard` detect loop -- the `any(subtree_css(...))`
+  materialization only runs when a `kp-wp-tab-*` container exists (all 4
+  `_STANDARD_LAYOUTS` gate on those ids); on a normal SERP every `detect_css`
+  `css_first` returns None and no list is built. Not a hot path.
+- `reorder._range` (0.250 s self) re-walks each main-component subtree with
+  `elem.css('*')` just to read the last descendant's position -- the same subtree
+  `_ComponentSignals` already walks during classify.
+
+**Verdict: no standalone byte-identical, low-coupling win.** The genuine remaining
+extractor saving is the plan's **option 3** -- one shared document walk feeding the
+position map, the `_range` ends, and (where scopes align) the component signal sets
+-- which the plan itself flags as coupling currently-independent phases and risking
+the byte-identical contract. Deferred as a separate, gate-hard change rather than
+forcing a sub-noise commit here, consistent with the plan's noise-floor gate. The
+`is_valid` `bad`-set hoist is available as a trivial cleanup on request. Lever 2
+closed as investigated.
+
+### 2026-06-06 -- trivial cleanup + option 3 (safe slice)
+
+User: "trivial then option 3."
+
+**Trivial:** hoisted `is_valid`'s per-call `bad` set literal to a module-level
+`_BAD_LABELS` frozenset (`extractor_main.py`) -- no longer rebuilt ~25k times/pass.
+Byte-identical (87 snapshots + 437 tests, no updates).
+
+**Option 3 (safe slice):** `reorder` runs *before* classify, so the
+`_ComponentSignals` walk can't feed it by reuse; the realizable, low-coupling slice
+is `reorder._range`, which materialized the whole component subtree (`elem.css('*')`)
+only to read its last element. Replaced with `_last_descendant` (`components.py`) --
+a right-spine descent to the last element child on the same live tree, so the picked
+node is identical by construction.
+
+- **Byte-identical, directly verified:** `.claude/verify_last_descendant.py` compares
+  the new pick against old `elem.css('*')[-1]` for **all 1092 main components** ->
+  **0 mismatches**. 87 snapshots + 437 tests green, no updates; pyrefly + ruff clean.
+- **Profile A/B** (cumulative, 870 parses): `reorder_by_dom_position` 0.322 -> 0.170 s
+  cum (**-47%**); `_range` 0.258 -> 0.117 s cum (**-55%**); new `_last_descendant`
+  0.096 s cum. ~0.15 s of subtree materialization removed.
+- **Timing A/B** (50x5): inconclusive this run -- noisy box (median 1507.8 ms, spread
+  551 ms, ~4.3% floor vs the Lever-1+3 run's 1.1%), so the cross-run median isn't
+  comparable. The frame-level profile evidence is decisive and the change removes real
+  work byte-identically (same profile-proven / wall-clock-in-noise shape as Lever 1).
+
+**Fuller option 3 deferred.** The big remaining walk is the per-component
+`_ComponentSignals` `cmpt.css('*')` (1.96 s). Eliminating it needs a single
+structure-aware document walk that attributes each element to its containing main
+component and builds the signal sets, replacing both `_get_dom_positions` and the
+per-component signal walks. Major restructure: the document walk currently runs
+*before* extraction (to snapshot ad positions pre-removal), component boundaries
+aren't known at that point, and the per-component signal sets must be reproduced
+exactly -- high byte-identical risk for the gain. Not attempted without an explicit
+go-ahead; recorded as the open structural lever.
+
+The deferred fuller option 3 was moved to its own plan,
+[044](044-shared-document-walk-signals.md).
+
+### 2026-06-06 -- close: review gate (PR #157)
+
+Ran `/code-review` over the branch diff (3 finder angles). **Clean -- no actionable
+findings.** Interest-set tokens are an exact bijection with the chain's `s.names`/
+`s.ids` tests; `_last_descendant` was stress-checked to 20,000 randomized trees (0
+mismatches) on top of the 1092-component corpus probe; the `_BAD_LABELS` hoist is
+provably identical. The one flagged item -- the `available_on` gate dropping the
+non-`mgAbYb` `/Available on` fallback -- is the documented, intentional dead-code
+removal (conscious no-op), not a defect. Review posted to the PR; no fixes needed.
+
+## Retrospective
+
+- **The plan's "may or may not surface a win" framing held exactly.** Lever 3 was the
+  real prize (-2.6%, the only change to clear the noise floor); Lever 1 and the option-3
+  safe slice were profile-proven but sub-noise on wall-clock; Lever 2 surfaced no clean
+  win at all. Profiling first, committing on profile evidence (not noisy wall-clock),
+  was the right discipline.
+- **Re-baselining before touching code paid off.** The plan-035 table was stale (Python
+  3.13 -> 3.14, `scripts/bench_parse.py` -> `python -m WebSearcher.bench`, reconsolidated
+  corpus) and the dev box's noise floor turned out ~1-4% (vs the assumed 0.3-0.5%), which
+  reframed every "is this a win?" call toward the profile rather than the stopwatch.
+- **Direct equivalence probes beat trusting snapshots** for the byte-identical contract.
+  The 1092-component `_last_descendant` check (and the `available_on` 0x-fallback
+  re-confirmation) caught nothing wrong but made "byte-identical by construction"
+  provable rather than hopeful -- worth the few minutes each.
+- **Two user decisions shaped scope:** keep Lever 1 despite sub-noise wall-clock (profile
+  evidence + it seeds Lever 3's gate infra), and gate `available_on` on `mgAbYb` accepting
+  the unpinnable real-world behavior change. Both were genuine forks the plan flagged;
+  surfacing them rather than guessing was correct.
+- **Option 3 was right to split.** The safe slice (`_range`) was low-risk and shipped; the
+  fuller shared-walk restructure (the 1.96 s `_ComponentSignals` walk) carries real
+  byte-identical risk from the document-walk-runs-before-extraction ordering -- a separate
+  plan ([044](044-shared-document-walk-signals.md)), not a rushed addition here.
