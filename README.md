@@ -10,7 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
-- `0.9.0` (unreleased): **Breaking** internal rewrite onto `selectolax` (dropped the BeautifulSoup + lxml runtime deps); the `parse_serp`/`SearchEngine` API and core output schema are unchanged, but the exported `make_soup`/`load_soup` now return a `selectolax` node, and the right-hand knowledge-panel rows are retyped from `type=knowledge`/`sub_type=panel_rhs` to `type=side_bar`. Recovered `kp-wholepage` knowledge-panel bodies (entity headers, VisualDigest, music sections, related searches, and link boxes) and parsed their tabs as sub-columns, recovering organics silently dropped on entity and election panels; split bare-`tF2Cxc` organic bundles in `general`; and added `election_*` component types, a `features.main_layout` field, and a data-driven `standard-*` layout dispatch with readable labels. Optimized `get_text` (~7% faster `parse_serp`), fixed the `no-rso` duplication and `cmpt_rank=0` bugs, and moved the demos in-package behind a single `ws-demo` command (`scripts/` retired into `WebSearcher.bench` and local skills)
+- `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
 
