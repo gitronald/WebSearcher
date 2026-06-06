@@ -18,7 +18,17 @@
       "details": {
         "heading": "Doctor Zhivago",
         "img_url": null,
-        "text": "Doctor Zhivago|1965 ‧ Romance/War ‧ 3h 17m|1965 ‧ Romance/War ‧ 3h 17m|Overview|Overview|Overview|Cast|Cast|Cast|Watch movie|Watch movie|Watch movie|Trailers & clips|Trailers & clips|Trailers & clips|Reviews|Reviews|Reviews|Plot|Plot|Plot|Behind the scenes|Behind the scenes|Behind the scenes|Awards|Awards|Awards",
+        "subtitle": "1965 ‧ Romance/War ‧ 3h 17m",
+        "tabs": [
+          "Overview",
+          "Cast",
+          "Watch movie",
+          "Trailers & clips",
+          "Reviews",
+          "Plot",
+          "Behind the scenes",
+          "Awards"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +36,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Doctor Zhivago 1965 ‧ Romance/War ‧ 3h 17m Overview Cast Watch movie Trailers & clips Reviews Plot Behind the scenes Awards",
+      "text": "1965 ‧ Romance/War ‧ 3h 17m",
+      "title": "Doctor Zhivago",
       "type": "knowledge",
       "url": null
     },
@@ -405,10 +415,140 @@
       "section": "rhs",
       "serp_rank": 23,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "During the Russian Revolution, Yuri Zhivago (Omar Sharif), is a young doctor who has been raised by his aunt and uncle following his father's suicide. Yuri falls in love with beautiful Lara Guishar (Julie Christie), who has been having an affair with her mother's lover, Victor Komarovsky (Rod Steiger), an unscrupulous businessman. Yuri, however, ends up marrying his cousin, Tonya (Geraldine Chaplin). But when he and Lara meet again years later, the spark of love reignites.… MORE",
       "title": null,
-      "type": "knowledge",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "items": [
+          {
+            "text": "Watch now Free",
+            "url": "https://tubitv.com/movies/100012222/doctor-zhivago?start=true&tracking=google-feed&utm_source=google-feed"
+          },
+          {
+            "text": "MGM+ Subscription Watch",
+            "url": "https://www.mgmplus.com/movie/doctor-zhivago-1965?play=true"
+          },
+          {
+            "text": "YouTube Primetime subscription Watch",
+            "url": "https://www.youtube.com/attribution_link?utm_campaign=ytcore&yt_product=ytalc&yt_goal=acq&utm_source=int&utm_medium=gs&utm_content=ump&yt_campaign_id=ytalc22&c=ytcore-ytalc-acq-int-gs-ump-ytalc22&utm_term=video&u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D-mkbF950QwU"
+          },
+          {
+            "text": "Sling TV Premium subscription Watch",
+            "url": "https://watch.sling.com/1/program/9268bf185a7ed65cb73b0f11a7b863a4/watch?trackingid=google-feed"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "Watch movie",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "items": [
+          {
+            "text": "Doctor Zhivago (1965) Original Trailer - Omar Sharif Movie 3:41",
+            "url": "https://www.youtube.com/watch?v=CGGr21PilKY"
+          },
+          {
+            "text": "7.9/10 IMDb Doctor Zhivago scored 7.9 out of 10 on IMDb.",
+            "url": "https://www.imdb.com/title/tt0059113/"
+          },
+          {
+            "text": "82% Rotten Tomatoes Doctor Zhivago scored 82 percent on Rotten Tomatoes.",
+            "url": "https://www.rottentomatoes.com/m/1006037-doctor_zhivago"
+          },
+          {
+            "text": "69% Metacritic Doctor Zhivago scored 69 percent on Metacritic.",
+            "url": "https://www.metacritic.com/movie/doctor-zhivago/critic-reviews/"
+          },
+          {
+            "text": "USA",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=United+States&stick=H4sIAAAAAAAAAOPgE-LUz9U3SM9JKixRAjMtk83LDbSMspOt9NMyc3LBhFVJRmpiSVFmcmKOQlFqemZ-nkJieWJRKpCTk5pYnKqQkliSuoiVNzQvsyQ1RSG4BMgt3sHKuIudiYMBAJSGK5BkAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCYQAg"
+          },
+          {
+            "text": "David Lean",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=David+Lean&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-roltQl8R6B4InRFg93bsGQNayBQE0E5e6jybbRQyyhYdEOhJ0Az2SH416QQiAd6snhDiYmb8HjOkhf806kb61scHQg_vumyf08CCNMw19YBbYUnHhh7cGKwGYJ9wd7QWImmHR8OGAScJM3l4vnXg-WiqMV8H&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCIQAg"
+          },
+          {
+            "text": "Academy Award for Best Music (Original Score)",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Academy+Award+for+Best+Original+Score&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rizHw6gfWprak4Z8TUDia9WyQLeQizp26WGu0-LQzgcpuYIjuWUMh6lRr50x4QEVjY48Ukr6wLZ1gEXDkGUSWFcIjZ4QBrE2IVJEBSn_yT9nFAmVbGfADnvB4c8JwbdJTPplROP1sSpe4VB2QngIVNUsd_r2h4p9PBbJeT5ueNSWSZfbuCBlDQ2vOgaJRvjm_HlGU8SMAniq8VrOYX3nPODtHqc0bUHdwwA2ufvUmPMBzPqLi0p1DERaQF2FSIpFkvFlS_0%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCMQAg"
+          },
+          {
+            "text": "Metro-Goldwyn-Mayer",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Metro-Goldwyn-Mayer&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-ror2cTNxdKzZtjyQX5rBvjB6dgqgAA1cYl_QslwhLiZhYPxHmY02xQuGDhhH_VpJB_fvMQC3oA00LILZ414Q8fnHxB9b12zW9AnEO0Gy5L5RmJDv0--n8B6YcNNrUuM8qEU53ty92lLWLJYszUo6_GmzV5rcw9CyFFt5Zl8HpMNvJN88-Q%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCUQAg"
+          },
+          {
+            "text": "Doctor Zhivago",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Doctor+Zhivago+(novel)&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXh56tTEluIKyibtWShrjtLHDnS4SJ3LVGGgSv01eZxTbS2YCJayfiVM4mgPpnT7ftM44kJ9EWdErMCwyBpVBi7n1J2fED9yOXdcq9kqnDtNDzDHLjNWSzFJ99-ogUGgmVFQU9l9uhuXl1RBW7t5PzXSONnRy2XA4KpX_iTl8kdXZYz3O4w%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCQQAg"
+          },
+          {
+            "text": "US",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=US&stick=H4sIAAAAAAAAAONgVuLUz9U3sEw2LzdYxMoUGgwAJex7DRIAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCAQAg"
+          },
+          {
+            "text": "Canada",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Canada&stick=H4sIAAAAAAAAAONgVuLUz9U3SDEwM0hfxMrmnJiXmJIIACa4bOwWAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAXoECCAQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "items": [
+          {
+            "text": "Lawrence of Arabia 1962",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rlT-oF7vrrUGnRgEp4YX2RTlncinU7sOVRhgtv_tXwSud4sJQLW2zXeGevDmwmO-clKGnxv3jN-RFB9JMuI9vyQELahdQRlfppr7iYhFNQQD4LSvj7FHTVna16pSa9sXYZRUzhmBDAEPdrgZZ7cOq5H82UgABzhXAsJKshDHcDn3mi57b2yy0Rs5ZeiiaLYIXXAMSwWTQqjch6Hqylx0BcU3IjP5BXNz9TBWsQwGPYxTStLbj8wmxP1ik-6romXCouYcy3M%3D&q=Lawrence+of+Arabia&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQs9oBKAB6BAgdEAI"
+          },
+          {
+            "text": "Gone with the Wind 1939",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXiXSMbWcZVk0n62TqehwcS3O7E1cTNHSQgo0eS8xJFbf4h-JthmBYaWX4RDa7RFIWLsPzus3ixnqwZb-UQMbN5Fu342Y7Az7TKy1YSRNJnfGmv8_3FmglVCyWDltMcWhpUiD5VsSh-MoUE3N90OjenQ_yLEJ3Kx7_j00JPkvnyk3Ql0YvVl2Ca6JPeicRbZQy7m2Yxi243vVfGQxqy6SNtyNxeZ1QomAmy0dburbJebOCBKvtpRBgGlltMySLrvrKe_hTrapMx0vdLg504zJEOK3T2yY&q=Gone+with+the+Wind+(film)&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQs9oBKAF6BAgdEAM"
+          },
+          {
+            "text": "Ryan's Daughter 1970",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXpMfcq0bTiq4JPiENr_sRZSQF2JwATVJK6aVVsEjPV2w95nzP-0W5Iua1zSBOpUSduNWmrhZZFO61nedsrgQbxpRnfSgEqwgsLmfYify_ZJdsbnU2u1ieOlgIp3QWkzJ9IeAEOJBMuF5icauaAfbVkTMDSK5bEn2sz-CCqzBTKZPYSuiSB_7VZeCbUgV-C4Wg4JtzA7bCuRglt7EaWkSklTEaGb9fjOyNADrEt81OuPklPU4zyZHstVieh5KNn_4Xqg_Ffw%3D&q=Ryan%27s+Daughter&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQs9oBKAJ6BAgdEAQ"
+          },
+          {
+            "text": "The Bridge on the River Kwai 1957",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rqHc3wRTuf09uo3pWhV6BS2ZrivpSjOT_21VVruJkwJG2sGnMnuii2lvTNyWa0zGR-g3sPsiLeSGcVPkpe16Pit0tSqXQ8UWU2_ZlZC4j-hytnqyEFIlKXZuksuRAdxxSc8nRWM9HnLDWJV_-N8L4f5ox-hA2KVhO4RcCn9-5xObjwKUCTN0Fxn_rA2Tp3smyTS4uhf584QFwcpu6aZ14vvQJz7QPfRKaEoFB0_0PGDSWLZsBPzZYMNKEBYOpNOA6Fj_vbb4JPJ-jrFI_vskHPOc2keV&q=The+Bridge+on+the+River+Kwai&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQs9oBKAN6BAgdEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 3,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
       "url": null
     }
   ]

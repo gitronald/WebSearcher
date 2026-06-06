@@ -1,0 +1,383 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Roger Ebert",
+        "img_url": null,
+        "subtitle": "American film critic",
+        "tabs": [
+          "Overview",
+          "Movies and shows",
+          "Books",
+          "Videos"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "American film critic",
+      "title": "Roger Ebert",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Books",
+        "img_url": null,
+        "type": "panel",
+        "urls": []
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "books",
+      "text": null,
+      "title": "Books",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.thriftbooks.com  › roger-ebert",
+      "cmpt_rank": 2,
+      "details": {
+        "price": "8.49",
+        "stock": "  Free 5–8 day delivery over $15",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Looking for  books by Roger Ebert ? See all books authored by Roger Ebert, including The Great Movies, and Life Itself, and more on ThriftBooks.com.",
+      "title": "List of books by author Roger Ebert",
+      "type": "general",
+      "url": "https://www.thriftbooks.com/a/roger-ebert/211347/"
+    },
+    {
+      "cite": "https://www.goodreads.com  › list › 13300.Roger_Ebert",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Roger Ebert's Book  of Film: From Tolstoy to Tarantino, the Fi... The Pot and How to Use It: The Mystery and Romance of the Ric...  Ebert's  Bigger Little Movie ...",
+      "title": "Books by Roger Ebert (Author of Life Itself)",
+      "type": "general",
+      "url": "https://www.goodreads.com/author/list/13300.Roger_Ebert"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "items": [
+          "What is Roger Ebert's most famous review?",
+          "Did Oprah date Roger Ebert?",
+          "What kind of writing did Roger Ebert win a Pulitzer Prize for?",
+          "Who writes for Roger Ebert?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is Roger Ebert's most famous review?<|>Did Oprah date Roger Ebert?<|>What kind of writing did Roger Ebert win a Pulitzer Prize for?<|>Who writes for Roger Ebert?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.amazon.com  › stores › author",
+      "cmpt_rank": 5,
+      "details": {
+        "price": "14.99",
+        "stock": "  30",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Books  · The Great Movies IV ·  Roger Ebert's  Four-Star Reviews 1967–2007 · The Great Movies II · The Great Movies · The Great Movies III · Your Movie Sucks · I ...",
+      "title": "Roger Ebert: books, biography, latest update",
+      "type": "general",
+      "url": "https://www.amazon.com/stores/author/B000API2UK"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Roger_Ebert",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Roger  Joseph  Ebert  was an American film critic, film historian, journalist, essayist, screenwriter, and  author . He was a film critic for the Chicago ...",
+      "title": "Roger Ebert",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+    },
+    {
+      "cite": "CBS News",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "New book tells the story of film critics Roger Ebert and Gene ... CBS News  ·  CBS News 8 minutes, 36 seconds Nov 18, 2023",
+      "type": "videos",
+      "url": "https://www.cbsnews.com/video/new-book-tells-the-story-of-film-critics-roger-ebert-and-gene-siskel/"
+    },
+    {
+      "cite": "Facebook",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "New book highlights how Siskel and Ebert changed movies ... Facebook  ·  CBS Mornings 7 minutes, 41 seconds Nov 18, 2023",
+      "type": "videos",
+      "url": "https://www.facebook.com/CBSMornings/videos/new-book-highlights-how-siskel-and-ebert-changed-movies/724606732452399/"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "The Best Books on Movies -- Roger Ebert (Episode 1) YouTube  ·  Learning about Movies 8 minutes, 47 seconds Jan 27, 2022",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=stJ9jEa_4CI"
+    },
+    {
+      "cite": "https://www.amazon.com  › Roger-Eberts-Book-Film-Ta...",
+      "cmpt_rank": 8,
+      "details": {
+        "price": "ating: 4.3",
+        "stock": "  19 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Roger Ebert's Book  of Film: From Tolstoy to Tarantino, the Finest Writing From a Century of Film:  Ebert ,  Roger : 9780393040005: Amazon.com:  Books .",
+      "title": "Roger Ebert's Book of Film: From Tolstoy to Tarantino, the ...",
+      "type": "general",
+      "url": "https://www.amazon.com/Roger-Eberts-Book-Film-Tarantino/dp/0393040003"
+    },
+    {
+      "cite": "10+ comments  ·  4 years ago",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Roger Ebert  - Great Movies  books  · Valheim · Genshin Impact · Minecraft · Pokimane · Halo Infinite · Call of Duty: Warzone · Path of Exile ...",
+      "title": "Roger Ebert - Great Movies books : r/flicks",
+      "type": "general",
+      "url": "https://www.reddit.com/r/flicks/comments/c6huit/roger_ebert_great_movies_books/"
+    },
+    {
+      "cite": "https://www.goodreads.com  › show › 13300.Roger_Ebert",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Roger Ebert's Books  · Life Itself by  Roger Ebert  Life Itself. 3.92 6,402 ratings 970 reviews · The Great Movies by  Roger Ebert  The Great Movies · Your Movie ...",
+      "title": "Roger Ebert (Author of Life Itself)",
+      "type": "general",
+      "url": "https://www.goodreads.com/author/show/13300.Roger_Ebert"
+    },
+    {
+      "cite": "https://www.latimes.com  › books › la-xpm-2013-apr-0...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apr 4, 2013  —  Here's a sample of the  books  he left behind: “The Great Movies”: A collection of  Eberts ' reviews of films he loved.",
+      "title": "Remembering Roger Ebert through his books",
+      "type": "general",
+      "url": "https://www.latimes.com/books/la-xpm-2013-apr-04-la-et-jc-remembering-roger-ebert-through-his-books-20130404-story.html"
+    },
+    {
+      "cite": "https://www.rogerebert.com  › contributors › roger-ebert",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Roger Ebert  · The Spectacular Now · Computer Chess · At Any Price · Blancanieves · Deceptive Practice: The Mysteries and Mentors of Ricky Jay · To the Wonder · From Up ...",
+      "title": "Roger Ebert biography & movie reviews",
+      "type": "general",
+      "url": "https://www.rogerebert.com/contributors/roger-ebert"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "roger ebert cause of death",
+          "what happened to roger ebert jaw",
+          "roger ebert best reviews",
+          "roger ebert last review",
+          "roger ebert wife death",
+          "roger ebert last words",
+          "roger ebert net worth",
+          "roger ebert children"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "roger ebert cause of death<|>what happened to roger ebert jaw<|>roger ebert best reviews<|>roger ebert last review<|>roger ebert wife death<|>roger ebert last words<|>roger ebert net worth<|>roger ebert children",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Roger Joseph Ebert was an American film critic, film historian, journalist, essayist, screenwriter, and author. He was a film critic for the Chicago Sun-Times from 1967 until his death in 2013. Ebert was known for his intimate, Midwestern writing voice and critical views informed by values of populism and humanism.",
+      "title": null,
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+          },
+          {
+            "text": "Urbana, IL",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Urbana,+Illinois&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rs_p6aquQPG5E06VolSaN9orRCuTrWlTLqe4Kqq6fqeRyh0gn4fei_iPSn1Nt_a7zkZWZC0vHSvzfFkinJhtkw1TWsS3zRwPSl0Ae-oRSv9Q0ys-xzIys98FwkLSgzBYRPgzbrzzH2tXAnXYdcAT68G6Aziz&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECB0QAg"
+          },
+          {
+            "text": "Chicago, IL",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Chicago&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rsy2EwCuIKCVZntHA19-02OMHMm1_mMvntfPHikQyCGWagEd1Oh_O23ORmLjZxPvV12Od_zofXPoOFxCWeJ1hibJhQ_9VDbgyZj-PyD2OQJ0an2GPx_KFzLm6Jh-1OxncIiIQiRGSDm_f6kHc5UpM57sIqSO&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBsQAg"
+          },
+          {
+            "text": "Chaz Ebert",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Chaz+Ebert&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcAK5LhT_9gV4jEKrIDUQY_cKn6N7k35vyJLutnweFl4HZ1MHm383bxo5QMEuwNkl7Dp6IY17cK0NCQQf9XQDxSuCJt9xHb2kM_LeioYKt1ZgQolD2PZfZr33Pdma-DJ2kX-Y-QdkaYGPetTkQqBJL_-Hfuno&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBoQAg"
+          },
+          {
+            "text": "Annabel Stumm",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Annabel+Stumm&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcKtCFe7hkAvyqmhRwYiMS9V-9xIet12-dcxciAqWwwcllld5TlgBszhBJCC5S3wP2_3Qx-TznenhnuZOQT_av5WGpt_3bylnOrkkUlBysPYeUF5Z9hL43dWe-Nd70ovGvW2YItgkaMMv-WlvxDYkardmPtXKbtGVQIYZayeIxh1l4XRlsUsvw5RWhdj1nXY9LGFurMO_SueoR9n3kSZU3HnX--pT_77V3cm066oInE6WLbJqeA%3D%3D&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBcQAg"
+          },
+          {
+            "text": "Walter H. Ebert",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Walter+H.+Ebert&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcAGODOZ0qTuLi06q9p5yQIO4U38oLUG0GF_xpG7uybAEiliKmy7qg9wp19lKX7CLk6Bms99Ft3mqIRURUv4GjkNARrtf8OazxA0PXXysNlXbO11V_Eai8qT26WuGKojzREL7RaE-v7SlFQSRu3eNkTk9ZlwCAWLkYOSiUSsjv4SJ114QvCaMuhwSy5bLc4lRpTjlYc0eJP7Mwzu-eWzA_Np3ueBMxrJMYlhqLUlPJroVYu_zAg%3D%3D&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAXoECBcQAw"
+          },
+          {
+            "text": "Illinois",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Illinois&stick=H4sIAAAAAAAAAONgVuLQz9U3MC4zKFnEyuGZk5OZl59ZDAC9TMeiFwAAAA&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBgQAg"
+          },
+          {
+            "text": "University of Cape Town",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=University+of+Cape+Town&stick=H4sIAAAAAAAAAONgVuLUz9U3MDbMqMhexCoempdZllpUnFlSqZCfpuCcWJCqEJJfngcA0RFhticAAAA&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAXoECBgQAw"
+          },
+          {
+            "text": "University of Chicago",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=University+of+Chicago&stick=H4sIAAAAAAAAAONgVuLQz9U3MC8vqlrEKhqal1mWWlScWVKpkJ-m4JyRmZyYng8AzkjD5iQAAAA&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAnoECBgQBA"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Matt Zoller Seitz books",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_qyBPncfUTebd2Ibo53ojj04ZRJAH0GqzXD3hsOxeF46calTV10MtFvQxLcQgLYT2taHEXS10ul2K4u4WcbGsVJgOeq3Zu7yaaBOiqiSDxwrHhyI7CsYdhfu_26TJuNBmiurnDkZVE4q2WkQR7SNwh92yG1QR8-6qKdOFnBTy_aNhpzfBje6HX_STZ8jqJlI422WlFmIA6I026x2mBI87cSKQ5JpJVWeZDL7xPnvDsCHR7PtANtyLToeDvoTWufrEnPfXh8&q=Matt+Zoller+Seitz+books&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQs9oBKAB6BAgWEAI"
+          },
+          {
+            "text": "Richard Roeper books",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oKrES55x3LBjIMa_0Waid5P3c8zdE9zhdtJgJHhb8IgwhxwnzPMTNv252x7U4Yd1F7RWgPOFwN49zSctynbSH5Trw_RGP6XVsi5n3PhLBHj_SQFRmh4cozYesl6KtQPoVXkbfzA3oZwvPvF9BLMdT-GnX1dlNjjMmHNs4HHn-aViG1mFvgiU32nk05Vc4SFdd3UpyqiERoxUC22CrVqoOarfvdoDpUgNbLsZOUdbORTswJTxhB3SxP6J2xpqCNvxChXDYN&q=Richard+Roeper+books&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQs9oBKAF6BAgWEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

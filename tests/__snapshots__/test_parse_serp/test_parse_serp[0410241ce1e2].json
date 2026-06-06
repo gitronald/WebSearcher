@@ -501,10 +501,10 @@
       "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "Things to know",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

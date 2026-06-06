@@ -61,6 +61,13 @@ class ClassifyMainHeader:
     @staticmethod
     def classify(cmpt, levels: tuple[int, ...] = (2, 3)) -> str:
         node: Node = cmpt
+        # A whole-page entity panel (``kp-wholepage-osrp``) can embed sub-carousels
+        # ("People also search for") and feedback affordances whose level-2 headings
+        # would mis-claim the entire panel (e.g. as ``searches_related``). Defer to the
+        # structural classifiers downstream (``available_on``, ``knowledge_panel``),
+        # which type these panels correctly.
+        if node.css_first("div.kp-wholepage-osrp") is not None:
+            return "unknown"
         for level in levels:
             header = ClassifyMainHeader._classify_header(node, level)
             if header != "unknown":
@@ -121,6 +128,10 @@ class ClassifyMain:
             (
                 ClassifyMain.products,
                 lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
+            ),
+            (
+                ClassifyMain.election,
+                lambda s: "eer-rc-b" in s.classes or "eer-masthead" in s.ids,
             ),
             (ClassifyMain.general, None),
             (ClassifyMain.people_also_ask, None),
@@ -204,6 +215,22 @@ class ClassifyMain:
                 ),
             }
         return "general" if any(conditions.values()) else "unknown"
+
+    @staticmethod
+    def election(cmpt) -> str:
+        """Classify the live election-results tracker (``eer`` = election results).
+
+        Its ``h2`` ("Election results for the … are updated live …") carries no
+        ``role="heading"``, so ``ClassifyMainHeader`` misses it; anchor on the
+        stable ``eer-`` masthead/row classes instead. The dates and resources
+        panels classify by heading text via ``ClassifyMainHeader``.
+        """
+        node: Node = cmpt
+        if node.css_first('div[id="eer-masthead"]') is not None:
+            return "election_results"
+        if node.css_first("div.eer-rc-b, div.eer-rc-i") is not None:
+            return "election_results"
+        return "unknown"
 
     @staticmethod
     def general_questions(cmpt) -> str:
@@ -292,6 +319,9 @@ class ClassifyMain:
             'div[aria-label="Featured results"][role="complementary"]',
             'div[jscontroller="qTdDb"]',
             "div.obcontainer",
+            # Knowledge-vertical onebox (e.g. language pronunciation practice
+            # widget) surfaced as its own sub-column block on kp-wholepage tabs.
+            '[id$="__onebox_content"]',
         ):
             if node.css_first(css) is not None:
                 return "knowledge"

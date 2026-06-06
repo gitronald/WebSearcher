@@ -289,6 +289,12 @@ def main(argv: list[str] | None = None) -> None:
         print(f"No fixtures found in {FIXTURES_DIR}")
         sys.exit(1)
 
+    # Record the interpreter: timings are only comparable within one Python build.
+    print(
+        f"Python {platform.python_version()} "
+        f"({platform.python_implementation()}, {sys.platform}) | WebSearcher {ws.__version__}"
+    )
+
     records = load_records(paths, args.limit or None)
     htmls = [r["html"] for r in records]
     print(f"Loaded {len(htmls)} SERPs from {len(paths)} fixture(s):")

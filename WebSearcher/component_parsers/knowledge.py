@@ -16,6 +16,21 @@ from .general import parse_general_result
 
 def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     node: Node = elem
+
+    # kp-wholepage VisualDigest band: a digest of entity facts + a featured web
+    # result + a social post + an image collage. It carries multiple linked
+    # sub-results, so it parses to multiple rows -- handle it before the
+    # single-row handler chain below.
+    if node.css_first('[data-attrid^="VisualDigest"]') is not None:
+        return _parse_visual_digest(node)
+
+    # kp-wholepage music-artist section tabs (songs / albums / events): a heading
+    # plus a role="list" of items that the generic panel parse collapses to an
+    # empty shell. Emit one row per item instead.
+    section_rows = _parse_music_section(node)
+    if section_rows is not None:
+        return section_rows
+
     parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like
@@ -81,6 +96,39 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
 # Returning ``True`` *without* setting ``sub_type`` is intentional for the
 # "things to know" case: a matching heading-span container is claimed even when
 # its text is not in the known set, so the panel fallback does not also run.
+
+
+def _subtype_wholepage_header(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+    """The kp-wholepage panel header: entity title, descriptor, and the tab nav
+    strip (Overview / Songs / Albums / Events / ...).
+
+    Scoped to the whole-page header by the ``kp-wholepage-osrp`` wrapper plus a
+    ``subtitle`` fact, so regular knowledge panels (no wholepage wrapper) and the
+    section tabs (no ``subtitle``) are left to their own handlers. Emits a clean
+    title + descriptor instead of the tab-label mashup the generic fallback
+    produced, with the tab labels in ``details``.
+    """
+    if node.css_first("div.kp-wholepage-osrp") is None:
+        return False
+    subtitle_el = node.css_first('[data-attrid="subtitle"]')
+    if subtitle_el is None:
+        return False
+
+    parsed["sub_type"] = "panel"
+    title_el = node.css_first('[data-attrid="title"]')
+    parsed["title"] = get_text(title_el, " ", strip=True) if title_el is not None else None
+    subtitle = get_text(subtitle_el, " ", strip=True) or None
+    parsed["text"] = subtitle
+    details["subtitle"] = subtitle
+
+    # Tab labels live in the role="tab" strip (one node per tab, in document
+    # order). A plain span scan would also pick up header chrome ("Send
+    # feedback", "Claim this knowledge panel", "About this result"), so scope to
+    # the tablist.
+    tabs = [label for tab in node.css('[role="tab"]') if (label := get_text(tab, " ", strip=True))]
+    if tabs:
+        details["tabs"] = tabs
+    return True
 
 
 def _subtype_featured_results(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
@@ -228,6 +276,13 @@ def _subtype_things_to_know(node: Node, parsed: dict, details: dict, h2_text: st
 def _subtype_dynamic_section(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
     if node.css_first("div.JNkvid") is None:
         return False
+    # A whole-page entity panel (kp-wholepage-osrp) is a generic "panel": an internal
+    # subcard (e.g. a 'People also search for' carousel, or a feedback affordance whose
+    # heading precedes it in document order) is a section of the panel, not the panel's
+    # defining sub_type. Defer to the ``_subtype_panel`` fallback so the whole component
+    # stays ``panel`` instead of inheriting a subcard/affordance heading.
+    if node.css_first("div.kp-wholepage-osrp") is not None:
+        return False
     section_heading = node.css_first('[role="heading"][aria-level="2"]')
     if section_heading is None:
         # JNkvid without a section heading falls through to the panel fallback.
@@ -269,6 +324,9 @@ def _subtype_panel(node: Node, parsed: dict, details: dict, h2_text: str) -> Non
 
 
 # Evaluated in order; first to return ``True`` wins (cf. the original if/elif).
+# ``_subtype_wholepage_header`` is last so the specialized handlers above still
+# claim a wholepage panel that is really a dictionary / finance / etc.; it only
+# catches the generic entity header before the ``_subtype_panel`` fallback.
 _SUBTYPE_HANDLERS = (
     _subtype_featured_results,
     _subtype_featured_snippet,
@@ -282,7 +340,205 @@ _SUBTYPE_HANDLERS = (
     _subtype_election,
     _subtype_things_to_know,
     _subtype_dynamic_section,
+    _subtype_wholepage_header,
 )
+
+
+# Known VisualDigest sub-result suffixes -> a stable ``kind``. Unknown suffixes
+# fall back to a slug of the suffix so a new sub-result type is captured (with a
+# best-effort kind) rather than silently dropped.
+_VISUAL_DIGEST_KIND = {
+    "FirstImageResult": "image",
+    "ImageResult": "image",
+    "WebResult": "web",
+    "VideoResult": "video",
+    "SocialMediaResult": "social",
+}
+
+
+def _visual_digest_kind(suffix: str) -> str:
+    if suffix in _VISUAL_DIGEST_KIND:
+        return _VISUAL_DIGEST_KIND[suffix]
+    return (suffix[: -len("Result")] if suffix.endswith("Result") else suffix).lower()
+
+
+def _parse_visual_digest(node: Node) -> list:
+    """Parse a kp-wholepage VisualDigest band (the ``featured_results`` panel).
+
+    The band is a ``div.pxiwBd`` container whose sub-results -- an image collage,
+    a featured web result, a video, entity facts (Age, Genre, Artist, ...), and a
+    social post -- are siblings, not nested under the web result. Each becomes its
+    own ``sub_rank`` row of one ``featured_results`` component, in document order;
+    a per-row ``details["kind"]`` records which sub-result it is. Any
+    ``VisualDigest*`` sub-result is handled (kind derived from the attrid) so a
+    new variant is captured rather than dropped. Image thumbnails are lazy-loaded
+    1x1 gifs in the static HTML, so only the caption is recoverable.
+    """
+    results: list[dict] = []
+    emitted: set[int] = set()
+    for n in node.css("[data-attrid]"):
+        attrid = n.attributes.get("data-attrid") or ""
+        is_digest = attrid.startswith("VisualDigest")
+        is_fact = attrid.startswith("lab/fact/")
+        if not (is_digest or is_fact):
+            continue
+
+        # Skip nodes nested inside an already-emitted sub-result (the outermost
+        # match per sub-result wins; guards against nested data-attrid markers).
+        p, nested = n.parent, False
+        while p is not None and p.mem_id != node.mem_id:
+            if p.mem_id in emitted:
+                nested = True
+                break
+            p = p.parent
+        if nested:
+            continue
+
+        if is_fact:
+            # Facts render as "Label|Value" (e.g. "Age|29 years", "Genre|Pop").
+            parts = [p for p in (get_text(n, "|", strip=True) or "").split("|") if p]
+            if len(parts) < 2:
+                continue
+            label, value = parts[0], parts[-1]
+            url, text = None, f"{label}: {value}"
+            details = {"kind": "fact", "label": label, "value": value}
+        else:
+            kind = _visual_digest_kind(attrid[len("VisualDigest") :])
+            text = get_text(n, " ", strip=True) or None
+            if kind == "image":
+                url = None
+                if not text:  # empty image-result placeholder
+                    continue
+            else:
+                a = n.css_first("a[href]")
+                url = a.attributes.get("href") if a is not None else None
+                if url is None and not text:
+                    continue
+            details = {"kind": kind}
+
+        emitted.add(n.mem_id)
+        results.append(
+            {
+                "type": "knowledge",
+                "sub_type": "featured_results",
+                "sub_rank": len(results),
+                "url": url,
+                "text": text,
+                "details": details,
+            }
+        )
+    return results
+
+
+# --- kp-wholepage music-artist sections (songs / albums / events) -----------
+#
+# Each is a knowledge component holding a ``[data-attrid="kc:/music/artist:<key>"]``
+# block with a ``role="list"`` of ``role="listitem"`` items. The section key maps
+# to a sub_type; a per-section item parser pulls the item's fields. Sections
+# without a registered item parser fall through to the generic handler chain.
+
+_MUSIC_SECTION_SUBTYPE = {
+    "songs": "songs",
+    "albums": "albums",
+    "upcoming events": "events",
+}
+
+
+def _list_strings(node: Node, tag: str) -> list[str]:
+    """Stripped single-string text of ``tag`` descendants, dropping separators."""
+    out = []
+    for el in node.css(tag):
+        s = node_string(el)
+        if s and (s := s.strip()) and s != "·":  # middot separator
+            out.append(s)
+    return out
+
+
+def _parse_song_item(li: Node) -> dict:
+    """A song listitem -> ``{title, album?, year?}``.
+
+    The year is a trailing standalone 4-digit span; the album is the remaining
+    span (some songs carry only one or the other).
+    """
+    titles = _list_strings(li, "div")
+    spans = _list_strings(li, "span")
+    year = spans.pop() if spans and spans[-1].isdigit() and len(spans[-1]) == 4 else None
+    album = spans[0] if spans else None
+    item = {"title": titles[0] if titles else None}
+    if album:
+        item["album"] = album
+    if year:
+        item["year"] = year
+    return item
+
+
+def _parse_event_item(li: Node) -> dict:
+    """An upcoming-event listitem -> ``{date, time, location, venue}``.
+
+    The four fields render as single-string divs in that fixed order (some
+    events omit a trailing field).
+    """
+    fields = _list_strings(li, "div")
+    keys = ("date", "time", "location", "venue")
+    return {k: v for k, v in zip(keys, fields)}
+
+
+def _parse_album_item(li: Node) -> dict:
+    """An album listitem -> ``{title, year}``.
+
+    Visually an image grid, but the cover thumbnails are lazy-loaded 1x1 gifs in
+    the static HTML (no usable src), so only title + year are recoverable. The
+    year renders twice (visible + duplicate); take the first 4-digit token.
+    """
+    divs = _list_strings(li, "div")
+    item = {"title": divs[0] if divs else None}
+    year = next((d for d in divs[1:] if d.isdigit() and len(d) == 4), None)
+    if year:
+        item["year"] = year
+    return item
+
+
+_MUSIC_ITEM_PARSERS = {
+    "songs": _parse_song_item,
+    "events": _parse_event_item,
+    "albums": _parse_album_item,
+}
+
+
+def _parse_music_section(node: Node) -> list | None:
+    """Parse a kp-wholepage music-artist section into a single component row.
+
+    The section is kept as one ``knowledge`` row carrying the section label as
+    ``title``, with the per-item dicts stashed in ``details`` as
+    ``{"type": <sub_type>, "items": [...]}``. Returns ``None`` (so the caller
+    falls through to the generic handlers) when the component is not a recognized
+    music section or the section has no registered item parser yet.
+    """
+    block = node.css_first('[data-attrid^="kc:/music/artist:"]')
+    if block is None:
+        return None
+    key = (block.attributes.get("data-attrid") or "").split(":")[-1]
+    sub_type = _MUSIC_SECTION_SUBTYPE.get(key)
+    item_fn = _MUSIC_ITEM_PARSERS.get(sub_type) if sub_type else None
+    if item_fn is None:
+        return None
+
+    items = block.css('[role="listitem"]')
+    if not items:
+        return None
+
+    heading = node.css_first('[role="heading"]')
+    parsed_items = [item_fn(li) for li in items]
+    return [
+        {
+            "type": "knowledge",
+            "sub_type": sub_type,
+            "sub_rank": 0,
+            "title": get_text(heading, " ", strip=True) if heading is not None else None,
+            "text": None,
+            "details": {"type": sub_type, "items": parsed_items},
+        }
+    ]
 
 
 def _join_texts(div: list[Node]) -> str:

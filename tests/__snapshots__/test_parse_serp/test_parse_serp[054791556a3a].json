@@ -18,7 +18,14 @@
       "details": {
         "heading": "Mater",
         "img_url": null,
-        "text": "Mater|Film character|Film character|Overview|Overview|Overview|Movies|Movies|Movies|Videos|Videos|Videos|Played by|Played by|Played by|Quotes|Quotes|Quotes",
+        "subtitle": "Film character",
+        "tabs": [
+          "Overview",
+          "Movies",
+          "Videos",
+          "Played by",
+          "Quotes"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +33,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Mater Film character Overview Movies Videos Played by Quotes",
+      "text": "Film character",
+      "title": "Mater",
       "type": "knowledge",
       "url": null
     },
@@ -35,37 +42,49 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=mater+cars&tbm=isch&source=univ&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQnN8JegQIEBAD"
-          },
-          {
-            "text": "6:55|YouTube| • |Disney Junior|Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ...|A routine tow lands Mater in Tokyo, where he is challenged to a drift-style race against a nefarious gang leader and his posse of ninjas.|2 weeks ago",
-            "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
-          },
-          {
-            "text": "",
-            "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
-          },
-          {
-            "text": "YouTube| • |Pixar Cars|1:16:37|Nov 11, 2023|Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
-            "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
-          }
-        ]
+        "kind": "video"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "6:55 YouTube • Disney Junior Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... A routine tow lands Mater in Tokyo, where he is challenged to a drift-style race against a nefarious gang leader and his posse of ninjas. 2 weeks ago YouTube Best of Tow Mater | Pixar Cars - YouTube Sir Tow Mater is the name! Taking a look back at Mater's best moments in Pixar Cars! From his adventures of tow trucking, saving the world ... Jun 7, 2023 YouTube • Pixar Cars 1:16:37 Nov 11, 2023 Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
+      "text": "6:55 YouTube • Disney Junior Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... A routine tow lands Mater in Tokyo, where he is challenged to a drift-style race against a nefarious gang leader and his posse of ninjas. 2 weeks ago",
       "title": null,
       "type": "knowledge",
       "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "web"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "YouTube Best of Tow Mater | Pixar Cars - YouTube Sir Tow Mater is the name! Taking a look back at Mater's best moments in Pixar Cars! From his adventures of tow trucking, saving the world ... Jun 7, 2023",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "YouTube • Pixar Cars 1:16:37 Nov 11, 2023 Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
     },
     {
       "cite": "https://pixarcars.fandom.com  › wiki › Mater",
@@ -73,7 +92,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 2,
+      "serp_rank": 4,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Mater  is one of the six playable characters, the other five being Lightning McQueen, Cruz Ramirez, Sally, Ramone, and Guido, who are available from the start in ...",
@@ -95,7 +114,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 5,
       "sub_rank": 0,
       "sub_type": null,
       "text": "What kind of car is Mater?<|>Is Mater's girlfriend in Cars 3?<|>Is Mater rich in Cars?<|>What happened to Mater in Cars 3?",
@@ -109,7 +128,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 6,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Sir Tow  Mater  KG is an anthropomorphic tow truck of the Pixar  Cars  franchise. His appearances include the feature films  Cars ,  Cars  2, and  Cars  3, ...",
@@ -123,7 +142,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 7,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Did you know  Mater  isn't just Lightning McQueen's best friend but also “The World's Best Backwards Driver?” Here are some of our favorite videos of Tow ...",
@@ -137,7 +156,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 8,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
@@ -151,7 +170,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 9,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
@@ -165,7 +184,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 10,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
@@ -179,7 +198,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 11,
       "sub_rank": 3,
       "sub_type": "unspecified-3",
       "text": null,
@@ -193,7 +212,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "He is a rusty old tow truck and Lightning McQueen's best friend. He is a major character in  Cars , the protagonist of  Cars  2, and a supporting character in  Cars  ...",
@@ -220,7 +239,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "movies",
       "text": "Cars",
@@ -234,7 +253,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Mattel Disney and Pixar  Cars  Toys, Radiator Springs 3-Pack of Die-cast Toy  Cars  & Trucks with Lightning McQueen,  Mater  & Sheriff.  Car .",
@@ -252,7 +271,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 15,
       "sub_rank": 0,
       "sub_type": "video",
       "text": "Sir TowMateris the name! Taking a look back atMater'sbest moments in PixarCars! From his adventures of tow trucking, saving the world ...",
@@ -270,7 +289,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": "video",
       "text": "Go undercover withMaterin his secret spy missions fromCars2. Watch as he becomes one of the best undercover spies and saves Lightning ...",
@@ -288,7 +307,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "submenu_product",
       "text": "Lightning McQueen and Tow  Mater  Die Cast Set –  Cars  on the Road. $24.99 $19.98. 3.7. (3).",
@@ -302,7 +321,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 18,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Product Details · Inspired by Disney Pixar  Cars  on the Road ·  Mater  features printed details · Includes: 1 laser gun, 1 meteor hammer, 1 speaker, and 1 new body ...",
@@ -329,7 +348,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": "related_searches",
       "text": "Mater cars for sale<|>Mater cars song<|>Tow mater cars<|>mater cars toys<|>mater cars voice<|>how old is mater in cars<|>mater cars crocs<|>why is mater rusty",
@@ -350,13 +369,97 @@
       },
       "error": null,
       "section": "rhs",
-      "serp_rank": 18,
+      "serp_rank": 20,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "Sir Tow Mater KG is an anthropomorphic tow truck of the Pixar Cars franchise. His appearances include the feature films Cars, Cars 2, and Cars 3, as well as in the TV series Cars Toons and Cars on the Road. Mater is also a playable character in each of the Cars video game installments.",
       "title": "Things to know",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+          },
+          {
+            "text": "Larry the Cable Guy",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Larry+the+Cable+Guy&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXpyVYE7Kx3Kgs-XSn6t-bdZcwzirh7Sbk6YoW92af2S1Gp6E6g6sH1W8xWJiI3pMI1S1evEiYDHFkksfFDGidWsjmEMaDyZPxJJFlzi4kX-M4UkaS_Lw4vBaiwFiCik5Q2ljZnKKv3a1Y8ncQlzHt_H0E83US9LjBVV-htqL9L2NFy2yLg%3D%3D&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCUQAg"
+          },
+          {
+            "text": "Holley Shiftwell",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Holley+Shiftwell&stick=H4sIAAAAAAAAAONgVuLSz9U3SM-pqsxOWcQq4JGfk5NaqRCckZlWUp6akwMAmNgWCiEAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCgQAg"
+          },
+          {
+            "text": "John Lasseter",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Lasseter&stick=H4sIAAAAAAAAAONgVuLUz9U3MMkqLihcxMrrlZ-Rp-CTWFycWpJaBACsURx9HQAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCkQAg"
+          },
+          {
+            "text": "Joe Ranft",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Joe+Ranft&stick=H4sIAAAAAAAAAONgVuLUz9U3ME8vskxaxMrplZ-qEJSYl1YCAOGPjPIZAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAXoECCkQAw"
+          },
+          {
+            "text": "Jorgen Klubien",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Jorgen+Klubien&stick=H4sIAAAAAAAAAONgVuLUz9U3yCo3SSpYxMrnlV-Unpqn4J1TmpSZmgcA_RiIfR4AAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAnoECCkQBA"
+          },
+          {
+            "text": "Cars",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Cars&stick=H4sIAAAAAAAAAONgVuLUz9U3MC40KDJcxMrinFhUDAAcXQJxFAAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCcQAg"
+          },
+          {
+            "text": "1950s",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=1950s&stick=H4sIAAAAAAAAAONgVuLQz9U3sEgyyV3EympoaWpQDABWPwotFAAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCYQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Lightning McQueen",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXr7M851Mpvnh6zt_jFvmq23qijDQmFiOoemHQk-yTJCy1pwCAjxthoaTklC-bISjBGHoGtKoPfmgk8Jio2zzixZZ0Zj79uTDeu0wVlCbbCv731pdutComkT-5bUluBNKv4gT1AqDV5W561pHV9RCVYxj-fQzM_-_4uo4z9CjQgvJFtuiUNz6QXUjKdt1E6QVA1Kvnkpk7HPV1uPfWcTWqwaxcRf90Va0bqsWl22lEEE2dGlDJ6FazXP0XyPGqJ0JcWme05I%3D&q=Lightning+McQueen&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAB6BAghEAI"
+          },
+          {
+            "text": "Doc Hudson",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXkxONNgWsGb6Mjhhln_MiixsDZnRax7AsDAKLigWyEA6QbtAPrPTI-7NqahoXk6G3P5bDEzTKQCiAhnWDem94L5M5zRA1mVAnHEa-5gg1R9ZFEdiTKNpjcBUGWFXVHI9nE53jw9blLbI5GpAJEA2-7yk53IiH77xZG1izRIW_fITEWQI661xj9F4LzCuvRFsHKhgzpBUMEslemkK6ScIXIvGEOcpKX4qKn-iq7_CPR3A2reJCds8S_xvgYvY354gd-Yie7o%3D&q=Doc+Hudson&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAF6BAghEAM"
+          },
+          {
+            "text": "Sally Carrera",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXs9DDPcuUHSeurxsBrsY3laAPiluvhlsmFDt2YbTuo_UW5uaw43yER88SwMuaWJd1peqP9itw0vjPtbBDpsIsmlkrflOugJk2cxNw0zw4xXhE9WpHuugWeo92ja-mfH8lMFetYvPcYUmkHjBmCJsZ-q3v_5PKyVZ_z0A0sYf8Oh9S1ztJjakv1uHPRZJrkVG00lhF6B1ybVauRE8Z1kDdYA1Jb9CwDt3zh72pdBEJApTxXqON8gTUySLswKKcfBHpT-KJBs%3D&q=Sally+Carrera&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAJ6BAghEAQ"
+          },
+          {
+            "text": "Jackson Storm",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoach3CBpUwqDOFf68HlDjR_kQQXprG5zx01z4VNaPSVorrlkMVAM5mRx0IwF_Ice2mJL9xpGFmy6ObgH8FQ8jZuXFkuv4kForFXOxqBBMUsyRtWyK3NW0M78h1kRtq0WEC3XZNTMU_Ha9ORgqRNoH3ECOpbt75tiyTjc1PrlcV-sY7lWQjfKV5PtUWR0sOstqzmvnZlVaHrBHtvlAJpsOwNSCEsBvmgYZz5b3JIJaJDaOKSSJW8NXUkcTGKxgIOrm2JOR1hBA45KptjqdkJaaJ6fKW8u&q=Jackson+Storm&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAN6BAghEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

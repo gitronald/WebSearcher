@@ -283,10 +283,10 @@
       "section": "rhs",
       "serp_rank": 13,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": "A cistern is a waterproof receptacle for holding liquids, usually water. Cisterns are often built to catch and store rainwater. Cisterns are distinguished from wells by their waterproof linings. Modern cisterns range in capacity from a few litres to thousands of cubic metres, effectively forming covered reservoirs.",
       "title": "Cistern",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": "https://en.wikipedia.org/wiki/Cistern"
     }
   ]

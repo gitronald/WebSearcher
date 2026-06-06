@@ -18,7 +18,13 @@
       "details": {
         "heading": "I Believe That We Will Win (World Anthem)",
         "img_url": null,
-        "text": "I Believe That We Will Win (World Anthem)|Song by Pitbull|Song by Pitbull|Overview|Overview|Overview|Lyrics|Lyrics|Lyrics|Videos|Videos|Videos|Listen|Listen|Listen",
+        "subtitle": "Song by Pitbull",
+        "tabs": [
+          "Overview",
+          "Lyrics",
+          "Videos",
+          "Listen"
+        ],
         "type": "panel"
       },
       "error": null,
@@ -26,8 +32,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "I Believe That We Will Win (World Anthem) Song by Pitbull Overview Lyrics Videos Listen",
+      "text": "Song by Pitbull",
+      "title": "I Believe That We Will Win (World Anthem)",
       "type": "knowledge",
       "url": null
     },
@@ -35,41 +41,85 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "2:57|YouTube| • |Pitbull|Pitbull - I Believe That We Will Win | World Anthem (Official ...",
-            "url": "https://www.youtube.com/watch?v=ZxMaHi91RkE"
-          },
-          {
-            "text": "2:28|YouTube| • |Pitbull|Pitbull - I Believe That We Will Win [World Anthem] (Official ...|Pitbull - I Believe That We Will Win [World Anthem] (Official Lyric Video) Listen Here: https://mr305.ffm.to/believeanthem Subscribe: ...|Apr 13, 2020",
-            "url": "https://www.youtube.com/watch?v=BBre0xNcr5c"
-          },
-          {
-            "text": "Artist|Pitbull",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Armando+Christian+Perez&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcCmqWbQaFmXWpbSWMcBqD-oLsw1Jh67pG418bH1ruu8l4eB8ObKQ4pmoSKEhF0l_VPB4uBXJjZAgODyBApYfRmtjhZFzIZISJAFZupuc0O0a61xdKki1nXqccloaXyQMfkb8dNHzfC0qNRNTUxG1tfQ29NmtLcghZ695thQTX1cinAgS2A%3D%3D&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQ18AJegQIFhAB"
-          },
-          {
-            "text": "Released|2020",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=pitbull+i+believe+that+we+will+win+(world+anthem)+released&stick=H4sIAAAAAAAAAC3MOw7CMBAFwAqJBgpOsGWgsdxQ-DLIn0e8YuNE9jqWOA4nhYJ2ijmeLyczG2ufmsP2tvfb9IrOLL1xNBVxrYnL_IjSm6K6CoFvoOQVn4PbWEMXIaYAYewgzV5pgAb_eHChaaxVEvmiGcuV_kH6Ai2GCcV4AAAA&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQ18AJegQIFRAB"
-          },
-          {
-            "text": "",
-            "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html"
-          }
-        ]
+        "kind": "video"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "2:57 YouTube • Pitbull Pitbull - I Believe That We Will Win | World Anthem (Official ... 2:28 YouTube • Pitbull Pitbull - I Believe That We Will Win [World Anthem] (Official ... Pitbull - I Believe That We Will Win [World Anthem] (Official Lyric Video) Listen Here: https://mr305.ffm.to/believeanthem Subscribe: ... Apr 13, 2020 Artist Pitbull Released 2020 CNN Pitbull releases uplifting song 'I Believe That We Will Win ... Pitbull is bringing the world together through his music. “Mr. Worldwide” really is living up to his nickname with his latest single, ... Apr 13, 2020",
+      "text": "2:57 YouTube • Pitbull Pitbull - I Believe That We Will Win | World Anthem (Official ...",
       "title": null,
       "type": "knowledge",
       "url": "https://www.youtube.com/watch?v=ZxMaHi91RkE"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "2:28 YouTube • Pitbull Pitbull - I Believe That We Will Win [World Anthem] (Official ... Pitbull - I Believe That We Will Win [World Anthem] (Official Lyric Video) Listen Here: https://mr305.ffm.to/believeanthem Subscribe: ... Apr 13, 2020",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=BBre0xNcr5c"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Artist",
+        "value": "Pitbull"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "Artist: Pitbull",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Released",
+        "value": "2020"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "featured_results",
+      "text": "Released: 2020",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "web"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "featured_results",
+      "text": "CNN Pitbull releases uplifting song 'I Believe That We Will Win ... Pitbull is bringing the world together through his music. “Mr. Worldwide” really is living up to his nickname with his latest single, ... Apr 13, 2020",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html"
     },
     {
       "cite": null,
@@ -87,7 +137,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 2,
+      "serp_rank": 6,
       "sub_rank": 0,
       "sub_type": "lyrics",
       "text": null,
@@ -101,7 +151,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 7,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
@@ -115,7 +165,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 8,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
@@ -129,7 +179,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 9,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
@@ -143,7 +193,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 10,
       "sub_rank": 3,
       "sub_type": "unspecified-3",
       "text": null,
@@ -165,7 +215,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 11,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Who sings I believe we will win?<|>What song is the anthem by Pitbull based on?<|>What song made Pitbull famous?<|>Who has Pitbull sang with?",
@@ -179,7 +229,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apr 13, 2020  —  Worldwide” really is living up to his nickname with his latest single, “ I Believe That We Will Win .” The song is an  anthem  about the current ...",
@@ -197,7 +247,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "video",
       "text": "Pitbull-I Believe That We Will Win[World Anthem] (Lyric Video) Subscribe: http://bitly.com/Pibull_YouTube Follow Pitbull: Instagram: ...",
@@ -211,7 +261,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": null,
       "text": "I Believe That We Will Win  ( World Anthem )20202:27. Sign in to see lyrics and listen to the full track. Sign up.  Pitbull . Artist.  Pitbull  ...",
@@ -225,7 +275,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 15,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apr 13, 2020  —  His new song “ I Believe That We Will Win ” is no exception, in fact, “that message is needed right now more than ever,” he tells Billboard. It ...",
@@ -243,7 +293,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": "video",
       "text": "Provided to YouTube by Universal Music Group I Believe That We Will Win (World Anthem) ·Pitbull I Believe That We Will Win(World Anthem) ...",
@@ -261,7 +311,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "video",
       "text": "WEbelieve that we will win! Mr. Worldwide brings the heat with this brand new release, and we're obsessed with the song's globally positive ...",
@@ -275,7 +325,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 18,
       "sub_rank": 0,
       "sub_type": null,
       "text": "May 7, 2020  —  Pitbull's  hopeful new ' I Believe That We Will Win  ( World Anthem )' video finds Mr. Worldwide summoning the power of global community to keep ...",
@@ -289,7 +339,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Check out  I Believe That We Will Win  ( World Anthem ) by  Pitbull  on Amazon Music. Stream ad-free or purchase CD's and MP3s now on Amazon.com.",
@@ -301,6 +351,9 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "dropdown": [
+          "I believe that we will win Clean"
+        ],
         "heading": "Related searches",
         "items": [
           "pitbull i believe that we will win meaning",
@@ -309,17 +362,16 @@
           "i believe that we will win soccer",
           "i believe that we will win'' chant origin",
           "i believe that we will win remix",
-          "i believe we will win gif",
-          "I believe that we will win Clean"
+          "i believe we will win gif"
         ],
         "type": "text"
       },
       "error": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 20,
       "sub_rank": 0,
       "sub_type": "related_searches",
-      "text": "pitbull i believe that we will win meaning<|>i believe that we will win football chant<|>we will win song<|>i believe that we will win soccer<|>i believe that we will win'' chant origin<|>i believe that we will win remix<|>i believe we will win gif<|>I believe that we will win Clean",
+      "text": "pitbull i believe that we will win meaning<|>i believe that we will win football chant<|>we will win song<|>i believe that we will win soccer<|>i believe that we will win'' chant origin<|>i believe that we will win remix<|>i believe we will win gif",
       "title": null,
       "type": "searches_related",
       "url": null
@@ -327,15 +379,99 @@
     {
       "cite": null,
       "cmpt_rank": 14,
-      "details": null,
-      "error": "no subcomponents parsed",
+      "details": {
+        "items": [
+          {
+            "text": "YouTube Music",
+            "url": "https://music.youtube.com/watch?v=pCozL7zdINs&feature=gws_kp_track"
+          },
+          {
+            "text": "Apple Music",
+            "url": "https://music.apple.com/us/album/i-believe-that-we-will-win-world-anthem/1506242063?i=1506242070"
+          },
+          {
+            "text": "Spotify",
+            "url": "https://open.spotify.com/track/4Sq71vakNYzewI1nnZItEC?autoplay=true"
+          },
+          {
+            "text": "iHeartRadio",
+            "url": "https://www.iheart.com/artist/pitbull-42201/songs/i-believe-that-we-will-win-251245936/?autoplay=true"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
       "section": "rhs",
-      "serp_rank": 17,
+      "serp_rank": 21,
       "sub_rank": 0,
-      "sub_type": null,
-      "text": "Complementary Results<|>Listen<|>YouTube Music<|>Apple Music<|>Spotify<|>iHeartRadio<|>About<|>Artist<|>:<|>Pitbull<|>Released<|>:<|>2020<|>Album<|>:<|>I Believe That We Will Win (World Anthem)<|>Genre<|>:<|>Pop<|>Feedback<|>People also search for<|>We Will Rock You<|>Queen<|>3 to Tango<|>Pitbull<|>Eye of the Tiger<|>Survivor<|>U Can’t Touch This<|>MC Hammer<|>See more",
-      "title": null,
-      "type": "knowledge_rhs",
+      "sub_type": "links",
+      "text": null,
+      "title": "Listen",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Pitbull",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Armando+Christian+Perez&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcCmqWbQaFmXWpbSWMcBqD-oLsw1Jh67pG418bH1ruu8l4eB8ObKQ4pmoSKEhF0l_VPB4uBXJjZAgODyBApYfRmtjhZFzIZISJAFZupuc0O0a61xdKki1nXqccloaXyQMfkb8dNHzfC0qNRNTUxG1tfQ29NmtLcghZ695thQTX1cinAgS2A%3D%3D&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCIQAg"
+          },
+          {
+            "text": "I Believe That We Will Win (World Anthem)",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Pitbull+I+Believe+That+We+Will+Win+(World+Anthem)&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoQ6gRyyAJzo2cauQaxXmOeqOHymPed1i2M4pptACMSd-B6QsJlEKDiHEkhv8MTYRxelVv-Zmf_yhD77zvfGMOGkIZRdIk8zNiFj6p-NcbuT5R31zarzvZE-X-i5WQlvP0eqII6S2R5gDqME0HnghPbNphuvZuCA291vbZKTKoBRCA0eKViUPUYCCbEKNI86M5nD8jwzmTLp9UnlGSZZHRl63oNJ7&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCoQAg"
+          },
+          {
+            "text": "Pop",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoT6N7ACnZf_0ZZ5CuK6A0u_OVmamYA1ArcNGzW_q813HTyI5n-isp5k6jfGf7lbn4S6jPKbKksA_xicpbu0bCHRYqctQDSXENjBrJEQV2Lp06pAdreJRGtDgELdTVg4PShFtN0jyipAG9zAoUpuv7V7uto6k&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCEQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "We Will Rock You Queen",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rNw0aV2xaMSajixiwS9lmNu5OlNFGzE_NenPRGAlzGM8avOJKIzspp7TZhwJZdfIcdfNpEbdUMk5fEDVuBsUI0lI8EDZK6q7uK3HSuPOOCF_nRBxcgbV9cjJhCC2FL5TLrQsO6cOozFuuoFWGy2BDgV9pMSXTJDtUTGgtjXDRmkvpabrJbpbpiPBqu4LFe0vuPUpEt-KuZ7wIc2j2JSgzptZG646SBBAZ5govRNd4D5ElRY1US-aDoYkxS0WJKNrk8qgdADFP1DnYNUHJ2RUppYRXaLrSHKtxp6I5eive5uFHPa8QLc1hj3IcZA_zNEF3MEJWCTtOk0mUCVwqEasOrPjgD2A%3D%3D&q=queen+we+will+rock+you&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAB6BAggEAI"
+          },
+          {
+            "text": "3 to Tango Pitbull",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeofhbGxXPZPeZM16Zz31uMOapD3ptqsWcbstqMXR1Ispb6_qQ8SDZAkTV2NRgB4Y0Q2GWKuWsuFWxyVBkRWB5mameJhi39Nez-CP8DKEC3eenU0EfH1giVI-39PTp8yY0doAyMH28JEv5KhAH0obTw6kkJ-iLyQAKm_mbnNFUUb96f0SFrBpLB2aIqYRgzM2K2xXebPM5aFl69sP7R4GQpk5ZwwuP46qismAOSczw_Aj2dq09Kfaye3W4wdz5TQ1cao17se73-yKskn4s7S-caTde6u-T&q=pitbull+3+to+tango&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAF6BAggEAM"
+          },
+          {
+            "text": "Eye of the Tiger Survivor",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rNw0aV2xaMSajixiwS9lmNu5OlNFGzE_NenPRGAlzGM1czpk9KpTYBjFFb0wRPb7jx_o1D7bToLSHQ94W1aHlipbmKdcVjerHRp_m1XSgZGejESa_26Mjx63se2thThh83m0yomZOLAPYQuVK7VnFxxhVB23wNB3n-DuhZk0NceHWo-B3Okfg9u4DnpMyLHAVmqyFngpoU8AQcwBztRdirS-F59JzAOYzjoXpvQHP8GeNhge-1GTWa4f8ebOOAy2GdmkG49ZonmRDr3EIdAGTWRW0znSOtxoYATHG-n5iVms_4ZzBFxnUUURoX4tA9A3NBag0-veePnp8iaXWRYYk4khhu_w%3D%3D&q=survivor+eye+of+the+tiger&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAJ6BAggEAQ"
+          },
+          {
+            "text": "U Can’t Touch This MC Hammer",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoaFuX84X1oanFg_FYyMbT_O9r3Cvg6tnb2F7B2UNRw-FHsrigEvWL9v7jp1J2aaBY6yiUkmVFCMP5MnxXy35cRdTox1mAndm8At-BVeH1CWxHQIg12kigDUqshIy8v0ievEDKZlAnqCscyfoZi54svatZdw-U4Nn904FWzF2INmkWK-kDFpys5v0zFmIh6qp86k5LpVMOIGjN9fSFm7dUxUCMVFuqA6WjL4jLbqzvAbTMR63Xm0ZlEdpfijr79aK-Br-p6iGozFONjJ9imoeQi7TK1Uqh-4v4QUbWIVwlYTGyMP2Zw%3D%3D&q=mc+hammer+u+can%E2%80%99t+touch+this&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQs9oBKAN6BAggEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
       "url": null
     }
   ]

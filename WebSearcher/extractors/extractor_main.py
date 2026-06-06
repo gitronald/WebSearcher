@@ -175,17 +175,190 @@ class ExtractorMain:
             if ExtractorMain.is_valid(c):
                 self.components.add_component(c, section="main")
 
+    # ``kp-wholepage`` sub-column markers. Organic blocks (``div.g``) and the two
+    # tab-content wrappers Google uses (``TzHB6b`` for entity tabs, ``A6K0A`` for
+    # finance/airfares tabs). These obfuscated classes drift; detection anchors on
+    # the stable ``kp-wp-tab-cont-*`` id and treats these only as block hints.
+    _KP_BLOCK_MARKERS = ("div.g", "div.TzHB6b", "div.A6K0A")
+
+    @staticmethod
+    def _kp_markers(node: Node) -> list[Node]:
+        out: list[Node] = []
+        for sel in ExtractorMain._KP_BLOCK_MARKERS:
+            out.extend(subtree_css(node, sel))
+        return out
+
+    @staticmethod
+    def _kp_active_tab(kp: Node) -> Node | None:
+        """The ``kp-wp-tab-cont-*`` tab that actually holds rendered result blocks.
+
+        A whole-page panel carries one content node per tab; only the active one
+        contains the result column (the rest are empty placeholders). Pick the
+        content node with the most block markers.
+        """
+        best: Node | None = None
+        best_score = 0
+        for cont in kp.css('div[id^="kp-wp-tab-cont-"]'):
+            score = len(ExtractorMain._kp_markers(cont))
+            if score > best_score:
+                best, best_score = cont, score
+        return best
+
+    @staticmethod
+    def _kp_marker_ancestors(markers: list[Node], cont: Node) -> set:
+        """Every ``mem_id`` on a marker -> ``cont`` path: a node "carries" a marker
+        iff it is (or is an ancestor of) one, i.e. its id is in this set."""
+        ancestors: set = set()
+        for m in markers:
+            node = m
+            while node is not None:
+                ancestors.add(node.mem_id)
+                if node.mem_id == cont.mem_id:
+                    break
+                node = node.parent
+        return ancestors
+
+    @staticmethod
+    def _kp_emit_blocks(node: Node, marker_ids: set, ancestors: set) -> list[Node]:
+        """Recursively flatten an active tab into its result blocks.
+
+        A child is emitted as a block unless it is a *grouping wrapper* -- a
+        non-marker node that nests several marker blocks (``HaEtFf`` grouping
+        ``TzHB6b`` organics) -- in which case we descend so each grouped block
+        lands on its own. Marker blocks (``TzHB6b``/``A6K0A``/``div.g``) and
+        standalone non-marker blocks (a PAA ``cUnQKe``, an images ``EyBRub`` …)
+        are emitted as-is.
+        """
+        blocks: list[Node] = []
+        for ch in node.iter(include_text=False):
+            if ch.tag in {"script", "style"} or not has_text(ch):
+                continue
+            # A *marker* wrapper that itself encloses the organic column (a
+            # ``TzHB6b`` grouping the active tab's ``div.g`` results) would be
+            # emitted whole by the marker check below, collapsing the whole organic
+            # column into one block. Descend into it so each organic lands on its
+            # own -- but only when it groups a genuine organic column (two or more
+            # titled-link ``div.g``: an ``h3`` + ``a[href]``), so single-widget
+            # marker blocks (a carousel, a Q&A box) are not split into empty
+            # fragments. Non-marker grouping wrappers keep descending via the
+            # ``ancestors`` branch below, unchanged.
+            organic_wrapper = ch.mem_id in marker_ids and (
+                len(
+                    [
+                        g
+                        for g in subtree_css(ch, "div.g")
+                        if g.mem_id != ch.mem_id
+                        and g.css_first("h3") is not None
+                        and g.css_first("a[href]") is not None
+                    ]
+                )
+                >= 2
+            )
+            if organic_wrapper:
+                inner = ExtractorMain._kp_emit_blocks(ch, marker_ids, ancestors)
+                blocks.extend(inner if inner else [ch])
+            elif ch.mem_id in marker_ids:
+                blocks.append(ch)
+            elif ch.mem_id in ancestors:
+                inner = ExtractorMain._kp_emit_blocks(ch, marker_ids, ancestors)
+                blocks.extend(inner if inner else [ch])
+            else:
+                blocks.append(ch)
+        return blocks
+
+    @staticmethod
+    def _kp_subcolumn(kp: Node) -> list[Node]:
+        """Result blocks of the active ``kp-wholepage`` tab, as a list of nodes
+        shaped like the ones ``_main_column`` consumes.
+
+        On whole-page knowledge-panel SERPs Google embeds a full results column
+        inside the active tab -- organics interleaved with specialized widgets, a
+        top-stories carousel, Q&A panels, etc. Returning the tab's component blocks
+        lets each one classify and parse as its true type, instead of collapsing
+        the panel into a single (mislabeled) component.
+
+        Anchors on the stable ``kp-wp-tab-cont-*`` id, then descends through sole
+        non-marker wrappers (``xDKLO`` -> ``HaEtFf`` …) to the block container --
+        scoping out the tab's ``Main Results`` heading and page-nav footer -- and
+        flattens any grouping wrapper inside it.
+        """
+        cont = ExtractorMain._kp_active_tab(kp)
+        if cont is None:
+            return []
+        markers = ExtractorMain._kp_markers(cont)
+        if not markers:
+            return []
+        marker_ids = {m.mem_id for m in markers}
+        ancestors = ExtractorMain._kp_marker_ancestors(markers, cont)
+
+        container = cont
+        while True:
+            carriers = [ch for ch in container.iter(include_text=False) if ch.mem_id in ancestors]
+            if len(carriers) == 1 and carriers[0].mem_id not in marker_ids:
+                container = carriers[0]
+                continue
+            break
+        return ExtractorMain._kp_emit_blocks(container, marker_ids, ancestors)
+
+    @staticmethod
+    def _kp_organics_outside(rso_div: Node, kp: Node) -> bool:
+        """True if any organic ``div.g`` sits in ``#rso`` but outside the panel --
+        the tell that the panel is a *complementary* side panel, not the collapsed
+        main column.
+
+        An organic is any ``div.g`` carrying a titled link (an ``h3`` and an
+        ``a[href]``), not just the classic ``div.tF2Cxc`` text result: a music/video
+        panel renders its organic video results as ``div.g`` siblings of the panel
+        (a YouTube ``div.g`` has the title+link but no inner ``div.tF2Cxc``). Keying
+        the guard on ``div.tF2Cxc`` alone missed those, so the gate misfired and the
+        sub-column path discarded the video organics. ``h3`` + ``a[href]`` matches
+        both shapes while still excluding chrome ``div.g`` wrappers.
+
+        Assumption: a titled-link ``div.g`` is an *organic*, i.e. the tell of a
+        complementary panel. A genuinely collapsed panel that nonetheless renders
+        some titled-link ``div.g`` (a PAA block, a video-carousel item, an image
+        card with a heading link) *outside* the ``kp`` in ``#rso`` would wrongly
+        read as complementary here and skip the sub-column collapse. No such shape
+        is known (the collapsed "30 year mortgage rates" fixture keeps its organics
+        inside the panel); revisit this test if one surfaces."""
+        kp_id = kp.mem_id
+        for g in subtree_css(rso_div, "div.g"):
+            if g.css_first("h3") is None or g.css_first("a[href]") is None:
+                continue
+            node, inside = g, False
+            while node is not None and node.mem_id != rso_div.mem_id:
+                if node.mem_id == kp_id:
+                    inside = True
+                    break
+                node = node.parent
+            if not inside:
+                return True
+        return False
+
+    @staticmethod
+    def _kp_recipe_underextracts(rso_div: Node, kp: Node, spec: "_StandardLayout") -> bool:
+        """True if a token recipe's *direct-child* extraction would miss blocks the
+        sub-column model recovers -- i.e. the active tab nests its blocks in a
+        grouping wrapper (``HaEtFf``) the recipe can't reach. Compares the recipe's
+        direct ``keep_tokens`` children against the flattened sub-column block count.
+        Shape-B recipes (``keep_tokens is None``) are left to their own extractor."""
+        if spec.keep_tokens is None:
+            return False
+        sub_column = ExtractorMain._kp_subcolumn(kp)
+        if not sub_column:
+            return False
+        target = rso_div.css_first(spec.extract_css)
+        if target is None:
+            return True
+        keep = set(spec.keep_tokens)
+        direct = [c for c in target.iter(include_text=False) if keep & set(class_tokens(c))]
+        return len(sub_column) > len(direct)
+
     def extract_from_standard(self, drop_tags: set | None = None) -> list:
         rso_div = self.layout_divs["rso"]
         if rso_div is None:
             return []
         drop_tags = drop_tags or {"script", "style", None}
-        for layout_name, spec in _STANDARD_LAYOUTS.items():
-            container = rso_div.css_first(spec.detect_css)
-            if container is not None and any(
-                _find_all_with_class(container, sel, filter_empty=False) for sel in spec.detect_sels
-            ):
-                return self._extract_from_standard_sub_type(layout_name)
 
         top_divs = (
             ExtractorMain.extract_top_divs(
@@ -193,9 +366,48 @@ class ExtractorMain:
             )
             or []
         )
+
+        # Per-tab standard-* recipes claim the page when they natively and fully
+        # handle their panel (blocks are direct token children). When a recipe
+        # matches but the blocks are nested in a grouping wrapper it can't reach
+        # (e.g. election panels group organics under HaEtFf), it under-extracts --
+        # fall through to the kp-wholepage sub-column model instead.
+        kp = rso_div.css_first("div.kp-wholepage")
+        for layout_name, spec in _STANDARD_LAYOUTS.items():
+            container = rso_div.css_first(spec.detect_css)
+            if container is not None and any(
+                _find_all_with_class(container, sel, filter_empty=False) for sel in spec.detect_sels
+            ):
+                # A whole-page panel ships an empty placeholder tab shell for every
+                # *inactive* tab (no result-block markers); only the active tab
+                # carries content. Detection on "container exists + has any div"
+                # also matches those shells, so a recipe could claim the page off an
+                # inactive tab and drop the active tab's column -- worst with the
+                # keep_tokens=None recipes (songs), whose under-extract guard below
+                # is bypassed. Require the detect tab to actually carry markers.
+                if kp is not None and not ExtractorMain._kp_markers(container):
+                    continue
+                if kp is not None and ExtractorMain._kp_recipe_underextracts(rso_div, kp, spec):
+                    break
+                return self._extract_from_standard_sub_type(layout_name)
+
+        # Whole-page knowledge panel that has collapsed the main result column into
+        # its active tab. Parse that tab as a sub-column of heterogeneous components
+        # (organics, top_stories, videos, specialized widgets, ...) routed through the
+        # normal classify/parse pipeline, instead of emitting the panel as one
+        # mislabeled lump. Supersedes the older div.g-only recovery. Gated so it never
+        # fires for a *complementary* kp panel beside a real organic column.
+        if kp is not None and not ExtractorMain._kp_organics_outside(rso_div, kp):
+            sub_column = ExtractorMain._kp_subcolumn(kp)
+            if sub_column:
+                self.layout_label = "standard-kp-wholepage"
+                log.debug(f"main_layout: {self.layout_label} (update)")
+                return top_divs + sub_column
+
         col = ExtractorMain.extract_children(rso_div, drop_tags)
         col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
+
         if not col:
             self.layout_label = "standard-fallback"
             log.debug(f"main_layout: {self.layout_label} (update)")

@@ -340,10 +340,10 @@
       "section": "rhs",
       "serp_rank": 19,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "United States Congress",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]
