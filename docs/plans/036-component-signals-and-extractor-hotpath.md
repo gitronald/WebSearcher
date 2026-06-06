@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/v0.10.0-component-signals-hotpath
 created: 2026-06-01T13:35:50Z
-completed:
+completed: 2026-06-06T14:51:25-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/157
 ---
 
@@ -345,3 +345,40 @@ per-component signal walks. Major restructure: the document walk currently runs
 aren't known at that point, and the per-component signal sets must be reproduced
 exactly -- high byte-identical risk for the gain. Not attempted without an explicit
 go-ahead; recorded as the open structural lever.
+
+The deferred fuller option 3 was moved to its own plan,
+[044](044-shared-document-walk-signals.md).
+
+### 2026-06-06 -- close: review gate (PR #157)
+
+Ran `/code-review` over the branch diff (3 finder angles). **Clean -- no actionable
+findings.** Interest-set tokens are an exact bijection with the chain's `s.names`/
+`s.ids` tests; `_last_descendant` was stress-checked to 20,000 randomized trees (0
+mismatches) on top of the 1092-component corpus probe; the `_BAD_LABELS` hoist is
+provably identical. The one flagged item -- the `available_on` gate dropping the
+non-`mgAbYb` `/Available on` fallback -- is the documented, intentional dead-code
+removal (conscious no-op), not a defect. Review posted to the PR; no fixes needed.
+
+## Retrospective
+
+- **The plan's "may or may not surface a win" framing held exactly.** Lever 3 was the
+  real prize (-2.6%, the only change to clear the noise floor); Lever 1 and the option-3
+  safe slice were profile-proven but sub-noise on wall-clock; Lever 2 surfaced no clean
+  win at all. Profiling first, committing on profile evidence (not noisy wall-clock),
+  was the right discipline.
+- **Re-baselining before touching code paid off.** The plan-035 table was stale (Python
+  3.13 -> 3.14, `scripts/bench_parse.py` -> `python -m WebSearcher.bench`, reconsolidated
+  corpus) and the dev box's noise floor turned out ~1-4% (vs the assumed 0.3-0.5%), which
+  reframed every "is this a win?" call toward the profile rather than the stopwatch.
+- **Direct equivalence probes beat trusting snapshots** for the byte-identical contract.
+  The 1092-component `_last_descendant` check (and the `available_on` 0x-fallback
+  re-confirmation) caught nothing wrong but made "byte-identical by construction"
+  provable rather than hopeful -- worth the few minutes each.
+- **Two user decisions shaped scope:** keep Lever 1 despite sub-noise wall-clock (profile
+  evidence + it seeds Lever 3's gate infra), and gate `available_on` on `mgAbYb` accepting
+  the unpinnable real-world behavior change. Both were genuine forks the plan flagged;
+  surfacing them rather than guessing was correct.
+- **Option 3 was right to split.** The safe slice (`_range`) was low-risk and shipped; the
+  fuller shared-walk restructure (the 1.96 s `_ComponentSignals` walk) carries real
+  byte-identical risk from the document-walk-runs-before-extraction ordering -- a separate
+  plan ([044](044-shared-document-walk-signals.md)), not a rushed addition here.
