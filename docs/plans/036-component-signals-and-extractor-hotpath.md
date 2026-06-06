@@ -2,8 +2,8 @@
 status: draft
 branch: feature/v0.9.0
 created: 2026-06-01T13:35:50Z
-completed: null
-pr: null
+completed:
+pr:
 ---
 
 # `_ComponentSignals` consolidation + extractor hot-path review

@@ -2,8 +2,8 @@
 status: draft
 branch: feature/v0.9.0-browser-backend
 created: 2026-06-05T17:46:22-07:00
-completed: null
-pr: null
+completed:
+pr:
 ---
 
 # Investigate browser-automation alternatives to undetected_chromedriver

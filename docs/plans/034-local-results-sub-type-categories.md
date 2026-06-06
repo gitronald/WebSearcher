@@ -1,9 +1,9 @@
 ---
 status: draft
-branch: null
+branch:
 created: 2026-05-31T23:47:41-07:00
-completed: null
-pr: null
+completed:
+pr:
 ---
 
 # Replace the local_results sub_type header-slug with a closed category set

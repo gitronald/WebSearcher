@@ -2,8 +2,8 @@
 status: draft
 branch: claude/automate-locations-download
 created: 2026-05-31T00:45:35-07:00
-completed: null
-pr: null
+completed:
+pr:
 ---
 
 # Automate the Locations CSV Download
