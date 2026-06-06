@@ -141,16 +141,21 @@ def searches(
         se.parse_serp()
         se.save_serp(append_to=fps["serps"])
         se.save_search(append_to=fps["searches"])
-        se.save_parsed(append_to=fps["parsed"])
 
         if se.parsed.features.get("captcha"):
             print(f"\n[{i + 1}/{len(queries)}] CAPTCHA for {qry!r}, waiting 5 min...")
             time.sleep(300)
             se.search(qry, ai_expand=ai_expand)
             se.parse_serp()
+            se.save_serp(append_to=fps["serps"])
+            se.save_search(append_to=fps["searches"])
             if se.parsed.features.get("captcha"):
                 print("CAPTCHA still present, stopping.")
                 break
+
+        # Always save the raw SERP above (CAPTCHA pages included); only persist a
+        # parse for a non-CAPTCHA page -- the original, or a recovered retry.
+        se.save_parsed(append_to=fps["parsed"])
 
         if se.parsed.results:
             print(f"\n[{i + 1}/{len(queries)}] {qry}")
