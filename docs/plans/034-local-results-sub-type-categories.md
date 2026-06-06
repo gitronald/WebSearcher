@@ -1,6 +1,6 @@
 ---
-status: draft
-branch:
+status: active
+branch: feature/v0.10.0-local-results-subtypes
 created: 2026-05-31T23:47:41-07:00
 completed:
 pr:
@@ -73,3 +73,53 @@ fallback remains. Plan
   knowledge `dynamic_section` sub_types (`knowledge.py:244`), flagged in plan
   [028](028-knowledge-parsers-and-alink-reconciliation.md) (`:134`), and the
   `perspectives.py:21` header slug. Worth a follow-up pass if this approach lands well.
+
+## Log
+
+### 2026-06-06 — implementation
+
+Branch `feature/v0.10.0-local-results-subtypes` (off `feature/v0.10.0`).
+
+**Evidence re-grounded in the public fixture corpus** (carrying the lesson from
+plan 040, whose Evidence counts turned out to be element-level). The 141-distinct-
+values figure above is from a larger external reparse and is **not reproducible
+from `tests/fixtures/serps.json.bz2`** — the public corpus is already clean. Probe
+(`.claude/scratch/probe_034.py`) over the 87-SERP fixture:
+
+| header (raw) | rows | current sub_type | new sub_type |
+| --- | --- | --- | --- |
+| `Results for  {Palo Alto / Austin / Portland}` | 10 | `results_for` | `results_for` |
+| `Places` | 3 | `places` | `places` |
+| `Locations` | 3 | `locations` | `locations` |
+| `Businesses` | 3 | `businesses` | `businesses` |
+| (no header — "movement") | 3 | `None` | `None` |
+
+Every fixture header already maps to a canonical category, so on the public
+corpus the change is a **no-op for sub_type values** — confirmed by the
+87-snapshot suite passing unchanged. The junk long-tail the plan targets
+(localities, addresses, "These are results for …") simply isn't present in the
+fixtures; the fix is validated by direct unit tests instead.
+
+**Changes:**
+- `WebSearcher/component_parsers/local_results.py`: added the closed
+  `_LOCAL_RESULTS_CATEGORIES` map and a pure `_header_to_sub_type()` helper.
+  Header → category is matched **by phrase**: `"results for"` anywhere (not just
+  as a prefix, so "These are results for …" collapses to `results_for`), known
+  categories (`Places`/`Locations`/`Businesses`/`In-store availability`) → their
+  slug, everything else → `None`. Removed the `else slugify(header_lower)`
+  fallback (and the now-unused `slugify` import). The raw header is still kept in
+  `details["heading"]` for **every** component, including unknown ones, so nothing
+  is lost when no category matches.
+- `WebSearcher/component_types.py`: `local_results.sub_types` updated to the
+  closed set `("results_for", "places", "locations", "businesses",
+  "in-store_availability")` — adds `results_for` (already emitted but previously
+  undeclared) and `in-store_availability`.
+
+**Tests** (`tests/test_local_results.py`, 13 cases): `_header_to_sub_type` over the
+canonical categories + the prefix-vs-contains "results for" fix + junk localities/
+addresses → `None`; a sync guard that every emittable category is a declared
+sub_type; and an integration check that an unknown header drops the sub_type yet
+preserves `details["heading"]`.
+
+**Verification:** full suite `454 passed`, `87 snapshots passed` (no regression);
+`ruff` clean, `pyrefly` 0 errors.
