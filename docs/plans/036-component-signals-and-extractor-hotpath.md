@@ -240,5 +240,36 @@ precondition token not registered here would silently never fire.
 real, profile-proven frame reduction -- but its wall-clock ceiling is low because
 the `css('*')` walk + `classes.update` (untouched) dominate the frame. This is the
 plan's defined decision point ("A/B option 1, then decide whether option 3's shared
-walk is worth the coupling"). Decision on keep-vs-pursue-option-3 pending; Levers 2
-and 3 not yet started.
+walk is worth the coupling"). **Decision (user, 2026-06-06): keep Lever 1 and do
+Lever 3 next** (not option 3's shared walk). Lever 2 not started.
+
+### 2026-06-06 -- Lever 3 (gate available_on on mgAbYb)
+
+Re-confirmed the corpus evidence on the reconsolidated 87-SERP corpus
+(`.claude/lever3_confirm.py`): 1092 main components; 2 `available_on` components
+(`watch the office`, `where to watch breaking bad`), both caught by the cheap
+`span.mgAbYb == "Available on"` heading; the full-component `/Available on` text
+fallback fires **0x**. Both available_on components sit in a generic `ULSxyf`
+wrapper (shared with `banner`), so `mgAbYb` is the only specific signal.
+
+Gated the chain entry to `(ClassifyMain.available_on, lambda s: "mgAbYb" in
+s.classes)`, stopping the expensive full-component `get_text(cmpt)` fallback on the
+~10 non-available_on components/SERP that reach the classifier. The
+preserve-the-non-mgAbYb-path version (direction 1) is not achievable -- that path
+has no corpus example to identify a necessary signal -- so the speculative fallback
+is dropped as evidence-backed dead code (**accepted real-world behavior change**: a
+non-mgAbYb component carrying `/Available on` text would no longer type as
+available_on; unobserved on the corpus, so snapshots cannot pin it).
+
+- **Byte-identical on corpus:** 87 snapshots + 437 tests green, no updates;
+  pyrefly + ruff clean.
+- **Profile A/B** (cumulative, 870 parses): `available_on` cumtime **0.717 s -> ~0**
+  (drops out of the top 45); `get_text` cumtime 1.66 -> 1.15 s (-0.51 s); total
+  calls 11.90M -> 10.45M (**-1.45M**).
+- **Timing A/B** (50x5): baseline 1516.1 -> Lever 1 1502.3 -> **Lever 1+3 1463.3 ms**
+  (this run's noise floor ~1.1%). Lever 3 contributes **-39.0 ms (-2.6%)**; both
+  levers together **-52.8 ms (-3.5%)** vs the original baseline.
+
+**Read:** Lever 3 is the largest win in the plan so far and clears the noise floor
+(its -2.6% > this run's 1.1% floor; the profile evidence is decisive). Lever 2 (the
+extractor profiling pass) remains the open investigation.

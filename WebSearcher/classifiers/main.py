@@ -147,7 +147,15 @@ class ClassifyMain:
             (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
             (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
             (ClassifyMain.ai_overview, lambda s: "Fzsovc" in s.classes or "h2" in s.names),
-            (ClassifyMain.available_on, None),
+            # available_on's full-component ``get_text`` fallback (the
+            # ``/Available on`` substring path) fires 0x across the corpus; the
+            # real cases are caught by its cheap ``span.mgAbYb`` heading. Gating on
+            # that class stops the expensive fallback from running on the ~10
+            # non-available_on components/SERP that otherwise reach this classifier
+            # (plan 036 Lever 3). Tradeoff: a non-mgAbYb component carrying
+            # ``/Available on`` text would no longer be typed available_on --
+            # unobserved on the corpus, accepted as evidence-backed dead code.
+            (ClassifyMain.available_on, lambda s: "mgAbYb" in s.classes),
             (ClassifyMain.knowledge_panel, None),
             (ClassifyMain.knowledge_block, lambda s: "block-component" in s.names),
             (ClassifyMain.banner, lambda s: "uzjuFc" in s.classes),
