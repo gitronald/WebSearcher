@@ -12,6 +12,8 @@ import orjson
 import pytest
 
 import WebSearcher as ws
+from WebSearcher import utils
+from WebSearcher.classifiers.main import ClassifyMain
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -252,3 +254,52 @@ def test_buying_guide(serps_by_qry):
         assert r["title"]  # facet label
         assert r["text"]  # facet question/value
         assert r["error"] is None
+
+
+# --- structural-first dispatch (plan 040) ----------------------------------
+#
+# buying_guide (ITWcLb) and products/brands (gON1yc) carry unique structural CSS
+# signals, so they classify even when their English headers are localized or
+# reworded -- the header-text path alone would miss those. most_read_articles
+# has no such signal and stays header-text-only (documented, not fixed).
+
+
+def _classify(inner: str) -> str:
+    return ClassifyMain.classify(
+        utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    )
+
+
+def test_buying_guide_classifies_structurally_without_english_header():
+    # Localized heading ("Buying guide" not matched), only the ITWcLb row class.
+    cmpt_type = _classify(
+        '<div role="heading">Guia de compra</div><div class="ITWcLb">Tablets: cual?</div>'
+    )
+    assert cmpt_type == "buying_guide"
+
+
+def test_buying_guide_unknown_without_structural_signal():
+    # No ITWcLb and no matching header -> not a buying_guide.
+    assert (
+        _classify('<div role="heading">Guia de compra</div><div>Tablets: cual?</div>')
+        != "buying_guide"
+    )
+
+
+def test_products_brands_classifies_structurally_without_english_header():
+    # Localized heading ("Explore brands" not matched), only the gON1yc card class
+    # and no g-more-link/product-viewer-group gate -- must still reach products.
+    cmpt_type = _classify(
+        '<div role="heading">Explorar marcas</div>'
+        '<div class="gON1yc"><a class="J0tlkf" href="https://x.test">Marca</a></div>'
+    )
+    assert cmpt_type == "products"
+
+
+def test_most_read_articles_has_no_structural_fallback():
+    # Localized heading + generic card classes: header-text-only type is
+    # unclassifiable without the English "Most-read articles" heading.
+    assert (
+        _classify('<div role="heading">Articulos mas leidos</div><div class="EDblX">card</div>')
+        == "unknown"
+    )
