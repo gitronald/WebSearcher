@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -288,7 +289,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -302,7 +305,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -316,7 +321,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -330,7 +337,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -344,7 +353,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 21,
@@ -358,7 +369,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -372,7 +385,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -443,6 +458,7 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "heading": "People also search for",
         "items": [
           "New York Times Now live",
           "Nytimes Games",
@@ -476,10 +492,10 @@
       "section": "rhs",
       "serp_rank": 29,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "The New York Times",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

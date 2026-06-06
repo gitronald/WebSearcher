@@ -1,0 +1,583 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 5290000.0,
+    "result_estimate_time": 0.41
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Footloose",
+        "img_url": null,
+        "subtitle": "PG 1984 ‧ Dance/Musical ‧ 1h 47m",
+        "tabs": [
+          "Overview",
+          "Cast",
+          "Songs",
+          "Trailers & clips",
+          "Watch movie",
+          "Behind the scenes",
+          "Quotes",
+          "Reviews"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "PG 1984 ‧ Dance/Musical ‧ 1h 47m",
+      "title": "Footloose",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": null,
+        "img_url": null,
+        "text": "Kevin Bacon|Ren McCormack|Lori Singer|Ariel Moore|Chris Penn|Willard Hewitt|Sarah Jessica Parker|Rusty Rodriguez|John Lithgow|Reverend Shaw Moore|Dianne Wiest|Vi Moore|John Laughlin|Woody|Jim Youngs|Chuck Cranston|Show more|Show less",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Kevin Bacon|Ren McCormack",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Kevin+Bacon&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gAxTSxNTbSEspOt9NMyc3LBhFVyYnHJIlZu79SyzDwFp8Tk_DwAfNQMhzkAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAC"
+          },
+          {
+            "text": "Lori Singer|Ariel Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Lori+Singer&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjNNcyssC7SEspOt9NMyc3LBhFVyYnHJIlZun_yiTIXgzLz01CIABuN1PzoAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAE"
+          },
+          {
+            "text": "Chris Penn|Willard Hewitt",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Chris+Penn&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjNNqvLM07WEspOt9NMyc3LBhFVyYnHJIlYu54yizGKFgNS8PABMsMlHOQAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAG"
+          },
+          {
+            "text": "Sarah Jessica Parker|Rusty Rodriguez",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Sarah+Jessica+Parker&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gAxc83MyrWEspOt9NMyc3LBhFVyYnHJIlaR4MSixAwFr9Ti4szkRIWAxKLs1CIAmCcSCUIAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAI"
+          },
+          {
+            "text": "John Lithgow|Reverend Shaw Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Lithgow&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjMNK7MNjbWEspOt9NMyc3LBhFVyYnHJIlYer_yMPAWfzJKM9PxyAOCrSF07AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAK"
+          },
+          {
+            "text": "Dianne Wiest|Vi Moore",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Dianne+Wiest&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pSAjONKszLCrWEspOt9NMyc3LBhFVyYnHJIlYel8zEvLxUhfDM1OISAG47UI87AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAM"
+          },
+          {
+            "text": "John Laughlin|Woody",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Laughlin&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gIxTeINCrKrtISyk6300zJzcsGEVXJicckiVl6v_Iw8BZ_E0vSMnMw8AI0aX089AAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAO"
+          },
+          {
+            "text": "Jim Youngs|Chuck Cranston",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Jim+Youngs&stick=H4sIAAAAAAAAAONgFuLUz9U3MM6OL6pS4gIzk9PLDY21hLKTrfTTMnNywYRVcmJxySJWLq_MXIXI_NK89GIAHtHa7zoAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Q9OUBegQIGRAQ"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.imdb.com  › title",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Top  cast  ; Kevin Bacon · Ren McCormack ; Lori Singer · Ariel Moore ; John Lithgow · Rev. Shaw Moore ; Dianne Wiest · Vi Moore ; Chris Penn · Willard Hewitt ...",
+      "title": "Footloose (1984)",
+      "type": "general",
+      "url": "https://www.imdb.com/title/tt0087277/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "Did Kevin Bacon do his own dancing in Footloose?",
+          "How old was Kevin Bacon for Footloose?",
+          "Who starred in the 2011 version of Footloose?",
+          "Did Tom Cruise play in Footloose?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Did Kevin Bacon do his own dancing in Footloose?<|>How old was Kevin Bacon for Footloose?<|>Who starred in the 2011 version of Footloose?<|>Did Tom Cruise play in Footloose?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.imdb.com  › title",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Top  cast  ; Kenny Wormald · Ren ; Julianne Hough · Ariel ; Dennis Quaid · Rev. Shaw Moore ; Andie MacDowell · Vi Moore ; Miles Teller · Willard.",
+      "title": "Footloose (2011)",
+      "type": "general",
+      "url": "https://www.imdb.com/title/tt1068242/"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Footloose_(1984_film)",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Cast  edit · Kevin Bacon as Ren McCormack · Lori Singer as Ariel Moore · John Lithgow as Rev. Shaw Moore · Dianne Wiest as Vi Moore · Chris Penn as Willard · Sarah ...",
+      "title": "Footloose (1984 film)",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Footloose_(1984_film)"
+    },
+    {
+      "cite": "TikTok",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Replying to @illini.jg Footloose cast then and now #1984 ... TikTok  ·  gafcr 16 seconds Jan 27, 2023",
+      "type": "videos",
+      "url": "https://www.tiktok.com/@gafcr/video/7193590928790162734"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers YouTube  ·  Rotten Tomatoes Classic Trailers 1 minute, 37 seconds May 2, 2018",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=P4narQca4Oc"
+    },
+    {
+      "cite": "TikTok",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "introducing our footloose cast! congrats everyone! #theatrekid ... TikTok  ·  miramontemusical 48 seconds 1 month ago",
+      "type": "videos",
+      "url": "https://www.tiktok.com/@miramontemusical/video/7325558988324621611"
+    },
+    {
+      "cite": "https://www.tvguide.com  › movies › footloose › cast",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "Actor · Julianne Hough · Kenny Wormald · Dennis Quaid · Andie MacDowell · Miles Teller · Kenny Wormald · Ray McKinnon · Patrick Flueger. Chuck.",
+      "title": "Footloose - Full Cast & Crew",
+      "type": "general",
+      "url": "https://www.tvguide.com/movies/footloose/cast/2030118709/"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Footloose_(2011_film)",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "It is a remake of the 1984 film of the same name, and stars Kenny Wormald, Julianne Hough, Andie MacDowell and Dennis Quaid. The film follows a young man who ...",
+      "title": "Footloose (2011 film)",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Footloose_(2011_film)"
+    },
+    {
+      "cite": "https://www.themoviedb.org  › movie › 68817-footloose",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "D. Dylan Schettina. Drive-In Bus Boy. Blair Jasin. Bobby. Jasmine Cook. Car Accident Victim. Reece Thomas. Car Accident Victim.",
+      "title": "Footloose (2011) - Cast & Crew",
+      "type": "general",
+      "url": "https://www.themoviedb.org/movie/68817-footloose/cast?language=en-US"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "small",
+      "text": null,
+      "title": "elizabeth gorcey",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "small",
+      "text": null,
+      "title": "julianne hough",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": "small",
+      "text": null,
+      "title": "footloose 2011",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 3,
+      "sub_type": "small",
+      "text": null,
+      "title": "willard hewitt",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 4,
+      "sub_type": "small",
+      "text": null,
+      "title": "footloose remake",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 5,
+      "sub_type": "small",
+      "text": null,
+      "title": "footloose musical",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 6,
+      "sub_type": "small",
+      "text": null,
+      "title": "footloose movie",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 7,
+      "sub_type": "small",
+      "text": null,
+      "title": "john lithgow",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": "Smooth",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 11,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Cast of Footloose now: What happened to the stars of the ... Smooth",
+      "type": "images",
+      "url": "https://www.smoothradio.com/news/entertainment/cast-footloose-now-stars-1984/"
+    },
+    {
+      "cite": "Woman's World",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 12,
+      "sub_type": "medium",
+      "text": null,
+      "title": "See the 1984 Cast of 'Footloose' Then and Now | Woman's World Woman's World",
+      "type": "images",
+      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast"
+    },
+    {
+      "cite": "The Daily Beast",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 13,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Footloose' Remake: Where Are the Original Stars Now? The Daily Beast",
+      "type": "images",
+      "url": "https://www.thedailybeast.com/footloose-remake-where-are-the-original-stars-now"
+    },
+    {
+      "cite": "https://www.themoviedb.org  › movie › 1788-footloose",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Cast  48 · Kevin Bacon. Ren McCormack · Lori Singer. Ariel Moore · John Lithgow. Reverend Shaw Moore · Dianne Wiest. Vi Moore · Chris Penn. Willard Hewitt.",
+      "title": "Footloose (1984) - Cast & Crew - The Movie Database",
+      "type": "general",
+      "url": "https://www.themoviedb.org/movie/1788-footloose/cast?language=en-US"
+    },
+    {
+      "cite": "https://www.womansworld.com  › posts › entertainment",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mar 31, 2023  —  Where is the  Footloose cast  now? · Kevin Bacon · Lori Singer · John Lithgow · Dianne Wiest · Sarah Jessica Parker · Additional Cast Members.",
+      "title": "See the 1984 Cast of 'Footloose' Then and Now",
+      "type": "general",
+      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "footloose actress 2011",
+          "Footloose cast 2021",
+          "footloose cast 2022",
+          "footloose 2011 full movie",
+          "footloose 2021",
+          "footloose' cast 1984 then and now",
+          "footloose movie",
+          "footloose new"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "footloose actress 2011<|>Footloose cast 2021<|>footloose cast 2022<|>footloose 2011 full movie<|>footloose 2021<|>footloose' cast 1984 then and now<|>footloose movie<|>footloose new",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Moving in from Chicago, newcomer Ren McCormack (Kevin Bacon) is in shock when he discovers the small Midwestern town he now calls home has made dancing and rock music illegal. As he struggles to fit in, Ren faces an uphill battle to change things. With the help of his new friend, Willard Hewitt (Christopher Penn), and defiant teen Ariel Moore (Lori Singer), he might loosen up this conservative town. But Ariel's influential father, Reverend Shaw Moore (John Lithgow), stands in the way.… MORE",
+      "title": null,
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Watch now Subscription",
+            "url": "https://link.fubo.tv/al1%3Fv%3D1%26a%3Dplay%26t%3Dprogram%26pid%3DMV000155770000%26o%3D0"
+          },
+          {
+            "text": "Paramount+ Subscription Watch",
+            "url": "https://www.paramountplus.com/movies/footloose/e2q4UqYUFWtEV4e2wRqkrQ8AvavBDkQv?searchReferral=desktop-web&source=google-organic&ftag=PPM-23-10bfh8c"
+          },
+          {
+            "text": "YouTube Primetime subscription Watch",
+            "url": "https://www.youtube.com/attribution_link?utm_campaign=ytcore&yt_product=ytalc&yt_goal=acq&utm_source=int&utm_medium=gs&utm_content=ump&yt_campaign_id=ytalc22&c=ytcore-ytalc-acq-int-gs-ump-ytalc22&utm_term=video&u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKa9HHUcbWYw"
+          },
+          {
+            "text": "Hulu Premium subscription Watch",
+            "url": "https://www.hulu.com/watch/069ce151-62ac-44f7-9ab5-28befae4ca60"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "Watch movie",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers 1:37",
+            "url": "https://www.youtube.com/watch?v=P4narQca4Oc"
+          },
+          {
+            "text": "6.6/10 IMDb Footloose scored 6.6 out of 10 on IMDb.",
+            "url": "https://www.imdb.com/title/tt0087277/"
+          },
+          {
+            "text": "55% Rotten Tomatoes Footloose scored 55 percent on Rotten Tomatoes.",
+            "url": "https://www.rottentomatoes.com/m/1007657-footloose"
+          },
+          {
+            "text": "42% Metacritic Footloose scored 42 percent on Metacritic.",
+            "url": "https://www.metacritic.com/movie/footloose-1984/critic-reviews/"
+          },
+          {
+            "text": "USA",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=United+States&stick=H4sIAAAAAAAAAOPgE-LUz9U3MM6OL6pSAjMtk83LDbSMspOt9NMyc3LBhFVJRmpiSVFmcmKOQlFqemZ-nkJieWJRKpCTk5pYnKqQkliSuoiVNzQvsyQ1RSG4BMgt3sHKuIudiYMBAPI4SORkAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCUQAg"
+          },
+          {
+            "text": "Herbert Ross",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Herbert+Ross&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXhaYTK59pf6dOfMGCd4ZcnA44Ji4I1DJIne8iL_qPlGUDbFj6jTOSXdbdAH1a4anJYh4Exng9hFm8DDKj-Quf6n17GzqxJOTctsm33moRTXtnYeA261Xrlw73IiTs1z4w9X7q4YB9s5xlHju85L2G80TK2Ko&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCYQAg"
+          },
+          {
+            "text": "Paramount Pictures",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Paramount+Pictures&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rmEfz7ClR0jjjfuf1gaK2P6DHWF5gAH2n67WBXguL0ERduDEV2xHPKLCgssZpyxjLXzX2bU-Ng2H0vkeaEuYgAFhfVhWU2U94y_ecMO-sOHJhHECzOeP774eaF2wB40zeH_NuoEGmUT-kcH6cEQcftRTQvHJF6jFDX4z9pWKcvzXFPpv2w%3D%3D&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCMQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Cast of Dirty Dancing 1987",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_poWT6pKd2M-F_iQH-6AOgGXmX2m17011RF0-qs_X7VXi9oGPyAUbCvktmqluLRZZ7080E683x39UijUXyF7PhdVjcP33EvWs50Cgzz9YwbXIJljvjLCG24Lbo6a35DFxPrsrJk4mfgfHHrBzovywyZ_lO1f3JxkGZM9Gn0oAek1hdpIU2S2NFKQKHwu0DZ2YyJuMScpX7MJqCRQ9o6E3Ivtz6ROhGL6KeLBTabx8TryKVIJca6pwc9MehbsnvHzwrT5qRe0i2PhnowjfBqsS9PCL3aSA%3D%3D&q=Cast+of+Dirty+Dancing&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Qs9oBKAB6BAgdEAI"
+          },
+          {
+            "text": "Cast of Flashdance 1983",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_poWT6pKd2M-F_iQH-6AOgGXmX2m17011RF0-qs_X7VXi9oGPyAUbCvktmqluLRZZ6AgYPIALwAVM12aSIvRXcnYV7ROE9l_oOuvJaCS8Q7ZCvp-7mHFh0__UDfBPkT1Xu4rKjQNJPwf10Qhla7899hRHIC4oVEWAU2lDvT1yjPXtORat5NEVUVNPyiXMWPSrxOnUPCI3nFtcNL064y4cPq6WjVYxcNa5jmMgaHBoILqShtzee0Xf0aZ47ymewLmkSQJojl&q=Cast+of+Flashdance&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Qs9oBKAF6BAgdEAM"
+          },
+          {
+            "text": "Cast of Grease 1978",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_poWT6pKd2M-F_iQH-6AOgGXmX2m17011RF0-qs_X7VXi9oGPyAUbCvktmqluLRZZ7Ej0lLXXOB5yKw1MSi_ughlbF6-rvBfSxwT174U6nuzNox6JjY97haNGKe6naQ165Z1eQ2-xyrJkSPoCJvvCehhY71GxctPmhxu3fJSUyfG92kBQlAzBLkeIkqVgaA30vXWBFPyzovAlpVga-EEElAACqQkksSqcolhQ3ptE-vqSqiK2gYidvBkkIyM6lR00KbPRU5&q=Cast+of+Grease&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Qs9oBKAJ6BAgdEAQ"
+          },
+          {
+            "text": "Cast of Pretty in Pink 1986",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_poWT6pKd2M-F_iQH-6AOgGXmX2m17011RF0-qs_X7VXi9oGPyAUbCvktmqluLRZZ5iAMvjDw9IYlCXn_4nDXthW4sluc--zGSqzEFa5N2DFtxG3UywDHb3YMF31FIBTNoTd7-0QWO6a_BiyTSK_HaO6ocWwIqS3JyONHkSiLMNv-JufHVv4d_KsCTdedWOQNe9zNtjMAlauOn5y1gp5dPP1Z140cSdvJ84bKDPtBsHvOedhy9LWHEAVeH7d8mNWC9AJpXkF5hAZPMFDZhgAkYKjDLa8Q%3D%3D&q=Cast+of+Pretty+in+Pink&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0Qs9oBKAN6BAgdEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 3,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

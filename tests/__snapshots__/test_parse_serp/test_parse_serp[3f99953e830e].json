@@ -1,0 +1,1011 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 8450000.0,
+    "result_estimate_time": 0.48
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "location_choose_area",
+      "text": null,
+      "title": "Results for United States",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "9",
+        "price": "$154.99",
+        "source": "Cabela's",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Ultimate Stainless Steel Scout Cook Kit for $154.99 from Cabela's",
+      "type": "shopping_ads",
+      "url": "https://www.cabelas.com/shop/en/kelly-kettle-ultimate-stainless-steel-scout-cook-kit"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$89.99",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Camp Stove Stainless Steel - Boils Water Within Minutes, Uses Natural Fuel, and Enables You to Rehydrate Food or Cook a Meal (Medium for $89.99 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/Camp-Stove-Stainless-Minutes-Rehydrate/dp/B00AQ7YA26?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1DFXHFO2LOYV7"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$169.99",
+        "source": "Kelly Kettle USA",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - VALUE DEAL - Ultimate 'Base Camp' Kelly Kettle Kit (S.Steel) Includes 54oz Camping Kettle, Cook Set, Cups, Plates, Hobo Stove & Pot Support for $169.99 from Kelly Kettle USA",
+      "type": "shopping_ads",
+      "url": "https://www.kellykettleusa.com/ultimate-stainless-base-camp-kit"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "200",
+        "price": "$164.99",
+        "source": "Cabela's",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Ultimate Stainless Steel Base Camp Cook Kit for $164.99 from Cabela's",
+      "type": "shopping_ads",
+      "url": "https://www.cabelas.com/shop/en/kelly-kettle-ultimate-stainless-steel-base-camp-cook-kit"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$179.99",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Ultimate Base Camp Kit – 54 oz Large Stainless Steel Camp Kettle, Lightweight Camping Kettle with Whistle, Kelly Kettle Stove for for $179.99 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/Stainless-Ultimate-Emergencies-Hurricanes-Tornados/dp/B00OABV4I2?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1DFXHFO2LOYV7"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$169.99",
+        "source": "Sagan Life",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 5,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Ultimate Base Camp Kit – Stainless Steel Camp Kettle for $169.99 from Sagan Life",
+      "type": "shopping_ads",
+      "url": "https://saganlife.com/product/ultimate-stainless-base-camp-kit/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$124.99",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 6,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - Base Camp Stainless Steel Basic Kit 54 oz.(1.6 LTR) Large Stainless Steel Camp Kettle, Lightweight Camping Kettle with Whistle, Camp for $124.99 from Amazon.com",
+      "type": "shopping_ads",
+      "url": "https://www.amazon.com/Kelly-Kettle-Large-Stainless-Steel/dp/B004GLCKZC?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1DFXHFO2LOYV7"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$164.99",
+        "source": "Kelly Kettle USA",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 7,
+      "sub_type": "product",
+      "text": null,
+      "title": "Kelly Kettle - VALUE DEAL - Ultimate 'Scout' Kelly Kettle Kit (S.Steel) - Includes 41oz Camping Kettle, Cook Set, Cups, Plates, Hobo Camp Stove & Pot Support for $164.99 from Kelly Kettle USA",
+      "type": "shopping_ads",
+      "url": "https://www.kellykettleusa.com/ultimate-stainless-scout-kit"
+    },
+    {
+      "cite": "https://www.kellykettleusa.com",
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          {
+            "text": "Kits",
+            "url": "https://www.kellykettleusa.com/kelly-kettle-kits"
+          },
+          {
+            "text": "Kettles",
+            "url": "https://www.kellykettleusa.com/kelly-kettles"
+          },
+          {
+            "text": "Stainless Steel 'Scout' Kettle ...",
+            "url": "https://www.kellykettleusa.com/stainless-medium-scout-kelly-kettler-complete-kit"
+          },
+          {
+            "text": "Stainless Steel",
+            "url": "https://www.kellykettleusa.com/kelly-kettles/stainless-steel"
+          },
+          {
+            "text": "More results from kellykettleusa.com »",
+            "url": "/search?q=kelly+kettle+site:kellykettleusa.com&sca_esv=52b056e1a97f92b3&sa=X&ved=2ahUKEwjm5pn9hfCEAxV-FlkFHWieCNQQrAN6BAgOEAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Kelly Kettle  Camping Gear | Boil water & cook fast outdoors | Ideal for scouts, kayaking, hiking, trekking, hunting, fishing, survival, preppers, ...",
+      "title": "Kelly Kettle Camping Kettle & Stove | Boil Water & Cook ...",
+      "type": "general",
+      "url": "https://www.kellykettleusa.com/"
+    },
+    {
+      "cite": "https://www.kellykettle.com",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Enjoy hot water for tea, coffee, rehydrating food, bathing, cooking, etc. Works everywhere, every time! Believed to be the fastest Camping  Kettle  in the world, ...",
+      "title": "Kelly Kettle® Camping Kettle & Stove",
+      "type": "general",
+      "url": "https://www.kellykettle.com/"
+    },
+    {
+      "cite": "https://www.amazon.com  › Camp-Stove-Stainless-Minute...",
+      "cmpt_rank": 4,
+      "details": {
+        "price": "ating: 4.7",
+        "stock": "  217 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "The Stainless Steel  Kelly Kettle  is a multi-use camping stove that gives you the ultimate outdoor experience. You have the ability to boil and purify water ...",
+      "title": "Kelly Kettle Camp Stove Stainless Steel - Boils ...",
+      "type": "general",
+      "url": "https://www.amazon.com/Camp-Stove-Stainless-Minutes-Rehydrate/dp/B00AQ7YA26"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "items": [
+          "Is the Kelly Kettle worth it?",
+          "What does a Kelly Kettle do?",
+          "What is another name for Kelly Kettle?",
+          "How long does it take to boil water in a Kelly Kettle?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Is the Kelly Kettle worth it?<|>What does a Kelly Kettle do?<|>What is another name for Kelly Kettle?<|>How long does it take to boil water in a Kelly Kettle?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "Varuste.net",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "200",
+        "price": "$94.40",
+        "rating": "4.8",
+        "source": "Varuste.net",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Ultimate Base Camp Kit. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Varuste.net",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "108",
+        "price": "$52.80",
+        "rating": "4.9",
+        "source": "Varuste.net",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Base Camp. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Varuste.net",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "111",
+        "price": "$50.69",
+        "rating": "4.9",
+        "source": "Varuste.net",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Scout. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Varuste.net",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "114",
+        "price": "$90.95",
+        "rating": "4.9",
+        "source": "Varuste.net",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Ultimate Stainless Steel Scout Kit. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "70",
+        "price": "$76.99",
+        "rating": "4.9",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Trekker Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Cabela's",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "18",
+        "price": "$117.99",
+        "rating": "4.8",
+        "source": "Cabela's",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Trekker & Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": "1",
+        "price": "$179.99",
+        "rating": "5.0",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Ultimate Base Camp Kit – 54 oz Large Stainless Steel Camp Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 6,
+      "details": {
+        "price": "$174.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Ultimate Scout Kit 41 oz. Stainless Steel Camp Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "https://www.kellykettle.com  › camping-kettles",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "KELLY  CAMPING  KETTLES  · Base Camp - Boils 1.6 litres | Packed Height 33 cm |  Kettle  Width 15.5cm | Widest point of fire-base 18.5cm | Suits: Groups, Family ...",
+      "title": "Survival Kit | Kelly Kettle Camping Kettle & Stove | ...",
+      "type": "general",
+      "url": "https://www.kellykettle.com/camping-kettles"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Kelly_Kettle",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Kelly Kettle , Storm Kettle, Ghillie Kettle, Thermette, Survival Kettle and Volcano Kettle are trade names for portable devices for boiling water outdoors ...",
+      "title": "Kelly Kettle",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Kelly_Kettle"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 0,
+      "sub_type": "shopping",
+      "text": "Shop deals",
+      "title": "Save with deals on apparel, electronics, and more",
+      "type": "promo",
+      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwjm5pn9hfCEAxV-FlkFHWieCNQQ_hF6BAhzEAA"
+    },
+    {
+      "cite": "https://getlost.com  › collections › kelly-kettle",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The  Kelly Kettle , also known as the Ghillie Kettle or Volcano Stove, is designed to boil water outdoors using twigs, leaves, and other small combustible ...",
+      "title": "Kelly Kettles, Kits, and Accessories | Get Lost",
+      "type": "general",
+      "url": "https://getlost.com/collections/kelly-kettle"
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "67",
+        "price": "$124.99",
+        "rating": "4.7",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Base Camp – Basic Kit – Stainless Steel Camp Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "OpticsPlanet.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "12",
+        "price": "$71.24",
+        "rating": "4.3",
+        "source": "OpticsPlanet.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 26,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Aluminum Scout. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "2",
+        "price": "$99.99",
+        "rating": "5.0",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 27,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Trekker Basic Kit – Stainless Steel Camping Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "OpticsPlanet.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "3",
+        "price": "$75.35",
+        "rating": "5.0",
+        "source": "OpticsPlanet.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 28,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Aluminum Base Camp - Large. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "2",
+        "price": "$110.99",
+        "rating": "5.0",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 29,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Trekker Basic Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "nickelsboatworks.com",
+      "cmpt_rank": 11,
+      "details": {
+        "price": "$109.97",
+        "source": "nickelsboatworks.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 30,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "OpticsPlanet.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "14",
+        "price": "$62.34",
+        "rating": "4.8",
+        "source": "OpticsPlanet.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 31,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Aluminum Trekker - Small. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Walmart - Kelly Kettle USA",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "3",
+        "price": "$114.95",
+        "rating": "5.0",
+        "source": "Walmart - Kelly Kettle USA",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 32,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Scout Basic Kit (Medium) - Stainless Steel.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "readymaderesources.com",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$179.99",
+        "source": "readymaderesources.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 33,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Stainless Steel-Base Camp Kelly Kettle - Complete Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$114.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 34,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Scout Basic Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Varuste.net",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "33",
+        "price": "$13.32",
+        "rating": "4.9",
+        "source": "Varuste.net",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 35,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Large Cook Set. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$78.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 36,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Trekker 20 oz. Anodized Aluminum Rocket Stove.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "1",
+        "price": "$109.99",
+        "rating": "5.0",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 37,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Large Aluminum Base Camp Kelly Kettle Basic Kit.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "readymaderesources.com",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$109.99",
+        "source": "readymaderesources.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 38,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Medium Aluminum Scout Camp Stove Basic Kit..",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "readymaderesources.com",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$68.00",
+        "source": "readymaderesources.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 39,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Aluminum-Scout-Medium Kelly Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "7",
+        "price": "$26.99",
+        "rating": "4.8",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 40,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Small Cook Set.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "https://www.amazon.com  › Kelly-Kettle-Large-Stainless-...",
+      "cmpt_rank": 13,
+      "details": {
+        "price": "ating: 4.7",
+        "stock": "  166 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 41,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "The  Kelly kettle  stainless steel base camp basic kit is a highly efficient outdoor camping cook stove which is suitable for car camping, family picnics, ...",
+      "title": "Kelly Kettle Base Camp Stainless Steel Basic Kit ...",
+      "type": "general",
+      "url": "https://www.amazon.com/Kelly-Kettle-Large-Stainless-Steel/dp/B004GLCKZC"
+    },
+    {
+      "cite": "https://saganlife.com  › SHOP",
+      "cmpt_rank": 14,
+      "details": {
+        "price": "ating: 5",
+        "stock": "  19 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 42,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "The  Kelly Kettle  Scout is the medium size stainless steel camping kettle for camping, fishing, hunting, kayaking and outdoor adventures.",
+      "title": "Kelly kettle scout stainless steel camp kettle",
+      "type": "general",
+      "url": "https://saganlife.com/product/stainless-scout-medium-kelly-kettle/"
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 15,
+      "details": {
+        "n_reviews": "62",
+        "price": "$17.99",
+        "rating": "4.8",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 43,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Hobo Stove.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$89.99",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 44,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle 50003 Medium Aluminum Scout Camp Stove.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "prepsos.com",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$98.98",
+        "source": "prepsos.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 45,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle ‘Base Camp’ 54 fl.oz. Camp Kettle (Stainless Steel) – (SHIPS IN 1-2 WEEKS).",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "wellprepared.com",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$84.98",
+        "source": "wellprepared.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 46,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Scout Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Expedition Exchange",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$68.00",
+        "source": "Expedition Exchange",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 47,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Aluminum Base Camp (50002).",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Food Assets",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$76.95",
+        "source": "Food Assets",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 48,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Scout Cookstove.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "wellprepared.com",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$89.98",
+        "source": "wellprepared.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 49,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Stainless Steel Base Camp Kettle.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Food Assets",
+      "cmpt_rank": 15,
+      "details": {
+        "price": "$65.55",
+        "source": "Food Assets",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 50,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Kelly Kettle Trekker Cookstove.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "kelly kettle trekker",
+          "kelly kettle scout",
+          "kelly kettle alternative",
+          "kelly kettle amazon",
+          "Kelly kettle website",
+          "kelly kettle hobo stove"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 51,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "kelly kettle trekker<|>kelly kettle scout<|>kelly kettle alternative<|>kelly kettle amazon<|>Kelly kettle website<|>kelly kettle hobo stove",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 52,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "See results about",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": true,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -461,6 +462,7 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "heading": "Related searches",
         "items": [
           "gu energy gel",
           "gu energy gel how to use",
@@ -499,10 +501,10 @@
       "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "Things to know",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

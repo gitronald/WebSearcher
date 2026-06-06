@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": true,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -196,6 +197,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "Related searches",
         "items": [
           "Koch hiring mississippi salary",
           "Koch hiring mississippi part time",

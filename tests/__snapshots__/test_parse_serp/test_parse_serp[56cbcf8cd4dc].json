@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -46,6 +47,7 @@
         "address": "Aromas, CA",
         "category": "Dog breeder",
         "directions": "/maps/dir//Camp+TLC+Goldens,+CAMP+TLC+GOLDENS,+2234+Leo+Pl,+Aromas,+CA+95004/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808e039404ffb2c7:0xf78fd0ffe3e7783c?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Results for  Palo Alto, CA 94301",
         "hours": "Open 24 hours",
         "n_reviews": 32,
         "phone": "(408) 656-6402",
@@ -60,7 +62,7 @@
       "serp_rank": 2,
       "sub_rank": 0,
       "sub_type": "results_for",
-      "text": "Camp TLC Goldens<|>5.0<|>(32)<|> · Dog breeder<|>35+ years in business · Aromas, CA · (408) 656-6402<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Our puppy is so well behaved, groomed, and adjusted.\"",
+      "text": "Camp TLC Goldens<|>5.0<|>(32)<|> · Dog breeder<|>35+ years in business · Aromas, CA · (408) 656-6402<|>Open 24 hours<|> <|> <|> <|> <|> <|>  <|>\"Our puppy is so well behaved, groomed, and adjusted.\"",
       "title": "Camp TLC Goldens",
       "type": "local_results",
       "url": "http://camptlcgoldens.com/"
@@ -70,6 +72,7 @@
       "cmpt_rank": 2,
       "details": {
         "category": "Dog breeder",
+        "heading": "Results for  Palo Alto, CA 94301",
         "hours": "Open · Closes 6 PM",
         "n_reviews": 67,
         "phone": "(530) 748-7024",
@@ -84,7 +87,7 @@
       "serp_rank": 3,
       "sub_rank": 1,
       "sub_type": "results_for",
-      "text": "Sunset Retrievers<|>4.9<|>(67)<|> · Dog breeder<|>3+ years in business · (530) 748-7024<|>Open<|> · Closes 6 PM<|> <|> <|> <|> <|> <|> <|>\"She is responsive, knowledgeable and helped us get the perfect <|>pup<|>.\"",
+      "text": "Sunset Retrievers<|>4.9<|>(67)<|> · Dog breeder<|>3+ years in business · (530) 748-7024<|>Open<|> · Closes 6 PM<|> <|> <|> <|> <|> <|>  <|>\"She is responsive, knowledgeable and helped us get the perfect <|>pup<|>.\"",
       "title": "Sunset Retrievers",
       "type": "local_results",
       "url": "https://www.sunsetretrievers.com/"
@@ -94,6 +97,7 @@
       "cmpt_rank": 2,
       "details": {
         "category": "Dog breeder",
+        "heading": "Results for  Palo Alto, CA 94301",
         "hours": "Open 24 hours",
         "n_reviews": 11,
         "phone": "(510) 815-8338",
@@ -108,7 +112,7 @@
       "serp_rank": 4,
       "sub_rank": 2,
       "sub_type": "results_for",
-      "text": "East Bay Golden Retrievers<|>4.8<|>(11)<|> · Dog breeder<|>3+ years in business · (510) 815-8338<|>Open 24 hours<|> <|> <|> <|> <|> <|> <|>\"Sophie and Jonathan made the process so smooth when getting our puppy!\"",
+      "text": "East Bay Golden Retrievers<|>4.8<|>(11)<|> · Dog breeder<|>3+ years in business · (510) 815-8338<|>Open 24 hours<|> <|> <|> <|> <|> <|>  <|>\"Sophie and Jonathan made the process so smooth when getting our puppy!\"",
       "title": "East Bay Golden Retrievers",
       "type": "local_results",
       "url": "https://www.eastbaygoldenretrievers.com/"
@@ -120,6 +124,7 @@
         "address": "901 Ames Avenue",
         "category": "Sponsored",
         "directions": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQBRoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASACEgIQkfD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_3Ak2FUEJSCDCYZl-A6LdM_8msBbg&ctype=50&q=&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhawBegQINBAS&adurl=",
+        "heading": "Results for  Palo Alto, CA 94301",
         "hours": "Open · Closes 5 PM",
         "phone": "(408) 262-2133",
         "type": "place",
@@ -131,8 +136,8 @@
       "serp_rank": 5,
       "sub_rank": 3,
       "sub_type": "results_for",
-      "text": "Sponsored<|>Humane Society Silicon Valley<|> <|>My Ad Center<|>4.7<|>(1.7K)<|> · Non-profit organization<|>10+ years in business · 901 Ames Avenue · (408) 262-2133<|>Open<|> · Closes 5 PM",
-      "title": "Humane Society Silicon Valley   My Ad Center",
+      "text": "Sponsored<|>Humane Society Silicon Valley<|>        <|>My Ad Center<|>4.7<|>(1.7K)<|> · Non-profit organization<|>10+ years in business · 901 Ames Avenue · (408) 262-2133<|>Open<|> · Closes 5 PM",
+      "title": "Humane Society Silicon Valley          My Ad Center",
       "type": "local_results",
       "url": "/aclk?sa=L&ai=DChsSEwiKnf3Ah8aSAxUNWpEFHZ9zBJ4YACICCAEQABoCbHI&co=1&ase=2&gclid=EAIaIQobChMIip39wIfGkgMVDVqRBR2fcwSeEBAYASAAEgJy-fD_BwE&cid=CAASugHkaKbCC_7FvsGkN4CC6jOFdZnVj4e22hHkmQt7ALvmE2fj_VQjrXw1woH3BOT7kvWiZA2jxETL2v58ZxOxE1QfOEeO5W3DIJCDGnumZMmSLEaUypyQ8TPlMtsXtPsd0v8kILLJttd9iZ5B2dMg9W2VECSbitoTqilW2AhlP2OwLVmzB9EIIxmLKZ-bTlI2Z01Sr9JwUGcmuBm9UZ8hGOYoUKCwGeQM7UE2GjeHBrpzs8OThKO-tzfqxzY&cce=2&category=acrcp_v1_32&sig=AOD64_253-gfE7QqmGK-tPVNzoOs8lMGIA&q=&nis=4&ctype=99&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQhKwBegQINBAQ&adurl="
     },
@@ -401,6 +406,7 @@
       "cite": null,
       "cmpt_rank": 15,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Golden Retriever puppies San Jose",
           "Golden Retriever puppies Bay Area",

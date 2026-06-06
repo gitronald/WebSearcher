@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard-overview",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -17,7 +18,7 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|Apple Inc|NASDAQ: AAPL|NASDAQ: AAPL|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Send feedback",
+        "subtitle": "NASDAQ: AAPL",
         "type": "panel",
         "urls": []
       },
@@ -26,8 +27,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Apple Inc NASDAQ: AAPL About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Send feedback",
+      "text": "NASDAQ: AAPL",
+      "title": "Apple Inc",
       "type": "knowledge",
       "url": null
     },
@@ -35,54 +36,14 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": "Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock",
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Disclaimer",
-            "url": "/intl/en_us/googlefinance/disclaimer/?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q1AF6BAgrEAQ"
-          },
-          {
-            "text": "Yahoo Finance|Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock|The rally in artificial intelligence (AI) stocks has reversed course as markets get wary about tech companies' spending spree without...|.|5 hours ago",
-            "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
-          },
-          {
-            "text": "Microsoft Corp|401.14| USD|1.90%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+MSFT&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKty8uIteRax8vg5Brs4Blop-Aa7hQAAJFwipEkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAF"
-          },
-          {
-            "text": "Samsung Electronics 1 GDS Representing 25 Ord Shs|1,690.00| EUR|4.84%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=FRA:+SSUN&stick=H4sIAAAAAAAAAONgecRoxi3w8sc9YSndSWtOXmNU5-IKzsgvd80rySypFJLkYoOy-KV4ubj10_UNU8pMzJIqzXkWsXK6BTlaKQQHh_oBAMZYdqRHAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAG"
-          },
-          {
-            "text": "NVIDIA Corp|185.41| USD|7.87%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+NVDA&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKtycqpSeBax8vg5Brs4Blop-IW5OAIA9TcWekkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAH"
-          },
-          {
-            "text": "Amazon.com Inc|210.32| USD|5.55%",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=NASDAQ:+AMZN&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNzKtyLA2yeRax8vg5Brs4BlopOPpG-QEA3pWyeEkAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Qoe4JegQILRAI"
-          },
-          {
-            "text": "Add investments",
-            "url": "https://www.google.com/finance/portfolio/watchlist?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QnIcKegQILRAJ"
-          },
-          {
-            "text": " Disclaimer ",
-            "url": "/intl/en_us/googlefinance/disclaimer/"
-          },
-          {
-            "text": "More about Apple Inc",
-            "url": "https://www.google.com/finance/quote/AAPL:NASDAQ?sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q3ecFKAV6BAgnEAY"
-          }
-        ]
+        "kind": "newsarticle"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock",
+      "text": "Yahoo Finance Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock The rally in artificial intelligence (AI) stocks has reversed course as markets get wary about tech companies' spending spree without... . 5 hours ago",
       "title": null,
       "type": "knowledge",
       "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
@@ -180,9 +141,122 @@
       "url": "https://finance.yahoo.com/quote/AAPL/"
     },
     {
+      "cite": "https://investor.apple.com  › stock-price",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": "Stock Quote: NASDAQ: AAPL ; Day's Open278.13 ;  Closing Price275.91  ; Volume53.0 ; Intraday High279.50 ; Intraday Low273.23. Read more",
+      "title": "Stock Price",
+      "type": "general",
+      "url": "https://investor.apple.com/stock-price/default.aspx"
+    },
+    {
+      "cite": "https://www.cnbc.com  › quotes › AAPL",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": "Apple Inc AAPL:NASDAQ  · Open277.12 · Day High280.91 · Day Low276.93 · Prev Close275.91 · 52 Week High288.62 · 52 Week High Date12/03/25 · 52 Week Low169.21 · 52 ... Read more",
+      "title": "AAPL: Apple Inc - Stock Price, Quote and News",
+      "type": "general",
+      "url": "https://www.cnbc.com/quotes/AAPL"
+    },
+    {
+      "cite": "https://robinhood.com  › Stocks",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": "With a market cap of 4.08T, Apple( AAPL ) trades at $275.55. The  stock  has a  price -to-earnings ratio of 34.91 and currently yields dividends of 37.3%. Read more",
+      "title": "Buy or Sell Apple Stock - AAPL Stock Price Quote & News",
+      "type": "general",
+      "url": "https://robinhood.com/us/en/stocks/AAPL/"
+    },
+    {
+      "cite": "https://www.cnn.com  › markets › stocks › AAPL",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 4,
+      "sub_type": null,
+      "text": "50 analyst ratings · buy 60% · hold 34% · sell 6%. We're sorry, but this information is temporarily unavailable. 1-year  stock price  forecast ... Read more",
+      "title": "AAPL Stock Quote Price and Forecast",
+      "type": "general",
+      "url": "https://www.cnn.com/markets/stocks/AAPL"
+    },
+    {
+      "cite": "https://www.tradingview.com  › symbols › NASDAQ-A...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 5,
+      "sub_type": null,
+      "text": "The current price of AAPL is  278.11 USD  — it has increased by 0.85% in the past 24 hours. Watch Apple Inc stock price performance more closely on the chart. Read more",
+      "title": "NASDAQ:AAPL Stock Price - Apple Inc.",
+      "type": "general",
+      "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/"
+    },
+    {
+      "cite": "https://www.marketwatch.com  › ... › United States",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 6,
+      "sub_type": null,
+      "text": "277.38  ; Volume: 50.06M · 65 Day Avg: 48.04M ; 276.93 Day Range 280.91 ; 169.21 52 Week Range 288.62 ... Read more",
+      "title": "Apple Inc. Stock Quote (U.S.: Nasdaq) - AAPL",
+      "type": "general",
+      "url": "https://www.marketwatch.com/investing/stock/aapl?gaa_at=eafs&gaa_n=AWEtsqcI6rmqUhWQWXdB7nftMsbdz0oi6rBjW11Tzh3nhNMiGIKNC8cHe7SK&gaa_ts=698683a6&gaa_sig=EWhd5MzXq23xs1HpjtdlBERI45VQgDEcNeNTdIO8shte_PMlA3yDWfCvU3GkK3wvnu9R5hSmf976Qy0ZtooBIQ%3D%3D"
+    },
+    {
+      "cite": "https://www.google.com  › quote › AAPL:NASDAQ",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 7,
+      "sub_type": null,
+      "text": "16 hours ago  —  Get the latest Apple Inc (AAPL) real-time quote , historical performance, charts, and other financial information to help you make more ...",
+      "title": "Apple Inc (AAPL) Stock Price & News - Google Finance",
+      "type": "general",
+      "url": "https://www.google.com/finance/quote/AAPL:NASDAQ?hl=en"
+    },
+    {
+      "cite": "https://www.macrotrends.net  › stocks › charts › stock-pri...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 8,
+      "sub_type": null,
+      "text": "The latest closing stock price for Apple as of February 05, 2026 is  276.15 . An investor who bought $1,000 worth of Apple stock at the IPO in 1980 would have ... Read more",
+      "title": "Apple - 46 Year Stock Price History | AAPL",
+      "type": "general",
+      "url": "https://www.macrotrends.net/stocks/charts/AAPL/apple/stock-price-history"
+    },
+    {
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Amazon stock price",
           "Apple share price nse today",
@@ -197,7 +271,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Amazon stock price<|>Apple share price nse today<|>Apple share price in 2007<|>AAPL stock news today<|>Microsoft stock<|>iPhone share price today<|>Google stock price<|>Apple share price chart",

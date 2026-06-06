@@ -14,7 +14,8 @@ import WebSearcher as ws
 # ---------------------------------------------------------------------------
 
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
-SERPS_PATHS = sorted(FIXTURES_DIR.glob("serps-v*.json.bz2"))
+SERPS_PATH = FIXTURES_DIR / "serps.json.bz2"
+SERPS_PATHS = [SERPS_PATH] if SERPS_PATH.exists() else []
 
 
 def load_serps(path: Path) -> list[dict]:
@@ -174,3 +175,16 @@ def test_field_types(all_results):
         assert r["text"] is None or isinstance(r["text"], str)
         assert r["cite"] is None or isinstance(r["cite"], str)
         assert r["error"] is None or isinstance(r["error"], str)
+
+
+def test_features_expose_main_layout(all_parsed_serps):
+    """Every SERP's features carries a str-or-None ``main_layout`` label, and
+    the witnessed fixture distribution (standard / standard-overview /
+    standard-airfares) is present -- pins the extractor->features wiring."""
+    seen = set()
+    for serp in all_parsed_serps:
+        assert "main_layout" in serp["features"]
+        layout = serp["features"]["main_layout"]
+        assert layout is None or isinstance(layout, str)
+        seen.add(layout)
+    assert {"standard", "standard-overview", "standard-airfares"} <= seen

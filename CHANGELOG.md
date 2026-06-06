@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-06-06
+
+- **Breaking (internal):** rewrote the parse pipeline natively on [selectolax](https://github.com/rushter/selectolax) (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp` / `SearchEngine` API and core output schema are unchanged, but `make_soup` / `load_soup` now return a `selectolax` node instead of a `BeautifulSoup` (bs4-style `.find`/`.select`/`.get_text` calls no longer work)
+- **Breaking (output):** renamed the right-hand knowledge-panel rows from `type="knowledge"`/`sub_type="panel_rhs"` to `type="side_bar"` (`sub_type="panel"` for the main entity panel, `sub_type="links"` for each link box); consumers filtering on the old type must switch
+- **Breaking (demos):** moved the demos into the package (`WebSearcher.demos`), run via a single `ws-demo` command (`parse|show|search|searches|headers|locations`); replaces the `demo-search`/`demo-searches` entry points
+- Added `features.main_layout` to `parse_serp` output, and refactored the `standard-*` layout dispatch into a data-driven table with labels derived from the `kp-wp-tab-*` container each detects
+- Added `election_dates`, `election_results`, and `election_resources` component types for whole-page election panels
+- Broadened whole-page knowledge-panel (`kp-wholepage`) coverage: recovered near-empty complementary panel bodies (entity header, VisualDigest sub-results, music sections, related searches, and link boxes), parsed collapsed tabs as a sub-column to recover silently-dropped organics, and dropped the noisy "things to know" Q&A rows
+- Split bare-`tF2Cxc` organic bundles in `general` into one result per organic (excluding People-Also-Ask sources)
+- Optimized `get_text`, the hottest parse helper, with a native selectolax `text()` fast path (byte-identical output)
+- Fixed a `no-rso` layout bug that duplicated the trailing page-level section, and `ComponentList.add_component` to honor an explicit `cmpt_rank` of `0`
+- Dev tooling: emptied `scripts/` — the parse benchmark moved into the package as `WebSearcher.bench`, maintainer workflows became local `.claude/skills/`, and a tracked `tests/test_corpus_integrity.py` gates the fixture corpus in CI
+- Package-wide simplification pass (dead-code removal, shared-helper reuse) with characterization tests pinning every main-layout routing and extraction branch
+
+## [0.8.6] - 2026-05-26
+
+- Fixed `demo_search_headers` for the `requests` method and current API, the `demo_locations` lookahead regex and multiprocessing main guard, and a demo-search Chrome-version import that broke against older installed `websearcher` versions
+- Quieted Selenium teardown (direct `quit()`, muted `urllib3` retry noise)
+
 ## [0.8.5] - 2026-05-26
 
 - Updated demo scripts, examples, and documentation

@@ -1,23 +1,29 @@
 name: Publish
 
+# Publishing only runs once the repository variable PUBLISH_ENABLED is "true":
+#   gh variable set PUBLISH_ENABLED --body true     # enable
+#   gh variable set PUBLISH_ENABLED --body false    # disable (or `gh variable delete`)
+# When unset/false, tag pushes trigger this workflow but both jobs skip.
 on:
   push:
     tags: ["v*"]
 
 jobs:
   build:
+    if: vars.PUBLISH_ENABLED == 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-      - uses: astral-sh/setup-uv@v8.1.0
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+      - uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
       - run: uv build
-      - uses: actions/upload-artifact@v7
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7
         with:
           name: dist
           path: dist/
 
   publish:
     needs: build
+    if: vars.PUBLISH_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment:
       name: pypi
@@ -26,8 +32,8 @@ jobs:
       id-token: write
       contents: read
     steps:
-      - uses: actions/download-artifact@v8
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c  # v8
         with:
           name: dist
           path: dist/
-      - uses: pypa/gh-action-pypi-publish@release/v1
+      - uses: pypa/gh-action-pypi-publish@cef221092ed1bacb1cc03d23a2d87d1d172e277b  # v1.14.0

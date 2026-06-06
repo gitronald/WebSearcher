@@ -7,54 +7,91 @@ submenus (rating, list, table, mini), scholarly results, products, and videos.
 
 import re
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import get_link, get_text
+from .._slx import class_tokens, get_text
+from ._common import parse_alink_list
 
 
-def parse_general_results(cmpt: bs4.element.Tag) -> list:
-    subs = find_subcomponents(cmpt)
+def parse_general_results(elem) -> list:
+    node: Node = elem
+    subs = find_subcomponents(node)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def find_subcomponents(cmpt: bs4.element.Tag) -> list:
-    # Standard format
-    subs = cmpt.find_all("div", {"class": "g"})
+def find_subcomponents(node: Node) -> list[Node]:
+    self_id = node.mem_id
+    # Standard format -- exclude self so a wrapping div.g doesn't match itself.
+    subs = [n for n in node.css("div.g") if n.mem_id != self_id]
     if subs:
-        parent_g = subs[0]  # first .g in document order (== cmpt.find("div", {"class": "g"}))
-        if parent_g.find("div", {"class": "g"}):
-            return [parent_g]  # Nested .g dedup
+        parent_g = subs[0]  # first .g in document order
+        # Nested .g dedup: if parent_g itself contains another .g descendant
+        # (excluding parent_g itself), return only the outer wrapper.
+        parent_id = parent_g.mem_id
+        nested = next((n for n in parent_g.css("div.g") if n.mem_id != parent_id), None)
+        if nested is not None:
+            return [parent_g]
         return subs
 
     # Sub-results format (2023+)
-    additional = cmpt.find_all("div", {"class": "d4rhi"})
+    additional = [n for n in node.css("div.d4rhi") if n.mem_id != self_id]
     if additional:
-        first = cmpt.find("div")
-        return [first] + list(additional) if first else list(additional)
+        first = next((n for n in node.css("div") if n.mem_id != self_id), None)
+        return [first] + additional if first is not None else additional
 
     # Video results
-    subs = cmpt.find_all("div", {"class": "PmEWq"})
+    subs = [n for n in node.css("div.PmEWq") if n.mem_id != self_id]
     if subs:
-        return list(subs)
+        return subs
+
+    # Bare organics: several div.tF2Cxc with no div.g wrapper (e.g. a finance /
+    # airfares kp-wholepage tab groups multiple organics in one container). Split
+    # into one result per tF2Cxc so they are not collapsed into a single result.
+    # People-Also-Ask sources (a tF2Cxc inside div.related-question-pair) are not
+    # organics and are excluded. Gated to the multi-tF2Cxc case so single-result
+    # blocks keep the whole-node fallback below.
+    tfs = [n for n in node.css("div.tF2Cxc") if n.mem_id != self_id and not _in_paa_source(n, node)]
+    if len(tfs) > 1:
+        return tfs
 
     # Fallback: treat entire component as single result
-    return [cmpt]
+    return [node]
 
 
-def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def _in_paa_source(sub: Node, root: Node) -> bool:
+    """True if ``sub`` sits inside a People-Also-Ask ``div.related-question-pair``
+    within ``root`` -- a PAA answer source, not an organic result."""
+    node = sub.parent
+    while node is not None and node.mem_id != root.mem_id:
+        if "related-question-pair" in class_tokens(node):
+            return True
+        node = node.parent
+    return False
+
+
+def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
     if is_general_video(sub):
         return parse_general_video(sub, sub_rank=sub_rank)
 
-    title_div = sub.find("div", {"class": "rc"}) or sub.find("div", {"class": "yuRUbf"})
-    body_div = sub.find("span", {"class": "st"}) or sub.find("div", {"class": "VwiC3b"})
+    sub_id = sub.mem_id
+    title_div = next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None
+    )
+    body_div = next((n for n in sub.css("span.st") if n.mem_id != sub_id), None) or next(
+        (n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None
+    )
+
+    title_h3 = title_div.css_first("h3") if title_div is not None else None
+    title_a = title_div.css_first("a") if title_div is not None else None
+    cite_el = next((n for n in sub.css("cite") if n.mem_id != sub_id), None)
 
     parsed: dict = {
         "type": "general",
         "sub_rank": sub_rank,
-        "title": get_text(title_div, "h3") if title_div else None,
-        "url": get_link(title_div) if title_div else None,
-        "text": get_text(body_div) if body_div else None,
-        "cite": get_text(sub, "cite"),
+        "title": get_text(title_h3, " ") if title_h3 is not None else None,
+        "url": title_a.attributes.get("href") if title_a is not None else None,
+        "text": get_text(body_div, " ") if body_div is not None else None,
+        "cite": get_text(cite_el, " ") if cite_el is not None else None,
     }
 
     if parsed["title"] is None and parsed["url"] is None:
@@ -63,38 +100,27 @@ def parse_general_result(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     return parse_subtype_details(sub, parsed)
 
 
-def parse_alink(a: bs4.element.Tag) -> dict:
-    return {"url": a.attrs["href"], "text": a.text}
-
-
-def parse_alink_list(alinks) -> list:
-    items = []
-    for a in alinks:
-        if isinstance(a, bs4.element.Tag) and "href" in a.attrs:
-            items.append(parse_alink(a))
-    return items
-
-
-def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
+def parse_subtype_details(sub: Node, parsed: dict) -> dict:
     details: dict = {}
 
-    # If top menu with children, ignore URLs and get correct title URL
-    top_menu = sub.find("div", {"class": "yWc32e"})
-    if top_menu:
-        has_children = list(top_menu.children)
-        if has_children:
-            for child in top_menu.children:
+    # If top menu with children, ignore URLs and get correct title URL.
+    top_menu = sub.css_first("div.yWc32e")
+    if top_menu is not None:
+        children = list(top_menu.iter(include_text=False))
+        if children:
+            for child in children:
                 child.decompose()
-            h3 = sub.find("h3")
-            if h3:
-                a = h3.find("a")
-                if a:
-                    parsed["url"] = a["href"]
+            h3 = sub.css_first("h3")
+            if h3 is not None:
+                a = h3.css_first("a")
+                if a is not None:
+                    parsed["url"] = a.attributes["href"]
 
-    if "d4rhi" in sub.attrs.get("class", []):
+    sub_classes = class_tokens(sub)
+    if "d4rhi" in sub_classes:
         parsed["sub_type"] = "subresult"
 
-    elif sub.find("div", {"class": "d86Vh"}):
+    elif sub.css_first("div.d86Vh") is not None:
         # Image thumbnail strip (e.g. Pinterest board, Etsy market, shop pages):
         # a horizontal row of g-img previews that all link back to the result.
         # The thumbnails are JS-driven data: placeholders with no per-image url
@@ -102,62 +128,58 @@ def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
         # fits an existing details schema to capture.
         parsed["sub_type"] = "image_strip"
 
-    elif sub.find("g-review-stars"):
+    elif (stars := sub.css_first("g-review-stars")) is not None:
         # Submenu - rating
         parsed["sub_type"] = "submenu_rating"
-        stars = sub.find("g-review-stars")
-        sibling = stars.next_sibling if stars else None
-        if sibling:
+        sibling = _next_sibling_with_text(stars)
+        if sibling is not None:
             text = str(sibling).strip()
             if len(text):
                 ratings = parse_ratings(text.split("-"))
                 details.update(ratings)
                 details["type"] = "review"
 
-    elif sub.find("div", {"class": ["P1usbc", "IThcWe"]}):
+    elif (submenu_div := sub.css_first("div.P1usbc, div.IThcWe")) is not None:
         # Submenu - list format
         parsed["sub_type"] = "submenu"
-        submenu_div = sub.find("div", {"class": ["P1usbc", "IThcWe"]})
-        if submenu_div:
-            alinks = submenu_div.find_all("a")
-            details["type"] = "hyperlinks"
-            details["items"] = parse_alink_list(alinks)
+        alinks = list(submenu_div.css("a"))
+        details["type"] = "hyperlinks"
+        details["items"] = parse_alink_list(alinks)
 
-    elif sub.find("table"):
+    elif (table := sub.css_first("table")) is not None:
         # Submenu - table format
         parsed["sub_type"] = "submenu"
-        table = sub.find("table")
-        alinks = table.find_all("a") if table else []
+        alinks = list(table.css("a"))
         details["type"] = "hyperlinks"
         details["items"] = parse_alink_list(alinks)
 
-    elif sub.find("div", {"class": ["osl", "jYOxx"]}):
+    elif (submenu := sub.css_first("div.osl, div.jYOxx")) is not None:
         # Mini submenu
         parsed["sub_type"] = "submenu_mini"
-        submenu = sub.find("div", {"class": ["osl", "jYOxx"]})
-        alinks = submenu.find_all("a") if submenu else []
+        alinks = list(submenu.css("a"))
         details["type"] = "hyperlinks"
         details["items"] = parse_alink_list(alinks)
 
-    elif sub.find("div", {"class": re.compile("fG8Fp")}):
-        scholar_div = sub.find("div", {"class": re.compile("fG8Fp")})
-        alinks = scholar_div.find_all("a") if scholar_div else []
-        if len(alinks) and "Cited by" in alinks[0].text:
+    elif (scholar_div := sub.css_first('div[class*="fG8Fp"]')) is not None:
+        # bs4 ``find("div", {"class": re.compile("fG8Fp")})`` is regex substring
+        # match; CSS ``[class*="fG8Fp"]`` is the same substring semantics here.
+        alinks = list(scholar_div.css("a"))
+        if alinks and "Cited by" in (get_text(alinks[0]) or ""):
             # Scholar results
             parsed["sub_type"] = "submenu_scholarly"
             details["type"] = "hyperlinks"
             details["items"] = parse_alink_list(alinks)
 
         # Product results
-        text = get_text(sub, "div", {"class": re.compile("fG8Fp")}) or ""
+        text = get_text(scholar_div, " ") or ""
         if not alinks and "$" in text:
             parsed["sub_type"] = "submenu_product"
             details.update(parse_product(text))
             details["type"] = "product"
 
-    elif rating_span := sub.find("span", {"class": ["Y0A0hc", "z3HNkc"]}):
+    elif (rating_span := sub.css_first("span.Y0A0hc, span.z3HNkc")) is not None:
         # Modern rating widget (e.g. entertainment titles with star ratings)
-        ratings = parse_rating_aria_label(str(rating_span.get("aria-label", "")))
+        ratings = parse_rating_aria_label(str(rating_span.attributes.get("aria-label", "")))
         if ratings:
             details["type"] = "ratings"
             details.update(ratings)
@@ -166,8 +188,26 @@ def parse_subtype_details(sub: bs4.element.Tag, parsed: dict) -> dict:
     return parsed
 
 
+def _next_sibling_with_text(node: Node) -> Node | None:
+    """bs4 ``.next_sibling`` semantics: returns the next sibling INCLUDING text
+    nodes (selectolax ``.next`` may skip text)."""
+    parent = node.parent
+    if parent is None:
+        return None
+    siblings = list(parent.iter(include_text=True))
+    node_id = node.mem_id
+    for i, sib in enumerate(siblings):
+        if sib.mem_id == node_id and i + 1 < len(siblings):
+            return siblings[i + 1]
+    return None
+
+
 _ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
 _ARIA_REVIEWS_RE = re.compile(r"\(([\d,]+)\)\s*user reviews?")
+_RATING_NUMERIC_RE = re.compile(r"^\d*[.]?\d*$")
+_RATING_VOTES_RE = re.compile(r" vote[s]?| review[s]?")
+_RATING_REVIEW_BY_RE = re.compile("Review by")
+_PRODUCT_SPLIT_RE = re.compile("-|·")
 
 
 def parse_rating_aria_label(aria_label: str) -> dict:
@@ -187,26 +227,24 @@ def parse_rating_aria_label(aria_label: str) -> dict:
 
 def parse_ratings(text) -> dict:
     text = [t.strip() for t in text]
-    numeric = re.compile(r"^\d*[.]?\d*$")
     rating = re.split("Rating: ", text[0])[-1]
-    details: dict = {"rating": float(rating)} if numeric.match(rating) else {"rating": rating}
+    details: dict = (
+        {"rating": float(rating)} if _RATING_NUMERIC_RE.match(rating) else {"rating": rating}
+    )
 
     if len(text) > 1:
-        str_match_0 = re.compile(" vote[s]?| review[s]?")
-        str_match_1 = re.compile("Review by")
-        if str_match_0.search(text[1]):
-            reviews = re.split(str_match_0, text[1])[0]
+        if _RATING_VOTES_RE.search(text[1]):
+            reviews = re.split(_RATING_VOTES_RE, text[1])[0]
             reviews = reviews.replace(",", "")[1:]  # [1:] drops unicode char
             details["reviews"] = int(reviews)
-        elif str_match_1.search(text[1]):
+        elif _RATING_REVIEW_BY_RE.search(text[1]):
             details["reviews"] = 1
 
     return details
 
 
 def parse_product(text: str) -> dict:
-    split_match = re.compile("-|·")
-    parts = re.split(split_match, text)
+    parts = re.split(_PRODUCT_SPLIT_RE, text)
     if len(parts) == 1:
         return {"price": parts[0].strip()[1:]}
     return {"price": parts[0].strip()[1:], "stock": parts[1].strip()[1:]}
@@ -215,33 +253,32 @@ def parse_product(text: str) -> dict:
 # General Video Results -----------------------------------------------------
 
 
-def is_general_video(cmpt: bs4.element.Tag) -> bool:
-    class_list = cmpt.get("class") or []
-    return "PmEWq" in class_list
+def is_general_video(sub: Node) -> bool:
+    return "PmEWq" in class_tokens(sub)
 
 
-def parse_general_video(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
-    a = sub.select_one("a[href]")
+def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
+    a = sub.css_first("a[href]")
+    title_el = sub.css_first("h3.LC20lb")
+    body_el = sub.css_first(".ITZIwc")
+    cite_el = sub.css_first("cite")
     return {
         "type": "general",
         "sub_type": "video",
         "sub_rank": sub_rank,
-        "title": get_result_text(sub, "h3.LC20lb"),
-        "url": a.get("href", "") if a else None,
-        "text": get_result_text(sub, ".ITZIwc"),
-        "cite": get_result_text(sub, "cite", strip=False),
+        "title": get_text(title_el, strip=True) if title_el is not None else None,
+        "url": a.attributes.get("href", "") if a is not None else None,
+        "text": get_text(body_el, strip=True) if body_el is not None else None,
+        "cite": get_text(cite_el, strip=False) if cite_el is not None else None,
         "details": get_result_details(sub),
     }
 
 
-def get_result_text(cmpt: bs4.element.Tag, selector: str, strip: bool = True) -> str | None:
-    element = cmpt.select_one(selector)
-    return element.get_text(strip=strip) if element else None
-
-
-def get_result_details(cmpt: bs4.element.Tag) -> dict | None:
-    source = get_result_text(cmpt, ".gqF9jc", strip=False)
-    duration = get_result_text(cmpt, ".JIv15d")
+def get_result_details(sub: Node) -> dict | None:
+    source_el = sub.css_first(".gqF9jc")
+    duration_el = sub.css_first(".JIv15d")
+    source = get_text(source_el, strip=False) if source_el is not None else None
+    duration = get_text(duration_el, strip=True) if duration_el is not None else None
     if source is None and duration is None:
         return None
     return {"type": "video", "source": source, "duration": duration}

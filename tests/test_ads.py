@@ -5,8 +5,8 @@ from WebSearcher.component_parsers.ads import classify_ad_type
 
 
 def comp(inner: str):
-    """Wrap inner HTML in a component Tag (selectors match descendants, not self)."""
-    return utils.make_soup(f'<div class="wrap">{inner}</div>').find("div", {"class": "wrap"})
+    """Wrap inner HTML in a component ``Node`` (selectors match descendants, not self)."""
+    return utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
 
 
 def test_classify_standard_ad():

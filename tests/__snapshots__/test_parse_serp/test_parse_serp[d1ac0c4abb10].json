@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -196,6 +197,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "People also search for",
         "items": [
           "CDC guidelines for COVID 2025 return to work",
           "CDC COVID guidelines",

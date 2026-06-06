@@ -145,11 +145,7 @@ def test_location_overlay_no_div():
 
 
 def test_extract_from_soup():
-    from bs4 import BeautifulSoup
-
-    soup = BeautifulSoup(
-        make_html('<div id="result-stats">About 99 results (0.3 seconds)</div>'), "lxml"
-    )
+    soup = make_soup('<div id="result-stats">About 99 results (0.3 seconds)</div>')
     features = FeatureExtractor.extract_features(soup)
     assert features.result_estimate_count == 99
     assert features.result_estimate_time == 0.3
@@ -159,9 +155,9 @@ def test_extract_from_soup():
 
 
 def make_soup(body="", lang="en"):
-    from bs4 import BeautifulSoup
+    from WebSearcher import utils
 
-    return BeautifulSoup(make_html(body, lang), "lxml")
+    return utils.make_soup(make_html(body, lang))
 
 
 def test_soup_language():

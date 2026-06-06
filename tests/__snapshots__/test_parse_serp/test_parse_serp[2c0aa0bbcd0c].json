@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -137,7 +138,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -151,7 +154,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -165,7 +170,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -179,7 +186,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 9,
@@ -193,7 +202,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -207,7 +218,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 11,
@@ -221,7 +234,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 12,
@@ -235,7 +250,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
@@ -249,7 +266,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -263,7 +282,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -277,7 +298,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -291,7 +314,9 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -323,6 +348,7 @@
         "address": "240 Stanford Shopping Center",
         "category": "Yoga studio",
         "directions": "/maps/dir//YogaSix+Palo+Alto,+240+Stanford+Shopping+Center,+Palo+Alto,+CA+94304/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb2e2a95157b:0x9d9f771f7b7742bf?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Businesses",
         "hours": "Open · Closes 9 PM",
         "n_reviews": 417,
         "phone": "(650) 398-0889",
@@ -337,7 +363,7 @@
       "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": "businesses",
-      "text": "YogaSix Palo Alto<|>4.9<|>(417)<|> · Yoga studio<|>3+ years in business · 240 Stanford Shopping Center<|>Open<|> · Closes 9 PM<|> · (650) 398-0889<|> <|> <|> <|> <|> <|> <|>\"challenging classes and great instructors in a very pleasant environment!\"",
+      "text": "YogaSix Palo Alto<|>4.9<|>(417)<|> · Yoga studio<|>3+ years in business · 240 Stanford Shopping Center<|>Open<|> · Closes 9 PM<|> · (650) 398-0889<|> <|> <|> <|> <|> <|>  <|>\"challenging classes and great instructors in a very pleasant environment!\"",
       "title": "YogaSix Palo Alto",
       "type": "local_results",
       "url": "http://www.yogasix.com/palo-alto"
@@ -349,6 +375,7 @@
         "address": "158 Hamilton Ave",
         "category": "Yoga studio",
         "directions": "/maps/dir//YogaSource,+158+Hamilton+Ave,+Palo+Alto,+CA+94301/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fbb3a3ff64567:0xb3bebd7e0ef7474d?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Businesses",
         "hours": "Open · Closes 9 PM",
         "n_reviews": 65,
         "phone": "(650) 328-9642",
@@ -363,7 +390,7 @@
       "serp_rank": 20,
       "sub_rank": 1,
       "sub_type": "businesses",
-      "text": "YogaSource<|>4.3<|>(65)<|> · Yoga studio<|>30+ years in business · 158 Hamilton Ave<|>Open<|> · Closes 9 PM<|> · (650) 328-9642<|> <|> <|> <|> <|> <|> <|>\"I am  <|>beginner<|> in this and couldn't be more happy choosing this studio.\"",
+      "text": "YogaSource<|>4.3<|>(65)<|> · Yoga studio<|>30+ years in business · 158 Hamilton Ave<|>Open<|> · Closes 9 PM<|> · (650) 328-9642<|> <|> <|> <|> <|> <|>  <|>\"I am  <|>beginner<|> in this and couldn't be more happy choosing this studio.\"",
       "title": "YogaSource",
       "type": "local_results",
       "url": "http://yogasource.com/"
@@ -375,6 +402,7 @@
         "address": "Menlo Park, CA",
         "category": "Yoga studio",
         "directions": "/maps/dir//Yogarok,+1100+Chestnut+St+Suite+718,+Menlo+Park,+CA+94025/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fa57c9f732d11:0xcdc92ba5a53d0f9?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Businesses",
         "hours": "Closed · Opens 8:30 AM Sun",
         "n_reviews": 6,
         "rating": 5.0,
@@ -388,7 +416,7 @@
       "serp_rank": 21,
       "sub_rank": 2,
       "sub_type": "businesses",
-      "text": "Yogarok<|>5.0<|>(6)<|> · Yoga studio<|>3+ years in business · Menlo Park, CA<|>Closed<|> · Opens 8:30 AM Sun<|> <|> <|> <|> <|> <|> <|>\"The classes are great - it’s definitely worth a visit!\"",
+      "text": "Yogarok<|>5.0<|>(6)<|> · Yoga studio<|>3+ years in business · Menlo Park, CA<|>Closed<|> · Opens 8:30 AM Sun<|> <|> <|> <|> <|> <|>  <|>\"The classes are great - it’s definitely worth a visit!\"",
       "title": "Yogarok",
       "type": "local_results",
       "url": "https://yogarok.com/"
@@ -467,6 +495,7 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Yoga for beginners free app",
           "Yoga for beginners youtube",

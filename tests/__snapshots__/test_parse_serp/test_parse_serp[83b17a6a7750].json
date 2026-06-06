@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -197,6 +198,7 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Effects of sleep deprivation on cognition pdf",
           "10 cognitive effects of sleep deprivation",

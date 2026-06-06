@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -305,6 +306,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "U.S. Congress members",
           "U.S. Senate",
@@ -338,10 +340,10 @@
       "section": "rhs",
       "serp_rank": 19,
       "sub_rank": 0,
-      "sub_type": "panel_rhs",
+      "sub_type": "panel",
       "text": null,
       "title": "United States Congress",
-      "type": "knowledge",
+      "type": "side_bar",
       "url": null
     }
   ]

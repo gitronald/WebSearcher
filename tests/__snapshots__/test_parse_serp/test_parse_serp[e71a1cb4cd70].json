@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -17,7 +18,14 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|Breaking Bad|2008 ‧ Drama ‧ 5 seasons|2008 ‧ Drama ‧ 5 seasons|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Claim this knowledge panel|Send feedback|Overview|Overview|Overview|Cast|Cast|Cast|Watch show|Watch show|Watch show|Episode guide|Episode guide|Episode guide|Reviews|Reviews|Reviews",
+        "subtitle": "2008 ‧ Drama ‧ 5 seasons",
+        "tabs": [
+          "Overview",
+          "Cast",
+          "Watch show",
+          "Episode guide",
+          "Reviews"
+        ],
         "type": "panel",
         "urls": [
           {
@@ -51,8 +59,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Breaking Bad 2008 ‧ Drama ‧ 5 seasons About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Claim this knowledge panel Send feedback Overview Cast Watch show Episode guide Reviews",
+      "text": "2008 ‧ Drama ‧ 5 seasons",
+      "title": "Breaking Bad",
       "type": "knowledge",
       "url": null
     },
@@ -309,6 +317,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Where to watch breaking bad reddit",
           "How to watch Breaking Bad without Netflix",

@@ -1,0 +1,951 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1280000000.0,
+    "result_estimate_time": 0.53
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "items": [
+          {
+            "text": "TOPS Products",
+            "url": "/search?q=tops+products+file+folder&shoprs=CAEYASoLZmlsZSBmb2xkZXIyGwgBEg1UT1BTIFByb2R1Y3RzOggIg_M8EIy6QFisyyBgAQ&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAB6BAgNEAM"
+          },
+          {
+            "text": "Get it fast",
+            "url": "/search?q=file+folder&shoprs=CAESFpoBEwoRCAMqCQoDVVNEEMCEPTgBSAEYFCoLZmlsZSBmb2xkZXIyLQgUEgtHZXQgaXQgZmFzdCIWmgETChEIAyoJCgNVU0QQwIQ9OAFIASoEEAEYAWAB&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAF6BAgNEAQ"
+          },
+          {
+            "text": "Nearby",
+            "url": "/search?q=file+folder+nearby&shoprs=CAEYAyoLZmlsZSBmb2xkZXIyDAgDEgZOZWFyYnkYAlisyyBgAQ&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAJ6BAgNEAU"
+          },
+          {
+            "text": "Smead",
+            "url": "/search?q=smead+file+folder&shoprs=CAEYASoLZmlsZSBmb2xkZXIyEwgBEgVTbWVhZDoICIPzPBCL2FBYrMsgYAE&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAN6BAgNEAY"
+          },
+          {
+            "text": "Used",
+            "url": "/search?q=used+file+folder&shoprs=CAESBTIDCgEDGAoqC2ZpbGUgZm9sZGVyMhMIChIEVXNlZCIFMgMKAQMqAhgBWKzLIGAB&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAR6BAgNEAc"
+          },
+          {
+            "text": "Under $5",
+            "url": "/search?q=file+folder+under+$5&shoprs=CAESDRILEQAAAADQElNBGAEYBSoLZmlsZSBmb2xkZXIyIQgFEghVbmRlciAkNRgCIg0SCxEAAAAA0BJTQRgBKgIYAVisyyBgAQ&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAV6BAgNEAg"
+          },
+          {
+            "text": "3 Ring",
+            "url": "/search?q=3+ring+file+folder&shoprs=CAEYASoLZmlsZSBmb2xkZXIyFAgBEgYzIFJpbmc6CAiugDsQr4A7WKzLIGAB&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAZ6BAgNEAk"
+          },
+          {
+            "text": "Small business",
+            "url": "/search?q=file+folder&shoprs=CAESAmoAGBYqC2ZpbGUgZm9sZGVyMhwIFhIOU21hbGwgYnVzaW5lc3MiAmoAKgQQARgBYAE&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQip4GKAd6BAgNEAo"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "top_image_carousel",
+      "url": null
+    },
+    {
+      "cite": "Office Depot",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "8.6K",
+        "price": "$18.49",
+        "rating": "4.8",
+        "source": "Office Depot",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Office Depot File Folders 1/3 Cut.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "347",
+        "price": "$14.30",
+        "rating": "4.3",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Basics Hanging Folders Letter.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Staples",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "209",
+        "price": "$12.29",
+        "rating": "4.7",
+        "source": "Staples",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Staples File Folder 1/3 Cut Tab.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Target",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "53",
+        "price": "$3.99",
+        "rating": "4.8",
+        "source": "Target",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "up & up Manila File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Walmart - BOP CO",
+      "cmpt_rank": 1,
+      "details": {
+        "price": "$14.98",
+        "source": "Walmart - BOP CO",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Better Office Products Lined File Folders 24 Pack Notes Tabbed File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Office Depot",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "374",
+        "price": "$25.99",
+        "rating": "4.6",
+        "source": "Office Depot",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Pendaflex Expanding File.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "43",
+        "price": "$9.49",
+        "rating": "4.7",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Amazon Basics Expanding Organizer File Folder.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Smead Manufacturing",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": "2.5K",
+        "price": "$25.96",
+        "rating": "4.7",
+        "source": "Smead Manufacturing",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Smead 1/3-Cut Tab File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "https://www.amazon.com  › File-Folders",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Pendaflex  File Folders , Letter Size, 8-1/2\" x 11\", Classic Manila, 1/3-Cut Tabs in Left, Right, Center Positions, 100 Per Box (65213).",
+      "title": "File Folders",
+      "type": "general",
+      "url": "https://www.amazon.com/File-Folders/b?ie=UTF8&node=1069608"
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Pendaflex File Folders, Letter Size, 8-1/2\" x 11\", Classic Manila, 1/3-Cut  Tabs in Left, Right, Center Positions, 100 Per Box (65213) Amazon.com",
+      "type": "images",
+      "url": "https://www.amazon.com/Pendaflex-Folders-Classic-Positions-65213/dp/B0722L14L3"
+    },
+    {
+      "cite": "Amazon",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Smead Reversible Tab File Folders, 1/2-Cut Tab (15394) Amazon",
+      "type": "images",
+      "url": "https://www.amazon.com/Smead-Reversible-Folder-Assorted-15394/dp/B00FSAO4UO"
+    },
+    {
+      "cite": "Smead",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Smead Organized Up Heavyweight Vertical File Folders, Assorted Bright Tones - 6 pack Smead",
+      "type": "images",
+      "url": "https://www.smead.com/products/heavyweight-vertical-file-folder"
+    },
+    {
+      "cite": "https://www.target.com  › ... › Filing › Files",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Shop Target for  File Folders  you will love at great low prices. Free shipping on orders of $35+ or same-day pick-up in store.",
+      "title": "File Folders",
+      "type": "general",
+      "url": "https://www.target.com/c/file-folders-files-filing-school-office-supplies/-/N-4smja"
+    },
+    {
+      "cite": "Target",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "165",
+        "price": "$5.39",
+        "rating": "4.6",
+        "source": "Target",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "up & up Hanging File Folders Letter Size Green.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "kingstationary.com",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "1",
+        "price": "$28.99",
+        "rating": "5.0",
+        "source": "kingstationary.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Amazon Basics AMZ401 File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Office Depot",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "3.6K",
+        "price": "$27.99",
+        "rating": "4.7",
+        "source": "Office Depot",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Office Depot Brand Hanging Folders Cut.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "5",
+        "price": "$12.82",
+        "rating": "4.4",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Basics File Folders Letter.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Walmart",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "59",
+        "price": "$10.99",
+        "rating": "4.8",
+        "source": "Walmart",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "C Line Write On Poly File Jackets.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Temu",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "131",
+        "price": "$2.98",
+        "rating": "4.6",
+        "source": "Temu",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Skydue Letter A4 Paper Expanding File Folder Pockets Accordion Document Organizer. Low price.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "eBay - tzurie-72",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "2.5K",
+        "price": "$31.33",
+        "rating": "4.7",
+        "source": "eBay - tzurie-72",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Pendaflex File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": "15",
+        "price": "$6.95",
+        "rating": "4.9",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Dunwell Colored Plastic Folders Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "items": [
+          "What is a file and a folder?",
+          "How do I find my folder?",
+          "Where do I make a file folder?",
+          "What is a folder icon?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is a file and a folder?<|>How do I find my folder?<|>Where do I make a file folder?<|>What is a folder icon?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.officedepot.com  › Office Supplies",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "There are six main types of folders:  file folders , hanging  file folders , expanding  file folders , classification folders, zip folders, and pocket folders. Manila ...",
+      "title": "Filing And Folders",
+      "type": "general",
+      "url": "https://www.officedepot.com/b/filing-and-folders/N-3469"
+    },
+    {
+      "cite": "https://www.walmart.com  › ... › Folders › Filing Products",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Shop for Filing Products in Folders. Buy products such as Pendaflex Hanging  File Folders , Standard Green, Letter Size, 50 Per Box at Walmart and save.",
+      "title": "Filing Products in Folders(1000+)",
+      "type": "general",
+      "url": "https://www.walmart.com/browse/office-supplies/filing-products/1229749_4464616_9115471"
+    },
+    {
+      "cite": "https://www.smead.com  › collections › top-tab-file-fold...",
+      "cmpt_rank": 9,
+      "details": {
+        "price": "ree 6–7 day delivery over $50",
+        "stock": "  30",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Assorted Colors Poly  File Folders , Straight-Cut Tab, Letter. Regular price $6.95. Regular price $6.95 Sale price $6.95. Heavyweight Vertical  File Folder , ...",
+      "title": "‏‏‎ ‎Top Tab File Folders",
+      "type": "general",
+      "url": "https://www.smead.com/collections/top-tab-file-folders"
+    },
+    {
+      "cite": "https://www.staples.com  › ... › Filing Folders",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Staples carries a variety of  file folders  including standard manila folders, colorful  filing folders , and letter and legal-sized options.",
+      "title": "File Folders & Manila Folders",
+      "type": "general",
+      "url": "https://www.staples.com/file-folders/cat_CL141669"
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "2",
+        "price": "$15.99",
+        "rating": "4.5",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 27,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Fanwu Plastic File Folder Poly Envelope Expanding File Wallet Document Folder with Snap Button Closure.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "23",
+        "price": "$9.00",
+        "rating": "4.8",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 28,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Avery Expanding File.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "price": "$7.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 29,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "HABGP 9 Pcs Manilla Folders 8.5 x 11 Inch 1/3-Cut Tab Colored File Folders Letter.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "1",
+        "price": "$15.99",
+        "rating": "4.0",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 30,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "ThinkTex Accordian File Organizer 12 Pockets Expanding File Folders.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "price": "$9.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 31,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Sooez Expanding File Folder Organizer with Sticky Labels 13 File Organizer Accordion File Organizer.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "2K",
+        "price": "$13.20",
+        "rating": "4.7",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 32,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Smead SuperTab File Folders 1/3 Cut.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "10",
+        "price": "$13.99",
+        "rating": "5.0",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 33,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "EOOUT 18 Pack Decorative File Folders Floral Folders Cute File Folder Letter Size Colored File Folders,1/3-Cut Tabs.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com",
+      "cmpt_rank": 11,
+      "details": {
+        "n_reviews": "235",
+        "price": "$27.75",
+        "rating": "4.7",
+        "source": "Amazon.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 34,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Pendaflex Manila Fastener Folders 1/3-Cut Tabs.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$11.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 35,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Mr. Pen File Folders 1/3 Cut Tab.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$16.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 36,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "ThinkTex Plastic Expanding File Folder Transparent envelopes with Snap Closure.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$14.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 37,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Sooez 24 Pockets Expanding File Folder with Blank Labels, According File Organizer with Expandable Cover, Desktop Accordion Folders Letter A4 Paper.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Target",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "7",
+        "price": "$6.99",
+        "rating": "4.8",
+        "source": "Target",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 38,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "U Brands File Folders Subtle Textures.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Walmart",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "363",
+        "price": "$3.37",
+        "rating": "4.5",
+        "source": "Walmart",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 39,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Pen+Gear 3-Tab Manila File Folders, 25 Count, Letter Size.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Staples",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "3.1K",
+        "price": "$15.39",
+        "rating": "4.4",
+        "source": "Staples",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 40,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Staples Hanging File Folder 5-Tab Letter Size Standard.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "tops-products.com",
+      "cmpt_rank": 12,
+      "details": {
+        "n_reviews": "399",
+        "price": "$20.73",
+        "rating": "4.5",
+        "source": "tops-products.com",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 41,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Pendaflex Divide It Up File Folder.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Amazon.com - Seller",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$9.99",
+        "source": "Amazon.com - Seller",
+        "type": "ratings"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 42,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Maimis Expanding File Folder 24 Pocket Accordion A4 Letter Size Portable Document Organizer with Colored Tabs. SALE.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 43,
+      "sub_rank": 0,
+      "sub_type": "shopping",
+      "text": "Shop deals",
+      "title": "Save with deals on apparel, electronics, and more",
+      "type": "promo",
+      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwiBlKKNjfCEAxXmD1kFHSlnCzoQ_hF6BAgjEAA"
+    },
+    {
+      "cite": "https://www.levenger.com  › collections › filing-folders",
+      "cmpt_rank": 14,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 44,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Create a filing system that works for you. Discover the durability of  file folders  and file holders with organizational extras. Record and manage project ...",
+      "title": "Filing & Folders",
+      "type": "general",
+      "url": "https://www.levenger.com/collections/filing-folders"
+    },
+    {
+      "cite": "https://www.poppin.com  › ... › Desk Organization",
+      "cmpt_rank": 15,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 45,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Work happy. Shop our Colorful  Filing  Systems &  Folders  now at Poppin.com.",
+      "title": "Colorful Filing Systems & Folders | Office Supplies",
+      "type": "general",
+      "url": "https://www.poppin.com/desktop-organization/filing-folders/"
+    },
+    {
+      "cite": "https://www.amazon.com  › AmazonBasics-File-Folders-...",
+      "cmpt_rank": 16,
+      "details": {
+        "price": "ating: 4.8",
+        "stock": "  46,992 reviews",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 46,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "100 manila letter-size  file folders ; ideal for 8-1/2 x 11-inch documents; 1/3 cut reinforced tabs in assorted positions (left, middle, right) for easy ...",
+      "title": "Amazon Basics 1/3-Cut Tab, Assorted Positions ...",
+      "type": "general",
+      "url": "https://www.amazon.com/AmazonBasics-File-Folders-Reinforced-Tab/dp/B01LYHE49W"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "file folders organizer",
+          "file folder plastic",
+          "file folders hanging",
+          "amazon.com file folders",
+          "file folders nearby",
+          "file folders with fasteners"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 47,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "file folders organizer<|>file folder plastic<|>file folders hanging<|>amazon.com file folders<|>file folders nearby<|>file folders with fasteners",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "items": [
+          "Overview",
+          "Design",
+          "Types",
+          "Box"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 48,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Things to know",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

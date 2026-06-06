@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -17,7 +18,13 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|The Office|2005 ‧ Sitcom ‧ 9 seasons|2005 ‧ Sitcom ‧ 9 seasons|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Claim this knowledge panel|Send feedback|Overview|Overview|Overview|Watch show|Watch show|Watch show|Characters|Characters|Characters|Episode guide|Episode guide|Episode guide",
+        "subtitle": "2005 ‧ Sitcom ‧ 9 seasons",
+        "tabs": [
+          "Overview",
+          "Watch show",
+          "Characters",
+          "Episode guide"
+        ],
         "type": "panel",
         "urls": [
           {
@@ -47,8 +54,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "The Office 2005 ‧ Sitcom ‧ 9 seasons About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Claim this knowledge panel Send feedback Overview Watch show Characters Episode guide",
+      "text": "2005 ‧ Sitcom ‧ 9 seasons",
+      "title": "The Office",
       "type": "knowledge",
       "url": null
     },
@@ -287,6 +294,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Watch the office Season 1",
           "How to watch the Office on Netflix",

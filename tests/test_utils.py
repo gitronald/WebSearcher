@@ -3,7 +3,7 @@
 import hashlib
 from pathlib import Path
 
-from bs4 import BeautifulSoup
+from selectolax.lexbor import LexborNode as Node
 
 from WebSearcher import utils
 
@@ -34,41 +34,22 @@ def test_get_between_parentheses_no_match():
     assert utils.get_between_parentheses("no parens here") == ""
 
 
-# check_dict_value -------------------------------------------------------------
-
-
-def test_check_dict_value_match():
-    assert utils.check_dict_value({"role": "complementary"}, "role", "complementary") is True
-
-
-def test_check_dict_value_mismatch():
-    assert utils.check_dict_value({"role": "main"}, "role", "complementary") is False
-
-
-def test_check_dict_value_missing_key():
-    assert utils.check_dict_value({"other": "val"}, "role", "complementary") is False
-
-
-def test_check_dict_value_list():
-    assert utils.check_dict_value({"class": ["a", "b"]}, "class", ["a", "b"]) is True
-
-
 # make_soup --------------------------------------------------------------------
 
 
 def test_make_soup_from_string():
     soup = utils.make_soup("<html><body><p>hello</p></body></html>")
-    assert isinstance(soup, BeautifulSoup)
-    assert soup.find("p").text == "hello"
+    assert isinstance(soup, Node)
+    assert soup.css_first("p").text(deep=True) == "hello"
 
 
 def test_make_soup_from_bytes():
     soup = utils.make_soup(b"<html><body><p>bytes</p></body></html>")
-    assert soup.find("p").text == "bytes"
+    assert soup.css_first("p").text(deep=True) == "bytes"
 
 
 def test_make_soup_passthrough():
-    original = BeautifulSoup("<p>test</p>", "lxml")
+    original = utils.make_soup("<p>test</p>")
     result = utils.make_soup(original)
     assert result is original
 
@@ -86,71 +67,6 @@ def test_has_captcha_false():
     assert utils.has_captcha(soup) is False
 
 
-# get_div / get_text / get_link ------------------------------------------------
-
-
-def test_get_div_finds_element():
-    soup = utils.make_soup("<div><span class='x'>hi</span></div>")
-    div = utils.get_div(soup, "span", {"class": "x"})
-    assert div.text == "hi"
-
-
-def test_get_div_none_soup():
-    assert utils.get_div(None, "div") is None
-
-
-def test_get_div_no_match():
-    soup = utils.make_soup("<div>hello</div>")
-    assert utils.get_div(soup, "span") is None
-
-
-def test_get_text_basic():
-    soup = utils.make_soup("<div><h3>Title</h3></div>")
-    assert utils.get_text(soup, "h3") == "Title"
-
-
-def test_get_text_strip():
-    soup = utils.make_soup("<div>  spaced  </div>")
-    assert utils.get_text(soup, strip=True) == "spaced"
-    assert utils.get_text(soup, strip=False) == "  spaced  "
-
-
-def test_get_text_none_soup():
-    assert utils.get_text(None, "h3") is None
-
-
-def test_get_text_no_match():
-    soup = utils.make_soup("<div>hello</div>")
-    assert utils.get_text(soup, "h3") is None
-
-
-def test_get_text_separator():
-    soup = utils.make_soup("<div><p>a</p><p>b</p></div>")
-    result = utils.get_text(soup, "div", separator="<|>")
-    assert "<|>" in result
-
-
-def test_get_link_basic():
-    soup = utils.make_soup('<div><a href="https://example.com">link</a></div>')
-    assert utils.get_link(soup) == "https://example.com"
-
-
-def test_get_link_none_soup():
-    assert utils.get_link(None) is None
-
-
-def test_get_link_no_anchor():
-    soup = utils.make_soup("<div>no link</div>")
-    assert utils.get_link(soup) is None
-
-
-def test_get_link_with_attrs():
-    soup = utils.make_soup(
-        '<div><a class="other" href="/other">x</a><a class="target" href="/found">y</a></div>'
-    )
-    assert utils.get_link(soup, {"class": "target"}) == "/found"
-
-
 # get_link_list ----------------------------------------------------------------
 
 
@@ -162,71 +78,6 @@ def test_get_link_list():
 
 def test_get_link_list_none_soup():
     assert utils.get_link_list(None) is None
-
-
-# get_text_by_selectors --------------------------------------------------------
-
-
-def test_get_text_by_selectors_first_match():
-    soup = utils.make_soup('<div><span class="a">first</span><span class="b">second</span></div>')
-    selectors = [utils.Selector("span", {"class": "a"}), utils.Selector("span", {"class": "b"})]
-    assert utils.get_text_by_selectors(soup, selectors) == "first"
-
-
-def test_get_text_by_selectors_fallback():
-    soup = utils.make_soup('<div><span class="b">fallback</span></div>')
-    selectors = [utils.Selector("span", {"class": "a"}), utils.Selector("span", {"class": "b"})]
-    assert utils.get_text_by_selectors(soup, selectors) == "fallback"
-
-
-def test_get_text_by_selectors_none():
-    assert utils.get_text_by_selectors(None, [utils.Selector("div", {})]) is None
-    soup = utils.make_soup("<div>hi</div>")
-    assert utils.get_text_by_selectors(soup, None) is None
-
-
-# find_all_divs ----------------------------------------------------------------
-
-
-def test_find_all_divs():
-    soup = utils.make_soup("<div><p>a</p><p>b</p><p> </p></div>")
-    divs = utils.find_all_divs(soup, "p")
-    assert len(divs) == 2  # empty one filtered
-
-
-def test_find_all_divs_no_filter():
-    soup = utils.make_soup("<div><p>a</p><p> </p></div>")
-    divs = utils.find_all_divs(soup, "p", filter_empty=False)
-    assert len(divs) == 2
-
-
-def test_find_all_divs_none_soup():
-    assert utils.find_all_divs(None, "div") == []
-
-
-# filter_empty_divs ------------------------------------------------------------
-
-
-def test_filter_empty_divs():
-    soup = utils.make_soup("<div><p>content</p><p>  </p><p>more</p></div>")
-    all_p = soup.find_all("p")
-    filtered = utils.filter_empty_divs(all_p)
-    assert len(filtered) == 2
-
-
-# find_children ----------------------------------------------------------------
-
-
-def test_find_children():
-    soup = utils.make_soup('<div class="parent"><span>a</span><span>b</span></div>')
-    children = list(utils.find_children(soup, "div", {"class": "parent"}))
-    assert len(children) >= 2
-
-
-def test_find_children_no_match():
-    soup = utils.make_soup("<div>hello</div>")
-    children = list(utils.find_children(soup, "span"))
-    assert children == []
 
 
 # URL functions ----------------------------------------------------------------
@@ -332,5 +183,5 @@ def test_load_soup(tmp_path):
     fp = tmp_path / "page.html"
     fp.write_text("<html><body><p>soup test</p></body></html>")
     soup = utils.load_soup(fp)
-    assert isinstance(soup, BeautifulSoup)
-    assert soup.find("p").text == "soup test"
+    assert isinstance(soup, Node)
+    assert soup.css_first("p").text(deep=True) == "soup test"

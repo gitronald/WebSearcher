@@ -1,0 +1,367 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 208000000.0,
+    "result_estimate_time": 0.42
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "sections": [
+          {
+            "heading": "Counties included:",
+            "text": "Los Angeles County : The center of the metropolitan area Orange County : Located to the southeast Riverside County : Located to the east"
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "Wikipedia",
+            "snippet": "Greater Los Angeles is the most populous metropolitan area in the U.S. state of California, encompassing five counties in Southern...",
+            "source_id": null,
+            "title": "Greater Los Angeles - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles#:~:text=Greater%20Los%20Angeles%20is%20the,largest%20megacities%20in%20the%20world."
+          },
+          {
+            "favicon": null,
+            "publisher": "Wikipedia",
+            "snippet": "Los Angeles, often referred to by its initials L.A., is the most populous city in the U.S. state of California. With an estimated ...",
+            "source_id": null,
+            "title": "Los Angeles - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Los_Angeles#:~:text=Los%20Angeles%2C%20often%20referred%20to,May%2023%2C%201835"
+          },
+          {
+            "favicon": null,
+            "publisher": "Wikipedia",
+            "snippet": "The base fare for Metro services, including local and express buses and Metro Rail, is $1.75. Metro introduced daily and weekly fa...",
+            "source_id": null,
+            "title": "Los Angeles County Metropolitan Transportation Authority - Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Los_Angeles_County_Metropolitan_Transportation_Authority#:~:text=The%20base%20fare%20for%20Metro,its%20cost%20and%20perceived%20ineffectiveness."
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "sectioned",
+      "text": "The Los Angeles metropolitan area, also known as the Greater Los Angeles Area, is a region in Southern California that includes Los Angeles County and the surrounding counties . It's the second-largest metropolitan area in the United States, after New York City.",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Greater_Los_Angeles",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Greater Los Angeles  is the most populous metropolitan area in the US state of California, encompassing five counties in Southern California",
+      "title": "Greater Los Angeles",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          "What is considered a metropolitan area?",
+          "What counties are in the Los Angeles metro area?",
+          "What is Los Angeles metropolitan area code?",
+          "What are the metropolitan areas of Southern California?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is considered a metropolitan area?<|>What counties are in the Los Angeles metro area?<|>What is Los Angeles metropolitan area code?<|>What are the metropolitan areas of Southern California?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.carolmendelmaps.com  › mapla",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The map features the  entire metropolitan area , from San Fernando and the San Gabriel mountains in the north to Newport Beach and Irvine in the south.",
+      "title": "Los Angeles metropolitan area map",
+      "type": "general",
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+    },
+    {
+      "cite": "https://simple.wikipedia.org  › wiki › Greater_Los_Ange...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Los Angeles metropolitan area has a total area of 4,850 square miles (12,561.442 km 2 ). The wider combined statistical area covers 33,954 square miles (87, ...",
+      "title": "Greater Los Angeles Area - Simple English Wikipedia, the ...",
+      "type": "general",
+      "url": "https://simple.wikipedia.org/wiki/Greater_Los_Angeles_Area"
+    },
+    {
+      "cite": "https://labormarketinfo.edd.ca.gov  › definitions › metro...",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The MSA and their Metropolitan Divisions are:  Los Angeles-Long Beach-Anaheim, CA MSA ; Los Angeles-Long Beach-Glendale, CA MD (Los Angeles County); Anaheim ...",
+      "title": "Metropolitan Statistical Areas in California",
+      "type": "general",
+      "url": "https://labormarketinfo.edd.ca.gov/definitions/metropolitan-statistical-areas.html"
+    },
+    {
+      "cite": "https://www.whittier.edu  › about › area",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Los Angeles area (the  five-county metropolitan area  composed of Los Angeles, Orange, Riverside, San Bernardino, and Ventura Counties) is the 11th-largest ...",
+      "title": "Greater Los Angeles Area",
+      "type": "general",
+      "url": "https://www.whittier.edu/about/area"
+    },
+    {
+      "cite": "https://metropolitan.fandom.com  › wiki › Greater_Los_...",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Greater Los Angeles area is generally taken to include the  Los Angeles metropolitan area , the Inland Empire, and Ventura County.",
+      "title": "Greater Los Angeles Area | Metropolitan Wiki - Fandom",
+      "type": "general",
+      "url": "https://metropolitan.fandom.com/wiki/Greater_Los_Angeles_Area"
+    },
+    {
+      "cite": "70+ comments  ·  1 year ago",
+      "cmpt_rank": 8,
+      "details": {
+        "items": [
+          {
+            "text": "Does \"Los Angeles\" usually refer to Greater Los ... - Reddit",
+            "url": "https://www.reddit.com/r/AskLosAngeles/comments/17829w5/does_los_angeles_usually_refer_to_greater_los/"
+          },
+          {
+            "text": "The Los Angeles metropolitan area [3850 x 2311] [OS] - Reddit",
+            "url": "https://www.reddit.com/r/MapPorn/comments/4gv7d6/the_los_angeles_metropolitan_area_3850_x_2311_os/"
+          },
+          {
+            "text": "Is the Inland Empire a part of the Los Angeles Metropolitan ...",
+            "url": "https://www.reddit.com/r/InlandEmpire/comments/12kpdag/is_the_inland_empire_a_part_of_the_los_angeles/"
+          },
+          {
+            "text": "Los Angeles is a city surrounded by 88 different suburbs - Reddit",
+            "url": "https://www.reddit.com/r/geography/comments/1bjhj2o/los_angeles_is_a_city_surrounded_by_88_different/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=metropolitan+los+angeles+area+site:www.reddit.com&sca_esv=14324ad49b0ab5cb&sa=X&ved=2ahUKEwig57rU-6-LAxV2klYBHTraOTAQrQIoBHoECFQQBQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "It is  1,740 square miles now , larger than than the state of Rhode Island.",
+      "title": "Are you surprised/amazed with just how large and ...",
+      "type": "general",
+      "url": "https://www.reddit.com/r/AskLosAngeles/comments/18yu2u9/are_you_surprisedamazed_with_just_how_large_and/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Los Angeles metropolitan area map",
+      "type": "images",
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "The Los Angeles metropolitan area [3850 x 2311] [OS] : r/MapPorn",
+      "type": "images",
+      "url": "https://www.reddit.com/r/MapPorn/comments/4gv7d6/the_los_angeles_metropolitan_area_3850_x_2311_os/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Greater Los Angeles | Familypedia | Fandom",
+      "type": "images",
+      "url": "https://familypedia.fandom.com/wiki/Greater_Los_Angeles"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 3,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Los Angeles metropolitan area map",
+      "type": "images",
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 4,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Greater Los Angeles - Wikipedia",
+      "type": "images",
+      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 5,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Los Angeles-Long Beach-Anaheim, CA MSA Situation & Outlook ...",
+      "type": "images",
+      "url": "https://proximityone.com/metros/2013/cbsa31080.htm"
+    },
+    {
+      "cite": "https://support.crunchbase.com  › en-us › articles › 360...",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 4, 2021  —  Here's the current breakdown of the Greater Los Angeles Area region:  Los Angeles; Santa Monica; Irvine; Beverly Hills; Lucerne Valley; Pasadena  ...",
+      "title": "What cities are in the Greater Los Angeles region?",
+      "type": "general",
+      "url": "https://support.crunchbase.com/hc/en-us/articles/360009895834-What-cities-are-in-the-Greater-Los-Angeles-region"
+    },
+    {
+      "cite": "https://www.metro.net",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Explore  Los Angeles  by public transit. Start with Metro schedules, maps, arrival times, parking info, trip planning, stations, and fares.",
+      "title": "Metro | Bus, Rail, Subway, Bike & Micro in Los Angeles",
+      "type": "general",
+      "url": "https://www.metro.net/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Los Angeles",
+          "California",
+          "New York Metropolitan Area",
+          "Los Angeles County",
+          "Greater Los Angeles",
+          "San Francisco Bay Area",
+          "Metropolitan los angeles area map",
+          "Metropolitan los angeles area towns",
+          "Metropolitan los angeles area cities",
+          "Los Angeles County population",
+          "Greater Los Angeles map",
+          "Greater Los Angeles map with cities",
+          "Orange County population",
+          "La area map"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Los Angeles<|>California<|>New York Metropolitan Area<|>Los Angeles County<|>Greater Los Angeles<|>San Francisco Bay Area<|>Metropolitan los angeles area map<|>Metropolitan los angeles area towns<|>Metropolitan los angeles area cities<|>Los Angeles County population<|>Greater Los Angeles map<|>Greater Los Angeles map with cities<|>Orange County population<|>La area map",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "See results about",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

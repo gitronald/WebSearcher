@@ -4,16 +4,19 @@ Renders as a section like "Flights to <destination>" followed by route cards
 linking to google.com/travel/flights with origin labels (e.g. "From Casablanca").
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
+
+from .._slx import get_text
 
 
-def parse_flights(cmpt: bs4.element.Tag) -> list:
-    heading = cmpt.find(attrs={"role": "heading", "aria-level": "2"})
-    title = heading.get_text(" ", strip=True) if heading else None
+def parse_flights(elem) -> list:
+    node: Node = elem
+    heading = node.css_first('[role="heading"][aria-level="2"]')
+    title = get_text(heading, " ", strip=True) if heading is not None else None
     items = []
-    for a in cmpt.find_all("a", href=True):
-        href = a["href"]
-        text = a.get_text(" ", strip=True)
+    for a in node.css("a[href]"):
+        href = a.attributes["href"]
+        text = get_text(a, " ", strip=True)
         if href and href != "#" and text:
             items.append({"url": href, "text": text})
     parsed: dict = {

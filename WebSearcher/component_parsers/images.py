@@ -5,33 +5,34 @@ title and URL), and a multimedia carousel (image / video previews without
 text). Each subcomponent is tagged with the matching sub_type.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
-from ..utils import get_div, get_link, get_text
+from .._slx import get_text
 
 
-def parse_images(cmpt: bs4.element.Tag) -> list:
+def parse_images(elem) -> list:
+    node: Node = elem
     parsed_list: list = []
 
-    if cmpt.find("g-expandable-container"):
+    if node.css_first("g-expandable-container") is not None:
         # Small images: thumbnails with text labels
-        subs = cmpt.find_all("a", {"class": "dgdd6c"})
+        subs = node.css("a.dgdd6c")
         parsed_list.extend([parse_image_small(div, i) for i, div in enumerate(subs)])
 
     offset = len(parsed_list)
-    if cmpt.find("g-scrolling-carousel"):
+    if node.css_first("g-scrolling-carousel") is not None:
         # Medium images or video previews, no text labels
-        subs = cmpt.find_all("div", {"class": "eA0Zlc"})
+        subs = node.css("div.eA0Zlc")
         parsed_list.extend([parse_image_multimedia(sub, i + offset) for i, sub in enumerate(subs)])
     else:
-        # Medium images with titles and urls
-        subs = cmpt.find_all("div", {"class": ["eA0Zlc", "vCUuC"]})
+        # Medium images with titles and urls -- class list = OR
+        subs = node.css("div.eA0Zlc, div.vCUuC")
         parsed_list.extend([parse_image_medium(sub, i + offset) for i, sub in enumerate(subs)])
 
     return [p for p in parsed_list if any([p["title"], p["url"]])]
 
 
-def parse_image_multimedia(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "images",
         "sub_type": "multimedia",
@@ -42,15 +43,24 @@ def parse_image_multimedia(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
     }
 
 
-def parse_image_medium(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
-    title_div = get_div(sub, "a", {"class": "EZAeBe"})
-    title = get_text(title_div) if title_div else get_text(sub, "span", {"class": "Yt787"})
-    url = get_link(sub) if title_div else get_img_url(sub)
+def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict:
+    title_a = sub.css_first("a.EZAeBe")
+    title = (
+        get_text(title_a, " ")
+        if title_a is not None
+        else get_text(sub.css_first("span.Yt787"), " ")
+    )
+    if title_a is not None:
+        first_a = sub.css_first("a")
+        url = first_a.attributes.get("href") if first_a is not None else None
+    else:
+        url = get_img_url(sub)
 
     if not title:
         title = get_img_alt(sub)
     if not url:
-        url = get_link(sub, attrs={"class": ["EZAeBe", "ddkIM"]})
+        fallback_a = sub.css_first("a.EZAeBe, a.ddkIM")
+        url = fallback_a.attributes.get("href") if fallback_a is not None else None
 
     return {
         "type": "images",
@@ -59,47 +69,36 @@ def parse_image_medium(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
         "title": title,
         "url": url,
         "text": None,
-        "cite": get_text(sub, "div", {"class": "ptes9b"}),
+        "cite": get_text(sub.css_first("div.ptes9b"), " "),
     }
 
 
-def parse_image_small(sub: bs4.element.Tag, sub_rank: int = 0) -> dict:
+def parse_image_small(sub: Node, sub_rank: int = 0) -> dict:
     return {
         "type": "images",
         "sub_type": "small",
         "sub_rank": sub_rank,
-        "title": get_text(sub, "div", {"class": "xlY4q"}),
+        "title": get_text(sub.css_first("div.xlY4q"), " "),
         "url": None,
         "text": None,
     }
 
 
-def get_img_url(sub: bs4.element.Tag) -> str | None:
-    # Try several extraction strategies; rejecting embedded data URLs
-    def from_img_src(sub: bs4.element.Tag) -> str:
-        img = sub.find("img")
-        return str(img.attrs["src"]) if img else ""
-
-    def from_img_title(sub: bs4.element.Tag) -> str:
-        img = sub.find("img")
-        return str(img.attrs["title"]) if img else ""
-
-    def from_attrs(sub: bs4.element.Tag) -> str:
-        return str(sub.attrs["data-lpage"])
-
-    for func in (from_img_src, from_attrs, from_img_title):
-        try:
-            url = func(sub)
-            if url and not url.startswith("data:image"):
-                return url
-        except Exception:
-            pass
+def get_img_url(sub: Node) -> str | None:
+    """Try several extraction strategies; reject embedded data: URLs."""
+    img = sub.css_first("img")
+    candidates: list[str | None] = []
+    if img is not None:
+        candidates.append(img.attributes.get("src"))
+        candidates.append(img.attributes.get("title"))
+    candidates.append(sub.attributes.get("data-lpage"))
+    for url in candidates:
+        if url and not url.startswith("data:image"):
+            return str(url)
     return None
 
 
-def get_img_alt(sub: bs4.element.Tag) -> str | None:
-    try:
-        img = sub.find("img")
-        return f"alt-text: {img.attrs['alt']}" if img else None
-    except Exception:
-        return None
+def get_img_alt(sub: Node) -> str | None:
+    img = sub.css_first("img")
+    alt = img.attributes.get("alt") if img is not None else None
+    return f"alt-text: {alt}" if alt else None
