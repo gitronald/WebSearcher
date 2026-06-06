@@ -80,7 +80,7 @@ view — the components in SERP order as a concatenated string — under three r
 (pair set / distinct-type order / full ordered string). It answers "does a drop
 candidate have a unique *ordered* signature?" and prints the final drop list under
 the chosen bar. The full methodology (storage, provenance, signature readings, drop
-policy, tooling) lives in [docs/guides/fixture-corpus.md](../guides/fixture-corpus.md).
+policy, tooling) lives in the `corpus-curate` skill (`.claude/skills/corpus-curate/`).
 
 ## Findings
 

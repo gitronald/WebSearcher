@@ -249,8 +249,6 @@ Tests load from the consolidated compressed corpus `tests/fixtures/serps.json.bz
 uv run pytest tests/ --snapshot-update
 ```
 
-See [docs/guides/fixture-corpus.md](docs/guides/fixture-corpus.md) for how the corpus is curated, profiled, and pruned.
-
 ---
 ## GitHub Actions
 

@@ -139,7 +139,7 @@ Already captured this session: "alicia keys lyrics", "education pronunciation",
 "footloose cast", "election popular vote", "books by roger ebert" (corpus), plus
 `temp/serps/{az_primaries,us_election}.html` to add. "aapl stock price" and "cheap
 flights" are already corpus fixtures. Add one fixture per new component type, chosen
-for structural diversity per [fixture-corpus.md](fixture-corpus.md).
+for structural diversity per the `corpus-curate` skill.
 
 > **Existing `standard-kp-wholepage` snapshots are suspect — re-audit by type, do not
 > trust them.** The 5 fixtures above were snapshotted under the *interim* `div.g →
