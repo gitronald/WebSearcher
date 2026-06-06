@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/v0.10.0-header-text-dependencies
 created: 2026-06-06T01:27:30-07:00
-completed:
+completed: 2026-06-06T16:24:49-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/158
 ---
 
@@ -165,3 +165,34 @@ buying_guide case and most_read_articles return non-matching/`unknown`.
 
 **Verification:** full suite `441 passed`, `87 snapshots passed` (no regression);
 corpus counts unchanged (buying_guide=1, products=27, most_read_articles=1).
+
+### 2026-06-06 — close / review gate
+
+Ran the `/code-review` gate (xhigh) on `feature/v0.10.0...HEAD`; **no actionable
+findings**. The only correctness question — whether `ITWcLb`/`gON1yc` are unique
+to their target types, given both now dispatch ahead of the header-text path — is
+empirically settled on the corpus (`ITWcLb`→1 buying_guide node, `gON1yc`→2
+products nodes), confirmed in source (each class is used only by its own parser),
+and snapshot-clean. Accepted as an evidence-backed tradeoff matching the file's
+existing `available_on`/`mgAbYb` gate pattern. Checks: `441 passed` / `87
+snapshots`, `ruff` clean, `pyrefly` 0 errors. Merged PR #158 into
+`feature/v0.10.0`.
+
+## Retrospective
+
+- **The plan's premise was directionally right but its evidence was miscounted.**
+  The "8 buying_guide / 206 products / 3 most_read" figures were element-level
+  (e.g. 8 `div.ITWcLb` *rows* in one component); the real component counts are
+  1 / 27 / 1. Lesson carried forward: validate plan-stage counts through the
+  actual extraction+classification pipeline, not a raw `css('div')` sweep.
+- **The value was robustness, not a current fix.** All three types already
+  classified correctly via English headers in the corpus, so the bar shifted
+  from "fix a miss" to "add structural-first dispatch with zero regression" —
+  verified by the 87-snapshot suite rather than by new-coverage counts.
+- **Structural-first only works where a unique class exists.** buying_guide
+  (`ITWcLb`) and products/brands (`gON1yc`) had one; `most_read_articles` did
+  not, so it was flagged in-code rather than force-fit. Knowing which types are
+  salvageable up front saved effort.
+- **Tests target the dispatch, not just the parser.** Constructed components with
+  localized headers + only the structural class prove the localization-robustness
+  claim directly, which fixture-replay tests (all English) cannot.
