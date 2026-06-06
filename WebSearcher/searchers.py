@@ -171,6 +171,36 @@ class SearchEngine:
         self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
         utils.write_lines([self.serp_metadata], append_to)
 
+    def to_record(self) -> dict:
+        """Build one merged per-SERP record: metadata (excludes HTML) + features + results.
+
+        Each key appears once. Identity and metadata are taken from ``self.serp``;
+        only ``features`` and ``results`` are taken from ``self.parsed`` -- so the
+        identity fields ``ParsedSERP`` also carries (crawl_id/serp_id/version/method)
+        are not duplicated into the record. This merges ``save_search`` and
+        ``save_parsed`` into a single write of one logical record.
+        """
+        meta = {k: v for k, v in self.serp.items() if k != "html"}
+        return {**meta, "features": self.parsed.features, "results": self.parsed.results}
+
+    def save_record(self, append_to: str | Path = "", ws_version: str = ""):
+        """Save the merged metadata+parsed record (one JSON line per SERP).
+
+        Args:
+            append_to: File path to append the record to.
+            ws_version: Optional parser-version stamp. When set, it is written as a
+                distinct ``ws_version`` field, so a later reparse version never
+                clobbers the collection-time ``version`` already on the record.
+        """
+        if not append_to:
+            self.log.warning("Must provide an append_to file path to save a record")
+            return
+
+        record = self.to_record()
+        if ws_version:
+            record["ws_version"] = ws_version
+        utils.write_lines([record], append_to)
+
     def save_results(self, save_dir: str | Path = "", append_to: str | Path = ""):
         """Save parsed results
 
