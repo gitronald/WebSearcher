@@ -1,12 +1,5 @@
 # Documentation
 
-## Guides
-
-How-to references that don't belong in a one-shot plan. See [`guides/`](guides/).
-
-- [`selectolax-parsers.md`](guides/selectolax-parsers.md) — building component parsers on selectolax (post-bs4-migration patterns + landmines).
-- [`fixture-corpus.md`](guides/fixture-corpus.md) — the consolidated test fixture corpus: curation methodology, the `corpus-curate` scripts, and the per-record `note` field.
-
 ## Plans
 
 Implementation plans for project features and improvements. Each plan ([`plans/`](plans/)) has YAML frontmatter tracking status, branch, and timestamps; the table below is the source of truth for what is planned, in progress, and done. Sorted drafts-first, then by completion (most recent first).
