@@ -15,6 +15,8 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 
 | # | Plan | Status | Completed | PR |
 |---|------|--------|-----------|----|
+| 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage.md) | draft | — | — |
+| 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | draft | — | — |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
 | 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | draft | — | — |
 | 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | draft | — | — |
@@ -55,3 +57,5 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 000 | [Component Parsers Refactoring Plan](plans/000-component-parsers-update.md) | done | 2026-02-06 | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
 | 009 | [Refactor FeatureExtractor into own file with dataclass](plans/009-refactor-feature-extractor.md) | done | 2026-02-06 | — |
 | 005 | [Parser Updates (v0.6.7a2) — Completed](plans/005-parser-updates-v0.6.7a2.md) | done | 2026-02-05 | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
+| 043 | [Audit Twitter component parsers against 2024-2026 SERP evolution](plans/043-twitter-cards-modern-serps.md) | inactive | — | — |
+| 042 | [Investigate missing URLs in the results_for local results variant](plans/042-local-results-results-for-urls.md) | inactive | — | — |
