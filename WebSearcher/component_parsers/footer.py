@@ -42,4 +42,4 @@ def parse_discover_more(elem) -> list:
 
 def parse_omitted_notice(elem) -> list:
     node: Node = elem
-    return [{"type": "omitted_notice", "sub_rank": 0, "text": get_text(node)}]
+    return [{"type": "omitted_notice", "sub_rank": 0, "text": get_text(node, " ")}]

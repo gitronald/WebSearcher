@@ -34,8 +34,8 @@ def parse_twitter_result(elem, sub_rank: int = 0) -> list:
         elems = list(tw_res.iter(include_text=False))
         if len(elems) >= 2:
             body, timestamp_url = elems[0], elems[1]
-            parsed["text"] = get_text(body)
-            parsed["timestamp"] = get_text(timestamp_url.css_first("span"))
+            parsed["text"] = get_text(body, " ")
+            parsed["timestamp"] = get_text(timestamp_url.css_first("span"), " ")
             a = timestamp_url.css_first("a")
             tweet_url = a.attributes.get("href") if a is not None else None
             parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None

@@ -14,8 +14,12 @@ def parse_view_more_news(elem) -> list:
     container = node.css_first("div.qmv19b")
     if container is not None:
         # Bs4 .children yielded both Tags and NavigableStrings; the original
-        # filtered with is_tag, so element-only iteration matches.
-        subs = list(container.iter(include_text=False))
+        # filtered with is_tag. selectolax iter(include_text=False) still yields
+        # comment/CDATA nodes (tag prefixed with "-"), which would parse into
+        # spurious all-None rows and shift every sub_rank, so drop them too.
+        subs = [
+            s for s in container.iter(include_text=False) if s.tag and not s.tag.startswith("-")
+        ]
     else:
         carousel = node.css_first("g-scrolling-carousel")
         subs = list(carousel.css("g-inner-card")) if carousel is not None else []

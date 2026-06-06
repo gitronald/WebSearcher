@@ -47,7 +47,7 @@ class ClassifyFooter:
         if cmpt.css_first('p[id="ofr"]') is not None:
             return "omitted_notice"
         h2 = cmpt.css_first("h2")
-        if h2 is not None and (get_text(h2) or "") == "Notices about Filtered Results":
+        if h2 is not None and (get_text(h2, " ") or "") == "Notices about Filtered Results":
             return "omitted_notice"
         return "unknown"
 

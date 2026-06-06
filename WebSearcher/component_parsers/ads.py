@@ -239,9 +239,9 @@ def parse_ad_menu(sub: Node) -> dict | None:
             if div.attributes.get("role") == "listitem":
                 a = div.css_first("a")
                 parsed_item["url"] = (a.attributes.get("href") if a is not None else None) or ""
-                parsed_item["title"] = get_text(div) or ""
+                parsed_item["title"] = get_text(div, " ") or ""
             else:
-                parsed_item["text"] = get_text(div) or ""
+                parsed_item["text"] = get_text(div, " ") or ""
         items.append(parsed_item)
 
     # Format 2: bOeY0b sitelinks section

@@ -14,6 +14,6 @@ def parse_map_results(elem, sub_rank: int = 0) -> list:
         {
             "type": "map_results",
             "sub_rank": sub_rank,
-            "title": get_text(node.css_first("div.aiAXrc"), " "),
+            "title": get_text(node.css_first("div.aiAXrc"), " ") or None,
         }
     ]

@@ -41,8 +41,8 @@ def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
     parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank}
     card = sub.css_first("a.clickable-card")
     if card is not None:
-        parsed["url"] = card.attributes["href"]
-        parsed["title"] = card.attributes["aria-label"]
+        parsed["url"] = card.attributes.get("href")
+        parsed["title"] = card.attributes.get("aria-label")
     return parsed
 
 
