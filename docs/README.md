@@ -11,7 +11,7 @@ How-to references that don't belong in a one-shot plan. See [`guides/`](guides/)
 
 ## Plans
 
-Implementation plans for project features and improvements. Each plan ([`plans/`](plans/)) has YAML frontmatter tracking status, branch, and timestamps, and is linked from `TODO.md` in the project root — open tasks reference their plan file, completed tasks retain the link as a historical record. Sorted drafts-first, then by completion (most recent first).
+Implementation plans for project features and improvements. Each plan ([`plans/`](plans/)) has YAML frontmatter tracking status, branch, and timestamps; the table below is the source of truth for what is planned, in progress, and done. Sorted drafts-first, then by completion (most recent first).
 
 | # | Plan | Status | Completed | PR |
 |---|------|--------|-----------|----|
