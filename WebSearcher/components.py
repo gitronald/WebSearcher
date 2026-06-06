@@ -17,6 +17,27 @@ from .models.data import BaseResult
 log = Logger().start(__name__)
 
 
+def _last_descendant(elem: Node) -> Node:
+    """The last element of ``elem.css('*')`` (self + descendants, pre-order)
+    without materializing the whole subtree.
+
+    The last node a pre-order walk visits is reached by repeatedly descending to
+    the last *element* child (selectolax pseudo-nodes -- text/comment -- carry a
+    ``-``-prefixed or empty tag and are excluded from ``css('*')``, so they are
+    skipped here too). Returns ``elem`` itself when it has no element children,
+    matching ``elem.css('*')[-1]`` for a leaf.
+    """
+    node = elem
+    while True:
+        last: Node | None = None
+        for ch in node.iter(include_text=False):
+            if ch.tag and not ch.tag.startswith("-"):
+                last = ch
+        if last is None:
+            return node
+        node = last
+
+
 class Component:
     """A SERP component extracted from HTML"""
 
@@ -156,11 +177,12 @@ class ComponentList:
         """Reorder components by DOM position within each section.
 
         ``positions`` maps ``mem_id -> pre-order index`` for every element in
-        the document. End ranges for main components are derived on demand
-        from ``cmpt.elem.css('*')`` (the last entry's index is the position of
-        the last descendant). When a component's range contains another
-        component's start, the ancestor's effective position shifts to the
-        first direct child positioned after the nested subtree.
+        the document. End ranges for main components are derived on demand from
+        the last descendant (``_last_descendant``, the last node a pre-order walk
+        of the subtree visits -- its index is the end of the subtree). When a
+        component's range contains another component's start, the ancestor's
+        effective position shifts to the first direct child positioned after the
+        nested subtree.
         """
         section_order = {"header": 0, "main": 1, "footer": 2, "rhs": 3}
         main_components = [c for c in self.components if c.section == "main"]
@@ -169,10 +191,10 @@ class ComponentList:
             start = positions.get(elem.mem_id)
             if start is None:
                 return None
-            # css('*') returns self + descendants in document order; the last
-            # entry's position is the end of the subtree.
-            descendants = elem.css("*")
-            end = positions.get(descendants[-1].mem_id, start) if descendants else start
+            # The last descendant's index is the end of the subtree. Find it via
+            # a right-spine descent rather than materializing the whole subtree
+            # (``elem.css('*')``) only to read its last entry.
+            end = positions.get(_last_descendant(elem).mem_id, start)
             return start, end
 
         ranges = {id(c): _range(c.elem) for c in main_components}

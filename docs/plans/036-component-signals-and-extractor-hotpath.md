@@ -309,3 +309,39 @@ the byte-identical contract. Deferred as a separate, gate-hard change rather tha
 forcing a sub-noise commit here, consistent with the plan's noise-floor gate. The
 `is_valid` `bad`-set hoist is available as a trivial cleanup on request. Lever 2
 closed as investigated.
+
+### 2026-06-06 -- trivial cleanup + option 3 (safe slice)
+
+User: "trivial then option 3."
+
+**Trivial:** hoisted `is_valid`'s per-call `bad` set literal to a module-level
+`_BAD_LABELS` frozenset (`extractor_main.py`) -- no longer rebuilt ~25k times/pass.
+Byte-identical (87 snapshots + 437 tests, no updates).
+
+**Option 3 (safe slice):** `reorder` runs *before* classify, so the
+`_ComponentSignals` walk can't feed it by reuse; the realizable, low-coupling slice
+is `reorder._range`, which materialized the whole component subtree (`elem.css('*')`)
+only to read its last element. Replaced with `_last_descendant` (`components.py`) --
+a right-spine descent to the last element child on the same live tree, so the picked
+node is identical by construction.
+
+- **Byte-identical, directly verified:** `.claude/verify_last_descendant.py` compares
+  the new pick against old `elem.css('*')[-1]` for **all 1092 main components** ->
+  **0 mismatches**. 87 snapshots + 437 tests green, no updates; pyrefly + ruff clean.
+- **Profile A/B** (cumulative, 870 parses): `reorder_by_dom_position` 0.322 -> 0.170 s
+  cum (**-47%**); `_range` 0.258 -> 0.117 s cum (**-55%**); new `_last_descendant`
+  0.096 s cum. ~0.15 s of subtree materialization removed.
+- **Timing A/B** (50x5): inconclusive this run -- noisy box (median 1507.8 ms, spread
+  551 ms, ~4.3% floor vs the Lever-1+3 run's 1.1%), so the cross-run median isn't
+  comparable. The frame-level profile evidence is decisive and the change removes real
+  work byte-identically (same profile-proven / wall-clock-in-noise shape as Lever 1).
+
+**Fuller option 3 deferred.** The big remaining walk is the per-component
+`_ComponentSignals` `cmpt.css('*')` (1.96 s). Eliminating it needs a single
+structure-aware document walk that attributes each element to its containing main
+component and builds the signal sets, replacing both `_get_dom_positions` and the
+per-component signal walks. Major restructure: the document walk currently runs
+*before* extraction (to snapshot ad positions pre-removal), component boundaries
+aren't known at that point, and the per-component signal sets must be reproduced
+exactly -- high byte-identical risk for the gain. Not attempted without an explicit
+go-ahead; recorded as the open structural lever.
