@@ -9,7 +9,34 @@ import re
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text, subtree_css, subtree_first
-from ..utils import slugify
+
+# Closed set of canonical ``local_results`` sub_types, keyed by the lowercased
+# component header. The header is query-/location-dependent display text (a bare
+# locality, an address, "These are results for <query>", ...), so it is mapped to
+# a category by phrase rather than slugified into a per-query value -- the old
+# ``slugify(header)`` fallback minted ~one junk sub_type per query. Headers that
+# match nothing here resolve to ``None``; the raw header is kept losslessly in
+# ``details["heading"]``, so dropping the slug loses no information. Keep these
+# values in sync with the ``local_results`` ``sub_types`` in ``component_types``.
+_LOCAL_RESULTS_CATEGORIES: dict[str, str] = {
+    "places": "places",
+    "locations": "locations",
+    "businesses": "businesses",
+    "in-store availability": "in-store_availability",
+}
+
+
+def _header_to_sub_type(header: str) -> str | None:
+    """Map a local-results header to a closed-set sub_type, or ``None``.
+
+    ``"results for"`` is matched anywhere in the header (not just as a prefix) so
+    phrasings like "These are results for <query>" collapse to ``results_for``
+    instead of slugifying into junk. Unknown/free headers return ``None``.
+    """
+    header_lower = header.lower()
+    if "results for" in header_lower:
+        return "results_for"
+    return _LOCAL_RESULTS_CATEGORIES.get(header_lower)
 
 
 def parse_local_results(elem) -> list:
@@ -28,14 +55,15 @@ def parse_local_results(elem) -> list:
                 header = text
                 break
         if header:
-            header_lower = header.lower()
-            sub_type = (
-                "results_for" if header_lower.startswith("results for") else slugify(header_lower)
-            )
+            sub_type = _header_to_sub_type(header)
             for parsed in parsed_list:
-                parsed["sub_type"] = sub_type
-                # Preserve the raw component header (the sub_type slug is lossy
-                # and the per-result title is the business name, not this).
+                # Only assign a sub_type for a recognized category; a free/locality
+                # header leaves it None rather than slugifying display text.
+                if sub_type is not None:
+                    parsed["sub_type"] = sub_type
+                # Preserve the raw component header regardless (the per-result
+                # title is the business name, not this), so nothing is lost when
+                # the header maps to no category.
                 details = parsed.get("details")
                 if isinstance(details, dict):
                     details["heading"] = header
