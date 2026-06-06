@@ -10,7 +10,7 @@ pr: https://github.com/gitronald/WebSearcher/pull/152
 
 ## Problem
 
-Plan 033 left an open follow-up (TODO line 3): the eight local skills in `.claude/skills/`
+Plan 037 left an open follow-up (TODO line 3): the eight local skills in `.claude/skills/`
 overlap, several are stale, and the scripts they call are split between `scripts/` (git-tracked)
 and the skill dirs. A review fleet mapped the skills, their inputs, their relationships, and their
 script dependencies, then verified the findings against the files. Two overlap clusters drive
@@ -148,7 +148,7 @@ so it stays tracked in `scripts/` unconditionally.
    pytest job *and* absorb the script for the rich `--dump` report; (b) accept skill-only and drop the
    false "CI guard" line from the SKILL.md.
 2. **README walkthrough replacement.** `README.md` points end users at the dev-only
-   `scripts/show_parsed.py` (typer+polars, never shipped — plan-033 flagged this as a bug). It takes a
+   `scripts/show_parsed.py` (typer+polars, never shipped — plan-037 flagged this as a bug). It takes a
    query and has `--cat-width`/`--details`/`--list`; the obvious `ws-demo parse` takes a *file* and
    lacks those flags. Verify `ws-demo`'s actual output shape first, then repoint to it if a per-query
    table fits, else fall back to the `ws.parse_serp(...)['results']` snippet already in the README's
@@ -181,7 +181,7 @@ so it stays tracked in `scripts/` unconditionally.
    a `show_parsed` render, a corpus `profile`/`verify` run, and a `bench_parse --no-save` run. Confirm
    `scripts/` now contains only `survey_ai_overviews.py`.
 8. **Commit in logical chunks** (doc repoints → each skill merge → path surgery → `_common` prune).
-   Append a Log entry to plan 033 referencing this plan, mark TODO line 3 done. Do NOT push/merge
+   Append a Log entry to plan 037 referencing this plan, mark TODO line 3 done. Do NOT push/merge
    unless asked.
 
 ## Out of scope / loose ends
