@@ -3,7 +3,7 @@ status: active
 branch: feature/v0.9.0-script-cleanup
 created: 2026-06-05T15:26:51-07:00
 completed:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/152
 ---
 
 # Consolidate .claude/skills from 8 to 4 and absorb every skill-only script
