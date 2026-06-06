@@ -12,7 +12,6 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
 | 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download.md) | draft | — | — |
-| 029 | [Knowledge `details` Schema Alignment](plans/029-knowledge-details-schema-alignment.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards.md) | draft | — | — |
 | 018 | [Add a `visible` flag to parsed results](plans/018-visible-flag-on-results.md) | draft | — | — |
 | 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | done | 2026-06-06 | [#157](https://github.com/gitronald/WebSearcher/pull/157) |
@@ -51,3 +50,4 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 043 | [Audit Twitter component parsers against 2024-2026 SERP evolution](plans/043-twitter-cards-modern-serps.md) | inactive | — | — |
 | 042 | [Investigate missing URLs in the results_for local results variant](plans/042-local-results-results-for-urls.md) | inactive | — | — |
 | 017 | [Parse Pipeline Optimization](plans/017-parse-pipeline-optimization.md) | abandoned | 2026-05-24 | [#125](https://github.com/gitronald/WebSearcher/pull/125) |
+| 029 | [Knowledge `details` Schema Alignment](plans/029-knowledge-details-schema-alignment.md) | retired | 2026-06-06 | — |

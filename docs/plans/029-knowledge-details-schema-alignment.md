@@ -1,9 +1,9 @@
 ---
-status: draft
-branch: claude/plan-029-knowledge-details-schema
+status: retired
+branch: null
 created: 2026-05-30T14:10:38-07:00
-completed:
-pr:
+completed: 2026-06-06T16:11:02-07:00
+pr: null
 ---
 
 # Knowledge `details` Schema Alignment
@@ -163,3 +163,28 @@ convergence that drops a key only witnessed in production is information loss.
 Builds on merged 028 (PR #141): unified `parse_alink`, table-driven dispatch,
 `panel_rhs` registered. No blockers; can start with the inventory (read-only)
 whenever.
+
+## Log
+
+- **2026-06-06 — retired (superseded).** Never started. Two things overtook the
+  plan as written:
+  1. **Inventory went stale.** Since drafting (2026-05-30), the RHS family was
+     restructured (plans 033, 041): rows renamed from `type="knowledge"` /
+     `sub_type="panel_rhs"` to `type="side_bar"` with `sub_type="panel"` /
+     `"links"`, and new `details["type"]` values (`songs`/`albums`/`events`)
+     were added from the kp-wholepage music sections. The tables above no longer
+     match the code.
+  2. **Decision point #1 was settled in practice.** The "details schema
+     discipline" since adopted — *reuse the existing `details["type"]` labels
+     (text/hyperlinks/ratings/place/panel/video); drop hollow payloads instead
+     of emitting null-filled dicts* — is effectively **option (B)/(C)**, not
+     (A) typed models. There is no longer a model-layer target to decide.
+  The five divergences this plan catalogued are still real and unresolved
+  (`img_url` vs `img_urls`, always-emit vs `None`, `heading`/`subtitle`
+  placement, `text` in `details` vs `parsed["text"]`, multiple `details["type"]`
+  tags). Its durable value — the preserve-don't-prune rule, the
+  source-is-the-spec / synthetic-pin verification strategy, and the divergence
+  catalogue — is carried forward into **plan 041**
+  (`041-knowledge-rhs-parser-coverage.md`), which is actively reworking the
+  `knowledge_rhs` `details` shapes under the same discipline. Retired (not
+  abandoned): the goal is being met by another mechanism, not dropped.

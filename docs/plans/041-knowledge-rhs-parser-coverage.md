@@ -8,6 +8,14 @@ pr:
 
 # Improve knowledge_rhs parser coverage for fact rows and expandable boxes
 
+> **Absorbs retired plan 029** (`029-knowledge-details-schema-alignment.md`,
+> retired 2026-06-06). 029 catalogued the cross-parser `details` divergences in
+> the knowledge family but was never started; its inventory went stale after the
+> RHS restructure (033/041) and its central decision (typed models vs canonical
+> dicts) was settled in practice by the "reuse existing labels, no null-filled
+> dicts" discipline this plan already follows. The schema-convergence work below
+> carries 029's direction forward. See [§ Schema convergence](#schema-convergence-from-retired-plan-029).
+
 The knowledge RHS (right-hand-side) panel parser currently undercaptures structured entity facts (rows with `data-attrid^='kc:/'`) and skips box headings without navigational links. In the fixture corpus (87 SERPs, 18 with RHS panels), queries like "doctor zhivago" yield 8+ unparsed fact rows (director, release date, reviews, box office), and entity panels like "central park new york" have 19 fact rows plus 14 expandable section headings that lack links but carry meaningful titles (e.g., "Cost", "Things to do").
 
 Current code (`WebSearcher/component_parsers/knowledge_rhs.py:102–123`, `_parse_rhs_boxes()`):
@@ -36,6 +44,44 @@ Additionally, fact rows under complementary RHS panels are never extracted.
 2. **Preserve aria-level=2 box titles even when they lack links**, storing them as `sub_type="links"` rows with `details = {"type": "text", "items": [{"label": title}]}` or a similar placeholder. Alternatively, fold them into the main panel's `details["facts"]` if they are "Things to know" expansions (check for `iwY1Mb` expander).
 3. **Reuse existing `details.type` labels** (text, hyperlinks, panel) — do NOT invent null-filled dicts. For fact rows without a natural label, use inline extraction: `{"type": "text", "items": [{"label": "<attrid label>", "value": "<extracted text>"}]}` or similar flat schema already seen in `people_also_ask.py` (text items).
 4. **Update parser snapshots** in `tests/__snapshots__/` and verify no regressions in the `test_corpus_integrity.py` gate (every parsed record must still yield `features.main_layout` and at least one result).
+
+## Schema convergence (from retired plan 029)
+
+Beyond coverage, reconcile the `details`-shape divergences across the knowledge
+family that retired plan 029 catalogued. These are still present in the code and
+are the unique value 029 carried; address them here while the RHS parser is
+already being touched.
+
+**Divergences to resolve (still live as of 2026-06-06):**
+
+1. **`img_url` (str) vs `img_urls` (list).** `knowledge.py` emits singular
+   `img_url`; `knowledge_rhs.py` emits plural `img_urls`. Converge — keep the
+   plural list and represent the singular case as a 1-element list so no
+   information is lost.
+2. **Always-emit vs `None`.** `knowledge.py` always emits a `details` dict;
+   `knowledge_rhs.py` emits `details=None` when empty. Pick one (the
+   drop-hollow-payloads discipline favors `None` over a null-filled dict).
+3. **`heading` vs `subtitle` placement.** Reconcile where the panel title lands.
+4. **`text` in `details` vs `parsed["text"]`.** The `dictionary` sub_type writes
+   to both (`knowledge.py:223`); resolve the duplication.
+5. **Multiple `details["type"]` tags in one family** (`panel`, `hyperlinks`,
+   plus `songs`/`albums`/`events` from kp-wholepage music sections). Keep them
+   distinct but documented — do not unify away meaning.
+
+**Non-negotiable rules inherited from 029 (the coverage caveat):**
+
+- **Source code is the spec, not the fixtures.** SERP fixtures are a partial
+  witness — several knowledge shapes (e.g. `featured_snippet`, `finance`,
+  `calculator`, `election`, `dictionary` legacy paths) have zero or partial
+  fixture coverage. A branch with no fixture hit is an unwitnessed real-world
+  shape, **not** dead code.
+- **Preserve, don't prune.** Never drop or collapse a key/branch because it
+  "looks unused" — that is silent information loss in production.
+- **Green snapshots ≠ behavior preserved.** Snapshots only bound the witnessed
+  subset. Pin every code-only shape with synthetic markup in
+  `tests/test_knowledge_dispatch.py` *before* migrating it, and review any
+  regenerated snapshot diff line-by-line (regen can mask unintended changes in
+  covered cases).
 
 ## Evidence
 
@@ -86,3 +132,7 @@ Output: "doctor zhivago": 8 fact rows (unparsed); parsed 4 side_bar rows (main +
 - [ ] Snapshot tests updated; no regressions in parser output (main_layout and result count unchanged for existing queries).
 - [ ] Fixture corpus reparse confirms fact_rows_* and unparsed aria_level2_boxes_* gaps closed (via ad-hoc scripts verifying counts before/after).
 - [ ] Code change is additive and does not invent new `details.type` labels beyond text/hyperlinks/panel/ratings (existing set).
+- [ ] (from 029) `img_url`/`img_urls` converged to a single shape (plural list; singular → 1-element list) with no information loss.
+- [ ] (from 029) Empty-`details` policy unified across `knowledge.py` and `knowledge_rhs.py` (drop hollow payloads — `None`, not a null-filled dict).
+- [ ] (from 029) `dictionary` `text` double-write (`details["text"]` + `parsed["text"]`) resolved.
+- [ ] (from 029) Every code-only `details` shape touched is pinned with synthetic markup in `tests/test_knowledge_dispatch.py` before migration; regenerated snapshots reviewed line-by-line.
