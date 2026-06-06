@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/v0.9.0-script-cleanup
 created: 2026-06-05T15:26:51-07:00
-completed:
+completed: 2026-06-05T17:37:50-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/152
 ---
 
@@ -279,3 +279,14 @@ Per follow-up direction, gave the last two `scripts/` files a permanent home and
 Skills are now **5** (`serp-inspect`, `compare-parsed`, `corpus-curate`, `parse-bench`,
 `explore-ai-overview`). Verified: `uv run pytest` 408 passed / 80 snapshots, `python -m WebSearcher.bench
 --no-save` and the survey script both run from the repo root, ruff clean.
+
+## Retrospective
+
+Shipped via PR #152 (merged into `feature/v0.9.0`). The 8 → 4 consolidation (later 5, once
+`explore-ai-overview` absorbed the lone surveying script) was driven by a review fleet and held up:
+combining the overlapping inspection skills was the lever that freed the shared inspection scripts to be
+absorbed, and `ws-demo show` replaced `show_parsed.py` outright. Merging back into `feature/v0.9.0`
+required a 35-commit catch-up and renumbering this plan 035 → 038 (and the audit 033 → 037) to clear
+collisions with plans the version branch had created in parallel — a reminder to cut cycle topic branches
+off the *current* version-branch tip and to keep them short-lived. Final suite on the merged code: 425
+passed, 87 snapshots, CI green on 3.12/3.13/3.14.

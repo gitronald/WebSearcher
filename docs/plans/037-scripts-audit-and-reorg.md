@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/v0.9.0-script-cleanup
 created: 2026-06-05T09:53:50-07:00
-completed:
-pr:
+completed: 2026-06-05T17:37:50-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/152
 ---
 
 # Audit scripts/: absorb demos into the package, extract skills, retire one-offs
@@ -329,3 +329,13 @@ collapse to 4 (`serp-inspect`, `compare-parsed`, `corpus-curate`, `parse-bench`)
 to a single file (`survey_ai_overviews.py`). The `show_parsed.py`-can't-collapse blocker dissolved by
 combining the four overlapping inspection skills and replacing the script with a package-native
 `ws-demo show`; `bench_parse.py` moved into `parse-bench` as predicted.
+
+## Retrospective
+
+Shipped via PR #152 (merged into `feature/v0.9.0`). The audit's core bet held: most of `scripts/` was
+either user demos that belonged in the package or maintainer workflows that belonged in skills. The one
+disposition that flipped during implementation was `bench_parse.py` — kept tracked, then folded into the
+package as `WebSearcher.bench` rather than a gitignored skill, because it's the perf gate that writes to
+the tracked `tests/benchmarks/`. Net: `scripts/` removed entirely. The skills reconciliation is plan 038
+(this plan was renumbered 033 → 037 to clear a collision with the kp-wholepage plan 033 the version
+branch created in parallel).
