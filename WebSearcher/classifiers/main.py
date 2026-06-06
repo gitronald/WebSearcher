@@ -131,7 +131,9 @@ class ClassifyMain:
             ),
             (
                 ClassifyMain.election,
-                lambda s: "eer-rc-b" in s.classes or "eer-masthead" in s.ids,
+                lambda s: (
+                    "eer-rc-b" in s.classes or "eer-rc-i" in s.classes or "eer-masthead" in s.ids
+                ),
             ),
             (ClassifyMain.general, None),
             (ClassifyMain.people_also_ask, None),
