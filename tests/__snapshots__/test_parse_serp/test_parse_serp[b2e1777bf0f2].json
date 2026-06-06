@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -17,7 +18,7 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|Albert Einstein|Theoretical physicist|Theoretical physicist|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Send feedback",
+        "subtitle": "Theoretical physicist",
         "type": "panel",
         "urls": []
       },
@@ -26,8 +27,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Albert Einstein Theoretical physicist About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Send feedback",
+      "text": "Theoretical physicist",
+      "title": "Albert Einstein",
       "type": "knowledge",
       "url": null
     },
@@ -35,41 +36,85 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=albert+einstein&udm=2&source=univ&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QnN8JegQIERAD"
-          },
-          {
-            "text": "",
-            "url": "https://www.theguardian.com/science/alberteinstein"
-          },
-          {
-            "text": "Born|Mar 14, 1879|Ulm, Germany",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=albert+einstein+born&stick=H4sIAAAAAAAAAOPgE2LXz9U3yEqu0BLLTrbSL0jNL8hJBVJFxfl5Vkn5RXmLWEUSc5JSi0oUUjPzikuAhAJIGADHZqekOgAAAA&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Q18AJegQILRAB"
-          },
-          {
-            "text": "Died|Apr 18, 1955|Princeton, NJ",
-            "url": "/search?sca_esv=a23961d46812ec7b&q=albert+einstein+died&stick=H4sIAAAAAAAAAOPgE2LXz9U3yEqu0JLPTrbSL0jNL8hJ1U9JTU5NLE5NiS9ILSrOz7NKyUxNWcQqkpiTlFpUopCamVdcAiQUQMIAeqAPLEMAAAA&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Q18AJegQINhAB"
-          },
-          {
-            "text": "Who was Albert Einstein? | The World Famous Scientist|YouTube|·|Little School|·|Aug 17, 2023",
-            "url": "https://www.youtube.com/watch?v=0Zn9M8bjB4s"
-          }
-        ]
+        "kind": "image"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "Source: Global Governance Forum More images The Guardian Albert Einstein | The Guardian Albert Einstein with his secretary B Howard, Oliver Locker-Lampson and an armed guard outside the hut in 1933. Aug 20, 2025 Born Mar 14, 1879 Ulm, Germany Died Apr 18, 1955 Princeton, NJ 4:14 YouTube • Little School Aug 16, 2023 Who was Albert Einstein? | The World Famous Scientist Little School YouTube · Aug 17, 2023 Who was Albert Einstein? | The World Famous Scientist YouTube · Little School · Aug 17, 2023 YouTube",
+      "text": "Source: Global Governance Forum",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "web"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "The Guardian Albert Einstein | The Guardian Albert Einstein with his secretary B Howard, Oliver Locker-Lampson and an armed guard outside the hut in 1933. Aug 20, 2025",
       "title": null,
       "type": "knowledge",
       "url": "https://www.theguardian.com/science/alberteinstein"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Born",
+        "value": "Ulm, Germany"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "Born: Ulm, Germany",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Died",
+        "value": "Princeton, NJ"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "featured_results",
+      "text": "Died: Princeton, NJ",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "featured_results",
+      "text": "4:14 YouTube • Little School Aug 16, 2023 Who was Albert Einstein? | The World Famous Scientist Little School YouTube · Aug 17, 2023 Who was Albert Einstein? | The World Famous Scientist YouTube · Little School · Aug 17, 2023 YouTube",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=0Zn9M8bjB4s"
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Albert_Einstein",
@@ -77,7 +122,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 2,
+      "serp_rank": 6,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Albert Einstein  (14 March 1879 – 18 April 1955) was a German-born theoretical physicist best known for developing the theory of relativity. Einstein also made ... Read more",
@@ -99,7 +144,7 @@
       },
       "error": null,
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 7,
       "sub_rank": 0,
       "sub_type": null,
       "text": "What was Einstein's IQ?<|>What are 5 things Albert Einstein is famous for?<|>What are 10 facts about Albert Einstein?<|>What happened to Albert Einstein as a child?",
@@ -113,7 +158,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 8,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Albert Einstein  was born at Ulm, in Württemberg, Germany, on March 14, 1879. Six weeks later the family moved to Munich, where he later on began his schooling ... Read more",
@@ -127,7 +172,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 9,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Albert Einstein . 19897934 likes · 32518 talking about this. Official Facebook of the World's Favorite Genius. Managed by CMG Worldwide, authorized...",
@@ -141,7 +186,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 10,
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
@@ -155,7 +200,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 11,
       "sub_rank": 1,
       "sub_type": null,
       "text": null,
@@ -169,7 +214,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 12,
       "sub_rank": 2,
       "sub_type": null,
       "text": null,
@@ -183,7 +228,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 13,
       "sub_rank": 3,
       "sub_type": null,
       "text": null,
@@ -197,7 +242,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 14,
       "sub_rank": 4,
       "sub_type": null,
       "text": null,
@@ -211,7 +256,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 15,
       "sub_rank": 5,
       "sub_type": null,
       "text": null,
@@ -225,7 +270,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 16,
       "sub_rank": 6,
       "sub_type": null,
       "text": null,
@@ -239,7 +284,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 17,
       "sub_rank": 7,
       "sub_type": null,
       "text": null,
@@ -253,7 +298,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 18,
       "sub_rank": 8,
       "sub_type": null,
       "text": null,
@@ -267,7 +312,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Albert Einstein  (1879 – 1955) first gained worldwide prominence in 1919, when British astronomers verified predictions of Einstein's general theory of ... Read more",
@@ -278,10 +323,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 20,
       "sub_rank": 0,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -292,10 +339,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 21,
       "sub_rank": 1,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -306,10 +355,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 22,
       "sub_rank": 2,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -320,10 +371,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 23,
       "sub_rank": 3,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -334,10 +387,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 24,
       "sub_rank": 4,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -348,10 +403,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 25,
       "sub_rank": 5,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -362,10 +419,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 26,
       "sub_rank": 6,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -376,10 +435,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 23,
+      "serp_rank": 27,
       "sub_rank": 7,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -390,10 +451,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 24,
+      "serp_rank": 28,
       "sub_rank": 8,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -404,10 +467,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 25,
+      "serp_rank": 29,
       "sub_rank": 9,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -418,10 +483,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 26,
+      "serp_rank": 30,
       "sub_rank": 10,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -432,10 +499,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 27,
+      "serp_rank": 31,
       "sub_rank": 11,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -446,10 +515,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 28,
+      "serp_rank": 32,
       "sub_rank": 12,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -460,10 +531,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 29,
+      "serp_rank": 33,
       "sub_rank": 13,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -474,10 +547,12 @@
     {
       "cite": "phalpern · X",
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 30,
+      "serp_rank": 34,
       "sub_rank": 14,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -488,10 +563,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 31,
+      "serp_rank": 35,
       "sub_rank": 15,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -502,10 +579,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 32,
+      "serp_rank": 36,
       "sub_rank": 16,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -516,10 +595,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 33,
+      "serp_rank": 37,
       "sub_rank": 17,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -530,10 +611,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 34,
+      "serp_rank": 38,
       "sub_rank": 18,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -544,10 +627,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 35,
+      "serp_rank": 39,
       "sub_rank": 19,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -558,10 +643,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 36,
+      "serp_rank": 40,
       "sub_rank": 20,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -572,10 +659,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 37,
+      "serp_rank": 41,
       "sub_rank": 21,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -586,10 +675,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 38,
+      "serp_rank": 42,
       "sub_rank": 22,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -600,10 +691,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 39,
+      "serp_rank": 43,
       "sub_rank": 23,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -614,10 +707,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 40,
+      "serp_rank": 44,
       "sub_rank": 24,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -628,10 +723,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 41,
+      "serp_rank": 45,
       "sub_rank": 25,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -642,10 +739,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 42,
+      "serp_rank": 46,
       "sub_rank": 26,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -656,10 +755,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 43,
+      "serp_rank": 47,
       "sub_rank": 27,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -670,10 +771,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 44,
+      "serp_rank": 48,
       "sub_rank": 28,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -684,10 +787,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 45,
+      "serp_rank": 49,
       "sub_rank": 29,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -698,10 +803,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 46,
+      "serp_rank": 50,
       "sub_rank": 30,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -712,10 +819,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 47,
+      "serp_rank": 51,
       "sub_rank": 31,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -726,10 +835,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 48,
+      "serp_rank": 52,
       "sub_rank": 32,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -740,10 +851,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 49,
+      "serp_rank": 53,
       "sub_rank": 33,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -754,10 +867,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 50,
+      "serp_rank": 54,
       "sub_rank": 34,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -768,10 +883,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 51,
+      "serp_rank": 55,
       "sub_rank": 35,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -782,10 +899,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 52,
+      "serp_rank": 56,
       "sub_rank": 36,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -796,10 +915,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 53,
+      "serp_rank": 57,
       "sub_rank": 37,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -810,10 +931,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 54,
+      "serp_rank": 58,
       "sub_rank": 38,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -824,10 +947,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 55,
+      "serp_rank": 59,
       "sub_rank": 39,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -838,10 +963,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 56,
+      "serp_rank": 60,
       "sub_rank": 40,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -852,10 +979,12 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 57,
+      "serp_rank": 61,
       "sub_rank": 41,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -869,7 +998,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 58,
+      "serp_rank": 62,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Jan 19, 2026  —  Albert Einstein  was a famous physicist. His research spanned from quantum mechanics to theories about gravity and motion. Read more",
@@ -883,7 +1012,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 59,
+      "serp_rank": 63,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Albert Einstein  was a theoretical physicist and the most famous scientist in human history. He developed the general theory of relativity. Read more",
@@ -897,7 +1026,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 60,
+      "serp_rank": 64,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Mar 17, 2025  —  7 facts about Albert Einstein that may surprise you · 1.  Einstein was a refugee  · 2. He used his influence and money to help other refugees · 3. Read more",
@@ -911,7 +1040,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 61,
+      "serp_rank": 65,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Discover the  scientist whose ideas and theories about time and space changed the world  and what we think about the universe in our 10 facts about Albert ... Read more",
@@ -925,7 +1054,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 62,
+      "serp_rank": 66,
       "sub_rank": 0,
       "sub_type": null,
       "text": "“There are only two ways to live your life . One is as though nothing is a miracle. The other is as though everything is a miracle.” Read more",
@@ -937,6 +1066,7 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Albert Einstein book",
           "Albert Einstein famous for",
@@ -951,7 +1081,7 @@
       },
       "error": null,
       "section": "footer",
-      "serp_rank": 63,
+      "serp_rank": 67,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Albert Einstein book<|>Albert Einstein famous for<|>Albert Einstein inventions<|>Albert Einstein death<|>Albert Einstein IQ<|>Albert Einstein brain<|>Albert Einstein education<|>Albert Einstein religion",

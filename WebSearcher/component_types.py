@@ -102,6 +102,27 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Forum and discussion board results",
     ),
     ComponentType(
+        name="election_dates",
+        label="Election Dates",
+        sections=("main",),
+        header_texts={2: ("Election dates",)},
+        description="Calendar of upcoming primary/general election dates",
+    ),
+    ComponentType(
+        name="election_resources",
+        label="Election Resources",
+        sections=("main",),
+        header_texts={2: ("Election resources",)},
+        description="Official voter-resource panel (register, where/how to vote)",
+    ),
+    ComponentType(
+        name="election_results",
+        label="Election Results",
+        sections=("main",),
+        header_texts={2: ("Election results", "Presidential primary results")},
+        description="Live election-results tracker / primary-results panel",
+    ),
+    ComponentType(
         name="general",
         label="General",
         sections=("main", "footer"),
@@ -196,6 +217,12 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "Perfiles",
             ),
         },
+        # NB: ``knowledge`` is an *open* sub_type space. Beyond the fixed values
+        # below, ``parse_knowledge_panel``'s JNkvid branch mints a slug from the
+        # section heading (e.g. ``movies``, ``songs``, ``lyrics``, ``played-by``,
+        # ``cast-and-crew``). This tuple enumerates the closed set; the slug
+        # values are intentionally not exhaustive. (The RHS column, registered
+        # separately as ``knowledge_rhs``, emits its own ``type="side_bar"`` rows.)
         sub_types=(
             "featured_results",
             "featured_snippet",
@@ -216,6 +243,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="knowledge_rhs",
         label="Knowledge RHS",
         sections=("main",),
+        # Component type assigned to the RHS column container; its parser emits
+        # result rows as ``type="side_bar"`` with ``sub_type="panel"`` (the main
+        # entity panel) or ``sub_type="links"`` (link boxes).
         description="Knowledge panels in right-hand sidebar",
     ),
     ComponentType(
@@ -467,9 +497,15 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
 TYPES_BY_NAME: dict[str, ComponentType] = {t.name: t for t in COMPONENT_TYPES}
 
 
+_HEADER_TEXT_TO_TYPE: dict[int, dict[str, str]] = {
+    level: {text: t.name for t in COMPONENT_TYPES for text in t.header_texts.get(level, ())}
+    for level in {lvl for t in COMPONENT_TYPES for lvl in t.header_texts}
+}
+
+
 def header_text_to_type(level: int) -> dict[str, str]:
     """Inverted: ``{header text: type name}`` for a given heading level."""
-    return {text: t.name for t in COMPONENT_TYPES for text in t.header_texts.get(level, ())}
+    return _HEADER_TEXT_TO_TYPE.get(level, {})
 
 
 def types_in_section(section: Section) -> tuple[ComponentType, ...]:

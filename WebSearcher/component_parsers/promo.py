@@ -6,20 +6,23 @@ It carries no organic result, so its value is the presence signal (shopping
 intent). The CTA link is an internal ``/search`` query, kept verbatim.
 """
 
-import bs4
+from selectolax.lexbor import LexborNode as Node
+
+from .._slx import get_text
 
 
-def parse_promo(cmpt: bs4.element.Tag) -> list:
-    cta = cmpt.find("a", href=True)
-    cta_url = cta["href"] if cta else None
+def parse_promo(elem) -> list:
+    node: Node = elem
 
-    cta_label_el = cmpt.find("span", {"class": "EfVwZc"})
-    cta_label = cta_label_el.get_text(" ", strip=True) if cta_label_el else None
+    cta = node.css_first("a[href]")
+    cta_url = cta.attributes["href"] if cta is not None else None
+
+    cta_label = get_text(node.css_first("span.EfVwZc"), " ", strip=True) or None
 
     # Title is the promo description (full text minus the trailing CTA label).
-    full = cmpt.get_text(" ", strip=True)
+    full = get_text(node, " ", strip=True)
     title = full
-    if cta_label and full.endswith(cta_label):
+    if cta_label and full and full.endswith(cta_label):
         title = full[: -len(cta_label)].strip()
 
     return [

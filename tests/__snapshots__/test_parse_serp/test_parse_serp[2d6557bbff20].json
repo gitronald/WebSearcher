@@ -1,0 +1,285 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 8760000.0,
+    "result_estimate_time": 0.24
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "sections": [
+          {
+            "heading": "Lack of the original manuscript",
+            "text": "Translators don't know which of the many copies is the correct one. Differences between copies are more significant in the New Testament."
+          },
+          {
+            "heading": "Differences between manuscripts",
+            "text": "Scholars use the ecletic approach to combine manuscripts from different sources, but this approach relies on human judgment. Translators may choose a reading that's not in the standard printed texts."
+          },
+          {
+            "heading": "Updating the language",
+            "text": null
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "Ken Collins",
+            "snippet": "Inclusive Language Can Be Self-Defeating in Bible Translations. It is necessary to be inclusive in contemporary speech and writing...",
+            "source_id": null,
+            "title": "The Problem with Inclusive-Language Bible Translations - Ken Collins",
+            "url": "https://www.kencollins.com/bible/bible-t6.htm#:~:text=Inclusive%20Language%20Can%20Be%20Self,preachers%20can%20interpret%20the%20text."
+          },
+          {
+            "favicon": null,
+            "publisher": "Translation Journal",
+            "snippet": "Jul 18, 2018 — One basic problem inherent in Bible translation is that we do not have the original manuscript of the Bible, but copie...",
+            "source_id": null,
+            "title": "Problems of Bible Translation",
+            "url": "https://translationjournal.net/journal/18bible.htm#:~:text=in%20the%20future.-,One%20basic%20problem%20inherent%20in%20Bible%20translation%20is%20that%20we,is%20that%20of%20Ivan%20Panin."
+          },
+          {
+            "favicon": null,
+            "publisher": "Blue Letter Bible",
+            "snippet": "BHS and the Nestle-Aland text are the standard Hebrew and Greek printed texts. While most modern translations use these printed te...",
+            "source_id": null,
+            "title": "What Are Some of the Key Issues Involved with Translating the Bible?",
+            "url": "https://www.blueletterbible.org/Comm/stewart_don/faq/bible-translations/question3-key-issues-with-translating-the-bible.cfm#:~:text=BHS%20and%20the%20Nestle%2DAland,1%20Samuel%2010:27%20NRSV)"
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "sectioned",
+      "text": "Bible translations can have problems due to a lack of the original manuscript, differences between manuscripts, and attempts to update the language .",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.blueletterbible.org  › faq › bible-translations",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "There is also the issue of which theory of Bible translation is to be used.  Should the translation be literal ? Should the work be more thought for thought?",
+      "title": "What Are Some of the Key Issues Involved with Translating ...",
+      "type": "general",
+      "url": "https://www.blueletterbible.org/Comm/stewart_don/faq/bible-translations/question3-key-issues-with-translating-the-bible.cfm"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          "What are the problems of Bible translation?",
+          "What is the most controversial translation of the Bible?",
+          "What is the most accurate translation of the Bible to the original?",
+          "Which translation of the Bible is closest to the original text?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What are the problems of Bible translation?<|>What is the most controversial translation of the Bible?<|>What is the most accurate translation of the Bible to the original?<|>Which translation of the Bible is closest to the original text?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "50+ comments  ·  9 months ago",
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          {
+            "text": "What's the worst translation you've read of the Bible? - Reddit",
+            "url": "https://www.reddit.com/r/Christianity/comments/14mgmr3/whats_the_worst_translation_youve_read_of_the/"
+          },
+          {
+            "text": "Theological bias in Bible translations. Looking for an ... - Reddit",
+            "url": "https://www.reddit.com/r/AcademicBiblical/comments/ru782y/theological_bias_in_bible_translations_looking/"
+          },
+          {
+            "text": "Problems with bible translations : r/AcademicBiblical - Reddit",
+            "url": "https://www.reddit.com/r/AcademicBiblical/comments/dsx015/problems_with_bible_translations/"
+          },
+          {
+            "text": "If the Bible was purposely translated incorrectly, why hasn't ...",
+            "url": "https://www.reddit.com/r/NoStupidQuestions/comments/linhyg/if_the_bible_was_purposely_translated_incorrectly/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=problems+with+bible+translations+site:www.reddit.com&sca_esv=14324ad49b0ab5cb&sa=X&ved=2ahUKEwis7bzp-6-LAxWArVYBHRbxNK4QrQIoBHoECB8QBQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "As others have said, yes there are some  issues with translation and copying errors . Some are accidental, some are deliberate, but it's not ...",
+      "title": "Has The Bible suffered from translation errors over ...",
+      "type": "general",
+      "url": "https://www.reddit.com/r/asklinguistics/comments/1clv3mq/has_the_bible_suffered_from_translation_errors/"
+    },
+    {
+      "cite": "https://www.kencollins.com  › bible › bible-t6",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Inclusive language translations put too much stress on what the reader does not want to hear , and too little stress on what the writer wants to say. Sometimes ...",
+      "title": "The Problem with Inclusive-Language Bible Translations",
+      "type": "general",
+      "url": "https://www.kencollins.com/bible/bible-t6.htm"
+    },
+    {
+      "cite": "https://translationjournal.net  › journal › 18bible",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jul 18, 2018  —  One basic problem inherent in Bible translation is that  we do not have the original manuscript of the Bible , but copies of copies of copies...",
+      "title": "Problems of Bible Translation",
+      "type": "general",
+      "url": "https://translationjournal.net/journal/18bible.htm"
+    },
+    {
+      "cite": "https://textandcanon.org  › what-makes-a-bible-translati...",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jul 11, 2023  —  No translation is perfect. But really bad translations are  idiosyncratic and mislead innocent Bible readers .",
+      "title": "What Makes a Bible Translation Really Bad?",
+      "type": "general",
+      "url": "https://textandcanon.org/what-makes-a-bible-translation-really-bad/"
+    },
+    {
+      "cite": "https://www.critlarge.com  › articles › 5-bible-translation...",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Aug 19, 2019  —  The following translations listed below should be avoided altogether, as utilizing them can lead to  grave theological errors , the teaching ...",
+      "title": "5 Bible Translations You Should Avoid",
+      "type": "general",
+      "url": "https://www.critlarge.com/articles/2019/8/18/5-bible-translations-you-should-avoid"
+    },
+    {
+      "cite": "https://www.quora.com  › What-are-some-problems-wit...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The original one to two year-old lingo can be lost . In addition, there is the problem of Original meaning lost. God is who god is spelled out in ...",
+      "title": "What are some problems with translating the Bible into ...",
+      "type": "general",
+      "url": "https://www.quora.com/What-are-some-problems-with-translating-the-Bible-into-different-languages"
+    },
+    {
+      "cite": "https://beinnotof.com  › post › bibletranslations",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Apr 12, 2023  —  In this article, I'll be dissecting everything about the different Bible translations, when to use certain ones, and overall,  how to choose the right Bible  ...",
+      "title": "The Pros and Cons of Popular Bible Translations: A Guide ...",
+      "type": "general",
+      "url": "https://beinnotof.com/post/bibletranslations"
+    },
+    {
+      "cite": "https://www.quora.com  › What-are-some-of-the-proble...",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The main issues with translation is that  an entirely new language is created every time the word is created afresh . · Using a human ...",
+      "title": "What are some of the problems with modern Bible ...",
+      "type": "general",
+      "url": "https://www.quora.com/What-are-some-of-the-problems-with-modern-Bible-translations"
+    },
+    {
+      "cite": "https://christianity.stackexchange.com  › questions › wh...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 29, 2017  —  The translation of the NIV  makes Christ appear to be without authority , and contradicts other scripture that affirms His nature and deity as the ...",
+      "title": "bible translation - What are the major criticisms of the NIV?",
+      "type": "general",
+      "url": "https://christianity.stackexchange.com/questions/60496/what-are-the-major-criticisms-of-the-niv"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Best and worst Bible translations",
+          "Bible translations to avoid",
+          "How many translation errors are in the Bible",
+          "Inclusive language Bible online",
+          "Top 5 most accurate Bible translations",
+          "Bad Bible translations game",
+          "Best Bible translations",
+          "Why are there so many translations of the Bible"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Best and worst Bible translations<|>Bible translations to avoid<|>How many translation errors are in the Bible<|>Inclusive language Bible online<|>Top 5 most accurate Bible translations<|>Bad Bible translations game<|>Best Bible translations<|>Why are there so many translations of the Bible",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

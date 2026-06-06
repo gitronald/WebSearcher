@@ -3,29 +3,19 @@ import hashlib
 import re
 import subprocess
 import urllib.parse as urlparse
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any, NamedTuple
 
 import brotli
 import orjson
 import requests
 import tldextract
-from bs4 import BeautifulSoup
-from bs4.element import NavigableString, Tag
+from selectolax.lexbor import LexborNode as Node
 
 from . import logger
+from ._slx import has_text, make_soup
 
 log = logger.Logger().start(__name__)
-
-SoupElement = BeautifulSoup | Tag | NavigableString
-
-
-class Selector(NamedTuple):
-    """A bs4 tag selector: a tag name and optional attribute filter."""
-
-    name: str | None
-    attrs: dict[str, Any] | None = None
 
 
 # Files ------------------------------------------------------------------------
@@ -60,7 +50,7 @@ def load_html(fp: str | Path, zipped: bool = False) -> str | bytes:
         return brotli.decompress(infile.read()) if zipped else infile.read()
 
 
-def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
+def load_soup(fp: str | Path, zipped: bool = False) -> Node:
     return make_soup(load_html(fp, zipped))
 
 
@@ -70,6 +60,18 @@ def load_soup(fp: str | Path, zipped: bool = False) -> BeautifulSoup:
 def get_between_parentheses(s, regex=r"\((.*?)\)"):
     match = re.search(regex, s)
     return match.group(1) if match else ""
+
+
+def slugify(text: str, sep: str = "_") -> str:
+    """Whitespace-robust slug: collapse all whitespace runs to a single separator.
+
+    Equivalent to ``sep.join(text.split())`` -- handles ASCII space, tabs,
+    non-breaking space, and other unicode whitespace uniformly, so the result is
+    independent of incidental whitespace in source ``get_text`` output. The
+    parsers that derive a ``sub_type`` from a heading should use this rather than
+    a bare ``.replace(" ", sep)`` (which only normalizes ASCII space).
+    """
+    return sep.join(text.split())
 
 
 # Hashing ----------------------------------------------------------------------
@@ -82,157 +84,29 @@ def hash_id(s):
 # Parsing ----------------------------------------------------------------------
 
 
-def make_soup(html: str | bytes | BeautifulSoup, parser: str = "lxml") -> BeautifulSoup:
-    """Create soup object"""
-    if isinstance(html, BeautifulSoup):
-        return html
-    else:
-        return BeautifulSoup(html, parser)
+def has_captcha(soup: Node | None, html: str | None = None) -> bool:
+    """Boolean for 'CAPTCHA' appearance in the document text.
 
-
-def has_captcha(soup: BeautifulSoup) -> bool:
-    """Boolean for 'CAPTCHA' appearance in soup"""
-    return True if soup.find(string=re.compile("CAPTCHA")) else False
-
-
-def check_dict_value(d: Mapping[str, Any], key: str, value: Any) -> bool:
-    """Check if a key exists in a dictionary and is equal to a input value"""
-    return (d[key] == value) if key in d else False
-
-
-# Get divs, links, and text ----------------------------------------------------
-
-
-def get_div(
-    soup: Tag | None,
-    name: str | None,
-    attrs: Mapping[str, Any] | None = None,
-) -> Tag | None:
-    """Utility for `soup.find(name)` with null attrs handling"""
-    if not soup:
-        return None
-    return soup.find(name, attrs=dict(attrs)) if attrs else soup.find(name)
-
-
-def get_text(
-    soup: Tag | None,
-    name: str | None = None,
-    attrs: Mapping[str, Any] | None = None,
-    separator: str = " ",
-    strip: bool = False,
-) -> str | None:
-    """Utility for `soup.find(name).text` with null name handling"""
-    if not soup:
-        return None
-    div = get_div(soup, name, attrs) if name else soup
-    if not div:
-        return None
-    return div.get_text(separator=separator, strip=strip)
-
-
-def get_link(
-    soup: Tag | None, attrs: Mapping[str, Any] | None = None, key: str = "href"
-) -> str | None:
-    """Utility for `soup.find('a')['href']` with null key handling"""
-    link = get_div(soup, "a", attrs)
-    if not isinstance(link, Tag):
-        return None
-    value = link.attrs.get(key, None)
-    return str(value) if value is not None else None
-
-
-def get_link_list(
-    soup: Tag | None,
-    attrs: Mapping[str, Any] | None = None,
-    key: str = "href",
-    filter_empty: bool = True,
-) -> list[str] | None:
-    """Utility for `soup.find_all('a')['href']` with null key handling"""
-    links = find_all_divs(soup, "a", attrs, filter_empty)
-    if not links:
-        return None
-    return [
-        str(link.attrs.get(key, ""))
-        for link in links
-        if isinstance(link, Tag) and link.attrs.get(key)
-    ]
-
-
-def get_text_by_selectors(
-    soup: Tag | None,
-    selectors: Sequence[Selector] | None = None,
-    strip: bool = False,
-) -> str | None:
-    """Get text by trying multiple selectors, return first non-null"""
-    if not soup or not selectors:
-        return None
-    for sel in selectors:
-        text = get_text(soup, sel.name, sel.attrs, strip=strip)
-        if text:
-            return text
-    return None
-
-
-def find_by_selectors(
-    soup: Tag | None,
-    selectors: Sequence[Mapping[str, Any]] | None = None,
-) -> SoupElement | None:
-    """Find first matching element across multiple selectors.
-
-    Each selector is a dict of kwargs forwarded to ``soup.find(**sel)``,
-    e.g. ``{"name": "div", "attrs": {"id": "foo"}}``. Iteration is lazy:
-    later selectors are not evaluated once a match is found.
+    If ``html`` (the raw markup) is provided, a substring check rules out the
+    common no-captcha case without a document text walk. Falls back to
+    ``soup.text(deep=True)`` so script/style/template content doesn't
+    false-positive on JS that happens to contain the literal.
     """
-    if not soup or not selectors:
+    if html is not None and "CAPTCHA" not in html:
+        return False
+    if soup is None:
+        return False
+    return "CAPTCHA" in (soup.text(deep=True) or "")
+
+
+def get_link_list(soup: Node | None) -> list[str] | None:
+    """All descendant anchor ``href``s in document order; ``None`` when none."""
+    if soup is None:
         return None
-    for sel in selectors:
-        match = soup.find(**sel)
-        if match:
-            return match
-    return None
-
-
-def find_all_divs(
-    soup: Tag | None,
-    name: str,
-    attrs: Mapping[str, Any] | None = None,
-    filter_empty: bool = True,
-) -> list[Tag]:
-    if not soup:
-        return []
-    divs = (
-        soup.find_all(name, attrs=attrs if isinstance(attrs, dict) else dict(attrs))
-        if attrs
-        else soup.find_all(name)
-    )
-    return filter_empty_divs(divs) if filter_empty else list(divs)
-
-
-def filter_empty_divs(divs: Iterable[Tag]) -> list[Tag]:
-    filtered: list[Tag] = []
-    for candidate in divs:
-        if not candidate:
-            continue
-        # Keep the candidate at the first non-blank descendant string, instead of
-        # materializing the whole subtree text just to test `.strip() != ""`.
-        if hasattr(candidate, "strings"):
-            if any(s != "" and not s.isspace() for s in candidate.strings):
-                filtered.append(candidate)
-        elif str(candidate).strip():
-            filtered.append(candidate)
-    return filtered
-
-
-def find_children(
-    soup: BeautifulSoup | Tag | None,
-    name: str,
-    attrs: Mapping[str, Any] | None = None,
-    filter_empty: bool = False,
-) -> Iterable[Tag]:
-    """Find all children of a div with a given name and attribute"""
-    div = get_div(soup, name, attrs)
-    children: list[Tag] = [c for c in div.children if isinstance(c, Tag)] if div else []
-    return filter_empty_divs(children) if filter_empty else children
+    out = [
+        str(a.attributes["href"]) for a in soup.css("a") if a.attributes.get("href") and has_text(a)
+    ]
+    return out or None
 
 
 # URLs -------------------------------------------------------------------------
@@ -255,13 +129,9 @@ def get_domain(url: str | None) -> str:
     if not url:
         return ""
     domain = tldextract.extract(url)
-    without_subdomain = ".".join([domain.domain, domain.suffix])
-    with_subdomain = ".".join([domain.subdomain, domain.domain, domain.suffix])
-    if domain.subdomain:
-        domain_str = without_subdomain if domain.subdomain == "www" else with_subdomain
-    else:
-        domain_str = without_subdomain
-    return domain_str
+    if domain.subdomain and domain.subdomain != "www":
+        return ".".join([domain.subdomain, domain.domain, domain.suffix])
+    return ".".join([domain.domain, domain.suffix])
 
 
 # Sessions ---------------------------------------------------------------------

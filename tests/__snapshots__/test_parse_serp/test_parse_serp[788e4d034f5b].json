@@ -1,0 +1,318 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1760000.0,
+    "result_estimate_time": 0.43
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "New York",
+        "img_url": null,
+        "subtitle": "Song by Alicia Keys",
+        "tabs": [
+          "Overview",
+          "Lyrics",
+          "Videos",
+          "Listen"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Song by Alicia Keys",
+      "title": "New York",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://genius.com  › Alicia-keys-empire-state-of-mind-p...",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "[Intro] Ooh, New York Ooh, New York [Verse 1] Grew up in a town that is famous as a place of  movie  scenes. Noise is always loud, there are sirens all around ...",
+      "title": "Alicia Keys - Empire State of Mind, Part II (Broken Down)",
+      "type": "general",
+      "url": "https://genius.com/Alicia-keys-empire-state-of-mind-part-ii-broken-down-lyrics"
+    },
+    {
+      "cite": "https://www.streetdirectory.com  › song › ccope › empir...",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "[Alicia Keys] In New York,  Concrete jungle where dreams are made of, Theres nothing you  can't do, Now you're in New York, these streets will make you feel ...",
+      "title": "Empire State Of Mind (feat. Alicia Keys) Lyrics by ...",
+      "type": "general",
+      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccope/empire_state_of_mind_feat_alicia_keys/"
+    },
+    {
+      "cite": "https://www.letras.com.br  › ... › hip hop/rap › alicia keys",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "I got a pocket full of dreams, Baby I'm from  New York ! ... Now you're in  New York ! These streets will make you feel brand new, Big lights will inspire you, Hear ...",
+      "title": "New York | Alicia Keys",
+      "type": "general",
+      "url": "https://www.letras.com.br/alicia-keys/new-york"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Alicia Keys - Empire State Of Mind (Lyrics) YouTube  ·  Shadow Music 3 minutes, 34 seconds Mar 8, 2021",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=ZW2xa__89p0"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Alicia Keys - New York Empire State of Mind (Lyrics) YouTube  ·  VibersVibin 3 minutes, 38 seconds Feb 1, 2021",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=GoLerKmXQhU"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "JAY-Z - Empire State Of Mind (Lyrics) ft. Alicia Keys YouTube  ·  Loku 5 minutes, 8 seconds Aug 17, 2022",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg"
+    },
+    {
+      "cite": "https://www.azlyrics.com  › A › Alicia Keys Lyrics",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Baby I'm from  New York! Concrete jungle where dreams are made of. There's nothing you can't do. Now you're in New York! These streets will make ...",
+      "title": "Alicia Keys - Empire State Of Mind (Part II) Broken Down ...",
+      "type": "general",
+      "url": "https://www.azlyrics.com/lyrics/aliciakeys/empirestateofmindpartiibrokendown.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "items": [
+          "What is the difference between New York State of Mind and Empire State of Mind?",
+          "When did Alicia Keys come out?",
+          "Did Alicia Keys write Empire State of Mind?",
+          "What was Alicia Keys biggest hit?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is the difference between New York State of Mind and Empire State of Mind?<|>When did Alicia Keys come out?<|>Did Alicia Keys write Empire State of Mind?<|>What was Alicia Keys biggest hit?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.streetdirectory.com  › song › ccopw › empi...",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Alicia Keys  ; Doesn't Mean Anything. Used to dream of bein' a millionaire Without a care ; Empire State Of Mind (Part II). Oooh,  New York  Oooh,  New York  Grew up ...",
+      "title": "Empire State Of Mind (Part II) Lyrics by Alicia Keys",
+      "type": "general",
+      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccopw/empire_state_of_mind_part_ii/"
+    },
+    {
+      "cite": "https://genius.com  › Jay-z-empire-state-of-mind-lyrics",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "[Chorus:  Alicia Keys  & JAY-Z] · In  New York  (Ayy; uh, yeah) · (Uh, yeah, welcome to the bright lights, baby) · These streets will make you feel brand-new · [Verse 3 ...",
+      "title": "JAY-Z – Empire State of Mind Lyrics",
+      "type": "general",
+      "url": "https://genius.com/Jay-z-empire-state-of-mind-lyrics"
+    },
+    {
+      "cite": "https://www.letras.com  › R&B › Alicia Keys",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Alicia Keys - Empire State of Mind (Part II) Broken Down (Letra y canción para escuchar) - Baby, I'm from New York /  Concrete jungle where dreams are made  ...",
+      "title": "EMPIRE STATE OF MIND (PART II) BROKEN DOWN",
+      "type": "general",
+      "url": "https://www.letras.com/alicia-keys/1911687/"
+    },
+    {
+      "cite": "https://mojim.com  › ... › Miscellaneous",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Baby I'm from  New York! Concrete jungle where dreams are made of. There's nothing you can't do. Now you're in New York! These streets ...",
+      "title": "Empire State of Mind Lyrics Alicia Keys( Alicia Augello ...",
+      "type": "general",
+      "url": "https://mojim.com/usy101639x28x14.htm"
+    },
+    {
+      "cite": "319.9K+ views  ·  10 years ago",
+      "cmpt_rank": 11,
+      "details": {
+        "duration": "4:11",
+        "source": null,
+        "type": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "New York, Concrete jungle where dreams are made of, There's nothing you can't do Now you're inNew York! These streets will make you feel ...",
+      "title": "new york -alicia keys (with lyrics) - YouTube",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=Yo30YqEdQi8"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "alicia keys - new york song",
+          "new york song lyrics",
+          "alicia keys new york lyrics - youtube",
+          "empire state of mind alicia keys",
+          "alicia keys - empire state of mind lyrics",
+          "new york lyrics rihanna",
+          "now you're in new york lyrics",
+          "new york lyrics beyoncé"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "alicia keys - new york song<|>new york song lyrics<|>alicia keys new york lyrics - youtube<|>empire state of mind alicia keys<|>alicia keys - empire state of mind lyrics<|>new york lyrics rihanna<|>now you're in new york lyrics<|>new york lyrics beyoncé",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Alicia+Keys&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rnDnOQyoIxnNYv9WO30B-BRtq6rxnvhtKCcWtnfHWg3eECmhLTm8f9R6wYdLKziuirUNeqRepasCgSZzfHS0aPMD8rM_8NGyfak4E05V4ZEZNq6dZEq3DnilQx4hH1lInGXtw3wTdYjj7EM2gyuAZRSZjQxW&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8QmxMoAHoECBYQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "text": "Empire State Of Mind lyrics Jay-Z",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rtvl4gHjpzPKpYolykTK-DwT7ha6dJftcynCd9eVgGN0Fxv1U9w4a8OKPmTXLV-G09gknBXazATX8qrOH4xgrRCgt2w29D_GZFs8kzVe-n6TS-oNJqVWT0uaGU66kfaXjShZ2HWsbC3PQHTgP-7r-Etbit1SXGV5Dp0tp-haIioMnsR4W9WnvRl1vCvtgjNNpwipU9Jd3lP61ZjMF1V5UN2wHwjcsGxqv2AY0oY1tP4gOMtwgtpJsuQPkN7YMnZ9YKdk3YRJmwK8i6Z-NiRv3LjIPJqYWXkB35cU_tTvjF5o8Egfw%3D&q=Empire+State+Of+Mind+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAB6BAgXEAI"
+          },
+          {
+            "text": "Brand New Me lyrics Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rdaVK-rhf5KHnOAD2drrRmADv7R3TkES869sRtvhJtAOFIxRuJ9oGiG6TvSdbxEwjG0RGdxwpJVvnMu7rboqUea_WZXi2op8y6anurvkhjtTzr_j9SUAIXIMM7B8X5zmoW9vJKP1H0vFBs1hTZNPkhVAuOllNmrAOJvm4hWU4cNSR2aiCBxJk9YQoAbw7N2Dd9fV4hZEA81VaOqxMSnKFQhSseTxYeV75TLQRALrSETF2WMAEhRtWsOLKM9_wJt_WRKC1eL0PanAOxlZSHUrtl_Nigxw%3D%3D&q=Brand+New+Me+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAF6BAgXEAM"
+          },
+          {
+            "text": "Girl on Fire lyrics Alicia Keys",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rdaVK-rhf5KHnOAD2drrRmADv7R3TkES869sRtvhJtAOFIxRuJ9oGiG6TvSdbxEwgB1LTLXhzfFerOw-nSmXBJvOZh-rTp9cqdoQ8D7gmjkaFvo5L594B9fXDKWXC-LW1uuGhiqnyVBEl1JZtHJIfc6mMOHB_gHaF9B99ySUFPSX9sE1Hk4XD3UQSkf6PxXKmgXdObl2IKFCiNJTmow3kJFCNip1A17MP7MgVisNMEfV4lYglJmoUDwFwG0Cq7JgKcl4Ni6jX-ReQKoL3Wdql0BvkTtg%3D%3D&q=Girl+on+Fire+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAJ6BAgXEAQ"
+          },
+          {
+            "text": "I'm Blessed lyrics Charlie Wilson",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rtvl4gHjpzPKpYolykTK-DwT7ha6dJftcynCd9eVgGN0Fxv1U9w4a8OKPmTXLV-G2g6zovaFg6sxoFritPQxJ_0LMm1DzGlb7caxkmiXcuvsRfp2QtHhkCWCiXuRwEmyo9zdXgC0Gc0S6tzx8l-d5SPGZSjQBtHYaKlOWMShEfYJF0V0Mcl9AfFe07jeOiJIEnF8xqSW80TNlpox5ldRhXrIhIZ_AJSxmW9WQwlotaeH1nPTNb6Nfov73lB1sGdfLzwpGd6ENx_oY8cnjD90ZAsE06aw%3D%3D&q=I%27m+Blessed+lyrics&sa=X&ved=2ahUKEwjlrKvjhfCEAxWXFlkFHXwMCA8Qs9oBKAN6BAgXEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

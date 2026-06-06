@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -17,7 +18,11 @@
       "details": {
         "heading": "Choose what you’re giving feedback on",
         "img_url": null,
-        "text": "Choose what you’re giving feedback on|Donald Trump|45th and 47th U.S. President|45th and 47th U.S. President|About this result|Share|Share|Click to copy link|Click to copy link|Share link|Share link|Link copied|Link copied|Claim this knowledge panel|Send feedback|Overview|Overview|Overview|Books|Books|Books",
+        "subtitle": "45th and 47th U.S. President",
+        "tabs": [
+          "Overview",
+          "Books"
+        ],
         "type": "panel",
         "urls": [
           {
@@ -39,8 +44,8 @@
       "serp_rank": 0,
       "sub_rank": 0,
       "sub_type": "panel",
-      "text": null,
-      "title": "Donald Trump 45th and 47th U.S. President About this result Share Share Facebook WhatsApp X Email Click to copy link Share link Link copied Claim this knowledge panel Send feedback Overview Books",
+      "text": "45th and 47th U.S. President",
+      "title": "Donald Trump",
       "type": "knowledge",
       "url": null
     },
@@ -48,41 +53,85 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "heading": null,
-        "img_url": null,
-        "type": "panel",
-        "urls": [
-          {
-            "text": "",
-            "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump&udm=2&source=univ&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQnN8JegQIHBAD"
-          },
-          {
-            "text": "",
-            "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
-          },
-          {
-            "text": "Age|79 years|Jun 14, 1946",
-            "url": "/search?sca_esv=bd16726c6a722966&q=donald+trump+age&stick=H4sIAAAAAAAAAOPgE-LUz9U3SC4ssTTQEs1OttIvSM0vyEkFUkXF-XlWiempi1gFUvLzEnNSFEqKSnMLFIBCAMqYnZc3AAAA&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQ18AJegQIJRAB"
-          },
-          {
-            "text": "Party|Republican Party",
-            "url": "/search?sca_esv=bd16726c6a722966&q=Republican+Party&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRrUdcsLX7-nPSpyKZYIqfOJDBGOdz2E57-99eIANe1Pl8wwO7G3XqVt3qiEO4uERO4KYYXvGXEXRT6jOHlGcixAxcLt6zGSb8XfSKPYd5JeDPjiWx1lTb4E4mlK9t2l0ky4-1M_qoJaYHMURBGCmYARFqYnA&sa=X&ved=2ahUKEwio9aONqcSSAxUNlmoFHbiZI1cQ18AJegQIJBAB"
-          },
-          {
-            "text": "",
-            "url": "https://www.instagram.com/p/DUYFnxqEZ16/"
-          }
-        ]
+        "kind": "image"
       },
       "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "featured_results",
-      "text": "Anna Moneymaker/Getty Images More images 0:19 @realdonaldtrump Instagram 1 day ago Age 79 years Jun 14, 1946 Party Republican Party Instagram · @potus 19 hours ago America is, and always will be, One Nation Under God.\n\nPresident Trump has taken bold action to safeguard our God-given rights & religious freedoms—reversing Joe Biden's divisive policies that weaponized the ...",
+      "text": "Anna Moneymaker/Getty Images",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "social"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "0:19 @realdonaldtrump Instagram 1 day ago",
       "title": null,
       "type": "knowledge",
       "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Age",
+        "value": "Jun 14, 1946"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "Age: Jun 14, 1946",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Party",
+        "value": "Republican Party"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "featured_results",
+      "text": "Party: Republican Party",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "social"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "featured_results",
+      "text": "Instagram · @potus 19 hours ago America is, and always will be, One Nation Under God.\n\nPresident Trump has taken bold action to safeguard our God-given rights & religious freedoms—reversing Joe Biden's divisive policies that weaponized the ...",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.instagram.com/p/DUYFnxqEZ16/"
     },
     {
       "cite": null,
@@ -90,7 +139,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 2,
+      "serp_rank": 6,
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
@@ -104,7 +153,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 7,
       "sub_rank": 1,
       "sub_type": null,
       "text": null,
@@ -118,7 +167,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 8,
       "sub_rank": 2,
       "sub_type": null,
       "text": null,
@@ -132,7 +181,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 9,
       "sub_rank": 3,
       "sub_type": null,
       "text": null,
@@ -146,7 +195,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 10,
       "sub_rank": 4,
       "sub_type": null,
       "text": null,
@@ -160,7 +209,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 11,
       "sub_rank": 0,
       "sub_type": null,
       "text": "14 hours ago  —  Donald John Trump (born June 14, 1946) is  an American politician, media personality, and businessman  who is the 47th president of the United States. Read more",
@@ -174,7 +223,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "President Donald J. Trump  is returning to the White House to build upon his previous successes and use his mandate to reject the extremist policies. Read more",
@@ -188,7 +237,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Donald J. Trump is  the 45th President of the United States . He believes the United States has incredible potential and will go on to exceed even its remarkable ... Read more",
@@ -202,7 +251,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
@@ -216,7 +265,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 15,
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
@@ -230,7 +279,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 16,
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
@@ -241,10 +290,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -255,10 +306,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 18,
       "sub_rank": 1,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -269,10 +322,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 19,
       "sub_rank": 2,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -283,10 +338,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 20,
       "sub_rank": 3,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -297,10 +354,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 21,
       "sub_rank": 4,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -311,10 +370,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 22,
       "sub_rank": 5,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -325,10 +386,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 23,
       "sub_rank": 6,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -339,10 +402,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 24,
       "sub_rank": 7,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -353,10 +418,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 25,
       "sub_rank": 8,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -367,10 +434,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 26,
       "sub_rank": 9,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -381,10 +450,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 23,
+      "serp_rank": 27,
       "sub_rank": 10,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -395,10 +466,12 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
-      "serp_rank": 24,
+      "serp_rank": 28,
       "sub_rank": 11,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -412,7 +485,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 25,
+      "serp_rank": 29,
       "sub_rank": 0,
       "sub_type": null,
       "text": "To use this website, please enable JavaScript.",
@@ -426,7 +499,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 26,
+      "serp_rank": 30,
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
@@ -440,7 +513,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 27,
+      "serp_rank": 31,
       "sub_rank": 1,
       "sub_type": null,
       "text": null,
@@ -454,7 +527,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 28,
+      "serp_rank": 32,
       "sub_rank": 2,
       "sub_type": null,
       "text": null,
@@ -468,7 +541,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 29,
+      "serp_rank": 33,
       "sub_rank": 3,
       "sub_type": null,
       "text": null,
@@ -482,7 +555,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 30,
+      "serp_rank": 34,
       "sub_rank": 4,
       "sub_type": null,
       "text": null,
@@ -496,7 +569,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 31,
+      "serp_rank": 35,
       "sub_rank": 5,
       "sub_type": null,
       "text": null,
@@ -510,7 +583,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 32,
+      "serp_rank": 36,
       "sub_rank": 6,
       "sub_type": null,
       "text": null,
@@ -524,7 +597,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 33,
+      "serp_rank": 37,
       "sub_rank": 7,
       "sub_type": null,
       "text": null,
@@ -538,7 +611,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 34,
+      "serp_rank": 38,
       "sub_rank": 8,
       "sub_type": null,
       "text": null,
@@ -552,7 +625,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 35,
+      "serp_rank": 39,
       "sub_rank": 9,
       "sub_type": null,
       "text": null,
@@ -566,7 +639,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 36,
+      "serp_rank": 40,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Donald John Trump  was born in Queens, New York, on June 14, 1946 . Trump was educated at the New York Military Academy and the Wharton School of Finance and ... Read more",
@@ -580,7 +653,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 37,
+      "serp_rank": 41,
       "sub_rank": 0,
       "sub_type": null,
       "text": "16 hours ago  —  President  Donald Trump  arrives for the world premiere of \"MELANIA\" at the Kennedy Center. Stefani Reynolds/Bloomberg/Getty Images. Read more",
@@ -594,7 +667,7 @@
       "details": null,
       "error": null,
       "section": "main",
-      "serp_rank": 38,
+      "serp_rank": 42,
       "sub_rank": 0,
       "sub_type": null,
       "text": "43M followers · 47 following · 7853 posts · @real donald trump: “45th & 47th President of the United States”",
@@ -606,6 +679,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Kaitlan collins and trump",
           "Trump and savannah guthrie",
@@ -620,7 +694,7 @@
       },
       "error": null,
       "section": "footer",
-      "serp_rank": 39,
+      "serp_rank": 43,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Kaitlan collins and trump<|>Trump and savannah guthrie<|>Donald Trump approval rating<|>Donald Trump Truth Social<|>Donald Trump age<|>Donald Trump wife<|>Donald Trump X<|>Donald Trump impeachment",

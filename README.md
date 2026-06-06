@@ -4,12 +4,14 @@
 
 This package provides tools for conducting algorithm audits of web search and 
 includes a scraper built on `selenium` with tools for geolocating, conducting, 
-and saving searches. It also includes a modular parser built on `BeautifulSoup` 
+and saving searches. It also includes a modular parser built on `selectolax` 
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications. 
 
 ## Recent Changes
 
+- `0.9.0` (unreleased): **Breaking** internal rewrite onto `selectolax` (dropped the BeautifulSoup + lxml runtime deps); the `parse_serp`/`SearchEngine` API is unchanged, but the exported `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped `type=knowledge`/`sub_type=panel_rhs` to `type=side_bar`. Adds a `features.main_layout` field, a data-driven `standard-*` layout dispatch with readable labels, new `election_*` component types, a `no-rso` duplication fix, the `cmpt_rank=0` fix, and a package-wide simplification pass; demos now ship in-package and run via `ws-demo`
+- `0.8.6`: Demo-script fixes (`demo_search_headers` for `requests`, `demo_locations` regex/main-guard, Chrome-version import) and quieter Selenium teardown
 - `0.8.5`: Minor updates to packaging for pypi, demo scripts, and documentation
 - `0.8.4`: Reclassified shopping/commercial blocks that previously emitted hollow `general` rows (29 -> 0) into new component types — `products` (grid/brands), `promo` (shopping deals banner), `most_read_articles`, and `buying_guide` — plus a `general` `image_strip` sub_type
 - `0.8.3`: Recovered parser coverage for historical/edge layouts — legacy 2024-SGE `ai_overview` content + `unavailable` state, a new `recipes` parser, empty `knowledge` (featured_results/dictionary/panel_rhs) extraction, `twitter_cards` card titles, and modern `shopping_ads` PLA cards
@@ -65,48 +67,36 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 
 ### Example Search Script
 
-There's an example search script that can be run from the command line with uv, passing the search query as the first argument.
+WebSearcher ships runnable demos inside the package, so they work straight after `pip install WebSearcher`. Search and parse a query with `ws-demo search`, passing the query as the first argument:
 
 ```bash
-uv run demo-search "election news"
+uv run ws-demo search "election news"
 ```
 
-This collects the SERP, parses it, and saves the outputs (described below). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `show_parsed.py`:
+This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse of one HTML file), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `ws-demo show` (add `--details` for a details column, `--list` to enumerate saved queries):
 
 ```bash
-uv run python scripts/show_parsed.py "election news" --cat-width 12
+uv run ws-demo show "election news"
 ```
 
 ```
-qry='election news', components=23
+WebSearcher v0.9.0a0 | qry='election news' | 22 components
 
-┌──────────────┬────────────────────────────────────────────────────┬────────────────────────────────────────────────────┐
-│ type         ┆ title                                              ┆ url                                                │
-╞══════════════╪════════════════════════════════════════════════════╪════════════════════════════════════════════════════╡
-│ ad           ┆ Latest Election News                               ┆ https://www.election-integrity.org/news            │
-│ top_stories  ┆ 2026 Texas primary runoff election results         ┆ https://www.cbsnews.com/texas/live-updates/2026-t… │
-│ top_stories  ┆ Texas runoff election live updates: Cornyn vs. Pa… ┆ https://www.usatoday.com/story/news/politics/elec… │
-│ top_stories  ┆ Texas’ raucous primary runoffs end today. Here’s … ┆ https://www.texastribune.org/2026/05/26/texas-pri… │
-│ top_stories  ┆ Where to vote in El Paso, what time do polls open… ┆ https://www.elpasotimes.com/story/news/politics/e… │
-│ top_stories  ┆ Texas voters head to polls today for primary runo… ┆ https://www.audacy.com/krld/news/local/texas-prim… │
-│ top_stories  ┆ Texas elections live updates: Trump-backed Ken Pa… ┆ https://www.nbcnews.com/politics/2026-election/li… │
-│ top_stories  ┆ Trump claims 2020 election 'rigged' at least 107 … ┆ https://www.reuters.com/world/us/trump-claims-202… │
-│ local_news   ┆ Get up to speed fast on the California election w… ┆ https://www.mv-voice.com/calmatters/2026/05/26/ge… │
-│ local_news   ┆ Column: My pick for California governor is ... I'… ┆ https://www.latimes.com/california/newsletter/202… │
-│ local_news   ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.cbs8.com/video/news/local/voter-turno… │
-│ local_news   ┆ California gubernatorial election: Matt Mahan fac… ┆ https://abc7news.com/post/california-gubernatoria… │
-│ general      ┆ Last-minute voter guide for California governor e… ┆ https://calmatters.org/politics/elections/2026/05… │
-│ general      ┆ Matt Mahan facing campaign questions, political j… ┆ https://abc7news.com/post/california-gubernatoria… │
-│ general      ┆ Election 2026: Results, news and analysis          ┆ https://www.cnn.com/election/2026                  │
-│ general      ┆ Ballotpedia.org                                    ┆ https://ballotpedia.org/Main_Page                  │
-│ videos       ┆ Voter turnout remains low in CA primary as electi… ┆ https://www.youtube.com/watch?v=UnJEjKYuXCI        │
-│ videos       ┆ Thomas Massie files statement of candidacy for 20… ┆ https://www.youtube.com/watch?v=tLu_eWYW8Pc        │
-│ videos       ┆ Breaking down the Democrats' 2024 election autops… ┆ https://www.youtube.com/watch?v=exTN-Jgb6Vo        │
-│ general      ┆ Elections 2026                                     ┆ https://www.npr.org/sections/elections/            │
-│ general      ┆ Department of Elections                            ┆ https://www.sf.gov/departments--department-electi… │
-│ general      ┆ Everything You Need to Vote - Vote.org             ┆ https://www.vote.org/                              │
-│ searches_re… ┆ -                                                  ┆ -                                                  │
-└──────────────┴────────────────────────────────────────────────────┴────────────────────────────────────────────────────┘
+type              title                                                         url
+----------------  ------------------------------------------------------------  ------------------------------------------------------------
+ad                Latest Election News                                          https://www.election-integrity.org/news
+top_stories       Latest on California governor election as public awaits r...  https://www.usatoday.com/story/news/politics/elections/20...
+top_stories       California election results still undecided as Los Angele...  https://www.foxnews.com/politics/california-election-resu...
+top_stories       California Governor Primary Election 2026 Live Results        https://www.nbcnews.com/politics/2026-primary-elections/c...
+local_news        San Mateo County elections division has more than 100K ba...  https://localnewsmatters.org/2026/06/05/san-mateo-county-...
+local_news        Sorry, Silicon Valley, it isn’t that easy to buy an election  https://sfstandard.com/2026/06/03/matt-mahan-silicon-vall...
+general           California pushes back on Trump's primary election ...        https://www.nbcsandiego.com/news/local/california-trump-c...
+general           5 things to know about California's election results          https://calmatters.org/politics/2026/06/primary-election-...
+videos            Latest on California governor, L.A. mayor primary electio...  https://www.youtube.com/watch?v=--eGQRVD6ms
+videos            KTLA 5 News Election Coverage: Votes continue to be ... Y...  https://www.youtube.com/watch?v=wMXxRGZHjKg
+general           Elections 2026                                                https://www.npr.org/sections/elections/
+general           Ballotpedia.org                                               https://ballotpedia.org/Main_Page
+general           Election Night Results                                        https://electionresults.sos.ca.gov/
 ```
 
 By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
@@ -257,17 +247,18 @@ uv run pytest tests/ -vv
 
 Run a specific snapshot test by serp_id prefix:
 ```bash
-uv run pytest tests/ -k "45b6e019bfa2"
+uv run pytest tests/ -k "4f4d0fed0592"
 ```
 
 ### Test Fixtures
 
-Tests load from compressed fixtures in `tests/fixtures/`. To update fixtures after collecting new demo data:
+Tests load from the consolidated compressed corpus `tests/fixtures/serps.json.bz2`. After adding or updating records, refresh the snapshots:
 
 ```bash
-uv run python scripts/condense_fixtures.py 0.6.7
 uv run pytest tests/ --snapshot-update
 ```
+
+See [docs/guides/fixture-corpus.md](docs/guides/fixture-corpus.md) for how the corpus is curated, profiled, and pruned.
 
 ---
 ## GitHub Actions

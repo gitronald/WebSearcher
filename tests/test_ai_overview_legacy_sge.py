@@ -16,7 +16,7 @@ import pytest
 
 import WebSearcher as ws
 
-FIXTURE = Path(__file__).parent / "fixtures" / "serps-sge-2024.json.bz2"
+FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
 # qry -> whether the overview carries recoverable content (vs a genuine failure)
 CONTENT_QRYS = {

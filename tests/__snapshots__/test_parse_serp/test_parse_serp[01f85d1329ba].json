@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -204,7 +205,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
@@ -218,7 +221,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -232,7 +237,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -246,7 +253,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -260,7 +269,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -274,7 +285,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -288,7 +301,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -302,7 +317,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -316,7 +333,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 21,
@@ -330,7 +349,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -344,7 +365,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -358,7 +381,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 24,
@@ -372,7 +397,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -386,7 +413,9 @@
     {
       "cite": "thetatvaindia · X",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 26,
@@ -400,7 +429,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 27,
@@ -414,7 +445,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 28,
@@ -428,7 +461,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 29,
@@ -442,7 +477,9 @@
     {
       "cite": "NightSkyToday · X",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 30,
@@ -456,7 +493,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 31,
@@ -470,7 +509,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 32,
@@ -484,7 +525,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 33,
@@ -498,7 +541,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 34,
@@ -512,7 +557,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 35,
@@ -526,7 +573,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 36,
@@ -540,7 +589,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 37,
@@ -554,7 +605,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 38,
@@ -568,7 +621,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 39,
@@ -582,7 +637,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 40,
@@ -596,7 +653,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 41,
@@ -610,7 +669,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 42,
@@ -624,7 +685,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 43,
@@ -638,7 +701,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 44,
@@ -652,7 +717,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 45,
@@ -666,7 +733,9 @@
     {
       "cite": "NightSkyToday · X",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 46,
@@ -680,7 +749,9 @@
     {
       "cite": "forallcurious",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 47,
@@ -694,7 +765,9 @@
     {
       "cite": "AmazingNature00 · X",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 48,
@@ -708,7 +781,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 49,
@@ -722,7 +797,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 50,
@@ -736,7 +813,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 51,
@@ -750,7 +829,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 52,
@@ -764,7 +845,9 @@
     {
       "cite": "MatthewCappucci · X",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 53,
@@ -778,7 +861,9 @@
     {
       "cite": null,
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 54,
@@ -880,6 +965,7 @@
         "address": "Oakland, CA",
         "category": "Middle school",
         "directions": "/maps/dir//Northern+Light+School,+3710+Dorisa+Ave,+Oakland,+CA+94605/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x56c896e8a09c2e03:0x214f4f09afa434a7?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Places",
         "hours": "Open · Closes 6 PM",
         "n_reviews": 0,
         "phone": "(510) 957-0570",
@@ -903,6 +989,7 @@
         "address": "Oakland, CA",
         "category": "Bar",
         "directions": "/maps/dir//North+Light,+4915+Telegraph+Ave,+Oakland,+CA+94609/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x80857d885c87df5b:0x23d84cf6bd07309?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Places",
         "hours": "Opens soon · 4 PM",
         "n_reviews": 338,
         "phone": "(510) 891-1113",
@@ -917,7 +1004,7 @@
       "serp_rank": 62,
       "sub_rank": 1,
       "sub_type": "places",
-      "text": "North Light<|>4.7<|>(338)<|> · <|>$20–30<|> · Bar<|>Oakland, CA · (510) 891-1113<|>Opens soon<|> · 4 PM<|> <|> <|> <|> <|> <|> <|>\"It’s a bit cramped but that’s most older buildings.\"",
+      "text": "North Light<|>4.7<|>(338)<|> · <|>$20–30<|> · Bar<|>Oakland, CA · (510) 891-1113<|>Opens soon<|> · 4 PM<|> <|> <|> <|> <|> <|>  <|>\"It’s a bit cramped but that’s most older buildings.\"",
       "title": "North Light",
       "type": "local_results",
       "url": "http://northlight.bar/"
@@ -929,6 +1016,7 @@
         "address": "Menlo Park, CA",
         "category": "Venture capital company",
         "directions": "/maps/dir//Northern+Light+Venture+Capital,+2744+Sand+Hill+Rd+Suite+100,+Menlo+Park,+CA+94025/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x808fa4e3ed7ae611:0x61fcdeda34ed3060?sa=X&ved=1t:57443&ictx=111",
+        "heading": "Places",
         "hours": "Open · Closes 5 PM",
         "n_reviews": 1,
         "phone": "(650) 585-5450",
@@ -950,6 +1038,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Northern lights in Alaska",
           "Northern Lights strain",

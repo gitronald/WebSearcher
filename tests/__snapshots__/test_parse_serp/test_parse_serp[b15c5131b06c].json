@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -87,7 +88,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 3,
@@ -101,7 +104,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 4,
@@ -115,7 +120,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 5,
@@ -129,7 +136,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 6,
@@ -143,7 +152,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 7,
@@ -157,7 +168,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 8,
@@ -171,7 +184,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 9,
@@ -185,7 +200,9 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -298,6 +315,7 @@
       "cite": null,
       "cmpt_rank": 11,
       "details": {
+        "heading": "People also search for",
         "items": [
           "ESPN College Basketball",
           "ESPN Major League Baseball",

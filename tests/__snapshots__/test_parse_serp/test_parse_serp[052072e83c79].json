@@ -1,0 +1,256 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1920000.0,
+    "result_estimate_time": 0.23
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.tesla.com  › secret-master-plan",
+      "cmpt_rank": 1,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Aug 2, 2006  —  The  Tesla  Roadster is designed to beat a gasoline sports car like a Porsche or Ferrari in a head to head showdown.",
+      "title": "The Secret Tesla Motors Master Plan (just between you ...",
+      "type": "general",
+      "url": "https://www.tesla.com/secret-master-plan"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          "What is Tesla's mission statement in 2024?",
+          "What is the promise of the Tesla brand?",
+          "What is Tesla's vision statement?",
+          "What is the philosophy of Tesla?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is Tesla's mission statement in 2024?<|>What is the promise of the Tesla brand?<|>What is Tesla's vision statement?<|>What is the philosophy of Tesla?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.tesla.com  › about",
+      "cmpt_rank": 3,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "We're building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products.",
+      "title": "About",
+      "type": "general",
+      "url": "https://www.tesla.com/about"
+    },
+    {
+      "cite": "https://teslauniverse.com  › nikola-tesla › articles › strikin...",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "It is most sumptuously got up on vellum paper and altogether constitutes a  manifesto  worthy of the original genius issuing it. It is to be gathered from the ...",
+      "title": "A Striking Tesla Manifesto",
+      "type": "general",
+      "url": "https://teslauniverse.com/nikola-tesla/articles/striking-tesla-manifesto"
+    },
+    {
+      "cite": "https://finance.yahoo.com  › news › tesla-scrubs-elon-m...",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Aug 28, 2024  —  Tesla's  “Secret Master Plan” outlined the company's aim to produce affordable EVs in line with its long-term sustainability goals.",
+      "title": "Tesla scrubs Elon Musk's original brainchild manifesto from ...",
+      "type": "general",
+      "url": "https://finance.yahoo.com/news/tesla-scrubs-elon-musk-original-210311141.html"
+    },
+    {
+      "cite": "9.9K+ views  ·  4 weeks ago",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "The Las Vegas Metropolitan Police Department alongside the ATF provided an update into theTeslaCybertruck explosion on Tuesday.",
+      "title": "Tesla Cybertruck explosion: Police discover additional ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=r-fgimurh2g"
+    },
+    {
+      "cite": "https://www.tesla.com  › master-plans",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Tesla's  mission is to accelerate the world's transition to sustainable energy. Read  Tesla's  master plans.",
+      "title": "Master Plans",
+      "type": "general",
+      "url": "https://www.tesla.com/master-plans"
+    },
+    {
+      "cite": "https://www.ktnv.com  › news › watch-new-details-relea...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 7, 2025  —  LVMPD Sheriff Kevin McMahill said they have recovered a six-page document on Livelsberger's phone that he describes as a  manifesto .",
+      "title": "Investigators: Soldier used AI to plan explosion, new 6-page ...",
+      "type": "general",
+      "url": "https://www.ktnv.com/news/watch-new-details-released-in-cybertruck-explosion-that-killed-soldier-in-las-vegas"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": {
+        "heading": "About Tesla",
+        "img_url": null,
+        "text": "About Tesla|About Tesla|About Tesla|About Tesla|Tesla, Inc. is an American multinational automotive and clean energy company. Headquartered in Austin, Texas, it designs, manufactures and sells battery electric vehicles, stationary battery energy storage devices from home to grid-scale, solar panels and solar shingles, and related products and services.|Tesla, Inc. is an American multinational automotive and clean energy company. Headquartered in Austin, Texas, it designs, manufactures and sells battery electric vehicles, stationary battery energy storage devices from home to grid-scale, solar panels and solar shingles, and related products and services.|Tesla, Inc. is an American multinational automotive and clean energy company. Headquartered in Austin, Texas, it designs, manufactures and sells battery electric vehicles, stationary battery energy storage devices from home to grid-scale, solar panels and solar shingles, and related products and services.|From Wikipedia|From Wikipedia|Wikipedia|Wikipedia|We're building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products, people and supply chain. Explore Impact. We design sustainable systems that are massively scalable—resulting in the greatest environmental benefit possible.|We're building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products, people and supply chain. Explore Impact. We design sustainable systems that are massively scalable—resulting in the greatest environmental benefit possible.|We're building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products, people and supply chain. Explore Impact. We design sustainable systems that are massively scalable—resulting in the greatest environmental benefit possible.|In their own words|In their own words|www.tesla.com|www.tesla.com|Tesla | TSLA Stock Price, Company Overview & News|Tesla | TSLA Stock Price, Company Overview & News|Tesla, Inc. engages in the design, development, manufacture, and sale of fully electric vehicles, energy generation and storage systems.|Tesla, Inc. engages in the design, development, manufacture, and sale of fully electric vehicles, energy generation and storage systems.|Forbes|Forbes|More about Tesla",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "",
+            "url": "https://en.wikipedia.org/wiki/Tesla,_Inc."
+          },
+          {
+            "text": "",
+            "url": "https://www.tesla.com/about"
+          },
+          {
+            "text": "",
+            "url": "https://www.forbes.com/companies/tesla/"
+          },
+          {
+            "text": "More about Tesla",
+            "url": "/search?q=About+tesla.com&tbm=ilp&ctx=ob&sa=X&ved=2ahUKEwiTqOnR-6-LAxV2ulYBHSBjCsgQ8YkKegQIShAI"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.forbes.com  › Innovation › Transportation",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Aug 26, 2024  —  An 18-year-old  manifesto  in which the tech entrepreneur laid out his vision for the electric car maker shortly after its first public event ...",
+      "title": "Elon Musk's 2006 Climate Manifesto For Tesla Is Gone ...",
+      "type": "general",
+      "url": "https://www.forbes.com/sites/alanohnsman/2024/08/26/elon-musk-climate-manifesto-vanishes-from-tesla-website/"
+    },
+    {
+      "cite": "https://coloradotimesrecorder.com  › 2025/01 › davis-w...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Rather, I suspect that much of the media has opted to ignore the  manifestos  for the opposite reason: because the ideas expressed in those ...",
+      "title": "DAVIS: Why the Media Mostly Ignored the Tesla Bomber's ...",
+      "type": "general",
+      "url": "https://coloradotimesrecorder.com/2025/01/davis-why-the-media-mostly-ignored-the-tesla-bombers-shockingly-mainstream-manifesto/66654/"
+    },
+    {
+      "cite": "220+ reactions  ·  1 month ago",
+      "cmpt_rank": 12,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "To kick off the new year, let's dive into one of  Tesla's  boldest declarations—his 4-page  manifesto , issued on January 1, 1904—a powerful ...",
+      "title": "Nikola Tesla's 1904 Manifesto – A... - Dr. ...",
+      "type": "general",
+      "url": "https://www.facebook.com/AheadOfHisTime/posts/nikola-teslas-1904-manifesto-a-vision-for-the-future-happy-new-year-everyone-tha/1135860038548152/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Tesla manifesto pdf",
+          "Tesla Master Plan 2",
+          "Tesla Master Plan 3",
+          "Tesla Master Plan 1 PDF",
+          "Tesla mission",
+          "Tesla business strategy PDF",
+          "Tesla Master Plan 4",
+          "Tesla history"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Tesla manifesto pdf<|>Tesla Master Plan 2<|>Tesla Master Plan 3<|>Tesla Master Plan 1 PDF<|>Tesla mission<|>Tesla business strategy PDF<|>Tesla Master Plan 4<|>Tesla history",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

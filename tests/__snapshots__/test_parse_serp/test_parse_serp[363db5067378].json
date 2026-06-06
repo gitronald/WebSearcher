@@ -1,0 +1,238 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 1150000.0,
+    "result_estimate_time": 0.3
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.honeywell.com  › company › leadership",
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Leadership",
+        "img_url": null,
+        "text": "Leadership | Honeywell Honeywell https://www.honeywell.com  › company › leadership|Honeywell| › company › leadership|Honeywell| › company › leadership|About featured snippets|•|Feedback|Feedback",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "More items...",
+            "url": "https://www.honeywell.com/us/en/company/leadership"
+          },
+          {
+            "text": "",
+            "url": "/url?url=https://support.google.com/websearch?p%3Dfeatured_snippets%26hl%3Den-US&rct=j&q=&esrc=s&opi=89978449&usg=AOvVaw0i6agUwizJt0H2lHOHxNHI&hl=en&sa=X&ved=2ahUKEwilw7TT-6-LAxWgtlYBHR8fL18QrpwBegQIFRAB"
+          },
+          {
+            "text": "About featured snippets",
+            "url": "/url?url=https://support.google.com/websearch?p%3Dfeatured_snippets%26hl%3Den-US&rct=j&q=&esrc=s&opi=89978449&usg=AOvVaw0i6agUwizJt0H2lHOHxNHI&hl=en&sa=X&ved=2ahUKEwilw7TT-6-LAxWgtlYBHR8fL18QrpwBegQIFRAC"
+          }
+        ]
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_snippet",
+      "text": "Leadership",
+      "title": "Leadership | Honeywell",
+      "type": "knowledge",
+      "url": "https://www.honeywell.com/us/en/company/leadership"
+    },
+    {
+      "cite": "https://www.comparably.com  › ... › Leadership",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The  Honeywell Executive  Team is rated a \"D-\" and led by  CEO  Darius Adamczyk.  Honeywell  employees rate their  Executive  Team in the Bottom 10% of similar size ...",
+      "title": "Honeywell Executive Team",
+      "type": "general",
+      "url": "https://www.comparably.com/companies/honeywell/executive-team"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "How much do Honeywell executives get paid?",
+          "Who is the management team of Honeywell?",
+          "Who are C level management?",
+          "What are Honeywell corporate values?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "How much do Honeywell executives get paid?<|>Who is the management team of Honeywell?<|>Who are C level management?<|>What are Honeywell corporate values?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.globaldata.com  › All Companies",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "GlobalData provides latest information on Honeywell International Inc  employees , including CEO details, executives and full board of directors.",
+      "title": "Honeywell International Inc: Executives",
+      "type": "general",
+      "url": "https://www.globaldata.com/company-profile/honeywell-international-inc/executives/"
+    },
+    {
+      "cite": "https://executivebiz.com  › Articles",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Sep 29, 2022  —  List of Honeywell International Leaders and Executives ·  Darius Adamczyk, Chief Executive Officer and Chairman  · Kevin Dehoff, President and Chief ...",
+      "title": "Who Are the Honeywell International Leaders and ...",
+      "type": "general",
+      "url": "https://executivebiz.com/articles/who-are-the-honeywell-international-leaders-and-executives/"
+    },
+    {
+      "cite": "https://potomacofficersclub.com  › articles › honeywell-i...",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 12, 2022  —  Darius Adamczyk is Honeywell's Chief Executive Officer and Chairman . He is responsible for bringing technology and solutions to the markets to ...",
+      "title": "Honeywell International Leaders, Founders, And Executives",
+      "type": "general",
+      "url": "https://potomacofficersclub.com/articles/honeywell-international-leaders-founders-and-executives-who-are-they/"
+    },
+    {
+      "cite": "https://craft.co  › Honeywell International",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Honeywell International CEO and Key Executive Team  · Vimal Kapur · Billal M. Hammoud · Lucian Boldea · Kevin Dehoff · Anant Maheshwari · Ken West · Jim Currier · Sheila ...",
+      "title": "Honeywell International CEO and Key Executive Team",
+      "type": "general",
+      "url": "https://craft.co/honeywell-international/executives"
+    },
+    {
+      "cite": "https://www.govconwire.com  › articles › honeywell-inter...",
+      "cmpt_rank": 8,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 12, 2022  —  Honeywell International Executive Team ·  Darius Adamczyk, Chief Executive Officer and Chairman  · Kevin Dehoff, President and Chief Executive ...",
+      "title": "Honeywell International Leaders, Founders, Executives",
+      "type": "general",
+      "url": "https://www.govconwire.com/articles/honeywell-international-leaders-founders-executives-who-are-they/"
+    },
+    {
+      "cite": "https://www.honeywell.com  › company › leadership › vi...",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Vimal Kapur is Chairman and  CEO  of  Honeywell . After more than three decades rising through the leadership ranks, he became  CEO  in June 2023 and Chairman in ...",
+      "title": "Vimal Kapur",
+      "type": "general",
+      "url": "https://www.honeywell.com/us/en/company/leadership/vimal-kapur"
+    },
+    {
+      "cite": "https://simplywall.st  › stocks › nasdaq-hon › management",
+      "cmpt_rank": 10,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "total yearly compensation is $14.40M , comprised of 8.5% salary and 91.5% bonuses, including company stock and options. directly owns 0.004% of the company's ...",
+      "title": "Honeywell International Inc. (HON) Leadership & ...",
+      "type": "general",
+      "url": "https://simplywall.st/stocks/us/capital-goods/nasdaq-hon/honeywell-international/management"
+    },
+    {
+      "cite": "https://www.honeywell.com  › press › 2023/03 › honeyw...",
+      "cmpt_rank": 11,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mar 14, 2023  —  Under Adamczyk's leadership, from 2016 through 2022,  Honeywell's  market capitalization grew from $88 billion to $145 billion, a 9% CAGR. Over ...",
+      "title": "Adamczyk To Serve As Executive Chairman",
+      "type": "general",
+      "url": "https://www.honeywell.com/us/en/press/2023/03/honeywell-names-34-year-honeywell-veteran-vimal-kapur-to-succeed-darius-adamczyk-as-ceo-on-june-1-2023-kapur-elected-to-company-s-board-of-directors-adamczyk-to-serve-as-executive-chairman"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Honeywell c level management figures salary",
+          "Honeywell c level management figures list",
+          "Honeywell c level management figures 2022",
+          "Honeywell c level management figures 2021",
+          "Honeywell CEO history",
+          "Honeywell c level management figures 2020",
+          "Honeywell CEO salary",
+          "Honeywell executive compensation"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "footer",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Honeywell c level management figures salary<|>Honeywell c level management figures list<|>Honeywell c level management figures 2022<|>Honeywell c level management figures 2021<|>Honeywell CEO history<|>Honeywell c level management figures 2020<|>Honeywell CEO salary<|>Honeywell executive compensation",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

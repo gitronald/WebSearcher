@@ -1,0 +1,465 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard-overview",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": 119000000.0,
+    "result_estimate_time": 0.45
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Mater",
+        "img_url": null,
+        "subtitle": "Film character",
+        "tabs": [
+          "Overview",
+          "Movies",
+          "Videos",
+          "Played by",
+          "Quotes"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Film character",
+      "title": "Mater",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_results",
+      "text": "6:55 YouTube • Disney Junior Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... A routine tow lands Mater in Tokyo, where he is challenged to a drift-style race against a nefarious gang leader and his posse of ninjas. 2 weeks ago",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "web"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "YouTube Best of Tow Mater | Pixar Cars - YouTube Sir Tow Mater is the name! Taking a look back at Mater's best moments in Pixar Cars! From his adventures of tow trucking, saving the world ... Jun 7, 2023",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "YouTube • Pixar Cars 1:16:37 Nov 11, 2023 Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
+    },
+    {
+      "cite": "https://pixarcars.fandom.com  › wiki › Mater",
+      "cmpt_rank": 2,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mater  is one of the six playable characters, the other five being Lightning McQueen, Cruz Ramirez, Sally, Ramone, and Guido, who are available from the start in ...",
+      "title": "Mater | Pixar Cars Wiki - Fandom",
+      "type": "general",
+      "url": "https://pixarcars.fandom.com/wiki/Mater"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "What kind of car is Mater?",
+          "Is Mater's girlfriend in Cars 3?",
+          "Is Mater rich in Cars?",
+          "What happened to Mater in Cars 3?"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What kind of car is Mater?<|>Is Mater's girlfriend in Cars 3?<|>Is Mater rich in Cars?<|>What happened to Mater in Cars 3?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Tow_Mater",
+      "cmpt_rank": 4,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Sir Tow  Mater  KG is an anthropomorphic tow truck of the Pixar  Cars  franchise. His appearances include the feature films  Cars ,  Cars  2, and  Cars  3, ...",
+      "title": "Tow Mater",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+    },
+    {
+      "cite": "2M+ followers",
+      "cmpt_rank": 5,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Did you know  Mater  isn't just Lightning McQueen's best friend but also “The World's Best Backwards Driver?” Here are some of our favorite videos of Tow ...",
+      "title": "Best of Mater | Pixar Cars",
+      "type": "general",
+      "url": "https://www.youtube.com/playlist?list=PLjnjB1Z6t-kWlcoGCm4IOgVQSJwayjngQ"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars YouTube  ·  Pixar Cars 1 hour, 16 minutes, 37 seconds Nov 11, 2023",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 1,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... YouTube  ·  Disney Junior 6 minutes, 55 seconds 2 weeks ago",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 2,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Best of Mater's Adventures | Pixar's Cars Toon - Mater’s Tall ... YouTube  ·  Pixar Cars 7 minutes, 35 seconds Dec 27, 2023",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=RMmB8ss4BRI"
+    },
+    {
+      "cite": "YouTube",
+      "cmpt_rank": 6,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 3,
+      "sub_type": "unspecified-3",
+      "text": null,
+      "title": "Lightning McQueen and Mater Race in Tokyo | Pixar's Cars ... YouTube  ·  Pixar Cars 1 minute, 55 seconds 6 days ago",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=S4GnwSo0s0A"
+    },
+    {
+      "cite": "https://disney.fandom.com  › wiki › Mater",
+      "cmpt_rank": 7,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "He is a rusty old tow truck and Lightning McQueen's best friend. He is a major character in  Cars , the protagonist of  Cars  2, and a supporting character in  Cars  ...",
+      "title": "Mater | Disney Wiki - Fandom",
+      "type": "general",
+      "url": "https://disney.fandom.com/wiki/Mater"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": {
+        "heading": "Movies",
+        "img_url": null,
+        "items": [
+          "Cars",
+          "Cars 2",
+          "Cars 3",
+          "Tokyo Mater",
+          "Mater and the Ghostlight",
+          "Cars Toon: Hiccups"
+        ],
+        "type": "panel",
+        "urls": []
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "movies",
+      "text": "Cars",
+      "title": "Movies",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.amazon.com  › Toys-Games-Tow-Mater › r...",
+      "cmpt_rank": 9,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mattel Disney and Pixar  Cars  Toys, Radiator Springs 3-Pack of Die-cast Toy  Cars  & Trucks with Lightning McQueen,  Mater  & Sheriff.  Car .",
+      "title": "Tow Mater: Toys & Games",
+      "type": "general",
+      "url": "https://www.amazon.com/Toys-Games-Tow-Mater/s?rh=n%3A165793011%2Cp_lbr_characters_browse-bin%3ATow+Mater"
+    },
+    {
+      "cite": "3.7M+ views  ·  9 months ago",
+      "cmpt_rank": 10,
+      "details": {
+        "duration": "17:52",
+        "source": null,
+        "type": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "Sir TowMateris the name! Taking a look back atMater'sbest moments in PixarCars! From his adventures of tow trucking, saving the world ...",
+      "title": "Best of Tow Mater | Pixar Cars - YouTube",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
+    },
+    {
+      "cite": "1.3M+ views  ·  8 months ago",
+      "cmpt_rank": 11,
+      "details": {
+        "duration": "6:20",
+        "source": null,
+        "type": "video"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "Go undercover withMaterin his secret spy missions fromCars2. Watch as he becomes one of the best undercover spies and saves Lightning ...",
+      "title": "Mater's Spy Moments in Cars 2 | Pixar Cars - YouTube",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=dGXkG8caVyM"
+    },
+    {
+      "cite": "https://www.disneystore.com  › lightning-mcqueen-and-...",
+      "cmpt_rank": 12,
+      "details": {
+        "price": "ating: 3.7",
+        "stock": "  3 votes",
+        "type": "product"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "submenu_product",
+      "text": "Lightning McQueen and Tow  Mater  Die Cast Set –  Cars  on the Road. $24.99 $19.98. 3.7. (3).",
+      "title": "Lightning McQueen and Tow Mater Die Cast Set",
+      "type": "general",
+      "url": "https://www.disneystore.com/lightning-mcqueen-and-tow-mater-die-cast-set-cars-on-the-road-461024885989.html"
+    },
+    {
+      "cite": "https://www.disneystore.asia  › ... › Vehicles & RC Toys",
+      "cmpt_rank": 13,
+      "details": null,
+      "error": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Product Details · Inspired by Disney Pixar  Cars  on the Road ·  Mater  features printed details · Includes: 1 laser gun, 1 meteor hammer, 1 speaker, and 1 new body ...",
+      "title": "Mater Die-Cast, Disney Pixar Cars on the Road",
+      "type": "general",
+      "url": "https://www.disneystore.asia/mater-die-cast-disney-pixar-cars-on-the-road-461023737517.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "Mater cars for sale",
+          "Mater cars song",
+          "Tow mater cars",
+          "mater cars toys",
+          "mater cars voice",
+          "how old is mater in cars",
+          "mater cars crocs",
+          "why is mater rusty"
+        ],
+        "type": "text"
+      },
+      "error": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "Mater cars for sale<|>Mater cars song<|>Tow mater cars<|>mater cars toys<|>mater cars voice<|>how old is mater in cars<|>mater cars crocs<|>why is mater rusty",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          "Car",
+          "Voiced by",
+          "Quotation"
+        ],
+        "type": "panel"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Sir Tow Mater KG is an anthropomorphic tow truck of the Pixar Cars franchise. His appearances include the feature films Cars, Cars 2, and Cars 3, as well as in the TV series Cars Toons and Cars on the Road. Mater is also a playable character in each of the Cars video game installments.",
+      "title": "Things to know",
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+          },
+          {
+            "text": "Larry the Cable Guy",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Larry+the+Cable+Guy&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXpyVYE7Kx3Kgs-XSn6t-bdZcwzirh7Sbk6YoW92af2S1Gp6E6g6sH1W8xWJiI3pMI1S1evEiYDHFkksfFDGidWsjmEMaDyZPxJJFlzi4kX-M4UkaS_Lw4vBaiwFiCik5Q2ljZnKKv3a1Y8ncQlzHt_H0E83US9LjBVV-htqL9L2NFy2yLg%3D%3D&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCUQAg"
+          },
+          {
+            "text": "Holley Shiftwell",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Holley+Shiftwell&stick=H4sIAAAAAAAAAONgVuLSz9U3SM-pqsxOWcQq4JGfk5NaqRCckZlWUp6akwMAmNgWCiEAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCgQAg"
+          },
+          {
+            "text": "John Lasseter",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=John+Lasseter&stick=H4sIAAAAAAAAAONgVuLUz9U3MMkqLihcxMrrlZ-Rp-CTWFycWpJaBACsURx9HQAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCkQAg"
+          },
+          {
+            "text": "Joe Ranft",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Joe+Ranft&stick=H4sIAAAAAAAAAONgVuLUz9U3ME8vskxaxMrplZ-qEJSYl1YCAOGPjPIZAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAXoECCkQAw"
+          },
+          {
+            "text": "Jorgen Klubien",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Jorgen+Klubien&stick=H4sIAAAAAAAAAONgVuLUz9U3yCo3SSpYxMrnlV-Unpqn4J1TmpSZmgcA_RiIfR4AAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAnoECCkQBA"
+          },
+          {
+            "text": "Cars",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Cars&stick=H4sIAAAAAAAAAONgVuLUz9U3MC40KDJcxMrinFhUDAAcXQJxFAAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCcQAg"
+          },
+          {
+            "text": "1950s",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=1950s&stick=H4sIAAAAAAAAAONgVuLQz9U3sEgyyV3EympoaWpQDABWPwotFAAAAA&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCYQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 1,
+      "sub_type": "links",
+      "text": null,
+      "title": "About",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Lightning McQueen",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXr7M851Mpvnh6zt_jFvmq23qijDQmFiOoemHQk-yTJCy1pwCAjxthoaTklC-bISjBGHoGtKoPfmgk8Jio2zzixZZ0Zj79uTDeu0wVlCbbCv731pdutComkT-5bUluBNKv4gT1AqDV5W561pHV9RCVYxj-fQzM_-_4uo4z9CjQgvJFtuiUNz6QXUjKdt1E6QVA1Kvnkpk7HPV1uPfWcTWqwaxcRf90Va0bqsWl22lEEE2dGlDJ6FazXP0XyPGqJ0JcWme05I%3D&q=Lightning+McQueen&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAB6BAghEAI"
+          },
+          {
+            "text": "Doc Hudson",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXkxONNgWsGb6Mjhhln_MiixsDZnRax7AsDAKLigWyEA6QbtAPrPTI-7NqahoXk6G3P5bDEzTKQCiAhnWDem94L5M5zRA1mVAnHEa-5gg1R9ZFEdiTKNpjcBUGWFXVHI9nE53jw9blLbI5GpAJEA2-7yk53IiH77xZG1izRIW_fITEWQI661xj9F4LzCuvRFsHKhgzpBUMEslemkK6ScIXIvGEOcpKX4qKn-iq7_CPR3A2reJCds8S_xvgYvY354gd-Yie7o%3D&q=Doc+Hudson&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAF6BAghEAM"
+          },
+          {
+            "text": "Sally Carrera",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXs9DDPcuUHSeurxsBrsY3laAPiluvhlsmFDt2YbTuo_UW5uaw43yER88SwMuaWJd1peqP9itw0vjPtbBDpsIsmlkrflOugJk2cxNw0zw4xXhE9WpHuugWeo92ja-mfH8lMFetYvPcYUmkHjBmCJsZ-q3v_5PKyVZ_z0A0sYf8Oh9S1ztJjakv1uHPRZJrkVG00lhF6B1ybVauRE8Z1kDdYA1Jb9CwDt3zh72pdBEJApTxXqON8gTUySLswKKcfBHpT-KJBs%3D&q=Sally+Carrera&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAJ6BAghEAQ"
+          },
+          {
+            "text": "Jackson Storm",
+            "url": "/search?sca_esv=52b056e1a97f92b3&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoach3CBpUwqDOFf68HlDjR_kQQXprG5zx01z4VNaPSVorrlkMVAM5mRx0IwF_Ice2mJL9xpGFmy6ObgH8FQ8jZuXFkuv4kForFXOxqBBMUsyRtWyK3NW0M78h1kRtq0WEC3XZNTMU_Ha9ORgqRNoH3ECOpbt75tiyTjc1PrlcV-sY7lWQjfKV5PtUWR0sOstqzmvnZlVaHrBHtvlAJpsOwNSCEsBvmgYZz5b3JIJaJDaOKSSJW8NXUkcTGKxgIOrm2JOR1hBA45KptjqdkJaaJ6fKW8u&q=Jackson+Storm&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQs9oBKAN6BAghEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "error": null,
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

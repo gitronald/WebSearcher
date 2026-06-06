@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -459,7 +460,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 21,
@@ -473,7 +476,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 22,
@@ -487,7 +492,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 23,
@@ -501,7 +508,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 24,
@@ -515,7 +524,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 25,
@@ -529,7 +540,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 26,
@@ -543,7 +556,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 27,
@@ -557,7 +572,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 28,
@@ -571,7 +588,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 29,
@@ -585,7 +604,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 30,
@@ -599,7 +620,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 31,
@@ -613,7 +636,9 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 32,
@@ -670,6 +695,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Tire change near me",
           "How to change a tire yourself",

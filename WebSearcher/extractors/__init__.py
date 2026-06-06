@@ -1,4 +1,4 @@
-import bs4
+from selectolax.lexbor import LexborNode as Node
 
 from .. import logger
 from ..components import ComponentList
@@ -11,8 +11,8 @@ log = logger.Logger().start(__name__)
 
 
 class Extractor:
-    def __init__(self, soup: bs4.BeautifulSoup):
-        self.soup = soup
+    def __init__(self, soup: Node):
+        self.soup: Node = soup
         self.components = ComponentList()
         self.rhs_handler = ExtractorRightHandSide(self.soup, self.components)
         self.header_handler = ExtractorHeader(self.soup, self.components)
@@ -31,19 +31,11 @@ class Extractor:
         log.debug(f"total components: {self.components.cmpt_rank_counter:,}")
 
     @staticmethod
-    def _get_dom_positions(soup):
-        """Map element id -> (start_pos, end_pos) in pre-order traversal.
+    def _get_dom_positions(soup: Node) -> dict[int, int]:
+        """Map ``mem_id -> pre-order position`` for every element in the document.
 
-        end_pos is the position of the last descendant tag, so element B is
-        inside element A when A.start <= B.start <= A.end.
+        Just the starts; downstream code (``reorder_by_dom_position``) computes
+        ``end`` ranges per main-component element on demand instead of walking
+        ``.parent`` for every element of the document.
         """
-        all_tags = list(soup.find_all(True))
-        pos = {id(t): i for i, t in enumerate(all_tags)}
-        end = list(range(len(all_tags)))
-        for i in range(len(all_tags) - 1, -1, -1):
-            parent = all_tags[i].parent
-            if parent and id(parent) in pos:
-                pi = pos[id(parent)]
-                if end[i] > end[pi]:
-                    end[pi] = end[i]
-        return {id(t): (i, end[i]) for i, t in enumerate(all_tags)}
+        return {t.mem_id: i for i, t in enumerate(soup.css("*"))}

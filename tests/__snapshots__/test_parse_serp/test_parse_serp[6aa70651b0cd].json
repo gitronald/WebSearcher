@@ -3,6 +3,7 @@
     "captcha": false,
     "infinity_scroll": false,
     "language": "en",
+    "main_layout": "standard",
     "notice_no_results": false,
     "notice_server_error": false,
     "notice_shortened_query": false,
@@ -260,7 +261,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 9,
@@ -274,7 +277,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 10,
@@ -288,7 +293,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 11,
@@ -302,7 +309,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 12,
@@ -316,7 +325,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 13,
@@ -330,7 +341,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 14,
@@ -344,7 +357,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 15,
@@ -358,7 +373,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 16,
@@ -372,7 +389,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 17,
@@ -386,7 +405,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 18,
@@ -400,7 +421,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 19,
@@ -414,7 +437,9 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "heading": "What people are saying"
+      },
       "error": null,
       "section": "main",
       "serp_rank": 20,
@@ -597,6 +622,7 @@
       "cite": null,
       "cmpt_rank": 12,
       "details": {
+        "heading": "People also search for",
         "items": [
           "Why is the sky blue Class 10",
           "Why is the sky blue for kids",

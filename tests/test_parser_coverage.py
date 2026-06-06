@@ -1,8 +1,8 @@
 """Targeted tests for parser-coverage fixes (plan 024).
 
-Each test loads the curated ``serps-parser-coverage.json.bz2`` fixture, whose
-SERPs were selected to exercise specific parser gaps. Tests are added per phase
-as the fixes land.
+Each test looks up curated SERPs by query in the consolidated ``serps.json.bz2``
+fixture; these queries were selected to exercise specific parser gaps. Tests are
+added per phase as the fixes land.
 """
 
 import bz2
@@ -13,7 +13,7 @@ import pytest
 
 import WebSearcher as ws
 
-FIXTURE = Path(__file__).parent / "fixtures" / "serps-parser-coverage.json.bz2"
+FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
 
 def _load():
@@ -84,18 +84,29 @@ def test_knowledge_dictionary(serps_by_qry, qry):
     assert row["text"] and len(row["text"]) > 20
 
 
+# --- side_bar: RHS column panel (type renamed knowledge -> side_bar) --------
+
+
+def _side_bar(html, sub_type):
+    return [
+        r
+        for r in ws.parse_serp(html)["results"]
+        if r["type"] == "side_bar" and r.get("sub_type") == sub_type
+    ]
+
+
 @pytest.mark.parametrize("qry", ["prouve", "red skin peanuts", "file folder"])
-def test_knowledge_panel_rhs_not_empty(serps_by_qry, qry):
-    rows = _knowledge(serps_by_qry[qry]["html"], "panel_rhs")
+def test_side_bar_panel_not_empty(serps_by_qry, qry):
+    rows = _side_bar(serps_by_qry[qry]["html"], "panel")
     assert rows
     for r in rows:
         # no longer a hollow placeholder: has a title and/or text and/or details
         assert r["title"] or r["text"] or r["details"]
 
 
-def test_knowledge_panel_rhs_entity_title(serps_by_qry):
+def test_side_bar_panel_entity_title(serps_by_qry):
     """Entity panels recover their title from the data-attrid (was empty)."""
-    row = _knowledge(serps_by_qry["prouve"]["html"], "panel_rhs")[0]
+    row = _side_bar(serps_by_qry["prouve"]["html"], "panel")[0]
     assert row["title"] == "Jean Prouvé"
     assert row["text"] and row["url"]
 

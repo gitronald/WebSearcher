@@ -1,8 +1,8 @@
 ---
 status: done
 branch: feature/promote-ai-overview-component
-created: 2026-05-10T18:46:52-07:00
-completed: 2026-05-13T13:15:04-07:00
+created: 2026-05-10T18:49:46-07:00
+completed: 2026-05-13T13:30:57-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/115
 ---
 

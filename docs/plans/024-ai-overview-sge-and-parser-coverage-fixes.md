@@ -1,8 +1,8 @@
 ---
 status: done
 branch: feature/ai-overview-sge-and-parser-coverage-fixes
-created: 2026-05-24T17:13:20-07:00
-completed: 2026-05-24T23:55:44-07:00
+created: 2026-05-24T17:22:12-07:00
+completed: 2026-05-25T00:57:38-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/127
 ---
 

@@ -1,3 +1,33 @@
+"""Component parsers and the type-name → parser dispatch registry.
+
+Parser contract
+---------------
+Every component parser is a module-level function (no parser classes). The
+registry below (:data:`PARSERS`) maps a component type name to its entry
+parser. ``Component.run_parser`` calls each entry parser with the component's
+selectolax node, so:
+
+- Entry parser signature: ``def parse_<type>(elem: Node) -> list[dict]``. The
+  first parameter is always ``elem`` -- a selectolax ``LexborNode``, never the
+  ``Component`` -- because ``Component.run_parser`` calls ``parser_func(self.elem)``
+  with that single argument.
+- Some parsers also accept an optional ``sub_rank: int = 0`` second parameter so
+  they can be reused as sub-parsers (e.g. ``perspectives`` delegates to
+  ``top_stories``); the dispatcher never passes it.
+- ``parse_unknown`` is the catch-all for components classified as ``unknown``.
+  Components with a known type but no registered parser are reported by the
+  ``Component`` itself as a ``"not implemented"`` error -- there is no
+  parser-side placeholder.
+- Returns ``list[dict]``; each dict carries at least ``type``. Parsers that emit
+  multiple sub-results set ``sub_rank`` to order them; otherwise ``BaseResult``
+  defaults ``sub_rank`` to ``0``.
+- Per-item helpers take a sub-node and are named ``sub``:
+  ``def parse_<type>_item(sub: Node, sub_rank: int = 0) -> dict``.
+- Module-level constants (selector tables, sub-type text maps) use
+  ``UPPER_SNAKE_CASE`` and are built once at import.
+"""
+
+from .._slx import get_text
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
 from .ai_overview import parse_ai_overview
@@ -5,8 +35,9 @@ from .available_on import parse_available_on
 from .banner import parse_banner
 from .buying_guide import parse_buying_guide
 from .discussions_and_forums import parse_discussions_and_forums
+from .elections import parse_election_dates, parse_election_resources, parse_election_results
 from .flights import parse_flights
-from .footer import Footer
+from .footer import parse_discover_more, parse_img_cards, parse_omitted_notice
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
@@ -48,13 +79,16 @@ PARSERS = {
     "available_on": parse_available_on,
     "banner": parse_banner,
     "buying_guide": parse_buying_guide,
-    "discover_more": Footer.parse_discover_more,
+    "discover_more": parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
+    "election_dates": parse_election_dates,
+    "election_resources": parse_election_resources,
+    "election_results": parse_election_results,
     "flights": parse_flights,
     "general": parse_general_results,
     "general_questions": parse_general_questions,
     "images": parse_images,
-    "img_cards": Footer.parse_image_cards,
+    "img_cards": parse_img_cards,
     "jobs": parse_jobs,
     "knowledge": parse_knowledge_panel,
     "knowledge_rhs": parse_knowledge_rhs,
@@ -66,7 +100,7 @@ PARSERS = {
     "most_read_articles": parse_most_read_articles,
     "news_quotes": parse_news_quotes,
     "notice": parse_notices,
-    "omitted_notice": Footer.parse_omitted_notice,
+    "omitted_notice": parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
     "products": parse_products,
@@ -103,21 +137,6 @@ main_parser_labels = _section_parser_labels("main")
 footer_parser_labels = _section_parser_labels("footer")
 
 
-def parse_unknown(cmpt) -> list:
-    parsed_result = {
-        "type": cmpt.type,
-        "cmpt_rank": cmpt.cmpt_rank,
-        "text": cmpt.elem.get_text("<|>", strip=True) if cmpt.elem else None,
-    }
-    return [parsed_result]
-
-
-def parse_not_implemented(cmpt) -> list:
-    """Placeholder function for component parsers that are not implemented"""
-    parsed_result = {
-        "type": cmpt.type,
-        "cmpt_rank": cmpt.cmpt_rank,
-        "text": cmpt.elem.get_text("<|>", strip=True),
-        "error": "not implemented",
-    }
-    return [parsed_result]
+def parse_unknown(elem) -> list:
+    """Catch-all for components classified as ``unknown``: capture text only."""
+    return [{"type": "unknown", "text": get_text(elem, "<|>", strip=True)}]
