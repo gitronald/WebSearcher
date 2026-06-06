@@ -6,7 +6,6 @@ How-to references that don't belong in a one-shot plan. See [`guides/`](guides/)
 
 - [`selectolax-parsers.md`](guides/selectolax-parsers.md) — building component parsers on selectolax (post-bs4-migration patterns + landmines).
 - [`fixture-corpus.md`](guides/fixture-corpus.md) — the consolidated test fixture corpus: curation methodology, the `corpus-curate` scripts, and the per-record `note` field.
-- [`changelog.md`](guides/changelog.md) — `CHANGELOG.md` conventions.
 
 ## Plans
 
