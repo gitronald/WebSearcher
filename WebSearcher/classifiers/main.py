@@ -142,6 +142,14 @@ class ClassifyMain:
             (ClassifyMain.locations, None),
             (ClassifyMain.top_stories, lambda s: "g-scrolling-carousel" in s.names),
             (ClassifyMain.discussions_and_forums, lambda s: "IFnjPb" in s.classes),
+            # Structural-first: ITWcLb rows type a buying_guide before the
+            # English-only header-text path, so a localized/reworded heading
+            # ("Buying guide: ...") still classifies.
+            (ClassifyMain.buying_guide, lambda s: "ITWcLb" in s.classes),
+            # NOTE: ``most_read_articles`` has no unique structural signal -- it is
+            # classified purely by its English header "Most-read articles" via
+            # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
+            # Unlike buying_guide/products it cannot be made structural-first.
             (ClassifyMainHeader.classify, None),
             (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
             (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
@@ -173,7 +181,11 @@ class ClassifyMain:
             (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
             (
                 ClassifyMain.products,
-                lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
+                lambda s: (
+                    "product-viewer-group" in s.names
+                    or "g-more-link" in s.names
+                    or "gON1yc" in s.classes
+                ),
             ),
             (
                 ClassifyMain.election,
@@ -222,6 +234,18 @@ class ClassifyMain:
         if "ULSxyf" not in class_tokens(node):
             return "unknown"
         return "banner" if node.css_first("div.uzjuFc") is not None else "unknown"
+
+    @staticmethod
+    def buying_guide(cmpt) -> str:
+        """Classify a faceted "Buying guide" accordion by its row class.
+
+        ``div.ITWcLb`` rows are buying_guide's unique, stable structural signal,
+        so this types the component even when its h2 ("Buying guide: ...") is
+        localized or reworded -- cases the English-only "Buying guide" header
+        match in ``ClassifyMainHeader`` would miss.
+        """
+        node: Node = cmpt
+        return "buying_guide" if node.css_first("div.ITWcLb") is not None else "unknown"
 
     @staticmethod
     def finance_panel(cmpt) -> str:
@@ -412,6 +436,11 @@ class ClassifyMain:
             node.css_first("product-viewer-group") is not None
             and node.css_first("g-inner-card") is not None
         ):
+            return "products"
+        # Brands carousel: div.gON1yc cards are the unique structural signal, so
+        # the carousel still types as products when its "Explore brands" heading
+        # is localized or reworded (header-text match below is English-only).
+        if node.css_first("div.gON1yc") is not None:
             return "products"
         heading = node.css_first('[role="heading"]')
         if heading is not None and (get_text(heading, strip=True) or "") == "Explore brands":

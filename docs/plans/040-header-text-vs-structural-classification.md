@@ -1,6 +1,6 @@
 ---
-status: draft
-branch:
+status: active
+branch: feature/v0.10.0-header-text-dependencies
 created: 2026-06-06T01:27:30-07:00
 completed:
 pr:
@@ -116,3 +116,52 @@ for qry, cls in findings['most_read']:
 - [ ] Code comment added at `most_read_articles` dispatch entry noting it is header-text-only and lacks structural signals (no fix planned, flagged for documentation)
 - [ ] Tests updated to confirm `buying_guide` and `products` classify correctly by structure (e.g., with mocked components carrying only the CSS class, no header)
 - [ ] All existing snapshot tests pass (no regression in fixture corpus parsing)
+
+## Log
+
+### 2026-06-06 — implementation
+
+Branch `feature/v0.10.0-header-text-dependencies` (off `feature/v0.10.0`).
+
+**Evidence correction.** Re-ran the analysis through the actual extraction +
+classification pipeline (not a raw `main_section.css('div')` sweep). The plan's
+Evidence counts are **element-level, not component-level**:
+
+| type | plan count | actual components | reality |
+| --- | --- | --- | --- |
+| buying_guide | 8 | **1** | the 8 were `div.ITWcLb` *rows* inside one component |
+| products | 206 | **27** (2 with `gON1yc`) | 25 grid + 2 brands carousels |
+| most_read_articles | 3 | **1** | one carousel |
+
+Also, the plan's premise that buying_guide headers are "empty or variable" is
+not true for the corpus: the single instance has header `"Buying guide: Graphics
+Tablets"`, which the existing English `"Buying guide"` header match already
+catches. All three types classify **correctly today** via header text. The
+change's value is therefore **robustness to localization/reword**, not fixing a
+current miss — so the bar was "add structural-first dispatch with zero corpus
+regression," which the 87-snapshot suite confirms.
+
+**Changes (`WebSearcher/classifiers/main.py`):**
+1. New `ClassifyMain.buying_guide()` — returns `"buying_guide"` when `div.ITWcLb`
+   is present.
+2. Dispatch: `buying_guide` entry (precondition `"ITWcLb" in s.classes`) inserted
+   **before** `ClassifyMainHeader.classify`, so structure wins over the
+   English-only header.
+3. `ClassifyMain.products()` gains a `div.gON1yc` structural branch ahead of the
+   `"Explore brands"` heading check.
+4. Products dispatch precondition broadened with `or "gON1yc" in s.classes` so a
+   brands carousel lacking `g-more-link`/`product-viewer-group` still reaches the
+   classifier. (`classes` is consulted in full, so no `_NAME_SIGNALS`/`_ID_SIGNALS`
+   registration is needed.)
+
+**`most_read_articles`** flagged in two places — its `component_types.py` entry
+(source of truth, header-text-only) and a NOTE in the dispatch table. No fix: it
+has no unique structural CSS signal.
+
+**Tests** (`tests/test_parser_coverage.py`): four `ClassifyMain.classify` dispatch
+tests using constructed components with localized headers + only the structural
+class — buying_guide and products/brands classify structurally; the negative
+buying_guide case and most_read_articles return non-matching/`unknown`.
+
+**Verification:** full suite `441 passed`, `87 snapshots passed` (no regression);
+corpus counts unchanged (buying_guide=1, products=27, most_read_articles=1).

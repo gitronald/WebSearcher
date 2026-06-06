@@ -298,6 +298,11 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="most_read_articles",
         label="Most-read Articles",
         sections=("main",),
+        # Header-text-only: this type has no unique structural CSS signal (its
+        # cards share generic classes), so it is classified purely by the English
+        # header "Most-read articles" via ClassifyMainHeader. A localized heading
+        # is unclassifiable -- unlike buying_guide/products, it cannot be made
+        # structural-first. Flagged; no fix planned.
         header_texts={2: ("Most-read articles",)},
         description="Editorial article carousel (one card per publisher)",
     ),
