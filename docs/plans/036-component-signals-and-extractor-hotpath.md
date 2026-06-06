@@ -273,3 +273,39 @@ available_on; unobserved on the corpus, so snapshots cannot pin it).
 **Read:** Lever 3 is the largest win in the plan so far and clears the noise floor
 (its -2.6% > this run's 1.1% floor; the profile evidence is decisive). Lever 2 (the
 extractor profiling pass) remains the open investigation.
+
+### 2026-06-06 -- Lever 2 (extractor hot-path review): investigated, no gateable win
+
+Captured the cumulative phase profile on the committed Lever 1+3 code
+(`--profile-sort cumulative`, 870 parses). The extractor phase
+(`ExtractorMain.extract` 2.23 s cum + `_get_dom_positions` 0.65 s + `reorder`
+0.32 s, ~17% of parse) is diffuse -- no single dominant frame like `available_on`.
+Biggest leaves and their verdicts:
+
+- `_get_dom_positions` (0.650 s self) -- one full-document `css('*')` -> position
+  map. `reorder._range` looks up arbitrary descendants in it, so the whole map is
+  needed without restructuring. Structural.
+- `subtree_css` (0.616 s self, 8,040 calls) -- `node.css(sel)` + self-exclude
+  filter behind `_find_all_with_class`/`_kp_markers`. The C walk dominates and the
+  semantics (exclude self, bs4 `find_all`) pin the shape.
+- `is_valid` (0.413 s self, 25,460 calls) -- the only byte-identical micro-opt is
+  hoisting its per-call `bad` set literal to a module constant (~25k set builds),
+  worth ~5 ms (< the 1-4% noise floor). The per-candidate
+  `css_first('div[id="tadsb"]')` is defensive (catches an *empty*, un-removed
+  bottom-ads wrapper) and not safely removable.
+- `extract_from_standard` detect loop -- the `any(subtree_css(...))`
+  materialization only runs when a `kp-wp-tab-*` container exists (all 4
+  `_STANDARD_LAYOUTS` gate on those ids); on a normal SERP every `detect_css`
+  `css_first` returns None and no list is built. Not a hot path.
+- `reorder._range` (0.250 s self) re-walks each main-component subtree with
+  `elem.css('*')` just to read the last descendant's position -- the same subtree
+  `_ComponentSignals` already walks during classify.
+
+**Verdict: no standalone byte-identical, low-coupling win.** The genuine remaining
+extractor saving is the plan's **option 3** -- one shared document walk feeding the
+position map, the `_range` ends, and (where scopes align) the component signal sets
+-- which the plan itself flags as coupling currently-independent phases and risking
+the byte-identical contract. Deferred as a separate, gate-hard change rather than
+forcing a sub-noise commit here, consistent with the plan's noise-floor gate. The
+`is_valid` `bad`-set hoist is available as a trivial cleanup on request. Lever 2
+closed as investigated.
