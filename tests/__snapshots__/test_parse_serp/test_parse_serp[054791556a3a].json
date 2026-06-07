@@ -36,7 +36,8 @@
       "text": "Film character",
       "title": "Mater",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -52,7 +53,8 @@
       "text": "6:55 YouTube • Disney Junior Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... A routine tow lands Mater in Tokyo, where he is challenged to a drift-style race against a nefarious gang leader and his posse of ninjas. 2 weeks ago",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
+      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA",
+      "visible": true
     },
     {
       "cite": null,
@@ -68,7 +70,8 @@
       "text": "YouTube Best of Tow Mater | Pixar Cars - YouTube Sir Tow Mater is the name! Taking a look back at Mater's best moments in Pixar Cars! From his adventures of tow trucking, saving the world ... Jun 7, 2023",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
+      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww",
+      "visible": true
     },
     {
       "cite": null,
@@ -84,7 +87,8 @@
       "text": "YouTube • Pixar Cars 1:16:37 Nov 11, 2023 Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
+      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s",
+      "visible": true
     },
     {
       "cite": "https://pixarcars.fandom.com  › wiki › Mater",
@@ -98,7 +102,8 @@
       "text": "Mater  is one of the six playable characters, the other five being Lightning McQueen, Cruz Ramirez, Sally, Ramone, and Guido, who are available from the start in ...",
       "title": "Mater | Pixar Cars Wiki - Fandom",
       "type": "general",
-      "url": "https://pixarcars.fandom.com/wiki/Mater"
+      "url": "https://pixarcars.fandom.com/wiki/Mater",
+      "visible": true
     },
     {
       "cite": null,
@@ -120,7 +125,8 @@
       "text": "What kind of car is Mater?<|>Is Mater's girlfriend in Cars 3?<|>Is Mater rich in Cars?<|>What happened to Mater in Cars 3?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Tow_Mater",
@@ -134,7 +140,8 @@
       "text": "Sir Tow  Mater  KG is an anthropomorphic tow truck of the Pixar  Cars  franchise. His appearances include the feature films  Cars ,  Cars  2, and  Cars  3, ...",
       "title": "Tow Mater",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+      "url": "https://en.wikipedia.org/wiki/Tow_Mater",
+      "visible": true
     },
     {
       "cite": "2M+ followers",
@@ -148,7 +155,8 @@
       "text": "Did you know  Mater  isn't just Lightning McQueen's best friend but also “The World's Best Backwards Driver?” Here are some of our favorite videos of Tow ...",
       "title": "Best of Mater | Pixar Cars",
       "type": "general",
-      "url": "https://www.youtube.com/playlist?list=PLjnjB1Z6t-kWlcoGCm4IOgVQSJwayjngQ"
+      "url": "https://www.youtube.com/playlist?list=PLjnjB1Z6t-kWlcoGCm4IOgVQSJwayjngQ",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -162,7 +170,8 @@
       "text": null,
       "title": "Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars YouTube  ·  Pixar Cars 1 hour, 16 minutes, 37 seconds Nov 11, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
+      "url": "https://www.youtube.com/watch?v=8mN4loP4b3s",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -176,7 +185,8 @@
       "text": null,
       "title": "Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... YouTube  ·  Disney Junior 6 minutes, 55 seconds 2 weeks ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
+      "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -190,7 +200,8 @@
       "text": null,
       "title": "Best of Mater's Adventures | Pixar's Cars Toon - Mater’s Tall ... YouTube  ·  Pixar Cars 7 minutes, 35 seconds Dec 27, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=RMmB8ss4BRI"
+      "url": "https://www.youtube.com/watch?v=RMmB8ss4BRI",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -204,7 +215,8 @@
       "text": null,
       "title": "Lightning McQueen and Mater Race in Tokyo | Pixar's Cars ... YouTube  ·  Pixar Cars 1 minute, 55 seconds 6 days ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=S4GnwSo0s0A"
+      "url": "https://www.youtube.com/watch?v=S4GnwSo0s0A",
+      "visible": true
     },
     {
       "cite": "https://disney.fandom.com  › wiki › Mater",
@@ -218,7 +230,8 @@
       "text": "He is a rusty old tow truck and Lightning McQueen's best friend. He is a major character in  Cars , the protagonist of  Cars  2, and a supporting character in  Cars  ...",
       "title": "Mater | Disney Wiki - Fandom",
       "type": "general",
-      "url": "https://disney.fandom.com/wiki/Mater"
+      "url": "https://disney.fandom.com/wiki/Mater",
+      "visible": true
     },
     {
       "cite": null,
@@ -245,7 +258,8 @@
       "text": "Cars",
       "title": "Movies",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › Toys-Games-Tow-Mater › r...",
@@ -259,7 +273,8 @@
       "text": "Mattel Disney and Pixar  Cars  Toys, Radiator Springs 3-Pack of Die-cast Toy  Cars  & Trucks with Lightning McQueen,  Mater  & Sheriff.  Car .",
       "title": "Tow Mater: Toys & Games",
       "type": "general",
-      "url": "https://www.amazon.com/Toys-Games-Tow-Mater/s?rh=n%3A165793011%2Cp_lbr_characters_browse-bin%3ATow+Mater"
+      "url": "https://www.amazon.com/Toys-Games-Tow-Mater/s?rh=n%3A165793011%2Cp_lbr_characters_browse-bin%3ATow+Mater",
+      "visible": true
     },
     {
       "cite": "3.7M+ views  ·  9 months ago",
@@ -277,7 +292,8 @@
       "text": "Sir TowMateris the name! Taking a look back atMater'sbest moments in PixarCars! From his adventures of tow trucking, saving the world ...",
       "title": "Best of Tow Mater | Pixar Cars - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww"
+      "url": "https://www.youtube.com/watch?v=4VxEPhl03ww",
+      "visible": true
     },
     {
       "cite": "1.3M+ views  ·  8 months ago",
@@ -295,7 +311,8 @@
       "text": "Go undercover withMaterin his secret spy missions fromCars2. Watch as he becomes one of the best undercover spies and saves Lightning ...",
       "title": "Mater's Spy Moments in Cars 2 | Pixar Cars - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=dGXkG8caVyM"
+      "url": "https://www.youtube.com/watch?v=dGXkG8caVyM",
+      "visible": true
     },
     {
       "cite": "https://www.disneystore.com  › lightning-mcqueen-and-...",
@@ -313,7 +330,8 @@
       "text": "Lightning McQueen and Tow  Mater  Die Cast Set –  Cars  on the Road. $24.99 $19.98. 3.7. (3).",
       "title": "Lightning McQueen and Tow Mater Die Cast Set",
       "type": "general",
-      "url": "https://www.disneystore.com/lightning-mcqueen-and-tow-mater-die-cast-set-cars-on-the-road-461024885989.html"
+      "url": "https://www.disneystore.com/lightning-mcqueen-and-tow-mater-die-cast-set-cars-on-the-road-461024885989.html",
+      "visible": true
     },
     {
       "cite": "https://www.disneystore.asia  › ... › Vehicles & RC Toys",
@@ -327,7 +345,8 @@
       "text": "Product Details · Inspired by Disney Pixar  Cars  on the Road ·  Mater  features printed details · Includes: 1 laser gun, 1 meteor hammer, 1 speaker, and 1 new body ...",
       "title": "Mater Die-Cast, Disney Pixar Cars on the Road",
       "type": "general",
-      "url": "https://www.disneystore.asia/mater-die-cast-disney-pixar-cars-on-the-road-461023737517.html"
+      "url": "https://www.disneystore.asia/mater-die-cast-disney-pixar-cars-on-the-road-461023737517.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -354,7 +373,8 @@
       "text": "Mater cars for sale<|>Mater cars song<|>Tow mater cars<|>mater cars toys<|>mater cars voice<|>how old is mater in cars<|>mater cars crocs<|>why is mater rusty",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -375,7 +395,8 @@
       "text": "Sir Tow Mater KG is an anthropomorphic tow truck of the Pixar Cars franchise. His appearances include the feature films Cars, Cars 2, and Cars 3, as well as in the TV series Cars Toons and Cars on the Road. Mater is also a playable character in each of the Cars video game installments.",
       "title": "Things to know",
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Tow_Mater"
+      "url": "https://en.wikipedia.org/wiki/Tow_Mater",
+      "visible": true
     },
     {
       "cite": null,
@@ -425,7 +446,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -459,7 +481,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

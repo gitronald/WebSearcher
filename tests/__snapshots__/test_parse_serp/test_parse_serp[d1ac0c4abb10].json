@@ -29,7 +29,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.cdc.gov  › covid › prevention",
@@ -43,7 +44,8 @@
       "text": "Mar 10, 2025  —  Seek health care promptly for testing and/or treatment  if you have risk factors for severe illness. Treatment may help lower your risk of severe ... Read more",
       "title": "How to Protect Yourself and Others | COVID-19",
       "type": "general",
-      "url": "https://www.cdc.gov/covid/prevention/index.html"
+      "url": "https://www.cdc.gov/covid/prevention/index.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -65,7 +67,8 @@
       "text": "What to Do If You Test Positive for COVID-19 - CDPH CDPH - CA.gov https://www.cdph.ca.gov › CID › DCDC › Pages › What... CDPH - CA.gov https://www.cdph.ca.gov › CID › DCDC › Pages › What...<|>COVID-19 symptoms and what to do - NHS nhs.uk https://www.nhs.uk › Conditions A to Z › COVID-19 nhs.uk https://www.nhs.uk › Conditions A to Z › COVID-19<|>Staying Up to Date with COVID-19 Vaccines - CDC CDC https://www.cdc.gov › covid › vaccines › stay-up-to-date CDC https://www.cdc.gov › covid › vaccines › stay-up-to-date<|>9 Tips to Recover Faster from COVID-19 or Flu - UnityPoint Health UnityPoint Health https://www.unitypoint.org › news-and-articles › 9-tips-t... UnityPoint Health https://www.unitypoint.org › news-and-articles › 9-tips-t...",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.cdph.ca.gov  › CID › DCDC › Pages › COVI...",
@@ -79,7 +82,8 @@
       "text": "Stay home if you have COVID-19 symptoms , until you have not had a fever for 24 hours without using fever reducing medication AND other COVID-19 symptoms are ...",
       "title": "COVID-19 Isolation Guidance - CDPH - CA.gov",
       "type": "general",
-      "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/COVID-19-Isolation-Guidance.aspx"
+      "url": "https://www.cdph.ca.gov/Programs/CID/DCDC/Pages/COVID-19/COVID-19-Isolation-Guidance.aspx",
+      "visible": true
     },
     {
       "cite": "https://healthy.kaiserpermanente.org  › get-care",
@@ -93,7 +97,8 @@
       "text": "Learn about COVID-19 care and treatment options . Get tips on recovering at home, managing symptoms, when to see a doctor, and more from Kaiser Permanente.",
       "title": "Getting Care and Treatment for COVID-19",
       "type": "general",
-      "url": "https://healthy.kaiserpermanente.org/health-wellness/coronavirus-information/get-care"
+      "url": "https://healthy.kaiserpermanente.org/health-wellness/coronavirus-information/get-care",
+      "visible": true
     },
     {
       "cite": "https://www.nhs.uk  › Conditions A to Z › COVID-19",
@@ -107,7 +112,8 @@
       "text": "Urgent advice:  Ask for an urgent GP appointment or get help from NHS 111  if: · you're worried about your or a child's COVID-19 symptoms or are not sure what to ... Read more",
       "title": "COVID-19 symptoms and what to do",
       "type": "general",
-      "url": "https://www.nhs.uk/conditions/covid-19/covid-19-symptoms-and-what-to-do/"
+      "url": "https://www.nhs.uk/conditions/covid-19/covid-19-symptoms-and-what-to-do/",
+      "visible": true
     },
     {
       "cite": "https://www.lung.org  › lung-disease-lookup › if-you-te...",
@@ -121,7 +127,8 @@
       "text": "Stay home unless you need medical care . · Stay away from others. In other words, if you live with other people try to keep your distance by staying in one room ... Read more",
       "title": "Steps to Take if You Test Positive for COVID-19",
       "type": "general",
-      "url": "https://www.lung.org/lung-health-diseases/lung-disease-lookup/covid-19/covid-19-testing/if-you-test-covid-positive-steps"
+      "url": "https://www.lung.org/lung-health-diseases/lung-disease-lookup/covid-19/covid-19-testing/if-you-test-covid-positive-steps",
+      "visible": true
     },
     {
       "cite": "https://www.who.int  › diseases › novel-coronavirus-2019",
@@ -135,7 +142,8 @@
       "text": "Mar 18, 2023  —  Wear a mask properly  · If you have a fever, cough and difficulty breathing, seek medical attention immediately. · Know the full range of symptoms ... Read more",
       "title": "Advice for the public: Coronavirus disease (COVID-19)",
       "type": "general",
-      "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
+      "url": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public",
+      "visible": true
     },
     {
       "cite": "https://publichealth.santaclaracounty.gov  › Diseases",
@@ -149,7 +157,8 @@
       "text": "Dec 16, 2025  —  COVID-19 vaccine.  COVID-19 vaccines are safe and effective . Anyone 6 months and older who lives in California can get the updated COVID vaccine ... Read more",
       "title": "COVID | Public Health | County of Santa Clara",
       "type": "general",
-      "url": "https://publichealth.santaclaracounty.gov/diseases/covid"
+      "url": "https://publichealth.santaclaracounty.gov/diseases/covid",
+      "visible": true
     },
     {
       "cite": "https://www.mayoclinic.org  › in-depth › art-20483273",
@@ -163,7 +172,8 @@
       "text": "Apr 5, 2024  —  Many people with COVID-19 get better with  rest, fluids and treatment for their symptoms . Medicine you can get without a prescription can help. Read more",
       "title": "Treating COVID-19 at home: Care tips for you and others",
       "type": "general",
-      "url": "https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/treating-covid-19-at-home/art-20483273"
+      "url": "https://www.mayoclinic.org/diseases-conditions/coronavirus/in-depth/treating-covid-19-at-home/art-20483273",
+      "visible": true
     },
     {
       "cite": "https://www.ama-assn.org  › system › files › covi...",
@@ -177,7 +187,8 @@
       "text": "Prescription treatments need to be started within days after your symptoms start . Even if your symptoms are mild, treating your COVID early with medicine ... Read more",
       "title": "When to Get Medical Care for COVID",
       "type": "general",
-      "url": "https://www.ama-assn.org/system/files/covid-treatment-handout-get-care.pdf"
+      "url": "https://www.ama-assn.org/system/files/covid-treatment-handout-get-care.pdf",
+      "visible": true
     },
     {
       "cite": "https://www.hopkinsmedicine.org  › health › coronavirus",
@@ -191,7 +202,8 @@
       "text": "CALL 911 if you have a medical emergency  such as severe shortness of breath or difficulty breathing. How long do COVID-19 symptoms last? Active illness can last ... Read more",
       "title": "COVID-19",
       "type": "general",
-      "url": "https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus"
+      "url": "https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus",
+      "visible": true
     },
     {
       "cite": null,
@@ -218,7 +230,8 @@
       "text": "CDC guidelines for COVID 2025 return to work<|>CDC COVID guidelines<|>CDC COVID guidelines 2025<|>CDC COVID isolation guidelines<|>COVID guidelines 2025 quarantine<|>How long to isolate with COVID 2025<|>CDC Guidelines for COVID 2025 return to work healthcare workers<|>CDC guidelines for COVID isolation 2025",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

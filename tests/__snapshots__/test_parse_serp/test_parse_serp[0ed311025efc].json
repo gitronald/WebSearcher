@@ -52,7 +52,8 @@
       "text": "Live news, investigations, opinion, photos and video by the journalists of The  New York Times  from more than 150 countries around the world.",
       "title": "The New York Times - Breaking News, US News, World News ...",
       "type": "general",
-      "url": "https://www.nytimes.com/"
+      "url": "https://www.nytimes.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -66,7 +67,8 @@
       "text": null,
       "title": "Live Updates: Trump Posts Video Portraying Obamas as Apes, U.S. and Iran Hold Nuclear Talks",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/live/2026/02/06/us/trump-news"
+      "url": "https://www.nytimes.com/live/2026/02/06/us/trump-news",
+      "visible": true
     },
     {
       "cite": null,
@@ -80,7 +82,8 @@
       "text": null,
       "title": "Trump Deletes Racist Video Portraying the Obamas as Apes",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html"
+      "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +97,8 @@
       "text": null,
       "title": "U.S. Seeks to Expedite Deportation of 5-Year-Old Liam Conejo Ramos",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/us/us-deportation-liam-conejo-ramos-minnesota.html"
+      "url": "https://www.nytimes.com/2026/02/06/us/us-deportation-liam-conejo-ramos-minnesota.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -108,7 +112,8 @@
       "text": null,
       "title": "Iran Is at Work on Missile and Nuclear Sites, Satellite Images Show",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/world/middleeast/iran-missile-nuclear-repairs.html"
+      "url": "https://www.nytimes.com/2026/02/06/world/middleeast/iran-missile-nuclear-repairs.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -122,7 +127,8 @@
       "text": null,
       "title": "‘Gang Stuff’ and ‘Illicit Trysts’: How Epstein Sought Leverage With the Wealthy",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/us/jeffrey-epstein-leverage.html"
+      "url": "https://www.nytimes.com/2026/02/06/us/jeffrey-epstein-leverage.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -136,7 +142,8 @@
       "text": null,
       "title": "Alexandria Ocasio-Cortez Steps Onto a Wider Stage",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/us/politics/aoc-run-for-president-or-senate-2028.html"
+      "url": "https://www.nytimes.com/2026/02/06/us/politics/aoc-run-for-president-or-senate-2028.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -150,7 +157,8 @@
       "text": null,
       "title": "Russian General Is Shot in Latest Attack on a Top Military Leader in Moscow",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/world/europe/russian-general-shot-moscow-alekseyev.html"
+      "url": "https://www.nytimes.com/2026/02/06/world/europe/russian-general-shot-moscow-alekseyev.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -164,7 +172,8 @@
       "text": null,
       "title": "Opinion | The Globalization of Canadian Rage",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/06/opinion/canada-america-anger-carney.html"
+      "url": "https://www.nytimes.com/2026/02/06/opinion/canada-america-anger-carney.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -178,7 +187,8 @@
       "text": null,
       "title": "The G.O.P. Senator Who Can’t Stop Thinking About the Boy ICE Detained",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/05/us/politics/katie-britt-trump-immigration.html"
+      "url": "https://www.nytimes.com/2026/02/05/us/politics/katie-britt-trump-immigration.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -192,7 +202,8 @@
       "text": null,
       "title": "Dozens of Earthquakes Have Rattled San Ramon, California",
       "type": "latest_from",
-      "url": "https://www.nytimes.com/2026/02/05/us/san-ramon-california-earthquake-swarm.html"
+      "url": "https://www.nytimes.com/2026/02/05/us/san-ramon-california-earthquake-swarm.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -206,7 +217,8 @@
       "text": null,
       "title": "New York Times Stock Drops Despite Strong Fourth-Quarter Results",
       "type": "top_stories",
-      "url": "https://www.wsj.com/business/new-york-times-earnings-q4-2025-nyt-2b057b41?gaa_at=eafs&gaa_n=AWEtsqdtn0X9XN56oTZewrgyV_yemoxWHPafMxItlpq6fc1nafLvbxKfKzoy&gaa_ts=6986869c&gaa_sig=-xnT43ZDvWw_EdbTcJsn5GYF8XmkGjjcdQnHJsup6vWlohVbeGJb7WWg56tzM8a-LmN8QfDzaD8oiUkN2xCCYA%3D%3D"
+      "url": "https://www.wsj.com/business/new-york-times-earnings-q4-2025-nyt-2b057b41?gaa_at=eafs&gaa_n=AWEtsqdtn0X9XN56oTZewrgyV_yemoxWHPafMxItlpq6fc1nafLvbxKfKzoy&gaa_ts=6986869c&gaa_sig=-xnT43ZDvWw_EdbTcJsn5GYF8XmkGjjcdQnHJsup6vWlohVbeGJb7WWg56tzM8a-LmN8QfDzaD8oiUkN2xCCYA%3D%3D",
+      "visible": true
     },
     {
       "cite": null,
@@ -220,7 +232,8 @@
       "text": null,
       "title": "Trump Deletes Racist Video Portraying the Obamas as Apes",
       "type": "top_stories",
-      "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html"
+      "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -234,7 +247,8 @@
       "text": null,
       "title": "DHS lashes out at NY Times after report claiming pregnant women in Minneapolis 'hiding from ICE'",
       "type": "top_stories",
-      "url": "https://www.foxnews.com/media/dhs-lashes-out-ny-times-after-report-claiming-pregnant-women-minneapolis-hiding-from-ice"
+      "url": "https://www.foxnews.com/media/dhs-lashes-out-ny-times-after-report-claiming-pregnant-women-minneapolis-hiding-from-ice",
+      "visible": true
     },
     {
       "cite": null,
@@ -248,7 +262,8 @@
       "text": null,
       "title": "New York Times slammed for 'providing cover' to Trump over racist Obama ape video",
       "type": "top_stories",
-      "url": "https://www.alternet.org/trump-health-2675105543/"
+      "url": "https://www.alternet.org/trump-health-2675105543/",
+      "visible": true
     },
     {
       "cite": "https://www.nytco.com  › games",
@@ -262,7 +277,8 @@
       "text": "Games. Since the launch of The Crossword in 1942, The Times has captivated solvers by providing  engaging word and logic games . Puzzles for Every Solver. In 2014 ... Read more",
       "title": "Games",
       "type": "general",
-      "url": "https://www.nytco.com/games/"
+      "url": "https://www.nytco.com/games/",
+      "visible": true
     },
     {
       "cite": null,
@@ -284,7 +300,8 @@
       "text": "Is NY Times liberal or conservative?<|>Why did Bari Weiss leave the NYT?<|>What is Trump's favorite newspaper?<|>Submit a Letter to The Editor - The New York Times Help Center NYT's Help Center - The New York Times https://help.nytimes.com › en-us › articles › 1150149252... NYT's Help Center - The New York Times https://help.nytimes.com › en-us › articles › 1150149252...",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -300,7 +317,8 @@
       "text": null,
       "title": "From  @TheAthletic: Reports have surfaced before the Winter Olympics that allege ski jumpers are injecting their penises with hyaluronic acid to fly farther. The World Anti-Doping Agency has vowed to investigate.",
       "type": "perspectives",
-      "url": "https://x.com/nytimes/status/2019515200613827039?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/nytimes/status/2019515200613827039?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -316,7 +334,8 @@
       "text": null,
       "title": "NY Times today. Good read.",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUORfnCiS25/"
+      "url": "https://www.instagram.com/reel/DUORfnCiS25/",
+      "visible": true
     },
     {
       "cite": null,
@@ -332,7 +351,8 @@
       "text": null,
       "title": "For  @nytimes I wrote about the globalization of Canadian rage.",
       "type": "perspectives",
-      "url": "https://x.com/StephenMarche/status/2019780451359973509?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/StephenMarche/status/2019780451359973509?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -348,7 +368,8 @@
       "text": null,
       "title": "News: The New York Times says it added 1.4m net digital subscribers last year, and now has nearly 13 million total subscribers",
       "type": "perspectives",
-      "url": "https://x.com/katie_robertson/status/2019023491522265577?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/katie_robertson/status/2019023491522265577?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -364,7 +385,8 @@
       "text": null,
       "title": "Have to wonder if this, from the profitable New York Times, stings Bezos just a pinch: \n\n“The cuts, announced in a video call with employees, are a sign that Jeff Bezos, who became one of the world’s richest people by selling things on the internet, has not yet figured out how to build and maintain a profitable publication on the internet.” \n\nnytimes.com/2026/02/04/bus… via  @NYTimes",
       "type": "perspectives",
-      "url": "https://x.com/DylanByers/status/2019047186290647466?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/DylanByers/status/2019047186290647466?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -380,7 +402,8 @@
       "text": null,
       "title": "Wordsmiths beware: The New York Times is making a change to its Wordle gameplay policy this week. Details: https://tinyurl.com/2k94jtmk",
       "type": "perspectives",
-      "url": "https://www.facebook.com/WGNTV/posts/wordsmiths-beware-the-new-york-times-is-making-a-change-to-its-wordle-gameplay-p/1450414570014579/"
+      "url": "https://www.facebook.com/WGNTV/posts/wordsmiths-beware-the-new-york-times-is-making-a-change-to-its-wordle-gameplay-p/1450414570014579/",
+      "visible": true
     },
     {
       "cite": null,
@@ -396,7 +419,8 @@
       "text": null,
       "title": "What are scientists measuring on the Thwaites Glacier? Is it hard to fly a helicopter in the cold? What do penguins sound like? Our climate reporter Raymond Zhong answers reader questions from Antarctica. Video by Raymond Zhong, Chang W. Lee, David Se",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@nytimes/video/7603426706652695822"
+      "url": "https://www.tiktok.com/@nytimes/video/7603426706652695822",
+      "visible": true
     },
     {
       "cite": "19.9M+ followers",
@@ -410,7 +434,8 @@
       "text": "20M followers · 636 following · 23197 posts · @ nytimes : “We seek the truth and help people understand the world.”",
       "title": "The New York Times (@nytimes)",
       "type": "general",
-      "url": "https://www.instagram.com/nytimes/?hl=en"
+      "url": "https://www.instagram.com/nytimes/?hl=en",
+      "visible": true
     },
     {
       "cite": "21.3M+ followers",
@@ -424,7 +449,8 @@
       "text": "The New York Times . 21351134 likes · 1850229 talking about this. In-depth, independent reporting to better understand the world. News tips? Share...",
       "title": "The New York Times (@nytimes)",
       "type": "general",
-      "url": "https://www.facebook.com/nytimes/"
+      "url": "https://www.facebook.com/nytimes/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › The_New_York_Times",
@@ -438,7 +464,8 @@
       "text": "The Times  was founded as the conservative New-York Daily Times in 1851, and came to national recognition in the 1870s with its aggressive coverage of corrupt ... Read more",
       "title": "The New York Times",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/The_New_York_Times"
+      "url": "https://en.wikipedia.org/wiki/The_New_York_Times",
+      "visible": true
     },
     {
       "cite": "5M+ followers",
@@ -452,7 +479,8 @@
       "text": "The New York Times  is the most powerful engine for independent, boots-on-the-ground and deeply reported journalism. We set the standard for the most ... Read more",
       "title": "The New York Times",
       "type": "general",
-      "url": "https://www.youtube.com/@nytimes"
+      "url": "https://www.youtube.com/@nytimes",
+      "visible": true
     },
     {
       "cite": null,
@@ -479,7 +507,8 @@
       "text": "New York Times Now live<|>Nytimes Games<|>Ny Times login<|>NYTimes app<|>New York Times photo today<|>Nytimes Customer service<|>Nytimes Games login<|>Ny Times free Games",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -496,7 +525,8 @@
       "text": null,
       "title": "The New York Times",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

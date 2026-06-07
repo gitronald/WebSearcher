@@ -57,7 +57,8 @@
       "text": "2005 ‧ Sitcom ‧ 9 seasons",
       "title": "The Office",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -67,37 +68,44 @@
           {
             "cost": "Subscription",
             "text": "Peacock",
-            "url": "https://www.peacocktv.com/watch-online/tv/the-office/4902514835143843112"
+            "url": "https://www.peacocktv.com/watch-online/tv/the-office/4902514835143843112",
+            "visible": true
           },
           {
             "cost": "Subscription   ( Requires add-on )",
             "text": "Sling TV",
-            "url": "https://watch.sling.com/1/franchise/c6efea3b949ad24f9a6d236e71b8b3cd/browse?trackingid=google-feed"
+            "url": "https://watch.sling.com/1/franchise/c6efea3b949ad24f9a6d236e71b8b3cd/browse?trackingid=google-feed",
+            "visible": true
           },
           {
             "cost": "Subscription   ( Requires add-on )",
             "text": "Amazon Prime Video",
-            "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.b2a10098-1876-492c-8857-dd091c87cd21?autoplay=0&ref_=atv_cf_strg_wb"
+            "url": "https://www.amazon.com/gp/video/detail/amzn1.dv.gti.b2a10098-1876-492c-8857-dd091c87cd21?autoplay=0&ref_=atv_cf_strg_wb",
+            "visible": true
           },
           {
             "cost": "Subscription   ( Requires add-on )",
             "text": "YouTube TV",
-            "url": "https://tv.youtube.com/browse/UCLqUTxeCVt9p90GLFKUsGFA?utm_source=onebox"
+            "url": "https://tv.youtube.com/browse/UCLqUTxeCVt9p90GLFKUsGFA?utm_source=onebox",
+            "visible": true
           },
           {
             "cost": "From  $1.99",
             "text": "YouTube",
-            "url": "https://www.youtube.com/watch?v=bxMy27_rGhs"
+            "url": "https://www.youtube.com/watch?v=bxMy27_rGhs",
+            "visible": true
           },
           {
             "cost": "$1.99",
             "text": "Fandango at Home",
-            "url": "https://athome.fandango.com/content/browse/details/The-Office-Finale-Pt-2/446371?cmp=OrganicSearch~Vudu~GoogleWatch"
+            "url": "https://athome.fandango.com/content/browse/details/The-Office-Finale-Pt-2/446371?cmp=OrganicSearch~Vudu~GoogleWatch",
+            "visible": true
           },
           {
             "cost": "$2.99",
             "text": "Apple TV",
-            "url": "https://tv.apple.com/us/episode/the-dundies/umc.cmc.10237h1l57lzymzt2tsuinwhy?action=playSmartEpisode"
+            "url": "https://tv.apple.com/us/episode/the-dundies/umc.cmc.10237h1l57lzymzt2tsuinwhy?action=playSmartEpisode",
+            "visible": true
           }
         ],
         "type": "hyperlinks"
@@ -110,7 +118,8 @@
       "text": null,
       "title": "Watch show",
       "type": "available_on",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.netflix.com  › title",
@@ -124,7 +133,8 @@
       "text": "This hit comedy chronicles the foibles of disgruntled  office  workers — led by deluded boss Michael Scott — at the Dunder Mifflin paper company. Read more",
       "title": "Watch The Office (U.S.)",
       "type": "general",
-      "url": "https://www.netflix.com/title/70136120"
+      "url": "https://www.netflix.com/title/70136120",
+      "visible": true
     },
     {
       "cite": "https://www.peacocktv.com  › stream-tv › the-office",
@@ -138,7 +148,8 @@
       "text": "Watch The Office , the mockumentary sitcom about the everyday lives of the workers at Dunder Mifflin, a paper company in Scranton, Pennsylvania.",
       "title": "Watch The Office Streaming",
       "type": "general",
-      "url": "https://www.peacocktv.com/stream-tv/the-office"
+      "url": "https://www.peacocktv.com/stream-tv/the-office",
+      "visible": true
     },
     {
       "cite": "3.7M+ followers",
@@ -152,7 +163,8 @@
       "text": "Watch LIVE! Michael Scott ULTIMATE  Stream - The Office  US · Videos · BEST OF DELETED SCENES - The Office US · PRANKS - The Office US · COLD OPENS - The Office US. Read more",
       "title": "The Office",
       "type": "general",
-      "url": "https://www.youtube.com/channel/UCa90xqK2odw1KV5wHU9WRhg"
+      "url": "https://www.youtube.com/channel/UCa90xqK2odw1KV5wHU9WRhg",
+      "visible": true
     },
     {
       "cite": "40+ comments  ·  1 year ago",
@@ -182,7 +194,8 @@
       "text": "It's not on Netflix in the US but you can use a VPN. Proton VPN is free. One of its free options is the Netherlands. The  Office  is on Netflix in the ... Read more",
       "title": "Where to watch the office if you don't have peacock? - Reddit",
       "type": "general",
-      "url": "https://www.reddit.com/r/theoffice/comments/1eckmdp/where_to_watch_the_office_if_you_dont_have_peacock/"
+      "url": "https://www.reddit.com/r/theoffice/comments/1eckmdp/where_to_watch_the_office_if_you_dont_have_peacock/",
+      "visible": true
     },
     {
       "cite": null,
@@ -204,7 +217,8 @@
       "text": "Watch The Office Streaming | Peacock Peacock https://www.peacocktv.com › stream-tv › the-office Peacock https://www.peacocktv.com › stream-tv › the-office<|>The Office Removal from Netflix in the US - Facebook Facebook https://www.facebook.com › groups › posts Facebook https://www.facebook.com › groups › posts<|>Watch The Office | Season 1 Episode 1 | HBO Max HBO Max https://www.hbomax.com › shows › office-2005 › e1-pilot HBO Max https://www.hbomax.com › shows › office-2005 › e1-pilot<|>You Can Now Stream \"The Office\" For Free on Peacock - The Credits Motion Picture Association https://www.motionpictures.org › 2021/03 › you-can-no... Motion Picture Association https://www.motionpictures.org › 2021/03 › you-can-no...",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.disneyplus.com  › en-at › browse",
@@ -218,7 +232,8 @@
       "text": "Led by the comically incompetent Michael Scott, employees plod along at Dunder Mifflin's Scranton-based paper supply branch, where foibles, feuds and  office  ... Read more",
       "title": "Watch The Office | Full episodes",
       "type": "general",
-      "url": "https://www.disneyplus.com/en-at/browse/entity-d78edbe8-7897-4a3a-b358-c705986c71ad"
+      "url": "https://www.disneyplus.com/en-at/browse/entity-d78edbe8-7897-4a3a-b358-c705986c71ad",
+      "visible": true
     },
     {
       "cite": "2.9M+ views  ·  3 months ago",
@@ -232,7 +247,8 @@
       "text": "Some of the funniest moments from The Office all in one giant Livestream! Streaming now on Peacock: https://pck.tv/3mPrdWBWatch The Office...",
       "title": "LIVE! Non-Stop Laughter | The Office US",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=AJmaVPfyudQ"
+      "url": "https://www.youtube.com/watch?v=AJmaVPfyudQ",
+      "visible": true
     },
     {
       "cite": "4.2M+ views  ·  8 months ago",
@@ -246,7 +262,8 @@
       "text": "Streaming now on Peacock: https://pck.tv/3mPrdWB 00:00 Season 5 Episode 26 - Company Picnic 02:26 Season 6 Episode 13 - The Banker 03:04 ...",
       "title": "Office COLD OPENS to Watch While You Eat",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo"
+      "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo",
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › The-Office-Season-1",
@@ -260,7 +277,8 @@
       "text": "Based on the award-winning British comedy of the same name, \"The  Office \" exposes the humorous and often foolish events at Dunder-Mifflin Paper Company. Read more",
       "title": "Watch The Office Season 1 | Prime Video",
       "type": "general",
-      "url": "https://www.amazon.com/The-Office-Season-1/dp/B000U7O8LA"
+      "url": "https://www.amazon.com/The-Office-Season-1/dp/B000U7O8LA",
+      "visible": true
     },
     {
       "cite": "https://www.bbc.co.uk  › iplayer › episodes › the-office",
@@ -274,7 +292,8 @@
       "text": "Nightmare boss. Tedious colleagues. Pointless tasks. Welcome to Wernham Hogg. Fancy a tea break with David Brent? Classic comedy from the archive. Read more",
       "title": "The Office - BBC iPlayer",
       "type": "general",
-      "url": "https://www.bbc.co.uk/iplayer/episodes/b00jd68z/the-office"
+      "url": "https://www.bbc.co.uk/iplayer/episodes/b00jd68z/the-office",
+      "visible": true
     },
     {
       "cite": "https://www.tvguide.com  › tvshows › the-office",
@@ -288,7 +307,8 @@
       "text": "Find out how to  watch The Office . Stream the latest seasons and episodes, watch trailers, and more for The Office at TV Guide.",
       "title": "The Office - Where to Watch and Stream",
       "type": "general",
-      "url": "https://www.tvguide.com/tvshows/the-office/1030321141/"
+      "url": "https://www.tvguide.com/tvshows/the-office/1030321141/",
+      "visible": true
     },
     {
       "cite": null,
@@ -315,7 +335,8 @@
       "text": "Watch the office Season 1<|>How to watch the Office on Netflix<|>Watch the office Hulu<|>Where to watch the Office UK<|>The office season 1 - watch online<|>Where to watch the office reboot<|>Watch the office youtube<|>Peacock The Office",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

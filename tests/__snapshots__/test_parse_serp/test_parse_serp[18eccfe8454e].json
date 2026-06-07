@@ -24,7 +24,8 @@
       "text": null,
       "title": "Results for Austin, TX",
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -45,7 +46,8 @@
       "text": "Corner Restaurant<|>4.8<|>(17K)<|> · <|>$$<|> · Restaurant<|>110 E 2nd St<|> <|> <|> <|> <|> <|>  <|>\"The wagyu burger was absolutely delicious as were the pollo asada tacos.\"",
       "title": "Corner Restaurant",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -66,7 +68,8 @@
       "text": "Caroline<|>4.8<|>(14K)<|> · <|>$20–30<|> · American<|>621 Congress Ave. Suite 101<|> <|> <|> <|> <|> <|>  <|>\"The <|>food<|> was great, the drinks were great and our server, Aaron was AMAZING!\"",
       "title": "Caroline",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -87,7 +90,8 @@
       "text": "Corinne Austin<|>4.8<|>(5.6K)<|> · <|>$$<|> · Restaurant<|>304 E Cesar Chavez St<|> <|> <|> <|> <|> <|>  <|>\"The wagyu burger was cooked perfectly and the desserts were one of a kind!\"",
       "title": "Corinne Austin",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -109,7 +113,8 @@
       "text": "What is the most \"Austin\" of Austin Restaurants? : r/austinfood - Reddit Reddit https://www.reddit.com › austinfood › comments › what... Reddit https://www.reddit.com › austinfood › comments › what...<|>What food is Austin, Texas best known for?<|>Is $100 a good salary in Austin, Texas?<|>THE 10 BEST Dinner Restaurants in Austin (UPDATED 2026) - Tripadvisor Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58... Tripadvisor https://www.tripadvisor.com › Restaurants-g30196-zfp58...",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://alexreichek.com  › Where to Eat",
@@ -123,7 +128,8 @@
       "text": "I've left off some of my favorite casual spots, like  Discada , Carnitas El Guerro, and El Primo for Best Tacos and Lutie's or Proud Mary for Brunch, because I ... Read more",
       "title": "Where to Eat in Austin, Texas Now - Austin's Best Food Guides",
       "type": "general",
-      "url": "https://alexreichek.com/best-restaurants-austin/"
+      "url": "https://alexreichek.com/best-restaurants-austin/",
+      "visible": true
     },
     {
       "cite": "https://feastio.com  › Austin",
@@ -137,7 +143,8 @@
       "text": "Jun 19, 2019  —  Dave's recommendations for the best restaurants in Austin include  live fire cooking at Hestia , Texas BBQ, and award-winning sushi.",
       "title": "22 Best Restaurants in Austin: Where to Dine This Year",
       "type": "general",
-      "url": "https://feastio.com/best-restaurants-austin/"
+      "url": "https://feastio.com/best-restaurants-austin/",
+      "visible": true
     },
     {
       "cite": "https://withthewoodruffs.com  › Best of Texas",
@@ -151,7 +158,8 @@
       "text": "Jan 22, 2025  —  Our Favorite Restaurants in Austin ·  Bird Bird Biscuit  · Paprika · Culinary Dropout · Discada · La Tunita 512 · Nervous Charlie's · KC Donuts. Read more",
       "title": "The Best Restaurants in Austin, Texas (According to Locals)",
       "type": "general",
-      "url": "https://withthewoodruffs.com/best-austin-texas-restaurants/"
+      "url": "https://withthewoodruffs.com/best-austin-texas-restaurants/",
+      "visible": true
     },
     {
       "cite": null,
@@ -165,7 +173,8 @@
       "text": null,
       "title": "Planning date night? These are Austin’s 10 most romantic restaurants",
       "type": "local_news",
-      "url": "https://www.statesman.com/entertainment/dining/article/best-romantic-restaurants-austin-2026-21312008.php"
+      "url": "https://www.statesman.com/entertainment/dining/article/best-romantic-restaurants-austin-2026-21312008.php",
+      "visible": true
     },
     {
       "cite": null,
@@ -179,7 +188,8 @@
       "text": null,
       "title": "4 Austin-area eateries named on Yelp's 'Top 100 U.S. Restaurants 2026'",
       "type": "local_news",
-      "url": "https://www.kvue.com/article/life/food/austin-round-rock-restaurants-yelp-top-100-us-restaurants-2026-featured/269-a8feee19-5adf-478a-b26b-4eaa2fd77114"
+      "url": "https://www.kvue.com/article/life/food/austin-round-rock-restaurants-yelp-top-100-us-restaurants-2026-featured/269-a8feee19-5adf-478a-b26b-4eaa2fd77114",
+      "visible": true
     },
     {
       "cite": null,
@@ -193,7 +203,8 @@
       "text": null,
       "title": "Pasta | Bar Will Be Replaced By a New Scratch Restaurants Concept",
       "type": "local_news",
-      "url": "https://whatnow.com/austin/restaurants/pasta-bar-will-be-replaced-by-a-new-scratch-restaurants-concept/"
+      "url": "https://whatnow.com/austin/restaurants/pasta-bar-will-be-replaced-by-a-new-scratch-restaurants-concept/",
+      "visible": true
     },
     {
       "cite": null,
@@ -207,7 +218,8 @@
       "text": null,
       "title": "Super Bowl Food Specials Austin 2026 – Verified Deals on Pizza, Wings and More!",
       "type": "local_news",
-      "url": "https://austinot.com/super-bowl-food-specials-austin"
+      "url": "https://austinot.com/super-bowl-food-specials-austin",
+      "visible": true
     },
     {
       "cite": null,
@@ -221,7 +233,8 @@
       "text": null,
       "title": "Love is on the menu: Austin’s top Valentine’s Day specials 2026",
       "type": "local_news",
-      "url": "https://www.statesman.com/entertainment/dining/article/austin-valentines-day-restaurants-desserts-2026-21331667.php"
+      "url": "https://www.statesman.com/entertainment/dining/article/austin-valentines-day-restaurants-desserts-2026-21331667.php",
+      "visible": true
     },
     {
       "cite": null,
@@ -235,7 +248,8 @@
       "text": null,
       "title": "Acclaimed Austin taqueria is trading its hideaway spot for the city's most famous street",
       "type": "local_news",
-      "url": "https://www.statesman.com/entertainment/dining/article/austin-taqueria-de-diez-moving-6th-street-21332012.php"
+      "url": "https://www.statesman.com/entertainment/dining/article/austin-taqueria-de-diez-moving-6th-street-21332012.php",
+      "visible": true
     },
     {
       "cite": null,
@@ -249,7 +263,8 @@
       "text": null,
       "title": "Zaytoon Mediterranean Grill to Open in Kyle",
       "type": "local_news",
-      "url": "https://whatnow.com/austin/restaurants/zaytoon-mediterranean-grill-to-open-in-kyle/"
+      "url": "https://whatnow.com/austin/restaurants/zaytoon-mediterranean-grill-to-open-in-kyle/",
+      "visible": true
     },
     {
       "cite": null,
@@ -265,7 +280,8 @@
       "text": null,
       "title": "Sushi, Mexican, barbecue: A guide to Austin's best restaurants of 2025",
       "type": "perspectives",
-      "url": "https://www.statesman.com/project/austin-2025-food-guide-best-restaurants/"
+      "url": "https://www.statesman.com/project/austin-2025-food-guide-best-restaurants/",
+      "visible": true
     },
     {
       "cite": null,
@@ -281,7 +297,8 @@
       "text": null,
       "title": "Looking for some restaurant recommendations in Austin tx for date night ✨",
       "type": "perspectives",
-      "url": "https://www.facebook.com/groups/sanantoniorestaurants/posts/4336798783261242/"
+      "url": "https://www.facebook.com/groups/sanantoniorestaurants/posts/4336798783261242/",
+      "visible": true
     },
     {
       "cite": null,
@@ -297,7 +314,8 @@
       "text": null,
       "title": "A go-to date night restaurant in Austin, TX ❤️\n\n@pecansquarecafe is known for its seasonal menu, so dishes rotate often depending on what’s in season, but their pastas and pizzas always hit, and their classic local greens (simple, but one of the best things on the table) never miss!\n\nThis visit we ordered the pasta special, speck & potato pizza, roast chicken, and vegetable fritters! 🍴\n\nWarm, cozy, romantic vibes inside, plus great cocktails. Perfect for Valentine’s Day, but also an easy pick for a girls’ night or a long dinner with wine 🍷\n\n📍 1200 W 6th St.\n\n#365thingsaustin #atxrestaurants #austineats #atxfoodie #atxlife",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DURfBFfkeEy/"
+      "url": "https://www.instagram.com/reel/DURfBFfkeEy/",
+      "visible": true
     },
     {
       "cite": null,
@@ -313,7 +331,8 @@
       "text": null,
       "title": "Best Restaurants off the 10 bus line",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/austinfood/comments/1qgl7in/best_restaurants_off_the_10_bus_line/"
+      "url": "https://www.reddit.com/r/austinfood/comments/1qgl7in/best_restaurants_off_the_10_bus_line/",
+      "visible": true
     },
     {
       "cite": null,
@@ -329,7 +348,8 @@
       "text": null,
       "title": "Going to Austin, Give me your top restaurant recommendations to go do a review at! #austin #foodcritic #foodreview #mukbang #fastfood",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@waynedang/video/7594679224544300318"
+      "url": "https://www.tiktok.com/@waynedang/video/7594679224544300318",
+      "visible": true
     },
     {
       "cite": null,
@@ -345,7 +365,8 @@
       "text": null,
       "title": "The 20 best restaurants in Austin",
       "type": "perspectives",
-      "url": "https://www.telegraph.co.uk/travel/destinations/north-america/united-states/texas/austin/austin-texas-best-restaurants/"
+      "url": "https://www.telegraph.co.uk/travel/destinations/north-america/united-states/texas/austin/austin-texas-best-restaurants/",
+      "visible": true
     },
     {
       "cite": null,
@@ -361,7 +382,8 @@
       "text": null,
       "title": "Hey y'all! Going to Austin V-day weekend. Recommendations on honky tonk vibes and what's your favorite moderately priced restaurant?",
       "type": "perspectives",
-      "url": "https://www.facebook.com/groups/fortworthfoodies/posts/3463774430439260/"
+      "url": "https://www.facebook.com/groups/fortworthfoodies/posts/3463774430439260/",
+      "visible": true
     },
     {
       "cite": null,
@@ -377,7 +399,8 @@
       "text": null,
       "title": "Top Chef Host Kristen Kish's 3 Best Restaurants in Austin",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/l2GLS-W_TyE"
+      "url": "https://www.youtube.com/shorts/l2GLS-W_TyE",
+      "visible": true
     },
     {
       "cite": null,
@@ -393,7 +416,8 @@
       "text": null,
       "title": "Homey Italian and multi-course feasts: Our favorite Austin meals of 2025",
       "type": "perspectives",
-      "url": "https://austin.culturemap.com/news/restaurants-bars/best-meals-2025-leona-tancho/"
+      "url": "https://austin.culturemap.com/news/restaurants-bars/best-meals-2025-leona-tancho/",
+      "visible": true
     },
     {
       "cite": null,
@@ -409,7 +433,8 @@
       "text": null,
       "title": "DariusCooks. . The WORST restaurant in Austin, TX!",
       "type": "perspectives",
-      "url": "https://www.facebook.com/DariusCooksToo/videos/the-worst-restaurant-in-austin-tx/714896388130231/"
+      "url": "https://www.facebook.com/DariusCooksToo/videos/the-worst-restaurant-in-austin-tx/714896388130231/",
+      "visible": true
     },
     {
       "cite": null,
@@ -425,7 +450,8 @@
       "text": null,
       "title": "COMMENT “Guide” and I’ll DM you the full list of spots we reviewed 2025, good and bad! \n\nBest new restaurants of 2025 : @le_calamar_ @highroaddelicatexan @kiindiatx @garagepizzatx @salamsgrillatx @parishbarbecue @kaizabb.thai @paprikaatx @roccosaustin @breadboatatx @smallspizza @oldalleyhotpotatx @dayspizza @superdaily_fusion_pasta_atx @breezeandbites \n\n#atx #austinfoodadventures",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DTIqWinEXYb/"
+      "url": "https://www.instagram.com/reel/DTIqWinEXYb/",
+      "visible": true
     },
     {
       "cite": null,
@@ -441,7 +467,8 @@
       "text": null,
       "title": "✨3 Austin Restaurants Worth the Splurge✨\nEating out is like theater hitting all the senses while also connecting with people you love. These places take care of their customers, care about ingredients, and make you feel special, so when you’re looking for a place you trust these are experiences I keep thinking about food, design, and people wise here:\n\n1- @restaurantfrancois You’re going to love the newest French restaurant downtown from @redashitalia & @jcarversatx 🇫🇷\n\n2- @fishshopatx has seafood & raw bar offerings you can’t get anywhere else and their daily specials are what you need to look out for since they drive to the airport to pick up new fish everyday 🦀\n\n3- @emmerandrye don’t forget about these guys! They might be on Rainey, but their service and creativity is unmatched! 🍸",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DTObuMzDkRk/"
+      "url": "https://www.instagram.com/reel/DTObuMzDkRk/",
+      "visible": true
     },
     {
       "cite": "110+ comments  ·  4 months ago",
@@ -455,7 +482,8 @@
       "text": "The Grill-eria . Dan's Hamburgers. Yamas. Ember Kitchen. Tiny Boxwoods. Kerbey Lane. Sangam Chettinad. Hay-Elotes. Arturo's Tacos (North Lamar). Read more",
       "title": "Your top 10 restaurants in Austin? : r/austinfood",
       "type": "general",
-      "url": "https://www.reddit.com/r/austinfood/comments/1nnq7kg/your_top_10_restaurants_in_austin/"
+      "url": "https://www.reddit.com/r/austinfood/comments/1nnq7kg/your_top_10_restaurants_in_austin/",
+      "visible": true
     },
     {
       "cite": "https://www.tripadvisor.com  › ... › Texas (TX) › Austin",
@@ -469,7 +497,8 @@
       "text": "Restaurants in Austin  ; Cypress Grill · (740 reviews). American, Cajun & Creole ; 1. Azul Rooftop · (230 reviews). Mexican, Southwestern ; 2. Franklin Barbecue · ( ... Read more",
       "title": "THE 10 BEST Restaurants in Austin (Updated February ...",
       "type": "general",
-      "url": "https://www.tripadvisor.com/Restaurants-g30196-Austin_Texas.html"
+      "url": "https://www.tripadvisor.com/Restaurants-g30196-Austin_Texas.html",
+      "visible": true
     },
     {
       "cite": "https://www.atasteofkoko.com  › best-restaurants-in-austin",
@@ -483,7 +512,8 @@
       "text": "Aug 13, 2025  —  Austinite's guide to the best restaurants in Austin  - the best spots for brunch, desserts, happy hour, special occasion, and date night.",
       "title": "47 Best Restaurants In Austin, Updated August 2025",
       "type": "general",
-      "url": "https://www.atasteofkoko.com/best-restaurants-in-austin/austin-restaurants"
+      "url": "https://www.atasteofkoko.com/best-restaurants-in-austin/austin-restaurants",
+      "visible": true
     },
     {
       "cite": "https://www.austinfoodadventures.com  › post › where-t...",
@@ -497,7 +527,8 @@
       "text": "Where to Eat When You Visit Austin, TX! · Barbecue: ·  KG BBQ  · Micklethwait · Franklin BBQ · Parish Barbecue · Leroy and Lewis · Breakfast Tacos/Tacos · Tex Mex. Read more",
       "title": "Where to Eat When You Visit Austin, TX!",
       "type": "general",
-      "url": "https://www.austinfoodadventures.com/post/where-to-eat-when-you-visit-austin-tx"
+      "url": "https://www.austinfoodadventures.com/post/where-to-eat-when-you-visit-austin-tx",
+      "visible": true
     },
     {
       "cite": null,
@@ -530,7 +561,8 @@
       "text": "LENOIR<|>Emmer & Rye<|>Olamaie<|>Odd Duck<|>Lutie's<|>Comedor<|>Best restaurants near austin tx<|>Best restaurants in Austin downtown<|>Top 10 restaurants Austin TX<|>Italian restaurants near austin tx<|>Best casual restaurants in Austin<|>Best Restaurants in Austin with a view<|>Top 10 restaurants in downtown Austin<|>New restaurants near austin tx",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

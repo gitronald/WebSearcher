@@ -39,7 +39,8 @@
       "text": "PG 1984 ‧ Dance/Musical ‧ 1h 47m",
       "title": "Footloose",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -92,7 +93,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.imdb.com  › title",
@@ -106,7 +108,8 @@
       "text": "Top  cast  ; Kevin Bacon · Ren McCormack ; Lori Singer · Ariel Moore ; John Lithgow · Rev. Shaw Moore ; Dianne Wiest · Vi Moore ; Chris Penn · Willard Hewitt ...",
       "title": "Footloose (1984)",
       "type": "general",
-      "url": "https://www.imdb.com/title/tt0087277/"
+      "url": "https://www.imdb.com/title/tt0087277/",
+      "visible": true
     },
     {
       "cite": null,
@@ -128,7 +131,8 @@
       "text": "Did Kevin Bacon do his own dancing in Footloose?<|>How old was Kevin Bacon for Footloose?<|>Who starred in the 2011 version of Footloose?<|>Did Tom Cruise play in Footloose?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.imdb.com  › title",
@@ -142,7 +146,8 @@
       "text": "Top  cast  ; Kenny Wormald · Ren ; Julianne Hough · Ariel ; Dennis Quaid · Rev. Shaw Moore ; Andie MacDowell · Vi Moore ; Miles Teller · Willard.",
       "title": "Footloose (2011)",
       "type": "general",
-      "url": "https://www.imdb.com/title/tt1068242/"
+      "url": "https://www.imdb.com/title/tt1068242/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Footloose_(1984_film)",
@@ -156,7 +161,8 @@
       "text": "Cast  edit · Kevin Bacon as Ren McCormack · Lori Singer as Ariel Moore · John Lithgow as Rev. Shaw Moore · Dianne Wiest as Vi Moore · Chris Penn as Willard · Sarah ...",
       "title": "Footloose (1984 film)",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Footloose_(1984_film)"
+      "url": "https://en.wikipedia.org/wiki/Footloose_(1984_film)",
+      "visible": true
     },
     {
       "cite": "TikTok",
@@ -170,7 +176,8 @@
       "text": null,
       "title": "Replying to @illini.jg Footloose cast then and now #1984 ... TikTok  ·  gafcr 16 seconds Jan 27, 2023",
       "type": "videos",
-      "url": "https://www.tiktok.com/@gafcr/video/7193590928790162734"
+      "url": "https://www.tiktok.com/@gafcr/video/7193590928790162734",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -184,7 +191,8 @@
       "text": null,
       "title": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers YouTube  ·  Rotten Tomatoes Classic Trailers 1 minute, 37 seconds May 2, 2018",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=P4narQca4Oc"
+      "url": "https://www.youtube.com/watch?v=P4narQca4Oc",
+      "visible": true
     },
     {
       "cite": "TikTok",
@@ -198,7 +206,8 @@
       "text": null,
       "title": "introducing our footloose cast! congrats everyone! #theatrekid ... TikTok  ·  miramontemusical 48 seconds 1 month ago",
       "type": "videos",
-      "url": "https://www.tiktok.com/@miramontemusical/video/7325558988324621611"
+      "url": "https://www.tiktok.com/@miramontemusical/video/7325558988324621611",
+      "visible": true
     },
     {
       "cite": "https://www.tvguide.com  › movies › footloose › cast",
@@ -212,7 +221,8 @@
       "text": "Actor · Julianne Hough · Kenny Wormald · Dennis Quaid · Andie MacDowell · Miles Teller · Kenny Wormald · Ray McKinnon · Patrick Flueger. Chuck.",
       "title": "Footloose - Full Cast & Crew",
       "type": "general",
-      "url": "https://www.tvguide.com/movies/footloose/cast/2030118709/"
+      "url": "https://www.tvguide.com/movies/footloose/cast/2030118709/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Footloose_(2011_film)",
@@ -226,7 +236,8 @@
       "text": "It is a remake of the 1984 film of the same name, and stars Kenny Wormald, Julianne Hough, Andie MacDowell and Dennis Quaid. The film follows a young man who ...",
       "title": "Footloose (2011 film)",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Footloose_(2011_film)"
+      "url": "https://en.wikipedia.org/wiki/Footloose_(2011_film)",
+      "visible": true
     },
     {
       "cite": "https://www.themoviedb.org  › movie › 68817-footloose",
@@ -240,7 +251,8 @@
       "text": "D. Dylan Schettina. Drive-In Bus Boy. Blair Jasin. Bobby. Jasmine Cook. Car Accident Victim. Reece Thomas. Car Accident Victim.",
       "title": "Footloose (2011) - Cast & Crew",
       "type": "general",
-      "url": "https://www.themoviedb.org/movie/68817-footloose/cast?language=en-US"
+      "url": "https://www.themoviedb.org/movie/68817-footloose/cast?language=en-US",
+      "visible": true
     },
     {
       "cite": null,
@@ -254,7 +266,8 @@
       "text": null,
       "title": "elizabeth gorcey",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -268,7 +281,8 @@
       "text": null,
       "title": "julianne hough",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -282,7 +296,8 @@
       "text": null,
       "title": "footloose 2011",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -296,7 +311,8 @@
       "text": null,
       "title": "willard hewitt",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -310,7 +326,8 @@
       "text": null,
       "title": "footloose remake",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -324,7 +341,8 @@
       "text": null,
       "title": "footloose musical",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -338,7 +356,8 @@
       "text": null,
       "title": "footloose movie",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -352,7 +371,8 @@
       "text": null,
       "title": "john lithgow",
       "type": "images",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Smooth",
@@ -366,7 +386,8 @@
       "text": null,
       "title": "Cast of Footloose now: What happened to the stars of the ... Smooth",
       "type": "images",
-      "url": "https://www.smoothradio.com/news/entertainment/cast-footloose-now-stars-1984/"
+      "url": "https://www.smoothradio.com/news/entertainment/cast-footloose-now-stars-1984/",
+      "visible": true
     },
     {
       "cite": "Woman's World",
@@ -380,7 +401,8 @@
       "text": null,
       "title": "See the 1984 Cast of 'Footloose' Then and Now | Woman's World Woman's World",
       "type": "images",
-      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast"
+      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast",
+      "visible": true
     },
     {
       "cite": "The Daily Beast",
@@ -394,7 +416,8 @@
       "text": null,
       "title": "Footloose' Remake: Where Are the Original Stars Now? The Daily Beast",
       "type": "images",
-      "url": "https://www.thedailybeast.com/footloose-remake-where-are-the-original-stars-now"
+      "url": "https://www.thedailybeast.com/footloose-remake-where-are-the-original-stars-now",
+      "visible": true
     },
     {
       "cite": "https://www.themoviedb.org  › movie › 1788-footloose",
@@ -408,7 +431,8 @@
       "text": "Cast  48 · Kevin Bacon. Ren McCormack · Lori Singer. Ariel Moore · John Lithgow. Reverend Shaw Moore · Dianne Wiest. Vi Moore · Chris Penn. Willard Hewitt.",
       "title": "Footloose (1984) - Cast & Crew - The Movie Database",
       "type": "general",
-      "url": "https://www.themoviedb.org/movie/1788-footloose/cast?language=en-US"
+      "url": "https://www.themoviedb.org/movie/1788-footloose/cast?language=en-US",
+      "visible": true
     },
     {
       "cite": "https://www.womansworld.com  › posts › entertainment",
@@ -422,7 +446,8 @@
       "text": "Mar 31, 2023  —  Where is the  Footloose cast  now? · Kevin Bacon · Lori Singer · John Lithgow · Dianne Wiest · Sarah Jessica Parker · Additional Cast Members.",
       "title": "See the 1984 Cast of 'Footloose' Then and Now",
       "type": "general",
-      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast"
+      "url": "https://www.womansworld.com/posts/entertainment/footloose-cast",
+      "visible": true
     },
     {
       "cite": null,
@@ -449,7 +474,8 @@
       "text": "footloose actress 2011<|>Footloose cast 2021<|>footloose cast 2022<|>footloose 2011 full movie<|>footloose 2021<|>footloose' cast 1984 then and now<|>footloose movie<|>footloose new",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -463,7 +489,8 @@
       "text": "Moving in from Chicago, newcomer Ren McCormack (Kevin Bacon) is in shock when he discovers the small Midwestern town he now calls home has made dancing and rock music illegal. As he struggles to fit in, Ren faces an uphill battle to change things. With the help of his new friend, Willard Hewitt (Christopher Penn), and defiant teen Ariel Moore (Lori Singer), he might loosen up this conservative town. But Ariel's influential father, Reverend Shaw Moore (John Lithgow), stands in the way.… MORE",
       "title": null,
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -497,7 +524,8 @@
       "text": null,
       "title": "Watch movie",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -543,7 +571,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -577,7 +606,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

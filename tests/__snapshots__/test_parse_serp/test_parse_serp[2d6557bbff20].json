@@ -66,7 +66,8 @@
       "text": "Bible translations can have problems due to a lack of the original manuscript, differences between manuscripts, and attempts to update the language .",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.blueletterbible.org  › faq › bible-translations",
@@ -80,7 +81,8 @@
       "text": "There is also the issue of which theory of Bible translation is to be used.  Should the translation be literal ? Should the work be more thought for thought?",
       "title": "What Are Some of the Key Issues Involved with Translating ...",
       "type": "general",
-      "url": "https://www.blueletterbible.org/Comm/stewart_don/faq/bible-translations/question3-key-issues-with-translating-the-bible.cfm"
+      "url": "https://www.blueletterbible.org/Comm/stewart_don/faq/bible-translations/question3-key-issues-with-translating-the-bible.cfm",
+      "visible": true
     },
     {
       "cite": null,
@@ -102,7 +104,8 @@
       "text": "What are the problems of Bible translation?<|>What is the most controversial translation of the Bible?<|>What is the most accurate translation of the Bible to the original?<|>Which translation of the Bible is closest to the original text?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "50+ comments  ·  9 months ago",
@@ -140,7 +143,8 @@
       "text": "As others have said, yes there are some  issues with translation and copying errors . Some are accidental, some are deliberate, but it's not ...",
       "title": "Has The Bible suffered from translation errors over ...",
       "type": "general",
-      "url": "https://www.reddit.com/r/asklinguistics/comments/1clv3mq/has_the_bible_suffered_from_translation_errors/"
+      "url": "https://www.reddit.com/r/asklinguistics/comments/1clv3mq/has_the_bible_suffered_from_translation_errors/",
+      "visible": true
     },
     {
       "cite": "https://www.kencollins.com  › bible › bible-t6",
@@ -154,7 +158,8 @@
       "text": "Inclusive language translations put too much stress on what the reader does not want to hear , and too little stress on what the writer wants to say. Sometimes ...",
       "title": "The Problem with Inclusive-Language Bible Translations",
       "type": "general",
-      "url": "https://www.kencollins.com/bible/bible-t6.htm"
+      "url": "https://www.kencollins.com/bible/bible-t6.htm",
+      "visible": true
     },
     {
       "cite": "https://translationjournal.net  › journal › 18bible",
@@ -168,7 +173,8 @@
       "text": "Jul 18, 2018  —  One basic problem inherent in Bible translation is that  we do not have the original manuscript of the Bible , but copies of copies of copies...",
       "title": "Problems of Bible Translation",
       "type": "general",
-      "url": "https://translationjournal.net/journal/18bible.htm"
+      "url": "https://translationjournal.net/journal/18bible.htm",
+      "visible": true
     },
     {
       "cite": "https://textandcanon.org  › what-makes-a-bible-translati...",
@@ -182,7 +188,8 @@
       "text": "Jul 11, 2023  —  No translation is perfect. But really bad translations are  idiosyncratic and mislead innocent Bible readers .",
       "title": "What Makes a Bible Translation Really Bad?",
       "type": "general",
-      "url": "https://textandcanon.org/what-makes-a-bible-translation-really-bad/"
+      "url": "https://textandcanon.org/what-makes-a-bible-translation-really-bad/",
+      "visible": true
     },
     {
       "cite": "https://www.critlarge.com  › articles › 5-bible-translation...",
@@ -196,7 +203,8 @@
       "text": "Aug 19, 2019  —  The following translations listed below should be avoided altogether, as utilizing them can lead to  grave theological errors , the teaching ...",
       "title": "5 Bible Translations You Should Avoid",
       "type": "general",
-      "url": "https://www.critlarge.com/articles/2019/8/18/5-bible-translations-you-should-avoid"
+      "url": "https://www.critlarge.com/articles/2019/8/18/5-bible-translations-you-should-avoid",
+      "visible": true
     },
     {
       "cite": "https://www.quora.com  › What-are-some-problems-wit...",
@@ -210,7 +218,8 @@
       "text": "The original one to two year-old lingo can be lost . In addition, there is the problem of Original meaning lost. God is who god is spelled out in ...",
       "title": "What are some problems with translating the Bible into ...",
       "type": "general",
-      "url": "https://www.quora.com/What-are-some-problems-with-translating-the-Bible-into-different-languages"
+      "url": "https://www.quora.com/What-are-some-problems-with-translating-the-Bible-into-different-languages",
+      "visible": true
     },
     {
       "cite": "https://beinnotof.com  › post › bibletranslations",
@@ -224,7 +233,8 @@
       "text": "Apr 12, 2023  —  In this article, I'll be dissecting everything about the different Bible translations, when to use certain ones, and overall,  how to choose the right Bible  ...",
       "title": "The Pros and Cons of Popular Bible Translations: A Guide ...",
       "type": "general",
-      "url": "https://beinnotof.com/post/bibletranslations"
+      "url": "https://beinnotof.com/post/bibletranslations",
+      "visible": true
     },
     {
       "cite": "https://www.quora.com  › What-are-some-of-the-proble...",
@@ -238,7 +248,8 @@
       "text": "The main issues with translation is that  an entirely new language is created every time the word is created afresh . · Using a human ...",
       "title": "What are some of the problems with modern Bible ...",
       "type": "general",
-      "url": "https://www.quora.com/What-are-some-of-the-problems-with-modern-Bible-translations"
+      "url": "https://www.quora.com/What-are-some-of-the-problems-with-modern-Bible-translations",
+      "visible": true
     },
     {
       "cite": "https://christianity.stackexchange.com  › questions › wh...",
@@ -252,7 +263,8 @@
       "text": "Oct 29, 2017  —  The translation of the NIV  makes Christ appear to be without authority , and contradicts other scripture that affirms His nature and deity as the ...",
       "title": "bible translation - What are the major criticisms of the NIV?",
       "type": "general",
-      "url": "https://christianity.stackexchange.com/questions/60496/what-are-the-major-criticisms-of-the-niv"
+      "url": "https://christianity.stackexchange.com/questions/60496/what-are-the-major-criticisms-of-the-niv",
+      "visible": true
     },
     {
       "cite": null,
@@ -279,7 +291,8 @@
       "text": "Best and worst Bible translations<|>Bible translations to avoid<|>How many translation errors are in the Bible<|>Inclusive language Bible online<|>Top 5 most accurate Bible translations<|>Bad Bible translations game<|>Best Bible translations<|>Why are there so many translations of the Bible",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

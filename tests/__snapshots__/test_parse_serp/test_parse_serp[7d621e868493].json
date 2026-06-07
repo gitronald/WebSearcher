@@ -38,7 +38,8 @@
       "text": "Muppet character",
       "title": "Oscar the Grouch",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -54,7 +55,8 @@
       "text": "30:15 YouTube • Sesame Street Sesame Street: Best of Oscar the Grouch Compilation | Happy ... Celebrate Oscar's birthday with some of our favorite moments of our resident Grouch from classic songs like I Love Trash to new hits like If ... May 27, 2022",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0"
+      "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0",
+      "visible": true
     },
     {
       "cite": null,
@@ -70,7 +72,8 @@
       "text": "X Oscar the Grouch (@OscarTheGrouch) / X",
       "title": null,
       "type": "knowledge",
-      "url": "https://twitter.com/OscarTheGrouch"
+      "url": "https://twitter.com/OscarTheGrouch",
+      "visible": true
     },
     {
       "cite": null,
@@ -86,7 +89,8 @@
       "text": "YouTube • Sesame Street 2:30 Dec 18, 2009 Sesame Street: I Love Trash",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=rxgWHzMvXOY"
+      "url": "https://www.youtube.com/watch?v=rxgWHzMvXOY",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Oscar_the_Grouch",
@@ -100,7 +104,8 @@
       "text": "Oscar the Grouch  is a Muppet character created by Jim Henson and Jon Stone for the PBS/HBO children's television program Sesame Street. He has a green body, ...",
       "title": "Oscar the Grouch",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch"
+      "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch",
+      "visible": true
     },
     {
       "cite": null,
@@ -122,7 +127,8 @@
       "text": "Why did they remove Oscar the Grouch?<|>Why is Oscar the Grouch so grouchy?<|>Why did Oscar the Grouch go from orange to green?<|>What is the point of Oscar the Grouch?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://twitter.com/OscarTheGrouch",
@@ -136,7 +142,8 @@
       "text": null,
       "title": "Oscar the Grouch (@OscarTheGrouch) · X X (Twitter) https://twitter.com/OscarTheGrouch",
       "type": "twitter_cards",
-      "url": "https://twitter.com/OscarTheGrouch?ref_src=twsrc^google|twcamp^serp|twgr^author"
+      "url": "https://twitter.com/OscarTheGrouch?ref_src=twsrc^google|twcamp^serp|twgr^author",
+      "visible": true
     },
     {
       "cite": "Posted on X  ·  2 days ago",
@@ -150,7 +157,8 @@
       "text": "In my house, every night is Oscar night. #Oscar",
       "title": "@OscarTheGrouch",
       "type": "twitter_cards",
-      "url": "https://twitter.com/OscarTheGrouch/status/1766865706149130365?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
+      "url": "https://twitter.com/OscarTheGrouch/status/1766865706149130365?ref_src=twsrc^google|twcamp^serp|twgr^tweet",
+      "visible": true
     },
     {
       "cite": "Posted on X  ·  3 days ago",
@@ -164,7 +172,8 @@
       "text": "With one less hour of sleep, everyone is going to be (insert your name) the Grouch! #DaylightSavingsTime",
       "title": "@OscarTheGrouch",
       "type": "twitter_cards",
-      "url": "https://twitter.com/OscarTheGrouch/status/1766813889805623687?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
+      "url": "https://twitter.com/OscarTheGrouch/status/1766813889805623687?ref_src=twsrc^google|twcamp^serp|twgr^tweet",
+      "visible": true
     },
     {
       "cite": "Posted on X  ·  Mar 5, 2024",
@@ -178,7 +187,8 @@
       "text": "I love trying everything only once, because without practice I’m terrible at it and that makes me grouchy! I love it! 🏓🎥🔬🎸🛹🎨🎮🪕🎤 ",
       "title": "@OscarTheGrouch",
       "type": "twitter_cards",
-      "url": "https://twitter.com/OscarTheGrouch/status/1765083198092935472?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
+      "url": "https://twitter.com/OscarTheGrouch/status/1765083198092935472?ref_src=twsrc^google|twcamp^serp|twgr^tweet",
+      "visible": true
     },
     {
       "cite": "https://muppet.fandom.com  › wiki › Oscar_the_Grouch",
@@ -192,7 +202,8 @@
       "text": "Oscar the Grouch  is a furry, green Grouch who lives in a trash can on Sesame Street. In fact, he loves trash so much that he's rarely seen outside of his ...",
       "title": "Oscar the Grouch | Muppet Wiki - Fandom",
       "type": "general",
-      "url": "https://muppet.fandom.com/wiki/Oscar_the_Grouch"
+      "url": "https://muppet.fandom.com/wiki/Oscar_the_Grouch",
+      "visible": true
     },
     {
       "cite": "https://sesameworkshop.org  › sesame-street-characters",
@@ -206,7 +217,8 @@
       "text": "Oscar , Sesame Street's resident  Grouch , despises all things “nice” like rainbows, candy, and chocolate. Being  grouchy  makes him happy, but being happy makes him ...",
       "title": "Oscar the Grouch",
       "type": "general",
-      "url": "https://sesameworkshop.org/our-work/shows/sesame-street/sesame-street-characters/oscar-the-grouch/"
+      "url": "https://sesameworkshop.org/our-work/shows/sesame-street/sesame-street-characters/oscar-the-grouch/",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -220,7 +232,8 @@
       "text": null,
       "title": "Sesame Street: Best of Oscar the Grouch Compilation | Happy ... YouTube  ·  Sesame Street 30 minutes, 15 seconds May 27, 2022",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0"
+      "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -234,7 +247,8 @@
       "text": null,
       "title": "Sesame Street: I Love Trash YouTube  ·  Sesame Street 2 minutes, 30 seconds Dec 18, 2009",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=rxgWHzMvXOY"
+      "url": "https://www.youtube.com/watch?v=rxgWHzMvXOY",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -248,7 +262,8 @@
       "text": null,
       "title": "Elmo the Grouch | Sesame Street Full Episode YouTube  ·  Sesame Street 25 minutes, 57 seconds Mar 3, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=avyZ67cRZiY"
+      "url": "https://www.youtube.com/watch?v=avyZ67cRZiY",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -262,7 +277,8 @@
       "text": null,
       "title": "Sesame Street: Oscar the Grouch Says #StayHome YouTube  ·  Sesame Street 38 seconds Apr 6, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=0wGYi6o6qT0"
+      "url": "https://www.youtube.com/watch?v=0wGYi6o6qT0",
+      "visible": true
     },
     {
       "cite": "https://muppet.fandom.com  › wiki › Oscar_the_Grouch_...",
@@ -276,7 +292,8 @@
       "text": "A new  Oscar  is built with a more circular head and longer, shaggier fur. This variant first appeared in A Swingin' Sesame Street Celebration. During season 51, ...",
       "title": "Oscar the Grouch Through the Years | Muppet Wiki - Fandom",
       "type": "general",
-      "url": "https://muppet.fandom.com/wiki/Oscar_the_Grouch_Through_the_Years"
+      "url": "https://muppet.fandom.com/wiki/Oscar_the_Grouch_Through_the_Years",
+      "visible": true
     },
     {
       "cite": "https://gund.com  › products › oscar-the-grouch-10-in",
@@ -294,7 +311,8 @@
       "text": "Oscar  features a friendly embroidered smile and outstretched arms, ready for a hug! This plush toy is surface-washable for easy cleaning and ships in a ...",
       "title": "Oscar the Grouch, 10 in",
       "type": "general",
-      "url": "https://gund.com/products/oscar-the-grouch-10-in"
+      "url": "https://gund.com/products/oscar-the-grouch-10-in",
+      "visible": true
     },
     {
       "cite": null,
@@ -322,7 +340,8 @@
       "text": "The Adventures of Elmo in Grouchland",
       "title": "Movies",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -377,7 +396,8 @@
       "text": null,
       "title": "Songs",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.si.edu  › oscar-grouch-puppet:nmah_1182904",
@@ -391,7 +411,8 @@
       "text": "1970-1980.  Oscar  is a green furry monster who lives in a trash can on Sesame Street and frequently argues with the other Muppet and human characters. Despite ...",
       "title": "Oscar the Grouch puppet",
       "type": "general",
-      "url": "https://www.si.edu/object/oscar-grouch-puppet%3Anmah_1182904"
+      "url": "https://www.si.edu/object/oscar-grouch-puppet%3Anmah_1182904",
+      "visible": true
     },
     {
       "cite": null,
@@ -414,7 +435,8 @@
       "text": "Caroll Spinney",
       "title": "Played by",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -441,7 +463,8 @@
       "text": "why was oscar the grouch removed from sesame street<|>oscar the grouch puppet<|>oscar the grouch costume<|>oscar the grouch controversy<|>oscar the grouch girlfriend<|>oscar the grouch gif<|>why was oscar the grouch orange<|>oscar the grouch shirt",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -455,7 +478,8 @@
       "text": "Oscar the Grouch is a Muppet character created by Jim Henson and Jon Stone for the PBS/HBO children's television program Sesame Street. He has a green body, no visible nose, and lives in a trash can.",
       "title": null,
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch"
+      "url": "https://en.wikipedia.org/wiki/Oscar_the_Grouch",
+      "visible": true
     },
     {
       "cite": null,
@@ -485,7 +509,8 @@
       "text": null,
       "title": "Listen",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -507,7 +532,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -537,7 +563,8 @@
       "text": null,
       "title": "Profiles",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -571,7 +598,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -47,7 +47,8 @@
       "text": "45th and 47th U.S. President",
       "title": "Donald Trump",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -63,7 +64,8 @@
       "text": "Anna Moneymaker/Getty Images",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -79,7 +81,8 @@
       "text": "0:19 @realdonaldtrump Instagram 1 day ago",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
+      "url": "https://www.instagram.com/reel/DUWrLYEjNWf/",
+      "visible": true
     },
     {
       "cite": null,
@@ -97,7 +100,8 @@
       "text": "Age: Jun 14, 1946",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -115,7 +119,8 @@
       "text": "Party: Republican Party",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -131,7 +136,8 @@
       "text": "Instagram · @potus 19 hours ago America is, and always will be, One Nation Under God.\n\nPresident Trump has taken bold action to safeguard our God-given rights & religious freedoms—reversing Joe Biden's divisive policies that weaponized the ...",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.instagram.com/p/DUYFnxqEZ16/"
+      "url": "https://www.instagram.com/p/DUYFnxqEZ16/",
+      "visible": true
     },
     {
       "cite": null,
@@ -145,7 +151,8 @@
       "text": null,
       "title": "Trump promises Schumer funding for NY tunnel project — if Penn Station and Dulles Airport are renamed after him",
       "type": "top_stories",
-      "url": "https://www.cnn.com/2026/02/05/politics/schumer-trump-ny-funding-rename"
+      "url": "https://www.cnn.com/2026/02/05/politics/schumer-trump-ny-funding-rename",
+      "visible": true
     },
     {
       "cite": null,
@@ -159,7 +166,8 @@
       "text": null,
       "title": "Trump wanted Dulles Airport, Penn Station named after him — in exchange for releasing federal funds",
       "type": "top_stories",
-      "url": "https://www.nbcnews.com/politics/donald-trump/trump-asked-dulles-penn-station-named-exchange-gateway-money-released-rcna257708"
+      "url": "https://www.nbcnews.com/politics/donald-trump/trump-asked-dulles-penn-station-named-exchange-gateway-money-released-rcna257708",
+      "visible": true
     },
     {
       "cite": null,
@@ -173,7 +181,8 @@
       "text": null,
       "title": "Democrats erupt in fury over Trump demanding Schumer help rename Dulles, Penn Station",
       "type": "top_stories",
-      "url": "https://www.axios.com/2026/02/06/trump-schumer-dulles-penn-gateway-democrats-nyc"
+      "url": "https://www.axios.com/2026/02/06/trump-schumer-dulles-penn-gateway-democrats-nyc",
+      "visible": true
     },
     {
       "cite": null,
@@ -187,7 +196,8 @@
       "text": null,
       "title": "‘Grind the country to a halt’: Democrat urges national strike if Trump meddles in midterms",
       "type": "top_stories",
-      "url": "https://www.theguardian.com/us-news/2026/feb/06/donald-trump-voting-midterms-democrat-national-strike"
+      "url": "https://www.theguardian.com/us-news/2026/feb/06/donald-trump-voting-midterms-democrat-national-strike",
+      "visible": true
     },
     {
       "cite": null,
@@ -201,7 +211,8 @@
       "text": null,
       "title": "Furious Jimmy Kimmel Loses It at Donald Trump: ‘How Dare You?’",
       "type": "top_stories",
-      "url": "https://www.thedailybeast.com/obsessed/furious-jimmy-kimmel-loses-it-at-donald-trump-how-dare-you/"
+      "url": "https://www.thedailybeast.com/obsessed/furious-jimmy-kimmel-loses-it-at-donald-trump-how-dare-you/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Donald_Trump",
@@ -215,7 +226,8 @@
       "text": "14 hours ago  —  Donald John Trump (born June 14, 1946) is  an American politician, media personality, and businessman  who is the 47th president of the United States. Read more",
       "title": "Donald Trump",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Donald_Trump"
+      "url": "https://en.wikipedia.org/wiki/Donald_Trump",
+      "visible": true
     },
     {
       "cite": "https://www.whitehouse.gov  › Administration",
@@ -229,7 +241,8 @@
       "text": "President Donald J. Trump  is returning to the White House to build upon his previous successes and use his mandate to reject the extremist policies. Read more",
       "title": "President Donald J. Trump",
       "type": "general",
-      "url": "https://www.whitehouse.gov/administration/donald-j-trump/"
+      "url": "https://www.whitehouse.gov/administration/donald-j-trump/",
+      "visible": true
     },
     {
       "cite": "https://trumpwhitehouse.archives.gov  › people › donald...",
@@ -243,7 +256,8 @@
       "text": "Donald J. Trump is  the 45th President of the United States . He believes the United States has incredible potential and will go on to exceed even its remarkable ... Read more",
       "title": "Donald J. Trump – The White House",
       "type": "general",
-      "url": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/"
+      "url": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/",
+      "visible": true
     },
     {
       "cite": null,
@@ -257,7 +271,8 @@
       "text": null,
       "title": "US President Donald Trump touts 'softer touch' on immigration ... YouTube  ·  BBC News 14 hours ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=rv7c0jAm_ys"
+      "url": "https://www.youtube.com/watch?v=rv7c0jAm_ys",
+      "visible": true
     },
     {
       "cite": null,
@@ -271,7 +286,8 @@
       "text": null,
       "title": "Extended interview: Tom Llamas exclusive with President Trump YouTube  ·  NBC News 1 day ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=L5qpkmzaRXo"
+      "url": "https://www.youtube.com/watch?v=L5qpkmzaRXo",
+      "visible": true
     },
     {
       "cite": null,
@@ -285,7 +301,8 @@
       "text": null,
       "title": "President Trump Attends the National Prayer Breakfast – The ... The White House  ·  The White House 9 hours ago",
       "type": "videos",
-      "url": "https://www.whitehouse.gov/videos/president-trump-attends-the-national-prayer-breakfast/"
+      "url": "https://www.whitehouse.gov/videos/president-trump-attends-the-national-prayer-breakfast/",
+      "visible": true
     },
     {
       "cite": null,
@@ -301,7 +318,8 @@
       "text": null,
       "title": "Trump’s All Over the Epstein Files, Attacks Jimmy Kimmel After the Grammys & Don Lemon Gets Arrested",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=oC8qsi9Uu7c"
+      "url": "https://www.youtube.com/watch?v=oC8qsi9Uu7c",
+      "visible": true
     },
     {
       "cite": null,
@@ -317,7 +335,8 @@
       "text": null,
       "title": "President Trump declined to address the complains of Epstein survivors when pressed by CNN's @kaitlancollins over their concerns about the extent of redactions in the files released by the Justice Department.\n\nRead more at the link in @cnn's bio.",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUUZrEOCeON/"
+      "url": "https://www.instagram.com/reel/DUUZrEOCeON/",
+      "visible": true
     },
     {
       "cite": null,
@@ -333,7 +352,8 @@
       "text": null,
       "title": "WATCH: Trump says he will revoke church tax exempt status if leaders 'say something bad about' him",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=7hmzdUBt0M4"
+      "url": "https://www.youtube.com/watch?v=7hmzdUBt0M4",
+      "visible": true
     },
     {
       "cite": null,
@@ -349,7 +369,8 @@
       "text": null,
       "title": "👀Donald Trump endorses Viktor Orbán who has spent years branding critics & the opposition as US pawns, accusing the Obama and Biden White House of meddling in Hungary’s affairs. Orbán will surely be outraged by such a direct interference in sovereign Hungary’s electoral process.",
       "type": "perspectives",
-      "url": "https://x.com/panyiszabolcs/status/2019485967980097839?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/panyiszabolcs/status/2019485967980097839?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -365,7 +386,8 @@
       "text": null,
       "title": "Trump launched his new prescription drug website TrumpRx today. Now you’ll be able to buy Xanax from the reason you need Xanax. #FallonTonight",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUZtm-6joXd/"
+      "url": "https://www.instagram.com/reel/DUZtm-6joXd/",
+      "visible": true
     },
     {
       "cite": null,
@@ -381,7 +403,8 @@
       "text": null,
       "title": "Trump Agrees to Super Bowl Interview, House Ends Shutdown with New Spending Bill | The Tonight Show",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=CX6QBUlTo2A"
+      "url": "https://www.youtube.com/watch?v=CX6QBUlTo2A",
+      "visible": true
     },
     {
       "cite": null,
@@ -397,7 +420,8 @@
       "text": null,
       "title": "At the National Prayer Breakfast on Thursday, President Donald Trump said he doesn't know “how a person of faith can vote for a Democrat.” “I know we have some [Democrats] here today. I don’t know why they’re here. Because they certainly don’t give us thei",
       "type": "perspectives",
-      "url": "https://www.facebook.com/ABC10News/posts/at-the-national-prayer-breakfast-on-thursday-president-donald-trump-said-he-does/1316893117136276/"
+      "url": "https://www.facebook.com/ABC10News/posts/at-the-national-prayer-breakfast-on-thursday-president-donald-trump-said-he-does/1316893117136276/",
+      "visible": true
     },
     {
       "cite": null,
@@ -413,7 +437,8 @@
       "text": null,
       "title": "FOX 35 Orlando. . President Donald Trump said TrumpRX makes healthcare much more affordable -- \"at a level you can't even believe.\" Here's what prices are on TrumpRX.gov.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/FOX35Orlando/videos/president-donald-trump-said-trumprx-makes-healthcare-much-more-affordable-at-a-l/902078955966377/"
+      "url": "https://www.facebook.com/FOX35Orlando/videos/president-donald-trump-said-trumprx-makes-healthcare-much-more-affordable-at-a-l/902078955966377/",
+      "visible": true
     },
     {
       "cite": null,
@@ -429,7 +454,8 @@
       "text": null,
       "title": "Jimmy Kimmel is once again at the center of President Donald Trump’s criticism. Read more in our bio link. | 📷: Gilbert Flores/Variety via Getty",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUVgM0SkpcB/"
+      "url": "https://www.instagram.com/p/DUVgM0SkpcB/",
+      "visible": true
     },
     {
       "cite": null,
@@ -445,7 +471,8 @@
       "text": null,
       "title": "US President Donald Trump declared religion is “coming back” in a speech at the National Prayer Breakfast.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/SkyNewsAustralia/posts/us-president-donald-trump-declared-religion-is-coming-back-in-a-speech-at-the-na/1342673757890219/"
+      "url": "https://www.facebook.com/SkyNewsAustralia/posts/us-president-donald-trump-declared-religion-is-coming-back-in-a-speech-at-the-na/1342673757890219/",
+      "visible": true
     },
     {
       "cite": null,
@@ -461,7 +488,8 @@
       "text": null,
       "title": "What Trump says he learned from Minneapolis chaos",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=Og51cLThBYQ"
+      "url": "https://www.youtube.com/watch?v=Og51cLThBYQ",
+      "visible": true
     },
     {
       "cite": null,
@@ -477,7 +505,8 @@
       "text": null,
       "title": "When Donald Trump backs off his maddest ideas, normality returns. But the spasms offer glimpses of a topsy-turvy world in which dollar assets are no longer safe",
       "type": "perspectives",
-      "url": "https://x.com/TheEconomist/status/2019448488870748257?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TheEconomist/status/2019448488870748257?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "https://truthsocial.com  › @realDonaldTrump",
@@ -491,7 +520,8 @@
       "text": "To use this website, please enable JavaScript.",
       "title": "Donald J. Trump (@realDonaldTrump)",
       "type": "general",
-      "url": "https://truthsocial.com/@realDonaldTrump"
+      "url": "https://truthsocial.com/@realDonaldTrump",
+      "visible": true
     },
     {
       "cite": null,
@@ -505,7 +535,8 @@
       "text": null,
       "title": "President Trump Attends the National Prayer Breakfast",
       "type": "recent_posts",
-      "url": "https://www.facebook.com/POTUS/posts/president-trump-attends-the-national-prayer-breakfast/1271317968218851/"
+      "url": "https://www.facebook.com/POTUS/posts/president-trump-attends-the-national-prayer-breakfast/1271317968218851/",
+      "visible": true
     },
     {
       "cite": null,
@@ -519,7 +550,8 @@
       "text": null,
       "title": "WARNING: AMERICA FIRST AGENDA DETECTED\n\nPresident Trump wants to…\n🇺🇸 Unleash American energy\n🇺🇸 Arrest & deport criminal illegals\n🇺🇸 Slash drug prices\n🇺🇸 Enforce the law\n🇺🇸 Put America first\n\nIf this continues… we may experience TOO MUCH WINNING. \n\nHOW DARE HE.",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/reel/DUW-J_Fimz9/"
+      "url": "https://www.instagram.com/reel/DUW-J_Fimz9/",
+      "visible": true
     },
     {
       "cite": null,
@@ -533,7 +565,8 @@
       "text": null,
       "title": null,
       "type": "recent_posts",
-      "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
+      "url": "https://www.instagram.com/reel/DUWrLYEjNWf/",
+      "visible": true
     },
     {
       "cite": null,
@@ -547,7 +580,8 @@
       "text": null,
       "title": "All U.S. cities are safer now with the Trump administration's law and order policies. 🇺🇸",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/reel/DUWThmGk7i5/"
+      "url": "https://www.instagram.com/reel/DUWThmGk7i5/",
+      "visible": true
     },
     {
       "cite": null,
@@ -561,7 +595,8 @@
       "text": null,
       "title": "MY PICK TO WIN SUPER BOWL LX IS…",
       "type": "recent_posts",
-      "url": "https://www.tiktok.com/@realdonaldtrump/video/7603054998091484447"
+      "url": "https://www.tiktok.com/@realdonaldtrump/video/7603054998091484447",
+      "visible": true
     },
     {
       "cite": null,
@@ -575,7 +610,8 @@
       "text": null,
       "title": "President Donald J. Trump completes an excellent telephone conversation with President Xi of China on trade, military, and more:",
       "type": "recent_posts",
-      "url": "https://www.facebook.com/WhiteHouse/posts/president-donald-j-trump-completes-an-excellent-telephone-conversation-with-pres/122165172788723345/"
+      "url": "https://www.facebook.com/WhiteHouse/posts/president-donald-j-trump-completes-an-excellent-telephone-conversation-with-pres/122165172788723345/",
+      "visible": true
     },
     {
       "cite": null,
@@ -589,7 +625,8 @@
       "text": null,
       "title": "✍️INTO LAW: President Donald J. Trump signs a fiscally responsible package that SLASHES wasteful federal spending while supporting critical programs that keep our nation SAFE, SECURE, & PROSPEROUS. \n\nBIG WIN for the American People 🇺🇸",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/p/DUUNCBej2C1/"
+      "url": "https://www.instagram.com/p/DUUNCBej2C1/",
+      "visible": true
     },
     {
       "cite": null,
@@ -603,7 +640,8 @@
       "text": null,
       "title": "PRICE CUTS ARE HERE. \n\nThanks to President Donald J. Trump's Most-Favored-Nation drug pricing, drugmakers are slashing prices on widely used medications - putting American patients FIRST. 🇺🇸💊",
       "type": "recent_posts",
-      "url": "https://www.facebook.com/WhiteHouse/posts/price-cuts-are-here-thanks-to-president-donald-j-trumps-most-favored-nation-drug/122165091416723345/"
+      "url": "https://www.facebook.com/WhiteHouse/posts/price-cuts-are-here-thanks-to-president-donald-j-trumps-most-favored-nation-drug/122165091416723345/",
+      "visible": true
     },
     {
       "cite": null,
@@ -617,7 +655,8 @@
       "text": null,
       "title": "THE GOLDEN AGE IS HERE✨\n\nSiemens Energy is investing a whopping $1,000,000,000 in America, creating jobs and expanding across the country! 🇺🇸",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/p/DUTc0QlFNs5/"
+      "url": "https://www.instagram.com/p/DUTc0QlFNs5/",
+      "visible": true
     },
     {
       "cite": null,
@@ -631,7 +670,8 @@
       "text": null,
       "title": "The American people back President Trump's crackdown on illegal immigration. \n\nENFORCE THE LAW. PROTECT AMERICA 🇺🇸",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/p/DUTL5YSFHu6/"
+      "url": "https://www.instagram.com/p/DUTL5YSFHu6/",
+      "visible": true
     },
     {
       "cite": "https://www.whitehousehistory.org  › bios › donald-j-trump",
@@ -645,7 +685,8 @@
       "text": "Donald John Trump  was born in Queens, New York, on June 14, 1946 . Trump was educated at the New York Military Academy and the Wharton School of Finance and ... Read more",
       "title": "Donald J. Trump",
       "type": "general",
-      "url": "https://www.whitehousehistory.org/bios/donald-j-trump"
+      "url": "https://www.whitehousehistory.org/bios/donald-j-trump",
+      "visible": true
     },
     {
       "cite": "https://www.cnn.com  › president-donald-trump-47",
@@ -659,7 +700,8 @@
       "text": "16 hours ago  —  President  Donald Trump  arrives for the world premiere of \"MELANIA\" at the Kennedy Center. Stefani Reynolds/Bloomberg/Getty Images. Read more",
       "title": "Donald J. Trump news | CNN Politics",
       "type": "general",
-      "url": "https://www.cnn.com/politics/president-donald-trump-47"
+      "url": "https://www.cnn.com/politics/president-donald-trump-47",
+      "visible": true
     },
     {
       "cite": "43.1M+ followers",
@@ -673,7 +715,8 @@
       "text": "43M followers · 47 following · 7853 posts · @real donald trump: “45th & 47th President of the United States”",
       "title": "President Donald J. Trump (@realdonaldtrump)",
       "type": "general",
-      "url": "https://www.instagram.com/realdonaldtrump/?hl=en"
+      "url": "https://www.instagram.com/realdonaldtrump/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -700,7 +743,8 @@
       "text": "Kaitlan collins and trump<|>Trump and savannah guthrie<|>Donald Trump approval rating<|>Donald Trump Truth Social<|>Donald Trump age<|>Donald Trump wife<|>Donald Trump X<|>Donald Trump impeachment",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

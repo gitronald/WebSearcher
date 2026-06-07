@@ -24,7 +24,8 @@
       "text": null,
       "title": "Results for Palo Alto, CA 94301",
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -143,7 +144,8 @@
       "text": "Apple Inc. is a leading American multinational technology company headquartered in Cupertino, California, specializing in consumer electronics, software, and online services, including the iPhone, Mac, iPad, and Apple Watch . Founded in 1976 by Steve Jobs and Steve Wozniak, it is a major \"Big Tech\" company known for its integrated ecosystem. As of 2026, it is led by CEO Tim Cook and has recently announced significant, multi-year investments in U.S. manufacturing. Key Aspects of Apple Inc. (2026): Core Products & Services: iPhone (primary revenue driver), Mac, iPad, AirPods, Apple Watch, and Apple TV. Services include App Store, iCloud, Apple Music, Apple TV+, and Apple Pay. Leadership: Tim Cook serves as CEO. Operating System Ecosystem: iOS, macOS, iPadOS, watchOS. Manufacturing & Strategy: Focuses on designing its own software and semiconductors, with manufacturing partners like Foxconn and TSMC. In August 2025, it announced a $600 billion, four-year U.S. investment plan. Corporate Governance: The company is known for high-level governance and has recently focused on domestic manufacturing and environmental sustainability. Apple rebranded from Apple Computer, Inc. to Apple Inc. in 2007 to reflect its expansion beyond personal computers into broader consumer electronics.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.apple.com",
@@ -185,7 +187,8 @@
       "text": "Discover the innovative world of  Apple  and shop everything iPhone, iPad,  Apple  Watch, Mac, and  Apple  TV, plus explore accessories, entertainment, ...",
       "title": "Apple",
       "type": "general",
-      "url": "https://www.apple.com/"
+      "url": "https://www.apple.com/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Apple_Inc",
@@ -199,7 +202,8 @@
       "text": "Apple Inc. is  an American multinational technology company  headquartered in Cupertino, California, in Silicon Valley, best known for its consumer electronics, ... Read more",
       "title": "Apple Inc.",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+      "url": "https://en.wikipedia.org/wiki/Apple_Inc.",
+      "visible": true
     },
     {
       "cite": null,
@@ -221,7 +225,8 @@
       "text": "What if I invested $1000 in Apple in 1997?<|>What is the Apple Inc?<|>Apple Inc. - Wikipedia Wikipedia https://en.wikipedia.org › wiki › Apple_Inc Wikipedia https://en.wikipedia.org › wiki › Apple_Inc<|>What does inc stand for in Apple?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -243,7 +248,8 @@
       "text": "Apple Inc.<|>Sunnyvale, CA · (800) 692-7753<|> <|> <|> <|> <|> <|>  <|>\"Ipads are the best!\"",
       "title": "Apple Inc.",
       "type": "local_results",
-      "url": "http://apple.com/"
+      "url": "http://apple.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -266,7 +272,8 @@
       "text": "Apple<|>Cupertino, CA · (408) 996-1010<|>Open<|> · Closes 5 PM<|> <|> <|> <|> <|> <|>  <|>\"On the surface, it is a <|>company<|> defined by excellence.\"",
       "title": "Apple",
       "type": "local_results",
-      "url": "http://apple.com/"
+      "url": "http://apple.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -289,7 +296,8 @@
       "text": "Apple Palo Alto<|>340 University Ave · (650) 798-2800<|>Open<|> · Closes 8 PM<|> <|> <|> <|> <|> <|>  <|>\"They took it in and in 2 days it was back, super clean and functional.\"",
       "title": "Apple Palo Alto",
       "type": "local_results",
-      "url": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps"
+      "url": "https://www.apple.com/retail/paloalto?cid=aos-us-seo-maps",
+      "visible": true
     },
     {
       "cite": "https://finance.yahoo.com  › quote › AAPL › profile",
@@ -303,7 +311,8 @@
       "text": "Apple Inc . designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. Read more",
       "title": "Apple Inc. (AAPL) Company Profile & Facts",
       "type": "general",
-      "url": "https://finance.yahoo.com/quote/AAPL/profile/"
+      "url": "https://finance.yahoo.com/quote/AAPL/profile/",
+      "visible": true
     },
     {
       "cite": "https://www.britannica.com  › money › Apple-Inc",
@@ -317,7 +326,8 @@
       "text": "Jan 29, 2026  —  Apple Inc. is  an American multinational technology company  that revolutionized the technology sector through its innovation of computer software, personal ... Read more",
       "title": "Apple Inc. | History, Products, Headquarters, & Facts",
       "type": "general",
-      "url": "https://www.britannica.com/money/Apple-Inc"
+      "url": "https://www.britannica.com/money/Apple-Inc",
+      "visible": true
     },
     {
       "cite": "https://www.bloomberg.com  › quote › AAPL:US",
@@ -331,7 +341,8 @@
       "text": "Apple Inc . designs, manufactures, and markets smartphones, personal computers, tablets, wearables and accessories, and sells a variety of related accessories. Read more",
       "title": "AAPL: Apple Inc Stock Price Quote - NASDAQ GS",
       "type": "general",
-      "url": "https://www.bloomberg.com/quote/AAPL:US"
+      "url": "https://www.bloomberg.com/quote/AAPL:US",
+      "visible": true
     },
     {
       "cite": "https://www.wsj.com  › Quotes",
@@ -345,7 +356,8 @@
       "text": "Apple Inc . engages in the design, manufacture, and sale of smartphones, personal computers, tablets, wearables and accessories, and other varieties of related ... Read more",
       "title": "Apple Inc. (AAPL) Stock Price Today - WSJ",
       "type": "general",
-      "url": "https://www.wsj.com/market-data/quotes/AAPL?gaa_at=eafs&gaa_n=AWEtsqcxTwOFf53qqkw9MMy0ZNkRJtpgwhlxFMo_7ppC9L66O7QkVLc6rWjT&gaa_ts=69868312&gaa_sig=HKOULwqQGtZ5u9GOzweSvIfh0TPLTL5ubEOfA9mkylLabsqROfDMxenTpilLiIBIMy5NJJYYrR4BeQG0D_6XZA%3D%3D"
+      "url": "https://www.wsj.com/market-data/quotes/AAPL?gaa_at=eafs&gaa_n=AWEtsqcxTwOFf53qqkw9MMy0ZNkRJtpgwhlxFMo_7ppC9L66O7QkVLc6rWjT&gaa_ts=69868312&gaa_sig=HKOULwqQGtZ5u9GOzweSvIfh0TPLTL5ubEOfA9mkylLabsqROfDMxenTpilLiIBIMy5NJJYYrR4BeQG0D_6XZA%3D%3D",
+      "visible": true
     },
     {
       "cite": "18.1M+ followers",
@@ -359,7 +371,8 @@
       "text": "Company size: 10,001+ employees . Headquarters: Cupertino, California. Type: Public Company. Founded: 1976. Specialties: Innovative Product ... Read more",
       "title": "Apple",
       "type": "general",
-      "url": "https://www.linkedin.com/company/apple"
+      "url": "https://www.linkedin.com/company/apple",
+      "visible": true
     },
     {
       "cite": null,
@@ -386,7 +399,8 @@
       "text": "Apple Inc full form<|>Apple Inc address<|>Apple Inc stock<|>Apple Inc usa<|>Apple Inc website<|>Apple Inc investor relations<|>Apple Inc Headquarters<|>Apple Inc login",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

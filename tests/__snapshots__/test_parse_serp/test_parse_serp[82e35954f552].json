@@ -24,7 +24,8 @@
       "text": "Chicago's  source for breaking  news  and live streaming video online. Covering  News , Weather, Traffic and Sports for all of the greater  Chicago  Area.",
       "title": "ABC7 WLS Chicago and Chicago News",
       "type": "general",
-      "url": "https://abc7chicago.com/"
+      "url": "https://abc7chicago.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -38,7 +39,8 @@
       "text": null,
       "title": "Border Patrol agent's texts after he shot a Chicago woman five times will be released, judge rules",
       "type": "top_stories",
-      "url": "https://www.nbcnews.com/news/us-news/border-patrol-marimar-martinez-shooting-chicago-text-message-release-rcna257765"
+      "url": "https://www.nbcnews.com/news/us-news/border-patrol-marimar-martinez-shooting-chicago-text-message-release-rcna257765",
+      "visible": true
     },
     {
       "cite": null,
@@ -52,7 +54,8 @@
       "text": null,
       "title": "Friday, February 6, 2026",
       "type": "top_stories",
-      "url": "https://www.wbez.org/the-rundown-chicago-news-podcast/2026/02/06/friday-february-6-2026"
+      "url": "https://www.wbez.org/the-rundown-chicago-news-podcast/2026/02/06/friday-february-6-2026",
+      "visible": true
     },
     {
       "cite": null,
@@ -66,7 +69,8 @@
       "text": null,
       "title": "Judge allows release of body camera footage in case of Chicago woman shot by CBP",
       "type": "top_stories",
-      "url": "https://abcnews.go.com/US/chicago-woman-shot-cbp-fall-seeks-release-body/story?id=129887807"
+      "url": "https://abcnews.go.com/US/chicago-woman-shot-cbp-fall-seeks-release-body/story?id=129887807",
+      "visible": true
     },
     {
       "cite": null,
@@ -80,7 +84,8 @@
       "text": null,
       "title": "Annual orchids show brings vivid color to Chicago winter",
       "type": "top_stories",
-      "url": "https://apnews.com/article/orchid-flower-show-chicago-botanic-garden-d81d4a00adf020e397db06db43ff542f"
+      "url": "https://apnews.com/article/orchid-flower-show-chicago-botanic-garden-d81d4a00adf020e397db06db43ff542f",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +99,8 @@
       "text": null,
       "title": "Photos of retro ’70s-themed orchids show in Chicago",
       "type": "top_stories",
-      "url": "https://wtop.com/lifestyle/2026/02/photos-of-chicagos-retro-70s-themed-orchids-show/"
+      "url": "https://wtop.com/lifestyle/2026/02/photos-of-chicagos-retro-70s-themed-orchids-show/",
+      "visible": true
     },
     {
       "cite": null,
@@ -108,7 +114,8 @@
       "text": null,
       "title": "Vigil held for Chicago woman shot and killed while her baby was in the back seat of her car",
       "type": "top_stories",
-      "url": "https://www.cbsnews.com/chicago/news/gabryel-ayers-vigil-shooting-death-auburn-gresham-79th-may/"
+      "url": "https://www.cbsnews.com/chicago/news/gabryel-ayers-vigil-shooting-death-auburn-gresham-79th-may/",
+      "visible": true
     },
     {
       "cite": null,
@@ -122,7 +129,8 @@
       "text": null,
       "title": "Drive-by shooting leaves man dead on Chicago's Far South Side",
       "type": "top_stories",
-      "url": "https://www.fox32chicago.com/news/drive-by-shooting-leaves-man-dead-chicagos-far-south-side"
+      "url": "https://www.fox32chicago.com/news/drive-by-shooting-leaves-man-dead-chicagos-far-south-side",
+      "visible": true
     },
     {
       "cite": "https://wgntv.com",
@@ -136,7 +144,8 @@
       "text": "Chicago's  Very Own WGN-TV tells  news  stories from  Chicago  and its suburbs, northwest Indiana and southern Wisconsin. WGN brings you the very latest breaking ...",
       "title": "WGNTV.com | Chicago News, Weather & Sports | Chicago, IL",
       "type": "general",
-      "url": "https://wgntv.com/"
+      "url": "https://wgntv.com/",
+      "visible": true
     },
     {
       "cite": "https://www.fox32chicago.com",
@@ -150,7 +159,8 @@
       "text": "Chicago news , weather, traffic, and sports from FOX 32, serving the  Chicago  area and Northwest Indiana. Watch breaking  news  live or see the latest videos ...",
       "title": "FOX 32 Chicago | Local News, Weather, and Live Streams ...",
       "type": "general",
-      "url": "https://www.fox32chicago.com/"
+      "url": "https://www.fox32chicago.com/",
+      "visible": true
     },
     {
       "cite": "https://news.wttw.com",
@@ -164,7 +174,8 @@
       "text": "News  and public affairs TV series and website covering  Chicago  politics, education, entertainment, business, science and more.",
       "title": "News | WTTW Chicago",
       "type": "general",
-      "url": "https://news.wttw.com/"
+      "url": "https://news.wttw.com/",
+      "visible": true
     },
     {
       "cite": "https://chicago.suntimes.com",
@@ -178,7 +189,8 @@
       "text": "Chicago news , politics, sports, entertainment and more from America's hardest-working paper.",
       "title": "Chicago Sun-Times: Chicago news, politics, sports and more",
       "type": "general",
-      "url": "https://chicago.suntimes.com/"
+      "url": "https://chicago.suntimes.com/",
+      "visible": true
     },
     {
       "cite": "https://www.nbcchicago.com",
@@ -192,7 +204,8 @@
       "text": "Find the latest  Chicago news  and Illinois  news  with NBC  Chicago . NBC 5 brings you weather forecasts, breaking  news  alerts and more.",
       "title": "NBC 5 Chicago – Local news, weather, breaking news",
       "type": "general",
-      "url": "https://www.nbcchicago.com/"
+      "url": "https://www.nbcchicago.com/",
+      "visible": true
     },
     {
       "cite": "https://www.wbez.org",
@@ -206,7 +219,8 @@
       "text": "Chicago's  NPR  News  Source. A row of businesses in the 3300 block of Dempster St. in Skokie includes a · Immigration · Dozens of  Chicago  suburbs have shifted to ... Read more",
       "title": "WBEZ Chicago - WBEZ Chicago",
       "type": "general",
-      "url": "https://www.wbez.org/"
+      "url": "https://www.wbez.org/",
+      "visible": true
     },
     {
       "cite": "https://blockclubchicago.org",
@@ -220,7 +234,8 @@
       "text": "Block Club  Chicago  is a nonprofit  news  organization dedicated to delivering reliable, nonpartisan and essential coverage of  Chicago's  diverse neighborhoods.",
       "title": "Block Club Chicago",
       "type": "general",
-      "url": "https://blockclubchicago.org/"
+      "url": "https://blockclubchicago.org/",
+      "visible": true
     },
     {
       "cite": "https://www.chicagotribune.com",
@@ -234,7 +249,8 @@
       "text": "Get  Chicago  and Illinois  news  from The  Chicago  Tribune.",
       "title": "Chicago Tribune - Chicago News, Sports, Weather, Business ...",
       "type": "general",
-      "url": "https://www.chicagotribune.com/"
+      "url": "https://www.chicagotribune.com/",
+      "visible": true
     }
   ]
 }

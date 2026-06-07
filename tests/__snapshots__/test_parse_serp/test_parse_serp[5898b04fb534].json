@@ -32,7 +32,8 @@
       "text": null,
       "title": "Courtyard by Marriott New York Downtown Manhattan/Financial District",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -54,7 +55,8 @@
       "text": null,
       "title": "Holiday Inn Express Manhattan Midtown West by IHG",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -76,7 +78,8 @@
       "text": null,
       "title": "Hilton Garden Inn New York/Midtown Park Ave",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -98,7 +101,8 @@
       "text": null,
       "title": "Hotel Riu Plaza Manhattan Times Square",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -120,7 +124,8 @@
       "text": null,
       "title": "The Lexington Hotel, Autograph Collection",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -142,7 +147,8 @@
       "text": null,
       "title": "Aloft New York Brooklyn",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -164,7 +170,8 @@
       "text": null,
       "title": "Hyatt Place New York City / Times Square",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -186,7 +193,8 @@
       "text": null,
       "title": "Holiday Inn Express New York City Times Square by IHG",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -208,7 +216,8 @@
       "text": null,
       "title": "Hyatt Centric Times Square New York",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -230,7 +239,8 @@
       "text": null,
       "title": "Dream Midtown, by Hyatt",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -252,7 +262,8 @@
       "text": null,
       "title": "DoubleTree by Hilton Hotel New York Times Square West",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -274,7 +285,8 @@
       "text": null,
       "title": "Hilton Garden Inn New York Times Square South",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -296,7 +308,8 @@
       "text": null,
       "title": "Hilton New York Times Square",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -318,7 +331,8 @@
       "text": null,
       "title": "DoubleTree by Hilton New York Downtown",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -340,7 +354,8 @@
       "text": null,
       "title": "Fairfield by Marriott Inn & Suites New York Brooklyn",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -362,7 +377,8 @@
       "text": null,
       "title": "Fairfield by Marriott Inn & Suites New York Manhattan/Central Park",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -384,7 +400,8 @@
       "text": null,
       "title": "Park Central Hotel New York",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -406,7 +423,8 @@
       "text": null,
       "title": "The New Yorker by Lotte Hotels",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -428,7 +446,8 @@
       "text": null,
       "title": "SoHo 54 Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -450,7 +469,8 @@
       "text": null,
       "title": "The Manhattan at Times Square Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -472,7 +492,8 @@
       "text": null,
       "title": "Hyatt Grand Central New York",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -494,7 +515,8 @@
       "text": null,
       "title": "Artezen Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -516,7 +538,8 @@
       "text": null,
       "title": "Paramount Times Square - A Generator Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -538,7 +561,8 @@
       "text": null,
       "title": "citizenM New York Times Square",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -560,7 +584,8 @@
       "text": null,
       "title": "Pod 51",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -582,7 +607,8 @@
       "text": null,
       "title": "Renaissance New York Harlem Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -604,7 +630,8 @@
       "text": null,
       "title": "Holiday Inn Express Long Island City E - New York by IHG",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -626,7 +653,8 @@
       "text": null,
       "title": "Sheraton Brooklyn New York Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -648,7 +676,8 @@
       "text": null,
       "title": "Hotel Riu Plaza New York Times Square",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": null,
@@ -670,7 +699,8 @@
       "text": null,
       "title": "Sheraton New York Times Square Hotel",
       "type": "shopping_ads",
-      "url": "#"
+      "url": "#",
+      "visible": true
     },
     {
       "cite": "https://www.kayak.com",
@@ -708,7 +738,8 @@
       "text": "Best NYC Hotels | Cheap hotel prices",
       "title": "Best NYC Hotels | Cheap hotel prices",
       "type": "ad",
-      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot"
+      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot",
+      "visible": true
     },
     {
       "cite": "https://www.expedia.com/",
@@ -722,7 +753,8 @@
       "text": "Hotel Rooms in Manhattan, NY | Stays from $136",
       "title": "Hotel Rooms in Manhattan, NY | Stays from $136",
       "type": "ad",
-      "url": "https://www.expedia.com/Hotel-Search?regionId=129440&locale=en_US&siteid=1"
+      "url": "https://www.expedia.com/Hotel-Search?regionId=129440&locale=en_US&siteid=1",
+      "visible": true
     },
     {
       "cite": "http://www.booking.com › manhattan › hotels",
@@ -736,7 +768,8 @@
       "text": "Hotels in Manhattan, New York | Best Price Guarantee",
       "title": "Hotels in Manhattan, New York | Best Price Guarantee",
       "type": "ad",
-      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -755,7 +788,8 @@
       "text": "Contemporary lodging in a 1920s building",
       "title": "Park Central Hotel New York",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0luY0QzeDVLX3c2VHhBUkFCOApCCRHFKUtRUtQ3N0IJEfaSUjGG9oMLQgkRLbMRZbsgqBNaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0luY0QzeDVLX3c2VHhBUkFCOApCCRHFKUtRUtQ3N0IJEfaSUjGG9oMLQgkRLbMRZbsgqBNaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -773,7 +807,8 @@
       "text": "Sleek lodging with a fitness room",
       "title": "The Manhattan at Times Square Hotel",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lvb0NBcXZ5eTBmRGdBUkFCOApCCRHFKUtRUtQ3N0IJEfaSUjGG9oMLQgkRLbMRZbsgqBNaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lvb0NBcXZ5eTBmRGdBUkFCOApCCRHFKUtRUtQ3N0IJEfaSUjGG9oMLQgkRLbMRZbsgqBNaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -791,7 +826,8 @@
       "text": "Times Square hotel with casual dining",
       "title": "Hilton New York Times Square",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0luTUdGZzVfSjI2QnJFQUU4CkIJEcUpS1FS1Dc3QgkR9pJSMYb2gwtCCREtsxFluyCoE1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0luTUdGZzVfSjI2QnJFQUU4CkIJEcUpS1FS1Dc3QgkR9pJSMYb2gwtCCREtsxFluyCoE1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": "https://www.hotels.com  › ... › New York Hotels",
@@ -805,7 +841,8 @@
       "text": "Some of the best-rated luxury  hotels in Manhattan  include Faena New York, The Hotel Chelsea, and Pendry Manhattan West. Faena New York has a high guest rating ... Read more",
       "title": "Top 10 Hotels in Manhattan, New York",
       "type": "general",
-      "url": "https://www.hotels.com/nh1535616/hotels-in-manhattan-new-york-new-york/"
+      "url": "https://www.hotels.com/nh1535616/hotels-in-manhattan-new-york-new-york/",
+      "visible": true
     },
     {
       "cite": "https://www.tripadvisor.com  › ... › New York City",
@@ -819,7 +856,8 @@
       "text": "Find the right  hotel  for you · 1. Motto by Hilton  New York City  Chelsea · 2. The Evelyn  Hotel  · 3. Embassy Suites By Hilton New York  Manhattan  Times Square · 4. Read more",
       "title": "THE 10 BEST Hotels in New York City 2026 (from $89)",
       "type": "general",
-      "url": "https://www.tripadvisor.com/Hotels-g60763-New_York_City_New_York-Hotels.html"
+      "url": "https://www.tripadvisor.com/Hotels-g60763-New_York_City_New_York-Hotels.html",
+      "visible": true
     },
     {
       "cite": "https://www.booking.com  › ... › New York",
@@ -833,7 +871,8 @@
       "text": "Featured  Hotels in Manhattan  · The Wallace Hotel · Broadway Plaza Hotel · San Carlos Hotel New York · Artezen Hotel · Hilton Club The Central at 5th New York. Read more",
       "title": "The best hotels in Manhattan, New York, United States",
       "type": "general",
-      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -855,7 +894,8 @@
       "text": "10 Best Neighborhoods in NYC: Where to Stay (A Local's Guide) Destination Dreamer Diaries https://www.destinationdreamerdiaries.com › blog › 10-b... Destination Dreamer Diaries https://www.destinationdreamerdiaries.com › blog › 10-b...<|>Is it better to stay in Times Square or Midtown?<|>What hotels do the Kardashians stay at in NYC?<|>What is the number one hotel in NYC?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -900,7 +940,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -919,7 +960,8 @@
       "text": "Modern lodging with a bar & city views",
       "title": "DoubleTree by Hilton Hotel New York Times Square West",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l1dWF2OUtiT2c5a3ZFQUU4CkIJEaQ6wccUUwgHQgkRAqJHJdwc8dhCCRFlQgvbOwOFi1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l1dWF2OUtiT2c5a3ZFQUU4CkIJEaQ6wccUUwgHQgkRAqJHJdwc8dhCCRFlQgvbOwOFi1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -938,7 +980,8 @@
       "text": "Upscale Times Square hotel with dining",
       "title": "The Westin New York at Times Square",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lwb3V0MThTaTZLN3ZBUkFCOApCCRGkOsHHFFMIB0IJEQKiRyXcHPHYQgkRZUIL2zsDhYtaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lwb3V0MThTaTZLN3ZBUkFCOApCCRGkOsHHFFMIB0IJEQKiRyXcHPHYQgkRZUIL2zsDhYtaTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -957,7 +1000,8 @@
       "text": "Relaxed hotel with a steakhouse & bar",
       "title": "Hilton Garden Inn New York/Central Park South-Midtown West",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0lxb0c0Z052ZXQ2QlNFQUU4CkIJEaQ6wccUUwgHQgkRAqJHJdwc8dhCCRFlQgvbOwOFi1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0lxb0c0Z052ZXQ2QlNFQUU4CkIJEaQ6wccUUwgHQgkRAqJHJdwc8dhCCRFlQgvbOwOFi1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": "https://www.expedia.com  › ... › New York › New York",
@@ -971,7 +1015,8 @@
       "text": "Our top choices for  Manhattan  4-star  hotels  · Lotte New York Palace ·  Hotel  Edison Times Square · Empire  Hotel  · Sheraton New York Times Square  Hotel  · Hyatt ... Read more",
       "title": "The Best 4 Star Hotels in Manhattan, NY from $121",
       "type": "general",
-      "url": "https://www.expedia.com/4Star-Manhattan-New-York-Hotels.s40-n129440-0.Travel-Guide-Filter-Hotels"
+      "url": "https://www.expedia.com/4Star-Manhattan-New-York-Hotels.s40-n129440-0.Travel-Guide-Filter-Hotels",
+      "visible": true
     },
     {
       "cite": null,
@@ -987,7 +1032,8 @@
       "text": null,
       "title": "10 Cool hotels in NYC you need to stay a night at 🗽🇺🇸 🔗👇 Read More",
       "type": "perspectives",
-      "url": "https://www.facebook.com/visitnewyorkcity/posts/10-cool-hotels-in-nyc-you-need-to-stay-a-night-at-read-more/934419629288032/"
+      "url": "https://www.facebook.com/visitnewyorkcity/posts/10-cool-hotels-in-nyc-you-need-to-stay-a-night-at-read-more/934419629288032/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1003,7 +1049,8 @@
       "text": null,
       "title": "Hotel Suggestions Manhattan NYC",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/hotels/comments/1qvakfl/hotel_suggestions_manhattan_nyc/"
+      "url": "https://www.reddit.com/r/hotels/comments/1qvakfl/hotel_suggestions_manhattan_nyc/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1019,7 +1066,8 @@
       "text": null,
       "title": "Where To Stay In New York City? Best Hotel View! Hyatt House Chelsea Hotel & Room Tour, Hotel Review",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=T7RaAP6OB4o"
+      "url": "https://www.youtube.com/watch?v=T7RaAP6OB4o",
+      "visible": true
     },
     {
       "cite": null,
@@ -1035,7 +1083,8 @@
       "text": null,
       "title": "The 20 Best Hotels In New York City",
       "type": "perspectives",
-      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-hotels-in-new-york-city/"
+      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-hotels-in-new-york-city/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1051,7 +1100,8 @@
       "text": null,
       "title": "When it comes to New York City hotels, our readers crave a well-loved brand, where exceptional service is a must. Read more about their ranking at the link in bio. #nychotels #traveltips #luxuryhotel",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DTS1IjbDmqe/?hl=en"
+      "url": "https://www.instagram.com/reel/DTS1IjbDmqe/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -1067,7 +1117,8 @@
       "text": null,
       "title": "Struggling with deciding on a hotel. I wanted it in Manhattan close to attractions and subway entrance within a budget of less than 2000.00 for 5 nights. Most importantly---- CLEAN AND COMFORTABLE. Anyone stay somewhere that fits that criteria? IT MAY BE",
       "type": "perspectives",
-      "url": "https://www.facebook.com/groups/3135585626680301/posts/4148091168763070/"
+      "url": "https://www.facebook.com/groups/3135585626680301/posts/4148091168763070/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1083,7 +1134,8 @@
       "text": null,
       "title": "We Finally Found a Good Hotel in New York City?!",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=2FXz6sjriXU"
+      "url": "https://www.youtube.com/watch?v=2FXz6sjriXU",
+      "visible": true
     },
     {
       "cite": null,
@@ -1099,7 +1151,8 @@
       "text": null,
       "title": "The best Hotels in New York City 2026 (from $110) 🗽🇺🇸✈️ 🔗 https://bit.ly/Top-Hotels-New-York-City",
       "type": "perspectives",
-      "url": "https://www.facebook.com/exploreusasince2022/posts/the-best-hotels-in-new-york-city-2026-from-110-%EF%B8%8F-httpsbitlytop-hotels-new-york-c/896583022974307/"
+      "url": "https://www.facebook.com/exploreusasince2022/posts/the-best-hotels-in-new-york-city-2026-from-110-%EF%B8%8F-httpsbitlytop-hotels-new-york-c/896583022974307/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1115,7 +1168,8 @@
       "text": null,
       "title": "The Best Hotel Bars in NYC, From Classic Martini Haunts to Rooftops With Central Park Views",
       "type": "perspectives",
-      "url": "https://www.cntraveler.com/gallery/best-hotel-bars-nyc"
+      "url": "https://www.cntraveler.com/gallery/best-hotel-bars-nyc",
+      "visible": true
     },
     {
       "cite": null,
@@ -1131,7 +1185,8 @@
       "text": null,
       "title": "NYC Hotel Stay Recommendations",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/travel/comments/1q8n9os/nyc_hotel_stay_recommendations/"
+      "url": "https://www.reddit.com/r/travel/comments/1q8n9os/nyc_hotel_stay_recommendations/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1147,7 +1202,8 @@
       "text": null,
       "title": "NYC Hotel Tour: Thompson Central Park 🏙️✨ If you’re looking for a place to stay in New York City - I’d HIGHLY recommend this hotel for location, luxury-vibes and room quality. @hyatt @thompsoncentralpark @chase \n\n#nychotels #thompsoncentralpark #hyatt #hotel #wheretostayinnyc",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUaKb2ejm5a/"
+      "url": "https://www.instagram.com/reel/DUaKb2ejm5a/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1163,7 +1219,8 @@
       "text": null,
       "title": "The best New York hotels that you need to visit right now",
       "type": "perspectives",
-      "url": "https://www.gq-magazine.co.uk/gallery/new-york-best-hotels"
+      "url": "https://www.gq-magazine.co.uk/gallery/new-york-best-hotels",
+      "visible": true
     },
     {
       "cite": "https://www.parkcentralny.com",
@@ -1177,7 +1234,8 @@
       "text": "Enjoy both the serenity of our  hotel  and our location near Central Park, Rockefeller Center, Carnegie Hall and other Midtown  Manhattan  landmarks and sights. Read more",
       "title": "Park Central New York | Midtown Manhattan hotel near ...",
       "type": "general",
-      "url": "https://www.parkcentralny.com/"
+      "url": "https://www.parkcentralny.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1195,7 +1253,8 @@
       "text": "Warm Midtown hotel with dining & a bar",
       "title": "Hilton Garden Inn New York Times Square South",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0kwZEhGc2YzQXljSHJBUkFCOApCCRGqCoIzPL2ah0IJERbTswvOGE2lQgkR4WgJUa2GJT9aTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0kwZEhGc2YzQXljSHJBUkFCOApCCRGqCoIzPL2ah0IJERbTswvOGE2lQgkR4WgJUa2GJT9aTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -1213,7 +1272,8 @@
       "text": "Vibrant lodging with a rooftop bar",
       "title": "citizenM New York Times Square",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0kwSUNXMTR1ai05M2VBUkFCOApCCRGqCoIzPL2ah0IJERbTswvOGE2lQgkR4WgJUa2GJT9aTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0kwSUNXMTR1ai05M2VBUkFCOApCCRGqCoIzPL2ah0IJERbTswvOGE2lQgkR4WgJUa2GJT9aTggBMkqqAUcQASoKIgZob3RlbHMoADIeEAEiGrSofMHFLQ_i39VF75UDgoTqby_iRI9O0KXsMhcQAiITaG90ZWxzIGluIG1hbmhhdHRhbg&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": null,
@@ -1232,7 +1292,8 @@
       "text": "Polished lodging with free breakfast",
       "title": "The Carnegie Hotel",
       "type": "locations",
-      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l1WUN4bXBxSXVfbFpFQUU4CkIJEaoKgjM8vZqHQgkRFtOzC84YTaVCCRHhaAlRrYYlP1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72882230,72958624,73059275,73064764,73249147&hl=en-US&gl=us&ssta=1&q=hotels+in+manhattan&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxACGAgSBwjqDxACGAkYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l1WUN4bXBxSXVfbFpFQUU4CkIJEaoKgjM8vZqHQgkRFtOzC84YTaVCCRHhaAlRrYYlP1pOCAEySqoBRxABKgoiBmhvdGVscygAMh4QASIatKh8wcUtD-Lf1UXvlQOChOpvL-JEj07QpewyFxACIhNob3RlbHMgaW4gbWFuaGF0dGFu&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188",
+      "visible": true
     },
     {
       "cite": "https://www.ihg.com  › ... › New York › New York › spnd",
@@ -1246,7 +1307,8 @@
       "text": "Stay steps from Broadway shows at The  Manhattan  at Times Square. Enjoy spacious rooms, prime location, and  NYC  charm.",
       "title": "The Manhattan at Times Square Hotel",
       "type": "general",
-      "url": "https://www.ihg.com/spnd/hotels/us/en/new-york/nycat/hoteldetail"
+      "url": "https://www.ihg.com/spnd/hotels/us/en/new-york/nycat/hoteldetail",
+      "visible": true
     },
     {
       "cite": "http://www.forbestravelguide.com  › ... › United States",
@@ -1260,7 +1322,8 @@
       "text": "View the best  hotels , restaurants and spas in  New York City , with Five-Star ratings and more from Forbes Travel Guide.",
       "title": "New York City Luxury Hotels",
       "type": "general",
-      "url": "http://www.forbestravelguide.com/destinations/new-york-city-new-york"
+      "url": "http://www.forbestravelguide.com/destinations/new-york-city-new-york",
+      "visible": true
     },
     {
       "cite": "https://www.hilton.com  › Locations › USA › New York",
@@ -1274,7 +1337,8 @@
       "text": "Explore  Hotels in Manhattan , NY. Search by destination, check the latest prices, or use the interactive map to find the location for your ...",
       "title": "Hotels in Manhattan, NY - Find Hotels",
       "type": "general",
-      "url": "https://www.hilton.com/en/locations/usa/new-york/manhattan/"
+      "url": "https://www.hilton.com/en/locations/usa/new-york/manhattan/",
+      "visible": true
     },
     {
       "cite": "https://www.kayak.com",
@@ -1312,7 +1376,8 @@
       "text": "Best NYC Hotels | Hotels from $124/night",
       "title": "Best NYC Hotels | Hotels from $124/night",
       "type": "ad",
-      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot"
+      "url": "https://www.kayak.com/tweb/hotels/New-York,NY-p59560/2adults?lang=en&isSEM=true&skipapp=true&a=adsbot",
+      "visible": true
     },
     {
       "cite": "http://www.booking.com › manhattan › hotels",
@@ -1346,7 +1411,8 @@
       "text": "Hotels in Manhattan, New York",
       "title": "Hotels in Manhattan, New York",
       "type": "ad",
-      "url": "https://www.booking.com/district/us/new-york/manhattan.html"
+      "url": "https://www.booking.com/district/us/new-york/manhattan.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -1379,7 +1445,8 @@
       "text": "Motto by Hilton New York City Chelsea<|>PUBLIC Hotel<|>The Evelyn<|>The Bryant Park Hotel<|>Hilton Garden Inn NYC Financial Center/Manhattan Downtown<|>Pod Times Square<|>Hotels in Manhattan near Times Square<|>5-star Hotels in Manhattan<|>Hotels in Manhattan near Broadway<|>Best hotels in manhattan<|>Hotels in Manhattan reddit<|>Hotels in Manhattan NY Marriott<|>Cheap hotels in manhattan<|>Hotels in Manhattan Midtown",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -47,7 +47,8 @@
       "text": "the occurrence and development of events by chance in a happy or beneficial way. \"a fortunate stroke of serendipity\"",
       "title": "serendipity",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -69,7 +70,8 @@
       "text": "What is the true meaning of serendipity?<|>What is an example of serendipity?<|>What does serendipity mean – its importance for creativity and ... - Noisli Noisli https://www.noisli.com › blog › what-does-serendipity-m... Noisli https://www.noisli.com › blog › what-does-serendipity-m...<|>What is the synonym of serendipity?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.merriam-webster.com  › dictionary › serend...",
@@ -83,7 +85,8 @@
       "text": "The meaning of SERENDIPITY is  the ability to find valuable or agreeable things not sought for ; also : luck that takes the form of such finding.",
       "title": "SERENDIPITY Definition & Meaning",
       "type": "general",
-      "url": "https://www.merriam-webster.com/dictionary/serendipity"
+      "url": "https://www.merriam-webster.com/dictionary/serendipity",
+      "visible": true
     },
     {
       "cite": "https://dictionary.cambridge.org  › dictionary › serendip...",
@@ -97,7 +100,8 @@
       "text": "SERENDIPITY meaning: 1.  the fact of finding interesting or valuable things by chance  2. the fact of finding interesting…. Learn more.",
       "title": "SERENDIPITY | definition in the Cambridge English Dictionary",
       "type": "general",
-      "url": "https://dictionary.cambridge.org/us/dictionary/english/serendipity"
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/serendipity",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Serendipity",
@@ -111,7 +115,8 @@
       "text": "Serendipity is  an unplanned fortunate discovery . The term was coined by Horace Walpole in 1754. Read more",
       "title": "Serendipity",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Serendipity"
+      "url": "https://en.wikipedia.org/wiki/Serendipity",
+      "visible": true
     },
     {
       "cite": "https://www.dictionary.com  › browse › serendipity",
@@ -125,7 +130,8 @@
       "text": "SERENDIPITY definition:  an aptitude for making desirable discoveries by accident . See examples of serendipity used in a sentence.",
       "title": "SERENDIPITY Definition & Meaning",
       "type": "general",
-      "url": "https://www.dictionary.com/browse/serendipity"
+      "url": "https://www.dictionary.com/browse/serendipity",
+      "visible": true
     },
     {
       "cite": null,
@@ -139,7 +145,8 @@
       "text": null,
       "title": "Serendipity! English Pronunciation, Meaning, Synonyms ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/Ab2D1OoPTpg"
+      "url": "https://www.youtube.com/shorts/Ab2D1OoPTpg",
+      "visible": true
     },
     {
       "cite": null,
@@ -153,7 +160,8 @@
       "text": null,
       "title": "SERENDIPITY: The Most Beautiful Word in English - What ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/J2yxNxr1d84"
+      "url": "https://www.youtube.com/shorts/J2yxNxr1d84",
+      "visible": true
     },
     {
       "cite": null,
@@ -167,7 +175,8 @@
       "text": null,
       "title": "Definition and Examples of Serendipity",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@wotdapp/video/7050525582685195525?lang=en"
+      "url": "https://www.tiktok.com/@wotdapp/video/7050525582685195525?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -181,7 +190,8 @@
       "text": null,
       "title": "What is Serendipity? Improve Your English Vocabulary and ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/8LcK0m6qyyQ"
+      "url": "https://www.youtube.com/shorts/8LcK0m6qyyQ",
+      "visible": true
     },
     {
       "cite": null,
@@ -195,7 +205,8 @@
       "text": null,
       "title": "What Is “Serendipity”? #shorts",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/9BTfhH7NIqs"
+      "url": "https://www.youtube.com/shorts/9BTfhH7NIqs",
+      "visible": true
     },
     {
       "cite": null,
@@ -209,7 +220,8 @@
       "text": null,
       "title": "\"Serendipity\" ~ Meaning, Etymology, Usage | English Word ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/CmST9H-RO4M"
+      "url": "https://www.youtube.com/shorts/CmST9H-RO4M",
+      "visible": true
     },
     {
       "cite": null,
@@ -223,7 +235,8 @@
       "text": null,
       "title": "Word of the Day: What Does Serendipity Mean? Learn with ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/eJi9XiOAP6A"
+      "url": "https://www.youtube.com/shorts/eJi9XiOAP6A",
+      "visible": true
     },
     {
       "cite": null,
@@ -237,7 +250,8 @@
       "text": null,
       "title": "Learn the Meaning of SERENDIPITY | Word of the Day #day1",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/LjkSicnpSAg"
+      "url": "https://www.youtube.com/shorts/LjkSicnpSAg",
+      "visible": true
     },
     {
       "cite": null,
@@ -251,7 +265,8 @@
       "text": null,
       "title": "SAT Vocabulary #0105: SERENDIPITY (Meaning + Memory ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/nrSm2Cvz77s"
+      "url": "https://www.youtube.com/shorts/nrSm2Cvz77s",
+      "visible": true
     },
     {
       "cite": null,
@@ -265,7 +280,8 @@
       "text": null,
       "title": "Meaning of Serendipity | My Word Book",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/QiCRjfy4fD4"
+      "url": "https://www.youtube.com/shorts/QiCRjfy4fD4",
+      "visible": true
     },
     {
       "cite": null,
@@ -281,7 +297,8 @@
       "text": null,
       "title": "Meaning of Serendipity #serendipity #wordmeaning #wordsandtheirmeaning #learnenglish #viral",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/-L2fhSd09mk"
+      "url": "https://www.youtube.com/shorts/-L2fhSd09mk",
+      "visible": true
     },
     {
       "cite": null,
@@ -297,7 +314,8 @@
       "text": null,
       "title": "The #WordOfTheDay is ‘serendipity.’ https://ow.ly/jgiJ50XooNQ",
       "type": "perspectives",
-      "url": "https://www.facebook.com/merriamwebster/posts/the-wordoftheday-is-serendipityhttpsowlyjgij50xoonq/1254332263407489/"
+      "url": "https://www.facebook.com/merriamwebster/posts/the-wordoftheday-is-serendipityhttpsowlyjgij50xoonq/1254332263407489/",
+      "visible": true
     },
     {
       "cite": null,
@@ -313,7 +331,8 @@
       "text": null,
       "title": "🌟 Word of the Day: #Serendipity 🍀✨\n\n🔍 Meaning:\nSerendipity is the magical moment when something wonderful happens by pure chance — a happy accident! 💫\n\n📝 Example:\nMeeting my best friend at a random café was pure serendipity. ☕💖\n\n💡 Mnemonic:\nSerendipity → “Serene” + “Dip” into luck → peaceful, lucky discoveries! 🌈\n\n---\n\n⭐ Sometimes, the best things in life aren’t planned — they’re serendipity. 🌻\nLet life surprise you. 🌙✨\n\n👉 For more beautiful words and their meanings, check out our app:\nhttps://memli.app\n\n[gmat, catexam, englishclub, English Writing, englishisfun, ieltswriting, ieltstips, englishlesson, englishcourse, inglesonline instaenglish, vocabularybuilding, britishenglish, americanenglish, speakenglish, phraseoftheday, english, studyenglish mnemonics, newwords, englishgrammar, ingles, ingilizce, angielski, satvocab, learnenglish, wordoftheday, grevocabulary languagelearning]",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DQ8ki3oEz_O/?hl=en"
+      "url": "https://www.instagram.com/p/DQ8ki3oEz_O/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -329,7 +348,8 @@
       "text": null,
       "title": "Good Weekend READ 📰: A new year invites more than planning, it invites possibility. Serendipity is often framed as 🍀 luck, but its history tells a different story. Many of the breakthroughs we admire most were not pure accidents, they were moments recognized",
       "type": "perspectives",
-      "url": "https://www.linkedin.com/posts/annierose_the-delightful-history-behind-serendipity-activity-7418346702824300544-6byx"
+      "url": "https://www.linkedin.com/posts/annierose_the-delightful-history-behind-serendipity-activity-7418346702824300544-6byx",
+      "visible": true
     },
     {
       "cite": null,
@@ -345,7 +365,8 @@
       "text": null,
       "title": "Serendipity: When Life Gives You an Unexpected Blessing ✨ . . . #Serendipity #AdvancedEnglishVocabulary #LearnEnglishGlobally #WordPowerElite #EnglishEvolution",
       "type": "perspectives",
-      "url": "https://www.facebook.com/hellobarc/posts/serendipity-when-life-gives-you-an-unexpected-blessing-serendipityadvancedenglis/1305092774993068/"
+      "url": "https://www.facebook.com/hellobarc/posts/serendipity-when-life-gives-you-an-unexpected-blessing-serendipityadvancedenglis/1305092774993068/",
+      "visible": true
     },
     {
       "cite": null,
@@ -361,7 +382,8 @@
       "text": null,
       "title": "Let it find you... serenipity the effect by which one accidentally stumbles upon something truly wonderful, especially while looking for something entirely unrelated.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/PoetryandEveryemotion/posts/let-it-find-you-serenipitythe-effect-by-which-one-accidentally-stumbles-upon-som/1178996157768709/"
+      "url": "https://www.facebook.com/PoetryandEveryemotion/posts/let-it-find-you-serenipitythe-effect-by-which-one-accidentally-stumbles-upon-som/1178996157768709/",
+      "visible": true
     },
     {
       "cite": null,
@@ -377,7 +399,8 @@
       "text": null,
       "title": "In English 101, Did You Know? On WW Day The word serendipity did not come about by luck; rather, it was intentionally coined by 18th century author Horace Walpole, who was eager to share a happenstance discovery he had made while researching a coat",
       "type": "perspectives",
-      "url": "https://www.linkedin.com/posts/terry-penney-a5579418_in-english-101-did-you-know-on-ww-day-the-activity-7396881699974004736-aN2t"
+      "url": "https://www.linkedin.com/posts/terry-penney-a5579418_in-english-101-did-you-know-on-ww-day-the-activity-7396881699974004736-aN2t",
+      "visible": true
     },
     {
       "cite": "https://www.vocabulary.com  › dictionary › serendipity",
@@ -391,7 +414,8 @@
       "text": "If you find good things without looking for them, serendipity —  unexpected good luck  — has brought them to you. Serendipity does not come from Latin or Greek ... Read more",
       "title": "Serendipity - Definition, Meaning & Synonyms",
       "type": "general",
-      "url": "https://www.vocabulary.com/dictionary/serendipity"
+      "url": "https://www.vocabulary.com/dictionary/serendipity",
+      "visible": true
     },
     {
       "cite": "1.6K+ reactions  ·  2 months ago",
@@ -405,7 +429,8 @@
       "text": "Serendipity  is the occurrence and development of any events by chance in a happy or useful way. i.e.,  Serendipity  is otherwise termed as a happy ... Read more",
       "title": "The #WordOfTheDay is 'serendipity.' https://ow.ly/ ...",
       "type": "general",
-      "url": "https://www.facebook.com/merriamwebster/posts/the-wordoftheday-is-serendipityhttpsowlyjgij50xoonq/1254332263407489/"
+      "url": "https://www.facebook.com/merriamwebster/posts/the-wordoftheday-is-serendipityhttpsowlyjgij50xoonq/1254332263407489/",
+      "visible": true
     },
     {
       "cite": "4 comments  ·  5 years ago",
@@ -419,7 +444,8 @@
       "text": "A very broad  definition  of  serendipity  is  \"fate\" or \"destiny\" or \"predestination\" . It's the idea that certain things are meant to happen to you. Read more",
       "title": "What does serendipity mean? an explanation and example?",
       "type": "general",
-      "url": "https://www.reddit.com/r/EnglishLearning/comments/hpis48/what_does_serendipity_mean_an_explanation_and/"
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/hpis48/what_does_serendipity_mean_an_explanation_and/",
+      "visible": true
     },
     {
       "cite": "2K+ views  ·  3 years ago",
@@ -433,7 +459,8 @@
       "text": "Serendipity refers to finding valuable or Pleasant things that are not looked for unexpected good luck.",
       "title": "What does SERENDIPITY mean?",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=nHpIUM0ry8s"
+      "url": "https://www.youtube.com/watch?v=nHpIUM0ry8s",
+      "visible": true
     },
     {
       "cite": "10+ answers  ·  6 years ago",
@@ -463,7 +490,8 @@
       "text": "Serendipity :  Serendipity  is an unsought,unintended and/ or unexpected but fortunate discovery and/or learning experience that happens by chance. Read more",
       "title": "In the simplest terms, what does serendipity mean?",
       "type": "general",
-      "url": "https://www.quora.com/In-the-simplest-terms-what-does-serendipity-mean"
+      "url": "https://www.quora.com/In-the-simplest-terms-what-does-serendipity-mean",
+      "visible": true
     },
     {
       "cite": null,
@@ -490,7 +518,8 @@
       "text": "Define serendipity in a sentence<|>Serendipity in a sentence<|>Serendipity pronunciation<|>Serendipity synonyms<|>Serendipity movie<|>What is the opposite of serendipity<|>Serendipity in love meaning<|>Serendipity examples",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

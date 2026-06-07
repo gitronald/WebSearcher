@@ -39,7 +39,8 @@
       "text": "1965 ‧ Romance/War ‧ 3h 17m",
       "title": "Doctor Zhivago",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Doctor_Zhivago_(film)",
@@ -53,7 +54,8 @@
       "text": "Doctor Zhivago  is a 1965 epic historical romance film directed by David Lean with a screenplay by Robert Bolt, based on the 1957 novel by Boris Pasternak.",
       "title": "Doctor Zhivago (film)",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(film)"
+      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(film)",
+      "visible": true
     },
     {
       "cite": null,
@@ -81,7 +83,8 @@
       "text": "Julie Christie",
       "title": "Cast",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -103,7 +106,8 @@
       "text": "What is the message of Doctor Zhivago?<|>Is Dr. Zhivago based on a true story?<|>What happens at the end of Dr. Zhivago?<|>Was any of Dr. Zhivago filmed in Russia?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Doctor_Zhivago_(nov...",
@@ -117,7 +121,8 @@
       "text": "Doctor Zhivago  is a novel by Boris Pasternak, first published in 1957 in Italy. The novel is named after its protagonist, Yuri Zhivago, a physician and poet ...",
       "title": "Doctor Zhivago (novel)",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(novel)"
+      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(novel)",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -131,7 +136,8 @@
       "text": null,
       "title": "Doctor Zhivago (1965) Original Trailer - Omar Sharif Movie YouTube  ·  Rotten Tomatoes Classic Trailers 3 minutes, 41 seconds Sep 20, 2016",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=CGGr21PilKY"
+      "url": "https://www.youtube.com/watch?v=CGGr21PilKY",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -145,7 +151,8 @@
       "text": null,
       "title": "Doctor Zhivago (New Trailer 2015) - In cinemas 27 Nov | BFI ... YouTube  ·  BFI 1 minute, 53 seconds Oct 20, 2015",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=M1iQ5hQTR5s"
+      "url": "https://www.youtube.com/watch?v=M1iQ5hQTR5s",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -159,7 +166,8 @@
       "text": null,
       "title": "Doctor Zhivago (7/10) Movie CLIP - Reunited (1965) HD YouTube  ·  Movieclips 3 minutes, 48 seconds Dec 3, 2015",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=4ipKK450XwM"
+      "url": "https://www.youtube.com/watch?v=4ipKK450XwM",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -173,7 +181,8 @@
       "text": null,
       "title": "Doctor Zhivago (6/10) Movie CLIP - The Private Life is Dead ... YouTube  ·  Movieclips 3 minutes, 57 seconds Dec 3, 2015",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=ozpct8zUA_U"
+      "url": "https://www.youtube.com/watch?v=ozpct8zUA_U",
+      "visible": true
     },
     {
       "cite": "https://www.imdb.com  › title",
@@ -187,7 +196,8 @@
       "text": "The life of a Russian  physician  and poet who, although married to another, falls in love with a political activist's wife and experiences hardship during World ...",
       "title": "Doctor Zhivago (1965)",
       "type": "general",
-      "url": "https://www.imdb.com/title/tt0059113/"
+      "url": "https://www.imdb.com/title/tt0059113/",
+      "visible": true
     },
     {
       "cite": null,
@@ -211,7 +221,8 @@
       "text": null,
       "title": "Based on the book",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.imdb.com  › title",
@@ -225,7 +236,8 @@
       "text": "Young and beautiful Lara is loved by three men: a revolutionary, a mogul, and a  doctor . Their lives become intertwined with the drama of Russian revolution.",
       "title": "Doctor Zhivago (TV Mini Series 2002)",
       "type": "general",
-      "url": "https://www.imdb.com/title/tt0324937/"
+      "url": "https://www.imdb.com/title/tt0324937/",
+      "visible": true
     },
     {
       "cite": null,
@@ -239,7 +251,8 @@
       "text": null,
       "title": "alt-text: Doctor Zhivago (film) - Wikipedia",
       "type": "images",
-      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(film)"
+      "url": "https://en.wikipedia.org/wiki/Doctor_Zhivago_(film)",
+      "visible": true
     },
     {
       "cite": null,
@@ -253,7 +266,8 @@
       "text": null,
       "title": "alt-text: Doctor Zhivago (1965) - Plot - IMDb",
       "type": "images",
-      "url": "https://www.imdb.com/title/tt0059113/plotsummary/"
+      "url": "https://www.imdb.com/title/tt0059113/plotsummary/",
+      "visible": true
     },
     {
       "cite": null,
@@ -267,7 +281,8 @@
       "text": null,
       "title": "alt-text: Doctor Zhivago movie review & film summary (1965) | Roger Ebert",
       "type": "images",
-      "url": "https://www.rogerebert.com/reviews/doctor-zhivago-1995"
+      "url": "https://www.rogerebert.com/reviews/doctor-zhivago-1995",
+      "visible": true
     },
     {
       "cite": null,
@@ -281,7 +296,8 @@
       "text": null,
       "title": "alt-text: Doctor Zhivago (45th Anniversary Edition)",
       "type": "images",
-      "url": "https://www.amazon.com/Doctor-Zhivago-Anniversary-Geraldine-Chaplin/dp/B002WC88A8"
+      "url": "https://www.amazon.com/Doctor-Zhivago-Anniversary-Geraldine-Chaplin/dp/B002WC88A8",
+      "visible": true
     },
     {
       "cite": null,
@@ -295,7 +311,8 @@
       "text": null,
       "title": "alt-text: Review Flow - Into Film",
       "type": "images",
-      "url": "https://www.intofilm.org/films/reviews/677356"
+      "url": "https://www.intofilm.org/films/reviews/677356",
+      "visible": true
     },
     {
       "cite": "https://www.goodreads.com  › book › show",
@@ -309,7 +326,8 @@
       "text": "This epic tale about the effects of the Russian Revolution and its aftermath on a bourgeois family was not published in the Soviet Union until 1987.",
       "title": "Doctor Zhivago by Boris Pasternak",
       "type": "general",
-      "url": "https://www.goodreads.com/en/book/show/130440"
+      "url": "https://www.goodreads.com/en/book/show/130440",
+      "visible": true
     },
     {
       "cite": "https://www.rottentomatoes.com  › 1006037-doctor_zhi...",
@@ -323,7 +341,8 @@
       "text": "During the Russian Revolution, Yuri  Zhivago  (Omar Sharif), is a young  doctor  who has been raised by his aunt and uncle following his father's suicide.",
       "title": "Doctor Zhivago",
       "type": "general",
-      "url": "https://www.rottentomatoes.com/m/1006037-doctor_zhivago"
+      "url": "https://www.rottentomatoes.com/m/1006037-doctor_zhivago",
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › Doctor-Zhivago-Two-Disc-...",
@@ -341,7 +360,8 @@
       "text": "A love story set in the era of WW1 and the Russian Revolution, it brings out the reality of life in Russia in those tumultuous times. The scenic settings are ...",
       "title": "Doctor Zhivago (Two-Disc Special Edition) [DVD]",
       "type": "general",
-      "url": "https://www.amazon.com/Doctor-Zhivago-Two-Disc-Special-Sharif/dp/B00003CX9M"
+      "url": "https://www.amazon.com/Doctor-Zhivago-Two-Disc-Special-Sharif/dp/B00003CX9M",
+      "visible": true
     },
     {
       "cite": "https://www.rogerebert.com  › reviews › doctor-zhivago...",
@@ -355,7 +375,8 @@
       "text": "Apr 7, 1995  —  It's a case where there is no \"there\" there, no center to keep us deeply involved. Sharif is almost a cipher; we never learn much about him. His ...",
       "title": "Doctor Zhivago movie review & film summary (1965)",
       "type": "general",
-      "url": "https://www.rogerebert.com/reviews/doctor-zhivago-1995"
+      "url": "https://www.rogerebert.com/reviews/doctor-zhivago-1995",
+      "visible": true
     },
     {
       "cite": null,
@@ -378,7 +399,8 @@
       "text": "Audience rating summary",
       "title": "Reviews",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -405,7 +427,8 @@
       "text": "is dr zhivago, a true story<|>doctor zhivago book<|>doctor zhivago summary<|>doctor zhivago 2002<|>where was dr zhivago filmed<|>doctor zhivago author<|>doctor zhivago 2005<|>dr zhivago ending",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -419,7 +442,8 @@
       "text": "During the Russian Revolution, Yuri Zhivago (Omar Sharif), is a young doctor who has been raised by his aunt and uncle following his father's suicide. Yuri falls in love with beautiful Lara Guishar (Julie Christie), who has been having an affair with her mother's lover, Victor Komarovsky (Rod Steiger), an unscrupulous businessman. Yuri, however, ends up marrying his cousin, Tonya (Geraldine Chaplin). But when he and Lara meet again years later, the spark of love reignites.… MORE",
       "title": null,
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -453,7 +477,8 @@
       "text": null,
       "title": "Watch movie",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -515,7 +540,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -549,7 +575,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

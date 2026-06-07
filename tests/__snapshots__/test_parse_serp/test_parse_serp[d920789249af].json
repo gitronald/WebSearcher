@@ -24,7 +24,8 @@
       "text": null,
       "title": null,
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › United_States_Congress",
@@ -38,7 +39,8 @@
       "text": "The United States Congress  is the legislative branch of the federal government of the United States. It is a bicameral legislature. Read more",
       "title": "United States Congress",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/United_States_Congress"
+      "url": "https://en.wikipedia.org/wiki/United_States_Congress",
+      "visible": true
     },
     {
       "cite": "https://www.congress.gov",
@@ -52,7 +54,8 @@
       "text": "U.S. Congress legislation , Congressional Record debates, Members of Congress, legislative process educational resources presented by the Library of Congress.",
       "title": "Congress.gov | Library of Congress",
       "type": "general",
-      "url": "https://www.congress.gov/"
+      "url": "https://www.congress.gov/",
+      "visible": true
     },
     {
       "cite": null,
@@ -74,7 +77,8 @@
       "text": "The Legislative Branch Handout - USCIS USCIS https://www.uscis.gov › files › document › lesson-plans USCIS https://www.uscis.gov › files › document › lesson-plans<|>Which party controls Congress in the USA?<|>How Congress Works | Congressman Tim Walberg - House.gov Tim Walberg - House.gov https://walberg.house.gov › about › how-congress-works Tim Walberg - House.gov https://walberg.house.gov › about › how-congress-works<|>House of Representatives and Senate: What's the Difference? - E S S AY E S S AY https://www.visitthecapitol.gov › resources-and-activities E S S AY https://www.visitthecapitol.gov › resources-and-activities",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -88,7 +92,8 @@
       "text": null,
       "title": "Supreme Court lets California use congressional map that favors Dems",
       "type": "top_stories",
-      "url": "https://www.usatoday.com/story/news/politics/2026/02/04/supreme-court-california-redistrict-congressional-map-trump/88396246007/"
+      "url": "https://www.usatoday.com/story/news/politics/2026/02/04/supreme-court-california-redistrict-congressional-map-trump/88396246007/",
+      "visible": true
     },
     {
       "cite": null,
@@ -102,7 +107,8 @@
       "text": null,
       "title": "US Congress passes $50 billion foreign affairs bill",
       "type": "top_stories",
-      "url": "https://www.devex.com/news/us-congress-passes-50-billion-foreign-affairs-bill-111821"
+      "url": "https://www.devex.com/news/us-congress-passes-50-billion-foreign-affairs-bill-111821",
+      "visible": true
     },
     {
       "cite": null,
@@ -116,7 +122,8 @@
       "text": null,
       "title": "DOJ to allow Congress to view unredacted Epstein files starting Feb. 9",
       "type": "top_stories",
-      "url": "https://www.usatoday.com/story/news/politics/2026/02/06/jeffrey-epstein-files-unredacted-congress/88554181007/"
+      "url": "https://www.usatoday.com/story/news/politics/2026/02/06/jeffrey-epstein-files-unredacted-congress/88554181007/",
+      "visible": true
     },
     {
       "cite": null,
@@ -130,7 +137,8 @@
       "text": null,
       "title": "SAVE Act voter ID bill is on the minds of Trump and Congress: What to know",
       "type": "top_stories",
-      "url": "https://www.cnbc.com/2026/02/06/save-act-trump-congress-elections-voting.html"
+      "url": "https://www.cnbc.com/2026/02/06/save-act-trump-congress-elections-voting.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -174,7 +182,8 @@
       "text": "Composition . What is the current U.S. Congress?",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "http://www.house.gov",
@@ -188,7 +197,8 @@
       "text": "History of the US House  Discover how Congress makes laws, schedule a school tour, & more. Visiting the House History of the US House Find Your Representative Read more",
       "title": "Homepage | house.gov",
       "type": "general",
-      "url": "http://www.house.gov/"
+      "url": "http://www.house.gov/",
+      "visible": true
     },
     {
       "cite": "https://www.congress.gov  › members",
@@ -202,7 +212,8 @@
       "text": "Profiles of U.S. Representatives and Senators  that include their legislative activity.",
       "title": "Members of the U.S. Congress",
       "type": "general",
-      "url": "https://www.congress.gov/members"
+      "url": "https://www.congress.gov/members",
+      "visible": true
     },
     {
       "cite": "https://www.visitthecapitol.gov  › explore › about-congr...",
@@ -216,7 +227,8 @@
       "text": "Congress  is a bicameral legislature divided into two equal institutions: the House of Representatives and the Senate. Read more",
       "title": "About Congress",
       "type": "general",
-      "url": "https://www.visitthecapitol.gov/explore/about-congress"
+      "url": "https://www.visitthecapitol.gov/explore/about-congress",
+      "visible": true
     },
     {
       "cite": null,
@@ -230,7 +242,8 @@
       "text": null,
       "title": "WATCH LIVE: Senate Democrats speak after House approves ... YouTube  ·  PBS NewsHour 3 days ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=TNK2xPZnS4Q"
+      "url": "https://www.youtube.com/watch?v=TNK2xPZnS4Q",
+      "visible": true
     },
     {
       "cite": null,
@@ -244,7 +257,8 @@
       "text": null,
       "title": "US Congress LIVE: Lawmaker Calls Trump a 'Fraud,' Flags ... YouTube  ·  Hook Global",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=BBmGQVWqMfk"
+      "url": "https://www.youtube.com/watch?v=BBmGQVWqMfk",
+      "visible": true
     },
     {
       "cite": null,
@@ -258,7 +272,8 @@
       "text": null,
       "title": "US Congress shutdown: Senate unanimously agrees on two ... YouTube  ·  Al Jazeera English 6 days ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=igpUSp3-U2g"
+      "url": "https://www.youtube.com/watch?v=igpUSp3-U2g",
+      "visible": true
     },
     {
       "cite": "https://www.govtrack.us  › congress › members",
@@ -272,7 +287,8 @@
       "text": "The  United States Congress  is made up of 100 senators, 435 representatives, and 6 delegates to the House of Representatives.",
       "title": "Representatives and Senators in Congress",
       "type": "general",
-      "url": "https://www.govtrack.us/congress/members"
+      "url": "https://www.govtrack.us/congress/members",
+      "visible": true
     },
     {
       "cite": "https://www.senate.gov",
@@ -286,7 +302,8 @@
       "text": "Voting Origins & Foundations , The Senate & the Constitution, Electing & Appointing Senators, Committee System, Idea of the Senate, Parties & Leadership Read more",
       "title": "U.S. Senate",
       "type": "general",
-      "url": "https://www.senate.gov/"
+      "url": "https://www.senate.gov/",
+      "visible": true
     },
     {
       "cite": "http://www.house.gov  › representatives › find-your-repr...",
@@ -300,7 +317,8 @@
       "text": "This service will assist you by  matching your ZIP code to your congressional district , with links to your member's website and contact page. Read more",
       "title": "Find Your Representative",
       "type": "general",
-      "url": "http://www.house.gov/representatives/find-your-representative"
+      "url": "http://www.house.gov/representatives/find-your-representative",
+      "visible": true
     },
     {
       "cite": null,
@@ -327,7 +345,8 @@
       "text": "U.S. Congress members<|>U.S. Senate<|>U.S. House<|>What happened in Congress today<|>Congress bills passed today<|>Who elects Congress<|>United States House of Representatives<|>U.S. Congress vs Senate",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -344,7 +363,8 @@
       "text": null,
       "title": "United States Congress",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

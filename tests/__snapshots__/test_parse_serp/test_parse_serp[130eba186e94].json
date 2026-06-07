@@ -24,7 +24,8 @@
       "text": "Jun 26, 2024  —  Over Zoom, he presented data showing that  AlphaFold2's predictive models of 3D protein structures were over 90% accurate  — five times better ... Read more",
       "title": "How AI Revolutionized Protein Science, but Didn't End It",
       "type": "general",
-      "url": "https://www.quantamagazine.org/how-ai-revolutionized-protein-science-but-didnt-end-it-20240626/"
+      "url": "https://www.quantamagazine.org/how-ai-revolutionized-protein-science-but-didnt-end-it-20240626/",
+      "visible": true
     },
     {
       "cite": null,
@@ -143,7 +144,8 @@
       "text": "Machine learning has revolutionized protein science by enabling, via tools like AlphaFold2 and RoseTTAFold , near-accurate prediction of 3D protein structures from amino acid sequences, solving a 50-year-old \"grand challenge\". These models, often leveraging evolutionary data, have transformed structural biology, drug design, and our understanding of protein function. This video explains how AI, specifically AlphaFold2, revolutionized protein structure prediction: 01:42 Quanta Magazine YouTube • Feb 7, 2025 Key aspects of machine learning in protein folding include: Structure Prediction: AlphaFold2, RoseTTAFold, and ESMFold predict 3D structures with high accuracy, often better than physical modeling alone. Protein Design: AI is used to create novel proteins (e.g., RFdiffusion, ProteinMPNN, MapDiff ) by designing sequences to adopt specific 3D shapes, accelerating therapeutic development. Force-field Design: Machine learning is improving the simulation of energy landscapes for protein folding/unfolding. Molecular Dynamics: ML helps analyze large simulation datasets and sample rare conformational changes, enhancing our understanding of dynamics. Inverse Folding: Tools like ProteinMPNN and ESM-IF, also known as design tools, reverse the process, finding amino acid sequences that fold into a desired structure. While these tools excel at prediction, they still grapple with the fundamental physics of protein folding. Continued advancements in ML, including hybrid quantum algorithms like QFold , promise to further enhance our ability to predict, simulate, and design proteins.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › AlphaFold",
@@ -157,7 +159,8 @@
       "text": "AlphaFold  is an artificial intelligence (AI) program developed by DeepMind, a subsidiary of Alphabet, which performs predictions of protein structure. Read more",
       "title": "AlphaFold",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/AlphaFold"
+      "url": "https://en.wikipedia.org/wiki/AlphaFold",
+      "visible": true
     },
     {
       "cite": "https://www.nature.com  › articles",
@@ -171,7 +174,8 @@
       "text": "by J Jumper  ·  2021  ·  Cited by 45694  —  The AlphaFold architecture is able to train to high accuracy using only supervised  learning  on PDB data, but we are able to enhance accuracy ( ... Read more",
       "title": "Highly accurate protein structure prediction with AlphaFold",
       "type": "general",
-      "url": "https://www.nature.com/articles/s41586-021-03819-2"
+      "url": "https://www.nature.com/articles/s41586-021-03819-2",
+      "visible": true
     },
     {
       "cite": "50+ comments  ·  1 year ago",
@@ -201,7 +205,8 @@
       "text": "Alphafold  just put that process into overdrive using bigger data sets and more complex machine learning calculators in place. Read more",
       "title": "Did the deep learning algorithm AlphaFord 2 'largely solve ...",
       "type": "general",
-      "url": "https://www.reddit.com/r/bioinformatics/comments/1e0s55e/did_the_deep_learning_algorithm_alphaford_2/"
+      "url": "https://www.reddit.com/r/bioinformatics/comments/1e0s55e/did_the_deep_learning_algorithm_alphaford_2/",
+      "visible": true
     },
     {
       "cite": null,
@@ -215,7 +220,8 @@
       "text": null,
       "title": "How AI Cracked the Protein Folding Code and Won a Nobel ... YouTube  ·  Quanta Magazine Oct 23, 2024",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw"
+      "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw",
+      "visible": true
     },
     {
       "cite": null,
@@ -229,7 +235,8 @@
       "text": null,
       "title": "Deep Learning for Protein Folding - Lecture 17 - MIT Deep ... YouTube  ·  Manolis Kellis Apr 26, 2021",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA"
+      "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA",
+      "visible": true
     },
     {
       "cite": null,
@@ -243,7 +250,8 @@
       "text": null,
       "title": "AlphaFold - The Most Useful Thing AI Has Ever Done YouTube  ·  Veritasium Feb 10, 2025",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=P_fHJIYENdI"
+      "url": "https://www.youtube.com/watch?v=P_fHJIYENdI",
+      "visible": true
     },
     {
       "cite": "https://machinelearning.apple.com  › research › simplef...",
@@ -257,7 +265,8 @@
       "text": "We scale  SimpleFold  to 3B parameters and train it on more than 8.6M distilled protein structures together with experimental PDB data. To the best of our ... Read more",
       "title": "SimpleFold: Folding Proteins is Simpler than You Think",
       "type": "general",
-      "url": "https://machinelearning.apple.com/research/simplefold"
+      "url": "https://machinelearning.apple.com/research/simplefold",
+      "visible": true
     },
     {
       "cite": "https://www.sciencedirect.com  › article › abs › pii",
@@ -271,7 +280,8 @@
       "text": "by Z Zhang  ·  2025  ·  Cited by 14  —  Machine learning has revolutionized protein structure prediction and design. This review discusses  current methods for protein folding  and inverse folding ... Read more",
       "title": "Artificial intelligence methods for protein folding and design",
       "type": "general",
-      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959440X25000843"
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0959440X25000843",
+      "visible": true
     },
     {
       "cite": "Reddit  ·  r/singularity  ·  60+ comments  ·  1 year ago",
@@ -285,7 +295,8 @@
       "text": null,
       "title": "The Protein Folding story: A glimpse into how AGI breakthroughs might ...",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/singularity/comments/1gam5oi/the_protein_folding_story_a_glimpse_into_how_agi/"
+      "url": "https://www.reddit.com/r/singularity/comments/1gam5oi/the_protein_folding_story_a_glimpse_into_how_agi/",
+      "visible": true
     },
     {
       "cite": "Quora  ·  1 answer  ·  1 year ago",
@@ -299,7 +310,8 @@
       "text": null,
       "title": "What do you think of deep learning algorithm AlphaFold2 that 'largely ...",
       "type": "discussions_and_forums",
-      "url": "https://www.quora.com/What-do-you-think-of-deep-learning-algorithm-AlphaFold2-that-largely-solved-the-protein-folding-problem"
+      "url": "https://www.quora.com/What-do-you-think-of-deep-learning-algorithm-AlphaFold2-that-largely-solved-the-protein-folding-problem",
+      "visible": true
     },
     {
       "cite": "Quora  ·  1 answer  ·  11 months ago",
@@ -313,7 +325,8 @@
       "text": null,
       "title": "If AI has no creativity, how did it solve protein folding?",
       "type": "discussions_and_forums",
-      "url": "https://www.quora.com/If-AI-has-no-creativity-how-did-it-solve-protein-folding"
+      "url": "https://www.quora.com/If-AI-has-no-creativity-how-did-it-solve-protein-folding",
+      "visible": true
     },
     {
       "cite": "https://theconversation.com  › machine-learning-cracked...",
@@ -327,7 +340,8 @@
       "text": "Oct 9, 2024  —  The team used a large database of experimentally determined  protein  structures to train the AI, which allowed it to learn the principles of ... Read more",
       "title": "Machine learning cracked the protein-folding problem and ...",
       "type": "general",
-      "url": "https://theconversation.com/machine-learning-cracked-the-protein-folding-problem-and-won-the-2024-nobel-prize-in-chemistry-240937"
+      "url": "https://theconversation.com/machine-learning-cracked-the-protein-folding-problem-and-won-the-2024-nobel-prize-in-chemistry-240937",
+      "visible": true
     },
     {
       "cite": null,
@@ -341,7 +355,8 @@
       "text": null,
       "title": "How DeepMind's AlphaFold2 Predicts Protein Shapes #science",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/6RSxZxiUix4"
+      "url": "https://www.youtube.com/shorts/6RSxZxiUix4",
+      "visible": true
     },
     {
       "cite": null,
@@ -355,7 +370,8 @@
       "text": null,
       "title": "5 years ago Google's Deepmind released AlphaFold ...",
       "type": "short_videos",
-      "url": "https://www.instagram.com/reel/DTQFHPqkWQj/?hl=en"
+      "url": "https://www.instagram.com/reel/DTQFHPqkWQj/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -369,7 +385,8 @@
       "text": null,
       "title": "Revolutionary AlphaFold: AI's Breakthrough in Protein Folding",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/z0uutTjro3Q"
+      "url": "https://www.youtube.com/shorts/z0uutTjro3Q",
+      "visible": true
     },
     {
       "cite": null,
@@ -383,7 +400,8 @@
       "text": null,
       "title": "AlphaFold uses deep learning to predict protein folding ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/1JKgtK1Mzmw"
+      "url": "https://www.youtube.com/shorts/1JKgtK1Mzmw",
+      "visible": true
     },
     {
       "cite": null,
@@ -397,7 +415,8 @@
       "text": null,
       "title": "Understanding Protein Folding and Classification",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/e8JlD0cotPI"
+      "url": "https://www.youtube.com/shorts/e8JlD0cotPI",
+      "visible": true
     },
     {
       "cite": "https://medicine.iu.edu  › blogs › research-updates › the-...",
@@ -411,7 +430,8 @@
       "text": "Jun 20, 2025  —  Predicting the 3D structure of these  proteins  poses a fundamental challenge in the life sciences. All life processes in our bodies occur through ... Read more",
       "title": "The Protein Folding Problem: The day AI unlocked a secret of ...",
       "type": "general",
-      "url": "https://medicine.iu.edu/blogs/research-updates/the-protein-folding-problem-the-day-ai-unlocked-a-secret-of-life"
+      "url": "https://medicine.iu.edu/blogs/research-updates/the-protein-folding-problem-the-day-ai-unlocked-a-secret-of-life",
+      "visible": true
     },
     {
       "cite": null,
@@ -438,7 +458,8 @@
       "text": "Machine learning protein folding pdf<|>Protein folding AI breakthrough<|>Protein folding AI Nobel Prize<|>AlphaFold 2<|>AI protein folding<|>AlphaFold Protein<|>Highly accurate protein structure prediction with AlphaFold<|>Did AlphaFold solve protein folding",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

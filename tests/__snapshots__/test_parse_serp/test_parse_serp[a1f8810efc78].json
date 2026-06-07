@@ -35,7 +35,8 @@
       "text": "American film critic",
       "title": "Roger Ebert",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -54,7 +55,8 @@
       "text": null,
       "title": "Books",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.thriftbooks.com  › roger-ebert",
@@ -72,7 +74,8 @@
       "text": "Looking for  books by Roger Ebert ? See all books authored by Roger Ebert, including The Great Movies, and Life Itself, and more on ThriftBooks.com.",
       "title": "List of books by author Roger Ebert",
       "type": "general",
-      "url": "https://www.thriftbooks.com/a/roger-ebert/211347/"
+      "url": "https://www.thriftbooks.com/a/roger-ebert/211347/",
+      "visible": true
     },
     {
       "cite": "https://www.goodreads.com  › list › 13300.Roger_Ebert",
@@ -86,7 +89,8 @@
       "text": "Roger Ebert's Book  of Film: From Tolstoy to Tarantino, the Fi... The Pot and How to Use It: The Mystery and Romance of the Ric...  Ebert's  Bigger Little Movie ...",
       "title": "Books by Roger Ebert (Author of Life Itself)",
       "type": "general",
-      "url": "https://www.goodreads.com/author/list/13300.Roger_Ebert"
+      "url": "https://www.goodreads.com/author/list/13300.Roger_Ebert",
+      "visible": true
     },
     {
       "cite": null,
@@ -108,7 +112,8 @@
       "text": "What is Roger Ebert's most famous review?<|>Did Oprah date Roger Ebert?<|>What kind of writing did Roger Ebert win a Pulitzer Prize for?<|>Who writes for Roger Ebert?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › stores › author",
@@ -126,7 +131,8 @@
       "text": "Books  · The Great Movies IV ·  Roger Ebert's  Four-Star Reviews 1967–2007 · The Great Movies II · The Great Movies · The Great Movies III · Your Movie Sucks · I ...",
       "title": "Roger Ebert: books, biography, latest update",
       "type": "general",
-      "url": "https://www.amazon.com/stores/author/B000API2UK"
+      "url": "https://www.amazon.com/stores/author/B000API2UK",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Roger_Ebert",
@@ -140,7 +146,8 @@
       "text": "Roger  Joseph  Ebert  was an American film critic, film historian, journalist, essayist, screenwriter, and  author . He was a film critic for the Chicago ...",
       "title": "Roger Ebert",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+      "url": "https://en.wikipedia.org/wiki/Roger_Ebert",
+      "visible": true
     },
     {
       "cite": "CBS News",
@@ -154,7 +161,8 @@
       "text": null,
       "title": "New book tells the story of film critics Roger Ebert and Gene ... CBS News  ·  CBS News 8 minutes, 36 seconds Nov 18, 2023",
       "type": "videos",
-      "url": "https://www.cbsnews.com/video/new-book-tells-the-story-of-film-critics-roger-ebert-and-gene-siskel/"
+      "url": "https://www.cbsnews.com/video/new-book-tells-the-story-of-film-critics-roger-ebert-and-gene-siskel/",
+      "visible": true
     },
     {
       "cite": "Facebook",
@@ -168,7 +176,8 @@
       "text": null,
       "title": "New book highlights how Siskel and Ebert changed movies ... Facebook  ·  CBS Mornings 7 minutes, 41 seconds Nov 18, 2023",
       "type": "videos",
-      "url": "https://www.facebook.com/CBSMornings/videos/new-book-highlights-how-siskel-and-ebert-changed-movies/724606732452399/"
+      "url": "https://www.facebook.com/CBSMornings/videos/new-book-highlights-how-siskel-and-ebert-changed-movies/724606732452399/",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -182,7 +191,8 @@
       "text": null,
       "title": "The Best Books on Movies -- Roger Ebert (Episode 1) YouTube  ·  Learning about Movies 8 minutes, 47 seconds Jan 27, 2022",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=stJ9jEa_4CI"
+      "url": "https://www.youtube.com/watch?v=stJ9jEa_4CI",
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › Roger-Eberts-Book-Film-Ta...",
@@ -200,7 +210,8 @@
       "text": "Roger Ebert's Book  of Film: From Tolstoy to Tarantino, the Finest Writing From a Century of Film:  Ebert ,  Roger : 9780393040005: Amazon.com:  Books .",
       "title": "Roger Ebert's Book of Film: From Tolstoy to Tarantino, the ...",
       "type": "general",
-      "url": "https://www.amazon.com/Roger-Eberts-Book-Film-Tarantino/dp/0393040003"
+      "url": "https://www.amazon.com/Roger-Eberts-Book-Film-Tarantino/dp/0393040003",
+      "visible": true
     },
     {
       "cite": "10+ comments  ·  4 years ago",
@@ -214,7 +225,8 @@
       "text": "Roger Ebert  - Great Movies  books  · Valheim · Genshin Impact · Minecraft · Pokimane · Halo Infinite · Call of Duty: Warzone · Path of Exile ...",
       "title": "Roger Ebert - Great Movies books : r/flicks",
       "type": "general",
-      "url": "https://www.reddit.com/r/flicks/comments/c6huit/roger_ebert_great_movies_books/"
+      "url": "https://www.reddit.com/r/flicks/comments/c6huit/roger_ebert_great_movies_books/",
+      "visible": true
     },
     {
       "cite": "https://www.goodreads.com  › show › 13300.Roger_Ebert",
@@ -228,7 +240,8 @@
       "text": "Roger Ebert's Books  · Life Itself by  Roger Ebert  Life Itself. 3.92 6,402 ratings 970 reviews · The Great Movies by  Roger Ebert  The Great Movies · Your Movie ...",
       "title": "Roger Ebert (Author of Life Itself)",
       "type": "general",
-      "url": "https://www.goodreads.com/author/show/13300.Roger_Ebert"
+      "url": "https://www.goodreads.com/author/show/13300.Roger_Ebert",
+      "visible": true
     },
     {
       "cite": "https://www.latimes.com  › books › la-xpm-2013-apr-0...",
@@ -242,7 +255,8 @@
       "text": "Apr 4, 2013  —  Here's a sample of the  books  he left behind: “The Great Movies”: A collection of  Eberts ' reviews of films he loved.",
       "title": "Remembering Roger Ebert through his books",
       "type": "general",
-      "url": "https://www.latimes.com/books/la-xpm-2013-apr-04-la-et-jc-remembering-roger-ebert-through-his-books-20130404-story.html"
+      "url": "https://www.latimes.com/books/la-xpm-2013-apr-04-la-et-jc-remembering-roger-ebert-through-his-books-20130404-story.html",
+      "visible": true
     },
     {
       "cite": "https://www.rogerebert.com  › contributors › roger-ebert",
@@ -256,7 +270,8 @@
       "text": "Roger Ebert  · The Spectacular Now · Computer Chess · At Any Price · Blancanieves · Deceptive Practice: The Mysteries and Mentors of Ricky Jay · To the Wonder · From Up ...",
       "title": "Roger Ebert biography & movie reviews",
       "type": "general",
-      "url": "https://www.rogerebert.com/contributors/roger-ebert"
+      "url": "https://www.rogerebert.com/contributors/roger-ebert",
+      "visible": true
     },
     {
       "cite": null,
@@ -283,7 +298,8 @@
       "text": "roger ebert cause of death<|>what happened to roger ebert jaw<|>roger ebert best reviews<|>roger ebert last review<|>roger ebert wife death<|>roger ebert last words<|>roger ebert net worth<|>roger ebert children",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -297,7 +313,8 @@
       "text": "Roger Joseph Ebert was an American film critic, film historian, journalist, essayist, screenwriter, and author. He was a film critic for the Chicago Sun-Times from 1967 until his death in 2013. Ebert was known for his intimate, Midwestern writing voice and critical views informed by values of populism and humanism.",
       "title": null,
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
+      "url": "https://en.wikipedia.org/wiki/Roger_Ebert",
+      "visible": true
     },
     {
       "cite": null,
@@ -351,7 +368,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -377,7 +395,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

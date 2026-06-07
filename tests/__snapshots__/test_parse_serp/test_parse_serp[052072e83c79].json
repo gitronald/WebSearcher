@@ -24,7 +24,8 @@
       "text": null,
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.tesla.com  › secret-master-plan",
@@ -38,7 +39,8 @@
       "text": "Aug 2, 2006  —  The  Tesla  Roadster is designed to beat a gasoline sports car like a Porsche or Ferrari in a head to head showdown.",
       "title": "The Secret Tesla Motors Master Plan (just between you ...",
       "type": "general",
-      "url": "https://www.tesla.com/secret-master-plan"
+      "url": "https://www.tesla.com/secret-master-plan",
+      "visible": true
     },
     {
       "cite": null,
@@ -60,7 +62,8 @@
       "text": "What is Tesla's mission statement in 2024?<|>What is the promise of the Tesla brand?<|>What is Tesla's vision statement?<|>What is the philosophy of Tesla?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.tesla.com  › about",
@@ -74,7 +77,8 @@
       "text": "We're building a world powered by solar energy, running on batteries and transported by electric vehicles. Explore the most recent impact of our products.",
       "title": "About",
       "type": "general",
-      "url": "https://www.tesla.com/about"
+      "url": "https://www.tesla.com/about",
+      "visible": true
     },
     {
       "cite": "https://teslauniverse.com  › nikola-tesla › articles › strikin...",
@@ -88,7 +92,8 @@
       "text": "It is most sumptuously got up on vellum paper and altogether constitutes a  manifesto  worthy of the original genius issuing it. It is to be gathered from the ...",
       "title": "A Striking Tesla Manifesto",
       "type": "general",
-      "url": "https://teslauniverse.com/nikola-tesla/articles/striking-tesla-manifesto"
+      "url": "https://teslauniverse.com/nikola-tesla/articles/striking-tesla-manifesto",
+      "visible": true
     },
     {
       "cite": "https://finance.yahoo.com  › news › tesla-scrubs-elon-m...",
@@ -102,7 +107,8 @@
       "text": "Aug 28, 2024  —  Tesla's  “Secret Master Plan” outlined the company's aim to produce affordable EVs in line with its long-term sustainability goals.",
       "title": "Tesla scrubs Elon Musk's original brainchild manifesto from ...",
       "type": "general",
-      "url": "https://finance.yahoo.com/news/tesla-scrubs-elon-musk-original-210311141.html"
+      "url": "https://finance.yahoo.com/news/tesla-scrubs-elon-musk-original-210311141.html",
+      "visible": true
     },
     {
       "cite": "9.9K+ views  ·  4 weeks ago",
@@ -116,7 +122,8 @@
       "text": "The Las Vegas Metropolitan Police Department alongside the ATF provided an update into theTeslaCybertruck explosion on Tuesday.",
       "title": "Tesla Cybertruck explosion: Police discover additional ...",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=r-fgimurh2g"
+      "url": "https://www.youtube.com/watch?v=r-fgimurh2g",
+      "visible": true
     },
     {
       "cite": "https://www.tesla.com  › master-plans",
@@ -130,7 +137,8 @@
       "text": "Tesla's  mission is to accelerate the world's transition to sustainable energy. Read  Tesla's  master plans.",
       "title": "Master Plans",
       "type": "general",
-      "url": "https://www.tesla.com/master-plans"
+      "url": "https://www.tesla.com/master-plans",
+      "visible": true
     },
     {
       "cite": "https://www.ktnv.com  › news › watch-new-details-relea...",
@@ -144,7 +152,8 @@
       "text": "Jan 7, 2025  —  LVMPD Sheriff Kevin McMahill said they have recovered a six-page document on Livelsberger's phone that he describes as a  manifesto .",
       "title": "Investigators: Soldier used AI to plan explosion, new 6-page ...",
       "type": "general",
-      "url": "https://www.ktnv.com/news/watch-new-details-released-in-cybertruck-explosion-that-killed-soldier-in-las-vegas"
+      "url": "https://www.ktnv.com/news/watch-new-details-released-in-cybertruck-explosion-that-killed-soldier-in-las-vegas",
+      "visible": true
     },
     {
       "cite": null,
@@ -181,7 +190,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.forbes.com  › Innovation › Transportation",
@@ -195,7 +205,8 @@
       "text": "Aug 26, 2024  —  An 18-year-old  manifesto  in which the tech entrepreneur laid out his vision for the electric car maker shortly after its first public event ...",
       "title": "Elon Musk's 2006 Climate Manifesto For Tesla Is Gone ...",
       "type": "general",
-      "url": "https://www.forbes.com/sites/alanohnsman/2024/08/26/elon-musk-climate-manifesto-vanishes-from-tesla-website/"
+      "url": "https://www.forbes.com/sites/alanohnsman/2024/08/26/elon-musk-climate-manifesto-vanishes-from-tesla-website/",
+      "visible": true
     },
     {
       "cite": "https://coloradotimesrecorder.com  › 2025/01 › davis-w...",
@@ -209,7 +220,8 @@
       "text": "Rather, I suspect that much of the media has opted to ignore the  manifestos  for the opposite reason: because the ideas expressed in those ...",
       "title": "DAVIS: Why the Media Mostly Ignored the Tesla Bomber's ...",
       "type": "general",
-      "url": "https://coloradotimesrecorder.com/2025/01/davis-why-the-media-mostly-ignored-the-tesla-bombers-shockingly-mainstream-manifesto/66654/"
+      "url": "https://coloradotimesrecorder.com/2025/01/davis-why-the-media-mostly-ignored-the-tesla-bombers-shockingly-mainstream-manifesto/66654/",
+      "visible": true
     },
     {
       "cite": "220+ reactions  ·  1 month ago",
@@ -223,7 +235,8 @@
       "text": "To kick off the new year, let's dive into one of  Tesla's  boldest declarations—his 4-page  manifesto , issued on January 1, 1904—a powerful ...",
       "title": "Nikola Tesla's 1904 Manifesto – A... - Dr. ...",
       "type": "general",
-      "url": "https://www.facebook.com/AheadOfHisTime/posts/nikola-teslas-1904-manifesto-a-vision-for-the-future-happy-new-year-everyone-tha/1135860038548152/"
+      "url": "https://www.facebook.com/AheadOfHisTime/posts/nikola-teslas-1904-manifesto-a-vision-for-the-future-happy-new-year-everyone-tha/1135860038548152/",
+      "visible": true
     },
     {
       "cite": null,
@@ -250,7 +263,8 @@
       "text": "Tesla manifesto pdf<|>Tesla Master Plan 2<|>Tesla Master Plan 3<|>Tesla Master Plan 1 PDF<|>Tesla mission<|>Tesla business strategy PDF<|>Tesla Master Plan 4<|>Tesla history",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

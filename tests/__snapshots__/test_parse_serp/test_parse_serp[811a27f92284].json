@@ -52,7 +52,8 @@
       "text": "American singer-songwriter",
       "title": "Taylor Swift",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -68,7 +69,8 @@
       "text": "Source: PureWow",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -84,7 +86,8 @@
       "text": "@taylorswift Instagram My favorite part about writing is that first spark of an idea. It can happen at any time, for any reason. The idea for the Opalite music video crash landed into my imagination when I was doing promo for The ... 11 hours ago",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.instagram.com/p/DUatriyDtst/"
+      "url": "https://www.instagram.com/p/DUatriyDtst/",
+      "visible": true
     },
     {
       "cite": null,
@@ -102,7 +105,8 @@
       "text": "Age: Dec 13, 1989",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -120,7 +124,8 @@
       "text": "Parents: Scott Kingsley Swift",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -136,7 +141,8 @@
       "text": "The Official Website of Taylor Swift The Official Website of Taylor Swift Discover the world of Taylor Swift – music, tours, news, content, and more. Stay updated on the latest releases, events, and official merchandise.",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.taylorswift.com/"
+      "url": "https://www.taylorswift.com/",
+      "visible": true
     },
     {
       "cite": "https://www.taylorswift.com",
@@ -150,7 +156,8 @@
       "text": "Discover the world of Taylor Swift –  music, tours, news, content, and more . Stay updated on the latest releases, events, and official merchandise.",
       "title": "The Official Website of Taylor Swift",
       "type": "general",
-      "url": "https://www.taylorswift.com/"
+      "url": "https://www.taylorswift.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -164,7 +171,8 @@
       "text": null,
       "title": "All the stars who make a cameo in Taylor Swift’s '90s-themed 'Opalite' music video",
       "type": "top_stories",
-      "url": "https://ew.com/taylor-swift-opalite-music-video-celebrity-cameos-full-list-11901072"
+      "url": "https://ew.com/taylor-swift-opalite-music-video-celebrity-cameos-full-list-11901072",
+      "visible": true
     },
     {
       "cite": null,
@@ -178,7 +186,8 @@
       "text": null,
       "title": "Taylor Swift released a star-studded music video for 'Opalite.' Here are the details and Easter eggs you may have missed.",
       "type": "top_stories",
-      "url": "https://www.businessinsider.com/taylor-swift-opalite-music-video-details-easter-eggs-2026-2"
+      "url": "https://www.businessinsider.com/taylor-swift-opalite-music-video-details-easter-eggs-2026-2",
+      "visible": true
     },
     {
       "cite": null,
@@ -192,7 +201,8 @@
       "text": null,
       "title": "Why Taylor Swift’s ‘Opalite’ Music Video Isn’t on YouTube",
       "type": "top_stories",
-      "url": "https://www.thewrap.com/culture-lifestyle/culture/taylor-swift-opalite-music-video-not-on-youtube/"
+      "url": "https://www.thewrap.com/culture-lifestyle/culture/taylor-swift-opalite-music-video-not-on-youtube/",
+      "visible": true
     },
     {
       "cite": null,
@@ -206,7 +216,8 @@
       "text": null,
       "title": "Taylor Swift Wears Ralph Lauren Tee for Surprise 2026 Winter Olympics Cameo",
       "type": "top_stories",
-      "url": "https://www.instyle.com/taylor-swift-surprise-cameo-winter-olympics-2026-opening-ceremony-11901476"
+      "url": "https://www.instyle.com/taylor-swift-surprise-cameo-winter-olympics-2026-opening-ceremony-11901476",
+      "visible": true
     },
     {
       "cite": null,
@@ -220,7 +231,8 @@
       "text": null,
       "title": "You Can Still Snag the $96 Polo Bear Shirt Taylor Swift Wore in Surprise 2026 Olympics Message",
       "type": "top_stories",
-      "url": "https://www.elle.com/fashion/celebrity-style/a70273102/taylor-swift-2026-olympics-polo-ralph-lauren-bear-shirt/"
+      "url": "https://www.elle.com/fashion/celebrity-style/a70273102/taylor-swift-2026-olympics-polo-ralph-lauren-bear-shirt/",
+      "visible": true
     },
     {
       "cite": null,
@@ -234,7 +246,8 @@
       "text": null,
       "title": "Taylor Swift Sends Message to 'Really Inspiring' Athletes During Winter Olympics 2026 Opening Ceremony",
       "type": "top_stories",
-      "url": "https://people.com/taylor-swift-sends-message-to-athletes-during-2026-winter-olympics-opening-ceremony-11901766"
+      "url": "https://people.com/taylor-swift-sends-message-to-athletes-during-2026-winter-olympics-opening-ceremony-11901766",
+      "visible": true
     },
     {
       "cite": null,
@@ -248,7 +261,8 @@
       "text": null,
       "title": "Kylie Kelce’s sweet “I love you” to Taylor Swift steals the spotlight from Travis Kelce’s sourdough joke",
       "type": "top_stories",
-      "url": "https://timesofindia.indiatimes.com/sports/nfl/news/kylie-kelces-sweet-i-love-you-to-taylor-swift-steals-the-spotlight-from-travis-kelces-sourdough-joke/articleshow/127992389.cms"
+      "url": "https://timesofindia.indiatimes.com/sports/nfl/news/kylie-kelces-sweet-i-love-you-to-taylor-swift-steals-the-spotlight-from-travis-kelces-sourdough-joke/articleshow/127992389.cms",
+      "visible": true
     },
     {
       "cite": null,
@@ -300,7 +314,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -316,7 +331,8 @@
       "text": null,
       "title": "Ms. Taylor Swift…you have got to be kidding Elmo.",
       "type": "perspectives",
-      "url": "https://x.com/elmo/status/2019798293912404240?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/elmo/status/2019798293912404240?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -332,7 +348,8 @@
       "text": null,
       "title": "My favorite part about writing is that first spark of an idea. It can happen at any time, for any reason. The idea for the Opalite music video crash landed into my imagination when I was doing promo for The Life of a Showgirl. I was a guest on one of my favorite shows, @TheGrahamNortonShowOfficial. For those of you who aren’t familiar, it’s a UK late night show where Graham Norton (the insanely charismatic and lovable host) invites a random group of actors, entertainers, musicians, etc to be on his show and we all sit there and chat like it’s a dinner party. They even serve wine. Anyway. I remember thinking I got ridiculously lucky with the group I was paired with. Cillian Murphy, Domhnall Gleeson, Greta Lee, @JodieSmith, and @LewisCapaldi. All people whose work I’ve admired from afar. When we were all talking during the broadcast, Domhnall made a light hearted joke about wanting to be in one of my music videos. He’s Irish! He was joking! Except that in that moment during the interview",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUatriyDtst/"
+      "url": "https://www.instagram.com/p/DUatriyDtst/",
+      "visible": true
     },
     {
       "cite": null,
@@ -348,7 +365,8 @@
       "text": null,
       "title": "Opalite Music Video Discussion Megathread",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qx7sa9/opalite_music_video_discussion_megathread/"
+      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qx7sa9/opalite_music_video_discussion_megathread/",
+      "visible": true
     },
     {
       "cite": null,
@@ -364,7 +382,8 @@
       "text": null,
       "title": "Taylor Swift's OPALITE Music Video: EASTER EGGS Revealed",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=ypoJHet2xSI"
+      "url": "https://www.youtube.com/watch?v=ypoJHet2xSI",
+      "visible": true
     },
     {
       "cite": null,
@@ -380,7 +399,8 @@
       "text": null,
       "title": "All of the guests from Taylor Swift’s latest appearance on ‘The Graham Norton Show’ are starring in the \"Opalite\" music video. \n\nGreta Lee \nJodie Turner-Smith \nDomhnall Gleeson \nLewis Capaldi \nGraham Norton \nCillian Murphy",
       "type": "perspectives",
-      "url": "https://x.com/FilmUpdates/status/2019762191080071396?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/FilmUpdates/status/2019762191080071396?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -396,7 +416,8 @@
       "text": null,
       "title": "‼️ | A \"Taylor's Version\" easter egg was seen in 'Opalite' music video!",
       "type": "perspectives",
-      "url": "https://x.com/blessedswifty/status/2019766517273923915?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/blessedswifty/status/2019766517273923915?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -412,7 +433,8 @@
       "text": null,
       "title": "Ms. @taylorswift really should have warned Elmo about this. 🤦‍♂️🪨",
       "type": "perspectives",
-      "url": "https://www.facebook.com/Elmo/posts/ms-taylorswift-really-should-have-warned-elmo-about-this-%EF%B8%8F/1483565723132989/"
+      "url": "https://www.facebook.com/Elmo/posts/ms-taylorswift-really-should-have-warned-elmo-about-this-%EF%B8%8F/1483565723132989/",
+      "visible": true
     },
     {
       "cite": null,
@@ -428,7 +450,8 @@
       "text": null,
       "title": "It’s officially official, Opalite is Taylor’s new single! And if you go to TaylorSwift.com now, you can count down to the release of the MUSIC VIDEO on @Spotify Premium and @applemusic on Friday at 8am ET! \n\nWhile you’re there, shop new Opalite blue pearlescent vinyl, available to pre-order until 2/6 at 7pm ET or while supplies last. ✨",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUWvtkZiZqA/"
+      "url": "https://www.instagram.com/reel/DUWvtkZiZqA/",
+      "visible": true
     },
     {
       "cite": null,
@@ -444,7 +467,8 @@
       "text": null,
       "title": "Taylor’s instagram post about the Opalite video",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/SwiftlyNeutral/comments/1qxiixf/taylors_instagram_post_about_the_opalite_video/"
+      "url": "https://www.reddit.com/r/SwiftlyNeutral/comments/1qxiixf/taylors_instagram_post_about_the_opalite_video/",
+      "visible": true
     },
     {
       "cite": null,
@@ -460,7 +484,8 @@
       "text": null,
       "title": "Elmo responds to Taylor Swift's newest video where she appears to have cast his arch nemesis, Rocco",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/Fauxmoi/comments/1qxtzr0/elmo_responds_to_taylor_swifts_newest_video_where/"
+      "url": "https://www.reddit.com/r/Fauxmoi/comments/1qxtzr0/elmo_responds_to_taylor_swifts_newest_video_where/",
+      "visible": true
     },
     {
       "cite": null,
@@ -476,7 +501,8 @@
       "text": null,
       "title": "Opalite Kam-eo 🤍😝\n\nWritten and directed by my brilliant boss lady, @taylorswift \n\nAs I always say to you… it is an HONOR to be included and thought of in your world of endless creativity and fun!!!\nLove you big! 🤍",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUbP4fQiFLS/"
+      "url": "https://www.instagram.com/p/DUbP4fQiFLS/",
+      "visible": true
     },
     {
       "cite": "NBCOlympics",
@@ -492,7 +518,8 @@
       "text": null,
       "title": "Milan Cortina was on Taylor Swift’s mind and she has a message for all #WinterOlympics athletes!\n\nThe music video for Taylor Swift’s hit Opalite dropped TODAY! ",
       "type": "perspectives",
-      "url": "https://x.com/NBCOlympics/status/2019850549504422075?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/NBCOlympics/status/2019850549504422075?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "PopCrave · X",
@@ -508,7 +535,8 @@
       "text": null,
       "title": "Taylor Swift reveals the “Opalite” music video was shot on film. ",
       "type": "perspectives",
-      "url": "https://x.com/PopCrave/status/2019768033623826641?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PopCrave/status/2019768033623826641?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -524,7 +552,8 @@
       "text": null,
       "title": "The #OpaliteMusicVideo is out now, and it’s ✨ picture perfect! ✨ Watch on @Spotify Premium and @Apple Music and let us know who you spot in the cast. 🪨🌵",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@taylornation/video/7603738580371950861"
+      "url": "https://www.tiktok.com/@taylornation/video/7603738580371950861",
+      "visible": true
     },
     {
       "cite": null,
@@ -540,7 +569,8 @@
       "text": null,
       "title": "My favorite part about writing is that first spark of an idea. It can happen at any time, for any reason. The idea for the Opalite music video crash landed into my imagination when I was doing promo for The Life of a Showgirl. I was a guest on one of my favorite shows, @TheGrahamNortonShowOfficial. For those of you who aren’t familiar, it’s a UK late night show where Graham Norton (the insanely charismatic and lovable host) invites a random group of actors, entertainers, musicians, etc to be on his show and we all sit there and chat like it’s a dinner party. They even serve wine. Anyway. I remember thinking I got ridiculously lucky with the group I was paired with. Cillian Murphy, Domhnall Gleeson, Greta Lee, @JodieSmith, and @LewisCapaldi. All people whose work I’ve admired from afar. When we were all talking during the broadcast, Domhnall made a light hearted joke about wanting to be in one of my music videos. He’s Irish! He was joking! Except that in that moment during the interview",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUatriyDtst/"
+      "url": "https://www.instagram.com/p/DUatriyDtst/",
+      "visible": true
     },
     {
       "cite": "PopBase · X",
@@ -556,7 +586,8 @@
       "text": null,
       "title": "All of the guests from Taylor Swift’s most recent appearance on ‘The Graham Norton Show’ make a cameo in her ‘Opalite’ music video:\n\nDomhnall Gleeson\nLewis Capaldi\nJodie Turner-Smith\nGreta Lee \nCillian Murphy\nGraham Norton ",
       "type": "perspectives",
-      "url": "https://x.com/PopBase/status/2019759270414184510?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PopBase/status/2019759270414184510?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "PopCrave · X",
@@ -572,7 +603,8 @@
       "text": null,
       "title": "Cillian Murphy stuns in the “Opalite” music video by Taylor Swift. ",
       "type": "perspectives",
-      "url": "https://x.com/PopCrave/status/2019766314173125113?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PopCrave/status/2019766314173125113?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "PopCrave · X",
@@ -588,7 +620,8 @@
       "text": null,
       "title": "Taylor Swift looks incredible with dark hair in the “Opalite” music video. ",
       "type": "perspectives",
-      "url": "https://x.com/PopCrave/status/2019765440428327147?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PopCrave/status/2019765440428327147?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -604,7 +637,8 @@
       "text": null,
       "title": "Taylor message for 2026 Winter Olympics #taylorswift #olympics #opalite #winterolympics",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@eurosweetheart/video/7603841573989747982"
+      "url": "https://www.tiktok.com/@eurosweetheart/video/7603841573989747982",
+      "visible": true
     },
     {
       "cite": null,
@@ -620,7 +654,8 @@
       "text": null,
       "title": "Taylor Swift's message to the 2026 Winter Olympics athletes",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/TrueSwifties/comments/1qxubg8/taylor_swifts_message_to_the_2026_winter_olympics/"
+      "url": "https://www.reddit.com/r/TrueSwifties/comments/1qxubg8/taylor_swifts_message_to_the_2026_winter_olympics/",
+      "visible": true
     },
     {
       "cite": "TheSwiftSociety · X",
@@ -636,7 +671,8 @@
       "text": null,
       "title": "🚨| Taylor Swift shares a message for the 2026 Winter Olympics.  ",
       "type": "perspectives",
-      "url": "https://x.com/TheSwiftSociety/status/2019848871724347665?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TheSwiftSociety/status/2019848871724347665?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "TSUpdating · X",
@@ -652,7 +688,8 @@
       "text": null,
       "title": "🚨| Taylor Swift’s good luck message to the Winter Olympics athletes!\n\n ",
       "type": "perspectives",
-      "url": "https://x.com/TSUpdating/status/2019883151657763081?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TSUpdating/status/2019883151657763081?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "NBCOlympics",
@@ -668,7 +705,8 @@
       "text": null,
       "title": "Milan Cortina was on Taylor Swift’s mind and she has a message for all #WinterOlympics athletes!\n\nThe music video for Taylor Swift’s hit Opalite dropped TODAY! ",
       "type": "perspectives",
-      "url": "https://x.com/NBCOlympics/status/2019850549504422075?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/NBCOlympics/status/2019850549504422075?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "swifferupdates · X",
@@ -684,7 +722,8 @@
       "text": null,
       "title": "🎥| Taylor shares a word of encouragement to the athletes competing at the Winter Olympic Games! ",
       "type": "perspectives",
-      "url": "https://x.com/swifferupdates/status/2019855297637241153?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/swifferupdates/status/2019855297637241153?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "TSUpdating · X",
@@ -700,7 +739,8 @@
       "text": null,
       "title": "Travis Kelce on breaking Taylor Swift’s chair:\n\n“I broke Taylor’s chair with the weight I gained from her sourdough. Good gut health, though.”🤣🤣\n\n ",
       "type": "perspectives",
-      "url": "https://x.com/TSUpdating/status/2019572118472781943?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TSUpdating/status/2019572118472781943?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -716,7 +756,8 @@
       "text": null,
       "title": "😂😂😂 (via @New Heights) #taylorswift #traviskelce #chair #funny",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@espn/video/7603015734549056799"
+      "url": "https://www.tiktok.com/@espn/video/7603015734549056799",
+      "visible": true
     },
     {
       "cite": null,
@@ -732,7 +773,8 @@
       "text": null,
       "title": "@JACKED posts the BEST news, rumors & more! Travis Kelce’s hilarious mishap on the New Heights podcast: The Chiefs star tight end confesses to accidentally snapping one of girlfriend Taylor Swift’s fancy $10K designer chairs while chilling at her place. W",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUWI2dTgZte/"
+      "url": "https://www.instagram.com/p/DUWI2dTgZte/",
+      "visible": true
     },
     {
       "cite": "NFL_DovKleiman · X",
@@ -748,7 +790,8 @@
       "text": null,
       "title": "Oh No: Travis Kelce accidentally BROKE one of Taylor Swift’s $10K designer chairs.\n\n“Taylor is gonna kill me”\n\n😭😭😭\n\n ",
       "type": "perspectives",
-      "url": "https://x.com/NFL_DovKleiman/status/2018896008894136567?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/NFL_DovKleiman/status/2018896008894136567?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "TSUpdating · X",
@@ -764,7 +807,8 @@
       "text": null,
       "title": "Travis Kelce apparently broke one of Taylor Swift’s chairs.\n\n“Taylor is gonna k me” 😂😂\n\n ",
       "type": "perspectives",
-      "url": "https://x.com/TSUpdating/status/2018813457852993938?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TSUpdating/status/2018813457852993938?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": "TheSwiftSociety · X",
@@ -780,7 +824,8 @@
       "text": null,
       "title": "💬| Travis Kelce jokes about breaking a chair due to eating too much Taylor Swift sourdough bread\n\n\"I’m not gonna lie, I broke Taylor’s chair with the weight I gained from her sourdough. Good gut health, though\" ",
       "type": "perspectives",
-      "url": "https://x.com/TheSwiftSociety/status/2019577006405386334?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/TheSwiftSociety/status/2019577006405386334?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -796,7 +841,8 @@
       "text": null,
       "title": "What is your interpretation of Rock, Cactus, and Stapler?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/SwiftlyNeutral/comments/1qxsfx7/what_is_your_interpretation_of_rock_cactus_and/"
+      "url": "https://www.reddit.com/r/SwiftlyNeutral/comments/1qxsfx7/what_is_your_interpretation_of_rock_cactus_and/",
+      "visible": false
     },
     {
       "cite": null,
@@ -812,7 +858,8 @@
       "text": null,
       "title": "Opalite music video!!! 🪨 🌵 ⚡️ This was so cute- giving napoleon dynamite in the best way!!! What did I miss? Tell me! #swifties #taylorswift #opalite #greenscreenvideo",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@swiftieinkc/video/7603745186245643534"
+      "url": "https://www.tiktok.com/@swiftieinkc/video/7603745186245643534",
+      "visible": false
     },
     {
       "cite": null,
@@ -828,7 +875,8 @@
       "text": null,
       "title": "#greenscreen DELULU Taylor Swift “Opalite” music video Easter eggs 🤔🥚😩 #swiftok #opalitemusicvideo #swifties #taylorswift",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@jessicagolich/video/7603795622029823262"
+      "url": "https://www.tiktok.com/@jessicagolich/video/7603795622029823262",
+      "visible": false
     },
     {
       "cite": null,
@@ -844,7 +892,8 @@
       "text": null,
       "title": "#Opalite can we chat more about this!!!? I LOVE HER MIND!!!! #dwifties #taylorswift #celebritynews",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@swiftieinkc/video/7603779834078088462"
+      "url": "https://www.tiktok.com/@swiftieinkc/video/7603779834078088462",
+      "visible": false
     },
     {
       "cite": null,
@@ -860,7 +909,8 @@
       "text": null,
       "title": "Tell me your thoughts !!!! #opalite #taylorswift #musicvideo #hottake #swifties",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@brittonrae/video/7603781831640616223"
+      "url": "https://www.tiktok.com/@brittonrae/video/7603781831640616223",
+      "visible": false
     },
     {
       "cite": null,
@@ -876,7 +926,8 @@
       "text": null,
       "title": "I don't know but to me Domhal Gleeson's character in Taylor's Opalite MV gives Joe vibes more than Travis vibe",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qxrh2t/i_dont_know_but_to_me_domhal_gleesons_character/"
+      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qxrh2t/i_dont_know_but_to_me_domhal_gleesons_character/",
+      "visible": false
     },
     {
       "cite": null,
@@ -892,7 +943,8 @@
       "text": null,
       "title": "Opalite Music Video Discussion Megathread",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qx7sa9/opalite_music_video_discussion_megathread/"
+      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qx7sa9/opalite_music_video_discussion_megathread/",
+      "visible": false
     },
     {
       "cite": "PopTingz · X",
@@ -908,7 +960,8 @@
       "text": null,
       "title": "Taylor not releasing  the “Opalite” music on Youtube because views there no longer count as streams (as of last month), and exclusively on Spotify and Apple Music, forcing each view to count towards streams is insane. \n\nClever. But still, insane.",
       "type": "perspectives",
-      "url": "https://x.com/PopTingz/status/2019301496903676095?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PopTingz/status/2019301496903676095?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": false
     },
     {
       "cite": null,
@@ -924,7 +977,8 @@
       "text": null,
       "title": "Discarding YouTube",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qw8lbm/discarding_youtube/"
+      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qw8lbm/discarding_youtube/",
+      "visible": false
     },
     {
       "cite": null,
@@ -940,7 +994,8 @@
       "text": null,
       "title": "Taylor has chosen not to release the music video song “Opalite” on YouTube following a recent change under which YouTube views no longer count as official streams as of last month. Instead, the release is exclusive to Spotify and Apple Music, ensuring that",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUYVgEViHC3/"
+      "url": "https://www.instagram.com/p/DUYVgEViHC3/",
+      "visible": false
     },
     {
       "cite": null,
@@ -956,7 +1011,8 @@
       "text": null,
       "title": "TITS comments on Boring Barbie keeping her new video off Youtube",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qwvmyz/tits_comments_on_boring_barbie_keeping_her_new/"
+      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qwvmyz/tits_comments_on_boring_barbie_keeping_her_new/",
+      "visible": false
     },
     {
       "cite": null,
@@ -972,7 +1028,8 @@
       "text": null,
       "title": "Too busy making money to speak out 🙄 ps : apparently she is also releasing a music video on Friday ….",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qw69it/too_busy_making_money_to_speak_out_ps_apparently/"
+      "url": "https://www.reddit.com/r/travisandtaylor/comments/1qw69it/too_busy_making_money_to_speak_out_ps_apparently/",
+      "visible": false
     },
     {
       "cite": null,
@@ -988,7 +1045,8 @@
       "text": null,
       "title": "momm- i mean dadd- i mean uhm i mean || #taylorswift #swiftie #swifttok #taylornation #opalite",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@lxv.swift13/video/7603765488077868310"
+      "url": "https://www.tiktok.com/@lxv.swift13/video/7603765488077868310",
+      "visible": false
     },
     {
       "cite": "dontblamealex",
@@ -1004,7 +1062,8 @@
       "text": null,
       "title": "TAYLOR SWIFT IS BRUNETTE AGAIN I REPEAT TAYLOR SWIFT IS BRUNETTE ",
       "type": "perspectives",
-      "url": "https://x.com/dontblamealex/status/2019682275622035767?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/dontblamealex/status/2019682275622035767?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": false
     },
     {
       "cite": null,
@@ -1020,7 +1079,8 @@
       "text": null,
       "title": "Anyone else think brunette Taylor Swift is giving Lorelai Gilmore? ✨ The singer debuted a brunette hair transformation in her ‘Opalite’ music video, and we’re obsessed. #TaylorSwift #Opalite #GilmoreGirls #PopCulture",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUbuxADkY1T/"
+      "url": "https://www.instagram.com/p/DUbuxADkY1T/",
+      "visible": false
     },
     {
       "cite": null,
@@ -1036,7 +1096,8 @@
       "text": null,
       "title": "TAYLOR BRUNETTE HAIR MAKES HER LOOK YOUNGER😭 #taylorswift #thelifeofashowgirl #opalite #celebrity #foryou @Taylor Swift",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@wigconicc/video/7603778477984091408"
+      "url": "https://www.tiktok.com/@wigconicc/video/7603778477984091408",
+      "visible": false
     },
     {
       "cite": null,
@@ -1052,7 +1113,8 @@
       "text": null,
       "title": "We LOVE brunette Taylor 🌟 Opalite MV out now! Follow me @dr.swiftie for more @taylorswift content & updates 🤍 Disclaimer: This page is 100% fan-run and NOT affiliated with Taylor Swift, Taylor Nation, TAS Rights Management, or any official entities. All con",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUa0IOrjIRC/"
+      "url": "https://www.instagram.com/p/DUa0IOrjIRC/",
+      "visible": false
     },
     {
       "cite": null,
@@ -1068,7 +1130,8 @@
       "text": null,
       "title": "We know the mv is gonna be ❤️‍🔥 since it's brunette Taylor 😮‍💨",
       "type": "perspectives",
-      "url": "https://www.instagram.com/p/DUaVBmFD8hL/"
+      "url": "https://www.instagram.com/p/DUaVBmFD8hL/",
+      "visible": false
     },
     {
       "cite": "280.9M+ followers",
@@ -1082,7 +1145,8 @@
       "text": "And, baby, that's show business for you.  New album The Life of a Showgirl . Available now ❤️‍  . My favorite part about writing is that first spark of an idea. Read more",
       "title": "Taylor Swift (@taylorswift) • Instagram photos and videos",
       "type": "general",
-      "url": "https://www.instagram.com/taylorswift/"
+      "url": "https://www.instagram.com/taylorswift/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1104,7 +1168,8 @@
       "text": "What health concerns does Taylor Swift have?<|>Who is Taylor Swift getting married to?<|>What kind of car does Taylor Swift drive?<|>Why is October 3rd important to Taylor Swift?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -1118,7 +1183,8 @@
       "text": null,
       "title": "My favorite part about writing is that first spark of an idea. It can happen at any time, for any reason. The idea for the Opalite music video crash landed into my imagination when I was doing promo for The Life of a Showgirl. I was a guest on one of my favorite shows, @TheGNShow. For those of you who aren’t familiar, it’s a UK late night show where Graham Norton (the insanely charismatic and lovable host) invites a random group of actors, entertainers, musicians, etc to be on his show and we all sit there and chat like it’s a dinner party. They even serve wine. Anyway. I remember thinking I got ridiculously lucky with the group I was paired with. Cillian Murphy, Domhnall Gleeson, Greta Lee, @JodieTurnerSmith, and @LewisCapaldi. All people whose work I’ve admired from afar. When we were all talking during the broadcast, Domhnall made a light hearted joke about wanting to be in one of my music videos. He’s Irish! He was joking! Except that in that moment during the interview, I was inst",
       "type": "recent_posts",
-      "url": "https://www.tiktok.com/@taylorswift/video/7603737243768982815"
+      "url": "https://www.tiktok.com/@taylorswift/video/7603737243768982815",
+      "visible": true
     },
     {
       "cite": null,
@@ -1132,7 +1198,8 @@
       "text": null,
       "title": "My favorite part about writing is that first spark of an idea. It can happen at any time, for any reason. The idea for the Opalite music video crash landed into my imagination when I was doing promo for The Life of a Showgirl. I was a guest on one of my favorite shows, @TheGrahamNortonShowOfficial. For those of you who aren’t familiar, it’s a UK late night show where Graham Norton (the insanely charismatic and lovable host) invites a random group of actors, entertainers, musicians, etc to be on his show and we all sit there and chat like it’s a dinner party. They even serve wine. Anyway. I remember thinking I got ridiculously lucky with the group I was paired with. Cillian Murphy, Domhnall Gleeson, Greta Lee, @JodieSmith, and @LewisCapaldi. All people whose work I’ve admired from afar. When we were all talking during the broadcast, Domhnall made a light hearted joke about wanting to be in one of my music videos. He’s Irish! He was joking! Except that in that moment during the interview",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/p/DUatriyDtst/"
+      "url": "https://www.instagram.com/p/DUatriyDtst/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1146,7 +1213,8 @@
       "text": null,
       "title": "There truly was magic in the *eras*✨ I can’t wait for you guys to see the first two episodes of The End of an Era and relive The Eras Tour | The Final Show TOMORROW on @disneyplus starting 12am PT / 3am ET",
       "type": "recent_posts",
-      "url": "https://www.instagram.com/reel/DSINTMkjp6O/"
+      "url": "https://www.instagram.com/reel/DSINTMkjp6O/",
+      "visible": true
     },
     {
       "cite": "79M+ followers",
@@ -1160,7 +1228,8 @@
       "text": "Taylor Swift . 78973566 likes · 350867 talking about this. And, baby, that's show business for you. New album The Life of a Showgirl. Available Now...",
       "title": "Taylor Swift (@TaylorSwift)",
       "type": "general",
-      "url": "https://www.facebook.com/TaylorSwift/"
+      "url": "https://www.facebook.com/TaylorSwift/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1174,7 +1243,8 @@
       "text": null,
       "title": "Taylor Swift announces Opalite music video coming out on ...",
       "type": "short_videos",
-      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qw6ff8/taylor_swift_announces_opalite_music_video_coming/"
+      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qw6ff8/taylor_swift_announces_opalite_music_video_coming/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1188,7 +1258,8 @@
       "text": null,
       "title": "Taylor Swift shared a special message to Team USA ahead of ...",
       "type": "short_videos",
-      "url": "https://www.instagram.com/reel/DUbclqND481/"
+      "url": "https://www.instagram.com/reel/DUbclqND481/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1202,7 +1273,8 @@
       "text": null,
       "title": "My favorite part about writing is that first spark of an idea. It can ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@taylorswift/video/7603737243768982815"
+      "url": "https://www.tiktok.com/@taylorswift/video/7603737243768982815",
+      "visible": true
     },
     {
       "cite": null,
@@ -1216,7 +1288,8 @@
       "text": null,
       "title": "The Opalite video is out now. Visit TaylorSwift.com for more",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/2Shv-eeNmY4"
+      "url": "https://www.youtube.com/shorts/2Shv-eeNmY4",
+      "visible": true
     },
     {
       "cite": null,
@@ -1230,7 +1303,8 @@
       "text": null,
       "title": "Taylor Swift is changing her release strategy for her next ...",
       "type": "short_videos",
-      "url": "https://www.instagram.com/reel/DUXCbYvjQld/"
+      "url": "https://www.instagram.com/reel/DUXCbYvjQld/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1244,7 +1318,8 @@
       "text": null,
       "title": "When you click the rock on the pop-up on Taylor's website ...",
       "type": "short_videos",
-      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qxpv33/when_you_click_the_rock_on_the_popup_on_taylors/"
+      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qxpv33/when_you_click_the_rock_on_the_popup_on_taylors/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1258,7 +1333,8 @@
       "text": null,
       "title": "Opalite glitch now on website : r/TaylorSwift",
       "type": "short_videos",
-      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qwsjjl/opalite_glitch_now_on_website/"
+      "url": "https://www.reddit.com/r/TaylorSwift/comments/1qwsjjl/opalite_glitch_now_on_website/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1272,7 +1348,8 @@
       "text": null,
       "title": "Taylor Swift turns 36 today. She is an American singer ...",
       "type": "short_videos",
-      "url": "https://www.facebook.com/sozooentertainmentmedia/videos/taylor-swift-turns-36-today-she-is-an-american-singer-songwriter-whose-career-be/1441036134690499/"
+      "url": "https://www.facebook.com/sozooentertainmentmedia/videos/taylor-swift-turns-36-today-she-is-an-american-singer-songwriter-whose-career-be/1441036134690499/",
+      "visible": true
     },
     {
       "cite": null,
@@ -1286,7 +1363,8 @@
       "text": null,
       "title": "Reacting to Taylor Swift’s Opalite music video! | Music Video",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@dancashio/video/7603742455174909206"
+      "url": "https://www.tiktok.com/@dancashio/video/7603742455174909206",
+      "visible": true
     },
     {
       "cite": null,
@@ -1300,7 +1378,8 @@
       "text": null,
       "title": "After hearing this song in the Taylor Swift documentary, and ...",
       "type": "short_videos",
-      "url": "https://www.instagram.com/reel/DUbWt0yDM-O/"
+      "url": "https://www.instagram.com/reel/DUbWt0yDM-O/",
+      "visible": true
     },
     {
       "cite": "63M+ followers",
@@ -1314,7 +1393,8 @@
       "text": "Taylor Swift  - The Life of a Showgirl · Taylor Swift - The Fate of Ophelia (Official Music Video) · Taylor Swift - Elizabeth Taylor (Lyric Video) · Taylor Swift ... Read more",
       "title": "Taylor Swift",
       "type": "general",
-      "url": "https://www.youtube.com/channel/UCqECaJ8Gagnn7YCbPEzWH6g"
+      "url": "https://www.youtube.com/channel/UCqECaJ8Gagnn7YCbPEzWH6g",
+      "visible": true
     },
     {
       "cite": null,
@@ -1371,7 +1451,8 @@
       "text": null,
       "title": "Albums",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "78.9M+ followers",
@@ -1385,7 +1466,8 @@
       "text": "Taylor Swift  (@taylorswift13) - Posts - And, baby, that's show business for you. New album The Life of a Showgirl. Available Now ❤️‍   | X (formerly Twitter)",
       "title": "Taylor Swift (@taylorswift13) / Posts / X",
       "type": "general",
-      "url": "https://x.com/taylorswift13"
+      "url": "https://x.com/taylorswift13",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Taylor_Swift",
@@ -1399,7 +1481,8 @@
       "text": "Taylor Alison Swift (born December 13, 1989) is  an American singer-songwriter . An influential figure in popular culture, she is known for her autobiographical ... Read more",
       "title": "Taylor Swift",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Taylor_Swift"
+      "url": "https://en.wikipedia.org/wiki/Taylor_Swift",
+      "visible": true
     },
     {
       "cite": "33.3M+ followers",
@@ -1413,7 +1496,8 @@
       "text": "Taylor Swift  (@taylorswift) on TikTok | 267.5M Likes. 33.3M Followers. This is pretty much just a cat account.Watch Taylor Swift's popular videos: \"My ...",
       "title": "Taylor Swift (@taylorswift)",
       "type": "general",
-      "url": "https://www.tiktok.com/@taylorswift?lang=en"
+      "url": "https://www.tiktok.com/@taylorswift?lang=en",
+      "visible": true
     },
     {
       "cite": "https://open.spotify.com  › artist",
@@ -1427,7 +1511,8 @@
       "text": "Listen to Taylor Swift on Spotify . Artist · 105.3M monthly listeners.",
       "title": "Taylor Swift",
       "type": "general",
-      "url": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02"
+      "url": "https://open.spotify.com/artist/06HL4z0CvFAxyc27GXpf02",
+      "visible": true
     },
     {
       "cite": null,
@@ -1454,7 +1539,8 @@
       "text": "Taylor Swift Tour<|>Taylor Swift songs<|>Taylor Swift age<|>Taylor Swift net worth<|>Taylor Swift - Cruel Summer<|>Taylor Swift Travis Kelce<|>Taylor Swift husband<|>Taylor Swift youtube",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

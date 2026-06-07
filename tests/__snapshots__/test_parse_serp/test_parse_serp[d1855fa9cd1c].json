@@ -24,7 +24,8 @@
       "text": "We Tested 300+ Mattresses | Expert Reviews (New Feb 2026)",
       "title": "We Tested 300+ Mattresses | Expert Reviews (New Feb 2026)",
       "type": "ad",
-      "url": "https://sleepopolis.com/pm/best-mattresses-2/"
+      "url": "https://sleepopolis.com/pm/best-mattresses-2/",
+      "visible": true
     },
     {
       "cite": "https://www.mattressfirm.com",
@@ -38,7 +39,8 @@
       "text": "Good Housekeeping Best Mattresses | Mattress Firm",
       "title": "Good Housekeeping Best Mattresses | Mattress Firm",
       "type": "ad",
-      "url": "https://www.mattressfirm.com/shop/good-housekeeping-best-mattresses"
+      "url": "https://www.mattressfirm.com/shop/good-housekeeping-best-mattresses",
+      "visible": true
     },
     {
       "cite": "https://www.wired.com › best › mattress",
@@ -72,7 +74,8 @@
       "text": "Wired's Best Mattresses - 2026 | Wired's Verdict Is In",
       "title": "Wired's Best Mattresses - 2026 | Wired's Verdict Is In",
       "type": "ad",
-      "url": "https://www.wired.com/gallery/best-mattresses-3/"
+      "url": "https://www.wired.com/gallery/best-mattresses-3/",
+      "visible": true
     },
     {
       "cite": "https://www.stearnsandfoster.com",
@@ -86,7 +89,8 @@
       "text": "Shop Stearns & Foster® | Shop Presidents Day Offers",
       "title": "Shop Stearns & Foster® | Shop Presidents Day Offers",
       "type": "ad",
-      "url": "https://www.stearnsandfoster.com/"
+      "url": "https://www.stearnsandfoster.com/",
+      "visible": true
     },
     {
       "cite": "970+ comments  ·  3 years ago",
@@ -116,7 +120,8 @@
       "text": "In general, I like  Tuft & Needle . They make good mattresses that are on par with a number of other bedinabox style mattresses. They aren't my ... Read more",
       "title": "IAmA Professional Mattress Tester. In the last 6 years I've ...",
       "type": "general",
-      "url": "https://www.reddit.com/r/IAmA/comments/ssfzin/iama_professional_mattress_tester_in_the_last_6/"
+      "url": "https://www.reddit.com/r/IAmA/comments/ssfzin/iama_professional_mattress_tester_in_the_last_6/",
+      "visible": true
     },
     {
       "cite": null,
@@ -286,7 +291,8 @@
       "text": "The best forums for unbiased, detailed mattress advice are The Mattress Underground (TMU) , which provides in-depth technical advice, and r/Mattress on Reddit , which offers user-driven experiences and honest, peer-to-peer reviews. NapLab is also highly regarded for its data-driven, objective testing. Top Mattress Forums & Communities: The Mattress Underground : Highly regarded for in-depth, expert-level analysis of mattress components, materials, and manufacturing, allowing users to make educated decisions. Reddit's r/Mattress: An active community for real user experiences, troubleshooting, and honest reviews of popular brands. Sleep Foundation : Offers data-driven,, expert-backed reviews focusing on specific needs like back pain and, sleep positions. HifiGuides Forums : Useful for niche discussions and advice on mattress types based on body weight and comfort needs. Key Information Sources Recommended in Forums: NapLab: Provides detailed, objective, and data-driven reviews for a wide range of mattress types, scoring them on factors like cooling, pressure relief, and edge support. YouTube - Sleep Doctor : Offers visual reviews, specifically covering budget-friendly options. What Users Discuss: Support & Comfort: Discussions focus on finding the right firmness for back, side, and stomach sleepers, often recommending options like the Brooklyn Bedding Aurora Luxe or Saatva Classic. Material Quality: Frequent debates regarding the durability of memory foam vs. hybrid models, as well as the longevity of latex. Value & Trial Periods: Tips on finding the best value-for-money, with mentions of DreamCloud and Nectar.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://mattressunderground.com",
@@ -300,7 +306,8 @@
       "text": "Our  moderated forum  connects you with TMU staff, fellow consumers, industry experts, member retailers, and manufacturers. Read more",
       "title": "Welcome to The Mattress Underground | The Mattress ...",
       "type": "general",
-      "url": "https://mattressunderground.com/"
+      "url": "https://mattressunderground.com/",
+      "visible": true
     },
     {
       "cite": "https://www.bogleheads.org  › forum › viewtopic",
@@ -330,7 +337,8 @@
       "text": "Feb 15, 2022  —  Best time of year to buy a mattress is May (Memorial Day sales). President Day sales are just around the corner. Read more",
       "title": "Mattress recommendations?",
       "type": "general",
-      "url": "https://www.bogleheads.org/forum/viewtopic.php?t=370610"
+      "url": "https://www.bogleheads.org/forum/viewtopic.php?t=370610",
+      "visible": true
     },
     {
       "cite": "https://forum.hifiguides.com  › need-some-help-to-choo...",
@@ -344,7 +352,8 @@
       "text": "Nov 17, 2021  —  I feel like  traditional spring or a mix of spring and memory foam  is the way to go. If you have good credit just go to matress firm (pretty sure ... Read more",
       "title": "Need some help to choose a right mattress - HifiGuides Forums",
       "type": "general",
-      "url": "https://forum.hifiguides.com/t/need-some-help-to-choose-a-right-mattress/30570"
+      "url": "https://forum.hifiguides.com/t/need-some-help-to-choose-a-right-mattress/30570",
+      "visible": true
     },
     {
       "cite": null,
@@ -389,7 +398,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.whatsthebest-mattress.com  › forum › most-p...",
@@ -403,7 +413,8 @@
       "text": "Oct 16, 2019  —  What's the Best Mattress . Let ... See how they compare with user mattress reviews, and get your questions answered in the mattress forum. Read more",
       "title": "Most Popular Mattress Right Now? - What's the Best Mattress",
       "type": "general",
-      "url": "https://www.whatsthebest-mattress.com/forum/most-popular-mattress-right-now/32336-0-1.html"
+      "url": "https://www.whatsthebest-mattress.com/forum/most-popular-mattress-right-now/32336-0-1.html",
+      "visible": true
     },
     {
       "cite": "133.9K+ followers",
@@ -417,7 +428,8 @@
       "text": "r/Mattress : A place to discuss anything to do with mattresses, mattress accessories, or other sleep technologies. No affiliate links.",
       "title": "Reddit's Mattress Community",
       "type": "general",
-      "url": "https://www.reddit.com/r/Mattress/"
+      "url": "https://www.reddit.com/r/Mattress/",
+      "visible": true
     },
     {
       "cite": null,
@@ -433,7 +445,8 @@
       "text": null,
       "title": "The Best Mattresses for 2026",
       "type": "perspectives",
-      "url": "https://www.nytimes.com/wirecutter/reviews/best-mattress/"
+      "url": "https://www.nytimes.com/wirecutter/reviews/best-mattress/",
+      "visible": true
     },
     {
       "cite": null,
@@ -449,7 +462,8 @@
       "text": null,
       "title": "The Best Mattress of 2026 Data-Backed Reviews for Better Sleep",
       "type": "perspectives",
-      "url": "https://www.sleepfoundation.org/best-mattress"
+      "url": "https://www.sleepfoundation.org/best-mattress",
+      "visible": true
     },
     {
       "cite": null,
@@ -465,7 +479,8 @@
       "text": null,
       "title": "9 Best Mattresses of 2026, Lab-Tested and Reviewed",
       "type": "perspectives",
-      "url": "https://www.consumerreports.org/mattresses/best-mattresses-of-the-year-a1093119971/"
+      "url": "https://www.consumerreports.org/mattresses/best-mattresses-of-the-year-a1093119971/",
+      "visible": true
     },
     {
       "cite": null,
@@ -481,7 +496,8 @@
       "text": null,
       "title": "The Best Mattresses of 2026 - We Tested 500+ Mattresses",
       "type": "perspectives",
-      "url": "https://sleepopolis.com/best-mattress/"
+      "url": "https://sleepopolis.com/best-mattress/",
+      "visible": true
     },
     {
       "cite": null,
@@ -497,7 +513,8 @@
       "text": null,
       "title": "The 10 Best Mattresses In A Box, After Testing Over 200",
       "type": "perspectives",
-      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/the-best-mattresses-in-a-box/"
+      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/the-best-mattresses-in-a-box/",
+      "visible": true
     },
     {
       "cite": null,
@@ -513,7 +530,8 @@
       "text": null,
       "title": "What is the best source for unbiased mattress reviews?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/BuyItForLife/comments/1qcyffa/what_is_the_best_source_for_unbiased_mattress/"
+      "url": "https://www.reddit.com/r/BuyItForLife/comments/1qcyffa/what_is_the_best_source_for_unbiased_mattress/",
+      "visible": true
     },
     {
       "cite": null,
@@ -529,7 +547,8 @@
       "text": null,
       "title": "Best Mattresses for the Money (2026) - We Tested 500+ Mattresses",
       "type": "perspectives",
-      "url": "https://www.mattressclarity.com/reviews/best-mattress-for-the-money/"
+      "url": "https://www.mattressclarity.com/reviews/best-mattress-for-the-money/",
+      "visible": true
     },
     {
       "cite": null,
@@ -545,7 +564,8 @@
       "text": null,
       "title": "We Polled Our Editors—These 8 Mattresses in a Box Are Truly the Best",
       "type": "perspectives",
-      "url": "https://www.architecturaldigest.com/story/best-mattress-in-a-box-tested"
+      "url": "https://www.architecturaldigest.com/story/best-mattress-in-a-box-tested",
+      "visible": true
     },
     {
       "cite": null,
@@ -561,7 +581,8 @@
       "text": null,
       "title": "The Very Best Mattresses, As Tested by Our Editors | The Strategist",
       "type": "perspectives",
-      "url": "https://nymag.com/strategist/article/best-mattresses-buy-online.html"
+      "url": "https://nymag.com/strategist/article/best-mattresses-buy-online.html",
+      "visible": true
     },
     {
       "cite": "https://forums.golfwrx.com  › ... › The 19th Hole",
@@ -575,7 +596,8 @@
       "text": "Aug 26, 2024  —  Looking for a new bed, best to just pay for the  Tempurpedic , or are any of these new DTC ones worth ordering, anything else? Read more",
       "title": "Best mattress? - The 19th Hole",
       "type": "general",
-      "url": "https://forums.golfwrx.com/topic/2019118-best-mattress/"
+      "url": "https://forums.golfwrx.com/topic/2019118-best-mattress/",
+      "visible": true
     },
     {
       "cite": "https://www.consumerreports.org  › ... › Mattresses",
@@ -589,7 +611,8 @@
       "text": "No one tests mattresses like we do.  Get ratings, pricing, and performance for all the latest models  based on the features you care about.",
       "title": "Mattress Ratings & Reviews",
       "type": "general",
-      "url": "https://www.consumerreports.org/home-garden/mattresses/mattress/c28705/"
+      "url": "https://www.consumerreports.org/home-garden/mattresses/mattress/c28705/",
+      "visible": true
     },
     {
       "cite": "https://forums.redflagdeals.com  › mattress-recommenda...",
@@ -603,7 +626,8 @@
       "text": "Nov 1, 2024  —  Any half-decent mattress brand/models or shops that you had good experience with? Looking for something under $ 2k , that will not sag in 5-10 years. Read more",
       "title": "Mattress recommendations",
       "type": "general",
-      "url": "https://forums.redflagdeals.com/mattress-recommendations-2723492/"
+      "url": "https://forums.redflagdeals.com/mattress-recommendations-2723492/",
+      "visible": true
     },
     {
       "cite": "https://www.sleepnumber.com › queen › mattress",
@@ -637,7 +661,8 @@
       "text": "Worth the Upgrade | Presidents' Day Mattress Sale",
       "title": "Worth the Upgrade | Presidents' Day Mattress Sale",
       "type": "ad",
-      "url": "https://www.sleepnumber.com/categories/all-mattresses/queen"
+      "url": "https://www.sleepnumber.com/categories/all-mattresses/queen",
+      "visible": true
     },
     {
       "cite": "https://www.sleepopolis.com › best › mattresses",
@@ -667,7 +692,8 @@
       "text": "Best Mattress Of 2026",
       "title": "Best Mattress Of 2026",
       "type": "ad",
-      "url": "https://sleepopolis.com/pm/best-mattresses-2/"
+      "url": "https://sleepopolis.com/pm/best-mattresses-2/",
+      "visible": true
     },
     {
       "cite": "https://www.mattressfirm.com",
@@ -697,7 +723,8 @@
       "text": "Presidents Day Sale",
       "title": "Presidents Day Sale",
       "type": "ad",
-      "url": "https://www.mattressfirm.com/mattresses/5637147600.c"
+      "url": "https://www.mattressfirm.com/mattresses/5637147600.c",
+      "visible": true
     },
     {
       "cite": null,
@@ -724,7 +751,8 @@
       "text": "Best mattress forum reddit<|>Best mattress forum complaints<|>Best mattress forum consumer reports<|>Best mattress Reddit<|>Top 50 mattress brands<|>Consumer Reports best mattress<|>Best memory foam mattress sleepline<|>Best mattress brands",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

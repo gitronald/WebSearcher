@@ -120,7 +120,8 @@
       "text": "The sky is blue due to Rayleigh scattering , a phenomenon where Earth's atmospheric molecules scatter blue light more effectively than other colors because blue light has shorter, smaller waves. Sunlight, composed of all colors, is scattered by gases like nitrogen and oxygen in the atmosphere; shorter blue wavelengths are scattered in all directions, saturating the sky with a blue appearance, though our eyes are more sensitive to blue than violet. The Role of Sunlight and Atmospheric Molecules Sunlight Composition : The white light from the sun is a mixture of all colors in the visible spectrum, each with different wavelengths. Atmospheric Scattering : When sunlight enters Earth's atmosphere, it interacts with gas molecules (primarily nitrogen and oxygen). Wavelength and Scattering : Shorter wavelengths of light, like blue and violet, are scattered much more strongly than longer wavelengths, such as red and orange. Why We See Blue, Not Violet Violet Scattering : Violet light has an even shorter wavelength than blue light and is scattered more. Eye Sensitivity : However, the sky appears blue rather than violet because human eyes are more sensitive to blue light. Sun's Emission : The sun also emits more energy as blue light than as violet light, contributing to the blue appearance. Factors Affecting Sky Color Atmospheric Path Length : Sunlight has a shorter path through the atmosphere at noon, and at sunset, it travels a longer path through more air. Sky Color at Sunset/Sunrise : As the path length increases, more blue light is scattered away, allowing the longer, reddish wavelengths to pass through, creating the reddish-orange colors of sunsets. High Altitudes : At higher altitudes, there are fewer atmospheric molecules, so less light is scattered. Space : In space, where there are virtually no molecules to scatter light, the sky appears black.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -142,7 +143,8 @@
       "text": "Why is the sky blue short answer?<|>What is the true color of our sky?<|>How to explain to a kid why the sky is blue?<|>Why is the Sky Blue? - YouTube YouTube https://www.youtube.com · Patristic Nectar YouTube https://www.youtube.com · Patristic Nectar",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://spaceplace.nasa.gov  › blue-sky",
@@ -156,7 +158,8 @@
       "text": "Blue light is scattered more than the other colors  because it travels as shorter, smaller waves. This is why we see a blue sky most of the time. Read more",
       "title": "Why Is the Sky Blue?",
       "type": "general",
-      "url": "https://spaceplace.nasa.gov/blue-sky/"
+      "url": "https://spaceplace.nasa.gov/blue-sky/",
+      "visible": true
     },
     {
       "cite": "160+ comments  ·  2 years ago",
@@ -186,7 +189,8 @@
       "text": "Because the sun is intense, the scattering gives you lots of blueness in the sky . But because the sun doesn't travel very far through the ... Read more",
       "title": "Why is the sky blue? Do I understand it correctly",
       "type": "general",
-      "url": "https://www.reddit.com/r/askscience/comments/14566ig/why_is_the_sky_blue_do_i_understand_it_correctly/"
+      "url": "https://www.reddit.com/r/askscience/comments/14566ig/why_is_the_sky_blue_do_i_understand_it_correctly/",
+      "visible": true
     },
     {
       "cite": null,
@@ -200,7 +204,8 @@
       "text": null,
       "title": "Why Is the Sky Blue? YouTube  ·  NASA Space Place Mar 2, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA"
+      "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA",
+      "visible": true
     },
     {
       "cite": null,
@@ -214,7 +219,8 @@
       "text": null,
       "title": "Space Place in a Snap: Why Is the Sky Blue? NASA+  ·  NASA+ Streaming Service Oct 31, 2023",
       "type": "videos",
-      "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/"
+      "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/",
+      "visible": true
     },
     {
       "cite": null,
@@ -228,7 +234,8 @@
       "text": null,
       "title": "Why is the sky blue? It's not. You might know that as sunlight ... Instagram  ·  Cleo Abram Apr 13, 2025",
       "type": "videos",
-      "url": "https://www.instagram.com/reel/DIZJjPvOtIN/?hl=en"
+      "url": "https://www.instagram.com/reel/DIZJjPvOtIN/?hl=en",
+      "visible": true
     },
     {
       "cite": "https://kids.nationalgeographic.com  › books › article",
@@ -242,7 +249,8 @@
       "text": "Slowly, over the next two billion years,  oxygen in the atmosphere rose to its present levels , and the sky took on the blue hue on view today. Read more",
       "title": "Why is the sky blue?",
       "type": "general",
-      "url": "https://kids.nationalgeographic.com/books/article/sky"
+      "url": "https://kids.nationalgeographic.com/books/article/sky",
+      "visible": true
     },
     {
       "cite": "50+ reactions  ·  1 year ago",
@@ -256,7 +264,8 @@
       "text": "Bluehas short, bouncy waves that scatter more when sunlight hits the gas particles in our atmosphere, filling theskywithbluelight.",
       "title": "Why is the sky blue? ☁️ Kids are pros at asking “simple ...",
       "type": "general",
-      "url": "https://www.facebook.com/AstroKirsten/videos/why-is-the-sky-blue-%EF%B8%8F-kids-are-pros-at-asking-simple-questions-that-are-secretly/9100762216611478/"
+      "url": "https://www.facebook.com/AstroKirsten/videos/why-is-the-sky-blue-%EF%B8%8F-kids-are-pros-at-asking-simple-questions-that-are-secretly/9100762216611478/",
+      "visible": true
     },
     {
       "cite": null,
@@ -272,7 +281,8 @@
       "text": null,
       "title": "The REAL Reason the Sky Looks Blue",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/HZTGNh6pVXY"
+      "url": "https://www.youtube.com/shorts/HZTGNh6pVXY",
+      "visible": true
     },
     {
       "cite": null,
@@ -288,7 +298,8 @@
       "text": null,
       "title": "Why is the Sky Blue? Credit to Discover.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/ceressoft/posts/why-is-the-sky-blue-credit-to-discover/1445048500957636/"
+      "url": "https://www.facebook.com/ceressoft/posts/why-is-the-sky-blue-credit-to-discover/1445048500957636/",
+      "visible": true
     },
     {
       "cite": null,
@@ -304,7 +315,8 @@
       "text": null,
       "title": "ELI5: Why does the sky appear blue even tho violet has a shorter wavelength than blue?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1pt3rb6/eli5_why_does_the_sky_appear_blue_even_tho_violet/"
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1pt3rb6/eli5_why_does_the_sky_appear_blue_even_tho_violet/",
+      "visible": true
     },
     {
       "cite": null,
@@ -320,7 +332,8 @@
       "text": null,
       "title": "Why is the Sky Blue?",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/n4ElQOE3lyI"
+      "url": "https://www.youtube.com/shorts/n4ElQOE3lyI",
+      "visible": true
     },
     {
       "cite": null,
@@ -336,7 +349,8 @@
       "text": null,
       "title": "Why Is the Sky Blue? Science Behind the Blue Sky\n\n#WhyIsTheSkyBlue\n#BlueSky\n#ScienceExplained\n#RayleighScattering\n#spacescience",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DT7ufKNj70z/"
+      "url": "https://www.instagram.com/reel/DT7ufKNj70z/",
+      "visible": true
     },
     {
       "cite": null,
@@ -352,7 +366,8 @@
       "text": null,
       "title": "🔵 Blue Skies… Ever notice the January skies seem more blue? It’s not just you. The sky IS more blue in the winter months. 🤯 Here’s why: - Cold air is packed together (dense) - The thick Summer humidity is gone - There just aren’t many dust particles, pollen or",
       "type": "perspectives",
-      "url": "https://www.facebook.com/GarrettNLewis/posts/-blue-skiesever-notice-the-january-skies-seem-more-blueits-not-just-youthe-sky-i/1425119545652808/"
+      "url": "https://www.facebook.com/GarrettNLewis/posts/-blue-skiesever-notice-the-january-skies-seem-more-blueits-not-just-youthe-sky-i/1425119545652808/",
+      "visible": true
     },
     {
       "cite": null,
@@ -368,7 +383,8 @@
       "text": null,
       "title": "Why is the Night Sky Black and not Blue? | February 2 - February 8 | Star Gazers",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=pIZBeINyK8w"
+      "url": "https://www.youtube.com/watch?v=pIZBeINyK8w",
+      "visible": true
     },
     {
       "cite": null,
@@ -384,7 +400,8 @@
       "text": null,
       "title": "Did you know that the sky in GTA V is blue because it is a reference to the real life sky which is also blue",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/GTAV/comments/1qtseyg/did_you_know_that_the_sky_in_gta_v_is_blue/"
+      "url": "https://www.reddit.com/r/GTAV/comments/1qtseyg/did_you_know_that_the_sky_in_gta_v_is_blue/",
+      "visible": true
     },
     {
       "cite": null,
@@ -400,7 +417,8 @@
       "text": null,
       "title": "🌤️ Wednesday Weather Wisdom: Why Is the Sky Blue?\n\nEver wonder why our sky shines in that beautiful shade of blue? It all comes down to sunlight and the way it interacts with our atmosphere.\n\nSunlight may look white, but it’s actually made up of many colors, each with different wavelengths. When sunlight enters Earth’s atmosphere, it bumps into tiny molecules of air. This causes a process called Rayleigh scattering — light being scattered in all different directions.\n\nHere’s the key:\n🔹 Blue light has shorter wavelengths,\n🔹 Red light has longer wavelengths.\n\nShorter wavelengths scatter much more easily, so blue light gets bounced around the sky in every direction. That’s why no matter where you look during the day, your eyes pick up more scattered blue light than any other color.\n\nAt sunrise and sunset, the sun’s light travels through more atmosphere, so the shorter blue wavelengths scatter out before they reach you. The longer reds and oranges make it through — giving us those gorgeous",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DSHGQYkkUhM/?hl=en"
+      "url": "https://www.instagram.com/reel/DSHGQYkkUhM/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -416,7 +434,8 @@
       "text": null,
       "title": "Why the sky is blue",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DSOGSiPkTjw/?hl=en"
+      "url": "https://www.instagram.com/reel/DSOGSiPkTjw/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -432,7 +451,8 @@
       "text": null,
       "title": "On a clear day, what is the colour of the sky?",
       "type": "perspectives",
-      "url": "https://www.facebook.com/apna99036/posts/on-a-clear-day-what-is-the-colour-of-the-sky/1504710364995479/"
+      "url": "https://www.facebook.com/apna99036/posts/on-a-clear-day-what-is-the-colour-of-the-sky/1504710364995479/",
+      "visible": true
     },
     {
       "cite": null,
@@ -448,7 +468,8 @@
       "text": null,
       "title": "Can Sky become Green? | Why is our sky Blue? | #shorts",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/o1pTCw8cg10"
+      "url": "https://www.youtube.com/shorts/o1pTCw8cg10",
+      "visible": true
     },
     {
       "cite": null,
@@ -462,7 +483,8 @@
       "text": null,
       "title": "Why is the sky blue?",
       "type": "images",
-      "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
+      "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -476,7 +498,8 @@
       "text": null,
       "title": "Why is the sky blue? | Live Science",
       "type": "images",
-      "url": "https://www.livescience.com/planet-earth/why-is-the-sky-blue"
+      "url": "https://www.livescience.com/planet-earth/why-is-the-sky-blue",
+      "visible": true
     },
     {
       "cite": null,
@@ -490,7 +513,8 @@
       "text": null,
       "title": "Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids",
       "type": "images",
-      "url": "https://spaceplace.nasa.gov/blue-sky/"
+      "url": "https://spaceplace.nasa.gov/blue-sky/",
+      "visible": true
     },
     {
       "cite": null,
@@ -504,7 +528,8 @@
       "text": null,
       "title": "Why Is the Sky Blue? | NESDIS | National Environmental ...",
       "type": "images",
-      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+      "visible": true
     },
     {
       "cite": null,
@@ -518,7 +543,8 @@
       "text": null,
       "title": "Why Is the Sky Blue?",
       "type": "images",
-      "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA"
+      "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA",
+      "visible": true
     },
     {
       "cite": null,
@@ -532,7 +558,8 @@
       "text": null,
       "title": "Why is the sky blue? It's an age old question that actually ...",
       "type": "images",
-      "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
+      "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/",
+      "visible": true
     },
     {
       "cite": null,
@@ -546,7 +573,8 @@
       "text": null,
       "title": "Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids",
       "type": "images",
-      "url": "https://spaceplace.nasa.gov/blue-sky/"
+      "url": "https://spaceplace.nasa.gov/blue-sky/",
+      "visible": true
     },
     {
       "cite": null,
@@ -560,7 +588,8 @@
       "text": null,
       "title": "The Physics of Light - Why is the Sky Blue, Really?",
       "type": "images",
-      "url": "https://www.youtube.com/watch?v=zq-rDYvxAZ4"
+      "url": "https://www.youtube.com/watch?v=zq-rDYvxAZ4",
+      "visible": true
     },
     {
       "cite": null,
@@ -574,7 +603,8 @@
       "text": null,
       "title": "Why is the sky blue? It's an age old question that actually ...",
       "type": "images",
-      "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/"
+      "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/",
+      "visible": true
     },
     {
       "cite": "https://www.nesdis.noaa.gov  › about › atmosphere › wh...",
@@ -588,7 +618,8 @@
       "text": "Blue light is scattered more than other colors  because it travels as shorter, smaller waves. This is why we see a blue sky most of the time. Read more",
       "title": "Why Is the Sky Blue? - NESDIS - NOAA",
       "type": "general",
-      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+      "visible": true
     },
     {
       "cite": "https://math.ucr.edu  › home › baez › physics › General",
@@ -602,7 +633,8 @@
       "text": "A clear cloudless day-time sky is blue because  molecules in the air scatter blue light from the Sun  more than they scatter red light. Read more",
       "title": "Why is the sky blue?",
       "type": "general",
-      "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
+      "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+      "visible": true
     },
     {
       "cite": "https://www.uu.edu  › dept › physics › scienceguys",
@@ -616,7 +648,8 @@
       "text": "In space or on the Moon there is  no atmosphere to scatter light . The light from the sun travels a straight line without scattering and all the colors stay ... Read more",
       "title": "Why is the sky blue on Earth, but black in space or ...",
       "type": "general",
-      "url": "https://www.uu.edu/dept/physics/scienceguys/2000Oct.cfm"
+      "url": "https://www.uu.edu/dept/physics/scienceguys/2000Oct.cfm",
+      "visible": true
     },
     {
       "cite": null,
@@ -643,7 +676,8 @@
       "text": "Why is the sky blue Class 10<|>Why is the sky blue for kids<|>Why is the sky blue no ai<|>Why is the sky blue reflection of ocean<|>Why is the sky blue and not violet<|>Why is the sky blue Army<|>Why is the sky blue long answer<|>Why is the sky blue essay",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

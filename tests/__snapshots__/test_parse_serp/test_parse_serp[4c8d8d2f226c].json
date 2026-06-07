@@ -24,7 +24,8 @@
       "text": "The Bay Area's source for breaking news and live streaming video online . Covering San Francisco, Oakland and San Jose and all of the greater Bay Area.",
       "title": "ABC7 Bay Area and San Francisco | KGO Eyewitness News",
       "type": "general",
-      "url": "https://abc7news.com/"
+      "url": "https://abc7news.com/",
+      "visible": true
     },
     {
       "cite": "https://www.kron4.com",
@@ -38,7 +39,8 @@
       "text": "San Francisco Bay Area's local news & weather station . Local reporting to make San Francisco, San Jose, Oakland and the rest of the Bay Area a better place ...",
       "title": "KRON4: San Francisco Bay Area News & Weather",
       "type": "general",
-      "url": "https://www.kron4.com/"
+      "url": "https://www.kron4.com/",
+      "visible": true
     },
     {
       "cite": "https://www.ktvu.com",
@@ -52,7 +54,8 @@
       "text": "Local and breaking news reports from around the Bay Area , brought to you by KTVU FOX 2, serving San Francisco, Oakland, San Jose and the entire Bay Area.",
       "title": "KTVU FOX 2 San Francisco | Local News, Weather, and Live ...",
       "type": "general",
-      "url": "https://www.ktvu.com/"
+      "url": "https://www.ktvu.com/",
+      "visible": true
     },
     {
       "cite": "https://www.nbcbayarea.com",
@@ -66,7 +69,8 @@
       "text": "Find the latest  Bay Area news out of San Francisco , San Jose, Oakland and beyond. NBC Bay Area brings you weather forecasts, breaking news and more.",
       "title": "NBC Bay Area – San Francisco news, weather, breaking news",
       "type": "general",
-      "url": "https://www.nbcbayarea.com/"
+      "url": "https://www.nbcbayarea.com/",
+      "visible": true
     },
     {
       "cite": "https://missionlocal.org",
@@ -80,7 +84,8 @@
       "text": "Reporting on  San Francisco's most critical issues : police reform, corruption, education, public health, housing and homelessness.",
       "title": "Mission Local: Local news for a global city | San Francisco, CA",
       "type": "general",
-      "url": "https://missionlocal.org/"
+      "url": "https://missionlocal.org/",
+      "visible": true
     },
     {
       "cite": "https://www.sfgate.com  › news",
@@ -94,7 +99,8 @@
       "text": "FILE: Light rain is in the forecast for the San Francisco Bay Area. Weather ·  Signs of rain finally return to Bay Area  thanks to 'major pattern change'. Read more",
       "title": "Breaking Bay Area news, U.S. and World News, California ...",
       "type": "general",
-      "url": "https://www.sfgate.com/news/"
+      "url": "https://www.sfgate.com/news/",
+      "visible": true
     },
     {
       "cite": "https://www.sfchronicle.com",
@@ -108,7 +114,8 @@
       "text": "Exclusive Bay Area and San Francisco breaking news , sports, tech, and food and wine coverage, plus enhanced coverage of Giants, 49ers and Warriors.",
       "title": "San Francisco Chronicle - Bay Area news, sports, tech, food",
       "type": "general",
-      "url": "https://www.sfchronicle.com/"
+      "url": "https://www.sfchronicle.com/",
+      "visible": true
     },
     {
       "cite": "https://www.cbsnews.com  › sanfrancisco",
@@ -122,7 +129,8 @@
       "text": "Road closures in Santa Clara,  San Francisco  and San Jose as Super Bowl LX nears. Read more",
       "title": "CBS Bay Area - Breaking Local News, First Alert Weather & ...",
       "type": "general",
-      "url": "https://www.cbsnews.com/sanfrancisco/"
+      "url": "https://www.cbsnews.com/sanfrancisco/",
+      "visible": true
     },
     {
       "cite": "https://www.sfpublicpress.org",
@@ -136,7 +144,8 @@
       "text": "Bringing independent, in-depth investigative reporting and community journalism to the  San Francisco  Bay Area since 2009.",
       "title": "Welcome to the San Francisco Public Press",
       "type": "general",
-      "url": "https://www.sfpublicpress.org/"
+      "url": "https://www.sfpublicpress.org/",
+      "visible": true
     },
     {
       "cite": "https://sfist.com",
@@ -150,7 +159,8 @@
       "text": "SFist is San Francisco's source for fun, witty, & serious news . With updates about restaurants, events, sports, politics & more, SFist reaches millions of ...",
       "title": "SFist - San Francisco News, Restaurants, Events, & Sports",
       "type": "general",
-      "url": "https://sfist.com/"
+      "url": "https://sfist.com/",
+      "visible": true
     },
     {
       "cite": "https://www.missionlocal.org",
@@ -164,7 +174,8 @@
       "text": "Breaking news from San Francisco - San Francisco Local News",
       "title": "Breaking news from San Francisco - San Francisco Local News",
       "type": "ad",
-      "url": "https://missionlocal.org/subscribe-to-the-mission-local-newsletter/"
+      "url": "https://missionlocal.org/subscribe-to-the-mission-local-newsletter/",
+      "visible": true
     },
     {
       "cite": null,
@@ -197,7 +208,8 @@
       "text": "KICU-TV<|>KPIX-TV<|>KNTV<|>KTVU<|>KGO-TV<|>KTTV<|>Local news san francisco today<|>Local news san francisco live<|>Breaking local news san francisco<|>Breaking news San Francisco Live<|>Breaking news San Francisco earthquake<|>San Francisco Bay Area News today<|>San Francisco News crime<|>Bay Area News live",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

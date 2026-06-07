@@ -52,7 +52,8 @@
       "text": "NASA .gov brings you the latest news, images and videos from America's space agency, pioneering the future in space exploration, scientific discovery and ...",
       "title": "NASA",
       "type": "general",
-      "url": "https://www.nasa.gov/"
+      "url": "https://www.nasa.gov/",
+      "visible": true
     },
     {
       "cite": null,
@@ -66,7 +67,8 @@
       "text": null,
       "title": "NASA’s SpaceX Crew-12 Flies to NASA Kennedy",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasas-spacex-crew-12-flies-to-nasa-kennedy/"
+      "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasas-spacex-crew-12-flies-to-nasa-kennedy/",
+      "visible": true
     },
     {
       "cite": null,
@@ -80,7 +82,8 @@
       "text": null,
       "title": "Biospheric Science Branch Page",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/earth-science-at-ames/who-we-are/biospheric-science/"
+      "url": "https://www.nasa.gov/earth-science-at-ames/who-we-are/biospheric-science/",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +97,8 @@
       "text": null,
       "title": "NASA Sets Coverage for Agency’s SpaceX Crew-12 Launch, Docking",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/"
+      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/",
+      "visible": true
     },
     {
       "cite": null,
@@ -108,7 +112,8 @@
       "text": null,
       "title": "NASA, Partners Conduct Crew-12 Flight Readiness Review",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasa-partners-conduct-crew-12-flight-readiness-review/"
+      "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasa-partners-conduct-crew-12-flight-readiness-review/",
+      "visible": true
     },
     {
       "cite": null,
@@ -122,7 +127,8 @@
       "text": null,
       "title": "NASA Selects Two Earth System Explorers Missions",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/news-release/nasa-selects-two-earth-system-explorers-missions/"
+      "url": "https://www.nasa.gov/news-release/nasa-selects-two-earth-system-explorers-missions/",
+      "visible": true
     },
     {
       "cite": null,
@@ -136,7 +142,8 @@
       "text": null,
       "title": "Dragon Preps, Artificial Intelligence, and Medical Gear Fill Crew’s Day",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/"
+      "url": "https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/",
+      "visible": true
     },
     {
       "cite": null,
@@ -150,7 +157,8 @@
       "text": null,
       "title": "NASA’s SpaceX Crew-12 to Study Adaptation to Altered Gravity",
       "type": "latest_from",
-      "url": "https://www.nasa.gov/humans-in-space/nasas-spacex-crew-12-to-study-adaptation-to-altered-gravity/"
+      "url": "https://www.nasa.gov/humans-in-space/nasas-spacex-crew-12-to-study-adaptation-to-altered-gravity/",
+      "visible": true
     },
     {
       "cite": null,
@@ -164,7 +172,8 @@
       "text": null,
       "title": "NASA Sets Coverage for Agency’s SpaceX Crew-12 Launch, Docking",
       "type": "top_stories",
-      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/"
+      "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/",
+      "visible": true
     },
     {
       "cite": null,
@@ -178,7 +187,8 @@
       "text": null,
       "title": "Workforce Directive: Restoring NASA’s Core Competencies",
       "type": "top_stories",
-      "url": "https://nasawatch.com/ask-the-administrator/nasa-announces-a-new-directive-but-wont-let-you-read-it/"
+      "url": "https://nasawatch.com/ask-the-administrator/nasa-announces-a-new-directive-but-wont-let-you-read-it/",
+      "visible": true
     },
     {
       "cite": null,
@@ -192,7 +202,8 @@
       "text": null,
       "title": "NASA will finally allow astronauts to bring their iPhones to space",
       "type": "top_stories",
-      "url": "https://arstechnica.com/space/2026/02/nasa-will-finally-allow-astronauts-to-bring-their-iphones-to-space/"
+      "url": "https://arstechnica.com/space/2026/02/nasa-will-finally-allow-astronauts-to-bring-their-iphones-to-space/",
+      "visible": true
     },
     {
       "cite": null,
@@ -206,7 +217,8 @@
       "text": null,
       "title": "NASA space telescope sees interstellar visitor comet 3I/ATLAS flare up while exiting the solar system",
       "type": "top_stories",
-      "url": "https://www.space.com/astronomy/comets/nasa-space-telescope-sees-comet-3i-atlas-dramatically-flare-as-interstellar-visitor-exits-solar-system"
+      "url": "https://www.space.com/astronomy/comets/nasa-space-telescope-sees-comet-3i-atlas-dramatically-flare-as-interstellar-visitor-exits-solar-system",
+      "visible": true
     },
     {
       "cite": null,
@@ -228,7 +240,8 @@
       "text": "Ways to Watch - NASA NASA https://www.nasa.gov › ways-to-watch NASA https://www.nasa.gov › ways-to-watch<|>Who owns NASA and how is it funded? 6 interesting facts The Economic Times https://m.economictimes.com › news › science › slideshow The Economic Times https://m.economictimes.com › news › science › slideshow<|>Why is Artemis 2 delayed?<|>NASA Astronauts Get Paid HOW MUCH After 9 Months in Space?! YouTube https://www.youtube.com · Benzinga YouTube https://www.youtube.com · Benzinga",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › NASA",
@@ -242,7 +255,8 @@
       "text": "The National Aeronautics and Space Administration (NASA /ˈnæsə/) is  an independent agency of the U.S. federal government  responsible for the United States' ... Read more",
       "title": "NASA",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/NASA"
+      "url": "https://en.wikipedia.org/wiki/NASA",
+      "visible": true
     },
     {
       "cite": "12.6M+ followers",
@@ -256,7 +270,8 @@
       "text": "NASA's  mission is to pioneer the future in space exploration, scientific discovery, and aeronautics research. ...more  NASA's  mission is to pioneer the ... Read more",
       "title": "NASA",
       "type": "general",
-      "url": "https://www.youtube.com/@NASA"
+      "url": "https://www.youtube.com/@NASA",
+      "visible": true
     },
     {
       "cite": null,
@@ -308,7 +323,8 @@
       "text": "NASA",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -324,7 +340,8 @@
       "text": null,
       "title": "NASA Is Sending Humans Back to the Moon (THIS MONTH)",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/M8eeuqdjZoA"
+      "url": "https://www.youtube.com/shorts/M8eeuqdjZoA",
+      "visible": true
     },
     {
       "cite": null,
@@ -340,7 +357,8 @@
       "text": null,
       "title": "The wet dress rehearsal for the Artemis II mission around the Moon began at 8:13pm ET on Jan. 31 and will continue tomorrow with  @NASAKennedy teams fueling the rocket. \n\nThe results from this test will help inform teams about a possible launch date.  go.nasa.gov/4kd17Kw",
       "type": "perspectives",
-      "url": "https://x.com/NASA/status/2018115746228756604?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/NASA/status/2018115746228756604?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -356,7 +374,8 @@
       "text": null,
       "title": "Restoring NASA’s Core Competencies",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=3R2H0rcP2vg"
+      "url": "https://www.youtube.com/watch?v=3R2H0rcP2vg",
+      "visible": true
     },
     {
       "cite": null,
@@ -372,7 +391,8 @@
       "text": null,
       "title": "@NASA wants to know: How will @nasaartemis II astronauts adapt to Orion’s living space? \n\nSome crew members will wear a wristband device to track their sleep and movements, giving us a window into how they adjust to life in deep space. Watch to learn more.",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DUYgv8TABIF/"
+      "url": "https://www.instagram.com/reel/DUYgv8TABIF/",
+      "visible": true
     },
     {
       "cite": null,
@@ -388,7 +408,8 @@
       "text": null,
       "title": "NASA has begun a crucial test Monday of its towering Space Launch System rocket — marking one of the final steps before the vehicle launches four astronauts into deep space for the first time since the Apollo program ended more than five decades ago. The",
       "type": "perspectives",
-      "url": "https://www.facebook.com/photo/?fbid=1275933654399283&set=a.647162930609695"
+      "url": "https://www.facebook.com/photo/?fbid=1275933654399283&set=a.647162930609695",
+      "visible": true
     },
     {
       "cite": null,
@@ -404,7 +425,8 @@
       "text": null,
       "title": "Back to the moon: Inside NASA's Artemis II mission",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=CngcQx4Rc2c"
+      "url": "https://www.youtube.com/watch?v=CngcQx4Rc2c",
+      "visible": true
     },
     {
       "cite": null,
@@ -420,7 +442,8 @@
       "text": null,
       "title": "NASA delays Artemis II mission to March after hydrogen leak",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=pFUorE3ldlM"
+      "url": "https://www.youtube.com/watch?v=pFUorE3ldlM",
+      "visible": true
     },
     {
       "cite": null,
@@ -436,7 +459,8 @@
       "text": null,
       "title": "Sunrise. . NASA has set a new launch day for its groundbreaking Artemis II mission after major issues during a critical test.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/Sunrise/videos/nasa-has-set-a-new-launch-day-for-its-groundbreaking-artemis-ii-mission-after-ma/1219339913053885/"
+      "url": "https://www.facebook.com/Sunrise/videos/nasa-has-set-a-new-launch-day-for-its-groundbreaking-artemis-ii-mission-after-ma/1219339913053885/",
+      "visible": true
     },
     {
       "cite": null,
@@ -452,7 +476,8 @@
       "text": null,
       "title": "Why Artemis II Mission So Important?",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=xalPEv7KqVU"
+      "url": "https://www.youtube.com/watch?v=xalPEv7KqVU",
+      "visible": true
     },
     {
       "cite": null,
@@ -468,7 +493,8 @@
       "text": null,
       "title": "NewsNation. . It's been more than half a century since the last Apollo mission sent American astronauts to the moon, but that could change as soon as next week. After 15 years of planning in the making, the Artemis II rocket could lift off in a matter of days.",
       "type": "perspectives",
-      "url": "https://www.facebook.com/NewsNationNow/videos/nasa-plans-first-moon-mission-since-1972-morning-in-america/4420229951634853/"
+      "url": "https://www.facebook.com/NewsNationNow/videos/nasa-plans-first-moon-mission-since-1972-morning-in-america/4420229951634853/",
+      "visible": true
     },
     {
       "cite": null,
@@ -484,7 +510,8 @@
       "text": null,
       "title": "Hydrogen Leaks & Delays: Is NASA's Artemis II Ready for Humans?",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=IdnCRkO6_fY"
+      "url": "https://www.youtube.com/watch?v=IdnCRkO6_fY",
+      "visible": true
     },
     {
       "cite": null,
@@ -500,7 +527,8 @@
       "text": null,
       "title": "NASA reschedules Artemis II moon mission for March | Sunrise",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=OzCcgjyIKSc"
+      "url": "https://www.youtube.com/watch?v=OzCcgjyIKSc",
+      "visible": true
     },
     {
       "cite": "26.9M+ followers",
@@ -514,7 +542,8 @@
       "text": "NASA  - National Aeronautics and Space Administration. 26896944 likes · 51113 talking about this. Explore the universe and discover our home planet....",
       "title": "National Aeronautics and Space Administration (@NASA)",
       "type": "general",
-      "url": "https://www.facebook.com/NASA/"
+      "url": "https://www.facebook.com/NASA/",
+      "visible": true
     },
     {
       "cite": "98.6M+ followers",
@@ -528,7 +557,8 @@
       "text": "99M Followers, 96 Following, 4604 Posts -  NASA  (@nasa) on Instagram: \"   Exploring the universe and our home planet.",
       "title": "NASA (@nasa) • Instagram photos and videos",
       "type": "general",
-      "url": "https://www.instagram.com/nasa/?hl=en"
+      "url": "https://www.instagram.com/nasa/?hl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -555,7 +585,8 @@
       "text": "NASA live satellite<|>NASA established<|>NASA breaking News today asteroid<|>NASA today<|>NASA owner<|>NASA headquarters<|>NASA TV live<|>NASA facts",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -30,7 +30,8 @@
       "text": null,
       "title": "Planters Cocktail Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Weee!",
@@ -48,7 +49,8 @@
       "text": null,
       "title": "Red Skin Peanut 3 lbs.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Aunt Ruby's Peanuts",
@@ -66,7 +68,8 @@
       "text": null,
       "title": "Roasted Redskin Peanuts - 40 oz. Tin.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Hampton Farms",
@@ -84,7 +87,8 @@
       "text": null,
       "title": "Extra Large Redskin Shelled Raw Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart - Monroe Systems for Business",
@@ -104,7 +108,8 @@
       "text": null,
       "title": "Wakefield Virginia Peanuts Animal Grade Raw Wildlife Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -122,7 +127,8 @@
       "text": null,
       "title": "Virginia Diner Gourmet Natural Super Extra Large Red Skin Virginia Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Weee!",
@@ -140,7 +146,8 @@
       "text": null,
       "title": "Pinstar Supply Pinstar Premium Raw Red Skin Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Nuts.com",
@@ -160,7 +167,8 @@
       "text": null,
       "title": "Nuts.com Raw Redskin Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -182,7 +190,8 @@
       "text": "Can you eat the red skin on peanuts?<|>Are raw red skin peanuts good for you?<|>Are Redskin peanuts healthier than regular peanuts?<|>What happened to red skin peanuts?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.feridies.com  › prod_detail_list › Redskin-P...",
@@ -196,7 +205,8 @@
       "text": "Redskin peanuts  are the ones with the red skins still on them. This red skin is between the outer shell and the peanut and it is full of nutrients.",
       "title": "Redskin Peanuts | Spanish Style Peanuts",
       "type": "general",
-      "url": "https://www.feridies.com/prod_detail_list/Redskin-Peanuts"
+      "url": "https://www.feridies.com/prod_detail_list/Redskin-Peanuts",
+      "visible": true
     },
     {
       "cite": "https://www.vadiner.com  › product › Redskin-Virginia-P...",
@@ -214,7 +224,8 @@
       "text": "These  red skin peanuts  are the best around and I have tried most of them. They are bigger, crunchier, and more tasty than others. Was this review helpful?",
       "title": "Redskin Virginia Peanuts",
       "type": "general",
-      "url": "https://www.vadiner.com/product/Redskin-Virginia-Peanuts"
+      "url": "https://www.vadiner.com/product/Redskin-Virginia-Peanuts",
+      "visible": true
     },
     {
       "cite": "https://www.whitleyspeanut.com  › prod_detail_list › reds...",
@@ -228,7 +239,8 @@
       "text": "The first cousin to our famous \"Home Cooked\" Virginia  Peanuts , they're shelled and salted, with  skins  on to bring out their unique flavor. You simply won't find ...",
       "title": "Virginia Redskin Peanuts",
       "type": "general",
-      "url": "https://www.whitleyspeanut.com/prod_detail_list/redskin-virginia-peanuts"
+      "url": "https://www.whitleyspeanut.com/prod_detail_list/redskin-virginia-peanuts",
+      "visible": true
     },
     {
       "cite": "https://www.hubspeanuts.com  › product › redskin-peanuts",
@@ -246,7 +258,8 @@
       "text": "Details. Underneath the outer shell, raw  peanut  kernels are enrobed in a beautiful  red skin  that is full of nutrients. Rather than removing this healthy little ...",
       "title": "Redskin Peanuts",
       "type": "general",
-      "url": "https://www.hubspeanuts.com/product/redskin-peanuts"
+      "url": "https://www.hubspeanuts.com/product/redskin-peanuts",
+      "visible": true
     },
     {
       "cite": "https://www.planters.com  › product › planters-redskin-s...",
@@ -260,7 +273,8 @@
       "text": "These roasted  peanuts  are Kosher, grown in the USA and are packed in an airtight canister to ensure freshness. The convenient resealable lid makes it easy to ...",
       "title": "PLANTERS® REDSKIN SPANISH PEANUTS, 12.5 OZ CAN",
       "type": "general",
-      "url": "https://www.planters.com/product/planters-redskin-spanish-peanuts-12-5-oz-can/"
+      "url": "https://www.planters.com/product/planters-redskin-spanish-peanuts-12-5-oz-can/",
+      "visible": true
     },
     {
       "cite": "https://krema.com  › products › hot-redskin-peanuts-16-...",
@@ -278,7 +292,8 @@
       "text": "Hot  Redskin Peanuts  16 oz. Bag.  Redskin Peanuts  are roasted in 100% Peanut Oil, then taken to the next level by adding a hot & Spicy Kick! Ingredients.",
       "title": "Hot Redskin Peanuts 16 oz. Bag",
       "type": "general",
-      "url": "https://krema.com/products/hot-redskin-peanuts-16-oz-bag"
+      "url": "https://krema.com/products/hot-redskin-peanuts-16-oz-bag",
+      "visible": true
     },
     {
       "cite": "www.reddit.com  ·  Jan 16, 2023",
@@ -292,7 +307,8 @@
       "text": null,
       "title": "IsItBullshit: eating the skins of peanuts is bad for you - Reddit",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/IsItBullshit/comments/10d9bvz/isitbullshit_eating_the_skins_of_peanuts_is_bad/"
+      "url": "https://www.reddit.com/r/IsItBullshit/comments/10d9bvz/isitbullshit_eating_the_skins_of_peanuts_is_bad/",
+      "visible": true
     },
     {
       "cite": "www.reddit.com  ·  May 8, 2020",
@@ -306,7 +322,8 @@
       "text": null,
       "title": "Getting skin off red skin peanuts : r/AskCulinary - Reddit",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/AskCulinary/comments/gfutjn/getting_skin_off_red_skin_peanuts/"
+      "url": "https://www.reddit.com/r/AskCulinary/comments/gfutjn/getting_skin_off_red_skin_peanuts/",
+      "visible": true
     },
     {
       "cite": "mybroadband.co.za  ·  Jan 20, 2023",
@@ -320,7 +337,8 @@
       "text": null,
       "title": "So whatever happened to redskin peanuts? | MyBroadband Forum",
       "type": "discussions_and_forums",
-      "url": "https://mybroadband.co.za/forum/threads/so-whatever-happened-to-redskin-peanuts.1221853/"
+      "url": "https://mybroadband.co.za/forum/threads/so-whatever-happened-to-redskin-peanuts.1221853/",
+      "visible": true
     },
     {
       "cite": "https://www.walmart.com  › ... › Peanuts › Roasted Peanuts",
@@ -338,7 +356,8 @@
       "text": "PLANTERS  Redskin  Spanish  Peanuts , Roasted Salted  Peanuts , Plant Based Protein 12.5oz (1 Canister) ; Includes Added Sugars.00g ; Protein 7.00g ; Vitamin A, 0%.",
       "title": "PLANTERS Redskin Spanish Peanuts, Roasted Salted ...",
       "type": "general",
-      "url": "https://www.walmart.com/ip/PLANTERS-Redskin-Spanish-Peanuts-Roasted-Salted-Peanuts-Plant-Based-Protein-12-5oz-1-Canister/11964702"
+      "url": "https://www.walmart.com/ip/PLANTERS-Redskin-Spanish-Peanuts-Roasted-Salted-Peanuts-Plant-Based-Protein-12-5oz-1-Canister/11964702",
+      "visible": true
     },
     {
       "cite": null,
@@ -352,7 +371,8 @@
       "text": "Shop deals",
       "title": "Save with deals on apparel, electronics, and more",
       "type": "promo",
-      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwjJ9YTMifCEAxVpOFkFHRlCC5IQ_hF6BAgzEAA"
+      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwjJ9YTMifCEAxVpOFkFHRlCC5IQ_hF6BAgzEAA",
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › Raw-Redskin-Peanuts-Unsal...",
@@ -370,7 +390,8 @@
       "text": "Guilt-Free Snacking - Indulge in the savory goodness of our  peanut  bags without worries. Each serving of these  redskin  Spanish  peanuts  only has 160 calories.",
       "title": "Raw Red skin Peanuts, USA Grown, (Unsalted) 5LB Bag ...",
       "type": "general",
-      "url": "https://www.amazon.com/Raw-Redskin-Peanuts-Unsalted-Bulk/dp/B0079EIIZ4"
+      "url": "https://www.amazon.com/Raw-Redskin-Peanuts-Unsalted-Bulk/dp/B0079EIIZ4",
+      "visible": true
     },
     {
       "cite": "Alive herbals",
@@ -388,7 +409,8 @@
       "text": null,
       "title": "Red Skin Raw Peanuts Buy at Low Cost.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Oh! Nuts",
@@ -406,7 +428,8 @@
       "text": null,
       "title": "Dry Roasted Unsalted Redskin Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -424,7 +447,8 @@
       "text": null,
       "title": "Cream-Nut Red-skinned Virginia Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart - Its Delish",
@@ -444,7 +468,8 @@
       "text": null,
       "title": "Gourmet Raw Peanuts with Red Skin by Its Delish.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Virginia Diner",
@@ -462,7 +487,8 @@
       "text": null,
       "title": "Redskin Virginia Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Hope & Harmony Farms",
@@ -480,7 +506,8 @@
       "text": null,
       "title": "Raw Virginia Redskin Peanuts 6 Lb. Bag.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Nutstop.com",
@@ -500,7 +527,8 @@
       "text": null,
       "title": "Nutstop Red Skin Peanuts Roasted.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -520,7 +548,8 @@
       "text": null,
       "title": "We Got Nuts Raw Red skin Peanuts USA Grown.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -538,7 +567,8 @@
       "text": null,
       "title": "Hubs Peanuts Big Reds Premium Virginia Nuts with Red Skins Freshly Home Cooked Salted Flavor.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -556,7 +586,8 @@
       "text": null,
       "title": "Roasted and Salted Red Skin Spanish Peanuts, Cacahuate Snacks (Roasted & Salted Peanut, 1 Pound).",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -576,7 +607,8 @@
       "text": null,
       "title": "The Peanut Shop of Williamsburg Handcooked Virginia Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "hillsonnut.com",
@@ -594,7 +626,8 @@
       "text": null,
       "title": "Peanuts: Redskin.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -612,7 +645,8 @@
       "text": null,
       "title": "Red-Skin Peanuts Shelled Roasted Unsalted Jumbo Runner Bulk 10 Pound Box.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Hope & Harmony Farms",
@@ -630,7 +664,8 @@
       "text": null,
       "title": "Salted Virginia Red Skin Peanuts 40 Oz..",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "sayweee.com",
@@ -648,7 +683,8 @@
       "text": null,
       "title": "Healthy Family Red Skin Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Belmont Peanuts",
@@ -666,7 +702,8 @@
       "text": null,
       "title": "Redskin Peanuts | Belmont Peanuts | 20 oz | Single Can.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://hopeandharmonyfarms.com  › SHOP ALL",
@@ -684,7 +721,8 @@
       "text": "SALTED VIRGINIA  RED SKIN PEANUTS  (3) 10 OZ. $34.95. Super extra-large Virginia peanuts, hand cooked with the skins on, in 100.",
       "title": "salted virginia red skin peanuts 40 oz.",
       "type": "general",
-      "url": "https://hopeandharmonyfarms.com/salted-virginia-red-skin-peanuts-40-oz/"
+      "url": "https://hopeandharmonyfarms.com/salted-virginia-red-skin-peanuts-40-oz/",
+      "visible": true
     },
     {
       "cite": "Whitley's Peanut Factory",
@@ -702,7 +740,8 @@
       "text": null,
       "title": "16 oz. Pouch Bag Salted Redskin Virginia Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Nutstop.com",
@@ -720,7 +759,8 @@
       "text": null,
       "title": "Raw Redskin Peanuts - 1lb Bag - Bulk Sizes Available.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "We Got Nuts",
@@ -740,7 +780,8 @@
       "text": null,
       "title": "Raw Redskin Peanuts Premium Nuts From We Got Nuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Po Wing Online",
@@ -758,7 +799,8 @@
       "text": null,
       "title": "Heng Cheong Loong Red Skin Peanuts.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "theloadedkitchen.com",
@@ -776,7 +818,8 @@
       "text": null,
       "title": "Hampton Farms Raw Peanuts Redskin.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart - Monroe Systems for Business",
@@ -796,7 +839,8 @@
       "text": null,
       "title": "Virginia Peanuts Animal Grade Raw Red Skin Peanuts for Squirrels Birds Deer Pigs and A Wide Variety of Wildlife/Bulk Nuts/Blu.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -814,7 +858,8 @@
       "text": null,
       "title": "Raw Red Skin Peanuts (Uncooked, Unsalted) 3 LB. (48oz), Product of USA.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Feridies",
@@ -832,7 +877,8 @@
       "text": null,
       "title": "36oz Redskin Virginia Peanuts - 4 Pack.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -857,7 +903,8 @@
       "text": "Red skin peanuts vs regular peanuts<|>Red skin peanuts nutrition<|>red skin peanuts benefits<|>red skin peanuts raw<|>red skin peanuts protein<|>Where to buy red skin peanuts",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -879,7 +926,8 @@
       "text": null,
       "title": "Things to know",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -24,7 +24,8 @@
       "text": null,
       "title": "Results for Lower Manhattan, New York",
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -72,7 +73,8 @@
       "text": "Barclays has made several rounds of layoffs in recent months, including in its investment banking division, in New York, and in North Jersey . These layoffs are part of a long-term strategy to cut costs and increase profitability.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.efinancialcareers.com  › news › barclays-is-c...",
@@ -86,7 +88,8 @@
       "text": "Jan 29, 2025  —  Sources at the bank say  Barclays yesterday cut 51 developers  working across credit, equities, fixed income, FX and prime services technology in ...",
       "title": "Barclays is cutting technology jobs and mandating extra ...",
       "type": "general",
-      "url": "https://www.efinancialcareers.com/news/barclays-is-cutting-technology-jobs-and-mandating-extra-office-days"
+      "url": "https://www.efinancialcareers.com/news/barclays-is-cutting-technology-jobs-and-mandating-extra-office-days",
+      "visible": true
     },
     {
       "cite": null,
@@ -108,7 +111,8 @@
       "text": "Is Barclays laying off employees?<|>Will Barclays layoff in 2024?<|>Is Barclays bank closing in 2024?<|>Is Barclays financially stable?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.reuters.com  › business › finance › barclays...",
@@ -122,7 +126,8 @@
       "text": "May 1, 2024  —  The bank axed  around 5,000 jobs in 2023  after dealmaking activities slumped across the industry. In November, Reuters exclusively reported the ...",
       "title": "Barclays moves to cut 'a few hundred' investment bank ...",
       "type": "general",
-      "url": "https://www.reuters.com/business/finance/barclays-moves-cut-a-few-hundred-investment-bank-underperformers-2024-05-01/"
+      "url": "https://www.reuters.com/business/finance/barclays-moves-cut-a-few-hundred-investment-bank-underperformers-2024-05-01/",
+      "visible": true
     },
     {
       "cite": "https://www.wallstreetoasis.com  › investment-banking",
@@ -136,7 +141,8 @@
       "text": "Apr 30, 2024  —  Least unexpected layoffs this year  after the Citi & UBS ones. Barclay's big deal makers were the ex-Lehman guys... a quarter of whom just left ...",
       "title": "Big Layoff at Barclays - 5/1/24",
       "type": "general",
-      "url": "https://www.wallstreetoasis.com/forum/investment-banking/big-layoff-at-barclays-5124"
+      "url": "https://www.wallstreetoasis.com/forum/investment-banking/big-layoff-at-barclays-5124",
+      "visible": true
     },
     {
       "cite": "https://www.northjersey.com  › business › 2024/06/04",
@@ -150,7 +156,8 @@
       "text": "Jun 4, 2024  —  Barclays bank is laying off 70 employees in Whippany , the latest job cuts in New Jersey's financial services sector.",
       "title": "Barclays laying off 70 in North Jersey",
       "type": "general",
-      "url": "https://www.northjersey.com/story/news/business/2024/06/04/barclays-laying-off-70-employees-in-north-jersey/73971878007/"
+      "url": "https://www.northjersey.com/story/news/business/2024/06/04/barclays-laying-off-70-employees-in-north-jersey/73971878007/",
+      "visible": true
     },
     {
       "cite": "https://www.efinancialcareers.com  › news › barclays-lon...",
@@ -164,7 +171,8 @@
       "text": "May 2, 2024  —  Barclays  has announced its intention of cutting £188m in costs from its investment bank by 2026. There are likely to be more redundancies to ...",
       "title": "Barclays' London bankers say one team was cut more than ...",
       "type": "general",
-      "url": "https://www.efinancialcareers.com/news/barclays-london-bankers-say-one-team-was-cut-more-than-the-rest-yesterday"
+      "url": "https://www.efinancialcareers.com/news/barclays-london-bankers-say-one-team-was-cut-more-than-the-rest-yesterday",
+      "visible": true
     },
     {
       "cite": "https://www.themiddlemarket.com  › news-analysis › ba...",
@@ -178,7 +186,8 @@
       "text": "May 1, 2024  —  The cuts include  trading, advisory, capital markets  and the firm's international corporate bank.",
       "title": "Barclays Begins Implementing Job Cuts Across Investment Bank",
       "type": "general",
-      "url": "https://www.themiddlemarket.com/news-analysis/barclays-begins-implementing-job-cuts-across-investment-bank"
+      "url": "https://www.themiddlemarket.com/news-analysis/barclays-begins-implementing-job-cuts-across-investment-bank",
+      "visible": true
     },
     {
       "cite": "https://www.bloomberg.com  › news › articles › barclays-...",
@@ -192,7 +201,8 @@
       "text": "May 1, 2024  —  Barclays Plc has begun cutting hundreds of jobs  as the firm embarks on a £2 billion cost-cutting drive that's part of Chief Executive ...",
       "title": "Barclays Begins Implementing Job Cuts Across Investment ...",
       "type": "general",
-      "url": "https://www.bloomberg.com/news/articles/2024-05-01/barclays-begins-implementing-job-cuts-across-investment-bank"
+      "url": "https://www.bloomberg.com/news/articles/2024-05-01/barclays-begins-implementing-job-cuts-across-investment-bank",
+      "visible": true
     },
     {
       "cite": "https://www.theguardian.com  › business › feb › barclay...",
@@ -206,7 +216,8 @@
       "text": "Feb 20, 2024  —  Barclays to cut costs by £2bn , raising fears of further job losses. Bank announces drop in profits to £6.6bn as it says it plans to return more to shareholders.",
       "title": "Barclays to cut costs by £2bn, raising fears of further job ...",
       "type": "general",
-      "url": "https://www.theguardian.com/business/2024/feb/20/barclays-cut-costs-job-losses-profits"
+      "url": "https://www.theguardian.com/business/2024/feb/20/barclays-cut-costs-job-losses-profits",
+      "visible": true
     },
     {
       "cite": "https://www.cityam.com  › barclays-starts-cutting-hundr...",
@@ -220,7 +231,8 @@
       "text": "May 1, 2024  —  Barclays has reportedly started cutting hundreds of roles , including at its investment bank, as the group looks to cut costs and improve its share price.",
       "title": "Barclays starts to cut hundreds of jobs in cost-saving bid ...",
       "type": "general",
-      "url": "https://www.cityam.com/barclays-starts-cutting-hundreds-of-jobs-in-cost-saving-push-including-in-investment-bank/"
+      "url": "https://www.cityam.com/barclays-starts-cutting-hundreds-of-jobs-in-cost-saving-push-including-in-investment-bank/",
+      "visible": true
     },
     {
       "cite": "https://finance.yahoo.com  › news › barclays-bcs-initiate...",
@@ -234,7 +246,8 @@
       "text": "May 3, 2024  —  Barclays PLC BCS has commenced job cuts  across investment banking (IB) and research division, per people familiar with the matter.",
       "title": "Barclays (BCS) Initiates Job Cuts Across IB & Research Units",
       "type": "general",
-      "url": "https://finance.yahoo.com/news/barclays-bcs-initiates-job-cuts-153300524.html"
+      "url": "https://finance.yahoo.com/news/barclays-bcs-initiates-job-cuts-153300524.html",
+      "visible": true
     }
   ]
 }

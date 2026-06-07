@@ -58,7 +58,8 @@
       "text": "The Los Angeles metropolitan area, also known as the Greater Los Angeles Area, is a region in Southern California that includes Los Angeles County and the surrounding counties . It's the second-largest metropolitan area in the United States, after New York City.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Greater_Los_Angeles",
@@ -72,7 +73,8 @@
       "text": "Greater Los Angeles  is the most populous metropolitan area in the US state of California, encompassing five counties in Southern California",
       "title": "Greater Los Angeles",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles"
+      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +96,8 @@
       "text": "What is considered a metropolitan area?<|>What counties are in the Los Angeles metro area?<|>What is Los Angeles metropolitan area code?<|>What are the metropolitan areas of Southern California?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.carolmendelmaps.com  › mapla",
@@ -108,7 +111,8 @@
       "text": "The map features the  entire metropolitan area , from San Fernando and the San Gabriel mountains in the north to Newport Beach and Irvine in the south.",
       "title": "Los Angeles metropolitan area map",
       "type": "general",
-      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html",
+      "visible": true
     },
     {
       "cite": "https://simple.wikipedia.org  › wiki › Greater_Los_Ange...",
@@ -122,7 +126,8 @@
       "text": "The Los Angeles metropolitan area has a total area of 4,850 square miles (12,561.442 km 2 ). The wider combined statistical area covers 33,954 square miles (87, ...",
       "title": "Greater Los Angeles Area - Simple English Wikipedia, the ...",
       "type": "general",
-      "url": "https://simple.wikipedia.org/wiki/Greater_Los_Angeles_Area"
+      "url": "https://simple.wikipedia.org/wiki/Greater_Los_Angeles_Area",
+      "visible": true
     },
     {
       "cite": "https://labormarketinfo.edd.ca.gov  › definitions › metro...",
@@ -136,7 +141,8 @@
       "text": "The MSA and their Metropolitan Divisions are:  Los Angeles-Long Beach-Anaheim, CA MSA ; Los Angeles-Long Beach-Glendale, CA MD (Los Angeles County); Anaheim ...",
       "title": "Metropolitan Statistical Areas in California",
       "type": "general",
-      "url": "https://labormarketinfo.edd.ca.gov/definitions/metropolitan-statistical-areas.html"
+      "url": "https://labormarketinfo.edd.ca.gov/definitions/metropolitan-statistical-areas.html",
+      "visible": true
     },
     {
       "cite": "https://www.whittier.edu  › about › area",
@@ -150,7 +156,8 @@
       "text": "The Los Angeles area (the  five-county metropolitan area  composed of Los Angeles, Orange, Riverside, San Bernardino, and Ventura Counties) is the 11th-largest ...",
       "title": "Greater Los Angeles Area",
       "type": "general",
-      "url": "https://www.whittier.edu/about/area"
+      "url": "https://www.whittier.edu/about/area",
+      "visible": true
     },
     {
       "cite": "https://metropolitan.fandom.com  › wiki › Greater_Los_...",
@@ -164,7 +171,8 @@
       "text": "The Greater Los Angeles area is generally taken to include the  Los Angeles metropolitan area , the Inland Empire, and Ventura County.",
       "title": "Greater Los Angeles Area | Metropolitan Wiki - Fandom",
       "type": "general",
-      "url": "https://metropolitan.fandom.com/wiki/Greater_Los_Angeles_Area"
+      "url": "https://metropolitan.fandom.com/wiki/Greater_Los_Angeles_Area",
+      "visible": true
     },
     {
       "cite": "70+ comments  ·  1 year ago",
@@ -202,7 +210,8 @@
       "text": "It is  1,740 square miles now , larger than than the state of Rhode Island.",
       "title": "Are you surprised/amazed with just how large and ...",
       "type": "general",
-      "url": "https://www.reddit.com/r/AskLosAngeles/comments/18yu2u9/are_you_surprisedamazed_with_just_how_large_and/"
+      "url": "https://www.reddit.com/r/AskLosAngeles/comments/18yu2u9/are_you_surprisedamazed_with_just_how_large_and/",
+      "visible": true
     },
     {
       "cite": null,
@@ -216,7 +225,8 @@
       "text": null,
       "title": "Los Angeles metropolitan area map",
       "type": "images",
-      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -230,7 +240,8 @@
       "text": null,
       "title": "The Los Angeles metropolitan area [3850 x 2311] [OS] : r/MapPorn",
       "type": "images",
-      "url": "https://www.reddit.com/r/MapPorn/comments/4gv7d6/the_los_angeles_metropolitan_area_3850_x_2311_os/"
+      "url": "https://www.reddit.com/r/MapPorn/comments/4gv7d6/the_los_angeles_metropolitan_area_3850_x_2311_os/",
+      "visible": true
     },
     {
       "cite": null,
@@ -244,7 +255,8 @@
       "text": null,
       "title": "Greater Los Angeles | Familypedia | Fandom",
       "type": "images",
-      "url": "https://familypedia.fandom.com/wiki/Greater_Los_Angeles"
+      "url": "https://familypedia.fandom.com/wiki/Greater_Los_Angeles",
+      "visible": true
     },
     {
       "cite": null,
@@ -258,7 +270,8 @@
       "text": null,
       "title": "Los Angeles metropolitan area map",
       "type": "images",
-      "url": "https://www.carolmendelmaps.com/mapla/la1.html"
+      "url": "https://www.carolmendelmaps.com/mapla/la1.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -272,7 +285,8 @@
       "text": null,
       "title": "Greater Los Angeles - Wikipedia",
       "type": "images",
-      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles"
+      "url": "https://en.wikipedia.org/wiki/Greater_Los_Angeles",
+      "visible": true
     },
     {
       "cite": null,
@@ -286,7 +300,8 @@
       "text": null,
       "title": "Los Angeles-Long Beach-Anaheim, CA MSA Situation & Outlook ...",
       "type": "images",
-      "url": "https://proximityone.com/metros/2013/cbsa31080.htm"
+      "url": "https://proximityone.com/metros/2013/cbsa31080.htm",
+      "visible": true
     },
     {
       "cite": "https://support.crunchbase.com  › en-us › articles › 360...",
@@ -300,7 +315,8 @@
       "text": "Feb 4, 2021  —  Here's the current breakdown of the Greater Los Angeles Area region:  Los Angeles; Santa Monica; Irvine; Beverly Hills; Lucerne Valley; Pasadena  ...",
       "title": "What cities are in the Greater Los Angeles region?",
       "type": "general",
-      "url": "https://support.crunchbase.com/hc/en-us/articles/360009895834-What-cities-are-in-the-Greater-Los-Angeles-region"
+      "url": "https://support.crunchbase.com/hc/en-us/articles/360009895834-What-cities-are-in-the-Greater-Los-Angeles-region",
+      "visible": true
     },
     {
       "cite": "https://www.metro.net",
@@ -314,7 +330,8 @@
       "text": "Explore  Los Angeles  by public transit. Start with Metro schedules, maps, arrival times, parking info, trip planning, stations, and fares.",
       "title": "Metro | Bus, Rail, Subway, Bike & Micro in Los Angeles",
       "type": "general",
-      "url": "https://www.metro.net/"
+      "url": "https://www.metro.net/",
+      "visible": true
     },
     {
       "cite": null,
@@ -347,7 +364,8 @@
       "text": "Los Angeles<|>California<|>New York Metropolitan Area<|>Los Angeles County<|>Greater Los Angeles<|>San Francisco Bay Area<|>Metropolitan los angeles area map<|>Metropolitan los angeles area towns<|>Metropolitan los angeles area cities<|>Los Angeles County population<|>Greater Los Angeles map<|>Greater Los Angeles map with cities<|>Orange County population<|>La area map",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -361,7 +379,8 @@
       "text": null,
       "title": "See results about",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

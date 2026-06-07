@@ -36,7 +36,8 @@
       "text": "Our products demonstrate good measures of well-being and positivism in light of modern innovative and sustainable designs. girosoft.jpg.",
       "title": "PROUVE CONTRACT FURNITURE",
       "type": "general",
-      "url": "http://www.prouvecf.com/"
+      "url": "http://www.prouvecf.com/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Jean_Prouvé",
@@ -50,7 +51,8 @@
       "text": "Jean  Prouvé  was a French metal worker, self-taught architect and designer. Le Corbusier designated  Prouvé  a constructeur, blending architecture and ...",
       "title": "Jean Prouvé",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Jean_Prouv%C3%A9"
+      "url": "https://en.wikipedia.org/wiki/Jean_Prouv%C3%A9",
+      "visible": true
     },
     {
       "cite": "Design Within Reach",
@@ -68,7 +70,8 @@
       "text": null,
       "title": "Prouvé Fauteuil de Salon. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "lichennyc.com",
@@ -86,7 +89,8 @@
       "text": null,
       "title": "Jean Prouvé Tout Bois Chair.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "njmodern.com",
@@ -104,7 +108,8 @@
       "text": null,
       "title": "prouve bridge director armchair - black.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -122,7 +127,8 @@
       "text": null,
       "title": "Jean Prouvé.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "finnishdesignshop.com",
@@ -142,7 +148,8 @@
       "text": null,
       "title": "Petite Potence Wall Lamp Vitra. Low price.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Design Within Reach",
@@ -160,7 +167,8 @@
       "text": null,
       "title": "Prouvé Fauteuil Direction Design Within Reach. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "advancedinteriordesigns.com",
@@ -178,7 +186,8 @@
       "text": null,
       "title": "Prouve Style Standard Chair.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "njmodern.com",
@@ -196,7 +205,8 @@
       "text": null,
       "title": "prouve standard chair.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.prouve.com",
@@ -210,7 +220,8 @@
       "text": "Zestawy 90 dni; Perfumy. Nowości · Bestsellery · Edycje Limitowane · Perfumy Damskie · Perfumy Klasyczne · Precious Collection · Unique Collection ...",
       "title": "Prouvé",
       "type": "general",
-      "url": "https://www.prouve.com/"
+      "url": "https://www.prouve.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -230,7 +241,8 @@
       "text": "What was Jean Prouve's philosophy?<|>What style is Jean Prouve?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.patrickseguin.com  › furniture-jean-prouve",
@@ -244,7 +256,8 @@
       "text": "1929 Founding member of the Union des artistes modernes (UAM). First furniture: adjustable reclining armchair, pedestal table with rubber top, folding reclining ...",
       "title": "Jean Prouvé - Furniture",
       "type": "general",
-      "url": "https://www.patrickseguin.com/en/designers/furniture-jean-prouve/available-pieces-furniture-jean-prouve/"
+      "url": "https://www.patrickseguin.com/en/designers/furniture-jean-prouve/available-pieces-furniture-jean-prouve/",
+      "visible": true
     },
     {
       "cite": "https://www.vitra.com  › designer › details › jean-prouve",
@@ -258,7 +271,8 @@
       "text": "Prouvé's  work encompasses a wide range of objects, from a letter opener to door and window fittings, from lighting and furniture to façade elements and ...",
       "title": "Jean Prouvé | Official Vitra® Online Shop US",
       "type": "general",
-      "url": "https://www.vitra.com/en-us/product/designer/details/jean-prouve"
+      "url": "https://www.vitra.com/en-us/product/designer/details/jean-prouve",
+      "visible": true
     },
     {
       "cite": "https://www.dwr.com  › Designers",
@@ -272,7 +286,8 @@
       "text": "After opening his own workshop in 1923,  Prouvé  began producing modern metal furniture of his own design as well as collaborating with some of the best-known ...",
       "title": "Jean Prouvé - Designers",
       "type": "general",
-      "url": "https://www.dwr.com/designer-jean-prouv?lang=en_US"
+      "url": "https://www.dwr.com/designer-jean-prouv?lang=en_US",
+      "visible": true
     },
     {
       "cite": "https://www.jeanprouve.com  › furniture",
@@ -286,7 +301,8 @@
       "text": "1929. Articulated armchair ; 1929-30. Reclining armchair ; 1930. Grand Repos armchair ; 1930. Cité armchair ; 1937. Lawn chair with Jacques André.",
       "title": "Furniture - Jean Prouvé",
       "type": "general",
-      "url": "https://www.jeanprouve.com/en/furniture"
+      "url": "https://www.jeanprouve.com/en/furniture",
+      "visible": true
     },
     {
       "cite": null,
@@ -300,7 +316,8 @@
       "text": "Shop deals",
       "title": "Save with deals on apparel, electronics, and more",
       "type": "promo",
-      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQ_hF6BAhiEAA"
+      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQ_hF6BAhiEAA",
+      "visible": true
     },
     {
       "cite": "https://hivemodern.com  › pages",
@@ -314,7 +331,8 @@
       "text": "Jean Prouve's modern designs reveal knowledge of materials at hand & a commitment to collaboration between artist & craftsmen. Expert service and advice.",
       "title": "Jean Prouvé",
       "type": "general",
-      "url": "https://hivemodern.com/pages/category294/jean-prouve"
+      "url": "https://hivemodern.com/pages/category294/jean-prouve",
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -332,7 +350,8 @@
       "text": null,
       "title": "Jean Prouve - 5 Volume Box Set.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "prooffice.com",
@@ -352,7 +371,8 @@
       "text": null,
       "title": "Prouve Antony Vitra Miniature Chair 1950.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Design Within Reach",
@@ -370,7 +390,8 @@
       "text": null,
       "title": "Prouvé Cité Lounge Chair. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Chairish",
@@ -388,7 +409,8 @@
       "text": null,
       "title": "Vintage Chairs by Jean Prouvé, 1941, Set of 2.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "finnishdesignshop.com",
@@ -406,7 +428,8 @@
       "text": null,
       "title": "EM Table 240 x 90 cm, asphalt - Prouvé Blanc Colombe.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -424,7 +447,8 @@
       "text": null,
       "title": "Jean Prouve English and French Edition by Prouve Jean. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Pamono.com",
@@ -442,7 +466,8 @@
       "text": null,
       "title": "Vintage Large Coffee Table in the Style of Jean Prouvé, 1950s.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Design Within Reach",
@@ -460,7 +485,8 @@
       "text": null,
       "title": "Prouvé Tabouret Haut at Design Within Reach. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.finnishdesignshop.com  › Home › Designers",
@@ -474,7 +500,8 @@
       "text": "Jean  Prouvé  - Designers - The most comprehensive selection of Finnish and Scandinavian design online. All in-stock items ship within 24 hours!",
       "title": "Jean Prouvé | Design",
       "type": "general",
-      "url": "https://www.finnishdesignshop.com/en-us/designer/jean-prouve"
+      "url": "https://www.finnishdesignshop.com/en-us/designer/jean-prouve",
+      "visible": true
     },
     {
       "cite": null,
@@ -501,7 +528,8 @@
       "text": "prouvé meaning<|>prouvé perfume<|>prouvé chair<|>prouvé table<|>prouvé vitra<|>prouvé pronunciation<|>prouvé house<|>prouvé desk",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -518,7 +546,8 @@
       "text": "Jean Prouvé was a French metal worker, self-taught architect and designer. Le Corbusier designated Prouvé a constructeur, blending architecture and engineering. Prouvé's main achievement was transferring manufacturing technology from industry to architecture, without losing aesthetic qualities.",
       "title": "Jean Prouvé",
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Jean_Prouv%C3%A9"
+      "url": "https://en.wikipedia.org/wiki/Jean_Prouv%C3%A9",
+      "visible": true
     },
     {
       "cite": null,
@@ -552,7 +581,8 @@
       "text": null,
       "title": "Structures",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -586,7 +616,8 @@
       "text": null,
       "title": "Books",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -620,7 +651,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

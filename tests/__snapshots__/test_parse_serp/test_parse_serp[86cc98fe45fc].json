@@ -58,7 +58,8 @@
       "text": "“My work is done. Why wait?” was a note left by George Eastman, the founder of Kodak, when he died by suicide in 1932.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.openculture.com  › 2013/08 › the-very-con...",
@@ -72,7 +73,8 @@
       "text": "Aug 19, 2013  —  On March 14th, he committed suicide by firing a single gunshot through his heart. An act as brief, and to the point, as the note he left behind.",
       "title": "The Very Concise Suicide Note by Kodak Founder George ...",
       "type": "general",
-      "url": "https://www.openculture.com/2013/08/the-very-concise-suicide-note-by-kodak-founder-george-eastman-my-work-is-done-why-wait-1932.html"
+      "url": "https://www.openculture.com/2013/08/the-very-concise-suicide-note-by-kodak-founder-george-eastman-my-work-is-done-why-wait-1932.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +96,8 @@
       "text": "Why did George Eastman never marry?<|>What illness did George Eastman have?<|>What is the slogan of Kodak?<|>Who did George Eastman leave his money to?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › George_Eastman",
@@ -108,7 +111,8 @@
       "text": "On March 14, 1932, he shot himself in the heart, leaving a note which read, \"To my friends:  my work is done. Why wait ?\" Eastman is regarded as one of ...",
       "title": "George Eastman",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/George_Eastman"
+      "url": "https://en.wikipedia.org/wiki/George_Eastman",
+      "visible": true
     },
     {
       "cite": "150+ comments  ·  2 years ago",
@@ -146,7 +150,8 @@
       "text": "He was 77 when he died, and was in immense pain for the last two years. That's the important detail one should not to skim over.",
       "title": "George Eastman's suicide note. To my friends my work is ...",
       "type": "general",
-      "url": "https://www.reddit.com/r/interestingasfuck/comments/zrc5tx/george_eastmans_suicide_note_to_my_friends_my/"
+      "url": "https://www.reddit.com/r/interestingasfuck/comments/zrc5tx/george_eastmans_suicide_note_to_my_friends_my/",
+      "visible": true
     },
     {
       "cite": "https://www.ajgponline.org  › article › abstract",
@@ -160,7 +165,8 @@
       "text": "by Y Conwell  ·  2022  —  On March 14, 1932  George Eastman, founder of Kodak , industrialist, entrepreneur, and fabulously wealthy philanthropist wrote these words: ...",
       "title": "“My Work is Done. Why Wait?” Lessons Learned from ...",
       "type": "general",
-      "url": "https://www.ajgponline.org/article/S1064-7481(22)00525-5/abstract"
+      "url": "https://www.ajgponline.org/article/S1064-7481(22)00525-5/abstract",
+      "visible": true
     },
     {
       "cite": "https://www.oddthingsiveseen.com  › 2018/02 › rest-in-...",
@@ -174,7 +180,8 @@
       "text": "Feb 3, 2018  —  “My work is done. Why wait?”  I don't whether it's the succinctness of the message or its humility in not trying to impart any wisdom gleaned ...",
       "title": "Rest In Photography: The George Eastman Suicide Note",
       "type": "general",
-      "url": "https://www.oddthingsiveseen.com/2018/02/rest-in-photography-george-eastman.html"
+      "url": "https://www.oddthingsiveseen.com/2018/02/rest-in-photography-george-eastman.html",
+      "visible": true
     },
     {
       "cite": "https://www.eastman.org  › about-george-eastman",
@@ -188,7 +195,8 @@
       "text": "In a note to friends, he wrote, “ My work is done. Why wait ?” During his life, George Eastman donated more than $100 million to educational and arts ...",
       "title": "About George Eastman",
       "type": "general",
-      "url": "https://www.eastman.org/about-george-eastman"
+      "url": "https://www.eastman.org/about-george-eastman",
+      "visible": true
     },
     {
       "cite": "https://www.goodreads.com  › quotes › 3184405-georg...",
@@ -202,7 +210,8 @@
       "text": "George Eastman, \"My work is done why wait ?\" He then shot himself. George Eastman. Like · likes: 2. 3 people added it.",
       "title": "George Eastman, \"My work is done why wait?\" He",
       "type": "general",
-      "url": "https://www.goodreads.com/quotes/3184405-george-eastman-my-work-is-done-why-wait-he-then"
+      "url": "https://www.goodreads.com/quotes/3184405-george-eastman-my-work-is-done-why-wait-he-then",
+      "visible": true
     },
     {
       "cite": "https://www.victorian-cinema.net  › eastman",
@@ -216,7 +225,8 @@
       "text": "A biographical guide to the earliest years of moving pictures, 1871-1901. A gateway to the world of Victorian film, behind and in front of the camera.",
       "title": "George Eastman",
       "type": "general",
-      "url": "https://www.victorian-cinema.net/eastman.php"
+      "url": "https://www.victorian-cinema.net/eastman.php",
+      "visible": true
     },
     {
       "cite": "https://www.news.com.au  › ... › Real-life › True-stories",
@@ -230,7 +240,8 @@
       "text": "Mar 24, 2019  —  The note simply read: “To my friends,  my work is done. Why wait ?” Eastman's ashes were buried on the grounds of Eastman Business Park in ...",
       "title": "Kodak inventor George Eastman's perfectly planned death",
       "type": "general",
-      "url": "https://www.news.com.au/lifestyle/real-life/true-stories/the-perfectly-planned-death-of-kodak-inventor-george-eastman/news-story/8af9b9f21050cc95d4a306b21d198c08"
+      "url": "https://www.news.com.au/lifestyle/real-life/true-stories/the-perfectly-planned-death-of-kodak-inventor-george-eastman/news-story/8af9b9f21050cc95d4a306b21d198c08",
+      "visible": true
     },
     {
       "cite": "https://www.pbs.org  › americanexperience › features",
@@ -244,7 +255,8 @@
       "text": "The note found by the household staff read simply: \"To  my friends, My work is done--, Why wait ?\" When his casket was carried out of the Eastman House, the ...",
       "title": "George Eastman | American Experience | Official Site",
       "type": "general",
-      "url": "https://www.pbs.org/wgbh/americanexperience/features/george-eastman/"
+      "url": "https://www.pbs.org/wgbh/americanexperience/features/george-eastman/",
+      "visible": true
     },
     {
       "cite": null,
@@ -271,7 +283,8 @@
       "text": "My work is done why wait meaning<|>My work is done why wait quotes<|>How old was George Eastman when he died<|>George Eastman Award<|>George Eastman interesting facts<|>George Eastman quotes<|>George Eastman descendants<|>When was the Kodak camera invented",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

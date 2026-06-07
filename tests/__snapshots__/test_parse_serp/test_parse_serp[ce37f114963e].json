@@ -39,7 +39,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -61,7 +62,8 @@
       "text": "How do you politely say thank you in Korean?<|>What does kamsahamnida mean?<|>Do Koreans say Arigato?<|>How to Say 'Thank You' in Korean – LingQ Blog LingQ https://www.lingq.com › blog › thank-you-in-korean LingQ https://www.lingq.com › blog › thank-you-in-korean",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -161,7 +163,8 @@
       "text": "The most common, polite way to say \"thank you\" in Korean is 감사합니다 (gamsahamnida) . For a slightly less formal but still polite tone, you can use 고맙습니다 (gomapseumnida) . Here are the different levels of formality for \"thank you\": Formal/Polite (Standard): 감사합니다 (gam-sa-ham-ni-da) Polite (Common): 고마워요 (go-ma-wo-yo) Informal (Close friends): 고마워 (go-ma-wo) Very Formal (Business): 대단히 감사합니다 (dae-dan-hi gam-sa-ham-ni-da) How to respond to \"Thank You\" (You're Welcome): Formal: 별말씀을요 (byeol-mal-sseum-eul-yo) - \"Don't mention it\" Polite/Common: 아니에요 (a-ni-ae-yo) - \"It's nothing/No problem\"",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -175,7 +178,8 @@
       "text": null,
       "title": "5 Different Ways to Say 'Thank you' in Korean! #koreanteacher",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/oPPA6Bcip-o"
+      "url": "https://www.youtube.com/shorts/oPPA6Bcip-o",
+      "visible": true
     },
     {
       "cite": null,
@@ -189,7 +193,8 @@
       "text": null,
       "title": "Learn How to Say Thank You in Korean! Essential Phrases for ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@gracesooda/video/7312079788250860801?lang=en"
+      "url": "https://www.tiktok.com/@gracesooda/video/7312079788250860801?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -203,7 +208,8 @@
       "text": null,
       "title": "Learn How to Say Thank You in Korean Like a Native",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@talktomeinkorean/video/7501982564077423892?lang=en"
+      "url": "https://www.tiktok.com/@talktomeinkorean/video/7501982564077423892?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -217,7 +223,8 @@
       "text": null,
       "title": "8 Ways to Say \"Thank You\" in Korean for Every Situation ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/v-FbniRD4JY"
+      "url": "https://www.youtube.com/shorts/v-FbniRD4JY",
+      "visible": true
     },
     {
       "cite": null,
@@ -231,7 +238,8 @@
       "text": null,
       "title": "5 Different Ways to Say 'Thank You' in Korean",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@inakimieee/video/7235437296340765995?lang=en"
+      "url": "https://www.tiktok.com/@inakimieee/video/7235437296340765995?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -245,7 +253,8 @@
       "text": null,
       "title": "How to Say 'Thank You' in Korean: Complete Guide",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@dailydoseofkorean/video/7165320589710757122?lang=en"
+      "url": "https://www.tiktok.com/@dailydoseofkorean/video/7165320589710757122?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -259,7 +268,8 @@
       "text": null,
       "title": "How to say \"Thank you\" in Korean #shorts #한국어",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/IAQjpt0RV5Q"
+      "url": "https://www.youtube.com/shorts/IAQjpt0RV5Q",
+      "visible": true
     },
     {
       "cite": null,
@@ -273,7 +283,8 @@
       "text": null,
       "title": "3 ways to say 'Thank you' in Korean #koreanlanguage ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/eVstDPuiNDM"
+      "url": "https://www.youtube.com/shorts/eVstDPuiNDM",
+      "visible": true
     },
     {
       "cite": null,
@@ -287,7 +298,8 @@
       "text": null,
       "title": "Konglish just makes so much sense!!",
       "type": "short_videos",
-      "url": "https://www.instagram.com/reel/DUZQWDqDsPv/"
+      "url": "https://www.instagram.com/reel/DUZQWDqDsPv/",
+      "visible": true
     },
     {
       "cite": null,
@@ -301,7 +313,8 @@
       "text": null,
       "title": "My Korean needs to improve 🙈 What kind of videos should I ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@genesia.synclaire/video/7603340583070993685"
+      "url": "https://www.tiktok.com/@genesia.synclaire/video/7603340583070993685",
+      "visible": true
     },
     {
       "cite": "20+ comments  ·  3 years ago",
@@ -331,7 +344,8 @@
       "text": "Just say 감사합니다 (kamsahamnida ) which is the standard formal way to say Thank You. They're older than you and you're most likely total ... Read more",
       "title": "What is the correct Thank You! to use? : r/Korean",
       "type": "general",
-      "url": "https://www.reddit.com/r/Korean/comments/ur9w90/what_is_the_correct_thank_you_to_use/"
+      "url": "https://www.reddit.com/r/Korean/comments/ur9w90/what_is_the_correct_thank_you_to_use/",
+      "visible": true
     },
     {
       "cite": null,
@@ -347,7 +361,8 @@
       "text": null,
       "title": "the difference in 'thank you' in english & in Korean: the gentle bow",
       "type": "perspectives",
-      "url": "https://x.com/thvdiaries/status/1989550092282745013?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/thvdiaries/status/1989550092282745013?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -363,7 +378,8 @@
       "text": null,
       "title": "Thank you in Korean is ….?? #languagechallenge #challenge #echoman #viral",
       "type": "perspectives",
-      "url": "https://www.tiktok.com/@echoman_afonso/video/7595972420268248342"
+      "url": "https://www.tiktok.com/@echoman_afonso/video/7595972420268248342",
+      "visible": true
     },
     {
       "cite": null,
@@ -379,7 +395,8 @@
       "text": null,
       "title": "Ways to Say Thank You in Korean 😁 PS: Learn Korean with the best FREE online resources, just click here https://bit.ly/4pjr5NN",
       "type": "perspectives",
-      "url": "https://www.facebook.com/photo.php?fbid=1283740367130394&set=a.483809390456833&id=100064833277019"
+      "url": "https://www.facebook.com/photo.php?fbid=1283740367130394&set=a.483809390456833&id=100064833277019",
+      "visible": true
     },
     {
       "cite": null,
@@ -395,7 +412,8 @@
       "text": null,
       "title": "[Korean—> English] What are they saying?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/translator/comments/1p7vqep/korean_english_what_are_they_saying/"
+      "url": "https://www.reddit.com/r/translator/comments/1p7vqep/korean_english_what_are_they_saying/",
+      "visible": true
     },
     {
       "cite": "https://www.busuu.com  › korean › thank-you",
@@ -409,7 +427,8 @@
       "text": "1.  감사합니다 (gam-sa-ham-ni-da ) — Formal and polite ... This is the most commonly used phrase for saying thank you. You can't go wrong using it with just about ... Read more",
       "title": "Learn 4 Ways of Saying Thank You in Korean",
       "type": "general",
-      "url": "https://www.busuu.com/en/korean/thank-you"
+      "url": "https://www.busuu.com/en/korean/thank-you",
+      "visible": true
     },
     {
       "cite": null,
@@ -423,7 +442,8 @@
       "text": null,
       "title": "5 Different Ways to Say 'Thank you' in Korean! #koreanteacher YouTube  ·  Korean with Ina May 20, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/shorts/oPPA6Bcip-o"
+      "url": "https://www.youtube.com/shorts/oPPA6Bcip-o",
+      "visible": true
     },
     {
       "cite": null,
@@ -437,7 +457,8 @@
       "text": null,
       "title": "Learn How to Say Thank You in Korean! Essential Phrases for ... TikTok  ·  gracesooda Dec 13, 2023",
       "type": "videos",
-      "url": "https://www.tiktok.com/@gracesooda/video/7312079788250860801?lang=en"
+      "url": "https://www.tiktok.com/@gracesooda/video/7312079788250860801?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -451,7 +472,8 @@
       "text": null,
       "title": "How to Say \"Thank You\" in Korean YouTube  ·  mahalodotcom Oct 22, 2010",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=w7Cm5Vd8pGM"
+      "url": "https://www.youtube.com/watch?v=w7Cm5Vd8pGM",
+      "visible": true
     },
     {
       "cite": null,
@@ -465,7 +487,8 @@
       "text": null,
       "title": "8 Ways to Say \"Thank You\" in Korean for Every Situation ... YouTube  ·  Tammy Korean Oct 27, 2025",
       "type": "videos",
-      "url": "https://www.youtube.com/shorts/v-FbniRD4JY"
+      "url": "https://www.youtube.com/shorts/v-FbniRD4JY",
+      "visible": true
     },
     {
       "cite": "https://tandem.net  › blog › thank-you-in-korean",
@@ -479,7 +502,8 @@
       "text": "1.  감사합니다 — Thank you . Pronunciation: (gahm-sa-hab-ni-da). When learning how to say thank you in Korean ... Read more",
       "title": "How to Say Thank You in Korean",
       "type": "general",
-      "url": "https://tandem.net/blog/thank-you-in-korean"
+      "url": "https://tandem.net/blog/thank-you-in-korean",
+      "visible": true
     },
     {
       "cite": "https://www.italki.com  › post › question-339358",
@@ -493,7 +517,8 @@
       "text": "Jan 2, 2016  —  \"Thank you so much\" -  대단히 감사합니다  (a bit formal; 대단히 = very much) - 정말 감사합니다 [고마워요] (less formal; 정말 = really) - 너무 ... Read more",
       "title": "Can someone please translate \"Thank you so much\" to ...",
       "type": "general",
-      "url": "https://www.italki.com/en/post/question-339358"
+      "url": "https://www.italki.com/en/post/question-339358",
+      "visible": true
     },
     {
       "cite": "2 answers  ·  3 years ago",
@@ -507,7 +532,8 @@
       "text": "Thank you(formal) –  감사합니다 (gamsahamnida ) · Thank you(formal, but slightly less so) – 고맙습니다 (gomapseumnida) · Thank you(polite) – ... Read more",
       "title": "What are some Korean words that mean thank-you, please, ...",
       "type": "general",
-      "url": "https://www.quora.com/What-are-some-Korean-words-that-mean-thank-you-please-and-sorry"
+      "url": "https://www.quora.com/What-are-some-Korean-words-that-mean-thank-you-please-and-sorry",
+      "visible": true
     },
     {
       "cite": "https://itranslate.com  › blog › how-to-say-thank-you-in...",
@@ -521,7 +547,8 @@
       "text": "감사합니다 (gamsahamnida). This is your go-to, the bread and butter of  thank - yous . It's formal enough to be used with strangers, elders, and in professional ... Read more",
       "title": "How to say “Thank You” in Korean",
       "type": "general",
-      "url": "https://itranslate.com/blog/how-to-say-thank-you-in-korean"
+      "url": "https://itranslate.com/blog/how-to-say-thank-you-in-korean",
+      "visible": true
     },
     {
       "cite": "https://hinative.com  › questions",
@@ -535,7 +562,8 @@
       "text": "Sep 30, 2023  —  In casual  Korean , the phrase ' Thank you ' is  translated  as '고마워' (Gomawo). This is a more relaxed and to express gratitude, commonly used ... Read more",
       "title": "How do you say \"Thank you\" in Korean?",
       "type": "general",
-      "url": "https://hinative.com/questions/24750343"
+      "url": "https://hinative.com/questions/24750343",
+      "visible": true
     },
     {
       "cite": null,
@@ -562,7 +590,8 @@
       "text": "Thank you in Korean informal<|>Translate thank you to korean informal<|>Translate thank you to korean audio<|>How to say thank you very much in Korean<|>Google translate thank you to korean<|>Thank you in Korean formal<|>How to say thank you in Korean pronunciation<|>How to say no thank you'' in Korean",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

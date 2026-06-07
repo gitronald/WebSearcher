@@ -48,7 +48,8 @@
       "text": "Cheap Flights to New York, NY - Roundtrip Starting from $53",
       "title": "Cheap Flights to New York, NY - Roundtrip Starting from $53",
       "type": "ad",
-      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights"
+      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights",
+      "visible": true
     },
     {
       "cite": "https://www.priceline.com",
@@ -82,7 +83,8 @@
       "text": "Cheap Flights To New York | Flights from $99 on Priceline",
       "title": "Cheap Flights To New York | Flights from $99 on Priceline",
       "type": "ad",
-      "url": "https://www.priceline.com/flights"
+      "url": "https://www.priceline.com/flights",
+      "visible": true
     },
     {
       "cite": "https://www.kayak.com",
@@ -116,7 +118,8 @@
       "text": "Flights from $58 | Cheap Flights To New York",
       "title": "Flights from $58 | Cheap Flights To New York",
       "type": "ad",
-      "url": "https://www.kayak.com/flight-routes/United-States-US0/New-York-NYC"
+      "url": "https://www.kayak.com/flight-routes/United-States-US0/New-York-NYC",
+      "visible": true
     },
     {
       "cite": "https://www.southwest.com",
@@ -150,7 +153,8 @@
       "text": "Flights To New York - Low Fares & Nonstop Flights",
       "title": "Flights To New York - Low Fares & Nonstop Flights",
       "type": "ad",
-      "url": "https://www.southwest.com/en/flights/flights-to-new-york"
+      "url": "https://www.southwest.com/en/flights/flights-to-new-york",
+      "visible": true
     },
     {
       "cite": null,
@@ -170,7 +174,8 @@
       "text": null,
       "title": "Flights to New York About this result Send feedback Flights Airports Flight Status",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -204,7 +209,8 @@
       "text": null,
       "title": "Flight prices",
       "type": "flights",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.expedia.com  › ... › New York",
@@ -218,7 +224,8 @@
       "text": "How much is the cheapest flight to New York? Prices were available within the past 7 days and  start at $25 for one-way flights and $49 for round trip , for the ... Read more",
       "title": "Cheap Flights to New York",
       "type": "general",
-      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights"
+      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights",
+      "visible": true
     },
     {
       "cite": "https://www.kayak.com  › ... › New York State",
@@ -232,7 +239,8 @@
       "text": "Find flights to New York (NYC) from $37 . Fly to New York with Frontier, American Airlines & more. Atlanta from $37; Miami from $44; Chicago from $47 ...",
       "title": "$37 CHEAP FLIGHTS to New York in 2026",
       "type": "general",
-      "url": "https://www.kayak.com/flight-routes/United-States-US0/New-York-NYC"
+      "url": "https://www.kayak.com/flight-routes/United-States-US0/New-York-NYC",
+      "visible": true
     },
     {
       "cite": "https://www.united.com  › ... › Flights to United States",
@@ -246,7 +254,8 @@
       "text": "Flights to Newark/New York from $ 117 * or from or from$18/mo · United's most popular flights to Newark/New York (EWR) · United Packages for Newark/New York! Read more",
       "title": "Flights to Newark/New York",
       "type": "general",
-      "url": "https://www.united.com/en-us/flights-to-new-york"
+      "url": "https://www.united.com/en-us/flights-to-new-york",
+      "visible": true
     },
     {
       "cite": "https://www.google.com  › Flights › From San Francisco",
@@ -260,7 +269,8 @@
       "text": "Use  Google Flights  to find cheap flights from San Francisco to New York, starting at $200, and book tickets for your next trip.",
       "title": "Find Cheap Flights from San Francisco to New York (SFO",
       "type": "general",
-      "url": "https://www.google.com/travel/flights/flights-from-san-francisco-to-new-york.html?gl=US&hl=en-US"
+      "url": "https://www.google.com/travel/flights/flights-from-san-francisco-to-new-york.html?gl=US&hl=en-US",
+      "visible": true
     },
     {
       "cite": "https://www.momondo.com  › flights › new-york-city",
@@ -274,7 +284,8 @@
       "text": "Find  Flights to New York NYC  from $40.  Fly  from the United States on Delta, American Airlines, and more. Orlando from $58; Atlanta from $60 | momondo.",
       "title": "$40 Cheap Flights to New York in 2026",
       "type": "general",
-      "url": "https://www.momondo.com/flights/new-york-city"
+      "url": "https://www.momondo.com/flights/new-york-city",
+      "visible": true
     },
     {
       "cite": "https://www.skyscanner.com  › ... › New York",
@@ -288,7 +299,8 @@
       "text": "Looking for cheap flights to New York? ✈️  Compare prices from hundreds of major travel agents and airlines , including Delta, United and American Airlines.",
       "title": "$44 Cheap Flights to New York NY in 2026 - Skyscanner",
       "type": "general",
-      "url": "https://www.skyscanner.com/flights-to/nyca/cheap-flights-to-new-york.html"
+      "url": "https://www.skyscanner.com/flights-to/nyca/cheap-flights-to-new-york.html",
+      "visible": true
     },
     {
       "cite": "https://www.aa.com  › ... › Flights to United States",
@@ -302,7 +314,8 @@
       "text": "Use our fare search tool anytime to find cheap flights to New York . Booking in advance and being flexible with your travel dates will help you secure the most ... Read more",
       "title": "Find cheap flights to New York (NYC)",
       "type": "general",
-      "url": "https://www.aa.com/en-us/flights-to-new-york"
+      "url": "https://www.aa.com/en-us/flights-to-new-york",
+      "visible": true
     },
     {
       "cite": "https://www.southwest.com  › Flights › To United States",
@@ -316,7 +329,8 @@
       "text": "Southwest® flights to New York (LaGuardia) starting at $64  · Popular flights to New York (LaGuardia) on Southwest Airlines · Visit New York (LaGuardia) · Got ... Read more",
       "title": "Cheap flights to New York (LaGuardia)",
       "type": "general",
-      "url": "https://www.southwest.com/en/flights/flights-to-new-york"
+      "url": "https://www.southwest.com/en/flights/flights-to-new-york",
+      "visible": true
     },
     {
       "cite": "https://www.cheapflights.com  › ... › State of New York",
@@ -330,7 +344,8 @@
       "text": "Find cheap flights to New York, NY from $40.  Search and compare the best real-time prices  for your round-trip, one-way, or last-minute ...",
       "title": "Find cheap flights to New York with Cheapflights",
       "type": "general",
-      "url": "https://www.cheapflights.com/flights-to-new-york/"
+      "url": "https://www.cheapflights.com/flights-to-new-york/",
+      "visible": true
     },
     {
       "cite": "https://www.jetblue.com  › flights-to-new-york",
@@ -344,7 +359,8 @@
       "text": "Don't just settle for cheap flights to New York.  JetBlue raises the bars with free wi-fi for all , and live TV & movies at every seat. Book a low fare to NYC ...",
       "title": "Book Flights to New York",
       "type": "general",
-      "url": "https://www.jetblue.com/en/flights-to-new-york"
+      "url": "https://www.jetblue.com/en/flights-to-new-york",
+      "visible": true
     },
     {
       "cite": null,
@@ -394,7 +410,8 @@
       "text": null,
       "title": "Flight Status",
       "type": "flights",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -421,7 +438,8 @@
       "text": "Round-trip flights to New York<|>New York flight ticket price<|>Google flights to New York<|>Nonstop flights to New York<|>Flights to New York tonight<|>Expedia flights to New York<|>Southwest flights to New York<|>Cheap flights to New York JFK",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.cheapflights.com",
@@ -459,7 +477,8 @@
       "text": "Flights from $58 - Cheap Flights To New York",
       "title": "Flights from $58 - Cheap Flights To New York",
       "type": "ad",
-      "url": "https://www.cheapflights.com/flights-to-new-york/"
+      "url": "https://www.cheapflights.com/flights-to-new-york/",
+      "visible": true
     },
     {
       "cite": "https://www.expedia.com/",
@@ -497,7 +516,8 @@
       "text": "Low-Cost Flights to New York | Roundtrip Starting from $53",
       "title": "Low-Cost Flights to New York | Roundtrip Starting from $53",
       "type": "ad",
-      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights"
+      "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights",
+      "visible": true
     }
   ]
 }

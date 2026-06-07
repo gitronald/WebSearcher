@@ -67,7 +67,8 @@
       "text": "a tank for storing water, especially one supplying taps or as part of a flushing toilet. | an underground reservoir for rainwater .",
       "title": "cistern",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -89,7 +90,8 @@
       "text": "Why would a house have a cistern?<|>What was the purpose of a cistern?<|>What is the difference between a cistern and a well?<|>What is the difference between a cistern and a tank?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Cistern",
@@ -103,7 +105,8 @@
       "text": "A  cistern  is a waterproof receptacle for holding liquids, usually water.  Cisterns  are often built to catch and store rainwater.  Cisterns  are distinguished ...",
       "title": "Cistern",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Cistern"
+      "url": "https://en.wikipedia.org/wiki/Cistern",
+      "visible": true
     },
     {
       "cite": "https://extension.psu.edu  › rainwater-cisterns-design-cons...",
@@ -117,7 +120,8 @@
       "text": "Dec 7, 2022  —  Roof-catchment  cisterns  are systems used to collect and store rainwater for household and other uses. Save for later Print. Share. Updated:.",
       "title": "Rainwater Cisterns: Design, Construction, and Treatment",
       "type": "general",
-      "url": "https://extension.psu.edu/rainwater-cisterns-design-construction-and-treatment"
+      "url": "https://extension.psu.edu/rainwater-cisterns-design-construction-and-treatment",
+      "visible": true
     },
     {
       "cite": "https://www.merriam-webster.com  › dictionary › cistern",
@@ -131,7 +135,8 @@
       "text": "Mar 3, 2024  —  The meaning of  CISTERN  is an artificial reservoir (such as an underground tank) for storing liquids and especially water (such as ...",
       "title": "Cistern Definition & Meaning",
       "type": "general",
-      "url": "https://www.merriam-webster.com/dictionary/cistern"
+      "url": "https://www.merriam-webster.com/dictionary/cistern",
+      "visible": true
     },
     {
       "cite": "https://www.vocabulary.com  › dictionary › cistern",
@@ -145,7 +150,8 @@
       "text": "A  cistern  is an underground tank that holds water. A long time ago,  cistern  water was used for drinking, but nowadays developed parts of the world mainly use it ...",
       "title": "Cistern - Definition, Meaning & Synonyms",
       "type": "general",
-      "url": "https://www.vocabulary.com/dictionary/cistern"
+      "url": "https://www.vocabulary.com/dictionary/cistern",
+      "visible": true
     },
     {
       "cite": "https://www.esf.edu  › ere › GICalculator › CisternsIntro",
@@ -159,7 +165,8 @@
       "text": "Cisterns  are large tanks that store rainwater collected from impervious surfaces for domestic uses or for consumption. collapse section Why use  Cisterns ?",
       "title": "Cisterns",
       "type": "general",
-      "url": "https://www.esf.edu/ere/endreny/GICalculator/CisternsIntro.html"
+      "url": "https://www.esf.edu/ere/endreny/GICalculator/CisternsIntro.html",
+      "visible": true
     },
     {
       "cite": "https://dictionary.cambridge.org  › dictionary › cistern",
@@ -173,7 +180,8 @@
       "text": "CISTERN  meaning: 1. a container in which water is stored, especially one connected to a toilet or in the roof of a…. Learn more.",
       "title": "CISTERN | definition in the Cambridge English Dictionary",
       "type": "general",
-      "url": "https://dictionary.cambridge.org/us/dictionary/english/cistern"
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/cistern",
+      "visible": true
     },
     {
       "cite": "https://www.currenenvironmental.com  › blog › what-is-a...",
@@ -187,7 +195,8 @@
       "text": "Feb 16, 2023  —  A  cistern  is a buried tank, commonly made of brick & are typically associated with capturing and storing rainwater.  Cisterns  are not cess ...",
       "title": "What is a Cistern?",
       "type": "general",
-      "url": "https://www.currenenvironmental.com/blog/what-is-a-cistern"
+      "url": "https://www.currenenvironmental.com/blog/what-is-a-cistern",
+      "visible": true
     },
     {
       "cite": "https://www.rainbrothers.com  › store › Underground-Ta...",
@@ -201,7 +210,8 @@
       "text": "Need a concrete  cistern ? How about a durable high-density polyethylene plastic  cistern ? Check out our selection here. Precast Concrete Underground  Cisterns .",
       "title": "Underground Tanks",
       "type": "general",
-      "url": "https://www.rainbrothers.com/store/Underground-Tanks-c73647298"
+      "url": "https://www.rainbrothers.com/store/Underground-Tanks-c73647298",
+      "visible": true
     },
     {
       "cite": "https://www.bobvila.com  › articles › what-is-a-cistern",
@@ -215,7 +225,8 @@
       "text": "Nov 28, 2022  —  A  cistern  is a reservoir for collecting rainwater for household or garden use. · Fill pipe: The fill pipe (port) directs water to the  cistern  ...",
       "title": "Solved! What Is a Cistern?",
       "type": "general",
-      "url": "https://www.bobvila.com/articles/what-is-a-cistern/"
+      "url": "https://www.bobvila.com/articles/what-is-a-cistern/",
+      "visible": true
     },
     {
       "cite": "https://www.merriam-webster.com  › thesaurus › cistern",
@@ -229,7 +240,8 @@
       "text": "Synonyms for  CISTERN : tub, vat, drum, cask, scuttlebutt, pipe, keg, hogshead, tun, puncheon.",
       "title": "Synonyms of cistern - Merriam-Webster Thesaurus",
       "type": "general",
-      "url": "https://www.merriam-webster.com/thesaurus/cistern"
+      "url": "https://www.merriam-webster.com/thesaurus/cistern",
+      "visible": true
     },
     {
       "cite": null,
@@ -256,7 +268,8 @@
       "text": "cistern toilet<|>cisterns brain<|>Cistern for sale<|>cistern price<|>how to pronounce cistern<|>cistern underground<|>cistern anatomy<|>what is a cistern used for",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -287,7 +300,8 @@
       "text": "A cistern is a waterproof receptacle for holding liquids, usually water. Cisterns are often built to catch and store rainwater. Cisterns are distinguished from wells by their waterproof linings. Modern cisterns range in capacity from a few litres to thousands of cubic metres, effectively forming covered reservoirs.",
       "title": "Cistern",
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Cistern"
+      "url": "https://en.wikipedia.org/wiki/Cistern",
+      "visible": true
     }
   ]
 }

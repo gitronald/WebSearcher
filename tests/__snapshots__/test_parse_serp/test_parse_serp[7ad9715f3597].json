@@ -35,7 +35,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -57,7 +58,8 @@
       "text": "What is 100 degrees Fahrenheit in Celsius? [Solved] - Cuemath Cuemath https://www.cuemath.com › questions › what-is-100-deg... Cuemath https://www.cuemath.com › questions › what-is-100-deg...<|>What is 100F in Celsius fever?<|>How do you convert F to C easily?<|>How much is 110 in Celsius?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://weather.dfrc.nasa.gov  › data › tempchart",
@@ -71,7 +73,8 @@
       "text": "FAHRENHEIT TO CELSIUS  CONVERSION CHART. °F. °C. °F. °C. °F. °C. °F. °C. °F. °C. °F ...  100 . 37.8. 120. 48.9. CELSIUS TO FAHRENHEIT CONVERSION CHART. °C. °F. °C. ° ... Read more",
       "title": "fahrenheit to celsius conversion chart",
       "type": "general",
-      "url": "https://weather.dfrc.nasa.gov/data/tempchart.pdf"
+      "url": "https://weather.dfrc.nasa.gov/data/tempchart.pdf",
+      "visible": true
     },
     {
       "cite": "https://www.cuemath.com  › questions › what-is-100-deg...",
@@ -85,7 +88,8 @@
       "text": "100 degrees Fahrenheit  is equal to 37.78 degrees Celsius .",
       "title": "What is 100 degrees Fahrenheit in Celsius? [Solved]",
       "type": "general",
-      "url": "https://www.cuemath.com/questions/what-is-100-degrees-fahrenheit-in-celsius/"
+      "url": "https://www.cuemath.com/questions/what-is-100-degrees-fahrenheit-in-celsius/",
+      "visible": true
     },
     {
       "cite": null,
@@ -101,7 +105,8 @@
       "text": null,
       "title": "Excel Formula to Convert Fahrenheit to Celsius",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=VcYGQ0VCazk"
+      "url": "https://www.youtube.com/watch?v=VcYGQ0VCazk",
+      "visible": true
     },
     {
       "cite": null,
@@ -117,7 +122,8 @@
       "text": null,
       "title": "a simple method for estimating temperatures in both Fahrenheit and Celsius. It highlights key temperature values in both scales, making it easier to quickly approximate the conversion between them. The reference point of 32°F (0°C) is noted, and the conversi",
       "type": "perspectives",
-      "url": "https://www.facebook.com/MATEMATICAFISICAeSCIENZE/posts/a-simple-method-for-estimating-temperatures-in-both-fahrenheit-and-celsius-it-hi/1331378552367097/"
+      "url": "https://www.facebook.com/MATEMATICAFISICAeSCIENZE/posts/a-simple-method-for-estimating-temperatures-in-both-fahrenheit-and-celsius-it-hi/1331378552367097/",
+      "visible": true
     },
     {
       "cite": null,
@@ -133,7 +139,8 @@
       "text": null,
       "title": "How to convert Fahrenheit to Celsius",
       "type": "perspectives",
-      "url": "https://www.facebook.com/5min.recycle/posts/how-to-convert-fahrenheit-to-celsius/1270187835146881/"
+      "url": "https://www.facebook.com/5min.recycle/posts/how-to-convert-fahrenheit-to-celsius/1270187835146881/",
+      "visible": true
     },
     {
       "cite": null,
@@ -149,7 +156,8 @@
       "text": null,
       "title": "Easily convert temperatures from Fahrenheit to Celsius with this simple chart ❄️🔥",
       "type": "perspectives",
-      "url": "https://www.facebook.com/foodgasmic.bar/posts/easily-convert-temperatures-from-fahrenheit-to-celsius-with-this-simple-chart-%EF%B8%8F/1212534094280069/"
+      "url": "https://www.facebook.com/foodgasmic.bar/posts/easily-convert-temperatures-from-fahrenheit-to-celsius-with-this-simple-chart-%EF%B8%8F/1212534094280069/",
+      "visible": true
     },
     {
       "cite": "https://www.ck12.org  › ... › Temperature",
@@ -163,7 +171,8 @@
       "text": "100°F (degree  Fahrenheit ) is 37.778°C (degree  Celsius ). The  Fahrenheit  scale is a temperature scale used in the customary system. Read more",
       "title": "Flexi answers - What is 100°F to °C?",
       "type": "general",
-      "url": "https://www.ck12.org/flexi/physical-science/temperature-in-physics/what-is-100f-to-c/"
+      "url": "https://www.ck12.org/flexi/physical-science/temperature-in-physics/what-is-100f-to-c/",
+      "visible": true
     },
     {
       "cite": "https://www.nfcacademy.com  › uploads › celsius-t...",
@@ -177,7 +186,8 @@
       "text": "This chart is a quick converter to help you change temperatures in  Celsius  (or. Centigrade) to  Fahrenheit  from -40° C  to 225° C  going up in 5° C  steps.  CELSIUS  (° C ). Read more",
       "title": "CELSIUS TO FAHRENHEIT CONVERSION CHART",
       "type": "general",
-      "url": "https://www.nfcacademy.com/wp-content/uploads/1/2/8/6/12864732/celsius-to-fahrenheit-conversion-chart-5s.pdf"
+      "url": "https://www.nfcacademy.com/wp-content/uploads/1/2/8/6/12864732/celsius-to-fahrenheit-conversion-chart-5s.pdf",
+      "visible": true
     },
     {
       "cite": "https://www.calculatorsoup.com  › Converters",
@@ -191,7 +201,8 @@
       "text": "Oct 29, 2025  —  How to Convert  Fahrenheit to Celsius . Subtract 32 from degrees Fahrenheit; Divide the result by 1.8 (or 9/5). Read more",
       "title": "Fahrenheit to Celsius | °F to °C",
       "type": "general",
-      "url": "https://www.calculatorsoup.com/calculators/conversions/fahrenheit-to-celsius.php"
+      "url": "https://www.calculatorsoup.com/calculators/conversions/fahrenheit-to-celsius.php",
+      "visible": true
     },
     {
       "cite": "https://www.qetutoring.com  › 100-degrees-Fahrenheit-t...",
@@ -205,7 +216,8 @@
       "text": "100 degrees Fahrenheit to Celsius is a temperature conversion where  100 degrees Fahrenheit equals 37.78 degrees Celsius , using the formula 5/9 (°F-32).",
       "title": "100 degrees Fahrenheit to Celsius | Queen Elizabeth Academy",
       "type": "general",
-      "url": "https://www.qetutoring.com/100-degrees-Fahrenheit-to-Celsius.html"
+      "url": "https://www.qetutoring.com/100-degrees-Fahrenheit-to-Celsius.html",
+      "visible": true
     },
     {
       "cite": "https://www.rapidtables.com  › convert › temperature",
@@ -219,7 +231,8 @@
       "text": "100 degrees Fahrenheit to Celsius . The temperature T in degrees Celsius (°C) is equal to the temperature T in degrees Fahrenheit (°F) minus 32, times 5/9. Read more",
       "title": "100° Fahrenheit to Celsius conversion",
       "type": "general",
-      "url": "https://www.rapidtables.com/convert/temperature/100-fahrenheit-to-celsius.html"
+      "url": "https://www.rapidtables.com/convert/temperature/100-fahrenheit-to-celsius.html",
+      "visible": true
     },
     {
       "cite": "https://www.omnicalculator.com  › conversion › fahren...",
@@ -233,7 +246,8 @@
       "text": "How do I convert Fahrenheit to Celsius? ·  Subtract 32 from the temperature value on the Fahrenheit scale . · Divide the result by 9 and multiply by 5 . · Congrats! Read more",
       "title": "Fahrenheit to Celsius Converter",
       "type": "general",
-      "url": "https://www.omnicalculator.com/conversion/fahrenheit-to-celsius"
+      "url": "https://www.omnicalculator.com/conversion/fahrenheit-to-celsius",
+      "visible": true
     },
     {
       "cite": "5 answers  ·  4 years ago",
@@ -263,7 +277,8 @@
       "text": "100F into the first formula will give you an answer of  37.7C . By the way, from freezing to boiling takes 100 degrees in C but 180 degrees in F. Read more",
       "title": "If it is 100 degrees Fahrenheit, it is how many ...",
       "type": "general",
-      "url": "https://www.quora.com/If-it-is-100-degrees-Fahrenheit-it-is-how-many-degrees-Celsius-centigrade"
+      "url": "https://www.quora.com/If-it-is-100-degrees-Fahrenheit-it-is-how-many-degrees-Celsius-centigrade",
+      "visible": true
     },
     {
       "cite": null,
@@ -290,7 +305,8 @@
       "text": "100 Fahrenheit is fever<|>101 Fahrenheit to Celsius<|>110 Fahrenheit to Celsius<|>100 fahrenheit to celsius fever<|>120 Fahrenheit to Celsius<|>80 Fahrenheit to Celsius<|>100 fahrenheit to celsius fever child<|>75 Fahrenheit to Celsius",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

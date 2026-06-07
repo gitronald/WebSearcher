@@ -138,7 +138,8 @@
       "text": "Climate change, primarily through rising ocean temperatures, is causing mass coral bleaching and widespread mortality , with up to 90% of reefs at risk of dying by 2050 if warming exceeds 1.5°C. Intense heat causes corals to expel symbiotic algae (bleaching), leading to starvation and disease. Other threats include ocean acidification , which weakens skeletons, and more frequent, severe storms. Key Impacts of Climate Change on Coral Reefs: Mass Bleaching Events : Increased sea surface temperatures trigger mass bleaching, where corals turn white and risk death if temperatures do not cool rapidly. Ocean Acidification : Rising C O 2 cap C cap O sub 2 𝐶 𝑂 2 levels lower ocean pH, decreasing corals' ability to build their calcium carbonate skeletons. High Mortality and Reduced Recovery Time: Frequent, severe bleaching events—such as the 2014-2017 global event—leave little time for reefs to recover, resulting in the loss of over 50% of living coral in some areas. Habitat Loss and Biodiversity Crisis: The degradation of reefs threatens the 30% of marine life that depends on them, causing a collapse in biodiversity. Loss of Coastal Protection: As reefs die and break down, coastal communities lose natural protection against storms and erosion. Major Threats & Consequences Temperature Rise: A 1-2°C increase can trigger widespread bleaching. Fourth Global Bleaching Event (2023-2025): Over 83% of the world's coral reefs have been affected, making it one of the most widespread events on record. Ecological and Socioeconomic Loss: Reef degradation threatens food security and livelihoods for millions of people. Recovery is possible, but only if temperatures stabilize and local pressures like pollution and overfishing are managed, according to the National Ocean Service and WWF-UK .",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://oceanservice.noaa.gov  › facts › coralreef-climate",
@@ -152,7 +153,8 @@
       "text": "Jun 16, 2024  —  Climate change  will  affect coral reef  ecosystems, through sea level rise, changes to the frequency and intensity of tropical storms, and altered ocean ... Read more",
       "title": "How does climate change affect coral reefs?",
       "type": "general",
-      "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html"
+      "url": "https://oceanservice.noaa.gov/facts/coralreef-climate.html",
+      "visible": true
     },
     {
       "cite": "https://www.barrierreef.org  › the-reef › threats › climat...",
@@ -166,7 +168,8 @@
       "text": "Climate change is the biggest threat to the future of coral reefs  here and around the world. It impacts reefs in a number of ways. Read more",
       "title": "Climate Change",
       "type": "general",
-      "url": "https://www.barrierreef.org/the-reef/threats/climate-change"
+      "url": "https://www.barrierreef.org/the-reef/threats/climate-change",
+      "visible": true
     },
     {
       "cite": "https://www.wwf.org.uk  › coral-reefs-and-climate-change",
@@ -180,7 +183,8 @@
       "text": "Today,  over 80% of the world's reefs are affected by bleaching , driven by rising ocean temperatures. Destructive fishing, pollution from land, coastal ... Read more",
       "title": "Coral reefs and climate change - WWF-UK",
       "type": "general",
-      "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change"
+      "url": "https://www.wwf.org.uk/coral-reefs-and-climate-change",
+      "visible": true
     },
     {
       "cite": "https://coralreefs.org  › uploads › 2020/02 › mod...",
@@ -194,7 +198,8 @@
       "text": "Mass coral bleaching and mortality of coral reef ecosystems  is one of the most visible impacts of climate change, and warns us of the dangerous world that ... Read more",
       "title": "Climate Change Threatens the Survival of ...",
       "type": "general",
-      "url": "https://coralreefs.org/wp-content/uploads/2020/02/modified-consensus-statement-ICRS-2018.pdf"
+      "url": "https://coralreefs.org/wp-content/uploads/2020/02/modified-consensus-statement-ICRS-2018.pdf",
+      "visible": true
     },
     {
       "cite": "https://www.c2es.org  › Publications",
@@ -208,7 +213,8 @@
       "text": "Although  climate change itself will adversely affect coral reefs , it will also increase the susceptibility of reef communities to degradation and loss ... Read more",
       "title": "Coral Reefs & Global Climate Change",
       "type": "general",
-      "url": "https://www.c2es.org/document/coral-reefs-global-climate-change-potential-contributions-of-climate-change-to-stresses-on-coral-reef-ecosystems/"
+      "url": "https://www.c2es.org/document/coral-reefs-global-climate-change-potential-contributions-of-climate-change-to-stresses-on-coral-reef-ecosystems/",
+      "visible": true
     },
     {
       "cite": "https://annualreport.mbari.org  › story › measuring-the-i...",
@@ -222,7 +228,8 @@
       "text": "It is estimated that  about half of the reefs are damaged or severely damaged , and some scientists believe that up to 90 percent of coral reefs may die off by ... Read more",
       "title": "Measuring the impact of climate change on coral reefs",
       "type": "general",
-      "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs"
+      "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs",
+      "visible": true
     },
     {
       "cite": "https://news.tulane.edu  › tulane-researcher-studying-sea-t...",
@@ -236,7 +243,8 @@
       "text": "Aug 9, 2024  —  As we lose live corals,  reefs become flatter and less effective at breaking waves . Reef degradation also leads to loss of biodiversity, as many ... Read more",
       "title": "Tulane researcher studying sea temperatures' impact on ...",
       "type": "general",
-      "url": "https://news.tulane.edu/pr/tulane-researcher-studying-sea-temperatures-impact-great-barrier-reef"
+      "url": "https://news.tulane.edu/pr/tulane-researcher-studying-sea-temperatures-impact-great-barrier-reef",
+      "visible": true
     },
     {
       "cite": "https://www.oceanicsociety.org  › blue-habits-tips › cora...",
@@ -250,7 +258,8 @@
       "text": "Coral reefs are feeling the heat from climate change . As ocean temperatures rise, the warm waters can cause coral to stress and expel their zooxanthellae (a ... Read more",
       "title": "Coral Reefs and Climate Change: An Expert Overview",
       "type": "general",
-      "url": "https://www.oceanicsociety.org/resources/blue-habits-tips/coral-reefs-and-climate-change-what-to-know-and-what-to-do/"
+      "url": "https://www.oceanicsociety.org/resources/blue-habits-tips/coral-reefs-and-climate-change-what-to-know-and-what-to-do/",
+      "visible": true
     },
     {
       "cite": "https://iucn.org  › resources › issues-brief › coral-reefs-an...",
@@ -264,7 +273,8 @@
       "text": "A spike of 1–2°C in ocean temperatures sustained over several weeks can lead to bleaching, turning corals white. If corals are bleached for prolonged periods, ... Read more",
       "title": "Coral reefs and climate change - resource",
       "type": "general",
-      "url": "https://iucn.org/resources/issues-brief/coral-reefs-and-climate-change"
+      "url": "https://iucn.org/resources/issues-brief/coral-reefs-and-climate-change",
+      "visible": true
     },
     {
       "cite": "https://pmc.ncbi.nlm.nih.gov  › articles › PMC10000160",
@@ -278,7 +288,8 @@
       "text": "by CS Thirukanthan  ·  2023  ·  Cited by 39  —  Climate change is accelerating, with  detrimental consequences on coral reefs  and related communities, but it is challenging to keep up with the literature ... Read more",
       "title": "The Evolution of Coral Reef under Changing Climate - PMC",
       "type": "general",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10000160/"
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10000160/",
+      "visible": true
     },
     {
       "cite": "The impact of climate change on coral reef ecosystems",
@@ -292,7 +303,8 @@
       "text": null,
       "title": "The impact of climate change on coral reef ecosystems",
       "type": "scholarly_articles",
-      "url": "https://scholar.google.com/scholar_url?url=https://www.researchgate.net/profile/Ove-Hoegh-Guldberg/publication/226289185_The_Impact_of_Climate_Change_on_Coral_Reef_Ecosystems/links/541fdc090cf203f155c26e2b/The-Impact-of-Climate-Change-on-Coral-Reef-Ecosystems.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jRwiFBoPRe7ucJAArXaQyeN&oi=scholarr"
+      "url": "https://scholar.google.com/scholar_url?url=https://www.researchgate.net/profile/Ove-Hoegh-Guldberg/publication/226289185_The_Impact_of_Climate_Change_on_Coral_Reef_Ecosystems/links/541fdc090cf203f155c26e2b/The-Impact-of-Climate-Change-on-Coral-Reef-Ecosystems.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jRwiFBoPRe7ucJAArXaQyeN&oi=scholarr",
+      "visible": true
     },
     {
       "cite": "Climate change, human impacts, and the resilience of  …",
@@ -306,7 +318,8 @@
       "text": null,
       "title": "Climate change, human impacts, and the resilience of  …",
       "type": "scholarly_articles",
-      "url": "https://scholar.google.com/scholar_url?url=https://www.ucipfg.com/Repositorio/MLGA/MLGA-01/BLOQUE-INICIAL/Bibliografia/Climate-Change_Human_Impacts_Coral_Reefs.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jQlcaW27i2VpkKZQDe2Jq6A&oi=scholarr"
+      "url": "https://scholar.google.com/scholar_url?url=https://www.ucipfg.com/Repositorio/MLGA/MLGA-01/BLOQUE-INICIAL/Bibliografia/Climate-Change_Human_Impacts_Coral_Reefs.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jQlcaW27i2VpkKZQDe2Jq6A&oi=scholarr",
+      "visible": true
     },
     {
       "cite": "Climate change and coral reef connectivity",
@@ -320,7 +333,8 @@
       "text": null,
       "title": "Climate change and coral reef connectivity",
       "type": "scholarly_articles",
-      "url": "https://scholar.google.com/scholar_url?url=https://www.vliz.be/imisdocs/publications/230340.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jQzadClBVoTKzXrEZFnFYWC&oi=scholarr"
+      "url": "https://scholar.google.com/scholar_url?url=https://www.vliz.be/imisdocs/publications/230340.pdf&hl=en&sa=X&ei=NIKGac2lDaOj6rQPwai1EA&scisig=AHkA5jQzadClBVoTKzXrEZFnFYWC&oi=scholarr",
+      "visible": true
     },
     {
       "cite": null,
@@ -347,7 +361,8 @@
       "text": "How is climate change affecting coral reefs<|>How does climate change cause coral bleaching<|>Is coral adapting to climate change<|>How does pollution affect coral reefs<|>Ocean acidification coral reefs<|>Coral reef precipitation<|>What are artificial coral reefs<|>What are two ways in which climate change is affecting the way in which people earn their living",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

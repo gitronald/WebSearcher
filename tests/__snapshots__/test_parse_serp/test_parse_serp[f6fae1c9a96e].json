@@ -30,7 +30,8 @@
       "text": "NASDAQ: AAPL",
       "title": "Apple Inc",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -46,7 +47,8 @@
       "text": "Yahoo Finance Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock The rally in artificial intelligence (AI) stocks has reversed course as markets get wary about tech companies' spending spree without... . 5 hours ago",
       "title": null,
       "type": "knowledge",
-      "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
+      "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -60,7 +62,8 @@
       "text": null,
       "title": "Apple Stock Is Steady as a Rock Amid AI Selloff: How to Play AAPL Stock",
       "type": "top_stories",
-      "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
+      "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -74,7 +77,8 @@
       "text": null,
       "title": "How Geopolitical Headwinds Made Apple Stock (AAPL) a Safe Haven",
       "type": "top_stories",
-      "url": "https://www.tipranks.com/news/how-geopolitical-headwinds-made-apple-stock-aapl-a-safe-haven"
+      "url": "https://www.tipranks.com/news/how-geopolitical-headwinds-made-apple-stock-aapl-a-safe-haven",
+      "visible": true
     },
     {
       "cite": null,
@@ -88,7 +92,8 @@
       "text": null,
       "title": "Apple Reaccelerates Share Buyback, Apple’s Stellar Free Cash Flow, Takeaways From Apple’s 1Q26 10-Q",
       "type": "top_stories",
-      "url": "https://www.aboveavalon.com/notes/2026/2/6/apple-reaccelerates-share-buyback-apples-stellar-free-cash-flow-takeaways-from-apples-1q26-10-q"
+      "url": "https://www.aboveavalon.com/notes/2026/2/6/apple-reaccelerates-share-buyback-apples-stellar-free-cash-flow-takeaways-from-apples-1q26-10-q",
+      "visible": true
     },
     {
       "cite": null,
@@ -102,7 +107,8 @@
       "text": null,
       "title": "Apple is the only Big Tech company whose capex declined last quarter",
       "type": "top_stories",
-      "url": "https://sherwood.news/tech/apple-is-the-only-big-tech-company-whose-capex-declined-last-quarter/"
+      "url": "https://sherwood.news/tech/apple-is-the-only-big-tech-company-whose-capex-declined-last-quarter/",
+      "visible": true
     },
     {
       "cite": null,
@@ -124,7 +130,8 @@
       "text": "How much is $10,000 invested in Apple 20 years ago?<|>What is the price target for Apple stock?<|>Will Apple stock reach $700 again?<|>Apple - 46 Year Stock Price History | AAPL - Macrotrends Macrotrends https://www.macrotrends.net › stocks › charts › stock-pri... Macrotrends https://www.macrotrends.net › stocks › charts › stock-pri...",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://finance.yahoo.com  › quote › AAPL",
@@ -138,7 +145,8 @@
       "text": "Find the latest  Apple Inc. (AAPL) stock quote, history, news and other vital information  to help you with your stock trading and investing.",
       "title": "Apple Inc. (AAPL) Stock Price, News, Quote & History",
       "type": "general",
-      "url": "https://finance.yahoo.com/quote/AAPL/"
+      "url": "https://finance.yahoo.com/quote/AAPL/",
+      "visible": true
     },
     {
       "cite": "https://investor.apple.com  › stock-price",
@@ -152,7 +160,8 @@
       "text": "Stock Quote: NASDAQ: AAPL ; Day's Open278.13 ;  Closing Price275.91  ; Volume53.0 ; Intraday High279.50 ; Intraday Low273.23. Read more",
       "title": "Stock Price",
       "type": "general",
-      "url": "https://investor.apple.com/stock-price/default.aspx"
+      "url": "https://investor.apple.com/stock-price/default.aspx",
+      "visible": true
     },
     {
       "cite": "https://www.cnbc.com  › quotes › AAPL",
@@ -166,7 +175,8 @@
       "text": "Apple Inc AAPL:NASDAQ  · Open277.12 · Day High280.91 · Day Low276.93 · Prev Close275.91 · 52 Week High288.62 · 52 Week High Date12/03/25 · 52 Week Low169.21 · 52 ... Read more",
       "title": "AAPL: Apple Inc - Stock Price, Quote and News",
       "type": "general",
-      "url": "https://www.cnbc.com/quotes/AAPL"
+      "url": "https://www.cnbc.com/quotes/AAPL",
+      "visible": true
     },
     {
       "cite": "https://robinhood.com  › Stocks",
@@ -180,7 +190,8 @@
       "text": "With a market cap of 4.08T, Apple( AAPL ) trades at $275.55. The  stock  has a  price -to-earnings ratio of 34.91 and currently yields dividends of 37.3%. Read more",
       "title": "Buy or Sell Apple Stock - AAPL Stock Price Quote & News",
       "type": "general",
-      "url": "https://robinhood.com/us/en/stocks/AAPL/"
+      "url": "https://robinhood.com/us/en/stocks/AAPL/",
+      "visible": true
     },
     {
       "cite": "https://www.cnn.com  › markets › stocks › AAPL",
@@ -194,7 +205,8 @@
       "text": "50 analyst ratings · buy 60% · hold 34% · sell 6%. We're sorry, but this information is temporarily unavailable. 1-year  stock price  forecast ... Read more",
       "title": "AAPL Stock Quote Price and Forecast",
       "type": "general",
-      "url": "https://www.cnn.com/markets/stocks/AAPL"
+      "url": "https://www.cnn.com/markets/stocks/AAPL",
+      "visible": true
     },
     {
       "cite": "https://www.tradingview.com  › symbols › NASDAQ-A...",
@@ -208,7 +220,8 @@
       "text": "The current price of AAPL is  278.11 USD  — it has increased by 0.85% in the past 24 hours. Watch Apple Inc stock price performance more closely on the chart. Read more",
       "title": "NASDAQ:AAPL Stock Price - Apple Inc.",
       "type": "general",
-      "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/"
+      "url": "https://www.tradingview.com/symbols/NASDAQ-AAPL/",
+      "visible": true
     },
     {
       "cite": "https://www.marketwatch.com  › ... › United States",
@@ -222,7 +235,8 @@
       "text": "277.38  ; Volume: 50.06M · 65 Day Avg: 48.04M ; 276.93 Day Range 280.91 ; 169.21 52 Week Range 288.62 ... Read more",
       "title": "Apple Inc. Stock Quote (U.S.: Nasdaq) - AAPL",
       "type": "general",
-      "url": "https://www.marketwatch.com/investing/stock/aapl?gaa_at=eafs&gaa_n=AWEtsqcI6rmqUhWQWXdB7nftMsbdz0oi6rBjW11Tzh3nhNMiGIKNC8cHe7SK&gaa_ts=698683a6&gaa_sig=EWhd5MzXq23xs1HpjtdlBERI45VQgDEcNeNTdIO8shte_PMlA3yDWfCvU3GkK3wvnu9R5hSmf976Qy0ZtooBIQ%3D%3D"
+      "url": "https://www.marketwatch.com/investing/stock/aapl?gaa_at=eafs&gaa_n=AWEtsqcI6rmqUhWQWXdB7nftMsbdz0oi6rBjW11Tzh3nhNMiGIKNC8cHe7SK&gaa_ts=698683a6&gaa_sig=EWhd5MzXq23xs1HpjtdlBERI45VQgDEcNeNTdIO8shte_PMlA3yDWfCvU3GkK3wvnu9R5hSmf976Qy0ZtooBIQ%3D%3D",
+      "visible": true
     },
     {
       "cite": "https://www.google.com  › quote › AAPL:NASDAQ",
@@ -236,7 +250,8 @@
       "text": "16 hours ago  —  Get the latest Apple Inc (AAPL) real-time quote , historical performance, charts, and other financial information to help you make more ...",
       "title": "Apple Inc (AAPL) Stock Price & News - Google Finance",
       "type": "general",
-      "url": "https://www.google.com/finance/quote/AAPL:NASDAQ?hl=en"
+      "url": "https://www.google.com/finance/quote/AAPL:NASDAQ?hl=en",
+      "visible": true
     },
     {
       "cite": "https://www.macrotrends.net  › stocks › charts › stock-pri...",
@@ -250,7 +265,8 @@
       "text": "The latest closing stock price for Apple as of February 05, 2026 is  276.15 . An investor who bought $1,000 worth of Apple stock at the IPO in 1980 would have ... Read more",
       "title": "Apple - 46 Year Stock Price History | AAPL",
       "type": "general",
-      "url": "https://www.macrotrends.net/stocks/charts/AAPL/apple/stock-price-history"
+      "url": "https://www.macrotrends.net/stocks/charts/AAPL/apple/stock-price-history",
+      "visible": true
     },
     {
       "cite": null,
@@ -277,7 +293,8 @@
       "text": "Amazon stock price<|>Apple share price nse today<|>Apple share price in 2007<|>AAPL stock news today<|>Microsoft stock<|>iPhone share price today<|>Google stock price<|>Apple share price chart",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

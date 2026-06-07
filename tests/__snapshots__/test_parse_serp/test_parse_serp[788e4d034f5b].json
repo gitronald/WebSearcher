@@ -35,7 +35,8 @@
       "text": "Song by Alicia Keys",
       "title": "New York",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://genius.com  › Alicia-keys-empire-state-of-mind-p...",
@@ -49,7 +50,8 @@
       "text": "[Intro] Ooh, New York Ooh, New York [Verse 1] Grew up in a town that is famous as a place of  movie  scenes. Noise is always loud, there are sirens all around ...",
       "title": "Alicia Keys - Empire State of Mind, Part II (Broken Down)",
       "type": "general",
-      "url": "https://genius.com/Alicia-keys-empire-state-of-mind-part-ii-broken-down-lyrics"
+      "url": "https://genius.com/Alicia-keys-empire-state-of-mind-part-ii-broken-down-lyrics",
+      "visible": true
     },
     {
       "cite": "https://www.streetdirectory.com  › song › ccope › empir...",
@@ -63,7 +65,8 @@
       "text": "[Alicia Keys] In New York,  Concrete jungle where dreams are made of, Theres nothing you  can't do, Now you're in New York, these streets will make you feel ...",
       "title": "Empire State Of Mind (feat. Alicia Keys) Lyrics by ...",
       "type": "general",
-      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccope/empire_state_of_mind_feat_alicia_keys/"
+      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccope/empire_state_of_mind_feat_alicia_keys/",
+      "visible": true
     },
     {
       "cite": "https://www.letras.com.br  › ... › hip hop/rap › alicia keys",
@@ -77,7 +80,8 @@
       "text": "I got a pocket full of dreams, Baby I'm from  New York ! ... Now you're in  New York ! These streets will make you feel brand new, Big lights will inspire you, Hear ...",
       "title": "New York | Alicia Keys",
       "type": "general",
-      "url": "https://www.letras.com.br/alicia-keys/new-york"
+      "url": "https://www.letras.com.br/alicia-keys/new-york",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -91,7 +95,8 @@
       "text": null,
       "title": "Alicia Keys - Empire State Of Mind (Lyrics) YouTube  ·  Shadow Music 3 minutes, 34 seconds Mar 8, 2021",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=ZW2xa__89p0"
+      "url": "https://www.youtube.com/watch?v=ZW2xa__89p0",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -105,7 +110,8 @@
       "text": null,
       "title": "Alicia Keys - New York Empire State of Mind (Lyrics) YouTube  ·  VibersVibin 3 minutes, 38 seconds Feb 1, 2021",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=GoLerKmXQhU"
+      "url": "https://www.youtube.com/watch?v=GoLerKmXQhU",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -119,7 +125,8 @@
       "text": null,
       "title": "JAY-Z - Empire State Of Mind (Lyrics) ft. Alicia Keys YouTube  ·  Loku 5 minutes, 8 seconds Aug 17, 2022",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg"
+      "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg",
+      "visible": true
     },
     {
       "cite": "https://www.azlyrics.com  › A › Alicia Keys Lyrics",
@@ -133,7 +140,8 @@
       "text": "Baby I'm from  New York! Concrete jungle where dreams are made of. There's nothing you can't do. Now you're in New York! These streets will make ...",
       "title": "Alicia Keys - Empire State Of Mind (Part II) Broken Down ...",
       "type": "general",
-      "url": "https://www.azlyrics.com/lyrics/aliciakeys/empirestateofmindpartiibrokendown.html"
+      "url": "https://www.azlyrics.com/lyrics/aliciakeys/empirestateofmindpartiibrokendown.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -155,7 +163,8 @@
       "text": "What is the difference between New York State of Mind and Empire State of Mind?<|>When did Alicia Keys come out?<|>Did Alicia Keys write Empire State of Mind?<|>What was Alicia Keys biggest hit?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.streetdirectory.com  › song › ccopw › empi...",
@@ -169,7 +178,8 @@
       "text": "Alicia Keys  ; Doesn't Mean Anything. Used to dream of bein' a millionaire Without a care ; Empire State Of Mind (Part II). Oooh,  New York  Oooh,  New York  Grew up ...",
       "title": "Empire State Of Mind (Part II) Lyrics by Alicia Keys",
       "type": "general",
-      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccopw/empire_state_of_mind_part_ii/"
+      "url": "https://www.streetdirectory.com/lyricadvisor/song/ccopw/empire_state_of_mind_part_ii/",
+      "visible": true
     },
     {
       "cite": "https://genius.com  › Jay-z-empire-state-of-mind-lyrics",
@@ -183,7 +193,8 @@
       "text": "[Chorus:  Alicia Keys  & JAY-Z] · In  New York  (Ayy; uh, yeah) · (Uh, yeah, welcome to the bright lights, baby) · These streets will make you feel brand-new · [Verse 3 ...",
       "title": "JAY-Z – Empire State of Mind Lyrics",
       "type": "general",
-      "url": "https://genius.com/Jay-z-empire-state-of-mind-lyrics"
+      "url": "https://genius.com/Jay-z-empire-state-of-mind-lyrics",
+      "visible": true
     },
     {
       "cite": "https://www.letras.com  › R&B › Alicia Keys",
@@ -197,7 +208,8 @@
       "text": "Alicia Keys - Empire State of Mind (Part II) Broken Down (Letra y canción para escuchar) - Baby, I'm from New York /  Concrete jungle where dreams are made  ...",
       "title": "EMPIRE STATE OF MIND (PART II) BROKEN DOWN",
       "type": "general",
-      "url": "https://www.letras.com/alicia-keys/1911687/"
+      "url": "https://www.letras.com/alicia-keys/1911687/",
+      "visible": true
     },
     {
       "cite": "https://mojim.com  › ... › Miscellaneous",
@@ -211,7 +223,8 @@
       "text": "Baby I'm from  New York! Concrete jungle where dreams are made of. There's nothing you can't do. Now you're in New York! These streets ...",
       "title": "Empire State of Mind Lyrics Alicia Keys( Alicia Augello ...",
       "type": "general",
-      "url": "https://mojim.com/usy101639x28x14.htm"
+      "url": "https://mojim.com/usy101639x28x14.htm",
+      "visible": true
     },
     {
       "cite": "319.9K+ views  ·  10 years ago",
@@ -229,7 +242,8 @@
       "text": "New York, Concrete jungle where dreams are made of, There's nothing you can't do Now you're inNew York! These streets will make you feel ...",
       "title": "new york -alicia keys (with lyrics) - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=Yo30YqEdQi8"
+      "url": "https://www.youtube.com/watch?v=Yo30YqEdQi8",
+      "visible": true
     },
     {
       "cite": null,
@@ -256,7 +270,8 @@
       "text": "alicia keys - new york song<|>new york song lyrics<|>alicia keys new york lyrics - youtube<|>empire state of mind alicia keys<|>alicia keys - empire state of mind lyrics<|>new york lyrics rihanna<|>now you're in new york lyrics<|>new york lyrics beyoncé",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -278,7 +293,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -312,7 +328,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

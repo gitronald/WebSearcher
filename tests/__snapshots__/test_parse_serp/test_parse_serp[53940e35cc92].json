@@ -24,7 +24,8 @@
       "text": null,
       "title": "Results for Portland, OR",
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -47,7 +48,8 @@
       "text": "Portland Lux Coffee<|>4.7<|>(270)<|> · <|>$10–20<|> · Coffee shop<|>11059 SE Division St<|> <|> <|> <|> <|> <|>  <|>\"They have really good <|>coffee<|>, friendly staff, and the food is amazing!\"",
       "title": "Portland Lux Coffee",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -71,7 +73,8 @@
       "text": "Less and more coffee<|>4.8<|>(426)<|> · <|>$1–10<|> · Coffee shop<|>1003 SW 5th Ave<|>Closed<|> · Opens 9 AM Sat<|> <|> <|> <|> <|> <|>  <|>\"❤️ Their <|>coffee<|> choices are immensely unique and everything tastes so good.\"",
       "title": "Less and more coffee",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +97,8 @@
       "text": "Above Grnd Coffee<|>4.8<|>(192)<|> · <|>$1–10<|> · Coffee shop<|>1100 SE Grand Ave<|> <|> <|> <|> <|> <|>  <|>\"The staff were really friendly and the banana milk latte is to die for!\"",
       "title": "Above Grnd Coffee",
       "type": "local_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://pdx.eater.com  › maps › best-portland-oregon-co...",
@@ -108,7 +112,8 @@
       "text": "Mar 12, 2025  —  The Best Coffee Shops in Portland ·  Albina Press  · Either/Or · Electrica Coffee · Portland Cà Phê · Kalesa Coffee · Abba Coffee Roasters. Read more",
       "title": "The Best Coffee Shops in Portland, Oregon",
       "type": "general",
-      "url": "https://pdx.eater.com/maps/best-portland-oregon-coffee-shops-cafes"
+      "url": "https://pdx.eater.com/maps/best-portland-oregon-coffee-shops-cafes",
+      "visible": true
     },
     {
       "cite": "https://www.doubleskinnymacchiato.com  › 2016/02 › be...",
@@ -122,7 +127,8 @@
       "text": "Feb 24, 2016  —  Coava Coffee Roasters' brew bar is located at  1300 SE Grand Avenue, at Main St . Their espresso bar is at 2631 SE Hawthorne Boulevard, near 27th ... Read more",
       "title": "12 Specialty Coffee Shops To Visit in Portland, Oregon",
       "type": "general",
-      "url": "https://www.doubleskinnymacchiato.com/2016/02/best-coffee-shops-cafes-portland-guide-map.html"
+      "url": "https://www.doubleskinnymacchiato.com/2016/02/best-coffee-shops-cafes-portland-guide-map.html",
+      "visible": true
     },
     {
       "cite": "210+ comments  ·  2 years ago",
@@ -152,7 +158,8 @@
       "text": "Cathedral in North Portland gets my vote . Good coffee and seasonal drinks plus house-made pastries. Also a lovely spot with ample indoor and ... Read more",
       "title": "Where's the best coffee shop? : r/askportland",
       "type": "general",
-      "url": "https://www.reddit.com/r/askportland/comments/18602as/wheres_the_best_coffee_shop/"
+      "url": "https://www.reddit.com/r/askportland/comments/18602as/wheres_the_best_coffee_shop/",
+      "visible": true
     },
     {
       "cite": "https://www.tripadvisor.com  › ... › Portland Restaurants",
@@ -166,7 +173,8 @@
       "text": "1. Stumptown Coffee Roasters . 4.4. (576 reviews) · 2. Rimsky-Korsakoffee House. 4.2. (98 reviews) · 3. Case Study Coffee. 4.6. (141 reviews). Read more",
       "title": "THE BEST Coffee & Tea in Portland",
       "type": "general",
-      "url": "https://www.tripadvisor.com/Restaurants-g52024-zfg9900-Portland_Oregon.html"
+      "url": "https://www.tripadvisor.com/Restaurants-g52024-zfg9900-Portland_Oregon.html",
+      "visible": true
     },
     {
       "cite": "https://wheatlesswanderlust.com  › United States",
@@ -180,7 +188,8 @@
       "text": "Jan 7, 2026  —  In Portland, that place is undoubtedly  Adapt Cafe , a relatively new shop on Milwaukie Avenue just south of Powell. Here's why I fell in love. As ... Read more",
       "title": "Where To Find Excellent Specialty Coffee In Portland ...",
       "type": "general",
-      "url": "https://wheatlesswanderlust.com/best-coffee-shops-in-portland/"
+      "url": "https://wheatlesswanderlust.com/best-coffee-shops-in-portland/",
+      "visible": true
     },
     {
       "cite": "Reddit  ·  r/PortlandOR  ·  100+ comments  ·  9 months ago",
@@ -194,7 +203,8 @@
       "text": null,
       "title": "Best coffee shops in Portland OR?",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/PortlandOR/comments/1kdupno/best_coffee_shops_in_portland_or/"
+      "url": "https://www.reddit.com/r/PortlandOR/comments/1kdupno/best_coffee_shops_in_portland_or/",
+      "visible": true
     },
     {
       "cite": "Barista Exchange  ·  15 years ago",
@@ -208,7 +218,8 @@
       "text": null,
       "title": "Coffeeshops to visit in Portland?",
       "type": "discussions_and_forums",
-      "url": "https://www.baristaexchange.com/forum/topics/coffeeshops-to-visit-in?overrideMobileRedirect=1&id=1688216%3ATopic%3A905447&page=1"
+      "url": "https://www.baristaexchange.com/forum/topics/coffeeshops-to-visit-in?overrideMobileRedirect=1&id=1688216%3ATopic%3A905447&page=1",
+      "visible": true
     },
     {
       "cite": "Quora  ·  3 answers  ·  7 years ago",
@@ -222,7 +233,8 @@
       "text": null,
       "title": "What is the best coffee shop in Portland?",
       "type": "discussions_and_forums",
-      "url": "https://www.quora.com/What-is-the-best-coffee-shop-in-Portland"
+      "url": "https://www.quora.com/What-is-the-best-coffee-shop-in-Portland",
+      "visible": true
     },
     {
       "cite": "170+ likes  ·  7 months ago",
@@ -236,7 +248,8 @@
       "text": "Add this stop to your Portland itinerary -  Never Coffee, downtown Portland . It's a gorgeous storefront and is super walkable to the Pearl ... Read more",
       "title": "Portland Coffee Shop Guide: The Most Aesthetic Cafés to ...",
       "type": "general",
-      "url": "https://www.instagram.com/p/DKzmhAhRxEd/?hl=en"
+      "url": "https://www.instagram.com/p/DKzmhAhRxEd/?hl=en",
+      "visible": true
     },
     {
       "cite": "https://oregonessential.com  › best-coffee-portland-cute-c...",
@@ -250,7 +263,8 @@
       "text": "Nov 30, 2025  —  Best Portland Coffee (Post Overview) ·  Good Coffee  · Albina Press · Upper Left Roasters · Keeper Coffee · Spella Cafe · Proud Mary · Behind the Museum ... Read more",
       "title": "15+ CHARMING Cafes in Portland (Serving the Best Coffee!)",
       "type": "general",
-      "url": "https://oregonessential.com/best-coffee-portland-cute-cafes/"
+      "url": "https://oregonessential.com/best-coffee-portland-cute-cafes/",
+      "visible": true
     },
     {
       "cite": "17K+ views  ·  1 year ago",
@@ -264,7 +278,8 @@
       "text": "They serve Italian style coffeeand spella was crowned the best espresso in Portland by the New York Times.",
       "title": "Around the World in Coffee: Portland's Best Coffee shops!",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=A5tSLzRslkE"
+      "url": "https://www.youtube.com/watch?v=A5tSLzRslkE",
+      "visible": true
     },
     {
       "cite": null,
@@ -297,7 +312,8 @@
       "text": "Abba Coffee Roasters<|>Deadstock Coffee Roasters<|>Kalesa Coffee<|>J Vein Caffé<|>Cathedral Coffee<|>Cadejo Coffee<|>Best coffee shops portland oregon<|>Top 10 coffee shops in Portland, Oregon<|>Coffee shops portland oregon near me<|>New coffee shops portland oregon<|>Coffee shops portland oregon open<|>Black coffee shops portland oregon<|>Never coffee Portland<|>Keeper coffee Portland",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -43,7 +43,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -65,7 +66,8 @@
       "text": "15 Greetings in French - YouTube YouTube https://www.youtube.com · Rosetta Stone YouTube https://www.youtube.com · Rosetta Stone<|>How to Pronounce Bon Matin (French) - YouTube YouTube https://www.youtube.com · Julien Miquel YouTube https://www.youtube.com · Julien Miquel<|>Do the French say \"je ne sais quoi\"?<|>How to Say \"Good Morning\" in French - YouTube YouTube https://www.youtube.com · Big Bong YouTube https://www.youtube.com · Big Bong",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.berlitz.com  › blog › how-say-good-mornin...",
@@ -79,7 +81,8 @@
       "text": "Sep 22, 2022  —  Below are a few ways to greet somebody in the  morning . As a rule of thumb, you may use “Bonjour” until about 6pm. Then, “Bonsoir” takes over. Read more",
       "title": "How to Say Good Morning in French in 33 Classic Ways",
       "type": "general",
-      "url": "https://www.berlitz.com/blog/how-say-good-morning-french"
+      "url": "https://www.berlitz.com/blog/how-say-good-morning-french",
+      "visible": true
     },
     {
       "cite": "14.8K+ views  ·  9 months ago",
@@ -93,7 +96,8 @@
       "text": "If you want to be correct usebonjour.",
       "title": "How to Say \"Good Morning\" in French",
       "type": "general",
-      "url": "https://www.youtube.com/shorts/ZuI138L6Yzw"
+      "url": "https://www.youtube.com/shorts/ZuI138L6Yzw",
+      "visible": true
     },
     {
       "cite": "20+ comments  ·  3 years ago",
@@ -123,7 +127,8 @@
       "text": "Just to be a bit pedantic, the spelling is \"Bonġu\". In France, it's \"bonjour\" or \"salut\" (colloquial). Read more",
       "title": "How to say good morning controversy : r/French",
       "type": "general",
-      "url": "https://www.reddit.com/r/French/comments/zuo87l/how_to_say_good_morning_controversy/"
+      "url": "https://www.reddit.com/r/French/comments/zuo87l/how_to_say_good_morning_controversy/",
+      "visible": true
     },
     {
       "cite": "130+ comments  ·  2 years ago",
@@ -153,7 +158,8 @@
       "text": "Bon matin means Good morning . Bon jour means Good Day|'Jour' definition is 'day' and 'matin' is morning.",
       "title": "Jow to say good morning in french",
       "type": "general",
-      "url": "https://www.facebook.com/groups/cajunfrench/posts/7086504171386911/"
+      "url": "https://www.facebook.com/groups/cajunfrench/posts/7086504171386911/",
+      "visible": true
     },
     {
       "cite": "https://berlitzthailandonline.com  › exclusive-articles › go...",
@@ -167,7 +173,8 @@
       "text": "May 3, 2023  —  In French, the appropriate reply to \"good morning\" is simply \"Bonjour\", and you may also add \"Comment allez-vous?\" (How are you?). Read more",
       "title": "How to say good morning in French in 33 classic ways",
       "type": "general",
-      "url": "https://berlitzthailandonline.com/blogs/exclusive-articles/good-morning-in-french?srsltid=AfmBOoqT77IKakdA5IerH09ZAn2eMhAdJfNh15tT_CzMoyUsTpZihvl2"
+      "url": "https://berlitzthailandonline.com/blogs/exclusive-articles/good-morning-in-french?srsltid=AfmBOoqT77IKakdA5IerH09ZAn2eMhAdJfNh15tT_CzMoyUsTpZihvl2",
+      "visible": true
     },
     {
       "cite": "76K+ views  ·  8 years ago",
@@ -181,7 +188,8 @@
       "text": "Learn how to say hello, hi, hiya, good morning and good evening in French. In this French lesson, you'll learn how to greet French people ...",
       "title": "LEARN FRENCH GREETINGS - Hello, Hi, Good Morning ...",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg"
+      "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg",
+      "visible": true
     },
     {
       "cite": "7 answers  ·  1 year ago",
@@ -211,7 +219,8 @@
       "text": "The simple, standard way of saying so is, 'bonjour'. This is the standard way to say \" good morning \" in  French , and you can use this greeting ... Read more",
       "title": "How to say “Good morning. How are you doing?” in French",
       "type": "general",
-      "url": "https://www.quora.com/How-do-you-say-Good-morning-How-are-you-doing-in-French"
+      "url": "https://www.quora.com/How-do-you-say-Good-morning-How-are-you-doing-in-French",
+      "visible": true
     },
     {
       "cite": null,
@@ -225,7 +234,8 @@
       "text": null,
       "title": "How to Say \"Good Morning\" in French",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/ZuI138L6Yzw"
+      "url": "https://www.youtube.com/shorts/ZuI138L6Yzw",
+      "visible": true
     },
     {
       "cite": null,
@@ -239,7 +249,8 @@
       "text": null,
       "title": "Good morning in French #shorts",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/2Vj31esOI00"
+      "url": "https://www.youtube.com/shorts/2Vj31esOI00",
+      "visible": true
     },
     {
       "cite": null,
@@ -253,7 +264,8 @@
       "text": null,
       "title": "How to Say GOOD MORNING in French | Beginners French ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@learnfrenchdaily/video/7346093816165715232?lang=en"
+      "url": "https://www.tiktok.com/@learnfrenchdaily/video/7346093816165715232?lang=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -267,7 +279,8 @@
       "text": null,
       "title": "How To Say Good Morning in French: Bonjour",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@learnfrenchdaily/video/7448654343886228769"
+      "url": "https://www.tiktok.com/@learnfrenchdaily/video/7448654343886228769",
+      "visible": true
     },
     {
       "cite": null,
@@ -281,7 +294,8 @@
       "text": null,
       "title": "\"Learn Different Ways to Say 'Good Morning' in French! \"",
       "type": "short_videos",
-      "url": "https://www.youtube.com/watch?v=9coLFE45fqU"
+      "url": "https://www.youtube.com/watch?v=9coLFE45fqU",
+      "visible": true
     },
     {
       "cite": null,
@@ -295,7 +309,8 @@
       "text": null,
       "title": "🇫🇷 Today's French word of the day: une bougie (a candle ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@hellofrenchnyc/video/7603326850303102222"
+      "url": "https://www.tiktok.com/@hellofrenchnyc/video/7603326850303102222",
+      "visible": true
     },
     {
       "cite": null,
@@ -309,7 +324,8 @@
       "text": null,
       "title": "Learning greetings in French and English #education #kids ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/vbmZ1qwoRFY"
+      "url": "https://www.youtube.com/shorts/vbmZ1qwoRFY",
+      "visible": true
     },
     {
       "cite": null,
@@ -323,7 +339,8 @@
       "text": null,
       "title": "Hey! Do you want to finally be YOURSELF in French? Not a ...",
       "type": "short_videos",
-      "url": "https://www.tiktok.com/@ohlalafrenchcourse/video/7603458497237355809"
+      "url": "https://www.tiktok.com/@ohlalafrenchcourse/video/7603458497237355809",
+      "visible": true
     },
     {
       "cite": null,
@@ -337,7 +354,8 @@
       "text": null,
       "title": "Different ways to say good morning in French #frenchcourse ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/ub_874I7pYA"
+      "url": "https://www.youtube.com/shorts/ub_874I7pYA",
+      "visible": true
     },
     {
       "cite": null,
@@ -351,7 +369,8 @@
       "text": null,
       "title": "☀️ Good morning! French dialogue A1 | Speaking in the ...",
       "type": "short_videos",
-      "url": "https://www.youtube.com/shorts/XuGeVtaNi7Y"
+      "url": "https://www.youtube.com/shorts/XuGeVtaNi7Y",
+      "visible": true
     },
     {
       "cite": "https://hinative.com  › questions",
@@ -365,7 +384,8 @@
       "text": "Oct 4, 2019  —  You can say «  bon matin  » but you will seem wierd haha « bonjour » ou « bonne journée » are fine. See a translation. Read more",
       "title": "how do you say good morning in French?",
       "type": "general",
-      "url": "https://hinative.com/questions/14467535"
+      "url": "https://hinative.com/questions/14467535",
+      "visible": true
     },
     {
       "cite": "https://itranslate.com  › blog › how-to-say-good-mornin...",
@@ -379,7 +399,8 @@
       "text": "Bonne matinée  (pronounced: bon ma-tee-neh): Directly translated, this means \"good morning.\" It adds a touch of specificity and warmth to the greeting. \"Bonne ... Read more",
       "title": "How to say \"good morning\" in French",
       "type": "general",
-      "url": "https://itranslate.com/blog/how-to-say-good-morning-in-french"
+      "url": "https://itranslate.com/blog/how-to-say-good-morning-in-french",
+      "visible": true
     },
     {
       "cite": null,
@@ -406,7 +427,8 @@
       "text": "Translate good morning to french google translate<|>Translate good morning to french words<|>Good afternoon in French<|>Google translate good morning to french<|>Good morning in French to a man<|>Translate good morning to french audio<|>Good morning, how are you in French<|>Good evening in French",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

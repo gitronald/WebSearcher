@@ -283,7 +283,8 @@
       "text": "There are many excellent, often free, resources available to start learning Python , which is a popular and beginner-friendly programming language. Here are some recommended tutorials and resources:",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.python.org  › about › gettingstarted",
@@ -297,7 +298,8 @@
       "text": "Welcome! Are you completely new to programming? If not then we presume you will be looking for information about why and  how to get started with Python . Read more",
       "title": "Python For Beginners",
       "type": "general",
-      "url": "https://www.python.org/about/gettingstarted/"
+      "url": "https://www.python.org/about/gettingstarted/",
+      "visible": true
     },
     {
       "cite": null,
@@ -311,7 +313,8 @@
       "text": null,
       "title": "Python Full Course for Beginners YouTube  ·  Programming with Mosh Feb 12, 2025",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ"
+      "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ",
+      "visible": true
     },
     {
       "cite": null,
@@ -325,7 +328,8 @@
       "text": null,
       "title": "Python Basics for Beginners | Python tutorial YouTube  ·  Dave Gray Feb 20, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ"
+      "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ",
+      "visible": true
     },
     {
       "cite": null,
@@ -339,7 +343,8 @@
       "text": null,
       "title": "Python Full Course for Beginners YouTube  ·  Programming with Mosh Feb 18, 2019",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en"
+      "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -353,7 +358,8 @@
       "text": null,
       "title": "‍ Python for Beginners Tutorial YouTube  ·  Kevin Stratvert Mar 25, 2021",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=b093aqAZiPU"
+      "url": "https://www.youtube.com/watch?v=b093aqAZiPU",
+      "visible": true
     },
     {
       "cite": "https://www.w3schools.com  › python",
@@ -367,7 +373,8 @@
       "text": "Learn  Python . Python is a popular programming language. Python can be used on a server to create web applications. Start learning Python now. Read more",
       "title": "Python Tutorial",
       "type": "general",
-      "url": "https://www.w3schools.com/python/"
+      "url": "https://www.w3schools.com/python/",
+      "visible": true
     },
     {
       "cite": "1.5M+ followers",
@@ -381,7 +388,8 @@
       "text": "An in-depth look at the Python programming language. Learn about  Python development, tips and tricks, walkthroughs, and best practices . Read more",
       "title": "Python Tutorials",
       "type": "general",
-      "url": "https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU"
+      "url": "https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU",
+      "visible": true
     },
     {
       "cite": "70+ comments  ·  2 years ago",
@@ -395,7 +403,8 @@
       "text": "This course  https://www.py4e.com/lessons  is one of the best courses I have ever seen on python. CS50 is also very good. Read more",
       "title": "Best Python tutorial for beginners in 2024? : r/learnpython",
       "type": "general",
-      "url": "https://www.reddit.com/r/learnpython/comments/1ajlvog/best_python_tutorial_for_beginners_in_2024/"
+      "url": "https://www.reddit.com/r/learnpython/comments/1ajlvog/best_python_tutorial_for_beginners_in_2024/",
+      "visible": true
     },
     {
       "cite": "https://www.learnpython.org",
@@ -409,7 +418,8 @@
       "text": "Get started learning Python with  DataCamp's free Intro to Python tutorial . Learn Data Science by completing interactive coding challenges and watching videos. Read more",
       "title": "Learn Python - Free Interactive Python Tutorial",
       "type": "general",
-      "url": "https://www.learnpython.org/"
+      "url": "https://www.learnpython.org/",
+      "visible": true
     },
     {
       "cite": "https://forum.freecodecamp.org  › how-to-learn-python-...",
@@ -423,7 +433,8 @@
       "text": "Feb 1, 2024  —  Follow the w3school python tutorial  to learn the basics of python. It's not so much the language that's important to learn, but general programming concepts. Read more",
       "title": "How to learn python as a beginner",
       "type": "general",
-      "url": "https://forum.freecodecamp.org/t/how-to-learn-python-as-a-beginner/669006"
+      "url": "https://forum.freecodecamp.org/t/how-to-learn-python-as-a-beginner/669006",
+      "visible": true
     },
     {
       "cite": "https://www.codecademy.com  › catalog › language › p...",
@@ -437,7 +448,8 @@
       "text": "Start your coding journey with  Python courses and tutorials . From basic to advanced projects, grow your Python skills at Codecademy.",
       "title": "Best Python Courses + Tutorials",
       "type": "general",
-      "url": "https://www.codecademy.com/catalog/language/python"
+      "url": "https://www.codecademy.com/catalog/language/python",
+      "visible": true
     },
     {
       "cite": "https://docs.python.org  › tutorial",
@@ -451,7 +463,8 @@
       "text": "This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful ... Read more",
       "title": "The Python Tutorial — Python 3.14.3 documentation",
       "type": "general",
-      "url": "https://docs.python.org/3/tutorial/index.html"
+      "url": "https://docs.python.org/3/tutorial/index.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -467,7 +480,8 @@
       "text": null,
       "title": "Python for Beginners: Master Variables & Syntax (Masterclass Series) - Part 1 #learnpython",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=7p6MCsNT3EU"
+      "url": "https://www.youtube.com/watch?v=7p6MCsNT3EU",
+      "visible": true
     },
     {
       "cite": null,
@@ -483,7 +497,8 @@
       "text": null,
       "title": "Python Full Course for Beginners | Complete All-in-One Tutorial  \nThis Python Full Course for Beginners is an all-in-one beginner tutorial and complete course full of nearly 9 hours of Python code and instruction to level up your programming skills. This course teaches all of the Python fundamentals. View this Python full course tutorial as a Python video textbook with 23 clearly defined chapters.",
       "type": "perspectives",
-      "url": "https://x.com/PythonPr/status/1999738558215782588?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+      "url": "https://x.com/PythonPr/status/1999738558215782588?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet",
+      "visible": true
     },
     {
       "cite": null,
@@ -499,7 +514,8 @@
       "text": null,
       "title": "How to build logic in programming?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/learnpython/comments/1qxdkji/how_to_build_logic_in_programming/"
+      "url": "https://www.reddit.com/r/learnpython/comments/1qxdkji/how_to_build_logic_in_programming/",
+      "visible": true
     },
     {
       "cite": null,
@@ -515,7 +531,8 @@
       "text": null,
       "title": "How I Would Learn Python FAST (if I could start over)",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=mC4nyib2sfg&vl=en"
+      "url": "https://www.youtube.com/watch?v=mC4nyib2sfg&vl=en",
+      "visible": true
     },
     {
       "cite": null,
@@ -531,7 +548,8 @@
       "text": null,
       "title": "Python Tutorial for Beginners (2026)",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=9MzgIGAWnKE"
+      "url": "https://www.youtube.com/watch?v=9MzgIGAWnKE",
+      "visible": true
     },
     {
       "cite": null,
@@ -547,7 +565,8 @@
       "text": null,
       "title": "Learn Python in 8 Weeks: Live, Guided & Beginner-Friendly!",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=vaH36xfNL4M"
+      "url": "https://www.youtube.com/watch?v=vaH36xfNL4M",
+      "visible": true
     },
     {
       "cite": null,
@@ -563,7 +582,8 @@
       "text": null,
       "title": "Learn Python Programming Quickly (Perfect for Beginners)",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=Dt6I6UOsOsw"
+      "url": "https://www.youtube.com/watch?v=Dt6I6UOsOsw",
+      "visible": true
     },
     {
       "cite": null,
@@ -579,7 +599,8 @@
       "text": null,
       "title": "How to learn python from 0?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/pythonhelp/comments/1qh5yxx/how_to_learn_python_from_0/"
+      "url": "https://www.reddit.com/r/pythonhelp/comments/1qh5yxx/how_to_learn_python_from_0/",
+      "visible": true
     },
     {
       "cite": null,
@@ -595,7 +616,8 @@
       "text": null,
       "title": "Course Spotlight: 11 Beginner Tips for Learning Python\n-\nWatch the full video on https://realpython.com, searching for \"11 Beginner Tips\"\n-\nHappy Pythoning!\n-\n#python #coding #programming #developers #pythoncode #pythonprogramming #code #codingfun #codingbootcamp #codinglife #codingpics #codingisfun #softwaredeveloper #softwareengineering #softwareengineer",
       "type": "perspectives",
-      "url": "https://www.instagram.com/reel/DSThZdfjMw8/"
+      "url": "https://www.instagram.com/reel/DSThZdfjMw8/",
+      "visible": true
     },
     {
       "cite": null,
@@ -611,7 +633,8 @@
       "text": null,
       "title": "trying to learn python",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/AskProgramming/comments/1png6l3/trying_to_learn_python/"
+      "url": "https://www.reddit.com/r/AskProgramming/comments/1png6l3/trying_to_learn_python/",
+      "visible": true
     },
     {
       "cite": null,
@@ -627,7 +650,8 @@
       "text": null,
       "title": "Python for Beginners #3 : Let's create Rock, Paper, Scissors",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=iqjUOyW9Zn8"
+      "url": "https://www.youtube.com/watch?v=iqjUOyW9Zn8",
+      "visible": true
     },
     {
       "cite": null,
@@ -643,7 +667,8 @@
       "text": null,
       "title": "Python in 2 Minutes – Crash Course for Beginners",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=UR-fU34qjKc"
+      "url": "https://www.youtube.com/watch?v=UR-fU34qjKc",
+      "visible": true
     },
     {
       "cite": "https://www.pythoninstitute.org",
@@ -657,7 +682,8 @@
       "text": "Free Online Python Training",
       "title": "Free Online Python Training",
       "type": "ad",
-      "url": "https://pythoninstitute.org/study-resources"
+      "url": "https://pythoninstitute.org/study-resources",
+      "visible": true
     },
     {
       "cite": null,
@@ -690,7 +716,8 @@
       "text": "Python<|>JavaScript<|>Computer programming<|>Java<|>C++<|>PHP<|>Python tutorial for beginners PDF<|>Python tutorial for beginners book<|>Python tutorial for beginners free<|>Python tutorial for beginners - youtube<|>Python programming examples<|>Python coding app<|>Best site to learn Python for free<|>Python coding online",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

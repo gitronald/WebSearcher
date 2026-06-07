@@ -24,7 +24,8 @@
       "text": "Central Park Horse Carriage Ride Short Loop (Up to 4 Adults)) $109 Groupon 4.8 (41)",
       "title": "Central Park Horse Carriage Ride Short Loop (Up to 4 Adults))",
       "type": "ad",
-      "url": "https://www.groupon.com/deals"
+      "url": "https://www.groupon.com/deals",
+      "visible": true
     },
     {
       "cite": "GetYourGuide",
@@ -38,7 +39,8 @@
       "text": "Central Park Pedicab Tour - Highlights $100 GetYourGuide 4.8 (125) Free cancellation",
       "title": "Central Park Pedicab Tour - Highlights",
       "type": "ad",
-      "url": "https://www.getyourguide.com/"
+      "url": "https://www.getyourguide.com/",
+      "visible": true
     },
     {
       "cite": "TourByLocals",
@@ -52,7 +54,8 @@
       "text": "Central Park New York City Tour $250 TourByLocals 5.0 (2)",
       "title": "Central Park New York City Tour",
       "type": "ad",
-      "url": "https://www.toursbylocals.com/"
+      "url": "https://www.toursbylocals.com/",
+      "visible": true
     },
     {
       "cite": "TourByLocals",
@@ -66,7 +69,8 @@
       "text": "Central Park NYC Walking Tour $350 TourByLocals 5.0 (2)",
       "title": "Central Park NYC Walking Tour",
       "type": "ad",
-      "url": "https://www.toursbylocals.com/"
+      "url": "https://www.toursbylocals.com/",
+      "visible": true
     },
     {
       "cite": "GetYourGuide",
@@ -80,7 +84,8 @@
       "text": "Central Park Electric Bike Rental $20 GetYourGuide Free cancellation",
       "title": "Central Park Electric Bike Rental",
       "type": "ad",
-      "url": "https://www.getyourguide.com/"
+      "url": "https://www.getyourguide.com/",
+      "visible": true
     },
     {
       "cite": "https://www.centralparknyc.org",
@@ -122,7 +127,8 @@
       "text": "The organization that cares for  NYC's  iconic 843-acre  park  offers public tours, family activities, and expert insight to help you get to know our beloved…",
       "title": "Central Park Conservancy: Your Official Guide to Central Park ...",
       "type": "general",
-      "url": "https://www.centralparknyc.org/"
+      "url": "https://www.centralparknyc.org/",
+      "visible": true
     },
     {
       "cite": "https://www.centralpark.com",
@@ -136,7 +142,8 @@
       "text": "Your complete guide to  New York  City's  Central Park , including attractions, activities, events, concerts, tours, hotel information and the  Central Park  Zoo.",
       "title": "Your Complete Guide to New York City's Central Park",
       "type": "general",
-      "url": "https://www.centralpark.com/"
+      "url": "https://www.centralpark.com/",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Central_Park",
@@ -150,7 +157,8 @@
       "text": "Central Park  is an urban park between the Upper West Side and Upper East Side neighborhoods of Manhattan in  New York  City that was the first landscaped park ...",
       "title": "Central Park",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Central_Park"
+      "url": "https://en.wikipedia.org/wiki/Central_Park",
+      "visible": true
     },
     {
       "cite": null,
@@ -172,7 +180,8 @@
       "text": "Why is the Central Park so famous?<|>What is the most famous thing in Central Park?<|>How long does it take to walk around Central Park New York?<|>How much does it cost to enter Central Park New York?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "The Times of Israel",
@@ -186,7 +195,8 @@
       "text": null,
       "title": "Thousands rally in New York’s Central Park in support of hostages held by \nHamas",
       "type": "top_stories",
-      "url": "https://www.timesofisrael.com/thousands-rally-in-new-yorks-central-park-in-support-of-hostages-held-by-hamas/"
+      "url": "https://www.timesofisrael.com/thousands-rally-in-new-yorks-central-park-in-support-of-hostages-held-by-hamas/",
+      "visible": true
     },
     {
       "cite": "",
@@ -200,7 +210,8 @@
       "text": null,
       "title": "NYC scooter perv wanted for sexually abusing Central Park jogger",
       "type": "top_stories",
-      "url": "https://nypost.com/2024/03/09/us-news/nyc-scooter-perv-wanted-for-sexually-abusing-central-park-jogger/"
+      "url": "https://nypost.com/2024/03/09/us-news/nyc-scooter-perv-wanted-for-sexually-abusing-central-park-jogger/",
+      "visible": true
     },
     {
       "cite": "ABC7 New York",
@@ -214,7 +225,8 @@
       "text": null,
       "title": "2024 NYC Half by the Mile: Central Park",
       "type": "top_stories",
-      "url": "https://abc7ny.com/videoClip/2024-nyc-half-new-york-city-marathon-nyrr-abc7ny/14516920/"
+      "url": "https://abc7ny.com/videoClip/2024-nyc-half-new-york-city-marathon-nyrr-abc7ny/14516920/",
+      "visible": true
     },
     {
       "cite": "amNewYork",
@@ -228,7 +240,8 @@
       "text": null,
       "title": "‘Bring them back home’: Thousands march around Central Park demanding safe \nreturn of all Israeli hostages",
       "type": "top_stories",
-      "url": "https://www.amny.com/new-york/manhattan/central-park-march-return-israeli-hostages/"
+      "url": "https://www.amny.com/new-york/manhattan/central-park-march-return-israeli-hostages/",
+      "visible": true
     },
     {
       "cite": null,
@@ -242,7 +255,8 @@
       "text": null,
       "title": "alt-text: Central Park - Wikipedia",
       "type": "images",
-      "url": "https://en.wikipedia.org/wiki/Central_Park"
+      "url": "https://en.wikipedia.org/wiki/Central_Park",
+      "visible": true
     },
     {
       "cite": null,
@@ -256,7 +270,8 @@
       "text": null,
       "title": "alt-text: Everything to know about Central Park, New York City",
       "type": "images",
-      "url": "https://www.nationalgeographic.com/travel/article/everything-to-know-about-central-park"
+      "url": "https://www.nationalgeographic.com/travel/article/everything-to-know-about-central-park",
+      "visible": true
     },
     {
       "cite": null,
@@ -270,7 +285,8 @@
       "text": null,
       "title": "alt-text: Central Park in New York - A Botanical Oasis in New York ...",
       "type": "images",
-      "url": "https://www.hotels.com/go/usa/central-park-new-york"
+      "url": "https://www.hotels.com/go/usa/central-park-new-york",
+      "visible": true
     },
     {
       "cite": null,
@@ -284,7 +300,8 @@
       "text": null,
       "title": "alt-text: The Architect of New York's Central Park Has an Incredibly ...",
       "type": "images",
-      "url": "https://www.architecturaldigest.com/story/architect-new-yorks-central-park-incredibly-unexpected-legacy"
+      "url": "https://www.architecturaldigest.com/story/architect-new-yorks-central-park-incredibly-unexpected-legacy",
+      "visible": true
     },
     {
       "cite": null,
@@ -298,7 +315,8 @@
       "text": null,
       "title": "alt-text: Your Official Guide to Central Park I… | Central Park ...",
       "type": "images",
-      "url": "https://www.centralparknyc.org/"
+      "url": "https://www.centralparknyc.org/",
+      "visible": true
     },
     {
       "cite": null,
@@ -312,7 +330,8 @@
       "text": null,
       "title": "alt-text: Central Park in New York - A Botanical Oasis in New York ...",
       "type": "images",
-      "url": "https://www.hotels.com/go/usa/central-park-new-york"
+      "url": "https://www.hotels.com/go/usa/central-park-new-york",
+      "visible": true
     },
     {
       "cite": null,
@@ -326,7 +345,8 @@
       "text": null,
       "title": "alt-text: Central Park – Park Review | Condé Nast Traveler",
       "type": "images",
-      "url": "https://www.cntraveler.com/activities/new-york/central-park"
+      "url": "https://www.cntraveler.com/activities/new-york/central-park",
+      "visible": true
     },
     {
       "cite": null,
@@ -340,7 +360,8 @@
       "text": null,
       "title": "alt-text: Central Park | Description, History, Map, Attractions ...",
       "type": "images",
-      "url": "https://www.britannica.com/place/Central-Park-New-York-City"
+      "url": "https://www.britannica.com/place/Central-Park-New-York-City",
+      "visible": true
     },
     {
       "cite": null,
@@ -354,7 +375,8 @@
       "text": null,
       "title": "alt-text: Central Park - Olmsted Network",
       "type": "images",
-      "url": "https://olmsted.org/sites/central-park/"
+      "url": "https://olmsted.org/sites/central-park/",
+      "visible": true
     },
     {
       "cite": null,
@@ -368,7 +390,8 @@
       "text": null,
       "title": "alt-text: Your Complete Guide to New York City's Central Park",
       "type": "images",
-      "url": "https://www.centralpark.com/"
+      "url": "https://www.centralpark.com/",
+      "visible": true
     },
     {
       "cite": "https://www.britannica.com  › ... › Cities & Towns P-S",
@@ -382,7 +405,8 @@
       "text": "Central Park , largest and most important public park in Manhattan,  New York  City. It occupies an area of 840 acres (340 hectares) and extends between 59th ...",
       "title": "Central Park | Description, History, Map, Attractions, & Facts",
       "type": "general",
-      "url": "https://www.britannica.com/place/Central-Park-New-York-City"
+      "url": "https://www.britannica.com/place/Central-Park-New-York-City",
+      "visible": true
     },
     {
       "cite": "https://www.timeout.com  › newyork › parks › central-p...",
@@ -396,7 +420,8 @@
       "text": "7 days ago  —  Central Park  is made up of 843 acres in the center of Manhattan. It includes sprawling lawns, rural woodlands, babbling brooks, and several ...",
       "title": "Central Park in New York: The ultimate guide to NYC's ...",
       "type": "general",
-      "url": "https://www.timeout.com/newyork/parks/central-park"
+      "url": "https://www.timeout.com/newyork/parks/central-park",
+      "visible": true
     },
     {
       "cite": "https://www.nycgovparks.org  › parks › central-park",
@@ -410,7 +435,8 @@
       "text": "Set in the middle of bustling Manhattan, its grounds serve as a safe haven, not only for athletes, daydreamers, musicians, and strollers, but also for teems of ...",
       "title": "Central Park",
       "type": "general",
-      "url": "https://www.nycgovparks.org/parks/central-park"
+      "url": "https://www.nycgovparks.org/parks/central-park",
+      "visible": true
     },
     {
       "cite": null,
@@ -437,7 +463,8 @@
       "text": "central park, new york size<|>central park, new york map<|>central park, new york photos<|>is central park in manhattan<|>central park length<|>central park history<|>central park dimensions in km<|>why was central park built",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -459,7 +486,8 @@
       "text": "Central Park is an urban park between the Upper West Side and Upper East Side neighborhoods of Manhattan in New York City that was the first landscaped park in the United States.",
       "title": "Central Park",
       "type": "side_bar",
-      "url": "https://en.wikipedia.org/wiki/Central_Park"
+      "url": "https://en.wikipedia.org/wiki/Central_Park",
+      "visible": true
     },
     {
       "cite": null,
@@ -493,7 +521,8 @@
       "text": null,
       "title": "Neighborhoods Near Central Park",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -535,7 +564,8 @@
       "text": null,
       "title": "Experiences",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -581,7 +611,8 @@
       "text": null,
       "title": "Reviews",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -619,7 +650,8 @@
       "text": null,
       "title": "Events",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -653,7 +685,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

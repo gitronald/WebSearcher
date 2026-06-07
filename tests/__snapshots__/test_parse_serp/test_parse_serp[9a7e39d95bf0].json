@@ -141,7 +141,8 @@
       "text": "Photosynthesis is the essential biological process where plants, algae, and certain bacteria convert sunlight, water ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ), and carbon dioxide ( C O 2 cap C cap O sub 2 𝐶 𝑂 2 ) into oxygen ( O 2 cap O sub 2 𝑂 2 ) and energy-rich glucose ( C 6 H 12 O 6 cap C sub 6 cap H sub 12 cap O sub 6 𝐶 6 𝐻 1 2 𝑂 6 ). This process occurs inside plant cell organelles called chloroplasts, which contain the green pigment chlorophyll that captures light energy. This video provides a visual explanation of how plants create their own food through photosynthesis: 1m Peekaboo Kidz YouTube • May 13, 2015 How the Process Works Photosynthesis consists of two main stages: Light-Dependent Reactions (In the Thylakoid Membranes): Chlorophyll absorbs solar energy, which splits water molecules ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ) into oxygen, protons, and electrons. The oxygen is released as a byproduct, while the energy is converted into chemical energy (ATP and NADPH). Light-Independent Reactions / Calvin Cycle (In the Stroma): This phase does not require direct light but uses the ATP and NADPH produced in the first stage. Through a series of chemical reactions, carbon dioxide ( C O 2 cap C cap O sub 2 𝐶 𝑂 2 ) is captured from the air and converted into glucose ( C 6 H 12 O 6 cap C sub 6 cap H sub 12 cap O sub 6 𝐶 6 𝐻 1 2 𝑂 6 ), which serves as food for the plant. Chemical Equation The overall process can be summarized by this formula: 6 C O 2 + 6 H 2 O + Light Energy → C 6 H 12 O 6 + 6 O 2 6 cap C cap O sub 2 plus 6 cap H sub 2 cap O plus Light Energy right arrow cap C sub 6 cap H sub 12 cap O sub 6 plus 6 cap O sub 2 6 𝐶 𝑂 2 + 6 𝐻 2 𝑂 + L i g h t E n e r g y → 𝐶 6 𝐻 1 2 𝑂 6 + 6 𝑂 2 (Six molecules of carbon dioxide and six of water, powered by light, create one glucose molecule and six oxygen molecules) . Key Components Chloroplasts & Chlorophyll: The site of the reaction, with pigments that primarily absorb blue and red light while reflecting green. Stomata: Small pores on leaves that allow C O 2 cap C cap O sub 2 𝐶 𝑂 2 to enter and O 2 cap O sub 2 𝑂 2 to exit. Roots: Absorb water ( H 2 O cap H sub 2 cap O 𝐻 2 𝑂 ) from the soil, which is transported to the leaves. Photosynthesis is crucial for life on Earth as it provides the primary energy source for nearly all organisms and produces the oxygen in the atmosphere.",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://education.nationalgeographic.org  › resource › p...",
@@ -155,7 +156,8 @@
       "text": "Feb 26, 2025  —  Photosynthesis is the process by which  plants use sunlight, water, and carbon dioxide  to create oxygen and energy in the form of sugar. Read more",
       "title": "Photosynthesis - National Geographic Education",
       "type": "general",
-      "url": "https://education.nationalgeographic.org/resource/photosynthesis/"
+      "url": "https://education.nationalgeographic.org/resource/photosynthesis/",
+      "visible": true
     },
     {
       "cite": null,
@@ -177,7 +179,8 @@
       "text": "The process of photosynthesis - Student Academic Success Monash University https://www.monash.edu › ... › Biology › Photosynthesis Monash University https://www.monash.edu › ... › Biology › Photosynthesis<|>What are the 4 steps of photosynthesis?<|>photosynthesis - Kids | Britannica Kids | Homework Help Britannica Kids https://kids.britannica.com › kids › article › photosynthesis Britannica Kids https://kids.britannica.com › kids › article › photosynthesis<|>Why is photosynthesis a short answer?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.snexplores.org  › article › explainer-how-p...",
@@ -191,7 +194,8 @@
       "text": "Oct 28, 2020  —  Photosynthesis is the process of  creating sugar and oxygen from carbon dioxide, water and sunlight . It happens through a long series of chemical reactions. Read more",
       "title": "Explainer: How photosynthesis works",
       "type": "general",
-      "url": "https://www.snexplores.org/article/explainer-how-photosynthesis-works"
+      "url": "https://www.snexplores.org/article/explainer-how-photosynthesis-works",
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › Photosynthesis",
@@ -205,7 +209,8 @@
       "text": "Photosynthesis occurs in two stages . In the first stage, light-dependent reactions or light reactions capture the energy of light and use it to make the ...",
       "title": "Photosynthesis",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/Photosynthesis"
+      "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+      "visible": true
     },
     {
       "cite": "5.5M+ views  ·  4 years ago",
@@ -219,7 +224,8 @@
       "text": "In this Amoeba Sisters updated photosynthesis video, you will find a general overview of thelight dependent and light independent reactions( ...",
       "title": "Photosynthesis (UPDATED)",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=CMiPYHNNg28"
+      "url": "https://www.youtube.com/watch?v=CMiPYHNNg28",
+      "visible": true
     },
     {
       "cite": "https://pmc.ncbi.nlm.nih.gov  › articles › PMC5264509",
@@ -233,7 +239,8 @@
       "text": "Oct 26, 2016  —  The light reactions  occur  in the chloroplast thylakoid membrane and involve the splitting of water into oxygen, protons and electrons. The ... Read more",
       "title": "Photosynthesis - PMC - NIH",
       "type": "general",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5264509/"
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5264509/",
+      "visible": true
     },
     {
       "cite": "https://plants.ifas.ufl.edu  › water-quality › photosynthesis",
@@ -247,7 +254,8 @@
       "text": "May 15, 2025  —  Using just three simple ingredients (carbon dioxide, water, and sunlight ) plants and bacteria are able to make their own food. Early forms of ... Read more",
       "title": "Photosynthesis - Plant Management in Florida Waters",
       "type": "general",
-      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/photosynthesis/"
+      "url": "https://plants.ifas.ufl.edu/overview-of-florida-waters/water-quality/photosynthesis/",
+      "visible": true
     },
     {
       "cite": null,
@@ -261,7 +269,8 @@
       "text": null,
       "title": null,
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1ir3x1x/eli5_how_does_photosynthesis_work/"
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1ir3x1x/eli5_how_does_photosynthesis_work/",
+      "visible": true
     },
     {
       "cite": null,
@@ -277,7 +286,8 @@
       "text": null,
       "title": "Why Photosynthesis Shows Irreducible Complexity",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=wDHxu52hnH0"
+      "url": "https://www.youtube.com/watch?v=wDHxu52hnH0",
+      "visible": true
     },
     {
       "cite": null,
@@ -293,7 +303,8 @@
       "text": null,
       "title": "ELI5 how does photosynthesis work?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1p7bhnq/eli5_how_does_photosynthesis_work/"
+      "url": "https://www.reddit.com/r/explainlikeimfive/comments/1p7bhnq/eli5_how_does_photosynthesis_work/",
+      "visible": true
     },
     {
       "cite": null,
@@ -309,7 +320,8 @@
       "text": null,
       "title": "How does photosynthesis actually convert light into energy?",
       "type": "perspectives",
-      "url": "https://www.reddit.com/r/answers/comments/1qefeqg/how_does_photosynthesis_actually_convert_light/"
+      "url": "https://www.reddit.com/r/answers/comments/1qefeqg/how_does_photosynthesis_actually_convert_light/",
+      "visible": true
     },
     {
       "cite": null,
@@ -325,7 +337,8 @@
       "text": null,
       "title": "Photosynthesis | A-Level Biology Revision Livestream",
       "type": "perspectives",
-      "url": "https://www.youtube.com/watch?v=dtZVbrog_mU"
+      "url": "https://www.youtube.com/watch?v=dtZVbrog_mU",
+      "visible": true
     },
     {
       "cite": null,
@@ -341,7 +354,8 @@
       "text": null,
       "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight 🌿",
       "type": "perspectives",
-      "url": "https://www.youtube.com/shorts/r90D4XK42c4"
+      "url": "https://www.youtube.com/shorts/r90D4XK42c4",
+      "visible": true
     },
     {
       "cite": "https://www.monash.edu  › ... › Biology › Photosynthesis",
@@ -355,7 +369,8 @@
       "text": "During photosynthesis,  plants take in carbon dioxide from the air and water from the soil . Using sunlight, they transform these into glucose (a sugar) and ... Read more",
       "title": "The process of photosynthesis - Student Academic Success",
       "type": "general",
-      "url": "https://www.monash.edu/student-academic-success/biology/photosynthesis/the-process-of-photosynthesis"
+      "url": "https://www.monash.edu/student-academic-success/biology/photosynthesis/the-process-of-photosynthesis",
+      "visible": true
     },
     {
       "cite": "https://earthobservatory.sg  › miscellaneous › how-does-...",
@@ -369,7 +384,8 @@
       "text": "Photosynthesis  is the process through which plants, algae and some bacteria use the sun's energy to create organic matter. Read more",
       "title": "How does photosynthesis work",
       "type": "general",
-      "url": "https://earthobservatory.sg/earth-science-education/earth-science-faqs/miscellaneous/how-does-photosynthesis-work"
+      "url": "https://earthobservatory.sg/earth-science-education/earth-science-faqs/miscellaneous/how-does-photosynthesis-work",
+      "visible": true
     },
     {
       "cite": "https://insideucr.ucr.edu  › stories › 2023/05/23 › how-do...",
@@ -383,7 +399,8 @@
       "text": "May 23, 2023  —  The trio zero in on photosynthesis, the process by which  green plants and some other organisms use sunlight to synthesize foods  from carbon dioxide and water. Read more",
       "title": "How does photosynthesis work so efficiently? - Inside UCR",
       "type": "general",
-      "url": "https://insideucr.ucr.edu/stories/2023/05/23/how-does-photosynthesis-work-so-efficiently"
+      "url": "https://insideucr.ucr.edu/stories/2023/05/23/how-does-photosynthesis-work-so-efficiently",
+      "visible": true
     },
     {
       "cite": null,
@@ -410,7 +427,8 @@
       "text": "How does photosynthesis work step by step<|>What is photosynthesis<|>How does photosynthesis work simple<|>How does photosynthesis work in plants<|>How does photosynthesis work simple explanation<|>How does photosynthesis work diagram<|>How does photosynthesis work ai<|>How does photosynthesis work chemically",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

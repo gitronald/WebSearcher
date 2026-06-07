@@ -24,7 +24,8 @@
       "text": null,
       "title": "Suicide bombing at a Shiite mosque on Islamabad's outskirts kills at least 31 and wounds scores",
       "type": "top_stories",
-      "url": "https://apnews.com/article/pakistan-islamabad-shiite-mosque-blast-8f0b7b8a8783db37644d88610512c9af"
+      "url": "https://apnews.com/article/pakistan-islamabad-shiite-mosque-blast-8f0b7b8a8783db37644d88610512c9af",
+      "visible": true
     },
     {
       "cite": null,
@@ -38,7 +39,8 @@
       "text": null,
       "title": "Top Russian general shot in Moscow as talks stall on Ukraine ceasefire",
       "type": "top_stories",
-      "url": "https://www.washingtonpost.com/world/2026/02/06/russia-general-assassination-attempt-moscow/"
+      "url": "https://www.washingtonpost.com/world/2026/02/06/russia-general-assassination-attempt-moscow/",
+      "visible": true
     },
     {
       "cite": null,
@@ -52,7 +54,8 @@
       "text": null,
       "title": "Canada plants a flag in Greenland",
       "type": "top_stories",
-      "url": "https://www.politico.com/news/2026/02/06/canada-greenland-consulate-opens-flag-00769338"
+      "url": "https://www.politico.com/news/2026/02/06/canada-greenland-consulate-opens-flag-00769338",
+      "visible": true
     },
     {
       "cite": null,
@@ -66,7 +69,8 @@
       "text": null,
       "title": "Donald Trump endorses Japan’s Sanae Takaichi ahead of general election",
       "type": "top_stories",
-      "url": "https://www.ft.com/content/c8fa222b-d4e5-4678-9450-68ce5fb53516"
+      "url": "https://www.ft.com/content/c8fa222b-d4e5-4678-9450-68ce5fb53516",
+      "visible": true
     },
     {
       "cite": null,
@@ -80,7 +84,8 @@
       "text": null,
       "title": "Storm Leonardo forces evacuations in Spain and Portugal with more rain on the way",
       "type": "top_stories",
-      "url": "https://www.reuters.com/sustainability/land-use-biodiversity/more-storms-coming-leonardo-swells-rivers-bursts-aquifers-spain-portugal-2026-02-06/"
+      "url": "https://www.reuters.com/sustainability/land-use-biodiversity/more-storms-coming-leonardo-swells-rivers-bursts-aquifers-spain-portugal-2026-02-06/",
+      "visible": true
     },
     {
       "cite": null,
@@ -94,7 +99,8 @@
       "text": null,
       "title": "As West goes after Russia’s oil fleet, Moscow fears for its war funding",
       "type": "top_stories",
-      "url": "https://www.washingtonpost.com/world/2026/02/04/russia-shadow-fleet-europe-sanctions/"
+      "url": "https://www.washingtonpost.com/world/2026/02/04/russia-shadow-fleet-europe-sanctions/",
+      "visible": true
     },
     {
       "cite": "https://www.bbc.com  › news › world",
@@ -108,7 +114,8 @@
       "text": "2 hours ago  —  World ·  Russian general shot several times in Moscow  · Relive the Winter Olympics opening ceremony as it happened · They were drawn to Korea with dreams of K- ... Read more",
       "title": "World | Latest News & Updates",
       "type": "general",
-      "url": "https://www.bbc.com/news/world"
+      "url": "https://www.bbc.com/news/world",
+      "visible": true
     },
     {
       "cite": null,
@@ -130,7 +137,8 @@
       "text": "World News | Latest Top Stories - Reuters Reuters https://www.reuters.com › world Reuters https://www.reuters.com › world<|>Latest News Today: Breaking News and Top Headlines from India ... indianexpress.com https://indianexpress.com indianexpress.com https://indianexpress.com<|>What are current issues in the world right now?<|>Top & Breaking World News Today - AP News AP News https://apnews.com › world-news AP News https://apnews.com › world-news",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.cnn.com",
@@ -144,7 +152,8 @@
       "text": "4 hours ago  —  View the latest news and  breaking news today for U.S., world , weather, entertainment, politics and health at CNN.com.",
       "title": "CNN: Breaking News, Latest News and Videos",
       "type": "general",
-      "url": "https://www.cnn.com/"
+      "url": "https://www.cnn.com/",
+      "visible": true
     },
     {
       "cite": "https://www.reuters.com  › world",
@@ -158,7 +167,8 @@
       "text": "2 hours ago  —  World ·  Iran says talks with US in Oman were 'good start', will continue  · Suicide bomber kills 31 in Shi'ite mosque in Pakistan's capital · US accuses China of ... Read more",
       "title": "World News | Latest Top Stories",
       "type": "general",
-      "url": "https://www.reuters.com/world/"
+      "url": "https://www.reuters.com/world/",
+      "visible": true
     },
     {
       "cite": "https://www.aljazeera.com",
@@ -172,7 +182,8 @@
       "text": "3 hours ago  —  News, analysis from the Middle East & worldwide, multimedia ...  US military kills two people in latest attack on vessel in the Pacific . Read more",
       "title": "Breaking News, World News and Video from Al Jazeera",
       "type": "general",
-      "url": "https://www.aljazeera.com/"
+      "url": "https://www.aljazeera.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -186,7 +197,8 @@
       "text": null,
       "title": "US News LIVE: Trump SHAKES The World With BIGGEST ... YouTube  ·  Times Now",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=R0o8WKz5IAY"
+      "url": "https://www.youtube.com/watch?v=R0o8WKz5IAY",
+      "visible": true
     },
     {
       "cite": null,
@@ -200,7 +212,8 @@
       "text": null,
       "title": "ABC World News Tonight with David Muir Full Broadcast - Feb ... YouTube  ·  ABC News 21 hours ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=_sDesANH2Yo"
+      "url": "https://www.youtube.com/watch?v=_sDesANH2Yo",
+      "visible": true
     },
     {
       "cite": null,
@@ -214,7 +227,8 @@
       "text": null,
       "title": "US Iran War Latest: Iran Refuses to GIVE UP Nukes? Iran ... YouTube  ·  Oneindia News 7 hours ago",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=rQYLhStZ6AE"
+      "url": "https://www.youtube.com/watch?v=rQYLhStZ6AE",
+      "visible": true
     },
     {
       "cite": "https://news.google.com",
@@ -228,7 +242,8 @@
       "text": "3 hours ago  —  Top stories · Nancy Guthrie's Disappearance Rekindles Kidnapping Fears ·  Trump removes video with racist clip depicting Obamas as apes . Read more",
       "title": "Google News",
       "type": "general",
-      "url": "https://news.google.com/"
+      "url": "https://news.google.com/",
+      "visible": true
     },
     {
       "cite": "https://www.theguardian.com  › world",
@@ -242,7 +257,8 @@
       "text": "25 minutes ago  —  Europe ·  Calls to postpone presidential election as Storm Leonardo lashes Portugal and Spain  · Russia blames Ukraine for attempted assassination of top general ... Read more",
       "title": "Latest news from around the world",
       "type": "general",
-      "url": "https://www.theguardian.com/world"
+      "url": "https://www.theguardian.com/world",
+      "visible": true
     },
     {
       "cite": "https://www.nbcnews.com",
@@ -256,7 +272,8 @@
       "text": "23 hours ago  —  Go to NBCNews.com for  breaking news, videos, and the latest top stories in world news , business, politics, health and pop culture.",
       "title": "NBC News - Breaking Headlines and Video Reports on World ...",
       "type": "general",
-      "url": "https://www.nbcnews.com/"
+      "url": "https://www.nbcnews.com/",
+      "visible": true
     },
     {
       "cite": "https://www.washingtonpost.com",
@@ -270,7 +287,8 @@
       "text": "6 hours ago  —  U.S. accuses China of secretive nuclear test  as arms-control agreements lapse · Epstein built ties to Russians and sought to meet Putin, files show · Trump shares ... Read more",
       "title": "The Washington Post - Breaking news and latest headlines ...",
       "type": "general",
-      "url": "https://www.washingtonpost.com/"
+      "url": "https://www.washingtonpost.com/",
+      "visible": true
     },
     {
       "cite": "https://www.democracynow.org",
@@ -312,7 +330,8 @@
       "text": "Global Headlines and Stories | Independent News Coverage",
       "title": "Global Headlines and Stories | Independent News Coverage",
       "type": "ad",
-      "url": "https://www.democracynow.org/"
+      "url": "https://www.democracynow.org/",
+      "visible": true
     },
     {
       "cite": null,
@@ -339,7 +358,8 @@
       "text": "Pakistan world cup news<|>Under 19 world cup news<|>Breaking news today<|>World News today live<|>Bad news today in the world<|>World news al jazeera<|>National News<|>Today international News in english",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

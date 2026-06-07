@@ -29,7 +29,8 @@
       "text": null,
       "title": "2024 United States primary elections Overview Dates Results",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › United_States_preside...",
@@ -43,7 +44,8 @@
       "text": "These  electors  then cast direct  votes , known as  electoral votes , for  president , and for vice  president . The candidate who receives an absolute  majority  of ...",
       "title": "United States presidential election",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/United_States_presidential_election"
+      "url": "https://en.wikipedia.org/wiki/United_States_presidential_election",
+      "visible": true
     },
     {
       "cite": "https://www.britannica.com  › topic › United-States-Presi...",
@@ -57,7 +59,8 @@
       "text": "The  president  and vice  president  of the United States are formally  elected  through an  electoral  college. Members (“ electors ”) of this  electoral  college are ...",
       "title": "Historical U.S. Presidential Election Results",
       "type": "general",
-      "url": "https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863"
+      "url": "https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863",
+      "visible": true
     },
     {
       "cite": null,
@@ -83,7 +86,8 @@
       "text": null,
       "title": "Election results for the 2020 US election are updated live and will refresh periodically. Turn off Live updates to avoid interruption.",
       "type": "election_results",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://en.wikipedia.org  › wiki › List_of_United_States...",
@@ -97,7 +101,8 @@
       "text": "In a United States  presidential election , the  popular vote  is the total number or the percentage of votes cast for a candidate by  voters  in the 50 states ...",
       "title": "List of United States presidential elections by popular vote ...",
       "type": "general",
-      "url": "https://en.wikipedia.org/wiki/List_of_United_States_presidential_elections_by_popular_vote_margin"
+      "url": "https://en.wikipedia.org/wiki/List_of_United_States_presidential_elections_by_popular_vote_margin",
+      "visible": true
     },
     {
       "cite": "https://www.usa.gov  › ... › How the president is elected",
@@ -111,7 +116,8 @@
       "text": "Feb 8, 2024  —  Learn about the  Electoral  College, which decides who will be  elected president  and vice  president  of the United States.",
       "title": "Electoral College | USAGov",
       "type": "general",
-      "url": "https://www.usa.gov/electoral-college"
+      "url": "https://www.usa.gov/electoral-college",
+      "visible": true
     },
     {
       "cite": "https://www.nationalpopularvote.com  › ...",
@@ -125,7 +131,8 @@
       "text": "...  Popular Vote  bill would guarantee the  Presidency  to the candidate who receives the most  popular votes  in all 50 states and the District of Columbia (Explanation)",
       "title": "National Popular Vote",
       "type": "general",
-      "url": "https://www.nationalpopularvote.com/home"
+      "url": "https://www.nationalpopularvote.com/home",
+      "visible": true
     },
     {
       "cite": "https://www.nationalpopularvote.com  › written-explanati...",
@@ -139,7 +146,8 @@
       "text": "One-page explanation (PDF) The National  Popular Vote  law will guarantee the  Presidency  to the candidate who receives the most  popular votes  in all 50 states ...",
       "title": "Agreement Among the States to Elect the President by ...",
       "type": "general",
-      "url": "https://www.nationalpopularvote.com/written-explanation"
+      "url": "https://www.nationalpopularvote.com/written-explanation",
+      "visible": true
     },
     {
       "cite": "https://www.statista.com  › Society › Historical Data",
@@ -153,7 +161,8 @@
       "text": "May 23, 2023  —  Since the 1860  election , U.S.  presidential elections  have been dominated by candidates affiliated with the Democratic and Republican parties ...",
       "title": "Popular vote in US elections 1860-2020",
       "type": "general",
-      "url": "https://www.statista.com/statistics/1035521/popular-votes-republican-democratic-parties-since-1828/"
+      "url": "https://www.statista.com/statistics/1035521/popular-votes-republican-democratic-parties-since-1828/",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -167,7 +176,8 @@
       "text": null,
       "title": "Breaking down the difference between the popular vote and ... YouTube  ·  We Are Iowa Local 5 News 1 minute, 8 seconds Oct 27, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=wnoCyRUKlPk"
+      "url": "https://www.youtube.com/watch?v=wnoCyRUKlPk",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -181,7 +191,8 @@
       "text": null,
       "title": "The National Popular Vote v. the Electoral College [POLICYbrief] YouTube  ·  The Federalist Society 3 minutes, 59 seconds Jun 24, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=ca7I25kD2e8"
+      "url": "https://www.youtube.com/watch?v=ca7I25kD2e8",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -195,7 +206,8 @@
       "text": null,
       "title": "Electoral vote vs. the popular vote: explained | Just The FAQs YouTube  ·  USA TODAY 1 minute, 33 seconds Oct 29, 2019",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=RiPL-XHKnCk"
+      "url": "https://www.youtube.com/watch?v=RiPL-XHKnCk",
+      "visible": true
     },
     {
       "cite": "https://www.archives.gov  › electoral-college › faq",
@@ -209,7 +221,8 @@
       "text": "If the candidate with a  majority  of the  electoral votes  is considered “ President elect ” before the counting of  electoral votes  in Congress, §3 of the 20th ...",
       "title": "Frequently Asked Questions",
       "type": "general",
-      "url": "https://www.archives.gov/electoral-college/faq"
+      "url": "https://www.archives.gov/electoral-college/faq",
+      "visible": true
     },
     {
       "cite": "https://www.ncsl.org  › elections-and-campaigns › nation...",
@@ -223,7 +236,8 @@
       "text": "Dec 7, 2023  —  The NPV movement seeks to ensure that the  presidential  candidate who wins the most  popular votes  nationwide is elected  president . When a ...",
       "title": "Summary National Popular Vote",
       "type": "general",
-      "url": "https://www.ncsl.org/elections-and-campaigns/national-popular-vote"
+      "url": "https://www.ncsl.org/elections-and-campaigns/national-popular-vote",
+      "visible": true
     },
     {
       "cite": null,
@@ -237,7 +251,8 @@
       "text": "",
       "title": null,
       "type": "knowledge_rhs",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

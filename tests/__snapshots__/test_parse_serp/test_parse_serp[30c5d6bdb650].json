@@ -114,7 +114,8 @@
       "text": "Major 2026 tech news features massive AI investment , with firms like Alphabet and Amazon increasing capital spending, causing investor scrutiny. While Big Tech faces market fluctuations, Nvidia rose on AI demand. Key trends include AI-powered \"pets\" in China, regulatory challenges for TikTok, and commercial space advancements. AI Infrastructure Spending: Big Tech is splurging over $ 600 $ 600 $ 6 0 0 billion on AI in 2026, creating investor concern over profitability despite AI's growth. Alphabet and Amazon are leading, with Alphabet potentially doubling capital spending. Market Performance: Despite a tech rout, Nvidia rose 7%, Microsoft gained 1%, and Tesla was up 4%. AI Regulations & Security: TikTok faces charges regarding EU content rules and addictive features, while research shows 40% of employee AI use involves sensitive corporate data. Emerging Technology: The first commercial orbital space station is scheduled for launch in May 2026. Researchers are using terahertz microscopes to study electron motion. Consumer Tech: Motorola's thin Edge 70 and Vivo X300 are receiving attention for performance and camera capabilities. This video provides a summary of the current state of technology earnings and the market's reaction: 1m Bloomberg Podcasts YouTube • Feb 5, 2026",
       "title": null,
       "type": "ai_overview",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.reuters.com  › technology",
@@ -128,7 +129,8 @@
       "text": "Technology ·  Big Tech's $600 billion spending plans exacerbate investors' AI headache  · Exclusive: Vista Equity Partners and Intel to lead investment in AI chip ... Read more",
       "title": "Tech News | Today's Latest Technology News",
       "type": "general",
-      "url": "https://www.reuters.com/technology/"
+      "url": "https://www.reuters.com/technology/",
+      "visible": true
     },
     {
       "cite": "https://www.wired.com",
@@ -142,7 +144,8 @@
       "text": "We bring you the future as it happens. From  the latest in science and technology  to the big stories in business and culture, we've got you covered.",
       "title": "WIRED - The Latest in Technology, Science, Culture and ...",
       "type": "general",
-      "url": "https://www.wired.com/"
+      "url": "https://www.wired.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -156,7 +159,8 @@
       "text": null,
       "title": "iPhone 18 Pro Max Rumored to Deliver Next-Level Battery Life",
       "type": "top_stories",
-      "url": "https://www.macrumors.com/2026/02/06/iphone-18-pro-max-next-level-battery-life/"
+      "url": "https://www.macrumors.com/2026/02/06/iphone-18-pro-max-next-level-battery-life/",
+      "visible": true
     },
     {
       "cite": null,
@@ -170,7 +174,8 @@
       "text": null,
       "title": "Apple heads to moon after NASA chief approves iPhones for upcoming missions",
       "type": "top_stories",
-      "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions"
+      "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions",
+      "visible": true
     },
     {
       "cite": null,
@@ -184,7 +189,8 @@
       "text": null,
       "title": "New iPhone launching this month with four key changes: report",
       "type": "top_stories",
-      "url": "https://9to5mac.com/2026/02/05/new-iphone-launching-soon-with-four-new-features/"
+      "url": "https://9to5mac.com/2026/02/05/new-iphone-launching-soon-with-four-new-features/",
+      "visible": true
     },
     {
       "cite": null,
@@ -198,7 +204,8 @@
       "text": null,
       "title": "One UI 8 Watch update is breaking the Galaxy Watch 5 Pro’s battery indicator",
       "type": "top_stories",
-      "url": "https://www.sammobile.com/news/one-ui-8-watch-update-is-breaking-galaxy-watch-5-pro-battery-indicator/"
+      "url": "https://www.sammobile.com/news/one-ui-8-watch-update-is-breaking-galaxy-watch-5-pro-battery-indicator/",
+      "visible": true
     },
     {
       "cite": null,
@@ -212,7 +219,8 @@
       "text": null,
       "title": "Google is expanding AirDrop support to more Android devices ‘very soon’",
       "type": "top_stories",
-      "url": "https://www.theverge.com/tech/874736/android-quick-share-apple-airdrop-support-expansion"
+      "url": "https://www.theverge.com/tech/874736/android-quick-share-apple-airdrop-support-expansion",
+      "visible": true
     },
     {
       "cite": null,
@@ -226,7 +234,8 @@
       "text": null,
       "title": "Steam Machine and Steam Frame delays are the latest product of the RAM crisis",
       "type": "top_stories",
-      "url": "https://arstechnica.com/gadgets/2026/02/ram-shortage-delays-valves-steam-machine-desktop-and-steam-frame-headset/"
+      "url": "https://arstechnica.com/gadgets/2026/02/ram-shortage-delays-valves-steam-machine-desktop-and-steam-frame-headset/",
+      "visible": true
     },
     {
       "cite": "https://www.cnbc.com  › technology",
@@ -240,7 +249,8 @@
       "text": "Business news related to the technology industry , including Apple, Amazon, Microsoft, Google, and Facebook, plus consumer electronics, start-ups, ...",
       "title": "Technology News",
       "type": "general",
-      "url": "https://www.cnbc.com/technology/"
+      "url": "https://www.cnbc.com/technology/",
+      "visible": true
     },
     {
       "cite": "https://www.cnn.com  › business › tech",
@@ -254,7 +264,8 @@
       "text": "View the latest  technology headlines , gadget and smartphone trends, and insights from tech industry leaders.",
       "title": "Tech | CNN Business",
       "type": "general",
-      "url": "https://www.cnn.com/business/tech"
+      "url": "https://www.cnn.com/business/tech",
+      "visible": true
     },
     {
       "cite": "https://www.geekwire.com",
@@ -268,7 +279,8 @@
       "text": "GeekWire is a fast-growing, national technology news site  with strong roots ... news, expert analysis and unique insights into the technology industry.",
       "title": "GeekWire – Breaking News in Technology & Business",
       "type": "general",
-      "url": "https://www.geekwire.com/"
+      "url": "https://www.geekwire.com/",
+      "visible": true
     },
     {
       "cite": "https://news.google.com  › topics",
@@ -282,7 +294,8 @@
       "text": "No information is available for this page.",
       "title": "Google News (Technology)",
       "type": "general",
-      "url": "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US%3Aen"
+      "url": "https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US%3Aen",
+      "visible": true
     },
     {
       "cite": "https://www.theguardian.com  › technology",
@@ -296,7 +309,8 @@
       "text": "Latest Technology news, comment and analysis  from the Guardian, the world's leading liberal voice.",
       "title": "Technology",
       "type": "general",
-      "url": "https://www.theguardian.com/uk/technology"
+      "url": "https://www.theguardian.com/uk/technology",
+      "visible": true
     },
     {
       "cite": "https://www.technewsworld.com",
@@ -310,7 +324,8 @@
       "text": "Tech news , reviews and analysis of computing, enterprise IT, cybersecurity, mobile technology, cloud computing, tech industry trends, how-tos, ...",
       "title": "TechNewsWorld - Technology News and Information",
       "type": "general",
-      "url": "https://www.technewsworld.com/"
+      "url": "https://www.technewsworld.com/",
+      "visible": true
     },
     {
       "cite": "https://techcrunch.com",
@@ -324,7 +339,8 @@
       "text": "Prince Andrew advisor pitched Jeffrey Epstein on investing in EV startups  like Lucid Motors · Uber appoints new CFO as its AV plans accelerate · Apeiron Labs gets ... Read more",
       "title": "TechCrunch | Startup and Technology News",
       "type": "general",
-      "url": "https://techcrunch.com/"
+      "url": "https://techcrunch.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -346,7 +362,8 @@
       "text": "What is the newest news about technology?<|>Which technology is trending now?<|>Chapter 14: Current Issues in Technology Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap... Open Washington Pressbooks https://openwa.pressbooks.pub › bustechessentials › chap...<|>What is the best site for tech news?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.fairobserver.com › science › tech",
@@ -388,7 +405,8 @@
       "text": "Science and technology news | Computer science news",
       "title": "Science and technology news | Computer science news",
       "type": "ad",
-      "url": "https://www.fairobserver.com/category/more/science/"
+      "url": "https://www.fairobserver.com/category/more/science/",
+      "visible": true
     },
     {
       "cite": null,
@@ -415,7 +433,8 @@
       "text": "Technology news today in the world<|>Technology news today usa<|>Latest technology news in computers<|>Trending tech news<|>Technology news articles for students<|>Most reliable tech news<|>Technology current events This week<|>Technology news today cnn",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

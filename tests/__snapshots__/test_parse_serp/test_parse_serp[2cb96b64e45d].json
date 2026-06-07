@@ -19,103 +19,128 @@
         "items": [
           {
             "text": "With LCD Screen",
-            "url": "/search?q=drawing+tablet+with+lcd+screen&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyHwgBEg9XaXRoIExDRCBTY3JlZW4YAjoICJbjLBCX4yxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAB6BAgPEAM"
+            "url": "/search?q=drawing+tablet+with+lcd+screen&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyHwgBEg9XaXRoIExDRCBTY3JlZW4YAjoICJbjLBCX4yxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAB6BAgPEAM",
+            "visible": true
           },
           {
             "text": "Wacom",
-            "url": "/search?q=wacom+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVXYWNvbToICIPzPBDc9z5YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAF6BAgPEAQ"
+            "url": "/search?q=wacom+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVXYWNvbToICIPzPBDc9z5YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAF6BAgPEAQ",
+            "visible": true
           },
           {
             "text": "Huion",
-            "url": "/search?q=huion+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVIdWlvbjoICIPzPBD39T5YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAJ6BAgPEAU"
+            "url": "/search?q=huion+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVIdWlvbjoICIPzPBD39T5YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAJ6BAgPEAU",
+            "visible": true
           },
           {
             "text": "Artist",
-            "url": "/search?q=artist+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgZBcnRpc3Q6CAit2iwQr9osWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAN6BAgPEAY"
+            "url": "/search?q=artist+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgZBcnRpc3Q6CAit2iwQr9osWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAN6BAgPEAY",
+            "visible": true
           },
           {
             "text": "Under $150",
-            "url": "/search?q=drawing+tablet+under+$150&shoprs=CAESDRILEQAAAACj4aFBGAEYBSoOZHJhd2luZyB0YWJsZXQyIwgFEgpVbmRlciAkMTUwGAIiDRILEQAAAACj4aFBGAEqAhgBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAR6BAgPEAc"
+            "url": "/search?q=drawing+tablet+under+$150&shoprs=CAESDRILEQAAAACj4aFBGAEYBSoOZHJhd2luZyB0YWJsZXQyIwgFEgpVbmRlciAkMTUwGAIiDRILEQAAAACj4aFBGAEqAhgBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAR6BAgPEAc",
+            "visible": true
           },
           {
             "text": "Mac OS",
-            "url": "/search?q=mac+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFggBEgZNYWMgT1M6CgiIkPQBEIqQ9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAV6BAgPEAg"
+            "url": "/search?q=mac+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFggBEgZNYWMgT1M6CgiIkPQBEIqQ9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAV6BAgPEAg",
+            "visible": true
           },
           {
             "text": "Samsung",
-            "url": "/search?q=samsung+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgdTYW1zdW5nOggIg_M8EO7mPVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAZ6BAgPEAk"
+            "url": "/search?q=samsung+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgdTYW1zdW5nOggIg_M8EO7mPVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAZ6BAgPEAk",
+            "visible": true
           },
           {
             "text": "Apple",
-            "url": "/search?q=apple+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVBcHBsZToICIPzPBCZ3j1YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAd6BAgPEAo"
+            "url": "/search?q=apple+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVBcHBsZToICIPzPBCZ3j1YurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAd6BAgPEAo",
+            "visible": true
           },
           {
             "text": "Get it fast",
-            "url": "/search?q=drawing+tablet&shoprs=CAESC5oBCAoGCAM4AUgBGBQqDmRyYXdpbmcgdGFibGV0MiIIFBILR2V0IGl0IGZhc3QiC5oBCAoGCAM4AUgBKgQQARgBYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAh6BAgPEAs"
+            "url": "/search?q=drawing+tablet&shoprs=CAESC5oBCAoGCAM4AUgBGBQqDmRyYXdpbmcgdGFibGV0MiIIFBILR2V0IGl0IGZhc3QiC5oBCAoGCAM4AUgBKgQQARgBYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAh6BAgPEAs",
+            "visible": true
           },
           {
             "text": "Windows OS",
-            "url": "/search?q=windows+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyGggBEgpXaW5kb3dzIE9TOgoIiJD0ARCJkPQBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAl6BAgPEAw"
+            "url": "/search?q=windows+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyGggBEgpXaW5kb3dzIE9TOgoIiJD0ARCJkPQBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAl6BAgPEAw",
+            "visible": true
           },
           {
             "text": "Wireless",
-            "url": "/search?q=wireless+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFggBEghXaXJlbGVzczoICNvcLBDd3CxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAp6BAgPEA0"
+            "url": "/search?q=wireless+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFggBEghXaXJlbGVzczoICNvcLBDd3CxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAp6BAgPEA0",
+            "visible": true
           },
           {
             "text": "Microsoft",
-            "url": "/search?q=microsoft+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEglNaWNyb3NvZnQ6CAiD8zwQjuo9WLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAt6BAgPEA4"
+            "url": "/search?q=microsoft+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEglNaWNyb3NvZnQ6CAiD8zwQjuo9WLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAt6BAgPEA4",
+            "visible": true
           },
           {
             "text": "Android",
-            "url": "/search?q=android+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEgdBbmRyb2lkOgoIiJD0ARCOkPQBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAx6BAgPEA8"
+            "url": "/search?q=android+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEgdBbmRyb2lkOgoIiJD0ARCOkPQBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKAx6BAgPEA8",
+            "visible": true
           },
           {
             "text": "On sale",
-            "url": "/search?q=drawing+tablet+sale&shoprs=CAESBEoCGAEYBioOZHJhd2luZyB0YWJsZXQyEwgGEgdPbiBzYWxlGAIiBEoCGAFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA16BAgPEBA"
+            "url": "/search?q=drawing+tablet+sale&shoprs=CAESBEoCGAEYBioOZHJhd2luZyB0YWJsZXQyEwgGEgdPbiBzYWxlGAIiBEoCGAFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA16BAgPEBA",
+            "visible": true
           },
           {
             "text": "Used",
-            "url": "/search?q=used+drawing+tablet&shoprs=CAEYCioOZHJhd2luZyB0YWJsZXQyCAgKEgRVc2VkWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA56BAgPEBE"
+            "url": "/search?q=used+drawing+tablet&shoprs=CAEYCioOZHJhd2luZyB0YWJsZXQyCAgKEgRVc2VkWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA56BAgPEBE",
+            "visible": true
           },
           {
             "text": "White",
-            "url": "/search?q=white+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVXaGl0ZToKCP3WowEQhdejAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA96BAgPEBI"
+            "url": "/search?q=white+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVXaGl0ZToKCP3WowEQhdejAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKA96BAgPEBI",
+            "visible": true
           },
           {
             "text": "Bluetooth",
-            "url": "/search?q=bluetooth+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEglCbHVldG9vdGg6CAjb3CwQ4O06WLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBB6BAgPEBM"
+            "url": "/search?q=bluetooth+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFwgBEglCbHVldG9vdGg6CAjb3CwQ4O06WLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBB6BAgPEBM",
+            "visible": true
           },
           {
             "text": "Black",
-            "url": "/search?q=black+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVCbGFjazoKCP3WowEQ_tajAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBF6BAgPEBQ"
+            "url": "/search?q=black+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVCbGFjazoKCP3WowEQ_tajAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBF6BAgPEBQ",
+            "visible": true
           },
           {
             "text": "Pink",
-            "url": "/search?q=pink+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgRQaW5rOgoI_dajARCB16MBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBJ6BAgPEBU"
+            "url": "/search?q=pink+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgRQaW5rOgoI_dajARCB16MBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBJ6BAgPEBU",
+            "visible": true
           },
           {
             "text": "With Stand",
-            "url": "/search?q=drawing+tablet+with+stand&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyHAgBEgpXaXRoIFN0YW5kGAI6CgiRkPQBEJKQ9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBN6BAgPEBY"
+            "url": "/search?q=drawing+tablet+with+stand&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyHAgBEgpXaXRoIFN0YW5kGAI6CgiRkPQBEJKQ9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBN6BAgPEBY",
+            "visible": true
           },
           {
             "text": "Blue",
-            "url": "/search?q=blue+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgRCbHVlOgoI_dajARD_1qMBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBR6BAgPEBc"
+            "url": "/search?q=blue+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFAgBEgRCbHVlOgoI_dajARD_1qMBWLqxIGAB&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBR6BAgPEBc",
+            "visible": true
           },
           {
             "text": "Green",
-            "url": "/search?q=green+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVHcmVlbjoKCP3WowEQhNejAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBV6BAgPEBg"
+            "url": "/search?q=green+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVHcmVlbjoKCP3WowEQhNejAVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBV6BAgPEBg",
+            "visible": true
           },
           {
             "text": "Chrome OS",
-            "url": "/search?q=chrome+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyGQgBEglDaHJvbWUgT1M6CgiIkPQBEI2Q9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBZ6BAgPEBk"
+            "url": "/search?q=chrome+os+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyGQgBEglDaHJvbWUgT1M6CgiIkPQBEI2Q9AFYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBZ6BAgPEBk",
+            "visible": true
           },
           {
             "text": "Linux",
-            "url": "/search?q=linux+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVMaW51eDoKCIiQ9AEQjJD0AVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBd6BAgPEBo"
+            "url": "/search?q=linux+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyFQgBEgVMaW51eDoKCIiQ9AEQjJD0AVi6sSBgAQ&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBd6BAgPEBo",
+            "visible": true
           },
           {
             "text": "Wired",
-            "url": "/search?q=wired+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVXaXJlZDoICNvcLBDc3CxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBh6BAgPEBs"
+            "url": "/search?q=wired+drawing+tablet&shoprs=CAEYASoOZHJhd2luZyB0YWJsZXQyEwgBEgVXaXJlZDoICNvcLBDc3CxYurEgYAE&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQip4GKBh6BAgPEBs",
+            "visible": true
           }
         ],
         "type": "hyperlinks"
@@ -128,7 +153,8 @@
       "text": null,
       "title": null,
       "type": "top_image_carousel",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -146,7 +172,8 @@
       "text": null,
       "title": "Wacom Intuos Small Graphics Drawing Tablet, includes Training & Software; 4 Customizable ExpressKeys Compatible With Chromebook Mac Android & for $39.95 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/Wacom-Drawing-Software-Included-CTL4100/dp/B079HL9YSF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER"
+      "url": "https://www.amazon.com/Wacom-Drawing-Software-Included-CTL4100/dp/B079HL9YSF?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=ATVPDKIKX0DER",
+      "visible": true
     },
     {
       "cite": null,
@@ -164,7 +191,8 @@
       "text": null,
       "title": "Wacom Cintiq 16 | Drawing Tablet With Screen for $799.95 from Wacom eStore",
       "type": "shopping_ads",
-      "url": "http://estore.wacom.com/en-us/wacom-cintiq-16-dtk1660k0a.html"
+      "url": "http://estore.wacom.com/en-us/wacom-cintiq-16-dtk1660k0a.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -182,7 +210,8 @@
       "text": null,
       "title": "XOPPOX Graphics Drawing Tablet 10 x 6 Inch Large Active Area with 8192 Levels Battery-Free Pen and 12 Hot Keys, Compatible with PC/Mac/Android OS for $48.99 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/XOPPOX-Graphics-Battery-Free-Compatible-Painting/dp/B08TC1N6JS?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1WLMZ7OC94OZG"
+      "url": "https://www.amazon.com/XOPPOX-Graphics-Battery-Free-Compatible-Painting/dp/B08TC1N6JS?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1WLMZ7OC94OZG",
+      "visible": true
     },
     {
       "cite": null,
@@ -201,7 +230,8 @@
       "text": null,
       "title": "XPPen Artist 15.6Pro drawing tablet provides a one-year warranty, and lifetime technical support. for $277.49 from XP-Pen Official Store | US",
       "type": "shopping_ads",
-      "url": "https://www.xp-pen.com/store/buy/artist-15-6-pro.html"
+      "url": "https://www.xp-pen.com/store/buy/artist-15-6-pro.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -219,7 +249,8 @@
       "text": null,
       "title": "HUION Inspiroy H1060P Graphics Drawing Tablet with 8192 Pressure Sensitivity Battery-Free Stylus and 12 Customized Hot Keys, 10 x 6.25 inches for $59.99 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/HUION-Inspiroy-Graphics-Battery-Free-Sensitivity/dp/B01FTE9HS2?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A30BRCK3LE6SB5"
+      "url": "https://www.amazon.com/HUION-Inspiroy-Graphics-Battery-Free-Sensitivity/dp/B01FTE9HS2?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A30BRCK3LE6SB5",
+      "visible": true
     },
     {
       "cite": null,
@@ -237,7 +268,8 @@
       "text": null,
       "title": "Drawing Tablet XPPen G430S OSU, Graphic Drawing Tablet with 8192 Levels Pressure Battery-Free Stylus, 4 x 3 inch Ultrathin, for OSU Game, Online for $19.99 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/Ultrathin-Graphic-Digital-Drawing-Pressure/dp/B01BA6XQI0?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AABH22FTN87KM"
+      "url": "https://www.amazon.com/Ultrathin-Graphic-Digital-Drawing-Pressure/dp/B01BA6XQI0?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=AABH22FTN87KM",
+      "visible": true
     },
     {
       "cite": null,
@@ -255,7 +287,8 @@
       "text": null,
       "title": "GAOMON Refurbished PD1161 11.6 Inches Portable Drawing Tablet, US Plug for $89.00 from gaomon.net",
       "type": "shopping_ads",
-      "url": "https://gaomon.net/products/refurb-pd1161-pen-display?currency=USD&variant=48145944903985&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping&stkn=c5a45b3900de"
+      "url": "https://gaomon.net/products/refurb-pd1161-pen-display?currency=USD&variant=48145944903985&utm_medium=cpc&utm_source=google&utm_campaign=Google%20Shopping&stkn=c5a45b3900de",
+      "visible": true
     },
     {
       "cite": null,
@@ -273,7 +306,8 @@
       "text": null,
       "title": "Huion Kamvas Drawing Tablet 22 plus with Free Gift for $548.99 from Huion Official Store",
       "type": "shopping_ads",
-      "url": "https://store.huion.com/products/kamvas-22-series-with-huion-keydial-mini?vid=1180"
+      "url": "https://store.huion.com/products/kamvas-22-series-with-huion-keydial-mini?vid=1180",
+      "visible": true
     },
     {
       "cite": null,
@@ -291,7 +325,8 @@
       "text": null,
       "title": "Refurb Wacom One | Pen Display for $164.95 from Wacom eStore",
       "type": "shopping_ads",
-      "url": "http://estore.wacom.com/en-us/refurb-wacom-one-13-pen-display-udtc133w0a.html"
+      "url": "http://estore.wacom.com/en-us/refurb-wacom-one-13-pen-display-udtc133w0a.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -309,7 +344,8 @@
       "text": null,
       "title": "VEIKK A30 V2 Drawing Tablet 10x6 Inch Graphics Tablet with Battery-Free Pen and 8192 Professional Levels Pressure for $39.99 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/VEIKK-Graphics-Drawing-Tablet-Battery-Free/dp/B07DQK7H15?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2LCUUA9Q9HAX3"
+      "url": "https://www.amazon.com/VEIKK-Graphics-Drawing-Tablet-Battery-Free/dp/B07DQK7H15?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A2LCUUA9Q9HAX3",
+      "visible": true
     },
     {
       "cite": null,
@@ -327,7 +363,8 @@
       "text": null,
       "title": "HUION Inspiroy H640P Drawing Tablet with Battery-Free Stylus 8192 Pressure Sensitivity 6 Hot Keys, 6x4-inch Graphics Pen Tablet for Digital Art & for $29.63 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/Inspiroy-H640P-Graphics-Battery-Free-Sensitivity/dp/B075T6MTJX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A30BRCK3LE6SB5"
+      "url": "https://www.amazon.com/Inspiroy-H640P-Graphics-Battery-Free-Sensitivity/dp/B075T6MTJX?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A30BRCK3LE6SB5",
+      "visible": true
     },
     {
       "cite": null,
@@ -345,7 +382,8 @@
       "text": null,
       "title": "Graphics Drawing Tablets, UGEE M708 10 x 6 inch Large Active Area Drawing Tablet with 8 Hot Keys 8192 Levels Pen Graphic Tablets for Computer for $49.99 from Amazon.com",
       "type": "shopping_ads",
-      "url": "https://www.amazon.com/Graphics-UGEE-Drawing-Graphic-Creation/dp/B06WLGJDX5?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1KMSU2IVTRQKC"
+      "url": "https://www.amazon.com/Graphics-UGEE-Drawing-Graphic-Creation/dp/B06WLGJDX5?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A1KMSU2IVTRQKC",
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -365,7 +403,8 @@
       "text": null,
       "title": "Wacom One Pen Display.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart - VEIKK official store",
@@ -385,7 +424,8 @@
       "text": null,
       "title": "VEIKK VK1200 Drawing Tablet with Screen, 11.6 Inch Full-Laminated Drawing Monitor Pen and Tilt Function.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "XP-Pen Official Store | US",
@@ -405,7 +445,8 @@
       "text": null,
       "title": "XPPen Deco 01 V2 Animation Drawing Tablet Drawing Pen Tablet with 60 Degrees of Tilt Brush and Supports Android Devices.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Best Buy",
@@ -425,7 +466,8 @@
       "text": null,
       "title": "Wacom Intuos S.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Wacom eStore",
@@ -445,7 +487,8 @@
       "text": null,
       "title": "Wacom Cintiq 16.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -465,7 +508,8 @@
       "text": null,
       "title": "Veikk A30 V2 Drawing Tablet 10x6 Inch Graphics Tablet with Battery-Free Pen and 8192 Professional Levels Pressure.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart - Shenzhen Huion Animation Technolog Co., LTD",
@@ -485,7 +529,8 @@
       "text": null,
       "title": "Huion Kamvas Pro 12.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "XP-Pen Official Store | US",
@@ -505,7 +550,8 @@
       "text": null,
       "title": "XP-Pen XPPen Artist 13.3 Pro Digital Pen Display Graphic Drawing Monitor Animation Art Drawing Tablet With 8192 Pen Pressure and 99% Adobe RGB.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › drawing-tablet › k=drawing...",
@@ -519,7 +565,8 @@
       "text": "HUION Inspiroy H1060P Graphics  Drawing Tablet  with 8192 Pressure Sensitivity Battery-Free Stylus and 12 Customized Hot Keys, 10 x 6.25 inches Digital Art Tablet ...",
       "title": "Amazon.com: Drawing Tablet",
       "type": "general",
-      "url": "https://www.amazon.com/drawing-tablet/s?k=drawing+tablet"
+      "url": "https://www.amazon.com/drawing-tablet/s?k=drawing+tablet",
+      "visible": true
     },
     {
       "cite": "https://estore.wacom.com  › en-us › tablets",
@@ -537,7 +584,8 @@
       "text": "One by Wacom.  Sketch ,  draw  and edit photos with a simply natural  pen  experience. It couldn't be easier. Battery Free icon.",
       "title": "Tablets",
       "type": "general",
-      "url": "https://estore.wacom.com/en-us/tablets.html"
+      "url": "https://estore.wacom.com/en-us/tablets.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -559,7 +607,8 @@
       "text": "Which tablet is best for drawing?<|>What is the best drawing tablet for beginners?<|>What is the difference between a graphic tablet and a drawing tablet?<|>Can you use a drawing tablet without a computer?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://store.huion.com",
@@ -573,7 +622,8 @@
       "text": "Shop at Huion for professional  graphic tablets , pen displays, LED tracing boards and accessories to bring creative ideas to life.",
       "title": "Huion Official Store: Drawing Tablets, Pen Tablets, Pen ...",
       "type": "general",
-      "url": "https://store.huion.com/"
+      "url": "https://store.huion.com/",
+      "visible": true
     },
     {
       "cite": "https://www.bestbuy.com  › site › abcat0513006",
@@ -587,7 +637,8 @@
       "text": "With a digital  drawing pad , you can combine the control of hand drawing with a creative array of digital tools to make stunning digital art.",
       "title": "Drawing Tablets: Digital Art Tablets",
       "type": "general",
-      "url": "https://www.bestbuy.com/site/computer-accessories/graphics-tablets-digital-pens/abcat0513006.c?id=abcat0513006"
+      "url": "https://www.bestbuy.com/site/computer-accessories/graphics-tablets-digital-pens/abcat0513006.c?id=abcat0513006",
+      "visible": true
     },
     {
       "cite": "https://www.nytimes.com  › Electronics › Accessories",
@@ -604,7 +655,8 @@
       "text": "Jan 17, 2024  —  Drawing tablets  are nearly indispensable for creating art on a PC or laptop, and models such as the Huion Inspiroy 2 M are great for ...",
       "title": "The 4 Best Drawing Tablets of 2024 | Reviews by Wirecutter",
       "type": "general",
-      "url": "https://www.nytimes.com/wirecutter/reviews/best-drawing-tablets/"
+      "url": "https://www.nytimes.com/wirecutter/reviews/best-drawing-tablets/",
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -618,7 +670,8 @@
       "text": null,
       "title": "Drawing Tablet with Screen, 15.6'' XOPPOX Graphics Drawing Monitor Pen  Display with 1080P Full Laminated Screen,Tilt 8192 Levels Battery-Free ... Amazon.com",
       "type": "images",
-      "url": "https://www.amazon.com/XOPPOX-Drawing-Graphics-Battery-Free-Compatible/dp/B09MQRNS2M"
+      "url": "https://www.amazon.com/XOPPOX-Drawing-Graphics-Battery-Free-Compatible/dp/B09MQRNS2M",
+      "visible": true
     },
     {
       "cite": "Amazon",
@@ -632,7 +685,8 @@
       "text": null,
       "title": "GAOMON PD156Pro - 15.6\" Drawing Tablet with Screen Full-Laminated 120% sRGB  Pen Display with Dial Key & 10 Hotkeys, Battery-Free Stylus Art Tablet for  ... Amazon",
       "type": "images",
-      "url": "https://www.amazon.com/GAOMON-PD156PRO-Full-Laminated-Tilt-Support-Battery-Free/dp/B08FXD2V9F"
+      "url": "https://www.amazon.com/GAOMON-PD156PRO-Full-Laminated-Tilt-Support-Battery-Free/dp/B08FXD2V9F",
+      "visible": true
     },
     {
       "cite": "ZDNet",
@@ -646,7 +700,8 @@
       "text": null,
       "title": "The best drawing tablets of 2024: Expert recommended | ZDNET ZDNet",
       "type": "images",
-      "url": "https://www.zdnet.com/article/best-drawing-tablet/"
+      "url": "https://www.zdnet.com/article/best-drawing-tablet/",
+      "visible": true
     },
     {
       "cite": null,
@@ -660,7 +715,8 @@
       "text": null,
       "title": "The best drawing tablets to buy right now",
       "type": "most_read_articles",
-      "url": "https://www.theverge.com/23923747/best-graphics-drawing-tablets"
+      "url": "https://www.theverge.com/23923747/best-graphics-drawing-tablets",
+      "visible": true
     },
     {
       "cite": null,
@@ -674,7 +730,8 @@
       "text": null,
       "title": "The best drawing tablets",
       "type": "most_read_articles",
-      "url": "https://www.creativebloq.com/features/best-drawing-tablet"
+      "url": "https://www.creativebloq.com/features/best-drawing-tablet",
+      "visible": true
     },
     {
       "cite": null,
@@ -688,7 +745,8 @@
       "text": null,
       "title": "The 7 Best Drawing Tablets To Enhance Your Digital Art",
       "type": "most_read_articles",
-      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-drawing-tablets/"
+      "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-drawing-tablets/",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -702,7 +760,8 @@
       "text": null,
       "title": "10 Best DRAWING TABLETS To Buy In 2024 YouTube  ·  Aaron Rutten 28 minutes, 29 seconds Dec 8, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=kaUOuYUDi5M"
+      "url": "https://www.youtube.com/watch?v=kaUOuYUDi5M",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -716,7 +775,8 @@
       "text": null,
       "title": "Best Drawing Tablets for Beginners - What I Recommend YouTube  ·  Brad Colbow 11 minutes, 32 seconds May 8, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=Dh49NwMt1yw"
+      "url": "https://www.youtube.com/watch?v=Dh49NwMt1yw",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -730,7 +790,8 @@
       "text": null,
       "title": "The Cheapest Drawing Tablet VS the Most Expensive YouTube  ·  Brad Colbow 12 minutes, 36 seconds Oct 17, 2023",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=rgvM59DBJag"
+      "url": "https://www.youtube.com/watch?v=rgvM59DBJag",
+      "visible": true
     },
     {
       "cite": null,
@@ -744,7 +805,8 @@
       "text": "Shop deals",
       "title": "Save with deals on apparel, electronics, and more",
       "type": "promo",
-      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQ_hF6BAh5EAA"
+      "url": "/search?sca_esv=52b056e1a97f92b3&q=shop+deals&sa=X&ved=2ahUKEwjhzu3NiPCEAxWGEFkFHY8tDcMQ_hF6BAh5EAA",
+      "visible": true
     },
     {
       "cite": null,
@@ -758,7 +820,8 @@
       "text": "How much does a graphic tablet cost?",
       "title": "price",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -772,7 +835,8 @@
       "text": "Including Wacom, Huion, XP-Pen",
       "title": "popular brands",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -786,7 +850,8 @@
       "text": "How do I know what size graphic tablet to get?",
       "title": "sizes",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -800,7 +865,8 @@
       "text": "Including Mac OS, Windows OS, Android",
       "title": "popular types",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -814,7 +880,8 @@
       "text": "What resolution should a graphics tablet be?",
       "title": "resolution",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -828,7 +895,8 @@
       "text": "What is the best drawing display tablet?",
       "title": "display",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -842,7 +910,8 @@
       "text": "How long is the warranty on a Huion tablet?",
       "title": "warranty",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -856,7 +925,8 @@
       "text": "What graphics tablet do professionals use?",
       "title": "specs",
       "type": "buying_guide",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.zdnet.com  › Tech › Computing › Tablets",
@@ -870,7 +940,8 @@
       "text": "4 days ago  —  Wacom is one of the industry leaders when it comes to  drawing  and graphics  tablets . With virtually no lag and 8,192 levels of pressure ...",
       "title": "The best drawing tablets of 2024: Expert recommended | ZDNET",
       "type": "general",
-      "url": "https://www.zdnet.com/article/best-drawing-tablet/"
+      "url": "https://www.zdnet.com/article/best-drawing-tablet/",
+      "visible": true
     },
     {
       "cite": "https://www.theverge.com  › best-graphics-drawing-tablets",
@@ -884,7 +955,8 @@
       "text": "Nov 2, 2023  —  Wacom Cintiq Pro 27. $3500. The Wacom Cintiq Pro 27 is the gold standard for display  tablets  used by professional artists, with color accuracy ...",
       "title": "The best drawing tablets to buy right now - The Verge",
       "type": "general",
-      "url": "https://www.theverge.com/23923747/best-graphics-drawing-tablets"
+      "url": "https://www.theverge.com/23923747/best-graphics-drawing-tablets",
+      "visible": true
     },
     {
       "cite": "https://www.parblo.com  › collections › graphic-tablet",
@@ -898,7 +970,8 @@
       "text": "Picasso has been creating almost all his life, recording and expressing with  drawings . Established in 2015, Parblo has been deeply involved ...",
       "title": "Graphic Tablet",
       "type": "general",
-      "url": "https://www.parblo.com/collections/graphic-tablet"
+      "url": "https://www.parblo.com/collections/graphic-tablet",
+      "visible": true
     },
     {
       "cite": "Best Buy",
@@ -918,7 +991,8 @@
       "text": null,
       "title": "Wacom One Graphics Tablet.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Wacom eStore",
@@ -938,7 +1012,8 @@
       "text": null,
       "title": "Wacom Intuos Pro Large.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -958,7 +1033,8 @@
       "text": null,
       "title": "VEIKK A30 V2 Drawing Tablet 10x6 Inch Graphics Tablet with Battery-free pen and 8192 Professional Levels Pressure. Low price.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Walmart",
@@ -978,7 +1054,8 @@
       "text": null,
       "title": "Wacom Intuos Pen Small. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Huion Official Store",
@@ -998,7 +1075,8 @@
       "text": null,
       "title": "Huion KAMVAS Pro 16. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Best Buy",
@@ -1018,7 +1096,8 @@
       "text": null,
       "title": "reMarkable 2.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Wacom eStore",
@@ -1038,7 +1117,8 @@
       "text": null,
       "title": "Wacom Cintiq Pro 27 Pen Display.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -1058,7 +1138,8 @@
       "text": null,
       "title": "Orsen 10 Inch LCD Doodle Board Writing Tablet Colorful Drawing.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -1078,7 +1159,8 @@
       "text": null,
       "title": "XP-Pen Star G640.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -1098,7 +1180,8 @@
       "text": null,
       "title": "PicassoTab XL 11.6 inch Large Drawing Tablet | Simbans.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com",
@@ -1118,7 +1201,8 @@
       "text": null,
       "title": "Wacom Cintiq 22.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -1138,7 +1222,8 @@
       "text": null,
       "title": "COOCOPCNT Xppen g430s 4x3 digital Drawing Tablet 8192 level OSU game.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Amazon.com - Seller",
@@ -1158,7 +1243,8 @@
       "text": null,
       "title": "UGEE Drawing Tablet.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Wacom eStore",
@@ -1178,7 +1264,8 @@
       "text": null,
       "title": "Wacom Intuos Small Graphics Drawing Tablet. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Huion Official Store",
@@ -1198,7 +1285,8 @@
       "text": null,
       "title": "Huion Kamvas Drawing Tablet Kamvas 22 with 120% sRGB Color Gamut. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "Wacom eStore",
@@ -1218,7 +1306,8 @@
       "text": null,
       "title": "Wacom Intuos Wireless Graphics Drawing Tablet. SALE.",
       "type": "products",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -1243,7 +1332,8 @@
       "text": "drawing tablet with screen<|>drawing tablet for pc<|>wacom drawing tablet<|>drawing tablet for kids<|>best drawing tablet<|>drawing tablet for beginners",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

@@ -24,7 +24,8 @@
       "text": "Compare Auto Insurance Rates",
       "title": "Compare Auto Insurance Rates",
       "type": "ad",
-      "url": "https://www.progressive.com/lp/auto-compare/"
+      "url": "https://www.progressive.com/lp/auto-compare/",
+      "visible": true
     },
     {
       "cite": "https://www.compare.com › compare › quotes",
@@ -38,7 +39,8 @@
       "text": "Enter Your Zip Code | Cheapest Auto Insurance",
       "title": "Enter Your Zip Code | Cheapest Auto Insurance",
       "type": "ad",
-      "url": "https://www.compare.com/compare-lp-3/"
+      "url": "https://www.compare.com/compare-lp-3/",
+      "visible": true
     },
     {
       "cite": "http://www.geico.com",
@@ -72,7 +74,8 @@
       "text": "Switch & Save With GEICO® Now | Quoting is Fast and Free",
       "title": "Switch & Save With GEICO® Now | Quoting is Fast and Free",
       "type": "ad",
-      "url": "https://www.geico.com/landingpage/go558/"
+      "url": "https://www.geico.com/landingpage/go558/",
+      "visible": true
     },
     {
       "cite": "https://www.insurify.com",
@@ -86,7 +89,8 @@
       "text": "Compare Quotes Side-by-Side - 2026 Affordable Car Insurance",
       "title": "Compare Quotes Side-by-Side - 2026 Affordable Car Insurance",
       "type": "ad",
-      "url": "https://insurify.com/rlp/145"
+      "url": "https://insurify.com/rlp/145",
+      "visible": true
     },
     {
       "cite": "https://www.allstate.com  › auto-insurance",
@@ -100,7 +104,8 @@
       "text": "Get a quick, personalized car insurance quote today . A great rate on auto insurance is just a few clicks away. Start your free quote online. Read more",
       "title": "Car Insurance | Get An Auto Insurance Quote",
       "type": "general",
-      "url": "https://www.allstate.com/auto-insurance"
+      "url": "https://www.allstate.com/auto-insurance",
+      "visible": true
     },
     {
       "cite": "https://www.mercuryinsurance.com  › local › auto-insura...",
@@ -114,7 +119,8 @@
       "text": "Get started with a quote today by contacting a California insurance agent , or call us at (877) 292-9762. Start Your Online Quote Today. Portrait ... Read more",
       "title": "California Car Insurance: Get an Auto Quote",
       "type": "general",
-      "url": "https://www.mercuryinsurance.com/local/california/auto-insurance/"
+      "url": "https://www.mercuryinsurance.com/local/california/auto-insurance/",
+      "visible": true
     },
     {
       "cite": null,
@@ -136,7 +142,8 @@
       "text": "Who normally has the cheapest car insurance?<|>What's the best site for car insurance quotes?<|>Cheap Car Insurance in Colorado for January 2026 - NerdWallet NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c... NerdWallet https://www.nerdwallet.com › insurance › auto › cheap-c...<|>What is the cheapest auto insurance in FL?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.geico.com  › auto-insurance › states",
@@ -150,7 +157,8 @@
       "text": "Get a fast, free California car insurance quote from GEICO today ! Visit our website, download our app, or call us at (800) 207-7847 to get started. Simply ... Read more",
       "title": "Auto Insurance Quotes in California",
       "type": "general",
-      "url": "https://www.geico.com/auto-insurance/states/ca/"
+      "url": "https://www.geico.com/auto-insurance/states/ca/",
+      "visible": true
     },
     {
       "cite": "https://www.libertymutual.com  › Vehicle Insurance",
@@ -164,7 +172,8 @@
       "text": "Compare auto insurance coverage options, explore discounts, and  get a quote from Liberty Mutual  to protect your vehicle.",
       "title": "Car Insurance | Get an Auto Insurance Quote",
       "type": "general",
-      "url": "https://www.libertymutual.com/vehicle/auto-insurance"
+      "url": "https://www.libertymutual.com/vehicle/auto-insurance",
+      "visible": true
     },
     {
       "cite": null,
@@ -249,7 +258,8 @@
       "text": null,
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.experian.com  › insurance › california",
@@ -263,7 +273,8 @@
       "text": "Find affordable auto insurance in California with Experian. Compare rates, customize coverage and discover savings tailored to your needs.  Get a free quote  ...",
       "title": "California Car Insurance Quotes - Compare and Save",
       "type": "general",
-      "url": "https://www.experian.com/insurance/car-insurance-quotes/california/"
+      "url": "https://www.experian.com/insurance/car-insurance-quotes/california/",
+      "visible": true
     },
     {
       "cite": "https://www.thegeneral.com",
@@ -277,7 +288,8 @@
       "text": "Shop The General® car insurance and  get a free quote today . Explore our auto insurance options to find the coverage you need at affordable rates.",
       "title": "The General® Car Insurance | Get a Quote to Insure Your Car",
       "type": "general",
-      "url": "https://www.thegeneral.com/"
+      "url": "https://www.thegeneral.com/",
+      "visible": true
     },
     {
       "cite": "Reddit  ·  r/SanJose  ·  30+ comments  ·  3 months ago",
@@ -291,7 +303,8 @@
       "text": null,
       "title": "Where are people finding the best auto insurance deals these days?",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/SanJose/comments/1o99qba/where_are_people_finding_the_best_auto_insurance/"
+      "url": "https://www.reddit.com/r/SanJose/comments/1o99qba/where_are_people_finding_the_best_auto_insurance/",
+      "visible": true
     },
     {
       "cite": "Reddit  ·  r/Car_Insurance_Help  ·  10+ comments  ·  4 days ago",
@@ -305,7 +318,8 @@
       "text": null,
       "title": "Which platform is useful to quote auto insurance?",
       "type": "discussions_and_forums",
-      "url": "https://www.reddit.com/r/Car_Insurance_Help/comments/1qtvkih/which_platform_is_useful_to_quote_auto_insurance/"
+      "url": "https://www.reddit.com/r/Car_Insurance_Help/comments/1qtvkih/which_platform_is_useful_to_quote_auto_insurance/",
+      "visible": true
     },
     {
       "cite": "Quora  ·  8 answers  ·  9 years ago",
@@ -319,7 +333,8 @@
       "text": null,
       "title": "How to choose best and cheap auto insurance in california",
       "type": "discussions_and_forums",
-      "url": "https://www.quora.com/How-do-I-choose-best-and-cheap-auto-insurance-in-california"
+      "url": "https://www.quora.com/How-do-I-choose-best-and-cheap-auto-insurance-in-california",
+      "visible": true
     },
     {
       "cite": "https://www.thezebra.com  › car-insurance-quotes",
@@ -333,7 +348,8 @@
       "text": "With The Zebra, drivers can enter some basic information and  receive quotes from hundreds of the most trusted insurance companies  within minutes. Read more",
       "title": "Free Car Insurance Quotes (from 100+ Companies)",
       "type": "general",
-      "url": "https://www.thezebra.com/car-insurance-quotes/"
+      "url": "https://www.thezebra.com/car-insurance-quotes/",
+      "visible": true
     },
     {
       "cite": "https://www.esurance.com",
@@ -347,7 +363,8 @@
       "text": "Start a fast, free auto insurance quote with Esurance . We help you find car insurance coverages that are right for you, so you're not paying for anything ...",
       "title": "Esurance Car Insurance Quotes & More",
       "type": "general",
-      "url": "https://www.esurance.com/"
+      "url": "https://www.esurance.com/",
+      "visible": true
     },
     {
       "cite": "https://www.safeauto.com",
@@ -361,7 +378,8 @@
       "text": "Get a Personalized Quote . Online, over the phone or in-store, your auto quote factors in your individual needs and budget. We offer discounts up to 25%* ... Read more",
       "title": "SafeAuto: Leading Provider in State Minimum Car Insurance",
       "type": "general",
-      "url": "https://www.safeauto.com/"
+      "url": "https://www.safeauto.com/",
+      "visible": true
     },
     {
       "cite": null,
@@ -394,7 +412,8 @@
       "text": "The General<|>Direct Auto Insurance<|>Esurance<|>Allstate<|>Progressive<|>State Farm<|>car insurance quotes near palo alto, ca<|>car insurance quotes near san francisco, ca<|>Car insurance quotes California<|>Car insurance quotes GEICO<|>Car insurance quotes reddit<|>Car insurance quotes comparison<|>Full coverage car insurance quotes<|>Car insurance quotes Progressive",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

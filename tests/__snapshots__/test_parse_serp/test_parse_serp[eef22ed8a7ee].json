@@ -35,7 +35,8 @@
       "text": "Song by Pitbull",
       "title": "I Believe That We Will Win (World Anthem)",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -51,7 +52,8 @@
       "text": "2:57 YouTube • Pitbull Pitbull - I Believe That We Will Win | World Anthem (Official ...",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=ZxMaHi91RkE"
+      "url": "https://www.youtube.com/watch?v=ZxMaHi91RkE",
+      "visible": true
     },
     {
       "cite": null,
@@ -67,7 +69,8 @@
       "text": "2:28 YouTube • Pitbull Pitbull - I Believe That We Will Win [World Anthem] (Official ... Pitbull - I Believe That We Will Win [World Anthem] (Official Lyric Video) Listen Here: https://mr305.ffm.to/believeanthem Subscribe: ... Apr 13, 2020",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.youtube.com/watch?v=BBre0xNcr5c"
+      "url": "https://www.youtube.com/watch?v=BBre0xNcr5c",
+      "visible": true
     },
     {
       "cite": null,
@@ -85,7 +88,8 @@
       "text": "Artist: Pitbull",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -103,7 +107,8 @@
       "text": "Released: 2020",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -119,7 +124,8 @@
       "text": "CNN Pitbull releases uplifting song 'I Believe That We Will Win ... Pitbull is bringing the world together through his music. “Mr. Worldwide” really is living up to his nickname with his latest single, ... Apr 13, 2020",
       "title": null,
       "type": "knowledge",
-      "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html"
+      "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html",
+      "visible": true
     },
     {
       "cite": null,
@@ -143,7 +149,8 @@
       "text": null,
       "title": "Lyrics",
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -157,7 +164,8 @@
       "text": null,
       "title": "Pitbull - I Believe That We Will Win [World Anthem] (Official ... YouTube  ·  Pitbull 2 minutes, 28 seconds Apr 12, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=BBre0xNcr5c"
+      "url": "https://www.youtube.com/watch?v=BBre0xNcr5c",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -171,7 +179,8 @@
       "text": null,
       "title": "Pitbull - I Believe That We Will Win [World Anthem] (Audio Video) YouTube  ·  Pitbull 2 minutes, 28 seconds Apr 24, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=A9p50gpCf-k"
+      "url": "https://www.youtube.com/watch?v=A9p50gpCf-k",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -185,7 +194,8 @@
       "text": null,
       "title": "Pitbull - I Believe That We Will Win | World Anthem - Thombs ... YouTube  ·  Pitbull 3 minutes Jun 26, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=vzGbIecs4_o"
+      "url": "https://www.youtube.com/watch?v=vzGbIecs4_o",
+      "visible": true
     },
     {
       "cite": "YouTube",
@@ -199,7 +209,8 @@
       "text": null,
       "title": "Pitbull - I Believe That We Will Win | World Anthem (Official BTS) YouTube  ·  Pitbull 1 minute, 50 seconds May 21, 2020",
       "type": "videos",
-      "url": "https://www.youtube.com/watch?v=BdEP6pDZWFE"
+      "url": "https://www.youtube.com/watch?v=BdEP6pDZWFE",
+      "visible": true
     },
     {
       "cite": null,
@@ -221,7 +232,8 @@
       "text": "Who sings I believe we will win?<|>What song is the anthem by Pitbull based on?<|>What song made Pitbull famous?<|>Who has Pitbull sang with?",
       "title": null,
       "type": "people_also_ask",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://www.cnn.com  › 2020/04/13 › entertainment › pi...",
@@ -235,7 +247,8 @@
       "text": "Apr 13, 2020  —  Worldwide” really is living up to his nickname with his latest single, “ I Believe That We Will Win .” The song is an  anthem  about the current ...",
       "title": "Pitbull releases uplifting song 'I Believe That We Will Win' ...",
       "type": "general",
-      "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html"
+      "url": "https://www.cnn.com/2020/04/13/entertainment/pitbull-new-song-i-believe-that-we-will-win-trnd/index.html",
+      "visible": true
     },
     {
       "cite": "36.6K+ views  ·  3 years ago",
@@ -253,7 +266,8 @@
       "text": "Pitbull-I Believe That We Will Win[World Anthem] (Lyric Video) Subscribe: http://bitly.com/Pibull_YouTube Follow Pitbull: Instagram: ...",
       "title": "Pitbull - I Believe That We Will Win (Lyrics) - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=Y1ZsKjCYCbs"
+      "url": "https://www.youtube.com/watch?v=Y1ZsKjCYCbs",
+      "visible": true
     },
     {
       "cite": "https://open.spotify.com  › track",
@@ -267,7 +281,8 @@
       "text": "I Believe That We Will Win  ( World Anthem )20202:27. Sign in to see lyrics and listen to the full track. Sign up.  Pitbull . Artist.  Pitbull  ...",
       "title": "I Believe That We Will Win (World Anthem)",
       "type": "general",
-      "url": "https://open.spotify.com/track/4Sq71vakNYzewI1nnZItEC"
+      "url": "https://open.spotify.com/track/4Sq71vakNYzewI1nnZItEC",
+      "visible": true
     },
     {
       "cite": "https://www.billboard.com  › Music › Latin",
@@ -281,7 +296,8 @@
       "text": "Apr 13, 2020  —  His new song “ I Believe That We Will Win ” is no exception, in fact, “that message is needed right now more than ever,” he tells Billboard. It ...",
       "title": "Pitbull Drops Uplifting Song 'I Believe That We Will Win'",
       "type": "general",
-      "url": "https://www.billboard.com/music/latin/pitbull-i-believe-that-we-will-win-listen-9356237/"
+      "url": "https://www.billboard.com/music/latin/pitbull-i-believe-that-we-will-win-listen-9356237/",
+      "visible": true
     },
     {
       "cite": "753.2K+ views  ·  3 years ago",
@@ -299,7 +315,8 @@
       "text": "Provided to YouTube by Universal Music Group I Believe That We Will Win (World Anthem) ·Pitbull I Believe That We Will Win(World Anthem) ...",
       "title": "I Believe That We Will Win (World Anthem) - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=qLxpmLl4fto"
+      "url": "https://www.youtube.com/watch?v=qLxpmLl4fto",
+      "visible": true
     },
     {
       "cite": "83.7K+ views  ·  3 years ago",
@@ -317,7 +334,8 @@
       "text": "WEbelieve that we will win! Mr. Worldwide brings the heat with this brand new release, and we're obsessed with the song's globally positive ...",
       "title": "“I Believe That We Will Win (World Anthem)” || Pitbull - YouTube",
       "type": "general",
-      "url": "https://www.youtube.com/watch?v=nHi2NPv2Bz0"
+      "url": "https://www.youtube.com/watch?v=nHi2NPv2Bz0",
+      "visible": true
     },
     {
       "cite": "https://www.mtv.com  › news › pitbull-i-believe-that-we-...",
@@ -331,7 +349,8 @@
       "text": "May 7, 2020  —  Pitbull's  hopeful new ' I Believe That We Will Win  ( World Anthem )' video finds Mr. Worldwide summoning the power of global community to keep ...",
       "title": "Pitbull's 'I Believe That We Will Win' Shows Global Unity",
       "type": "general",
-      "url": "https://www.mtv.com/news/w4i14l/pitbull-i-believe-that-we-will-win-world-anthem-video"
+      "url": "https://www.mtv.com/news/w4i14l/pitbull-i-believe-that-we-will-win-world-anthem-video",
+      "visible": true
     },
     {
       "cite": "https://www.amazon.com  › Believe-That-Will-World-A...",
@@ -345,7 +364,8 @@
       "text": "Check out  I Believe That We Will Win  ( World Anthem ) by  Pitbull  on Amazon Music. Stream ad-free or purchase CD's and MP3s now on Amazon.com.",
       "title": "Pitbull - I Believe That We Will Win (World Anthem)",
       "type": "general",
-      "url": "https://www.amazon.com/Believe-That-Will-World-Anthem/dp/B086R69G96"
+      "url": "https://www.amazon.com/Believe-That-Will-World-Anthem/dp/B086R69G96",
+      "visible": true
     },
     {
       "cite": null,
@@ -374,7 +394,8 @@
       "text": "pitbull i believe that we will win meaning<|>i believe that we will win football chant<|>we will win song<|>i believe that we will win soccer<|>i believe that we will win'' chant origin<|>i believe that we will win remix<|>i believe we will win gif",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -408,7 +429,8 @@
       "text": null,
       "title": "Listen",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -438,7 +460,8 @@
       "text": null,
       "title": "About",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -472,7 +495,8 @@
       "text": null,
       "title": "People also search for",
       "type": "side_bar",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }

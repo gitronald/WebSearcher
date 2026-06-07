@@ -24,7 +24,8 @@
       "text": null,
       "title": "Results for Palo Alto, CA 94301",
       "type": "notice",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": null,
@@ -48,7 +49,8 @@
       "text": "67 19 °F °F °C °C",
       "title": null,
       "type": "knowledge",
-      "url": null
+      "url": null,
+      "visible": true
     },
     {
       "cite": "https://weather.com  › weather › today › Palo+Alto+CA",
@@ -62,7 +64,8 @@
       "text": "Today. 69° / 44° . Sunny. 2%. 4 mph · Humidity. 66% · UV Index. 3 of 11 · Sunrise. 7:10 am · Sunset. 5:34 pm. Mon ... Read more",
       "title": "Weather Forecast and Conditions for Palo Alto, California ...",
       "type": "general",
-      "url": "https://weather.com/weather/today/l/Palo%2BAlto%2BCA?canonicalCityId=a8519fe2c1ef96adebb09564dab8b48522411b80bd4d7cea033e07aab5f94746"
+      "url": "https://weather.com/weather/today/l/Palo%2BAlto%2BCA?canonicalCityId=a8519fe2c1ef96adebb09564dab8b48522411b80bd4d7cea033e07aab5f94746",
+      "visible": true
     },
     {
       "cite": "https://weather.com  › weather › tenday",
@@ -76,7 +79,8 @@
       "text": "Tonight. -- / 50° . Cloudy. 15%. 5 mph ... Overcast. Low near 50F. Winds light and variable. Record Warmth Incoming: When To Make Outdoor ... Read more",
       "title": "10-Day Weather Forecast for Palo Alto, California",
       "type": "general",
-      "url": "https://weather.com/weather/tenday/l/574fb50756c0d9d1822aa5dac3cbf519f3c8b5edd759005bec38df7809e32d51"
+      "url": "https://weather.com/weather/tenday/l/574fb50756c0d9d1822aa5dac3cbf519f3c8b5edd759005bec38df7809e32d51",
+      "visible": true
     },
     {
       "cite": "https://www.wunderground.com  › hourly › palo-alto",
@@ -90,7 +94,8 @@
       "text": "Sunny. High 69F . Winds NW at 5 to 10 mph. icon. Tonight 02/06. 11 % / 0 in. Partly cloudy. Low 48F. Winds ... Read more",
       "title": "Palo Alto, CA Hourly Weather Forecast",
       "type": "general",
-      "url": "https://www.wunderground.com/hourly/us/ca/palo-alto"
+      "url": "https://www.wunderground.com/hourly/us/ca/palo-alto",
+      "visible": true
     },
     {
       "cite": "https://forecast.weather.gov  › MapClick",
@@ -104,7 +109,8 @@
       "text": "Patchy fog before 9am . Otherwise, mostly sunny, with a high near 64. Calm wind becoming west northwest around 6 mph in the afternoon. Sunday Night. Read more",
       "title": "7-Day Forecast 37.48N 122.13W",
       "type": "general",
-      "url": "https://forecast.weather.gov/MapClick.php?CityName=East+Palo+Alto&state=CA"
+      "url": "https://forecast.weather.gov/MapClick.php?CityName=East+Palo+Alto&state=CA",
+      "visible": true
     },
     {
       "cite": "https://www.accuweather.com  › palo-alto › weather-for...",
@@ -118,7 +124,8 @@
       "text": "Hourly Weather  · 1 PM 69°. rain drop 0% · 2 PM 71°. rain drop 0% · 3 PM 70°. rain drop 0%. 10-Day Weather ... Read more",
       "title": "Palo Alto, CA Weather Forecast",
       "type": "general",
-      "url": "https://www.accuweather.com/en/us/palo-alto/94301/weather-forecast/331972"
+      "url": "https://www.accuweather.com/en/us/palo-alto/94301/weather-forecast/331972",
+      "visible": true
     },
     {
       "cite": "https://weather.com  › weather › tenday › Palo+Alto+Cal...",
@@ -132,7 +139,8 @@
       "text": "Clear skies. Low 47F . Winds light and variable. undefined. Heads-up. Record Cold Possible Across Northeast. Humidity77%. UV Index0 of 11. Moonrise8 ... Read more",
       "title": "10-Day Weather Forecast for Palo Alto, California",
       "type": "general",
-      "url": "https://weather.com/weather/tenday/l/Palo+Alto+California?canonicalCityId=b15e62614781b5816fd38b130a79aedf"
+      "url": "https://weather.com/weather/tenday/l/Palo+Alto+California?canonicalCityId=b15e62614781b5816fd38b130a79aedf",
+      "visible": true
     },
     {
       "cite": "https://weather.com  › weather › hourbyhour › Palo+Alt...",
@@ -146,7 +154,8 @@
       "text": "10 pm. 50° . Clear. 2%. 2%. 90%. 0 mph. 0 in · Feels Like. 50° · Rain Amount. 0 in · Wind. 0 mph S · Pressure. 30.1 · Cloud Cover. 0% · Dew Point. 47°. Read more",
       "title": "Hourly Weather Forecast for Palo Alto, California 94304",
       "type": "general",
-      "url": "https://weather.com/weather/hourbyhour/l/Palo+Alto+CA?canonicalCityId=11932b53fc5b79ecd6556e054b321eee"
+      "url": "https://weather.com/weather/hourbyhour/l/Palo+Alto+CA?canonicalCityId=11932b53fc5b79ecd6556e054b321eee",
+      "visible": true
     },
     {
       "cite": "https://weather.yahoo.com  › palo-alto",
@@ -160,7 +169,8 @@
       "text": "California. Palo Alto. 51° . RealFeel® 53°. Partly Cloudy today with a high of 72°F and a low of 48°F. H. 72°. L. 48°. 7:08 AM. 5:38 PM. Follow. Read more",
       "title": "Palo Alto, CA Weather Forecast, Conditions, and Maps",
       "type": "general",
-      "url": "https://weather.yahoo.com/us/ca/palo-alto"
+      "url": "https://weather.yahoo.com/us/ca/palo-alto",
+      "visible": true
     },
     {
       "cite": "https://www.weatherbug.com  › weather-forecast › now",
@@ -174,7 +184,8 @@
       "text": "Sunny. Highs in the upper 60s to mid 70s . North winds around 5 mph. Palo Alto, CA 10-day weather forecast · FEATURED VIDEOS. Four Oceanfront ... Read more",
       "title": "Palo Alto, CA Weather Today & Tomorrow - Local Forecast ...",
       "type": "general",
-      "url": "https://www.weatherbug.com/weather-forecast/now/palo-alto-ca-94301"
+      "url": "https://www.weatherbug.com/weather-forecast/now/palo-alto-ca-94301",
+      "visible": true
     },
     {
       "cite": "https://www.timeanddate.com  › ... › USA › Palo Alto",
@@ -188,7 +199,8 @@
       "text": "Palo Alto Extended Forecast  with high and low temperatures ... Morning clouds. Feels Like: 69 °F. Humidity: 54%. Precipitation: Rain: 0 Snow: 0. Read more",
       "title": "Palo Alto, California, USA 14 day weather forecast",
       "type": "general",
-      "url": "https://www.timeanddate.com/weather/usa/palo-alto/ext"
+      "url": "https://www.timeanddate.com/weather/usa/palo-alto/ext",
+      "visible": true
     },
     {
       "cite": null,
@@ -215,7 +227,8 @@
       "text": "Weather today hourly<|>Palo alto Weather Today<|>California weather today<|>Palo alto weather hourly<|>Palo alto weather 14 day<|>Palo alto Weather forecast 15 day<|>Weather- San Francisco<|>Weather today redwood city",
       "title": null,
       "type": "searches_related",
-      "url": null
+      "url": null,
+      "visible": true
     }
   ]
 }
