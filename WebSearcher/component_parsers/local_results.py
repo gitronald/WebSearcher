@@ -32,8 +32,12 @@ def _header_to_sub_type(header: str) -> str | None:
     ``"results for"`` is matched anywhere in the header (not just as a prefix) so
     phrasings like "These are results for <query>" collapse to ``results_for``
     instead of slugifying into junk. Unknown/free headers return ``None``.
+
+    Whitespace is normalized (runs collapsed, ends stripped) before matching, the
+    way the removed ``slugify`` was -- ``get_text`` captures the header with
+    ``strip=False``, so an incidentally padded ``" Places "`` must still match.
     """
-    header_lower = header.lower()
+    header_lower = " ".join(header.split()).lower()
     if "results for" in header_lower:
         return "results_for"
     return _LOCAL_RESULTS_CATEGORIES.get(header_lower)
