@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Dev tooling: replaced Dependabot with self-hosted [Renovate](https://docs.renovatebot.com) for dependency-update PRs (5-day release cooldown, per-ecosystem grouping, SHA-pinned actions, least-privilege GitHub App token, no auto-merge); Dependabot vulnerability alerts stay enabled
+
 ## [0.9.0] - 2026-06-06
 
 - **Breaking (internal):** rewrote the parse pipeline natively on [selectolax](https://github.com/rushter/selectolax) (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp` / `SearchEngine` API and core output schema are unchanged, but `make_soup` / `load_soup` now return a `selectolax` node instead of a `BeautifulSoup` (bs4-style `.find`/`.select`/`.get_text` calls no longer work)
