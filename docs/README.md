@@ -8,12 +8,12 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 |---|------|--------|-----------|----|
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage.md) | draft | — | — |
-| 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | draft | — | — |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
-| 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards.md) | draft | — | — |
 | 018 | [Add a `visible` flag to parsed results](plans/018-visible-flag-on-results.md) | draft | — | — |
+| 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | done | 2026-06-06 | [#159](https://github.com/gitronald/WebSearcher/pull/159) |
+| 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | done | 2026-06-06 | [#158](https://github.com/gitronald/WebSearcher/pull/158) |
 | 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | done | 2026-06-06 | [#157](https://github.com/gitronald/WebSearcher/pull/157) |
 | 038 | [Consolidate .claude/skills from 8 to 4 and absorb every skill-only script](plans/038-consolidate-skills-absorb-scripts.md) | done | 2026-06-05 | [#152](https://github.com/gitronald/WebSearcher/pull/152) |
 | 037 | [Audit scripts/: absorb demos into the package, extract skills, retire one-offs](plans/037-scripts-audit-and-reorg.md) | done | 2026-06-05 | [#152](https://github.com/gitronald/WebSearcher/pull/152) |

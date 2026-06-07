@@ -279,7 +279,17 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "locations",
             ),
         },
-        sub_types=("places", "locations", "businesses"),
+        # Closed category set mapped from the component header by phrase (see
+        # local_results._LOCAL_RESULTS_CATEGORIES / _header_to_sub_type). Headers
+        # that match no category leave sub_type None rather than slugifying free
+        # display text into a per-query value.
+        sub_types=(
+            "results_for",
+            "places",
+            "locations",
+            "businesses",
+            "in-store_availability",
+        ),
         description="Map-based local business results",
     ),
     ComponentType(
