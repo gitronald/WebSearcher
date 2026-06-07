@@ -23,8 +23,10 @@ sub_type = (
 
 ## Evidence
 
-Observed in the `directives/crawl-5-queries-00` reparse at WebSearcher 0.9.0a2 — the
-`local_results` `sub_type` column held ~141 distinct values. A handful are real
+Observed in a large external reparse at WebSearcher 0.9.0a2 (not reproducible from
+`tests/fixtures/serps.json.bz2`, whose `local_results` headers are all already
+canonical — see Log) — the `local_results` `sub_type` column held ~141 distinct
+values. A handful are real
 categories (`results_for` 4152, `places` 2921, `locations` 782, `businesses` 758,
 `united_states` 101, `in-store_availability` 44), but the long tail is slugified
 header text, one row apiece:
@@ -66,9 +68,9 @@ fallback remains. Plan
 
 ## Notes / scope
 
-- Breaking change to `local_results` `sub_type` values — downstream consumers
-  (SearchAudits aggregation, any analysis keyed on these slugs) should expect the long
-  tail of per-query slugs to collapse to a small enum plus `null`.
+- Breaking change to `local_results` `sub_type` values — downstream aggregation
+  consumers (any analysis keyed on these slugs) should expect the long tail of
+  per-query slugs to collapse to a small enum plus `null`.
 - Out of scope but the same antipattern: the dynamic `slugify(heading_text…)` for
   knowledge `dynamic_section` sub_types (`knowledge.py:244`), flagged in plan
   [028](028-knowledge-parsers-and-alink-reconciliation.md) (`:134`), and the
