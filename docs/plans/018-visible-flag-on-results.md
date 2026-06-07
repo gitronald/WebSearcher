@@ -1,9 +1,9 @@
 ---
-status: draft
-branch: feature/visible-flag
+status: retired
+branch: feature/v0.10.0-visible-flag
 created: 2026-05-10T11:06:05-07:00
-completed:
-pr:
+completed: 2026-06-07T12:58:34-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/160
 ---
 
 # Add a `visible` flag to parsed results
@@ -226,5 +226,93 @@ Total component count should be unchanged from the current parser; the `visible:
 - Filtering / removing hidden items entirely — the flag preserves them with metadata; consumers decide
 
 ## Log
+
+### 2026-06-06 — Activation & adaptation (plan was outdated)
+
+Activated on `feature/v0.10.0-visible-flag` (off the `feature/v0.10.0` integration branch). The plan was drafted 2026-05-10 at ~v0.6.8; the codebase has since moved to v0.10.0a0. Re-grounded the spec against current reality before implementing:
+
+- **Backend migration (plan 026): bs4 → selectolax.** The `is_hidden(elem: bs4.element.Tag)` utility in the spec uses the wrong API. Ported to `selectolax.lexbor.LexborNode`: walk `node.parent` and read `(node.attributes.get("style") or "")`. Verified the port reproduces the headline evidence exactly.
+- **Fixture renamed/consolidated (plan 032):** `tests/fixtures/serps-v0.6.8.json.bz2` no longer exists; the corpus is now `tests/fixtures/serps.json.bz2`. `'northern lights'` is still present. All repros/validation in this plan should use the new path.
+- **Headline evidence re-confirmed against current parser:** perspectives on `'northern lights'` = 42 total, 14 hidden via the `display:none` ancestor walk (28 visible / 14 hidden), matching the original spec.
+- **`section`/`sub_type` already shipped** on perspectives rows (`section='main'`, `sub_type='what_people_are_saying'`) — independent of this work.
+- **Precedent: `ads.py` already does hidden-detection but with the opposite philosophy** — it *filters and drops* hidden carousel cards via Google attrs (`data-has-shown="false"`, `data-viewurl`), whereas this plan *keeps and flags* (`visible: false`). Ads is outside this plan's scope table, so they coexist.
+
+### 2026-06-06 — Evidence reconciliation: perspectives is 30 visible / 12 hidden (not 28/14)
+
+The schema mechanism is `BaseResult` (`WebSearcher/models/data.py`): every parsed row is round-tripped through `BaseResult(**row).model_dump()` in `components.py`, which drops unknown keys — so `visible` had to be added as a real model field (`visible: bool = Field(True, ...)`). Nested `details.items` survive untouched (free-form `details` dict). The detection of *whole-component* hiding remains deferred (everything defaults `visible=True`; only per-item parsers flip to `False`).
+
+The corrected count for `'northern lights'` perspectives is **30 visible / 12 hidden**, not the plan's 28/14. The DOM has exactly **one** `<div style="display:none" jsname="haAclf">` wrapper containing **12** `role="listitem"` cards. The parser flags exactly those 12 (a contiguous tail, sub_rank 30–41). The first hidden card is `reddit.com/r/spaceporn/comments/1o9iy76/...` — exactly the "Aurora transforms the landscape colors" sub-section boundary the plan named, so the boundary is correct. The plan's original "14" was an artifact of its bs4 anchor-href walk (`css_first('a[href=...]')` matched 2 extra hidden duplicate anchors); the structurally-correct count walking from the emitted card nodes is 12.
+
+**Scope decisions for this implementation (user-confirmed):**
+
+- **Defer section 1b** (`section_heading`/`section_summary` AI-themed sub-section split) to its own plan. The perspectives landscape shifted (now carries `section`/`sub_type`) and the sub-section selectors need fresh verification. This PR ships only the `visible` flag.
+- **Verified core first:** `is_hidden` util + the `parse_top_stories` family (`top_stories`, `perspectives`, `local_news`, `recent_posts`, `latest_from`) + the obvious carousels (`videos`, `short_videos`, `top_image_carousel`, `footer.parse_image_cards`, `shopping_ads`, `available_on`). Audit `people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs` and add `visible` only where latent content actually exists.
+
+### 2026-06-06 — Audit-group result: no changes needed
+
+Audited the four "verify" parsers against the full fixture corpus (`tests/fixtures/serps.json.bz2`):
+
+- **`people_also_ask`** — 264 questions across the corpus, **0** under `display:none`. `details.items` are plain strings (no dict to carry a `visible` key). No action.
+- **`searches_related`** — 640 suggestion items (`a.k8XOCe` / `div.EASEnb` / `a.ngTNl`), **0** hidden. Items are plain strings. No action.
+- **`knowledge` / `knowledge_rhs`** — knowledge panels do contain `display:none` links (56 across 22 panels), but those are UI chrome / tab content the parser does not emit. Of the **18** emitted dict-items, 0 carry a URL and 0 map to a hidden anchor (the other 24 items are strings). No emitted item is ever latent. No action.
+
+All four still receive `visible: true` on their top-level rows via the `BaseResult` default. Per-item flagging adds no signal here, so the audit group is left unchanged. Carousels gained one parser beyond the plan's table: `short_videos` (same lazy-load mechanic).
+
+### 2026-06-06 — Implementation summary
+
+Shipped on `feature/v0.10.0-visible-flag` (PR #160), commits:
+
+- `is_hidden` helper in `WebSearcher/_slx.py` (selectolax ancestor walk for inline `display:none`) + `tests/test_slx.py` (5 cases).
+- `visible` field added to `BaseResult` (`WebSearcher/models/data.py`, default `True`) — the schema mechanism: `components.py` round-trips every row through `BaseResult(**row).model_dump()`, which had been dropping the key.
+- Per-item flag set in: `top_stories.py` (`parse_top_story`, cascades to `perspectives`/`local_news`/`recent_posts`/`latest_from`), `videos.py`, `short_videos.py`, `shopping_ads.py` (all three card parsers), and the nested-`details.items` carousels `top_image_carousel.py`, `available_on.py`, `footer.py` (`parse_img_card` — both the card row and each image item).
+- Audit group (`people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs`): no changes — no emitted item is ever latent (see audit entry above).
+- `EXPECTED_KEYS` in `tests/test_parse_serp.py` updated to include `visible`; all 87 parse-serp snapshots refreshed (provably additive: 0 net removed lines, only `visible` keys added).
+
+Validation: full suite **462 passed**. Fixture corpus: 2268 visible / 42 hidden (all `perspectives`). Demo dataset (`data/demo-ws-v0.6.10a0`): 1309 visible / 72 hidden (all `perspectives`); `'northern lights'` 30/18, `'taylor swift'` 30/12, `'albert einstein'` 30/18, `'houston news today'` perspectives 19/0 + local_news 15/0.
+
+Deferred (own plans): section 1b (`section_heading`/`section_summary` AI-themed sub-section split) and active whole-component top-level visibility detection.
+
+### 2026-06-07 — Redesign: `visible` (and `timestamp`) into `details`; code-idiom friction unresolved
+
+Merge-prep review reopened *where* and *how* row-level visibility is recorded, then expanded into a parallel `timestamp` rescue. **All of the below is uncommitted working-tree exploration** — the committed PR #160 state is still the original top-level `BaseResult.visible` field. Logged because the design churned across several reversals and is now paused for a decision.
+
+**1. Moved `visible` off the top-level field, into `details`.** Rationale (user): a top-level `visible` is a column on *every* result row (general, ad, knowledge, …), almost always `true`; routing it into `details` keeps it where it's relevant and "optional to pull out." Constraints discovered:
+- `details` is a **discriminated union** — every instance carries a `type` tag, and the convention is **`details = None` when it adds no information** (`details if len(details) > 1 else None` literally drops a type-only dict). So `visible` can't be a bare `{"visible": false}`; it needs a `type`.
+- `details` is a **single slot** — rows that carry `visible` may already fill it with content (`footer` img_cards → `hyperlinks`, `shopping_ads` → `ratings`), so a separate `{"type": "visibility"}` member can't coexist. Resolution: `visible` rides *inside* the existing content-details dict when present, else a minimal typed dict is fabricated.
+
+**2. Emit policy: only-when-hidden (rows), always (items).** Fabricating `{"type": …, "visible": true}` on the ~5000 visible rows (vs ~200 hidden) was rejected as bloat ("seems insane"). Rule settled: **don't fabricate a dict just to record the default.** A *row* often has no `details`, so it records `visible` only when **hidden**; `details` stays `None` otherwise. An *item* inside `details.items` already exists as a dict, so it carries `visible` as a plain key always (`"visible": check_is_visible(node)`).
+
+**3. Row ≈ item (representational, not conceptual).** Perspectives/videos/short_videos/shopping_ads/footer-img-cards are "exploded" carousels (one result *row* per card); top_image_carousel/available_on are "nested" (one row, cards in `details.items`). Both are carousel cards — a row is an item flattened up to row level. The asymmetry in (2) falls out of the row's *fixed uniform schema* (`EXPECTED_KEYS`) vs the item's free-form dict.
+
+**4. Type name: `carousel_card` → `card`.** Broadened so the fabricated metadata dict can also hold a `timestamp`, not only visibility.
+
+**5. Timestamp rescue (same shape as the visible drop).** `timestamp` is already extracted by `news_quotes`, `twitter_result`, and `view_more_news` but set as a **top-level key** that `BaseResult(**row).model_dump()` silently drops (`extra="ignore"` — the same mechanism that dropped `visible` pre-018); `videos` extracts and discards it (`cite, _timestamp = items`). Rerouted all four into `details.timestamp` (reusing an existing content type like `tweet`, else a `card` dict). Added `tests/test_card_details.py` (7 unit tests incl. the round-trip drop), since the fixture corpus exercises none of these timestamp paths. **Adjacent, unaddressed:** `view_more_news` also sets a top-level `img_url` dropped the same way — its own follow-up.
+
+**6. The unresolved friction — how to *write* row metadata into `details`.** Every idiom for writing a metadata key into a maybe-absent `details` dict has been rejected as obscure:
+- `set_visible(parsed, node)` / `set_timestamp(parsed, value)` — hide the key path; reader can't tell it's `details.X` vs a top-level key.
+- `set_item_visible({...}, node)` — mutate-and-return crammed into a comprehension.
+- `card_details(parsed)["visible"] = False` — a function call with a hidden get-or-create side effect that you then subscript-assign; also asymmetric with the clean item literal `"visible": check_is_visible(i)`.
+
+**Root tension:** row metadata wants to be a clean literal key at dict-construction time (exactly what items get), but placing it in `details` forbids that — `details` may not exist yet, forcing a get-or-create that is irreducibly clunky and never reads as cleanly as the item literal.
+
+#### Suggested next steps
+
+- **Option A — top-level `BaseResult` fields (recommended to reconsider).** Make `visible: bool | None` and `timestamp: str | None` real fields; parsers write `parsed["visible"] = …` / `parsed["timestamp"] = …` as plain literal keys — symmetric with items, no helper, no get-or-create, no fabrication, survives the round-trip for free. Closest to the *committed* state (which already has the `visible` field). Cost: a mostly-null `visible`/`timestamp` column on every row — the original "column throughout" objection. But that objection was really about fabricating hollow `{"type": …}` *dicts*; flat nullable columns don't, and WS already has several mostly-null columns (`cite`, `sub_type`, `error`). Re-weigh now that the `details` route has cost five rounds of churn.
+- **Option B — keep `details`, but build it with metadata inline.** Compute `visible`/`timestamp` *before* constructing `details` and include them in the initial dict literal (`{"type": "card", "visible": False}`), so there's no post-hoc get-or-create. Cleaner reads, but requires restructuring each parser so the values are known at construction, and still fabricates a `card` dict for metadata-only rows.
+- **Option C — accept the least-bad `details` idiom.** Keep `card_details(parsed)[key] = value` (current working state) as explicit-enough and move on.
+
+Current working tree sits at Option C (functional, output-identical to the last green snapshot run). Decide A vs B vs C before committing the redesign; if A, the redesign largely unwinds toward the committed field plus a new `timestamp` field.
+
+### 2026-06-07 — Retired, superseded by plan 045
+
+The "where does row metadata live, and how is it written" question this plan kept reopening is fundamentally a *schema* question, not a visible-flag question. Rather than resolve A/B/C in isolation here, the decision (user) is to **retire this plan and fold its scope into [plan 045 — two-tier result schema](045-two-tier-result-schema.md)**, which decides the core-vs-`details` boundary once and places `visible`, `timestamp`, and `error` together in one coherent migration (and that richer `details` is what makes the Option-B construction clean — see 045).
+
+Status of the artifacts left behind:
+
+- **Committed (PR #160 / `feature/v0.10.0-visible-flag`):** the original top-level `BaseResult.visible` field implementation + `is_hidden` + 87 refreshed snapshots (commits `374de37`..`d1e9f7c`). This work is *not lost* — it's the starting point 045 builds on (and `is_hidden`/`check_is_visible` carry forward unchanged).
+- **Uncommitted working tree:** the `details`-based redesign exploration (Option C: `card_details`/`check_is_visible`, `carousel_card`→`card`, the `timestamp` rescue across `news_quotes`/`twitter_result`/`view_more_news`/`videos`, `tests/test_card_details.py`). Superseded by 045's Option-B approach; can be discarded or cherry-picked when 045 is implemented.
+- **PR #160:** superseded — to be closed (not merged) in favor of 045's eventual PR. The `visible` flag ships under 045, not here.
+
+No code change accompanies this retirement; it is a planning-state change only.
 
 ## Retrospective
