@@ -1,8 +1,8 @@
 ---
-status: active
+status: done
 branch: feature/v0.10.0-local-results-subtypes
 created: 2026-05-31T23:47:41-07:00
-completed:
+completed: 2026-06-06T17:14:13-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/159
 ---
 
@@ -125,3 +125,47 @@ preserves `details["heading"]`.
 
 **Verification:** full suite `454 passed`, `87 snapshots passed` (no regression);
 `ruff` clean, `pyrefly` 0 errors.
+
+### 2026-06-06 — close (review gate)
+
+**Review follow-up.** Ran the review gate (`/code-review`) on the PR diff —
+correctness, cross-file/declared-set sync, and test angles. Posted to PR #159.
+
+- **Raised + actioned (1):** the removed `slugify` was explicitly
+  whitespace-robust (`sep.join(text.split())` — collapses whitespace runs,
+  strips ends), but the new `_header_to_sub_type` matched against an exact-keyed
+  dict on the bare `header.lower()`, and the header is captured via
+  `get_text(found, " ")` with `strip=False`. So a category header carrying
+  incidental whitespace (`"  Places  "`, `"In-store  availability"`) would have
+  categorized correctly under the old code and now silently dropped to `None` — a
+  removed-behavior regression, not present in the public fixtures. **Fixed at the
+  source** (`local_results.py`): `header_lower = " ".join(header.split()).lower()`,
+  restoring whitespace-robustness for both the `"results for"` substring check and
+  the dict lookup. Paired with 3 regression cases in `test_local_results.py`.
+- **Conscious no-ops:** empty/whitespace-only header not preserved in
+  `details["heading"]` (pre-existing `if text:`/`if header:` guard, correct); the
+  no-results branch carries no header to preserve; extra test-coverage
+  suggestions (multi-result components) — existing unit + snapshot coverage is
+  sufficient.
+
+**Verification:** full suite `457 passed` (+3 whitespace cases), `87 snapshots
+passed`, `ruff` clean, `pyrefly` 0 errors.
+
+## Retrospective
+
+- The plan landed as specified — closed category set, by-phrase mapping,
+  `slugify` fallback removed, raw header retained in `details["heading"]`. No
+  scope changes.
+- Re-grounding the Evidence in the public fixture corpus (per the plan-040
+  lesson) was the key call: the headline "141 distinct values" was from a larger
+  external reparse, and the public fixtures are already canonical. That turned
+  the change into a no-op for fixture `sub_type` values, so the fix had to be
+  validated by direct unit tests rather than snapshot diffs.
+- The one real defect surfaced only at the review gate: dropping `slugify` also
+  dropped its documented whitespace-robustness. Lesson — when replacing a helper
+  with inline logic, port its stated invariants (here, whitespace normalization),
+  not just its happy-path output.
+- `sub_type` going absent (rather than `None`-valued) for uncategorized headers
+  is safe because `BaseResult.sub_type` defaults to `None` and no consumer does
+  bracket access — worth keeping in mind for the follow-up `knowledge`/
+  `perspectives` slug cleanups noted in scope.
