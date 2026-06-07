@@ -6,7 +6,7 @@ with a heading, source, and duration.
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import get_text
+from .._slx import get_text, is_hidden
 
 
 def parse_short_videos(elem) -> list:
@@ -21,6 +21,7 @@ def parse_short_videos(elem) -> list:
         parsed = {
             "type": "short_videos",
             "sub_rank": i,
+            "visible": not is_hidden(card),
             "url": card.attributes.get("href"),
             "title": get_text(card.css_first('div[role="heading"]'), " "),
         }

@@ -8,7 +8,7 @@ Changelog
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import get_text, has_text
+from .._slx import get_text, has_text, is_hidden
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -52,6 +52,7 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
         "type": "videos",
         "sub_type": sub_type,
         "sub_rank": sub_rank,
+        "visible": not is_hidden(sub),
         "url": get_url(sub),
         "title": get_text(sub.css_first('div[role="heading"]'), " "),
         "text": get_text(sub.css_first("div.MjS0Lc"), " "),

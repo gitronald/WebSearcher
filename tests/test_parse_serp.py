@@ -76,6 +76,7 @@ EXPECTED_KEYS = {
     "sub_rank",
     "type",
     "sub_type",
+    "visible",
     "title",
     "url",
     "text",

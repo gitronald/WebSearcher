@@ -8,7 +8,7 @@ component.
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import get_text, has_text
+from .._slx import get_text, has_text, is_hidden
 
 
 def parse_top_stories(elem, ctype: str = "top_stories") -> list:
@@ -51,6 +51,7 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
     return {
         "type": ctype,
         "sub_rank": sub_rank,
+        "visible": not is_hidden(sub),
         "title": title,
         "url": url,
         "text": get_text(sub.css_first("div.GI74Re"), " "),

@@ -36,6 +36,14 @@ class BaseResult(BaseModel):
     sub_rank: int = Field(0, description="Position within a results component")
     type: str = Field("unclassified", description="Result type (general, ad, etc.)")
     sub_type: str | None = Field(None, description="Result sub-type (e.g., header, item)")
+    visible: bool = Field(
+        True,
+        description=(
+            "Whether the item was rendered on initial page load. False when it "
+            "lives under an inline display:none container (lazy-loaded carousel "
+            "tail or 'show more' expansion). Defaults True."
+        ),
+    )
     title: str | None = Field(None, description="Title of the search result")
     url: str | None = Field(None, description="URL of the search result")
     text: str | None = Field(None, description="Snippet text from the search result")

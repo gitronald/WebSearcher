@@ -7,7 +7,7 @@ captures price, source, rating, review count, stars, and amenity tags.
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import class_tokens, get_text
+from .._slx import class_tokens, get_text, is_hidden
 
 
 def parse_shopping_ads(elem) -> list:
@@ -38,7 +38,7 @@ def parse_shopping_ads(elem) -> list:
 
 
 def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank}
+    parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank, "visible": not is_hidden(sub)}
     card = sub.css_first("a.clickable-card")
     if card is not None:
         parsed["url"] = card.attributes.get("href")
@@ -68,6 +68,7 @@ def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
         "type": "shopping_ads",
         "sub_type": "product",
         "sub_rank": sub_rank,
+        "visible": not is_hidden(card),
         "title": title or None,
         "url": card.attributes.get("href"),
         "text": None,
@@ -136,6 +137,7 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
         "type": "shopping_ads",
         "sub_type": "hotels",
         "sub_rank": sub_rank,
+        "visible": not is_hidden(card),
         "title": get_text(name_div, strip=True) if name_div is not None else None,
         "url": a.attributes.get("href") if a is not None else None,
         "text": None,
