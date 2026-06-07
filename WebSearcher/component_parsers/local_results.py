@@ -22,7 +22,7 @@ _LOCAL_RESULTS_CATEGORIES: dict[str, str] = {
     "places": "places",
     "locations": "locations",
     "businesses": "businesses",
-    "in-store availability": "in-store_availability",
+    "in-store availability": "availability",
 }
 
 

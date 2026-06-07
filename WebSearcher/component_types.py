@@ -288,7 +288,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "places",
             "locations",
             "businesses",
-            "in-store_availability",
+            "availability",
         ),
         description="Map-based local business results",
     ),

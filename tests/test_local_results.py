@@ -30,11 +30,11 @@ from WebSearcher.component_types import TYPES_BY_NAME
         ("Places", "places"),
         ("Locations", "locations"),
         ("Businesses", "businesses"),
-        ("In-store availability", "in-store_availability"),
+        ("In-store availability", "availability"),
         # whitespace-robust like the removed slugify (get_text uses strip=False):
         # incidental leading/trailing/internal whitespace must still categorize.
         ("  Places  ", "places"),
-        ("In-store  availability", "in-store_availability"),
+        ("In-store  availability", "availability"),
         ("  These are results for amour de hair  ", "results_for"),
         # free/locality/address headers resolve to None (no slugify)
         ("River Forest, IL", None),

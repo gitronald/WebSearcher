@@ -151,6 +151,17 @@ correctness, cross-file/declared-set sync, and test angles. Posted to PR #159.
 **Verification:** full suite `457 passed` (+3 whitespace cases), `87 snapshots
 passed`, `ruff` clean, `pyrefly` 0 errors.
 
+### 2026-06-06 — follow-up: rename `in-store_availability` -> `availability`
+
+Post-merge cleanup. The `in-store_availability` value was a fossil of the old
+`slugify("In-store availability")` (whitespace -> `_`, but the literal hyphen in
+"in-store" left intact) carried verbatim into the closed set -- mixed `-`/`_`
+punctuation that the deliberate enum had no reason to inherit. Renamed to the
+plain category `availability` (the header key `"in-store availability"` is
+unchanged; only the emitted sub_type value changes). Updated
+`_LOCAL_RESULTS_CATEGORIES`, `component_types.local_results.sub_types`, and the
+two parametrized test cases. Safe to rename now: v0.10.0 is unreleased.
+
 ## Retrospective
 
 - The plan landed as specified — closed category set, by-phrase mapping,
