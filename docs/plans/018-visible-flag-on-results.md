@@ -1,6 +1,6 @@
 ---
-status: draft
-branch: feature/visible-flag
+status: active
+branch: feature/v0.10.0-visible-flag
 created: 2026-05-10T11:06:05-07:00
 completed:
 pr:
@@ -226,5 +226,20 @@ Total component count should be unchanged from the current parser; the `visible:
 - Filtering / removing hidden items entirely — the flag preserves them with metadata; consumers decide
 
 ## Log
+
+### 2026-06-06 — Activation & adaptation (plan was outdated)
+
+Activated on `feature/v0.10.0-visible-flag` (off the `feature/v0.10.0` integration branch). The plan was drafted 2026-05-10 at ~v0.6.8; the codebase has since moved to v0.10.0a0. Re-grounded the spec against current reality before implementing:
+
+- **Backend migration (plan 026): bs4 → selectolax.** The `is_hidden(elem: bs4.element.Tag)` utility in the spec uses the wrong API. Ported to `selectolax.lexbor.LexborNode`: walk `node.parent` and read `(node.attributes.get("style") or "")`. Verified the port reproduces the headline evidence exactly.
+- **Fixture renamed/consolidated (plan 032):** `tests/fixtures/serps-v0.6.8.json.bz2` no longer exists; the corpus is now `tests/fixtures/serps.json.bz2`. `'northern lights'` is still present. All repros/validation in this plan should use the new path.
+- **Headline evidence re-confirmed against current parser:** perspectives on `'northern lights'` = 42 total, 14 hidden via the `display:none` ancestor walk (28 visible / 14 hidden), matching the original spec.
+- **`section`/`sub_type` already shipped** on perspectives rows (`section='main'`, `sub_type='what_people_are_saying'`) — independent of this work.
+- **Precedent: `ads.py` already does hidden-detection but with the opposite philosophy** — it *filters and drops* hidden carousel cards via Google attrs (`data-has-shown="false"`, `data-viewurl`), whereas this plan *keeps and flags* (`visible: false`). Ads is outside this plan's scope table, so they coexist.
+
+**Scope decisions for this implementation (user-confirmed):**
+
+- **Defer section 1b** (`section_heading`/`section_summary` AI-themed sub-section split) to its own plan. The perspectives landscape shifted (now carries `section`/`sub_type`) and the sub-section selectors need fresh verification. This PR ships only the `visible` flag.
+- **Verified core first:** `is_hidden` util + the `parse_top_stories` family (`top_stories`, `perspectives`, `local_news`, `recent_posts`, `latest_from`) + the obvious carousels (`videos`, `top_image_carousel`, `footer.parse_image_cards`, `shopping_ads`, `available_on`). Audit `people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs` and add `visible` only where latent content actually exists.
 
 ## Retrospective
