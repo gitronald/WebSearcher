@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Added `SearchEngine.to_record()` / `save_record()` — one merged per-SERP record (collection metadata excluding HTML, plus `features` and `results`, each key once), folding the separate `save_search` + `save_parsed` writes into a single JSON line per SERP; `save_record(ws_version=...)` stamps a distinct `ws_version` field so a later reparse never clobbers the collection-time `version`
 - Gated the `available_on` classifier on its `span.mgAbYb` heading, removing the unused full-component `/Available on` text fallback: a component carrying `/Available on` text *without* an `mgAbYb` heading is no longer typed `available_on` (the fallback matched no collected SERP); all observed classifications are unchanged
 - Optimized the parse hot path ~3.5% (byte-identical output, pinned by the snapshot suite): the per-component signal scan keeps only the tag/id tokens the classifier chain gates on, the `available_on` gate above drops a full-component text walk from most components, DOM-range ends are found by a right-spine descent instead of materializing each subtree, and the `is_valid` bad-label set is hoisted to a module constant
+- Dev tooling: replaced Dependabot with self-hosted [Renovate](https://docs.renovatebot.com) for dependency-update PRs (5-day release cooldown, per-ecosystem grouping, SHA-pinned actions, least-privilege GitHub App token, no auto-merge); Dependabot vulnerability alerts stay enabled
 
 ## [0.9.0] - 2026-06-06
 
