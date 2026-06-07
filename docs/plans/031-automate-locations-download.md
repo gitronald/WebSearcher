@@ -132,3 +132,8 @@ the existing `demo-search`.
   size down).
 - Changing how `convert_canonical_name_to_uule` / search localization consume
   the CSV.
+
+## Log - 2026-06-07
+
+We should capture the file's name in the automated commit message - the filename contains the actual update date, not the arbitrary day we caught it and pulled it in.
+
