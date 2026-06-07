@@ -1,0 +1,55 @@
+name: Renovate
+
+# Self-hosted Renovate dependency updates. Config: .github/renovate.json
+#
+# Runs on a weekly schedule and on demand. Requires two repository secrets for a
+# least-privilege GitHub App (see docs/guides/github-automation.md in the template repo):
+#   RENOVATE_CLIENT_ID       - the GitHub App's Client ID
+#   RENOVATE_APP_PRIVATE_KEY - the App's private key (PEM)
+# Renovate runs with the App token (not GITHUB_TOKEN) so its update PRs trigger CI.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # Mondays 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: Renovate log level
+        required: false
+        default: info
+        type: choice
+        options: [debug, info, warn]
+
+# GITHUB_TOKEN stays read-only; Renovate uses the scoped App token below instead.
+permissions:
+  contents: read
+
+concurrency:
+  group: renovate
+  cancel-in-progress: false
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate a least-privilege App token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1  # v3.2.0
+        with:
+          client-id: ${{ secrets.RENOVATE_CLIENT_ID }}
+          private-key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
+
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+
+      - name: Run Renovate
+        # configurationFile loads .github/renovate.json as Renovate's global config so the
+        # settings apply even before the repo config is discovered on the default branch.
+        # Renovate also auto-discovers the same committed file as repo config; the two layers
+        # are identical, so the merge is harmless.
+        uses: renovatebot/github-action@693b9ef15eec82123529a37c782242f091365961  # v46.1.14
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          configurationFile: .github/renovate.json
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          LOG_LEVEL: ${{ github.event.inputs.logLevel || 'info' }}
