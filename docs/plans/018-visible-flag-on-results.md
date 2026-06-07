@@ -3,7 +3,7 @@ status: active
 branch: feature/v0.10.0-visible-flag
 created: 2026-05-10T11:06:05-07:00
 completed:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/160
 ---
 
 # Add a `visible` flag to parsed results
@@ -237,9 +237,39 @@ Activated on `feature/v0.10.0-visible-flag` (off the `feature/v0.10.0` integrati
 - **`section`/`sub_type` already shipped** on perspectives rows (`section='main'`, `sub_type='what_people_are_saying'`) — independent of this work.
 - **Precedent: `ads.py` already does hidden-detection but with the opposite philosophy** — it *filters and drops* hidden carousel cards via Google attrs (`data-has-shown="false"`, `data-viewurl`), whereas this plan *keeps and flags* (`visible: false`). Ads is outside this plan's scope table, so they coexist.
 
+### 2026-06-06 — Evidence reconciliation: perspectives is 30 visible / 12 hidden (not 28/14)
+
+The schema mechanism is `BaseResult` (`WebSearcher/models/data.py`): every parsed row is round-tripped through `BaseResult(**row).model_dump()` in `components.py`, which drops unknown keys — so `visible` had to be added as a real model field (`visible: bool = Field(True, ...)`). Nested `details.items` survive untouched (free-form `details` dict). The detection of *whole-component* hiding remains deferred (everything defaults `visible=True`; only per-item parsers flip to `False`).
+
+The corrected count for `'northern lights'` perspectives is **30 visible / 12 hidden**, not the plan's 28/14. The DOM has exactly **one** `<div style="display:none" jsname="haAclf">` wrapper containing **12** `role="listitem"` cards. The parser flags exactly those 12 (a contiguous tail, sub_rank 30–41). The first hidden card is `reddit.com/r/spaceporn/comments/1o9iy76/...` — exactly the "Aurora transforms the landscape colors" sub-section boundary the plan named, so the boundary is correct. The plan's original "14" was an artifact of its bs4 anchor-href walk (`css_first('a[href=...]')` matched 2 extra hidden duplicate anchors); the structurally-correct count walking from the emitted card nodes is 12.
+
 **Scope decisions for this implementation (user-confirmed):**
 
 - **Defer section 1b** (`section_heading`/`section_summary` AI-themed sub-section split) to its own plan. The perspectives landscape shifted (now carries `section`/`sub_type`) and the sub-section selectors need fresh verification. This PR ships only the `visible` flag.
-- **Verified core first:** `is_hidden` util + the `parse_top_stories` family (`top_stories`, `perspectives`, `local_news`, `recent_posts`, `latest_from`) + the obvious carousels (`videos`, `top_image_carousel`, `footer.parse_image_cards`, `shopping_ads`, `available_on`). Audit `people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs` and add `visible` only where latent content actually exists.
+- **Verified core first:** `is_hidden` util + the `parse_top_stories` family (`top_stories`, `perspectives`, `local_news`, `recent_posts`, `latest_from`) + the obvious carousels (`videos`, `short_videos`, `top_image_carousel`, `footer.parse_image_cards`, `shopping_ads`, `available_on`). Audit `people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs` and add `visible` only where latent content actually exists.
+
+### 2026-06-06 — Audit-group result: no changes needed
+
+Audited the four "verify" parsers against the full fixture corpus (`tests/fixtures/serps.json.bz2`):
+
+- **`people_also_ask`** — 264 questions across the corpus, **0** under `display:none`. `details.items` are plain strings (no dict to carry a `visible` key). No action.
+- **`searches_related`** — 640 suggestion items (`a.k8XOCe` / `div.EASEnb` / `a.ngTNl`), **0** hidden. Items are plain strings. No action.
+- **`knowledge` / `knowledge_rhs`** — knowledge panels do contain `display:none` links (56 across 22 panels), but those are UI chrome / tab content the parser does not emit. Of the **18** emitted dict-items, 0 carry a URL and 0 map to a hidden anchor (the other 24 items are strings). No emitted item is ever latent. No action.
+
+All four still receive `visible: true` on their top-level rows via the `BaseResult` default. Per-item flagging adds no signal here, so the audit group is left unchanged. Carousels gained one parser beyond the plan's table: `short_videos` (same lazy-load mechanic).
+
+### 2026-06-06 — Implementation summary
+
+Shipped on `feature/v0.10.0-visible-flag` (PR #160), commits:
+
+- `is_hidden` helper in `WebSearcher/_slx.py` (selectolax ancestor walk for inline `display:none`) + `tests/test_slx.py` (5 cases).
+- `visible` field added to `BaseResult` (`WebSearcher/models/data.py`, default `True`) — the schema mechanism: `components.py` round-trips every row through `BaseResult(**row).model_dump()`, which had been dropping the key.
+- Per-item flag set in: `top_stories.py` (`parse_top_story`, cascades to `perspectives`/`local_news`/`recent_posts`/`latest_from`), `videos.py`, `short_videos.py`, `shopping_ads.py` (all three card parsers), and the nested-`details.items` carousels `top_image_carousel.py`, `available_on.py`, `footer.py` (`parse_img_card` — both the card row and each image item).
+- Audit group (`people_also_ask`, `searches_related`, `knowledge`, `knowledge_rhs`): no changes — no emitted item is ever latent (see audit entry above).
+- `EXPECTED_KEYS` in `tests/test_parse_serp.py` updated to include `visible`; all 87 parse-serp snapshots refreshed (provably additive: 0 net removed lines, only `visible` keys added).
+
+Validation: full suite **462 passed**. Fixture corpus: 2268 visible / 42 hidden (all `perspectives`). Demo dataset (`data/demo-ws-v0.6.10a0`): 1309 visible / 72 hidden (all `perspectives`); `'northern lights'` 30/18, `'taylor swift'` 30/12, `'albert einstein'` 30/18, `'houston news today'` perspectives 19/0 + local_news 15/0.
+
+Deferred (own plans): section 1b (`section_heading`/`section_summary` AI-themed sub-section split) and active whole-component top-level visibility detection.
 
 ## Retrospective
