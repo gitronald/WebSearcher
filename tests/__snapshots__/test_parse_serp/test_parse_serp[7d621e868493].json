@@ -30,7 +30,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -44,9 +43,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -60,9 +59,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "web"
+        "kind": "web",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -76,9 +75,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -92,7 +91,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Oscar_the_Grouch",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -114,7 +112,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -128,7 +125,6 @@
       "cite": "https://twitter.com/OscarTheGrouch",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -142,7 +138,6 @@
       "cite": "Posted on X  ·  2 days ago",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,
@@ -156,7 +151,6 @@
       "cite": "Posted on X  ·  3 days ago",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 2,
@@ -170,7 +164,6 @@
       "cite": "Posted on X  ·  Mar 5, 2024",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 3,
@@ -184,7 +177,6 @@
       "cite": "https://muppet.fandom.com  › wiki › Oscar_the_Grouch",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -198,7 +190,6 @@
       "cite": "https://sesameworkshop.org  › sesame-street-characters",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -212,7 +203,6 @@
       "cite": "YouTube",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -226,7 +216,6 @@
       "cite": "YouTube",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 1,
@@ -240,7 +229,6 @@
       "cite": "YouTube",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 2,
@@ -254,7 +242,6 @@
       "cite": "YouTube",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 3,
@@ -268,7 +255,6 @@
       "cite": "https://muppet.fandom.com  › wiki › Oscar_the_Grouch_...",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -286,7 +272,6 @@
         "stock": "  Free 3–7 day delivery over $50",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -314,7 +299,6 @@
         "type": "panel",
         "urls": []
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -369,7 +353,6 @@
         ],
         "type": "songs"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -383,7 +366,6 @@
       "cite": "https://www.si.edu  › oscar-grouch-puppet:nmah_1182904",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -406,7 +388,6 @@
         "type": "panel",
         "urls": []
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 0,
@@ -433,7 +414,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 0,
@@ -447,7 +427,6 @@
       "cite": null,
       "cmpt_rank": 15,
       "details": null,
-      "error": null,
       "section": "rhs",
       "serp_rank": 23,
       "sub_rank": 0,
@@ -477,7 +456,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 24,
       "sub_rank": 1,
@@ -499,7 +477,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 25,
       "sub_rank": 2,
@@ -529,7 +506,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 3,
@@ -563,7 +539,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 27,
       "sub_rank": 4,

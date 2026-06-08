@@ -6,12 +6,12 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 
 | # | Plan | Status | Concluded | PR |
 |---|------|--------|-----------|----|
-| 045 | [Two-tier result schema: lean core + a `details` extras bucket](plans/045-two-tier-result-schema.md) | draft | — | — |
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage.md) | draft | — | — |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards.md) | draft | — | — |
+| 045 | [Two-tier result schema: lean core + a `details` extras bucket](plans/045-two-tier-result-schema.md) | done | 2026-06-08 00:42 | [#164](https://github.com/gitronald/WebSearcher/pull/164) |
 | 046 | [Migrate dependency automation from Dependabot to self-hosted Renovate](plans/046-dependabot-to-renovate-migration.md) | done | 2026-06-07 16:31 | [#161](https://github.com/gitronald/WebSearcher/pull/161) |
 | 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | done | 2026-06-06 17:14 | [#159](https://github.com/gitronald/WebSearcher/pull/159) |
 | 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | done | 2026-06-06 16:24 | [#158](https://github.com/gitronald/WebSearcher/pull/158) |

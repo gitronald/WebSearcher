@@ -20,7 +20,7 @@ def test_unknown_component_captures_text_without_error():
     [result] = c.result_list
     assert result["type"] == "unknown"
     assert result["text"] == "stray text"
-    assert result["error"] is None
+    assert (result["details"] or {}).get("error") is None
 
 
 def test_known_type_without_parser_is_not_implemented():
@@ -32,7 +32,7 @@ def test_known_type_without_parser_is_not_implemented():
     [result] = c.result_list
     assert result["type"] == "weather"
     assert result["text"] == "widget"
-    assert result["error"] == "not implemented"
+    assert result["details"] == {"type": "item", "error": "not implemented"}
 
 
 def test_select_parser_returns_none_for_unregistered_type():

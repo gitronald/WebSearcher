@@ -7,6 +7,7 @@ with a heading, source, and duration.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
+from ._common import mark_hidden_row
 
 
 def parse_short_videos(elem) -> list:
@@ -30,6 +31,6 @@ def parse_short_videos(elem) -> list:
         if cite:
             parsed["cite"] = cite
 
-        parsed_list.append(parsed)
+        parsed_list.append(mark_hidden_row(parsed, card))
 
     return parsed_list

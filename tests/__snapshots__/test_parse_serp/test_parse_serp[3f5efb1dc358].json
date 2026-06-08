@@ -115,7 +115,6 @@
         ],
         "type": "ai_overview"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -129,7 +128,6 @@
       "cite": "https://www.bgs.ac.uk  › ... › Earth hazards › Earthquakes",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -151,7 +149,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -165,7 +162,6 @@
       "cite": "https://www.usgs.gov  › faqs › what-earthquake-and-what...",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -179,7 +175,6 @@
       "cite": "https://www.mtu.edu  › geo › learn › earthquake-cause",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -193,7 +188,6 @@
       "cite": "https://www.usgs.gov  › programs › earthquake-hazards",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -207,7 +201,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Earthquake",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -221,9 +214,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -237,9 +230,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
@@ -253,9 +246,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
@@ -269,9 +262,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 3,
@@ -285,9 +278,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 4,
@@ -301,9 +294,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 5,
@@ -317,9 +310,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 6,
@@ -333,9 +326,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 7,
@@ -349,9 +342,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 8,
@@ -365,7 +358,6 @@
       "cite": "1M+ views  ·  1 year ago",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -379,7 +371,6 @@
       "cite": "6 comments  ·  5 years ago",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -393,7 +384,6 @@
       "cite": "https://kids.nationalgeographic.com  › article › earthquake",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -407,7 +397,6 @@
       "cite": "https://www.earthquakescanada.nrcan.gc.ca  › faq-en",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -434,7 +423,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,

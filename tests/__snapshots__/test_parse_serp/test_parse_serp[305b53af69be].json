@@ -39,7 +39,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -53,9 +52,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "image"
+        "kind": "image",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -69,9 +68,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "social"
+        "kind": "social",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -87,9 +86,9 @@
       "details": {
         "kind": "fact",
         "label": "Age",
+        "type": "item",
         "value": "Jun 14, 1946"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -105,9 +104,9 @@
       "details": {
         "kind": "fact",
         "label": "Party",
+        "type": "item",
         "value": "Republican Party"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -121,9 +120,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "social"
+        "kind": "social",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -137,7 +136,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -151,7 +149,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,
@@ -165,7 +162,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 2,
@@ -179,7 +175,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 3,
@@ -193,7 +188,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 4,
@@ -207,7 +201,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Donald_Trump",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -221,7 +214,6 @@
       "cite": "https://www.whitehouse.gov  › Administration",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -235,7 +227,6 @@
       "cite": "https://trumpwhitehouse.archives.gov  › people › donald...",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -249,7 +240,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -263,7 +253,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 1,
@@ -277,7 +266,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 2,
@@ -291,9 +279,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -307,9 +295,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 1,
@@ -323,9 +311,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 2,
@@ -339,9 +327,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 3,
@@ -355,9 +343,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 4,
@@ -371,9 +359,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 5,
@@ -387,9 +375,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 6,
@@ -403,9 +391,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 7,
@@ -419,9 +407,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 8,
@@ -435,9 +423,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 9,
@@ -451,9 +439,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 10,
@@ -467,9 +455,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 11,
@@ -483,7 +471,6 @@
       "cite": "https://truthsocial.com  › @realDonaldTrump",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 0,
@@ -497,7 +484,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 0,
@@ -511,7 +497,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 1,
@@ -525,7 +510,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 2,
@@ -539,7 +523,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 3,
@@ -553,7 +536,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 4,
@@ -567,7 +549,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 5,
@@ -581,7 +562,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 6,
@@ -595,7 +575,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 7,
@@ -609,7 +588,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 8,
@@ -623,7 +601,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 9,
@@ -637,7 +614,6 @@
       "cite": "https://www.whitehousehistory.org  › bios › donald-j-trump",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 0,
@@ -651,7 +627,6 @@
       "cite": "https://www.cnn.com  › president-donald-trump-47",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 0,
@@ -665,7 +640,6 @@
       "cite": "43.1M+ followers",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 42,
       "sub_rank": 0,
@@ -692,7 +666,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 43,
       "sub_rank": 0,

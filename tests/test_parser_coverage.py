@@ -34,6 +34,12 @@ def _rows(html, type_):
     return [r for r in ws.parse_serp(html)["results"] if r["type"] == type_]
 
 
+def _row_error(r: dict) -> str | None:
+    """Parse error for a result row -- nested in ``details`` (two-tier schema)."""
+    details = r.get("details")
+    return details.get("error") if isinstance(details, dict) else None
+
+
 # --- recipes (phase 2) -----------------------------------------------------
 
 RECIPE_QRYS = ["birthday cake with candles", "biscuit and gravy recipe"]
@@ -48,7 +54,7 @@ def test_recipes_structured(serps_by_qry, qry):
         assert r["title"]
         assert r["url"] and r["url"].startswith("http")
         assert "<|>" not in (r["text"] or "")
-        assert r["error"] is None
+        assert _row_error(r) is None
         # structured metadata reusing the ratings details type
         details = r["details"]
         assert details is not None and details["type"] == "ratings"
@@ -142,7 +148,7 @@ def test_shopping_ads_modern_pla(serps_by_qry, qry):
     for r in rows:
         assert r["title"]
         assert r["url"]
-        assert r["error"] is None
+        assert _row_error(r) is None
         # price/source captured in a ratings details block
         assert r["details"] is None or r["details"]["type"] == "ratings"
 
@@ -175,7 +181,7 @@ def test_products_brands_carousel(serps_by_qry):
     for r in rows:
         assert r["title"]
         assert r["url"] and r["url"].startswith("http")
-        assert r["error"] is None
+        assert _row_error(r) is None
         assert r["details"] is None or r["details"]["type"] == "ratings"
 
 
@@ -189,7 +195,7 @@ def test_products_grid(serps_by_qry):
     assert len(rows) > 1
     for r in rows:
         assert r["title"]  # product name (no url: JS-driven cards)
-        assert r["error"] is None
+        assert _row_error(r) is None
     # at least some grid cards carry a structured price
     assert any(r["details"] and r["details"].get("price") for r in rows)
 
@@ -203,7 +209,7 @@ def test_products_grid_older_markup(serps_by_qry, qry):
     assert len(rows) > 1
     for r in rows:
         assert r["title"]
-        assert r["error"] is None
+        assert _row_error(r) is None
 
 
 def test_general_image_strip_subtype(serps_by_qry):
@@ -218,7 +224,7 @@ def test_general_image_strip_subtype(serps_by_qry):
     for r in rows:
         assert r["title"]
         assert r["url"] and r["url"].startswith("http")
-        assert r["error"] is None
+        assert _row_error(r) is None
 
 
 # --- promo / most_read_articles / buying_guide (plan 025) ------------------
@@ -233,7 +239,7 @@ def test_promo_shopping_banner(serps_by_qry, qry):
     assert r["sub_type"] == "shopping"
     assert r["title"] and "deals" in r["title"].lower()
     assert r["text"]  # CTA label
-    assert r["error"] is None
+    assert _row_error(r) is None
 
 
 def test_most_read_articles(serps_by_qry):
@@ -243,7 +249,7 @@ def test_most_read_articles(serps_by_qry):
     for r in rows:
         assert r["title"]
         assert r["url"] and r["url"].startswith("http")
-        assert r["error"] is None
+        assert _row_error(r) is None
 
 
 def test_buying_guide(serps_by_qry):
@@ -253,7 +259,7 @@ def test_buying_guide(serps_by_qry):
     for r in rows:
         assert r["title"]  # facet label
         assert r["text"]  # facet question/value
-        assert r["error"] is None
+        assert _row_error(r) is None
 
 
 # --- structural-first dispatch (plan 040) ----------------------------------

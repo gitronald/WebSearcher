@@ -8,6 +8,7 @@ captures price, source, rating, review count, stars, and amenity tags.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
+from ._common import mark_hidden_row
 
 
 def parse_shopping_ads(elem) -> list:
@@ -43,7 +44,7 @@ def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
     if card is not None:
         parsed["url"] = card.attributes.get("href")
         parsed["title"] = card.attributes.get("aria-label")
-    return parsed
+    return mark_hidden_row(parsed, sub)
 
 
 def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
@@ -86,7 +87,7 @@ def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
         details["n_reviews"] = n_reviews.strip("()")
 
     parsed["details"] = details if len(details) > 1 else None
-    return parsed
+    return mark_hidden_row(parsed, card)
 
 
 def _card_text(node: Node, css: str) -> str | None:
@@ -132,7 +133,7 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
         details["amenity"] = amenity
 
     a = card.css_first("a[href]")
-    return {
+    parsed = {
         "type": "shopping_ads",
         "sub_type": "hotels",
         "sub_rank": sub_rank,
@@ -142,3 +143,4 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
         "cite": None,
         "details": details if details else None,
     }
+    return mark_hidden_row(parsed, card)

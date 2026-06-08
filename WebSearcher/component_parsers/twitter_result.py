@@ -7,6 +7,7 @@ a tweet sometimes embedded in the snippet.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
+from ._common import mark_timestamp_row
 
 
 def parse_twitter_result(elem, sub_rank: int = 0) -> list:
@@ -35,8 +36,9 @@ def parse_twitter_result(elem, sub_rank: int = 0) -> list:
         if len(elems) >= 2:
             body, timestamp_url = elems[0], elems[1]
             parsed["text"] = get_text(body, " ")
-            parsed["timestamp"] = get_text(timestamp_url.css_first("span"), " ")
+            timestamp = get_text(timestamp_url.css_first("span"), " ")
             a = timestamp_url.css_first("a")
             tweet_url = a.attributes.get("href") if a is not None else None
             parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None
+            mark_timestamp_row(parsed, timestamp)
     return [parsed]

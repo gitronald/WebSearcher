@@ -9,6 +9,8 @@ component.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
+from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
+from ._common import mark_hidden_row
 
 
 def parse_top_stories(elem, ctype: str = "top_stories") -> list:
@@ -36,7 +38,7 @@ def parse_top_stories(elem, ctype: str = "top_stories") -> list:
 
     if divs:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
-    return [{"type": ctype, "sub_rank": 0, "error": "No subcomponents found"}]
+    return [{"type": ctype, "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
 
 def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
@@ -48,7 +50,7 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
             break
     a = sub.css_first("a")
     url = a.attributes.get("href") if a is not None else None
-    return {
+    parsed = {
         "type": ctype,
         "sub_rank": sub_rank,
         "title": title,
@@ -56,6 +58,7 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
         "text": get_text(sub.css_first("div.GI74Re"), " "),
         "cite": get_cite(sub),
     }
+    return mark_hidden_row(parsed, sub)
 
 
 def get_cite(sub: Node) -> str | None:

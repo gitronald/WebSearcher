@@ -16,7 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": null,
-      "error": null,
       "section": "header",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -30,7 +29,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -44,7 +42,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -58,7 +55,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -72,7 +68,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -86,7 +81,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -100,7 +94,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -114,7 +107,6 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -136,7 +128,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -150,7 +141,6 @@
       "cite": "https://www.swpc.noaa.gov  › products › aurora-viewline...",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -164,7 +154,6 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -178,7 +167,6 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 1,
@@ -192,7 +180,6 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 2,
@@ -206,9 +193,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -222,9 +209,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 1,
@@ -238,9 +225,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 2,
@@ -254,9 +241,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 3,
@@ -270,9 +257,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 4,
@@ -286,9 +273,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 5,
@@ -302,9 +289,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 6,
@@ -318,9 +305,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 7,
@@ -334,9 +321,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 8,
@@ -350,9 +337,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 9,
@@ -366,9 +353,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 10,
@@ -382,9 +369,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 11,
@@ -398,9 +385,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 12,
@@ -414,9 +401,9 @@
       "cite": "thetatvaindia · X",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 13,
@@ -430,9 +417,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 14,
@@ -446,9 +433,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 15,
@@ -462,9 +449,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 16,
@@ -478,9 +465,9 @@
       "cite": "NightSkyToday · X",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 17,
@@ -494,9 +481,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 18,
@@ -510,9 +497,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 19,
@@ -526,9 +513,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 20,
@@ -542,9 +529,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 21,
@@ -558,9 +545,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 22,
@@ -574,9 +561,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 23,
@@ -590,9 +577,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 24,
@@ -606,9 +593,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 25,
@@ -622,9 +609,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 26,
@@ -638,9 +625,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 27,
@@ -654,9 +641,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 28,
@@ -670,9 +657,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 42,
       "sub_rank": 29,
@@ -686,9 +673,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 43,
       "sub_rank": 30,
@@ -702,9 +690,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 44,
       "sub_rank": 31,
@@ -718,9 +707,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 45,
       "sub_rank": 32,
@@ -734,9 +724,10 @@
       "cite": "NightSkyToday · X",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 46,
       "sub_rank": 33,
@@ -750,9 +741,10 @@
       "cite": "forallcurious",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 47,
       "sub_rank": 34,
@@ -766,9 +758,10 @@
       "cite": "AmazingNature00 · X",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 48,
       "sub_rank": 35,
@@ -782,9 +775,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 49,
       "sub_rank": 36,
@@ -798,9 +792,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 50,
       "sub_rank": 37,
@@ -814,9 +809,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 51,
       "sub_rank": 38,
@@ -830,9 +826,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 52,
       "sub_rank": 39,
@@ -846,9 +843,10 @@
       "cite": "MatthewCappucci · X",
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 53,
       "sub_rank": 40,
@@ -862,9 +860,10 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 54,
       "sub_rank": 41,
@@ -878,7 +877,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Aurora",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 55,
       "sub_rank": 0,
@@ -892,7 +890,6 @@
       "cite": "https://explore.org  › livecams › northern-lights-cam",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 56,
       "sub_rank": 0,
@@ -906,7 +903,6 @@
       "cite": "https://www.visitnorway.com  › nature-attractions › north...",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 57,
       "sub_rank": 0,
@@ -920,7 +916,6 @@
       "cite": "https://www.space.com  › Stargazing › Auroras",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 58,
       "sub_rank": 0,
@@ -934,7 +929,6 @@
       "cite": "https://www.swpc.noaa.gov  › products › aurora-30-minu...",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 59,
       "sub_rank": 0,
@@ -948,7 +942,6 @@
       "cite": "https://www.gi.alaska.edu  › monitors › aurora-forecast",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 60,
       "sub_rank": 0,
@@ -972,7 +965,6 @@
         "type": "place",
         "website": "http://www.northernlightschool.com/"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 61,
       "sub_rank": 0,
@@ -999,7 +991,6 @@
         "type": "place",
         "website": "http://northlight.bar/"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 62,
       "sub_rank": 1,
@@ -1024,7 +1015,6 @@
         "type": "place",
         "website": "http://www.nlvc.com/"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 63,
       "sub_rank": 2,
@@ -1051,7 +1041,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 64,
       "sub_rank": 0,

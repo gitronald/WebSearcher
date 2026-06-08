@@ -16,7 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": null,
-      "error": null,
       "section": "header",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -30,7 +29,6 @@
       "cite": "13.5M+ followers",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -44,7 +42,6 @@
       "cite": "55.2M+ views  ·  12 years ago",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -66,7 +63,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -80,7 +76,6 @@
       "cite": "https://www.goodhousekeeping.com  › Health › Fitness",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -125,7 +120,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -139,9 +133,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -155,9 +149,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,
@@ -171,9 +165,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 2,
@@ -187,9 +181,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 3,
@@ -203,9 +197,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 4,
@@ -219,9 +213,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 5,
@@ -235,9 +229,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 6,
@@ -251,9 +245,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 7,
@@ -267,9 +261,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 8,
@@ -283,9 +277,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 9,
@@ -299,9 +293,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 10,
@@ -315,9 +309,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 11,
@@ -331,7 +325,6 @@
       "cite": "5.9M+ views  ·  3 years ago",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -358,7 +351,6 @@
         "website": "http://www.yogasix.com/palo-alto",
         "years_in_business": "3+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -385,7 +377,6 @@
         "website": "http://yogasource.com/",
         "years_in_business": "30+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 1,
@@ -411,7 +402,6 @@
         "website": "https://yogarok.com/",
         "years_in_business": "3+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 2,
@@ -425,7 +415,6 @@
       "cite": "https://www.onepeloton.com  › Home › Train › Yoga",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 0,
@@ -439,7 +428,6 @@
       "cite": "7.1M+ views  ·  11 years ago",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 0,
@@ -453,7 +441,6 @@
       "cite": "10+ comments  ·  6 years ago",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 0,
@@ -467,7 +454,6 @@
       "cite": "101.2K+ views  ·  2 months ago",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 0,
@@ -481,7 +467,6 @@
       "cite": "1.3M+ followers",
       "cmpt_rank": 13,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 0,
@@ -508,7 +493,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 27,
       "sub_rank": 0,

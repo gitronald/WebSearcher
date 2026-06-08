@@ -275,7 +275,6 @@
         ],
         "type": "ai_overview"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -289,7 +288,6 @@
       "cite": "https://www.python.org  › about › gettingstarted",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -303,7 +301,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -317,7 +314,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -331,7 +327,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
@@ -345,7 +340,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,
@@ -359,7 +353,6 @@
       "cite": "https://www.w3schools.com  › python",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -373,7 +366,6 @@
       "cite": "1.5M+ followers",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -387,7 +379,6 @@
       "cite": "70+ comments  ·  2 years ago",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -401,7 +392,6 @@
       "cite": "https://www.learnpython.org",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -415,7 +405,6 @@
       "cite": "https://forum.freecodecamp.org  › how-to-learn-python-...",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -429,7 +418,6 @@
       "cite": "https://www.codecademy.com  › catalog › language › p...",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -443,7 +431,6 @@
       "cite": "https://docs.python.org  › tutorial",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -457,9 +444,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -473,9 +460,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 1,
@@ -489,9 +476,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 2,
@@ -505,9 +492,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 3,
@@ -521,9 +508,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 4,
@@ -537,9 +524,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 5,
@@ -553,9 +540,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 6,
@@ -569,9 +556,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 7,
@@ -585,9 +572,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 8,
@@ -601,9 +588,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 9,
@@ -617,9 +604,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 10,
@@ -633,9 +620,9 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 11,
@@ -649,7 +636,6 @@
       "cite": "https://www.pythoninstitute.org",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 0,
@@ -682,7 +668,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 26,
       "sub_rank": 0,

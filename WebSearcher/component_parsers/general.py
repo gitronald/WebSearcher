@@ -94,9 +94,6 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
         "cite": get_text(cite_el, " ") if cite_el is not None else None,
     }
 
-    if parsed["title"] is None and parsed["url"] is None:
-        parsed["error"] = "no title or url"
-
     return parse_subtype_details(sub, parsed)
 
 

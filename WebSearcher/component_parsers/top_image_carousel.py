@@ -7,7 +7,7 @@ at a parent listing.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
-from ._common import parse_alink
+from ._common import mark_hidden_item, parse_alink
 
 
 def parse_top_image_carousel(elem, sub_rank: int = 0) -> list:
@@ -31,7 +31,7 @@ def parse_top_image_carousel(elem, sub_rank: int = 0) -> list:
     items = []
     for a in alinks:
         if "href" in a.attributes or "data-url" in a.attributes:
-            items.append(parse_alink(a, "|", data_url_fallback=True))
+            items.append(mark_hidden_item(parse_alink(a, "|", data_url_fallback=True), a))
     parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 
     return [parsed]

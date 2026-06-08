@@ -9,6 +9,8 @@ Changelog
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
+from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
+from ._common import mark_hidden_row, mark_timestamp_row
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -44,7 +46,7 @@ def parse_videos(elem) -> list:
 
     if divs:
         return [parse_video(div, sub_type, i) for i, div in enumerate(divs)]
-    return [{"type": "videos", "sub_rank": 0, "error": "No subcomponents found"}]
+    return [{"type": "videos", "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
 
 def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
@@ -68,8 +70,9 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
             if citetime is not None:
                 items = list(citetime.iter(include_text=False))
                 if len(items) == 2:
-                    cite, _timestamp = items
+                    cite, timestamp = items
                     parsed["cite"] = get_text(cite)
+                    mark_timestamp_row(parsed, get_text(timestamp))
                 elif items:
                     parsed["cite"] = get_text(items[0])
     elif sub.css_first("span.ocUPSd") is not None:
@@ -77,7 +80,7 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
     elif sub.css_first("cite") is not None:
         parsed["cite"] = get_text(sub.css_first("cite"), " ")
 
-    return parsed
+    return mark_hidden_row(parsed, sub)
 
 
 def get_url(sub: Node) -> str | None:
