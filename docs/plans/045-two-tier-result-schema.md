@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: claude/session-context-ERiTn
 created: 2026-06-07T12:41:01-07:00
-completed:
-pr:
+completed: 2026-06-08T00:42:43-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/164
 ---
 
 # Two-tier result schema: lean core + a `details` extras bucket
@@ -119,3 +119,22 @@ Full scope shipped. `error`, `visible`, and `timestamp` all live in `details`.
 
 - `view_more_news` still sets a top-level `img_url` the round-trip drops (noted in original out-of-scope; not addressed).
 - `knowledge`/`locations` content-details are now generically `type:"item"`; giving them semantic types (e.g. `locations` hotels are ratings-shaped) is a possible refinement.
+
+### 2026-06-08 — Wrap-up (img_url, schema tests, docs)
+
+Closing-pass work after Phase B, on PR #164 (branch `claude/session-context-ERiTn`):
+
+- **`view_more_news` `img_url`** (the out-of-scope follow-up above): addressed after all — routed into `details["img_url"]` (recorded only when present), the same dropped-top-level-key fix as `timestamp`. Pinned by synthetic-markup tests, since the corpus has no `view_more_news` rows.
+- **Type-checker fix:** `mark_hidden_row` built `{"type": "item"}` (inferred `dict[str, str]`), so `details["visible"] = False` tripped `pyrefly`; rebuilt as a single heterogeneous literal `{"type": "item", "visible": False}`. The branch HEAD had been failing the `pyrefly` pre-commit hook.
+- **Schema contract tests** (`tests/test_details_schema.py`, 14): pin the two-tier `details` contract — `None` on a clean row, the top level limited to core fields, the `type:"item"` backfill, only-when-informative recording of `error`/`visible`/`timestamp`, and nested item-level `visible`.
+- **Docs:** README gained a "Result schema" subsection and dropped the stale top-level `error: None` from its example; CHANGELOG `[Unreleased]` got the two-tier bullets plus the cycle's `local_results` sub_type and structural-dispatch entries (via /update-docs).
+
+**Review follow-up (close gate):** ran `/code-review` at high effort over `feature/v0.10.0...HEAD` (4 finder angles), posted to PR #164. No actionable correctness bugs. Disposition: the `general.py` "no title or url" drop and the breaking `error` relocation are documented design decisions; the hollow-payload edges in `shopping_ads._parse_sponsored_hotel` / `footer.parse_img_card` are pre-existing and out of scope; the helper-unification / fold-at-boundary / ordering-contract cleanups were consciously declined this cycle in favor of writing metadata directly into `details` at the parser (fix-at-source).
+
+## Retrospective
+
+- **Phase A landed exactly as specced; Phase B's `timestamp` was easier than feared.** The plan flagged the lost Option-C `timestamp` rescue as the "largest scoping uncertainty" and budgeted a from-scratch rebuild — but three of four parsers already extracted a timestamp and merely wrote it to a dropped top-level key, so the fix was a one-line reroute per parser, not a rebuild.
+- **The `details`-always-has-a-`type` premise was false on arrival** (`perspectives`/`knowledge`/`locations` emit typeless content). Enforcing it centrally with one `BaseResult` validator (backfill `type:"item"`, never fabricate a type-only dict) was cleaner than patching each parser and bounded the snapshot diff.
+- **The reserved-metadata mechanism churned hard and reverted.** A mid-cycle attempt to fold `error`/`visible`/`timestamp` at the `BaseResult` boundary (transient `exclude=True` fields) was rejected as over-engineering — it re-added the very top-level keys the plan removed. Final shape: parsers write straight into `details` where the value is computed. The model boundary is tempting for "uniform handling," but it fought the plan's own goal.
+- **Corpus blind spots needed synthetic tests.** `timestamp` (4 parsers) and `img_url` (`view_more_news`) have zero fixture coverage, so they produce no snapshot signal — they're pinned only by `tests/test_timestamp.py`. A future regression there is invisible to the 87-snapshot suite.
+- **`error` had exactly one in-repo consumer (the test canary),** which made the breaking relocation safe to do in one pass — but external dict-style consumers (`r["error"]`) break with no shim, so the CHANGELOG migration note carries the weight.
