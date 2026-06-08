@@ -137,3 +137,21 @@ the existing `demo-search`.
 
 We should capture the file's name in the automated commit message - the filename contains the actual update date, not the arbitrary day we caught it and pulled it in.
 
+## Log - 2026-06-08
+
+Before building the automation, review the manual-pull history we already have in
+`data/google_locations/` (gitignored, untracked — 26 snapshots spanning
+`2018-09-04` through `2026-02-25`). It's a ready-made record of how the CSV evolves:
+the compressed size roughly doubles over the period (~900 KB → ~2.2 MB), and it's
+the right corpus to diff across years to spot any column/schema drift before
+settling the deterministic-normalization (step 1) and schema-drift (open question)
+work.
+
+Filename caveat for the "use the upstream date" idea above: the format is **not**
+stable across the history. The oldest file is `AdWords API Location Criteria
+2018-09-04.csv.bz2` (the old AdWords-era name, spaces and all); every file from 2019
+on is `geotargets-YYYY-MM-DD.csv.bz2`. These are the upstream-provided names exactly
+as downloaded — never hand-edited — so the embedded date is the real upstream
+publish date, but any logic that derives the date from the filename must handle both
+the `AdWords API Location Criteria <date>` and `geotargets-<date>` shapes.
+
