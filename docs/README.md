@@ -12,6 +12,7 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards.md) | draft | — | — |
+| 046 | [Migrate dependency automation from Dependabot to self-hosted Renovate](plans/046-dependabot-to-renovate-migration.md) | done | 2026-06-07 16:31 | [#161](https://github.com/gitronald/WebSearcher/pull/161) |
 | 034 | [Replace the local_results sub_type header-slug with a closed category set](plans/034-local-results-sub-type-categories.md) | done | 2026-06-06 17:14 | [#159](https://github.com/gitronald/WebSearcher/pull/159) |
 | 040 | [Add structural CSS dispatch path for buying_guide and products to reduce header-text dependency](plans/040-header-text-vs-structural-classification.md) | done | 2026-06-06 16:24 | [#158](https://github.com/gitronald/WebSearcher/pull/158) |
 | 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath.md) | done | 2026-06-06 14:51 | [#157](https://github.com/gitronald/WebSearcher/pull/157) |
