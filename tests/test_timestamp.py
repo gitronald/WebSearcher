@@ -1,10 +1,11 @@
-"""Timestamp extraction lands in ``details["timestamp"]`` (two-tier schema).
+"""Per-item metadata routed into ``details`` (two-tier schema): timestamps for
+four layouts, plus the ``view_more_news`` thumbnail ``img_url``.
 
-These four component layouts are absent from (or not exercised for timestamps
-by) the bulk SERP fixture corpus, so their timestamp paths are pinned here with
-minimal synthetic markup. Each parser previously wrote a top-level ``timestamp``
-key that the ``BaseResult`` round-trip silently dropped; the flag now rides in
-``details`` (recorded only when present).
+These component layouts are absent from (or not exercised for these fields by)
+the bulk SERP fixture corpus, so their paths are pinned here with minimal
+synthetic markup. Each parser previously wrote a top-level key (``timestamp`` /
+``img_url``) that the ``BaseResult`` round-trip silently dropped; the value now
+rides in ``details`` (recorded only when present).
 """
 
 from WebSearcher import utils
@@ -27,6 +28,31 @@ def test_view_more_news_timestamp_in_details():
     parsed = parse_sub(sub)
     assert parsed["details"]["timestamp"] == "2 hours ago"
     assert parsed["details"]["type"] == "item"
+
+
+def test_view_more_news_img_url_in_details():
+    sub = _node(
+        '<div><a href="http://x"><div class="jBgGLd">Title</div></a>'
+        '<span class="wqg8ad">Source</span>'
+        '<span class="FGlSad">2 hours ago</span>'
+        '<img data-src="http://img/thumb.jpg"></div>'
+    )
+    parsed = parse_sub(sub)
+    # thumbnail rides in details alongside the timestamp (a top-level img_url is
+    # dropped by the BaseResult round-trip)
+    assert parsed["details"]["img_url"] == "http://img/thumb.jpg"
+    assert parsed["details"]["timestamp"] == "2 hours ago"
+    assert parsed["details"]["type"] == "item"
+
+
+def test_view_more_news_clean_row_has_no_details():
+    sub = _node(
+        '<div><a href="http://x"><div class="jBgGLd">Title</div></a>'
+        '<span class="wqg8ad">Source</span></div>'
+    )
+    parsed = parse_sub(sub)
+    # no timestamp, no thumbnail -> recorded-only-when-present leaves details None
+    assert parsed.get("details") is None
 
 
 def test_twitter_result_timestamp_rides_with_tweet_details():

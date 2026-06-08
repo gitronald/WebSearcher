@@ -45,7 +45,16 @@ def parse_sub(sub: Node, sub_rank: int = 0) -> dict:
     if timestamp_span is not None:
         mark_timestamp_row(parsed, get_text(timestamp_span))
 
-    parsed["img_url"] = get_img_url(sub)
+    # Thumbnail rides in details, recorded only when present: an unknown
+    # top-level key is silently dropped by the BaseResult round-trip.
+    img_url = get_img_url(sub)
+    if img_url:
+        details = parsed.get("details")
+        if isinstance(details, dict):
+            details["img_url"] = img_url
+        else:
+            parsed["details"] = {"type": "item", "img_url": img_url}
+
     return parsed
 
 
