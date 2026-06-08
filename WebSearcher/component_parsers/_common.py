@@ -24,9 +24,10 @@ def mark_hidden_row(parsed: dict, node: Node | None) -> dict:
     """
     if is_hidden(node):
         details = parsed.get("details")
-        if not isinstance(details, dict):
-            details = parsed["details"] = {"type": "item"}
-        details["visible"] = False
+        if isinstance(details, dict):
+            details["visible"] = False
+        else:
+            parsed["details"] = {"type": "item", "visible": False}
     return parsed
 
 
