@@ -105,3 +105,17 @@ What carries forward from 018's branch (`feature/v0.10.0-visible-flag`, PR #160,
 - Snapshots regenerated; diff is exactly bounded — 2267 top-level `"error": null` removed, the 3 real error rows moved into `details` as `{"type": "item", "error": "no subcomponents parsed"}`.
 - Verified: full suite **457 passed, 87 snapshots**; `ruff check` clean; `ruff format` applied.
 - Silent-drop guard: confirmed via grep that no top-level `error=` kwarg remains at any write site (rather than committing a temporary `extra="forbid"`).
+
+### 2026-06-08 — Phase B complete (visible + timestamp)
+
+Full scope shipped. `error`, `visible`, and `timestamp` all live in `details`.
+
+- **`visible`** (commit "Phase B part 1"): cherry-picked `_slx.is_hidden` as-is; added `_common.mark_hidden_row` / `mark_hidden_item` (record `visible=False` only-when-hidden). Applied at the row level (`videos`, `top_stories`, `short_videos`, `shopping_ads` ×3, `footer` img-card) and the `details["items"]` level (`top_image_carousel`, `available_on` ×2, `footer` images).
+- **Type invariant discovery + resolution:** found the "`details` always has a type" claim was already false — `perspectives` (377, `heading`), `knowledge` (32, `featured_results`), `locations` (9, `hotels` ratings) emit typeless content-details. Per the decision *"always have a type unless that would be the only key,"* enforced it centrally with a `BaseResult` `model_validator` that backfills `type:"item"` onto any non-empty typeless `details` (never fabricates a type-only dict). Snapshot diff bounded: +418 `type:"item"`, +42 `visible:false` (hidden perspectives), rest trailing-comma artifacts.
+- **`timestamp`** (this commit): the lost extraction turned out to be mostly *recoverable* — `news_quotes`, `twitter_result`, `view_more_news` already extracted a timestamp but wrote it to a top-level key the round-trip dropped; `videos` discarded its `_timestamp`. Added `_common.mark_timestamp_row` (only-when-present) and routed all four into `details` (merging alongside `twitter_result`'s tweet payload). **Corpus gap:** none of these timestamp paths are exercised by the fixture corpus (`news_quotes`/`twitter_result`/`view_more_news` absent; corpus `videos` don't use the `zECGdd` citetime layout), so timestamp produces **zero snapshot change** — pinned instead by synthetic-markup unit tests in `tests/test_timestamp.py` (4 tests, one per parser).
+- Verified: full suite **461 passed, 87 snapshots**; `ruff` clean.
+
+### Out-of-scope follow-ups surfaced
+
+- `view_more_news` still sets a top-level `img_url` the round-trip drops (noted in original out-of-scope; not addressed).
+- `knowledge`/`locations` content-details are now generically `type:"item"`; giving them semantic types (e.g. `locations` hotels are ratings-shaped) is a possible refinement.

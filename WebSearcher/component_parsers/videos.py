@@ -10,7 +10,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
-from ._common import mark_hidden_row
+from ._common import mark_hidden_row, mark_timestamp_row
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -70,8 +70,9 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
             if citetime is not None:
                 items = list(citetime.iter(include_text=False))
                 if len(items) == 2:
-                    cite, _timestamp = items
+                    cite, timestamp = items
                     parsed["cite"] = get_text(cite)
+                    mark_timestamp_row(parsed, get_text(timestamp))
                 elif items:
                     parsed["cite"] = get_text(items[0])
     elif sub.css_first("span.ocUPSd") is not None:

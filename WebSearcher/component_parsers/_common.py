@@ -30,6 +30,21 @@ def mark_hidden_row(parsed: dict, node: Node | None) -> dict:
     return parsed
 
 
+def mark_timestamp_row(parsed: dict, timestamp: str | None) -> dict:
+    """Record a ``timestamp`` in a result row's ``details`` (only when present).
+
+    Mirrors :func:`mark_hidden_row`: a content row gets the flag as a sibling
+    key; a row with no payload gains a metadata-only ``details`` (``type="item"``
+    via the :class:`..models.data.BaseResult` validator). Call **after** the
+    row's content ``details`` is built so the flag is not overwritten."""
+    if timestamp:
+        details = parsed.get("details")
+        if not isinstance(details, dict):
+            details = parsed["details"] = {"type": "item"}
+        details["timestamp"] = timestamp
+    return parsed
+
+
 def mark_hidden_item(item: dict, node: Node | None) -> dict:
     """Record ``visible=False`` on a ``details["items"]`` entry when ``node`` is
     hidden. Only-when-False, mirroring :func:`mark_hidden_row`."""
