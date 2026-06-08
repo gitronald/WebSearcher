@@ -28,17 +28,22 @@ This plan formalizes a **two-tier schema**: a lean *core* tier for the common ca
 ### Decisions (resolved 2026-06-08)
 
 1. **One `details` dict, or a nested `meta`?** → **Single dict, sibling keys.** `error`/`visible`/`timestamp` ride as siblings next to the content `type`/payload (`{"type": "hyperlinks", "items": [...], "visible": false, "timestamp": "2h"}`), documented as *reserved metadata keys* understood independently of the `type` content discriminator. Consistent with the existing `details["items"][]["visible"]` precedent on 018's branch.
-2. **`error` when there's no content.** → **No `type` key for metadata-only details.** The row keeps its component `type` at the top level; its `details` is just `{"error": "..."}`. The *absence* of `details["type"]` is the signal "no content payload" — no fake `{"type": "error"}` label invented.
-3. **Keep "None when it adds no info"?** → **Yes, only-when-present.** Record `error` only when non-null, `visible` only when `False`, `timestamp` only when present. A clean row's `details` stays `None` (or content-only). Mirrors the only-when-hidden idiom and bounds the snapshot diff.
+2. **`details` always carries a `type` — generic `"item"` when there's no specialized payload.** → A content row keeps its specific content `type` (`"ratings"`, `"hyperlinks"`, …) with metadata as siblings. A **metadata-only** `details` (an error-only row, or a `visible`/`timestamp`-only row) gets **`type: "item"`** so `details["type"]` is *always present* and consumers can switch on it without a None-check. No fake `{"type": "error"}` label. (Supersedes the earlier "no `type` key" lean.)
+3. **Keep "None when it adds no info"?** → **Yes, only-when-present.** Record `error` only when non-null, `visible` only when `False`, `timestamp` only when present. A clean row's `details` stays `None`. Mirrors the only-when-hidden idiom and bounds the snapshot diff.
 4. **Version cut.** → **v0.10.0** (current `feature/v0.10.0` cycle). 0.9.0 already shipped breaking changes, so a BREAKING entry here fits the cadence; no reason to defer to 0.11.0.
 5. **Scope of this pass.** → **Full scope:** `error` + `visible` + `timestamp`, in one coherent migration.
+6. **`error` handling (Option B + cleanups).** → **Move `error` into `details`, preserving the full message set** (relocated, not dropped), recorded only-when-present per decision #3. Chosen over keeping it top-level (avoids the null-on-every-clean-row "dead weight") and over dropping it (Option C would discard the categorical messages and gut the `test_no_parse_errors` canary, which is `error`'s *only* consumer). Plus two cleanups, applied regardless:
+   - **Drop the redundant `general.py` `"no title or url"`** — fully equivalent to `title is None and url is None`, already covered by `test_general_results_have_title_or_url`.
+   - **Close the error vocabulary** — collapse the duplicate `"No subcomponents found"` (videos/top_stories) and `"no subcomponents parsed"` (components) into one message; define a small closed set of error strings (same discipline as plan 034's `sub_type` closed set), so the canary's allowlist is exhaustive.
 
 ### Findings from grounding the plan in the current tree (2026-06-08)
 
-- **`error` is written in exactly two sites**, both of which must migrate in lockstep:
-  - `components.py::create_parsed_list_error` (the four component-level failures: `not implemented`, `null component type`, `parsing exception`, `no subcomponents parsed`) — these rows are diagnostic-only (`{type, cmpt_rank, text, error}`, no content).
-  - `general.py:98` `parsed["error"] = "no title or url"` — set on a row that *does* carry content, confirming decision #2's "error can coexist with content" framing.
-- **Silent-drop hazard.** `BaseResult` sets no `model_config`, so pydantic v2 `extra="ignore"` applies. Once `error` leaves `BaseResult`, any leftover top-level `error=` kwarg in the round-trip (`BaseResult(**row).model_dump()`) is **silently discarded**, not flagged. Both write sites above must move `error` into `details` in the *same* change or the diagnostic vanishes without a test failure.
+- **`error` is written in SIX sites** (the plan originally captured two), all of which must migrate in lockstep — in two categories:
+  - *Component-level* (`components.py::create_parsed_list_error`): `not implemented`, `null component type`, `parser output not list or dict`, `no subcomponents parsed`, `parsing exception: <traceback>`. Diagnostic-only rows (no content payload) → `details = {"type": "item", "error": ...}`.
+  - *Parser-internal*: `general.py:98` `"no title or url"` (**to be dropped** — redundant); `videos.py:47` & `top_stories.py:39` `"No subcomponents found"` (**normalize** with `no subcomponents parsed`); `locations.py:18` `f"unknown sub_type: {sub_type}"` and `locations.py:51` `"no hotel items found"`.
+- **`error` has NO in-repo consumer except the test suite.** Nothing in the package, demos, or any in-repo caller reads a row's `error`; it is written by the six sites and read only by `test_no_parse_errors` (the regression canary, via the `KNOWN_ERRORS` allowlist), `test_general_results_have_title_or_url` (skips error rows), and ~9 `assert r["error"] is None` coverage checks. The plan's "downstream consumers break" worry is therefore in-repo a non-issue (external consumers unknown). This is *why* Option B (preserve the messages) beats Option C (drop them): the canary is the field's sole purpose.
+- **Silent-drop hazard.** `BaseResult` sets no `model_config`, so pydantic v2 `extra="ignore"` applies. Once `error` leaves `BaseResult`, any leftover top-level `error=` kwarg in the round-trip (`BaseResult(**row).model_dump()`) is **silently discarded**, not flagged — and *no test catches it* (a dropped error reads as "no errors = green"). Mitigation: temporarily set `model_config = ConfigDict(extra="forbid")` on `BaseResult` during the cutover so a missed site *raises*, then relax it. All six sites must move `error` into `details` in the same change.
+- **`general.py` error coexists with a content `details`.** `general.py` builds its content `details` in `parse_subtype_details` (e.g. `{"type": "ratings", ...}`); when the `"no title or url"` guard also fires (pre-cleanup), the error must merge into *that* dict, not a fresh one. (Moot once the redundant message is dropped, but the same merge pattern applies to any future content-row error.)
 - **018 carryforward — what actually exists in git** (branch `origin/feature/v0.10.0-visible-flag`, PR #160):
   - `_slx.py::is_hidden` — committed, clean, **reuse as-is**.
   - top-level `visible: bool` field + row-level and `details["items"][]`-level `visible` writes in `footer`/`videos`/`top_image_carousel`/`short_videos`/`top_stories`/`available_on`/`shopping_ads` — committed; relocate from top-level into `details`.
@@ -58,25 +63,28 @@ Plan 018 (the `visible` flag) is the seed of this idea and has been **retired an
 
 What carries forward from 018's branch (`feature/v0.10.0-visible-flag`, PR #160, to be closed unmerged):
 
-- **Reuse as-is:** `is_hidden` (`WebSearcher/_slx.py`) and `check_is_visible` (`component_parsers/_common.py`) — the detection primitives, unchanged.
-- **Starting point:** the committed top-level `visible` field + 87 refreshed snapshots, and the uncommitted Option-C redesign (the `timestamp` rescue across `news_quotes`/`twitter_result`/`view_more_news`/`videos`, `tests/test_card_details.py`). Cherry-pick the timestamp-extraction and tests; replace the `card_details` get-or-create with Option-B inline construction.
+- **Reuse as-is:** `is_hidden` (`WebSearcher/_slx.py`) — the one committed detection primitive. (`check_is_visible` does *not* exist anywhere in git; it was working-tree-only and is gone.)
+- **Starting point:** the committed top-level `visible` field + the row-/item-level `visible` writes in 7 parsers (relocate top-level → `details`). The Option-C redesign (the `timestamp` rescue across `news_quotes`/`twitter_result`/`view_more_news`/`videos`, `tests/test_card_details.py`) was **never committed and is unrecoverable** — rebuild the `timestamp` extraction from scratch; use Option-B inline construction throughout (no `card_details` helper).
 
 ### Implementation order (resolved — two phases, A shippable on its own)
 
 **Phase A — relocate `error` into `details` (self-contained, fully recoverable from current code):**
 
-1. `models/data.py`: remove the top-level `error` field; update the `details` description to document the reserved metadata keys (`error`, `visible`, `timestamp`) and the "no `type` key ⇒ metadata-only" convention.
-2. `components.py::create_parsed_list_error`: emit `{"details": {"error": ...}}` instead of a top-level `error` (build the details dict once, literal keys).
-3. `general.py:98`: write the `"no title or url"` error into `details` (Option B inline) rather than `parsed["error"]`.
-4. Tests: drop `error` from `EXPECTED_KEYS`; point `test_no_parse_errors` (`test_parse_serp.py:136`) and `test_field_types` (`:177`) at the nested `details` error; fix `test_components.py:23/35`, `test_models.py:172`, and the ~9 `r["error"] is None` asserts in `test_parser_coverage.py`.
-5. Regenerate snapshots; verify the diff is bounded to `error`→`details`.
+1. `models/data.py`: remove the top-level `error` field; document on `details` the reserved metadata keys (`error`, `visible`, `timestamp`) and the **`type: "item"` for metadata-only** convention. Add `model_config = ConfigDict(extra="forbid")` **temporarily** as a migration guard (relax at the end).
+2. Define the **closed error vocabulary** (one module-level constant) and route all six write sites through `details`:
+   - `components.py::create_parsed_list_error` → `details = {"type": "item", "error": ...}` (build once, literal keys); normalize `no subcomponents parsed`.
+   - `videos.py:47`, `top_stories.py:39` → `{"type": "item", "error": <normalized "no subcomponents parsed">}`.
+   - `locations.py:18/51` → `{"type": "item", "error": ...}`.
+   - `general.py:98` → **delete** the `"no title or url"` assignment (redundant cleanup).
+3. Tests: drop `error` from `EXPECTED_KEYS`; point `test_no_parse_errors` (`test_parse_serp.py:136`) and `test_field_types` (`:177`) at `r["details"]`; update `KNOWN_ERRORS` to the closed vocabulary (and drop `"no title or url"` / `"No subcomponents found"`); fix `test_components.py:23/35`, `test_models.py:172`, `test_general_results_have_title_or_url` (no longer gated on `error`), and the ~9 `r["error"] is None` asserts in `test_parser_coverage.py`.
+4. Relax the `extra="forbid"` guard back to default; regenerate snapshots; verify the diff is bounded to `error`→`details` (plus the dropped/normalized messages).
 
 **Phase B — fold in `visible` + `timestamp`:**
 
-6. Cherry-pick `_slx.py::is_hidden` from `feature/v0.10.0-visible-flag` as-is.
-7. Re-apply row-level + `details["items"][]`-level `visible` writes into `details` (only-when-`False`, Option B), across `footer`/`videos`/`top_image_carousel`/`short_videos`/`top_stories`/`available_on`/`shopping_ads`.
-8. **Rebuild** the lost `timestamp` extraction (net-new, not a cherry-pick) across `news_quotes`/`twitter_result`/`view_more_news`/`videos`; write into the same per-row `details`.
-9. Regenerate snapshots; verify the diff is bounded to `visible`/`timestamp`/`details`.
+5. Cherry-pick `_slx.py::is_hidden` from `feature/v0.10.0-visible-flag` as-is.
+6. Re-apply row-level + `details["items"][]`-level `visible` writes into `details` (only-when-`False`, Option B; metadata-only rows get `type: "item"`), across `footer`/`videos`/`top_image_carousel`/`short_videos`/`top_stories`/`available_on`/`shopping_ads`.
+7. **Rebuild** the lost `timestamp` extraction (net-new, not a cherry-pick) across `news_quotes`/`twitter_result`/`view_more_news`/`videos`; write into the same per-row `details`.
+8. Regenerate snapshots; verify the diff is bounded to `visible`/`timestamp`/`details`.
 
 **Wrap-up:** CHANGELOG **BREAKING** entry + downstream migration note (`r["error"]` → `r["details"]["error"]`); README recent-changes; refresh `docs/README.md` plan table.
 
