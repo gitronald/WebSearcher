@@ -1,9 +1,9 @@
 ---
-status: active
+status: done
 branch: feature/renovate-migration
 created: 2026-06-07T16:00:19-07:00
-completed:
-pr:
+completed: 2026-06-07T16:31:51-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/161
 ---
 
 # Migrate dependency automation from Dependabot to self-hosted Renovate
@@ -198,3 +198,65 @@ Carried verbatim from the template, grounded in the GitGuardian writeup — keep
 - GitGuardian — Renovate & Dependabot: The New Malware Delivery System:
   <https://blog.gitguardian.com/renovate-dependabot-the-new-malware-delivery-system/>
 - Renovate docs: <https://docs.renovatebot.com>
+
+## Log
+
+### 2026-06-07 — Implemented and shipped
+
+Copied the proj-template payload verbatim into `.github/`, removed `dependabot.yml`, validated, and
+merged.
+
+- **Files:** added `.github/renovate.json` + `.github/workflows/renovate.yml`, removed
+  `.github/dependabot.yml`, CHANGELOG `[Unreleased]` entry. Branched `feature/renovate-migration`
+  off `master`.
+- **Validation:** `renovate-config-validator` passed; both pinned action SHAs
+  (`create-github-app-token` v3.2.0, `renovatebot/github-action` v46.1.14) re-verified against
+  upstream tags via `git ls-remote`.
+- **Routing (as planned):** PR #161 merged `--no-ff` to **`master`** (CI green, 3.12–3.14), so the
+  scheduled workflow lives on the default branch; same branch merged to **`dev`** (clean) and
+  **`feature/v0.10.0`** (one trivial additive `CHANGELOG.md` `[Unreleased]` conflict, resolved by
+  keeping all bullets). `dependabot.yml` removed on all three; renovate files present on all three.
+- **Enrollment:** kept Dependabot vulnerability **alerts on** (`PUT /vulnerability-alerts` → 204),
+  turned **security-update PRs off** (`DELETE /automated-security-fixes` → `enabled:false`), closed
+  the in-flight Dependabot PR #156 (`--delete-branch`), and triggered the first Renovate run.
+
+### 2026-06-07 — Activation debugging: three GitHub App gaps
+
+The first runs failed; each surfaced a missing App permission/step that the proj-template guide did
+not document. All three were fixed in `proj-template/docs/guides/github-automation.md` as we went
+(commits `16cd42b`, `2bff791`, `557de91`):
+
+1. **App not installed on the repo** — token step failed `404 …/installation` (creds valid, App
+   uninstalled). The first-time install also needs a **"Choose an account"** step the guide skipped.
+2. **`Cannot access vulnerability alerts`** — App lacked **Dependabot alerts: Read-only** (needed
+   for alert-driven security PRs).
+3. **`Could not ensure issue` / `integration-unauthorized`** — App lacked **Issues: Read and
+   write**, required because `renovate.json` sets `dependencyDashboard: true` (the dashboard is a
+   GitHub issue). This had frozen the Dependency Dashboard, making the earlier alerts warning look
+   stuck (stale).
+
+After granting Issues RW + Dependabot alerts read and re-approving the installation, run
+`27109347741` was fully clean: dashboard updated, no Repository Problems, 40 deps scanned across 5
+files, **0 PRs** (correct — `pyproject.toml` uses `>=` ranges already satisfied, action SHAs
+current). Required App permission set for this config: Contents RW, Pull requests RW, Issues RW,
+Metadata RO, Dependabot alerts RO, plus Workflows RW to bump action SHAs in `.github/workflows/**`.
+
+## Retrospective
+
+- **The config/migration was the easy 20%; the GitHub App setup was the other 80%.** Copying the
+  payload and merging was straightforward and validated cleanly. Every real snag was App
+  permissions/installation — invisible to `renovate-config-validator` and only surfaced at runtime,
+  one failure at a time (install → alerts read → issues write).
+- **The proj-template guide's App-permission list was incomplete**, and shipping
+  `dependencyDashboard: true` while omitting **Issues: RW** was an internal contradiction. Fixed all
+  three gaps upstream so the next enrollment is first-try. Lesson: when a template ships a config
+  flag, its setup docs must grant the permission that flag requires.
+- **`updatedAt` on the dashboard issue was the decisive diagnostic.** A frozen timestamp across
+  "successful" runs revealed Renovate couldn't *write* the issue — without it, the stale alerts
+  warning would have sent us chasing the wrong permission.
+- **No-lockfile + `>=` ranges = quiet Renovate.** With no committed `uv.lock`, Renovate won't bump
+  `>=` constraints already satisfied by latest, and won't remediate transitive CVEs. The wins here
+  are the cooldown on routine bumps, single-bot ownership, `dev` targeting, and no auto-merge — not
+  faster transitive patching (documented in the plan's alert-history analysis).
+- **Follow-up:** none blocking. Optional later hardening — commit a `uv.lock` if exact-version
+  pinning / transitive remediation becomes desirable.
