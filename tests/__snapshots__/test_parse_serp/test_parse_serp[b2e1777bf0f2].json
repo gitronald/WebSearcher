@@ -35,7 +35,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "image"
+        "kind": "image",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 1,
@@ -50,7 +51,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "web"
+        "kind": "web",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 2,
@@ -67,6 +69,7 @@
       "details": {
         "kind": "fact",
         "label": "Born",
+        "type": "item",
         "value": "Ulm, Germany"
       },
       "section": "main",
@@ -84,6 +87,7 @@
       "details": {
         "kind": "fact",
         "label": "Died",
+        "type": "item",
         "value": "Princeton, NJ"
       },
       "section": "main",
@@ -99,7 +103,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 5,
@@ -304,7 +309,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 20,
@@ -319,7 +325,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 21,
@@ -334,7 +341,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 22,
@@ -349,7 +357,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 23,
@@ -364,7 +373,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 24,
@@ -379,7 +389,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 25,
@@ -394,7 +405,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 26,
@@ -409,7 +421,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 27,
@@ -424,7 +437,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 28,
@@ -439,7 +453,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 29,
@@ -454,7 +469,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 30,
@@ -469,7 +485,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 31,
@@ -484,7 +501,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 32,
@@ -499,7 +517,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 33,
@@ -514,7 +533,8 @@
       "cite": "phalpern · X",
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 34,
@@ -529,7 +549,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 35,
@@ -544,7 +565,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 36,
@@ -559,7 +581,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 37,
@@ -574,7 +597,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 38,
@@ -589,7 +613,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 39,
@@ -604,7 +629,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 40,
@@ -619,7 +645,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 41,
@@ -634,7 +661,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 42,
@@ -649,7 +677,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 43,
@@ -664,7 +693,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 44,
@@ -679,7 +709,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 45,
@@ -694,7 +725,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 46,
@@ -709,7 +741,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 47,
@@ -724,7 +757,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 48,
@@ -739,7 +773,8 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 49,
@@ -754,7 +789,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 50,
@@ -769,7 +806,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 51,
@@ -784,7 +823,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 52,
@@ -799,7 +840,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 53,
@@ -814,7 +857,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 54,
@@ -829,7 +874,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 55,
@@ -844,7 +891,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 56,
@@ -859,7 +908,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 57,
@@ -874,7 +925,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 58,
@@ -889,7 +942,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 59,
@@ -904,7 +959,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 60,
@@ -919,7 +976,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 61,

@@ -52,7 +52,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "image"
+        "kind": "image",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 1,
@@ -67,7 +68,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "social"
+        "kind": "social",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 2,
@@ -84,6 +86,7 @@
       "details": {
         "kind": "fact",
         "label": "Age",
+        "type": "item",
         "value": "Jun 14, 1946"
       },
       "section": "main",
@@ -101,6 +104,7 @@
       "details": {
         "kind": "fact",
         "label": "Party",
+        "type": "item",
         "value": "Republican Party"
       },
       "section": "main",
@@ -116,7 +120,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "social"
+        "kind": "social",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 5,
@@ -274,7 +279,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 17,
@@ -289,7 +295,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 18,
@@ -304,7 +311,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 19,
@@ -319,7 +327,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 20,
@@ -334,7 +343,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 21,
@@ -349,7 +359,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 22,
@@ -364,7 +375,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 23,
@@ -379,7 +391,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 24,
@@ -394,7 +407,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 25,
@@ -409,7 +423,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 26,
@@ -424,7 +439,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 27,
@@ -439,7 +455,8 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 28,

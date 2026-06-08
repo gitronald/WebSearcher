@@ -41,7 +41,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 1,
@@ -56,7 +57,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "web"
+        "kind": "web",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 2,
@@ -71,7 +73,8 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 3,

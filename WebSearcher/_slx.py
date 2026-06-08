@@ -14,6 +14,8 @@ call:
 - ``walk_descendants`` -- pre-order DFS over a node's subtree.
   Necessary because ``Node.traverse(...)`` walks the *entire document* from
   this point forward, not just the subtree.
+- ``is_hidden`` -- ancestor walk for inline ``display:none`` (the static-HTML
+  lazy-render pattern); backs the ``visible`` flag on parsed items.
 - ``subtree_first`` / ``subtree_css`` -- descendants-only queries (bs4
   ``find``/``find_all`` semantics; selectolax ``.css`` matches self too).
 - ``next_sibling`` / ``previous_sibling`` / ``next_siblings`` -- text-inclusive,
@@ -195,6 +197,27 @@ def walk_descendants(node: Node) -> Iterator[Node]:
     than ``traverse`` (whole-document) and ``css(comma)`` (branch-grouped)."""
     self_id = node.mem_id
     return (n for n in node.css("*") if n.mem_id != self_id)
+
+
+def is_hidden(node: Node | None) -> bool:
+    """True if ``node`` or any ancestor has an inline ``style`` containing
+    ``display:none`` (whitespace-tolerant).
+
+    Catches Google's standard lazy-render pattern: carousel tails and
+    "show more" expansion containers that sit in the static HTML inside a
+    ``<div style="display:none">`` wrapper but are not shown on initial render.
+    Used to set the ``visible`` flag on parsed items.
+
+    Does NOT catch CSS-rule-based hiding (a stylesheet ``.cls{display:none}``)
+    or JS-driven runtime hiding -- both out of scope (they would require a CSS
+    or JS engine). Returns ``False`` for ``None`` so parsers can chain
+    ``css_first`` + ``is_hidden`` without a guard."""
+    while node is not None:
+        style = (node.attributes.get("style") or "").lower().replace(" ", "")
+        if "display:none" in style:
+            return True
+        node = node.parent
+    return False
 
 
 def next_sibling(node: Node, include_text: bool = True) -> Node | None:

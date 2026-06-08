@@ -712,7 +712,8 @@
         "price": "$111",
         "rating": "3.8",
         "reviews": "(7.5K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 33,
@@ -729,7 +730,8 @@
       "details": {
         "rating": "3.0",
         "reviews": "(9.8K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 34,
@@ -746,7 +748,8 @@
       "details": {
         "rating": "4.1",
         "reviews": "(4.9K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 35,
@@ -868,7 +871,8 @@
         "price": "$87",
         "rating": "3.5",
         "reviews": "(6.5K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 41,
@@ -886,7 +890,8 @@
         "price": "$170",
         "rating": "4.2",
         "reviews": "(5.7K)",
-        "stars": "5-star hotel"
+        "stars": "5-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 42,
@@ -904,7 +909,8 @@
         "price": "$100",
         "rating": "3.7",
         "reviews": "(3.5K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 43,
@@ -932,7 +938,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 45,
@@ -947,7 +954,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 46,
@@ -962,7 +970,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 47,
@@ -977,7 +986,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 48,
@@ -992,7 +1002,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 49,
@@ -1007,7 +1018,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 50,
@@ -1022,7 +1034,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 51,
@@ -1037,7 +1050,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 52,
@@ -1052,7 +1066,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 53,
@@ -1067,7 +1082,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 54,
@@ -1082,7 +1098,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 55,
@@ -1097,7 +1114,8 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 56,
@@ -1127,7 +1145,8 @@
       "details": {
         "rating": "4.2",
         "reviews": "(1.9K)",
-        "stars": "3-star hotel"
+        "stars": "3-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 58,
@@ -1144,7 +1163,8 @@
       "details": {
         "rating": "4.6",
         "reviews": "(2.7K)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 59,
@@ -1162,7 +1182,8 @@
         "price": "$146",
         "rating": "4.5",
         "reviews": "(519)",
-        "stars": "4-star hotel"
+        "stars": "4-star hotel",
+        "type": "item"
       },
       "section": "main",
       "serp_rank": 60,

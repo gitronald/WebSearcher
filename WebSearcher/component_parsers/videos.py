@@ -10,6 +10,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
 from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
+from ._common import mark_hidden_row
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -78,7 +79,7 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
     elif sub.css_first("cite") is not None:
         parsed["cite"] = get_text(sub.css_first("cite"), " ")
 
-    return parsed
+    return mark_hidden_row(parsed, sub)
 
 
 def get_url(sub: Node) -> str | None:

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 # Closed vocabulary of parse-error messages, recorded in a result's
 # ``details["error"]``. An error row carries no content payload, so its
@@ -78,6 +78,18 @@ class BaseResult(BaseModel):
     details: dict | None = Field(
         None, description="Typed content payload plus reserved metadata keys; see class docstring"
     )
+
+    @model_validator(mode="after")
+    def _ensure_details_type(self):
+        """A non-empty ``details`` always carries a ``type`` -- the generic
+        ``"item"`` when a parser supplied content/metadata keys but no specific
+        content label. Never fabricates a ``type``-only dict: an empty
+        ``details`` is left untouched (the "unless that would be the only key"
+        rule)."""
+        d = self.details
+        if isinstance(d, dict) and d and "type" not in d:
+            self.details = {"type": "item", **d}
+        return self
 
 
 class BaseSERP(BaseModel):
