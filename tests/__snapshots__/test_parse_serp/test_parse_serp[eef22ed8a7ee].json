@@ -27,7 +27,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -43,7 +42,6 @@
       "details": {
         "kind": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -59,7 +57,6 @@
       "details": {
         "kind": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -77,7 +74,6 @@
         "label": "Artist",
         "value": "Pitbull"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -95,7 +91,6 @@
         "label": "Released",
         "value": "2020"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -111,7 +106,6 @@
       "details": {
         "kind": "web"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -135,7 +129,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -149,7 +142,6 @@
       "cite": "YouTube",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -163,7 +155,6 @@
       "cite": "YouTube",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
@@ -177,7 +168,6 @@
       "cite": "YouTube",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
@@ -191,7 +181,6 @@
       "cite": "YouTube",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 3,
@@ -213,7 +202,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -227,7 +215,6 @@
       "cite": "https://www.cnn.com  › 2020/04/13 › entertainment › pi...",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -245,7 +232,6 @@
         "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -259,7 +245,6 @@
       "cite": "https://open.spotify.com  › track",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -273,7 +258,6 @@
       "cite": "https://www.billboard.com  › Music › Latin",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -291,7 +275,6 @@
         "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -309,7 +292,6 @@
         "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -323,7 +305,6 @@
       "cite": "https://www.mtv.com  › news › pitbull-i-believe-that-we-...",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -337,7 +318,6 @@
       "cite": "https://www.amazon.com  › Believe-That-Will-World-A...",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -366,7 +346,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -400,7 +379,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 21,
       "sub_rank": 0,
@@ -430,7 +408,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 22,
       "sub_rank": 1,
@@ -464,7 +441,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 23,
       "sub_rank": 2,

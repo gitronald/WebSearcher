@@ -9,6 +9,7 @@ Changelog
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
+from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -44,7 +45,7 @@ def parse_videos(elem) -> list:
 
     if divs:
         return [parse_video(div, sub_type, i) for i, div in enumerate(divs)]
-    return [{"type": "videos", "sub_rank": 0, "error": "No subcomponents found"}]
+    return [{"type": "videos", "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
 
 def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:

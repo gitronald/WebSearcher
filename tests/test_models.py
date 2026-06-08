@@ -169,4 +169,4 @@ def test_base_result_defaults():
     assert r.sub_rank == 0
     assert r.title is None
     assert r.url is None
-    assert r.error is None
+    assert r.details is None

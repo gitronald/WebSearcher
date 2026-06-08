@@ -44,7 +44,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -60,7 +59,6 @@
       "details": {
         "kind": "image"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -76,7 +74,6 @@
       "details": {
         "kind": "social"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -94,7 +91,6 @@
         "label": "Age",
         "value": "Dec 13, 1989"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -112,7 +108,6 @@
         "label": "Parents",
         "value": "Scott Kingsley Swift"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -128,7 +123,6 @@
       "details": {
         "kind": "web"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -142,7 +136,6 @@
       "cite": "https://www.taylorswift.com",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -156,7 +149,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -170,7 +162,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
@@ -184,7 +175,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
@@ -198,7 +188,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 3,
@@ -212,7 +201,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 4,
@@ -226,7 +214,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 5,
@@ -240,7 +227,6 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 6,
@@ -292,7 +278,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -308,7 +293,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -324,7 +308,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 1,
@@ -340,7 +323,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 2,
@@ -356,7 +338,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 3,
@@ -372,7 +353,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 4,
@@ -388,7 +368,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 5,
@@ -404,7 +383,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 6,
@@ -420,7 +398,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 7,
@@ -436,7 +413,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 8,
@@ -452,7 +428,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 9,
@@ -468,7 +443,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 10,
@@ -484,7 +458,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 11,
@@ -500,7 +473,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 12,
@@ -516,7 +488,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 13,
@@ -532,7 +503,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 14,
@@ -548,7 +518,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 15,
@@ -564,7 +533,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 16,
@@ -580,7 +548,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 17,
@@ -596,7 +563,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 18,
@@ -612,7 +578,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 19,
@@ -628,7 +593,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 20,
@@ -644,7 +608,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 21,
@@ -660,7 +623,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 22,
@@ -676,7 +638,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 23,
@@ -692,7 +653,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 24,
@@ -708,7 +668,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 25,
@@ -724,7 +683,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 26,
@@ -740,7 +698,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 42,
       "sub_rank": 27,
@@ -756,7 +713,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 43,
       "sub_rank": 28,
@@ -772,7 +728,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 44,
       "sub_rank": 29,
@@ -788,7 +743,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 45,
       "sub_rank": 30,
@@ -804,7 +758,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 46,
       "sub_rank": 31,
@@ -820,7 +773,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 47,
       "sub_rank": 32,
@@ -836,7 +788,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 48,
       "sub_rank": 33,
@@ -852,7 +803,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 49,
       "sub_rank": 34,
@@ -868,7 +818,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 50,
       "sub_rank": 35,
@@ -884,7 +833,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 51,
       "sub_rank": 36,
@@ -900,7 +848,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 52,
       "sub_rank": 37,
@@ -916,7 +863,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 53,
       "sub_rank": 38,
@@ -932,7 +878,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 54,
       "sub_rank": 39,
@@ -948,7 +893,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 55,
       "sub_rank": 40,
@@ -964,7 +908,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 56,
       "sub_rank": 41,
@@ -980,7 +923,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 57,
       "sub_rank": 42,
@@ -996,7 +938,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 58,
       "sub_rank": 43,
@@ -1012,7 +953,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 59,
       "sub_rank": 44,
@@ -1028,7 +968,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 60,
       "sub_rank": 45,
@@ -1044,7 +983,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 61,
       "sub_rank": 46,
@@ -1060,7 +998,6 @@
       "details": {
         "heading": "What people are saying"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 62,
       "sub_rank": 47,
@@ -1074,7 +1011,6 @@
       "cite": "280.9M+ followers",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 63,
       "sub_rank": 0,
@@ -1096,7 +1032,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 64,
       "sub_rank": 0,
@@ -1110,7 +1045,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 65,
       "sub_rank": 0,
@@ -1124,7 +1058,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 66,
       "sub_rank": 1,
@@ -1138,7 +1071,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 67,
       "sub_rank": 2,
@@ -1152,7 +1084,6 @@
       "cite": "79M+ followers",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 68,
       "sub_rank": 0,
@@ -1166,7 +1097,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 69,
       "sub_rank": 0,
@@ -1180,7 +1110,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 70,
       "sub_rank": 1,
@@ -1194,7 +1123,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 71,
       "sub_rank": 2,
@@ -1208,7 +1136,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 72,
       "sub_rank": 3,
@@ -1222,7 +1149,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 73,
       "sub_rank": 4,
@@ -1236,7 +1162,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 74,
       "sub_rank": 5,
@@ -1250,7 +1175,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 75,
       "sub_rank": 6,
@@ -1264,7 +1188,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 76,
       "sub_rank": 7,
@@ -1278,7 +1201,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 77,
       "sub_rank": 8,
@@ -1292,7 +1214,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 78,
       "sub_rank": 9,
@@ -1306,7 +1227,6 @@
       "cite": "63M+ followers",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 79,
       "sub_rank": 0,
@@ -1363,7 +1283,6 @@
         ],
         "type": "albums"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 80,
       "sub_rank": 0,
@@ -1377,7 +1296,6 @@
       "cite": "78.9M+ followers",
       "cmpt_rank": 13,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 81,
       "sub_rank": 0,
@@ -1391,7 +1309,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Taylor_Swift",
       "cmpt_rank": 14,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 82,
       "sub_rank": 0,
@@ -1405,7 +1322,6 @@
       "cite": "33.3M+ followers",
       "cmpt_rank": 15,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 83,
       "sub_rank": 0,
@@ -1419,7 +1335,6 @@
       "cite": "https://open.spotify.com  › artist",
       "cmpt_rank": 16,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 84,
       "sub_rank": 0,
@@ -1446,7 +1361,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 85,
       "sub_rank": 0,

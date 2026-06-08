@@ -1,6 +1,6 @@
 ---
-status: draft
-branch:
+status: active
+branch: claude/session-context-ERiTn
 created: 2026-06-07T12:41:01-07:00
 completed:
 pr:
@@ -92,3 +92,16 @@ What carries forward from 018's branch (`feature/v0.10.0-visible-flag`, PR #160,
 
 - Moving `cite` (explicitly kept core).
 - Other silently-dropped top-level keys found nearby (e.g. `view_more_news` sets a top-level `img_url` that the round-trip drops) — separate follow-ups, though they could ride this migration if convenient.
+
+## Log
+
+### 2026-06-08 — Phase A complete (error relocation + cleanups)
+
+`error` is off the top level and lives in `details`; **Phase B (`visible`/`timestamp`) not yet started.**
+
+- `models/data.py`: removed the `error` field; documented the two-tier schema + `type:"item"` invariant on `BaseResult.details`; added the closed error vocabulary (`ERR_*` constants) and an `error_details(error)` helper (`{"type": "item", "error": ...}`).
+- Migrated all **six** write sites through `error_details`: `components.py::create_parsed_list_error` (also dropped its dead `cmpt_rank` key, re-added downstream by `export_results`) and the five `ERR_*` call sites in `components.py`; `videos.py`, `top_stories.py` (both → `ERR_NO_SUBCOMPONENTS`, normalizing `"No subcomponents found"`); `locations.py` (×2). Deleted `general.py`'s redundant `"no title or url"`.
+- Tests: dropped `error` from `EXPECTED_KEYS`; `KNOWN_ERRORS = {ERR_NOT_IMPLEMENTED, ERR_NO_SUBCOMPONENTS}`; added a `_row_error(r)` helper in `test_parse_serp.py`/`test_parser_coverage.py`; updated `test_no_parse_errors`, `test_field_types`, `test_general_results_have_title_or_url`, `test_components.py` (×2), `test_models.py`.
+- Snapshots regenerated; diff is exactly bounded — 2267 top-level `"error": null` removed, the 3 real error rows moved into `details` as `{"type": "item", "error": "no subcomponents parsed"}`.
+- Verified: full suite **457 passed, 87 snapshots**; `ruff check` clean; `ruff format` applied.
+- Silent-drop guard: confirmed via grep that no top-level `error=` kwarg remains at any write site (rather than committing a temporary `extra="forbid"`).

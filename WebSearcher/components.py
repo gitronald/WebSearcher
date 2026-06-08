@@ -12,7 +12,15 @@ from .component_parsers import (
     parse_unknown,
 )
 from .logger import Logger
-from .models.data import BaseResult
+from .models.data import (
+    ERR_BAD_OUTPUT,
+    ERR_EXCEPTION,
+    ERR_NO_SUBCOMPONENTS,
+    ERR_NOT_IMPLEMENTED,
+    ERR_NULL_TYPE,
+    BaseResult,
+    error_details,
+)
 
 log = Logger().start(__name__)
 
@@ -100,26 +108,26 @@ class Component:
         try:
             parsed_list = parser_func(self.elem)
         except Exception:
-            parsed_list = self.create_parsed_list_error("parsing exception", is_exception=True)
+            parsed_list = self.create_parsed_list_error(ERR_EXCEPTION, is_exception=True)
         return parsed_list
 
     def parse_component(self, parser_type_func: Callable | None = None):
 
         if not self.type:
-            parsed_list = self.create_parsed_list_error("null component type")
+            parsed_list = self.create_parsed_list_error(ERR_NULL_TYPE)
         else:
             # Select and run parser; a missing parser is "not implemented".
             parser_func = self.select_parser(parser_type_func)
             if parser_func is None:
-                parsed_list = self.create_parsed_list_error("not implemented")
+                parsed_list = self.create_parsed_list_error(ERR_NOT_IMPLEMENTED)
             else:
                 parsed_list = self.run_parser(parser_func)
 
                 # Check parsed_list
                 if not isinstance(parsed_list, (list, dict)):
-                    parsed_list = self.create_parsed_list_error("parser output not list or dict")
+                    parsed_list = self.create_parsed_list_error(ERR_BAD_OUTPUT)
                 elif len(parsed_list) == 0:
-                    parsed_list = self.create_parsed_list_error("no subcomponents parsed")
+                    parsed_list = self.create_parsed_list_error(ERR_NO_SUBCOMPONENTS)
 
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
@@ -131,12 +139,12 @@ class Component:
             error_traceback = traceback.format_exc()
         else:
             log.debug(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
+        error = error_msg if not is_exception else f"{error_msg}: {error_traceback}"
         return [
             {
                 "type": self.type,
-                "cmpt_rank": self.cmpt_rank,
                 "text": get_text(self.elem, "<|>", strip=True),
-                "error": error_msg if not is_exception else f"{error_msg}: {error_traceback}",
+                "details": error_details(error),
             }
         ]
 

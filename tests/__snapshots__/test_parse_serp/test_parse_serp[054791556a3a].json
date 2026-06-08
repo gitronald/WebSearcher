@@ -28,7 +28,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -44,7 +43,6 @@
       "details": {
         "kind": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -60,7 +58,6 @@
       "details": {
         "kind": "web"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -76,7 +73,6 @@
       "details": {
         "kind": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -90,7 +86,6 @@
       "cite": "https://pixarcars.fandom.com  › wiki › Mater",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -112,7 +107,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -126,7 +120,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Tow_Mater",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -140,7 +133,6 @@
       "cite": "2M+ followers",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -154,7 +146,6 @@
       "cite": "YouTube",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -168,7 +159,6 @@
       "cite": "YouTube",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 1,
@@ -182,7 +172,6 @@
       "cite": "YouTube",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 2,
@@ -196,7 +185,6 @@
       "cite": "YouTube",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 3,
@@ -210,7 +198,6 @@
       "cite": "https://disney.fandom.com  › wiki › Mater",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -237,7 +224,6 @@
         "type": "panel",
         "urls": []
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -251,7 +237,6 @@
       "cite": "https://www.amazon.com  › Toys-Games-Tow-Mater › r...",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -269,7 +254,6 @@
         "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -287,7 +271,6 @@
         "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -305,7 +288,6 @@
         "stock": "  3 votes",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -319,7 +301,6 @@
       "cite": "https://www.disneystore.asia  › ... › Vehicles & RC Toys",
       "cmpt_rank": 13,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -346,7 +327,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -367,7 +347,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -417,7 +396,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 21,
       "sub_rank": 1,
@@ -451,7 +429,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 22,
       "sub_rank": 2,

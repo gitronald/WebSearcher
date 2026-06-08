@@ -1,5 +1,28 @@
 from pydantic import BaseModel, Field
 
+# Closed vocabulary of parse-error messages, recorded in a result's
+# ``details["error"]``. An error row carries no content payload, so its
+# ``details`` uses the generic ``type: "item"`` (see :class:`BaseResult`).
+# ``ERR_EXCEPTION`` and ``ERR_UNKNOWN_SUBTYPE`` are prefixes -- the caller
+# appends a dynamic suffix (a traceback / the offending value); the rest are
+# emitted verbatim.
+ERR_NOT_IMPLEMENTED = "not implemented"
+ERR_NULL_TYPE = "null component type"
+ERR_BAD_OUTPUT = "parser output not list or dict"
+ERR_NO_SUBCOMPONENTS = "no subcomponents parsed"
+ERR_EXCEPTION = "parsing exception"  # "parsing exception: <traceback>"
+ERR_UNKNOWN_SUBTYPE = "unknown sub_type"  # "unknown sub_type: <value>"
+ERR_NO_HOTELS = "no hotel items found"
+
+
+def error_details(error: str) -> dict:
+    """Build a metadata-only ``details`` dict for a parse failure.
+
+    A generic ``type: "item"`` row (no content payload) carrying just the
+    ``error`` message. See the two-tier schema note on :class:`BaseResult`.
+    """
+    return {"type": "item", "error": error}
+
 
 class ResponseOutput(BaseModel):
     """Response data from a search request."""
@@ -31,6 +54,18 @@ class BaseResult(BaseModel):
 
     Contains the structured data of one search result including its rank,
     type, title, URL, and other metadata.
+
+    Two-tier schema: the fields below are the lean *core* tier (the common
+    "what / where / what-it-says" case). ``details`` is the *extras* bucket --
+    the typed content payload plus reserved metadata keys (``error``,
+    ``visible``, ``timestamp``) that matter for digging into specific
+    components or debugging. ``details`` always carries a ``type``: a specific
+    content label (``"hyperlinks"``, ``"ratings"``, ...) when there is a
+    payload, or the generic ``"item"`` for a metadata-only row (e.g. a parse
+    error, or a hidden item with no content). Metadata keys are recorded only
+    when they carry information (``error`` when set, ``visible`` only when
+    ``False``, ``timestamp`` only when present), so a clean row's ``details``
+    stays ``None``.
     """
 
     sub_rank: int = Field(0, description="Position within a results component")
@@ -41,9 +76,8 @@ class BaseResult(BaseModel):
     text: str | None = Field(None, description="Snippet text from the search result")
     cite: str | None = Field(None, description="Citation or source information")
     details: dict | None = Field(
-        None, description="Additional structured details specific to result type"
+        None, description="Typed content payload plus reserved metadata keys; see class docstring"
     )
-    error: str | None = Field(None, description="Error message if result parsing failed")
 
 
 class BaseSERP(BaseModel):

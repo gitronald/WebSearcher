@@ -6,7 +6,7 @@ Implementation plans for project features and improvements. Each plan ([`plans/`
 
 | # | Plan | Status | Concluded | PR |
 |---|------|--------|-----------|----|
-| 045 | [Two-tier result schema: lean core + a `details` extras bucket](plans/045-two-tier-result-schema.md) | draft | — | — |
+| 045 | [Two-tier result schema: lean core + a `details` extras bucket](plans/045-two-tier-result-schema.md) | active | — | — |
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage.md) | draft | — | — |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives.md) | draft | — | — |

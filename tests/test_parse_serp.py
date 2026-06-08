@@ -8,6 +8,14 @@ import pytest
 from syrupy.extensions.json import JSONSnapshotExtension
 
 import WebSearcher as ws
+from WebSearcher.models.data import ERR_NO_SUBCOMPONENTS, ERR_NOT_IMPLEMENTED
+
+
+def _row_error(r: dict) -> str | None:
+    """Parse error for a result row -- nested in ``details`` (two-tier schema)."""
+    details = r.get("details")
+    return details.get("error") if isinstance(details, dict) else None
+
 
 # ---------------------------------------------------------------------------
 # Data loading
@@ -81,7 +89,6 @@ EXPECTED_KEYS = {
     "text",
     "cite",
     "details",
-    "error",
     "serp_rank",
 }
 
@@ -123,24 +130,19 @@ def test_no_unknown_types(all_results):
     assert len(unknowns) == 0, f"Found {len(unknowns)} unknown results"
 
 
-KNOWN_ERRORS = {
-    "not implemented",
-    "No subcomponents found",
-    "no subcomponents parsed",
-    "no title or url",
-}
+KNOWN_ERRORS = {ERR_NOT_IMPLEMENTED, ERR_NO_SUBCOMPONENTS}
 
 
 def test_no_parse_errors(all_results):
     """No unexpected parsing errors in results"""
-    errors = [r for r in all_results if r["error"] is not None and r["error"] not in KNOWN_ERRORS]
-    assert len(errors) == 0, f"Found {len(errors)} errors: {[r['error'] for r in errors]}"
+    errors = [e for r in all_results if (e := _row_error(r)) is not None and e not in KNOWN_ERRORS]
+    assert len(errors) == 0, f"Found {len(errors)} errors: {errors}"
 
 
 def test_general_results_have_title_or_url(all_results):
-    """General results without errors should have at least title or url"""
+    """General results should have at least title or url"""
     for r in all_results:
-        if r["type"] == "general" and r["error"] is None:
+        if r["type"] == "general":
             assert r["title"] is not None or r["url"] is not None, (
                 f"cmpt {r['cmpt_rank']} sub {r['sub_rank']}: general result with no title or url"
             )
@@ -174,7 +176,8 @@ def test_field_types(all_results):
         assert r["url"] is None or isinstance(r["url"], str)
         assert r["text"] is None or isinstance(r["text"], str)
         assert r["cite"] is None or isinstance(r["cite"], str)
-        assert r["error"] is None or isinstance(r["error"], str)
+        assert r["details"] is None or isinstance(r["details"], dict)
+        assert _row_error(r) is None or isinstance(_row_error(r), str)
 
 
 def test_features_expose_main_layout(all_parsed_serps):
