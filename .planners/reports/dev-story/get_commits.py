@@ -12,7 +12,7 @@ import subprocess
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parents[2]  # docs/reports/dev-story -> repo root
+REPO = HERE.parents[2]  # .planners/reports/dev-story -> repo root
 SEP = "\x1f"  # unit separator, unlikely to appear in commit data
 
 out = subprocess.run(
