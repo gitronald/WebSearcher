@@ -1,6 +1,6 @@
 ---
 id: 14
-slug: bump-0.6.9
+slug: bump-0-6-9
 status: done
 branch: dev
 created: 2026-03-29T11:46:49-07:00

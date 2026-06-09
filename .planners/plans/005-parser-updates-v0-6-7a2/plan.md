@@ -1,6 +1,6 @@
 ---
 id: 5
-slug: parser-updates-v0.6.7a2
+slug: parser-updates-v0-6-7a2
 status: done
 branch: parser-updates
 created: 2026-03-29T11:46:49-07:00
