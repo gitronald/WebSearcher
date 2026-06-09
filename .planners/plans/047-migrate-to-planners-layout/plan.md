@@ -5,7 +5,7 @@ status: active
 branch: plan/047-migrate-to-planners-layout
 created: 2026-06-09T10:31:22-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/165
 ---
 
 # Migrate plans to the .planners layout
