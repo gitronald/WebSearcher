@@ -186,6 +186,21 @@ a property of headless Chrome's UA, which neither backend's stealth layer strips
 Headless capability is therefore not a differentiator; all browser backends need headed mode for
 live Google, and uc additionally has the flaky-launch problem on 3.14.
 
+**Is the headless block just the UA, i.e. is there a headless fix?** Probed deeper:
+
+- `--headless=new` (Chrome's new headless): UA *still* contains `HeadlessChrome/148` on Chrome
+  148 — the token is not mode-dependent here. Still blocked.
+- Headless + **UA overridden** to a clean `Chrome/148.0.0.0` (Headless token removed) **and**
+  `navigator.webdriver == False` (patchright already patches it): **still** redirected to
+  `/sorry/`. So the headless block is *not* just the UA — headless Chrome carries deeper
+  fingerprints (GPU/WebGL renderer, window/screen geometry, client hints) that Google keys on,
+  and patching the obvious tells doesn't clear them. Chrome's **headless mode** has no reliable
+  driver-layer fix for Google here (matches patchright's own "use headed" guidance).
+- The real no-GUI path is a **virtual display (Xvfb / `xvfb-run`)**, which runs Chrome *genuinely
+  headed* (no headless fingerprint at all) with no monitor — the standard server setup. Not
+  tested here (Xvfb is not installed; needs a system package). This is the recommended way to run
+  the headed-only browser backends on a headless server, independent of which backend is chosen.
+
 **Observed gap (-> follow-up plan):** when Google serves `/sorry/`, the backends time out
 waiting for `#search`, return empty HTML, and never set `response_output.url` to the redirect,
 so `has_captcha` (HTML-text only) sees nothing and the `searches` loop keeps hammering. A robust
