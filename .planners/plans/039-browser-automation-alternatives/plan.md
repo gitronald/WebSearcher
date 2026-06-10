@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.10.0-browser-backend
 created: 2026-06-05T17:46:22-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/166
 ---
 
 # Investigate browser-automation alternatives to undetected_chromedriver
