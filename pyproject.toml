@@ -55,6 +55,16 @@ spike = [
 [tool.pyrefly]
 python-version = "3.12"
 project-includes = ["WebSearcher"]
+# PoC browser backends (plan 039) are imported lazily and installed only via the
+# `spike` dep group, so they're absent under the default install the type check
+# runs against. Fall back to Any when unresolved instead of erroring.
+ignore-missing-imports = [
+    "patchright",
+    "patchright.sync_api",
+    "playwright",
+    "playwright.sync_api",
+    "zendriver",
+]
 
 [tool.pytest.ini_options]
 addopts = "--cov=WebSearcher --cov-report=term-missing"
