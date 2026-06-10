@@ -21,4 +21,6 @@ tests/benchmarks/profiles/
 # Environment files
 .env
 .env.*
-!.env.example.worktrees/
+!.env.example
+
+.worktrees/
