@@ -2,9 +2,9 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
+| 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives/plan.md) | active | — | — |
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals/plan.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage/plan.md) | draft | — | — |
-| 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives/plan.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download/plan.md) | draft | — | — |
 | 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards/plan.md) | draft | — | — |
 | 047 | [Migrate plans to the .planners layout](plans/047-migrate-to-planners-layout/plan.md) | done | 2026-06-09 11:07 PT | [#165](https://github.com/gitronald/WebSearcher/pull/165) |
