@@ -3,6 +3,7 @@
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives/plan.md) | active | — | — |
+| 048 | [captcha-exit-on-sorry-redirect](plans/048-captcha-exit-on-sorry-redirect/plan.md) | draft | — | — |
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals/plan.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage/plan.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download/plan.md) | draft | — | — |
