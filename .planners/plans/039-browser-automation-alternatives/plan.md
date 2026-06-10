@@ -1,10 +1,10 @@
 ---
 id: 39
 slug: browser-automation-alternatives
-status: active
+status: done
 branch: feature/v0.10.0-browser-backend
 created: 2026-06-05T17:46:22-07:00
-concluded:
+concluded: 2026-06-09T23:35:31-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/166
 ---
 
@@ -208,3 +208,32 @@ early-exit should key off the **final URL** matching `^https?://www\.google\.com
 the captcha flag / capture HTML even on the wait timeout). Carved out as its own plan since it
 changes production collection behavior across all browser backends, independent of the uc
 migration.
+
+## Retrospective
+
+This plan's deliverable was the **evaluation itself** — the research, the live benchmarking, the
+deliberation, and a defended recommendation — not a migration. That work is complete, so the plan
+is closed `done`. The throwaway PoC backends (`zendriver`/`patchright`/`playwright` behind
+`method=`, deps in a non-shipped `spike` group) live in PR #166 as reference material; actually
+landing one is the separate, not-yet-green-lit migration follow-up.
+
+- **Recommendation: patchright**, run headed. On a 18-query live battery selenium/uc, patchright,
+  and zendriver tied at 18/18 with identical parse output; the decision turned on everything else
+  (silent deterministic teardown, sync drop-in API, active maintenance, Apache-2.0, system-Chrome
+  channel), where patchright led or tied uc and avoids uc's Python-3.14 flaky launch.
+- **Scope grew correctly under questioning.** The initial pass under-tested the edges; follow-up
+  probes (plain Playwright, headless, uc-headless, `--headless=new`, UA-strip) each sharpened the
+  conclusion. Worth doing — plain Playwright turned out to be 0/18 (not "lighter and probably
+  fine"), and "uc wins on headless" was a plausible misread that direct testing disproved.
+- **Detection is dominated by IP/rate, not the framework.** Every headed backend passed clean on a
+  residential IP; every headless variant hit `/sorry/` regardless of driver patches. The driver
+  choice is about ergonomics and maintenance, not a stealth edge, on this kind of usage.
+- **Two follow-ups carved out** (kept out of this evaluation so it stays a research artifact):
+  - Plan 048, `.planners/plans/048-captcha-exit-on-sorry-redirect/` — detect the `/sorry/`
+    redirect by final URL and exit the search loop early instead of hammering a block.
+  - Plan 049, `.planners/plans/049-xvfb-virtual-display/` — run the headed-only backends without a
+    GUI via an Xvfb virtual display (the no-GUI path headless can't provide); the one thing this
+    plan couldn't test because Xvfb wasn't installed.
+- **Next, if migration is green-lit:** promote `PatchrightSearcher` to default, drop
+  `selenium` + `undetected-chromedriver` (and the `setuptools` distutils shim) from runtime deps,
+  retire the uc-only config knobs, and keep `method=selenium` for one deprecation cycle.
