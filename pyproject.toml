@@ -46,6 +46,10 @@ dev = [
     # snakeviz views the .prof dumps from `python -m WebSearcher.bench --profile`
     "snakeviz>=2.2.2",
 ]
+spike = [
+    "patchright>=1.60.1",
+    "zendriver>=0.15.3",
+]
 
 [tool.pyrefly]
 python-version = "3.12"
