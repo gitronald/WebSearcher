@@ -177,6 +177,15 @@ collection. (Captcha-evasion in headless/container environments is the documente
 all these frameworks; not solvable at the driver layer alone — it needs a real display or a
 residential-proxy + anti-detect-headless setup, out of scope here.)
 
+**Is uc any better headless (does it strip the Headless UA)?** No — tested directly (4 runs).
+2/4 crashed before reaching Google (`SessionNotCreatedException: chrome not reachable` — flaky
+launch on Python 3.14, same forkserver-era fragility as the headed path); the 2 that launched
+advertised the same `HeadlessChrome/148.0.0.0` UA and got the same `code 0` / empty-HTML block.
+So headless is a **tie at "blocked"** across uc and patchright, not a uc advantage — the block is
+a property of headless Chrome's UA, which neither backend's stealth layer strips on Chrome 148.
+Headless capability is therefore not a differentiator; all browser backends need headed mode for
+live Google, and uc additionally has the flaky-launch problem on 3.14.
+
 **Observed gap (-> follow-up plan):** when Google serves `/sorry/`, the backends time out
 waiting for `#search`, return empty HTML, and never set `response_output.url` to the redirect,
 so `has_captcha` (HTML-text only) sees nothing and the `searches` loop keeps hammering. A robust
