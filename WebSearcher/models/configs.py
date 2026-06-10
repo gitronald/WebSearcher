@@ -34,6 +34,21 @@ class SeleniumConfig(BaseConfig):
     driver_executable_path: str = ""
 
 
+class ZendriverConfig(BaseConfig):
+    """PoC config for the zendriver backend (plan 039); requires the `spike` dep group"""
+
+    headless: bool = False
+    browser_executable_path: str = ""
+
+
+class PatchrightConfig(BaseConfig):
+    """PoC config for the patchright backend (plan 039); requires the `spike` dep group"""
+
+    headless: bool = False
+    channel: str = "chrome"
+    user_data_dir: str = ""
+
+
 class RequestsConfig(BaseConfig):
     model_config = {"arbitrary_types_allowed": True}
     headers: dict[str, str] = Field(
@@ -61,6 +76,9 @@ class RequestsConfig(BaseConfig):
 class SearchMethod(Enum):
     REQUESTS = "requests"
     SELENIUM = "selenium"
+    ZENDRIVER = "zendriver"
+    PATCHRIGHT = "patchright"
+    PLAYWRIGHT = "playwright"
 
     @classmethod
     def create(cls, method=None):
@@ -85,3 +103,6 @@ class SearchConfig(BaseConfig):
     log: LogConfig = Field(default_factory=LogConfig)
     selenium: SeleniumConfig = Field(default_factory=SeleniumConfig)
     requests: RequestsConfig = Field(default_factory=RequestsConfig)
+    zendriver: ZendriverConfig = Field(default_factory=ZendriverConfig)
+    patchright: PatchrightConfig = Field(default_factory=PatchrightConfig)
+    playwright: PatchrightConfig = Field(default_factory=PatchrightConfig)
