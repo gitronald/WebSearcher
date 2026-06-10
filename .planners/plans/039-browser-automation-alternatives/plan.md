@@ -145,3 +145,42 @@ Migration (follow-up plan if green-lit): promote `PatchrightSearcher` to the def
 `method=`, drop `selenium` + `undetected-chromedriver` (and the `setuptools` distutils shim)
 from runtime deps, retire `use_subprocess`/`version_main`/`driver_executable_path` config, and
 keep `SeleniumDriver` behind `method=selenium` for one deprecation cycle.
+
+### 2026-06-09 — follow-up checks: plain playwright, and headless
+
+Two questions raised after the first pass; both answered empirically on the same machine/IP
+where the four-way battery ran clean, so the only variable is the driver.
+
+**Does the stealth patch actually matter, or is plain Playwright enough?** Added a
+`PlaywrightSearcher` (subclass of `PatchrightSearcher`, only swaps the `sync_playwright`
+import — `method=playwright`) and ran the same 18-query battery:
+
+| | patchright | plain playwright |
+|---|---|---|
+| Blocks (18 queries) | 0 | **18** |
+| HTML returned | 18/18 | 0/18 (all empty) |
+| Final page | SERP | `google.com/sorry/index` reCAPTCHA wall |
+
+Plain Playwright is redirected to the "unusual traffic" reCAPTCHA on the **first** query and
+never recovers. So patchright's driver patches (`Runtime.enable`/console/flag leaks) are doing
+real work against Google here — plain Playwright is **not** sufficient, and switching to it
+would not reduce deps anyway (patchright *is* playwright-python with a patched driver; identical
+`pyee`/`greenlet`/bundled-node-driver tree, same ~143 MB). This rules out the
+"plain-playwright, lighter" option and reinforces patchright over zendriver/selenium.
+
+**Can patchright run headless?** It launches and runs headless fine, but Google **blocks it**:
+default headless Chrome advertises `HeadlessChrome/148.0.0.0` in the UA, and the request lands on
+the same `google.com/sorry/index` reCAPTCHA wall (`response_code` 0, empty HTML). So headless
+defeats patchright's stealth advantage on Google — this backend (like the current selenium one)
+needs **headed** operation. Headless is fine for offline/non-Google targets, not for live SERP
+collection. (Captcha-evasion in headless/container environments is the documented weak point for
+all these frameworks; not solvable at the driver layer alone — it needs a real display or a
+residential-proxy + anti-detect-headless setup, out of scope here.)
+
+**Observed gap (-> follow-up plan):** when Google serves `/sorry/`, the backends time out
+waiting for `#search`, return empty HTML, and never set `response_output.url` to the redirect,
+so `has_captcha` (HTML-text only) sees nothing and the `searches` loop keeps hammering. A robust
+early-exit should key off the **final URL** matching `^https?://www\.google\.com/sorry/` (and set
+the captcha flag / capture HTML even on the wait timeout). Carved out as its own plan since it
+changes production collection behavior across all browser backends, independent of the uc
+migration.
