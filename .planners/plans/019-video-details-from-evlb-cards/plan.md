@@ -1,8 +1,8 @@
 ---
 id: 19
 slug: video-details-from-evlb-cards
-status: draft
-branch:
+status: active
+branch: feature/v0.10.0-evlb-video-details
 created: 2026-05-10T12:31:46-07:00
 concluded:
 pr:
@@ -121,5 +121,44 @@ Same check on `data/demo-ws-v0.6.10a0/serps.json` — any SERP with a `videos` c
 - `duration` — the field doesn't appear in `evlb_*` cards; keep it dropped, or revisit later by scraping the visible tile's duration overlay (a separate selector hunt)
 
 ## Log
+
+### 2026-06-10 — activation: evidence re-grounded on current fixture corpus
+
+Re-verified the plan's evidence at component level through the real pipeline
+(`Extractor` + `classify_component`) before starting. The fixture has been
+renamed since drafting: `tests/fixtures/serps.json.bz2` (87 SERPs), not
+`serps-v0.6.8.json.bz2`. Findings:
+
+- All six selectors confirmed on populated cards (`h1.WQWxe`, `span.KrMNbf`,
+  `span.PNsAZd`, `span.DKsccc`, `img.aLL3sb[src]`, `div.F9x6yb`).
+- `northern lights` matches the plan exactly: 6 cards, 5 populated — 3 in
+  `videos`, 2 in `perspectives`.
+- Association assumption verified corpus-wide: every populated card is a
+  descendant of exactly one tile, and no tile holds more than one populated
+  card (checked for `general` PmEWq tiles and `videos` carousel tiles).
+- Coverage is broader than scoped: populated cards also appear inside
+  `short_videos`, `people_also_ask`, and `knowledge` components (still all
+  YouTube video cards). Older SERPs in the corpus carry only empty card stubs
+  (0 populated), so the helper's `None`-on-empty path is exercised.
+- The codebase migrated bs4 -> selectolax (plan 026) after this plan was
+  drafted; the helper sketch translates to `_slx` helpers and `Node.css_first`.
+
+Repro: parse any fixture SERP and inspect components, e.g.
+
+```bash
+uv run python -c "
+import bz2, json
+import WebSearcher as ws
+with bz2.open('tests/fixtures/serps.json.bz2', 'rt') as f:
+    rec = next(r for line in f if (r := json.loads(line))['qry'] == 'northern lights')
+soup = ws.make_soup(rec['html'])
+ex = ws.Extractor(soup)
+ex.extract_components()
+for c in ex.components:
+    c.classify_component()
+    n = len(c.elem.css('div[id^=evlb_] h1.WQWxe'))
+    if n: print(c.type, n)
+"
+```
 
 ## Retrospective
