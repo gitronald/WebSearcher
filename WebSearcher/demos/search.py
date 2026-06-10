@@ -50,6 +50,29 @@ QUERIES = {
 }
 
 
+def _engine_kwargs(
+    method: str,
+    headless: bool,
+    use_subprocess: bool,
+    version_main: int | None,
+    driver_executable_path: str,
+) -> dict:
+    """Build SearchEngine kwargs, routing shared flags to the method's config."""
+    kwargs: dict = {"method": method}
+    if method == "selenium":
+        kwargs["selenium_config"] = {
+            "headless": headless,
+            "use_subprocess": use_subprocess,
+            "driver_executable_path": driver_executable_path,
+            "version_main": version_main,
+        }
+    elif method == "zendriver":
+        kwargs["zendriver_config"] = {"headless": headless}
+    elif method == "patchright":
+        kwargs["patchright_config"] = {"headless": headless}
+    return kwargs
+
+
 def _chrome_version() -> str:
     """Best-effort installed-Chrome version for the search header (never raises)."""
     try:
@@ -82,13 +105,7 @@ def search(
     print(header)
 
     se = ws.SearchEngine(
-        method=method,
-        selenium_config={
-            "headless": headless,
-            "use_subprocess": use_subprocess,
-            "driver_executable_path": driver_executable_path,
-            "version_main": version_main,
-        },
+        **_engine_kwargs(method, headless, use_subprocess, version_main, driver_executable_path)
     )
     se.search(query, ai_expand=ai_expand)
     se.parse_serp()
@@ -127,13 +144,7 @@ def searches(
     print(f"Running {len(queries)} queries, saving to {data_path}")
 
     se = ws.SearchEngine(
-        method=method,
-        selenium_config={
-            "headless": headless,
-            "use_subprocess": use_subprocess,
-            "driver_executable_path": driver_executable_path,
-            "version_main": version_main,
-        },
+        **_engine_kwargs(method, headless, use_subprocess, version_main, driver_executable_path)
     )
 
     for i, qry in enumerate(queries):
