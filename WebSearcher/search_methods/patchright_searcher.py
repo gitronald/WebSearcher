@@ -26,6 +26,8 @@ SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
 class PatchrightSearcher:
     """Handle patchright-based web interactions for search engines"""
 
+    driver_name = "patchright"
+
     def __init__(self, config: PatchrightConfig, logger):
         """Initialize a patchright searcher with the given configuration
 
@@ -41,20 +43,23 @@ class PatchrightSearcher:
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
 
-    def init_driver(self) -> None:
-        """Launch Chrome via patchright with a persistent context"""
+    def _start_playwright(self) -> Any:
         from patchright.sync_api import sync_playwright
 
+        return sync_playwright().start()
+
+    def init_driver(self) -> None:
+        """Launch Chrome via patchright with a persistent context"""
         user_data_dir = self.config.user_data_dir
         if not user_data_dir:
             self._tmp_profile = tempfile.mkdtemp(prefix="ws-patchright-")
             user_data_dir = self._tmp_profile
 
         self.log.debug(
-            f"SERP | init patchright | channel: {self.config.channel} | "
+            f"SERP | init {self.driver_name} | channel: {self.config.channel} | "
             f"headless: {self.config.headless} | user_data_dir: {user_data_dir}"
         )
-        self.playwright = sync_playwright().start()
+        self.playwright = self._start_playwright()
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=user_data_dir,
             channel=self.config.channel,
@@ -70,7 +75,7 @@ class PatchrightSearcher:
             "browser_id": "",
             "browser_name": self.config.channel,
             "browser_version": browser_version,
-            "driver_version": "patchright",
+            "driver_version": self.driver_name,
             "user_agent": self.page.evaluate("navigator.userAgent"),
         }
         self.browser_info["browser_id"] = utils.hash_id(
@@ -171,3 +176,16 @@ class PatchrightSearcher:
             self.cleanup()
         except Exception:
             pass
+
+
+class PlaywrightSearcher(PatchrightSearcher):
+    """Plain-playwright variant of the patchright PoC — same contract and config,
+    unpatched upstream driver. Exists to test whether patchright's stealth patches
+    are actually needed for Google SERPs."""
+
+    driver_name = "playwright"
+
+    def _start_playwright(self) -> Any:
+        from playwright.sync_api import sync_playwright
+
+        return sync_playwright().start()

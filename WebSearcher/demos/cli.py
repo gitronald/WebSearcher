@@ -14,7 +14,7 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
         "method",
         nargs="?",
         default="selenium",
-        choices=["selenium", "requests", "zendriver", "patchright"],
+        choices=["selenium", "requests", "zendriver", "patchright", "playwright"],
         help="Search method",
     )
     p.add_argument("--data-dir", default=None, help="Directory to save outputs")

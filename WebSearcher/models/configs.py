@@ -78,6 +78,7 @@ class SearchMethod(Enum):
     SELENIUM = "selenium"
     ZENDRIVER = "zendriver"
     PATCHRIGHT = "patchright"
+    PLAYWRIGHT = "playwright"
 
     @classmethod
     def create(cls, method=None):
@@ -104,3 +105,4 @@ class SearchConfig(BaseConfig):
     requests: RequestsConfig = Field(default_factory=RequestsConfig)
     zendriver: ZendriverConfig = Field(default_factory=ZendriverConfig)
     patchright: PatchrightConfig = Field(default_factory=PatchrightConfig)
+    playwright: PatchrightConfig = Field(default_factory=PatchrightConfig)

@@ -13,7 +13,7 @@ from .models.configs import (
 )
 from .models.data import BaseSERP, ParsedSERP
 from .models.searches import SearchParams
-from .search_methods.patchright_searcher import PatchrightSearcher
+from .search_methods.patchright_searcher import PatchrightSearcher, PlaywrightSearcher
 from .search_methods.requests_searcher import RequestsSearcher
 from .search_methods.selenium_searcher import SeleniumDriver
 from .search_methods.zendriver_searcher import ZendriverSearcher
@@ -32,6 +32,7 @@ class SearchEngine:
         requests_config: dict | RequestsConfig = {},
         zendriver_config: dict | ZendriverConfig = {},
         patchright_config: dict | PatchrightConfig = {},
+        playwright_config: dict | PatchrightConfig = {},
         crawl_id: str = "",
     ) -> None:
         """Initialize the search engine
@@ -45,6 +46,7 @@ class SearchEngine:
             requests_config: Requests-specific configuration. Defaults to {}.
             zendriver_config: Zendriver-specific configuration. Defaults to {}.
             patchright_config: Patchright-specific configuration. Defaults to {}.
+            playwright_config: Plain-playwright configuration (same shape as patchright). Defaults to {}.
             crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
 
@@ -58,6 +60,7 @@ class SearchEngine:
                 "requests": RequestsConfig.create(requests_config),
                 "zendriver": ZendriverConfig.create(zendriver_config),
                 "patchright": PatchrightConfig.create(patchright_config),
+                "playwright": PatchrightConfig.create(playwright_config),
             }
         )
         self.log = logger.Logger(**self.config.log.model_dump()).start(__name__)
@@ -68,7 +71,13 @@ class SearchEngine:
         }
 
         # Initialize searcher based on method
-        self.searcher: SeleniumDriver | RequestsSearcher | ZendriverSearcher | PatchrightSearcher
+        self.searcher: (
+            SeleniumDriver
+            | RequestsSearcher
+            | ZendriverSearcher
+            | PatchrightSearcher
+            | PlaywrightSearcher
+        )
         if self.config.method == SearchMethod.SELENIUM:
             self.searcher = SeleniumDriver(config=self.config.selenium, logger=self.log)
             self.searcher.init_driver()
@@ -79,6 +88,9 @@ class SearchEngine:
             self.searcher.init_driver()
         elif self.config.method == SearchMethod.PATCHRIGHT:
             self.searcher = PatchrightSearcher(config=self.config.patchright, logger=self.log)
+            self.searcher.init_driver()
+        elif self.config.method == SearchMethod.PLAYWRIGHT:
+            self.searcher = PlaywrightSearcher(config=self.config.playwright, logger=self.log)
             self.searcher.init_driver()
 
         # Initialize search params and output

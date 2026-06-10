@@ -70,6 +70,8 @@ def _engine_kwargs(
         kwargs["zendriver_config"] = {"headless": headless}
     elif method == "patchright":
         kwargs["patchright_config"] = {"headless": headless}
+    elif method == "playwright":
+        kwargs["playwright_config"] = {"headless": headless}
     return kwargs
 
 
