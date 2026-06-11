@@ -67,6 +67,40 @@ def test_has_captcha_false():
     assert utils.has_captcha(soup) is False
 
 
+def test_has_captcha_sorry_fixture():
+    soup = utils.load_soup(Path(__file__).parent / "fixtures" / "sorry_index.html")
+    assert utils.has_captcha(soup) is True
+
+
+# is_sorry_redirect ------------------------------------------------------------
+
+SORRY_URL = (
+    "https://www.google.com/sorry/index?continue="
+    "https://www.google.com/search%3Fq%3Dwhy%2Bis%2Bthe%2Bsky%2Bblue&q=REDACTED_TOKEN"
+)
+
+
+def test_is_sorry_redirect_true():
+    assert utils.is_sorry_redirect(SORRY_URL) is True
+
+
+def test_is_sorry_redirect_no_www():
+    assert utils.is_sorry_redirect("http://google.com/sorry/index?q=abc") is True
+
+
+def test_is_sorry_redirect_normal_search():
+    assert utils.is_sorry_redirect("https://www.google.com/search?q=test") is False
+
+
+def test_is_sorry_redirect_not_anchored_elsewhere():
+    assert utils.is_sorry_redirect("https://example.com/?u=https://www.google.com/sorry/") is False
+
+
+def test_is_sorry_redirect_empty_or_none():
+    assert utils.is_sorry_redirect("") is False
+    assert utils.is_sorry_redirect(None) is False
+
+
 # get_link_list ----------------------------------------------------------------
 
 

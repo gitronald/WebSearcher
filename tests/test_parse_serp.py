@@ -180,6 +180,22 @@ def test_field_types(all_results):
         assert _row_error(r) is None or isinstance(_row_error(r), str)
 
 
+def test_parse_serp_sorry_redirect_url_flags_captcha():
+    """A /sorry/ redirect URL flags captcha end-to-end, even with empty HTML
+    (the browser backends' #search wait times out before capture)."""
+    sorry_url = "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dtest&q=REDACTED_TOKEN"
+    parsed = ws.parse_serp("", url=sorry_url)
+    assert parsed["features"]["captcha"] is True
+
+
+def test_corpus_urls_not_sorry_redirects():
+    """No fixture SERP URL false-positives as a /sorry/ redirect."""
+    from WebSearcher import utils
+
+    for record in load_all_serps():
+        assert utils.is_sorry_redirect(record["url"]) is False
+
+
 def test_features_expose_main_layout(all_parsed_serps):
     """Every SERP's features carries a str-or-None ``main_layout`` label, and
     the witnessed fixture distribution (standard / standard-overview /
