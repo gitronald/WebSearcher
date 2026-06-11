@@ -300,7 +300,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Programming with Mosh",
+        "publish_date": "Feb 12, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AX2rWIamt-gsjh0nOzRf98C4y-ebbpREtsUxf0qFzvGLksgBCYr7OA&s",
+        "title": "Python Full Course for Beginners",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -313,7 +320,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Dave Gray",
+        "publish_date": "Feb 21, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_3jfr-PZrBY7mKLqX2sE8pxaABN_uDc8XfzdzjBXAB9IE_l4SHRJlVw&s",
+        "title": "Python Basics for Beginners | Python tutorial",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -326,7 +340,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Programming with Mosh",
+        "publish_date": "Feb 18, 2019",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEFAAeHHAvWg6gH46bC0Imd8hnaG_UzEQCQKGh8LJCGRlqacAoUZWow&s",
+        "title": "Python Full Course for Beginners",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
@@ -339,7 +360,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Kevin Stratvert",
+        "publish_date": "Mar 25, 2021",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVnCpIeyn8zDQHiTC-QYAmMDJ908mCRgb8osKjZJhSYHAXy9GrmcKt3A&s",
+        "title": "‍ Python for Beginners Tutorial",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,

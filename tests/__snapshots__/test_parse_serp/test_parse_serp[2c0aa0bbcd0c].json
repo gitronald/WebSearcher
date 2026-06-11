@@ -41,7 +41,14 @@
     {
       "cite": "55.2M+ views  ·  12 years ago",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Nov 18, 2013",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtfycm02_OBUnORhrZFOnI9CcV7NBd7DQ0S82JWZVIYAzkbj0EQfg3kg&s",
+        "title": "Yoga For Complete Beginners - 20 Minute Home Yoga Workout!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -324,7 +331,14 @@
     {
       "cite": "5.9M+ views  ·  3 years ago",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Jun 20, 2022",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpnD-z-mNHwZS9jkCw-V-ADJyim5uKqphpoeUrKwsr0V6_nypPySTxg&s",
+        "title": "10-Minute Yoga For Beginners | Start Yoga Here...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -427,7 +441,14 @@
     {
       "cite": "7.1M+ views  ·  11 years ago",
       "cmpt_rank": 10,
-      "details": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Mar 19, 2014",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlf7p5ZO1MgB8VxKVCZ4hMxsTllbu_8Am0aEa0rGyNZaf9KXdNbilQhA&s",
+        "title": "Yoga For Beginners - 40 Minute Home Yoga Workout",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 0,
@@ -453,7 +474,14 @@
     {
       "cite": "101.2K+ views  ·  2 months ago",
       "cmpt_rank": 12,
-      "details": null,
+      "details": {
+        "channel": "Yoga with Kassandra",
+        "publish_date": "Dec 8, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvx3w2Mr6WJPNbk0CGmkMnQNbyMtgu3ohExEko7kLDjy6hyh3_WYbPdA&s",
+        "title": "10 min Yoga for Beginners - Gentle, Safe & Easy Yoga Stretch",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 0,

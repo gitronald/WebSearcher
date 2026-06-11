@@ -268,7 +268,14 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Ben Parkes",
+        "publish_date": "Jan 11, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFqUCJW0nhCq9HogquzI26HIv30ck8wE6qmMDGcp9blKNnC66Oude3iw&s",
+        "title": "How To Train For (AND SMASH) Your First Marathon ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -281,7 +288,14 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Ben Is Running",
+        "publish_date": "Oct 18, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKFzVAlEILI_1udBBFJ3lBl66uW9mRonzkroVlwZTd3Yv7s1Xui9tmYg&s",
+        "title": "6 Marathon Secrets Most BEGINNERS Don't Know!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
@@ -294,7 +308,14 @@
     {
       "cite": null,
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Ben Parkes",
+        "publish_date": "Mar 23, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKNUtUs-2kKxJmUtdw5pWfMWSrLEYEl4Ef08cosrOjQufGnZJO1Cr1VA&s",
+        "title": "26 Marathon Tips to Make Race Day Easier",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,

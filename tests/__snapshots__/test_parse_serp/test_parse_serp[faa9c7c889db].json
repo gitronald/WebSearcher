@@ -149,7 +149,14 @@
     {
       "cite": "9.6K+ views  ·  1 year ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Big Bong",
+        "publish_date": "Feb 5, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuc7nIk-zNCfStA9mvnB_aA_Vgc9kxZEO7D4THiB1KD_lydQREapJE5A&s",
+        "title": "How to Say \"Hello\" in Japanese - Taka Sensei",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -175,7 +182,14 @@
     {
       "cite": "3.8K+ views  ·  1 year ago",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "channel": "Big Bong",
+        "publish_date": "Nov 10, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUZJiVdBg59eNApx7Su641vg9OCMh6nyk4CpA57SBA-CdCDTtQHxszMg&s",
+        "title": "How to Say \"Hello\" in Japanese",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,

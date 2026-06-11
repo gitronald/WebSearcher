@@ -241,7 +241,14 @@
     {
       "cite": "17K+ views  ·  1 year ago",
       "cmpt_rank": 10,
-      "details": null,
+      "details": {
+        "channel": "Tristan Martin",
+        "publish_date": "Nov 18, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSdeiH0APkmQlRQgSA9KzFt9bgoeOIMHaa5bsg8MGTevi7q-heyKs7Jg&s",
+        "title": "Around the World in Coffee: Portland's Best Coffee shops!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,

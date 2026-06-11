@@ -81,7 +81,14 @@
     {
       "cite": "14.8K+ views  ·  9 months ago",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Big Bong",
+        "publish_date": "Apr 19, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_cneS4S0ffHSPmw_nV9GfLw3mEeb6O2GjuI9yEXSG3ce9aNSwsMXofQ&s",
+        "title": "How to Say \"Good Morning\" in French",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -165,7 +172,14 @@
     {
       "cite": "76K+ views  ·  8 years ago",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Learn French With Frencheezi",
+        "publish_date": "Apr 7, 2017",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI15cqtOuh_3r9UETB8KYUKhA-Bc1BVViXQ5TZkrwFUXP9fUThe2X2Mg&s",
+        "title": "LEARN FRENCH GREETINGS - Hello, Hi, Good Morning ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,

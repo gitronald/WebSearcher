@@ -205,7 +205,14 @@
     {
       "cite": "5.5M+ views  ·  4 years ago",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "channel": "Amoeba Sisters",
+        "publish_date": "Jul 14, 2021",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4DMEY9W4eFpgjGQpL9SARr5Wct0UPYwmPV2dBfNka8XA5bJrFS54WQ&s",
+        "title": "Photosynthesis (UPDATED)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,

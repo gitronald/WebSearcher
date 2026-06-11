@@ -153,7 +153,14 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "GeologyHub",
+        "publish_date": "Jan 20, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6EnmVPeXWAqDuFdxWSWrHSNdUA-lw1VZgEPl_P0TMCmCF8uNgI-_XTw&s",
+        "title": "Aurora Alert; Expect to See Aurora in 46 U.S. States Tonight!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -166,7 +173,14 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Late Night Astronomy",
+        "publish_date": "Jan 19, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHogAIG9sgd1eQrJlzSMPteo15qvLhfTf6f14gWQWQ6Y8o4hjqgVtf1w&s",
+        "title": "How to See the Northern Lights Tonight | Aurora Borealis ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 1,
@@ -179,7 +193,14 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Robservatory",
+        "publish_date": "Nov 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAyyYXUy1xKzTxfKIVUF2h5TY-ynwx6-rAv7tT9460G9MFY5qfV_TxkA&s",
+        "title": "What are the Northern Lights? | Aurora Borealis Explained",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 2,

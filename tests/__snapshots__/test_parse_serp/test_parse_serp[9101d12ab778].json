@@ -181,7 +181,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Jul 6, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUiZxBIsenOXvya5DNq1h1AwZpEpOaLfPWWNrBREqUM_KzykWAmKlwaw&s",
+        "title": "How to change a tire in 60 seconds",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -194,7 +201,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Mar 12, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxst41A8_bIeoO75fnL2-gxt__D9JQDP9t9uDaBZtY0b0kSpDHuhmBw&s",
+        "title": "How to change a tire. Love, Dad",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 1,
@@ -270,7 +284,14 @@
     {
       "cite": "4.2M+ views  ·  18 years ago",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "channel": "Howdini",
+        "publish_date": "Jan 30, 2008",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPFyNNW7CptPTgDybPHkpgB2qBFvCiwkwl5N1UGPDttoA92iKLONjwTA&s",
+        "title": "How to Change a Tire | Change a flat car tire step by step",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,

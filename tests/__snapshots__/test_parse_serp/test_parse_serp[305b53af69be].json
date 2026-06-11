@@ -239,7 +239,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "BBC News",
+        "publish_date": "Feb 5, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvFT8cVrcM2H-nkjYzILw0m2X64peEk_i_ah2V7PIPoTV9NMgxDgnkMQ&s",
+        "title": "US President Donald Trump touts 'softer touch' on immigration ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -252,7 +259,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "NBC News",
+        "publish_date": "Feb 5, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaIJNn3Vl1JTh744sRMT-8QiEOtvKHbiXi_DbrhogDraebtOpxXSzyDw&s",
+        "title": "Extended interview: Tom Llamas exclusive with President Trump",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 1,

@@ -228,7 +228,14 @@
     {
       "cite": "4.2M+ views  ·  8 months ago",
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "The Office",
+        "publish_date": "May 16, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckDW5EL6ATnfmt5YDi6ecNlV71t8dsIX8sioPwfjOmf3aMc4p5G6bIg&s",
+        "title": "Office COLD OPENS to Watch While You Eat",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,

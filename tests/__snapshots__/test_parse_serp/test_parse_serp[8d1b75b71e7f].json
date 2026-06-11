@@ -405,7 +405,14 @@
     {
       "cite": "2K+ views  ·  3 years ago",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "channel": "Everything English",
+        "publish_date": "Dec 23, 2022",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfos0rcKaDzvAGOOUOuH_MbgOXLJZLP6QxodsN4XwsaOB_6xQg0t08bg&s",
+        "title": "What does SERENDIPITY mean?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 0,
