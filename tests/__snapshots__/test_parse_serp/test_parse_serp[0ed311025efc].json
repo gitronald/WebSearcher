@@ -474,6 +474,50 @@
       "title": "The New York Times",
       "type": "side_bar",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "attrid": "kc:/book/periodical:owner",
+        "items": [
+          {
+            "text": "The New York Times Company",
+            "url": "/search?sca_esv=a6b2f659cc70f54c&q=The+New+York+Times+Company&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRnBZJ73ywbLSmGWklFphRHfzxiQE17vNQJdo0YtF8qDk5XUXm4i3o3IKS5ajfSy_ZIIdBkIR3EEoGPcY0Zc0d8rqJ1H_NOJTmbqu0RfUwFpp5KI9GKM5DcO6soW4MYIllZPgZ2u4EZEiaF1S-PhFQDH0yf3LhJrzOtybKUN8_bBVjqlu2w%3D%3D&sa=X&ved=2ahUKEwjozOnui8aSAxVlQjABHbs8N4cQmxN6BAgeEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "The New York Times Company",
+      "title": "Owner",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "attrid": "kc:/book/periodical:publisher",
+        "items": [
+          {
+            "text": "The New York Times Company",
+            "url": "/search?sca_esv=a6b2f659cc70f54c&q=The+New+York+Times+Company&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRnBZJ73ywbLSmGWklFphRHfzxiQE17vNQJdo0YtF8qDk5XUXm4i3o3IKS5ajfSy_ZIIdBkIR3EEoGPcY0Zc0d8rqJ1H_NOJTmbqu0RfUwFpp5KI9GKM5DcO6soW4MYIllZPgZ2u4EZEiaF1S-PhFQDH0yf3LhJrzOtybKUN8_bBVjqlu2w%3D%3D&sa=X&ved=2ahUKEwjozOnui8aSAxVlQjABHbs8N4cQmxN6BAgcEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 31,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "The New York Times Company",
+      "title": "Publisher",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

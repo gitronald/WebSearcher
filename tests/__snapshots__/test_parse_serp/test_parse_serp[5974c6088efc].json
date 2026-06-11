@@ -442,22 +442,11 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/film/film:media_actions_wholepage",
         "items": [
           {
             "text": "Watch now Subscription",
             "url": "https://link.fubo.tv/al1%3Fv%3D1%26a%3Dplay%26t%3Dprogram%26pid%3DMV000155770000%26o%3D0"
-          },
-          {
-            "text": "Paramount+ Subscription Watch",
-            "url": "https://www.paramountplus.com/movies/footloose/e2q4UqYUFWtEV4e2wRqkrQ8AvavBDkQv?searchReferral=desktop-web&source=google-organic&ftag=PPM-23-10bfh8c"
-          },
-          {
-            "text": "YouTube Primetime subscription Watch",
-            "url": "https://www.youtube.com/attribution_link?utm_campaign=ytcore&yt_product=ytalc&yt_goal=acq&utm_source=int&utm_medium=gs&utm_content=ump&yt_campaign_id=ytalc22&c=ytcore-ytalc-acq-int-gs-ump-ytalc22&utm_term=video&u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKa9HHUcbWYw"
-          },
-          {
-            "text": "Hulu Premium subscription Watch",
-            "url": "https://www.hulu.com/watch/069ce151-62ac-44f7-9ab5-28befae4ca60"
           }
         ],
         "type": "hyperlinks"
@@ -465,8 +454,8 @@
       "section": "rhs",
       "serp_rank": 27,
       "sub_rank": 1,
-      "sub_type": "links",
-      "text": null,
+      "sub_type": "fact",
+      "text": "Watch now Subscription Watched Already watched Want to watch",
       "title": "Watch movie",
       "type": "side_bar",
       "url": null
@@ -475,11 +464,8 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/film/film:reviews",
         "items": [
-          {
-            "text": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers 1:37",
-            "url": "https://www.youtube.com/watch?v=P4narQca4Oc"
-          },
           {
             "text": "6.6/10 IMDb Footloose scored 6.6 out of 10 on IMDb.",
             "url": "https://www.imdb.com/title/tt0087277/"
@@ -491,15 +477,85 @@
           {
             "text": "42% Metacritic Footloose scored 42 percent on Metacritic.",
             "url": "https://www.metacritic.com/movie/footloose-1984/critic-reviews/"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "6.6/10 IMDb Footloose scored 6.6 out of 10 on IMDb. 55% Rotten Tomatoes Footloose scored 55 percent on Rotten Tomatoes. 42% Metacritic Footloose scored 42 percent on Metacritic.",
+      "title": "Reviews",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/ugc:thumbs_up",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "73% liked this movie Google users Liked Disliked",
+      "title": "Thumbs up",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/film/film:theatrical region aware release date",
+        "items": [
           {
             "text": "USA",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=United+States&stick=H4sIAAAAAAAAAOPgE-LUz9U3MM6OL6pSAjMtk83LDbSMspOt9NMyc3LBhFVJRmpiSVFmcmKOQlFqemZ-nkJieWJRKpCTk5pYnKqQkliSuoiVNzQvsyQ1RSG4BMgt3sHKuIudiYMBAPI4SORkAAAA&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCUQAg"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "February 17, 1984 ( USA )",
+      "title": "Release date",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/film/film:director",
+        "items": [
           {
             "text": "Herbert Ross",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Herbert+Ross&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXhaYTK59pf6dOfMGCd4ZcnA44Ji4I1DJIne8iL_qPlGUDbFj6jTOSXdbdAH1a4anJYh4Exng9hFm8DDKj-Quf6n17GzqxJOTctsm33moRTXtnYeA261Xrlw73IiTs1z4w9X7q4YB9s5xlHju85L2G80TK2Ko&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCYQAg"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 31,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Herbert Ross",
+      "title": "Director",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/film/film:distributed_by",
+        "items": [
           {
             "text": "Paramount Pictures",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Paramount+Pictures&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rmEfz7ClR0jjjfuf1gaK2P6DHWF5gAH2n67WBXguL0ERduDEV2xHPKLCgssZpyxjLXzX2bU-Ng2H0vkeaEuYgAFhfVhWU2U94y_ecMO-sOHJhHECzOeP774eaF2wB40zeH_NuoEGmUT-kcH6cEQcftRTQvHJF6jFDX4z9pWKcvzXFPpv2w%3D%3D&sa=X&ved=2ahUKEwiSgKW8qPCEAxXFKlkFHasqCj0QmxMoAHoECCMQAg"
@@ -508,8 +564,29 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 28,
-      "sub_rank": 2,
+      "serp_rank": 32,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Paramount Pictures",
+      "title": "Distributed by",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers 1:37",
+            "url": "https://www.youtube.com/watch?v=P4narQca4Oc"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 33,
+      "sub_rank": 7,
       "sub_type": "links",
       "text": null,
       "title": "About",
@@ -541,8 +618,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 29,
-      "sub_rank": 3,
+      "serp_rank": 34,
+      "sub_rank": 8,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

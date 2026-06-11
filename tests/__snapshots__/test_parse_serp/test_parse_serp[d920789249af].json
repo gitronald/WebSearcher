@@ -339,6 +339,44 @@
       "title": "United States Congress",
       "type": "side_bar",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/organization/organization:founded",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "March 4, 1789",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/organization/organization:headquarters",
+        "items": [
+          {
+            "text": "Washington, D.C.",
+            "url": "/search?sca_esv=7e23b67cda9c6a45&q=Washington,+DC&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRpMTBIIxluIPK7JfMN1b-c13kVRDp2DhL1PwHMedGd2cwrAfha3DDNVbvYd-D6TRZpcDILlpe1ZagBuTInU6tVC5GeSEL6Omhj3yhUwiaYqeQYwqAqZkdlZx2p8euIdkkMz3HzbZJhMTpoT051_8Vgl4_p1g&sa=X&ved=2ahUKEwihu9m1_cWSAxXkSjABHQhbFMsQmxN6BAgNEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Washington, D.C.",
+      "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

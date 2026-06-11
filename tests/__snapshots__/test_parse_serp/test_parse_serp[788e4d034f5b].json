@@ -246,6 +246,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "attrid": "kc:/music/recording_cluster:artist",
         "items": [
           {
             "text": "Alicia Keys",
@@ -257,9 +258,9 @@
       "section": "rhs",
       "serp_rank": 15,
       "sub_rank": 0,
-      "sub_type": "links",
-      "text": null,
-      "title": "About",
+      "sub_type": "fact",
+      "text": "Alicia Keys",
+      "title": "Artist",
       "type": "side_bar",
       "url": null
     },

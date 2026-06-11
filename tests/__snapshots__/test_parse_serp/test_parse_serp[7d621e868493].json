@@ -440,6 +440,36 @@
       "cite": null,
       "cmpt_rank": 15,
       "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "X (Twitter)",
+            "url": "https://twitter.com/OscarTheGrouch"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/@toomanchoo3"
+          },
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/SesameOscartheGrouch/"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "X (Twitter) YouTube Facebook",
+      "title": "Profiles",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
         "items": [
           {
             "text": "Spotify",
@@ -457,8 +487,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 24,
-      "sub_rank": 1,
+      "serp_rank": 25,
+      "sub_rank": 2,
       "sub_type": "links",
       "text": null,
       "title": "Listen",
@@ -478,40 +508,11 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
-      "sub_rank": 2,
-      "sub_type": "links",
-      "text": null,
-      "title": "About",
-      "type": "side_bar",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 15,
-      "details": {
-        "items": [
-          {
-            "text": "X (Twitter)",
-            "url": "https://twitter.com/OscarTheGrouch"
-          },
-          {
-            "text": "YouTube",
-            "url": "https://www.youtube.com/@toomanchoo3"
-          },
-          {
-            "text": "Facebook",
-            "url": "https://www.facebook.com/SesameOscartheGrouch/"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 3,
       "sub_type": "links",
       "text": null,
-      "title": "Profiles",
+      "title": "About",
       "type": "side_bar",
       "url": null
     },
