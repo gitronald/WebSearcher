@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.10.0-knowledge-rhs-coverage
 created: 2026-06-06T01:27:30-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/168
 ---
 
 # Improve knowledge_rhs parser coverage for fact rows and expandable boxes
