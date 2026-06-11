@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.10.0-captcha-exit
 created: 2026-06-09T23:06:21-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/170
 ---
 
 # Detect CAPTCHA via the /sorry/ redirect URL and exit early
@@ -75,3 +75,26 @@ Current code: `WebSearcher/utils.py::has_captcha` (HTML-text only),
 - Solving headless/container CAPTCHA evasion (needs a real display or residential proxy +
   anti-detect headless) — this plan only makes detection reliable and stops the loop early.
 - The browser-backend migration itself (plan 039 follow-up).
+
+## Log
+
+- 2026-06-10T21:39:33-07:00 — Implemented on `feature/v0.10.0-captcha-exit` (draft PR recorded
+  in frontmatter). All four plan steps landed:
+  1. `utils.is_sorry_redirect` + module regex (`WebSearcher/utils.py`).
+  2. `parse_serp(serp, url=None)` threads the response URL into
+     `FeatureExtractor.extract_features(..., url=...)`; `features["captcha"]` is now
+     `has_captcha OR is_sorry_redirect`; `SearchEngine.parse_serp` passes `self.serp["url"]`.
+  3. All three browser backends capture the live URL + rendered HTML in the `send_request`
+     except path; patchright/playwright additionally record the goto status (e.g. 429) before
+     the `#search` wait so a timeout keeps the real code. The `searches` loop guard is
+     unchanged — the URL signal now feeds it.
+  4. Fixture `tests/fixtures/sorry_index.html`: a real `/sorry/index` page captured headless
+     via the Evidence repro (plain playwright, blocked on first query, 429), then scrubbed —
+     client IP replaced with a TEST-NET-3 placeholder, per-session reCAPTCHA tokens and
+     widget ids replaced with `REDACTED` markers. Tests cover `is_sorry_redirect` true/false
+     anchoring, `has_captcha` on the fixture, the `extract_features` url path (empty HTML +
+     redirect URL -> captcha), end-to-end `parse_serp("", url=sorry)` -> `captcha: True`, and
+     no false positives across the fixture corpus URLs.
+  - Verified `parse_serp("")` does not raise (empty-HTML block case), so
+    `SearchEngine.parse_serp` can't strand stale features on a blocked request.
+  - Full suite 525 passed; 87 snapshots unchanged (normal-SERP output byte-identical).
