@@ -1,11 +1,11 @@
 ---
 id: 31
 slug: automate-locations-download
-status: active
+status: done
 branch: feature/v0.10.0-locations-download
 created: 2026-05-31T00:45:35-07:00
-concluded:
-pr:
+concluded: 2026-06-10T21:20:42-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/169
 ---
 
 # Automate the Locations CSV Download
@@ -274,4 +274,88 @@ log entry; results (repro commands in step 3):
   seeded diffs will be dominated by line-ending flips.
 - The current pipeline's output for 2026-02-25 is byte-identical to the stored
   bz2 snapshot, so the normalization round-trip is already byte-stable.
+
+## Log - 2026-06-10 (implementation)
+
+Implemented on `feature/v0.10.0-locations-download`; draft PR opened against
+`feature/v0.10.0` (see `pr:`). Deviations from the spec:
+
+- The `scripts/` directory referenced in step 2 no longer exists in the repo;
+  the CLI entry is a `main()` in `WebSearcher/locations.py` run as
+  `python -m WebSearcher.locations`, and the one-off seeding script lives as a
+  plan sidecar (`seed_history.py` in this directory) rather than under
+  `scripts/`.
+- `normalize_csv_text` (the shared round-trip, also adopted by
+  `download_locations`) needed a trailing-newline fix: `split("\n")` on a
+  newline-terminated body yields a final empty string that `csv` round-trips
+  into a spurious blank row. Caught by the new unit tests.
+- The seeding replay produced 26 commits (`update locations:
+  geotargets-YYYY-MM-DD`); the final tracked file is byte-identical to the
+  newest archive snapshot, so the first automated run no-ops via the ledger
+  check. Object-store growth from the replay was ~46 MB loose (pre-delta);
+  the push pack is far smaller.
+- Open question "PR base branch" resolved in practice: the workflow PRs
+  against the default branch it runs on (it only schedules once merged to
+  master); the feature work itself targets `feature/v0.10.0`.
+- Open question "public API" resolved: exported `update_locations_file` in
+  `WebSearcher/__init__` alongside `download_locations`.
+- The header assertion (schema-drift open question) is not implemented yet —
+  left for PR review to decide; the weekly PR diff remains the primary safety
+  net.
+
+## Log - 2026-06-10 (review follow-up)
+
+Close-gate review (7 finder angles + adversarial verification; full review
+posted on the PR) produced five fixes, committed as `apply review fixes for
+locations update`:
+
+- Added `REQUEST_TIMEOUT = 60` to both `requests.get` calls — an unattended
+  weekly cron must not hang on a stalled connection.
+- Replaced the `split("\n")` + trailing-pop normalization with
+  `csv.reader(io.StringIO(text, newline=""))`: the split form silently
+  corrupted quoted fields containing newlines. Verified equal rows across all
+  26 archive snapshots and byte-identical output for the latest; regression
+  test added.
+- Resolved the schema-drift open question as **yes**: `update_locations_file`
+  now validates the downloaded header against `GEOTARGETS_HEADER` and raises
+  before the ledger row is written (failed pulls retry next run); regression
+  test added.
+- Extracted `download_csv` to deduplicate the zip-vs-csv branch shared by
+  `download_locations` and `update_locations_file`.
+- Replaced the workflow's `tail | cut | tr` ledger parse with a `csv.reader`
+  one-liner (csv-quoted filenames would have broken the shell parse).
+
+Conscious no-ops (details in the PR review comment): multi-CSV zip behavior in
+`save_zip_response` (pre-existing, upstream zips carry one CSV), the
+`download_locations` trailing-blank-row byte change (intentional fix), `main()`
+re-reading the CSV for its row-count report (negligible weekly cost), relative
+default paths (matches package precedent), and test-local DictReader
+repetition. Refuted by verifiers: ledger-missing-on-first-run (ledger is
+committed alongside the workflow), stale release name on no-op runs
+(`create-pull-request` exits silently with no changes), and corrupt-ledger
+masking (`KeyError` propagates loudly).
+
+Final gate: 514 tests pass, ruff clean, pyrefly 0 errors; CI green on the PR.
+
+## Retrospective
+
+- The 2026-06-08 decision to review the archive before building paid off
+  twice: it surfaced the mixed LF/CRLF endings (which made normalization a
+  hard requirement, not a nicety) and pre-answered the schema-drift question
+  with eight years of evidence, making the header assertion a confident yes.
+- Keying change detection on the upstream filename via a tracked ledger turned
+  out cleaner than the original byte-determinism design — determinism became a
+  backstop instead of the load-bearing mechanism, and the ledger doubles as
+  the release-history record the commit messages were trying to be.
+- The review gate caught a real correctness bug in code the tests already
+  "covered" (quoted-newline corruption in `normalize_csv_text`) — the fix the
+  unit tests drove (trailing-pop) was itself the fragile shape; the deeper
+  io.StringIO form removed both the bug and the special case.
+- Plans drift: step 2 referenced a `scripts/` directory that had been removed
+  from the repo since the plan was drafted. Re-grounding the spec against the
+  current tree at implement time (per the verify-plan-evidence memory) kept it
+  a one-line adaptation instead of a mid-build surprise.
+- Replaying 26 versions of a 17 MB file added ~46 MB loose objects locally but
+  far less over the wire after delta compression — seeding history into git
+  was cheap enough to be the right call.
 

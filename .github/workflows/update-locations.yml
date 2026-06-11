@@ -1,0 +1,45 @@
+name: Update locations
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # weekly, Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-locations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6
+      - uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
+      - run: uv sync --no-dev
+      - name: Update geotargets CSV
+        run: uv run --no-dev python -m WebSearcher.locations
+
+      # The upstream filename embeds the real release date; the run date is
+      # just when we caught it. Carry the release date in the commit message.
+      - name: Read pulled release name
+        id: ledger
+        run: |
+          release=$(uv run --no-dev python -c "import csv; print(list(csv.reader(open('data/locations/ledger.csv', newline='')))[-1][1].removesuffix('.csv'))")
+          echo "release=$release" >> "$GITHUB_OUTPUT"
+
+      # No-op when the update was skipped (working tree unchanged).
+      - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
+        with:
+          add-paths: data/locations/*.csv
+          branch: bot/locations-update
+          delete-branch: true
+          commit-message: "update locations: ${{ steps.ledger.outputs.release }}"
+          title: "update locations: ${{ steps.ledger.outputs.release }}"
+          labels: data
+          body: |
+            Automated geotargets CSV refresh (weekly cron).
+
+            - `data/locations/geotargets.csv` overwritten with the latest upstream release
+            - `data/locations/ledger.csv` logs the collection date and upstream filename
+
+            See `.planners/plans/031-automate-locations-download/plan.md`.
