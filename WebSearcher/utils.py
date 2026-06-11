@@ -83,6 +83,15 @@ def hash_id(s):
 
 # Parsing ----------------------------------------------------------------------
 
+# Google redirects blocked requests to https://www.google.com/sorry/index?... --
+# the URL is a CAPTCHA signal even when the page HTML was never captured.
+RX_SORRY_REDIRECT = re.compile(r"^https?://(www\.)?google\.com/sorry/")
+
+
+def is_sorry_redirect(url: str | None) -> bool:
+    """Boolean for a Google /sorry/ (CAPTCHA challenge) redirect URL."""
+    return bool(url and RX_SORRY_REDIRECT.match(url))
+
 
 def has_captcha(soup: Node | None, html: str | None = None) -> bool:
     """Boolean for 'CAPTCHA' appearance in the document text.
