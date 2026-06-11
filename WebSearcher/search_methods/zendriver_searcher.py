@@ -98,6 +98,15 @@ class ZendriverSearcher:
 
         except Exception as e:
             self.log.exception(f"SERP | Zendriver error | {str(e)}")
+            # Capture the live URL and whatever HTML rendered anyway -- a
+            # CAPTCHA challenge redirects to /sorry/ and never shows #search,
+            # so the redirect would otherwise be discarded with the timeout.
+            if self.tab is not None:
+                try:
+                    response_output.url = self._run(self.tab.evaluate("window.location.href"))
+                    response_output.html = self._run(self.tab.get_content())
+                except Exception:
+                    pass
         finally:
             self.delete_cookies()
 

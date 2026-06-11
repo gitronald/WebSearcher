@@ -133,6 +133,15 @@ class SeleniumDriver:
 
         except Exception as e:
             self.log.exception(f"SERP | Chromedriver error | {str(e)}")
+            # Capture the live URL and whatever HTML rendered anyway -- a
+            # CAPTCHA challenge redirects to /sorry/ and never shows #search,
+            # so the redirect would otherwise be discarded with the timeout.
+            if self.driver is not None:
+                try:
+                    response_output.url = self.driver.current_url
+                    response_output.html = self.driver.page_source
+                except Exception:
+                    pass
         finally:
             self.delete_cookies()
 
