@@ -303,8 +303,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Christina DiStefano",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 14, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/vmogZcl8Qj4/hqdefault.jpg",
+        "title": "This Art Deco Tower Changed How I See Luxury Living | House of DiStefano",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 21,
@@ -488,7 +493,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "Roaming Benji",
+        "publish_date": "Feb 16, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9M9doMVcQVhkq_uQ_mRXPayURIqpxIbK6r4MIvqUE3IaZCw&s",
+        "title": "Art Deco architecture in the heart of Los Angeles ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 2,
@@ -527,7 +539,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "Honest Travel Network",
+        "publish_date": "May 7, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXj9N0RpbI3IVXQ3wbjfxBc8Jgp2q1N9V_hQ-b34HHpYMpeQ&s",
+        "title": "Architectural History: Art Deco Explained",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 5,
@@ -566,7 +585,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "Tulsa Films",
+        "publish_date": "Aug 8, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRRkffhg7prhekMe1ZZ-sRsWoS5YmqdfhLX3MstRNTIDlO0Q&s",
+        "title": "Surprising Art Deco Architecture Buildings in a Midwest USA ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 8,

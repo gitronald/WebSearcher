@@ -110,8 +110,13 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "channel": "Tech With Tim",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 20, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/zsPD9aohymw/hqdefault.jpg",
+        "title": "The Only Programming Languages Worth Learning in 2026",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 5,
@@ -158,8 +163,13 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "channel": "CodeWithHarry",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/9UNIK5wIKBU/hqdefault.jpg",
+        "title": "Top 5 Programming Languages to learn in 2026! (Important)",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 8,
@@ -238,8 +248,13 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "channel": "Technical Suneja",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 12, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/xqI_6fnNU_c/hqdefault.jpg",
+        "title": "YouTube",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 13,
@@ -286,8 +301,13 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
+        "channel": "Stefan Mischook",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 14, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/MaJVlbBc9ro/hqdefault.jpg",
+        "title": "What Programming Language to Learn in 2026",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 16,
