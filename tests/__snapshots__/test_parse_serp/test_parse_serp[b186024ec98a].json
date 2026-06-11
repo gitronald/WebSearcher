@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Doctor Zhivago",
-        "img_url": null,
         "subtitle": "1965 ‧ Romance/War ‧ 3h 17m",
         "tabs": [
           "Overview",
@@ -58,7 +57,6 @@
       "cmpt_rank": 2,
       "details": {
         "heading": "Cast",
-        "img_url": null,
         "items": [
           "Julie Christie",
           "Omar Sharif",
@@ -68,8 +66,7 @@
           "Alec Guinness",
           "Rita Tushingham"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 2,
@@ -184,7 +181,6 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "Based on the book",
-        "img_url": null,
         "type": "panel",
         "urls": [
           {
@@ -341,13 +337,11 @@
       "cmpt_rank": 14,
       "details": {
         "heading": "Reviews",
-        "img_url": null,
         "items": [
           "Audience rating summary",
           "Audience reviews"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 21,

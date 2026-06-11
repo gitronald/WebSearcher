@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Roger Ebert",
-        "img_url": null,
         "subtitle": "American film critic",
         "tabs": [
           "Overview",
@@ -41,9 +40,7 @@
       "cmpt_rank": 1,
       "details": {
         "heading": "Books",
-        "img_url": null,
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 1,

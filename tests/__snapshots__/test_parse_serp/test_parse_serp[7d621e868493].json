@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Oscar the Grouch",
-        "img_url": null,
         "subtitle": "Muppet character",
         "tabs": [
           "Overview",
@@ -286,7 +285,6 @@
       "cmpt_rank": 10,
       "details": {
         "heading": "Movies",
-        "img_url": null,
         "items": [
           "The Adventures of Elmo in Grouchland",
           "Sesame Street Presents: Follow That Bird",
@@ -296,8 +294,7 @@
           "The Great Muppet Caper",
           "Night at the Museum: Battle of the Smithsonian"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 18,
@@ -380,13 +377,11 @@
       "cmpt_rank": 13,
       "details": {
         "heading": "Played by",
-        "img_url": null,
         "items": [
           "Caroll Spinney",
           "Eric Jacobson"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 21,

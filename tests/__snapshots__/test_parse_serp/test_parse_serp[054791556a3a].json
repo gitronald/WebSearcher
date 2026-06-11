@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Mater",
-        "img_url": null,
         "subtitle": "Film character",
         "tabs": [
           "Overview",
@@ -215,7 +214,6 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "Movies",
-        "img_url": null,
         "items": [
           "Cars",
           "Cars 2",
@@ -224,8 +222,7 @@
           "Mater and the Ghostlight",
           "Cars Toon: Hiccups"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 13,

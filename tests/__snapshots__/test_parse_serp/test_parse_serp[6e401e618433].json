@@ -153,10 +153,8 @@
       "cmpt_rank": 1,
       "details": {
         "heading": "Choose what you’re giving feedback on",
-        "img_url": null,
         "text": "Choose what you’re giving feedback on|Flights to New York|About this result|Send feedback|Flights|Flights|Flights|Airports|Airports|Airports|Flight Status|Flight Status|Flight Status",
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 4,
