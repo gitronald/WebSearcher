@@ -63,6 +63,16 @@ def test_parse_evlb_card_skips_stub_before_populated_card():
     assert fields["channel"] == "Robservatory"
 
 
+def test_parse_evlb_card_thumbnail_only_stub_is_skipped():
+    # A stub shipping only a lazy-load placeholder img must not count as
+    # populated -- it would otherwise shadow the real card behind it.
+    stub = '<div id="evlb_stub"><img class="aLL3sb" src="data:image/gif;base64,R0"></div>'
+    fields = parse_evlb_card(_node(f"{stub}{CARD_HTML}"))
+    assert fields is not None
+    assert fields["channel"] == "Robservatory"
+    assert parse_evlb_card(_node(stub)) is None
+
+
 # --- evlb_fields_by_tile: wrapper association stays inside the component ----
 
 
@@ -95,18 +105,34 @@ def test_fields_by_tile_skips_ambiguous_wrapper():
     assert evlb_fields_by_tile(root, root.css("a.rIRoqf")) == {}
 
 
+def test_fields_by_tile_skips_wrapper_with_multiple_cards():
+    # A wide wrapper holding one qualifying tile but several videos' cards
+    # (the other anchors filtered out by the caller) cannot say which card
+    # belongs to the tile.
+    card2 = CARD_HTML.replace("evlb_abc", "evlb_def").replace("Robservatory", "OtherChannel")
+    root = _node(
+        f'<div class="WVV5ke"><a class="rIRoqf" href="http://v1">tile</a>{CARD_HTML}{card2}</div>'
+    )
+    assert evlb_fields_by_tile(root, root.css("a.rIRoqf")) == {}
+
+
 # --- fixture corpus: end-to-end enrichment ----------------------------------
 
 
+CORPUS_QUERIES = {"@nasa", "northern lights", "art deco architecture"}
+
+
 @pytest.fixture(scope="module")
-def northern_lights_results() -> list[dict]:
+def corpus_results() -> list[tuple[str, list[dict]]]:
+    """Parsed results for the card-bearing fixture SERPs, one parse per record."""
     with bz2.open(SERPS_PATH, "rt") as f:
-        rec = next(r for line in f if (r := orjson.loads(line))["qry"] == "northern lights")
-    return ws.parse_serp(rec["html"])["results"]
+        records = [r for line in f if (r := orjson.loads(line))["qry"] in CORPUS_QUERIES]
+    return [(rec["qry"], ws.parse_serp(rec["html"])["results"]) for rec in records]
 
 
-def test_videos_carousel_details_enriched(northern_lights_results):
-    videos = [r for r in northern_lights_results if r["type"] == "videos"]
+def test_videos_carousel_details_enriched(corpus_results):
+    results = next(res for qry, res in corpus_results if qry == "northern lights")
+    videos = [r for r in results if r["type"] == "videos"]
     assert len(videos) == 3
     for r in videos:
         details = r["details"]
@@ -118,16 +144,13 @@ def test_videos_carousel_details_enriched(northern_lights_results):
     assert channels == {"GeologyHub", "Late Night Astronomy", "Robservatory"}
 
 
-def test_enriched_thumbnail_matches_row_video_id():
+def test_enriched_thumbnail_matches_row_video_id(corpus_results):
     """Attribution invariant: for YouTube rows with a ytimg thumbnail, the
     video id embedded in the card's thumbnail must match the row URL's id --
     a mismatch would mean a card was pulled from a different result."""
-    queries = {"@nasa", "northern lights", "art deco architecture"}
     checked = 0
-    with bz2.open(SERPS_PATH, "rt") as f:
-        records = [r for line in f if (r := orjson.loads(line))["qry"] in queries]
-    for rec in records:
-        for r in ws.parse_serp(rec["html"])["results"]:
+    for _qry, results in corpus_results:
+        for r in results:
             d = r.get("details")
             url = r.get("url") or ""
             if not (isinstance(d, dict) and d.get("type") == "video"):

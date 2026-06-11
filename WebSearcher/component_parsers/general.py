@@ -263,8 +263,7 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
     fields = parse_evlb_card(sub) or {}
     # Duration only exists on the visible tile's overlay (older layouts), never
     # in the hidden card -- keep its selector as a merged legacy path.
-    duration_el = sub.css_first(".JIv15d")
-    duration = get_text(duration_el, strip=True) if duration_el is not None else None
+    duration = get_text(sub.css_first(".JIv15d"), strip=True)
     if duration:
         fields["duration"] = duration
     return {
