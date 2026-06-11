@@ -19,6 +19,20 @@ log = logger.Logger().start(__name__)
 
 GEOTARGETS_URL = "https://developers.google.com/adwords/api/docs/appendix/geotargeting"
 
+# Upstream header, unchanged 2018 -> 2026 across the seeded archive; drift
+# means the schema consumers rely on has moved, so fail loudly.
+GEOTARGETS_HEADER = [
+    "Criteria ID",
+    "Name",
+    "Canonical Name",
+    "Parent ID",
+    "Country Code",
+    "Target Type",
+    "Status",
+]
+
+REQUEST_TIMEOUT = 60  # seconds per socket read; unattended cron must not hang
+
 
 def convert_canonical_name_to_uule(canon_name: str) -> str:
     """
@@ -118,14 +132,7 @@ def download_locations(
         print(f"Version up to date: {fp_unzip}")
     else:
         print("Version out of date")
-        print(f"getting: {url_latest}")
-        response = requests.get(url_latest)
-        response.raise_for_status()
-
-        if fp.suffix == ".zip":
-            save_zip_response(response, str(fp_unzip))
-        else:
-            write_csv(str(fp_unzip), normalize_csv_text(response.content.decode("utf-8")))
+        download_csv(url_latest, fp_unzip)
 
 
 def update_locations_file(
@@ -159,27 +166,38 @@ def update_locations_file(
         print(f"Version up to date: {filename}")
         return None
 
-    print(f"getting: {url_latest}")
-    response = requests.get(url_latest)
-    response.raise_for_status()
-
     fp.parent.mkdir(parents=True, exist_ok=True)
-    if url_latest.endswith(".zip"):
-        save_zip_response(response, str(fp))
-    else:
-        write_csv(str(fp), normalize_csv_text(response.content.decode("utf-8")))
+    download_csv(url_latest, fp)
+    check_geotargets_header(fp)
 
     date_collected = datetime.now(UTC).date().isoformat()
     append_ledger_row(ledger_fp, date_collected=date_collected, filename=filename)
     return filename
 
 
+def download_csv(url_latest: str, fp: str | Path) -> None:
+    """Fetch a geotargets CSV URL (plain or zipped) and write it to ``fp``."""
+    print(f"getting: {url_latest}")
+    response = requests.get(url_latest, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+
+    if url_latest.endswith(".zip"):
+        save_zip_response(response, str(fp))
+    else:
+        write_csv(str(fp), normalize_csv_text(response.content.decode("utf-8")))
+
+
+def check_geotargets_header(fp: str | Path) -> None:
+    """Raise if the downloaded CSV's header drifted from the known schema."""
+    with open(fp, encoding="utf-8", newline="") as infile:
+        header = next(csv.reader(infile), None)
+    if header != GEOTARGETS_HEADER:
+        raise ValueError(f"geotargets header drift: {header} != {GEOTARGETS_HEADER}")
+
+
 def normalize_csv_text(text: str) -> list[list[str]]:
     """Round-trip raw CSV text through the csv module for stable output bytes."""
-    lines = text.split("\n")
-    if lines and lines[-1] in ("", "\r"):  # trailing newline is not an empty row
-        lines.pop()
-    return list(csv.reader(lines, delimiter=","))
+    return list(csv.reader(io.StringIO(text, newline=""), delimiter=","))
 
 
 def read_ledger_last_filename(ledger_fp: str | Path) -> str | None:
@@ -204,7 +222,7 @@ def append_ledger_row(ledger_fp: str | Path, date_collected: str, filename: str)
 
 
 def get_latest_url(url: str) -> str:
-    html = requests.get(url).content
+    html = requests.get(url, timeout=REQUEST_TIMEOUT).content
     soup = utils.make_soup(html)
     links = utils.get_link_list(soup) or []
     url_list = [u for u in links if u]

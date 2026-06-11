@@ -24,8 +24,8 @@ jobs:
       - name: Read pulled release name
         id: ledger
         run: |
-          filename=$(tail -1 data/locations/ledger.csv | cut -d, -f2 | tr -d '\r')
-          echo "release=${filename%.csv}" >> "$GITHUB_OUTPUT"
+          release=$(uv run --no-dev python -c "import csv; print(list(csv.reader(open('data/locations/ledger.csv', newline='')))[-1][1].removesuffix('.csv'))")
+          echo "release=$release" >> "$GITHUB_OUTPUT"
 
       # No-op when the update was skipped (working tree unchanged).
       - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1

@@ -4,12 +4,15 @@ import csv
 import io
 import zipfile
 
+import pytest
+
 import WebSearcher.locations as locations
 from WebSearcher.locations import (
     append_ledger_row,
     convert_canonical_name_to_uule,
     decode_protobuf_string,
     encode_protobuf_string,
+    normalize_csv_text,
     read_ledger_last_filename,
     update_locations_file,
 )
@@ -93,7 +96,7 @@ def mock_upstream(monkeypatch, url_latest: str, content: bytes) -> list[str]:
     download_calls = []
     monkeypatch.setattr(locations, "get_latest_url", lambda url: url_latest)
 
-    def fake_get(url):
+    def fake_get(url, timeout=None):
         download_calls.append(url)
         return FakeResponse(content)
 
@@ -194,3 +197,24 @@ def test_update_zip_variant(tmp_path, monkeypatch):
     assert pulled == "geotargets-2026-02-25.csv"  # .zip suffix stripped
     assert fp.read_bytes() == CSV_TEXT.encode("utf-8")
     assert read_ledger_last_filename(ledger_fp) == "geotargets-2026-02-25.csv"
+
+
+def test_update_rejects_header_drift(tmp_path, monkeypatch):
+    drifted = CSV_TEXT.replace("Criteria ID", "Criterion ID")
+    mock_upstream(
+        monkeypatch,
+        "https://developers.google.com/geotargets-2026-02-25.csv",
+        drifted.encode("utf-8"),
+    )
+    fp = tmp_path / "geotargets.csv"
+    ledger_fp = tmp_path / "ledger.csv"
+
+    with pytest.raises(ValueError, match="header drift"):
+        update_locations_file(fp=fp, ledger_fp=ledger_fp)
+
+    assert not ledger_fp.exists()  # failed pull is not recorded; next run retries
+
+
+def test_normalize_csv_text_preserves_quoted_newlines():
+    text = 'a,"line1\nline2"\r\nb,c\r\n'
+    assert normalize_csv_text(text) == [["a", "line1\nline2"], ["b", "c"]]
