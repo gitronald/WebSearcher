@@ -142,8 +142,11 @@ class SearchEngine:
     # Parsing
 
     def parse_serp(self):
+        # Reset first: a swallowed parse error must not leave the previous
+        # query's parse (and its captcha feature) attributed to this one.
+        self.parsed = ParsedSERP()
         try:
-            parsed = parsers.parse_serp(self.serp["html"])
+            parsed = parsers.parse_serp(self.serp["html"], url=self.serp["url"])
             self.parsed = ParsedSERP(
                 crawl_id=self.serp["crawl_id"],
                 serp_id=self.serp["serp_id"],

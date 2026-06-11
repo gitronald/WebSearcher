@@ -1,6 +1,7 @@
 """Test SERP parsing pipeline end-to-end"""
 
 import bz2
+import functools
 from pathlib import Path
 
 import orjson
@@ -32,8 +33,10 @@ def load_serps(path: Path) -> list[dict]:
         return [orjson.loads(line) for line in f]
 
 
+@functools.cache
 def load_all_serps() -> list[dict]:
-    """Load SERP records from all fixture files"""
+    """Load SERP records from all fixture files (cached: the corpus decompress
+    is ~2s and the records are already held for the session by parametrization)"""
     records = []
     for path in SERPS_PATHS:
         records.extend(load_serps(path))
@@ -178,6 +181,22 @@ def test_field_types(all_results):
         assert r["cite"] is None or isinstance(r["cite"], str)
         assert r["details"] is None or isinstance(r["details"], dict)
         assert _row_error(r) is None or isinstance(_row_error(r), str)
+
+
+def test_parse_serp_sorry_redirect_url_flags_captcha():
+    """A /sorry/ redirect URL flags captcha end-to-end, even with empty HTML
+    (the browser backends' #search wait times out before capture)."""
+    sorry_url = "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dtest&q=REDACTED_TOKEN"
+    parsed = ws.parse_serp("", url=sorry_url)
+    assert parsed["features"]["captcha"] is True
+
+
+def test_corpus_urls_not_sorry_redirects():
+    """No fixture SERP URL false-positives as a /sorry/ redirect."""
+    from WebSearcher import utils
+
+    for record in load_all_serps():
+        assert utils.is_sorry_redirect(record["url"]) is False
 
 
 def test_features_expose_main_layout(all_parsed_serps):

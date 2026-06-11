@@ -51,6 +51,8 @@ class RequestsSearcher:
 
         try:
             response = self.sesh.get(search_params.url, timeout=10)
+            # Final URL after redirects -- a /sorry/ target marks a CAPTCHA block
+            response_output.url = response.url
             response_output.html = self._handle_response_content(response)
             response_output.response_code = response.status_code
         except requests.exceptions.ConnectionError:

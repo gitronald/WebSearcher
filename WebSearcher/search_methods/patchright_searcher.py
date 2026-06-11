@@ -92,14 +92,18 @@ class PatchrightSearcher:
             timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
+        pre_nav_url: str | None = None
         try:
+            pre_nav_url = self.page.url
             response = self.page.goto(search_params.url, wait_until="domcontentloaded")
+            # Record the status before the #search wait so a blocked request
+            # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
+            response_output.response_code = response.status if response else 200
             time.sleep(2)
             self.page.wait_for_selector("#search", timeout=10_000)
             time.sleep(2)
             response_output.html = self.page.content()
             response_output.url = self.page.url
-            response_output.response_code = response.status if response else 200
 
             # Expand AI overview if requested
             if search_params.ai_expand:
@@ -110,7 +114,20 @@ class PatchrightSearcher:
                     response_output.html = expanded_html
 
         except Exception as e:
-            self.log.exception(f"SERP | Patchright error | {str(e)}")
+            self.log.exception(f"SERP | {self.driver_name} error | {str(e)}")
+            # Capture the live URL and whatever HTML rendered anyway -- a
+            # CAPTCHA challenge redirects to /sorry/ and never shows #search,
+            # so the redirect would otherwise be discarded with the timeout.
+            # Only when the URL moved off the pre-navigation page: a failure
+            # before navigation would otherwise record the previous query's SERP.
+            if self.page is not None and pre_nav_url is not None:
+                try:
+                    live_url = self.page.url
+                    if live_url and live_url != pre_nav_url:
+                        response_output.url = live_url
+                        response_output.html = self.page.content()
+                except Exception:
+                    pass
         finally:
             self.delete_cookies()
 

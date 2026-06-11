@@ -1,5 +1,7 @@
 """Tests for SERP feature extraction"""
 
+from pathlib import Path
+
 from WebSearcher.extractors.extractor_serp_features import FeatureExtractor
 
 
@@ -118,6 +120,29 @@ def test_captcha_absent():
     html = make_html("<div>Normal page</div>")
     features = FeatureExtractor.extract_features(html)
     assert features.captcha is False
+
+
+SORRY_URL = "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dtest&q=REDACTED_TOKEN"
+
+
+def test_captcha_from_sorry_redirect_url():
+    # The redirect URL alone flags a CAPTCHA -- the wait timeout can leave the
+    # captured HTML empty, so the text marker is not always present.
+    features = FeatureExtractor.extract_features("", url=SORRY_URL)
+    assert features.captcha is True
+
+
+def test_captcha_clean_html_normal_url():
+    html = make_html("<div>Normal page</div>")
+    features = FeatureExtractor.extract_features(html, url="https://www.google.com/search?q=test")
+    assert features.captcha is False
+
+
+def test_captcha_sorry_fixture_html():
+    # No url passed: the fixture's page text alone must trip the HTML path.
+    fp = Path(__file__).parent / "fixtures" / "sorry_index.html"
+    features = FeatureExtractor.extract_features(fp.read_text())
+    assert features.captcha is True
 
 
 # Location overlay -------------------------------------------------------------

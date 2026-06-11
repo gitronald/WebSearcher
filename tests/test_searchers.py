@@ -99,6 +99,27 @@ def test_save_record_requires_append_to(tmp_path):
     assert list(tmp_path.iterdir()) == []
 
 
+def test_parse_serp_resets_stale_parse_on_error():
+    # A parse failure must not leave the previous query's parse (and its
+    # captcha feature) attributed to the current one.
+    se = make_engine({**SERP, "html": None}, PARSED)  # None html -> parse raises
+    se.parse_serp()
+    assert se.parsed.features == {}
+    assert se.parsed.results == []
+
+
+def test_parse_serp_threads_serp_url():
+    # The stored response URL feeds the captcha feature (sorry-redirect signal).
+    sorry_serp = {
+        **SERP,
+        "html": "<html><body>blocked</body></html>",
+        "url": "https://www.google.com/sorry/index?continue=x",
+    }
+    se = make_engine(sorry_serp, ParsedSERP())
+    se.parse_serp()
+    assert se.parsed.features["captcha"] is True
+
+
 def test_save_record_writes_metadata_only_line_when_unparsed(tmp_path):
     # Error/unparsed path: empty ParsedSERP still yields a metadata row
     # (save_parsed would skip it; save_record must not, for row uniformity).
