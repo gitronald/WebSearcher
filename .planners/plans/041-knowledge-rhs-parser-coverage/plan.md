@@ -1,10 +1,10 @@
 ---
 id: 41
 slug: knowledge-rhs-parser-coverage
-status: active
+status: done
 branch: feature/v0.10.0-knowledge-rhs-coverage
 created: 2026-06-06T01:27:30-07:00
-concluded:
+concluded: 2026-06-10T18:45:36-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/168
 ---
 
@@ -232,3 +232,42 @@ with details (was 37).
   branch is byte-identical (no corpus `Uo8X3b` panel carries `kc:/` rows).
 - `_parse_visual_digest` facts keep their `{"kind": "fact", label, value}`
   shape (witnessed + snapshot-pinned; semantic-typing them would be churn).
+
+### 2026-06-10 — Review follow-up (close gate)
+
+Ran `/code-review` at high effort over `feature/v0.10.0...HEAD` (3 correctness
++ 3 cleanup + 1 altitude finder angles, per-claim verification), posted to PR
+#168. **Zero correctness findings.** Cleanup/altitude candidates all disposed
+as conscious no-ops: the `_under_any` / VisualDigest walk dedup is deferred to
+plan 044 (shared document-walk altitude); the `parse_alink` reuse and
+climb-helper suggestions were refuted on the facts (different output shapes /
+different predicates); the micro-efficiency and heuristic-fragility items are
+negligible at RHS scale or consistent with the file's existing idiom and
+pinned by tests. No post-review code changes. Gate: 507 passed, 87 snapshots,
+ruff + pyrefly clean.
+
+## Retrospective
+
+- **045 did the design work for this plan.** Re-grounding the draft against
+  the two-tier schema before coding turned the spec's open questions
+  (always-emit vs `None`, `details.type="text"` shapes) into settled
+  constraints — label/value went to core `title`/`text` and the planned
+  text-items shape was never needed. Refreshing a stale plan against shipped
+  decisions before implementing was cheaper than designing around them after.
+- **The line-by-line snapshot-diff review caught a real data loss** the test
+  suite didn't: consuming a single-fact box's heading dropped provider links
+  sitting outside the kc:/ row. The fix (merge box-outside links into the
+  fact row) came with a corpus-wide no-link-loss invariant check — worth
+  reusing on future parser restructures (cheap to write, catches what
+  snapshots normalize away).
+- **Plan evidence drifts.** The draft's counts (9 fact-row queries, "missing"
+  box titles) were partly stale or already handled (`lab/title` topics
+  predated the plan); per-component re-verification at activation kept the
+  scope honest. Matches the standing verify-plan-evidence-counts practice.
+- **Coverage gaps can be classifier gaps.** The "apple inc" RHS never reaches
+  the parser at all — no parser change can fix it. Logged as potential
+  follow-up work rather than stretched into this plan.
+- **The corpus-unwitnessed branches were the riskiest edits** (img-brk,
+  dictionary legacy, expander topics); synthetic pins before migration made
+  the only-when-informative sweep reviewable as an exactly-bounded snapshot
+  diff (53+10+6+1 null-fill removals, 4 verified-duplicate drops).
