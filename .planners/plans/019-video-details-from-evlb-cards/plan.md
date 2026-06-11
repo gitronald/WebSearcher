@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.10.0-evlb-video-details
 created: 2026-05-10T12:31:46-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/167
 ---
 
 # Enrich video details from hidden `evlb_*` "About this result" cards
@@ -160,5 +160,38 @@ for c in ex.components:
     if n: print(c.type, n)
 "
 ```
+
+### 2026-06-10 — implementation
+
+Branch `feature/v0.10.0-evlb-video-details` off `feature/v0.10.0`; draft PR
+opened. Commits: `add video details from hidden evlb cards`, `add video card
+tests and update snapshots`.
+
+- New `WebSearcher/component_parsers/_video_card.py` with `parse_evlb_card`
+  (selectolax port of the bs4 sketch; iterates cards in scope and returns the
+  first that yields a field, so an empty stub before a populated card cannot
+  shadow it). Returns fields only; callers write the literal
+  `{"type": "video", **fields}` at the call site.
+- Wired into `parse_general_video` (`general.py`) and `parse_video`
+  (`videos.py`; content details set before `mark_timestamp_row` /
+  `mark_hidden_row` so timestamp/visible ride as sibling keys).
+- **Deviation from step 4:** the plan claimed both legacy selectors were dead,
+  but snapshot diffs showed `.JIv15d` (duration) still fires on 18 rows from
+  older SERPs in the fixture corpus — the plan's own removal gate ("once the
+  new path covers the same fields") is unmet for `duration`, so the selector
+  stays as a merged fallback in `parse_general_video`. Only `.gqF9jc` (source,
+  0 hits corpus-wide) was dropped. Net effect on legacy rows: they keep
+  `duration` and lose only the hollow `source: null` key.
+- `demos/show.py` video summary now renders source · channel · publish_date.
+- 44 video rows enriched across 28 snapshot files; full suite 482 passed,
+  ruff and pyrefly clean. Demo capture (`data/demo-ws-v0.10.0a0/serps.json`):
+  the only 2 video rows present are both fully enriched.
+- Step 5 (perspectives/top_stories wiring) not done: populated cards also sit
+  in `perspectives`, `short_videos`, `people_also_ask`, and `knowledge`
+  components corpus-wide — broader than the plan scoped; left for a follow-up
+  measure-first pass.
+- Step 7 is moot: the legacy `TODO.md` was retired in the `.planners/`
+  migration, so this plan is itself the tracking item for the stale-selector
+  TODO.
 
 ## Retrospective
