@@ -38,3 +38,26 @@ def parse_evlb_card(scope: Node) -> dict | None:
         if fields:
             return fields
     return None
+
+
+def evlb_fields_by_tile(root: Node, tiles: list[Node]) -> dict[int, dict]:
+    """Card fields keyed by tile ``mem_id``, for tiles whose card sits BESIDE
+    them (e.g. ``short_videos`` anchors) in a per-video wrapper
+    (``div.WVV5ke``) rather than inside.
+
+    The wrapper search is scoped to ``root`` (the component element) so a card
+    can never be borrowed from a neighboring component, and a wrapper only
+    pairs with a tile when it contains exactly one of the given tiles -- an
+    ambiguous wrapper (e.g. one wrapping a whole carousel) contributes
+    nothing. Nested qualifying wrappers resolve to the innermost (document
+    order: outer first, inner overwrites)."""
+    tile_ids = {t.mem_id for t in tiles}
+    fields_by_tile: dict[int, dict] = {}
+    for wrapper in root.css("div.WVV5ke"):
+        inside = [n.mem_id for n in wrapper.css("*") if n.mem_id in tile_ids]
+        if len(inside) != 1:
+            continue
+        fields = parse_evlb_card(wrapper)
+        if fields:
+            fields_by_tile[inside[0]] = fields
+    return fields_by_tile
