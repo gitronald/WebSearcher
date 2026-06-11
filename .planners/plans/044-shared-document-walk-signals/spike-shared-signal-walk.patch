@@ -1,0 +1,291 @@
+diff --git a/WebSearcher/_slx.py b/WebSearcher/_slx.py
+index a226102..43c144c 100644
+--- a/WebSearcher/_slx.py
++++ b/WebSearcher/_slx.py
+@@ -199,6 +199,27 @@ def walk_descendants(node: Node) -> Iterator[Node]:
+     return (n for n in node.css("*") if n.mem_id != self_id)
+ 
+ 
++def last_descendant(elem: Node) -> Node:
++    """The last element of ``elem.css('*')`` (self + descendants, pre-order)
++    without materializing the whole subtree.
++
++    The last node a pre-order walk visits is reached by repeatedly descending to
++    the last *element* child (selectolax pseudo-nodes -- text/comment -- carry a
++    ``-``-prefixed or empty tag and are excluded from ``css('*')``, so they are
++    skipped here too). Returns ``elem`` itself when it has no element children,
++    matching ``elem.css('*')[-1]`` for a leaf.
++    """
++    node = elem
++    while True:
++        last: Node | None = None
++        for ch in node.iter(include_text=False):
++            if ch.tag and not ch.tag.startswith("-"):
++                last = ch
++        if last is None:
++            return node
++        node = last
++
++
+ def is_hidden(node: Node | None) -> bool:
+     """True if ``node`` or any ancestor has an inline ``style`` containing
+     ``display:none`` (whitespace-tolerant).
+diff --git a/WebSearcher/classifiers/footer.py b/WebSearcher/classifiers/footer.py
+index a3a72a0..c0863d4 100644
+--- a/WebSearcher/classifiers/footer.py
++++ b/WebSearcher/classifiers/footer.py
+@@ -1,12 +1,12 @@
+ from selectolax.lexbor import LexborNode as Node
+ 
+ from .._slx import class_tokens, get_text
+-from .main import ClassifyMain
++from .main import ClassifyMain, SignalIndex
+ 
+ 
+ class ClassifyFooter:
+     @staticmethod
+-    def classify(cmpt: Node) -> str:
++    def classify(cmpt: Node, signal_index: SignalIndex | None = None) -> str:
+         node: Node = cmpt
+         attrs = node.attributes
+         layout_conditions = [
+@@ -34,7 +34,7 @@ class ClassifyFooter:
+ 
+         # Fall back to main classifier
+         if cmpt_type == "unknown":
+-            cmpt_type = ClassifyMain.classify(node)
++            cmpt_type = ClassifyMain.classify(node, signal_index)
+ 
+         return cmpt_type
+ 
+diff --git a/WebSearcher/classifiers/main.py b/WebSearcher/classifiers/main.py
+index 84bc8f6..a0a6904 100644
+--- a/WebSearcher/classifiers/main.py
++++ b/WebSearcher/classifiers/main.py
+@@ -1,9 +1,10 @@
++from collections.abc import Iterable
+ from typing import Any
+ 
+ from selectolax.lexbor import LexborNode as Node
+ 
+ from .. import logger
+-from .._slx import _iter_text_fragments, class_tokens, get_text
++from .._slx import _iter_text_fragments, class_tokens, get_text, last_descendant
+ from ..component_types import header_text_to_type
+ 
+ log = logger.Logger().start(__name__)
+@@ -55,7 +56,9 @@ class _ComponentSignals:
+ 
+     __slots__ = ("classes", "ids", "names")
+ 
+-    def __init__(self, cmpt: Node) -> None:
++    def __init__(self, elements: Iterable[Node]) -> None:
++        """Build the signal sets from ``elements`` -- a component subtree in
++        pre-order (``cmpt.css('*')``, or the equivalent ``SignalIndex`` slice)."""
+         classes: set[str] = set()
+         ids: set[str] = set()
+         names: set[str] = set()
+@@ -65,7 +68,7 @@ class _ComponentSignals:
+         # The leading truthiness guard narrows ``str | None`` -> ``str`` for the
+         # type checker and short-circuits the (common) no-id element before the
+         # membership test; only interest-set tokens reach ``set.add``.
+-        for el in cmpt.css("*"):
++        for el in elements:
+             name = el.tag
+             if name and name in _NAME_SIGNALS:
+                 names.add(name)
+@@ -80,6 +83,54 @@ class _ComponentSignals:
+         self.names = names
+ 
+ 
++class SignalIndex:
++    """One shared document walk backing every component's ``_ComponentSignals``.
++
++    A subtree is a contiguous slice of the document's pre-order element list:
++    ``elements[start : end + 1]`` with ``start`` the root's position and ``end``
++    its last descendant's (right-spine descent, cf. ``reorder_by_dom_position``).
++    Slicing one materialized list per component replaces the per-component
++    ``cmpt.css('*')`` walks -- the same elements in the same order, so the
++    signal sets are identical by construction (plan 044).
++
++    The walk must be **post-extraction**: extraction restructures the tree
++    (the RHS handler detaches its column), so the extractor's pre-extraction
++    position snapshot over-spans -- verified empirically by the corpus
++    equivalence probe. Lazy: the walk runs on the first ``signals_for`` call,
++    so a SERP whose components are all pre-typed never pays it; only the
++    positions of the known component roots and their subtree ends are
++    recorded (a handful per SERP), not a full document position map. The
++    index is consumed during classification, before any parser mutates the
++    tree (``general`` top-menus and ``ai_overview`` buttons decompose nodes
++    -- see ``parse_serp``'s split classify/parse loops). A root missing from
++    the walk (e.g. a re-parsed fragment) falls back to its own subtree walk.
++    """
++
++    __slots__ = ("_elements", "_positions", "_roots", "_soup")
++
++    def __init__(self, soup: Node, roots: Iterable[Node]) -> None:
++        self._soup = soup
++        self._roots = roots
++        self._elements: list[Node] | None = None
++        self._positions: dict[int, int] = {}
++
++    def signals_for(self, cmpt: Node) -> _ComponentSignals:
++        if self._elements is None:
++            needed = set()
++            for root in self._roots:
++                needed.add(root.mem_id)
++                needed.add(last_descendant(root).mem_id)
++            self._elements = self._soup.css("*")
++            self._positions = {
++                m: i for i, el in enumerate(self._elements) if (m := el.mem_id) in needed
++            }
++        start = self._positions.get(cmpt.mem_id)
++        if start is None:
++            return _ComponentSignals(cmpt.css("*"))
++        end = self._positions.get(last_descendant(cmpt).mem_id, start)
++        return _ComponentSignals(self._elements[start : end + 1])
++
++
+ _HEADER_CSS_BY_LEVEL: dict[int, tuple[str, ...]] = {
+     level: (
+         f'h{level}[role="heading"]',
+@@ -131,9 +182,13 @@ class ClassifyMain:
+     """Classify a component from the main section based on its selectolax Node."""
+ 
+     @staticmethod
+-    def classify(cmpt) -> str:
++    def classify(cmpt, signal_index: SignalIndex | None = None) -> str:
+         node: Node = cmpt
+-        signals = _ComponentSignals(node)
++        signals = (
++            signal_index.signals_for(node)
++            if signal_index is not None
++            else _ComponentSignals(node.css("*"))
++        )
+ 
+         # Preconditions test ``s.classes`` freely, but any ``s.names``/``s.ids``
+         # token must also live in ``_NAME_SIGNALS``/``_ID_SIGNALS`` (see above) or
+diff --git a/WebSearcher/components.py b/WebSearcher/components.py
+index acc89ec..f858033 100644
+--- a/WebSearcher/components.py
++++ b/WebSearcher/components.py
+@@ -3,7 +3,7 @@ from collections.abc import Callable
+ 
+ from selectolax.lexbor import LexborNode as Node
+ 
+-from ._slx import get_text
++from ._slx import get_text, last_descendant
+ from .classifiers import ClassifyFooter, ClassifyMain
+ from .component_parsers import (
+     footer_parser_dict,
+@@ -25,27 +25,6 @@ from .models.data import (
+ log = Logger().start(__name__)
+ 
+ 
+-def _last_descendant(elem: Node) -> Node:
+-    """The last element of ``elem.css('*')`` (self + descendants, pre-order)
+-    without materializing the whole subtree.
+-
+-    The last node a pre-order walk visits is reached by repeatedly descending to
+-    the last *element* child (selectolax pseudo-nodes -- text/comment -- carry a
+-    ``-``-prefixed or empty tag and are excluded from ``css('*')``, so they are
+-    skipped here too). Returns ``elem`` itself when it has no element children,
+-    matching ``elem.css('*')[-1]`` for a leaf.
+-    """
+-    node = elem
+-    while True:
+-        last: Node | None = None
+-        for ch in node.iter(include_text=False):
+-            if ch.tag and not ch.tag.startswith("-"):
+-                last = ch
+-        if last is None:
+-            return node
+-        node = last
+-
+-
+ class Component:
+     """A SERP component extracted from HTML"""
+ 
+@@ -76,16 +55,18 @@ class Component:
+     def to_dict(self) -> dict:
+         return self.__dict__
+ 
+-    def classify_component(self, classify_type_func: Callable | None = None):
++    def classify_component(
++        self, classify_type_func: Callable | None = None, signal_index=None
++    ):
+         """Classify the component type"""
+         if classify_type_func:
+             self.type = classify_type_func(self.elem)
+         else:
+             if self.type == "unknown":
+                 if self.section == "main":
+-                    self.type = ClassifyMain.classify(self.elem)
++                    self.type = ClassifyMain.classify(self.elem, signal_index)
+                 elif self.section == "footer":
+-                    self.type = ClassifyFooter.classify(self.elem)
++                    self.type = ClassifyFooter.classify(self.elem, signal_index)
+ 
+     def select_parser(self, parser_type_func: Callable | None = None) -> Callable | None:
+         """Return the parser for this component, or ``None`` if the (known)
+@@ -186,7 +167,7 @@ class ComponentList:
+ 
+         ``positions`` maps ``mem_id -> pre-order index`` for every element in
+         the document. End ranges for main components are derived on demand from
+-        the last descendant (``_last_descendant``, the last node a pre-order walk
++        the last descendant (``last_descendant``, the last node a pre-order walk
+         of the subtree visits -- its index is the end of the subtree). When a
+         component's range contains another component's start, the ancestor's
+         effective position shifts to the first direct child positioned after the
+@@ -202,7 +183,7 @@ class ComponentList:
+             # The last descendant's index is the end of the subtree. Find it via
+             # a right-spine descent rather than materializing the whole subtree
+             # (``elem.css('*')``) only to read its last entry.
+-            end = positions.get(_last_descendant(elem).mem_id, start)
++            end = positions.get(last_descendant(elem).mem_id, start)
+             return start, end
+ 
+         ranges = {id(c): _range(c.elem) for c in main_components}
+diff --git a/WebSearcher/parsers.py b/WebSearcher/parsers.py
+index e6a3050..4565590 100644
+--- a/WebSearcher/parsers.py
++++ b/WebSearcher/parsers.py
+@@ -1,6 +1,7 @@
+ from selectolax.lexbor import LexborNode as Node
+ 
+ from . import utils
++from .classifiers.main import SignalIndex
+ from .component_parsers.ai_overview import raw_serp_html
+ from .extractors import Extractor
+ from .extractors.extractor_serp_features import FeatureExtractor
+@@ -32,8 +33,19 @@ def parse_serp(serp: str | Node) -> dict:
+         extractor.extract_components()
+         component_list = extractor.components
+ 
++        # Classify every component before parsing any: classification reads
++        # the shared SignalIndex (one post-extraction document walk sliced
++        # per component), so it must finish while the tree is stable --
++        # parsers may decompose nodes (``general`` top-menus, ``ai_overview``
++        # buttons), which would leave the index holding destroyed elements.
++        signal_index = SignalIndex(
++            soup,
++            [c.elem for c in component_list if c.type == "unknown"],
++        )
++        for cmpt in component_list:
++            cmpt.classify_component(signal_index=signal_index)
++        del signal_index
+         for cmpt in component_list:
+-            cmpt.classify_component()
+             cmpt.parse_component()
+         results = component_list.export_component_results()
+     finally:
+diff --git a/tests/benchmarks/results.jsonl b/tests/benchmarks/results.jsonl
+index 8141444..38a969d 100644
+--- a/tests/benchmarks/results.jsonl
++++ b/tests/benchmarks/results.jsonl
+@@ -5,3 +5,5 @@
+ {"schema":1,"id":"20260611T004444Z_e4a187a","timestamp":"2026-06-11T00:44:44.846615+00:00","ws_version":"0.10.0a0","python":"3.14.3","fixtures":["serps.json.bz2"],"n_serps":87,"iterations":50,"git_sha":"e4a187a","git_branch":"feature/v0.10.0-evlb-video-details","git_dirty":true,"kind":"benchmark","runs":5,"per_serp_median_ms":14.4817,"per_serp_mad_ms":5.4266,"per_serp_min_ms":6.6168,"per_serp_p90_ms":30.5049,"per_serp_max_ms":40.6877,"corpus_total_median_ms":1493.0553,"corpus_total_mad_ms":9.797,"corpus_total_spread_ms":69.472,"noise_floor_pct":1.3123}
+ {"schema":1,"id":"20260611T005335Z_e1509b9","timestamp":"2026-06-11T00:53:35.640014+00:00","ws_version":"0.10.0a0","python":"3.14.3","fixtures":["serps.json.bz2"],"n_serps":87,"iterations":50,"git_sha":"e1509b9","git_branch":"feature/v0.10.0-evlb-video-details","git_dirty":false,"kind":"benchmark","runs":5,"per_serp_median_ms":14.5557,"per_serp_mad_ms":5.6014,"per_serp_min_ms":6.5913,"per_serp_p90_ms":30.5521,"per_serp_max_ms":41.294,"corpus_total_median_ms":1485.2381,"corpus_total_mad_ms":15.6565,"corpus_total_spread_ms":39.3423,"noise_floor_pct":2.1083}
+ {"schema":1,"id":"20260611T022500Z_98b1b68","timestamp":"2026-06-11T02:25:00.819548+00:00","ws_version":"0.10.0a0","python":"3.14.3","fixtures":["serps.json.bz2"],"n_serps":87,"iterations":50,"git_sha":"98b1b68","git_branch":"feature/v0.10.0","git_dirty":false,"kind":"profile","sort":"tottime","total_calls":56730201,"primitive_calls":56656751,"total_seconds":106.4382,"prof_path":"tests/benchmarks/profiles/20260611T022500Z_98b1b68.prof","top":[{"func":"_slx.py:85(make_soup)","ncalls":4350,"tottime":23.1039,"cumtime":23.107},{"func":"main.py:58(__init__)","ncalls":56950,"tottime":12.6386,"cumtime":15.0709},{"func":"_slx.py:47(_iter_text_fragments)","ncalls":1095450,"tottime":4.4809,"cumtime":7.1359},{"func":"extractor_serp_features.py:73(_extract_from_html)","ncalls":4350,"tottime":4.3471,"cumtime":6.9241},{"func":"__init__.py:33(_get_dom_positions)","ncalls":4350,"tottime":4.1667,"cumtime":4.1667},{"func":"_slx.py:100(get_text)","ncalls":760900,"tottime":3.4658,"cumtime":6.9748},{"func":"_slx.py:188(subtree_css)","ncalls":40200,"tottime":3.3491,"cumtime":3.3491},{"func":"main.py:112(_classify_header)","ncalls":98150,"tottime":3.0651,"cumtime":3.3714},{"func":"_ai_overview_payloads.py:61(_iter_payload_blobs)","ncalls":155450,"tottime":2.6391,"cumtime":3.7535},{"func":"~:0(<method 'search' of 're.Pattern' objects>)","ncalls":25000,"tottime":2.5521,"cumtime":2.5521},{"func":"extractor_main.py:607(is_valid)","ncalls":127300,"tottime":2.3135,"cumtime":4.5559},{"func":"utils.py:87(has_captcha)","ncalls":4350,"tottime":2.2914,"cumtime":2.2914},{"func":"main.py:385(knowledge_panel)","ncalls":42250,"tottime":2.2168,"cumtime":2.2168},{"func":"general.py:101(parse_subtype_details)","ncalls":35200,"tottime":1.789,"cumtime":1.9533},{"func":"extractor_main.py:363(extract_from_standard)","ncalls":4350,"tottime":1.6176,"cumtime":5.3168}]}
++{"schema":1,"id":"20260611T023528Z_4e9916b","timestamp":"2026-06-11T02:35:28.648133+00:00","ws_version":"0.10.0a0","python":"3.14.3","fixtures":["serps.json.bz2"],"n_serps":87,"iterations":50,"git_sha":"4e9916b","git_branch":"feature/v0.10.0-shared-signal-walk","git_dirty":true,"kind":"profile","sort":"tottime","total_calls":57690251,"primitive_calls":57616801,"total_seconds":99.1534,"prof_path":"tests/benchmarks/profiles/20260611T023528Z_4e9916b.prof","top":[{"func":"_slx.py:85(make_soup)","ncalls":4350,"tottime":21.6723,"cumtime":21.6755},{"func":"main.py:59(__init__)","ncalls":56950,"tottime":8.5043,"cumtime":10.5596},{"func":"extractor_serp_features.py:73(_extract_from_html)","ncalls":4350,"tottime":4.234,"cumtime":6.821},{"func":"__init__.py:33(_get_dom_positions)","ncalls":4350,"tottime":4.2247,"cumtime":4.2247},{"func":"_slx.py:47(_iter_text_fragments)","ncalls":1095450,"tottime":3.864,"cumtime":6.1169},{"func":"_slx.py:188(subtree_css)","ncalls":40200,"tottime":3.1958,"cumtime":3.1958},{"func":"_slx.py:100(get_text)","ncalls":760900,"tottime":3.1343,"cumtime":6.1726},{"func":"main.py:152(_classify_header)","ncalls":98150,"tottime":2.784,"cumtime":3.0484},{"func":"~:0(<method 'search' of 're.Pattern' objects>)","ncalls":25000,"tottime":2.5651,"cumtime":2.5651},{"func":"_ai_overview_payloads.py:61(_iter_payload_blobs)","ncalls":155450,"tottime":2.5362,"cumtime":3.4805},{"func":"main.py:110(signals_for)","ncalls":56950,"tottime":2.5235,"cumtime":13.7599},{"func":"utils.py:87(has_captcha)","ncalls":4350,"tottime":2.3066,"cumtime":2.3066}]}
++{"schema":1,"id":"20260611T024228Z_4e9916b","timestamp":"2026-06-11T02:42:28.781362+00:00","ws_version":"0.10.0a0","python":"3.14.3","fixtures":["serps.json.bz2"],"n_serps":87,"iterations":50,"git_sha":"4e9916b","git_branch":"feature/v0.10.0-shared-signal-walk","git_dirty":true,"kind":"profile","sort":"tottime","total_calls":58589601,"primitive_calls":58516151,"total_seconds":95.3379,"prof_path":"tests/benchmarks/profiles/20260611T024228Z_4e9916b.prof","top":[{"func":"_slx.py:85(make_soup)","ncalls":4350,"tottime":21.433,"cumtime":21.4355},{"func":"main.py:59(__init__)","ncalls":56950,"tottime":8.2783,"cumtime":10.3101},{"func":"__init__.py:33(_get_dom_positions)","ncalls":4350,"tottime":3.8075,"cumtime":3.8075},{"func":"_slx.py:47(_iter_text_fragments)","ncalls":1095450,"tottime":3.7757,"cumtime":5.9642},{"func":"extractor_serp_features.py:73(_extract_from_html)","ncalls":4350,"tottime":3.6087,"cumtime":6.0824},{"func":"_slx.py:188(subtree_css)","ncalls":40200,"tottime":3.0727,"cumtime":3.0727},{"func":"_slx.py:100(get_text)","ncalls":760900,"tottime":3.0381,"cumtime":6.0079},{"func":"main.py:163(_classify_header)","ncalls":98150,"tottime":2.7328,"cumtime":2.9905},{"func":"~:0(<method 'search' of 're.Pattern' objects>)","ncalls":25000,"tottime":2.454,"cumtime":2.454},{"func":"_ai_overview_payloads.py:61(_iter_payload_blobs)","ncalls":155450,"tottime":2.4159,"cumtime":3.3402},{"func":"utils.py:87(has_captcha)","ncalls":4350,"tottime":2.2646,"cumtime":2.2646},{"func":"main.py:117(signals_for)","ncalls":56950,"tottime":2.1349,"cumtime":13.5401}]}

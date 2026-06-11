@@ -1,11 +1,11 @@
 ---
 id: 44
 slug: shared-document-walk-signals
-status: active
+status: done
 branch: feature/v0.10.0-shared-signal-walk
 created: 2026-06-06T14:50:43-07:00
-concluded:
-pr:
+concluded: 2026-06-10T19:53:29-07:00
+pr: null
 ---
 
 # Shared structure-aware document walk for component signals
@@ -129,3 +129,91 @@ Re-verified the draft's premise on HEAD (the merge of plan 041) before starting:
   "to 044" — noted, but it is parser-side and a different layer than the
   classifier signal walk; **explicitly out of scope** here unless the shared
   infrastructure absorbs it for free. Keep 044 tight.
+
+### 2026-06-10 — Implemented, measured, aborted per criteria
+
+Built the shared walk in three iterations on a topic branch (worktree), gated
+each with the corpus equivalence probe (sidecar `probe_signal_equivalence.py`:
+monkeypatches `SignalIndex.signals_for` to compute every classified
+component's signals both ways at the same instant; 1,139 components across
+the 87 SERPs):
+
+- **v1 — fresh post-extraction walk + full position map.** `SignalIndex`
+  lazily materializes `soup.css('*')`, maps `mem_id -> index`, and builds
+  each component's `_ComponentSignals` from the contiguous pre-order slice
+  `elements[start : end + 1]` (`end` via the banked `last_descendant`
+  right-spine descent, moved to `_slx`). Required splitting `parse_serp`'s
+  loop into classify-all-then-parse-all: the two parser `decompose` sites
+  (`general` top-menus, `ai_overview` buttons) would otherwise leave the
+  index holding destroyed nodes. Equivalence: **0 diffs, 0 fallbacks**;
+  suite green, 87 snapshots **without updates** (also clearing the split
+  itself).
+- **v2 — reuse the extractor's pre-extraction walk** (zero extra document
+  walks). **Failed the equivalence probe: 11 components with strict-superset
+  signals**, RHS-panel classes bleeding into main components — extraction
+  restructures the tree (the RHS handler detaches its column), exactly what
+  `_get_dom_positions`'s "snapshot pre-removal" comment warns. Notably the
+  snapshot suite stayed green under v2: preconditions are necessary-only, so
+  superset signals can only *un-skip* a classifier, never change its
+  decision — the contract violation was invisible to snapshots and only the
+  probe caught it. The fresh post-extraction walk is mandatory.
+- **v3 — v1 with a needed-only position map** (record positions only for the
+  unknown component roots and their subtree ends, ~26 per SERP, instead of
+  the full ~13k-element map). Equivalence: 0 diffs; suite green. The saving
+  was negligible — the per-element `mem_id` reads dominate the scan, not the
+  dict inserts.
+
+**Decisive A/B** (back-to-back same-session profiles, 87 SERPs x 50
+iterations, Python 3.14.3, two runs per arm; `make_soup` as noise anchor):
+
+| | baseline (`4e9916b`) | v3 branch |
+|---|---|---|
+| signals path cum | 11.94 s / 11.89 s | 13.47 s / 13.47 s |
+| total | 92.59 s / 92.27 s | 94.11 s / 93.91 s |
+| `make_soup` anchor | 21.33 / 21.39 | 21.41 / 21.34 |
+
+The shared walk is **~13% slower on the signals frame** (+1.7% total). The
+slice token-loop is genuinely cheaper (`__init__` tottime 9.9 -> 8.2 s — the
+per-component `css('*')` materialization cost), but the document walk plus
+position scan costs ~3.2 s, more than double the saving. Root cause: main
+components tile the document roughly disjointly, so the N subtree walks do
+**no redundant work** for a shared walk to eliminate — attribution overhead
+is pure addition (obstacle 2, confirmed). An earlier cross-session
+comparison had shown the branch "winning" by ~10%; the same-session anchor
+exposed that as box-state noise (unrelated frames moved 10-15% between
+sessions) — the draft's "wall-clock is noisy, profile is decisive" warning
+applies *across sessions* to profiles too.
+
+**Aborted per the plan's criteria** ("net-neutral or worse in the profile →
+abandon and document"). All code reverted; nothing merged. Artifacts kept as
+plan sidecars: `spike-shared-signal-walk.patch` (the full v3 diff:
+`SignalIndex`, the classify/parse loop split, `last_descendant` move to
+`_slx`, signal-index threading through `ClassifyMain`/`ClassifyFooter`/
+`Component.classify_component`) and `probe_signal_equivalence.py`.
+
+## Retrospective
+
+- **The bet failed for a structural reason, not an implementation one:**
+  per-component `cmpt.css('*')` walks are not redundant — components cover
+  near-disjoint document regions, so "one shared walk" visits the same
+  elements and adds attribution cost on top. The only real saving available
+  was the lexbor materialization overhead (~1.7 s/corpus-pass), and no
+  position-based attribution scheme costs less than that. Plan 036's banked
+  levers were the extractable value; this frame's remaining cost is the
+  token loop itself (~8 s), which is irreducible in Python.
+- **The equivalence probe out-caught the snapshot suite.** v2's violation
+  (superset signals from a stale pre-extraction walk) produced zero snapshot
+  diffs because necessary-only preconditions absorb supersets silently. For
+  any future change to signal construction, the probe — not snapshots — is
+  the real gate; it is kept as a plan sidecar.
+- **Cross-session profile comparisons on this box are unusable.** Unrelated
+  frames swing 10-15% between sessions; a same-session interleaved A/B with
+  a noise anchor (`make_soup`) reversed the apparent result. Worth treating
+  as standing bench discipline.
+- **Two latent facts surfaced for future work:** (1) extraction restructures
+  the tree (RHS detach), so any post-extraction consumer must re-walk, never
+  reuse `_get_dom_positions`'s snapshot; (2) classification currently runs
+  interleaved with parsing, and the two parser `decompose` sites mean
+  classify-time DOM state depends on parse order of earlier components — the
+  classify/parse loop split in the spike patch is a semantic cleanup worth
+  considering on its own merits someday, independent of performance.
