@@ -194,4 +194,35 @@ tests and update snapshots`.
   migration, so this plan is itself the tracking item for the stale-selector
   TODO.
 
+### 2026-06-10 — step 5: perspectives and short_videos wiring
+
+Measured the remaining component types first (corpus-level, real tile
+enumeration):
+
+- `perspectives` (via `top_stories.parse_top_story`): 77 populated cards across
+  21 components, every card inside exactly one tile — wired up with
+  `parse_evlb_card(sub)` like the other in-tile parsers. The perspectives
+  `heading` key now rides as a sibling inside the video payload.
+- `short_videos`: 46 cards across 10 components, but the card sits BESIDE the
+  `a.rIRoqf` anchor in a per-video `div.WVV5ke` wrapper, never inside it. A
+  first attempt walked ancestors to the nearest `WVV5ke`; that crashed on
+  document-root ancestors and, worse, could escape the component when no
+  wrapper exists (flagged in review). Replaced with `evlb_fields_by_tile(root,
+  tiles)`: wrapper search scoped to the component element, a wrapper pairing
+  with a tile only when it contains exactly one of them.
+- `people_also_ask` (21 cards) — out of scope: the parser emits one row per
+  component with question text only; answer content is explicitly beyond it.
+- `knowledge` — out of scope: 1 card corpus-wide.
+
+Provenance verified corpus-wide through the real pipeline: 167 card-backed
+enriched rows across 78 components, zero containment violations (every row's
+field tuple matches a card inside its own component element) and zero
+double-uses (multiset check per component). Both low title-similarity pairs
+proved genuine: one card whose `h1` literally reads "YouTube" (Google markup
+quirk), and one where the tile headline differs from the video title — the
+card thumbnail's embedded id (`/vi/xalPEv7KqVU/`) matches the row URL exactly.
+That id cross-check is pinned as `test_enriched_thumbnail_matches_row_video_id`,
+and the scoping rules as unit tests on `evlb_fields_by_tile`. Suite: 486
+passed; 123 newly enriched rows across 27 snapshots.
+
 ## Retrospective
