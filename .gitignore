@@ -4,8 +4,16 @@
 CLAUDE.md
 
 build/
-data/
 notebooks/
+
+# data/ stays untracked except the geotargets CSV and its pull ledger
+# (plan 031); gitignore cannot re-include below an excluded directory,
+# so un-ignore the chain level by level.
+data/*
+!data/locations/
+data/locations/*
+!data/locations/geotargets.csv
+!data/locations/ledger.csv
 
 # Benchmark profiles (binary cProfile dumps; regenerable). results.jsonl stays tracked.
 tests/benchmarks/profiles/

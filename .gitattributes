@@ -1,0 +1,3 @@
+# Upstream geotargets CSVs are CRLF-terminated (csv.writer default); keep
+# bytes exact so diffs reflect real content changes, not line-ending fixes.
+data/locations/*.csv -text
