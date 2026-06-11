@@ -113,6 +113,16 @@ def test_box_links_exclude_fact_links(serps_by_qry):
     assert not (about_urls & review_urls)
 
 
+def test_consumed_box_outside_links_merged(serps_by_qry):
+    # the "Watch movie" box holds provider links OUTSIDE the media_actions
+    # kc:/ row (the expanded watch list); consuming the box heading must fold
+    # them into the fact row, not drop them with the skipped box
+    facts = {r["title"]: r for r in _facts(serps_by_qry, "doctor zhivago")}
+    urls = {i["url"] for i in facts["Watch movie"]["details"]["items"]}
+    assert len(urls) == 4
+    assert any("mgmplus.com" in u for u in urls)
+
+
 def test_edit_affordance_rows_skipped(serps_by_qry):
     attrids = {r["details"]["attrid"] for r in _facts(serps_by_qry, "central park new york")}
     assert "kc:/local:edit info" not in attrids

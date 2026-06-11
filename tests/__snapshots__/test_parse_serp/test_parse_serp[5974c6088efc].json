@@ -444,6 +444,18 @@
           {
             "text": "Watch now Subscription",
             "url": "https://link.fubo.tv/al1%3Fv%3D1%26a%3Dplay%26t%3Dprogram%26pid%3DMV000155770000%26o%3D0"
+          },
+          {
+            "text": "Paramount+ Subscription Watch",
+            "url": "https://www.paramountplus.com/movies/footloose/e2q4UqYUFWtEV4e2wRqkrQ8AvavBDkQv?searchReferral=desktop-web&source=google-organic&ftag=PPM-23-10bfh8c"
+          },
+          {
+            "text": "YouTube Primetime subscription Watch",
+            "url": "https://www.youtube.com/attribution_link?utm_campaign=ytcore&yt_product=ytalc&yt_goal=acq&utm_source=int&utm_medium=gs&utm_content=ump&yt_campaign_id=ytalc22&c=ytcore-ytalc-acq-int-gs-ump-ytalc22&utm_term=video&u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKa9HHUcbWYw"
+          },
+          {
+            "text": "Hulu Premium subscription Watch",
+            "url": "https://www.hulu.com/watch/069ce151-62ac-44f7-9ab5-28befae4ca60"
           }
         ],
         "type": "hyperlinks"

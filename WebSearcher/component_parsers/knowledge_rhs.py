@@ -216,18 +216,30 @@ def _parse_rhs_facts(node: Node, start_rank: int = 1) -> tuple:
         else:
             text = get_text(fact, " ", strip=True) or None
 
+        links = _collect_links(fact)
         title = label
         if title is None:
             box_heading = _fact_box_heading(fact, node)
             if box_heading is not None:
                 title = get_text(box_heading, " ", strip=True)
                 used_heading_ids.add(box_heading.mem_id)
+                # The consumed box may hold links outside the kc:/ row itself
+                # (e.g. the expanded watch-provider list next to
+                # ``media_actions``) -- fold them in so they aren't lost with
+                # the skipped box.
+                seen = {(i["text"], i["url"]) for i in links}
+                links += [
+                    i
+                    for i in _rhs_box_links(
+                        box_heading, exclude_ids={fact.mem_id}, stop_id=node.mem_id
+                    )
+                    if (i["text"], i["url"]) not in seen
+                ]
             else:
                 # Humanized attrid tail: "kc:/film/film:reviews" -> "Reviews".
                 tail = attrid.split(":")[-1].replace("_", " ").strip()
                 title = (tail[:1].upper() + tail[1:]) or None
 
-        links = _collect_links(fact)
         details: dict[str, Any]
         if links:
             details = {"type": "hyperlinks", "attrid": attrid, "items": links}

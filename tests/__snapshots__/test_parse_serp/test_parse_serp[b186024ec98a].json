@@ -400,6 +400,18 @@
           {
             "text": "Watch now Free",
             "url": "https://tubitv.com/movies/100012222/doctor-zhivago?start=true&tracking=google-feed&utm_source=google-feed"
+          },
+          {
+            "text": "MGM+ Subscription Watch",
+            "url": "https://www.mgmplus.com/movie/doctor-zhivago-1965?play=true"
+          },
+          {
+            "text": "YouTube Primetime subscription Watch",
+            "url": "https://www.youtube.com/attribution_link?utm_campaign=ytcore&yt_product=ytalc&yt_goal=acq&utm_source=int&utm_medium=gs&utm_content=ump&yt_campaign_id=ytalc22&c=ytcore-ytalc-acq-int-gs-ump-ytalc22&utm_term=video&u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D-mkbF950QwU"
+          },
+          {
+            "text": "Sling TV Premium subscription Watch",
+            "url": "https://watch.sling.com/1/program/9268bf185a7ed65cb73b0f11a7b863a4/watch?trackingid=google-feed"
           }
         ],
         "type": "hyperlinks"
