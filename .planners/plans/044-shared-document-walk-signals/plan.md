@@ -1,8 +1,8 @@
 ---
 id: 44
 slug: shared-document-walk-signals
-status: draft
-branch:
+status: active
+branch: feature/v0.10.0-shared-signal-walk
 created: 2026-06-06T14:50:43-07:00
 concluded:
 pr:
@@ -82,3 +82,50 @@ N x `cmpt.css('*')` is the open empirical question -- measure it.
 If attribution overhead negates the saved walks (net-neutral or worse in the
 profile), or byte-identical equivalence can't be guaranteed by construction, abandon
 and document -- plan 036 already banked the low-risk portion.
+
+## Log
+
+### 2026-06-10 — Re-grounded against the current tree at activation
+
+Re-verified the draft's premise on HEAD (the merge of plan 041) before starting:
+
+- **Premise intact, slightly stronger.** No commits have touched
+  `classifiers/main.py` or `extractors/__init__.py` since the draft. Fresh
+  profile (`python -m WebSearcher.bench --profile`, 87 SERPs x 50 iterations,
+  Python 3.14.3, profile `20260611T022500Z_98b1b68`):
+  `_ComponentSignals.__init__` is **15.07 s cumulative of 106.4 s total
+  (~14.2%)**, tottime 12.6 s, 56,950 calls (~13.1 per SERP) — still the
+  largest optimizable frame after `make_soup` (23.1 s). The draft's ~11%
+  figure predates plan 040, which added two more class-gated preconditions
+  (`ITWcLb` buying_guide, `gON1yc` products); both consume the full
+  `classes` set, so the mechanism and the byte-identical contract are
+  unchanged. `_get_dom_positions` (the existing document walk) is 4.2 s
+  (~3.9%).
+- **Scope correction to obstacle 3:** `ClassifyFooter.classify`
+  (`classifiers/footer.py:37`) also routes into `ClassifyMain.classify`, so
+  **footer** components build `_ComponentSignals` too — the shared walk must
+  either cover footer roots or leave them on the per-component path, and the
+  equivalence probe must cover both sections.
+- **Ordering confirmed in the current tree** (`parsers.py:32-36`):
+  `extract_components()` (pre-extraction position snapshot → section
+  extracts → reorder) completes before any `classify_component()` call, so
+  every component root is known before signals are needed — the
+  "post-extraction pass keyed off known roots" approach is structurally
+  available. Design hazard to respect: extraction mutates the tree (ads
+  removal — the reason `_get_dom_positions` snapshots early), so the shared
+  walk must be a **fresh post-extraction pass**, not a reuse of the
+  pre-extraction position map.
+- **Sharpened approach from the 036 finding** ("the materialization, not the
+  filtering, is the real cost"): materialize the document's element list
+  once post-extraction, index `mem_id -> position`, compute each root's
+  subtree end via the banked `reorder._range` right-spine descent, and build
+  each component's signals **lazily from a list slice** instead of a fresh
+  `cmpt.css('*')` — preserving the exact per-component element sets (and the
+  lazy only-when-classified scope) by construction. Whether the one extra
+  document materialization beats ~13 subtree materializations per SERP is
+  the empirical gate.
+- **Carried in from plan 041's review:** the `_under_any` (knowledge_rhs) /
+  `_parse_visual_digest` (knowledge) ancestor-walk duplication was deferred
+  "to 044" — noted, but it is parser-side and a different layer than the
+  classifier signal walk; **explicitly out of scope** here unless the shared
+  infrastructure absorbs it for free. Keep 044 tight.
