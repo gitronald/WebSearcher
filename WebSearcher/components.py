@@ -74,7 +74,9 @@ class Component:
         return str(vars(self))
 
     def to_dict(self) -> dict:
-        return self.__dict__
+        # Shallow copy so callers can't mutate the Component's attribute table
+        # through the returned dict (``__dict__`` is the live instance namespace).
+        return dict(self.__dict__)
 
     def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""
@@ -231,10 +233,14 @@ class ComponentList:
                         return best
             return start
 
+        # Resolve each main component's effective position once, up front, so the
+        # sort key is a plain O(1) lookup instead of an O(n) scan.
+        effective_pos = {id(c): _effective_pos(c) for c in main_components}
+
         def sort_key(cmpt):
             section_idx = section_order.get(cmpt.section, 1)
             if cmpt.section == "main":
-                return (section_idx, _effective_pos(cmpt))
+                return (section_idx, effective_pos[id(cmpt)])
             return (section_idx, cmpt.cmpt_rank)
 
         self.components.sort(key=sort_key)
