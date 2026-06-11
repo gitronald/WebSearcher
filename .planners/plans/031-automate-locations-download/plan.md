@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.10.0-locations-download
 created: 2026-05-31T00:45:35-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/169
 ---
 
 # Automate the Locations CSV Download
@@ -274,4 +274,32 @@ log entry; results (repro commands in step 3):
   seeded diffs will be dominated by line-ending flips.
 - The current pipeline's output for 2026-02-25 is byte-identical to the stored
   bz2 snapshot, so the normalization round-trip is already byte-stable.
+
+## Log - 2026-06-10 (implementation)
+
+Implemented on `feature/v0.10.0-locations-download`; draft PR opened against
+`feature/v0.10.0` (see `pr:`). Deviations from the spec:
+
+- The `scripts/` directory referenced in step 2 no longer exists in the repo;
+  the CLI entry is a `main()` in `WebSearcher/locations.py` run as
+  `python -m WebSearcher.locations`, and the one-off seeding script lives as a
+  plan sidecar (`seed_history.py` in this directory) rather than under
+  `scripts/`.
+- `normalize_csv_text` (the shared round-trip, also adopted by
+  `download_locations`) needed a trailing-newline fix: `split("\n")` on a
+  newline-terminated body yields a final empty string that `csv` round-trips
+  into a spurious blank row. Caught by the new unit tests.
+- The seeding replay produced 26 commits (`update locations:
+  geotargets-YYYY-MM-DD`); the final tracked file is byte-identical to the
+  newest archive snapshot, so the first automated run no-ops via the ledger
+  check. Object-store growth from the replay was ~46 MB loose (pre-delta);
+  the push pack is far smaller.
+- Open question "PR base branch" resolved in practice: the workflow PRs
+  against the default branch it runs on (it only schedules once merged to
+  master); the feature work itself targets `feature/v0.10.0`.
+- Open question "public API" resolved: exported `update_locations_file` in
+  `WebSearcher/__init__` alongside `download_locations`.
+- The header assertion (schema-drift open question) is not implemented yet —
+  left for PR review to decide; the weekly PR diff remains the primary safety
+  net.
 
