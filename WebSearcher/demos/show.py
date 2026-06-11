@@ -35,7 +35,7 @@ def _details_summary(d: dict | None) -> str:
             parts.append(d["category"])
         return "place " + " · ".join(parts) if parts else "place"
     if t == "video":
-        bits = [v for v in (d.get("source"), d.get("duration")) if v]
+        bits = [v for v in (d.get("source"), d.get("channel"), d.get("publish_date")) if v]
         return "video" + (f" {' · '.join(bits)}" if bits else "")
     return t
 
