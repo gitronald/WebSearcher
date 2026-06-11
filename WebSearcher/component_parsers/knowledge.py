@@ -51,7 +51,8 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     details: dict = {}
 
     heading = node.css_first('div[role="heading"]')
-    details["heading"] = get_text(heading, " ", strip=True) if heading is not None else None
+    if heading is not None and (heading_text := get_text(heading, " ", strip=True)):
+        details["heading"] = heading_text
 
     alinks = list(node.css("a"))
     if alinks:
@@ -62,7 +63,8 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
             if href is not None and href != "#" and href not in seen_urls:
                 seen_urls.add(href)
                 urls.append(parse_alink(a, "|"))
-        details["urls"] = urls
+        if urls:
+            details["urls"] = urls
 
     h2 = node.css_first("h2")
     h2_text: str = get_text(h2) or ""
@@ -77,14 +79,18 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     else:
         _subtype_panel(node, parsed, details, h2_text)
 
+    # converged with knowledge_rhs: plural img_urls, recorded only when present
     img_div = node.css_first("div.img-brk")
     if img_div is not None:
         a = img_div.css_first("a")
-        details["img_url"] = a.attributes.get("href") if a is not None else None
+        href = a.attributes.get("href") if a is not None else None
+        if href:
+            details["img_urls"] = [href]
+    if details:
+        details["type"] = "panel"
+        parsed["details"] = details
     else:
-        details["img_url"] = None
-    details["type"] = "panel"
-    parsed["details"] = details
+        parsed["details"] = None
 
     return [parsed]
 
@@ -119,7 +125,8 @@ def _subtype_wholepage_header(node: Node, parsed: dict, details: dict, h2_text: 
     parsed["title"] = get_text(title_el, " ", strip=True) if title_el is not None else None
     subtitle = get_text(subtitle_el, " ", strip=True) or None
     parsed["text"] = subtitle
-    details["subtitle"] = subtitle
+    if subtitle:
+        details["subtitle"] = subtitle
 
     # Tab labels live in the role="tab" strip (one node per tab, in document
     # order). A plain span scan would also pick up header chrome ("Send
@@ -151,8 +158,8 @@ def _subtype_featured_snippet(node: Node, parsed: dict, details: dict, h2_text: 
     ):
         return False
     parsed["sub_type"] = "featured_snippet"
-    span = list(node.css("span"))
-    details["text"] = _join_texts(span) if span else None
+    if span_text := _join_texts(list(node.css("span"))):
+        details["text"] = span_text
 
     # General component with no abstract
     g_div = node.css_first("div.g")
@@ -167,8 +174,8 @@ def _subtype_unit_converter(node: Node, parsed: dict, details: dict, h2_text: st
     if h2_text != "Unit Converter":
         return False
     parsed["sub_type"] = "unit_converter"
-    span = list(node.css("span"))
-    details["text"] = _join_texts(span) if span else None
+    if span_text := _join_texts(list(node.css("span"))):
+        details["text"] = span_text
     return True
 
 
@@ -178,7 +185,8 @@ def _subtype_sports(node: Node, parsed: dict, details: dict, h2_text: str) -> bo
     parsed["sub_type"] = "sports"
     div = node.css_first("div.SwsxUd")
     # Original used bs4 ``.text`` (sep=""); preserve that (snapshots concat).
-    details["text"] = get_text(div) if div is not None else None
+    if div is not None and (div_text := get_text(div)):
+        details["text"] = div_text
     return True
 
 
@@ -220,17 +228,17 @@ def _subtype_dictionary(node: Node, parsed: dict, details: dict, h2_text: str) -
     ]
     if definitions:
         parsed["text"] = " | ".join(definitions)
-        details["text"] = parsed["text"]
     else:
         # Legacy layout fallback.
         vmod = node.css_first("div.vmod")
         if vmod is not None:
-            details["text"] = (get_text(vmod, " ", strip=True) or "").split("Translate")[0]
+            if vmod_text := (get_text(vmod, " ", strip=True) or "").split("Translate")[0]:
+                details["text"] = vmod_text
         else:
             span_first = node.css_first('span[jsslot=""]')
             if span_first is not None:
-                span = list(span_first.css("span"))
-                details["text"] = _join_texts(span).split("Translate")[0] if span else None
+                if span_text := _join_texts(list(span_first.css("span"))).split("Translate")[0]:
+                    details["text"] = span_text
     return True
 
 
@@ -238,8 +246,8 @@ def _subtype_translate(node: Node, parsed: dict, details: dict, h2_text: str) ->
     if h2_text not in ("Translation Result", "Resultado de traducción"):
         return False
     parsed["sub_type"] = "translate"
-    span = list(node.css("span"))
-    details["text"] = _join_texts(span).split("Community Verified")[0] if span else None
+    if span_text := _join_texts(list(node.css("span"))).split("Community Verified")[0]:
+        details["text"] = span_text
     return True
 
 
@@ -251,11 +259,11 @@ def _subtype_calculator(node: Node, parsed: dict, details: dict, h2_text: str) -
 
 
 def _subtype_election(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
-    if details["heading"] != "2020 US election results":
+    if details.get("heading") != "2020 US election results":
         return False
     parsed["sub_type"] = "election"
-    span = list(node.css("span"))
-    details["text"] = _join_texts(span) if span else None
+    if span_text := _join_texts(list(node.css("span"))):
+        details["text"] = span_text
     return True
 
 
@@ -292,7 +300,9 @@ def _subtype_dynamic_section(node: Node, parsed: dict, details: dict, h2_text: s
     parsed["sub_type"] = slugify(heading_text.lower(), sep="-").replace("-&-", "-and-")
     parsed["title"] = heading_text
     # Drop Google KG-navigation /search? links -- they're internal entity redirects.
-    details["urls"] = [u for u in details.get("urls", []) if not u["url"].startswith("/search?")]
+    urls = [u for u in details.pop("urls", []) if not u["url"].startswith("/search?")]
+    if urls:
+        details["urls"] = urls
     items = [
         get_text(h, " ", strip=True) or "" for h in node.css('[role="heading"][aria-level="3"]')
     ]
@@ -314,7 +324,8 @@ def _subtype_panel(node: Node, parsed: dict, details: dict, h2_text: str) -> Non
         for n in walk_descendants(node)
         if n.tag in ("span", "div", "a") and node_string(n) is not None
     ]
-    details["text"] = _join_texts(div) if div else None
+    if div_text := _join_texts(div):
+        details["text"] = div_text
 
     text_divs = list(node.css("div.sinMW"))
     text_list = [t for t in (get_text(d, strip=True) for d in text_divs) if t]

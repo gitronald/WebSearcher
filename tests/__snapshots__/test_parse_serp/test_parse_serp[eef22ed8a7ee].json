@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "I Believe That We Will Win (World Anthem)",
-        "img_url": null,
         "subtitle": "Song by Pitbull",
         "tabs": [
           "Overview",
@@ -125,7 +124,6 @@
       "cmpt_rank": 2,
       "details": {
         "heading": "Lyrics",
-        "img_url": null,
         "type": "panel",
         "urls": [
           {
@@ -361,6 +359,88 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/music/recording_cluster:artist",
+        "items": [
+          {
+            "text": "Pitbull",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Armando+Christian+Perez&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcCmqWbQaFmXWpbSWMcBqD-oLsw1Jh67pG418bH1ruu8l4eB8ObKQ4pmoSKEhF0l_VPB4uBXJjZAgODyBApYfRmtjhZFzIZISJAFZupuc0O0a61xdKki1nXqccloaXyQMfkb8dNHzfC0qNRNTUxG1tfQ29NmtLcghZ695thQTX1cinAgS2A%3D%3D&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCIQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "Pitbull",
+      "title": "Artist",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/music/recording_cluster:release date",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "2020",
+      "title": "Released",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/music/recording_cluster:first album",
+        "items": [
+          {
+            "text": "I Believe That We Will Win (World Anthem)",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Pitbull+I+Believe+That+We+Will+Win+(World+Anthem)&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoQ6gRyyAJzo2cauQaxXmOeqOHymPed1i2M4pptACMSd-B6QsJlEKDiHEkhv8MTYRxelVv-Zmf_yhD77zvfGMOGkIZRdIk8zNiFj6p-NcbuT5R31zarzvZE-X-i5WQlvP0eqII6S2R5gDqME0HnghPbNphuvZuCA291vbZKTKoBRCA0eKViUPUYCCbEKNI86M5nD8jwzmTLp9UnlGSZZHRl63oNJ7&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCoQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "I Believe That We Will Win (World Anthem)",
+      "title": "Album",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/music/recording_cluster:skos_genre",
+        "items": [
+          {
+            "text": "Pop",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoT6N7ACnZf_0ZZ5CuK6A0u_OVmamYA1ArcNGzW_q813HTyI5n-isp5k6jfGf7lbn4S6jPKbKksA_xicpbu0bCHRYqctQDSXENjBrJEQV2Lp06pAdreJRGtDgELdTVg4PShFtN0jyipAG9zAoUpuv7V7uto6k&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCEQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Pop",
+      "title": "Genre",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
         "items": [
           {
             "text": "YouTube Music",
@@ -382,40 +462,11 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 21,
-      "sub_rank": 0,
+      "serp_rank": 25,
+      "sub_rank": 4,
       "sub_type": "links",
       "text": null,
       "title": "Listen",
-      "type": "side_bar",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 14,
-      "details": {
-        "items": [
-          {
-            "text": "Pitbull",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Armando+Christian+Perez&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcCmqWbQaFmXWpbSWMcBqD-oLsw1Jh67pG418bH1ruu8l4eB8ObKQ4pmoSKEhF0l_VPB4uBXJjZAgODyBApYfRmtjhZFzIZISJAFZupuc0O0a61xdKki1nXqccloaXyQMfkb8dNHzfC0qNRNTUxG1tfQ29NmtLcghZ695thQTX1cinAgS2A%3D%3D&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCIQAg"
-          },
-          {
-            "text": "I Believe That We Will Win (World Anthem)",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Pitbull+I+Believe+That+We+Will+Win+(World+Anthem)&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoQ6gRyyAJzo2cauQaxXmOeqOHymPed1i2M4pptACMSd-B6QsJlEKDiHEkhv8MTYRxelVv-Zmf_yhD77zvfGMOGkIZRdIk8zNiFj6p-NcbuT5R31zarzvZE-X-i5WQlvP0eqII6S2R5gDqME0HnghPbNphuvZuCA291vbZKTKoBRCA0eKViUPUYCCbEKNI86M5nD8jwzmTLp9UnlGSZZHRl63oNJ7&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCoQAg"
-          },
-          {
-            "text": "Pop",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=&si=AKbGX_rO4P19IF_yO85wYpkEaz-W_oZWd5JUOOVnUVftf2aeoT6N7ACnZf_0ZZ5CuK6A0u_OVmamYA1ArcNGzW_q813HTyI5n-isp5k6jfGf7lbn4S6jPKbKksA_xicpbu0bCHRYqctQDSXENjBrJEQV2Lp06pAdreJRGtDgELdTVg4PShFtN0jyipAG9zAoUpuv7V7uto6k&sa=X&ved=2ahUKEwjszMrshPCEAxUhOWIAHeK3BTQQmxMoAHoECCEQAg"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "section": "rhs",
-      "serp_rank": 22,
-      "sub_rank": 1,
-      "sub_type": "links",
-      "text": null,
-      "title": "About",
       "type": "side_bar",
       "url": null
     },
@@ -444,8 +495,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 23,
-      "sub_rank": 2,
+      "serp_rank": 26,
+      "sub_rank": 5,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

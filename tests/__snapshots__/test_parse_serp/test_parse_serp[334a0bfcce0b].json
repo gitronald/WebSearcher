@@ -495,6 +495,95 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/people/person:born",
+        "items": [
+          {
+            "text": "Paris, France",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Paris&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rjIuviidTeAxR8ZaxeSRgYF4-lExSxZOOZUQ9syeNAnnPU5VaGnXJ6Rrp9zTj68iB_LhiSO1ey3ro1pOUDZaZ6dL35ZgiJU6f914r_csi4MhDCa9Yr6jOkaDJDTbnHyFGZxzWU0-_dwAMznwZtVNKrbdgVSk&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQmxMoAHoECDMQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "April 8, 1901, Paris, France",
+      "title": "Born",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/deceased_person:died",
+        "items": [
+          {
+            "text": "Nancy, France",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Nancy,+France&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXtONjBxPzqqnGN_U5dOH4u9R8_KTIwmy3qFPV7qVzY_GL6EsiiC5-6iTTlLT_Nd4HhVpZa5LWJ1SvHnYrlm4CGhISAPvlUfsCUtQAfZnX3D0aYwCfG_ZJoqgJcV9ClXL03xvzGPh_HGRfFIZPsrqicMRN4l_&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQmxMoAHoECDAQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "March 23, 1984 (age 82 years), Nancy, France",
+      "title": "Died",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/architecture/engineer:projects",
+        "items": [
+          {
+            "text": "Exhibition Hall, Centre National des Industries et des Techniques",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Exhibition+Hall,+Centre+National+des+Industries+et+des+Techniques&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcKGk-uCSFp6JL4QtXWxPjXPDoszTCDSdKnFtRicRqKt_5I_1YPmXSQdyfBP93qGnGr10uUQOzs-uGhLd3ukv4zWVkKwNujfihSNDXofdvF0cXMrK7hTRNKWlZobZEBsYHhMEFJTwLs7FcZvQJuZmfaC7cUGFNQKNAAttzQOkHTt5ZdoJcy4BaBGzZZLnN2y3gu9SgpZlGmxN27wZleXsxlBCpOVbwSsUEgrHnU4lSO-GRrc80Q%3D%3D&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQmxMoAHoECDEQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 31,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Exhibition Hall, Centre National des Industries et des Techniques",
+      "title": "Projects",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/award/award_winner:awards",
+        "items": [
+          {
+            "text": "Erasmus Prize",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Erasmus+Prize&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXreWRe79ATsq0jOZ-VXKRG1jkVr2yX56fG9yBsAzKmacgeKvvLOEJh1mYJ4e-IAp7OUcKEvdPiCHCQ3gy1Vp_Pqraz7_PQ0SdmHql6PoXKrvwYisuMtLrfJKdvIixGA7W0l6kY3CmEfbWz30NCh07lnXgqDy&sa=X&ved=2ahUKEwiR9NGyjvCEAxWxD1kFHWdmCacQmxMoAHoECC4QAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 32,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Erasmus Prize",
+      "title": "Awards",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/architecture/architect:designed",
         "items": [
           {
             "text": "CNIT",
@@ -516,10 +605,10 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 29,
-      "sub_rank": 1,
-      "sub_type": "links",
-      "text": null,
+      "serp_rank": 33,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "CNIT Accor Arena Quai P Léger chapelle Notre-Dame-de-l'Assomption de Courchevel",
       "title": "Structures",
       "type": "side_bar",
       "url": null
@@ -528,6 +617,7 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/book/author:books only",
         "items": [
           {
             "text": "A Passion for Jean Prouvé: From Furniture to Architecture : the Laurence and Patrick Seguin Collection",
@@ -549,10 +639,10 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 30,
-      "sub_rank": 2,
-      "sub_type": "links",
-      "text": null,
+      "serp_rank": 34,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "A Passion for Jean Prouvé: From Furniture to Architecture : the Laurence and Patrick Seguin Collection Jean Prouvé: The Poetics of the Technical Object Jean Prouvé: A Tropical House : February 14-May 6, 2005, Yale School of Architecture Gallery Jean Prouvé: Three Nomadic Structures",
       "title": "Books",
       "type": "side_bar",
       "url": null
@@ -582,8 +672,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 31,
-      "sub_rank": 3,
+      "serp_rank": 35,
+      "sub_rank": 7,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

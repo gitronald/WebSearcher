@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Roger Ebert",
-        "img_url": null,
         "subtitle": "American film critic",
         "tabs": [
           "Overview",
@@ -41,9 +40,7 @@
       "cmpt_rank": 1,
       "details": {
         "heading": "Books",
-        "img_url": null,
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 1,
@@ -286,23 +283,74 @@
       "cite": null,
       "cmpt_rank": 14,
       "details": {
+        "attrid": "kc:/people/person:born",
         "items": [
-          {
-            "text": "Wikipedia",
-            "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
-          },
           {
             "text": "Urbana, IL",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Urbana,+Illinois&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rs_p6aquQPG5E06VolSaN9orRCuTrWlTLqe4Kqq6fqeRyh0gn4fei_iPSn1Nt_a7zkZWZC0vHSvzfFkinJhtkw1TWsS3zRwPSl0Ae-oRSv9Q0ys-xzIys98FwkLSgzBYRPgzbrzzH2tXAnXYdcAT68G6Aziz&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECB0QAg"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "June 18, 1942, Urbana, IL",
+      "title": "Born",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/deceased_person:died",
+        "items": [
           {
             "text": "Chicago, IL",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Chicago&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rsy2EwCuIKCVZntHA19-02OMHMm1_mMvntfPHikQyCGWagEd1Oh_O23ORmLjZxPvV12Od_zofXPoOFxCWeJ1hibJhQ_9VDbgyZj-PyD2OQJ0an2GPx_KFzLm6Jh-1OxncIiIQiRGSDm_f6kHc5UpM57sIqSO&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBsQAg"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "April 4, 2013 (age 70 years), Chicago, IL",
+      "title": "Died",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:spouse",
+        "items": [
           {
             "text": "Chaz Ebert",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Chaz+Ebert&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcAK5LhT_9gV4jEKrIDUQY_cKn6N7k35vyJLutnweFl4HZ1MHm383bxo5QMEuwNkl7Dp6IY17cK0NCQQf9XQDxSuCJt9xHb2kM_LeioYKt1ZgQolD2PZfZr33Pdma-DJ2kX-Y-QdkaYGPetTkQqBJL_-Hfuno&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBoQAg"
-          },
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Chaz Ebert (m. 1992–2013)",
+      "title": "Spouse",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:parents",
+        "items": [
           {
             "text": "Annabel Stumm",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Annabel+Stumm&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcKtCFe7hkAvyqmhRwYiMS9V-9xIet12-dcxciAqWwwcllld5TlgBszhBJCC5S3wP2_3Qx-TznenhnuZOQT_av5WGpt_3bylnOrkkUlBysPYeUF5Z9hL43dWe-Nd70ovGvW2YItgkaMMv-WlvxDYkardmPtXKbtGVQIYZayeIxh1l4XRlsUsvw5RWhdj1nXY9LGFurMO_SueoR9n3kSZU3HnX--pT_77V3cm066oInE6WLbJqeA%3D%3D&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAHoECBcQAg"
@@ -310,6 +358,27 @@
           {
             "text": "Walter H. Ebert",
             "url": "/search?sca_esv=52b056e1a97f92b3&q=Walter+H.+Ebert&si=AKbGX_qWtsfHufXsq_1jeDkJp50FstNngDxsch3EVTUjn7imcAGODOZ0qTuLi06q9p5yQIO4U38oLUG0GF_xpG7uybAEiliKmy7qg9wp19lKX7CLk6Bms99Ft3mqIRURUv4GjkNARrtf8OazxA0PXXysNlXbO11V_Eai8qT26WuGKojzREL7RaE-v7SlFQSRu3eNkTk9ZlwCAWLkYOSiUSsjv4SJ114QvCaMuhwSy5bLc4lRpTjlYc0eJP7Mwzu-eWzA_Np3ueBMxrJMYlhqLUlPJroVYu_zAg%3D%3D&sa=X&ved=2ahUKEwio0_y4nPCEAxX3M1kFHRfYBgAQmxMoAXoECBcQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Annabel Stumm , Walter H. Ebert",
+      "title": "Parents",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Roger_Ebert"
           },
           {
             "text": "Illinois",
@@ -327,8 +396,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 17,
-      "sub_rank": 1,
+      "serp_rank": 21,
+      "sub_rank": 5,
       "sub_type": "links",
       "text": null,
       "title": "About",
@@ -352,8 +421,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 18,
-      "sub_rank": 2,
+      "serp_rank": 22,
+      "sub_rank": 6,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

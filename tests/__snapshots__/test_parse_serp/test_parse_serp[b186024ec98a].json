@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Doctor Zhivago",
-        "img_url": null,
         "subtitle": "1965 ‧ Romance/War ‧ 3h 17m",
         "tabs": [
           "Overview",
@@ -58,7 +57,6 @@
       "cmpt_rank": 2,
       "details": {
         "heading": "Cast",
-        "img_url": null,
         "items": [
           "Julie Christie",
           "Omar Sharif",
@@ -68,8 +66,7 @@
           "Alec Guinness",
           "Rita Tushingham"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 2,
@@ -184,7 +181,6 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "Based on the book",
-        "img_url": null,
         "type": "panel",
         "urls": [
           {
@@ -341,13 +337,11 @@
       "cmpt_rank": 14,
       "details": {
         "heading": "Reviews",
-        "img_url": null,
         "items": [
           "Audience rating summary",
           "Audience reviews"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 21,
@@ -401,6 +395,7 @@
       "cite": null,
       "cmpt_rank": 16,
       "details": {
+        "attrid": "kc:/film/film:media_actions_wholepage",
         "items": [
           {
             "text": "Watch now Free",
@@ -424,9 +419,165 @@
       "section": "rhs",
       "serp_rank": 24,
       "sub_rank": 1,
-      "sub_type": "links",
-      "text": null,
+      "sub_type": "fact",
+      "text": "Watch now Free Watched Already watched Want to watch",
       "title": "Watch movie",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/film/film:reviews",
+        "items": [
+          {
+            "text": "7.9/10 IMDb Doctor Zhivago scored 7.9 out of 10 on IMDb.",
+            "url": "https://www.imdb.com/title/tt0059113/"
+          },
+          {
+            "text": "82% Rotten Tomatoes Doctor Zhivago scored 82 percent on Rotten Tomatoes.",
+            "url": "https://www.rottentomatoes.com/m/1006037-doctor_zhivago"
+          },
+          {
+            "text": "69% Metacritic Doctor Zhivago scored 69 percent on Metacritic.",
+            "url": "https://www.metacritic.com/movie/doctor-zhivago/critic-reviews/"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "7.9/10 IMDb Doctor Zhivago scored 7.9 out of 10 on IMDb. 82% Rotten Tomatoes Doctor Zhivago scored 82 percent on Rotten Tomatoes. 69% Metacritic Doctor Zhivago scored 69 percent on Metacritic.",
+      "title": "Reviews",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/ugc:thumbs_up",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "78% liked this movie Google users Liked Disliked",
+      "title": "Thumbs up",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/film/film:theatrical region aware release date",
+        "items": [
+          {
+            "text": "USA",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=United+States&stick=H4sIAAAAAAAAAOPgE-LUz9U3SM9JKixRAjMtk83LDbSMspOt9NMyc3LBhFVJRmpiSVFmcmKOQlFqemZ-nkJieWJRKpCTk5pYnKqQkliSuoiVNzQvsyQ1RSG4BMgt3sHKuIudiYMBAJSGK5BkAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCYQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "December 31, 1965 ( USA )",
+      "title": "Release date",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/film/film:director",
+        "items": [
+          {
+            "text": "David Lean",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=David+Lean&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-roltQl8R6B4InRFg93bsGQNayBQE0E5e6jybbRQyyhYdEOhJ0Az2SH416QQiAd6snhDiYmb8HjOkhf806kb61scHQg_vumyf08CCNMw19YBbYUnHhh7cGKwGYJ9wd7QWImmHR8OGAScJM3l4vnXg-WiqMV8H&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCIQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "David Lean",
+      "title": "Director",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/award/award_winner:awards",
+        "items": [
+          {
+            "text": "Academy Award for Best Music (Original Score)",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Academy+Award+for+Best+Original+Score&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rizHw6gfWprak4Z8TUDia9WyQLeQizp26WGu0-LQzgcpuYIjuWUMh6lRr50x4QEVjY48Ukr6wLZ1gEXDkGUSWFcIjZ4QBrE2IVJEBSn_yT9nFAmVbGfADnvB4c8JwbdJTPplROP1sSpe4VB2QngIVNUsd_r2h4p9PBbJeT5ueNSWSZfbuCBlDQ2vOgaJRvjm_HlGU8SMAniq8VrOYX3nPODtHqc0bUHdwwA2ufvUmPMBzPqLi0p1DERaQF2FSIpFkvFlS_0%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCMQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Academy Award for Best Music (Original Score) , MORE",
+      "title": "Awards",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/film/film:distributed_by",
+        "items": [
+          {
+            "text": "Metro-Goldwyn-Mayer",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Metro-Goldwyn-Mayer&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-ror2cTNxdKzZtjyQX5rBvjB6dgqgAA1cYl_QslwhLiZhYPxHmY02xQuGDhhH_VpJB_fvMQC3oA00LILZ414Q8fnHxB9b12zW9AnEO0Gy5L5RmJDv0--n8B6YcNNrUuM8qEU53ty92lLWLJYszUo6_GmzV5rcw9CyFFt5Zl8HpMNvJN88-Q%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCUQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Metro-Goldwyn-Mayer",
+      "title": "Distributed by",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/media_common/adaptation:adapted from",
+        "items": [
+          {
+            "text": "Doctor Zhivago",
+            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Doctor+Zhivago+(novel)&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXh56tTEluIKyibtWShrjtLHDnS4SJ3LVGGgSv01eZxTbS2YCJayfiVM4mgPpnT7ftM44kJ9EWdErMCwyBpVBi7n1J2fED9yOXdcq9kqnDtNDzDHLjNWSzFJ99-ogUGgmVFQU9l9uhuXl1RBW7t5PzXSONnRy2XA4KpX_iTl8kdXZYz3O4w%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCQQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 31,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Doctor Zhivago",
+      "title": "Adapted from",
       "type": "side_bar",
       "url": null
     },
@@ -440,38 +591,6 @@
             "url": "https://www.youtube.com/watch?v=CGGr21PilKY"
           },
           {
-            "text": "7.9/10 IMDb Doctor Zhivago scored 7.9 out of 10 on IMDb.",
-            "url": "https://www.imdb.com/title/tt0059113/"
-          },
-          {
-            "text": "82% Rotten Tomatoes Doctor Zhivago scored 82 percent on Rotten Tomatoes.",
-            "url": "https://www.rottentomatoes.com/m/1006037-doctor_zhivago"
-          },
-          {
-            "text": "69% Metacritic Doctor Zhivago scored 69 percent on Metacritic.",
-            "url": "https://www.metacritic.com/movie/doctor-zhivago/critic-reviews/"
-          },
-          {
-            "text": "USA",
-            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=United+States&stick=H4sIAAAAAAAAAOPgE-LUz9U3SM9JKixRAjMtk83LDbSMspOt9NMyc3LBhFVJRmpiSVFmcmKOQlFqemZ-nkJieWJRKpCTk5pYnKqQkliSuoiVNzQvsyQ1RSG4BMgt3sHKuIudiYMBAJSGK5BkAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCYQAg"
-          },
-          {
-            "text": "David Lean",
-            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=David+Lean&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-roltQl8R6B4InRFg93bsGQNayBQE0E5e6jybbRQyyhYdEOhJ0Az2SH416QQiAd6snhDiYmb8HjOkhf806kb61scHQg_vumyf08CCNMw19YBbYUnHhh7cGKwGYJ9wd7QWImmHR8OGAScJM3l4vnXg-WiqMV8H&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCIQAg"
-          },
-          {
-            "text": "Academy Award for Best Music (Original Score)",
-            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Academy+Award+for+Best+Original+Score&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-rizHw6gfWprak4Z8TUDia9WyQLeQizp26WGu0-LQzgcpuYIjuWUMh6lRr50x4QEVjY48Ukr6wLZ1gEXDkGUSWFcIjZ4QBrE2IVJEBSn_yT9nFAmVbGfADnvB4c8JwbdJTPplROP1sSpe4VB2QngIVNUsd_r2h4p9PBbJeT5ueNSWSZfbuCBlDQ2vOgaJRvjm_HlGU8SMAniq8VrOYX3nPODtHqc0bUHdwwA2ufvUmPMBzPqLi0p1DERaQF2FSIpFkvFlS_0%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCMQAg"
-          },
-          {
-            "text": "Metro-Goldwyn-Mayer",
-            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Metro-Goldwyn-Mayer&si=AKbGX_paaCugDdYkuX2heTJMr0_FGRox2AzKVmiTg2eQr2d-ror2cTNxdKzZtjyQX5rBvjB6dgqgAA1cYl_QslwhLiZhYPxHmY02xQuGDhhH_VpJB_fvMQC3oA00LILZ414Q8fnHxB9b12zW9AnEO0Gy5L5RmJDv0--n8B6YcNNrUuM8qEU53ty92lLWLJYszUo6_GmzV5rcw9CyFFt5Zl8HpMNvJN88-Q%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCUQAg"
-          },
-          {
-            "text": "Doctor Zhivago",
-            "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=Doctor+Zhivago+(novel)&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXh56tTEluIKyibtWShrjtLHDnS4SJ3LVGGgSv01eZxTbS2YCJayfiVM4mgPpnT7ftM44kJ9EWdErMCwyBpVBi7n1J2fED9yOXdcq9kqnDtNDzDHLjNWSzFJ99-ogUGgmVFQU9l9uhuXl1RBW7t5PzXSONnRy2XA4KpX_iTl8kdXZYz3O4w%3D%3D&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCQQAg"
-          },
-          {
             "text": "US",
             "url": "/search?sca_esv=52b056e1a97f92b3&sca_upv=1&q=US&stick=H4sIAAAAAAAAAONgVuLUz9U3sEw2LzdYxMoUGgwAJex7DRIAAAA&sa=X&ved=2ahUKEwjXtdTzhvCEAxXKM1kFHVoSDjQQmxMoAHoECCAQAg"
           },
@@ -483,8 +602,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
-      "sub_rank": 2,
+      "serp_rank": 32,
+      "sub_rank": 9,
       "sub_type": "links",
       "text": null,
       "title": "About",
@@ -516,8 +635,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 26,
-      "sub_rank": 3,
+      "serp_rank": 33,
+      "sub_rank": 10,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Mater",
-        "img_url": null,
         "subtitle": "Film character",
         "tabs": [
           "Overview",
@@ -215,7 +214,6 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "Movies",
-        "img_url": null,
         "items": [
           "Cars",
           "Cars 2",
@@ -224,8 +222,7 @@
           "Mater and the Ghostlight",
           "Cars Toon: Hiccups"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 13,
@@ -361,14 +358,32 @@
       "cite": null,
       "cmpt_rank": 15,
       "details": {
+        "attrid": "kc:/fictional_universe/fictional_character:played by",
+        "items": [
+          {
+            "text": "Larry the Cable Guy",
+            "url": "/search?sca_esv=52b056e1a97f92b3&q=Larry+the+Cable+Guy&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXpyVYE7Kx3Kgs-XSn6t-bdZcwzirh7Sbk6YoW92af2S1Gp6E6g6sH1W8xWJiI3pMI1S1evEiYDHFkksfFDGidWsjmEMaDyZPxJJFlzi4kX-M4UkaS_Lw4vBaiwFiCik5Q2ljZnKKv3a1Y8ncQlzHt_H0E83US9LjBVV-htqL9L2NFy2yLg%3D%3D&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCUQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Larry the Cable Guy",
+      "title": "Played by",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
         "items": [
           {
             "text": "Wikipedia",
             "url": "https://en.wikipedia.org/wiki/Tow_Mater"
-          },
-          {
-            "text": "Larry the Cable Guy",
-            "url": "/search?sca_esv=52b056e1a97f92b3&q=Larry+the+Cable+Guy&si=AKbGX_oBDfquzodaRrfbb9img4kPQ4fCBZjeqAiaW1svvC8uXpyVYE7Kx3Kgs-XSn6t-bdZcwzirh7Sbk6YoW92af2S1Gp6E6g6sH1W8xWJiI3pMI1S1evEiYDHFkksfFDGidWsjmEMaDyZPxJJFlzi4kX-M4UkaS_Lw4vBaiwFiCik5Q2ljZnKKv3a1Y8ncQlzHt_H0E83US9LjBVV-htqL9L2NFy2yLg%3D%3D&sa=X&ved=2ahUKEwiovbbmhPCEAxWYFVkFHb95DtkQmxMoAHoECCUQAg"
           },
           {
             "text": "Holley Shiftwell",
@@ -398,8 +413,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 21,
-      "sub_rank": 1,
+      "serp_rank": 22,
+      "sub_rank": 2,
       "sub_type": "links",
       "text": null,
       "title": "About",
@@ -431,8 +446,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 22,
-      "sub_rank": 2,
+      "serp_rank": 23,
+      "sub_rank": 3,
       "sub_type": "links",
       "text": null,
       "title": "People also search for",

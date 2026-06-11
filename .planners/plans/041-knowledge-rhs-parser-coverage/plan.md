@@ -1,11 +1,11 @@
 ---
 id: 41
 slug: knowledge-rhs-parser-coverage
-status: active
+status: done
 branch: feature/v0.10.0-knowledge-rhs-coverage
 created: 2026-06-06T01:27:30-07:00
-concluded:
-pr:
+concluded: 2026-06-10T18:45:36-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/168
 ---
 
 # Improve knowledge_rhs parser coverage for fact rows and expandable boxes
@@ -169,3 +169,105 @@ survives with targeted amendments rather than a redesign:
   `BaseResult` validator; giving them semantic types folds into this plan's
   convergence pass. `"item"` now counts as part of the existing-labels set in
   the acceptance criteria.
+
+### 2026-06-10 — Implementation (PR #168)
+
+**Coverage (commit "add kc fact-row extraction to knowledge rhs").** New
+`_parse_rhs_facts()` emits one `side_bar` row per `kc:/` row on the
+complementary path, `sub_type="fact"`. Design deviations from the plan's
+literal spec, all toward the post-045 two-tier schema:
+
+- Label/value land in core `title`/`text` (not a `details.type="text"`
+  items list) — the 045 split says content the user saw belongs in core
+  fields. `details` carries the source `attrid` as provenance plus the row's
+  links: `{"type": "hyperlinks", "attrid", "items"}` or
+  `{"type": "item", "attrid"}`. No `details.type="text"` shape was needed.
+- Title resolution: `w8qArf` label > exclusive box heading > humanized attrid
+  tail. A box wrapping exactly one fact row lends it its heading ("Structures",
+  "Watch movie", "Popular Times") and is skipped by the box pass; links the
+  box holds *outside* the kc:/ row (the expanded watch-provider list) are
+  folded into the fact row — caught in snapshot-diff review as a 3-link loss
+  on the film queries, then pinned corpus-wide by a no-link-loss check
+  (activation commit vs. head: 0 lost URLs).
+- Box pass: subtracts links inside emitted fact rows; a box left with nothing
+  is dropped (its content lives on the fact row). Link-less content boxes
+  emit title + first sibling text (`details=None`); survey prompts (titles
+  ending "?"), entity-title duplicates, and the `edit info`/`pending edits`
+  affordance attrids are excluded.
+- Item 2's link-less-box concern mostly dissolved on re-inspection: the Q&A
+  topic boxes ("Things to do", "Cost") were *already* folded into the main
+  panel via `lab/title/*` topics. What was added: the unwitnessed
+  iwY1Mb-without-`lab/title` fallback (synthetic-pinned) and the title+text
+  emission for genuine content boxes ("Payment options" — synthetic-pinned,
+  since the apple-inc RHS never reaches the parser, see below).
+- Dropped the vestigial `rhs_column` key (written on every row, silently
+  discarded by the `BaseResult` round-trip; zero snapshots carry it).
+
+**Convergence (commit "converge knowledge details schema with 045 contract").**
+All four 029 items in `knowledge.py`:
+
+- `img_url` → 1-element `img_urls` (matching `knowledge_rhs`), recorded only
+  when present — also kills the unconditional `img_url: None` fill.
+- Only-when-informative everywhere: `heading`, `urls`, handler `text` writes,
+  `subtitle`; empty `details` collapses to `None` (045 contract).
+- Dictionary `details["text"]` double-write dropped (core `text` keeps the
+  definitions); legacy vmod/jsslot fallbacks keep `details["text"]` (they
+  never set core text) — kept distinct, now synthetic-pinned.
+- `heading` vs `subtitle`: kept as distinct keys — they are semantically
+  different (section heading vs. entity descriptor), per item 5's
+  "keep distinct but documented".
+
+Snapshot diff (reviewed line-by-line): 53 `img_url: null` + 6 `heading: null`
++ 1 `text: null` + 10 `urls: []` removed, 4 dictionary `details.text`
+duplicates removed (core copy verified retained), 1 hollow `details` → `None`,
++52 fact rows across 11 SERPs. Corpus after: 85 side_bar rows (was 43), 79
+with details (was 37).
+
+**Out of scope, surfaced:**
+
+- The "apple inc" RHS (`[role=complementary]` with a "Payment options" box)
+  is never classified as a `knowledge_rhs` component — a classifier/extractor
+  gap, not a parser gap; would need its own plan.
+- Fact extraction runs only on the complementary path; the legacy `Uo8X3b`
+  branch is byte-identical (no corpus `Uo8X3b` panel carries `kc:/` rows).
+- `_parse_visual_digest` facts keep their `{"kind": "fact", label, value}`
+  shape (witnessed + snapshot-pinned; semantic-typing them would be churn).
+
+### 2026-06-10 — Review follow-up (close gate)
+
+Ran `/code-review` at high effort over `feature/v0.10.0...HEAD` (3 correctness
++ 3 cleanup + 1 altitude finder angles, per-claim verification), posted to PR
+#168. **Zero correctness findings.** Cleanup/altitude candidates all disposed
+as conscious no-ops: the `_under_any` / VisualDigest walk dedup is deferred to
+plan 044 (shared document-walk altitude); the `parse_alink` reuse and
+climb-helper suggestions were refuted on the facts (different output shapes /
+different predicates); the micro-efficiency and heuristic-fragility items are
+negligible at RHS scale or consistent with the file's existing idiom and
+pinned by tests. No post-review code changes. Gate: 507 passed, 87 snapshots,
+ruff + pyrefly clean.
+
+## Retrospective
+
+- **045 did the design work for this plan.** Re-grounding the draft against
+  the two-tier schema before coding turned the spec's open questions
+  (always-emit vs `None`, `details.type="text"` shapes) into settled
+  constraints — label/value went to core `title`/`text` and the planned
+  text-items shape was never needed. Refreshing a stale plan against shipped
+  decisions before implementing was cheaper than designing around them after.
+- **The line-by-line snapshot-diff review caught a real data loss** the test
+  suite didn't: consuming a single-fact box's heading dropped provider links
+  sitting outside the kc:/ row. The fix (merge box-outside links into the
+  fact row) came with a corpus-wide no-link-loss invariant check — worth
+  reusing on future parser restructures (cheap to write, catches what
+  snapshots normalize away).
+- **Plan evidence drifts.** The draft's counts (9 fact-row queries, "missing"
+  box titles) were partly stale or already handled (`lab/title` topics
+  predated the plan); per-component re-verification at activation kept the
+  scope honest. Matches the standing verify-plan-evidence-counts practice.
+- **Coverage gaps can be classifier gaps.** The "apple inc" RHS never reaches
+  the parser at all — no parser change can fix it. Logged as potential
+  follow-up work rather than stretched into this plan.
+- **The corpus-unwitnessed branches were the riskiest edits** (img-brk,
+  dictionary legacy, expander topics); synthetic pins before migration made
+  the only-when-informative sweep reviewable as an exactly-bounded snapshot
+  diff (53+10+6+1 null-fill removals, 4 verified-duplicate drops).

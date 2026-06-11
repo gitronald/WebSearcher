@@ -16,8 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
         "text": "education|education|Overview|Overview|Overview|Usage examples|Usage examples|Usage examples|Pronunciation|Pronunciation|Pronunciation|Similar and opposite words|Similar and opposite words|Similar and opposite words",
         "type": "panel"
       },
@@ -35,10 +33,8 @@
       "cmpt_rank": 1,
       "details": {
         "heading": "Choose what you’re giving feedback on",
-        "img_url": null,
         "text": "Choose what you’re giving feedback on|general feedback|Pronunciation|Pronunciation|Pronunciation|American pronunciation|American pronunciation|American pronunciation|American pronunciation|American pronunciation|British pronunciation|British pronunciation|British pronunciation|Sounds like|eh|·|juh|·|kay|·|shn|slow|Feedback|Feedback|Feedback|Feedback|Feedback",
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 1,

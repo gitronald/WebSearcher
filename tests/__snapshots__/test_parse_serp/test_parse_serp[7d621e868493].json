@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Oscar the Grouch",
-        "img_url": null,
         "subtitle": "Muppet character",
         "tabs": [
           "Overview",
@@ -286,7 +285,6 @@
       "cmpt_rank": 10,
       "details": {
         "heading": "Movies",
-        "img_url": null,
         "items": [
           "The Adventures of Elmo in Grouchland",
           "Sesame Street Presents: Follow That Bird",
@@ -296,8 +294,7 @@
           "The Great Muppet Caper",
           "Night at the Museum: Battle of the Smithsonian"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 18,
@@ -380,13 +377,11 @@
       "cmpt_rank": 13,
       "details": {
         "heading": "Played by",
-        "img_url": null,
         "items": [
           "Caroll Spinney",
           "Eric Jacobson"
         ],
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
       "section": "main",
       "serp_rank": 21,
@@ -440,6 +435,36 @@
       "cite": null,
       "cmpt_rank": 15,
       "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "X (Twitter)",
+            "url": "https://twitter.com/OscarTheGrouch"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/@toomanchoo3"
+          },
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/SesameOscartheGrouch/"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "X (Twitter) YouTube Facebook",
+      "title": "Profiles",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
         "items": [
           {
             "text": "Spotify",
@@ -457,8 +482,8 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 24,
-      "sub_rank": 1,
+      "serp_rank": 25,
+      "sub_rank": 2,
       "sub_type": "links",
       "text": null,
       "title": "Listen",
@@ -478,40 +503,11 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
-      "sub_rank": 2,
-      "sub_type": "links",
-      "text": null,
-      "title": "About",
-      "type": "side_bar",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 15,
-      "details": {
-        "items": [
-          {
-            "text": "X (Twitter)",
-            "url": "https://twitter.com/OscarTheGrouch"
-          },
-          {
-            "text": "YouTube",
-            "url": "https://www.youtube.com/@toomanchoo3"
-          },
-          {
-            "text": "Facebook",
-            "url": "https://www.facebook.com/SesameOscartheGrouch/"
-          }
-        ],
-        "type": "hyperlinks"
-      },
-      "section": "rhs",
       "serp_rank": 26,
       "sub_rank": 3,
       "sub_type": "links",
       "text": null,
-      "title": "Profiles",
+      "title": "About",
       "type": "side_bar",
       "url": null
     },
