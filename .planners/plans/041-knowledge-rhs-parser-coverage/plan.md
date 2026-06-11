@@ -169,3 +169,66 @@ survives with targeted amendments rather than a redesign:
   `BaseResult` validator; giving them semantic types folds into this plan's
   convergence pass. `"item"` now counts as part of the existing-labels set in
   the acceptance criteria.
+
+### 2026-06-10 — Implementation (PR #168)
+
+**Coverage (commit "add kc fact-row extraction to knowledge rhs").** New
+`_parse_rhs_facts()` emits one `side_bar` row per `kc:/` row on the
+complementary path, `sub_type="fact"`. Design deviations from the plan's
+literal spec, all toward the post-045 two-tier schema:
+
+- Label/value land in core `title`/`text` (not a `details.type="text"`
+  items list) — the 045 split says content the user saw belongs in core
+  fields. `details` carries the source `attrid` as provenance plus the row's
+  links: `{"type": "hyperlinks", "attrid", "items"}` or
+  `{"type": "item", "attrid"}`. No `details.type="text"` shape was needed.
+- Title resolution: `w8qArf` label > exclusive box heading > humanized attrid
+  tail. A box wrapping exactly one fact row lends it its heading ("Structures",
+  "Watch movie", "Popular Times") and is skipped by the box pass; links the
+  box holds *outside* the kc:/ row (the expanded watch-provider list) are
+  folded into the fact row — caught in snapshot-diff review as a 3-link loss
+  on the film queries, then pinned corpus-wide by a no-link-loss check
+  (activation commit vs. head: 0 lost URLs).
+- Box pass: subtracts links inside emitted fact rows; a box left with nothing
+  is dropped (its content lives on the fact row). Link-less content boxes
+  emit title + first sibling text (`details=None`); survey prompts (titles
+  ending "?"), entity-title duplicates, and the `edit info`/`pending edits`
+  affordance attrids are excluded.
+- Item 2's link-less-box concern mostly dissolved on re-inspection: the Q&A
+  topic boxes ("Things to do", "Cost") were *already* folded into the main
+  panel via `lab/title/*` topics. What was added: the unwitnessed
+  iwY1Mb-without-`lab/title` fallback (synthetic-pinned) and the title+text
+  emission for genuine content boxes ("Payment options" — synthetic-pinned,
+  since the apple-inc RHS never reaches the parser, see below).
+- Dropped the vestigial `rhs_column` key (written on every row, silently
+  discarded by the `BaseResult` round-trip; zero snapshots carry it).
+
+**Convergence (commit "converge knowledge details schema with 045 contract").**
+All four 029 items in `knowledge.py`:
+
+- `img_url` → 1-element `img_urls` (matching `knowledge_rhs`), recorded only
+  when present — also kills the unconditional `img_url: None` fill.
+- Only-when-informative everywhere: `heading`, `urls`, handler `text` writes,
+  `subtitle`; empty `details` collapses to `None` (045 contract).
+- Dictionary `details["text"]` double-write dropped (core `text` keeps the
+  definitions); legacy vmod/jsslot fallbacks keep `details["text"]` (they
+  never set core text) — kept distinct, now synthetic-pinned.
+- `heading` vs `subtitle`: kept as distinct keys — they are semantically
+  different (section heading vs. entity descriptor), per item 5's
+  "keep distinct but documented".
+
+Snapshot diff (reviewed line-by-line): 53 `img_url: null` + 6 `heading: null`
++ 1 `text: null` + 10 `urls: []` removed, 4 dictionary `details.text`
+duplicates removed (core copy verified retained), 1 hollow `details` → `None`,
++52 fact rows across 11 SERPs. Corpus after: 85 side_bar rows (was 43), 79
+with details (was 37).
+
+**Out of scope, surfaced:**
+
+- The "apple inc" RHS (`[role=complementary]` with a "Payment options" box)
+  is never classified as a `knowledge_rhs` component — a classifier/extractor
+  gap, not a parser gap; would need its own plan.
+- Fact extraction runs only on the complementary path; the legacy `Uo8X3b`
+  branch is byte-identical (no corpus `Uo8X3b` panel carries `kc:/` rows).
+- `_parse_visual_digest` facts keep their `{"kind": "fact", label, value}`
+  shape (witnessed + snapshot-pinned; semantic-typing them would be churn).
