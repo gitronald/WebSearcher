@@ -64,6 +64,7 @@ def show(
 
     queries: list[str] = []
     html: str | None = None
+    url: str | None = None
     with open(fp) as f:
         for line in f:
             line = line.strip()
@@ -74,6 +75,7 @@ def show(
             queries.append(qry)
             if query and qry == query:
                 html = rec.get("html")
+                url = rec.get("url")
 
     if list_queries or not query:
         for q in queries:
@@ -84,7 +86,7 @@ def show(
         print(f"No SERP found for query {query!r}. Use --list to see available queries.")
         return None
 
-    parsed = ws.parse_serp(html)
+    parsed = ws.parse_serp(html, url=url)
     results = parsed.get("results") or []
     print(f"WebSearcher v{ws.__version__} | qry={query!r} | {len(results)} components\n")
     if details:

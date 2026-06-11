@@ -79,7 +79,10 @@ class ZendriverSearcher:
             timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
+        pre_nav_url: str | None = None
         try:
+            if self.tab is not None:
+                pre_nav_url = self.tab.url  # local target info, no CDP round-trip
             self.tab = self._run(self.browser.get(search_params.url))
             time.sleep(2)
             self._run(self.tab.select("#search", timeout=10))
@@ -101,10 +104,14 @@ class ZendriverSearcher:
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
-            if self.tab is not None:
+            # Only when the URL moved off the pre-navigation page: a failure
+            # before navigation would otherwise record the previous query's SERP.
+            if self.tab is not None and pre_nav_url is not None:
                 try:
-                    response_output.url = self._run(self.tab.evaluate("window.location.href"))
-                    response_output.html = self._run(self.tab.get_content())
+                    live_url = self.tab.url  # local target info, no CDP round-trip
+                    if live_url and live_url != pre_nav_url:
+                        response_output.url = live_url
+                        response_output.html = self._run(self.tab.get_content())
                 except Exception:
                     pass
         finally:

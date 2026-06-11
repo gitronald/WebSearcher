@@ -83,14 +83,24 @@ def hash_id(s):
 
 # Parsing ----------------------------------------------------------------------
 
-# Google redirects blocked requests to https://www.google.com/sorry/index?... --
-# the URL is a CAPTCHA signal even when the page HTML was never captured.
-RX_SORRY_REDIRECT = re.compile(r"^https?://(www\.)?google\.com/sorry/")
-
 
 def is_sorry_redirect(url: str | None) -> bool:
-    """Boolean for a Google /sorry/ (CAPTCHA challenge) redirect URL."""
-    return bool(url and RX_SORRY_REDIRECT.match(url))
+    """Boolean for a Google /sorry/ (CAPTCHA challenge) redirect URL.
+
+    Google redirects blocked requests to https://www.google.com/sorry/index?...
+    -- the URL is a CAPTCHA signal even when the page HTML was never captured.
+    The block page is also served from other Google hosts (ccTLDs like
+    google.co.uk, historically ipv4.google.com), so match any google-registered
+    domain with a /sorry path.
+    """
+    if not url:
+        return False
+    parts = urlparse.urlsplit(url)
+    if parts.scheme not in ("http", "https"):
+        return False
+    if tldextract.extract(parts.netloc).domain != "google":
+        return False
+    return parts.path == "/sorry" or parts.path.startswith("/sorry/")
 
 
 def has_captcha(soup: Node | None, html: str | None = None) -> bool:

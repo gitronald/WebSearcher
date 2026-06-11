@@ -139,8 +139,9 @@ def test_captcha_clean_html_normal_url():
 
 
 def test_captcha_sorry_fixture_html():
+    # No url passed: the fixture's page text alone must trip the HTML path.
     fp = Path(__file__).parent / "fixtures" / "sorry_index.html"
-    features = FeatureExtractor.extract_features(fp.read_text(), url=SORRY_URL)
+    features = FeatureExtractor.extract_features(fp.read_text())
     assert features.captcha is True
 
 

@@ -92,7 +92,9 @@ class PatchrightSearcher:
             timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
+        pre_nav_url: str | None = None
         try:
+            pre_nav_url = self.page.url
             response = self.page.goto(search_params.url, wait_until="domcontentloaded")
             # Record the status before the #search wait so a blocked request
             # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
@@ -116,10 +118,14 @@ class PatchrightSearcher:
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
-            if self.page is not None:
+            # Only when the URL moved off the pre-navigation page: a failure
+            # before navigation would otherwise record the previous query's SERP.
+            if self.page is not None and pre_nav_url is not None:
                 try:
-                    response_output.url = self.page.url
-                    response_output.html = self.page.content()
+                    live_url = self.page.url
+                    if live_url and live_url != pre_nav_url:
+                        response_output.url = live_url
+                        response_output.html = self.page.content()
                 except Exception:
                     pass
         finally:

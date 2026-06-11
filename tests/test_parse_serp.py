@@ -1,6 +1,7 @@
 """Test SERP parsing pipeline end-to-end"""
 
 import bz2
+import functools
 from pathlib import Path
 
 import orjson
@@ -32,8 +33,10 @@ def load_serps(path: Path) -> list[dict]:
         return [orjson.loads(line) for line in f]
 
 
+@functools.cache
 def load_all_serps() -> list[dict]:
-    """Load SERP records from all fixture files"""
+    """Load SERP records from all fixture files (cached: the corpus decompress
+    is ~2s and the records are already held for the session by parametrization)"""
     records = []
     for path in SERPS_PATHS:
         records.extend(load_serps(path))

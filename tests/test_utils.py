@@ -88,6 +88,26 @@ def test_is_sorry_redirect_no_www():
     assert utils.is_sorry_redirect("http://google.com/sorry/index?q=abc") is True
 
 
+def test_is_sorry_redirect_cctld():
+    assert utils.is_sorry_redirect("https://www.google.co.uk/sorry/index?q=abc") is True
+
+
+def test_is_sorry_redirect_other_subdomain():
+    assert utils.is_sorry_redirect("https://ipv4.google.com/sorry/index?q=abc") is True
+
+
+def test_is_sorry_redirect_bare_sorry_path():
+    assert utils.is_sorry_redirect("https://www.google.com/sorry?continue=x") is True
+
+
+def test_is_sorry_redirect_path_prefix_only():
+    assert utils.is_sorry_redirect("https://www.google.com/sorrytown") is False
+
+
+def test_is_sorry_redirect_google_as_subdomain_of_other_domain():
+    assert utils.is_sorry_redirect("https://google.example.com/sorry/") is False
+
+
 def test_is_sorry_redirect_normal_search():
     assert utils.is_sorry_redirect("https://www.google.com/search?q=test") is False
 

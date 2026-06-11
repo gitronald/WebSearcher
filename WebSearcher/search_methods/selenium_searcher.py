@@ -113,8 +113,10 @@ class SeleniumDriver:
             timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
         )
 
+        pre_nav_url: str | None = None
         try:
             driver = self._require_driver()
+            pre_nav_url = driver.current_url
             driver.get(search_params.url)
             time.sleep(2)
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "search")))
@@ -136,10 +138,14 @@ class SeleniumDriver:
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
-            if self.driver is not None:
+            # Only when the URL moved off the pre-navigation page: a failure
+            # before navigation would otherwise record the previous query's SERP.
+            if self.driver is not None and pre_nav_url is not None:
                 try:
-                    response_output.url = self.driver.current_url
-                    response_output.html = self.driver.page_source
+                    live_url = self.driver.current_url
+                    if live_url and live_url != pre_nav_url:
+                        response_output.url = live_url
+                        response_output.html = self.driver.page_source
                 except Exception:
                     pass
         finally:
