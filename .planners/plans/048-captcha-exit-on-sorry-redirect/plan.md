@@ -1,10 +1,10 @@
 ---
 id: 48
 slug: captcha-exit-on-sorry-redirect
-status: active
+status: done
 branch: feature/v0.10.0-captcha-exit
 created: 2026-06-09T23:06:21-07:00
-concluded:
+concluded: 2026-06-10T21:58:16-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/170
 ---
 
@@ -98,3 +98,46 @@ Current code: `WebSearcher/utils.py::has_captcha` (HTML-text only),
   - Verified `parse_serp("")` does not raise (empty-HTML block case), so
     `SearchEngine.parse_serp` can't strand stale features on a blocked request.
   - Full suite 525 passed; 87 snapshots unchanged (normal-SERP output byte-identical).
+
+- 2026-06-10T21:58:16-07:00 — Review follow-up (7-angle review posted to the PR; fixes in
+  one commit). Actioned, each with regression tests where applicable:
+  1. `requests` backend now records the final post-redirect URL (it had discarded
+     `response.url`, so the URL signal could never fire for `method="requests"`).
+  2. Pre-navigation failures no longer record the *previous* query's SERP under the new
+     query: each browser backend snapshots the URL before navigating and the except-path
+     capture only runs when the live URL moved off it (new `tests/test_search_methods.py`,
+     fake-driver tests for all three backends; zendriver also switched to the local
+     `tab.url` property instead of a CDP `evaluate` round-trip).
+  3. `is_sorry_redirect` broadened from a `(www.)google.com`-only regex to
+     `urlsplit` + `tldextract` (registered domain == `google`, path `/sorry`(`/`)) —
+     covers ccTLDs, `ipv4.google.com`, and the no-trailing-slash variant, still rejects
+     `google.example.com/sorry/`.
+  4. `SearchEngine.parse_serp` resets `self.parsed` before parsing, so a swallowed parse
+     error can't leave the previous query's `captcha` flag attributed to the current one.
+  5. `ws-demo show` reparses with the stored record URL, keeping collection-time and
+     reparse features consistent for blocked captures.
+  6. Test hygiene: the fixture test no longer passes `url=` (the HTML path must trip on
+     its own); `load_all_serps` is cached to avoid a third full corpus decompress.
+  - Conscious no-ops (rationale in the PR review comment): patchright's real-status-
+    before-wait, per-backend capture duplication, inline `SORRY_URL` test literals,
+    Optional-narrowing guards, and url-less reparse in `bench`/`demos/parse`.
+  - Gate after fixes: 537 passed (87 snapshots unchanged), ruff clean, pyrefly 0 errors.
+
+## Retrospective
+
+- The plan's four steps held up unchanged; all the real discovery happened in review. The
+  biggest find was not the detection logic but a capture hazard the new except-path code
+  introduced: without a pre-navigation URL snapshot, a failure *before* navigating would
+  have silently recorded the previous query's SERP under the new query — worse than the
+  empty response it replaced. Failure-path captures need a "did we actually move?" guard.
+- The plan scoped URL capture to the browser backends and missed that the `requests`
+  backend had the same gap with a one-line fix (`response.url`). When a plan says "each X
+  backend," check the non-X backends for the same invariant.
+- Threading a new signal through `parse_serp` is opt-in per call site; sweeping in-repo
+  callers (demo reparse paths) at the same time avoids collection-vs-reparse divergence.
+- Capturing the fixture live via the plan's Evidence repro worked on the first try (plain
+  playwright headless is reliably blocked), but the raw page contained the client IP and
+  session tokens — public-repo fixtures from live captures always need a scrub pass.
+- Fake-driver unit tests (bypass `__init__`, stub the page/tab/driver surface) covered
+  all three backends' failure paths in <1s with no browser; worth reusing for future
+  backend behavior changes.
