@@ -205,7 +205,14 @@
     {
       "cite": "5.5M+ views  ·  4 years ago",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "channel": "Amoeba Sisters",
+        "publish_date": "Jul 14, 2021",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4DMEY9W4eFpgjGQpL9SARr5Wct0UPYwmPV2dBfNka8XA5bJrFS54WQ&s",
+        "title": "Photosynthesis (UPDATED)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -258,8 +265,13 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
+        "channel": "Discovery Science",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 18, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/wDHxu52hnH0/hqdefault.jpg",
+        "title": "Why Photosynthesis Shows Irreducible Complexity",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 9,
@@ -306,8 +318,13 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
+        "channel": "tutor2u",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Nov 13, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/dtZVbrog_mU/hqdefault.jpg",
+        "title": "Photosynthesis | A-Level Biology Revision Livestream",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 12,
@@ -322,8 +339,13 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
+        "channel": "Ekaksha English Medium",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 6, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/r90D4XK42c4/hqdefault.jpg",
+        "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 13,

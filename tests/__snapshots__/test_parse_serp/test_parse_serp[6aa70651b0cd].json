@@ -187,7 +187,14 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "NASA Space Place",
+        "publish_date": "Mar 2, 2020",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6e5kcoZuPcjkmdHwg_vN6fp2WJ-wuDZaCpYurvlr8Z4EGoW2YQcLOCQ&s",
+        "title": "Why Is the Sky Blue?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -253,8 +260,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "Math and Science",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 9, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/HZTGNh6pVXY/hqdefault.jpg",
+        "title": "The REAL Reason the Sky Looks Blue",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 9,
@@ -301,8 +313,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "Ulli Kampelmann",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 10, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/n4ElQOE3lyI/hqdefault.jpg",
+        "title": "Why is the Sky Blue?",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 12,
@@ -429,8 +446,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "Rozender Science",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Nov 25, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/o1pTCw8cg10/hqdefault.jpg",
+        "title": "Can Sky become Green? | Why is our sky Blue? | #shorts",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 20,

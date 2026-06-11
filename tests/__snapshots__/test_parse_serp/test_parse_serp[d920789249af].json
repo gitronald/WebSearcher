@@ -209,7 +209,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "PBS NewsHour",
+        "publish_date": "Feb 3, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJv9HwmSS7R6jPnq1-r85mNtkwVUoG98lTs14-KXv1yTZ1-ygMfPyluA&s",
+        "title": "WATCH LIVE: Senate Democrats speak after House approves ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -235,7 +242,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "Al Jazeera English",
+        "publish_date": "Jan 31, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRELNl_dbaYQh00siA71qFC-bldxMj7EuWcFw4Xpc__X8TBdYAwC2h31A&s",
+        "title": "US Congress shutdown: Senate unanimously agrees on two ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 2,

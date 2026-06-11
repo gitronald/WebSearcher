@@ -348,7 +348,14 @@
     {
       "cite": "300+ views  ·  2 years ago",
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "Blue Studios EDU",
+        "publish_date": "Oct 4, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXw4r5iZrNYdXaGIt5QRN563feRXOAronWqE-8vT80vywxV4LmpK0pMfrH-wK_4oiCSN80_Mjrboc0cSpXiPPMMeB2XtfjXpDVn9rSFFRzbvU&s&ec=121528435",
+        "title": "Why Do Bananas Change Color? #science #sciencefun #facts ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,

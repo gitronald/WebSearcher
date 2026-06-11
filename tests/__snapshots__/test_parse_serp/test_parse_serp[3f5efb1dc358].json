@@ -214,8 +214,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "OzGeology",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 15, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/z41eCEc15w0/hqdefault.jpg",
+        "title": "How Climate Change Triggers Earthquakes and Tsunamis",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 7,
@@ -278,8 +283,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "WIS News 10",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 21, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/JQxFQark-q0/hqdefault.jpg",
+        "title": "Understanding the science behind earthquakes",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 11,
@@ -294,8 +304,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "CBS LA",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 10, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/qqSC5o58zvg/hqdefault.jpg",
+        "title": "Anatomy of an earthquake",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 12,
@@ -310,8 +325,13 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
+        "channel": "CBC News",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Nov 27, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/hzEpGpofkK4/hqdefault.jpg",
+        "title": "The exact cause of 25000 earthquakes | Scienceplained",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 13,
@@ -357,7 +377,14 @@
     {
       "cite": "1M+ views  ·  1 year ago",
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "channel": "CBC Kids News",
+        "publish_date": "Jun 26, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaXcmiJ5_OlY6XgSMyI-PYp1coiDNcwF8uXxSlKY2HCC3TL0GmHHgW2A&s",
+        "title": "Understanding earthquakes: The science behind what makes ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,

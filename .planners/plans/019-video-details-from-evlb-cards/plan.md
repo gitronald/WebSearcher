@@ -1,11 +1,11 @@
 ---
 id: 19
 slug: video-details-from-evlb-cards
-status: active
+status: done
 branch: feature/v0.10.0-evlb-video-details
 created: 2026-05-10T12:31:46-07:00
-concluded:
-pr:
+concluded: 2026-06-10T18:00:54-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/167
 ---
 
 # Enrich video details from hidden `evlb_*` "About this result" cards
@@ -161,4 +161,132 @@ for c in ex.components:
 "
 ```
 
+### 2026-06-10 — implementation
+
+Branch `feature/v0.10.0-evlb-video-details` off `feature/v0.10.0`; draft PR
+opened. Commits: `add video details from hidden evlb cards`, `add video card
+tests and update snapshots`.
+
+- New `WebSearcher/component_parsers/_video_card.py` with `parse_evlb_card`
+  (selectolax port of the bs4 sketch; iterates cards in scope and returns the
+  first that yields a field, so an empty stub before a populated card cannot
+  shadow it). Returns fields only; callers write the literal
+  `{"type": "video", **fields}` at the call site.
+- Wired into `parse_general_video` (`general.py`) and `parse_video`
+  (`videos.py`; content details set before `mark_timestamp_row` /
+  `mark_hidden_row` so timestamp/visible ride as sibling keys).
+- **Deviation from step 4:** the plan claimed both legacy selectors were dead,
+  but snapshot diffs showed `.JIv15d` (duration) still fires on 18 rows from
+  older SERPs in the fixture corpus — the plan's own removal gate ("once the
+  new path covers the same fields") is unmet for `duration`, so the selector
+  stays as a merged fallback in `parse_general_video`. Only `.gqF9jc` (source,
+  0 hits corpus-wide) was dropped. Net effect on legacy rows: they keep
+  `duration` and lose only the hollow `source: null` key.
+- `demos/show.py` video summary now renders source · channel · publish_date.
+- 44 video rows enriched across 28 snapshot files; full suite 482 passed,
+  ruff and pyrefly clean. Demo capture (`data/demo-ws-v0.10.0a0/serps.json`):
+  the only 2 video rows present are both fully enriched.
+- Step 5 (perspectives/top_stories wiring) not done: populated cards also sit
+  in `perspectives`, `short_videos`, `people_also_ask`, and `knowledge`
+  components corpus-wide — broader than the plan scoped; left for a follow-up
+  measure-first pass.
+- Step 7 is moot: the legacy `TODO.md` was retired in the `.planners/`
+  migration, so this plan is itself the tracking item for the stale-selector
+  TODO.
+
+### 2026-06-10 — step 5: perspectives and short_videos wiring
+
+Measured the remaining component types first (corpus-level, real tile
+enumeration):
+
+- `perspectives` (via `top_stories.parse_top_story`): 77 populated cards across
+  21 components, every card inside exactly one tile — wired up with
+  `parse_evlb_card(sub)` like the other in-tile parsers. The perspectives
+  `heading` key now rides as a sibling inside the video payload.
+- `short_videos`: 46 cards across 10 components, but the card sits BESIDE the
+  `a.rIRoqf` anchor in a per-video `div.WVV5ke` wrapper, never inside it. A
+  first attempt walked ancestors to the nearest `WVV5ke`; that crashed on
+  document-root ancestors and, worse, could escape the component when no
+  wrapper exists (flagged in review). Replaced with `evlb_fields_by_tile(root,
+  tiles)`: wrapper search scoped to the component element, a wrapper pairing
+  with a tile only when it contains exactly one of them.
+- `people_also_ask` (21 cards) — out of scope: the parser emits one row per
+  component with question text only; answer content is explicitly beyond it.
+- `knowledge` — out of scope: 1 card corpus-wide.
+
+Provenance verified corpus-wide through the real pipeline: 167 card-backed
+enriched rows across 78 components, zero containment violations (every row's
+field tuple matches a card inside its own component element) and zero
+double-uses (multiset check per component). Both low title-similarity pairs
+proved genuine: one card whose `h1` literally reads "YouTube" (Google markup
+quirk), and one where the tile headline differs from the video title — the
+card thumbnail's embedded id (`/vi/xalPEv7KqVU/`) matches the row URL exactly.
+That id cross-check is pinned as `test_enriched_thumbnail_matches_row_video_id`,
+and the scoping rules as unit tests on `evlb_fields_by_tile`. Suite: 486
+passed; 123 newly enriched rows across 27 snapshots.
+
+### 2026-06-10 — close: review gate and follow-ups
+
+Ran the close review gate (7 finder angles, verifier pass, one bench run);
+review posted to the PR. Commits: `harden card pairing, restore duration
+display`, `update changelog and bench results`.
+
+**Review follow-up — actioned (each with a regression test or pinned check):**
+
+- `parse_evlb_card` required at least one text field to count a card as
+  populated (`_card_fields`): a stub shipping only a lazy-load `data:`
+  placeholder img would have emitted a junk payload and shadowed the real
+  card behind it. Test: `test_parse_evlb_card_thumbnail_only_stub_is_skipped`.
+- `evlb_fields_by_tile` now pairs a wrapper only when it holds exactly one
+  populated card (in addition to exactly one tile): a wide wrapper with one
+  qualifying anchor beside several videos' cards could have attributed the
+  wrong card. Test: `test_fields_by_tile_skips_wrapper_with_multiple_cards`.
+  No corpus output changed (87 snapshots identical).
+- `demos/show.py` got `duration` back in the video summary bits (the parser
+  still emits it on legacy layouts; the display had dropped it).
+- Swapped `wrapper.css("*")` for the canonical `_slx.walk_descendants` with an
+  early break; collapsed the verbose duration None-guard to the documented
+  `get_text(css_first(...))` chain; consolidated the test corpus loading into
+  one module-scoped fixture (was decompressing twice, parsing one SERP twice).
+- CHANGELOG entry added, including a **Shape note** on the video details
+  key-presence change (None-padded `source`/`duration` -> keys only when
+  populated; `.gqF9jc` dropped) — flagged by the verifier as worth documenting
+  for dict-style downstream consumers.
+
+**Review follow-up — conscious no-ops:**
+
+- `parse_top_story` in-tile association has no ambiguity guard (first
+  populated card wins): corpus-verified 1:1 with zero double-uses; the
+  thumbnail-id tripwire test covers only id-bearing thumbnails (~9 rows), a
+  documented limitation. Revisit if perspectives markup nests carousels.
+- `details.title` can be the platform name ("YouTube" in `h1.WQWxe`, one
+  corpus instance): faithful capture of Google's markup.
+- Four call sites keep the literal `{"type": "video", **fields}` per the
+  explicit-key-writes convention.
+- Refuted by verifiers: heading-inside-video-payload (matches the documented
+  sibling-key contract) and per-tile scan cost (bench: corpus median +1.4%,
+  within the ~1% noise floor; per-SERP median improved).
+
 ## Retrospective
+
+- The plan survived two repo migrations between drafting and implementation
+  (bs4 -> selectolax, fixture rename) — re-grounding the evidence through the
+  real pipeline before activating caught both, plus a coverage picture twice
+  as broad as scoped (perspectives/short_videos/PAA/knowledge).
+- The plan's "drop both stale selectors" step was wrong: `.JIv15d` duration
+  still fired on 18 legacy rows. The plan's own removal gate ("once the new
+  path covers the same fields") saved the data — gates written into plans pay
+  off when the evidence shifts.
+- The first short_videos association (ancestor walk to the nearest wrapper)
+  was flagged in user review and proved doubly bad: it crashed on document-root
+  ancestors AND could escape the component. Scoping searches to the component
+  element by construction beats bounding a walk.
+- Corpus-level provenance verification (containment + double-use multiset +
+  thumbnail-id cross-check) turned "looks right" into "verified, with a
+  pinned tripwire" for ~30 minutes of probe work; the before/after parse
+  examples it enabled were valuable enough to codify in the serp-inspect
+  skill and the PR note.
+- The close review gate still found two real latent guards (thumbnail-only
+  stubs, multi-card wrappers) after all that probing — adversarial review
+  catches what evidence-driven development pre-verified against the *current*
+  corpus but not against the next markup revision.

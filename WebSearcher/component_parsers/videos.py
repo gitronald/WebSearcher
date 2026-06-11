@@ -11,6 +11,7 @@ from selectolax.lexbor import LexborNode as Node
 from .._slx import get_text, has_text
 from ..models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row, mark_timestamp_row
+from ._video_card import parse_evlb_card
 
 # (sub_type label, CSS selector); first selector that yields elements wins.
 _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
@@ -50,7 +51,7 @@ def parse_videos(elem) -> list:
 
 
 def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
-    parsed = {
+    parsed: dict = {
         "type": "videos",
         "sub_type": sub_type,
         "sub_rank": sub_rank,
@@ -58,6 +59,11 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
         "title": get_text(sub.css_first('div[role="heading"]'), " "),
         "text": get_text(sub.css_first("div.MjS0Lc"), " "),
     }
+
+    # Content details first, so the timestamp/visible flags ride as siblings.
+    fields = parse_evlb_card(sub)
+    if fields:
+        parsed["details"] = {"type": "video", **fields}
 
     details = list(sub.css("div.MjS0Lc"))
     if details:

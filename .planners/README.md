@@ -2,12 +2,12 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards/plan.md) | active | — | — |
 | 049 | [Run the browser backends without a GUI via an Xvfb virtual display](plans/049-xvfb-virtual-display/plan.md) | draft | — | — |
 | 048 | [Detect CAPTCHA via the /sorry/ redirect URL and exit early](plans/048-captcha-exit-on-sorry-redirect/plan.md) | draft | — | — |
 | 044 | [Shared structure-aware document walk for component signals](plans/044-shared-document-walk-signals/plan.md) | draft | — | — |
 | 041 | [Improve knowledge_rhs parser coverage for fact rows and expandable boxes](plans/041-knowledge-rhs-parser-coverage/plan.md) | draft | — | — |
 | 031 | [Automate the Locations CSV Download](plans/031-automate-locations-download/plan.md) | draft | — | — |
+| 019 | [Enrich video details from hidden `evlb_*` "About this result" cards](plans/019-video-details-from-evlb-cards/plan.md) | done | 2026-06-10 18:00 PT | [#167](https://github.com/gitronald/WebSearcher/pull/167) |
 | 039 | [Investigate browser-automation alternatives to undetected_chromedriver](plans/039-browser-automation-alternatives/plan.md) | done | 2026-06-09 23:35 PT | [#166](https://github.com/gitronald/WebSearcher/pull/166) |
 | 047 | [Migrate plans to the .planners layout](plans/047-migrate-to-planners-layout/plan.md) | done | 2026-06-09 11:07 PT | [#165](https://github.com/gitronald/WebSearcher/pull/165) |
 | 045 | [Two-tier result schema: lean core + a `details` extras bucket](plans/045-two-tier-result-schema/plan.md) | done | 2026-06-08 00:42 PT | [#164](https://github.com/gitronald/WebSearcher/pull/164) |

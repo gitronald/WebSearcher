@@ -204,7 +204,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Ali Abdaal",
+        "publish_date": "May 22, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyZ85Zsl29eevrISlQQxq4_f1jvikUqxr5sgwbU49j-gRbw&s",
+        "title": "The Story of Albert Einstein ‍",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 2,
@@ -230,7 +237,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Cartooning Club XL",
+        "publish_date": "Apr 22, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi2YzSF_H30PLdAR3PvAveqgp-Xuixb-DAcaNAorU48NbpXBB_PmZArGU&s",
+        "title": "Learn About Albert Einstein's Life | Drawn Biography",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 4,
@@ -256,7 +270,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "How to do it?",
+        "publish_date": "Feb 1, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyWL9BgnoXa8p2GUfsQaee6BGul-QLbtAhmqCQ6Xqnk2OTw3yCBJu1JA0&s",
+        "title": "Who Was Albert Einstein? | The Genius Who Changed Time ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 6,
@@ -421,8 +442,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "StarTalk",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Nov 18, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/WxI2WNr4apY/hqdefault.jpg",
+        "title": "Einstein's Genius on Redefining Space, Time, and Relativity",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 27,
@@ -629,8 +655,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Veritasium",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Apr 14, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/lcjdwSY2AzM/hqdefault.jpg",
+        "title": "The Biggest Misconception in Physics",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 40,
@@ -709,8 +740,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "TopGears",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Aug 24, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/MVbpJB2Oi8E/hqdefault.jpg",
+        "title": "Einstein's Brain: Why Size Doesn't Equal Genius w /Carl Sagan",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 45,
@@ -806,8 +842,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Universe Lair",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "Jan 1, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/movDYUI0Fx4/hqdefault.jpg",
+        "title": "Einstein Saved The World? w/ Neil deGrasse Tyson",
+        "type": "video",
         "visible": false
       },
       "section": "main",
@@ -874,8 +915,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Angel Garay",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "Jul 24, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/KyJLDBYXc6w/hqdefault.jpg",
+        "title": "Final de Oppenheimer explicado #oppenheimer #christophernolan ...",
+        "type": "video",
         "visible": false
       },
       "section": "main",
@@ -891,8 +937,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Dr. Michael Gartner FACS Plastic Surgeon",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "Oct 21, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/baM33j7rcU8/hqdefault.jpg",
+        "title": "The Doctor Who Stole Einstein's Brains Surgeon Reacts",
+        "type": "video",
         "visible": false
       },
       "section": "main",
@@ -925,8 +976,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Zack D. Films",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "Sep 27, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/JqDKyvq89l8/hqdefault.jpg",
+        "title": "The Doctor Who Stole Einstein's Brain",
+        "type": "video",
         "visible": false
       },
       "section": "main",
@@ -959,8 +1015,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "Sean Andrew",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "May 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/maFNCBCJVWE/hqdefault.jpg",
+        "title": "How Einstein's Brain Was Stolen..",
+        "type": "video",
         "visible": false
       },
       "section": "main",
@@ -976,8 +1037,13 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
+        "channel": "FactTechz",
         "heading": "What people are saying",
-        "type": "item",
+        "publish_date": "May 25, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/RRLrFqb3G50/hqdefault.jpg",
+        "title": "Albert Einstein's Brain ILLEGALLY STOLEN! What Happened NEXT ...",
+        "type": "video",
         "visible": false
       },
       "section": "main",

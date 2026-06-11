@@ -300,7 +300,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Programming with Mosh",
+        "publish_date": "Feb 12, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AX2rWIamt-gsjh0nOzRf98C4y-ebbpREtsUxf0qFzvGLksgBCYr7OA&s",
+        "title": "Python Full Course for Beginners",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -313,7 +320,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Dave Gray",
+        "publish_date": "Feb 21, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_3jfr-PZrBY7mKLqX2sE8pxaABN_uDc8XfzdzjBXAB9IE_l4SHRJlVw&s",
+        "title": "Python Basics for Beginners | Python tutorial",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -326,7 +340,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Programming with Mosh",
+        "publish_date": "Feb 18, 2019",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEFAAeHHAvWg6gH46bC0Imd8hnaG_UzEQCQKGh8LJCGRlqacAoUZWow&s",
+        "title": "Python Full Course for Beginners",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
@@ -339,7 +360,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "Kevin Stratvert",
+        "publish_date": "Mar 25, 2021",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVnCpIeyn8zDQHiTC-QYAmMDJ908mCRgb8osKjZJhSYHAXy9GrmcKt3A&s",
+        "title": "‍ Python for Beginners Tutorial",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,
@@ -444,8 +472,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "ARCTutorials",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Feb 2, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/7p6MCsNT3EU/hqdefault.jpg",
+        "title": "Python for Beginners: Master Variables & Syntax (Masterclass Series) - Part \n1 #learnpython",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 13,
@@ -492,8 +525,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "Sajjaad Khader",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Nov 19, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/mC4nyib2sfg/hqdefault.jpg",
+        "title": "How I Would Learn Python FAST (if I could start over)",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 16,
@@ -508,8 +546,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "Mo Chen",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 26, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/9MzgIGAWnKE/hqdefault.jpg",
+        "title": "Python Tutorial for Beginners (2026)",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 17,
@@ -524,8 +567,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "Real Python",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 12, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/vaH36xfNL4M/hqdefault.jpg",
+        "title": "Learn Python in 8 Weeks: Live, Guided & Beginner-Friendly!",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 18,
@@ -540,8 +588,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "Computer Science (compsci112358)",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 29, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/Dt6I6UOsOsw/hqdefault.jpg",
+        "title": "Learn Python Programming Quickly (Perfect for Beginners)",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 19,
@@ -604,8 +657,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "MH Tutorials",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 26, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/iqjUOyW9Zn8/hqdefault.jpg",
+        "title": "Python for Beginners #3 : Let's create Rock, Paper, Scissors",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 23,
@@ -620,8 +678,13 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": {
+        "channel": "Turtle Code",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Dec 9, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/UR-fU34qjKc/hqdefault.jpg",
+        "title": "Python in 2 Minutes – Crash Course for Beginners",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 24,

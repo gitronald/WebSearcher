@@ -87,8 +87,13 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": {
+        "channel": "Excel 10 tutorial",
         "heading": "What people are saying",
-        "type": "item"
+        "publish_date": "Jan 30, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/VcYGQ0VCazk/hqdefault.jpg",
+        "title": "Excel Formula to Convert Fahrenheit to Celsius",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 4,

@@ -179,7 +179,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "ABC News",
+        "publish_date": "Feb 6, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRthZwstZCHebZjLFU-ejA2U4tvjwsDp1e6v1o45DOGHnrq2kUljpTVig&s",
+        "title": "ABC World News Tonight with David Muir Full Broadcast - Feb ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 1,
@@ -192,7 +199,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Oneindia News",
+        "publish_date": "Feb 6, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPQRhRyka6IIfXigXquVJvVs6fqWLqaPTbUOXbt_jRrXGxZjp1vPq5lA&s",
+        "title": "US Iran War Latest: Iran Refuses to GIVE UP Nukes? Iran ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 2,
