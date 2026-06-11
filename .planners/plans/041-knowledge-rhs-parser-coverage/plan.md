@@ -1,8 +1,8 @@
 ---
 id: 41
 slug: knowledge-rhs-parser-coverage
-status: draft
-branch:
+status: active
+branch: feature/v0.10.0-knowledge-rhs-coverage
 created: 2026-06-06T01:27:30-07:00
 concluded:
 pr:
@@ -138,3 +138,34 @@ Output: "doctor zhivago": 8 fact rows (unparsed); parsed 4 side_bar rows (main +
 - [ ] (from 029) Empty-`details` policy unified across `knowledge.py` and `knowledge_rhs.py` (drop hollow payloads — `None`, not a null-filled dict).
 - [ ] (from 029) `dictionary` `text` double-write (`details["text"]` + `parsed["text"]`) resolved.
 - [ ] (from 029) Every code-only `details` shape touched is pinned with synthetic markup in `tests/test_knowledge_dispatch.py` before migration; regenerated snapshots reviewed line-by-line.
+
+## Log
+
+### 2026-06-10 — Re-grounded against the post-045 tree at activation
+
+Plan 045 (two-tier result schema, PR #164) merged after this draft was written.
+Re-verified the evidence against the current pipeline before starting; the plan
+survives with targeted amendments rather than a redesign:
+
+- **Coverage gap intact.** `kc:/` fact rows still completely unparsed; the
+  link-less box skip is still at `_parse_rhs_boxes()` (`if not items: continue`).
+  Evidence correction: the corpus reparse finds **8** fact-row queries, not 9
+  ("central park new york" 19, "doctor zhivago" 8, "prouve" 6, "footloose cast"
+  6, "books by roger ebert" 4, "cngress usa" 2, "@nytimes" 2, "alicia keys new
+  york lyrics" 1).
+- **All four 029 divergences still live** in `knowledge.py` (singular `img_url`
+  including a null-filled `img_url: None` write; unconditional `details`
+  emission; `heading` vs `subtitle`; dictionary `text` double-write).
+- **Divergence #2 is now decided, not open.** 045 settled the empty-`details`
+  policy project-wide: `None` on clean rows, only-when-informative, pinned by
+  `tests/test_details_schema.py`. The work item becomes "conform `knowledge.py`
+  to the 045 contract" — its always-emit pattern and null-filled `img_url` are
+  contractually wrong, not just inconsistent.
+- **New constraint:** every `details` shape this plan emits must pass the
+  `tests/test_details_schema.py` contract (reserved metadata keys `error` /
+  `visible` / `timestamp`; top level limited to core fields).
+- **Scope addition from 045's retrospective:** knowledge's typeless
+  content-details now get a generic `type: "item"` backfill via the
+  `BaseResult` validator; giving them semantic types folds into this plan's
+  convergence pass. `"item"` now counts as part of the existing-labels set in
+  the acceptance criteria.
