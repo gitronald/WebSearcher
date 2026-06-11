@@ -1,8 +1,8 @@
 ---
 id: 31
 slug: automate-locations-download
-status: draft
-branch: claude/automate-locations-download
+status: active
+branch: feature/v0.10.0-locations-download
 created: 2026-05-31T00:45:35-07:00
 concluded:
 pr:
