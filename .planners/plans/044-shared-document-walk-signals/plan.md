@@ -191,6 +191,37 @@ plan sidecars: `spike-shared-signal-walk.patch` (the full v3 diff:
 `_slx`, signal-index threading through `ClassifyMain`/`ClassifyFooter`/
 `Component.classify_component`) and `probe_signal_equivalence.py`.
 
+### 2026-06-12 — Follow-up: the selector-pushdown lever is also closed
+
+The retrospective left "the token loop itself (~8 s) is irreducible in
+Python" as the residual cost, untried. Tested the one mechanism that would
+move it out of Python: replace `_ComponentSignals`'s per-element
+`cmpt.css('*')` scan with a **single combined interest-selector query per
+component** (`cmpt.css('.IFnjPb, …, h2, [id="iur"], …')`, 28 alternations),
+so lexbor returns only the interest-bearing nodes in C and Python touches
+only the handful matched. This avoids the attribution problem that killed the
+shared walk (per-component scoping is preserved), so it was the genuinely
+different angle.
+
+Micro-benchmark over the 1,139 classified components of the corpus (same-box,
+20 reps, median): `css('*')` walk **245 ms/pass** vs combined selector
+**586 ms/pass — 2.4× slower**. Fatal by construction: the whole current
+`_ComponentSignals.__init__` frame is ≈250 ms/pass (the `css('*')`
+materialization *is* nearly all of it), so the selector's C cost alone is
+2.3× the entire frame — even a zero-cost Python loop afterward loses. Root
+cause is fundamental, not tunable: an N-alternation selector does up to N
+match comparisons *per visited node*, while `css('*')` does zero matching, so
+pushing "find the interest elements" into the selector engine is strictly
+**more** per-node work than walking and inspecting in Python. The premise
+"C is free, Python is the cost" is false here — lexbor's per-node selector
+matching is the expensive part.
+
+Second independent confirmation of the abort: plan 044 closed the
+*shared-walk* angle (disjoint tiling → no redundant work to remove); this
+closes the *selector-pushdown* angle (matching costs more than the walk).
+Both levers on this frame are now empirically exhausted; the
+materialization + Python token loop is the floor. No code changed.
+
 ## Retrospective
 
 - **The bet failed for a structural reason, not an implementation one:**
