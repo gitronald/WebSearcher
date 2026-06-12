@@ -34,8 +34,16 @@ def parse_serp(serp: str | Node, url: str | None = None) -> dict:
         extractor.extract_components()
         component_list = extractor.components
 
+        # Classify every component before parsing any of them. Two parsers
+        # mutate the DOM mid-parse (``general`` decomposes top-menu children,
+        # ``ai_overview`` decomposes citation buttons); interleaving classify and
+        # parse would let an earlier component's parse-time mutation reach a later
+        # component's classify, making classification depend on parse order. A
+        # full classify pass first pins every type against the pristine
+        # post-extraction tree.
         for cmpt in component_list:
             cmpt.classify_component()
+        for cmpt in component_list:
             cmpt.parse_component()
         results = component_list.export_component_results()
     finally:
