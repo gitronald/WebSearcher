@@ -71,7 +71,7 @@ addopts = "--cov=WebSearcher --cov-report=term-missing"
 
 [tool.coverage.run]
 source = ["WebSearcher"]
-omit = ["WebSearcher/search_methods/*", "WebSearcher/bench.py"]  # bench is a dev tool, run from a checkout
+omit = ["WebSearcher/searchers/*_searcher.py", "WebSearcher/bench.py"]  # bench is a dev tool, run from a checkout
 
 [tool.coverage.report]
 show_missing = true
