@@ -10,6 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.10.0`: Reliable CAPTCHA detection from the Google `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the Google geotargets refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
 - `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
