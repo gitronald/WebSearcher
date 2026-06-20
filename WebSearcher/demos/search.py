@@ -78,7 +78,7 @@ def _engine_kwargs(
 def _chrome_version() -> str:
     """Best-effort installed-Chrome version for the search header (never raises)."""
     try:
-        from ..search_methods.selenium_searcher import detect_chrome_version
+        from ..searchers.selenium_searcher import detect_chrome_version
 
         return detect_chrome_version() or "unknown"
     except Exception:

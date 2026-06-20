@@ -10,9 +10,9 @@ previous query's page is never recorded under the new query.
 import logging
 
 from WebSearcher.models.searches import SearchParams
-from WebSearcher.search_methods.patchright_searcher import PatchrightSearcher
-from WebSearcher.search_methods.selenium_searcher import SeleniumDriver
-from WebSearcher.search_methods.zendriver_searcher import ZendriverSearcher
+from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
+from WebSearcher.searchers.selenium_searcher import SeleniumDriver
+from WebSearcher.searchers.zendriver_searcher import ZendriverSearcher
 
 SORRY_URL = "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dtest&q=REDACTED_TOKEN"
 SORRY_HTML = "<html><body>solve the CAPTCHA</body></html>"
@@ -64,7 +64,7 @@ def make_patchright(page) -> PatchrightSearcher:
 
 
 def test_patchright_block_capture(monkeypatch):
-    monkeypatch.setattr("WebSearcher.search_methods.patchright_searcher.time.sleep", lambda s: None)
+    monkeypatch.setattr("WebSearcher.searchers.patchright_searcher.time.sleep", lambda s: None)
     out = make_patchright(FakePageBlocked()).send_request(SearchParams.create({"qry": "test"}))
     assert out.url == SORRY_URL
     assert out.html == SORRY_HTML
@@ -72,7 +72,7 @@ def test_patchright_block_capture(monkeypatch):
 
 
 def test_patchright_nav_failure_no_stale_capture(monkeypatch):
-    monkeypatch.setattr("WebSearcher.search_methods.patchright_searcher.time.sleep", lambda s: None)
+    monkeypatch.setattr("WebSearcher.searchers.patchright_searcher.time.sleep", lambda s: None)
     params = SearchParams.create({"qry": "test"})
     out = make_patchright(FakePageNavFails()).send_request(params)
     assert out.url == params.url  # request URL kept, not the previous page's
@@ -96,7 +96,7 @@ class FakeDriverNavFails:
 
 
 def test_selenium_nav_failure_no_stale_capture(monkeypatch):
-    monkeypatch.setattr("WebSearcher.search_methods.selenium_searcher.time.sleep", lambda s: None)
+    monkeypatch.setattr("WebSearcher.searchers.selenium_searcher.time.sleep", lambda s: None)
     searcher = SeleniumDriver.__new__(SeleniumDriver)
     searcher.log = LOG
     searcher.driver = FakeDriverNavFails()
@@ -154,7 +154,7 @@ def make_zendriver(browser, tab) -> ZendriverSearcher:
 
 
 def test_zendriver_block_capture(monkeypatch):
-    monkeypatch.setattr("WebSearcher.search_methods.zendriver_searcher.time.sleep", lambda s: None)
+    monkeypatch.setattr("WebSearcher.searchers.zendriver_searcher.time.sleep", lambda s: None)
     tab = FakeTabPrev()  # pre-navigation tab; goto swaps in the blocked one
     out = make_zendriver(FakeBrowserBlocked(), tab).send_request(
         SearchParams.create({"qry": "test"})
@@ -164,7 +164,7 @@ def test_zendriver_block_capture(monkeypatch):
 
 
 def test_zendriver_nav_failure_no_stale_capture(monkeypatch):
-    monkeypatch.setattr("WebSearcher.search_methods.zendriver_searcher.time.sleep", lambda s: None)
+    monkeypatch.setattr("WebSearcher.searchers.zendriver_searcher.time.sleep", lambda s: None)
     params = SearchParams.create({"qry": "test"})
     out = make_zendriver(FakeBrowserNavFails(), FakeTabPrev()).send_request(params)
     assert out.url == params.url

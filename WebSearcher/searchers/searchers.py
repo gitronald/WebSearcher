@@ -1,8 +1,8 @@
 from importlib import metadata
 from pathlib import Path
 
-from . import logger, parsers, utils
-from .models.configs import (
+from .. import logger, parsers, utils
+from ..models.configs import (
     LogConfig,
     PatchrightConfig,
     RequestsConfig,
@@ -11,12 +11,12 @@ from .models.configs import (
     SeleniumConfig,
     ZendriverConfig,
 )
-from .models.data import BaseSERP, ParsedSERP
-from .models.searches import SearchParams
-from .search_methods.patchright_searcher import PatchrightSearcher, PlaywrightSearcher
-from .search_methods.requests_searcher import RequestsSearcher
-from .search_methods.selenium_searcher import SeleniumDriver
-from .search_methods.zendriver_searcher import ZendriverSearcher
+from ..models.data import BaseSERP, ParsedSERP
+from ..models.searches import SearchParams
+from .patchright_searcher import PatchrightSearcher, PlaywrightSearcher
+from .requests_searcher import RequestsSearcher
+from .selenium_searcher import SeleniumDriver
+from .zendriver_searcher import ZendriverSearcher
 
 WS_VERSION = metadata.version("WebSearcher")
 
