@@ -395,7 +395,8 @@ def parse_knowledge_rhs_main(elem, sub_rank: int = 0) -> list:
             for a in alinks[1:]:
                 if "href" in a.attributes:
                     urls.append(parse_alink(a))
-            parsed["details"]["urls"] = urls
+            if urls:
+                parsed["details"]["urls"] = urls
 
     # description fallback (entity panels whose description sits on a
     # data-attrid rather than Uo8X3b / kno-rdesc)

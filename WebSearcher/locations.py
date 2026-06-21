@@ -167,8 +167,13 @@ def update_locations_file(
         return None
 
     fp.parent.mkdir(parents=True, exist_ok=True)
-    download_csv(url_latest, fp)
-    check_geotargets_header(fp)
+    tmp_fp = fp.parent / (fp.name + ".tmp")
+    try:
+        download_csv(url_latest, tmp_fp)
+        check_geotargets_header(tmp_fp)
+        tmp_fp.replace(fp)
+    finally:
+        tmp_fp.unlink(missing_ok=True)
 
     date_collected = datetime.now(UTC).date().isoformat()
     append_ledger_row(ledger_fp, date_collected=date_collected, filename=filename)
