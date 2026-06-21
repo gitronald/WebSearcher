@@ -1,10 +1,10 @@
 ---
 id: 50
 slug: move-parsers-to-package
-status: active
+status: done
 branch: feature/move-parsers-to-package
 created: 2026-06-20T23:11:52-07:00
-concluded:
+concluded: 2026-06-21T13:29:21-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/172
 ---
 
