@@ -57,3 +57,62 @@ env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
   (needs residential/mobile proxies, not Xvfb).
 - The browser-backend migration itself (plan 039 follow-up) and the `/sorry/` early-exit
   detection (plan 048, [[captcha-exit-on-sorry-redirect]]).
+
+## Log
+
+### 2026-06-21 — confirmed end to end on WSL2 (patchright)
+
+Ran the experiment on this machine (WSL2 + WSLg, so `DISPLAY=:0` is a real GPU-backed
+display; `xvfb` installed via `apt`). Backend: `patchright` (headed by default,
+`headless=False`), single query `"why is the sky blue"`, `--no-ai-expand`, fresh
+`tempfile.mkdtemp()` profile each run (held constant — both display conditions start cold).
+
+Repro (the two invocations compared):
+
+```bash
+# Real WSLg display (baseline)
+uv run ws-demo search "why is the sky blue" patchright --no-ai-expand --data-dir <out>/real
+
+# Xvfb, DISPLAY unset, genuinely headed, no window
+env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
+  uv run ws-demo search "why is the sky blue" patchright --no-ai-expand --data-dir <out>/xvfb
+```
+
+A-B-A-B' sequence (captcha flag = `features["captcha"]`, set by `utils.is_sorry_redirect`):
+
+| run | display | result |
+| --- | --- | --- |
+| real  | WSLg `:0` (GPU)         | cleared, 33 results, `main_layout=standard` |
+| xvfb  | virtual `:99` (sw GL)  | **`/sorry/` block**, `captcha=True`, 0 results |
+| real2 | WSLg `:0`              | cleared, 33 results |
+| xvfb2 | virtual `:99`          | cleared, **33 results, type histogram identical to `real`** |
+
+**Findings:**
+
+1. **Xvfb works** — patchright runs genuinely headed (no headless code path, no headless
+   fingerprint) on a virtual display with `DISPLAY` unset and no window. Confirms the one
+   piece plan 039 could not test.
+2. **Parse parity** — a clearing Xvfb run is identical to the real-display baseline
+   (`main_layout=standard`, 33 results, same per-type counts: `general` 8, `perspectives`
+   12, `short_videos` 10, `ai_overview`/`people_also_ask`/`searches_related` 1 each).
+3. **The `/sorry/` block is intermittent, not Xvfb-deterministic.** Real-display runs
+   bracket the single block and clear, and a repeat Xvfb run clears with full parity — so the
+   software WebGL renderer (SwiftShader/llvmpipe) is **not** a hard block trigger on this
+   setup; the challenge is volume/IP-reputation driven (out of scope). The existing
+   `ws-demo searches` CAPTCHA guard (detect `/sorry/`, wait 5 min, retry once) is the right
+   mitigation.
+4. **Bonus validation** — plan-048's URL-based `/sorry/` detection fired on the live block
+   (`captcha=True`) and the timeout-capture saved the real `/sorry/` URL + HTML, confirming
+   the 0.10.0 captcha work end to end against a genuine block.
+
+**Recommended server/CI invocation** (still to be written into the docs — plan step 3):
+
+```bash
+env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
+  uv run ws-demo searches patchright --types general knowledge
+```
+
+`env -u DISPLAY` stops a fallback to a real display; `xvfb-run -a` auto-picks a free display;
+`-screen 0 1920x1080x24` avoids a tiny-viewport tell. No code change needed — purely a
+launcher/env concern. Caveats: small live sample (n=2 per condition); IP reputation remains
+the dominant, separate factor (needs proxies, not Xvfb).
