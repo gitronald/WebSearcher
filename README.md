@@ -236,14 +236,14 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 
 ### Repair or Enhance a Parser
 
-1. Examine parser names in `/component_parsers/__init__.py`
-2. Find parser file as `/component_parsers/{cmpt_name}.py`.
+1. Examine parser names in `/parsers/components/__init__.py`
+2. Find parser file as `/parsers/components/{cmpt_name}.py`.
 
 ### Add a Parser
 
 1. Add classifier to `classifiers/{main,footer,headers}.py`  
-2. Add parser as new file in `/component_parsers`  
-3. Add new parser to imports and catalogue in `/component_parsers/__init__.py`  
+2. Add parser as new file in `/parsers/components`  
+3. Add new parser to imports and catalogue in `/parsers/components/__init__.py`  
 
 ### Testing
 

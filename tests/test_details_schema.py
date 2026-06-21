@@ -13,12 +13,12 @@ only when ``False``, the rest when present). These tests pin that contract.
 """
 
 from WebSearcher import utils
-from WebSearcher.component_parsers._common import (
+from WebSearcher.models.data import BaseResult, error_details
+from WebSearcher.parsers.components._common import (
     mark_hidden_item,
     mark_hidden_row,
     mark_timestamp_row,
 )
-from WebSearcher.models.data import BaseResult, error_details
 
 
 def _dump(**row) -> dict:

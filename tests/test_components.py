@@ -7,7 +7,8 @@ guards the fixed behavior.
 """
 
 from WebSearcher import utils
-from WebSearcher.components import Component, ComponentList
+from WebSearcher.parsers.component import Component
+from WebSearcher.parsers.component_list import ComponentList
 
 
 def comp(inner: str):

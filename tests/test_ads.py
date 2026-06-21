@@ -1,7 +1,7 @@
 """Tests for ad subtype classification"""
 
 from WebSearcher import utils
-from WebSearcher.component_parsers.ads import classify_ad_type
+from WebSearcher.parsers.components.ads import classify_ad_type
 
 
 def comp(inner: str):
