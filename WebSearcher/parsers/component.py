@@ -53,7 +53,9 @@ class Component:
         return str(vars(self))
 
     def to_dict(self) -> dict:
-        return self.__dict__
+        # Shallow copy so callers can't mutate the Component's attribute table
+        # through the returned dict (``__dict__`` is the live instance namespace).
+        return dict(self.__dict__)
 
     def classify_component(self, classify_type_func: Callable | None = None):
         """Classify the component type"""

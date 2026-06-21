@@ -9,7 +9,7 @@ import re
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import class_tokens, get_text
+from ..._slx import class_tokens, get_text, next_sibling
 from ._common import parse_alink_list
 from ._video_card import parse_evlb_card
 
@@ -129,7 +129,7 @@ def parse_subtype_details(sub: Node, parsed: dict) -> dict:
     elif (stars := sub.css_first("g-review-stars")) is not None:
         # Submenu - rating
         parsed["sub_type"] = "submenu_rating"
-        sibling = _next_sibling_with_text(stars)
+        sibling = next_sibling(stars)
         if sibling is not None:
             text = str(sibling).strip()
             if len(text):
@@ -184,20 +184,6 @@ def parse_subtype_details(sub: Node, parsed: dict) -> dict:
 
     parsed["details"] = details if details else None
     return parsed
-
-
-def _next_sibling_with_text(node: Node) -> Node | None:
-    """bs4 ``.next_sibling`` semantics: returns the next sibling INCLUDING text
-    nodes (selectolax ``.next`` may skip text)."""
-    parent = node.parent
-    if parent is None:
-        return None
-    siblings = list(parent.iter(include_text=True))
-    node_id = node.mem_id
-    for i, sib in enumerate(siblings):
-        if sib.mem_id == node_id and i + 1 < len(siblings):
-            return siblings[i + 1]
-    return None
 
 
 _ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
