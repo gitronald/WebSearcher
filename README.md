@@ -32,6 +32,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
       - [4. Save HTML and Metadata](#4-save-html-and-metadata)
       - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
+  - [Running on a headless server (Xvfb)](#running-on-a-headless-server-xvfb)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
@@ -227,6 +228,52 @@ available online, and can be downloaded using a built in function
 
 A brief guide on how to select a canonical name and use it to conduct a  
 localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
+
+
+---
+## Running on a headless server (Xvfb)
+
+The browser backends (`selenium` -- the default -- plus the optional `patchright` and
+`zendriver`) drive a **real, visible** Chrome: search engines reliably block Chrome's own
+`--headless` mode, so the browser must run *headed*. On a server, CI runner, or container with
+no display (`$DISPLAY` unset), a headed Chrome has nothing to attach to and won't launch. (The
+`requests` backend is pure HTTP and needs no display -- this only applies to the browser
+backends.)
+
+The fix is [**Xvfb**](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml), an in-memory X
+display server: it lets Chrome run genuinely headed -- no headless code path, no monitor, no
+GPU. Install it (Debian/Ubuntu):
+
+```bash
+sudo apt-get install -y xvfb
+```
+
+Then wrap your collection command with `xvfb-run`:
+
+```bash
+env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
+  python your_collection_script.py
+```
+
+- `env -u DISPLAY` removes any inherited display so the run can't silently fall back to a real
+  one (e.g. an X-forwarded SSH session) -- the display Xvfb creates is then the only one in scope.
+- `xvfb-run -a` auto-picks a free display number, so concurrent jobs don't collide.
+- `-screen 0 1920x1080x24` gives a realistic window geometry.
+
+The collection code itself is unchanged:
+
+```python
+import WebSearcher as ws
+
+se = ws.SearchEngine()            # default browser backend, headed
+se.search("immigration news")
+se.parse_serp()
+se.save_serp(append_to="serps.json")
+```
+
+If you parallelize collection across processes, one shared Xvfb covers them all -- child
+workers inherit the parent's `DISPLAY`, so wrap the top-level command once rather than starting
+an Xvfb per worker.
 
 
 ---
