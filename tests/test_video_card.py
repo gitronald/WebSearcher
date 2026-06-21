@@ -15,7 +15,7 @@ import pytest
 
 import WebSearcher as ws
 from WebSearcher import utils
-from WebSearcher.component_parsers._video_card import evlb_fields_by_tile, parse_evlb_card
+from WebSearcher.parsers.components._video_card import evlb_fields_by_tile, parse_evlb_card
 
 SERPS_PATH = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 

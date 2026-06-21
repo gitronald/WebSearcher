@@ -10,7 +10,8 @@ and position-based specifications.
 
 ## Recent Changes
 
-- `0.10.0`: Reliable CAPTCHA detection from the Google `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the Google geotargets refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
+- `0.10.1`: Reorganized the flat parse modules into a single `WebSearcher.parsers` package (public entrypoints unchanged; deep imports of the old flat paths must switch) and hardened the parse pipeline -- every component is classified before any is parsed, and `Component.to_dict()` now returns a copy -- with output byte-identical (snapshot-pinned). Also dropped the `snakeviz`/`ipykernel` dev dependencies to evict the transitive `tornado` advisories
+- `0.10.0`: Reliable CAPTCHA detection from the `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the geotargets locations refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
 - `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
@@ -94,7 +95,7 @@ general           Election Night Results                                        
 By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
 
 ```sh
-ls -hal data/demo-ws-v0.8.4/
+ls -hal data/demo-ws-v0.9.0a0/
 ```
 ```
 total 1020K
@@ -236,14 +237,14 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 
 ### Repair or Enhance a Parser
 
-1. Examine parser names in `/component_parsers/__init__.py`
-2. Find parser file as `/component_parsers/{cmpt_name}.py`.
+1. Examine parser names in `/parsers/components/__init__.py`
+2. Find parser file as `/parsers/components/{cmpt_name}.py`.
 
 ### Add a Parser
 
 1. Add classifier to `classifiers/{main,footer,headers}.py`  
-2. Add parser as new file in `/component_parsers`  
-3. Add new parser to imports and catalogue in `/component_parsers/__init__.py`  
+2. Add parser as new file in `/parsers/components`  
+3. Add new parser to imports and catalogue in `/parsers/components/__init__.py`  
 
 ### Testing
 

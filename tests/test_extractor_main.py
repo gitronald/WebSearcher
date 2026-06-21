@@ -2,8 +2,8 @@
 
 from WebSearcher import utils
 from WebSearcher._slx import get_text
-from WebSearcher.components import ComponentList
 from WebSearcher.extractors.extractor_main import ExtractorMain, _find_all_with_class
+from WebSearcher.parsers.component_list import ComponentList
 
 
 def comp(html: str):

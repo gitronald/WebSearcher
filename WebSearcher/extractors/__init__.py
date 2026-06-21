@@ -1,7 +1,7 @@
 from selectolax.lexbor import LexborNode as Node
 
 from .. import logger
-from ..components import ComponentList
+from ..parsers.component_list import ComponentList
 from .extractor_footer import ExtractorFooter
 from .extractor_header import ExtractorHeader
 from .extractor_main import ExtractorMain

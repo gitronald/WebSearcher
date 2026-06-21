@@ -9,12 +9,12 @@ preserved losslessly in ``details["heading"]``.
 import pytest
 
 from WebSearcher import utils
-from WebSearcher.component_parsers.local_results import (
+from WebSearcher.parsers.component_types import TYPES_BY_NAME
+from WebSearcher.parsers.components.local_results import (
     _LOCAL_RESULTS_CATEGORIES,
     _header_to_sub_type,
     parse_local_results,
 )
-from WebSearcher.component_types import TYPES_BY_NAME
 
 # --- header -> sub_type mapping --------------------------------------------
 

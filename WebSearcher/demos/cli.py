@@ -96,7 +96,9 @@ def main(argv: list[str] | None = None) -> None:
         help="Canonical geotarget name",
     )
     p_loc.add_argument(
-        "--locations-dir", default="data/google_locations", help="Geotargets download dir"
+        "--locations-dir",
+        default=None,
+        help="Geotargets download dir (default: data/demo-ws-v{version}/)",
     )
     p_loc.add_argument("--data-dir", default="data/html", help="Directory to save outputs")
 

@@ -1,6 +1,6 @@
 """Unit tests for the AI overview payload extractor."""
 
-from WebSearcher.component_parsers._ai_overview_payloads import extract_payloads
+from WebSearcher.parsers.components._ai_overview_payloads import extract_payloads
 
 UUID = "12345678-1234-1234-1234-123456789abc"
 
