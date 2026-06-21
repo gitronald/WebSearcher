@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "NBA NBA",
-        "img_url": null,
         "text": "NBANBA",
         "type": "panel",
         "urls": [
@@ -47,7 +46,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -61,7 +59,6 @@
       "cite": "https://www.espn.com  › nba › scoreboard",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -75,7 +72,6 @@
       "cite": "https://www.cbssports.com  › nba › scoreboard",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -89,9 +85,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -105,9 +101,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 1,
@@ -121,9 +117,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 2,
@@ -137,9 +133,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 3,
@@ -153,9 +149,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 4,
@@ -169,9 +165,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 5,
@@ -185,9 +181,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 6,
@@ -201,9 +197,9 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 7,
@@ -217,7 +213,6 @@
       "cite": "https://www.nba.com  › games",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -231,7 +226,6 @@
       "cite": "https://sports.yahoo.com  › nba › scoreboard",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -245,7 +239,6 @@
       "cite": "https://www.foxsports.com  › nba › scores",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -259,7 +252,6 @@
       "cite": "https://www.nba.com",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -273,7 +265,6 @@
       "cite": "https://sportsdata.usatoday.com  › basketball › scores",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -287,7 +278,6 @@
       "cite": "https://www.espn.com  › nba",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -301,7 +291,6 @@
       "cite": "https://www.nbcsports.com  › scores › nba",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -334,7 +323,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 18,
       "sub_rank": 0,

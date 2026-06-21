@@ -112,7 +112,6 @@
         ],
         "type": "ai_overview"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -134,7 +133,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -148,7 +146,6 @@
       "cite": "https://spaceplace.nasa.gov  › blue-sky",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -178,7 +175,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -191,8 +187,14 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "NASA Space Place",
+        "publish_date": "Mar 2, 2020",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6e5kcoZuPcjkmdHwg_vN6fp2WJ-wuDZaCpYurvlr8Z4EGoW2YQcLOCQ&s",
+        "title": "Why Is the Sky Blue?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -206,7 +208,6 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
@@ -220,7 +221,6 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 2,
@@ -234,7 +234,6 @@
       "cite": "https://kids.nationalgeographic.com  › books › article",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -248,7 +247,6 @@
       "cite": "50+ reactions  ·  1 year ago",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -262,9 +260,14 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Math and Science",
+        "heading": "What people are saying",
+        "publish_date": "Dec 9, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/HZTGNh6pVXY/hqdefault.jpg",
+        "title": "The REAL Reason the Sky Looks Blue",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -278,9 +281,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -294,9 +297,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,
@@ -310,9 +313,14 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Ulli Kampelmann",
+        "heading": "What people are saying",
+        "publish_date": "Jan 10, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/n4ElQOE3lyI/hqdefault.jpg",
+        "title": "Why is the Sky Blue?",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 3,
@@ -326,9 +334,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 4,
@@ -342,9 +350,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 5,
@@ -358,9 +366,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 6,
@@ -374,9 +382,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 7,
@@ -390,9 +398,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 8,
@@ -406,9 +414,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 9,
@@ -422,9 +430,9 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 10,
@@ -438,9 +446,14 @@
       "cite": null,
       "cmpt_rank": 7,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Rozender Science",
+        "heading": "What people are saying",
+        "publish_date": "Nov 25, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/o1pTCw8cg10/hqdefault.jpg",
+        "title": "Can Sky become Green? | Why is our sky Blue? | #shorts",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 11,
@@ -454,7 +467,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 0,
@@ -468,7 +480,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 1,
@@ -482,7 +493,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 2,
@@ -496,7 +506,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 3,
@@ -510,7 +519,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 4,
@@ -524,7 +532,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 5,
@@ -538,7 +545,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 6,
@@ -552,7 +558,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 7,
@@ -566,7 +571,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 8,
@@ -580,7 +584,6 @@
       "cite": "https://www.nesdis.noaa.gov  › about › atmosphere › wh...",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 0,
@@ -594,7 +597,6 @@
       "cite": "https://math.ucr.edu  › home › baez › physics › General",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 0,
@@ -608,7 +610,6 @@
       "cite": "https://www.uu.edu  › dept › physics › scienceguys",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 0,
@@ -635,7 +636,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 33,
       "sub_rank": 0,

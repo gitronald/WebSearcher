@@ -8,7 +8,50 @@ via explicit arguments.
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import get_text
+from .._slx import get_text, is_hidden
+
+
+def mark_hidden_row(parsed: dict, node: Node | None) -> dict:
+    """Record ``visible=False`` in a result row's ``details`` when ``node`` is
+    hidden (the inline ``display:none`` lazy-render pattern; see
+    :func:`._slx.is_hidden`).
+
+    ``visible`` is recorded *only when False* (the default is visible), so this
+    is a no-op for shown rows. A row with no content payload gains a
+    metadata-only ``details`` (``type="item"``); a content row gets the flag as
+    a sibling key. Call **after** the row's content ``details`` is built so the
+    flag is not overwritten.
+    """
+    if is_hidden(node):
+        details = parsed.get("details")
+        if isinstance(details, dict):
+            details["visible"] = False
+        else:
+            parsed["details"] = {"type": "item", "visible": False}
+    return parsed
+
+
+def mark_timestamp_row(parsed: dict, timestamp: str | None) -> dict:
+    """Record a ``timestamp`` in a result row's ``details`` (only when present).
+
+    Mirrors :func:`mark_hidden_row`: a content row gets the flag as a sibling
+    key; a row with no payload gains a metadata-only ``details`` (``type="item"``
+    via the :class:`..models.data.BaseResult` validator). Call **after** the
+    row's content ``details`` is built so the flag is not overwritten."""
+    if timestamp:
+        details = parsed.get("details")
+        if not isinstance(details, dict):
+            details = parsed["details"] = {"type": "item"}
+        details["timestamp"] = timestamp
+    return parsed
+
+
+def mark_hidden_item(item: dict, node: Node | None) -> dict:
+    """Record ``visible=False`` on a ``details["items"]`` entry when ``node`` is
+    hidden. Only-when-False, mirroring :func:`mark_hidden_row`."""
+    if is_hidden(node):
+        item["visible"] = False
+    return item
 
 
 def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict:

@@ -14,3 +14,10 @@ repos:
         types_or: [python, pyi]
         pass_filenames: false
         require_serial: true
+  - repo: local
+    hooks:
+      - id: planners-validate
+        name: validate plan frontmatter
+        entry: planners validate
+        language: system
+        files: ^\.planners/plans/[^/]+/plan\.md$

@@ -16,7 +16,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Art_Deco",
       "cmpt_rank": 0,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -38,7 +37,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -52,7 +50,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -66,7 +63,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -80,7 +76,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
@@ -94,7 +89,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,
@@ -108,7 +102,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 4,
@@ -122,7 +115,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 5,
@@ -136,7 +128,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 6,
@@ -150,7 +141,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 7,
@@ -164,7 +154,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 8,
@@ -178,7 +167,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 9,
@@ -192,7 +180,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 10,
@@ -206,7 +193,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 11,
@@ -220,7 +206,6 @@
       "cite": "https://www.architecturaldigest.com  › ... › ad",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -234,7 +219,6 @@
       "cite": "https://www.nypl.org  › node",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -248,7 +232,6 @@
       "cite": "https://heritagecalling.com  › 2018/09/12 › a-spotters-gu...",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -262,7 +245,6 @@
       "cite": "https://mdpl.org  › About › About Miami Design Styles",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -276,7 +258,6 @@
       "cite": "https://www.miamiandbeaches.com  › history-and-heritage",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -290,9 +271,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -306,9 +287,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 1,
@@ -322,9 +303,14 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Christina DiStefano",
+        "heading": "What people are saying",
+        "publish_date": "Dec 14, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/vmogZcl8Qj4/hqdefault.jpg",
+        "title": "This Art Deco Tower Changed How I See Luxury Living | House of DiStefano",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 2,
@@ -338,9 +324,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 3,
@@ -354,9 +340,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 4,
@@ -370,9 +356,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 5,
@@ -386,9 +372,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 6,
@@ -402,9 +388,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 7,
@@ -418,9 +404,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 8,
@@ -434,9 +420,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 9,
@@ -450,9 +436,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 10,
@@ -466,9 +452,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 11,
@@ -482,7 +468,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 0,
@@ -496,7 +481,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 1,
@@ -509,8 +493,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Roaming Benji",
+        "publish_date": "Feb 16, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9M9doMVcQVhkq_uQ_mRXPayURIqpxIbK6r4MIvqUE3IaZCw&s",
+        "title": "Art Deco architecture in the heart of Los Angeles ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 2,
@@ -524,7 +514,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 3,
@@ -538,7 +527,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 4,
@@ -551,8 +539,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Honest Travel Network",
+        "publish_date": "May 7, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXj9N0RpbI3IVXQ3wbjfxBc8Jgp2q1N9V_hQ-b34HHpYMpeQ&s",
+        "title": "Architectural History: Art Deco Explained",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 5,
@@ -566,7 +560,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 6,
@@ -580,7 +573,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 7,
@@ -593,8 +585,14 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Tulsa Films",
+        "publish_date": "Aug 8, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRRkffhg7prhekMe1ZZ-sRsWoS5YmqdfhLX3MstRNTIDlO0Q&s",
+        "title": "Surprising Art Deco Architecture Buildings in a Midwest USA ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 8,
@@ -608,7 +606,6 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 9,
@@ -622,7 +619,6 @@
       "cite": "https://www.britannica.com  › Visual Arts › Architecture",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 0,
@@ -655,7 +651,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 42,
       "sub_rank": 0,

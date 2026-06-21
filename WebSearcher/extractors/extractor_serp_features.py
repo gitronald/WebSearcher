@@ -30,10 +30,13 @@ class FeatureExtractor:
     def extract_features(
         html_or_soup: str | bytes | Node,
         soup: Node | None = None,
+        url: str | None = None,
     ) -> SERPFeatures:
         """Extract SERP features. ``parse_serp`` passes both the raw HTML and
         the already-parsed soup so the regex path skips a re-parse and the
-        shared structural probes (lb, captcha) reuse the soup."""
+        shared structural probes (lb, captcha) reuse the soup. ``url`` is the
+        response's final URL when known -- a ``/sorry/`` redirect marks a
+        CAPTCHA even when the captured HTML is empty."""
         if isinstance(html_or_soup, Node):
             raw_html: str | None = None
             soup = html_or_soup
@@ -53,7 +56,7 @@ class FeatureExtractor:
         features["overlay_precise_location"] = bool(
             lb is not None and "precise location" in (get_text(lb) or "").lower()
         )
-        features["captcha"] = utils.has_captcha(soup, html=raw_html)
+        features["captcha"] = utils.has_captcha(soup, html=raw_html) or utils.is_sorry_redirect(url)
         return SERPFeatures(**features)
 
     @staticmethod

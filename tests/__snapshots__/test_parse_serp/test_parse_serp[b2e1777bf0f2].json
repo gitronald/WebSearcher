@@ -17,12 +17,9 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Choose what you’re giving feedback on",
-        "img_url": null,
         "subtitle": "Theoretical physicist",
-        "type": "panel",
-        "urls": []
+        "type": "panel"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -36,9 +33,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "image"
+        "kind": "image",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -52,9 +49,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "web"
+        "kind": "web",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -70,9 +67,9 @@
       "details": {
         "kind": "fact",
         "label": "Born",
+        "type": "item",
         "value": "Ulm, Germany"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -88,9 +85,9 @@
       "details": {
         "kind": "fact",
         "label": "Died",
+        "type": "item",
         "value": "Princeton, NJ"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -104,9 +101,9 @@
       "cite": null,
       "cmpt_rank": 1,
       "details": {
-        "kind": "video"
+        "kind": "video",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -120,7 +117,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Albert_Einstein",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -142,7 +138,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -156,7 +151,6 @@
       "cite": "https://www.nobelprize.org  › prizes › physics › biograp...",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -170,7 +164,6 @@
       "cite": "19.9M+ followers",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -184,7 +177,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -198,7 +190,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 1,
@@ -211,8 +202,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Ali Abdaal",
+        "publish_date": "May 22, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfyZ85Zsl29eevrISlQQxq4_f1jvikUqxr5sgwbU49j-gRbw&s",
+        "title": "The Story of Albert Einstein ‍",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 2,
@@ -226,7 +223,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 3,
@@ -239,8 +235,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Cartooning Club XL",
+        "publish_date": "Apr 22, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi2YzSF_H30PLdAR3PvAveqgp-Xuixb-DAcaNAorU48NbpXBB_PmZArGU&s",
+        "title": "Learn About Albert Einstein's Life | Drawn Biography",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 4,
@@ -254,7 +256,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 5,
@@ -267,8 +268,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "How to do it?",
+        "publish_date": "Feb 1, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyWL9BgnoXa8p2GUfsQaee6BGul-QLbtAhmqCQ6Xqnk2OTw3yCBJu1JA0&s",
+        "title": "Who Was Albert Einstein? | The Genius Who Changed Time ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 6,
@@ -282,7 +289,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 7,
@@ -296,7 +302,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 8,
@@ -310,7 +315,6 @@
       "cite": "https://princetonhistory.org  › Research › Historic Princeton",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -324,9 +328,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -340,9 +344,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 1,
@@ -356,9 +360,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 2,
@@ -372,9 +376,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 3,
@@ -388,9 +392,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 4,
@@ -404,9 +408,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 5,
@@ -420,9 +424,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 6,
@@ -436,9 +440,14 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "StarTalk",
+        "heading": "What people are saying",
+        "publish_date": "Nov 18, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/WxI2WNr4apY/hqdefault.jpg",
+        "title": "Einstein's Genius on Redefining Space, Time, and Relativity",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 7,
@@ -452,9 +461,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 8,
@@ -468,9 +477,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 9,
@@ -484,9 +493,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 10,
@@ -500,9 +509,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 11,
@@ -516,9 +525,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 12,
@@ -532,9 +541,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 13,
@@ -548,9 +557,9 @@
       "cite": "phalpern · X",
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 14,
@@ -564,9 +573,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 15,
@@ -580,9 +589,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 16,
@@ -596,9 +605,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 17,
@@ -612,9 +621,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 18,
@@ -628,9 +637,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 19,
@@ -644,9 +653,14 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Veritasium",
+        "heading": "What people are saying",
+        "publish_date": "Apr 14, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/lcjdwSY2AzM/hqdefault.jpg",
+        "title": "The Biggest Misconception in Physics",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 20,
@@ -660,9 +674,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 21,
@@ -676,9 +690,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 42,
       "sub_rank": 22,
@@ -692,9 +706,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 43,
       "sub_rank": 23,
@@ -708,9 +722,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 44,
       "sub_rank": 24,
@@ -724,9 +738,14 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "TopGears",
+        "heading": "What people are saying",
+        "publish_date": "Aug 24, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/MVbpJB2Oi8E/hqdefault.jpg",
+        "title": "Einstein's Brain: Why Size Doesn't Equal Genius w /Carl Sagan",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 45,
       "sub_rank": 25,
@@ -740,9 +759,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 46,
       "sub_rank": 26,
@@ -756,9 +775,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 47,
       "sub_rank": 27,
@@ -772,9 +791,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 48,
       "sub_rank": 28,
@@ -788,9 +807,9 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 49,
       "sub_rank": 29,
@@ -804,9 +823,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 50,
       "sub_rank": 30,
@@ -820,9 +840,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Universe Lair",
+        "heading": "What people are saying",
+        "publish_date": "Jan 1, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/movDYUI0Fx4/hqdefault.jpg",
+        "title": "Einstein Saved The World? w/ Neil deGrasse Tyson",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 51,
       "sub_rank": 31,
@@ -836,9 +862,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 52,
       "sub_rank": 32,
@@ -852,9 +879,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 53,
       "sub_rank": 33,
@@ -868,9 +896,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 54,
       "sub_rank": 34,
@@ -884,9 +913,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Angel Garay",
+        "heading": "What people are saying",
+        "publish_date": "Jul 24, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/KyJLDBYXc6w/hqdefault.jpg",
+        "title": "Final de Oppenheimer explicado #oppenheimer #christophernolan ...",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 55,
       "sub_rank": 35,
@@ -900,9 +935,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Dr. Michael Gartner FACS Plastic Surgeon",
+        "heading": "What people are saying",
+        "publish_date": "Oct 21, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/baM33j7rcU8/hqdefault.jpg",
+        "title": "The Doctor Who Stole Einstein's Brains Surgeon Reacts",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 56,
       "sub_rank": 36,
@@ -916,9 +957,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 57,
       "sub_rank": 37,
@@ -932,9 +974,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Zack D. Films",
+        "heading": "What people are saying",
+        "publish_date": "Sep 27, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/JqDKyvq89l8/hqdefault.jpg",
+        "title": "The Doctor Who Stole Einstein's Brain",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 58,
       "sub_rank": 38,
@@ -948,9 +996,10 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 59,
       "sub_rank": 39,
@@ -964,9 +1013,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Sean Andrew",
+        "heading": "What people are saying",
+        "publish_date": "May 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/maFNCBCJVWE/hqdefault.jpg",
+        "title": "How Einstein's Brain Was Stolen..",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 60,
       "sub_rank": 40,
@@ -980,9 +1035,15 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": {
-        "heading": "What people are saying"
+        "channel": "FactTechz",
+        "heading": "What people are saying",
+        "publish_date": "May 25, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/RRLrFqb3G50/hqdefault.jpg",
+        "title": "Albert Einstein's Brain ILLEGALLY STOLEN! What Happened NEXT ...",
+        "type": "video",
+        "visible": false
       },
-      "error": null,
       "section": "main",
       "serp_rank": 61,
       "sub_rank": 41,
@@ -996,7 +1057,6 @@
       "cite": "https://www.britannica.com  › ... › Physics › Physicists",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 62,
       "sub_rank": 0,
@@ -1010,7 +1070,6 @@
       "cite": "https://www.alberteinstein.com",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 63,
       "sub_rank": 0,
@@ -1024,7 +1083,6 @@
       "cite": "https://www.rescue.org  › article › 7-facts-about-albert-ei...",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 64,
       "sub_rank": 0,
@@ -1038,7 +1096,6 @@
       "cite": "https://www.natgeokids.com  › science › general-science",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 65,
       "sub_rank": 0,
@@ -1052,7 +1109,6 @@
       "cite": "https://www.goodreads.com  › author › 9810.Albert_Ei...",
       "cmpt_rank": 13,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 66,
       "sub_rank": 0,
@@ -1079,7 +1135,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 67,
       "sub_rank": 0,

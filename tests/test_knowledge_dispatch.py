@@ -129,6 +129,64 @@ def test_jnkvid_with_section_heading_slugifies():
     assert row["details"]["items"] == ["An Actor"]
 
 
+# --- details schema convergence (plan 041 / retired 029) -------------------
+#
+# These branches have zero fixture coverage, so the only witness for their
+# ``details`` shape is synthetic markup. They pin the only-when-informative
+# policy (plan 045): no null-filled keys, ``details`` is ``None`` when empty.
+
+
+def test_img_brk_emits_plural_img_urls():
+    # converged with knowledge_rhs: singular img_url -> 1-element img_urls list
+    html = (
+        '<div class="kp-blk"><h2>Unit Converter</h2><span>1 m = 100 cm</span>'
+        '<div class="img-brk"><a href="http://img.example.com/x">img</a></div></div>'
+    )
+    details = _sub_type(html)["details"]
+    assert details["img_urls"] == ["http://img.example.com/x"]
+    assert "img_url" not in details
+
+
+def test_img_brk_without_link_records_nothing():
+    html = '<div class="kp-blk"><h2>Unit Converter</h2><span>1 m</span><div class="img-brk"></div></div>'
+    details = _sub_type(html)["details"]
+    assert "img_urls" not in details and "img_url" not in details
+
+
+def test_empty_panel_details_is_none():
+    # a panel with no extractable payload: details collapses to None instead
+    # of {"heading": null, "img_url": null, "type": "panel"}
+    html = '<div class="kp-blk"><div><div></div></div></div>'
+    assert _sub_type(html)["details"] is None
+
+
+def test_featured_snippet_details_text():
+    row = _sub_type(DETECTOR_CASES["featured_snippet_h2"][0])
+    assert row["details"]["text"] == "An answer."
+    assert row["details"]["type"] == "panel"
+
+
+def test_dictionary_text_not_duplicated_in_details():
+    # SenseDefinition definitions land in core text only (no details double-write)
+    html = (
+        '<div class="kp-blk"><div data-attrid="DictionaryHeader"></div>'
+        '<div data-attrid="EntryHeader">cis·tern / ˈsistərn /</div>'
+        '<div data-attrid="SenseDefinition">a tank for storing water</div></div>'
+    )
+    row = _sub_type(html)
+    assert row["text"] == "a tank for storing water"
+    assert row["details"] is None or "text" not in row["details"]
+
+
+def test_dictionary_legacy_vmod_text_preserved():
+    # the legacy layout has no SenseDefinition: details.text still captured
+    html = (
+        '<div class="kp-blk"><div data-attrid="DictionaryHeader"></div>'
+        '<div class="vmod">a waterproof receptacle Translate this</div></div>'
+    )
+    assert _sub_type(html)["details"]["text"] == "a waterproof receptacle "
+
+
 # --- dynamic slug branch from the real coverage fixture --------------------
 
 

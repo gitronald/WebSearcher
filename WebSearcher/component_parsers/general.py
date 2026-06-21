@@ -11,6 +11,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from .._slx import class_tokens, get_text
 from ._common import parse_alink_list
+from ._video_card import parse_evlb_card
 
 
 def parse_general_results(elem) -> list:
@@ -93,9 +94,6 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
         "text": get_text(body_div, " ") if body_div is not None else None,
         "cite": get_text(cite_el, " ") if cite_el is not None else None,
     }
-
-    if parsed["title"] is None and parsed["url"] is None:
-        parsed["error"] = "no title or url"
 
     return parse_subtype_details(sub, parsed)
 
@@ -262,6 +260,12 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
     title_el = sub.css_first("h3.LC20lb")
     body_el = sub.css_first(".ITZIwc")
     cite_el = sub.css_first("cite")
+    fields = parse_evlb_card(sub) or {}
+    # Duration only exists on the visible tile's overlay (older layouts), never
+    # in the hidden card -- keep its selector as a merged legacy path.
+    duration = get_text(sub.css_first(".JIv15d"), strip=True)
+    if duration:
+        fields["duration"] = duration
     return {
         "type": "general",
         "sub_type": "video",
@@ -270,15 +274,5 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
         "url": a.attributes.get("href", "") if a is not None else None,
         "text": get_text(body_el, strip=True) if body_el is not None else None,
         "cite": get_text(cite_el, strip=False) if cite_el is not None else None,
-        "details": get_result_details(sub),
+        "details": {"type": "video", **fields} if fields else None,
     }
-
-
-def get_result_details(sub: Node) -> dict | None:
-    source_el = sub.css_first(".gqF9jc")
-    duration_el = sub.css_first(".JIv15d")
-    source = get_text(source_el, strip=False) if source_el is not None else None
-    duration = get_text(duration_el, strip=True) if duration_el is not None else None
-    if source is None and duration is None:
-        return None
-    return {"type": "video", "source": source, "duration": duration}

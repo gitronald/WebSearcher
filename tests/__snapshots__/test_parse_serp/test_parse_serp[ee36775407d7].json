@@ -22,7 +22,6 @@
         "source": "Amazon.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -40,7 +39,6 @@
         "source": "Weee!",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 1,
@@ -58,7 +56,6 @@
         "source": "Aunt Ruby's Peanuts",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 2,
@@ -76,7 +73,6 @@
         "source": "Hampton Farms",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 3,
@@ -96,7 +92,6 @@
         "source": "Walmart - Monroe Systems for Business",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 4,
@@ -114,7 +109,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 5,
@@ -132,7 +126,6 @@
         "source": "Weee!",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 6,
@@ -152,7 +145,6 @@
         "source": "Nuts.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 7,
@@ -174,7 +166,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -188,7 +179,6 @@
       "cite": "https://www.feridies.com  › prod_detail_list › Redskin-P...",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -206,7 +196,6 @@
         "stock": "  30 reviews",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -220,7 +209,6 @@
       "cite": "https://www.whitleyspeanut.com  › prod_detail_list › reds...",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -238,7 +226,6 @@
         "stock": "  5 reviews",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -252,7 +239,6 @@
       "cite": "https://www.planters.com  › product › planters-redskin-s...",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -270,7 +256,6 @@
         "stock": "  In stock",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -284,7 +269,6 @@
       "cite": "www.reddit.com  ·  Jan 16, 2023",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -298,7 +282,6 @@
       "cite": "www.reddit.com  ·  May 8, 2020",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 1,
@@ -312,7 +295,6 @@
       "cite": "mybroadband.co.za  ·  Jan 20, 2023",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 2,
@@ -330,7 +312,6 @@
         "stock": "  222 reviews",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -344,7 +325,6 @@
       "cite": null,
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -362,7 +342,6 @@
         "stock": "  1,246 reviews",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -380,7 +359,6 @@
         "source": "Alive herbals",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 0,
@@ -398,7 +376,6 @@
         "source": "Oh! Nuts",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 1,
@@ -416,7 +393,6 @@
         "source": "Amazon.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 2,
@@ -436,7 +412,6 @@
         "source": "Walmart - Its Delish",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 3,
@@ -454,7 +429,6 @@
         "source": "Virginia Diner",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 4,
@@ -472,7 +446,6 @@
         "source": "Hope & Harmony Farms",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 5,
@@ -492,7 +465,6 @@
         "source": "Nutstop.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 6,
@@ -512,7 +484,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 7,
@@ -530,7 +501,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 0,
@@ -548,7 +518,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 1,
@@ -568,7 +537,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 2,
@@ -586,7 +554,6 @@
         "source": "hillsonnut.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 3,
@@ -604,7 +571,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 4,
@@ -622,7 +588,6 @@
         "source": "Hope & Harmony Farms",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 5,
@@ -640,7 +605,6 @@
         "source": "sayweee.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 6,
@@ -658,7 +622,6 @@
         "source": "Belmont Peanuts",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 7,
@@ -676,7 +639,6 @@
         "stock": "  2 reviews",
         "type": "product"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 0,
@@ -694,7 +656,6 @@
         "source": "Whitley's Peanut Factory",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 0,
@@ -712,7 +673,6 @@
         "source": "Nutstop.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 1,
@@ -732,7 +692,6 @@
         "source": "We Got Nuts",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 2,
@@ -750,7 +709,6 @@
         "source": "Po Wing Online",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 41,
       "sub_rank": 3,
@@ -768,7 +726,6 @@
         "source": "theloadedkitchen.com",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 42,
       "sub_rank": 4,
@@ -788,7 +745,6 @@
         "source": "Walmart - Monroe Systems for Business",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 43,
       "sub_rank": 5,
@@ -806,7 +762,6 @@
         "source": "Amazon.com - Seller",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 44,
       "sub_rank": 6,
@@ -824,7 +779,6 @@
         "source": "Feridies",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 45,
       "sub_rank": 7,
@@ -849,7 +803,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 46,
       "sub_rank": 0,
@@ -871,7 +824,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 47,
       "sub_rank": 0,

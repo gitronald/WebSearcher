@@ -7,6 +7,7 @@ underlying article title, source, and timestamp.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
+from ._common import mark_timestamp_row
 
 
 def parse_news_quotes(elem) -> list:
@@ -48,7 +49,7 @@ def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict:
         parsed["url"] = title.attributes.get("href") if _is_tag(title) else None
         parsed["cite"] = get_text(cite) if _is_tag(cite) else None
         if timestamp is not None and _is_tag(timestamp):
-            parsed["timestamp"] = get_text(timestamp)
+            mark_timestamp_row(parsed, get_text(timestamp))
     else:
         title = result_children[1]
         cite = result_children[0]
@@ -66,7 +67,7 @@ def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict:
         if _is_tag(timestamp):
             ts_div = timestamp.css_first("div")
             if ts_div is not None:
-                parsed["timestamp"] = get_text(ts_div)
+                mark_timestamp_row(parsed, get_text(ts_div))
 
     parsed["text"] = get_text(quote)
 
