@@ -1,10 +1,10 @@
 ---
 id: 49
 slug: xvfb-virtual-display
-status: active
+status: done
 branch: feature/xvfb-virtual-display
 created: 2026-06-09T23:53:22-07:00
-concluded:
+concluded: 2026-06-21T16:29:22-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/175
 ---
 
@@ -116,3 +116,13 @@ env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
 `-screen 0 1920x1080x24` avoids a tiny-viewport tell. No code change needed — purely a
 launcher/env concern. Caveats: small live sample (n=2 per condition); IP reputation remains
 the dominant, separate factor (needs proxies, not Xvfb).
+
+## Retrospective
+
+Closed with no runtime code change, as predicted — Xvfb is an environment/launcher concern.
+Step 3's deliverable (document the recommended invocation) landed as a new **"Running on a
+headless server (Xvfb)"** README section, shipped in the `0.10.2` release. Net finding: the
+browser backends run genuinely headed under Xvfb with parse parity to a real display, and the
+intermittent `/sorry/` is IP/volume-driven rather than an Xvfb fingerprint tell — so Xvfb is
+the prerequisite that lets a headed browser exist on a no-display host, but the standing
+blocker at scale is IP reputation (proxies), tracked separately.
