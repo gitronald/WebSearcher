@@ -1,7 +1,6 @@
 .venv/
 .archive/
-.claude
-CLAUDE.md
+.claude/
 
 build/
 notebooks/
