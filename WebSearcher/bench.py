@@ -8,7 +8,8 @@ at WARNING so debug f-string formatting does not contaminate timings.
 Every run appends a version/corpus/timing row to tests/benchmarks/results.jsonl so
 cross-version comparisons come from data, not plan archaeology. Profile runs also
 dump raw cProfile stats to tests/benchmarks/profiles/{id}.prof (gitignored) for
-snakeviz. Pass --no-save for throwaway runs (e.g. quick smoke checks).
+inspection with `python -m pstats`. Pass --no-save for throwaway runs (e.g. quick
+smoke checks).
 
 A dev tool: it reads tests/fixtures/ and writes tests/benchmarks/, so it only runs
 from a repo checkout, not a bare wheel install. argparse / stdlib only (no typer),
@@ -220,7 +221,7 @@ def run_profile(
     stats.print_stats(top)
     if out:
         pstats.Stats(prof).dump_stats(str(out))
-        print(f"\nWrote {out} (open with: uv run snakeviz {out})")
+        print(f"\nWrote {out} (inspect with: uv run python -m pstats {out})")
 
     if save:
         PROFILES_DIR.mkdir(parents=True, exist_ok=True)
@@ -241,7 +242,7 @@ def run_profile(
         print(
             f"\nSaved profile to {prof_path.relative_to(REPO_ROOT)} "
             f"and row to {RESULTS_PATH.relative_to(REPO_ROOT)} (id={meta['id']}); "
-            f"open with: uv run snakeviz {prof_path.relative_to(REPO_ROOT)}"
+            f"inspect with: uv run python -m pstats {prof_path.relative_to(REPO_ROOT)}"
         )
 
 

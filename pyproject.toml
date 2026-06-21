@@ -43,8 +43,6 @@ dev = [
     # serp-inspect skill). Runtime parsing is selectolax-only.
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
-    # snakeviz views the .prof dumps from `python -m WebSearcher.bench --profile`
-    "snakeviz>=2.2.2",
 ]
 spike = [
     "patchright>=1.60.1",
