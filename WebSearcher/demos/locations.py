@@ -5,7 +5,7 @@ from pathlib import Path
 
 import WebSearcher as ws
 
-from ._common import _print_results_table
+from ._common import _default_data_dir, _print_results_table
 
 
 def _find_location(csv_path: Path, canonical_name: str) -> dict | None:
@@ -20,14 +20,14 @@ def _find_location(csv_path: Path, canonical_name: str) -> dict | None:
 def locations(
     query: str = "pizza",
     canonical_name: str = "Boston,Massachusetts,United States",
-    locations_dir: str = "data/google_locations",
+    locations_dir: str | None = None,
     data_dir: str = "data/html",
 ):
     """Localization demo: download geotargets, resolve a canonical name, run a localized search."""
-    loc_dir = Path(locations_dir)
+    loc_dir = Path(locations_dir) if locations_dir else _default_data_dir()
     loc_dir.mkdir(parents=True, exist_ok=True)
     ws.download_locations(loc_dir)
-    csv_path = sorted(loc_dir.iterdir())[-1]  # latest download
+    csv_path = sorted(loc_dir.glob("geotargets-*.csv"))[-1]  # latest downloaded geotargets
 
     row = _find_location(csv_path, canonical_name)
     if row is None:
