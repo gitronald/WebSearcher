@@ -10,6 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.10.2`: Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an Xvfb virtual display (new README section); the backends must run headed, so a no-display host needs a virtual display
 - `0.10.1`: Reorganized the flat parse modules into a single `WebSearcher.parsers` package (public entrypoints unchanged; deep imports of the old flat paths must switch) and hardened the parse pipeline -- every component is classified before any is parsed, and `Component.to_dict()` now returns a copy -- with output byte-identical (snapshot-pinned). Also dropped the `snakeviz`/`ipykernel` dev dependencies to evict the transitive `tornado` advisories
 - `0.10.0`: Reliable CAPTCHA detection from the `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the geotargets locations refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
 - `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
@@ -32,6 +33,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
       - [4. Save HTML and Metadata](#4-save-html-and-metadata)
       - [5. Save Parsed Results](#5-save-parsed-results)
   - [Localization](#localization)
+  - [Running on a headless server (Xvfb)](#running-on-a-headless-server-xvfb)
   - [Contributing](#contributing)
     - [Repair or Enhance a Parser](#repair-or-enhance-a-parser)
     - [Add a Parser](#add-a-parser)
@@ -227,6 +229,52 @@ available online, and can be downloaded using a built in function
 
 A brief guide on how to select a canonical name and use it to conduct a  
 localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
+
+
+---
+## Running on a headless server (Xvfb)
+
+The browser backends (`selenium` -- the default -- plus the optional `patchright` and
+`zendriver`) drive a **real, visible** Chrome: search engines reliably block Chrome's own
+`--headless` mode, so the browser must run *headed*. On a server, CI runner, or container with
+no display (`$DISPLAY` unset), a headed Chrome has nothing to attach to and won't launch. (The
+`requests` backend is pure HTTP and needs no display -- this only applies to the browser
+backends.)
+
+The fix is [**Xvfb**](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml), an in-memory X
+display server: it lets Chrome run genuinely headed -- no headless code path, no monitor, no
+GPU. Install it (Debian/Ubuntu):
+
+```bash
+sudo apt-get install -y xvfb
+```
+
+Then wrap your collection command with `xvfb-run`:
+
+```bash
+env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
+  python your_collection_script.py
+```
+
+- `env -u DISPLAY` removes any inherited display so the run can't silently fall back to a real
+  one (e.g. an X-forwarded SSH session) -- the display Xvfb creates is then the only one in scope.
+- `xvfb-run -a` auto-picks a free display number, so concurrent jobs don't collide.
+- `-screen 0 1920x1080x24` gives a realistic window geometry.
+
+The collection code itself is unchanged:
+
+```python
+import WebSearcher as ws
+
+se = ws.SearchEngine()            # default browser backend, headed
+se.search("immigration news")
+se.parse_serp()
+se.save_serp(append_to="serps.json")
+```
+
+If you parallelize collection across processes, one shared Xvfb covers them all -- child
+workers inherit the parent's `DISPLAY`, so wrap the top-level command once rather than starting
+an Xvfb per worker.
 
 
 ---

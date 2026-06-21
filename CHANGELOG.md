@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.10.2] - 2026-06-21
+
+- Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an [Xvfb](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml) virtual display (new README section). The browser backends must run *headed* (Chrome's own `--headless` is reliably blocked), so a no-display host needs a virtual display; confirmed end to end with the `patchright` backend (plan 049)
+
 ## [0.10.1] - 2026-06-21
 
 - **Breaking (internal):** reorganized the flat parse modules into a single `WebSearcher.parsers` package -- `parsers.py` -> `parsers/parse_serp.py`, `component_parsers/` -> `parsers/components/`, and the top-level `component_types`/`components` modules folded in. Public entrypoints are unchanged (`import WebSearcher; WebSearcher.parse_serp`, and `from WebSearcher.parsers.parse_serp import parse_serp`), but deep imports of the old flat paths must switch (`from WebSearcher.parsers import parse_serp` -> `from WebSearcher.parsers.parse_serp import parse_serp`; `WebSearcher.component_parsers.<x>` -> `WebSearcher.parsers.components.<x>`)
