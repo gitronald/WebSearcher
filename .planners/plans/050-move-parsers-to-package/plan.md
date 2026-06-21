@@ -5,7 +5,7 @@ status: active
 branch: feature/move-parsers-to-package
 created: 2026-06-20T23:11:52-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/172
 ---
 
 # Move parsers.py into a parsers/ package
@@ -221,4 +221,36 @@ relative imports stable.
 - No CHANGELOG/README "Recent Changes"/version bump here — fold into the release
   that ships this (handled per the repo's release workflow), as the searchers
   rename did (`6373c04`).
+
+## Log
+
+### 2026-06-20 — Implemented (PR #172)
+
+Done in worktree `.worktrees/move-parsers-to-package` off `dev`. Followed the
+plan's order exactly; the `git mv` step needed `mkdir -p WebSearcher/parsers`
+first (`git mv` does not create the destination directory). The depth bump under
+`components/` was a single `sed` pass (`.._slx`/`..utils`/`..models` -> `...`;
+`..component_types` left untouched), verified with grep for stray 2-dot and
+4-dot imports.
+
+**Deviation — circular import (the risk the plan flagged, now resolved).** A
+fresh `import WebSearcher` failed:
+`classifiers/main.py` -> `from ..parsers.component_types import ...` runs
+`parsers/__init__.py`, which (as first drafted) eagerly imported `parse_serp` ->
+`extractors` -> `component_list` -> `component` -> back into the
+half-initialized `classifiers` package -> `ImportError`. Fix: `parsers/__init__.py`
+now lazy-loads `parse_serp` via PEP 562 `__getattr__` (mirroring how
+`WebSearcher/__init__.py` lazy-loads `SearchEngine`), so importing a leaf
+submodule no longer pulls the full pipeline. Both `from .parsers import
+parse_serp` and the `parsers.parse_serp` attribute access (searchers.py) resolve
+fine because by the time `WebSearcher/__init__.py` reaches them, `classifiers` is
+fully initialized.
+
+Also caught two Sphinx `:mod:` docstring cross-references the plan's grep missed
+(`component_types.py`, `components/products.py`) and updated them.
+
+**Verification:** 537 tests + 87 snapshots pass; `ruff check` clean (4 import-order
+auto-fixes applied); `pyrefly check` 0 errors; fresh import + parse smoke OK;
+`python -m WebSearcher.parsers.bench` resolves `tests/fixtures/` (REPO_ROOT depth
+fix confirmed).
 
