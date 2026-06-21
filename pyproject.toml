@@ -30,7 +30,6 @@ ws-demo = 'WebSearcher.demos:main'
 dev = [
     "pytest>=9.0.3",
     "syrupy>=4.8.1",
-    "ipykernel>=6.29.5",
     "typer>=0.15.2",
     "pyarrow>=23.0.0",
     "polars>=1.37.1",
