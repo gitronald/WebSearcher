@@ -2,6 +2,7 @@ import base64
 import csv
 import io
 import zipfile
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +16,22 @@ _varint_bytes = getattr(encoder, "_VarintBytes")
 _decode_varint = getattr(decoder, "_DecodeVarint")
 
 log = logger.Logger().start(__name__)
+
+GEOTARGETS_URL = "https://developers.google.com/adwords/api/docs/appendix/geotargeting"
+
+# Upstream header, unchanged 2018 -> 2026 across the seeded archive; drift
+# means the schema consumers rely on has moved, so fail loudly.
+GEOTARGETS_HEADER = [
+    "Criteria ID",
+    "Name",
+    "Canonical Name",
+    "Parent ID",
+    "Country Code",
+    "Target Type",
+    "Status",
+]
+
+REQUEST_TIMEOUT = 60  # seconds per socket read; unattended cron must not hang
 
 
 def convert_canonical_name_to_uule(canon_name: str) -> str:
@@ -89,7 +106,7 @@ def decode_protobuf_string(encoded_string: str) -> dict[int, Any]:
 
 def download_locations(
     data_dir: str | Path = "data/locations",
-    url: str = "https://developers.google.com/adwords/api/docs/appendix/geotargeting",
+    url: str = GEOTARGETS_URL,
 ) -> None:
     """Download the latest geolocations, check if already exists locally first.
 
@@ -115,20 +132,102 @@ def download_locations(
         print(f"Version up to date: {fp_unzip}")
     else:
         print("Version out of date")
-        print(f"getting: {url_latest}")
-        response = requests.get(url_latest)
-        response.raise_for_status()
+        download_csv(url_latest, fp_unzip)
 
-        if fp.suffix == ".zip":
-            save_zip_response(response, str(fp_unzip))
-        else:
-            lines = response.content.decode("utf-8").split("\n")
-            locations = list(csv.reader(lines, delimiter=","))
-            write_csv(str(fp_unzip), locations)
+
+def update_locations_file(
+    fp: str | Path = "data/locations/geotargets.csv",
+    ledger_fp: str | Path = "data/locations/ledger.csv",
+    url: str = GEOTARGETS_URL,
+) -> str | None:
+    """Download the latest geotargets CSV, overwrite ``fp``, and log the pull.
+
+    Change detection keys on the upstream filename, which embeds the real
+    release date (``geotargets-YYYY-MM-DD.csv``): if it matches the last
+    ledger row, nothing is downloaded. On a new release, ``fp`` is overwritten
+    in place and one ``date_collected,filename`` row is appended to
+    ``ledger_fp``.
+
+    Args:
+        fp: Stable path the CSV is written to (overwritten each release)
+        ledger_fp: Append-only CSV logging each successful pull
+        url: Page listing the geotargets CSV downloads
+
+    Returns:
+        The upstream CSV filename if a new version was pulled, else None.
+    """
+    fp = Path(fp)
+    ledger_fp = Path(ledger_fp)
+
+    url_latest = get_latest_url(url)
+    filename = url_latest.split("/")[-1].removesuffix(".zip")
+
+    if filename == read_ledger_last_filename(ledger_fp):
+        print(f"Version up to date: {filename}")
+        return None
+
+    fp.parent.mkdir(parents=True, exist_ok=True)
+    tmp_fp = fp.parent / (fp.name + ".tmp")
+    try:
+        download_csv(url_latest, tmp_fp)
+        check_geotargets_header(tmp_fp)
+        tmp_fp.replace(fp)
+    finally:
+        tmp_fp.unlink(missing_ok=True)
+
+    date_collected = datetime.now(UTC).date().isoformat()
+    append_ledger_row(ledger_fp, date_collected=date_collected, filename=filename)
+    return filename
+
+
+def download_csv(url_latest: str, fp: str | Path) -> None:
+    """Fetch a geotargets CSV URL (plain or zipped) and write it to ``fp``."""
+    print(f"getting: {url_latest}")
+    response = requests.get(url_latest, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+
+    if url_latest.endswith(".zip"):
+        save_zip_response(response, str(fp))
+    else:
+        write_csv(str(fp), normalize_csv_text(response.content.decode("utf-8")))
+
+
+def check_geotargets_header(fp: str | Path) -> None:
+    """Raise if the downloaded CSV's header drifted from the known schema."""
+    with open(fp, encoding="utf-8", newline="") as infile:
+        header = next(csv.reader(infile), None)
+    if header != GEOTARGETS_HEADER:
+        raise ValueError(f"geotargets header drift: {header} != {GEOTARGETS_HEADER}")
+
+
+def normalize_csv_text(text: str) -> list[list[str]]:
+    """Round-trip raw CSV text through the csv module for stable output bytes."""
+    return list(csv.reader(io.StringIO(text, newline=""), delimiter=","))
+
+
+def read_ledger_last_filename(ledger_fp: str | Path) -> str | None:
+    """Return the ``filename`` of the last ledger row, or None if no rows yet."""
+    ledger_fp = Path(ledger_fp)
+    if not ledger_fp.exists():
+        return None
+    with open(ledger_fp, encoding="utf-8", newline="") as infile:
+        rows = list(csv.DictReader(infile))
+    return rows[-1]["filename"] if rows else None
+
+
+def append_ledger_row(ledger_fp: str | Path, date_collected: str, filename: str) -> None:
+    """Append one pull record to the ledger, writing the header if it is new."""
+    ledger_fp = Path(ledger_fp)
+    write_header = not ledger_fp.exists()
+    with open(ledger_fp, "a", encoding="utf-8", newline="") as outfile:
+        writer = csv.writer(outfile)
+        if write_header:
+            writer.writerow(["date_collected", "filename"])
+        writer.writerow([date_collected, filename])
 
 
 def get_latest_url(url: str) -> str:
-    html = requests.get(url).content
+    html = requests.get(url, timeout=REQUEST_TIMEOUT).content
     soup = utils.make_soup(html)
     links = utils.get_link_list(soup) or []
     url_list = [u for u in links if u]
@@ -156,3 +255,18 @@ def write_csv(fp: str, lines: list | None = None, reader: Any = None) -> None:
         elif lines:
             writer.writerows(lines)
     print(f"saved: {fp}")
+
+
+def main() -> None:
+    """Update the tracked geotargets CSV and report what happened."""
+    fp = Path("data/locations/geotargets.csv")
+    filename = update_locations_file(fp=fp)
+    if filename is None:
+        return
+    with open(fp, encoding="utf-8", newline="") as infile:
+        n_rows = sum(1 for _ in csv.reader(infile)) - 1
+    print(f"pulled: {filename} ({n_rows:,} locations)")
+
+
+if __name__ == "__main__":
+    main()

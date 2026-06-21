@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "Choose what you’re giving feedback on",
-        "img_url": null,
         "subtitle": "2005 ‧ Sitcom ‧ 9 seasons",
         "tabs": [
           "Overview",
@@ -49,7 +48,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -102,7 +100,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -116,7 +113,6 @@
       "cite": "https://www.netflix.com  › title",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -130,7 +126,6 @@
       "cite": "https://www.peacocktv.com  › stream-tv › the-office",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -144,7 +139,6 @@
       "cite": "3.7M+ followers",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -174,7 +168,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -196,7 +189,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -210,7 +202,6 @@
       "cite": "https://www.disneyplus.com  › en-at › browse",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -224,7 +215,6 @@
       "cite": "2.9M+ views  ·  3 months ago",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -237,8 +227,14 @@
     {
       "cite": "4.2M+ views  ·  8 months ago",
       "cmpt_rank": 9,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "The Office",
+        "publish_date": "May 16, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckDW5EL6ATnfmt5YDi6ecNlV71t8dsIX8sioPwfjOmf3aMc4p5G6bIg&s",
+        "title": "Office COLD OPENS to Watch While You Eat",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -252,7 +248,6 @@
       "cite": "https://www.amazon.com  › The-Office-Season-1",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -266,7 +261,6 @@
       "cite": "https://www.bbc.co.uk  › iplayer › episodes › the-office",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -280,7 +274,6 @@
       "cite": "https://www.tvguide.com  › tvshows › the-office",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -307,7 +300,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 13,
       "sub_rank": 0,

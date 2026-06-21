@@ -279,7 +279,17 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "locations",
             ),
         },
-        sub_types=("places", "locations", "businesses"),
+        # Closed category set mapped from the component header by phrase (see
+        # local_results._LOCAL_RESULTS_CATEGORIES / _header_to_sub_type). Headers
+        # that match no category leave sub_type None rather than slugifying free
+        # display text into a per-query value.
+        sub_types=(
+            "results_for",
+            "places",
+            "locations",
+            "businesses",
+            "availability",
+        ),
         description="Map-based local business results",
     ),
     ComponentType(
@@ -298,6 +308,11 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="most_read_articles",
         label="Most-read Articles",
         sections=("main",),
+        # Header-text-only: this type has no unique structural CSS signal (its
+        # cards share generic classes), so it is classified purely by the English
+        # header "Most-read articles" via ClassifyMainHeader. A localized heading
+        # is unclassifiable -- unlike buying_guide/products, it cannot be made
+        # structural-first. Flagged; no fix planned.
         header_texts={2: ("Most-read articles",)},
         description="Editorial article carousel (one card per publisher)",
     ),

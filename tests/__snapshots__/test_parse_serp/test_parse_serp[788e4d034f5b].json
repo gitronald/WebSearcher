@@ -17,7 +17,6 @@
       "cmpt_rank": 0,
       "details": {
         "heading": "New York",
-        "img_url": null,
         "subtitle": "Song by Alicia Keys",
         "tabs": [
           "Overview",
@@ -27,7 +26,6 @@
         ],
         "type": "panel"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -41,7 +39,6 @@
       "cite": "https://genius.com  › Alicia-keys-empire-state-of-mind-p...",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -55,7 +52,6 @@
       "cite": "https://www.streetdirectory.com  › song › ccope › empir...",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -69,7 +65,6 @@
       "cite": "https://www.letras.com.br  › ... › hip hop/rap › alicia keys",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -83,7 +78,6 @@
       "cite": "YouTube",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -97,7 +91,6 @@
       "cite": "YouTube",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
@@ -111,7 +104,6 @@
       "cite": "YouTube",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 2,
@@ -125,7 +117,6 @@
       "cite": "https://www.azlyrics.com  › A › Alicia Keys Lyrics",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -147,7 +138,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -161,7 +151,6 @@
       "cite": "https://www.streetdirectory.com  › song › ccopw › empi...",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -175,7 +164,6 @@
       "cite": "https://genius.com  › Jay-z-empire-state-of-mind-lyrics",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -189,7 +177,6 @@
       "cite": "https://www.letras.com  › R&B › Alicia Keys",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -203,7 +190,6 @@
       "cite": "https://mojim.com  › ... › Miscellaneous",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -218,10 +204,8 @@
       "cmpt_rank": 11,
       "details": {
         "duration": "4:11",
-        "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -248,7 +232,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -262,6 +245,7 @@
       "cite": null,
       "cmpt_rank": 13,
       "details": {
+        "attrid": "kc:/music/recording_cluster:artist",
         "items": [
           {
             "text": "Alicia Keys",
@@ -270,13 +254,12 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 15,
       "sub_rank": 0,
-      "sub_type": "links",
-      "text": null,
-      "title": "About",
+      "sub_type": "fact",
+      "text": "Alicia Keys",
+      "title": "Artist",
       "type": "side_bar",
       "url": null
     },
@@ -304,7 +287,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "rhs",
       "serp_rank": 16,
       "sub_rank": 1,

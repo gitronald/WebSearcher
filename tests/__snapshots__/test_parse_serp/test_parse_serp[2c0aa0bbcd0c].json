@@ -16,7 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": null,
-      "error": null,
       "section": "header",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -30,7 +29,6 @@
       "cite": "13.5M+ followers",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -43,8 +41,14 @@
     {
       "cite": "55.2M+ views  ·  12 years ago",
       "cmpt_rank": 2,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Nov 18, 2013",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtfycm02_OBUnORhrZFOnI9CcV7NBd7DQ0S82JWZVIYAzkbj0EQfg3kg&s",
+        "title": "Yoga For Complete Beginners - 20 Minute Home Yoga Workout!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -66,7 +70,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -80,7 +83,6 @@
       "cite": "https://www.goodhousekeeping.com  › Health › Fitness",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -95,7 +97,6 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "Find related products & services",
-        "img_url": null,
         "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
         "type": "panel",
         "urls": [
@@ -125,7 +126,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -139,9 +139,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Yoga with Kassandra",
+        "heading": "What people are saying",
+        "publish_date": "Jan 19, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/QyHO_BkBUp8/hqdefault.jpg",
+        "title": "15 min Gentle Morning Yoga for Beginners (NO PROPS)",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -155,9 +160,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Yoga With Tim",
+        "heading": "What people are saying",
+        "publish_date": "Dec 31, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/Dy-D-hZfjnw/hqdefault.jpg",
+        "title": "Day 1 | 30 Day Yoga Challenge for Beginners – Strength & Flexibility",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,
@@ -171,9 +181,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Charlie Follows",
+        "heading": "What people are saying",
+        "publish_date": "Nov 30, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/sT3Y3lBfLH4/hqdefault.jpg",
+        "title": "15 Min Gentle Yoga Routine | Beginner Friendly Full Body Stretch",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 2,
@@ -187,9 +202,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 3,
@@ -203,9 +218,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 4,
@@ -219,9 +234,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "YOGATX",
+        "heading": "What people are saying",
+        "publish_date": "Dec 29, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/KuSf8FJj3WU/hqdefault.jpg",
+        "title": "BEGINNER YOGA CLASS - 20 minute Full Body Yoga for Strength & Flexibility",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 5,
@@ -235,9 +255,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "RaaiKotha",
+        "heading": "What people are saying",
+        "publish_date": "Feb 5, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/TXf-8jvYmEQ/hqdefault.jpg",
+        "title": "Yoga For Beginners | Part 2 |",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 6,
@@ -251,9 +276,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "BodyWisdom",
+        "heading": "What people are saying",
+        "publish_date": "Jan 31, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/UjGTGxXwXi4/hqdefault.jpg",
+        "title": "Yoga for Beginners | Wonderful Way To Feel Your Best",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 7,
@@ -267,9 +297,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 8,
@@ -283,9 +313,14 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Yoga & You",
+        "heading": "What people are saying",
+        "publish_date": "Dec 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/ZVyKkKrB23k/hqdefault.jpg",
+        "title": "Morning Yoga Flow for Beginners | Easy Morning Stretch | Start Your Day Calm",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 9,
@@ -299,9 +334,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 10,
@@ -315,9 +350,9 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 11,
@@ -330,8 +365,14 @@
     {
       "cite": "5.9M+ views  ·  3 years ago",
       "cmpt_rank": 7,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Jun 20, 2022",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlpnD-z-mNHwZS9jkCw-V-ADJyim5uKqphpoeUrKwsr0V6_nypPySTxg&s",
+        "title": "10-Minute Yoga For Beginners | Start Yoga Here...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -358,7 +399,6 @@
         "website": "http://www.yogasix.com/palo-alto",
         "years_in_business": "3+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -385,7 +425,6 @@
         "website": "http://yogasource.com/",
         "years_in_business": "30+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 1,
@@ -411,7 +450,6 @@
         "website": "https://yogarok.com/",
         "years_in_business": "3+ years in business"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 2,
@@ -425,7 +463,6 @@
       "cite": "https://www.onepeloton.com  › Home › Train › Yoga",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 0,
@@ -438,8 +475,14 @@
     {
       "cite": "7.1M+ views  ·  11 years ago",
       "cmpt_rank": 10,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Yoga With Adriene",
+        "publish_date": "Mar 19, 2014",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlf7p5ZO1MgB8VxKVCZ4hMxsTllbu_8Am0aEa0rGyNZaf9KXdNbilQhA&s",
+        "title": "Yoga For Beginners - 40 Minute Home Yoga Workout",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 0,
@@ -453,7 +496,6 @@
       "cite": "10+ comments  ·  6 years ago",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 0,
@@ -466,8 +508,14 @@
     {
       "cite": "101.2K+ views  ·  2 months ago",
       "cmpt_rank": 12,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Yoga with Kassandra",
+        "publish_date": "Dec 8, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvx3w2Mr6WJPNbk0CGmkMnQNbyMtgu3ohExEko7kLDjy6hyh3_WYbPdA&s",
+        "title": "10 min Yoga for Beginners - Gentle, Safe & Easy Yoga Stretch",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 0,
@@ -481,7 +529,6 @@
       "cite": "1.3M+ followers",
       "cmpt_rank": 13,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 0,
@@ -508,7 +555,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 27,
       "sub_rank": 0,

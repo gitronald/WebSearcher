@@ -7,6 +7,7 @@ that appear under the main results column.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
+from ._common import mark_hidden_item, mark_hidden_row
 
 
 def parse_img_cards(elem) -> list:
@@ -21,12 +22,12 @@ def parse_img_card(sub: Node, sub_rank: int = 0) -> dict:
     images = sub.css("img")
     if images:
         items = [
-            {"url": i.attributes["src"], "text": i.attributes["alt"]}
+            mark_hidden_item({"url": i.attributes["src"], "text": i.attributes["alt"]}, i)
             for i in images
             if "src" in i.attributes and "alt" in i.attributes
         ]
         parsed["details"] = {"type": "hyperlinks", "items": items}
-    return parsed
+    return mark_hidden_row(parsed, sub)
 
 
 def parse_discover_more(elem) -> list:

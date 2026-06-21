@@ -7,6 +7,7 @@ options relevant to the query.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text, has_text
+from ._common import mark_hidden_item
 
 
 def parse_available_on(elem, sub_rank: int = 0) -> list:
@@ -38,16 +39,18 @@ def parse_available_on(elem, sub_rank: int = 0) -> list:
 
 def parse_available_on_item(sub: Node) -> dict:
     a = sub.css_first("a")
-    return {
+    item = {
         "url": a.attributes.get("href") if a is not None else None,
         "text": get_text(sub.css_first("div.i3LlFf"), " "),
         "cost": get_text(sub.css_first("div.V8xno"), " "),
     }
+    return mark_hidden_item(item, sub)
 
 
 def parse_available_on_item_modern(a: Node) -> dict:
-    return {
+    item = {
         "url": a.attributes.get("href"),
         "text": get_text(a.css_first("div.bclEt"), " "),
         "cost": get_text(a.css_first("div.rsj3fb"), " "),
     }
+    return mark_hidden_item(item, a)

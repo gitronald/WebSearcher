@@ -12,13 +12,45 @@ _VIDEO_CLASSES = {"VibNM", "mLmaBd", "RzdJxc", "sHEJob"}
 _LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}
 
 
+# Tag names and ids the classifier chain actually gates on. The chain consults
+# ``signals.names``/``signals.ids`` for only this fixed handful of tokens, so
+# ``_ComponentSignals`` keeps just these rather than every element's tag/id --
+# one frozenset membership test per element instead of growing a set ~2.5M times
+# per corpus pass. NOTE: any new precondition that tests ``s.names``/``s.ids``
+# for a token MUST register it here, or the precondition will silently never
+# fire (the token never enters the set). The 87-snapshot suite pins the existing
+# tokens. ``classes`` is consulted broadly (incl. intersection with
+# ``_VIDEO_CLASSES``/``_LOCAL_CLASSES``) so it must stay complete.
+_NAME_SIGNALS: frozenset[str] = frozenset(
+    {
+        "g-scrolling-carousel",
+        "g-tray-header",
+        "block-component",
+        "h2",
+        "promo-throttler",
+        "product-viewer-group",
+        "g-more-link",
+    }
+)
+_ID_SIGNALS: frozenset[str] = frozenset(
+    {
+        "imagebox_bigimages",
+        "iur",
+        "knowledge-finance-wholepage__entity-summary",
+        "eer-masthead",
+    }
+)
+
+
 class _ComponentSignals:
-    """One-pass summary of a component's class names, ids, and tag names.
+    """One-pass summary of a component's gating class names, ids, and tag names.
 
     The classifier chain consults this to skip a classifier whose necessary
     structural signal is absent, replacing many full-subtree ``find()`` misses
     with set lookups. Preconditions are necessary conditions only, so a skip can
-    never change a classification (pinned by the snapshot suite).
+    never change a classification (pinned by the snapshot suite). ``names`` and
+    ``ids`` are filtered to ``_NAME_SIGNALS``/``_ID_SIGNALS`` -- the only tokens
+    the chain ever tests -- while ``classes`` is kept in full.
     """
 
     __slots__ = ("classes", "ids", "names")
@@ -30,15 +62,18 @@ class _ComponentSignals:
         # ``el.attrs`` is a non-allocating view over the element's attribute
         # table (vs ``el.attributes`` which materializes a dict per call);
         # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
+        # The leading truthiness guard narrows ``str | None`` -> ``str`` for the
+        # type checker and short-circuits the (common) no-id element before the
+        # membership test; only interest-set tokens reach ``set.add``.
         for el in cmpt.css("*"):
             name = el.tag
-            if name:
+            if name and name in _NAME_SIGNALS:
                 names.add(name)
             cls = el.attrs.get("class")
             if cls:
                 classes.update(cls.split())
             el_id = el.id
-            if el_id:
+            if el_id and el_id in _ID_SIGNALS:
                 ids.add(el_id)
         self.classes = classes
         self.ids = ids
@@ -100,16 +135,35 @@ class ClassifyMain:
         node: Node = cmpt
         signals = _ComponentSignals(node)
 
+        # Preconditions test ``s.classes`` freely, but any ``s.names``/``s.ids``
+        # token must also live in ``_NAME_SIGNALS``/``_ID_SIGNALS`` (see above) or
+        # the precondition silently never fires.
         component_classifiers = [
             (ClassifyMain.locations, None),
             (ClassifyMain.top_stories, lambda s: "g-scrolling-carousel" in s.names),
             (ClassifyMain.discussions_and_forums, lambda s: "IFnjPb" in s.classes),
+            # Structural-first: ITWcLb rows type a buying_guide before the
+            # English-only header-text path, so a localized/reworded heading
+            # ("Buying guide: ...") still classifies.
+            (ClassifyMain.buying_guide, lambda s: "ITWcLb" in s.classes),
+            # NOTE: ``most_read_articles`` has no unique structural signal -- it is
+            # classified purely by its English header "Most-read articles" via
+            # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
+            # Unlike buying_guide/products it cannot be made structural-first.
             (ClassifyMainHeader.classify, None),
             (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
             (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
             (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
             (ClassifyMain.ai_overview, lambda s: "Fzsovc" in s.classes or "h2" in s.names),
-            (ClassifyMain.available_on, None),
+            # available_on's full-component ``get_text`` fallback (the
+            # ``/Available on`` substring path) fires 0x across the corpus; the
+            # real cases are caught by its cheap ``span.mgAbYb`` heading. Gating on
+            # that class stops the expensive fallback from running on the ~10
+            # non-available_on components/SERP that otherwise reach this classifier
+            # (plan 036 Lever 3). Tradeoff: a non-mgAbYb component carrying
+            # ``/Available on`` text would no longer be typed available_on --
+            # unobserved on the corpus, accepted as evidence-backed dead code.
+            (ClassifyMain.available_on, lambda s: "mgAbYb" in s.classes),
             (ClassifyMain.knowledge_panel, None),
             (ClassifyMain.knowledge_block, lambda s: "block-component" in s.names),
             (ClassifyMain.banner, lambda s: "uzjuFc" in s.classes),
@@ -127,7 +181,11 @@ class ClassifyMain:
             (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
             (
                 ClassifyMain.products,
-                lambda s: "product-viewer-group" in s.names or "g-more-link" in s.names,
+                lambda s: (
+                    "product-viewer-group" in s.names
+                    or "g-more-link" in s.names
+                    or "gON1yc" in s.classes
+                ),
             ),
             (
                 ClassifyMain.election,
@@ -176,6 +234,18 @@ class ClassifyMain:
         if "ULSxyf" not in class_tokens(node):
             return "unknown"
         return "banner" if node.css_first("div.uzjuFc") is not None else "unknown"
+
+    @staticmethod
+    def buying_guide(cmpt) -> str:
+        """Classify a faceted "Buying guide" accordion by its row class.
+
+        ``div.ITWcLb`` rows are buying_guide's unique, stable structural signal,
+        so this types the component even when its h2 ("Buying guide: ...") is
+        localized or reworded -- cases the English-only "Buying guide" header
+        match in ``ClassifyMainHeader`` would miss.
+        """
+        node: Node = cmpt
+        return "buying_guide" if node.css_first("div.ITWcLb") is not None else "unknown"
 
     @staticmethod
     def finance_panel(cmpt) -> str:
@@ -366,6 +436,11 @@ class ClassifyMain:
             node.css_first("product-viewer-group") is not None
             and node.css_first("g-inner-card") is not None
         ):
+            return "products"
+        # Brands carousel: div.gON1yc cards are the unique structural signal, so
+        # the carousel still types as products when its "Explore brands" heading
+        # is localized or reworded (header-text match below is English-only).
+        if node.css_first("div.gON1yc") is not None:
             return "products"
         heading = node.css_first('[role="heading"]')
         if heading is not None and (get_text(heading, strip=True) or "") == "Explore brands":

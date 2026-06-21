@@ -61,6 +61,12 @@ _STANDARD_LAYOUTS: dict[str, _StandardLayout] = {
 }
 
 
+# Labels that mark a non-component wrapper rather than a result; a candidate whose
+# (bounded) text is exactly one of these is dropped by ``is_valid``. Module-level so
+# the set isn't rebuilt on every is_valid call (~25k/parse-pass on the corpus).
+_BAD_LABELS = frozenset({"Main results", "Twitter Results", ""})
+
+
 def _filter_empty(nodes) -> list[Node]:
     return [n for n in nodes if n is not None and has_text(n)]
 
@@ -604,7 +610,6 @@ class ExtractorMain:
             return False
         if not c.tag or c.tag.startswith("-"):
             return False
-        bad = {"Main results", "Twitter Results", ""}
         # Bound the text scan: the longest bad label is 15 chars, so once the
         # accumulated text exceeds that it cannot match and we stop walking.
         text = ""
@@ -612,7 +617,7 @@ class ExtractorMain:
             text += s
             if len(text) > 15:
                 break
-        if text in bad:
+        if text in _BAD_LABELS:
             return False
         # Skip bottom ads wrapper (extracted separately)
         if c.css_first('div[id="tadsb"]') is not None:

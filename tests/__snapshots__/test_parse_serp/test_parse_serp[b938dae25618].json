@@ -23,7 +23,6 @@
         "source": "Allrecipes",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -44,7 +43,6 @@
         "source": "Tastes Better From Scratch",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 1,
@@ -65,7 +63,6 @@
         "source": "Natasha's Kitchen",
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 2,
@@ -83,7 +80,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -101,7 +97,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -119,7 +114,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -141,7 +135,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -155,7 +148,6 @@
       "cite": "70+ comments  ·  1 year ago",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -173,7 +165,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -191,7 +182,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -209,7 +199,6 @@
         "scale": 5,
         "type": "ratings"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -224,10 +213,8 @@
       "cmpt_rank": 9,
       "details": {
         "duration": "3:11",
-        "source": null,
         "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -241,7 +228,6 @@
       "cite": "https://www.quora.com  › What-is-a-good-way-to-make...",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -270,7 +256,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 13,
       "sub_rank": 0,

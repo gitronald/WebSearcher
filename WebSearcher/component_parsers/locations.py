@@ -8,6 +8,7 @@ short description.
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
+from ..models.data import ERR_NO_HOTELS, ERR_UNKNOWN_SUBTYPE, error_details
 
 
 def parse_locations(elem) -> list:
@@ -15,7 +16,13 @@ def parse_locations(elem) -> list:
     sub_type = classify_locations_sub_type(node)
     if sub_type == "hotels":
         return parse_hotels(node)
-    return [{"type": "locations", "sub_rank": 0, "error": f"unknown sub_type: {sub_type}"}]
+    return [
+        {
+            "type": "locations",
+            "sub_rank": 0,
+            "details": error_details(f"{ERR_UNKNOWN_SUBTYPE}: {sub_type}"),
+        }
+    ]
 
 
 def classify_locations_sub_type(node: Node) -> str:
@@ -48,7 +55,7 @@ def parse_hotels(node: Node) -> list:
                 "type": "locations",
                 "sub_type": "hotels",
                 "sub_rank": 0,
-                "error": "no hotel items found",
+                "details": error_details(ERR_NO_HOTELS),
             }
         ]
     return items

@@ -133,7 +133,6 @@
         ],
         "type": "ai_overview"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -152,7 +151,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -171,7 +169,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -184,8 +181,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Jul 6, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUiZxBIsenOXvya5DNq1h1AwZpEpOaLfPWWNrBREqUM_KzykWAmKlwaw&s",
+        "title": "How to change a tire in 60 seconds",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -198,8 +201,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Mar 12, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNxst41A8_bIeoO75fnL2-gxt__D9JQDP9t9uDaBZtY0b0kSpDHuhmBw&s",
+        "title": "How to change a tire. Love, Dad",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 1,
@@ -213,7 +222,6 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 2,
@@ -243,7 +251,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -265,7 +272,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -278,8 +284,14 @@
     {
       "cite": "4.2M+ views  ·  18 years ago",
       "cmpt_rank": 5,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Howdini",
+        "publish_date": "Jan 30, 2008",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPFyNNW7CptPTgDybPHkpgB2qBFvCiwkwl5N1UGPDttoA92iKLONjwTA&s",
+        "title": "How to Change a Tire | Change a flat car tire step by step",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -292,8 +304,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Jul 6, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIl1UXchHCVefIpHN2l06CEfi_XBaGiUB6E9ep_82lcKYL8A&s",
+        "title": "How to change a tire in 60 seconds",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -307,7 +325,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -321,7 +338,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,
@@ -334,8 +350,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Dad Advice From Bo",
+        "publish_date": "Mar 12, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb-O7NN9QryWTk4j-fyV8v2ZpQM-4O4pug2tsbmaC1FRXgdg&s",
+        "title": "How to change a tire. Love, Dad",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 3,
@@ -348,8 +370,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "RuPaul",
+        "publish_date": "Mar 26, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWafmu7NLBjhRt7lBEL8cQaeDjT3uo73gY7b8ehR54OC2FHg&s",
+        "title": "Changing a tire made easy!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 4,
@@ -363,7 +391,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 5,
@@ -376,8 +403,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Heat Transfer Warehouse",
+        "publish_date": "Apr 22, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNvg4wv_xPOnv04cP-VtJvCtWP9aoNO9QtJyTVE6YHOTLFERpMT9oax4c&s",
+        "title": "How do you change a tire...?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 6,
@@ -390,8 +423,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "TOTAL TOOLS WORLD",
+        "publish_date": "Jan 28, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbZGchDQoRFplkYCQLOMcZzQhRNHEgxkKmk-gHCsvtX29nMw&s",
+        "title": "TOTAL Tools Make Tire Change Easy!",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 7,
@@ -405,7 +444,6 @@
       "cite": null,
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 8,
@@ -418,8 +456,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Pamtech Movies",
+        "publish_date": "Jun 13, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHfRuL6-bSCJeGUYKxvvkpUljHd22SHfjkOzyZnDT93aQsaG5wUl5Lp1I&s",
+        "title": "Ultimate DIY Tire Change Tutorial for Beginners (Step-by-Step ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 9,
@@ -433,7 +477,6 @@
       "cite": "https://www.chevroletofnewbern.com  › how-to-change-...",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -447,7 +490,6 @@
       "cite": "https://www.ford.com  › tires-and-wheels › spare-tire",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 20,
       "sub_rank": 0,
@@ -461,9 +503,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 21,
       "sub_rank": 0,
@@ -477,9 +519,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "AutoTrader Canada",
+        "heading": "What people are saying",
+        "publish_date": "Jan 21, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/8DeksT4NwYk/hqdefault.jpg",
+        "title": "AutoTrader Answers: How to Replace a Flat Tire",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 22,
       "sub_rank": 1,
@@ -493,9 +540,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 23,
       "sub_rank": 2,
@@ -509,9 +556,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 24,
       "sub_rank": 3,
@@ -525,9 +572,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 25,
       "sub_rank": 4,
@@ -541,9 +588,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "AGM Products",
+        "heading": "What people are saying",
+        "publish_date": "Jan 20, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/JkhCzA4Oo4Q/hqdefault.jpg",
+        "title": "How to change a tire...electrically ⚡️",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 26,
       "sub_rank": 5,
@@ -557,9 +609,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 27,
       "sub_rank": 6,
@@ -573,9 +625,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 28,
       "sub_rank": 7,
@@ -589,9 +641,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 29,
       "sub_rank": 8,
@@ -605,9 +657,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "DenLion TV",
+        "heading": "What people are saying",
+        "publish_date": "Jan 8, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/spd8PzTh4u8/hqdefault.jpg",
+        "title": "Buggy Tire Change – DIY",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 9,
@@ -621,9 +678,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Trail Expedition",
+        "heading": "What people are saying",
+        "publish_date": "Dec 20, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/s4-s1FEdLw0/hqdefault.jpg",
+        "title": "How to CHANGE a Tire (on the trail) Using a SCISSOR JACK",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 10,
@@ -637,9 +699,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 11,
@@ -653,7 +715,6 @@
       "cite": "450.6K+ likes  ·  4 months ago",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 0,
@@ -667,7 +728,6 @@
       "cite": "7 answers  ·  6 years ago",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 0,
@@ -681,7 +741,6 @@
       "cite": "https://www.coopertire.com  › learn-tire-maintenance",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 0,
@@ -708,7 +767,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 36,
       "sub_rank": 0,

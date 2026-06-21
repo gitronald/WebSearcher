@@ -1,11 +1,11 @@
-__version__ = "0.9.0"
+__version__ = "0.10.0"
 
 from typing import TYPE_CHECKING
 
 from .classifiers import ClassifyFooter, ClassifyMain
 from .extractors import Extractor
 from .extractors.extractor_serp_features import FeatureExtractor
-from .locations import download_locations
+from .locations import download_locations, update_locations_file
 from .parsers import parse_serp
 from .utils import load_html, load_soup, make_soup
 
@@ -18,6 +18,7 @@ __all__ = [
     "Extractor",
     "FeatureExtractor",
     "download_locations",
+    "update_locations_file",
     "parse_serp",
     "SearchEngine",
     "load_html",

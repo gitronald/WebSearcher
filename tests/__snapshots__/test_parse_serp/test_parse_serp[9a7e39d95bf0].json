@@ -133,7 +133,6 @@
         ],
         "type": "ai_overview"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -147,7 +146,6 @@
       "cite": "https://education.nationalgeographic.org  › resource › p...",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -169,7 +167,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -183,7 +180,6 @@
       "cite": "https://www.snexplores.org  › article › explainer-how-p...",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -197,7 +193,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Photosynthesis",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -210,8 +205,14 @@
     {
       "cite": "5.5M+ views  ·  4 years ago",
       "cmpt_rank": 5,
-      "details": null,
-      "error": null,
+      "details": {
+        "channel": "Amoeba Sisters",
+        "publish_date": "Jul 14, 2021",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4DMEY9W4eFpgjGQpL9SARr5Wct0UPYwmPV2dBfNka8XA5bJrFS54WQ&s",
+        "title": "Photosynthesis (UPDATED)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -225,7 +226,6 @@
       "cite": "https://pmc.ncbi.nlm.nih.gov  › articles › PMC5264509",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -239,7 +239,6 @@
       "cite": "https://plants.ifas.ufl.edu  › water-quality › photosynthesis",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -253,7 +252,6 @@
       "cite": null,
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -267,9 +265,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Discovery Science",
+        "heading": "What people are saying",
+        "publish_date": "Jan 18, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/wDHxu52hnH0/hqdefault.jpg",
+        "title": "Why Photosynthesis Shows Irreducible Complexity",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -283,9 +286,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -299,9 +302,9 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,
@@ -315,9 +318,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "tutor2u",
+        "heading": "What people are saying",
+        "publish_date": "Nov 13, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/dtZVbrog_mU/hqdefault.jpg",
+        "title": "Photosynthesis | A-Level Biology Revision Livestream",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 3,
@@ -331,9 +339,14 @@
       "cite": null,
       "cmpt_rank": 9,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Ekaksha English Medium",
+        "heading": "What people are saying",
+        "publish_date": "Dec 6, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/r90D4XK42c4/hqdefault.jpg",
+        "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 4,
@@ -347,7 +360,6 @@
       "cite": "https://www.monash.edu  › ... › Biology › Photosynthesis",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -361,7 +373,6 @@
       "cite": "https://earthobservatory.sg  › miscellaneous › how-does-...",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -375,7 +386,6 @@
       "cite": "https://insideucr.ucr.edu  › stories › 2023/05/23 › how-do...",
       "cmpt_rank": 12,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -402,7 +412,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 17,
       "sub_rank": 0,

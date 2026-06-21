@@ -16,8 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
         "text": "An AI Overview is not available for this search|An AI Overview is not available for this search|Can't generate an AI overview right now. Try again later.|Can't generate an AI overview right now. Try again later.|AI Overview| |Official figures for 2024 place the metropolitan population at around 66.4 million, with the total exceeding 68.7 million.| |Key Figures & Trends:| |Current Estimate (Early 2025):| |Around 68.6 to 69 million (including overseas).| |Metropolitan France (2025):| |About 66.4 million.| |Growth Driver:| |Net migration accounts for most of the population increase, with natural increase (births minus deaths) shrinking.| |Future Projections:| |Ined - Institut national d'études démographiques| |Key Demographics (2024 Data):| |Foreign-born Residents:| |6.0 million people, mostly immigrants.| |Foreign Nationals:| |Represented 8.8% of the total population.| |Dive deeper in AI Mode|Dive deeper in AI Mode|Learn more|Learn more|Thank you|Privacy Policy|Privacy Policy|Share more feedback|Report a problem|Close|Positive feedback|Negative feedback|Thank you|Privacy Policy|Privacy Policy|Share more feedback|Report a problem|Close|Show more",
         "type": "panel",
         "urls": [
@@ -35,7 +33,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -49,7 +46,6 @@
       "cite": "https://www.worldometers.info  › world-population › fr...",
       "cmpt_rank": 1,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -71,7 +67,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -85,7 +80,6 @@
       "cite": "https://en.wikipedia.org  › wiki › Demographics_of_Fra...",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -99,7 +93,6 @@
       "cite": "https://www.worldometers.info  › population-by-country",
       "cmpt_rank": 4,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -113,9 +106,14 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Zeihan on Geopolitics",
+        "heading": "What people are saying",
+        "publish_date": "Jan 29, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/7vB2oL4Wf-E/hqdefault.jpg",
+        "title": "France Hits the Demographic Point of No Return || Peter Zeihan",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 0,
@@ -129,9 +127,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 1,
@@ -145,9 +143,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 2,
@@ -161,9 +159,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 3,
@@ -177,9 +175,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 4,
@@ -193,9 +191,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 5,
@@ -209,9 +207,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 6,
@@ -225,9 +223,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 7,
@@ -241,9 +239,9 @@
       "cite": null,
       "cmpt_rank": 5,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 8,
@@ -257,7 +255,6 @@
       "cite": "https://www.census.gov  › popclock › world",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -271,7 +268,6 @@
       "cite": "https://tradingeconomics.com  › France",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 0,
@@ -285,7 +281,6 @@
       "cite": "https://www.macrotrends.net  › countries › fra › population",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 16,
       "sub_rank": 0,
@@ -299,7 +294,6 @@
       "cite": "https://en.wikipedia.org  › wiki › France",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -313,7 +307,6 @@
       "cite": "350+ comments  ·  1 year ago",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 18,
       "sub_rank": 0,
@@ -327,7 +320,6 @@
       "cite": "https://european-union.europa.eu  › ... › EU countries",
       "cmpt_rank": 11,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 0,
@@ -354,7 +346,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 20,
       "sub_rank": 0,

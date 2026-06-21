@@ -16,8 +16,6 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": null,
-        "img_url": null,
         "text": "Feedback",
         "type": "panel",
         "urls": [
@@ -27,7 +25,6 @@
           }
         ]
       },
-      "error": null,
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -49,7 +46,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -63,7 +59,6 @@
       "cite": "https://weather.dfrc.nasa.gov  › data › tempchart",
       "cmpt_rank": 2,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -77,7 +72,6 @@
       "cite": "https://www.cuemath.com  › questions › what-is-100-deg...",
       "cmpt_rank": 3,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -91,9 +85,14 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": {
-        "heading": "What people are saying"
+        "channel": "Excel 10 tutorial",
+        "heading": "What people are saying",
+        "publish_date": "Jan 30, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/VcYGQ0VCazk/hqdefault.jpg",
+        "title": "Excel Formula to Convert Fahrenheit to Celsius",
+        "type": "video"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -107,9 +106,9 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
@@ -123,9 +122,9 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 2,
@@ -139,9 +138,9 @@
       "cite": null,
       "cmpt_rank": 4,
       "details": {
-        "heading": "What people are saying"
+        "heading": "What people are saying",
+        "type": "item"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 3,
@@ -155,7 +154,6 @@
       "cite": "https://www.ck12.org  › ... › Temperature",
       "cmpt_rank": 5,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -169,7 +167,6 @@
       "cite": "https://www.nfcacademy.com  › uploads › celsius-t...",
       "cmpt_rank": 6,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -183,7 +180,6 @@
       "cite": "https://www.calculatorsoup.com  › Converters",
       "cmpt_rank": 7,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -197,7 +193,6 @@
       "cite": "https://www.qetutoring.com  › 100-degrees-Fahrenheit-t...",
       "cmpt_rank": 8,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -211,7 +206,6 @@
       "cite": "https://www.rapidtables.com  › convert › temperature",
       "cmpt_rank": 9,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,
@@ -225,7 +219,6 @@
       "cite": "https://www.omnicalculator.com  › conversion › fahren...",
       "cmpt_rank": 10,
       "details": null,
-      "error": null,
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,
@@ -255,7 +248,6 @@
         ],
         "type": "hyperlinks"
       },
-      "error": null,
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 0,
@@ -282,7 +274,6 @@
         ],
         "type": "text"
       },
-      "error": null,
       "section": "footer",
       "serp_rank": 15,
       "sub_rank": 0,

@@ -10,6 +10,7 @@ and position-based specifications.
 
 ## Recent Changes
 
+- `0.10.0`: Reliable CAPTCHA detection from the Google `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the Google geotargets refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
 - `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
@@ -162,9 +163,34 @@ se.parsed.results[0]
  'text': 'Latest Election News',
  'cite': 'https://www.election-integrity.org',
  'details': None,
- 'error': None,
  'serp_rank': 0}
 ```
+
+##### Result schema
+
+Every result shares the same lean **core** fields (`type`, `sub_type`, `title`,
+`url`, `text`, `cite`, plus the `section` / `cmpt_rank` / `sub_rank` / `serp_rank`
+rank metadata). Anything extra lives in **`details`**, which is either `None`
+(a clean row) or a dict that always carries a `type`:
+
+```python
+# clean row -- nothing extra
+{..., 'details': None}
+
+# typed content payload (a specific label)
+{..., 'details': {'type': 'ratings', 'rating': '4.6', 'n_reviews': '6.3K'}}
+{..., 'details': {'type': 'hyperlinks', 'items': [{'url': '...', 'text': '...'}]}}
+
+# metadata-only row (generic 'item' type): a parse error, a hidden
+# carousel-tail card, an extracted timestamp/thumbnail, etc.
+{..., 'details': {'type': 'item', 'error': 'no subcomponents parsed'}}
+{..., 'details': {'type': 'item', 'visible': False, 'heading': 'What people are saying'}}
+{..., 'details': {'type': 'item', 'timestamp': '2 hours ago', 'img_url': 'https://...'}}
+```
+
+The reserved metadata keys (`error`, `visible`, `timestamp`, `img_url`) are
+recorded only when they carry information — `visible` only when `False`, the
+others when present — so the common case keeps `details` as `None`.
 
 
 #### 4. Save HTML and Metadata
@@ -248,8 +274,6 @@ Tests load from the consolidated compressed corpus `tests/fixtures/serps.json.bz
 ```bash
 uv run pytest tests/ --snapshot-update
 ```
-
-See [docs/guides/fixture-corpus.md](docs/guides/fixture-corpus.md) for how the corpus is curated, profiled, and pruned.
 
 ---
 ## GitHub Actions
