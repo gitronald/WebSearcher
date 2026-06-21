@@ -43,7 +43,7 @@ dev = [
     # serp-inspect skill). Runtime parsing is selectolax-only.
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
-    # snakeviz views the .prof dumps from `python -m WebSearcher.bench --profile`
+    # snakeviz views the .prof dumps from `python -m WebSearcher.parsers.bench --profile`
     "snakeviz>=2.2.2",
 ]
 spike = [
@@ -71,7 +71,7 @@ addopts = "--cov=WebSearcher --cov-report=term-missing"
 
 [tool.coverage.run]
 source = ["WebSearcher"]
-omit = ["WebSearcher/searchers/*_searcher.py", "WebSearcher/bench.py"]  # bench is a dev tool, run from a checkout
+omit = ["WebSearcher/searchers/*_searcher.py", "WebSearcher/parsers/bench.py"]  # bench is a dev tool, run from a checkout
 
 [tool.coverage.report]
 show_missing = true

@@ -9,10 +9,10 @@ rides in ``details`` (recorded only when present).
 """
 
 from WebSearcher import utils
-from WebSearcher.component_parsers.news_quotes import parse_news_quote
-from WebSearcher.component_parsers.twitter_result import parse_twitter_result
-from WebSearcher.component_parsers.videos import parse_video
-from WebSearcher.component_parsers.view_more_news import parse_sub
+from WebSearcher.parsers.components.news_quotes import parse_news_quote
+from WebSearcher.parsers.components.twitter_result import parse_twitter_result
+from WebSearcher.parsers.components.videos import parse_video
+from WebSearcher.parsers.components.view_more_news import parse_sub
 
 
 def _node(html: str):

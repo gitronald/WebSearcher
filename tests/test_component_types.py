@@ -7,7 +7,13 @@ instead of at runtime.
 
 import pytest
 
-from WebSearcher.component_parsers import (
+from WebSearcher.parsers.component_types import (
+    COMPONENT_TYPES,
+    TYPES_BY_NAME,
+    header_text_to_type,
+    types_in_section,
+)
+from WebSearcher.parsers.components import (
     PARSERS,
     footer_parser_dict,
     footer_parser_labels,
@@ -15,12 +21,6 @@ from WebSearcher.component_parsers import (
     header_parser_labels,
     main_parser_dict,
     main_parser_labels,
-)
-from WebSearcher.component_types import (
-    COMPONENT_TYPES,
-    TYPES_BY_NAME,
-    header_text_to_type,
-    types_in_section,
 )
 
 VALID_SECTIONS = {"header", "main", "footer"}

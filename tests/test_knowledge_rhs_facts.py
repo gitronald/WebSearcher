@@ -16,7 +16,7 @@ import pytest
 
 import WebSearcher as ws
 from WebSearcher._slx import make_soup
-from WebSearcher.component_parsers.knowledge_rhs import parse_knowledge_rhs
+from WebSearcher.parsers.components.knowledge_rhs import parse_knowledge_rhs
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
