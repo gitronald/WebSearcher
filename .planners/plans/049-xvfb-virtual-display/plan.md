@@ -5,7 +5,7 @@ status: active
 branch: feature/xvfb-virtual-display
 created: 2026-06-09T23:53:22-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/175
 ---
 
 # Run the browser backends without a GUI via an Xvfb virtual display
