@@ -13,7 +13,7 @@ from ..models.configs import (
 )
 from ..models.data import BaseSERP, ParsedSERP
 from ..models.searches import SearchParams
-from ..parsers.parsers import parse_serp
+from ..parsers.parse_serp import parse_serp
 from .patchright_searcher import PatchrightSearcher, PlaywrightSearcher
 from .requests_searcher import RequestsSearcher
 from .selenium_searcher import SeleniumDriver

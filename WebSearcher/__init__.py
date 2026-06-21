@@ -6,7 +6,7 @@ from .classifiers import ClassifyFooter, ClassifyMain
 from .extractors import Extractor
 from .extractors.extractor_serp_features import FeatureExtractor
 from .locations import download_locations, update_locations_file
-from .parsers.parsers import parse_serp
+from .parsers.parse_serp import parse_serp
 from .utils import load_html, load_soup, make_soup
 
 if TYPE_CHECKING:
