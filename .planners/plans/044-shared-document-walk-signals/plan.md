@@ -191,6 +191,21 @@ plan sidecars: `spike-shared-signal-walk.patch` (the full v3 diff:
 `_slx`, signal-index threading through `ClassifyMain`/`ClassifyFooter`/
 `Component.classify_component`) and `probe_signal_equivalence.py`.
 
+### 2026-06-12 — Follow-up: the selector-pushdown lever is also closed
+
+Also looked into the one remaining angle for the residual ~8 s token loop:
+pushing the per-component `cmpt.css('*')` signal scan into a single combined
+interest-selector query (one ~28-alternation `css(...)` per component, so lexbor
+returns only the interest-bearing nodes in C). Measured on the corpus it ran
+~2.4x *slower* than the `css('*')` walk (~586 ms vs ~245 ms/pass). Fatal by
+construction: an N-alternation selector does up to N match-comparisons per
+visited node, while `css('*')` does none, so pushing "find the interest
+elements" into the selector engine is strictly *more* per-node work than walking
+and inspecting in Python -- the "C is free, Python is the cost" premise is false
+here. With the shared-walk angle (above) and the selector-pushdown angle both
+empirically exhausted, the `css('*')` materialization + Python token loop is the
+floor. No code changed.
+
 ## Retrospective
 
 - **The bet failed for a structural reason, not an implementation one:**
