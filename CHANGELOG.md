@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.10.2] - 2026-06-21
+
 - Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an [Xvfb](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml) virtual display (new README section). The browser backends must run *headed* (Chrome's own `--headless` is reliably blocked), so a no-display host needs a virtual display; confirmed end to end with the `patchright` backend (plan 049)
 
 ## [0.10.1] - 2026-06-21
