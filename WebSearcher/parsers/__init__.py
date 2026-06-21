@@ -1,23 +1,10 @@
-from typing import TYPE_CHECKING
+"""Parse-pipeline package: parse_serp plus its component machinery.
 
-if TYPE_CHECKING:
-    from .parsers import parse_serp
-
-__all__ = ["parse_serp"]
-
-
-def __getattr__(name: str):
-    # Lazy-load parse_serp so importing a leaf submodule (e.g. component_types
-    # from classifiers, or component_list from extractors) does not eagerly pull
-    # the full parse pipeline (parsers -> extractors -> component -> classifiers)
-    # and create a circular import.
-    if name == "parse_serp":
-        from .parsers import parse_serp
-
-        globals()["parse_serp"] = parse_serp  # cache: __getattr__ runs once
-        return parse_serp
-    raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-
-
-def __dir__() -> list[str]:
-    return sorted(__all__)
+`parse_serp` is intentionally *not* re-exported here. The package mixes two
+layers -- leaf modules (`component`, `component_list`, `component_types`,
+`components/`) that `extractors` and `classifiers` import, and the orchestrator
+(`parsers.parsers`) that depends on `extractors`. Re-exporting `parse_serp` from
+this `__init__` would make importing any leaf eagerly pull the orchestrator and
+create a circular import. Consumers import it by real path instead:
+`from WebSearcher.parsers.parsers import parse_serp` (and `WebSearcher.parse_serp`).
+"""

@@ -254,3 +254,33 @@ auto-fixes applied); `pyrefly check` 0 errors; fresh import + parse smoke OK;
 `python -m WebSearcher.parsers.bench` resolves `tests/fixtures/` (REPO_ROOT depth
 fix confirmed).
 
+### 2026-06-21 — Replaced the `__getattr__` workaround with the structural fix (Option A)
+
+PR review (`.claude/scratch/pr172-review.md`) flagged the `__getattr__` lazy-load
+as a band-aid that papered over a layering inversion: the leaf modules
+(`component`, `component_list`, `component_types`, `components/`) are imported by
+`extractors`/`classifiers` *below* the orchestrator (`parsers.parsers`), so
+re-exporting `parse_serp` from `parsers/__init__.py` made importing any leaf drag
+the orchestrator in mid-init. The `__getattr__` only existed to preserve the
+`WebSearcher.parsers.parse_serp` **attribute**, which resolved incidentally back
+when `parsers.py` was a module.
+
+Adopted **Option A**: stop surfacing `parse_serp` through the package `__init__`
+entirely, so there is no edge to defer.
+- `parsers/__init__.py` -> docstring only; dropped `__getattr__`/`__dir__`/`__all__`.
+- `WebSearcher/__init__.py`: `from .parsers.parsers import parse_serp` (was `from .parsers import parse_serp`).
+- `searchers/searchers.py`: dropped `parsers` from `from .. import ...`, added
+  `from ..parsers.parsers import parse_serp`, and call `parse_serp(...)` directly
+  (was `parsers.parse_serp(...)`).
+
+**Downstream gate cleared:** confirmed the public consumer (the SearchAudits
+crawl/analysis code) only calls top-level `ws.parse_serp(...)` (kept intact) and
+never touches the `WebSearcher.parsers.parse_serp` attribute — its two
+`WebSearcher.parsers` references are logger-name strings, not imports.
+
+**Verification:** fresh top-level import OK (`ws.parse_serp.__module__ ==
+WebSearcher.parsers.parsers`); leaf-first import (`import
+WebSearcher.parsers.component_types` then `...component_list`) no longer cycles;
+`hasattr(WebSearcher.parsers, 'parse_serp')` is now `False` (expected); 537 tests
++ 87 snapshots pass; `ruff check` clean; `pyrefly check` 0 errors.
+

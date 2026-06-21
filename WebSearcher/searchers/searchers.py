@@ -1,7 +1,7 @@
 from importlib import metadata
 from pathlib import Path
 
-from .. import logger, parsers, utils
+from .. import logger, utils
 from ..models.configs import (
     LogConfig,
     PatchrightConfig,
@@ -13,6 +13,7 @@ from ..models.configs import (
 )
 from ..models.data import BaseSERP, ParsedSERP
 from ..models.searches import SearchParams
+from ..parsers.parsers import parse_serp
 from .patchright_searcher import PatchrightSearcher, PlaywrightSearcher
 from .requests_searcher import RequestsSearcher
 from .selenium_searcher import SeleniumDriver
@@ -146,7 +147,7 @@ class SearchEngine:
         # query's parse (and its captcha feature) attributed to this one.
         self.parsed = ParsedSERP()
         try:
-            parsed = parsers.parse_serp(self.serp["html"], url=self.serp["url"])
+            parsed = parse_serp(self.serp["html"], url=self.serp["url"])
             self.parsed = ParsedSERP(
                 crawl_id=self.serp["crawl_id"],
                 serp_id=self.serp["serp_id"],
