@@ -190,10 +190,18 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
     condition — small-n is noisy (a one-off 1/4 looked like a signal and wasn't). A
     spacing/volume sweep would map a safe request rate.
 
-- **2026-06-21 (in progress — verify next session)** — Kicked off the *full* `ws-demo
-  searches` battery under Xvfb (single reused session, AI-expand on, all 16 component types,
-  30s spacing) to stress the single-session/cascade scenario flagged above — the harder test
-  the per-query A-B runs deliberately avoided. At the 20-min check: **33/48 cleared, all HTTP
-  200, 0 CAPTCHA, 886 components — no cascade so far.** Battery still running; the final
-  48-query tally (does the reused session hold all the way through?) is to be confirmed next
-  session. Output in `data/xvfb-searches-test/` (local, gitignored).
+- **2026-06-21** — Kicked off the *full* `ws-demo searches` battery under Xvfb (single reused
+  session, AI-expand on, all component types, 30s spacing) to stress the single-session/cascade
+  scenario flagged above — the harder test the per-query A-B runs deliberately avoided. At the
+  20-min check: **33/48 cleared, all HTTP 200, 0 CAPTCHA, 886 components — no cascade so far.**
+  Output in `data/xvfb-searches-test/` (local, gitignored).
+
+- **2026-06-22** — **Battery completed and confirmed.** The reused single session held the
+  whole way through: **48/48 queries cleared, all HTTP 200, 0 CAPTCHA, 1202 components across
+  22 component types**, over a ~30.5-min run (05:21–05:52, patchright `0.11.0a1`). **No
+  cascade** — the harder single-session/AI-expand scenario passes end to end under Xvfb, not
+  just the per-query A-B runs. The only `unknown` components were 3 travel widgets (flights/
+  hotels queries) — a pre-existing parser-coverage gap, not a block or Xvfb regression.
+  **Net:** the single-session Xvfb concern is closed — patchright-under-Xvfb has block-rate
+  parity *and* session durability with a real display at >=30s spacing; the standing blocker
+  remains IP reputation/volume (proxies are the real lever).
