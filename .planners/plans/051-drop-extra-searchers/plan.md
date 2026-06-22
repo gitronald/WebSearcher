@@ -106,5 +106,35 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
 ## Out of scope
 
 - IP reputation / proxies — the dominant live-collection blocker regardless of backend
-  (tracked elsewhere; see the SearchAudits migration discussion).
+  (tracked elsewhere in the downstream collection tooling).
 - Any change to the `requests` or `patchright` behavior beyond making patchright the default.
+
+## Log
+
+- **2026-06-21** — Implemented on `feature/v0.11.0` (worktree). PR
+  [#177](https://github.com/gitronald/WebSearcher/pull/177).
+  - **configs.py:** dropped `SeleniumConfig`/`ZendriverConfig`; `SearchMethod` trimmed to
+    `REQUESTS`/`PATCHRIGHT` with the `None` default now `PATCHRIGHT`; `SearchConfig` lost the
+    `selenium`/`zendriver`/`playwright` fields and defaults to `PATCHRIGHT`.
+  - **searchers.py:** removed the selenium/zendriver/playwright imports, kwargs, config dict
+    entries, type-union arms, and `init_driver` branches; default `method` arg → `PATCHRIGHT`.
+  - **Deleted** `selenium_searcher.py`, `zendriver_searcher.py`, and the `PlaywrightSearcher`
+    subclass. Inlined the now-orphan `_start_playwright` seam into `PatchrightSearcher.init_driver`
+    and refreshed the module's "proof-of-concept" framing (patchright is now the primary backend).
+  - **pyproject.toml / uv.lock:** promoted `patchright>=1.60.1` to runtime, removed
+    `undetected-chromedriver` + `selenium`, dropped the `spike` group and the dev `setuptools`
+    distutils shim, trimmed `[tool.pyrefly]` ignore-missing-imports to just `patchright`, and
+    bumped the version to `0.11.0a0` (both `pyproject.toml` and `WebSearcher/__init__.py`).
+  - **Demos:** `cli.py` default `patchright`, choices `["requests", "patchright"]`, and removed
+    the dead selenium-only flags (`--use-subprocess`, `--version-main`, `--driver-executable-path`);
+    `search.py` simplified `_engine_kwargs`, removed `_chrome_version`, defaulted to `patchright`.
+  - **Tests:** `test_models.py` swapped the `SeleniumConfig` cases for `PatchrightConfig` and
+    flipped the default/method assertions to patchright; `test_search_methods.py` dropped the
+    selenium/zendriver sections (now-deleted imports), keeping the patchright failure-path tests.
+    Full suite green (534 passed, 87 snapshots), ruff + format clean, pyrefly 0 errors.
+  - **Docs:** README tagline (`selenium` → `patchright`), a `0.11.0` Recent Changes entry, a
+    `patchright install chromium` install step, the Initialize-Collector example switched to
+    `patchright_config`, the minimal pipeline pinned to `method="requests"`, and the Xvfb section
+    rewritten for the single browser backend; CHANGELOG `[Unreleased]` Breaking entry. Also touched
+    `logger.py` (dropped the uc logger levels), `__init__.py` and `models/data.py` comments, and
+    generalized a private-repo reference in this plan's Out-of-scope note.
