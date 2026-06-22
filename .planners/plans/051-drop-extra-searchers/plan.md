@@ -189,3 +189,11 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
   - **Better block-rate testing:** interleaved A-B harness, fixed spacing, n>=10 per
     condition — small-n is noisy (a one-off 1/4 looked like a signal and wasn't). A
     spacing/volume sweep would map a safe request rate.
+
+- **2026-06-21 (in progress — verify next session)** — Kicked off the *full* `ws-demo
+  searches` battery under Xvfb (single reused session, AI-expand on, all 16 component types,
+  30s spacing) to stress the single-session/cascade scenario flagged above — the harder test
+  the per-query A-B runs deliberately avoided. At the 20-min check: **33/48 cleared, all HTTP
+  200, 0 CAPTCHA, 886 components — no cascade so far.** Battery still running; the final
+  48-query tally (does the reused session hold all the way through?) is to be confirmed next
+  session. Output in `data/xvfb-searches-test/` (local, gitignored).
