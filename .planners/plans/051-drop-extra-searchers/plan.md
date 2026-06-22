@@ -5,7 +5,7 @@ status: active
 branch: feature/v0.11.0
 created: 2026-06-21T17:15:10-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/177
 ---
 
 # Drop all search backends except patchright and requests
