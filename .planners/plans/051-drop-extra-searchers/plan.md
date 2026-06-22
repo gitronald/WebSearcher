@@ -1,7 +1,7 @@
 ---
 id: 51
 slug: drop-extra-searchers
-status: draft
+status: active
 branch: feature/v0.11.0
 created: 2026-06-21T17:15:10-07:00
 concluded:
