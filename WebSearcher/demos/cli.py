@@ -13,20 +13,14 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "method",
         nargs="?",
-        default="selenium",
-        choices=["selenium", "requests", "zendriver", "patchright", "playwright"],
+        default="patchright",
+        choices=["requests", "patchright"],
         help="Search method",
     )
     p.add_argument("--data-dir", default=None, help="Directory to save outputs")
-    p.add_argument("--headless", action="store_true", help="Run browser headless")
-    p.add_argument("--use-subprocess", action="store_true", help="Run browser in a subprocess")
-    p.add_argument(
-        "--version-main", type=int, default=None, help="Chrome major version (auto if unset)"
-    )
     p.add_argument(
         "--no-ai-expand", dest="ai_expand", action="store_false", help="Do not expand AI overviews"
     )
-    p.add_argument("--driver-executable-path", default="", help="Path to ChromeDriver")
 
 
 def _add_search_args(p: argparse.ArgumentParser) -> None:
@@ -39,11 +33,7 @@ def _run_search(args: argparse.Namespace) -> None:
         args.query,
         args.method,
         data_dir=args.data_dir,
-        headless=args.headless,
-        use_subprocess=args.use_subprocess,
-        version_main=args.version_main,
         ai_expand=args.ai_expand,
-        driver_executable_path=args.driver_executable_path,
     )
 
 
@@ -120,11 +110,7 @@ def main(argv: list[str] | None = None) -> None:
             types=args.types,
             method=args.method,
             data_dir=args.data_dir,
-            headless=args.headless,
-            use_subprocess=args.use_subprocess,
-            version_main=args.version_main,
             ai_expand=args.ai_expand,
-            driver_executable_path=args.driver_executable_path,
             delay=args.delay,
         )
     elif args.command == "headers":

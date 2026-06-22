@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.10.3a0"
+version = "0.11.0a1"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "rer@acm.org"}]
 keywords = ["web", "search", "parser"]
@@ -13,8 +13,7 @@ dependencies = [
     "tldextract>=5.1.2",
     "brotli>=1.1.0",
     "pydantic>=2.9.2",
-    "undetected-chromedriver>=3.5.5",
-    "selenium>=4.9.0",
+    "patchright>=1.60.1",
     "protobuf>=6.33.5,<8.0.0",
     "orjson>=3.11.5,<4.0.0",
 ]
@@ -33,7 +32,6 @@ dev = [
     "typer>=0.15.2",
     "pyarrow>=23.0.0",
     "polars>=1.37.1",
-    "setuptools>=80.9.0",  # provides distutils shim for undetected_chromedriver on py3.12+
     "pre-commit>=4.5.1",
     "pyrefly",
     "ruff>=0.15.6",
@@ -43,24 +41,15 @@ dev = [
     "beautifulsoup4>=4.12.3",
     "lxml>=6.1.0",
 ]
-spike = [
-    "patchright>=1.60.1",
-    "playwright>=1.60.0",
-    "zendriver>=0.15.3",
-]
 
 [tool.pyrefly]
 python-version = "3.12"
 project-includes = ["WebSearcher"]
-# PoC browser backends (plan 039) are imported lazily and installed only via the
-# `spike` dep group, so they're absent under the default install the type check
-# runs against. Fall back to Any when unresolved instead of erroring.
+# patchright is a runtime dep but ships no type stubs, so fall back to Any on its
+# lazy imports instead of erroring.
 ignore-missing-imports = [
     "patchright",
     "patchright.sync_api",
-    "playwright",
-    "playwright.sync_api",
-    "zendriver",
 ]
 
 [tool.pytest.ini_options]

@@ -8,16 +8,12 @@ from ..models.configs import (
     RequestsConfig,
     SearchConfig,
     SearchMethod,
-    SeleniumConfig,
-    ZendriverConfig,
 )
 from ..models.data import BaseSERP, ParsedSERP
 from ..models.searches import SearchParams
 from ..parsers.parse_serp import parse_serp
-from .patchright_searcher import PatchrightSearcher, PlaywrightSearcher
+from .patchright_searcher import PatchrightSearcher
 from .requests_searcher import RequestsSearcher
-from .selenium_searcher import SeleniumDriver
-from .zendriver_searcher import ZendriverSearcher
 
 WS_VERSION = metadata.version("WebSearcher")
 
@@ -27,27 +23,21 @@ class SearchEngine:
 
     def __init__(
         self,
-        method: str | SearchMethod = SearchMethod.SELENIUM,
+        method: str | SearchMethod = SearchMethod.PATCHRIGHT,
         log_config: dict | LogConfig = {},
-        selenium_config: dict | SeleniumConfig = {},
         requests_config: dict | RequestsConfig = {},
-        zendriver_config: dict | ZendriverConfig = {},
         patchright_config: dict | PatchrightConfig = {},
-        playwright_config: dict | PatchrightConfig = {},
         crawl_id: str = "",
     ) -> None:
         """Initialize the search engine
 
         Args:
-            method: The method to use for searching: 'selenium', 'requests', or a
-                PoC browser backend ('zendriver', 'patchright'; plan 039, requires
-                the `spike` dep group). Defaults to SearchMethod.SELENIUM.
+            method: The method to use for searching: 'patchright' (a headed Chrome
+                via the patchright stealth fork) or 'requests' (pure HTTP, no
+                browser). Defaults to SearchMethod.PATCHRIGHT.
             log_config: Common search configuration. Defaults to {}.
-            selenium_config: Selenium-specific configuration. Defaults to {}.
             requests_config: Requests-specific configuration. Defaults to {}.
-            zendriver_config: Zendriver-specific configuration. Defaults to {}.
             patchright_config: Patchright-specific configuration. Defaults to {}.
-            playwright_config: Plain-playwright configuration (same shape as patchright). Defaults to {}.
             crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
 
@@ -57,11 +47,8 @@ class SearchEngine:
             {
                 "method": SearchMethod.create(method),
                 "log": LogConfig.create(log_config),
-                "selenium": SeleniumConfig.create(selenium_config),
                 "requests": RequestsConfig.create(requests_config),
-                "zendriver": ZendriverConfig.create(zendriver_config),
                 "patchright": PatchrightConfig.create(patchright_config),
-                "playwright": PatchrightConfig.create(playwright_config),
             }
         )
         self.log = logger.Logger(**self.config.log.model_dump()).start(__name__)
@@ -72,31 +59,35 @@ class SearchEngine:
         }
 
         # Initialize searcher based on method
-        self.searcher: (
-            SeleniumDriver
-            | RequestsSearcher
-            | ZendriverSearcher
-            | PatchrightSearcher
-            | PlaywrightSearcher
-        )
-        if self.config.method == SearchMethod.SELENIUM:
-            self.searcher = SeleniumDriver(config=self.config.selenium, logger=self.log)
-            self.searcher.init_driver()
-        elif self.config.method == SearchMethod.REQUESTS:
+        self.searcher: RequestsSearcher | PatchrightSearcher
+        if self.config.method == SearchMethod.REQUESTS:
             self.searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
-        elif self.config.method == SearchMethod.ZENDRIVER:
-            self.searcher = ZendriverSearcher(config=self.config.zendriver, logger=self.log)
-            self.searcher.init_driver()
         elif self.config.method == SearchMethod.PATCHRIGHT:
             self.searcher = PatchrightSearcher(config=self.config.patchright, logger=self.log)
-            self.searcher.init_driver()
-        elif self.config.method == SearchMethod.PLAYWRIGHT:
-            self.searcher = PlaywrightSearcher(config=self.config.playwright, logger=self.log)
             self.searcher.init_driver()
 
         # Initialize search params and output
         self.search_params = SearchParams.create()
         self.parsed = ParsedSERP()
+
+    # ==========================================================================
+    # Lifecycle
+
+    def close(self) -> bool:
+        """Shut down the searcher backend (closes the browser window / HTTP session).
+
+        Deterministic teardown for the browser backend: the patchright window
+        stays open until this is called, so close the engine when done -- either
+        explicitly, or by using it as a context manager (``with ws.SearchEngine()
+        as se:``).
+        """
+        return self.searcher.cleanup()
+
+    def __enter__(self) -> "SearchEngine":
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.close()
 
     def search(
         self,
@@ -114,7 +105,7 @@ class SearchEngine:
             location: A location's Canonical Name
             lang: A language code (e.g., 'en')
             num_results: The number of results to return
-            ai_expand: Whether to use selenium to expand AI overviews
+            ai_expand: Whether to expand AI overviews (browser backend only)
             headers: Custom headers to include in the request
         """
 
