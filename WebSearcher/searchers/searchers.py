@@ -127,7 +127,12 @@ class SearchEngine:
         serp_output.update(self.response_output.model_dump())
         self.serp = BaseSERP(**serp_output).model_dump()
         self.log.info(
-            " | ".join([f"{self.serp[k]}" for k in {"response_code", "qry", "loc"} if self.serp[k]])
+            "search",
+            extra={
+                "response_code": self.serp["response_code"],
+                "qry": self.serp["qry"],
+                "loc": self.serp["loc"],
+            },
         )
 
     # ==========================================================================

@@ -1,9 +1,39 @@
 """Configure a logger using a dictionary"""
 
+import json
 import logging.config
+from datetime import datetime
 
 # Setting
 LOG_LEVEL_DEFAULT = "INFO"
+
+
+class JsonlFormatter(logging.Formatter):
+    """Serialize each log record as one JSON object per line (JSON Lines).
+
+    Emits the crawl-log schema downstream tooling consumes directly, so native
+    logs no longer need an after-the-fact text parser. Structured search-event
+    fields (``response_code``/``qry``/``loc``) are read from ``record`` via the
+    logging ``extra=`` mechanism and are null on non-search records; ``output``
+    carries the formatted traceback (``""`` when there is none).
+    """
+
+    def format(self, record: logging.LogRecord) -> str:
+        payload = {
+            "timestamp": datetime.fromtimestamp(record.created)
+            .astimezone()
+            .isoformat(timespec="milliseconds"),
+            "pid": record.process,
+            "level": record.levelname,
+            "name": record.name,
+            "message": record.getMessage(),
+            "response_code": getattr(record, "response_code", None),
+            "qry": getattr(record, "qry", None),
+            "loc": getattr(record, "loc", None),
+            "output": self.formatException(record.exc_info) if record.exc_info else "",
+        }
+        return json.dumps(payload, ensure_ascii=False)
+
 
 # Formatters: change what gets logged
 minimal = "%(message)s"
@@ -13,6 +43,7 @@ formatters = {
     "minimal": {"format": minimal},
     "medium": {"format": medium, "datefmt": "%Y-%m-%d %H:%M:%S"},
     "detailed": {"format": detailed, "datefmt": "%Y-%m-%d %H:%M:%S"},
+    "jsonl": {"()": JsonlFormatter},
 }
 
 
@@ -42,11 +73,11 @@ class Logger:
 
         Args:
             console (bool): Flag to enable or disable console logging.
-            console_format (str): Format of the console logging. Should be either 'minimal' or 'detailed'.
+            console_format (str): Format of the console logging. One of 'minimal', 'medium', 'detailed', or 'jsonl'.
             console_level (str): Logging level for the console. Default is 'INFO'.
             file_name (str): Name of the file to log messages. If empty, file logging is disabled.
             file_mode (str): File mode for file logging. Default is 'w' (write).
-            file_format (str): Format of the file logging. Should be either 'minimal' or 'detailed'.
+            file_format (str): Format of the file logging. One of 'minimal', 'medium', 'detailed', or 'jsonl'.
             file_level (str): Logging level for the file. Default is 'INFO'.
         """
 
