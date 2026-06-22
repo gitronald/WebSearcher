@@ -3,13 +3,14 @@
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
 This package provides tools for conducting algorithm audits of web search and 
-includes a scraper built on `selenium` with tools for geolocating, conducting, 
+includes a scraper built on `patchright` with tools for geolocating, conducting, 
 and saving searches. It also includes a modular parser built on `selectolax` 
 for decomposing a SERP into list of components with categorical classifications 
 and position-based specifications. 
 
 ## Recent Changes
 
+- `0.11.0`: **Breaking** -- removed the `selenium` (undetected-chromedriver), `zendriver`, and `playwright` backends, leaving `patchright` (now the **default**) and `requests` (the no-browser path). A bare `ws.SearchEngine()` now launches patchright instead of undetected-chromedriver; `method="selenium"`/`"zendriver"`/`"playwright"` and the `SeleniumConfig`/`ZendriverConfig` kwargs are gone. Migrate by passing `method="patchright"` (or omitting it) and running `patchright install chromium` once. Drops the `selenium` + `undetected-chromedriver` dependencies and adds `patchright`
 - `0.10.2`: Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an Xvfb virtual display (new README section); the backends must run headed, so a no-display host needs a virtual display
 - `0.10.1`: Reorganized the flat parse modules into a single `WebSearcher.parsers` package (public entrypoints unchanged; deep imports of the old flat paths must switch) and hardened the parse pipeline -- every component is classified before any is parsed, and `Component.to_dict()` now returns a copy -- with output byte-identical (snapshot-pinned). Also dropped the `snakeviz`/`ipykernel` dev dependencies to evict the transitive `tornado` advisories
 - `0.10.0`: Reliable CAPTCHA detection from the `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the geotargets locations refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
@@ -55,6 +56,14 @@ uv add WebSearcher
 
 # Install development version from GitHub
 pip install git+https://github.com/gitronald/WebSearcher@dev
+```
+
+The default `patchright` browser backend needs its Chrome binary, which pip can't
+install automatically. Run this once after installing (skip it if you only use the
+`requests` backend):
+
+```bash
+patchright install chromium
 ```
 
 ---  
@@ -110,11 +119,11 @@ drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
 
 ### Step by Step 
 
-Example search and parse pipeline (via requests):
+Example search and parse pipeline (via requests, no browser):
 
 ```python
 import WebSearcher as ws
-se = ws.SearchEngine()                     # 1. Initialize collector
+se = ws.SearchEngine(method="requests")    # 1. Initialize collector
 se.search('election news')                 # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
@@ -127,14 +136,15 @@ se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
 ```python
 import WebSearcher as ws
 
-# Initialize collector with method and other settings
+# Initialize collector with method and other settings.
+# `patchright` is the default browser backend (run `patchright install chromium`
+# once); pass `method="requests"` for the no-browser HTTP path.
 se = ws.SearchEngine(
-    method="selenium", 
-    selenium_config = {
+    method="patchright", 
+    patchright_config = {
         "headless": False,
-        "use_subprocess": False,
-        "driver_executable_path": "",
-        "version_main": None,  # auto-detected from installed Chrome when None
+        "channel": "chrome",
+        "user_data_dir": "",  # a temp profile is created when empty
     }
 )
 ```   
@@ -234,12 +244,11 @@ localized search is available in a [jupyter notebook here](https://gist.github.c
 ---
 ## Running on a headless server (Xvfb)
 
-The browser backends (`selenium` -- the default -- plus the optional `patchright` and
-`zendriver`) drive a **real, visible** Chrome: search engines reliably block Chrome's own
-`--headless` mode, so the browser must run *headed*. On a server, CI runner, or container with
-no display (`$DISPLAY` unset), a headed Chrome has nothing to attach to and won't launch. (The
-`requests` backend is pure HTTP and needs no display -- this only applies to the browser
-backends.)
+The `patchright` backend (the default) drives a **real, visible** Chrome: search engines
+reliably block Chrome's own `--headless` mode, so the browser must run *headed*. On a server,
+CI runner, or container with no display (`$DISPLAY` unset), a headed Chrome has nothing to
+attach to and won't launch. (The `requests` backend is pure HTTP and needs no display -- this
+only applies to the browser backend.)
 
 The fix is [**Xvfb**](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml), an in-memory X
 display server: it lets Chrome run genuinely headed -- no headless code path, no monitor, no

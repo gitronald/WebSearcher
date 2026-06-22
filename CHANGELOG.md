@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- **Breaking:** removed the `selenium` (undetected-chromedriver), `zendriver`, and `playwright` browser backends, leaving `patchright` (now the **default**) and `requests` (the no-browser HTTP path). Constructing `SearchEngine(method="selenium"|"zendriver"|"playwright")` now raises (the `SearchMethod` enum no longer defines them), the default backend changes from `selenium` to `patchright` (a bare `ws.SearchEngine()` launches patchright instead of undetected-chromedriver), and `SeleniumConfig`/`ZendriverConfig` and the `selenium_config`/`zendriver_config`/`playwright_config` kwargs are gone. **Migration:** pass `method="patchright"` (now the default) and run `patchright install chromium` once -- the browser binary is a new required post-install step pip can't run automatically. The install footprint drops `selenium` + `undetected-chromedriver` and adds `patchright` (which bundles its node driver); `requests` is unchanged. This is plan 039's green-lit migration follow-up, now that plan 049 confirmed patchright runs headed on a no-display host via Xvfb (plan 051)
+
 ## [0.10.2] - 2026-06-21
 
 - Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an [Xvfb](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml) virtual display (new README section). The browser backends must run *headed* (Chrome's own `--headless` is reliably blocked), so a no-display host needs a virtual display; confirmed end to end with the `patchright` backend (plan 049)
