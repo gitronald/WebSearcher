@@ -5,7 +5,7 @@ status: active
 branch: feature/jsonl-log-sink
 created: 2026-06-21T19:32:00-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/181
 ---
 
 # Native JSONL crawl-log sink
