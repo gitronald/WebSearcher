@@ -138,3 +138,54 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
     rewritten for the single browser backend; CHANGELOG `[Unreleased]` Breaking entry. Also touched
     `logger.py` (dropped the uc logger levels), `__init__.py` and `models/data.py` comments, and
     generalized a private-repo reference in this plan's Out-of-scope note.
+
+- **2026-06-21 (follow-up)** — Post-merge polish, live validation, and an Xvfb block-rate
+  investigation.
+  - **Polish commits:** README quickstart now leads with the patchright default instead of
+    `requests` (345d3dc); dropped the now-pointless `ws-demo --headless` flag and its dead
+    `_engine_kwargs`/param plumbing — the browser backend must run headed, so the flag only
+    surfaced a path search engines reliably block (5b4a2aa); prerelease bump
+    `0.11.0a0` → `0.11.0a1` via `stanza release prerelease` (2bb3b3e).
+  - **Live validation:** `ws-demo searches` full battery on WSL2+WSLg (real display, 30s
+    spacing) cleared **48/48 queries, 0 CAPTCHA, 1177 components** across all 16 component
+    types — the patchright-default setup holds up end to end.
+  - **Xvfb block-rate question:** does headed-under-Xvfb block more than a real display?
+    Interleaved single queries (`--no-ai-expand`, distinct query each, fresh temp profile)
+    across both displays at the same current IP state: at ~10s spacing WSLg cleared 4/4 and
+    Xvfb 3/4 (one `/sorry/`); at **30s spacing both cleared 10/10 — no measurable Xvfb
+    penalty.** The earlier Xvfb blocks (an immediate `/sorry/` on the first battery query and
+    one lone single) were intermittent challenges tracking IP-warmth + tight spacing, not the
+    display. Confirms plan 049's Finding #3 with stronger evidence (n=10/display vs 049's n=2).
+  - **Fingerprint check (local, no network):** WebGL renderer **identical** under both
+    displays — `ANGLE (Microsoft, D3D12 (Intel UHD 770))` — because WSL2 passes the GPU
+    through to Chrome regardless of which X display it attaches to, so there is **no
+    software-renderer (SwiftShader) tell** under Xvfb on WSL2 (the milder signal 039/049
+    anticipated does not occur here). Only deltas: `requestAnimationFrame` cadence (~30 fps
+    WSLg vs ~18 fps Xvfb) and window/screen geometry — neither moved the block rate.
+  - **Incidental:** patchright launches Chrome with `--no-sandbox` by default
+    (`PatchrightSearcher.init_driver` leaves `chromiumSandbox` unset), tripping Chrome's
+    "unsupported command-line flag" infobar on every headed launch — not exposed to page JS
+    (weak/no bot signal) but a hygiene/security deviation.
+  - Repro (interleaved, 30s apart): alternate
+    `uv run ws-demo search "<q>" patchright --no-ai-expand` (real display) with
+    `env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" uv run ws-demo search
+    "<q>" patchright --no-ai-expand` (Xvfb).
+
+  **Net:** Xvfb is functional *and* block-rate parity with a real display at controlled
+  spacing; the standing blocker remains IP reputation/volume.
+
+  **Next steps (for next time):**
+  - **Proxies are the real lever** — IP reputation/volume is the dominant blocker regardless
+    of display or backend; for live collection at scale, route through residential/mobile
+    proxies. Everything else is secondary.
+  - **Respect spacing** — keep >=30s between queries (the `searches` 30s default held up;
+    tighter raised the block rate), and don't burn the IP with rapid back-to-back testing.
+    Let the IP cool between heavy runs.
+  - **Xvfb is safe** on no-display hosts (server/CI/container) — no need to avoid it; the same
+    IP/spacing discipline applies.
+  - **Optional hardening:** default `chromiumSandbox=True` for the patchright backend to drop
+    the `--no-sandbox` infobar — but verify the sandbox initializes in the target env first
+    (containers/CI may need user namespaces; that's why playwright leaves it off).
+  - **Better block-rate testing:** interleaved A-B harness, fixed spacing, n>=10 per
+    condition — small-n is noisy (a one-off 1/4 looked like a signal and wasn't). A
+    spacing/volume sweep would map a safe request rate.
