@@ -30,6 +30,16 @@ class RequestsSearcher:
         session.headers.update(self.config.headers)
         return session
 
+    def cleanup(self) -> bool:
+        """Close the requests session (uniform interface with the browser backend)."""
+        try:
+            if self.sesh is not None:
+                self.sesh.close()
+            return True
+        except Exception as e:
+            self.log.debug(f"Failed to close session: {e}")
+            return False
+
     def send_request(self, search_params: SearchParams) -> ResponseOutput:
         """Send a request and handle the response
 

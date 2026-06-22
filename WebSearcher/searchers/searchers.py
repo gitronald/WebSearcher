@@ -70,6 +70,25 @@ class SearchEngine:
         self.search_params = SearchParams.create()
         self.parsed = ParsedSERP()
 
+    # ==========================================================================
+    # Lifecycle
+
+    def close(self) -> bool:
+        """Shut down the searcher backend (closes the browser window / HTTP session).
+
+        Deterministic teardown for the browser backend: the patchright window
+        stays open until this is called, so close the engine when done -- either
+        explicitly, or by using it as a context manager (``with ws.SearchEngine()
+        as se:``).
+        """
+        return self.searcher.cleanup()
+
+    def __enter__(self) -> "SearchEngine":
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        self.close()
+
     def search(
         self,
         qry: str,
