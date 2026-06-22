@@ -1,10 +1,10 @@
 ---
 id: 51
 slug: drop-extra-searchers
-status: active
+status: done
 branch: feature/v0.11.0
 created: 2026-06-21T17:15:10-07:00
-concluded:
+concluded: 2026-06-22T11:10:06-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/177
 ---
 
@@ -219,3 +219,24 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
     session) so both backends share the interface `close()` calls.
   - Verified `close()` is idempotent and the context manager exits cleanly (requests backend,
     no browser); ruff clean. Commit cf37be9.
+
+## Retrospective
+
+The clean single-minor removal (no `selenium` deprecation cycle) was the right call: `requests`
+remained as the no-browser fallback and the patchright migration is a one-line `method=` change,
+so there was nothing to ease users through. The real value beyond the deletion was the
+validation work — the Xvfb battery (48/48, single reused session, no cascade) and the
+interleaved A-B block-rate runs turned plan 049's small-n hint into a confident "Xvfb has
+block-rate *and* session-durability parity at >=30s spacing." Lesson carried forward: small-n
+block-rate samples are noise (a one-off 1/4 looked like a signal and wasn't) — interleave at
+fixed spacing, n>=10 per condition.
+
+The one gap this plan exposed: the deterministic teardown patchright was *credited* with in the
+rationale was never actually wired — `SearchEngine` had no path to close the browser, so the
+window lingered until GC. Caught and fixed here (`SearchEngine.close()` + context manager,
+cf37be9), but a reminder to verify that claimed properties are reachable through the public API,
+not just true of the backend in principle.
+
+Plan-file closed `done` while PR #177 stays open — it's the shared `feature/v0.11.0` integration
+branch carrying plan 052 and the still-uncut 0.11.0 release. Standing blocker for live
+collection remains IP reputation/volume; proxies are the real lever (out of scope here).
