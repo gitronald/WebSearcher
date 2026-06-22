@@ -205,3 +205,17 @@ Target version **0.11.0** (minor; breaking for the removed methods). Integration
   **Net:** the single-session Xvfb concern is closed — patchright-under-Xvfb has block-rate
   parity *and* session durability with a real display at >=30s spacing; the standing blocker
   remains IP reputation/volume (proxies are the real lever).
+
+- **2026-06-22 (follow-up)** — Wired the deterministic browser teardown this plan's rationale
+  credited patchright with but which nothing actually invoked. The patchright window never
+  closed in normal use: `SearchEngine` launched the searcher (and its browser) in `__init__`
+  but had no path to close it — only `PatchrightSearcher.__del__` called `cleanup()`, on
+  garbage collection, which never fires while `se` stays referenced (interactive/notebook
+  sessions keep it alive, so the window lingered).
+  - **searchers.py:** added `SearchEngine.close()` (delegates to `searcher.cleanup()`) plus
+    `__enter__`/`__exit__`, so teardown is now explicit (`se.close()`) or scoped
+    (`with ws.SearchEngine() as se:`).
+  - **requests_searcher.py:** added a uniform `RequestsSearcher.cleanup()` (closes the HTTP
+    session) so both backends share the interface `close()` calls.
+  - Verified `close()` is idempotent and the context manager exits cleanly (requests backend,
+    no browser); ruff clean. Commit cf37be9.
