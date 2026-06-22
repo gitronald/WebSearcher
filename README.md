@@ -58,9 +58,9 @@ uv add WebSearcher
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
-The default `patchright` browser backend needs its Chrome binary, which pip can't
-install automatically. Run this once after installing (skip it if you only use the
-`requests` backend):
+The default `patchright` browser backend needs its Chrome binary,
+which pip can't install automatically. Run this once after
+installing (skip it if you only use the `requests` backend):
 
 ```bash
 patchright install chromium
@@ -119,11 +119,11 @@ drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
 
 ### Step by Step 
 
-Example search and parse pipeline (via requests, no browser):
+Example search and parse pipeline:
 
 ```python
 import WebSearcher as ws
-se = ws.SearchEngine(method="requests")    # 1. Initialize collector
+se = ws.SearchEngine()                     # 1. Initialize collector
 se.search('election news')                 # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
@@ -137,8 +137,7 @@ se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
 import WebSearcher as ws
 
 # Initialize collector with method and other settings.
-# `patchright` is the default browser backend (run `patchright install chromium`
-# once); pass `method="requests"` for the no-browser HTTP path.
+# `patchright` is the default browser backend; run `patchright install chromium` once.
 se = ws.SearchEngine(
     method="patchright", 
     patchright_config = {
