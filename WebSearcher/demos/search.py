@@ -50,19 +50,10 @@ QUERIES = {
 }
 
 
-def _engine_kwargs(method: str, headless: bool) -> dict:
-    """Build SearchEngine kwargs, routing shared flags to the method's config."""
-    kwargs: dict = {"method": method}
-    if method == "patchright":
-        kwargs["patchright_config"] = {"headless": headless}
-    return kwargs
-
-
 def search(
     query: str = "why is the sky blue?",
     method: str = "patchright",
     data_dir: str | None = None,
-    headless: bool = False,
     ai_expand: bool = True,
 ):
     """Search and parse a single query (patchright or requests), saving serps/parsed/searches."""
@@ -74,7 +65,7 @@ def search(
     header += f"Output Dir: {data_path}\n"
     print(header)
 
-    se = ws.SearchEngine(**_engine_kwargs(method, headless))
+    se = ws.SearchEngine(method=method)
     se.search(query, ai_expand=ai_expand)
     se.parse_serp()
     se.save_serp(append_to=fps["serps"])
@@ -89,7 +80,6 @@ def searches(
     types: list[str] | None = None,
     method: str = "patchright",
     data_dir: str | None = None,
-    headless: bool = False,
     ai_expand: bool = True,
     delay: float = 30.0,
 ):
@@ -108,7 +98,7 @@ def searches(
         queries = [q for group in QUERIES.values() for q in group]
     print(f"Running {len(queries)} queries, saving to {data_path}")
 
-    se = ws.SearchEngine(**_engine_kwargs(method, headless))
+    se = ws.SearchEngine(method=method)
 
     for i, qry in enumerate(queries):
         se.search(qry, ai_expand=ai_expand)

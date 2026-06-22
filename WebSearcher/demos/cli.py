@@ -18,7 +18,6 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
         help="Search method",
     )
     p.add_argument("--data-dir", default=None, help="Directory to save outputs")
-    p.add_argument("--headless", action="store_true", help="Run browser headless")
     p.add_argument(
         "--no-ai-expand", dest="ai_expand", action="store_false", help="Do not expand AI overviews"
     )
@@ -34,7 +33,6 @@ def _run_search(args: argparse.Namespace) -> None:
         args.query,
         args.method,
         data_dir=args.data_dir,
-        headless=args.headless,
         ai_expand=args.ai_expand,
     )
 
@@ -112,7 +110,6 @@ def main(argv: list[str] | None = None) -> None:
             types=args.types,
             method=args.method,
             data_dir=args.data_dir,
-            headless=args.headless,
             ai_expand=args.ai_expand,
             delay=args.delay,
         )
