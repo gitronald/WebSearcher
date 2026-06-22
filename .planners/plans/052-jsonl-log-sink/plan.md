@@ -1,8 +1,8 @@
 ---
 id: 52
 slug: jsonl-log-sink
-status: draft
-branch:
+status: active
+branch: feature/jsonl-log-sink
 created: 2026-06-21T19:32:00-07:00
 concluded:
 pr:
