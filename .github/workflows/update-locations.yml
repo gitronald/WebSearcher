@@ -30,6 +30,10 @@ jobs:
       # No-op when the update was skipped (working tree unchanged).
       - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
         with:
+          # Branch is cut from the default branch (master), but the PR targets dev so
+          # the refresh lands on the active dev line. master stays an ancestor of dev
+          # in this repo's flow, so the PR diff is just the CSV change, not the dev delta.
+          base: dev
           add-paths: data/locations/*.csv
           branch: bot/locations-update
           delete-branch: true
