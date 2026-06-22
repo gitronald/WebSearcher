@@ -50,65 +50,31 @@ QUERIES = {
 }
 
 
-def _engine_kwargs(
-    method: str,
-    headless: bool,
-    use_subprocess: bool,
-    version_main: int | None,
-    driver_executable_path: str,
-) -> dict:
+def _engine_kwargs(method: str, headless: bool) -> dict:
     """Build SearchEngine kwargs, routing shared flags to the method's config."""
     kwargs: dict = {"method": method}
-    if method == "selenium":
-        kwargs["selenium_config"] = {
-            "headless": headless,
-            "use_subprocess": use_subprocess,
-            "driver_executable_path": driver_executable_path,
-            "version_main": version_main,
-        }
-    elif method == "zendriver":
-        kwargs["zendriver_config"] = {"headless": headless}
-    elif method == "patchright":
+    if method == "patchright":
         kwargs["patchright_config"] = {"headless": headless}
-    elif method == "playwright":
-        kwargs["playwright_config"] = {"headless": headless}
     return kwargs
-
-
-def _chrome_version() -> str:
-    """Best-effort installed-Chrome version for the search header (never raises)."""
-    try:
-        from ..searchers.selenium_searcher import detect_chrome_version
-
-        return detect_chrome_version() or "unknown"
-    except Exception:
-        return "unknown"
 
 
 def search(
     query: str = "why is the sky blue?",
-    method: str = "selenium",
+    method: str = "patchright",
     data_dir: str | None = None,
     headless: bool = False,
-    use_subprocess: bool = False,
-    version_main: int | None = None,
     ai_expand: bool = True,
-    driver_executable_path: str = "",
 ):
-    """Search and parse a single query (selenium or requests), saving serps/parsed/searches."""
+    """Search and parse a single query (patchright or requests), saving serps/parsed/searches."""
     data_path = Path(data_dir) if data_dir else _default_data_dir()
     data_path.mkdir(parents=True, exist_ok=True)
     fps = {k: data_path / f"{k}.json" for k in ("serps", "parsed", "searches")}
 
     header = f"WebSearcher v{ws.__version__}\nSearch Query: {query}\n"
-    if method == "selenium":
-        header += f"Chrome Version: {_chrome_version()}\n"
     header += f"Output Dir: {data_path}\n"
     print(header)
 
-    se = ws.SearchEngine(
-        **_engine_kwargs(method, headless, use_subprocess, version_main, driver_executable_path)
-    )
+    se = ws.SearchEngine(**_engine_kwargs(method, headless))
     se.search(query, ai_expand=ai_expand)
     se.parse_serp()
     se.save_serp(append_to=fps["serps"])
@@ -121,13 +87,10 @@ def search(
 
 def searches(
     types: list[str] | None = None,
-    method: str = "selenium",
+    method: str = "patchright",
     data_dir: str | None = None,
     headless: bool = False,
-    use_subprocess: bool = False,
-    version_main: int | None = None,
     ai_expand: bool = True,
-    driver_executable_path: str = "",
     delay: float = 30.0,
 ):
     """Search a battery of queries spanning SERP component types, reusing one browser session.
@@ -145,9 +108,7 @@ def searches(
         queries = [q for group in QUERIES.values() for q in group]
     print(f"Running {len(queries)} queries, saving to {data_path}")
 
-    se = ws.SearchEngine(
-        **_engine_kwargs(method, headless, use_subprocess, version_main, driver_executable_path)
-    )
+    se = ws.SearchEngine(**_engine_kwargs(method, headless))
 
     for i, qry in enumerate(queries):
         se.search(qry, ai_expand=ai_expand)

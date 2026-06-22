@@ -28,8 +28,8 @@ __all__ = [
 
 
 def __getattr__(name: str):
-    # Lazy-load SearchEngine so parse-only consumers don't pay the Selenium /
-    # undetected-chromedriver import cost on `import WebSearcher`.
+    # Lazy-load SearchEngine so parse-only consumers don't pay the browser-backend
+    # (patchright) import cost on `import WebSearcher`.
     if name == "SearchEngine":
         from .searchers import SearchEngine
 

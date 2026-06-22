@@ -89,8 +89,6 @@ class Logger:
             "asyncio": {"level": "INFO"},
             "chardet.charsetprober": {"level": "INFO"},
             "parso": {"level": "INFO"},  # Fix for ipython autocomplete bug
-            "undetected_chromedriver": {"level": "WARNING"},
-            "uc": {"level": "WARNING"},
         }
 
         self.log_config = {
