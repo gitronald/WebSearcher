@@ -12,7 +12,6 @@ SCHEMA_KEYS = {
     "timestamp",
     "pid",
     "level",
-    "name",
     "event",
     "message",
     "response_code",
@@ -73,6 +72,12 @@ def test_emits_valid_json_with_full_key_set():
 def test_keys_match_target_schema_exactly():
     payload = json.loads(JsonlFormatter().format(make_record(msg="x")))
     assert sorted(payload) == sorted(SCHEMA_KEYS)
+
+
+def test_jsonl_omits_logger_name():
+    # `name` is constant for WebSearcher's own logs, so the structured sink drops
+    # it (it stays in the human text formatters where __package__ de-duplicated it).
+    assert "name" not in json.loads(JsonlFormatter().format(make_record(msg="x")))
 
 
 def test_timestamp_is_iso8601_with_milliseconds():

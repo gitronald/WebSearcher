@@ -104,3 +104,25 @@ Minor bump (additive logging feature; default behavior unchanged).
   the default `detailed` text logs; the summary keeps text logs informative while
   the JSONL sink still gets the full structured field set. Concurrency stayed on
   the plain `FileHandler` append (the QueueHandler option was not needed).
+- 2026-06-22 — Schema expansion (review feedback): added a structured `event` field
+  to the JSONL schema and a **full event taxonomy** across every package log call
+  (`search`, `search_config`, `parse`, `save_*`, `init_driver`, `browser_info`,
+  `ai_expand`, `fetch`, `cleanup`, `delete_cookies`, `response`, `unzip`,
+  `ssh_tunnel`). Rule: `event` is always set on WebSearcher log calls; `message`
+  holds only the residual detail not encoded by `event`/fields and is `null` for
+  pure event-marker lines (e.g. the search event, `search_config`). Added a
+  `TextFormatter` that falls back to the `event` name when a record has no message,
+  so the text console never shows a blank line (non-mutating: formats a copy, so a
+  JSONL sink on the same logger still reads `message` as null). Final schema:
+  `timestamp, pid, level, name, event, message, response_code, qry, loc, output`.
+- 2026-06-22 — Logger name fix (review feedback): `SearchEngine` named its single
+  shared logger with `__name__` -> the repetitive `"WebSearcher.searchers.searchers"`
+  on every line. Switched to `__package__` -> `"WebSearcher.searchers"` (the operation
+  now lives in `event`, so `name` only needs to identify the subpackage).
+- 2026-06-22 — Dropped `name` from the JSONL schema (review feedback): it is constant
+  for WebSearcher's own logs, so the structured sink omits it; it stays in the human
+  text formatters (where `__package__` de-duplicated it). Trade-off accepted:
+  propagated third-party logs (urllib3/requests/asyncio at WARNING+) lose their only
+  source label in JSONL. Final schema:
+  `timestamp, pid, level, event, message, response_code, qry, loc, output`.
+- 2026-06-22 — Full suite: 551 passed, ruff + pyrefly clean.

@@ -28,7 +28,6 @@ class JsonlFormatter(logging.Formatter):
             .isoformat(timespec="milliseconds"),
             "pid": record.process,
             "level": record.levelname,
-            "name": record.name,
             "event": getattr(record, "event", None),
             "message": record.getMessage() or None,
             "response_code": getattr(record, "response_code", None),
