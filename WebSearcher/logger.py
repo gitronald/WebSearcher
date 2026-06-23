@@ -12,10 +12,13 @@ class JsonlFormatter(logging.Formatter):
     """Serialize each log record as one JSON object per line (JSON Lines).
 
     Emits the crawl-log schema downstream tooling consumes directly, so native
-    logs no longer need an after-the-fact text parser. Structured search-event
-    fields (``response_code``/``qry``/``loc``) are read from ``record`` via the
-    logging ``extra=`` mechanism and are null on non-search records; ``output``
-    carries the formatted traceback (``""`` when there is none).
+    logs no longer need an after-the-fact text parser. ``event`` is the structured
+    event type (``"search"``, ``"parse"``, ...) read from the logging ``extra=``
+    mechanism, ``None`` for ad-hoc log lines; ``message`` is the human text and is
+    ``None`` when empty (a structured event puts its data in fields, not the
+    message). Search fields (``response_code``/``qry``/``loc``) are likewise read
+    from ``extra=`` and are ``None`` off the search path; ``output`` carries the
+    formatted traceback (``""`` when there is none).
     """
 
     def format(self, record: logging.LogRecord) -> str:
@@ -26,7 +29,8 @@ class JsonlFormatter(logging.Formatter):
             "pid": record.process,
             "level": record.levelname,
             "name": record.name,
-            "message": record.getMessage(),
+            "event": getattr(record, "event", None),
+            "message": record.getMessage() or None,
             "response_code": getattr(record, "response_code", None),
             "qry": getattr(record, "qry", None),
             "loc": getattr(record, "loc", None),
@@ -35,14 +39,29 @@ class JsonlFormatter(logging.Formatter):
         return json.dumps(payload, ensure_ascii=False)
 
 
+class TextFormatter(logging.Formatter):
+    """Human/console formatter that falls back to the structured ``event`` name
+    when a record has no message (a structured event keeps its data in fields and
+    logs an empty message, so the console would otherwise show a blank line).
+
+    Non-mutating: it formats a *copy* of the record, so the shared record stays
+    intact for a JSONL sink attached to the same logger.
+    """
+
+    def formatMessage(self, record: logging.LogRecord) -> str:
+        if not record.message and getattr(record, "event", None):
+            record = logging.makeLogRecord({**record.__dict__, "message": record.event})
+        return super().formatMessage(record)
+
+
 # Formatters: change what gets logged
 minimal = "%(message)s"
 medium = "%(asctime)s.%(msecs)01d | %(levelname)s | %(name)s | %(message)s"
 detailed = "%(asctime)s.%(msecs)01d | %(process)d | %(levelname)s | %(name)s | %(message)s"
 formatters = {
-    "minimal": {"format": minimal},
-    "medium": {"format": medium, "datefmt": "%Y-%m-%d %H:%M:%S"},
-    "detailed": {"format": detailed, "datefmt": "%Y-%m-%d %H:%M:%S"},
+    "minimal": {"()": TextFormatter, "format": minimal},
+    "medium": {"()": TextFormatter, "format": medium, "datefmt": "%Y-%m-%d %H:%M:%S"},
+    "detailed": {"()": TextFormatter, "format": detailed, "datefmt": "%Y-%m-%d %H:%M:%S"},
     "jsonl": {"()": JsonlFormatter},
 }
 

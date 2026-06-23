@@ -37,7 +37,7 @@ class RequestsSearcher:
                 self.sesh.close()
             return True
         except Exception as e:
-            self.log.debug(f"Failed to close session: {e}")
+            self.log.debug(f"Failed to close session: {e}", extra={"event": "cleanup"})
             return False
 
     def send_request(self, search_params: SearchParams) -> ResponseOutput:
@@ -66,12 +66,12 @@ class RequestsSearcher:
             response_output.html = self._handle_response_content(response)
             response_output.response_code = response.status_code
         except requests.exceptions.ConnectionError:
-            self.log.exception("Requests | Connection error")
+            self.log.exception("Requests | Connection error", extra={"event": "fetch"})
             self._reset_ssh_tunnel()
         except requests.exceptions.Timeout:
-            self.log.exception("Requests | Timeout error")
+            self.log.exception("Requests | Timeout error", extra={"event": "fetch"})
         except Exception:
-            self.log.exception("Requests | Unknown error")
+            self.log.exception("Requests | Unknown error", extra={"event": "fetch"})
 
         return response_output
 
@@ -83,7 +83,7 @@ class RequestsSearcher:
                 html = response.content
             return html.decode("utf-8", "ignore")
         except Exception:
-            self.log.exception("Response handling error")
+            self.log.exception("", extra={"event": "response"})
             return response.content
 
     def _unzip_html(self, content) -> bytes:
@@ -93,7 +93,7 @@ class RequestsSearcher:
         except brotli.error:
             return content
         except Exception:
-            self.log.exception("unzip error")
+            self.log.exception("", extra={"event": "unzip"})
             return content
 
     def _reset_ssh_tunnel(self):
@@ -102,5 +102,5 @@ class RequestsSearcher:
         if ssh_tunnel and ssh_tunnel.tunnel:
             ssh_tunnel.tunnel.kill()
             ssh_tunnel.open_tunnel()
-            self.log.info("SERP | Restarted SSH tunnel")
+            self.log.info("Restarted SSH tunnel", extra={"event": "ssh_tunnel"})
             time.sleep(10)  # Allow time to establish connection

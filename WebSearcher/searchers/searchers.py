@@ -109,7 +109,7 @@ class SearchEngine:
             headers: Custom headers to include in the request
         """
 
-        self.log.debug("starting search config")
+        self.log.debug("", extra={"event": "search_config"})
         self.search_params = SearchParams.create(
             {
                 "qry": str(qry),
@@ -126,14 +126,17 @@ class SearchEngine:
         serp_output.update(self.session_data)
         serp_output.update(self.response_output.model_dump())
         self.serp = BaseSERP(**serp_output).model_dump()
-        log_fields = {
-            "response_code": self.serp["response_code"],
-            "qry": self.serp["qry"],
-            "loc": self.serp["loc"],
-        }
-        # Deterministic human-readable summary (drops empty fields) for the text
-        # formatters; the full structured set rides along in `extra` for the JSONL sink.
-        self.log.info(" | ".join(f"{v}" for v in log_fields.values() if v), extra=log_fields)
+        # Structured search event: the data lives in fields, so the message is empty
+        # (null in JSONL; the text console falls back to the `event` name).
+        self.log.info(
+            "",
+            extra={
+                "event": "search",
+                "response_code": self.serp["response_code"],
+                "qry": self.serp["qry"],
+                "loc": self.serp["loc"],
+            },
+        )
 
     # ==========================================================================
     # Parsing
@@ -153,7 +156,7 @@ class SearchEngine:
                 results=parsed["results"],
             )
         except Exception:
-            self.log.exception(f"Parsing error | serp_id : {self.serp['serp_id']}")
+            self.log.exception(f"serp_id : {self.serp['serp_id']}", extra={"event": "parse"})
 
     def parse_results(self):
         """Backwards compatibility for parsing results"""
@@ -171,7 +174,10 @@ class SearchEngine:
             append_to (str, optional): Append results to this file path
         """
         if not save_dir and not append_to:
-            self.log.warning("Must provide a save_dir or append_to file path to save a SERP")
+            self.log.warning(
+                "Must provide a save_dir or append_to file path to save a SERP",
+                extra={"event": "save_serp"},
+            )
             return
         elif append_to:
             utils.write_lines([self.serp], append_to)
@@ -183,10 +189,13 @@ class SearchEngine:
     def save_parsed(self, save_dir: str | Path = "", append_to: str | Path = ""):
         """Save parsed SERP to file"""
         if not save_dir and not append_to:
-            self.log.warning("Must provide a save_dir or append_to file path to save parsed SERP")
+            self.log.warning(
+                "Must provide a save_dir or append_to file path to save parsed SERP",
+                extra={"event": "save_parsed"},
+            )
             return
         if not self.parsed.results and not self.parsed.features:
-            self.log.warning("No parsed SERP available to save")
+            self.log.warning("No parsed SERP available to save", extra={"event": "save_parsed"})
             return
 
         fp = append_to if append_to else Path(save_dir) / "parsed.json"
@@ -195,7 +204,10 @@ class SearchEngine:
     def save_search(self, append_to: str | Path = ""):
         """Save SERP metadata (excludes HTML) to file"""
         if not append_to:
-            self.log.warning("Must provide an append_to file path to save SERP metadata")
+            self.log.warning(
+                "Must provide an append_to file path to save SERP metadata",
+                extra={"event": "save_search"},
+            )
             return
 
         self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
@@ -223,7 +235,10 @@ class SearchEngine:
                 clobbers the collection-time ``version`` already on the record.
         """
         if not append_to:
-            self.log.warning("Must provide an append_to file path to save a record")
+            self.log.warning(
+                "Must provide an append_to file path to save a record",
+                extra={"event": "save_record"},
+            )
             return
 
         record = self.to_record()
@@ -239,10 +254,13 @@ class SearchEngine:
             append_to (bool, optional): Append results to this file path
         """
         if not save_dir and not append_to:
-            self.log.warning("Must provide a save_dir or append_to file path to save results")
+            self.log.warning(
+                "Must provide a save_dir or append_to file path to save results",
+                extra={"event": "save_results"},
+            )
             return
         if not self.parsed.results:
-            self.log.warning("No parsed results to save")
+            self.log.warning("No parsed results to save", extra={"event": "save_results"})
             return
 
         # Add metadata to results

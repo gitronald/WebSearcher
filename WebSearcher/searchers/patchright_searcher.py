@@ -53,7 +53,8 @@ class PatchrightSearcher:
 
         self.log.debug(
             f"SERP | init {self.driver_name} | channel: {self.config.channel} | "
-            f"headless: {self.config.headless} | user_data_dir: {user_data_dir}"
+            f"headless: {self.config.headless} | user_data_dir: {user_data_dir}",
+            extra={"event": "init_driver"},
         )
         from patchright.sync_api import sync_playwright
 
@@ -79,7 +80,10 @@ class PatchrightSearcher:
         self.browser_info["browser_id"] = utils.hash_id(
             orjson.dumps(self.browser_info).decode("utf-8")
         )
-        self.log.debug(orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2))
+        self.log.debug(
+            orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2),
+            extra={"event": "browser_info"},
+        )
 
     def send_request(self, search_params: SearchParams) -> ResponseOutput:
         """Visit a URL with patchright and save HTML response"""
@@ -108,11 +112,16 @@ class PatchrightSearcher:
                 expanded_html = self.expand_ai_overview()
                 if expanded_html:
                     len_diff = len(expanded_html) - len(response_output.html)
-                    self.log.debug(f"SERP | expanded html | len diff: {len_diff}")
+                    self.log.debug(
+                        f"SERP | expanded html | len diff: {len_diff}",
+                        extra={"event": "ai_expand"},
+                    )
                     response_output.html = expanded_html
 
         except Exception as e:
-            self.log.exception(f"SERP | {self.driver_name} error | {str(e)}")
+            self.log.exception(
+                f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
+            )
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
@@ -164,10 +173,12 @@ class PatchrightSearcher:
             if self.context is not None:
                 self.context.close()
             self.playwright.stop()
-            self.log.debug("Browser successfully closed")
+            self.log.debug("Browser successfully closed", extra={"event": "cleanup"})
             return True
         except Exception as e:
-            self.log.debug(f"Browser already closed or unreachable: {e}")
+            self.log.debug(
+                f"Browser already closed or unreachable: {e}", extra={"event": "cleanup"}
+            )
             return False
         finally:
             self.playwright = None
@@ -183,7 +194,9 @@ class PatchrightSearcher:
             try:
                 self.context.clear_cookies()
             except Exception as e:
-                self.log.debug(f"Failed to delete cookies: {str(e)}")
+                self.log.debug(
+                    f"Failed to delete cookies: {str(e)}", extra={"event": "delete_cookies"}
+                )
 
     def __del__(self):
         """Destructor to ensure browser is closed when object is garbage collected"""
