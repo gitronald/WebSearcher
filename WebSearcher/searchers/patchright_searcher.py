@@ -81,7 +81,7 @@ class PatchrightSearcher:
             orjson.dumps(self.browser_info).decode("utf-8")
         )
         self.log.debug(
-            orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2),
+            orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2).decode("utf-8"),
             extra={"event": "browser_info"},
         )
 
