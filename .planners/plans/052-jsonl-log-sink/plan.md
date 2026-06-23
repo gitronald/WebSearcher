@@ -128,4 +128,11 @@ Minor bump (additive logging feature; default behavior unchanged).
   lines. `PACKAGE = __name__.split(".")[0]` gates it. This recovers attribution of
   propagated third-party WARNING noise without re-adding a constant name. Final schema:
   `timestamp, pid, level, event, message, response_code, qry, loc, output, source`.
-- 2026-06-22 — Full suite: 553 passed, ruff + pyrefly clean.
+- 2026-06-22 — Drop null fields from emitted records (review feedback): only
+  `timestamp`/`pid`/`level` are always present; every other key appears only when
+  non-null (`output` switched to null-when-absent so it drops too). A parse/save/
+  foreign line no longer carries null `qry`/`loc`/`response_code`. Downstream
+  consumers must read optional keys with `.get(...)`. The schema is now the *maximal*
+  key set: `timestamp, pid, level, event, message, response_code, qry, loc, output,
+  source`, of which each line emits the applicable subset.
+- 2026-06-22 — Full suite: 554 passed, ruff + pyrefly clean.

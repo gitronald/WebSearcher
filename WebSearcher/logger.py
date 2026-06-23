@@ -19,10 +19,14 @@ class JsonlFormatter(logging.Formatter):
     ``None`` when empty (a structured event puts its data in fields, not the
     message). Search fields (``response_code``/``qry``/``loc``) are likewise read
     from ``extra=`` and are ``None`` off the search path; ``output`` carries the
-    formatted traceback (``""`` when there is none). ``source`` is the originating
-    logger name, but only for foreign logs (urllib3/requests/asyncio bubbling up to
-    the root handler) -- ``None`` for WebSearcher's own lines, so third-party
-    WARNING noise stays trackable without repeating a constant name on every record.
+    formatted traceback on error lines. ``source`` is the originating logger name,
+    but only for foreign logs (urllib3/requests/asyncio bubbling up to the root
+    handler) -- ``None`` for WebSearcher's own lines, so third-party WARNING noise
+    stays trackable without repeating a constant name on every record.
+
+    Null fields are omitted from the emitted object: ``timestamp``/``pid``/``level``
+    are always present, and each line carries only the other keys that apply to it
+    (a parse/save/foreign line has no ``qry``/``loc``/``response_code``).
     """
 
     def format(self, record: logging.LogRecord) -> str:
@@ -39,10 +43,10 @@ class JsonlFormatter(logging.Formatter):
             "response_code": getattr(record, "response_code", None),
             "qry": getattr(record, "qry", None),
             "loc": getattr(record, "loc", None),
-            "output": self.formatException(record.exc_info) if record.exc_info else "",
+            "output": self.formatException(record.exc_info) if record.exc_info else None,
             "source": None if is_own else name,
         }
-        return json.dumps(payload, ensure_ascii=False)
+        return json.dumps({k: v for k, v in payload.items() if v is not None}, ensure_ascii=False)
 
 
 class TextFormatter(logging.Formatter):
