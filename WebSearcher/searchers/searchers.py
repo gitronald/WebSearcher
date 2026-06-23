@@ -51,7 +51,9 @@ class SearchEngine:
                 "patchright": PatchrightConfig.create(patchright_config),
             }
         )
-        self.log = logger.Logger(**self.config.log.model_dump()).start(__name__)
+        # Name the logger after the subpackage, not __name__ (which doubles to
+        # "WebSearcher.searchers.searchers"); the `event` field carries the operation.
+        self.log = logger.Logger(**self.config.log.model_dump()).start(__package__)
         self.session_data = {
             "method": self.config.method.value,
             "version": WS_VERSION,
