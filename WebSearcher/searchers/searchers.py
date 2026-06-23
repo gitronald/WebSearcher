@@ -126,14 +126,14 @@ class SearchEngine:
         serp_output.update(self.session_data)
         serp_output.update(self.response_output.model_dump())
         self.serp = BaseSERP(**serp_output).model_dump()
-        self.log.info(
-            "search",
-            extra={
-                "response_code": self.serp["response_code"],
-                "qry": self.serp["qry"],
-                "loc": self.serp["loc"],
-            },
-        )
+        log_fields = {
+            "response_code": self.serp["response_code"],
+            "qry": self.serp["qry"],
+            "loc": self.serp["loc"],
+        }
+        # Deterministic human-readable summary (drops empty fields) for the text
+        # formatters; the full structured set rides along in `extra` for the JSONL sink.
+        self.log.info(" | ".join(f"{v}" for v in log_fields.values() if v), extra=log_fields)
 
     # ==========================================================================
     # Parsing

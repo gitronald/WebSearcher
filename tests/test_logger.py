@@ -107,7 +107,8 @@ def test_no_exc_info_yields_empty_output():
 
 
 def test_search_extra_round_trips_through_logger():
-    # A search log call with extra= must round-trip to response_code/qry/loc.
+    # Mirrors searchers.py: a deterministic summary message + structured extra=
+    # fields that must round-trip to response_code/qry/loc in the JSONL output.
     logger = logging.getLogger("ws.jsonl.roundtrip")
     logger.handlers.clear()
     logger.propagate = False
@@ -117,13 +118,11 @@ def test_search_extra_round_trips_through_logger():
     handler.setFormatter(JsonlFormatter())
     logger.addHandler(handler)
 
-    logger.info(
-        "search",
-        extra={"response_code": 200, "qry": "pizza", "loc": "Boston,Massachusetts,United States"},
-    )
+    fields = {"response_code": 200, "qry": "pizza", "loc": "Boston,Massachusetts,United States"}
+    logger.info(" | ".join(f"{v}" for v in fields.values() if v), extra=fields)
 
     payload = json.loads(stream.getvalue().splitlines()[0])
-    assert payload["message"] == "search"
+    assert payload["message"] == "200 | pizza | Boston,Massachusetts,United States"
     assert payload["response_code"] == 200
     assert payload["qry"] == "pizza"
     assert payload["loc"] == "Boston,Massachusetts,United States"
