@@ -141,3 +141,12 @@ Minor bump (additive logging feature; default behavior unchanged).
   name prefix (`WebSearcher`/`WebSearcher.*`), so a record's event extra is honored only
   for our own logs. Final schema unchanged.
 - 2026-06-22 — Full suite: 555 passed, ruff + pyrefly clean.
+- 2026-06-22 — Dropped text logs entirely (review decision: no backwards
+  compatibility). Removed the `TextFormatter`, the `minimal`/`medium`/`detailed`
+  formatters, and the `console_format`/`file_format` selectors from both `Logger`
+  and `LogConfig`; `jsonl` is now the sole format, so every console and file sink
+  emits the structured schema. This also moots the search-event text regression
+  surfaced in review: the search event logs an empty message with its data in
+  `extra=` (dropped from the JSONL line), and with no text formatter there is no
+  longer a sink that rendered the bare `event` name in place of the fields. Removed
+  the four `TextFormatter` unit tests. Suite: 551 passed, ruff + pyrefly clean.

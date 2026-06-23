@@ -1,11 +1,11 @@
-"""Tests for the JSONL crawl-log sink and the text/console event fallback."""
+"""Tests for the JSONL crawl-log sink (the only log format)."""
 
 import io
 import json
 import logging
 from datetime import datetime
 
-from WebSearcher.logger import JsonlFormatter, Logger, TextFormatter, formatters
+from WebSearcher.logger import JsonlFormatter, Logger, formatters
 
 # Keys always present on every emitted record.
 ALWAYS_KEYS = {"timestamp", "pid", "level"}
@@ -46,13 +46,8 @@ def emit(**kwargs) -> dict:
 # Registration ----------------------------------------------------------------
 
 
-def test_jsonl_registered_as_formatter():
-    assert formatters["jsonl"] == {"()": JsonlFormatter}
-
-
-def test_text_formatters_use_textformatter():
-    for name in ("minimal", "medium", "detailed"):
-        assert formatters[name]["()"] is TextFormatter
+def test_jsonl_is_the_only_formatter():
+    assert formatters == {"jsonl": {"()": JsonlFormatter}}
 
 
 # Null fields are dropped -----------------------------------------------------
@@ -171,31 +166,12 @@ def test_no_exc_info_drops_output():
     assert "output" not in emit(msg="x")
 
 
-# Text/console fallback -------------------------------------------------------
-
-
-def test_textformatter_falls_back_to_event_when_message_empty():
-    assert TextFormatter("%(message)s").format(make_record(msg="", event="search")) == "search"
-
-
-def test_textformatter_keeps_message_when_present():
-    assert TextFormatter("%(message)s").format(make_record(msg="hello", event="search")) == "hello"
-
-
-def test_textformatter_does_not_mutate_shared_record():
-    # The console formatter must not corrupt the message a JSONL sink reads next
-    # off the same record (both handlers see one shared record).
-    record = make_record(msg="", event="search")
-    TextFormatter("%(message)s").format(record)
-    assert "message" not in json.loads(JsonlFormatter().format(record))
-
-
 # End-to-end through dictConfig ----------------------------------------------
 
 
 def test_logger_emits_structured_search_event(tmp_path):
     fp = tmp_path / "crawl.log"
-    log = Logger(console=False, file_name=str(fp), file_format="jsonl").start("WebSearcher.test")
+    log = Logger(console=False, file_name=str(fp)).start("WebSearcher.test")
     log.info("", extra={"event": "search", "response_code": 200, "qry": "pizza", "loc": "Boston"})
     logging.shutdown()
     payload = json.loads(fp.read_text().splitlines()[0])

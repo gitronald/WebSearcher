@@ -128,8 +128,8 @@ class SearchEngine:
         serp_output.update(self.session_data)
         serp_output.update(self.response_output.model_dump())
         self.serp = BaseSERP(**serp_output).model_dump()
-        # Structured search event: the data lives in fields, so the message is empty
-        # (null in JSONL; the text console falls back to the `event` name).
+        # Structured search event: the data lives in fields, so the message is
+        # empty and dropped from the JSONL line.
         self.log.info(
             "",
             extra={

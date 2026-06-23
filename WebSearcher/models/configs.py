@@ -19,11 +19,9 @@ class BaseConfig(BaseModel):
 
 class LogConfig(BaseConfig):
     console: bool = True
-    console_format: str = "medium"
     console_level: str = "INFO"
     file_name: str = ""
     file_mode: str = "a"
-    file_format: str = "detailed"
     file_level: str = "INFO"
 
 

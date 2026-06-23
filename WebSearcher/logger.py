@@ -50,31 +50,8 @@ class JsonlFormatter(logging.Formatter):
         return json.dumps({k: v for k, v in payload.items() if v is not None}, ensure_ascii=False)
 
 
-class TextFormatter(logging.Formatter):
-    """Human/console formatter that falls back to the structured ``event`` name
-    when a record has no message (a structured event keeps its data in fields and
-    logs an empty message, so the console would otherwise show a blank line).
-
-    Non-mutating: it formats a *copy* of the record, so the shared record stays
-    intact for a JSONL sink attached to the same logger.
-    """
-
-    def formatMessage(self, record: logging.LogRecord) -> str:
-        if not record.message and getattr(record, "event", None):
-            record = logging.makeLogRecord({**record.__dict__, "message": record.event})
-        return super().formatMessage(record)
-
-
-# Formatters: change what gets logged
-minimal = "%(message)s"
-medium = "%(asctime)s.%(msecs)01d | %(levelname)s | %(name)s | %(message)s"
-detailed = "%(asctime)s.%(msecs)01d | %(process)d | %(levelname)s | %(name)s | %(message)s"
-formatters = {
-    "minimal": {"()": TextFormatter, "format": minimal},
-    "medium": {"()": TextFormatter, "format": medium, "datefmt": "%Y-%m-%d %H:%M:%S"},
-    "detailed": {"()": TextFormatter, "format": detailed, "datefmt": "%Y-%m-%d %H:%M:%S"},
-    "jsonl": {"()": JsonlFormatter},
-}
+# JSONL is the only log format: every sink emits one JSON object per line.
+formatters = {"jsonl": {"()": JsonlFormatter}}
 
 
 class Logger:
@@ -91,47 +68,40 @@ class Logger:
     def __init__(
         self,
         console: bool = True,
-        console_format: str = "medium",
         console_level: str = LOG_LEVEL_DEFAULT,
         file_name: str = "",
         file_mode: str = "w",
-        file_format: str = "detailed",
         file_level: str = LOG_LEVEL_DEFAULT,
     ) -> None:
         """
         Initializes the Logger configuration.
 
+        All logs are emitted as JSON Lines (one JSON object per line); there is no
+        text format.
+
         Args:
             console (bool): Flag to enable or disable console logging.
-            console_format (str): Format of the console logging. One of 'minimal', 'medium', 'detailed', or 'jsonl'.
             console_level (str): Logging level for the console. Default is 'INFO'.
             file_name (str): Name of the file to log messages. If empty, file logging is disabled.
             file_mode (str): File mode for file logging. Default is 'w' (write).
-            file_format (str): Format of the file logging. One of 'minimal', 'medium', 'detailed', or 'jsonl'.
             file_level (str): Logging level for the file. Default is 'INFO'.
         """
 
         # Handlers: change file and console logging details
         handlers = {}
         if console:
-            assert console_format in formatters.keys(), (
-                f"Console format must be one of {list(formatters.keys())}"
-            )
             handlers["console_handle"] = {
                 "class": "logging.StreamHandler",
                 "level": console_level,
-                "formatter": console_format,
+                "formatter": "jsonl",
             }
 
         if file_name:
             assert type(file_name) is str, "File name must be a string"
-            assert file_format in formatters.keys(), (
-                f"File format must be one of {list(formatters.keys())}"
-            )
             handlers["file_handle"] = {
                 "class": "logging.FileHandler",
                 "level": file_level,
-                "formatter": file_format,
+                "formatter": "jsonl",
                 "filename": file_name,
                 "mode": file_mode,
             }
