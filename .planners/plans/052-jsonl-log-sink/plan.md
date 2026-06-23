@@ -89,3 +89,18 @@ consumes: `timestamp` (ISO-8601, ms), `pid`, `level`, `name`, `message`, `respon
 ### Versioning
 
 Minor bump (additive logging feature; default behavior unchanged).
+
+## Log
+
+- 2026-06-22 — Implemented on `feature/jsonl-log-sink` (PR #181). Added
+  `JsonlFormatter` registered as `"jsonl"` via the dictConfig `"()"` factory key;
+  `timestamp` is local tz-aware ISO-8601 with ms (`datetime.fromtimestamp(record.created).astimezone()`)
+  so JSONL and text logs from the same crawl share a wall-clock. Added
+  `tests/test_logger.py` (9 tests). Full suite: 543 passed, ruff + pyrefly clean.
+- 2026-06-22 — Deviated from the spec's `self.log.info("search", extra={...})`:
+  built `log_fields` once and used it for **both** a deterministic summary message
+  (`" | ".join(...)`, drops empty fields) **and** the structured `extra=`. The
+  spec's literal `"search"` message would have stripped response_code/qry/loc from
+  the default `detailed` text logs; the summary keeps text logs informative while
+  the JSONL sink still gets the full structured field set. Concurrency stayed on
+  the plain `FileHandler` append (the QueueHandler option was not needed).
