@@ -134,6 +134,13 @@ def test_source_names_foreign_loggers():
         assert emit(msg="boom", name=name)["source"] == name
 
 
+def test_foreign_logs_tagged_event_external():
+    # Foreign records carry event="external" regardless of any event extra.
+    payload = emit(msg="boom", name="urllib3.connectionpool")
+    assert payload["event"] == "external"
+    assert payload["source"] == "urllib3.connectionpool"
+
+
 # timestamp -------------------------------------------------------------------
 
 
@@ -188,7 +195,7 @@ def test_textformatter_does_not_mutate_shared_record():
 
 def test_logger_emits_structured_search_event(tmp_path):
     fp = tmp_path / "crawl.log"
-    log = Logger(console=False, file_name=str(fp), file_format="jsonl").start("ws.jsonl")
+    log = Logger(console=False, file_name=str(fp), file_format="jsonl").start("WebSearcher.test")
     log.info("", extra={"event": "search", "response_code": 200, "qry": "pizza", "loc": "Boston"})
     logging.shutdown()
     payload = json.loads(fp.read_text().splitlines()[0])
@@ -198,7 +205,7 @@ def test_logger_emits_structured_search_event(tmp_path):
 
 
 def test_search_event_round_trips_through_logger():
-    logger = logging.getLogger("ws.jsonl.roundtrip")
+    logger = logging.getLogger("WebSearcher.roundtrip")
     logger.handlers.clear()
     logger.propagate = False
     logger.setLevel(logging.INFO)

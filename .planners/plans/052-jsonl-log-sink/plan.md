@@ -135,4 +135,9 @@ Minor bump (additive logging feature; default behavior unchanged).
   consumers must read optional keys with `.get(...)`. The schema is now the *maximal*
   key set: `timestamp, pid, level, event, message, response_code, qry, loc, output,
   source`, of which each line emits the applicable subset.
-- 2026-06-22 — Full suite: 554 passed, ruff + pyrefly clean.
+- 2026-06-22 — Tag foreign logs `event: "external"` (review feedback): a non-WebSearcher
+  record now gets `event="external"` alongside its `source` (the originating logger name),
+  so third-party lines are filterable on either field. Ownership is decided by the logger
+  name prefix (`WebSearcher`/`WebSearcher.*`), so a record's event extra is honored only
+  for our own logs. Final schema unchanged.
+- 2026-06-22 — Full suite: 555 passed, ruff + pyrefly clean.

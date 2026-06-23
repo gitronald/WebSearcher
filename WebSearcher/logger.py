@@ -15,7 +15,8 @@ class JsonlFormatter(logging.Formatter):
     Emits the crawl-log schema downstream tooling consumes directly, so native
     logs no longer need an after-the-fact text parser. ``event`` is the structured
     event type (``"search"``, ``"parse"``, ...) read from the logging ``extra=``
-    mechanism, ``None`` for ad-hoc log lines; ``message`` is the human text and is
+    mechanism -- ``"external"`` for foreign logs, ``None`` for ad-hoc WebSearcher
+    lines; ``message`` is the human text and is
     ``None`` when empty (a structured event puts its data in fields, not the
     message). Search fields (``response_code``/``qry``/``loc``) are likewise read
     from ``extra=`` and are ``None`` off the search path; ``output`` carries the
@@ -38,7 +39,7 @@ class JsonlFormatter(logging.Formatter):
             .isoformat(timespec="milliseconds"),
             "pid": record.process,
             "level": record.levelname,
-            "event": getattr(record, "event", None),
+            "event": getattr(record, "event", None) if is_own else "external",
             "message": record.getMessage() or None,
             "response_code": getattr(record, "response_code", None),
             "qry": getattr(record, "qry", None),
