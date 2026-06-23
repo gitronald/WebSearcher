@@ -121,8 +121,11 @@ Minor bump (additive logging feature; default behavior unchanged).
   now lives in `event`, so `name` only needs to identify the subpackage).
 - 2026-06-22 — Dropped `name` from the JSONL schema (review feedback): it is constant
   for WebSearcher's own logs, so the structured sink omits it; it stays in the human
-  text formatters (where `__package__` de-duplicated it). Trade-off accepted:
-  propagated third-party logs (urllib3/requests/asyncio at WARNING+) lose their only
-  source label in JSONL. Final schema:
-  `timestamp, pid, level, event, message, response_code, qry, loc, output`.
-- 2026-06-22 — Full suite: 551 passed, ruff + pyrefly clean.
+  text formatters (where `__package__` de-duplicated it).
+- 2026-06-22 — Added a `source` field to track foreign log lines (review feedback):
+  `source` is the originating logger name **only for non-WebSearcher records**
+  (urllib3/requests/asyncio bubbling up to the root file handler), `null` for our own
+  lines. `PACKAGE = __name__.split(".")[0]` gates it. This recovers attribution of
+  propagated third-party WARNING noise without re-adding a constant name. Final schema:
+  `timestamp, pid, level, event, message, response_code, qry, loc, output, source`.
+- 2026-06-22 — Full suite: 553 passed, ruff + pyrefly clean.

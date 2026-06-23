@@ -6,6 +6,7 @@ from datetime import datetime
 
 # Setting
 LOG_LEVEL_DEFAULT = "INFO"
+PACKAGE = __name__.split(".")[0]  # "WebSearcher" -- tells our own logs from foreign ones
 
 
 class JsonlFormatter(logging.Formatter):
@@ -18,10 +19,15 @@ class JsonlFormatter(logging.Formatter):
     ``None`` when empty (a structured event puts its data in fields, not the
     message). Search fields (``response_code``/``qry``/``loc``) are likewise read
     from ``extra=`` and are ``None`` off the search path; ``output`` carries the
-    formatted traceback (``""`` when there is none).
+    formatted traceback (``""`` when there is none). ``source`` is the originating
+    logger name, but only for foreign logs (urllib3/requests/asyncio bubbling up to
+    the root handler) -- ``None`` for WebSearcher's own lines, so third-party
+    WARNING noise stays trackable without repeating a constant name on every record.
     """
 
     def format(self, record: logging.LogRecord) -> str:
+        name = record.name
+        is_own = name == PACKAGE or name.startswith(f"{PACKAGE}.")
         payload = {
             "timestamp": datetime.fromtimestamp(record.created)
             .astimezone()
@@ -34,6 +40,7 @@ class JsonlFormatter(logging.Formatter):
             "qry": getattr(record, "qry", None),
             "loc": getattr(record, "loc", None),
             "output": self.formatException(record.exc_info) if record.exc_info else "",
+            "source": None if is_own else name,
         }
         return json.dumps(payload, ensure_ascii=False)
 

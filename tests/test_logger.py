@@ -18,13 +18,16 @@ SCHEMA_KEYS = {
     "qry",
     "loc",
     "output",
+    "source",
 }
 
 
-def make_record(msg: str = "", exc_info=None, **extra) -> logging.LogRecord:
+def make_record(
+    msg: str = "", exc_info=None, name: str = "WebSearcher.test", **extra
+) -> logging.LogRecord:
     """Build a LogRecord, attaching `extra` fields the way logging.x(extra=) does."""
     record = logging.LogRecord(
-        name="WebSearcher.test",
+        name=name,
         level=logging.INFO,
         pathname=__file__,
         lineno=1,
@@ -78,6 +81,23 @@ def test_jsonl_omits_logger_name():
     # `name` is constant for WebSearcher's own logs, so the structured sink drops
     # it (it stays in the human text formatters where __package__ de-duplicated it).
     assert "name" not in json.loads(JsonlFormatter().format(make_record(msg="x")))
+
+
+# source: tracking foreign (third-party) log lines ----------------------------
+
+
+def test_source_is_null_for_websearcher_logs():
+    for name in ("WebSearcher", "WebSearcher.searchers", "WebSearcher.parsers.x"):
+        payload = json.loads(JsonlFormatter().format(make_record(msg="x", name=name)))
+        assert payload["source"] is None
+
+
+def test_source_names_foreign_loggers():
+    # Third-party logs (urllib3/requests/asyncio) bubble up to the root handler;
+    # `source` labels them so the WARNING noise stays trackable in the JSONL.
+    for name in ("urllib3.connectionpool", "requests", "asyncio", "root"):
+        payload = json.loads(JsonlFormatter().format(make_record(msg="boom", name=name)))
+        assert payload["source"] == name
 
 
 def test_timestamp_is_iso8601_with_milliseconds():
