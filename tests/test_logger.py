@@ -166,6 +166,18 @@ def test_no_exc_info_drops_output():
     assert "output" not in emit(msg="x")
 
 
+# Serialization safety --------------------------------------------------------
+
+
+def test_message_with_newlines_stays_one_physical_line():
+    # JSONL's one-object-per-line invariant must survive newlines/quotes/tabs in a
+    # message -- json escapes them, so a record never splits across physical lines.
+    msg = 'line1\nline2 "quoted" \t tab'
+    out = JsonlFormatter().format(make_record(msg=msg))
+    assert "\n" not in out
+    assert json.loads(out)["message"] == msg
+
+
 # End-to-end through dictConfig ----------------------------------------------
 
 

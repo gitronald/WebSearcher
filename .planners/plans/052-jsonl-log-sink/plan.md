@@ -150,3 +150,12 @@ Minor bump (additive logging feature; default behavior unchanged).
   `extra=` (dropped from the JSONL line), and with no text formatter there is no
   longer a sink that rendered the bare `event` name in place of the fields. Removed
   the four `TextFormatter` unit tests. Suite: 551 passed, ruff + pyrefly clean.
+- 2026-06-22 — Versioning note correction (review nit): the spec's `### Versioning`
+  called this an additive minor bump with "default behavior unchanged". It stays a
+  minor bump (pre-1.0), but it is now a **breaking** change -- the default crawl-log
+  output format changed and the text formatters + `console_format`/`file_format`
+  params were removed. The CHANGELOG marks it `**Breaking (logging)**`. Removed params
+  are silently ignored by `LogConfig` (pydantic `extra="ignore"`), not rejected.
+- 2026-06-22 — Added a serialization-safety test: a message with embedded
+  newlines/quotes/tabs stays one physical JSONL line and round-trips. Updated the PR
+  description to reflect the JSONL-only (breaking) reality.
