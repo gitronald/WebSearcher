@@ -1,10 +1,10 @@
 ---
 id: 52
 slug: jsonl-log-sink
-status: active
+status: done
 branch: feature/jsonl-log-sink
 created: 2026-06-21T19:32:00-07:00
-concluded:
+concluded: 2026-06-22T19:45:24-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/181
 ---
 
@@ -159,3 +159,34 @@ Minor bump (additive logging feature; default behavior unchanged).
 - 2026-06-22 — Added a serialization-safety test: a message with embedded
   newlines/quotes/tabs stays one physical JSONL line and round-trips. Updated the PR
   description to reflect the JSONL-only (breaking) reality.
+- 2026-06-30 — Close gate: ran a high-effort code review over the branch diff
+  (correctness line-by-line, removed-behavior, cross-file tracer, cleanup). No
+  blocking findings; review posted to PR #181. Two candidates, both out of scope:
+  (1) `requests_searcher._handle_response_content` returns bytes on its exception
+  path while the success path returns str — pre-existing since 2025-03-28, not
+  touched by this PR (only its log line changed), so tracked separately as a
+  conscious no-op; (2) removing the text formatters breaks downstream after-the-fact
+  log parsers — intended and documented (native JSONL replaces the text parser for
+  new crawls), and that migration lives in the downstream repo. Removed-behavior
+  audit clean: no caller passes the removed `console_format`/`file_format` kwargs and
+  no code sets them on `LogConfig`. CI green on 3.12/3.13/3.14. Closed as done,
+  merged to dev.
+
+## Retrospective
+
+- The core spec (one `JsonlFormatter`, structured search event via `extra=`) landed
+  cleanly; the scope creep was all downstream of review, not the plan — an `event`
+  taxonomy, foreign-log attribution (`source`/`event: "external"`), null-field
+  dropping, and finally dropping text logs entirely. Each was a deliberate call
+  recorded in the Log, so the trail stayed readable.
+- Biggest divergence from the spec: it started additive ("default stays detailed")
+  and ended breaking (text formatters removed, `jsonl` the sole format). The
+  right move was to re-label it a breaking minor and mark the CHANGELOG accordingly
+  rather than force backward-compat nobody wanted.
+- The "message empty, data in fields" convention is the subtle part for downstream
+  consumers: pure event-marker lines carry no `message`, and every non-always key is
+  dropped when null — consumers must read optional keys with `.get(...)`. Worth
+  keeping front-and-center in any downstream migration.
+- Next time: when a plan's `### Versioning` note (additive/minor) is contradicted by
+  where the work actually lands (breaking), correct it in the same review pass that
+  makes the breaking change, not as a trailing nit.
