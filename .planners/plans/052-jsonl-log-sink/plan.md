@@ -1,11 +1,11 @@
 ---
 id: 52
 slug: jsonl-log-sink
-status: active
+status: done
 branch: feature/jsonl-log-sink
 created: 2026-06-21T19:32:00-07:00
-concluded:
-pr:
+concluded: 2026-06-22T19:45:24-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/181
 ---
 
 # Native JSONL crawl-log sink
@@ -89,3 +89,104 @@ consumes: `timestamp` (ISO-8601, ms), `pid`, `level`, `name`, `message`, `respon
 ### Versioning
 
 Minor bump (additive logging feature; default behavior unchanged).
+
+## Log
+
+- 2026-06-22 — Implemented on `feature/jsonl-log-sink` (PR #181). Added
+  `JsonlFormatter` registered as `"jsonl"` via the dictConfig `"()"` factory key;
+  `timestamp` is local tz-aware ISO-8601 with ms (`datetime.fromtimestamp(record.created).astimezone()`)
+  so JSONL and text logs from the same crawl share a wall-clock. Added
+  `tests/test_logger.py` (9 tests). Full suite: 543 passed, ruff + pyrefly clean.
+- 2026-06-22 — Deviated from the spec's `self.log.info("search", extra={...})`:
+  built `log_fields` once and used it for **both** a deterministic summary message
+  (`" | ".join(...)`, drops empty fields) **and** the structured `extra=`. The
+  spec's literal `"search"` message would have stripped response_code/qry/loc from
+  the default `detailed` text logs; the summary keeps text logs informative while
+  the JSONL sink still gets the full structured field set. Concurrency stayed on
+  the plain `FileHandler` append (the QueueHandler option was not needed).
+- 2026-06-22 — Schema expansion (review feedback): added a structured `event` field
+  to the JSONL schema and a **full event taxonomy** across every package log call
+  (`search`, `search_config`, `parse`, `save_*`, `init_driver`, `browser_info`,
+  `ai_expand`, `fetch`, `cleanup`, `delete_cookies`, `response`, `unzip`,
+  `ssh_tunnel`). Rule: `event` is always set on WebSearcher log calls; `message`
+  holds only the residual detail not encoded by `event`/fields and is `null` for
+  pure event-marker lines (e.g. the search event, `search_config`). Added a
+  `TextFormatter` that falls back to the `event` name when a record has no message,
+  so the text console never shows a blank line (non-mutating: formats a copy, so a
+  JSONL sink on the same logger still reads `message` as null). Final schema:
+  `timestamp, pid, level, name, event, message, response_code, qry, loc, output`.
+- 2026-06-22 — Logger name fix (review feedback): `SearchEngine` named its single
+  shared logger with `__name__` -> the repetitive `"WebSearcher.searchers.searchers"`
+  on every line. Switched to `__package__` -> `"WebSearcher.searchers"` (the operation
+  now lives in `event`, so `name` only needs to identify the subpackage).
+- 2026-06-22 — Dropped `name` from the JSONL schema (review feedback): it is constant
+  for WebSearcher's own logs, so the structured sink omits it; it stays in the human
+  text formatters (where `__package__` de-duplicated it).
+- 2026-06-22 — Added a `source` field to track foreign log lines (review feedback):
+  `source` is the originating logger name **only for non-WebSearcher records**
+  (urllib3/requests/asyncio bubbling up to the root file handler), `null` for our own
+  lines. `PACKAGE = __name__.split(".")[0]` gates it. This recovers attribution of
+  propagated third-party WARNING noise without re-adding a constant name. Final schema:
+  `timestamp, pid, level, event, message, response_code, qry, loc, output, source`.
+- 2026-06-22 — Drop null fields from emitted records (review feedback): only
+  `timestamp`/`pid`/`level` are always present; every other key appears only when
+  non-null (`output` switched to null-when-absent so it drops too). A parse/save/
+  foreign line no longer carries null `qry`/`loc`/`response_code`. Downstream
+  consumers must read optional keys with `.get(...)`. The schema is now the *maximal*
+  key set: `timestamp, pid, level, event, message, response_code, qry, loc, output,
+  source`, of which each line emits the applicable subset.
+- 2026-06-22 — Tag foreign logs `event: "external"` (review feedback): a non-WebSearcher
+  record now gets `event="external"` alongside its `source` (the originating logger name),
+  so third-party lines are filterable on either field. Ownership is decided by the logger
+  name prefix (`WebSearcher`/`WebSearcher.*`), so a record's event extra is honored only
+  for our own logs. Final schema unchanged.
+- 2026-06-22 — Full suite: 555 passed, ruff + pyrefly clean.
+- 2026-06-22 — Dropped text logs entirely (review decision: no backwards
+  compatibility). Removed the `TextFormatter`, the `minimal`/`medium`/`detailed`
+  formatters, and the `console_format`/`file_format` selectors from both `Logger`
+  and `LogConfig`; `jsonl` is now the sole format, so every console and file sink
+  emits the structured schema. This also moots the search-event text regression
+  surfaced in review: the search event logs an empty message with its data in
+  `extra=` (dropped from the JSONL line), and with no text formatter there is no
+  longer a sink that rendered the bare `event` name in place of the fields. Removed
+  the four `TextFormatter` unit tests. Suite: 551 passed, ruff + pyrefly clean.
+- 2026-06-22 — Versioning note correction (review nit): the spec's `### Versioning`
+  called this an additive minor bump with "default behavior unchanged". It stays a
+  minor bump (pre-1.0), but it is now a **breaking** change -- the default crawl-log
+  output format changed and the text formatters + `console_format`/`file_format`
+  params were removed. The CHANGELOG marks it `**Breaking (logging)**`. Removed params
+  are silently ignored by `LogConfig` (pydantic `extra="ignore"`), not rejected.
+- 2026-06-22 — Added a serialization-safety test: a message with embedded
+  newlines/quotes/tabs stays one physical JSONL line and round-trips. Updated the PR
+  description to reflect the JSONL-only (breaking) reality.
+- 2026-06-30 — Close gate: ran a high-effort code review over the branch diff
+  (correctness line-by-line, removed-behavior, cross-file tracer, cleanup). No
+  blocking findings; review posted to PR #181. Two candidates, both out of scope:
+  (1) `requests_searcher._handle_response_content` returns bytes on its exception
+  path while the success path returns str — pre-existing since 2025-03-28, not
+  touched by this PR (only its log line changed), so tracked separately as a
+  conscious no-op; (2) removing the text formatters breaks downstream after-the-fact
+  log parsers — intended and documented (native JSONL replaces the text parser for
+  new crawls), and that migration lives in the downstream repo. Removed-behavior
+  audit clean: no caller passes the removed `console_format`/`file_format` kwargs and
+  no code sets them on `LogConfig`. CI green on 3.12/3.13/3.14. Closed as done,
+  merged to dev.
+
+## Retrospective
+
+- The core spec (one `JsonlFormatter`, structured search event via `extra=`) landed
+  cleanly; the scope creep was all downstream of review, not the plan — an `event`
+  taxonomy, foreign-log attribution (`source`/`event: "external"`), null-field
+  dropping, and finally dropping text logs entirely. Each was a deliberate call
+  recorded in the Log, so the trail stayed readable.
+- Biggest divergence from the spec: it started additive ("default stays detailed")
+  and ended breaking (text formatters removed, `jsonl` the sole format). The
+  right move was to re-label it a breaking minor and mark the CHANGELOG accordingly
+  rather than force backward-compat nobody wanted.
+- The "message empty, data in fields" convention is the subtle part for downstream
+  consumers: pure event-marker lines carry no `message`, and every non-always key is
+  dropped when null — consumers must read optional keys with `.get(...)`. Worth
+  keeping front-and-center in any downstream migration.
+- Next time: when a plan's `### Versioning` note (additive/minor) is contradicted by
+  where the work actually lands (breaking), correct it in the same review pass that
+  makes the breaking change, not as a trailing nit.
