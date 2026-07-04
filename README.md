@@ -10,7 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
-- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default (run `patchright install chromium` once)
+- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default (run `patchright install chromium` once). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
 - `0.10.0`: Reliable `/sorry/` CAPTCHA detection, an automated weekly geotargets refresh, and richer two-tier parsed output (**breaking output**)
 - `0.9.0`: **Breaking** -- rewrote the parser onto `selectolax` for ~2x faster parsing (dropping BeautifulSoup + lxml) and shipped in-package demos via `ws-demo`
 
@@ -32,6 +32,7 @@ See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
         - [Result schema](#result-schema)
       - [4. Save HTML and Metadata](#4-save-html-and-metadata)
       - [5. Save Parsed Results](#5-save-parsed-results)
+      - [6. Close the Browser](#6-close-the-browser)
   - [Localization](#localization)
   - [Running on a headless server (Xvfb)](#running-on-a-headless-server-xvfb)
   - [Contributing](#contributing)
@@ -72,49 +73,43 @@ patchright install chromium
 
 WebSearcher ships runnable demos inside the package, so they work straight after `pip install WebSearcher`. Search and parse a query with `ws-demo search`, passing the query as the first argument:
 
+<!-- demo:search:start -->
 ```bash
 uv run ws-demo search "election news"
 ```
+<!-- demo:search:end -->
 
 This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse of one HTML file), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `ws-demo show` (add `--details` for a details column, `--list` to enumerate saved queries):
 
+<!-- demo:show:start -->
 ```bash
 uv run ws-demo show "election news"
 ```
 
 ```
-WebSearcher v0.9.0a0 | qry='election news' | 22 components
+WebSearcher v0.11.0 | qry='election news' | 15 components
 
 type              title                                                         url
 ----------------  ------------------------------------------------------------  ------------------------------------------------------------
-ad                Latest Election News                                          https://www.election-integrity.org/news
-top_stories       Latest on California governor election as public awaits r...  https://www.usatoday.com/story/news/politics/elections/20...
-top_stories       California election results still undecided as Los Angele...  https://www.foxnews.com/politics/california-election-resu...
-top_stories       California Governor Primary Election 2026 Live Results        https://www.nbcnews.com/politics/2026-primary-elections/c...
-local_news        San Mateo County elections division has more than 100K ba...  https://localnewsmatters.org/2026/06/05/san-mateo-county-...
-local_news        Sorry, Silicon Valley, it isn’t that easy to buy an election  https://sfstandard.com/2026/06/03/matt-mahan-silicon-vall...
-general           California pushes back on Trump's primary election ...        https://www.nbcsandiego.com/news/local/california-trump-c...
-general           5 things to know about California's election results          https://calmatters.org/politics/2026/06/primary-election-...
-videos            Latest on California governor, L.A. mayor primary electio...  https://www.youtube.com/watch?v=--eGQRVD6ms
-videos            KTLA 5 News Election Coverage: Votes continue to be ... Y...  https://www.youtube.com/watch?v=wMXxRGZHjKg
-general           Elections 2026                                                https://www.npr.org/sections/elections/
+top_stories       Jack Smith says he's 'very concerned what's going to happ...  https://www.cnbc.com/2026/07/02/jack-smith-trump-intervie...
+top_stories       Trump Is Getting Tired of Losing Election Cases               https://www.theatlantic.com/politics/2026/07/trump-electi...
+top_stories       Trump Promises Republicans They ‘Will Not Lose An Electio...  https://www.huffpost.com/entry/trump-republicans-election...
+top_stories       Trump Targets Not Just Georgia’s Vote, but Also Trust in ...  https://www.nytimes.com/2026/07/03/us/politics/trump-geor...
+top_stories       Keiko Fujimori declared winner of razor-edge Peru election    https://www.cnn.com/2026/07/03/americas/fujimori-wins-per...
+general           Governor Gavin Newsom marks Fourth of July with a call fo...  https://www.gov.ca.gov/2026/07/04/governor-gavin-newsom-m...
+general           Elections                                                     https://www.npr.org/sections/elections/
 general           Ballotpedia.org                                               https://ballotpedia.org/Main_Page
-general           Election Night Results                                        https://electionresults.sos.ca.gov/
+general           Newsom to unveil felony penalties for election interferen...  https://www.abc10.com/article/news/politics/newsom-to-unv...
+general           EAC News & Events | U.S. Election Assistance Commission       https://www.eac.gov/news-and-events
+general           'It's going to be a battle': How Dems plan to combat Trum...  https://www.youtube.com/watch?v=1-H7R4f_ZoE
+general           Election Night Results | 2026 Primary Election | Californ...  https://electionresults.sos.ca.gov/
+general           Election News, Polls and Results - 270toWin                   https://www.270towin.com/news/
+general           2026 Election Results: California and Bay Area Primary ...    https://www.kqed.org/voterguide
+searches_related
 ```
+<!-- demo:show:end -->
 
 By default, that script will save the outputs to a directory (`data/demo-ws-v{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
-
-```sh
-ls -hal data/demo-ws-v0.9.0a0/
-```
-```
-total 1020K
-drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 ./
-drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
--rw-r--r-- 1 user user  16K 2024-11-11 10:55 parsed.json
--rw-r--r-- 1 user user 2.0K 2024-11-11 10:55 searches.json
--rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
-```
 
 ### Step by Step 
 
@@ -127,7 +122,7 @@ se.search('election news')                 # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
 se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
-
+se.close()                                 # 6. Close the browser
 ```
 
 #### 1. Initialize Collector
@@ -149,9 +144,12 @@ se = ws.SearchEngine(
 
 #### 2. Conduct a Search
 
+Logs are emitted as JSON Lines -- one structured object per line, with only the
+keys that apply to the event:
+
 ```python
 se.search('election news')
-# 2026-05-26 09:14:22.318 | INFO | WebSearcher.searchers | 200 | election news
+# {"timestamp": "2026-07-04T13:37:12.399-07:00", "pid": 62981, "level": "INFO", "event": "search", "response_code": 200, "qry": "election news", "loc": ""}
 ```
 
 #### 3. Parse Search Results
@@ -167,12 +165,12 @@ se.parsed.results[0]
 {'section': 'main',
  'cmpt_rank': 0,
  'sub_rank': 0,
- 'type': 'ad',
- 'sub_type': 'standard',
- 'title': 'Latest Election News',
- 'url': 'https://www.election-integrity.org/news',
- 'text': 'Latest Election News',
- 'cite': 'https://www.election-integrity.org',
+ 'type': 'top_stories',
+ 'sub_type': None,
+ 'title': "Jack Smith says he's 'very concerned what's going to happen next election' under Trump",
+ 'url': 'https://www.cnbc.com/2026/07/02/jack-smith-trump-interview-doj.html',
+ 'text': None,
+ 'cite': None,
  'details': None,
  'serp_rank': 0}
 ```
@@ -225,6 +223,20 @@ Save to a json lines file.
 
 ```python
 se.save_parsed(append_to='parsed.json')
+```
+
+#### 6. Close the Browser
+
+The browser window stays open until the engine is closed -- close it explicitly
+when done, or use the engine as a context manager to close it automatically:
+
+```python
+se.close()
+
+# or scope the whole pipeline:
+with ws.SearchEngine() as se:
+    se.search('election news')
+    ...
 ```
 
 ---  
