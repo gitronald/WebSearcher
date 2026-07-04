@@ -2,6 +2,9 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
+| 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
+| 052 | [Native JSONL crawl-log sink](plans/052-jsonl-log-sink/plan.md) | done | 2026-06-22 19:45 PT | [#181](https://github.com/gitronald/WebSearcher/pull/181) |
+| 051 | [Drop all search backends except patchright and requests](plans/051-drop-extra-searchers/plan.md) | done | 2026-06-22 11:10 PT | [#177](https://github.com/gitronald/WebSearcher/pull/177) |
 | 049 | [Run the browser backends without a GUI via an Xvfb virtual display](plans/049-xvfb-virtual-display/plan.md) | done | 2026-06-21 16:29 PT | [#175](https://github.com/gitronald/WebSearcher/pull/175) |
 | 050 | [Move parsers.py into a parsers/ package](plans/050-move-parsers-to-package/plan.md) | done | 2026-06-21 13:29 PT | [#172](https://github.com/gitronald/WebSearcher/pull/172) |
 | 048 | [Detect CAPTCHA via the /sorry/ redirect URL and exit early](plans/048-captcha-exit-on-sorry-redirect/plan.md) | done | 2026-06-10 21:58 PT | [#170](https://github.com/gitronald/WebSearcher/pull/170) |

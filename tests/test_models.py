@@ -4,10 +4,10 @@ import pytest
 
 from WebSearcher.models.configs import (
     LogConfig,
+    PatchrightConfig,
     RequestsConfig,
     SearchConfig,
     SearchMethod,
-    SeleniumConfig,
 )
 from WebSearcher.models.data import BaseResult
 from WebSearcher.models.searches import SearchParams
@@ -41,21 +41,21 @@ def test_base_config_create_none():
 
 
 def test_search_method_from_string():
-    assert SearchMethod.create("selenium") == SearchMethod.SELENIUM
+    assert SearchMethod.create("patchright") == SearchMethod.PATCHRIGHT
     assert SearchMethod.create("requests") == SearchMethod.REQUESTS
 
 
 def test_search_method_case_insensitive():
-    assert SearchMethod.create("SELENIUM") == SearchMethod.SELENIUM
+    assert SearchMethod.create("PATCHRIGHT") == SearchMethod.PATCHRIGHT
     assert SearchMethod.create("Requests") == SearchMethod.REQUESTS
 
 
 def test_search_method_from_enum():
-    assert SearchMethod.create(SearchMethod.SELENIUM) == SearchMethod.SELENIUM
+    assert SearchMethod.create(SearchMethod.PATCHRIGHT) == SearchMethod.PATCHRIGHT
 
 
 def test_search_method_default():
-    assert SearchMethod.create(None) == SearchMethod.SELENIUM
+    assert SearchMethod.create(None) == SearchMethod.PATCHRIGHT
 
 
 def test_search_method_invalid_string():
@@ -68,20 +68,20 @@ def test_search_method_invalid_type():
         SearchMethod.create(123)
 
 
-# SeleniumConfig ---------------------------------------------------------------
+# PatchrightConfig -------------------------------------------------------------
 
 
-def test_selenium_config_defaults():
-    cfg = SeleniumConfig()
+def test_patchright_config_defaults():
+    cfg = PatchrightConfig()
     assert cfg.headless is False
-    assert cfg.version_main is None
-    assert cfg.use_subprocess is False
+    assert cfg.channel == "chrome"
+    assert cfg.user_data_dir == ""
 
 
-def test_selenium_config_create():
-    cfg = SeleniumConfig.create({"headless": True, "version_main": 130})
+def test_patchright_config_create():
+    cfg = PatchrightConfig.create({"headless": True, "channel": "chromium"})
     assert cfg.headless is True
-    assert cfg.version_main == 130
+    assert cfg.channel == "chromium"
 
 
 # RequestsConfig ---------------------------------------------------------------
@@ -104,9 +104,9 @@ def test_requests_config_sesh():
 
 def test_search_config_defaults():
     cfg = SearchConfig()
-    assert cfg.method == SearchMethod.SELENIUM
+    assert cfg.method == SearchMethod.PATCHRIGHT
     assert isinstance(cfg.log, LogConfig)
-    assert isinstance(cfg.selenium, SeleniumConfig)
+    assert isinstance(cfg.patchright, PatchrightConfig)
     assert isinstance(cfg.requests, RequestsConfig)
 
 

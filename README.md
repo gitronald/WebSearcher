@@ -3,17 +3,16 @@
 [![PyPI version](https://badge.fury.io/py/WebSearcher.svg)](https://badge.fury.io/py/WebSearcher)
 
 This package provides tools for conducting algorithm audits of web search and 
-includes a scraper built on `selenium` with tools for geolocating, conducting, 
-and saving searches. It also includes a modular parser built on `selectolax` 
-for decomposing a SERP into list of components with categorical classifications 
-and position-based specifications. 
+includes tools for geolocating, conducting, and saving searches that are built 
+around `patchright`. It also includes a modular parser built on `selectolax` 
+for quickly decomposing a SERP into list of components with categorical 
+classifications and position-based specifications. 
 
 ## Recent Changes
 
-- `0.10.2`: Documented running the browser backends without a GUI -- on a headless server, CI runner, or container -- via an Xvfb virtual display (new README section); the backends must run headed, so a no-display host needs a virtual display
-- `0.10.1`: Reorganized the flat parse modules into a single `WebSearcher.parsers` package (public entrypoints unchanged; deep imports of the old flat paths must switch) and hardened the parse pipeline -- every component is classified before any is parsed, and `Component.to_dict()` now returns a copy -- with output byte-identical (snapshot-pinned). Also dropped the `snakeviz`/`ipykernel` dev dependencies to evict the transitive `tornado` advisories
-- `0.10.0`: Reliable CAPTCHA detection from the `/sorry/` block-redirect URL (not just the page text), with the browser backends capturing the live URL and HTML on a blocked request. Automated the geotargets locations refresh (`update_locations_file`, a tracked CSV + ledger, and a weekly cron). Richer parsed output under the two-tier result schema — right-hand knowledge-panel entity facts, `evlb_*` video `details`, item `visible`/`timestamp` flags, and the per-result `error` moved into `details` (**breaking output**); `local_results` `sub_type` is now a closed set (**breaking output**). Added `SearchEngine.to_record()`/`save_record()`, optimized the parse hot path, and renamed the internal `search_methods` subpackage to `searchers` (the public `SearchEngine` imports are unchanged)
-- `0.9.0`: **Breaking** internal rewrite of the parse pipeline onto `selectolax` (lexbor backend) for ~2x faster parsing, dropping the BeautifulSoup + lxml runtime dependencies. The `parse_serp`/`SearchEngine` API and output schema are unchanged, but `make_soup`/`load_soup` now return a `selectolax` node and the right-hand knowledge-panel rows are retyped to `type=side_bar`. Also broadens `kp-wholepage` knowledge-panel coverage, adds `election_*` component types and a `features.main_layout` field, and ships the demos in-package via a single `ws-demo` command
+- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default and drives an installed Google Chrome (`patchright install chrome` if missing). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
+- `0.10.0`: Reliable `/sorry/` CAPTCHA detection, an automated weekly geotargets refresh, and richer two-tier parsed output (**breaking output**)
+- `0.9.0`: **Breaking** -- rewrote the parser onto `selectolax` for ~2x faster parsing (dropping BeautifulSoup + lxml) and shipped in-package demos via `ws-demo`
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
 
@@ -30,8 +29,10 @@ See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
       - [1. Initialize Collector](#1-initialize-collector)
       - [2. Conduct a Search](#2-conduct-a-search)
       - [3. Parse Search Results](#3-parse-search-results)
+        - [Result schema](#result-schema)
       - [4. Save HTML and Metadata](#4-save-html-and-metadata)
       - [5. Save Parsed Results](#5-save-parsed-results)
+      - [6. Close the Browser](#6-close-the-browser)
   - [Localization](#localization)
   - [Running on a headless server (Xvfb)](#running-on-a-headless-server-xvfb)
   - [Contributing](#contributing)
@@ -57,6 +58,17 @@ uv add WebSearcher
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
+The default `patchright` browser backend drives Google Chrome
+(`channel="chrome"`), which pip can't install automatically. If Chrome
+isn't already installed, run this once after installing:
+
+```bash
+patchright install chrome
+```
+
+Or use patchright's bundled Chromium instead: run `patchright install chromium`
+and pass `patchright_config={"channel": "chromium"}`.
+
 ---  
 ## Usage
 
@@ -64,53 +76,47 @@ pip install git+https://github.com/gitronald/WebSearcher@dev
 
 WebSearcher ships runnable demos inside the package, so they work straight after `pip install WebSearcher`. Search and parse a query with `ws-demo search`, passing the query as the first argument:
 
+<!-- demo:search:start -->
 ```bash
 uv run ws-demo search "election news"
 ```
+<!-- demo:search:end -->
 
 This collects the SERP, parses it, and saves the outputs (described below). The other demos run the same way: `ws-demo parse <file>` (offline parse of one HTML file), `ws-demo searches` (a battery of queries spanning component types), `ws-demo headers <query>` (custom request headers), and `ws-demo locations <query>` (localized search). Search results change constantly, especially for news, but you can review the parsed components of any saved query with `ws-demo show` (add `--details` for a details column, `--list` to enumerate saved queries):
 
+<!-- demo:show:start -->
 ```bash
 uv run ws-demo show "election news"
 ```
 
 ```
-WebSearcher v0.9.0a0 | qry='election news' | 22 components
+WebSearcher v0.11.0 | qry='election news' | 15 components
 
 type              title                                                         url
 ----------------  ------------------------------------------------------------  ------------------------------------------------------------
-ad                Latest Election News                                          https://www.election-integrity.org/news
-top_stories       Latest on California governor election as public awaits r...  https://www.usatoday.com/story/news/politics/elections/20...
-top_stories       California election results still undecided as Los Angele...  https://www.foxnews.com/politics/california-election-resu...
-top_stories       California Governor Primary Election 2026 Live Results        https://www.nbcnews.com/politics/2026-primary-elections/c...
-local_news        San Mateo County elections division has more than 100K ba...  https://localnewsmatters.org/2026/06/05/san-mateo-county-...
-local_news        Sorry, Silicon Valley, it isn’t that easy to buy an election  https://sfstandard.com/2026/06/03/matt-mahan-silicon-vall...
-general           California pushes back on Trump's primary election ...        https://www.nbcsandiego.com/news/local/california-trump-c...
-general           5 things to know about California's election results          https://calmatters.org/politics/2026/06/primary-election-...
-videos            Latest on California governor, L.A. mayor primary electio...  https://www.youtube.com/watch?v=--eGQRVD6ms
-videos            KTLA 5 News Election Coverage: Votes continue to be ... Y...  https://www.youtube.com/watch?v=wMXxRGZHjKg
-general           Elections 2026                                                https://www.npr.org/sections/elections/
+top_stories       Jack Smith says he's 'very concerned what's going to happ...  https://www.cnbc.com/2026/07/02/jack-smith-trump-intervie...
+top_stories       Trump Is Getting Tired of Losing Election Cases               https://www.theatlantic.com/politics/2026/07/trump-electi...
+top_stories       Trump Promises Republicans They ‘Will Not Lose An Electio...  https://www.huffpost.com/entry/trump-republicans-election...
+top_stories       Trump Targets Not Just Georgia’s Vote, but Also Trust in ...  https://www.nytimes.com/2026/07/03/us/politics/trump-geor...
+top_stories       Keiko Fujimori declared winner of razor-edge Peru election    https://www.cnn.com/2026/07/03/americas/fujimori-wins-per...
+general           Governor Gavin Newsom marks Fourth of July with a call fo...  https://www.gov.ca.gov/2026/07/04/governor-gavin-newsom-m...
+general           Elections                                                     https://www.npr.org/sections/elections/
 general           Ballotpedia.org                                               https://ballotpedia.org/Main_Page
-general           Election Night Results                                        https://electionresults.sos.ca.gov/
+general           Newsom to unveil felony penalties for election interferen...  https://www.abc10.com/article/news/politics/newsom-to-unv...
+general           EAC News & Events | U.S. Election Assistance Commission       https://www.eac.gov/news-and-events
+general           'It's going to be a battle': How Dems plan to combat Trum...  https://www.youtube.com/watch?v=1-H7R4f_ZoE
+general           Election Night Results | 2026 Primary Election | Californ...  https://electionresults.sos.ca.gov/
+general           Election News, Polls and Results - 270toWin                   https://www.270towin.com/news/
+general           2026 Election Results: California and Bay Area Primary ...    https://www.kqed.org/voterguide
+searches_related
 ```
+<!-- demo:show:end -->
 
-By default, that script will save the outputs to a directory (`data/demo-ws-{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
-
-```sh
-ls -hal data/demo-ws-v0.9.0a0/
-```
-```
-total 1020K
-drwxr-xr-x 2 user user 4.0K 2024-11-11 10:55 ./
-drwxr-xr-x 8 user user 4.0K 2024-11-11 10:54 ../
--rw-r--r-- 1 user user  16K 2024-11-11 10:55 parsed.json
--rw-r--r-- 1 user user 2.0K 2024-11-11 10:55 searches.json
--rw-r--r-- 1 user user 990K 2024-11-11 10:55 serps.json
-```
+By default, that script will save the outputs to a directory (`data/demo-ws-v{version}/`) as JSON lines files: `serps.json` (the HTML plus search metadata), `parsed.json` (the parsed results and features), and `searches.json` (the search metadata only, excluding HTML).
 
 ### Step by Step 
 
-Example search and parse pipeline (via requests):
+Example search and parse pipeline:
 
 ```python
 import WebSearcher as ws
@@ -119,7 +125,7 @@ se.search('election news')                 # 2. Conduct a search
 se.parse_serp()                            # 3. Parse search results
 se.save_serp(append_to='serps.json')       # 4. Save HTML and metadata
 se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
-
+se.close()                                 # 6. Close the browser
 ```
 
 #### 1. Initialize Collector
@@ -127,23 +133,27 @@ se.save_parsed(append_to='parsed.json')    # 5. Save parsed results
 ```python
 import WebSearcher as ws
 
-# Initialize collector with method and other settings
+# Initialize collector with method and other settings.
+# `patchright` is the default browser backend; it drives your installed
+# Google Chrome (channel="chrome").
 se = ws.SearchEngine(
-    method="selenium", 
-    selenium_config = {
+    method="patchright", 
+    patchright_config = {
         "headless": False,
-        "use_subprocess": False,
-        "driver_executable_path": "",
-        "version_main": None,  # auto-detected from installed Chrome when None
+        "channel": "chrome",
+        "user_data_dir": "",  # a temp profile is created when empty
     }
 )
 ```   
 
 #### 2. Conduct a Search
 
+Logs are emitted as JSON Lines -- one structured object per line, with only the
+keys that apply to the event:
+
 ```python
 se.search('election news')
-# 2026-05-26 09:14:22.318 | INFO | WebSearcher.searchers | 200 | election news
+# {"timestamp": "2026-07-04T13:37:12.399-07:00", "pid": 62981, "level": "INFO", "event": "search", "response_code": 200, "qry": "election news", "loc": ""}
 ```
 
 #### 3. Parse Search Results
@@ -159,12 +169,12 @@ se.parsed.results[0]
 {'section': 'main',
  'cmpt_rank': 0,
  'sub_rank': 0,
- 'type': 'ad',
- 'sub_type': 'standard',
- 'title': 'Latest Election News',
- 'url': 'https://www.election-integrity.org/news',
- 'text': 'Latest Election News',
- 'cite': 'https://www.election-integrity.org',
+ 'type': 'top_stories',
+ 'sub_type': None,
+ 'title': "Jack Smith says he's 'very concerned what's going to happen next election' under Trump",
+ 'url': 'https://www.cnbc.com/2026/07/02/jack-smith-trump-interview-doj.html',
+ 'text': None,
+ 'cite': None,
  'details': None,
  'serp_rank': 0}
 ```
@@ -172,9 +182,9 @@ se.parsed.results[0]
 ##### Result schema
 
 Every result shares the same lean **core** fields (`type`, `sub_type`, `title`,
-`url`, `text`, `cite`, plus the `section` / `cmpt_rank` / `sub_rank` / `serp_rank`
-rank metadata). Anything extra lives in **`details`**, which is either `None`
-(a clean row) or a dict that always carries a `type`:
+`url`, `text`, `cite`, plus the `section` / `cmpt_rank` / `sub_rank` / 
+`serp_rank` rank metadata). Anything extra lives in **`details`**, which is 
+either `None` (a clean row) or a dict that always carries a `type`:
 
 ```python
 # clean row -- nothing extra
@@ -219,13 +229,34 @@ Save to a json lines file.
 se.save_parsed(append_to='parsed.json')
 ```
 
+#### 6. Close the Browser
+
+The browser window stays open until the engine is closed -- close it explicitly
+when done, or use the engine as a context manager to close it automatically:
+
+```python
+se.close()
+
+# or scope the whole pipeline:
+with ws.SearchEngine() as se:
+    se.search('election news')
+    ...
+```
+
 ---  
 ## Localization
 
 To conduct localized searches--from a location of your choice--you only need  
-one additional data point: The __"Canonical Name"__ of each location. These are  
-available online, and can be downloaded using a built in function  
-(`ws.download_locations()`) to check for the most recent version.  
+one additional data point: The __"Canonical Name"__ of each location.  
+
+The latest dataset is shipped in this repository at  
+[`data/locations/geotargets.csv`](data/locations/geotargets.csv). 
+An accompanying [`data/locations/ledger.csv`](data/locations/ledger.csv) 
+records the upstream release each refresh pulled. The committed copies of these
+two files are kept current automatically by a weekly workflow. Details on this 
+are available in the [GitHub Actions](#github-actions) section ("Update 
+locations") below. You can also fetch the most recent version yourself by using
+the built-in `ws.download_locations()`.  
 
 A brief guide on how to select a canonical name and use it to conduct a  
 localized search is available in a [jupyter notebook here](https://gist.github.com/gitronald/45bad10ca2b78cf4ec1197b542764e05).  
@@ -234,16 +265,15 @@ localized search is available in a [jupyter notebook here](https://gist.github.c
 ---
 ## Running on a headless server (Xvfb)
 
-The browser backends (`selenium` -- the default -- plus the optional `patchright` and
-`zendriver`) drive a **real, visible** Chrome: search engines reliably block Chrome's own
-`--headless` mode, so the browser must run *headed*. On a server, CI runner, or container with
-no display (`$DISPLAY` unset), a headed Chrome has nothing to attach to and won't launch. (The
-`requests` backend is pure HTTP and needs no display -- this only applies to the browser
-backends.)
+The `patchright` backend (the default) drives a **real, visible** Chrome: 
+Chrome's own `--headless` mode can be reliably blocked, so the browser must run
+*headed*. On a server, CI runner, or container with no display (`$DISPLAY` 
+unset), a headed Chrome has nothing to attach to and won't launch.
 
-The fix is [**Xvfb**](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml), an in-memory X
-display server: it lets Chrome run genuinely headed -- no headless code path, no monitor, no
-GPU. Install it (Debian/Ubuntu):
+The fix is [**Xvfb**](https://www.x.org/releases/X11R7.7/doc/man/Xvfb.1.xhtml), 
+an in-memory X display server: it lets Chrome run genuinely headed -- no 
+headless code path, no monitor, no GPU. This applies to Linux only (macOS Chrome
+uses the native window server, not X11). Install it (Debian/Ubuntu):
 
 ```bash
 sudo apt-get install -y xvfb
@@ -256,25 +286,24 @@ env -u DISPLAY xvfb-run -a --server-args="-screen 0 1920x1080x24" \
   python your_collection_script.py
 ```
 
-- `env -u DISPLAY` removes any inherited display so the run can't silently fall back to a real
-  one (e.g. an X-forwarded SSH session) -- the display Xvfb creates is then the only one in scope.
+- `env -u DISPLAY` removes any inherited display so the run can't silently fall back to a real one (e.g. an X-forwarded SSH session) -- the display Xvfb creates is then the only one in scope.
 - `xvfb-run -a` auto-picks a free display number, so concurrent jobs don't collide.
-- `-screen 0 1920x1080x24` gives a realistic window geometry.
+- `-screen 0 1920x1080x24` gives a realistic window geometry. The `1920x1080x24` is `width x height x depth` -- a 1920x1080 framebuffer at 24-bit (true-color) depth, i.e. a standard 1080p desktop.
 
 The collection code itself is unchanged:
 
 ```python
 import WebSearcher as ws
 
-se = ws.SearchEngine()            # default browser backend, headed
+se = ws.SearchEngine()
 se.search("immigration news")
 se.parse_serp()
 se.save_serp(append_to="serps.json")
 ```
 
-If you parallelize collection across processes, one shared Xvfb covers them all -- child
-workers inherit the parent's `DISPLAY`, so wrap the top-level command once rather than starting
-an Xvfb per worker.
+If you parallelize collection across processes, one shared Xvfb covers them 
+all. Child workers inherit the parent's `DISPLAY`, so wrap the top-level 
+command once rather than starting an Xvfb per worker.
 
 
 ---
@@ -290,9 +319,10 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 
 ### Add a Parser
 
-1. Add classifier to `classifiers/{main,footer,headers}.py`  
-2. Add parser as new file in `/parsers/components`  
-3. Add new parser to imports and catalogue in `/parsers/components/__init__.py`  
+1. Register the component type in `parsers/component_types.py` -- the single source of truth for `name`, `label`, `sections`, and (for header-text classification) `header_texts`. Dispatch and classification are derived from this registry.  
+2. Add classifier to `classifiers/{main,footer,headers}.py` for structural signals (header-text matches instead go in the registry's `header_texts`)  
+3. Add parser as new file in `/parsers/components`  
+4. Add new parser to imports and the `PARSERS` catalogue in `/parsers/components/__init__.py` (its section dispatch and label are derived by joining this against the registry, so the `name` must match step 1)  
 
 ### Testing
 
@@ -327,22 +357,26 @@ uv run pytest tests/ --snapshot-update
 ---
 ## GitHub Actions
 
-**Test Workflow** (`.github/workflows/test.yml`)
-Runs the test suite on every push to `dev`.
+**Tests** (`.github/workflows/test.yml`)  
+Runs on every push and pull request to `dev`, `master`, and `feature/**` branches, across a Python 3.12 / 3.13 / 3.14 matrix: `ruff check`, `ruff format --check`, `pyrefly check`, then `pytest` with coverage.
 
-**Release Workflow** (`.github/workflows/publish.yml`)
-Publishes to PyPI when a pull request is merged into `master`:
-- Builds the package using uv
-- Publishes using trusted publishing (no API tokens required)
+**Publish** (`.github/workflows/publish.yml`)  
+Triggered by pushing a `v*` tag. Builds the package with `uv build` and publishes to PyPI via trusted publishing (no API tokens). It only runs when the repository variable `PUBLISH_ENABLED` is `"true"`; otherwise both jobs skip. For instructions on how to set this, see: [Enable or disable PyPI publishing](.planners/guides/enable-pypi-publishing.md).
+
+**Update locations** (`.github/workflows/update-locations.yml`)  
+Weekly cron (Mondays 06:00 UTC) plus manual dispatch. Refreshes the geotargets CSV (`python -m WebSearcher.locations`) and opens a PR only when the data changed.
+
+**Renovate** (`.github/workflows/renovate.yml`)  
+Weekly cron plus manual dispatch. Self-hosted [Renovate](https://docs.renovatebot.com/) opens dependency-update PRs (config in `.github/renovate.json`).
 
 To release a new version:
-1. Merge `dev` into `master` via PR
-2. Once merged, the package is automatically published to PyPI
+1. Tag a `vX.Y.Z` release on `master`.
+2. Pushing the tag runs the publish workflow, which builds and uploads to PyPI (when `PUBLISH_ENABLED` is `"true"`).
 
 ---
 ## Similar Packages
 
-Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 45 without considering `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
+Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 46 registered in `parsers/component_types.py`, before counting `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
 
 - https://github.com/jarun/googler
 - http://googolplex.sourceforge.net

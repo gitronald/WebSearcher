@@ -1,8 +1,9 @@
-"""Proof-of-concept patchright backend (plan 039) — "undetected" Playwright fork.
+"""Patchright browser backend — an "undetected" Playwright fork (plan 039).
 
-Uses the sync API with a persistent context on the system Chrome channel, the
-setup patchright documents as its stealth baseline. Lifecycle is fully
-deterministic: ``context.close()`` + ``playwright.stop()``.
+The default browser backend (plan 051). Uses the sync API with a persistent
+context on the system Chrome channel, the setup patchright documents as its
+stealth baseline. Lifecycle is fully deterministic: ``context.close()`` +
+``playwright.stop()``.
 """
 
 import shutil
@@ -18,7 +19,7 @@ from ..models.configs import PatchrightConfig
 from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
 
-# CSS equivalents of the selenium backend's AI-overview XPaths
+# CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
 
@@ -43,11 +44,6 @@ class PatchrightSearcher:
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
 
-    def _start_playwright(self) -> Any:
-        from patchright.sync_api import sync_playwright
-
-        return sync_playwright().start()
-
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
         user_data_dir = self.config.user_data_dir
@@ -57,9 +53,12 @@ class PatchrightSearcher:
 
         self.log.debug(
             f"SERP | init {self.driver_name} | channel: {self.config.channel} | "
-            f"headless: {self.config.headless} | user_data_dir: {user_data_dir}"
+            f"headless: {self.config.headless} | user_data_dir: {user_data_dir}",
+            extra={"event": "init_driver"},
         )
-        self.playwright = self._start_playwright()
+        from patchright.sync_api import sync_playwright
+
+        self.playwright = sync_playwright().start()
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=user_data_dir,
             channel=self.config.channel,
@@ -81,7 +80,10 @@ class PatchrightSearcher:
         self.browser_info["browser_id"] = utils.hash_id(
             orjson.dumps(self.browser_info).decode("utf-8")
         )
-        self.log.debug(orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2))
+        self.log.debug(
+            orjson.dumps(self.browser_info, option=orjson.OPT_INDENT_2).decode("utf-8"),
+            extra={"event": "browser_info"},
+        )
 
     def send_request(self, search_params: SearchParams) -> ResponseOutput:
         """Visit a URL with patchright and save HTML response"""
@@ -110,11 +112,16 @@ class PatchrightSearcher:
                 expanded_html = self.expand_ai_overview()
                 if expanded_html:
                     len_diff = len(expanded_html) - len(response_output.html)
-                    self.log.debug(f"SERP | expanded html | len diff: {len_diff}")
+                    self.log.debug(
+                        f"SERP | expanded html | len diff: {len_diff}",
+                        extra={"event": "ai_expand"},
+                    )
                     response_output.html = expanded_html
 
         except Exception as e:
-            self.log.exception(f"SERP | {self.driver_name} error | {str(e)}")
+            self.log.exception(
+                f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
+            )
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
@@ -166,10 +173,12 @@ class PatchrightSearcher:
             if self.context is not None:
                 self.context.close()
             self.playwright.stop()
-            self.log.debug("Browser successfully closed")
+            self.log.debug("Browser successfully closed", extra={"event": "cleanup"})
             return True
         except Exception as e:
-            self.log.debug(f"Browser already closed or unreachable: {e}")
+            self.log.debug(
+                f"Browser already closed or unreachable: {e}", extra={"event": "cleanup"}
+            )
             return False
         finally:
             self.playwright = None
@@ -185,7 +194,9 @@ class PatchrightSearcher:
             try:
                 self.context.clear_cookies()
             except Exception as e:
-                self.log.debug(f"Failed to delete cookies: {str(e)}")
+                self.log.debug(
+                    f"Failed to delete cookies: {str(e)}", extra={"event": "delete_cookies"}
+                )
 
     def __del__(self):
         """Destructor to ensure browser is closed when object is garbage collected"""
@@ -193,16 +204,3 @@ class PatchrightSearcher:
             self.cleanup()
         except Exception:
             pass
-
-
-class PlaywrightSearcher(PatchrightSearcher):
-    """Plain-playwright variant of the patchright PoC — same contract and config,
-    unpatched upstream driver. Exists to test whether patchright's stealth patches
-    are actually needed for Google SERPs."""
-
-    driver_name = "playwright"
-
-    def _start_playwright(self) -> Any:
-        from playwright.sync_api import sync_playwright
-
-        return sync_playwright().start()
