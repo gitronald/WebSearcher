@@ -4,7 +4,7 @@ Welcome to the WebSearcher repository. This document outlines how a cloud agent 
 
 ## Overview
 
-WebSearcher is a Python package for conducting algorithm audits of web search. It uses `selenium` for geolocating and executing searches, and `selectolax` for parsing the resulting SERPs (Search Engine Results Pages) into categorized components.
+WebSearcher is a Python package for conducting algorithm audits of web search. It uses `patchright` for geolocating and executing searches, and `selectolax` for parsing the resulting SERPs (Search Engine Results Pages) into categorized components.
 
 ## Technical Stack & Commands
 

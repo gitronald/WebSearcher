@@ -10,7 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
-- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default (run `patchright install chromium` once). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
+- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default and drives an installed Google Chrome (`patchright install chrome` if missing). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
 - `0.10.0`: Reliable `/sorry/` CAPTCHA detection, an automated weekly geotargets refresh, and richer two-tier parsed output (**breaking output**)
 - `0.9.0`: **Breaking** -- rewrote the parser onto `selectolax` for ~2x faster parsing (dropping BeautifulSoup + lxml) and shipped in-package demos via `ws-demo`
 
@@ -58,13 +58,16 @@ uv add WebSearcher
 pip install git+https://github.com/gitronald/WebSearcher@dev
 ```
 
-The default `patchright` browser backend needs its Chrome binary,
-which pip can't install automatically. Run this once after
-installing:
+The default `patchright` browser backend drives Google Chrome
+(`channel="chrome"`), which pip can't install automatically. If Chrome
+isn't already installed, run this once after installing:
 
 ```bash
-patchright install chromium
+patchright install chrome
 ```
+
+Or use patchright's bundled Chromium instead: run `patchright install chromium`
+and pass `patchright_config={"channel": "chromium"}`.
 
 ---  
 ## Usage
@@ -131,7 +134,8 @@ se.close()                                 # 6. Close the browser
 import WebSearcher as ws
 
 # Initialize collector with method and other settings.
-# `patchright` is the default browser backend; run `patchright install chromium` once.
+# `patchright` is the default browser backend; it drives your installed
+# Google Chrome (channel="chrome").
 se = ws.SearchEngine(
     method="patchright", 
     patchright_config = {
