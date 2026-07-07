@@ -26,6 +26,8 @@ def parse_locations(elem) -> list:
 
 
 def classify_locations_sub_type(node: Node) -> str:
+    if node.css_first('a[href*="/local/places/hotel/"]') is not None:
+        return "hotels"
     heading = node.css_first('[role="heading"]')
     if heading is not None:
         text = get_text(heading, strip=True) or ""
@@ -48,6 +50,28 @@ def parse_hotels(node: Node) -> list:
         if name_div is None:
             continue
         items.append(_parse_hotel_item(a, len(items)))
+
+    # Card carousel variant ("Similar to <hotel>" / "Popular hotels in <place>"):
+    # per card one name span and one local/places anchor, siblings inside the
+    # card wrapper (the anchor is an overlay, not the content container), and
+    # no /travel/ item links. Walk up from each name span to the smallest
+    # wrapper that also holds the card's anchor.
+    if not items:
+        seen_cards: set[int] = set()
+        for name_span in node.css("span.Yt787"):
+            card = name_span.parent
+            for _ in range(6):
+                if card is None:
+                    break
+                if card.css_first('a[href*="/local/places/hotel/"]') is not None:
+                    break
+                card = card.parent
+            if card is None or card.mem_id in seen_cards:
+                continue
+            if card.css_first('a[href*="/local/places/hotel/"]') is None:
+                continue
+            seen_cards.add(card.mem_id)
+            items.append(_parse_hotel_card(card, name_span, len(items)))
 
     if not items:
         return [
@@ -78,6 +102,24 @@ def _parse_hotel_item(a: Node, sub_rank: int) -> dict:
         "text": get_text(desc_div, strip=True) if desc_div is not None else None,
         "cite": None,
         "details": _parse_hotel_details(price_span, rating_span, reviews_span, stars_span),
+    }
+
+
+def _parse_hotel_card(card: Node, name_span: Node, sub_rank: int) -> dict:
+    a = card.css_first('a[href*="/local/places/hotel/"]')
+    price_span = card.css_first("span.rDUZLd")
+    rating_span = card.css_first("span.yi40Hd")
+    reviews_span = card.css_first("span.RDApEe")
+
+    return {
+        "type": "locations",
+        "sub_type": "hotels",
+        "sub_rank": sub_rank,
+        "title": get_text(name_span, strip=True),
+        "url": a.attributes.get("href") if a is not None else None,
+        "text": None,
+        "cite": None,
+        "details": _parse_hotel_details(price_span, rating_span, reviews_span, None),
     }
 
 

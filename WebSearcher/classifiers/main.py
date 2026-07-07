@@ -197,10 +197,13 @@ class ClassifyMain:
             (ClassifyMain.people_also_ask, None),
             (ClassifyMain.knowledge_box, None),
             (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
-            # Must stay last: the EYwa3d controller it keys on also lives inside
-            # components other classifiers own (knowledge panels embedding an
-            # AI-overview module, Fzsovc-marked overviews), so it may only claim
-            # components nothing above typed.
+            # End-of-chain rules: each keys on a signal that also lives inside
+            # components other classifiers own (knowledge panels embed lab/
+            # attribute modules and AI-overview controllers; kp hotel sections
+            # carry travel links), so they may only claim components nothing
+            # above typed.
+            (ClassifyMain.knowledge_submodule, None),
+            (ClassifyMain.hotel_carousel, None),
             (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
 
@@ -264,7 +267,9 @@ class ClassifyMain:
     @staticmethod
     def flights(cmpt) -> str:
         node: Node = cmpt
-        heading = node.css_first('[role="heading"]')
+        # The flight-status widget renders its heading as a bare <h2> with no
+        # role="heading", so check both.
+        heading = node.css_first('[role="heading"]') or node.css_first("h2")
         if heading is not None and (get_text(heading, strip=True) or "").startswith("Flight"):
             return "flights"
         return "unknown"
@@ -363,6 +368,60 @@ class ClassifyMain:
         node: Node = cmpt
         if node.css_first('div[jscontroller="EYwa3d"]') is not None:
             return "ai_overview"
+        return "unknown"
+
+    # Heading texts for knowledge-panel submodules with no structural signal
+    # (no data-attrid / custom element). Checked only by the end-of-chain
+    # ``knowledge_submodule`` rule, so they cannot steal from earlier
+    # classifiers the way a ``header_texts`` registration (position 5) could
+    # -- e.g. a local_results restaurant pack that also lists menu highlights.
+    _KNOWLEDGE_SUBMODULE_HEADINGS = ("Menu highlights", "Things to do", "Showtimes at")
+
+    @staticmethod
+    def knowledge_submodule(cmpt) -> str:
+        """Classify knowledge-panel submodules splatted into the main column.
+
+        Standalone entity-attribute modules (Movies, Played by, Calories, ...)
+        carry ``lab/title/*`` / ``lab/content/*`` attrids; core-answer
+        breadcrumb modules ("<entity> > <attribute>") carry
+        ``CoreAnswerModuleHeader``; sports modules carry ``TLOsrp*`` attrids
+        (match lists, standings) or an ``sp-table`` squad table.
+        """
+        node: Node = cmpt
+        if (
+            node.css_first(
+                '[data-attrid^="lab/title/"], [data-attrid^="lab/content/"], '
+                '[data-attrid="CoreAnswerModuleHeader"], [data-attrid^="TLOsrp"]'
+            )
+            is not None
+            or node.css_first("sp-table") is not None
+        ):
+            return "knowledge"
+        heading = node.css_first('[aria-level="2"][role="heading"]')
+        if heading is not None:
+            text = get_text(heading, " ", strip=True) or ""
+            if text.startswith(ClassifyMain._KNOWLEDGE_SUBMODULE_HEADINGS):
+                return "knowledge"
+        return "unknown"
+
+    @staticmethod
+    def hotel_carousel(cmpt) -> str:
+        """Classify hotel carousels whose heading evades the ``locations`` rule.
+
+        "Similar to <hotel>" / "Popular hotels in <place>" / "More <brand>"
+        carousels vary their heading freely, but every card links to
+        ``search.google.com/local/places/hotel/`` or pairs a ``/travel/search``
+        link with a hotel-name div -- the same structures ``parse_hotels``
+        extracts from.
+        """
+        node: Node = cmpt
+        if node.css_first('a[href*="/local/places/hotel/"]') is not None:
+            return "locations"
+        if (
+            node.css_first('a[href*="/travel/search"]') is not None
+            and node.css_first("div.sxdlOc, div.BTPx6e") is not None
+        ):
+            return "locations"
         return "unknown"
 
     @staticmethod
@@ -505,8 +564,10 @@ class ClassifyMain:
         node: Node = cmpt
         heading = node.css_first('[role="heading"]')
         if heading is not None:
-            text = get_text(heading, strip=True) or ""
-            if text.startswith("Hotels") or text.startswith("More Hotels"):
+            # Space-join: headings split across spans ("More" + "Hotels")
+            # otherwise concatenate to "MoreHotels" and evade the prefix match.
+            text = get_text(heading, " ", strip=True) or ""
+            if text.startswith("Hotels") or text.startswith("More Hotel"):
                 return "locations"
         return "unknown"
 

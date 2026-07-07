@@ -50,6 +50,10 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
     # Current Google layout: anchor links
     _push(s for s in node.css("a.ngTNl") if has_text(s))
 
+    # Advertiser suggestions ("Find related products & services"): one query
+    # link per list item
+    _push(s for s in node.css("li.o1QE1") if has_text(s))
+
     if node.css_first("div.brs_col") is not None:
         _push(s for s in node.css("a") if has_text(s))
 

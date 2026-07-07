@@ -296,6 +296,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="locations",
         label="Locations",
         sections=("main",),
+        sub_types=("hotels",),
     ),
     ComponentType(
         name="map_results",
@@ -367,7 +368,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="recent_posts",
         label="Recent Posts",
         sections=("main",),
-        header_texts={2: ("Recent posts", "Latest posts from")},
+        # The standalone main-column module ("Latest posts from <entity>",
+        # ``lab/cluster/*`` attrids) renders its heading at aria-level 3.
+        header_texts={2: ("Recent posts", "Latest posts from"), 3: ("Latest posts from",)},
     ),
     ComponentType(
         name="recipes",
@@ -398,10 +401,18 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "Related searches",
                 "Related to this search",
                 "Searches related to",
+                # Advertiser-flavored suggestion list ("These searches help you
+                # find relevant offers from advertisers"); rows are plain
+                # google.com/search?q= query links like the classic variants.
+                "Find related products & services",
             ),
             3: ("Related searches",),
         },
-        sub_types=("additional_searches", "related_searches"),
+        sub_types=(
+            "additional_searches",
+            "related_searches",
+            "find_related_products_&_services",
+        ),
         description="Related search terms",
     ),
     ComponentType(
