@@ -9,10 +9,22 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
 from ...utils import slugify
+from .ads import _parse_ad_standard_sub
 
 
 def parse_searches_related(elem, sub_rank: int = 0) -> list:
     node: Node = elem
+
+    # The "Find related products & services" module renders as one block with
+    # an optional "Sponsored results" ad unit above the suggestion grid. The
+    # embedded ads are standard uEierd units -- delegate them to the ads
+    # parser so they emit ``ad`` rows ahead of the suggestions row.
+    ad_rows = [
+        _parse_ad_standard_sub(ad, sub_rank + i)
+        for i, ad in enumerate(d for d in node.css("div.uEierd") if has_text(d))
+    ]
+    sub_rank += len(ad_rows)
+
     parsed: dict = {
         "type": "searches_related",
         "sub_rank": sub_rank,
@@ -78,4 +90,4 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
         parsed["details"] = details
     else:
         parsed["details"] = None
-    return [parsed]
+    return ad_rows + [parsed]
