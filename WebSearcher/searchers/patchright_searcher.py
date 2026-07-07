@@ -64,6 +64,7 @@ class PatchrightSearcher:
             channel=self.config.channel,
             headless=self.config.headless,
             no_viewport=True,
+            chromium_sandbox=self.config.chromium_sandbox,
         )
         self.page = self.context.pages[0] if self.context.pages else self.context.new_page()
 
