@@ -347,3 +347,105 @@ def test_ai_overview_banner_unknown_without_controller():
         )
         == "unknown"
     )
+
+
+# --- crawl-6 unknown submodules (second pass) --------------------------------
+#
+# Standalone knowledge-panel submodules, hotel carousels, advertiser suggestion
+# lists, and widget variants that Google splats into the main column. Each was
+# an ``unknown`` (or hollow ``general``/``knowledge`` panel) before the
+# crawl-6-unknowns pass.
+
+
+def test_related_products_services_suggestions(serps_by_qry):
+    # Advertiser suggestion module: query links land in items, not a text blob.
+    rows = [
+        r
+        for r in _rows(serps_by_qry["hotels polaris ohio"]["html"], "searches_related")
+        if r["sub_type"] == "find_related_products_&_services"
+    ]
+    assert len(rows) == 1
+    (row,) = rows
+    assert row["details"]["items"]
+    assert all("<|>" not in item for item in row["details"]["items"])
+    assert _row_error(row) is None
+
+
+def test_recent_posts_level3_heading(serps_by_qry):
+    # "Latest posts from <entity>" with an aria-level-3 heading.
+    rows = _rows(serps_by_qry["twitter inc."]["html"], "recent_posts")
+    assert rows
+    assert any(r["url"] and "x.com" in r["url"] for r in rows)
+
+
+def test_hotel_card_carousel(serps_by_qry):
+    # "Similar to <hotel>" / "Popular hotels in <place>" JS-hydrated cards.
+    rows = _rows(serps_by_qry["seven feathers casino"]["html"], "locations")
+    assert rows
+    for r in rows:
+        assert r["sub_type"] == "hotels"
+        assert r["title"]
+        assert r["url"] and "/local/places/hotel/" in r["url"]
+        assert _row_error(r) is None
+
+
+def test_more_hotels_split_heading(serps_by_qry):
+    # "More Hotels" heading split across spans ("More" + "Hotels").
+    rows = _rows(serps_by_qry["hotels polaris ohio"]["html"], "locations")
+    assert rows
+    for r in rows:
+        assert r["sub_type"] == "hotels"
+        assert r["title"]
+        assert r["url"] and "/travel/search" in r["url"]
+
+
+KNOWLEDGE_SUBMODULE_QRYS = [
+    "قطريات",  # "Things to do" heading branch
+    "johnny drama",  # lab/title + lab/content attrid branch
+    "ukrainian minister of interior",  # CoreAnswerModuleHeader breadcrumb
+    "women's world cup 2019 schedule",  # TLOsrpMatchListSummary sports module
+    "portugal world cup squad",  # sp-table squad table
+]
+
+
+@pytest.mark.parametrize("qry", KNOWLEDGE_SUBMODULE_QRYS)
+def test_knowledge_submodule_claims_component(serps_by_qry, qry):
+    parsed = ws.parse_serp(serps_by_qry[qry]["html"])["results"]
+    assert any(r["type"] == "knowledge" for r in parsed)
+    assert not any(r["type"] == "unknown" for r in parsed)
+
+
+def test_flight_status_bare_h2(serps_by_qry):
+    rows = _rows(serps_by_qry["american1967"]["html"], "flights")
+    assert len(rows) == 1
+    assert rows[0]["title"] == "Flight status"
+
+
+def test_knowledge_submodule_classifies_on_lab_attrid():
+    assert _classify('<div data-attrid="lab/title/Movies"><span>Movies</span></div>') == "knowledge"
+
+
+def test_knowledge_submodule_heading_needs_registered_text():
+    # Same markup shape, unregistered heading text: stays unknown.
+    assert (
+        _classify('<div aria-level="2" role="heading"><span>Menu highlights</span></div>')
+        == "knowledge"
+    )
+    assert (
+        _classify('<div aria-level="2" role="heading"><span>Unregistered heading</span></div>')
+        == "unknown"
+    )
+
+
+def test_hotel_carousel_classifies_on_places_anchor():
+    assert (
+        _classify('<a href="https://search.google.com/local/places/hotel/navigational?q=x">h</a>')
+        == "locations"
+    )
+
+
+def test_locations_space_joined_heading():
+    # "More" + "Hotels" in separate spans previously read "MoreHotels".
+    assert (
+        _classify('<div role="heading"><span>More</span> <span>Hotels</span></div>') == "locations"
+    )

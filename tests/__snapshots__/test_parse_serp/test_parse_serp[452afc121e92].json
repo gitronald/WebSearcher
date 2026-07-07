@@ -1,0 +1,534 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Johnny \"Drama\" Chase",
+        "subtitle": "Fictional character",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Overview",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama&si=APenkKnvnG18lUM2uw1Munh626dOTHBhIZjw9aGj3_jyX7piMObIfEHK4Sauu3Z7xaoTraqWlFkPWf41G06KexnV_HiOydIfpHDAdNP3AxIB6ddx8q-cHms%3D&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQyNoBKAB6BAgmEAA&ictx=1"
+          },
+          {
+            "text": "Played by",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama+actor&si=APenkKnXWOStnybzShSwpZP_4gZ7AlZMAXsrKTKCSSIkXGkVItWwtC4coS-D57hjQXkZm8a_-tshWQE_9-SlWah6gDR39GTF2h_qwbu8T2T0IqaOa8svOQmcG6HcR7uQlQQo3pZLrMNQjgCNwf-nJwrAI-x-5PoMoxLDY5e5elBpeLUT1NCv6Gs%3D&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQyNoBKAB6BAgvEAA&ictx=1"
+          },
+          {
+            "text": "Movies",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama+movies&si=APenkKlZnEIh385Bd4bCXHkXfr_uGUHzOyMvDlTuTthfOie7IhjxweUrI_8QVLgy-DVdYeDz2wOb6CPWIsJRD2r7JZ32dA1TFByOc6D71YnF-78VEihYHOxMQE2nW-gfakBahafVIPa-&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQyNoBKAB6BAgsEAA&ictx=1"
+          },
+          {
+            "text": "TV show",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama+tv+show&si=APenkKk0qNH_9phY5WwCd9vDqZNcOQQDnVjejpsQbxkZVqKNWc03cLkjy4QLW8dTQkNEZ2qnDjXSFEP_pblUnGslsytoimLseK8cpbmmjHZ6237EFYjZw_K5UTS-j54DEPO0Sab23xvg&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQyNoBKAB6BAgrEAA&ictx=1"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Fictional character",
+      "title": "Johnny \"Drama\" Chase",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "web",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_results",
+      "text": "Reddit Johnny Drama is the realest character : r/entourage - Reddit I remembered Johny being a quirky character, funny. But after rewatching the episode where Lloyd and Ari fight over him, I saw him in a new light. Oct 4, 2023",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://www.reddit.com/r/entourage/comments/16ze782/johnny_drama_is_the_realest_character/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Played by",
+        "type": "item",
+        "value": "Entourage"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "featured_results",
+      "text": "Played by: Entourage",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "fact",
+        "label": "Notable aliases",
+        "type": "item",
+        "value": "Johnny Drama"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "featured_results",
+      "text": "Notable aliases: Johnny Drama",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "kind": "video",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "featured_results",
+      "text": "3:28 YouTube • truTV Aug 3, 2023 Top Moments of Johnny Drama Being ...",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Johnny_\"Drama\"_Chase",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jonathan \"Drama\" Chase  [1] is a fictional character in the comedy-drama television series Entourage and its film sequel.",
+      "title": "Johnny \"Drama\" Chase",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Johnny_%22Drama%22_Chase"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "Who is Johnny Drama supposed to be?",
+          "Why do they call him Johnny Drama?",
+          "What is Johnny Drama doing today?",
+          "Is Johnny Drama really Mark's cousin?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Who is Johnny Drama supposed to be?<|>Why do they call him Johnny Drama?<|>What is Johnny Drama doing today?<|>Is Johnny Drama really Mark's cousin?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "heading": "Movies . Entourage, +1 more",
+        "text": "Movies|. |Entourage, +1 more|Entourage, +1 more|Entourage, +1 more|Entourage|2015|Kevin Dillon: Virgin Mobile TVC|Entourage, +1 more",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Entourage|2015",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Entourage+(film)&stick=H4sIAAAAAAAAAONgFuLUz9U3SC80zTZR4gIxy00y4s1MtQScMxKLEpNLUotC8n3zyzJTF7EKuOaV5JcWJaanKmikZebkagIApEywuz4AAAA&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQxA16BAhEEAM"
+          },
+          {
+            "text": "Kevin Dillon: Virgin Mobile TVC",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Kevin+Dillon:+Virgin+Mobile+TVC+Film&stick=H4sIAAAAAAAAAONgFuLUz9U3SC80zTZR4tVP1zc0zDLLMzaqKDDVEnDOSCxKTC5JLQrJ980vy0xdxKrinVqWmafgkpmTk59npRCWWZQO5PrmJ2XmpCqEhDkruGXm5AIAxh2NtFUAAAA&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQxA16BAhEEAY"
+          },
+          {
+            "text": "Entourage, +1 more",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama+movies&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQrooIegQIQhAN"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://entourage.fandom.com  › wiki › Drama_Chase",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Johnny 'Drama' Chase is  an actor and half-brother of Vincent Chase . Drama has been a C-list actor for most of his career, best known for his starring role ...",
+      "title": "Drama Chase | Entourage Wiki",
+      "type": "general",
+      "url": "https://entourage.fandom.com/wiki/Drama_Chase"
+    },
+    {
+      "cite": "https://www.aetv.com  › shows › johnny-drama-alves",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Johnny Alves is the real life “Drama”  and a close “cuzin” of Mark Wahlberg. A music man through and through, Drama worked in the record industry.",
+      "title": "Johnny \"Drama\" Alves - Wahlburgers Cast",
+      "type": "general",
+      "url": "https://www.aetv.com/shows/wahlburgers/cast/johnny-drama-alves"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "heading": "TV show . Entourage",
+        "text": "TV show|. |Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage|Entourage",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Entourage",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Entourage&stick=H4sIAAAAAAAAAOPgE-LUz9U3SC80zTZRAjON80pMLbVkspOt9EvKgCg-OSOxKDG5JLXIqqRMoTgjv7x4ESuna15JfmlRYnrqDlbGXexMHAwA8grQ1UoAAAA&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQmxN6BAhDEAI"
+          },
+          {
+            "text": "Entourage",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=johnny+drama+tv+show&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQrooIegQIQRAN"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Top Moments of Johnny Drama Being ... YouTube  ·  truTV Aug 3, 2023",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=CP6Nz985ZW8"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 1,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Johnny Drama Point Breaks Stuff - Entourage YouTube  ·  Parachute Adams Apr 10, 2026",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=w6BXNy4WBV4"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 2,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "E Makes It Official + Johnny Drama's Nightmare Audition ... YouTube  ·  truTV May 21, 2023",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=uMaPAfcbG3Y"
+    },
+    {
+      "cite": "50+ comments  ·  2 years ago",
+      "cmpt_rank": 9,
+      "details": {
+        "items": [
+          {
+            "text": "Johnny Drama Good Actor or Bad",
+            "url": "https://www.reddit.com/r/entourage/comments/a37f28/johnny_drama_good_actor_or_bad/"
+          },
+          {
+            "text": "Johnny Drama",
+            "url": "https://www.reddit.com/r/entourage/comments/1bdrra6/johnny_drama/"
+          },
+          {
+            "text": "More results from www.reddit.com",
+            "url": "/search?q=johnny+drama+site:www.reddit.com&sca_esv=63391fa8cbb1a4b9&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQrQIoAnoECEcQAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "I remembered  Johny being a quirky character, funny . But after rewatching the episode where Lloyd and Ari fight over him, I saw him in a new light.",
+      "title": "Johnny Drama is the realest character : r/entourage",
+      "type": "general",
+      "url": "https://www.reddit.com/r/entourage/comments/16ze782/johnny_drama_is_the_realest_character/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Johnny Drama's Classic Line in Entourage Explained",
+      "type": "short_videos",
+      "url": "https://www.tiktok.com/@cfg1180/video/7603463166755867926"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Kevin Dillon Loves Johnny Drama",
+      "type": "short_videos",
+      "url": "https://www.youtube.com/shorts/r0lHG-Ochww"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "Johnny Drama: The Greatest Character on Entourage",
+      "type": "short_videos",
+      "url": "https://www.tiktok.com/@paul.e.hogg/video/7641532120019504397"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": "Favorite scene in Entourage",
+      "type": "short_videos",
+      "url": "https://www.reddit.com/r/entourage/comments/1s158x4/favorite_scene_in_entourage/"
+    },
+    {
+      "cite": "https://www.johnny-drama.com  › about-us",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Johnny  \" Drama \" Alves, a colorful personality featured on A&E's Wahlburgers, is a longtime friend of the Wahlberg family. His nickname, \"Drama,\" stems from his ...",
+      "title": "About Us",
+      "type": "general",
+      "url": "https://www.johnny-drama.com/about-us/"
+    },
+    {
+      "cite": "https://www.imdb.com  › name",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Dillon reprised his iconic role as Johnny Drama  in the Warner Brothers feature film Entourage, directed by Doug Ellin, and starred in Ellin's latest ...",
+      "title": "Kevin Dillon",
+      "type": "general",
+      "url": "https://www.imdb.com/name/nm0001143/"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Kevin_Dillon",
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "After a main role as Paulie DeLucca on the CBS series That's Life (2000–2002), Dillon experienced a career resurgence with his role as  Johnny \"Drama\" Chase  on ...",
+      "title": "Kevin Dillon",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Kevin_Dillon"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "heading": "What people are saying",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 0,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Johnny Chase renaissance",
+      "type": "perspectives",
+      "url": "https://www.instagram.com/reel/DaNlfCpOE4j/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "heading": "What people are saying",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 1,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Just finished Entourage for the first time and i can say without any shame Johnny Drama is my least favorite character.",
+      "type": "perspectives",
+      "url": "https://www.reddit.com/r/entourage/comments/1ug4piz/just_finished_entourage_for_the_first_time_and_i/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "heading": "What people are saying",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 2,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Matt Damon’s cameo in Entourage is still an all-timer: showing up to bully Vince into donating to his nonprofit. \n\nNearly two decades later, he’s still putting in the work. \n\nDamon and Gary White’s   Water.org⁠ has helped bring safe water or sanitation to more than 85 million people through small, affordable loans. Now, Damon is helping launch Get Blue with Gap, Starbucks, Amazon and Ecolab—aiming to reach 200 million people by 2030.  x.com/SubwayTakes/st…",
+      "type": "perspectives",
+      "url": "https://x.com/JohnnyDramaChas/status/2070232640280567854?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": "https://www.hbomax.com  › entourage › cast-and-crew",
+      "cmpt_rank": 15,
+      "details": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Hot young actor Vincent Chase and his pals Eric, Turtle and Drama  live the dream in Hollywood in this series.",
+      "title": "Johnny Drama | Entourage",
+      "type": "general",
+      "url": "https://www.hbomax.com/shows/entourage/358c8a40-65d1-4f88-a5f4-bf5b5c61963e/cast-and-crew/johnny-drama"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Johnny Drama whiskey",
+          "Kevin Dillon",
+          "Johnny Drama movies",
+          "Johnny Drama real life",
+          "Johnny drama age",
+          "Johnny drama wife",
+          "Johnny drama net worth",
+          "Johnny Drama cartoon"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Johnny Drama whiskey<|>Kevin Dillon<|>Johnny Drama movies<|>Johnny Drama real life<|>Johnny drama age<|>Johnny drama wife<|>Johnny drama net worth<|>Johnny Drama cartoon",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Jonathan \"Drama\" Chase is a fictional character in the comedy-drama television series Entourage and its film sequel. Kevin Dillon portrays his character. He is often addressed by other characters as Johnny Drama or Drama, but is credited in his movies and TV shows as \"Johnny Chase\".",
+      "title": null,
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/Johnny_%22Drama%22_Chase"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": {
+        "attrid": "kc:/fictional_universe/fictional_character:played by",
+        "items": [
+          {
+            "text": "Kevin Dillon",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Kevin+Dillon&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0QJ68_CGg1kZRCkefR64gqJz236GSr9l1pCxSuAphxz-orv_y801Kz5FrpZ67OjtQmARANdrF1VmVfvv5zWw8NQwAqf4jeoVuUX42VkUglJj6OlNTo9_88D7QOThgE6YRoUy26RfXsPrJxef-4secHOZp_PYSTJ2IN4KVJ6sizwBbLqKQA%3D%3D&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQmxN6BAgdEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Kevin Dillon",
+      "title": "Played by",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": {
+        "attrid": "kc:/fictional_universe/fictional_character:notable aliases",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Johnny 'Drama' Chase, Johnny Chase, Johnny Drama",
+      "title": "Notable aliases",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

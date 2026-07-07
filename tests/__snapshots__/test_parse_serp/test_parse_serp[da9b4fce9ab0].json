@@ -341,42 +341,23 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "Find related products & services",
-        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Best credit cards |2025 for everyday use",
-            "url": "http://www.google.com/search?q=Best+credit+cards+2025+for+everyday+use&mrq=1&mrqri=0&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAB6BAh1EAU"
-          },
-          {
-            "text": "Best credit cards |for business",
-            "url": "http://www.google.com/search?q=Best+credit+cards+for+business&mrq=1&mrqri=1&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAF6BAh1EAY"
-          },
-          {
-            "text": "Best credit cards |2025 for business",
-            "url": "http://www.google.com/search?q=Best+credit+cards+2025+for+business&mrq=1&mrqri=2&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAJ6BAh1EAc"
-          },
-          {
-            "text": "Best credit cards |balance transfer",
-            "url": "http://www.google.com/search?q=Best+credit+cards+balance+transfer&mrq=1&mrqri=3&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAN6BAh1EAg"
-          },
-          {
-            "text": "Best credit cards |2026",
-            "url": "http://www.google.com/search?q=Best+credit+cards+2026&mrq=1&mrqri=4&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAR6BAh1EAk"
-          },
-          {
-            "text": "Best credit cards |2026 for travel",
-            "url": "http://www.google.com/search?q=Best+credit+cards+2026+for+travel&mrq=1&mrqri=5&mrqei=vnyGacmsPLCSwPAP5cu7oAk&sa=X&ved=2ahUKEwjJg-XnhcaSAxUwCRAIHeXlDpQQyO0OKAV6BAh1EAo"
-          }
-        ]
+        "items": [
+          "Best credit cards 2025 for everyday use",
+          "Best credit cards for business",
+          "Best credit cards 2025 for business",
+          "Best credit cards balance transfer",
+          "Best credit cards 2026",
+          "Best credit cards 2026 for travel"
+        ],
+        "type": "text"
       },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
-      "sub_type": "panel",
-      "text": null,
+      "sub_type": "find_related_products_&_services",
+      "text": "Best credit cards 2025 for everyday use<|>Best credit cards for business<|>Best credit cards 2025 for business<|>Best credit cards balance transfer<|>Best credit cards 2026<|>Best credit cards 2026 for travel",
       "title": null,
-      "type": "knowledge",
+      "type": "searches_related",
       "url": null
     },
     {

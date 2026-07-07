@@ -200,42 +200,23 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "Find related products & services",
-        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Golden Retriever puppies |adoption near me",
-            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+adoption+near+me&mrq=1&mrqri=0&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAB6BAhDEAU"
-          },
-          {
-            "text": "Golden Retriever puppies |free",
-            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+free&mrq=1&mrqri=1&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAF6BAhDEAY"
-          },
-          {
-            "text": "Golden Retriever puppies |shelter",
-            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+shelter&mrq=1&mrqri=2&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAJ6BAhDEAc"
-          },
-          {
-            "text": "Golden Retriever puppies |sacramento under $500",
-            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+sacramento+under+$500&mrq=1&mrqri=3&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAN6BAhDEAg"
-          },
-          {
-            "text": "Golden Retriever puppies |for sale under $300",
-            "url": "http://www.google.com/search?q=Golden+Retriever+puppies+for+sale+under+$300&mrq=1&mrqri=4&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAR6BAhDEAk"
-          },
-          {
-            "text": "English| Golden Retriever puppies |near me",
-            "url": "http://www.google.com/search?q=English+Golden+Retriever+puppies+near+me&mrq=1&mrqri=5&mrqei=hn6GadSgFtH4wPAPt6jmiAQ&sa=X&ved=2ahUKEwjU-_bAh8aSAxVRPBAIHTeUGUEQyO0OKAV6BAhDEAo"
-          }
-        ]
+        "items": [
+          "Golden Retriever puppies adoption near me",
+          "Golden Retriever puppies free",
+          "Golden Retriever puppies shelter",
+          "Golden Retriever puppies sacramento under $500",
+          "Golden Retriever puppies for sale under $300",
+          "English Golden Retriever puppies near me"
+        ],
+        "type": "text"
       },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
-      "sub_type": "panel",
-      "text": null,
+      "sub_type": "find_related_products_&_services",
+      "text": "Golden Retriever puppies adoption near me<|>Golden Retriever puppies free<|>Golden Retriever puppies shelter<|>Golden Retriever puppies sacramento under $500<|>Golden Retriever puppies for sale under $300<|>English Golden Retriever puppies near me",
       "title": null,
-      "type": "knowledge",
+      "type": "searches_related",
       "url": null
     },
     {

@@ -342,42 +342,23 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "Find related products & services",
-        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Best |delivery| mattress",
-            "url": "http://www.google.com/search?q=Best+delivery+mattress&mrq=1&mrqri=0&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAB6BAhYEAU"
-          },
-          {
-            "text": "Best mattress |2026",
-            "url": "http://www.google.com/search?q=Best+mattress+2026&mrq=1&mrqri=1&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAF6BAhYEAY"
-          },
-          {
-            "text": "Best mattress |under $1000",
-            "url": "http://www.google.com/search?q=Best+mattress+under+$1000&mrq=1&mrqri=2&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAJ6BAhYEAc"
-          },
-          {
-            "text": "Best mattress |side sleeper",
-            "url": "http://www.google.com/search?q=Best+mattress+side+sleeper&mrq=1&mrqri=3&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAN6BAhYEAg"
-          },
-          {
-            "text": "Best |king mattresses",
-            "url": "http://www.google.com/search?q=Best+king+mattresses&mrq=1&mrqri=4&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAR6BAhYEAk"
-          },
-          {
-            "text": "Best mattress |queen",
-            "url": "http://www.google.com/search?q=Best+mattress+queen&mrq=1&mrqri=5&mrqei=5n2GaaDoEJH9wPAP_euTuAM&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQyO0OKAV6BAhYEAo"
-          }
-        ]
+        "items": [
+          "Best delivery mattress",
+          "Best mattress 2026",
+          "Best mattress under $1000",
+          "Best mattress side sleeper",
+          "Best king mattresses",
+          "Best mattress queen"
+        ],
+        "type": "text"
       },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
-      "sub_type": "panel",
-      "text": null,
+      "sub_type": "find_related_products_&_services",
+      "text": "Best delivery mattress<|>Best mattress 2026<|>Best mattress under $1000<|>Best mattress side sleeper<|>Best king mattresses<|>Best mattress queen",
       "title": null,
-      "type": "knowledge",
+      "type": "searches_related",
       "url": null
     },
     {

@@ -1,0 +1,371 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "price": "$136",
+        "rating": "4.4",
+        "reviews": "(2.1K)",
+        "stars": "4-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "\"Polaris Mall is right next door.\"",
+      "title": "Hilton Columbus/Polaris",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lfY2lvaGR1THRMai1BUkFCOApCCREzaVr0RROvV0IJETHLaEDeY9k0QgkRPmrkPv9_hD5aXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "rating": "4.3",
+        "reviews": "(2.1K)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "Modern all-suite hotel with a gym",
+      "title": "Embassy Suites by Hilton Columbus Airport",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lyLWZCbmZleDFadXZBUkFCOApCCREzaVr0RROvV0IJETHLaEDeY9k0QgkRPmrkPv9_hD5aXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "price": "$81",
+        "rating": "4.2",
+        "reviews": "(1.2K)",
+        "stars": "2-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": "\"Just watch your rims and tires literally!\"",
+      "title": "Fairfield by Marriott Inn & Suites Columbus OSU",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l6ZXU1aXJyX21wSnhFQUU4CkIJETNpWvRFE69XQgkRMctoQN5j2TRCCRE-auQ-_3-EPlpfMl2qAVoKCS9tLzA4bDVqMhABKhIiDmhvdGVscyBwb2xhcmlzKAAyHhABIhq-cH3fulHU1Eo9XgU1Ol5vstdGDIGC4MNWRzIXEAIiE2hvdGVscyBwb2xhcmlzIG9oaW8&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": "https://www.polariscenters.com  › hotels",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "POLARIS  is Columbus,  Ohio's  premier destination for regional travelers featuring over 13 area  hotels  including the award-winning Hilton at  POLARIS .",
+      "title": "POLARIS - Hotel Directory - Columbus, Ohio",
+      "type": "general",
+      "url": "https://www.polariscenters.com/hotels"
+    },
+    {
+      "cite": "https://www.hotels.com  › ... › Columbus Hotels",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Where to stay in Polaris? ·  Drury Inn & Suites Columbus Polaris  · Hampton Inn & Suites Columbus Polaris · Hilton Columbus/Polaris · Four Points by Sheraton Columbus ...",
+      "title": "Top 10 Hotels in Polaris, Columbus",
+      "type": "general",
+      "url": "https://www.hotels.com/nh10819044/hotels-in-polaris-columbus-ohio/"
+    },
+    {
+      "cite": "https://www.ihg.com  › ... › Holiday Inn Express",
+      "cmpt_rank": 3,
+      "details": {
+        "n_reviews": 2469,
+        "rating": 4.4,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Holiday Inn Express and Suites Columbus- Polaris  Parkway  hotel  offers complimentary high speed internet, Fitness Center, guest laundry and a heated indoor ...",
+      "title": "Holiday Inn Express & Suites Columbus - Polaris Parkway",
+      "type": "general",
+      "url": "https://www.ihg.com/holidayinnexpress/hotels/us/en/columbus/wetoh/hoteldetail"
+    },
+    {
+      "cite": "https://www.druryhotels.com  › locations › columbus-oh",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Guests enjoy  free hot breakfast, snacks and cold beverages at the 5:30 Kickback ® and free Wi-Fi throughout the hotel. Enjoy easy access to Columbus attractions.",
+      "title": "Drury Inn & Suites Columbus Polaris",
+      "type": "general",
+      "url": "https://www.druryhotels.com/locations/columbus-oh/drury-inn-and-suites-columbus-polaris"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "heading": "Find related products & services",
+        "items": [
+          "Best hotels near Polaris mall",
+          "Hampton Inn and suites Polaris",
+          "Westerville hotels",
+          "Comfort Inn Polaris",
+          "Hilton Garden Inn Polaris",
+          "Hotels Downtown Columbus"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "Best hotels near Polaris mall<|>Hampton Inn and suites Polaris<|>Westerville hotels<|>Comfort Inn Polaris<|>Hilton Garden Inn Polaris<|>Hotels Downtown Columbus",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "Reddit  ·  r/Columbus  ·  20+ comments  ·  2 months ago",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Hotel Recommendations",
+      "type": "discussions_and_forums",
+      "url": "https://www.reddit.com/r/Columbus/comments/1scm3pb/hotel_recommendations/"
+    },
+    {
+      "cite": "Reddit  ·  r/Columbus  ·  10+ comments  ·  3 years ago",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Hey any suggestions on nicer places to stay around Columbus? Like bnbs ...",
+      "type": "discussions_and_forums",
+      "url": "https://www.reddit.com/r/Columbus/comments/zyaq3o/hey_any_suggestions_on_nicer_places_to_stay/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "rating": "4.3",
+        "reviews": "(908)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "\"No issues whatsoever.\"",
+      "title": "Hilton Garden Inn Columbus-University Area",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lxTE85aTVpaGw2V1dBUkFCOApCCRHdagh6P8x_EkIJEdf9dC7d7AHoQgkRGQQGmTNMsC1aXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "rating": "4.2",
+        "reviews": "(286)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "\"Quiet - easy access to Polaris\"",
+      "title": "Hyatt Place Columbus / Polaris",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0k5SkNtMDZqc2xfWE5BUkFCOApCCRHdagh6P8x_EkIJEdf9dC7d7AHoQgkRGQQGmTNMsC1aXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "rating": "4.4",
+        "reviews": "(1K)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": "Casual hotel with free breakfast & Wi-Fi",
+      "title": "Hampton Inn & Suites Columbus/University Area",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0kwUGFHaE51QzMtMEpFQUU4CkIJEd1qCHo_zH8SQgkR1_10Lt3sAehCCREZBAaZM0ywLVpfMl2qAVoKCS9tLzA4bDVqMhABKhIiDmhvdGVscyBwb2xhcmlzKAAyHhABIhq-cH3fulHU1Eo9XgU1Ol5vstdGDIGC4MNWRzIXEAIiE2hvdGVscyBwb2xhcmlzIG9oaW8&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": "https://www.tripadvisor.com  › ... › Columbus Hotels",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find the right hotel for you ·  1. The Blackwell Inn  · 2. Holiday Inn Express & Suites Columbus OSU-Medical Center by IHG · 3. Hilton Columbus ...",
+      "title": "THE 10 BEST Hotels in Polaris Columbus 2026",
+      "type": "general",
+      "url": "https://www.tripadvisor.com/Hotels-g50226-zfn13192485-Columbus_Ohio-Hotels.html"
+    },
+    {
+      "cite": "https://www.marriott.com  › USA › Ohio",
+      "cmpt_rank": 9,
+      "details": {
+        "n_reviews": 1083,
+        "rating": 4.6,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Ideally located in Westerville  which offers a Hometown feel, while still being just minutes from everything that Columbus has to offer.",
+      "title": "Renaissance Columbus Westerville-Polaris Hotel",
+      "type": "general",
+      "url": "https://www.marriott.com/en-us/hotels/cmhbw-renaissance-columbus-westerville-polaris-hotel/overview/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.4",
+        "reviews": "(1K)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "Relaxed hotel with an indoor pool",
+      "title": "Hampton Inn and Suites Columbus Scioto Downs",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lxN1hLZ0t6WTBQN3hBUkFCOApCCRGGaEgX5YvStkIJEaw0tofbGcyjQgkRweZTDkaDqTlaXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.0",
+        "reviews": "(398)",
+        "stars": "3-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "\"We stayed here for Sonic Temple and it was perfect!\"",
+      "title": "Aloft by Marriott Columbus University District",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0locGYzbUwta25makVBUkFCOApCCRGGaEgX5YvStkIJEaw0tofbGcyjQgkRweZTDkaDqTlaXzJdqgFaCgkvbS8wOGw1ajIQASoSIg5ob3RlbHMgcG9sYXJpcygAMh4QASIavnB937pR1NRKPV4FNTpeb7LXRgyBguDDVkcyFxACIhNob3RlbHMgcG9sYXJpcyBvaGlv&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "price": "$170",
+        "rating": "4.5",
+        "reviews": "(4.1K)",
+        "stars": "4-star hotel",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": "\"Now for the down parts.\"",
+      "title": "Hilton Columbus at Easton",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72799179,72803964,72882230,73064764,121762712&hl=en-US&gl=us&ssta=1&q=hotels+polaris+ohio&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxAHGBsSBwjqDxAHGBwYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0ltSnIxLW9henFMMW1FQUU4CkIJEYZoSBfli9K2QgkRrDS2h9sZzKNCCRHB5lMORoOpOVpfMl2qAVoKCS9tLzA4bDVqMhABKhIiDmhvdGVscyBwb2xhcmlzKAAyHhABIhq-cH3fulHU1Eo9XgU1Ol5vstdGDIGC4MNWRzIXEAIiE2hvdGVscyBwb2xhcmlzIG9oaW8&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": "https://www.hilton.com  › ... › Ohio › Columbus Hotels",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find us  next to Polaris Fashion Place , within 20 minutes of Downtown Columbus and the Columbus Zoo and Aquarium. Topgolf is just a mile away.",
+      "title": "Hilton Columbus/Polaris",
+      "type": "general",
+      "url": "https://www.hilton.com/en/hotels/cmhpohf-hilton-columbus-polaris/"
+    },
+    {
+      "cite": "https://www.trivago.com  › ... › USA › Ohio › Columbus",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Hilton Garden Inn Columbus/Polaris  · Hampton Inn & Suites Columbus Polaris · Wyndham Columbus · Fairfield Inn & Suites Columbus Polaris · Nationwide Hotel and ...",
+      "title": "Hotels near Polaris Fashion Place in Columbus, USA",
+      "type": "general",
+      "url": "https://www.trivago.com/en-US/opr/hotels-near-polaris-fashion-place?search=500-2231678"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Luxury hotels polaris ohio",
+          "Best hotels polaris ohio",
+          "Hotels near Polaris mall",
+          "Cheap hotels polaris ohio",
+          "Hotels polaris ohio downtown",
+          "Cambria Hotel Polaris",
+          "Holiday Inn Express Polaris",
+          "Drury Inn Polaris"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Luxury hotels polaris ohio<|>Best hotels polaris ohio<|>Hotels near Polaris mall<|>Cheap hotels polaris ohio<|>Hotels polaris ohio downtown<|>Cambria Hotel Polaris<|>Holiday Inn Express Polaris<|>Drury Inn Polaris",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

@@ -1,0 +1,261 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Minister of Internal Affairs of Ukraine › Officeholder",
+        "text": "Minister of Internal Affairs of Ukraine| › |Officeholder|Share|Send feedback|Close|Close|Close|Ihor Klymenko|Ihor Klymenko|People also search for|Ivan Vyhivskyi|Denys Monastyrskyi|Ruslan Kravchenko",
+        "type": "panel",
+        "urls": [
+          {
+            "text": " |Minister of Internal Affairs of Ukraine| ",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Minister+of+Internal+Affairs+of+Ukraine&stick=H4sIAAAAAAAAAONgFuLWT9c3NDI0MzFKNldC5jxiNOMWePnjnrCU7qQ1J68xqnNxBWfkl7vmlWSWVApJcrFBWfxSvFzI-ngWsar7ZuZlFpekFinkpyl45gEZeYk5Co5paYmZRcUgsdDsosTMvFQANQj-fn8AAAA&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQ_coHKAB6BAgnEAc"
+          },
+          {
+            "text": " |    | | | | | | |  | |Ihor Klymenko| | | |Ihor Klymenko| |  |  | | | ",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Ihor+Klymenko&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwwzTG1MM41UULlPmK04BZ4-eOesJT-pDUnrzFqcnEFZ-SXu-aVZJZUCklzsUFZglL8XKg6eRax8npm5BcpeOdU5qbmZecDAMI-wkprAAAA&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQzIcDegQIJxAh"
+          },
+          {
+            "text": " | ",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=ukrainian+minister+of+interior&udm=2&source=univ&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQ4216BAgnECQ"
+          },
+          {
+            "text": "Ivan Vyhivskyi",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Ivan+Vyhivskyi&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwwzTG1MM41UYJwi8pzKnIqTS20-AJSi4rz84IzU1LLEyuLF7HyeZYl5imEVWZklhVnV2YCAKQsKndBAAAA&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQxA16BAgoEAM"
+          },
+          {
+            "text": "Denys Monastyrskyi",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Denys+Monastyrskyi&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwwzTG1MM41UYJw03JKjI3Ksku0-AJSi4rz84IzU1LLEyuLF7EKuaTmVRYr-ObnJRaXVBYVZ1dmAgC3Ooe0RQAAAA&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQxA16BAgoEAY"
+          },
+          {
+            "text": "Ruslan Kravchenko",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Ruslan+Kravchenko&stick=H4sIAAAAAAAAAONgFuLVT9c3NMwwzTG1MM41UYJwS4qNkw2yU3K0-AJSi4rz84IzU1LLEyuLF7EKBpUW5yTmKXgXJZYlZ6TmZecDAFFutcFEAAAA&sa=X&ved=2ahUKEwiEzKHTy7CVAxUTm4kEHR6cJlQQxA16BAgoEAk"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Ministry_of_Internal_...",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Ministers of Internal Affairs  ; 1, Andriy Vasylyshyn ; 2, Volodymyr Radchenko ; 3, Yuriy Kravchenko ; 4, Yuriy Smirnov ...",
+      "title": "Ministry of Internal Affairs (Ukraine)",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Ministry_of_Internal_Affairs_(Ukraine)"
+    },
+    {
+      "cite": "https://mvs.gov.ua  › ...",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Minister of Internal Affairs of Ukraine Ihor Klymenko  and the leadership of the Ministry of Internal Affairs of Ukraine.",
+      "title": "Ministry of Internal Affairs of Ukraine",
+      "type": "general",
+      "url": "https://mvs.gov.ua/en"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "Who is the current Minister of the interior?",
+          "What is a popular dish in Ukraine?",
+          "Who is the richest person in Ukraine?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Who is the current Minister of the interior?<|>What is a popular dish in Ukraine?<|>Who is the richest person in Ukraine?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Ihor_Klymenko",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Ihor Volodymyrovych Klymenko is a  Ukrainian  police general serving as the  minister of internal affairs  since 7 February 2023 (acting since 18 January).",
+      "title": "Ihor Klymenko",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Ihor_Klymenko"
+    },
+    {
+      "cite": "https://www.president.gov.ua  › news › zberezhennya-d...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 13, 2023  —  President of Ukraine Volodymyr Zelenskyy introduced the newly appointed  Minister of Internal Affairs Ihor Klymenko  to the heads of law enforcement agencies.",
+      "title": "President of Ukraine while introducing Ihor Klymenko",
+      "type": "general",
+      "url": "https://www.president.gov.ua/en/news/zberezhennya-doviri-j-povagi-do-organiv-sistemi-mvs-ye-odnim-80957"
+    },
+    {
+      "cite": "https://mvs.gov.ua  › team-1",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Ministry of Internal Affairs of Ukraine.  Klymenko Ihor Volodymyrovych . Minister of Internal Affairs of Ukraine. Deputy Minister Biography. Deputy Minister ...",
+      "title": "Team",
+      "type": "general",
+      "url": "https://mvs.gov.ua/en/team-1"
+    },
+    {
+      "cite": "29.2K+ views  ·  3 years ago",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "Interior Minister Denys Monastyrskyiwas killed when his helicopter went down in a suburb of Kyiv. In all, at least 14 people died in the crash.",
+      "title": "Ukrainian interior minister among 14 killed in helicopter crash ...",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=B__Gf5NE2ic"
+    },
+    {
+      "cite": "https://www.oscepa.org  › ... › Member Countries",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mykyta Poturaiev  was born in Dnipro, Ukraine on September 4, 1970. In 1992 graduated Dnipro national university, philology faculty.",
+      "title": "Ukraine",
+      "type": "general",
+      "url": "https://www.oscepa.org/en/members/member-countries/ukraine"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Vitaliy_Zakharchenko",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "He previously served as  Ukraine's Minister of Internal Affairs  from 7 November 2011 until he was suspended from his duties by the Ukrainian parliament on 21 ...",
+      "title": "Vitaliy Zakharchenko",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Vitaliy_Zakharchenko"
+    },
+    {
+      "cite": "https://www.bbc.com  › news › world-europe-64316081",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 18, 2023  —  Denys Monastyrsky , who has died aged 42 in a helicopter crash near Kyiv, is the most senior Ukrainian official to die since the war began almost ...",
+      "title": "Ukraine war: Who was Interior Minister Denys Monastyrsky?",
+      "type": "general",
+      "url": "https://www.bbc.com/news/world-europe-64316081"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Ukraine's interior minister among many killed in helicopter ...",
+      "type": "images",
+      "url": "https://www.nbcnews.com/news/world/helicopter-crash-ukraine-interior-minister-dead-kyiv-kindergarten-rcna66245"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Ukraine Minister Killed in Helicopter Crash Oversaw Some ...",
+      "type": "images",
+      "url": "https://www.nytimes.com/2023/01/18/world/europe/denys-monastyrsky-ukraine-minister-helicopter-crash.html"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Who was Denys Monastyrskyy, Ukraine's interior minister ...",
+      "type": "images",
+      "url": "https://www.aljazeera.com/news/2023/1/18/who-was-denys-monastyrskyy-ukraines-interior-minister"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Ministry of Internal Affairs of Ukraine",
+          "Ministry of internal affairs of ukraine address",
+          "Ministry of internal affairs of ukraine department of informatization",
+          "Ministry of internal affairs of ukraine abbreviation",
+          "Ukraine missing in action",
+          "Ukraine prime minister",
+          "Foreign Minister of Ukraine",
+          "Ukraine deputy Prime minister"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Ministry of Internal Affairs of Ukraine<|>Ministry of internal affairs of ukraine address<|>Ministry of internal affairs of ukraine department of informatization<|>Ministry of internal affairs of ukraine abbreviation<|>Ukraine missing in action<|>Ukraine prime minister<|>Foreign Minister of Ukraine<|>Ukraine deputy Prime minister",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

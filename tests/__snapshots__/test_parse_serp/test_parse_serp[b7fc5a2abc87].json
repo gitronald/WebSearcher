@@ -1,0 +1,344 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Twitter,_Inc",
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Twitter, Inc. was  an American social media company based in San Francisco , California, which operated and was named for its flagship social media network",
+      "title": "Twitter, Inc.",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Twitter,_Inc."
+    },
+    {
+      "cite": "https://x.com",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "From breaking news and entertainment to sports and politics, get the full story with all the live commentary. Available on the App Store and Google Play.",
+      "title": "Twitter",
+      "type": "general",
+      "url": "https://x.com/"
+    },
+    {
+      "cite": "2.6M+ followers",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Inc . (@Inc) - Posts - Everything you need to know to start and grow your business now. X (formerly Twitter) Just Sold 97 Locations—Here's. Available online and ...",
+      "title": "Inc. (@Inc) / Posts / X",
+      "type": "general",
+      "url": "https://x.com/Inc?lang=en"
+    },
+    {
+      "cite": "https://www.bloomberg.com  › company › TWTR:US",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Twitter, Inc.  provides online social networking and microblogging services . The Company offers users the ability to follow other users activity, read, and post ...",
+      "title": "Twitter Inc - Company Profile and News",
+      "type": "general",
+      "url": "https://www.bloomberg.com/profile/company/TWTR:US"
+    },
+    {
+      "cite": "https://twitter.com  › ...",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "X (Twitter)",
+      "type": "general",
+      "url": "https://twitter.com/i"
+    },
+    {
+      "cite": "https://about.x.com  › ...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "We serve the public conversation.  Learn more about X the company , and how we ensure people have a free and safe place to talk.",
+      "title": "About X | Our company and priorities",
+      "type": "general",
+      "url": "https://about.x.com/en"
+    },
+    {
+      "cite": "https://play.google.com  › store › apps › details › id=com...",
+      "cmpt_rank": 6,
+      "details": {
+        "n_reviews": 23158726,
+        "rating": 3.7,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Welcome to X , your trusted digital town square, where conversations unfold in real time, and the world connects through breaking news, live events, podcasts,",
+      "title": "X - Apps on Google Play",
+      "type": "general",
+      "url": "https://play.google.com/store/apps/details?id=com.twitter.android&hl=en_US"
+    },
+    {
+      "cite": "https://www.investing.com  › equities › twitter-inc",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Get detailed information about the  Twitter Inc (TWTR) stock  including price, charts, technical analysis, historical data, Twitter Inc reports and more.",
+      "title": "Twitter Inc (Delisted) Stock Price Today | NYSE: TWTR Live",
+      "type": "general",
+      "url": "https://www.investing.com/equities/twitter-inc"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": {
+        "items": [
+          "Does Twitter Inc still exist?",
+          "Why is Twitter stock delisted?",
+          "Who owns Twitter Inc.?",
+          "Is Elon still CEO of Twitter?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Does Twitter Inc still exist?<|>Why is Twitter stock delisted?<|>Who owns Twitter Inc.?<|>Is Elon still CEO of Twitter?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.tradingview.com  › symbols › NYSE-TWTR",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Twitter, Inc  is a global platform for public self-expression and conversation in real time. It provides a network that connects users to people, information, ...",
+      "title": "TWTR Stock Price — Twitter Chart",
+      "type": "general",
+      "url": "https://www.tradingview.com/symbols/NYSE-TWTR/"
+    },
+    {
+      "cite": "Inc",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "A first-of-its-kind law is shifting how grocery stores staff self-checkout stations. It could be a sign of what's coming to businesses nationwide. trib.al/eaMYRw5",
+      "type": "recent_posts",
+      "url": "https://x.com/Inc/status/2072124482085392540?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": "Inc",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Sailormen Inc. entered Chapter 11 bankruptcy with 136 Popeyes restaurants. Its auction shows how debt, leases, and weaker traffic are deciding which fast-food locations survive. trib.al/P1flexR",
+      "type": "recent_posts",
+      "url": "https://x.com/Inc/status/2072085310595277244?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": "Inc",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "A new study reveals that top executives don't just revise their environmental strategies—they rely on a surprising communication habit to signal true control. trib.al/f7Y5sSR",
+      "type": "recent_posts",
+      "url": "https://x.com/Inc/status/2072052243725984101?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "recent_posts",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 4,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "recent_posts",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Twitter sign in",
+          "Twitter sign up",
+          "Twitter web",
+          "Twitter owner",
+          "Twitter sign up or login",
+          "Twitter app download",
+          "Twitter Inc phone Number",
+          "When did Twitter become popular"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Twitter sign in<|>Twitter sign up<|>Twitter web<|>Twitter owner<|>Twitter sign up or login<|>Twitter app download<|>Twitter Inc phone Number<|>When did Twitter become popular",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "subtitle": "Social media company",
+        "type": "panel"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Twitter",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:founded",
+        "items": [
+          {
+            "text": "San Francisco, CA",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=San+Francisco&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpkPGLdDGGk1tDytAKXEHMBi9G0lP2TJVkCo6GpncG9H-gCqOuaXD_QEelYjFCTecFEVjXUfsvkvZOn1yN5XqdZmMZnwsLaom3SvhuLUGyqKK-X0n94ymBB4kWRpn_P5z3kf5JL0qr13Un8oBpluyMLOoHO2f&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgKEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "March 21, 2006, San Francisco, CA",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/business/business_operation:founder",
+        "items": [
+          {
+            "text": "Jack Dorsey",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Jack+Dorsey&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW6707v9GfSdTwN2lze8JPs4nk4JMwnwonH-OVgyGdPhg91mbF21K0iuDZNjIOjgDZvqsRV57vbwhohln8T_Tc-8blPxNPmjIny9wc0ctdcR3VdZWJluQ8cYFuQxMU5L0HBTOZozJLhHpC8VtReIXKb7BaWkL6-JmlzZIZtDlUSMfj0rKnMS-IF0u7IfcALXuyvxC3Qx3vsI-YxIRkjbu2j12y8RctTwOZqlJvqjwjEjeG4AGbFcw%3D%3D&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgNEAI"
+          },
+          {
+            "text": "Biz Stone",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Biz+Stone&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW677gb9JcsbHIWFT2eQIMYljPDPukUYjINRLBFM-AHhDjWDQUAvcfYPvbgDTRyef-hwvlDmd2QxVk0crMFSpmByQRYCN-ufk-pzouyAf7lwFAZpTyOBDCL9EVb3um5kS2XTDMKH7PQsGDESeukd5nXrCB7lq405a9BsCiMURyfN2qWwxiP9X-fD_C5LPs525NZN1P-Qedr5Z2aFYDxghH0vOyDxfLqQN76F1NfwA5t0sTFRR384A%3D%3D&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgNEAM"
+          },
+          {
+            "text": "Noah Glass",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Noah+Glass&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM9Q8T1wFssYpemPQpcQ1jA9bZyV2Of1NYwiaRLea8rFkHUrAOVHRkSHYbKtE4w0pXTWoLS7oJlT2XNniYHbMjP7kVuMg_8-yC1nMo5mh_guJfslguKz8nJrS_uuTlRMbEVIagTJfY7ewSdVVY2CukguTUr3SQ4aBIB9_D093Z5sU4TKdePr5Sf0bJNeaYkgFKei0lb_N6vRMkj1pc25ZBl6SwIJVla9q6_HCqMfEJFLEwrJFNA%3D%3D&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgNEAQ"
+          },
+          {
+            "text": "Evan Williams",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Evan+Williams+(Internet+entrepreneur)&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yaH3LzsieCJb4DIXy3VEmr-gRb8mqzzgfi5BL-e4bKq_B0f8UNvJAUAVptGacE_JQSjhWnH02FubKy86BniuS8pnkTqjnS6Hx621lmY645PIcoK6mt_UMPuEeZKrWaeSEB_glW5PwhXYEcjHlGj5K8EkEQfoNuk6KOYC5clYQyhRqRED0ux-VX0RXV8IaLrXlgW0hwRqsoLGSzxE842-eZe6McWtvb8jlc4oQ7R8_heC27XXXD-jGxgJ3yQNPYNWmAkmipo%3D&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgNEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Jack Dorsey , Biz Stone , Noah Glass , Evan Williams",
+      "title": "Founders",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:headquarters",
+        "items": [
+          {
+            "text": "San Francisco, CA",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=San+Francisco&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpkPGLdDGGk1tDytAKXEHMBi9G0lP2TJVkCo6GpncG9H-gCqOuaXD_QEelYjFCTecFEVjXUfsvkvZOn1yN5XqdZmMZnwsLaom3SvhuLUGyqKK-X0n94ymBB4kWRpn_P5z3kf5JL0qr13Un8oBpluyMLOoHO2f&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQmxN6BAgMEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "San Francisco, CA",
+      "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

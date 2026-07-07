@@ -1,0 +1,214 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unknown",
+      "text": null,
+      "title": null,
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "items": [
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=PHX+airport&skip=s&sa=X&ved=2ahUKEwjyu97L0rCVAxWdg4kEHQFSJUQQp_ENegQIDhAQ"
+          },
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=EWR+airport&skip=s&sa=X&ved=2ahUKEwjyu97L0rCVAxWdg4kEHQFSJUQQqPENegQIDhAR"
+          },
+          {
+            "text": "OAG",
+            "url": "https://www.flightview.com/flight-tracker/AA/1967?date=20260630&depapt=PHX"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Flight status",
+      "type": "flights",
+      "url": null
+    },
+    {
+      "cite": "https://www.flightaware.com  › live › flight › AAL1967",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Flight status, tracking, and historical data for  American Airlines 1967  (AA1967/AAL1967) including scheduled, estimated, and actual departure and arrival ...",
+      "title": "AA1967 (AAL1967) American Airlines Flight Tracking and ...",
+      "type": "general",
+      "url": "https://www.flightaware.com/live/flight/AAL1967"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "flat",
+      "text": "Models & Trim Levels: Available as a 2-door sedan, station wagon, hardtop, and the sporty Rogue . Performance:",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.flightstats.com  › flight-tracker",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "AA1967 Flight Tracker  - Track the real-time flight status of American Airlines AA 1967 live using the FlightStats Global Flight Tracker.",
+      "title": "(AA) American Airlines 1967 Flight Tracker",
+      "type": "general",
+      "url": "https://www.flightstats.com/v2/flight-tracker/AA/1967"
+    },
+    {
+      "cite": "https://www.flightradar24.com  › Aviation data › Flights",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "AA1967 (American Airlines ) - Live flight status, scheduled flights, flight arrival and departure times, flight tracks and playback, flight route and ...",
+      "title": "Flight history for American Airlines flight AA1967",
+      "type": "general",
+      "url": "https://www.flightradar24.com/data/flights/aa1967"
+    },
+    {
+      "cite": "https://us.trip.com  › flights › status-aa1967",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "According to Trip.com real-time data, the  AA1967 flight operated by American Airlines on Jun 30, 2026  is scheduled to fly from Phoenix (PHX) to New York (EWR).",
+      "title": "AA1967 Flight Status - American Airlines",
+      "type": "general",
+      "url": "https://us.trip.com/flights/status-aa1967/"
+    },
+    {
+      "cite": "https://www.travelocity.com  › flights-info › American-...",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "AA1967  flies directly between Dallas-Fort Worth Intl. Airport (DFW) and San Antonio Intl. Airport (SAT) in roughly 1 hour and 8 minutes.",
+      "title": "American Airlines Flight 1967 Route Deals From $139",
+      "type": "general",
+      "url": "https://www.travelocity.com/lp/flights-info/aa/1967/American-Airlines-1967-flight-information"
+    },
+    {
+      "cite": "3 comments  ·  7 months ago",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Seven minutes ?! That's actually really impressive for baggage claim.",
+      "title": "r/vintageads - American Airlines [1967]",
+      "type": "general",
+      "url": "https://www.reddit.com/r/vintageads/comments/1p2q0ua/american_airlines_1967/"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › 1967_in_American_tel...",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "This is a list of  American television-related events in 1967 . Contents 1 Events 2 Television programs 2.1 Debuts 2.2 Ending this year 2.3 Television specials ...",
+      "title": "1967 in American television",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/1967_in_American_television"
+    },
+    {
+      "cite": "https://www.classic.com  › Markets › Rambler › American",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "There are 14  1967 Rambler American for sale right now  - Follow the Market and get notified with new listings and sale prices.",
+      "title": "1967 Rambler American Market",
+      "type": "general",
+      "url": "https://www.classic.com/m/rambler/american/year-1967/"
+    },
+    {
+      "cite": "https://www.si.edu  › spotlight",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "1967 was a landmark year bridging early '60s pop sensibility with an emerging hippie culture . The \"Summer of Love\" brought young people and wannabes to San ...",
+      "title": "1967: A Year in the Collections",
+      "type": "general",
+      "url": "https://www.si.edu/spotlight/1967"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "American 1967 flight status",
+          "Flight 1967 tracker",
+          "AA 1967 seat map",
+          "Flight 1967 Phoenix to Newark",
+          "Flight 1967 southwest",
+          "American Airlines",
+          "Ua 1967 flight status",
+          "Aa 2008"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "American 1967 flight status<|>Flight 1967 tracker<|>AA 1967 seat map<|>Flight 1967 Phoenix to Newark<|>Flight 1967 southwest<|>American Airlines<|>Ua 1967 flight status<|>Aa 2008",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}
