@@ -460,3 +460,21 @@ def test_ad_sitelinks_ynawrc_format(serps_by_qry):
         items = r["details"]["items"]
         assert items
         assert all(it["title"] and it["url"] for it in items)
+
+
+def test_find_related_embedded_sponsored_ads(serps_by_qry):
+    # The module's "Sponsored results" unit emits ad rows ahead of the
+    # suggestions row, inside the same component.
+    results = ws.parse_serp(serps_by_qry["car insurance quotes"]["html"])["results"]
+    cmpt = [
+        r
+        for r in results
+        if r["type"] == "searches_related" and r["sub_type"] == "find_related_products_&_services"
+    ]
+    assert len(cmpt) == 1
+    cmpt_rank = cmpt[0]["cmpt_rank"]
+    ads = [r for r in results if r["cmpt_rank"] == cmpt_rank and r["type"] == "ad"]
+    assert ads
+    for r in ads:
+        assert r["title"] and r["url"]
+        assert r["sub_rank"] < cmpt[0]["sub_rank"]
