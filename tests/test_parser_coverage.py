@@ -309,3 +309,41 @@ def test_most_read_articles_has_no_structural_fallback():
         _classify('<div role="heading">Articulos mas leidos</div><div class="EDblX">card</div>')
         == "unknown"
     )
+
+
+# --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
+#
+# SERPs serialized mid-generation ("Thinking") or after Google declined to
+# synthesize an overview carry the EYwa3d controller but none of the
+# Fzsovc/h2 markers. The same controller also lives inside knowledge panels
+# embedding an AI-overview module, so the banner rule runs last in the chain
+# and only claims otherwise-unknown components.
+
+BANNER_QRYS = ["save your do , hair wrap", "moulinex a15453 760w toaster"]
+
+
+@pytest.mark.parametrize("qry", BANNER_QRYS)
+def test_ai_overview_banner_unavailable(serps_by_qry, qry):
+    rows = _rows(serps_by_qry[qry]["html"], "ai_overview")
+    assert len(rows) == 1
+    (row,) = rows
+    assert row["sub_type"] == "unavailable"
+    assert row["title"] is None and row["url"] is None and row["text"] is None
+    assert _row_error(row) is None
+
+
+def test_ai_overview_banner_classifies_on_controller():
+    cmpt_type = _classify(
+        '<div class="hdzaWe"><div jscontroller="EYwa3d">'
+        "<span>An AI Overview is not available for this search</span></div></div>"
+    )
+    assert cmpt_type == "ai_overview"
+
+
+def test_ai_overview_banner_unknown_without_controller():
+    assert (
+        _classify(
+            '<div class="hdzaWe"><span>An AI Overview is not available for this search</span></div>'
+        )
+        == "unknown"
+    )
