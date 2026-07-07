@@ -28,11 +28,23 @@
     {
       "cite": "https://www.mattressfirm.com",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "items": [
+          {
+            "title": "Presidents Day Sale",
+            "url": "https://www.mattressfirm.com/shop/good-housekeeping-best-mattresses%7Bignore%7D?utm_kxconfid=t6c7wbovv&dma=%7Bloc_physical_ms%7D&geo_interest=%7Bloc_interest_ms%7D&gclsrc=aw.ds&%7B_dsmrktparam%7D=&sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQwgUoAXoECAsQEA"
+          },
+          {
+            "title": "Get Our Military Discount",
+            "url": "https://www.mattressfirm.com/military-discount.html?sa=X&ved=2ahUKEwig88v0hsaSAxWRPhAIHf31BDcQwgUoA3oECAsQEg"
+          }
+        ],
+        "type": "menu"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 1,
-      "sub_type": "standard",
+      "sub_type": "submenu",
       "text": "Good Housekeeping Best Mattresses | Mattress Firm",
       "title": "Good Housekeeping Best Mattresses | Mattress Firm",
       "type": "ad",

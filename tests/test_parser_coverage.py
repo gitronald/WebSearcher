@@ -449,3 +449,14 @@ def test_locations_space_joined_heading():
     assert (
         _classify('<div role="heading"><span>More</span> <span>Hotels</span></div>') == "locations"
     )
+
+
+def test_ad_sitelinks_ynawrc_format(serps_by_qry):
+    # Format-3 sitelinks: bare a.ynAwRc anchors (no MhgNwc/bOeY0b wrapper).
+    rows = _rows(serps_by_qry["best mattress forum"]["html"], "ad")
+    submenu = [r for r in rows if r["sub_type"] == "submenu"]
+    assert submenu
+    for r in submenu:
+        items = r["details"]["items"]
+        assert items
+        assert all(it["title"] and it["url"] for it in items)
