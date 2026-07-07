@@ -197,6 +197,11 @@ class ClassifyMain:
             (ClassifyMain.people_also_ask, None),
             (ClassifyMain.knowledge_box, None),
             (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
+            # Must stay last: the EYwa3d controller it keys on also lives inside
+            # components other classifiers own (knowledge panels embedding an
+            # AI-overview module, Fzsovc-marked overviews), so it may only claim
+            # components nothing above typed.
+            (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
 
         for classifier, precondition in component_classifiers:
@@ -343,6 +348,20 @@ class ClassifyMain:
         if h2_text == "Related Links":
             return "unknown"
         if node.css_first("div.Fzsovc") is not None or h2_text == "AI Overview":
+            return "ai_overview"
+        return "unknown"
+
+    @staticmethod
+    def ai_overview_banner(cmpt) -> str:
+        """Classify the standalone AI-overview loading/unavailable banner.
+
+        SERPs serialized mid-generation ("Thinking") or after Google declined
+        to synthesize an overview carry the AI overview's ``EYwa3d`` controller
+        but none of the ``Fzsovc``/``h2 AI Overview`` markers ``ai_overview``
+        gates on. The parser routes these to ``sub_type="unavailable"``.
+        """
+        node: Node = cmpt
+        if node.css_first('div[jscontroller="EYwa3d"]') is not None:
             return "ai_overview"
         return "unknown"
 
