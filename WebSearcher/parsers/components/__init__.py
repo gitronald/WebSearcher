@@ -34,6 +34,7 @@ from .ai_overview import parse_ai_overview
 from .available_on import parse_available_on
 from .banner import parse_banner
 from .buying_guide import parse_buying_guide
+from .datasets import parse_datasets
 from .discussions_and_forums import parse_discussions_and_forums
 from .elections import parse_election_dates, parse_election_resources, parse_election_results
 from .flights import parse_flights
@@ -79,6 +80,7 @@ PARSERS = {
     "available_on": parse_available_on,
     "banner": parse_banner,
     "buying_guide": parse_buying_guide,
+    "datasets": parse_datasets,
     "discover_more": parse_discover_more,
     "discussions_and_forums": parse_discussions_and_forums,
     "election_dates": parse_election_dates,

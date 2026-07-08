@@ -89,6 +89,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Faceted buying-guide accordion (label -> question rows)",
     ),
     ComponentType(
+        name="datasets",
+        label="Datasets",
+        sections=("main",),
+        header_texts={2: ("Datasets",)},
+        description="Dataset-search results module (title + source link per dataset)",
+    ),
+    ComponentType(
         name="directions",
         label="Directions",
         sections=("main",),

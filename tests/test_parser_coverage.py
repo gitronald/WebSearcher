@@ -14,6 +14,7 @@ import pytest
 import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
+from WebSearcher.parsers.components.datasets import parse_datasets
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -326,6 +327,23 @@ def test_dictionary_panel_unknown_without_dob_modules():
     # A bare "Dictionary" span without the dob-modules container is not a
     # dictionary panel -- must not be claimed as knowledge by this rule.
     assert _classify('<span>Dictionary</span><div class="other">x</div>') != "knowledge"
+
+
+def test_datasets_classifies_and_parses():
+    # "Datasets" title is an aria-level-2 heading span (not h2/h3), read by
+    # ClassifyMainHeader via the header_texts entry; each result is an h3 wrapped
+    # in a source anchor.
+    inner = (
+        '<span aria-level="2" role="heading">Datasets</span>'
+        '<a href="https://data.test/a"><h3>Global religion 2022</h3></a>'
+        '<a href="https://data.test/b"><h3>Population by faith</h3></a>'
+    )
+    assert _classify(inner) == "datasets"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_datasets(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Global religion 2022"
+    assert rows[0]["url"] == "https://data.test/a"
 
 
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
