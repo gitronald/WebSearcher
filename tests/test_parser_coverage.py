@@ -95,6 +95,12 @@ def test_places_nearby_carousel():
     assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
 
 
+def test_top_stories_contextual_news_headers():
+    # Contextual news-article carousels reuse the top_stories card parser.
+    assert _classify('<div aria-level="2" role="heading">For context</div>') == "top_stories"
+    assert _classify('<div aria-level="2" role="heading">States in the news</div>') == "top_stories"
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 

@@ -492,6 +492,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "News",
                 "Noticias",
                 "Market news",
+                # Contextual news-article carousels (same g-section-with-header
+                # card layout, parsed by parse_top_stories).
+                "For context",
+                "States in the news",
             ),
             3: ("Top stories", "Noticias destacadas", "Noticias Principales"),
         },
