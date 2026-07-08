@@ -364,6 +364,25 @@ def test_recipes_async_popular_variant():
     assert rows[0]["url"] == "https://food.test/herb"
 
 
+def test_images_strip_classifies_and_parses():
+    # Left-bar "Images" strip: offscreen a11y h3 "Images" label, no imagebox
+    # signal; a thumbnail anchor + a caption anchor to the same url. Must reach
+    # images end-of-chain and dedupe to one row keeping the text caption.
+    inner = (
+        '<h3 class="bNg8Rb">Images</h3>'
+        '<a href="https://v.test/x"><img alt="thumb"></a>'
+        '<a href="https://v.test/x">I See - YouTube</a>'
+    )
+    assert _classify(inner) == "images"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.images import parse_image_strip
+
+    rows = parse_image_strip(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "I See - YouTube"
+    assert rows[0]["url"] == "https://v.test/x"
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to

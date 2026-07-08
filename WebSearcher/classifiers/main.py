@@ -210,6 +210,7 @@ class ClassifyMain:
             # above typed.
             (ClassifyMain.knowledge_submodule, None),
             (ClassifyMain.hotel_carousel, None),
+            (ClassifyMain.images_strip, None),
             (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
 
@@ -231,6 +232,23 @@ class ClassifyMain:
             "Discussions and forums"
         ):
             return "discussions_and_forums"
+        return "unknown"
+
+    @staticmethod
+    def images_strip(cmpt) -> str:
+        """Type the left-bar/inline "Images" thumbnail strip as ``images``.
+
+        The older layout (root ``div.TzHB6b``) labels a small image/video result
+        strip with an offscreen a11y heading ``h3.bNg8Rb`` reading exactly
+        "Images", and carries none of the imagebox signals (``imagebox_bigimages``
+        / ``iur`` / carousel) that ``ClassifyMain.images`` keys on, so it reaches
+        unknown. This is end-of-chain, so it only claims a component nothing above
+        typed -- the real imagebox is caught earlier and never reaches here.
+        """
+        node: Node = cmpt
+        for heading in node.css('h3.bNg8Rb, [role="heading"]'):
+            if (get_text(heading, strip=True) or "") == "Images":
+                return "images"
         return "unknown"
 
     @staticmethod
