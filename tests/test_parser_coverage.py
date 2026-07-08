@@ -67,6 +67,13 @@ def test_recipes_bare_header_level2():
     assert _classify('<div aria-level="2" role="heading">Recipes</div>') == "recipes"
 
 
+def test_recent_posts_from_entity_header():
+    # "Posts from <entity>" is the same social carousel as "Latest posts from".
+    assert (
+        _classify('<div aria-level="2" role="heading">Posts from N2Shape</div>') == "recent_posts"
+    )
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 

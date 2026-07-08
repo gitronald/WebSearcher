@@ -403,8 +403,12 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="Recent Posts",
         sections=("main",),
         # The standalone main-column module ("Latest posts from <entity>",
-        # ``lab/cluster/*`` attrids) renders its heading at aria-level 3.
-        header_texts={2: ("Recent posts", "Latest posts from"), 3: ("Latest posts from",)},
+        # ``lab/cluster/*`` attrids) renders its heading at aria-level 3; the
+        # social-carousel variant heads "Posts from <entity>" at aria-level 2.
+        header_texts={
+            2: ("Recent posts", "Latest posts from", "Posts from"),
+            3: ("Latest posts from",),
+        },
     ),
     ComponentType(
         name="recipes",
