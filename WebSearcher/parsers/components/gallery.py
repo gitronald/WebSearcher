@@ -53,6 +53,7 @@ def parse_gallery(elem) -> list:
         author_el = authors[i] if i < len(authors) else None
         row = {
             "type": "gallery",
+            "sub_type": "card",
             "sub_rank": len(parsed_list),
             "title": title,
             "url": None,

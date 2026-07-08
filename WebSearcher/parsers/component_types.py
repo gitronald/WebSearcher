@@ -483,8 +483,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         # No header_texts: classified structurally by its ``Supercat*ClusterTitle``
         # data-attrid (the label -- "What to read", "Courses", "Explore stocks" --
         # varies by content, but the attrid family is stable). A ``header`` row
-        # (heading + joined category chips) precedes one row per item.
-        sub_types=("header",),
+        # (heading + joined category chips) precedes one ``card`` row per item --
+        # the header/card shape mirrors ``twitter_cards``.
+        sub_types=("header", "card"),
         description="JS-hydrated discovery gallery (recommended books/courses/stocks; title per item)",
     ),
     ComponentType(

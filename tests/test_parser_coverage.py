@@ -133,9 +133,10 @@ def test_gallery_structural():
     assert rows[0]["sub_type"] == "header"
     assert rows[0]["title"] == "What to read"
     assert rows[0]["text"] == "Law<|>Theory"
-    # item rows: title + author byline, no url
+    # item rows: sub_type="card" (mirrors twitter_cards header/card shape)
     assert [r["title"] for r in rows[1:]] == ["Book One", "Book Two"]
     assert [r["text"] for r in rows[1:]] == ["Author A", "Author B"]
+    assert all(r["sub_type"] == "card" for r in rows[1:])
     assert all(r["url"] is None for r in rows[1:])
     # the shown card carries no visible flag; the display:none "More books" tail does
     assert rows[1].get("details") is None
