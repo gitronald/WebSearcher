@@ -80,6 +80,21 @@ def test_election_dates_level3_submodule():
     assert _classify(inner) == "election_dates"
 
 
+def test_places_nearby_carousel():
+    from WebSearcher.parsers.components.places_nearby import parse_places_nearby
+
+    inner = (
+        '<div aria-level="2" role="heading"><span class="mgAbYb">Explore places nearby</span></div>'
+        '<a href="#"><div aria-level="3" role="heading">Family Food Centre</div></a>'
+        '<a href="#"><div aria-level="3" role="heading">Mega Mart</div></a>'
+    )
+    assert _classify(inner) == "places_nearby"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_places_nearby(node)
+    assert [r["title"] for r in rows] == ["Family Food Centre", "Mega Mart"]
+    assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 

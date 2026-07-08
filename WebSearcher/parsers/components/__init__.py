@@ -56,6 +56,7 @@ from .news_quotes import parse_news_quotes
 from .notices import parse_notices
 from .people_also_ask import parse_people_also_ask
 from .perspectives import parse_perspectives
+from .places_nearby import parse_places_nearby
 from .products import parse_products
 from .promo import parse_promo
 from .recent_posts import parse_recent_posts
@@ -108,6 +109,7 @@ PARSERS = {
     "omitted_notice": parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
+    "places_nearby": parse_places_nearby,
     "products": parse_products,
     "promo": parse_promo,
     "refine_by": parse_refine_by,

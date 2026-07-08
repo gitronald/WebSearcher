@@ -366,6 +366,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Opinion and perspective results",
     ),
     ComponentType(
+        name="places_nearby",
+        label="Places Nearby",
+        sections=("main",),
+        header_texts={2: ("Explore places nearby",)},
+        description="Local places carousel (name per nearby place; JS-driven, no urls)",
+    ),
+    ComponentType(
         name="products",
         label="Products",
         sections=("main",),
