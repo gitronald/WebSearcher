@@ -14,6 +14,9 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text
 
 _CARD_CLASS = "a-no-hover-decoration"
+# Async-loaded ("Popular recipes") carousel: each card is a div wrapping a title
+# div plus a separate result anchor (the title is not inside the anchor).
+_CARD_CLASS_ASYNC = "XDOVcf"
 _TITLE_CLASS = "hfac6d"
 _SOURCE_CLASS = "g6wEbd"
 _DURATION_CLASS = "z8gr9e"
@@ -28,11 +31,17 @@ def parse_recipes(elem) -> list:
     cards = list(node.css(f"a.{_CARD_CLASS}"))
     if not cards:
         cards = [a for a in node.css("a[href]") if a.css_first(f"div.{_TITLE_CLASS}") is not None]
+    if not cards:
+        cards = list(node.css(f"div.{_CARD_CLASS_ASYNC}"))
     return [_parse_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
 def _parse_card(card: Node, sub_rank: int = 0) -> dict:
     href = card.attributes.get("href")
+    if not href:
+        # Async variant: the card is a wrapper div, url is on an inner anchor.
+        anchor = card.css_first("a[href]")
+        href = anchor.attributes.get("href") if anchor is not None else None
     parsed: dict = {
         "type": "recipes",
         "sub_rank": sub_rank,

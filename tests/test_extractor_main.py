@@ -49,6 +49,20 @@ def test_is_valid_rejects_bad_label():
     assert ExtractorMain.is_valid(comp("Twitter Results")) is False
 
 
+def test_is_valid_rejects_a11y_section_labels():
+    # Bare offscreen a11y section headings (h*.bNg8Rb) leak as bodyless
+    # components; drop the "Web results" / "Ads" / "Description" shells.
+    assert ExtractorMain.is_valid(comp('<h2 class="bNg8Rb">Web results</h2>')) is False
+    assert ExtractorMain.is_valid(comp('<h1 class="bNg8Rb">Ads</h1>')) is False
+    assert ExtractorMain.is_valid(comp('<h2 class="bNg8Rb">Description</h2>')) is False
+
+
+def test_is_valid_keeps_ads_section_with_content():
+    # A real ad unit whose text merely starts with "Ads" (>15 chars total) is
+    # kept -- only the pure-label shell is dropped.
+    assert ExtractorMain.is_valid(comp("<h1>Ads</h1><a href='/x'>Sponsored offer</a>")) is True
+
+
 def test_is_valid_keeps_normal_component():
     assert ExtractorMain.is_valid(comp("A normal result with plenty of text")) is True
 

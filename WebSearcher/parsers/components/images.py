@@ -29,7 +29,40 @@ def parse_images(elem) -> list:
         subs = node.css("div.eA0Zlc, div.vCUuC")
         parsed_list.extend([parse_image_medium(sub, i + offset) for i, sub in enumerate(subs)])
 
+    if not parsed_list:
+        # Left-bar/inline "Images" strip (a11y h3 "Images" label, no carousel):
+        # a few image/video results, each rendered as a captioned anchor plus a
+        # thumbnail anchor to the same url. Dedupe by url; prefer a text caption.
+        parsed_list.extend(parse_image_strip(node))
+
     return [p for p in parsed_list if any([p["title"], p["url"]])]
+
+
+def parse_image_strip(node: Node) -> list:
+    by_url: dict[str, str] = {}
+    captioned: set[str] = set()
+    for anchor in node.css("a[href]"):
+        href = anchor.attributes.get("href")
+        if not href:
+            continue
+        caption = get_text(anchor, " ", strip=True)
+        if caption:
+            # A text caption always wins over an alt-text fallback.
+            by_url[href] = caption
+            captioned.add(href)
+        elif href not in captioned:
+            by_url.setdefault(href, get_img_alt(anchor) or "")
+    return [
+        {
+            "type": "images",
+            "sub_type": "strip",
+            "sub_rank": i,
+            "title": t or None,
+            "url": u,
+            "text": None,
+        }
+        for i, (u, t) in enumerate(by_url.items())
+    ]
 
 
 def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:

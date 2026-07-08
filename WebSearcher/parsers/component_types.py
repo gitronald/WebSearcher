@@ -89,6 +89,20 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Faceted buying-guide accordion (label -> question rows)",
     ),
     ComponentType(
+        name="articles",
+        label="Articles",
+        sections=("main",),
+        header_texts={2: ("Articles",)},
+        description="Entity-panel articles module (external article links)",
+    ),
+    ComponentType(
+        name="datasets",
+        label="Datasets",
+        sections=("main",),
+        header_texts={2: ("Datasets",)},
+        description="Dataset-search results module (title + source link per dataset)",
+    ),
+    ComponentType(
         name="directions",
         label="Directions",
         sections=("main",),
@@ -353,7 +367,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="products",
         label="Products",
         sections=("main",),
-        header_texts={3: ("Popular products",)},
+        # The tray carousel ("Popular products" / "More products") renders its
+        # title in an aria-level-2 g-tray-header span; the immersive grid uses an
+        # aria-level-3 "Popular products" heading.
+        header_texts={2: ("Popular products", "More products"), 3: ("Popular products",)},
         sub_types=("grid", "brands"),
         description="Organic shopping packs: popular-products grids and brand carousels",
     ),
@@ -363,6 +380,21 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         sections=("main",),
         sub_types=("shopping",),
         description="Promotional banner (e.g. 'Save with deals / Shop deals' shopping CTA)",
+    ),
+    ComponentType(
+        name="refine_by",
+        label="Refine By",
+        sections=("main",),
+        # "Refine by brand", "Refine by color", ... -- prefix-matched at level 2.
+        header_texts={2: ("Refine by",)},
+        description="Faceted product-filter chips linking to a refined search",
+    ),
+    ComponentType(
+        name="shopping_ideas",
+        label="Shopping Ideas",
+        sections=("main",),
+        header_texts={2: ("Shopping ideas",)},
+        description="Product-category idea chips linking to a category search",
     ),
     ComponentType(
         name="recent_posts",
@@ -376,7 +408,11 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="recipes",
         label="Recipes",
         sections=("main",),
-        header_texts={3: ("Recipes", "Recetas")},
+        # The standalone main-column carousel renders its heading at aria-level 2
+        # ("Popular recipes" / "More popular recipes"), often wrapped in an
+        # async-load "Preferences saved ... RETRY" state chrome that leaves the
+        # heading intact; the inline "Recipes" variant is aria-level 3.
+        header_texts={2: ("Popular recipes", "More popular recipes"), 3: ("Recipes", "Recetas")},
     ),
     ComponentType(
         name="scholarly_articles",

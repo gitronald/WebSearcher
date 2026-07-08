@@ -14,6 +14,7 @@ import pytest
 import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
+from WebSearcher.parsers.components.datasets import parse_datasets
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -309,6 +310,162 @@ def test_most_read_articles_has_no_structural_fallback():
         _classify('<div role="heading">Articulos mas leidos</div><div class="EDblX">card</div>')
         == "unknown"
     )
+
+
+def test_dictionary_panel_classifies_structurally_as_knowledge():
+    # Left-bar/inline dictionary layout: no kp-blk/ULSxyf wrapper and the
+    # "Dictionary" label is a non-heading span, so only the dob-modules container
+    # identifies it. Must reach knowledge (not unknown) so _subtype_dictionary runs.
+    cmpt_type = _classify(
+        "<span>Dictionary</span>"
+        '<div class="dob-modules"><span data-dobid="hdw">an·ti·pa·thy</span></div>'
+    )
+    assert cmpt_type == "knowledge"
+
+
+def test_dictionary_panel_unknown_without_dob_modules():
+    # A bare "Dictionary" span without the dob-modules container is not a
+    # dictionary panel -- must not be claimed as knowledge by this rule.
+    assert _classify('<span>Dictionary</span><div class="other">x</div>') != "knowledge"
+
+
+def test_datasets_classifies_and_parses():
+    # "Datasets" title is an aria-level-2 heading span (not h2/h3), read by
+    # ClassifyMainHeader via the header_texts entry; each result is an h3 wrapped
+    # in a source anchor.
+    inner = (
+        '<span aria-level="2" role="heading">Datasets</span>'
+        '<a href="https://data.test/a"><h3>Global religion 2022</h3></a>'
+        '<a href="https://data.test/b"><h3>Population by faith</h3></a>'
+    )
+    assert _classify(inner) == "datasets"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_datasets(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Global religion 2022"
+    assert rows[0]["url"] == "https://data.test/a"
+
+
+def test_recipes_async_popular_variant():
+    # "Popular recipes" carousel: aria-level-2 heading (registered), and cards
+    # where the title div sits outside the result anchor (XDOVcf wrapper).
+    inner = (
+        '<div aria-level="2" role="heading">Popular recipes</div>'
+        '<div class="XDOVcf"><div class="hfac6d">Herb Batter Bread</div>'
+        '<a href="https://food.test/herb">go</a></div>'
+    )
+    assert _classify(inner) == "recipes"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.recipes import parse_recipes
+
+    rows = parse_recipes(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "Herb Batter Bread"
+    assert rows[0]["url"] == "https://food.test/herb"
+
+
+def test_images_strip_classifies_and_parses():
+    # Left-bar "Images" strip: offscreen a11y h3 "Images" label, no imagebox
+    # signal; a thumbnail anchor + a caption anchor to the same url. Must reach
+    # images end-of-chain and dedupe to one row keeping the text caption.
+    inner = (
+        '<h3 class="bNg8Rb">Images</h3>'
+        '<a href="https://v.test/x"><img alt="thumb"></a>'
+        '<a href="https://v.test/x">I See - YouTube</a>'
+    )
+    assert _classify(inner) == "images"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.images import parse_image_strip
+
+    rows = parse_image_strip(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "I See - YouTube"
+    assert rows[0]["url"] == "https://v.test/x"
+
+
+def test_refine_by_chips():
+    # "Refine by <facet>" prefix-matched at aria-level 2; chips -> filtered search.
+    from WebSearcher.parsers.components.refinements import parse_refine_by
+
+    inner = (
+        '<div aria-level="2" role="heading">Refine by color</div>'
+        '<a href="/search?q=pink">Pink</a><a href="/search?q=blue">Blue</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "refine_by"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_refine_by(node)
+    assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
+    assert rows[0]["url"] == "/search?q=pink"
+
+
+def test_shopping_ideas_chips():
+    from WebSearcher.parsers.components.refinements import parse_shopping_ideas
+
+    inner = (
+        '<div aria-level="2" role="heading">Shopping ideas</div>'
+        '<a href="/search?q=jerseys">Jerseys</a><a href="/search?q=hats">Hats</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_shopping_ideas(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Jerseys"
+
+
+def test_articles_module():
+    from WebSearcher.parsers.components.articles import parse_articles
+
+    inner = (
+        '<div aria-level="2" role="heading">Articles</div>'
+        '<a href="https://pub.test/a"><img alt="thumb"></a>'
+        '<a href="https://pub.test/a">Publisher Headline</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "articles"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_articles(node)
+    assert len(rows) == 1  # deduped by url, feedback "#" skipped
+    assert rows[0]["title"] == "Publisher Headline"
+    assert rows[0]["url"] == "https://pub.test/a"
+
+
+def test_knowledge_submodule_level3_menu_highlights():
+    # "Menu highlights" renders its heading at aria-level 3 (not 2), so the
+    # submodule rule must scan level 3 too.
+    assert (
+        _classify('<div aria-level="3" role="heading">Menu highlights</div><div>x</div>')
+        == "knowledge"
+    )
+
+
+def test_knowledge_submodule_rooms_at_hotel():
+    # "Rooms at <hotel>" room-rate module (aria-level 2) -> knowledge.
+    assert (
+        _classify('<div aria-level="2" role="heading">Rooms at Harris Guest House</div><img>')
+        == "knowledge"
+    )
+
+
+def test_products_tray_carousel_level2_header():
+    # "Popular products" / "More products" tray carousel titles its aria-level-2
+    # g-tray-header span (not an h3), so the level-2 header_texts entry types it.
+    assert _classify('<span aria-level="2" role="heading">Popular products</span>') == "products"
+    assert _classify('<span aria-level="2" role="heading">More products</span>') == "products"
+
+
+def test_knowledge_submodule_entity_tail_headings():
+    # Standalone entity submodules splatted into the main column -> knowledge.
+    for heading in (
+        "Interactive diagrams",
+        "Featured events",
+        "How to solve your problem",
+        "Top sights in Rome",
+        "Beach destinations in Greece",
+    ):
+        assert _classify(f'<div aria-level="2" role="heading">{heading}</div><div>x</div>') == (
+            "knowledge"
+        ), heading
 
 
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
