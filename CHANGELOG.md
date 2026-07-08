@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Classify the left-bar/inline dictionary panel (Oxford Languages "definition on board") as `knowledge`/`sub_type="dictionary"`: a structural-first `dob-modules` rule types the panel that renders without a `kp-blk`/`ULSxyf` wrapper (root `div.TzHB6b`) and whose "Dictionary" label is a non-heading span, so `parse_knowledge_panel`'s `_subtype_dictionary` recovers the headword + definitions instead of the panel reaching `unknown`. The `dob-modules` anchor also survives the "Report a problem to Google" feedback-modal wrapper that prepends chrome to the panel text. Top recurring family in a cross-wave directives-corpus unknown survey (~3,000 rows across crawls 1-4, per representative dir). Two coverage tests pin classify -> `knowledge` with and without the container
 - Classify the remaining crawl-6 unknown-component families (second pass after the AI-overview banner below; together they cut a 2026-07 crawl sample's unknown components from 934 to 14):
   - "Find related products & services" advertiser suggestion lists now parse as `searches_related` with a new `sub_type="find_related_products_&_services"` and real per-item extraction (`li.o1QE1` query links); previously these surfaced as `unknown`, hollow `general` rows, or near-empty `knowledge/panel` shells
   - "Latest posts from <entity>" modules with aria-level-3 headings now classify as `recent_posts` (level-3 `header_texts` entry)
