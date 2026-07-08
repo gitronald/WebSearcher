@@ -29,12 +29,15 @@ def _add_search_args(p: argparse.ArgumentParser) -> None:
 
 
 def _run_search(args: argparse.Namespace) -> None:
-    search(
+    # Model the README's "Step 6: Close the Browser" -- the demo returns a live
+    # engine for interactive use, so the CLI run path tears it down explicitly.
+    se = search(
         args.query,
         args.method,
         data_dir=args.data_dir,
         ai_expand=args.ai_expand,
     )
+    se.close()
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -106,13 +109,14 @@ def main(argv: list[str] | None = None) -> None:
     elif args.command == "search":
         _run_search(args)
     elif args.command == "searches":
-        searches(
+        se = searches(
             types=args.types,
             method=args.method,
             data_dir=args.data_dir,
             ai_expand=args.ai_expand,
             delay=args.delay,
         )
+        se.close()
     elif args.command == "headers":
         headers(args.query, data_dir=args.data_dir)
     elif args.command == "locations":

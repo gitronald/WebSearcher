@@ -29,6 +29,9 @@ class PatchrightConfig(BaseConfig):
     headless: bool = False
     channel: str = "chrome"
     user_data_dir: str = ""
+    # Keep Chrome's OS-level sandbox on: the driver appends --no-sandbox unless
+    # this is exactly True, and the default backend visits live web content.
+    chromium_sandbox: bool = True
 
 
 class RequestsConfig(BaseConfig):

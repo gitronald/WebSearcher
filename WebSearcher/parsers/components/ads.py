@@ -254,6 +254,14 @@ def parse_ad_menu(sub: Node) -> dict | None:
                 if text and href:
                     items.append({"url": href, "title": text})
 
+    # Format 3: ynAwRc sitelink anchors (one per Va3FIb wrapper row)
+    if not items:
+        for link in sub.css("a.ynAwRc"):
+            text = get_text(link, " ", strip=True) or ""
+            href = link.attributes.get("href", "") or ""
+            if text and href:
+                items.append({"url": href, "title": text})
+
     return {"type": "menu", "items": items} if items else None
 
 

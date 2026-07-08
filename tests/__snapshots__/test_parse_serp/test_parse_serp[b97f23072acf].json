@@ -1,0 +1,412 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "FIFA Women's World Cup",
+        "subtitle": "Jun 7, 2019 – Jul 8, 2019",
+        "tabs": [
+          "Overview"
+        ],
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Matches",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=women%27s+world+cup+2019+schedule&si=APenkKnffDDX03-jYotzhLcrJ2I09ZfcQaRD-88g2qvddvaNxKP8UVTVmyNikRS0t4C2YXoqCVGySMsB4VfMdJpjEDZR5NQaC3PuZsKaDv1vWzhGujbdqXggeNKVZxoym9JHOLj3cHpW8Dywmh32iLXFLqRTuXZFM9S4lVMVuS9D4NteihQTEd_7sxnEp_a8wddIzXVa1pImL2cqHqFLCkEkoad_MIxk8l5z08a1__Z2XDhTnEz3WycfyrdOr7P7MDEF55Gqd1E6gMagydGfNblVsy__POXEJJkyKJrnu3bl0codyGZGyrLP8s18dpYh5oOIK-F3cjeucLrDD9uAaX_aVirdZq1sJ3wX5TFo9JzLnNuYE62WjDoNpYylshO9VbO2cOc8akiayM4FdUUJet-e2oFrcwl9KOIvIpcearN60BU3Wzz29EAYKHDtJLy3Nromadx-Cdok-3UpFZivb22oks4NiWbtCdVVKf2trjEa5_4vcF-sPdtVO2JyDcGezt0QOl-fOEYl-Rode-IRP2EFepAN09IjURFWpb4_mLCn4SGHyHqM_-UkQs0luIwhsvp4dBqLrHSIUgKSxsoz2oegSHrutgnG9Lk_q8kw21qZhyXUSjpb0ASDLSGkvGO78p1hdy47jfjYqfIeohHpLY_7WEq2h6x4q18Uvml4sWBxY1k9NKXP4cfyKaXFLVyw6qlKNfBDslPq&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQyNoBKAB6BAgPEAA&ictx=1"
+          },
+          {
+            "text": "Standings",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=women%27s+world+cup+2019+standings&si=APenkKmNLxgN0g3k_QMjjDnRThWtI9yUcrKrOHLISYQ6VMSzZpsVIXCaA8QQ8Y3QsopSxvcVw0sOLc1RwniUhU8rrFuglWepr9FIFleqtroVemf1fER6QtwAtyEmKIFMViBvgZ1F8wMJ21QBPZt98JHv2UFCARQEnolPwdTnsEJu8KciDklRHAqdJFpKgfkBSWXhtnARCgt1CAuH5riQlaGgvm2sc-DA32rwM32jsx9RYqMfdCKoaaEQb6GzBA2a45FFzdzeRYqCMouUT7vIlYMxYmNaefUomzSqOR7z8xx5e1cwsRylPNa6WPTFsubRZGUFzUcoGRki1oEhY48z2cJIVfhg033GzCCx-olUv_VJI5y7vsvyLAA%3D&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQyNoBKAB6BAgQEAA&ictx=1"
+          },
+          {
+            "text": "Bracket",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=2019+women%27s+world+cup+bracket&si=APenkKkr5BGTg5EKlWDGOW4xYru86uSZPM49F5sMAw6wnL2uvCZzZf-y0jQ4dxDjl-q99LJKeNaIkvEcb3xgyQSwBJ2KL2mRz9nF70L0GoRwjYb2rdyg6YdK4uHs7yKgckbwNG3sHW1oNcgWN98yY9VN0uitMt-SNQ7IJI6OxMhRuAhYCSuN3qPKwrl1qc2vLkYaPz-Ihv-VZeWLmg_3TsPh-3Kzlo_BItB7iYJ1dw_FNS0ALS5191RtFDxWNcOH4jdGcRwqd7Y47np0m4zGjLFJvqCMLhUYg7BU4mfW7s-KuoSoIWmQbPEEp0t40-kFlGXdlZhJrr3Qh-qezWt_9GMArzcanub-IQ%3D%3D&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQyNoBKAB6BAgREAA&ictx=1"
+          },
+          {
+            "text": "Stats",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=women%E2%80%99s+world+cup+stats&si=APenkKnKfURdpa4BZTXIuoFn3fr3R5NH45zg97fLjS6RnAzti-Xubt14ViF0NA1ETl5QcZsuBuEXXlymb-rnRz0t4ANUxtzX6gJWxNeIY80_qXIfR0qc3iyVAnaqiWiOT4mGtnIjX7Yy0JwiIi2TZ8hGIhkVbfMVaQtfbFsdTUP5BEeRewBxqeK2b9lk2aLqDsxRTAuaQcmuc5u8kl0DBnhJKe4Bcw6RtIyJ5Cj0P-_YZuUyNzN27MrAt_2sttlBugw3nBH-Tva2Ay-F-wHtsBliyoKgL1bvajssmX2kibBATxmMzZlk2meQsBcJjUR9TBgNn7gSVmjfZt6ir6UfwVbXlQfL-4AwyA%3D%3D&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQyNoBKAB6BAgUEAA&ictx=1"
+          },
+          {
+            "text": "Players",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=2019+women%27s+world+cup+roster&si=APenkKn5_9jlhn9R1ZjYs0iIGhlgkXVSMlUvOR4gp4jOJxMLaMUKnmh2TNTDCpZd-qvsOEgFlozZutv9mEm93oFi51G0PgSMIsi3i7nS0MwfWiN-XWHHt1dffv2rSHKxsLyeHynC_ROImk5_4fqk9qqA2PwpEIGnO85We9gHGNcDbp62oVekpYr9ylOBGmWPU_LPlfoAYFTFxvB9ASkOuJoTONGWKPyrsXZyenRu9rSngQxMY-SheFbsf86wEE2fKP6XfeAmM6RWJLVT8K51McEdzgC_ET3J70_LyFzE8PaQlqcHTuade8hP60z-R5m-vLF2i2Z5dwG-ecHkXE1ZLm2a2Xwa0aNAow%3D%3D&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQyNoBKAB6BAgSEAA&ictx=1"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Jun 7, 2019 – Jul 8, 2019",
+      "title": "FIFA Women's World Cup",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "type": "panel",
+        "urls": [
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/6WfYM787i58CQXjzpRVN2L?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          },
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/6EMKlFEaGTZ14R7OmYtVuH?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          },
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/4pjjyWBS8zubcIXUsDwUOb?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          },
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/aQAe4SuUPJfuxTBMMUgFp?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          },
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/5FpQFpD3my1AyewL3AyfXh?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          },
+          {
+            "text": "► 2:00",
+            "url": "https://www.fifa.com/watch/50exFrHqJqDIpdKVaf9OeG?cid=(p_go-box)(c_FIFAPlus)(sc_live)(ssc_)(da_)(co_)(cc_)&s_cid=(co_)(cc_)&c=(c_FIFAPlus)(sc_live)(ssc_)(cc_)&pid=(p_go-box)(ch_)(t_)"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › 2019_FIFA_Women's...",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "It took place between 7 June and 7 July  2019 , with 52 matches staged in nine cities in France,  Dates  7 June – 7 July Teams 24. Quarter-finals Round of 16 Group ...",
+      "title": "2019 FIFA Women's World Cup",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/2019_FIFA_Women%27s_World_Cup"
+    },
+    {
+      "cite": "https://www.foxsports.com  › soccer › scores",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "View scores & schedule for  FIFA Women's World Cup 2019 at FOX Sports . Dates, times, tv network, team matchups, odds and more.",
+      "title": "FIFA Women's World Cup 2019 Schedule & Scores",
+      "type": "general",
+      "url": "https://www.foxsports.com/soccer/2019-fifa-womens-world-cup/scores"
+    },
+    {
+      "cite": "https://www.fifa.com  › womens › womensworldcup › fi...",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Across nine host cities, the 24 teams of the FIFA  Women's World Cup  France 2019TM started their journey on 7 June.",
+      "title": "FIFA Women's World Cup France 2019™",
+      "type": "general",
+      "url": "https://www.fifa.com/en/tournaments/womens/womensworldcup/fifa-womens-world-cup-france-2019"
+    },
+    {
+      "cite": "https://inside.fifa.com  › news › match-schedule-for-fifa...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Feb 8, 2018  —  Paris will host the competition's opening match on 7 June , followed by round-of-16 matches (22-25 June) in Valenciennes, Le Havre, Reims, Paris ...",
+      "title": "Match schedule for FIFA Women's World Cup France 2019 ...",
+      "type": "general",
+      "url": "https://inside.fifa.com/news/match-schedule-for-fifa-womens-world-cup-france-2019-announced"
+    },
+    {
+      "cite": "https://www.goal.com  › en-us › news › womens-world-...",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jul 8, 2019  —  Women's World Cup 2019 last 16 schedule  & results. The fixtures for the last 16 stage were confirmed on June 20, the final day of the group ...",
+      "title": "Women's World Cup 2019: Teams, fixtures, dates & ...",
+      "type": "general",
+      "url": "https://www.goal.com/en-us/news/womens-world-cup-2019-teams-fixtures-dates--everything-you-need-to-know/1wbhfzu4e9gah1ruzzsraq5wo4"
+    },
+    {
+      "cite": "https://www.nbcsports.com  › soccer › news › full-2019...",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jun 6, 2019  —  Below is a look at the  2019 Women's World Cup schedule  in full, as it starts on June 7 and ends on July 7. Group Stage. Friday 7 ...",
+      "title": "Full 2019 Women's World Cup schedule, live streams",
+      "type": "general",
+      "url": "https://www.nbcsports.com/soccer/news/full-2019-womens-world-cup-schedule-live-streams"
+    },
+    {
+      "cite": "https://ussoccer.com  › stories › 2019/09 › uswnt-to-finis...",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "FIFA  Women's World Cup  champions to Columbus, Ohio to face Sweden on Nov. 7 at MAPFRE Stadium (7:30 p.m. ET on FS1 & TUDN) and Jacksonville, Fla. to face Costa ...",
+      "title": "USWNT To Finish Historic 2019 Against Sweden On Nov. 7 ...",
+      "type": "general",
+      "url": "https://ussoccer.com/stories/2019/09/uswnt-to-finish-historic-2019-against-sweden-on-nov-7-and-costa-rica-on-nov-10"
+    },
+    {
+      "cite": "https://www.cbssports.com  › soccer › news › womens-...",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jul 7, 2019  —  Round of 16 Saturday, June 22 Germany 3, Sunday, June 23 England 3, Cameroon. Monday, June 24 United States 2, Spain",
+      "title": "Women's World Cup 2019 scores, bracket, schedule, dates ...",
+      "type": "general",
+      "url": "https://www.cbssports.com/soccer/news/womens-world-cup-2019-scores-bracket-schedule-dates-start-times-uswnt-wins-second-consecutive-title/"
+    },
+    {
+      "cite": "https://www.cricinfo.com  › series › match-schedule-fixt...",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "View the complete  ICC Women's T20 World Cup 2019/20 match schedule , including dates, venues, and start times for all 10 teams. Stay updated with the latest ...",
+      "title": "ICC Women's T20 World Cup 2019/20 Schedule & Match ...",
+      "type": "general",
+      "url": "https://www.cricinfo.com/series/women-s-t20-world-cup-2019-20-1172990/match-schedule-fixtures-and-results"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Women's World Cup 2019: Full bracket, dates, times, TV ...",
+      "type": "images",
+      "url": "https://www.sportingnews.com/us/soccer/news/womens-world-cup-2019-full-bracket-dates-times-tv-channels-for-every-match/1u5eima9wdo191emoraikrttvj"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "FIFA releases Women's World Cup match calendar | Stars and ...",
+      "type": "images",
+      "url": "https://www.starsandstripesfc.com/2018/2/8/16991776/fifa-releases-womens-world-cup-match-calendar"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "2019 FIFA Women's World Cup - Wikipedia",
+      "type": "images",
+      "url": "https://en.wikipedia.org/wiki/2019_FIFA_Women%27s_World_Cup"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Women's world cup 2019 schedule pdf",
+          "Fifa women's world cup 2019 schedule",
+          "2019 FIFA World Cup winners",
+          "Women's world cup 2019 schedule fixtures",
+          "2019 FIFA World Cup final",
+          "FIFA World Cup 2019 held in which country",
+          "2019 FIFA World Cup men's",
+          "Women's World Cup 2019 Final"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Women's world cup 2019 schedule pdf<|>Fifa women's world cup 2019 schedule<|>2019 FIFA World Cup winners<|>Women's world cup 2019 schedule fixtures<|>2019 FIFA World Cup final<|>FIFA World Cup 2019 held in which country<|>2019 FIFA World Cup men's<|>Women's World Cup 2019 Final",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "The FIFA Women's World Cup is an international association football competition contested by the senior women's national teams of the members of the Fédération Internationale de Football Association, the sport's international governing body. The competition has been held every four years since 1991.",
+      "title": null,
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/FIFA_Women%27s_World_Cup"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/organization/organization:founded",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "November 16, 1991",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/sports/sports_league:league_players_carousel",
+        "items": [
+          {
+            "text": "Marta Brazil",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Marta+Vieira+da+Silva&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lWAjMt04rMLLUMspOt9IsL8otKiqFUfE5qYnppqhWEii_ISaxMLSqOT04syi8tTs1ZxCrqm1hUkqgQlpmaWZSokJKoEJyZU5a4g5URABQ514tlAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAgjEAM"
+          },
+          {
+            "text": "Sam Kerr Australia",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Sam+Kerr&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lW4gIxTXOLi8rLtAyyk630iwvyi0qKoVR8TmpiemmqFYSKL8hJrEwtKo5PTizKLy1OzVnEyhGcmKvgnVpUtIOVEQA1Z9CrWQAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAgjEAY"
+          },
+          {
+            "text": "Alexia Putellas Spain",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Alexia+Putellas&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lW4gIxMyxNi4uLtQyyk630iwvyi0qKoVR8TmpiemmqFYSKL8hJrEwtKo5PTizKLy1OzVnEyu-Yk1qRmagQUFqSmpOTWLyDlREA5S1l22AAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAgjEAk"
+          },
+          {
+            "text": "Lindsey Heaps USA",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Lindsey+Heaps&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lW4gIx81LKU4pytAyyk630iwvyi0qKoVR8TmpiemmqFYSKL8hJrEwtKo5PTizKLy1OzVnEyuuTmZdSnFqp4JGaWFC8g5URAEgVe8peAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAgjEAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Marta Brazil Sam Kerr Australia Alexia Putellas Spain Lindsey Heaps USA",
+      "title": "League players carousel",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/sports/sports_associations:teams",
+        "items": [
+          {
+            "text": "United States women's national soccer team",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=USWNT&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lWAjON4pPMU7RUspOt9IsL8otKiqFUfGJxcX5yZmJJZn5esVVJamJu8SJW1tDgcL-QHayMAEfZpvhJAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAghEAM"
+          },
+          {
+            "text": "Brazil women's national football team",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Brazil+women%27s+national+football+team&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lWAjPNTU2Lk7RUspOt9IsL8otKiqFUfGJxcX5yZmJJZn5esVVJamJu8SJWVaeixKrMHIXy_NzUPPVihTywdGKOQlp-fklSYk6OAkjhDlZGAOT6KyppAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAghEAY"
+          },
+          {
+            "text": "Australia women's national football team",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Australia+women%27s+national+football+team&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lWAjMtC80zkrRUspOt9IsL8otKiqFUfGJxcX5yZmJJZn5esVVJamJu8SJWDcfS4pKixJzMRIXy_NzUPPVihTywisQchbT8_JKkxJwcBZDaHayMAIrYFcFsAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAghEAk"
+          },
+          {
+            "text": "Germany women's national football team",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Germany+women%27s+national+football+team&stick=H4sIAAAAAAAAAONgFuLUz9U3MMxOz8lWAjONDYpSkrRUspOt9IsL8otKiqFUfGJxcX5yZmJJZn5esVVJamJu8SJWNffUotzEvEqF8vzc1Dz1YoU8sHxijkJafn5JUmJOjgJI5Q5WRgAYHaloagAAAA&sa=X&ved=2ahUKEwiS3N-k1rCVAxWwz_ACHUetNxAQxA16BAghEAw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "United States women's national soccer team Brazil women's national football team Australia women's national football team Germany women's national football team",
+      "title": "Teams",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "X (Twitter)",
+            "url": "https://x.com/FIFAWWC"
+          },
+          {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/fifawomensworldcup"
+          },
+          {
+            "text": "TikTok",
+            "url": "https://www.tiktok.com/@fifawomensworldcup"
+          },
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/fifawomensworldcup"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "X (Twitter) Instagram TikTok Facebook",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

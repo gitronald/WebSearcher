@@ -1,0 +1,416 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Qatar",
+        "subtitle": "Country in the Middle East",
+        "type": "panel"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Country in the Middle East",
+      "title": "Qatar",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Weather",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "Get there|$1,726+|19h 0m to Doha",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Doha&si=APenkKluOWnouaE_2-r7czbJ2wqKZ1kz7rxnbCT5XTCHjRY5OpWZHaQYuQfXlT-2OWp-JOE8LLqgC02mCc6JTXclh9JeZg3r8Q%3D%3D&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQlb4JegQIQBAB"
+          },
+          {
+            "text": "Weather|Wed|111|°|Wednesday | Sunny| |111 degrees Fahrenheit|Thu|110|°|Thursday | Sunny| |110 degrees Fahrenheit|Fri|104|°|Friday | Sunny| |104 degrees Fahrenheit",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Qatar&si=APenkKn6LY3h_IookWI3tnBRQ3jrsWESZLB6mvJ_-OXloF4dIHUNMGqBm5QB4d2uI-yaVweUfoPa4mTiUOcYzRit6FGddIq4oQ%3D%3D&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQ4rsJegQIMhAA"
+          },
+          {
+            "text": "Google Weather",
+            "url": "https://support.google.com/websearch/answer/13687874"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_results",
+      "text": "Get there $1,726+ 19h 0m to Doha Weather Wed 111 ° Wednesday Sunny 111 degrees Fahrenheit Thu 110 ° Thursday Sunny 110 degrees Fahrenheit Fri 104 ° Friday Sunny 104 degrees Fahrenheit Google Weather",
+      "title": null,
+      "type": "knowledge",
+      "url": "https://support.google.com/websearch/answer/13687874"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "‎تلفزيون قطر‎ | ‎تقرير | تواصل الدعم الإنساني القطري لجمهورية ... Instagram  ·  تلفزيون قطر 11 hours ago",
+      "type": "videos",
+      "url": "https://www.instagram.com/reel/DaN_fFCGnTR/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 1,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "محلل قطري: قطر همشت إسرائيل في مفاوضات إيران وحجمتها في ... YouTube  ·  i24NEWS Arabic 10 hours ago",
+      "type": "videos",
+      "url": "https://www.youtube.com/watch?v=oYTQ4gJd3_E"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 2,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "الداخلية القطرية: أسفرت عمليات البحث عن التأكد من استشهاد ... Facebook  ·  التلفزيون العربي 2 days ago",
+      "type": "videos",
+      "url": "https://www.facebook.com/alarabytelevision/videos/%D8%A7%D9%84%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9-%D8%A7%D9%84%D9%82%D8%B7%D8%B1%D9%8A%D8%A9-%D8%A3%D8%B3%D9%81%D8%B1%D8%AA-%D8%B9%D9%85%D9%84%D9%8A%D8%A7%D8%AA-%D8%A7%D9%84%D8%A8%D8%AD%D8%AB-%D8%B9%D9%86-%D8%A7%D9%84%D8%AA%D8%A3%D9%83%D8%AF-%D9%85%D9%86-%D8%A7%D8%B3%D8%AA%D8%B4%D9%87%D8%A7%D8%AF-%D9%85%D9%88%D8%A7%D8%B7%D9%86-%D9%82%D8%B7%D8%B1%D9%8A/4192817451008236/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "heading": "Things to do",
+        "text": "Things to do|Things to do|Museum of Islamic Art|Museum of Islamic Art|Museum of Islamic Art|4.7|(17K)|Art museum|Art museum|Art museum|$13.69|$13.69|Souq Waqif|Souq Waqif|Souq Waqif|4.7|(34K)|Traditional market|Traditional market|Traditional market|National Museum of Qatar|National Museum of Qatar|National Museum of Qatar|4.7|(21K)|National museum|National museum|National museum|$13.69|$13.69|The Pearl Island|The Pearl Island|The Pearl Island|4.7|(3.7K)|Island|Island|Island|More things to do",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "More things to do",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Qatar&stick=H4sIAAAAAAAAAONgVuLQz9U3MLM0L17EyhqYWJJYBAC8f-UiFAAAAA&si=APenkKk05p1eUcAU5bs3wtYry0HzcDtroV_cGYB6MWG1N1wX1NXjHW9ad6CaBKYm8SkPnvEW7Zm-SOLk3ZZ6e6GgNOTNSDq5w48anIcbkUmgRACGXF-vuQA%3D&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQxN8JegQINxAc"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "items": [
+          "كم مهر القطريات؟",
+          "من هم القطريين الأصليون؟",
+          "ما هي أكثر الجنسيات في قطر؟",
+          "ما هي أغنى قبائل قطر؟"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "كم مهر القطريات؟<|>من هم القطريين الأصليون؟<|>ما هي أكثر الجنسيات في قطر؟<|>ما هي أغنى قبائل قطر؟",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "27.9K+ followers",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "أول حساب قطري يجمع كل المشاريع القطرية بمكان واحد  كدعم لاصحاب المشاريع وتسهيل مهمة البحث على المتابعين. Follow. Message ...",
+      "title": "‎🇶🇦قطريات‎ (@qtriat) • Instagram photos and videos",
+      "type": "general",
+      "url": "https://www.instagram.com/qtriat/?hl=en"
+    },
+    {
+      "cite": "https://ar.wikipedia.org  › wiki ›  ق...",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "قطريون هم  مواطنو دولة قطر ، التي تقع على الساحل الشمالي الشرقي لشبه الجزيرة العربية في الشرق الأوسط. قطريون. العلم. معلومات عامة. نسبة التسمية. قطر · عدل القيمة ...",
+      "title": "قطريون",
+      "type": "general",
+      "url": "https://ar.wikipedia.org/wiki/%D9%82%D8%B7%D8%B1%D9%8A%D9%88%D9%86"
+    },
+    {
+      "cite": "19.2K+ followers",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "قطريات‎. 19164 likes · 1 talking about this. ‎ صفحة تهتم بنساء القطريات ‎",
+      "title": "قطريات‎ (@qataryat)",
+      "type": "general",
+      "url": "https://www.facebook.com/qataryat/"
+    },
+    {
+      "cite": "https://womenofqatar.com  › tag",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "نساء قطريات . مريم عبداللطيف النعيمي. خريجة جامعة كارنجي ميلون التي وظفت الكثير من وقتها وجهدها لتحسين مجتمعها، بالإضافة إلى حرصها على التوافق بين حياتها ...",
+      "title": "نساء قطريات",
+      "type": "general",
+      "url": "https://womenofqatar.com/ar/tag/%D9%86%D8%B3%D8%A7%D8%A1-%D9%82%D8%B7%D8%B1%D9%8A%D8%A7%D8%AA/"
+    },
+    {
+      "cite": "https://ar.wikipedia.org  › wiki ›  ت...",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "تصنيف: قطريات  ... في كومنز صور وملفات عن Women of Qatar. تصنيفات فرعية. يشتمل هذا التصنيف على تصنيفين فرعيين، من أصل 2. ق.  قطريات  حسب المهنة ( ...",
+      "title": "تصنيف:قطريات",
+      "type": "general",
+      "url": "https://ar.wikipedia.org/wiki/%D8%AA%D8%B5%D9%86%D9%8A%D9%81:%D9%82%D8%B7%D8%B1%D9%8A%D8%A7%D8%AA"
+    },
+    {
+      "cite": "91.6K+ followers",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "قطريات في الدوحة  · سلامٌ على خليلٍ أحببتُه، فما خان عهدًا، ولا بدّل ودًّا، بل صان المحبّةَ حتى آخر العمر. · وصلت تشكيلة مخاوير رووعة #مخاوير.#حرير السعر · سلام عليكم ...",
+      "title": "قطريات في الدوحة",
+      "type": "general",
+      "url": "https://www.facebook.com/groups/1458919554984797/"
+    },
+    {
+      "cite": "3.7K+ views  ·  9 years ago",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "بمناسبة اليوم العالمي للمرأة 2017، تتشرف السفارة الفرنسية في قطر بأن تقدم مقطع فيديو بعنوان \"نساءقطرياتيمدّدن آفاقهن\" (Qatari Women Pushing ...",
+      "title": "نساء قطريات يمدّدن آفاقهن",
+      "type": "general",
+      "url": "https://www.youtube.com/watch?v=z_IvIccn5dY"
+    },
+    {
+      "cite": "https://qbwa.qa  › ...",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "رابطة سيدات الأعمال القطريات  تستضيف فريق قمة الويب لتعزيز الشراكة نحو آفاق أوسع في قمة 2026. انطلاقاً من رؤيتها الاستراتيجية في تمكين المرأة القطرية وتعزيز ...",
+      "title": "رابطة سيدات الأعمال القطريات",
+      "type": "general",
+      "url": "https://qbwa.qa/ar/"
+    },
+    {
+      "cite": "https://mofa.gov.qa  ›  معلومات-عامة",
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "دولة قطر · الموقع. دولة قطر هي  شبه جزيرة تقع في وسط الساحل الغربي للخليج العربي ، ويبلغ عرض مساحتها حوالي 100 كم وتمتد بطول 200 كم في الخليج. · عدد السكان. يبلغ ...",
+      "title": "دولة قطر",
+      "type": "general",
+      "url": "https://mofa.gov.qa/%D9%82%D8%B7%D8%B1/%D8%AD%D9%82%D8%A7%D8%A6%D9%82--%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA/%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA-%D8%B9%D8%A7%D9%85%D8%A9"
+    },
+    {
+      "cite": "https://emirateswoman.com  ›  9-ق...",
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 14, 2021  —  9 قطريات يلهمن أجيال المستقبل ·  صاحبة السمو الشيخة موزة بنت ناصر آل ثاني  · الشيخة هنادي بنت ناصر آل ثاني · بثينة الأنصاري · عائشة المضاحكة ...",
+      "title": "9 قطريات يلهمن أجيال المستقبل",
+      "type": "general",
+      "url": "https://emirateswoman.com/ar/%D9%84%D8%A7%D9%8A%D9%81-%D8%B3%D8%AA%D8%A7%D9%8A%D9%84/9-%D9%82%D8%B7%D8%B1%D9%8A%D8%A7%D8%AA-%D9%8A%D9%84%D9%87%D9%85%D9%86-%D8%A3%D8%AC%D9%8A%D8%A7%D9%84-%D8%A7%D9%84%D9%85%D8%B3%D8%AA%D9%82%D8%A8%D9%84/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "قطريات qatar",
+          "لبس قطري نسائي",
+          "بنات قطر #انستقرام",
+          "بنات قطر الدوحة",
+          "بنات قطر واتساب"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "قطريات qatar<|>لبس قطري نسائي<|>بنات قطر #انستقرام<|>بنات قطر الدوحة<|>بنات قطر واتساب",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Qatar is a peninsular Arab country whose terrain comprises arid desert and a long Persian (Arab) Gulf shoreline of beaches and dunes. Also on the coast is the capital, Doha, known for its futuristic skyscrapers and other ultramodern architecture inspired by ancient Islamic design, such as the limestone Museum of Islamic Art. The museum sits on the city’s Corniche waterfront promenade. ― Google",
+      "title": null,
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/location/country:capital",
+        "items": [
+          {
+            "text": "Doha",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Doha&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpqhgySkM3yaVfE8q2lBmPnaV4uOp-3V25cNF2b0vk6qlYOrbZg-yGMpGnzNjYoYibNFKnsIKh_T8N9ggil08CaGHTdpghmoDH2HXjCBzeSfV5_zIKxCC-Nt5wYKw-1u37l9Z_ZRQltmg2gf_9yE-sc7nh1mM&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQmxN6BAgZEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Doha",
+      "title": "Capital",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/location/country:currency",
+        "items": [
+          {
+            "text": "Qatari Riyal",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yTcowZ02umr53PagLG_SYGBsh99DoyqT5_6220g4qrr5wPlT2vI2cOyWWFviEUpIbFMQRGk7JEuDgsV4gBsQP6-3O3RWUgr4gaMAL9Cijl72Zompqs_jVJEWdIH5WYM5nFjVM5w%3D&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQmxN6BAgaEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Qatari Riyal",
+      "title": "Currency",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/government/governmental_jurisdiction:prime minister",
+        "items": [
+          {
+            "text": "Mohammed bin Abdulrahman bin Jassim Al Thani",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=Mohammed+bin+Abdulrahman+bin+Jassim+Al+Thani&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0ZqQpQxkkYg-hvj042ki8w13Yb2FQJoVdzmWYutfBO4FireIsxVqw6h5hZ7kfY-cY_WQELiKBrOcKttQazh8KAEXw_W5zGRVM8aLJ2MTySQS3WKNzDonRDQ82lr99YG2Ln0H7pYCLWyQjX4QGEk6CzNOHSCR2FYUj85Yfjhwln1asyN3o4KHuQHpHTqwnzXxMNmgd0OhqBryK8UJ-ulUQtNFxT_p&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQmxN6BAglEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Mohammed bin Abdulrahman bin Jassim Al Thani",
+      "title": "Prime minister",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/location/country:language",
+        "items": [
+          {
+            "text": "Arabic",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&q=&si=APenkKl9jifxeC9ibQ_x4MSQwI5Umgo7WEBmeB2VLefJQEpIweWJ3jo-95Zky7asbd1LgY969WQ8b1LUBxQN749zDFKrKUMHM2bXeaQ_gPuJFc7snVTOj5FJ4lYxB6agSiNLnJAbxF3N41Y95SuOmIHP5X2uolm7aOPJvJvGQYLXnrg-TWjavrQ%3D&sa=X&ved=2ahUKEwi88Y2T0bCVAxUujokEHTKKIwoQmxN6BAgkEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Arabic",
+      "title": "Official language",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "attrid": "kc:/location/country:dialing code",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "+974",
+      "title": "Dialing code",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

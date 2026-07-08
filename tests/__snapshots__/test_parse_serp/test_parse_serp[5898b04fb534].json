@@ -825,42 +825,23 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "Find related products & services",
-        "text": "Find related products & services|About the source|About the source|About the source|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These search suggestions help you find relevant offers from advertisers. Suggestions are ranked using a number of factors, including the relevance to your search terms, and ads on the next page. Google gets paid if you click on an ad on the next page.|These searches help you find relevant offers from advertisers",
-        "type": "panel",
-        "urls": [
-          {
-            "text": "Hotels in Manhattan |Downtown",
-            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Downtown&mrq=1&mrqri=0&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAB6BAg1EAU"
-          },
-          {
-            "text": "Hotels in manhattan |with view",
-            "url": "http://www.google.com/search?q=Hotels+in+manhattan+with+view&mrq=1&mrqri=1&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAF6BAg1EAY"
-          },
-          {
-            "text": "Hotels in manhattan |near grand central station",
-            "url": "http://www.google.com/search?q=Hotels+in+manhattan+near+grand+central+station&mrq=1&mrqri=2&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAJ6BAg1EAc"
-          },
-          {
-            "text": "Hotels in Manhattan |Upper West Side",
-            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+Upper+West+Side&mrq=1&mrqri=3&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAN6BAg1EAg"
-          },
-          {
-            "text": "Hotels in Manhattan |ny near Times Square",
-            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+ny+near+Times+Square&mrq=1&mrqri=4&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAR6BAg1EAk"
-          },
-          {
-            "text": "Hotels in Manhattan |NY cheap",
-            "url": "http://www.google.com/search?q=Hotels+in+Manhattan+NY+cheap&mrq=1&mrqri=5&mrqei=BoGGadPHIoqo2roPqNvyoQI&sa=X&ved=2ahUKEwjT4pnyicaSAxUKlFYBHaitPCQQyO0OKAV6BAg1EAo"
-          }
-        ]
+        "items": [
+          "Hotels in Manhattan Downtown",
+          "Hotels in manhattan with view",
+          "Hotels in manhattan near grand central station",
+          "Hotels in Manhattan Upper West Side",
+          "Hotels in Manhattan ny near Times Square",
+          "Hotels in Manhattan NY cheap"
+        ],
+        "type": "text"
       },
       "section": "main",
       "serp_rank": 40,
       "sub_rank": 0,
-      "sub_type": "panel",
-      "text": null,
+      "sub_type": "find_related_products_&_services",
+      "text": "Hotels in Manhattan Downtown<|>Hotels in manhattan with view<|>Hotels in manhattan near grand central station<|>Hotels in Manhattan Upper West Side<|>Hotels in Manhattan ny near Times Square<|>Hotels in Manhattan NY cheap",
       "title": null,
-      "type": "knowledge",
+      "type": "searches_related",
       "url": null
     },
     {

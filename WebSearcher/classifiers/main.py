@@ -146,6 +146,12 @@ class ClassifyMain:
             # English-only header-text path, so a localized/reworded heading
             # ("Buying guide: ...") still classifies.
             (ClassifyMain.buying_guide, lambda s: "ITWcLb" in s.classes),
+            # Structural-first: a left-bar/inline dictionary panel (``dob-modules``,
+            # no ``kp-blk``/``ULSxyf`` wrapper) is a ``knowledge`` panel whose
+            # "Dictionary" label sits in a non-heading span; type it structurally
+            # so ``parse_knowledge_panel``'s ``_subtype_dictionary`` recovers it,
+            # before the header-text path (which would miss it) reaches unknown.
+            (ClassifyMain.dictionary_panel, None),
             # NOTE: ``most_read_articles`` has no unique structural signal -- it is
             # classified purely by its English header "Most-read articles" via
             # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
@@ -197,6 +203,16 @@ class ClassifyMain:
             (ClassifyMain.people_also_ask, None),
             (ClassifyMain.knowledge_box, None),
             (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
+            # End-of-chain rules: each keys on a signal that also lives inside
+            # components other classifiers own (knowledge panels embed lab/
+            # attribute modules and AI-overview controllers; kp hotel sections
+            # carry travel links), so they may only claim components nothing
+            # above typed.
+            (ClassifyMain.knowledge_submodule, None),
+            (ClassifyMain.hotel_carousel, None),
+            (ClassifyMain.gallery, None),
+            (ClassifyMain.images_strip, None),
+            (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
 
         for classifier, precondition in component_classifiers:
@@ -218,6 +234,58 @@ class ClassifyMain:
         ):
             return "discussions_and_forums"
         return "unknown"
+
+    @staticmethod
+    def images_strip(cmpt) -> str:
+        """Type the left-bar/inline "Images" thumbnail strip as ``images``.
+
+        The older layout (root ``div.TzHB6b``) labels a small image/video result
+        strip with an offscreen a11y heading ``h3.bNg8Rb`` reading exactly
+        "Images", and carries none of the imagebox signals (``imagebox_bigimages``
+        / ``iur`` / carousel) that ``ClassifyMain.images`` keys on, so it reaches
+        unknown. This is end-of-chain, so it only claims a component nothing above
+        typed -- the real imagebox is caught earlier and never reaches here.
+        """
+        node: Node = cmpt
+        for heading in node.css('h3.bNg8Rb, [role="heading"]'):
+            if (get_text(heading, strip=True) or "") == "Images":
+                return "images"
+        return "unknown"
+
+    @staticmethod
+    def gallery(cmpt) -> str:
+        """Type the async discovery gallery ("What to read", "Courses", "Explore
+        stocks", ...) by its title ``data-attrid``.
+
+        Google ships these as a JS-hydrated carousel whose stable signal is a
+        ``Supercat*ClusterTitle`` ``data-attrid`` (reused across content types -- a
+        *books* cluster carries ``SupercatRecipeClusterTitle``). The card links are
+        ``#`` placeholders and the module ships a hidden "Something went wrong"
+        async-error fallback, so the visible heading ("What to read") never matches a
+        header rule and it reaches unknown. End-of-chain: only claims a component
+        nothing above typed.
+        """
+        node: Node = cmpt
+        if node.css_first('[data-attrid*="Supercat"]') is not None:
+            return "gallery"
+        return "unknown"
+
+    @staticmethod
+    def dictionary_panel(cmpt) -> str:
+        """Type the Oxford Languages word-definition panel as ``knowledge``.
+
+        The dictionary "definition on board" box carries a ``div.dob-modules``
+        container. When it renders inside a ``kp-blk``/``ULSxyf`` wrapper the
+        knowledge classifiers already catch it, but the left-bar/inline layout
+        (root ``div.TzHB6b``) has no such wrapper and its "Dictionary" label sits
+        in a non-heading span, so it reaches unknown. Anchor on the stable
+        ``dob-modules`` class -- which also survives the "Report a problem"
+        feedback-modal wrapper that prepends chrome to the panel text -- and route
+        it to ``parse_knowledge_panel`` (``_subtype_dictionary`` recovers the
+        headword + definitions and sets ``sub_type="dictionary"``).
+        """
+        node: Node = cmpt
+        return "knowledge" if node.css_first("div.dob-modules") is not None else "unknown"
 
     @staticmethod
     def available_on(cmpt) -> str:
@@ -259,7 +327,9 @@ class ClassifyMain:
     @staticmethod
     def flights(cmpt) -> str:
         node: Node = cmpt
-        heading = node.css_first('[role="heading"]')
+        # The flight-status widget renders its heading as a bare <h2> with no
+        # role="heading", so check both.
+        heading = node.css_first('[role="heading"]') or node.css_first("h2")
         if heading is not None and (get_text(heading, strip=True) or "").startswith("Flight"):
             return "flights"
         return "unknown"
@@ -344,6 +414,93 @@ class ClassifyMain:
             return "unknown"
         if node.css_first("div.Fzsovc") is not None or h2_text == "AI Overview":
             return "ai_overview"
+        return "unknown"
+
+    @staticmethod
+    def ai_overview_banner(cmpt) -> str:
+        """Classify the standalone AI-overview loading/unavailable banner.
+
+        SERPs serialized mid-generation ("Thinking") or after Google declined
+        to synthesize an overview carry the AI overview's ``EYwa3d`` controller
+        but none of the ``Fzsovc``/``h2 AI Overview`` markers ``ai_overview``
+        gates on. The parser routes these to ``sub_type="unavailable"``.
+        """
+        node: Node = cmpt
+        if node.css_first('div[jscontroller="EYwa3d"]') is not None:
+            return "ai_overview"
+        return "unknown"
+
+    # Heading texts for knowledge-panel submodules with no structural signal
+    # (no data-attrid / custom element). Checked only by the end-of-chain
+    # ``knowledge_submodule`` rule, so they cannot steal from earlier
+    # classifiers the way a ``header_texts`` registration (position 5) could
+    # -- e.g. a local_results restaurant pack that also lists menu highlights.
+    _KNOWLEDGE_SUBMODULE_HEADINGS = (
+        "Menu highlights",
+        "Things to do",
+        "Showtimes at",
+        "Rooms at",
+        # Standalone entity submodules splatted into the main column.
+        "Interactive diagrams",
+        "Featured events",
+        "How to solve your problem",
+        "Your math problem",
+        "Explore more",
+        "Top sights in",
+        "Beach destinations",
+        "Popular destinations",
+        "Surfing destinations",
+        "Camping destinations",
+    )
+
+    @staticmethod
+    def knowledge_submodule(cmpt) -> str:
+        """Classify knowledge-panel submodules splatted into the main column.
+
+        Standalone entity-attribute modules (Movies, Played by, Calories, ...)
+        carry ``lab/title/*`` / ``lab/content/*`` attrids; core-answer
+        breadcrumb modules ("<entity> > <attribute>") carry
+        ``CoreAnswerModuleHeader``; sports modules carry ``TLOsrp*`` attrids
+        (match lists, standings) or an ``sp-table`` squad table.
+        """
+        node: Node = cmpt
+        if (
+            node.css_first(
+                '[data-attrid^="lab/title/"], [data-attrid^="lab/content/"], '
+                '[data-attrid="CoreAnswerModuleHeader"], [data-attrid^="TLOsrp"]'
+            )
+            is not None
+            or node.css_first("sp-table") is not None
+        ):
+            return "knowledge"
+        # The submodule heading renders at aria-level 2 (most attribute modules,
+        # "Rooms at <hotel>") or 3 (inline "Menu highlights"), so check both.
+        for heading in node.css(
+            '[aria-level="2"][role="heading"], [aria-level="3"][role="heading"]'
+        ):
+            text = get_text(heading, " ", strip=True) or ""
+            if text.startswith(ClassifyMain._KNOWLEDGE_SUBMODULE_HEADINGS):
+                return "knowledge"
+        return "unknown"
+
+    @staticmethod
+    def hotel_carousel(cmpt) -> str:
+        """Classify hotel carousels whose heading evades the ``locations`` rule.
+
+        "Similar to <hotel>" / "Popular hotels in <place>" / "More <brand>"
+        carousels vary their heading freely, but every card links to
+        ``search.google.com/local/places/hotel/`` or pairs a ``/travel/search``
+        link with a hotel-name div -- the same structures ``parse_hotels``
+        extracts from.
+        """
+        node: Node = cmpt
+        if node.css_first('a[href*="/local/places/hotel/"]') is not None:
+            return "locations"
+        if (
+            node.css_first('a[href*="/travel/search"]') is not None
+            and node.css_first("div.sxdlOc, div.BTPx6e") is not None
+        ):
+            return "locations"
         return "unknown"
 
     @staticmethod
@@ -486,8 +643,10 @@ class ClassifyMain:
         node: Node = cmpt
         heading = node.css_first('[role="heading"]')
         if heading is not None:
-            text = get_text(heading, strip=True) or ""
-            if text.startswith("Hotels") or text.startswith("More Hotels"):
+            # Space-join: headings split across spans ("More" + "Hotels")
+            # otherwise concatenate to "MoreHotels" and evade the prefix match.
+            text = get_text(heading, " ", strip=True) or ""
+            if text.startswith("Hotels") or text.startswith("More Hotel"):
                 return "locations"
         return "unknown"
 

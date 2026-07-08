@@ -64,7 +64,13 @@ _STANDARD_LAYOUTS: dict[str, _StandardLayout] = {
 # Labels that mark a non-component wrapper rather than a result; a candidate whose
 # (bounded) text is exactly one of these is dropped by ``is_valid``. Module-level so
 # the set isn't rebuilt on every is_valid call (~25k/parse-pass on the corpus).
-_BAD_LABELS = frozenset({"Main results", "Twitter Results", ""})
+# Offscreen accessibility section headings (``h*.bNg8Rb``, ``user-select:none``)
+# that leak as bare, bodyless components. Only a component whose *entire* text is
+# one of these is dropped (the ``is_valid`` scan stops past 15 chars), so a real
+# section that merely starts with the label keeps its content.
+_BAD_LABELS = frozenset(
+    {"Main results", "Twitter Results", "Web results", "Ads", "Description", ""}
+)
 
 
 def _filter_empty(nodes) -> list[Node]:

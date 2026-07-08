@@ -1,0 +1,622 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard-overview",
+    "notice_no_results": false,
+    "notice_server_error": false,
+    "notice_shortened_query": false,
+    "overlay_precise_location": false,
+    "result_estimate_count": null,
+    "result_estimate_time": null
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Seven Feathers Casino Resort",
+        "subtitle": "4.3 16,113 Google reviews ‧ 3-star hotel ‧ www.sevenfeathers.com ‧ (800) 548-8461",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "16,113 Google reviews",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:1250"
+          },
+          {
+            "text": "www.sevenfeathers.com",
+            "url": "https://www.sevenfeathers.com/"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "4.3 16,113 Google reviews ‧ 3-star hotel ‧ www.sevenfeathers.com ‧ (800) 548-8461",
+      "title": "Seven Feathers Casino Resort",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "type": "panel",
+        "urls": [
+          {
+            "text": "",
+            "url": "/maps/place/seven+feathers+casino/data=!4m2!3m1!1s0x54c5b55eda22e2a9:0x1f87d215776a4838?sa=X&ved=1t:242&ictx=111"
+          },
+          {
+            "text": "146 Chief Miwaleta Ln|Canyonville, OR 97417",
+            "url": "/maps/dir//seven+feathers+casino/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x54c5b55eda22e2a9:0x1f87d215776a4838?sa=X&ved=1t:155782&ictx=111"
+          },
+          {
+            "text": "Nightly price with fees|$240|Fri, Sep 25| - |Sat, Sep 26|View 14 more",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEGcHJpY2Vz&ictx=111&ved=1t:196224"
+          },
+          {
+            "text": "Reviews|4.3|(|16K|)|Visitors say this casino resort offers clean, spacious rooms and a wide variety of gaming options, including slots and table games, along with a large pool and spa. They also highlight the delicious food at the restaurants, the friendly and helpful staff, and the convenient location right off the interstate with ample parking.|Some reviews mention the casino can be smokey.|+461|Summarized by AI",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:247458"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_results",
+      "text": "0:12 View all photos 146 Chief Miwaleta Ln Canyonville, OR 97417 Nightly price with fees $240 Fri, Sep 25 - Sat, Sep 26 View 14 more Reviews 4.3 ( 16K ) Visitors say this casino resort offers clean, spacious rooms and a wide variety of gaming options, including slots and table games, along with a large pool and spa. They also highlight the delicious food at the restaurants, the friendly and helpful staff, and the convenient location right off the interstate with ample parking. Some reviews mention the casino can be smokey. +461 Summarized by AI",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://sevenfeathers.com",
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          {
+            "text": "Events",
+            "url": "https://sevenfeathers.com/events/"
+          },
+          {
+            "text": "Hotel",
+            "url": "https://sevenfeathers.com/hotel/"
+          },
+          {
+            "text": "Dining",
+            "url": "https://sevenfeathers.com/dining/"
+          },
+          {
+            "text": "Casino",
+            "url": "https://sevenfeathers.com/casino/"
+          },
+          {
+            "text": "Visit Exit 99",
+            "url": "https://sevenfeathers.com/visit-exit-99/"
+          },
+          {
+            "text": "More results from sevenfeathers.com »",
+            "url": "/search?q=seven+feathers+casino+site:sevenfeathers.com&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQrAN6BAhJEAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Welcome to  Seven Feathers  Hotel, your place to recharge & refresh in the heart of the picturesque Umpqua Valley.",
+      "title": "Seven Feathers Casino: Home",
+      "type": "general",
+      "url": "https://sevenfeathers.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "What casino pays out the most in Oregon?",
+          "How much does it cost to stay at Seven Feathers?",
+          "What tribe owns Seven Feathers Casino?",
+          "Is there a casino near Seven Feathers RV Resort?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What casino pays out the most in Oregon?<|>How much does it cost to stay at Seven Feathers?<|>What tribe owns Seven Feathers Casino?<|>Is there a casino near Seven Feathers RV Resort?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.tripadvisor.com  › ShowUserReviews-g517...",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The room was clean, cool and comfortable , the food and service were great, and the casino was fun and friendly.",
+      "title": "Review of Seven Feathers Casino Resort, Canyonville, OR",
+      "type": "general",
+      "url": "https://www.tripadvisor.com/ShowUserReviews-g51792-d281745-r826421537-Seven_Feathers_Casino_Resort-Canyonville_Oregon.html"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Seven_Feathers_Casin...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Seven Feathers Casino Resort  is a 298-room, AAA three-star hotel and casino located in Canyonville, Oregon, United States.",
+      "title": "Seven Feathers Casino Resort",
+      "type": "general",
+      "url": "https://en.wikipedia.org/wiki/Seven_Feathers_Casino_Resort"
+    },
+    {
+      "cite": "https://www.booking.com  › ... › Resorts in Canyonville",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Just off the Interstate 5 highway in Canyonville , this resort and casino features over 1000 video poker slot machines and numerous dining.",
+      "title": "Seven Feathers Casino Resort, Canyonville, United States",
+      "type": "general",
+      "url": "https://www.booking.com/hotel/us/seven-feathers-casino-resort.html"
+    },
+    {
+      "cite": "https://www.yelp.com  › ... › Hotels",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "SEVEN FEATHERS CASINO RESORT,  146 Chief Miwaleta Ln, Canyonville, OR 97417 , 362 Photos, (800) 548-8461, Mon - 7:00 am - 2:30 am, The casino is clean and smells ...",
+      "title": "SEVEN FEATHERS CASINO RESORT - Updated June 2026",
+      "type": "general",
+      "url": "https://www.yelp.com/biz/seven-feathers-casino-resort-canyonville-3"
+    },
+    {
+      "cite": "https://sevenfeathersrvresort.com",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Seven Feathers Casino is less than a mile from  the RV Resort, offering more entertainment and dining options during your stay. Enjoy a romantic dinner at K-Bar ...",
+      "title": "Seven Feathers RV Resort",
+      "type": "general",
+      "url": "https://sevenfeathersrvresort.com/"
+    },
+    {
+      "cite": "https://www.facebook.com  › ...",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Seven Feathers Casino In Canyonville OR , Canyonville, OR. 55 likes · 947 were here. Arts & entertainment.",
+      "title": "Seven Feathers Casino In Canyonville OR - Home",
+      "type": "general",
+      "url": "https://www.facebook.com/257001364408063"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "price": "$190",
+        "rating": "4.3",
+        "reviews": "(319)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "Creekside Hotel & Suites",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=Creekside+Hotel+%26+Suites&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARN-B9sU5Kkp4&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQxN4EegQIbRAK"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "3.8",
+        "reviews": "(65)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "Green Tree Hotel",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=Green+Tree+Hotel&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARmYC6AAfHegA&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQxN4EegQIbRAS"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "price": "$120",
+        "rating": "4.2",
+        "reviews": "(541)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "Travelodge by Wyndham Canyonville",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=Travelodge+by+Wyndham+Canyonville&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARkECZZajbSH4&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQi6wFegQIbRAi"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.2",
+        "reviews": "(421)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 3,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "Holiday Inn Express & Suites Canyonville",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=Holiday+Inn+Express+%26+Suites+Canyonville&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARHzUmtaiW60E&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQi6wFegQIbRAq"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.4",
+        "reviews": "(218)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 4,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "On the River Golf & RV Resort",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=On+the+River+Golf+%26+RV+Resort&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARZ3TYZebbyHw&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQi6wFegQIbRAx"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Seven Feathers Casino app download",
+          "Seven Feathers Casino Resort prices",
+          "Seven Feathers Casino Resort upcoming events",
+          "Seven feathers casino buffet",
+          "Is Seven Feathers Casino open 24 hours",
+          "Seven Feathers Casino Resort reviews",
+          "Seven feathers casino promotions",
+          "Seven feathers casino restaurants"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Seven Feathers Casino app download<|>Seven Feathers Casino Resort prices<|>Seven Feathers Casino Resort upcoming events<|>Seven feathers casino buffet<|>Is Seven Feathers Casino open 24 hours<|>Seven Feathers Casino Resort reviews<|>Seven feathers casino promotions<|>Seven feathers casino restaurants",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:unified_actions",
+        "items": [
+          {
+            "text": "Website",
+            "url": "https://www.sevenfeathers.com/"
+          },
+          {
+            "text": "Call",
+            "url": "tel:+18005488461"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "Website Directions +3 Save Saved Share Call Check availability",
+      "title": "Unified actions",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:departments",
+        "items": [
+          {
+            "text": "Seven Feathers Bingo",
+            "url": "/search?sca_esv=12c5d7b316a6f56c&q=Seven+Feathers+Bingo&ludocid=14524432786805820746&lsig=AB86z5Uf9vRq2DCy2NCCDOSP-oO5&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQ8m16BAg0EAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Departments: Seven Feathers Bingo",
+      "title": "Departments",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:address",
+        "items": [
+          {
+            "text": "Address",
+            "url": "/search?sca_esv=12c5d7b316a6f56c&q=seven+feathers+casino+resort+address&ludocid=2272015526671304760&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQ6BN6BAgnEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "146 Chief Miwaleta Ln, Canyonville, OR 97417",
+      "title": "Address",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:alt phone",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "(800) 548-8461",
+      "title": "Phone",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:hours",
+        "items": [
+          {
+            "text": "Hours",
+            "url": "/search?sca_esv=12c5d7b316a6f56c&q=seven+feathers+casino+resort+hours&ludocid=2272015526671304760&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQ6BN6BAgrEBo"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Open · Closes 2:30 AM · More hours",
+      "title": "Hours",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:hotel booking",
+        "items": [
+          {
+            "text": "$220 Seven Feathers Casino Resort Official site Free cancellation until Sep 24",
+            "url": "https://www.google.com/travel/clk?pc=AA80OsxAbe5IKXBFmZMVtR-QAfwkpUTMQ2rzvpD0GdoVklF79tA0x0J5n4nCi6egCPsia0Qg2KKMvKwBl4V6yV5XRpTFyZFa_zBpXa1l1gsrls9DKpvzL32Z3XJd8TyCQbC8sELaA5naBEkbseX4Lw&pcurl=https://res.windsurfercrs.com/ibe/index.aspx?pcode%3DSEV97417%26checkin%3D09-25-2026%26checkout%3D09-26-2026%26subchan%3DGOO%26rooms%3D1%26adults%3D2%26children%3D0%26viewtype%3D2%26%26isAdClick%3DFALSE%26campaignid%3D12664163474&s=AD1XQnkbSoG2pg7LFJ0aVEYV73aB"
+          },
+          {
+            "text": "$240 Booking.com Free cancellation until Sep 23",
+            "url": "https://www.google.com/travel/clk?pc=AA80OsyTKWEVE1yKFIv4lb1kTmlmNV5RSS_cyfaUMMECv3GycfHfOMTRrEY1NNLT6yGJw4w2DVGaL7SC_vvkTxyIjb7GIn8F9YF_rxaxXNX9X7MnNoiwcGHq0paTnGPYE0Vatsd_F1xzErN4D9GfDpxgedd54g8FaXD1fw&pcurl=https://www.booking.com/searchresults.en.html?dest_id%3D1171738%26highlighted_hotels%3D1171738%26dest_type%3Dhotel%26checkin%3D2026-09-25%26checkout%3D2026-09-26%26group_adults%3D2%26req_adults%3D2%26show_room%3D117173803_201934109_2_0_0_567695%26lang%3Den%26selected_currency%3DUSD%26exrt%3D1.00000000%26ext_price_total%3D268.80%26ext_price_tax%3D28.80%26xfc%3DUSD%26hca%3Dm%26group_children%3D0%26req_children%3D0%26%26no_rooms%3D1%26ts%3D1782873511%26edgtid%3D_RBywKa-TLi8ASHHmkKLDQ%26efpc%3DJAsAomi4Ci8%26utm_source%3Dmetagha%26utm_medium%3Dlocaluniversal%26utm_campaign%3DUS%26utm_term%3Dhotel-1171738%26utm_content%3Ddev-desktop_los-1_bw-87_dow-Friday_defdate-1_room-0_gstadt-2_rateid-publicNe_aud-0_gacid-_mcid-10_ppa-0_clrid-0_ad-0_gstkid-0_checkin-20260925_ppt-%26aid%3D2127486%26label%3Dmetagha-link-LUUS-hotel-1171738_dev-desktop_los-1_bw-87_dow-Friday_defdate-1_room-0_gstadt-2_rateid-publicNe_aud-0_gacid-_mcid-10_ppa-0_clrid-0_ad-0_gstkid-0_checkin-20260925_ppt-&s=AD1XQnnimqZqx9vJpXG20hkk-hFa"
+          },
+          {
+            "text": "View 14 more from $240",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEGcHJpY2Vz&ictx=111&ved=1t:196224"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Save $60 if you stay Fri, Sep 18–Sat, Sep 19 Nightly price with fees Select check-in date. Current check-in date is Fri, Sep 25 Fri, Sep 25 Select check-out date. Current check-out date is Sat, Sep 26 Sat, Sep 26 2 1 guest 2 guests 3 guests 4 guests 5 guests 6 guests All options $220 Seven Feathers Casino Resort Official site Free cancellation until Sep 24 $240 Booking.com Free cancellation until Sep 23 View 14 more from $240 Couldn't update prices. Try again .",
+      "title": "Hotel booking",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:review_summary",
+        "items": [
+          {
+            "text": "Google policies",
+            "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
+          },
+          {
+            "text": "",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:31296"
+          },
+          {
+            "text": "\"Absolutely awesome fish, steak, sides, drinks , atmosphere and service .\"",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:31295"
+          },
+          {
+            "text": "\"Food options, rooms on-site and nearby great parking and shuttle options .\"",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:31295"
+          },
+          {
+            "text": "\" Staff are sooo friendly, the place is nice, clean good beer and great vibes .\"",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:31295"
+          },
+          {
+            "text": "View all reviews",
+            "url": "/travel/search?g2lb=4965990,72471280,72560029,72573224,72647020,72686036,72803964,72880339,72882230,73064764,121529350,121762713&hl=en-US&gl=us&ssta=1&q=seven+feathers+casino&ts=CAEaRwopEicyJTB4NTRjNWI1NWVkYTIyZTJhOToweDFmODdkMjE1Nzc2YTQ4MzgSGhIUCgcI6g8QCRgZEgcI6g8QCRgaGAEyAhAA&qs=CAEyE0Nnb0l1SkNwdTlmQzlNTWZFQUU4AkIJCThIancV0ocfQgkJOEhqdxXShx8&ap=ugEHcmV2aWV3cw&ictx=111&ved=1t:73921"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Google reviews More info Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Edit your review Add photos Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. \"Absolutely awesome fish, steak, sides, drinks , atmosphere and service .\" \"Food options, rooms on-site and nearby great parking and shuttle options .\" \" Staff are sooo friendly, the place is nice, clean good beer and great vibes .\" View all reviews",
+      "title": "Review summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:busyness",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Mon Tue Wed Thu Fri Sat Sun Live: A little busy 6a 9a 12p 3p 6p 9p 12a 3a People typically spend 1.5-4 hours here",
+      "title": "Busyness",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:merchant_description",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "From Seven Feathers Casino Resort \"Nestled in the heart of the Umpqua Valley, Seven Feathers Casino Resort offers an exhilarating array of entertainment and relaxation. It features a lively casino floor, luxurious spa treatments, comfortable hotel accommodations, and delectable dining... More",
+      "title": "Merchant description",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/7FeathersCasino"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/@sevenfeatherscasinoresort1501"
+          },
+          {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/7featherscasino/"
+          },
+          {
+            "text": "LinkedIn",
+            "url": "https://www.linkedin.com/company/7featherscaino"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 9,
+      "sub_type": "fact",
+      "text": "Profiles Facebook YouTube Instagram LinkedIn",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:provide_feedback",
+        "items": [
+          {
+            "text": "Own this business?",
+            "url": "https://business.google.com/create?hl=en&getstarted&authuser=0&fp=2272015526671304760&gmbsrc=us-en-et-ip-z-gmb-s-z-l~skp%7Cclaimbz_aoc_a%7Cu&ppsrc=GMBSI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 10,
+      "sub_type": "fact",
+      "text": "Help improve accuracy Provide feedback Suggest an edit · Own this business?",
+      "title": "Help improve accuracy",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "NYE @ Seven Feathers Thu, Dec 31, 9:00 PM Bandsintown Visit site",
+            "url": "https://www.bandsintown.com/e/108155759?app_id=ggl_feed&came_from=289&utm_medium=web&utm_source=ggl_feed&utm_campaign=event&source=ev"
+          },
+          {
+            "text": "MJ LIVE Fri, Jan 15, 2027, 7:00 PM Bandsintown Visit site",
+            "url": "https://www.bandsintown.com/e/1038916132?app_id=ggl_feed&came_from=289&utm_medium=web&utm_source=ggl_feed&utm_campaign=event&source=ev"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 11,
+      "sub_type": "links",
+      "text": null,
+      "title": "Events",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

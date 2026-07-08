@@ -14,6 +14,7 @@ import pytest
 import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
+from WebSearcher.parsers.components.datasets import parse_datasets
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -59,6 +60,87 @@ def test_recipes_structured(serps_by_qry, qry):
         details = r["details"]
         assert details is not None and details["type"] == "ratings"
         assert details.get("source")
+
+
+def test_recipes_bare_header_level2():
+    # The bare "Recipes" carousel heading also renders at aria-level 2, not only 3.
+    assert _classify('<div aria-level="2" role="heading">Recipes</div>') == "recipes"
+
+
+def test_recent_posts_from_entity_header():
+    # "Posts from <entity>" is the same social carousel as "Latest posts from".
+    assert (
+        _classify('<div aria-level="2" role="heading">Posts from N2Shape</div>') == "recent_posts"
+    )
+
+
+def test_election_dates_level3_submodule():
+    # Also renders as a level-3 entity-panel submodule ("Election dates - ...").
+    inner = '<div aria-level="3" role="heading">Election dates · Primaries · Michigan</div>'
+    assert _classify(inner) == "election_dates"
+
+
+def test_places_nearby_carousel():
+    from WebSearcher.parsers.components.places_nearby import parse_places_nearby
+
+    inner = (
+        '<div aria-level="2" role="heading"><span class="mgAbYb">Explore places nearby</span></div>'
+        '<a href="#"><div aria-level="3" role="heading">Family Food Centre</div></a>'
+        '<a href="#"><div aria-level="3" role="heading">Mega Mart</div></a>'
+    )
+    assert _classify(inner) == "places_nearby"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_places_nearby(node)
+    assert [r["title"] for r in rows] == ["Family Food Centre", "Mega Mart"]
+    assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
+
+
+def test_top_stories_contextual_news_headers():
+    # Contextual news-article carousels reuse the top_stories card parser.
+    assert _classify('<div aria-level="2" role="heading">For context</div>') == "top_stories"
+    assert _classify('<div aria-level="2" role="heading">States in the news</div>') == "top_stories"
+
+
+def test_shopping_ideas_related_categories_nearby():
+    # Local-shopping category chips render as a level-3 "Related categories nearby".
+    inner = (
+        '<div aria-level="3" role="heading">Related categories nearby</div>'
+        '<a href="/search?q=shop+cheddar+near+me">Cheddar Cheese</a>'
+        '<a href="/search?q=shop+swiss+near+me">Swiss Cheese</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+
+
+def test_gallery_structural():
+    # Discovery gallery ("What to read"/"Courses"/...) typed by its Supercat attrid,
+    # not the (varying, unregistered) heading. Parser emits a header row (heading +
+    # joined category chips) then one row per item (title + author byline).
+    from WebSearcher.parsers.components.gallery import parse_gallery
+
+    inner = (
+        '<div data-attrid="SupercatRecipeClusterTitle"></div>'
+        '<div aria-level="2" role="heading">What to read</div>'
+        '<div role="button" class="alvTwe">Law</div>'
+        '<div role="button" class="alvTwe">Theory</div>'
+        '<div><div class="sCqVCe">Book One</div><div class="kE4COc">Author A</div></div>'
+        '<div style="display:none"><div class="sCqVCe">Book Two</div>'
+        '<div class="kE4COc">Author B</div></div>'
+    )
+    assert _classify(inner) == "gallery"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_gallery(node)
+    # header row: heading title + category chips joined into text
+    assert rows[0]["sub_type"] == "header"
+    assert rows[0]["title"] == "What to read"
+    assert rows[0]["text"] == "Law<|>Theory"
+    # item rows: sub_type="card" (mirrors twitter_cards header/card shape)
+    assert [r["title"] for r in rows[1:]] == ["Book One", "Book Two"]
+    assert [r["text"] for r in rows[1:]] == ["Author A", "Author B"]
+    assert all(r["sub_type"] == "card" for r in rows[1:])
+    assert all(r["url"] is None for r in rows[1:])
+    # the shown card carries no visible flag; the display:none "More books" tail does
+    assert rows[1].get("details") is None
+    assert rows[2]["details"]["visible"] is False
 
 
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
@@ -309,3 +391,333 @@ def test_most_read_articles_has_no_structural_fallback():
         _classify('<div role="heading">Articulos mas leidos</div><div class="EDblX">card</div>')
         == "unknown"
     )
+
+
+def test_dictionary_panel_classifies_structurally_as_knowledge():
+    # Left-bar/inline dictionary layout: no kp-blk/ULSxyf wrapper and the
+    # "Dictionary" label is a non-heading span, so only the dob-modules container
+    # identifies it. Must reach knowledge (not unknown) so _subtype_dictionary runs.
+    cmpt_type = _classify(
+        "<span>Dictionary</span>"
+        '<div class="dob-modules"><span data-dobid="hdw">an·ti·pa·thy</span></div>'
+    )
+    assert cmpt_type == "knowledge"
+
+
+def test_dictionary_panel_unknown_without_dob_modules():
+    # A bare "Dictionary" span without the dob-modules container is not a
+    # dictionary panel -- must not be claimed as knowledge by this rule.
+    assert _classify('<span>Dictionary</span><div class="other">x</div>') != "knowledge"
+
+
+def test_datasets_classifies_and_parses():
+    # "Datasets" title is an aria-level-2 heading span (not h2/h3), read by
+    # ClassifyMainHeader via the header_texts entry; each result is an h3 wrapped
+    # in a source anchor.
+    inner = (
+        '<span aria-level="2" role="heading">Datasets</span>'
+        '<a href="https://data.test/a"><h3>Global religion 2022</h3></a>'
+        '<a href="https://data.test/b"><h3>Population by faith</h3></a>'
+    )
+    assert _classify(inner) == "datasets"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_datasets(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Global religion 2022"
+    assert rows[0]["url"] == "https://data.test/a"
+
+
+def test_recipes_async_popular_variant():
+    # "Popular recipes" carousel: aria-level-2 heading (registered), and cards
+    # where the title div sits outside the result anchor (XDOVcf wrapper).
+    inner = (
+        '<div aria-level="2" role="heading">Popular recipes</div>'
+        '<div class="XDOVcf"><div class="hfac6d">Herb Batter Bread</div>'
+        '<a href="https://food.test/herb">go</a></div>'
+    )
+    assert _classify(inner) == "recipes"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.recipes import parse_recipes
+
+    rows = parse_recipes(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "Herb Batter Bread"
+    assert rows[0]["url"] == "https://food.test/herb"
+
+
+def test_images_strip_classifies_and_parses():
+    # Left-bar "Images" strip: offscreen a11y h3 "Images" label, no imagebox
+    # signal; a thumbnail anchor + a caption anchor to the same url. Must reach
+    # images end-of-chain and dedupe to one row keeping the text caption.
+    inner = (
+        '<h3 class="bNg8Rb">Images</h3>'
+        '<a href="https://v.test/x"><img alt="thumb"></a>'
+        '<a href="https://v.test/x">I See - YouTube</a>'
+    )
+    assert _classify(inner) == "images"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.images import parse_image_strip
+
+    rows = parse_image_strip(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "I See - YouTube"
+    assert rows[0]["url"] == "https://v.test/x"
+
+
+def test_refine_by_chips():
+    # "Refine by <facet>" prefix-matched at aria-level 2; chips -> filtered search.
+    from WebSearcher.parsers.components.refinements import parse_refine_by
+
+    inner = (
+        '<div aria-level="2" role="heading">Refine by color</div>'
+        '<a href="/search?q=pink">Pink</a><a href="/search?q=blue">Blue</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "refine_by"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_refine_by(node)
+    assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
+    assert rows[0]["url"] == "/search?q=pink"
+    # Product-category variant ("Refine <category>") is the same chip module.
+    assert (
+        _classify('<div aria-level="2" role="heading">Refine Wall Clocks &rsaquo; 24HR</div>')
+        == "refine_by"
+    )
+
+
+def test_shopping_ideas_chips():
+    from WebSearcher.parsers.components.refinements import parse_shopping_ideas
+
+    inner = (
+        '<div aria-level="2" role="heading">Shopping ideas</div>'
+        '<a href="/search?q=jerseys">Jerseys</a><a href="/search?q=hats">Hats</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_shopping_ideas(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Jerseys"
+
+
+def test_articles_module():
+    from WebSearcher.parsers.components.articles import parse_articles
+
+    inner = (
+        '<div aria-level="2" role="heading">Articles</div>'
+        '<a href="https://pub.test/a"><img alt="thumb"></a>'
+        '<a href="https://pub.test/a">Publisher Headline</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "articles"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_articles(node)
+    assert len(rows) == 1  # deduped by url, feedback "#" skipped
+    assert rows[0]["title"] == "Publisher Headline"
+    assert rows[0]["url"] == "https://pub.test/a"
+
+
+def test_knowledge_submodule_level3_menu_highlights():
+    # "Menu highlights" renders its heading at aria-level 3 (not 2), so the
+    # submodule rule must scan level 3 too.
+    assert (
+        _classify('<div aria-level="3" role="heading">Menu highlights</div><div>x</div>')
+        == "knowledge"
+    )
+
+
+def test_knowledge_submodule_rooms_at_hotel():
+    # "Rooms at <hotel>" room-rate module (aria-level 2) -> knowledge.
+    assert (
+        _classify('<div aria-level="2" role="heading">Rooms at Harris Guest House</div><img>')
+        == "knowledge"
+    )
+
+
+def test_products_tray_carousel_level2_header():
+    # "Popular products" / "More products" tray carousel titles its aria-level-2
+    # g-tray-header span (not an h3), so the level-2 header_texts entry types it.
+    assert _classify('<span aria-level="2" role="heading">Popular products</span>') == "products"
+    assert _classify('<span aria-level="2" role="heading">More products</span>') == "products"
+
+
+def test_knowledge_submodule_entity_tail_headings():
+    # Standalone entity submodules splatted into the main column -> knowledge.
+    for heading in (
+        "Interactive diagrams",
+        "Featured events",
+        "How to solve your problem",
+        "Top sights in Rome",
+        "Beach destinations in Greece",
+    ):
+        assert _classify(f'<div aria-level="2" role="heading">{heading}</div><div>x</div>') == (
+            "knowledge"
+        ), heading
+
+
+# --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
+#
+# SERPs serialized mid-generation ("Thinking") or after Google declined to
+# synthesize an overview carry the EYwa3d controller but none of the
+# Fzsovc/h2 markers. The same controller also lives inside knowledge panels
+# embedding an AI-overview module, so the banner rule runs last in the chain
+# and only claims otherwise-unknown components.
+
+BANNER_QRYS = ["save your do , hair wrap", "moulinex a15453 760w toaster"]
+
+
+@pytest.mark.parametrize("qry", BANNER_QRYS)
+def test_ai_overview_banner_unavailable(serps_by_qry, qry):
+    rows = _rows(serps_by_qry[qry]["html"], "ai_overview")
+    assert len(rows) == 1
+    (row,) = rows
+    assert row["sub_type"] == "unavailable"
+    assert row["title"] is None and row["url"] is None and row["text"] is None
+    assert _row_error(row) is None
+
+
+def test_ai_overview_banner_classifies_on_controller():
+    cmpt_type = _classify(
+        '<div class="hdzaWe"><div jscontroller="EYwa3d">'
+        "<span>An AI Overview is not available for this search</span></div></div>"
+    )
+    assert cmpt_type == "ai_overview"
+
+
+def test_ai_overview_banner_unknown_without_controller():
+    assert (
+        _classify(
+            '<div class="hdzaWe"><span>An AI Overview is not available for this search</span></div>'
+        )
+        == "unknown"
+    )
+
+
+# --- crawl-6 unknown submodules (second pass) --------------------------------
+#
+# Standalone knowledge-panel submodules, hotel carousels, advertiser suggestion
+# lists, and widget variants that Google splats into the main column. Each was
+# an ``unknown`` (or hollow ``general``/``knowledge`` panel) before the
+# crawl-6-unknowns pass.
+
+
+def test_related_products_services_suggestions(serps_by_qry):
+    # Advertiser suggestion module: query links land in items, not a text blob.
+    rows = [
+        r
+        for r in _rows(serps_by_qry["hotels polaris ohio"]["html"], "searches_related")
+        if r["sub_type"] == "find_related_products_&_services"
+    ]
+    assert len(rows) == 1
+    (row,) = rows
+    assert row["details"]["items"]
+    assert all("<|>" not in item for item in row["details"]["items"])
+    assert _row_error(row) is None
+
+
+def test_recent_posts_level3_heading(serps_by_qry):
+    # "Latest posts from <entity>" with an aria-level-3 heading.
+    rows = _rows(serps_by_qry["twitter inc."]["html"], "recent_posts")
+    assert rows
+    assert any(r["url"] and "x.com" in r["url"] for r in rows)
+
+
+def test_hotel_card_carousel(serps_by_qry):
+    # "Similar to <hotel>" / "Popular hotels in <place>" JS-hydrated cards.
+    rows = _rows(serps_by_qry["seven feathers casino"]["html"], "locations")
+    assert rows
+    for r in rows:
+        assert r["sub_type"] == "hotels"
+        assert r["title"]
+        assert r["url"] and "/local/places/hotel/" in r["url"]
+        assert _row_error(r) is None
+
+
+def test_more_hotels_split_heading(serps_by_qry):
+    # "More Hotels" heading split across spans ("More" + "Hotels").
+    rows = _rows(serps_by_qry["hotels polaris ohio"]["html"], "locations")
+    assert rows
+    for r in rows:
+        assert r["sub_type"] == "hotels"
+        assert r["title"]
+        assert r["url"] and "/travel/search" in r["url"]
+
+
+KNOWLEDGE_SUBMODULE_QRYS = [
+    "قطريات",  # "Things to do" heading branch
+    "johnny drama",  # lab/title + lab/content attrid branch
+    "ukrainian minister of interior",  # CoreAnswerModuleHeader breadcrumb
+    "women's world cup 2019 schedule",  # TLOsrpMatchListSummary sports module
+    "portugal world cup squad",  # sp-table squad table
+]
+
+
+@pytest.mark.parametrize("qry", KNOWLEDGE_SUBMODULE_QRYS)
+def test_knowledge_submodule_claims_component(serps_by_qry, qry):
+    parsed = ws.parse_serp(serps_by_qry[qry]["html"])["results"]
+    assert any(r["type"] == "knowledge" for r in parsed)
+    assert not any(r["type"] == "unknown" for r in parsed)
+
+
+def test_flight_status_bare_h2(serps_by_qry):
+    rows = _rows(serps_by_qry["american1967"]["html"], "flights")
+    assert len(rows) == 1
+    assert rows[0]["title"] == "Flight status"
+
+
+def test_knowledge_submodule_classifies_on_lab_attrid():
+    assert _classify('<div data-attrid="lab/title/Movies"><span>Movies</span></div>') == "knowledge"
+
+
+def test_knowledge_submodule_heading_needs_registered_text():
+    # Same markup shape, unregistered heading text: stays unknown.
+    assert (
+        _classify('<div aria-level="2" role="heading"><span>Menu highlights</span></div>')
+        == "knowledge"
+    )
+    assert (
+        _classify('<div aria-level="2" role="heading"><span>Unregistered heading</span></div>')
+        == "unknown"
+    )
+
+
+def test_hotel_carousel_classifies_on_places_anchor():
+    assert (
+        _classify('<a href="https://search.google.com/local/places/hotel/navigational?q=x">h</a>')
+        == "locations"
+    )
+
+
+def test_locations_space_joined_heading():
+    # "More" + "Hotels" in separate spans previously read "MoreHotels".
+    assert (
+        _classify('<div role="heading"><span>More</span> <span>Hotels</span></div>') == "locations"
+    )
+
+
+def test_ad_sitelinks_ynawrc_format(serps_by_qry):
+    # Format-3 sitelinks: bare a.ynAwRc anchors (no MhgNwc/bOeY0b wrapper).
+    rows = _rows(serps_by_qry["best mattress forum"]["html"], "ad")
+    submenu = [r for r in rows if r["sub_type"] == "submenu"]
+    assert submenu
+    for r in submenu:
+        items = r["details"]["items"]
+        assert items
+        assert all(it["title"] and it["url"] for it in items)
+
+
+def test_find_related_embedded_sponsored_ads(serps_by_qry):
+    # The module's "Sponsored results" unit emits ad rows ahead of the
+    # suggestions row, inside the same component.
+    results = ws.parse_serp(serps_by_qry["car insurance quotes"]["html"])["results"]
+    cmpt = [
+        r
+        for r in results
+        if r["type"] == "searches_related" and r["sub_type"] == "find_related_products_&_services"
+    ]
+    assert len(cmpt) == 1
+    cmpt_rank = cmpt[0]["cmpt_rank"]
+    ads = [r for r in results if r["cmpt_rank"] == cmpt_rank and r["type"] == "ad"]
+    assert ads
+    for r in ads:
+        assert r["title"] and r["url"]
+        assert r["sub_rank"] < cmpt[0]["sub_rank"]

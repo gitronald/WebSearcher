@@ -11,7 +11,8 @@ from ..._slx import get_text
 
 def parse_flights(elem) -> list:
     node: Node = elem
-    heading = node.css_first('[role="heading"][aria-level="2"]')
+    # The flight-status widget uses a bare <h2> with no role="heading".
+    heading = node.css_first('[role="heading"][aria-level="2"]') or node.css_first("h2")
     title = get_text(heading, " ", strip=True) if heading is not None else None
     items = []
     for a in node.css("a[href]"):

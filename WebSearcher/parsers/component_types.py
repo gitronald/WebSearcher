@@ -89,6 +89,20 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Faceted buying-guide accordion (label -> question rows)",
     ),
     ComponentType(
+        name="articles",
+        label="Articles",
+        sections=("main",),
+        header_texts={2: ("Articles",)},
+        description="Entity-panel articles module (external article links)",
+    ),
+    ComponentType(
+        name="datasets",
+        label="Datasets",
+        sections=("main",),
+        header_texts={2: ("Datasets",)},
+        description="Dataset-search results module (title + source link per dataset)",
+    ),
+    ComponentType(
         name="directions",
         label="Directions",
         sections=("main",),
@@ -105,7 +119,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="election_dates",
         label="Election Dates",
         sections=("main",),
-        header_texts={2: ("Election dates",)},
+        # Renders at aria-level 2, or level 3 as an entity-panel submodule
+        # ("Election dates - Primaries - Michigan").
+        header_texts={2: ("Election dates",), 3: ("Election dates",)},
         description="Calendar of upcoming primary/general election dates",
     ),
     ComponentType(
@@ -296,6 +312,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="locations",
         label="Locations",
         sections=("main",),
+        sub_types=("hotels",),
     ),
     ComponentType(
         name="map_results",
@@ -349,10 +366,20 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Opinion and perspective results",
     ),
     ComponentType(
+        name="places_nearby",
+        label="Places Nearby",
+        sections=("main",),
+        header_texts={2: ("Explore places nearby",)},
+        description="Local places carousel (name per nearby place; JS-driven, no urls)",
+    ),
+    ComponentType(
         name="products",
         label="Products",
         sections=("main",),
-        header_texts={3: ("Popular products",)},
+        # The tray carousel ("Popular products" / "More products") renders its
+        # title in an aria-level-2 g-tray-header span; the immersive grid uses an
+        # aria-level-3 "Popular products" heading.
+        header_texts={2: ("Popular products", "More products"), 3: ("Popular products",)},
         sub_types=("grid", "brands"),
         description="Organic shopping packs: popular-products grids and brand carousels",
     ),
@@ -364,16 +391,48 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Promotional banner (e.g. 'Save with deals / Shop deals' shopping CTA)",
     ),
     ComponentType(
+        name="refine_by",
+        label="Refine By",
+        sections=("main",),
+        # "Refine by brand"/"Refine by color" and the product-category variant
+        # "Refine Wall Clocks"/"Refine Shure SM7B Microphones" -- both are the same
+        # ULSxyf chip module, so the "Refine " prefix (trailing space) matches at L2.
+        header_texts={2: ("Refine ",)},
+        description="Faceted product-filter chips linking to a refined search",
+    ),
+    ComponentType(
+        name="shopping_ideas",
+        label="Shopping Ideas",
+        sections=("main",),
+        # "Related categories nearby" is the local-shopping variant (chips link to
+        # "shop <category> near me"), rendered as a level-3 submodule heading.
+        header_texts={2: ("Shopping ideas",), 3: ("Related categories nearby",)},
+        description="Product-category idea chips linking to a category search",
+    ),
+    ComponentType(
         name="recent_posts",
         label="Recent Posts",
         sections=("main",),
-        header_texts={2: ("Recent posts", "Latest posts from")},
+        # The standalone main-column module ("Latest posts from <entity>",
+        # ``lab/cluster/*`` attrids) renders its heading at aria-level 3; the
+        # social-carousel variant heads "Posts from <entity>" at aria-level 2.
+        header_texts={
+            2: ("Recent posts", "Latest posts from", "Posts from"),
+            3: ("Latest posts from",),
+        },
     ),
     ComponentType(
         name="recipes",
         label="Recipes",
         sections=("main",),
-        header_texts={3: ("Recipes", "Recetas")},
+        # The standalone main-column carousel renders its heading at aria-level 2
+        # ("Popular recipes" / "More popular recipes" / bare "Recipes"), often
+        # wrapped in an async-load "Preferences saved ... RETRY" state chrome that
+        # leaves the heading intact; the inline "Recipes" variant is aria-level 3.
+        header_texts={
+            2: ("Popular recipes", "More popular recipes", "Recipes"),
+            3: ("Recipes", "Recetas"),
+        },
     ),
     ComponentType(
         name="scholarly_articles",
@@ -398,16 +457,36 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "Related searches",
                 "Related to this search",
                 "Searches related to",
+                # Advertiser-flavored suggestion list ("These searches help you
+                # find relevant offers from advertisers"); rows are plain
+                # google.com/search?q= query links like the classic variants.
+                "Find related products & services",
             ),
             3: ("Related searches",),
         },
-        sub_types=("additional_searches", "related_searches"),
+        sub_types=(
+            "additional_searches",
+            "related_searches",
+            "find_related_products_&_services",
+        ),
         description="Related search terms",
     ),
     ComponentType(
         name="short_videos",
         label="Short Videos",
         sections=("main",),
+    ),
+    ComponentType(
+        name="gallery",
+        label="Gallery",
+        sections=("main",),
+        # No header_texts: classified structurally by its ``Supercat*ClusterTitle``
+        # data-attrid (the label -- "What to read", "Courses", "Explore stocks" --
+        # varies by content, but the attrid family is stable). A ``header`` row
+        # (heading + joined category chips) precedes one ``card`` row per item --
+        # the header/card shape mirrors ``twitter_cards``.
+        sub_types=("header", "card"),
+        description="JS-hydrated discovery gallery (recommended books/courses/stocks; title per item)",
     ),
     ComponentType(
         name="shopping_ads",
@@ -427,6 +506,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 "News",
                 "Noticias",
                 "Market news",
+                # Contextual news-article carousels (same g-section-with-header
+                # card layout, parsed by parse_top_stories).
+                "For context",
+                "States in the news",
             ),
             3: ("Top stories", "Noticias destacadas", "Noticias Principales"),
         },
