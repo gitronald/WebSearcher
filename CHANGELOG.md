@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Classify the residual `unknown` families left after reparsing three directives crawls at 0.11.1a3 (the prior cross-wave batch already resolved ~89% of the stale-0.11.0a2 survey). Each fix is additive/end-of-chain or a header-text entry, so corpus snapshots are unchanged; across the sampled SERPs the residual unknown components dropped 18 -> 9 (c01), 12 -> 3 (c19), 0 (c20), with the remainder now confined to irreducible states (async "Something went wrong" supercat clusters, `Math Solver` JS widgets, dynamic `StandardElection` date displays, per-hotel check-in/entity headers) and a one-off tail. New/extended types and rules:
+  - **`places_nearby`** (new type): the "Explore places nearby" local places carousel (aria-level-2 heading span); parser emits one row per aria-level-3 place-name heading (JS-driven cards carry no static url, like the immersive products grid)
+  - **`refine_by`**: broadened the level-2 marker "Refine by" to the "Refine " prefix so the product-category variant ("Refine Wall Clocks", "Refine Shure SM7B Microphones") joins the faceted "Refine by <facet>" chips in the same module
+  - **`recipes`**: registered the bare "Recipes" carousel heading at level 2 (previously level 3 only)
+  - **`recent_posts`**: added the "Posts from <entity>" aria-level-2 social-carousel variant of "Latest posts from"
+  - **`election_dates`**: registered the aria-level-3 entity-panel submodule variant ("Election dates - Primaries - <state>")
+  - **`top_stories`**: routed the contextual news-article carousels "For context" and "States in the news" (same `g-section-with-header` card layout) to the existing card parser
+  - **`shopping_ideas`**: added the aria-level-3 "Related categories nearby" local-shopping chip variant ("shop <category> near me")
 - Classify a further batch of cross-wave `unknown` component families surfaced by a six-crawl directives-corpus survey (one representative dir per collection wave). Each fix is additive/end-of-chain or a header-text/`_BAD_LABELS` entry, so corpus snapshots are unchanged; on the 44 sampled SERPs spanning all families the residual unknown components dropped 23 -> 7 (the tail: sponsored "People also consider" chips, failed-load "Something went wrong" states, and per-hotel check-in pickers). New/extended types and rules:
   - **`datasets`** (new type): the "Datasets" dataset-search module (aria-level-2 heading span, `header_texts={2: ("Datasets",)}`); parser emits one row per `h3` result (title + source link)
   - **`refine_by`** / **`shopping_ideas`** (new types): faceted product-filter chips ("Refine by brand/color/...", prefix-matched) and product-category idea chips ("Shopping ideas"), each a flat list of query-chip anchors -> filtered `/search`
