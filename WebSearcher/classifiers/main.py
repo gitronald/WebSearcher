@@ -421,6 +421,17 @@ class ClassifyMain:
         "Things to do",
         "Showtimes at",
         "Rooms at",
+        # Standalone entity submodules splatted into the main column.
+        "Interactive diagrams",
+        "Featured events",
+        "How to solve your problem",
+        "Your math problem",
+        "Explore more",
+        "Top sights in",
+        "Beach destinations",
+        "Popular destinations",
+        "Surfing destinations",
+        "Camping destinations",
     )
 
     @staticmethod

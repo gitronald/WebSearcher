@@ -454,6 +454,20 @@ def test_products_tray_carousel_level2_header():
     assert _classify('<span aria-level="2" role="heading">More products</span>') == "products"
 
 
+def test_knowledge_submodule_entity_tail_headings():
+    # Standalone entity submodules splatted into the main column -> knowledge.
+    for heading in (
+        "Interactive diagrams",
+        "Featured events",
+        "How to solve your problem",
+        "Top sights in Rome",
+        "Beach destinations in Greece",
+    ):
+        assert _classify(f'<div aria-level="2" role="heading">{heading}</div><div>x</div>') == (
+            "knowledge"
+        ), heading
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to
