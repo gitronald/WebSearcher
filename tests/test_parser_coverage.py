@@ -311,6 +311,23 @@ def test_most_read_articles_has_no_structural_fallback():
     )
 
 
+def test_dictionary_panel_classifies_structurally_as_knowledge():
+    # Left-bar/inline dictionary layout: no kp-blk/ULSxyf wrapper and the
+    # "Dictionary" label is a non-heading span, so only the dob-modules container
+    # identifies it. Must reach knowledge (not unknown) so _subtype_dictionary runs.
+    cmpt_type = _classify(
+        "<span>Dictionary</span>"
+        '<div class="dob-modules"><span data-dobid="hdw">an·ti·pa·thy</span></div>'
+    )
+    assert cmpt_type == "knowledge"
+
+
+def test_dictionary_panel_unknown_without_dob_modules():
+    # A bare "Dictionary" span without the dob-modules container is not a
+    # dictionary panel -- must not be claimed as knowledge by this rule.
+    assert _classify('<span>Dictionary</span><div class="other">x</div>') != "knowledge"
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to

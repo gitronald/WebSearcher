@@ -146,6 +146,12 @@ class ClassifyMain:
             # English-only header-text path, so a localized/reworded heading
             # ("Buying guide: ...") still classifies.
             (ClassifyMain.buying_guide, lambda s: "ITWcLb" in s.classes),
+            # Structural-first: a left-bar/inline dictionary panel (``dob-modules``,
+            # no ``kp-blk``/``ULSxyf`` wrapper) is a ``knowledge`` panel whose
+            # "Dictionary" label sits in a non-heading span; type it structurally
+            # so ``parse_knowledge_panel``'s ``_subtype_dictionary`` recovers it,
+            # before the header-text path (which would miss it) reaches unknown.
+            (ClassifyMain.dictionary_panel, None),
             # NOTE: ``most_read_articles`` has no unique structural signal -- it is
             # classified purely by its English header "Most-read articles" via
             # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
@@ -226,6 +232,23 @@ class ClassifyMain:
         ):
             return "discussions_and_forums"
         return "unknown"
+
+    @staticmethod
+    def dictionary_panel(cmpt) -> str:
+        """Type the Oxford Languages word-definition panel as ``knowledge``.
+
+        The dictionary "definition on board" box carries a ``div.dob-modules``
+        container. When it renders inside a ``kp-blk``/``ULSxyf`` wrapper the
+        knowledge classifiers already catch it, but the left-bar/inline layout
+        (root ``div.TzHB6b``) has no such wrapper and its "Dictionary" label sits
+        in a non-heading span, so it reaches unknown. Anchor on the stable
+        ``dob-modules`` class -- which also survives the "Report a problem"
+        feedback-modal wrapper that prepends chrome to the panel text -- and route
+        it to ``parse_knowledge_panel`` (``_subtype_dictionary`` recovers the
+        headword + definitions and sets ``sub_type="dictionary"``).
+        """
+        node: Node = cmpt
+        return "knowledge" if node.css_first("div.dob-modules") is not None else "unknown"
 
     @staticmethod
     def available_on(cmpt) -> str:
