@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.1] - 2026-07-08
+
 - Broad parser-coverage pass classifying the large majority of previously-`unknown` components across the crawl corpus. New component types: `gallery` (JS-hydrated discovery gallery), `places_nearby` ("Explore places nearby" carousel), `datasets` ("Datasets" search module), `refine_by` and `shopping_ideas` (faceted product-filter and product-category chips), and `articles` (entity-panel "Articles" module). Extended types: `knowledge` gains the left-bar dictionary panel plus hotel, entity, sports, and attribute submodules; `recipes`, `recent_posts`, `top_stories`, and `election_dates` gain new carousel and heading variants; `images` parses left-bar and inline thumbnail strips; `products` types JS-hydrated tray carousels; `flights` handles bare-`<h2>` status widgets; and `locations` matches multi-span hotel-carousel headings. All rules are additive and end-of-chain, so existing corpus snapshots are unchanged -- the only same-row changes are hollow `general`/`unknown` shells upgraded to typed rows with content. New fixture SERPs and coverage tests pin every path
 - Capture modern ad sitelinks (bare `a.ynAwRc` anchors) as `ad/submenu` instead of silently dropping them, and the "Sponsored results" ad unit embedded in the "Find related products & services" module
 - Classify the standalone AI-overview loading/unavailable banner as `ai_overview`/`sub_type="unavailable"` (previously `unknown`)
