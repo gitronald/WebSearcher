@@ -447,6 +447,13 @@ def test_knowledge_submodule_rooms_at_hotel():
     )
 
 
+def test_products_tray_carousel_level2_header():
+    # "Popular products" / "More products" tray carousel titles its aria-level-2
+    # g-tray-header span (not an h3), so the level-2 header_texts entry types it.
+    assert _classify('<span aria-level="2" role="heading">Popular products</span>') == "products"
+    assert _classify('<span aria-level="2" role="heading">More products</span>') == "products"
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to

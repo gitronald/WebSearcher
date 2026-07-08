@@ -367,7 +367,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="products",
         label="Products",
         sections=("main",),
-        header_texts={3: ("Popular products",)},
+        # The tray carousel ("Popular products" / "More products") renders its
+        # title in an aria-level-2 g-tray-header span; the immersive grid uses an
+        # aria-level-3 "Popular products" heading.
+        header_texts={2: ("Popular products", "More products"), 3: ("Popular products",)},
         sub_types=("grid", "brands"),
         description="Organic shopping packs: popular-products grids and brand carousels",
     ),
