@@ -12,6 +12,7 @@ the structural classifier.
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ._common import mark_hidden_row
 
 
 def parse_supercat_cluster(elem) -> list:
@@ -24,13 +25,14 @@ def parse_supercat_cluster(elem) -> list:
         if not title:
             continue
         author_el = authors[i] if i < len(authors) else None
-        parsed_list.append(
-            {
-                "type": "supercat_cluster",
-                "sub_rank": i,
-                "title": title,
-                "url": None,
-                "text": get_text(author_el, strip=True) if author_el is not None else None,
-            }
-        )
+        row = {
+            "type": "supercat_cluster",
+            "sub_rank": i,
+            "title": title,
+            "url": None,
+            "text": get_text(author_el, strip=True) if author_el is not None else None,
+        }
+        # The carousel shows a handful of cards and keeps the rest in a
+        # ``display:none`` "More <items>" tail -- flag those visible=False.
+        parsed_list.append(mark_hidden_row(row, title_el))
     return parsed_list
