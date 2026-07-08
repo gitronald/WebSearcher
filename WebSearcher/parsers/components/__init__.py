@@ -40,6 +40,7 @@ from .discussions_and_forums import parse_discussions_and_forums
 from .elections import parse_election_dates, parse_election_resources, parse_election_results
 from .flights import parse_flights
 from .footer import parse_discover_more, parse_img_cards, parse_omitted_notice
+from .gallery import parse_gallery
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
@@ -66,7 +67,6 @@ from .scholarly_articles import parse_scholarly_articles
 from .searches_related import parse_searches_related
 from .shopping_ads import parse_shopping_ads
 from .short_videos import parse_short_videos
-from .supercat_cluster import parse_supercat_cluster
 from .top_image_carousel import parse_top_image_carousel
 from .top_stories import parse_top_stories
 from .twitter_cards import parse_twitter_cards
@@ -92,6 +92,7 @@ PARSERS = {
     "election_resources": parse_election_resources,
     "election_results": parse_election_results,
     "flights": parse_flights,
+    "gallery": parse_gallery,
     "general": parse_general_results,
     "general_questions": parse_general_questions,
     "images": parse_images,
@@ -121,7 +122,6 @@ PARSERS = {
     "searches_related": parse_searches_related,
     "shopping_ads": parse_shopping_ads,
     "short_videos": parse_short_videos,
-    "supercat_cluster": parse_supercat_cluster,
     "top_image_carousel": parse_top_image_carousel,
     "top_stories": parse_top_stories,
     "twitter_cards": parse_twitter_cards,

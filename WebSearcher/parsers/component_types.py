@@ -477,13 +477,15 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         sections=("main",),
     ),
     ComponentType(
-        name="supercat_cluster",
-        label="Supercat Cluster",
+        name="gallery",
+        label="Gallery",
         sections=("main",),
         # No header_texts: classified structurally by its ``Supercat*ClusterTitle``
         # data-attrid (the label -- "What to read", "Courses", "Explore stocks" --
-        # varies by content, but the attrid family is stable).
-        description="JS-hydrated discovery cluster (recommended books/courses/stocks; title per item)",
+        # varies by content, but the attrid family is stable). A ``header`` row
+        # (heading + joined category chips) precedes one row per item.
+        sub_types=("header",),
+        description="JS-hydrated discovery gallery (recommended books/courses/stocks; title per item)",
     ),
     ComponentType(
         name="shopping_ads",

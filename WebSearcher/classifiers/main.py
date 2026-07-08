@@ -210,7 +210,7 @@ class ClassifyMain:
             # above typed.
             (ClassifyMain.knowledge_submodule, None),
             (ClassifyMain.hotel_carousel, None),
-            (ClassifyMain.supercat_cluster, None),
+            (ClassifyMain.gallery, None),
             (ClassifyMain.images_strip, None),
             (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
@@ -253,9 +253,9 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def supercat_cluster(cmpt) -> str:
-        """Type the async "supercat" discovery cluster ("What to read", "Courses",
-        "Explore stocks", ...) by its title ``data-attrid``.
+    def gallery(cmpt) -> str:
+        """Type the async discovery gallery ("What to read", "Courses", "Explore
+        stocks", ...) by its title ``data-attrid``.
 
         Google ships these as a JS-hydrated carousel whose stable signal is a
         ``Supercat*ClusterTitle`` ``data-attrid`` (reused across content types -- a
@@ -267,7 +267,7 @@ class ClassifyMain:
         """
         node: Node = cmpt
         if node.css_first('[data-attrid*="Supercat"]') is not None:
-            return "supercat_cluster"
+            return "gallery"
         return "unknown"
 
     @staticmethod
