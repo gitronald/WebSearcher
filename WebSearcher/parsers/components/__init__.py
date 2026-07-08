@@ -40,6 +40,7 @@ from .discussions_and_forums import parse_discussions_and_forums
 from .elections import parse_election_dates, parse_election_resources, parse_election_results
 from .flights import parse_flights
 from .footer import parse_discover_more, parse_img_cards, parse_omitted_notice
+from .gallery import parse_gallery
 from .general import parse_general_results
 from .general_questions import parse_general_questions
 from .images import parse_images
@@ -56,6 +57,7 @@ from .news_quotes import parse_news_quotes
 from .notices import parse_notices
 from .people_also_ask import parse_people_also_ask
 from .perspectives import parse_perspectives
+from .places_nearby import parse_places_nearby
 from .products import parse_products
 from .promo import parse_promo
 from .recent_posts import parse_recent_posts
@@ -90,6 +92,7 @@ PARSERS = {
     "election_resources": parse_election_resources,
     "election_results": parse_election_results,
     "flights": parse_flights,
+    "gallery": parse_gallery,
     "general": parse_general_results,
     "general_questions": parse_general_questions,
     "images": parse_images,
@@ -108,6 +111,7 @@ PARSERS = {
     "omitted_notice": parse_omitted_notice,
     "people_also_ask": parse_people_also_ask,
     "perspectives": parse_perspectives,
+    "places_nearby": parse_places_nearby,
     "products": parse_products,
     "promo": parse_promo,
     "refine_by": parse_refine_by,

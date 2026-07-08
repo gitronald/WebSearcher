@@ -210,6 +210,7 @@ class ClassifyMain:
             # above typed.
             (ClassifyMain.knowledge_submodule, None),
             (ClassifyMain.hotel_carousel, None),
+            (ClassifyMain.gallery, None),
             (ClassifyMain.images_strip, None),
             (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
         ]
@@ -249,6 +250,24 @@ class ClassifyMain:
         for heading in node.css('h3.bNg8Rb, [role="heading"]'):
             if (get_text(heading, strip=True) or "") == "Images":
                 return "images"
+        return "unknown"
+
+    @staticmethod
+    def gallery(cmpt) -> str:
+        """Type the async discovery gallery ("What to read", "Courses", "Explore
+        stocks", ...) by its title ``data-attrid``.
+
+        Google ships these as a JS-hydrated carousel whose stable signal is a
+        ``Supercat*ClusterTitle`` ``data-attrid`` (reused across content types -- a
+        *books* cluster carries ``SupercatRecipeClusterTitle``). The card links are
+        ``#`` placeholders and the module ships a hidden "Something went wrong"
+        async-error fallback, so the visible heading ("What to read") never matches a
+        header rule and it reaches unknown. End-of-chain: only claims a component
+        nothing above typed.
+        """
+        node: Node = cmpt
+        if node.css_first('[data-attrid*="Supercat"]') is not None:
+            return "gallery"
         return "unknown"
 
     @staticmethod

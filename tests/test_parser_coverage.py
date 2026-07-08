@@ -62,6 +62,87 @@ def test_recipes_structured(serps_by_qry, qry):
         assert details.get("source")
 
 
+def test_recipes_bare_header_level2():
+    # The bare "Recipes" carousel heading also renders at aria-level 2, not only 3.
+    assert _classify('<div aria-level="2" role="heading">Recipes</div>') == "recipes"
+
+
+def test_recent_posts_from_entity_header():
+    # "Posts from <entity>" is the same social carousel as "Latest posts from".
+    assert (
+        _classify('<div aria-level="2" role="heading">Posts from N2Shape</div>') == "recent_posts"
+    )
+
+
+def test_election_dates_level3_submodule():
+    # Also renders as a level-3 entity-panel submodule ("Election dates - ...").
+    inner = '<div aria-level="3" role="heading">Election dates · Primaries · Michigan</div>'
+    assert _classify(inner) == "election_dates"
+
+
+def test_places_nearby_carousel():
+    from WebSearcher.parsers.components.places_nearby import parse_places_nearby
+
+    inner = (
+        '<div aria-level="2" role="heading"><span class="mgAbYb">Explore places nearby</span></div>'
+        '<a href="#"><div aria-level="3" role="heading">Family Food Centre</div></a>'
+        '<a href="#"><div aria-level="3" role="heading">Mega Mart</div></a>'
+    )
+    assert _classify(inner) == "places_nearby"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_places_nearby(node)
+    assert [r["title"] for r in rows] == ["Family Food Centre", "Mega Mart"]
+    assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
+
+
+def test_top_stories_contextual_news_headers():
+    # Contextual news-article carousels reuse the top_stories card parser.
+    assert _classify('<div aria-level="2" role="heading">For context</div>') == "top_stories"
+    assert _classify('<div aria-level="2" role="heading">States in the news</div>') == "top_stories"
+
+
+def test_shopping_ideas_related_categories_nearby():
+    # Local-shopping category chips render as a level-3 "Related categories nearby".
+    inner = (
+        '<div aria-level="3" role="heading">Related categories nearby</div>'
+        '<a href="/search?q=shop+cheddar+near+me">Cheddar Cheese</a>'
+        '<a href="/search?q=shop+swiss+near+me">Swiss Cheese</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+
+
+def test_gallery_structural():
+    # Discovery gallery ("What to read"/"Courses"/...) typed by its Supercat attrid,
+    # not the (varying, unregistered) heading. Parser emits a header row (heading +
+    # joined category chips) then one row per item (title + author byline).
+    from WebSearcher.parsers.components.gallery import parse_gallery
+
+    inner = (
+        '<div data-attrid="SupercatRecipeClusterTitle"></div>'
+        '<div aria-level="2" role="heading">What to read</div>'
+        '<div role="button" class="alvTwe">Law</div>'
+        '<div role="button" class="alvTwe">Theory</div>'
+        '<div><div class="sCqVCe">Book One</div><div class="kE4COc">Author A</div></div>'
+        '<div style="display:none"><div class="sCqVCe">Book Two</div>'
+        '<div class="kE4COc">Author B</div></div>'
+    )
+    assert _classify(inner) == "gallery"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_gallery(node)
+    # header row: heading title + category chips joined into text
+    assert rows[0]["sub_type"] == "header"
+    assert rows[0]["title"] == "What to read"
+    assert rows[0]["text"] == "Law<|>Theory"
+    # item rows: sub_type="card" (mirrors twitter_cards header/card shape)
+    assert [r["title"] for r in rows[1:]] == ["Book One", "Book Two"]
+    assert [r["text"] for r in rows[1:]] == ["Author A", "Author B"]
+    assert all(r["sub_type"] == "card" for r in rows[1:])
+    assert all(r["url"] is None for r in rows[1:])
+    # the shown card carries no visible flag; the display:none "More books" tail does
+    assert rows[1].get("details") is None
+    assert rows[2]["details"]["visible"] is False
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 
@@ -397,6 +478,11 @@ def test_refine_by_chips():
     rows = parse_refine_by(node)
     assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
     assert rows[0]["url"] == "/search?q=pink"
+    # Product-category variant ("Refine <category>") is the same chip module.
+    assert (
+        _classify('<div aria-level="2" role="heading">Refine Wall Clocks &rsaquo; 24HR</div>')
+        == "refine_by"
+    )
 
 
 def test_shopping_ideas_chips():
