@@ -101,6 +101,16 @@ def test_top_stories_contextual_news_headers():
     assert _classify('<div aria-level="2" role="heading">States in the news</div>') == "top_stories"
 
 
+def test_shopping_ideas_related_categories_nearby():
+    # Local-shopping category chips render as a level-3 "Related categories nearby".
+    inner = (
+        '<div aria-level="3" role="heading">Related categories nearby</div>'
+        '<a href="/search?q=shop+cheddar+near+me">Cheddar Cheese</a>'
+        '<a href="/search?q=shop+swiss+near+me">Swiss Cheese</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 

@@ -404,7 +404,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="shopping_ideas",
         label="Shopping Ideas",
         sections=("main",),
-        header_texts={2: ("Shopping ideas",)},
+        # "Related categories nearby" is the local-shopping variant (chips link to
+        # "shop <category> near me"), rendered as a level-3 submodule heading.
+        header_texts={2: ("Shopping ideas",), 3: ("Related categories nearby",)},
         description="Product-category idea chips linking to a category search",
     ),
     ComponentType(
