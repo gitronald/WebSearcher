@@ -385,8 +385,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="refine_by",
         label="Refine By",
         sections=("main",),
-        # "Refine by brand", "Refine by color", ... -- prefix-matched at level 2.
-        header_texts={2: ("Refine by",)},
+        # "Refine by brand"/"Refine by color" and the product-category variant
+        # "Refine Wall Clocks"/"Refine Shure SM7B Microphones" -- both are the same
+        # ULSxyf chip module, so the "Refine " prefix (trailing space) matches at L2.
+        header_texts={2: ("Refine ",)},
         description="Faceted product-filter chips linking to a refined search",
     ),
     ComponentType(

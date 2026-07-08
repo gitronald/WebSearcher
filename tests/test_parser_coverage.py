@@ -397,6 +397,11 @@ def test_refine_by_chips():
     rows = parse_refine_by(node)
     assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
     assert rows[0]["url"] == "/search?q=pink"
+    # Product-category variant ("Refine <category>") is the same chip module.
+    assert (
+        _classify('<div aria-level="2" role="heading">Refine Wall Clocks &rsaquo; 24HR</div>')
+        == "refine_by"
+    )
 
 
 def test_shopping_ideas_chips():
