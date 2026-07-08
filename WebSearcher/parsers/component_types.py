@@ -411,10 +411,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="Recipes",
         sections=("main",),
         # The standalone main-column carousel renders its heading at aria-level 2
-        # ("Popular recipes" / "More popular recipes"), often wrapped in an
-        # async-load "Preferences saved ... RETRY" state chrome that leaves the
-        # heading intact; the inline "Recipes" variant is aria-level 3.
-        header_texts={2: ("Popular recipes", "More popular recipes"), 3: ("Recipes", "Recetas")},
+        # ("Popular recipes" / "More popular recipes" / bare "Recipes"), often
+        # wrapped in an async-load "Preferences saved ... RETRY" state chrome that
+        # leaves the heading intact; the inline "Recipes" variant is aria-level 3.
+        header_texts={
+            2: ("Popular recipes", "More popular recipes", "Recipes"),
+            3: ("Recipes", "Recetas"),
+        },
     ),
     ComponentType(
         name="scholarly_articles",

@@ -62,6 +62,11 @@ def test_recipes_structured(serps_by_qry, qry):
         assert details.get("source")
 
 
+def test_recipes_bare_header_level2():
+    # The bare "Recipes" carousel heading also renders at aria-level 2, not only 3.
+    assert _classify('<div aria-level="2" role="heading">Recipes</div>') == "recipes"
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 
