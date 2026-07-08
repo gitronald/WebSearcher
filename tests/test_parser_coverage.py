@@ -111,6 +111,25 @@ def test_shopping_ideas_related_categories_nearby():
     assert _classify(inner) == "shopping_ideas"
 
 
+def test_supercat_cluster_structural():
+    # Discovery cluster ("What to read"/"Courses"/...) typed by its Supercat attrid,
+    # not the (varying, unregistered) heading; parser pulls title + author per item.
+    from WebSearcher.parsers.components.supercat_cluster import parse_supercat_cluster
+
+    inner = (
+        '<div data-attrid="SupercatRecipeClusterTitle"></div>'
+        '<div aria-level="2" role="heading">What to read</div>'
+        '<div><div class="sCqVCe">Book One</div><div class="kE4COc">Author A</div></div>'
+        '<div><div class="sCqVCe">Book Two</div><div class="kE4COc">Author B</div></div>'
+    )
+    assert _classify(inner) == "supercat_cluster"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_supercat_cluster(node)
+    assert [r["title"] for r in rows] == ["Book One", "Book Two"]
+    assert [r["text"] for r in rows] == ["Author A", "Author B"]  # author byline
+    assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 
