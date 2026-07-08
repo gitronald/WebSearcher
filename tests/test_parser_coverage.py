@@ -383,6 +383,53 @@ def test_images_strip_classifies_and_parses():
     assert rows[0]["url"] == "https://v.test/x"
 
 
+def test_refine_by_chips():
+    # "Refine by <facet>" prefix-matched at aria-level 2; chips -> filtered search.
+    from WebSearcher.parsers.components.refinements import parse_refine_by
+
+    inner = (
+        '<div aria-level="2" role="heading">Refine by color</div>'
+        '<a href="/search?q=pink">Pink</a><a href="/search?q=blue">Blue</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "refine_by"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_refine_by(node)
+    assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
+    assert rows[0]["url"] == "/search?q=pink"
+
+
+def test_shopping_ideas_chips():
+    from WebSearcher.parsers.components.refinements import parse_shopping_ideas
+
+    inner = (
+        '<div aria-level="2" role="heading">Shopping ideas</div>'
+        '<a href="/search?q=jerseys">Jerseys</a><a href="/search?q=hats">Hats</a>'
+    )
+    assert _classify(inner) == "shopping_ideas"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_shopping_ideas(node)
+    assert len(rows) == 2
+    assert rows[0]["title"] == "Jerseys"
+
+
+def test_articles_module():
+    from WebSearcher.parsers.components.articles import parse_articles
+
+    inner = (
+        '<div aria-level="2" role="heading">Articles</div>'
+        '<a href="https://pub.test/a"><img alt="thumb"></a>'
+        '<a href="https://pub.test/a">Publisher Headline</a>'
+        '<a href="#">general feedback</a>'
+    )
+    assert _classify(inner) == "articles"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    rows = parse_articles(node)
+    assert len(rows) == 1  # deduped by url, feedback "#" skipped
+    assert rows[0]["title"] == "Publisher Headline"
+    assert rows[0]["url"] == "https://pub.test/a"
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to

@@ -89,6 +89,13 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         description="Faceted buying-guide accordion (label -> question rows)",
     ),
     ComponentType(
+        name="articles",
+        label="Articles",
+        sections=("main",),
+        header_texts={2: ("Articles",)},
+        description="Entity-panel articles module (external article links)",
+    ),
+    ComponentType(
         name="datasets",
         label="Datasets",
         sections=("main",),
@@ -370,6 +377,21 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         sections=("main",),
         sub_types=("shopping",),
         description="Promotional banner (e.g. 'Save with deals / Shop deals' shopping CTA)",
+    ),
+    ComponentType(
+        name="refine_by",
+        label="Refine By",
+        sections=("main",),
+        # "Refine by brand", "Refine by color", ... -- prefix-matched at level 2.
+        header_texts={2: ("Refine by",)},
+        description="Faceted product-filter chips linking to a refined search",
+    ),
+    ComponentType(
+        name="shopping_ideas",
+        label="Shopping Ideas",
+        sections=("main",),
+        header_texts={2: ("Shopping ideas",)},
+        description="Product-category idea chips linking to a category search",
     ),
     ComponentType(
         name="recent_posts",

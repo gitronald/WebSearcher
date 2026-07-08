@@ -31,6 +31,7 @@ from ..._slx import get_text
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
 from .ai_overview import parse_ai_overview
+from .articles import parse_articles
 from .available_on import parse_available_on
 from .banner import parse_banner
 from .buying_guide import parse_buying_guide
@@ -59,6 +60,7 @@ from .products import parse_products
 from .promo import parse_promo
 from .recent_posts import parse_recent_posts
 from .recipes import parse_recipes
+from .refinements import parse_refine_by, parse_shopping_ideas
 from .scholarly_articles import parse_scholarly_articles
 from .searches_related import parse_searches_related
 from .shopping_ads import parse_shopping_ads
@@ -76,6 +78,7 @@ from .view_more_news import parse_view_more_news
 # derived from this map joined against the registry.
 PARSERS = {
     "ad": parse_ads,
+    "articles": parse_articles,
     "ai_overview": parse_ai_overview,
     "available_on": parse_available_on,
     "banner": parse_banner,
@@ -107,6 +110,8 @@ PARSERS = {
     "perspectives": parse_perspectives,
     "products": parse_products,
     "promo": parse_promo,
+    "refine_by": parse_refine_by,
+    "shopping_ideas": parse_shopping_ideas,
     "recent_posts": parse_recent_posts,
     "recipes": parse_recipes,
     "scholarly_articles": parse_scholarly_articles,
