@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.11.1`: Broad parser-coverage pass adding `gallery`, `places_nearby`, `datasets`, `refine_by`, `shopping_ideas`, and `articles` component types and extending `knowledge`, `recipes`, `products`, `images`, and `top_stories` coverage, classifying the large majority of previously-`unknown` components; also captures modern ad sitelinks and the embedded "Sponsored results" ad unit, classifies the AI-overview unavailable banner, and keeps Chrome's OS sandbox enabled by default in the patchright backend
 - `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default and drives an installed Google Chrome (`patchright install chrome` if missing). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
 - `0.10.0`: Reliable `/sorry/` CAPTCHA detection, an automated weekly geotargets refresh, and richer two-tier parsed output (**breaking output**)
 - `0.9.0`: **Breaking** -- rewrote the parser onto `selectolax` for ~2x faster parsing (dropping BeautifulSoup + lxml) and shipped in-package demos via `ws-demo`
