@@ -346,6 +346,24 @@ def test_datasets_classifies_and_parses():
     assert rows[0]["url"] == "https://data.test/a"
 
 
+def test_recipes_async_popular_variant():
+    # "Popular recipes" carousel: aria-level-2 heading (registered), and cards
+    # where the title div sits outside the result anchor (XDOVcf wrapper).
+    inner = (
+        '<div aria-level="2" role="heading">Popular recipes</div>'
+        '<div class="XDOVcf"><div class="hfac6d">Herb Batter Bread</div>'
+        '<a href="https://food.test/herb">go</a></div>'
+    )
+    assert _classify(inner) == "recipes"
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    from WebSearcher.parsers.components.recipes import parse_recipes
+
+    rows = parse_recipes(node)
+    assert len(rows) == 1
+    assert rows[0]["title"] == "Herb Batter Bread"
+    assert rows[0]["url"] == "https://food.test/herb"
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to
