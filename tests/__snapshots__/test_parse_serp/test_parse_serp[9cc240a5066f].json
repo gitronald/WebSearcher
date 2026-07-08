@@ -1,0 +1,303 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 8.0,
+    "result_estimate_time": 0.65,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "query_truncated",
+      "text": "\"600095\" (and any subsequent words) was ignored because we limit queries to 32 words.",
+      "title": null,
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": "https://criminaladvocate.in  › Legal Services",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Why Rajendra  Criminal Law Firm  Stands Out · 1. Unparalleled Expertise · 2. Cyber  Crime  Specialists · 3.  Top - Ranking  Senior  Advocates  · 4. Recognized as the  Best Law  ...",
+      "title": "Best Law Firm: Expert Criminal attorneys in Chennai",
+      "type": "general",
+      "url": "https://criminaladvocate.in/best-law-firm/"
+    },
+    {
+      "cite": "https://m.facebook.com  › biz › criminal-lawyer",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "1.  Criminal Lawyers  /  Advocates  in  Chennai  · 2.  Chennai Lawyers  · 3.  Chennai LawyerS .NET · 4. Rajendra  Law  office LLP - Senior  Madras  High Court  Advocates  · 5. Saro ...",
+      "title": "25 Best Criminal Lawyer Near Velachcheri, Tamil Nadu, India",
+      "type": "general",
+      "url": "https://m.facebook.com/biz/criminal-lawyer/?place_id=106519439380855"
+    },
+    {
+      "cite": "https://www.lawyerchennai.com  › top-law-firms",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "This is a team of  Best Civil Lawyers ,  Criminal Advocates , and  Corporate Attorneys . Their support extends to all types of clients & sizes in many nations too.",
+      "title": "Top Law firms in Chennai 24x7 | Best Lawyers Rajendra Law ...",
+      "type": "general",
+      "url": "https://www.lawyerchennai.com/top-law-firms/"
+    },
+    {
+      "cite": "https://askadvocates.com",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A Team of our  Advocates  in  Chennai  practices both  Civil  and  Criminal  Cases as Well as  Corporate  Laws. Search the  Best  Rated  Attorneys  of our  law firm  are the ...",
+      "title": "Best Advocates | AskAdvocates Law Chamber: Legal ...",
+      "type": "general",
+      "url": "https://askadvocates.com/"
+    },
+    {
+      "cite": "https://ifflawattorney.com",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "OUR FEATURED  SERVICES  ·  Civil Law  · Family Disputes · Cyber  Crime  · Banking ·  Criminal Law  · Intellectual Property ·  Corporate Law  · Registrations.",
+      "title": "IFF Law Attorney Law Firm",
+      "type": "general",
+      "url": "https://ifflawattorney.com/"
+    },
+    {
+      "cite": "https://criminaladvocate.in",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Best Criminal Lawyers  in  Chennai ,  Tamil Nadu , India 24x7.  Top Criminal Advocate  for Bails, Cyber  crime , Blue Collar & White-collar Crimes.",
+      "title": "Criminal Advocates in Chennai 24x7 | Rajendra Criminal Law ...",
+      "type": "general",
+      "url": "https://criminaladvocate.in/"
+    },
+    {
+      "cite": "https://legalfirm.in  › area-of-practice",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Corporate Attorneys ,;  Criminal  Defense  Lawyers ,; Family Court  lawyers ,; Tax  Advocates ,; Immigration  lawyers  to name a few.  Civil  litigation.",
+      "title": "Top Legal Firm: Best Appellate Lawyers Office in Chennai ...",
+      "type": "general",
+      "url": "https://legalfirm.in/area-of-practice/"
+    },
+    {
+      "cite": "https://www.smithandeulo.com",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "We are  criminal  defense  lawyers  in Orlando, Florida. We have handled crimes such as first-degree murder, capital sex battery, burglary, theft, violations of ...",
+      "title": "Smith & Eulo Law Firm: Orlando FL Criminal Defense Lawyers",
+      "type": "general",
+      "url": "https://www.smithandeulo.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": {
+        "items": [
+          "What is the highest paid law firm?",
+          "What is the highest ranking lawyer?",
+          "Who is the highest rank in a law firm?",
+          "Who is the most famous criminal lawyer?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is the highest paid law firm?<|>What is the highest ranking lawyer?<|>Who is the highest rank in a law firm?<|>Who is the most famous criminal lawyer?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Best lawyer in Chennai",
+          "IFF Law Attorney",
+          "Chennai lawyers",
+          "Advocates near me",
+          "Rajendra Law Office"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Best lawyer in Chennai<|>IFF Law Attorney<|>Chennai lawyers<|>Advocates near me<|>Rajendra Law Office",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "footer",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Notices about Filtered Results  In order to show you the most relevant results, we have omitted some entries very similar to the 8 already displayed. If you like, you can  repeat the search with the omitted results included . ",
+      "title": null,
+      "type": "omitted_notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "CIVILIAN'S LAW ASSOCIATES",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:star_score",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "5.0 2 Google reviews",
+      "title": "Star score",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:one line summary",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Criminal justice attorney in Chennai, India",
+      "title": "One line summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:address",
+        "items": [
+          {
+            "text": "Address",
+            "url": "/search?sca_esv=28b0c132aeb9c2ff&sca_upv=1&q=civilian%27s+law+associates+chennai+address&ludocid=14346484496498143098&sa=X&ved=2ahUKEwimsKmy9NSIAxW1L1kFHSNtAf0Q6BN6BAg6EAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "358G+QCV, Mulakalacheru, Vishwas Nagar, Maduravoyal, Chennai, Tamil Nadu 600095, India",
+      "title": "Address",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:review_summary",
+        "items": [
+          {
+            "text": "Google policies",
+            "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Reviews Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Add a photo Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. 2 Google reviews",
+      "title": "Review summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:sideways refinements",
+        "items": [
+          {
+            "text": "People also search for",
+            "url": "/search?sca_esv=28b0c132aeb9c2ff&sca_upv=1&tbm=lcl&q=CIVILIAN'S+LAW+ASSOCIATES&rflfq=1&num=20&stick=H4sIAAAAAAAAABWQu0oDYRSESaFYuyK41Xa2534pl2AREBUiWgeJWAQiyRv5BD6XT-Fs-c85M_P95-pyHMxEOKOlOCuMxRhieVuUmFKwOrnTOHizaVWam5EqQR5vWEk8G-uqIR4aVIvq6aUtbozkFg4bhybjUiNhkxLEq4-DSlZrtNkyVktpbJonSNCLeiM2C4Q6l5saYrXaONEF1coQBqBg185sUqiJjojWCiUtrsxCrFN4WDFLuEkHJ1aDWBOfyQwFA_y4QMMBF6cvqB2YLV3Li1i6SYSU4B2vm7lBRgW1WUVlHArYDFMK8LVwnFzERgGp42YMh5T-rlZ_q9uX_fH7sJ92h_NxOu93p4-v6fN4-rm4W2_eNo-b-el-Oz3O79O83T6vN_Prw_YfC4xc1roBAAA&sa=X&ved=2ahUKEwimsKmy9NSIAxW1L1kFHSNtAf0Q6nUoAHoECDsQAQ"
+          },
+          {
+            "text": "View 15+ more",
+            "url": "/search?sca_esv=28b0c132aeb9c2ff&sca_upv=1&tbm=lcl&q=CIVILIAN'S+LAW+ASSOCIATES&rflfq=1&num=20&stick=H4sIAAAAAAAAABWQu0oDYRSESaFYuyK41Xa2534pl2AREBUiWgeJWAQiyRv5BD6XT-Fs-c85M_P95-pyHMxEOKOlOCuMxRhieVuUmFKwOrnTOHizaVWam5EqQR5vWEk8G-uqIR4aVIvq6aUtbozkFg4bhybjUiNhkxLEq4-DSlZrtNkyVktpbJonSNCLeiM2C4Q6l5saYrXaONEF1coQBqBg185sUqiJjojWCiUtrsxCrFN4WDFLuEkHJ1aDWBOfyQwFA_y4QMMBF6cvqB2YLV3Li1i6SYSU4B2vm7lBRgW1WUVlHArYDFMK8LVwnFzERgGp42YMh5T-rlZ_q9uX_fH7sJ92h_NxOu93p4-v6fN4-rm4W2_eNo-b-el-Oz3O79O83T6vN_Prw_YfC4xc1roBAAA&sa=X&ved=2ahUKEwimsKmy9NSIAxW1L1kFHSNtAf0Q63UoAXoECDsQAg"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "People also search for View 15+ more Madras Law Forum [ Criminal... Attorney P.V. Ravi Chandran, Advocate... Attorney Chennai Legal Services Legal services",
+      "title": "Sideways refinements",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

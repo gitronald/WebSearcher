@@ -2,8 +2,10 @@
 
 Notices Google adds at the top of results: query edits ("Showing results
 for"), suggestions ("Did you mean"), location prompts ("Choose area" /
-"Use precise location"), and language tips. Each variant is dispatched to
-its own handler based on visible text.
+"Use precise location"), language tips, the true-empty no-results card
+("Your search - ... - did not match any documents."), and the 32-word
+query-truncation card. Each variant is dispatched to its own handler based
+on visible text.
 """
 
 import re
@@ -14,7 +16,10 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text, reparse_fragment
 
 # Visible-text markers that identify each notice sub-type. ``location_*`` and
-# ``language_*`` require every marker present; ``query_*`` matches on any.
+# ``language_*`` require every marker present; every other sub-type matches on any.
+# ``no_results`` is the true-empty page's #topstuff card -- distinct from
+# ``query_edit_no_results`` (auto-broaden, results exist) and from the low-relevance
+# ``banner`` "Your search did not match any documents" (results exist, in #rso).
 _SUB_TYPE_TEXT: dict[str, set[str]] = {
     "query_edit": {"Showing results for", "Including results for"},
     "query_edit_no_results": {"No results found for"},
@@ -25,6 +30,8 @@ _SUB_TYPE_TEXT: dict[str, set[str]] = {
         "Did you mean to search for:",
         "Search instead for:",
     },
+    "no_results": {"did not match any documents"},
+    "query_truncated": {"we limit queries to 32 words"},
     "location_choose_area": {"Results for", "Choose area"},
     "location_use_precise_location": {"Results for", "Use precise location"},
     "language_tip": {"Tip:", "Learn more about filtering by language"},
@@ -50,10 +57,14 @@ def parse_notices(elem) -> list:
 def _classify_sub_type(node: Node) -> str:
     cmpt_text = re.sub(r"\s+", " ", (get_text(node) or "").strip())
     for sub_type, text_list in _SUB_TYPE_TEXT.items():
-        if sub_type.startswith("query_"):
-            if any(text in cmpt_text for text in text_list):
-                return sub_type
-        elif all(text in cmpt_text for text in text_list):  # location_* / language_*
+        # location_*/language_* require every marker; every other type matches on any.
+        needs_all = sub_type.startswith(("location_", "language_"))
+        matched = (
+            all(text in cmpt_text for text in text_list)
+            if needs_all
+            else any(text in cmpt_text for text in text_list)
+        )
+        if matched:
             return sub_type
     return "unknown"
 
@@ -121,11 +132,34 @@ def _parse_language_tip(node: Node) -> dict:
     }
 
 
+def _parse_no_results(node: Node) -> dict:
+    """True-empty results page (#topstuff card): 'Your search - <qry> - did not
+    match any documents.' followed by a 'Suggestions:' body. Title = the search
+    line, text = the suggestions."""
+    text = re.sub(r"\s+", " ", (get_text(node) or "").strip())
+    marker = "did not match any documents"
+    idx = text.find(marker)
+    if idx == -1:
+        return {"title": text or None, "text": None}
+    title = text[: idx + len(marker)].strip(" .") + "."
+    body = text[idx + len(marker) :].lstrip(" .")
+    return {"title": title, "text": body or None}
+
+
+def _parse_query_truncated(node: Node) -> dict:
+    """32-word query-truncation card: '<token> (and any subsequent words) was
+    ignored because we limit queries to 32 words.'"""
+    text = re.sub(r"\s+", " ", (get_text(node) or "").strip())
+    return {"title": None, "text": text or None}
+
+
 # type-name -> handler. Built once at import; ``location_*`` share a handler.
 _SUB_TYPE_PARSERS: dict[str, Callable[[Node], dict]] = {
     "query_edit": _parse_query_edit,
     "query_edit_no_results": _parse_no_results_replacement,
     "query_suggestion": _parse_query_suggestion,
+    "no_results": _parse_no_results,
+    "query_truncated": _parse_query_truncated,
     "location_choose_area": _parse_location_heading,
     "location_use_precise_location": _parse_location_heading,
     "language_tip": _parse_language_tip,

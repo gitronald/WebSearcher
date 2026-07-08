@@ -60,37 +60,18 @@ def test_extract_no_language():
     assert features.language is None
 
 
-# No results notice ------------------------------------------------------------
-
-
-def test_no_results_notice_detected():
-    html = make_html("Your search - <b>asdfqwerty</b> - did not match any documents.")
-    features = FeatureExtractor.extract_features(html)
-    assert features.notice_no_results is True
-
-
-def test_no_results_notice_absent():
-    html = make_html("<div>Normal results here</div>")
-    features = FeatureExtractor.extract_features(html)
-    assert features.notice_no_results is False
-
-
 # String match features --------------------------------------------------------
+# Note: no-results and query-truncation notices are `notice` components now
+# (see tests/test_notices.py), not feature flags.
 
 
-def test_shortened_query_notice():
-    html = make_html("(and any subsequent words) was ignored because we limit queries to 32 words.")
-    features = FeatureExtractor.extract_features(html)
-    assert features.notice_shortened_query is True
-
-
-def test_server_error_notice():
+def test_server_error_flag():
     html = make_html(
         "We're sorry but it appears that there has been an internal server error "
         "while processing your request."
     )
     features = FeatureExtractor.extract_features(html)
-    assert features.notice_server_error is True
+    assert features.server_error is True
 
 
 def test_infinity_scroll():
@@ -102,8 +83,7 @@ def test_infinity_scroll():
 def test_no_string_matches():
     html = make_html("<div>clean page</div>")
     features = FeatureExtractor.extract_features(html)
-    assert features.notice_shortened_query is False
-    assert features.notice_server_error is False
+    assert features.server_error is False
     assert features.infinity_scroll is False
 
 
@@ -190,28 +170,14 @@ def test_soup_language():
     assert features.language == "es"
 
 
-def test_soup_no_results_notice():
-    features = FeatureExtractor.extract_features(
-        make_soup("Your search - <b>asdfqwerty</b> - did not match any documents.")
-    )
-    assert features.notice_no_results is True
-
-
-def test_soup_shortened_query_notice():
-    features = FeatureExtractor.extract_features(
-        make_soup("(and any subsequent words) was ignored because we limit queries to 32 words.")
-    )
-    assert features.notice_shortened_query is True
-
-
-def test_soup_server_error_notice():
+def test_soup_server_error_flag():
     features = FeatureExtractor.extract_features(
         make_soup(
             "We're sorry but it appears that there has been an internal server error "
             "while processing your request."
         )
     )
-    assert features.notice_server_error is True
+    assert features.server_error is True
 
 
 def test_soup_infinity_scroll():
@@ -232,9 +198,7 @@ def test_soup_infinity_scroll_extra_attrs_not_matched():
 
 def test_soup_clean_page_no_features():
     features = FeatureExtractor.extract_features(make_soup("<div>clean page</div>"))
-    assert features.notice_no_results is False
-    assert features.notice_shortened_query is False
-    assert features.notice_server_error is False
+    assert features.server_error is False
     assert features.infinity_scroll is False
     assert features.overlay_precise_location is False
     assert features.captcha is False

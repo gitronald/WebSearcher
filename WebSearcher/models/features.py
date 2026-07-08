@@ -7,9 +7,10 @@ class SERPFeatures(BaseModel):
     result_estimate_count: float | None = None
     result_estimate_time: float | None = None
     language: str | None = None
-    notice_no_results: bool = False
-    notice_shortened_query: bool = False
-    notice_server_error: bool = False
+    # no-results and query-truncation notices are emitted as `notice` components
+    # (sub_types `no_results` / `query_truncated`), not flags. server_error stays
+    # a page-state flag -- it is bare error chrome, not a result component.
+    server_error: bool = False
     infinity_scroll: bool = False
     overlay_precise_location: bool = False
     captcha: bool = False

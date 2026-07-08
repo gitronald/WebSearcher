@@ -42,6 +42,8 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "query_edit",
             "query_edit_no_results",
             "query_suggestion",
+            "no_results",
+            "query_truncated",
             "location_choose_area",
             "location_use_precise_location",
             "language_tip",
