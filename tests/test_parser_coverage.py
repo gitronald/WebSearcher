@@ -74,6 +74,12 @@ def test_recent_posts_from_entity_header():
     )
 
 
+def test_election_dates_level3_submodule():
+    # Also renders as a level-3 entity-panel submodule ("Election dates - ...").
+    inner = '<div aria-level="3" role="heading">Election dates · Primaries · Michigan</div>'
+    assert _classify(inner) == "election_dates"
+
+
 # --- knowledge: empty sub_types (phase 3) ----------------------------------
 
 

@@ -119,7 +119,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="election_dates",
         label="Election Dates",
         sections=("main",),
-        header_texts={2: ("Election dates",)},
+        # Renders at aria-level 2, or level 3 as an entity-panel submodule
+        # ("Election dates - Primaries - Michigan").
+        header_texts={2: ("Election dates",), 3: ("Election dates",)},
         description="Calendar of upcoming primary/general election dates",
     ),
     ComponentType(
