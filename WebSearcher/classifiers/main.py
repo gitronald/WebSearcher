@@ -416,7 +416,12 @@ class ClassifyMain:
     # ``knowledge_submodule`` rule, so they cannot steal from earlier
     # classifiers the way a ``header_texts`` registration (position 5) could
     # -- e.g. a local_results restaurant pack that also lists menu highlights.
-    _KNOWLEDGE_SUBMODULE_HEADINGS = ("Menu highlights", "Things to do", "Showtimes at")
+    _KNOWLEDGE_SUBMODULE_HEADINGS = (
+        "Menu highlights",
+        "Things to do",
+        "Showtimes at",
+        "Rooms at",
+    )
 
     @staticmethod
     def knowledge_submodule(cmpt) -> str:
@@ -438,8 +443,11 @@ class ClassifyMain:
             or node.css_first("sp-table") is not None
         ):
             return "knowledge"
-        heading = node.css_first('[aria-level="2"][role="heading"]')
-        if heading is not None:
+        # The submodule heading renders at aria-level 2 (most attribute modules,
+        # "Rooms at <hotel>") or 3 (inline "Menu highlights"), so check both.
+        for heading in node.css(
+            '[aria-level="2"][role="heading"], [aria-level="3"][role="heading"]'
+        ):
             text = get_text(heading, " ", strip=True) or ""
             if text.startswith(ClassifyMain._KNOWLEDGE_SUBMODULE_HEADINGS):
                 return "knowledge"

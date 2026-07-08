@@ -430,6 +430,23 @@ def test_articles_module():
     assert rows[0]["url"] == "https://pub.test/a"
 
 
+def test_knowledge_submodule_level3_menu_highlights():
+    # "Menu highlights" renders its heading at aria-level 3 (not 2), so the
+    # submodule rule must scan level 3 too.
+    assert (
+        _classify('<div aria-level="3" role="heading">Menu highlights</div><div>x</div>')
+        == "knowledge"
+    )
+
+
+def test_knowledge_submodule_rooms_at_hotel():
+    # "Rooms at <hotel>" room-rate module (aria-level 2) -> knowledge.
+    assert (
+        _classify('<div aria-level="2" role="heading">Rooms at Harris Guest House</div><img>')
+        == "knowledge"
+    )
+
+
 # --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to
