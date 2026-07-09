@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.11.3`: Classify knowledge-panel and image related-entity carousels ("Search instead for", "Other people search", "You can also search for", "People also search in Images") as `searches_related` instead of `unknown`; additive heading labels, existing corpus snapshots unchanged
 - `0.11.2`: Parse the no-results and 32-word query-truncation cards as `notice` components (`no_results` / `query_truncated`) and capture host-group sub-results nested in a main result. **Breaking output** -- dropped the `notice_no_results` / `notice_shortened_query` feature flags (now notices), renamed `notice_server_error` to `server_error`, and renamed the `general` sub_type `subresult` to `indented`
 - `0.11.1`: Broad parser-coverage pass classifying most previously-`unknown` components -- new types (`gallery`, `places_nearby`, `datasets`, `refine_by`, `shopping_ideas`, `articles`), extended `knowledge` / `recipes` / `products` / `images` / `top_stories` coverage, modern ad sitelinks, and the AI-overview unavailable banner
 - `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default and drives an installed Google Chrome (`patchright install chrome` if missing). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
