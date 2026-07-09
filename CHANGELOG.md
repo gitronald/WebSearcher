@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.2] - 2026-07-08
+
 - Parse the true-empty no-results card ("Your search - `<qry>` - did not match any documents." plus its "Suggestions:" body) and the 32-word query-truncation card ("... was ignored because we limit queries to 32 words.") as `notice` components (`sub_type="no_results"` / `sub_type="query_truncated"`) carrying the card title and text, instead of the previous boolean feature flags. A new `extract_status_notices` pass picks up the structural `div.card-section` cards Google renders in `#topstuff`/`#botstuff` outside the `#oFNiHe` notice widget, scoped so the low-relevance in-`#rso` "did not match any documents" banner stays typed separately. New fixture SERPs and coverage tests pin both cards
 - Capture `div.d4rhi` host-group sub-results nested *inside* a `div.g` main result (the 2023+ "second result from the same host", stacked/indented under it) -- the `div.g` branch previously returned before the sub-result branch and silently dropped them; each nested block is now emitted as its own organic result (`sub_rank` 1, 2, ...)
 - **Breaking (output):** removed the `features.notice_no_results` and `features.notice_shortened_query` boolean flags -- both notices now surface as `notice` components (see above), so consumers reading the flags must switch to scanning components for `sub_type` `no_results` / `query_truncated`
