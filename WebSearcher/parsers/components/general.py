@@ -31,10 +31,17 @@ def find_subcomponents(node: Node) -> list[Node]:
         parent_id = parent_g.mem_id
         nested = next((n for n in parent_g.css("div.g") if n.mem_id != parent_id), None)
         if nested is not None:
-            return [parent_g]
-        return subs
+            subs = [parent_g]
+        # Host-group sub-results (div.d4rhi) can nest *inside* a div.g main result
+        # (2023+ "second result from the same host", stacked/indented under it).
+        # Each is a full organic result, but this branch used to return before the
+        # d4rhi branch below, silently dropping them. Append any d4rhi in the node
+        # so parse_general_results enumerates them (sub_rank 1, 2, ...); the main
+        # div.g parses only its own title/cite/snippet via first-match selection,
+        # so each nested d4rhi is emitted exactly once as its own indented result.
+        return subs + [n for n in node.css("div.d4rhi") if n.mem_id != self_id]
 
-    # Sub-results format (2023+)
+    # Sub-results format (2023+) -- d4rhi host-group with no div.g wrapper
     additional = [n for n in node.css("div.d4rhi") if n.mem_id != self_id]
     if additional:
         first = next((n for n in node.css("div") if n.mem_id != self_id), None)
@@ -116,7 +123,9 @@ def parse_subtype_details(sub: Node, parsed: dict) -> dict:
 
     sub_classes = class_tokens(sub)
     if "d4rhi" in sub_classes:
-        parsed["sub_type"] = "subresult"
+        # Host-group sub-results Google stacks/indents under a same-host main
+        # result -- full organic results, tagged so downstream can identify them.
+        parsed["sub_type"] = "indented"
 
     elif sub.css_first("div.d86Vh") is not None:
         # Image thumbnail strip (e.g. Pinterest board, Etsy market, shop pages):
