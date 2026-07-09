@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.3] - 2026-07-09
+
 - Classify knowledge-panel and image related-entity carousels as `searches_related` instead of letting them fall through to `unknown` (or an empty-shell `general` row). Four aria-level-2 heading labels -- "Search instead for", "Other people search", "You can also search for", and "People also search in Images" -- are registered on the `searches_related` component type (with their dynamic sub_types declared); these carousels are already rows of `a.ngTNl` `google.com/search?q=` query links the existing parser extracts, so only the heading labels were unregistered. The change is additive `header_texts` on a main-section type (the did-you-mean "Search instead for:" `notice` is header-section and classified on a separate path), so existing corpus snapshots are unchanged; a new parametrized coverage test pins every heading
 
 ## [0.11.2] - 2026-07-08
