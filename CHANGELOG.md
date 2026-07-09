@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+- Classify knowledge-panel and image related-entity carousels as `searches_related` instead of letting them fall through to `unknown` (or an empty-shell `general` row). Four aria-level-2 heading labels -- "Search instead for", "Other people search", "You can also search for", and "People also search in Images" -- are registered on the `searches_related` component type (with their dynamic sub_types declared); these carousels are already rows of `a.ngTNl` `google.com/search?q=` query links the existing parser extracts, so only the heading labels were unregistered. The change is additive `header_texts` on a main-section type (the did-you-mean "Search instead for:" `notice` is header-section and classified on a separate path), so existing corpus snapshots are unchanged; a new parametrized coverage test pins every heading
+
 ## [0.11.2] - 2026-07-08
 
 - Parse the true-empty no-results card ("Your search - `<qry>` - did not match any documents." plus its "Suggestions:" body) and the 32-word query-truncation card ("... was ignored because we limit queries to 32 words.") as `notice` components (`sub_type="no_results"` / `sub_type="query_truncated"`) carrying the card title and text, instead of the previous boolean feature flags. A new `extract_status_notices` pass picks up the structural `div.card-section` cards Google renders in `#topstuff`/`#botstuff` outside the `#oFNiHe` notice widget, scoped so the low-relevance in-`#rso` "did not match any documents" banner stays typed separately. New fixture SERPs and coverage tests pin both cards
