@@ -614,6 +614,24 @@ def test_related_products_services_suggestions(serps_by_qry):
     assert _row_error(row) is None
 
 
+# Knowledge-panel / image related-entity carousels: a level-2 heading over a row
+# of ``a.ngTNl`` google.com/search?q= query links, identical in shape to the
+# classic searches_related variants but with these heading labels. Registered as
+# level-2 header_texts on ``searches_related`` (crawl-3 unknowns pass).
+@pytest.mark.parametrize(
+    "heading",
+    [
+        "Search instead for",
+        "Other people search",
+        "You can also search for",
+        "People also search in Images",
+    ],
+)
+def test_related_entity_carousel_headings(heading):
+    inner = f'<div aria-level="2" role="heading">{heading}</div>'
+    assert _classify(inner) == "searches_related"
+
+
 def test_recent_posts_level3_heading(serps_by_qry):
     # "Latest posts from <entity>" with an aria-level-3 heading.
     rows = _rows(serps_by_qry["twitter inc."]["html"], "recent_posts")
