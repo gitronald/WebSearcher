@@ -463,6 +463,14 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
                 # find relevant offers from advertisers"); rows are plain
                 # google.com/search?q= query links like the classic variants.
                 "Find related products & services",
+                # Knowledge-panel / image related-entity carousels (root
+                # ``div.sATSHe`` / ``div.ULSxyf``): a level-2 heading over a row of
+                # ``a.ngTNl`` google.com/search?q= query links, identical in shape
+                # to the classic variants but with these heading labels.
+                "Search instead for",
+                "Other people search",
+                "You can also search for",
+                "People also search in Images",
             ),
             3: ("Related searches",),
         },
@@ -470,6 +478,10 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
             "additional_searches",
             "related_searches",
             "find_related_products_&_services",
+            "search_instead_for",
+            "other_people_search",
+            "you_can_also_search_for",
+            "people_also_search_in_images",
         ),
         description="Related search terms",
     ),
