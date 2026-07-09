@@ -1,0 +1,203 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": true,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 465000000.0,
+    "result_estimate_time": 0.25,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": "https://www.lifeforwardcincy.org/",
+      "cmpt_rank": 0,
+      "details": {
+        "items": [
+          {
+            "title": "Home",
+            "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABADGgJ5bQ&sig=AOD64_3iLsvrjHwktgaTydiFNnQGLvnK6Q&adurl=&q="
+          },
+          {
+            "title": "Our Services",
+            "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABAEGgJ5bQ&sig=AOD64_3bx5Fv1_RzQJgdFBgAHTpqzAXYrw&adurl=&q="
+          },
+          {
+            "title": "Pregnancy Questions",
+            "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABAFGgJ5bQ&sig=AOD64_2X1KqQEYUCBceNEra_U-3FEkPscg&adurl=&q="
+          },
+          {
+            "title": "Locations",
+            "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABAGGgJ5bQ&sig=AOD64_2og_EZvmrMsGu7Dy_-agZ80tWqzQ&adurl=&q="
+          }
+        ],
+        "type": "menu"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Abortion  Is A Life-Changing Decision That Ends A Baby’s Life While It's Still In The Womb. Review All Of Your Options And Talk To Experts Before Making Any Decisions About... <label>Does not provide abortions</label>",
+      "title": "Abortion Types - Different Types Of Abortion",
+      "type": "ad",
+      "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABAAGgJ5bQ&sig=AOD64_1Z3yCiYtUpKgR9UJkZ-wgpQ5xc3A&adurl=&q="
+    },
+    {
+      "cite": "https://www.anchorofhopewi.org/abortion_pill",
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": "standard",
+      "text": "Successful termination is more likely if you are in the early stages of your pregnancy. After... <label>Does not provide abortions</label>",
+      "title": "How Does Abortion Work - What Should I Expect During?",
+      "type": "ad",
+      "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABABGgJ5bQ&sig=AOD64_0DuHJF4wyozISuk38f244Jv6jsaA&adurl=&q="
+    },
+    {
+      "cite": "https://www.lifechoicesinc.org/abortion/types",
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": "standard",
+      "text": "Your body and health are important, so take time to make the best decision with all info. We... <label>Does not provide abortions</label>",
+      "title": "How Do Abortion Pills Work? - What is Abortion? All Types",
+      "type": "ad",
+      "url": "/aclk?sa=l&ai=DChcSEwi0vJnbof79AhW6A7MAHWBRBP4YABACGgJ5bQ&sig=AOD64_2OpwCp-b_rk7vy5y1565RswP4eXA&adurl=&q="
+    },
+    {
+      "cite": "https://www.plannedparenthood.org  › learn › abortion",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What do  I need to  do  before my in-clinic  abortion  procedure? Before your  abortion , you'll meet with your nurse, doctor, or health center counselor to talk ...",
+      "title": "What Happens During an In-Clinic Abortion?",
+      "type": "general",
+      "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures/what-happens-during-an-in-clinic-abortion"
+    },
+    {
+      "cite": "https://www.plannedparenthood.org  › learn › in-clinic...",
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 1,
+      "sub_type": "indented",
+      "text": "Abortion  is a medical procedure that ends a pregnancy. In-clinic  abortion  procedures are safe, effective and can also be called surgical  abortions .",
+      "title": "In-Clinic Abortion Procedure",
+      "type": "general",
+      "url": "https://www.plannedparenthood.org/learn/abortion/in-clinic-abortion-procedures"
+    },
+    {
+      "cite": "https://www.nhs.uk  › Health A to Z › Abortion",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Abortions  can only be carried out under the care of qualified doctors who  work  in NHS hospitals or licensed clinics. If you're less than 10 weeks pregnant ...",
+      "title": "What happens - - - Abortion",
+      "type": "general",
+      "url": "https://www.nhs.uk/conditions/abortion/what-happens/"
+    },
+    {
+      "cite": "https://prochoice.org  › Patients",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "For people who are early in pregnancy, usually below 10 to 11 weeks, you may be offered a choice of medication  abortion  or an aspiration  abortion  procedure. For ...",
+      "title": "Abortion: What to Expect",
+      "type": "general",
+      "url": "https://prochoice.org/patients/abortion-what-to-expect/"
+    },
+    {
+      "cite": "https://www.webmd.com  › Women's Health › Reference",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jun 10, 2022  —  Before the Procedure · Pain Management · Vacuum Aspiration (Suction  Abortion ) · Second Trimester: Dilation and Evacuation · Late-Term  Abortion : ...",
+      "title": "What Are the Types of Abortion Procedures?",
+      "type": "general",
+      "url": "https://www.webmd.com/women/abortion-procedures"
+    },
+    {
+      "cite": "https://www.betterhealth.vic.gov.au  › healthyliving › a...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Complications of surgical  abortion  can include infection, damage to parts of the reproductive system, and excessive bleeding. See your GP right away if your ...",
+      "title": "Abortion procedures - surgical",
+      "type": "general",
+      "url": "https://www.betterhealth.vic.gov.au/health/healthyliving/abortion-procedures-surgical"
+    },
+    {
+      "cite": "https://www.betterhealth.vic.gov.au  › healthyliving › a...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 1,
+      "sub_type": "indented",
+      "text": "Mifepristone, also called RU486 or the ' abortion  pill', is used to terminate (end) a pregnancy up to nine weeks.",
+      "title": "Abortion procedures - medication",
+      "type": "general",
+      "url": "https://www.betterhealth.vic.gov.au/health/healthyliving/abortion-procedures-medication"
+    },
+    {
+      "cite": "https://www.mountsinai.org  › health-library › surgery",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Surgical  abortion  is a procedure that ends an undesired pregnancy by removing the fetus and placenta from the mother's womb (uterus).",
+      "title": "Abortion - surgical Information | Mount Sinai - New York",
+      "type": "general",
+      "url": "https://www.mountsinai.org/health-library/surgery/abortion-surgical"
+    },
+    {
+      "cite": "https://www.goodrx.com  › ... › Abortion",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Oct 14, 2021  —  How do abortions work ? Medication (medical) abortion involves taking the abortion pill (mifepristone and misoprostol), and it can mostly be ...",
+      "title": "How Do Abortions Work? Understanding the Process",
+      "type": "general",
+      "url": "https://www.goodrx.com/conditions/abortion/how-abortions-work"
+    },
+    {
+      "cite": "https://pregnancylansing.com  › abortion › methods",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Surgical  abortions  -- a more involved procedure -- occur in the first, second, or third trimester. We have information about all types, including informative ...",
+      "title": "Methods of Abortion",
+      "type": "general",
+      "url": "https://pregnancylansing.com/abortion/methods/"
+    }
+  ]
+}

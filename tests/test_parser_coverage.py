@@ -721,3 +721,59 @@ def test_find_related_embedded_sponsored_ads(serps_by_qry):
     for r in ads:
         assert r["title"] and r["url"]
         assert r["sub_rank"] < cmpt[0]["sub_rank"]
+
+
+# --- general: d4rhi host-group sub-results (plan 052) -----------------------
+#
+# Google stacks a "second result from the same host" as a div.d4rhi nested
+# *inside* the div.g main result. find_subcomponents used to return on the
+# div.g branch before reaching the d4rhi branch, so the nested sub-result was
+# silently dropped -- no row, no parent details. It is now appended as its own
+# indented general result (sub_type="indented"), the main result unchanged.
+
+D4RHI_QRYS = ["abortion clinic", "how does abortion work"]
+
+
+@pytest.mark.parametrize("qry", D4RHI_QRYS)
+def test_general_d4rhi_indented_captured(serps_by_qry, qry):
+    """Each d4rhi host-group sub-result surfaces as an indented general row."""
+    indented = [
+        r for r in _rows(serps_by_qry[qry]["html"], "general") if r["sub_type"] == "indented"
+    ]
+    assert indented, f"{qry}: no indented (d4rhi) general rows"
+    for r in indented:
+        assert r["sub_rank"] >= 1  # the main result of the group is sub_rank 0
+        assert r["title"]
+        assert r["url"] and r["url"].startswith("http")
+        assert _row_error(r) is None
+
+
+def test_general_d4rhi_specific_dropped_results_now_present(serps_by_qry):
+    """The exact results from the plan-052 evidence -- previously dropped -- now
+    appear as indented general rows."""
+    clinic = _rows(serps_by_qry["abortion clinic"]["html"], "general")
+    kalamazoo = [
+        r for r in clinic if (r["title"] or "").startswith("Abortion Service in Kalamazoo")
+    ]
+    assert kalamazoo and kalamazoo[0]["sub_type"] == "indented"
+
+    work = _rows(serps_by_qry["how does abortion work"]["html"], "general")
+    titles = {(r["title"] or ""): r for r in work}
+    for prefix in ("In-Clinic Abortion Procedure", "Abortion procedures - medication"):
+        hit = next((r for t, r in titles.items() if t.startswith(prefix)), None)
+        assert hit is not None, f"missing d4rhi result: {prefix}"
+        assert hit["sub_type"] == "indented"
+
+
+def test_general_d4rhi_main_result_kept_once(serps_by_qry):
+    """Within each host-group component, the main result stays a single sub_rank-0
+    row and the nested d4rhi is not double-counted (main url != indented url)."""
+    rows = _rows(serps_by_qry["how does abortion work"]["html"], "general")
+    indented_cmpts = {r["cmpt_rank"] for r in rows if r["sub_type"] == "indented"}
+    assert indented_cmpts
+    for cr in indented_cmpts:
+        group = [r for r in rows if r["cmpt_rank"] == cr]
+        mains = [r for r in group if r["sub_rank"] == 0]
+        assert len(mains) == 1 and mains[0]["sub_type"] is None
+        indented = [r for r in group if r["sub_type"] == "indented"]
+        assert all(r["url"] != mains[0]["url"] for r in indented)  # not a duplicate of the main
