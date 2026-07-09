@@ -1,0 +1,40 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "no-rso",
+    "overlay_precise_location": false,
+    "result_estimate_count": 0.0,
+    "result_estimate_time": 0.27,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "query_suggestion",
+      "text": "simon magic 5256",
+      "title": "Did you mean:",
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": null,
+      "section": "header",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "no_results",
+      "text": "Suggestions:Make sure all words are spelled correctly.Try different keywords.Try more general keywords.",
+      "title": "No results containing all your search terms were found.Your search - ssmonmagic5256 - did not match any documents.",
+      "type": "notice",
+      "url": null
+    }
+  ]
+}

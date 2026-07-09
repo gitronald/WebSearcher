@@ -13,11 +13,10 @@ RX_RESULT_STATS = re.compile(r'<div id="result-stats">.*?</div>')
 RX_RESULT_COUNT = re.compile(r"([0-9,]+) results")
 RX_RESULT_TIME = re.compile(r"\(([0-9.]+)s?\s*(?:seconds)?\)")
 RX_LANGUAGE = re.compile(r'<html[^>]*\slang="([^"]+)"')
-RX_NO_RESULTS = re.compile(r"Your search - .*? - did not match any documents\.")
 
-NOTICE_SHORTENED_QUERY = (
-    "(and any subsequent words) was ignored because we limit queries to 32 words."
-)
+# The no-results and query-truncation notices are parsed into `notice` components
+# (see parsers/components/notices.py), not features. server_error stays a flag: it
+# is bare error-page chrome, not a component.
 NOTICE_SERVER_ERROR = (
     "We're sorry but it appears that there has been an internal server error "
     "while processing your request."
@@ -83,9 +82,7 @@ class FeatureExtractor:
                 stats_match.group(0) if stats_match else None
             ),
             "language": lang_match.group(1) if lang_match else None,
-            "notice_no_results": bool(RX_NO_RESULTS.search(html)),
-            "notice_shortened_query": NOTICE_SHORTENED_QUERY in html,
-            "notice_server_error": NOTICE_SERVER_ERROR in html,
+            "server_error": NOTICE_SERVER_ERROR in html,
             "infinity_scroll": INFINITY_SCROLL_SPAN in html,
         }
 
@@ -115,8 +112,6 @@ class FeatureExtractor:
                 stats_match.group(0) if stats_match else None
             ),
             "language": language,
-            "notice_no_results": bool(RX_NO_RESULTS.search(page_text)),
-            "notice_shortened_query": NOTICE_SHORTENED_QUERY in page_text,
-            "notice_server_error": NOTICE_SERVER_ERROR in page_text,
+            "server_error": NOTICE_SERVER_ERROR in page_text,
             "infinity_scroll": infinity_scroll,
         }

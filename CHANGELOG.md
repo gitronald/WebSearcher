@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.2] - 2026-07-08
+
+- Parse the true-empty no-results card ("Your search - `<qry>` - did not match any documents." plus its "Suggestions:" body) and the 32-word query-truncation card ("... was ignored because we limit queries to 32 words.") as `notice` components (`sub_type="no_results"` / `sub_type="query_truncated"`) carrying the card title and text, instead of the previous boolean feature flags. A new `extract_status_notices` pass picks up the structural `div.card-section` cards Google renders in `#topstuff`/`#botstuff` outside the `#oFNiHe` notice widget, scoped so the low-relevance in-`#rso` "did not match any documents" banner stays typed separately. New fixture SERPs and coverage tests pin both cards
+- Capture `div.d4rhi` host-group sub-results nested *inside* a `div.g` main result (the 2023+ "second result from the same host", stacked/indented under it) -- the `div.g` branch previously returned before the sub-result branch and silently dropped them; each nested block is now emitted as its own organic result (`sub_rank` 1, 2, ...)
+- **Breaking (output):** removed the `features.notice_no_results` and `features.notice_shortened_query` boolean flags -- both notices now surface as `notice` components (see above), so consumers reading the flags must switch to scanning components for `sub_type` `no_results` / `query_truncated`
+- **Breaking (output):** renamed the `features.notice_server_error` flag to `features.server_error` (bare error-page chrome stays a page-state flag, not a component)
+- **Breaking (output):** renamed the `general` host-group sub-result `sub_type` from `subresult` to `indented`; consumers filtering on the old value must switch
+
 ## [0.11.1] - 2026-07-08
 
 - Broad parser-coverage pass classifying the large majority of previously-`unknown` components across the crawl corpus. New component types: `gallery` (JS-hydrated discovery gallery), `places_nearby` ("Explore places nearby" carousel), `datasets` ("Datasets" search module), `refine_by` and `shopping_ideas` (faceted product-filter and product-category chips), and `articles` (entity-panel "Articles" module). Extended types: `knowledge` gains the left-bar dictionary panel plus hotel, entity, sports, and attribute submodules; `recipes`, `recent_posts`, `top_stories`, and `election_dates` gain new carousel and heading variants; `images` parses left-bar and inline thumbnail strips; `products` types JS-hydrated tray carousels; `flights` handles bare-`<h2>` status widgets; and `locations` matches multi-span hotel-carousel headings. All rules are additive and end-of-chain, so existing corpus snapshots are unchanged -- the only same-row changes are hollow `general`/`unknown` shells upgraded to typed rows with content. New fixture SERPs and coverage tests pin every path

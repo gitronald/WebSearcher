@@ -4,12 +4,10 @@
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
-    "notice_no_results": false,
-    "notice_server_error": false,
-    "notice_shortened_query": false,
     "overlay_precise_location": true,
     "result_estimate_count": 155000000.0,
-    "result_estimate_time": 0.43
+    "result_estimate_time": 0.43,
+    "server_error": false
   },
   "results": [
     {

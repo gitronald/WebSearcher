@@ -1,6 +1,7 @@
 from selectolax.lexbor import LexborNode as Node
 
 from .. import logger
+from .._slx import get_text
 from .extractor_main import _find_all_with_class
 
 log = logger.Logger().start(__name__)
@@ -16,6 +17,7 @@ class ExtractorHeader:
         """Extract the header section: appbar and notices."""
         self.extract_appbar()
         self.extract_notices()
+        self.extract_status_notices()
 
     def extract_appbar(self):
         """Extract the top bar section, often a carousel of images or other suggestions."""
@@ -42,3 +44,29 @@ class ExtractorHeader:
             self.exists = True
             for notice in notices:
                 self.components.add_component(notice, section="header", type="notice")
+
+    def extract_status_notices(self):
+        """Structural status cards Google renders outside the #oFNiHe widget: the
+        true-empty no-results card and the 32-word query-truncation card. Both
+        route through the ``notice`` parser (sub_types ``no_results`` /
+        ``query_truncated``). The true-empty card renders in #topstuff *or*
+        #botstuff (varies by page) as a ``div.card-section`` -- scoping to those
+        containers keeps this off the low-relevance ``banner`` ("Your search did
+        not match any documents"), which lives in #rso as a ``div.v3jTId`` and is
+        typed separately."""
+        assert self.soup is not None
+
+        for container_id in ("topstuff", "botstuff"):
+            container = self.soup.css_first(f'div[id="{container_id}"]')
+            if container is None:
+                continue
+            for card in container.css("div.card-section"):
+                if "did not match any documents" in (get_text(card) or ""):
+                    self.components.add_component(card, section="header", type="notice")
+                    self.exists = True
+                    break
+
+        truncated = self.soup.css_first("div.card-section.M7simc")
+        if truncated is not None and "we limit queries to 32 words" in (get_text(truncated) or ""):
+            self.components.add_component(truncated, section="header", type="notice")
+            self.exists = True

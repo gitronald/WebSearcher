@@ -1,0 +1,173 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 127000000.0,
+    "result_estimate_time": 0.4,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "address": "Traverse City, MI",
+        "category": "Abortion clinic",
+        "directions": "#",
+        "heading": "Places",
+        "hours": "Closed ⋅ Opens 8 AM Wed",
+        "n_reviews": 21,
+        "phone": "(231) 929-1844",
+        "rating": 5.0,
+        "review_snippet": "Provides abortions",
+        "type": "place",
+        "website": "https://www.plannedparenthood.org/health-center/michigan/traverse-city/49686/walker-health-center-3297-90630?utm_campaign=walker-health-center&utm_medium=organic&utm_source=local-listing"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "places",
+      "text": "Planned Parenthood - Walker Health Center<|>5.0<|>(21)<|> · Abortion clinic<|>Traverse City, MI · (231) 929-1844<|>Closed<|> ⋅ Opens 8 AM Wed<|>Medicare/Medicaid accepted<|>Provides <|>abortions <label>Provides  abortions</label>",
+      "title": "Planned Parenthood - Walker Health Center",
+      "type": "local_results",
+      "url": "https://www.plannedparenthood.org/health-center/michigan/traverse-city/49686/walker-health-center-3297-90630?utm_campaign=walker-health-center&utm_medium=organic&utm_source=local-listing"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "address": "Grand Rapids, MI",
+        "category": "Abortion clinic",
+        "directions": "#",
+        "heading": "Places",
+        "hours": "Closed ⋅ Opens 8 AM",
+        "n_reviews": 37,
+        "phone": "(616) 458-3694",
+        "rating": 3.4,
+        "review_snippet": "Provides abortions",
+        "type": "place",
+        "website": "http://www.heritageclinic.com/"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": "places",
+      "text": "Heritage Clinic For Women<|>3.4<|>(37)<|> · Abortion clinic<|>Grand Rapids, MI · (616) 458-3694<|>Closed<|> ⋅ Opens 8 AM<|>Provides <|>abortions <label>Provides  abortions</label>",
+      "title": "Heritage Clinic For Women",
+      "type": "local_results",
+      "url": "http://www.heritageclinic.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "address": "Saginaw, MI",
+        "category": "Abortion clinic",
+        "directions": "#",
+        "heading": "Places",
+        "hours": "Closed ⋅ Opens 9 AM",
+        "n_reviews": 13,
+        "phone": "(989) 790-1040",
+        "rating": 3.6,
+        "review_snippet": "Provides abortions",
+        "type": "place",
+        "website": "http://whcofmi.com/"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": "places",
+      "text": "Women’s Center of Saginaw and Flint<|>3.6<|>(13)<|> · Abortion clinic<|>Saginaw, MI · (989) 790-1040<|>Closed<|> ⋅ Opens 9 AM<|>Provides <|>abortions <label>Provides  abortions</label>",
+      "title": "Women’s Center of Saginaw and Flint",
+      "type": "local_results",
+      "url": "http://whcofmi.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "items": [
+          "What is the new abortion law in Michigan?",
+          "What does misoprostol do to the uterus?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is the new abortion law in Michigan?<|>What does misoprostol do to the uterus?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.plannedparenthood.org  › abortion-access",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "If you need an  abortion  and don't know where to go, use our tool to find nearby Planned Parenthood health  centers  that offer  abortion  services and care.",
+      "title": "Where to Get an Abortion | Find Abortion Services Near You",
+      "type": "general",
+      "url": "https://www.plannedparenthood.org/abortion-access"
+    },
+    {
+      "cite": "https://www.plannedparenthood.org  › kalamazoo › ab...",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 1,
+      "sub_type": "indented",
+      "text": "Abortion Clinics , Pill, Facts, Cost, Information & Methods from Kalamazoo Health Center. Trusted health care for nearly 100 years by Planned Parenthood.",
+      "title": "Abortion Service in Kalamazoo, MI - Get the Pill, Facts & Cost",
+      "type": "general",
+      "url": "https://www.plannedparenthood.org/health-center/michigan/kalamazoo/49006/kalamazoo-health-center-3299-90630/abortion"
+    },
+    {
+      "cite": "https://www.abortionfinder.org",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Quickly search the largest directory of trusted  abortion  providers in the U.S. Updated weekly.",
+      "title": "Where Can I Get an Abortion? | U.S. Abortion Clinic Locator",
+      "type": "general",
+      "url": "https://www.abortionfinder.org/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "heading": "Related searches",
+        "items": [
+          "abortion clinic near Detroit, MI",
+          "does planned parenthood do abortions for free",
+          "abortion pill cost cvs",
+          "does planned parenthood do abortions same day",
+          "abortion clinic warren mi",
+          "planned parenthood abortion cost",
+          "how much is an abortion at planned parenthood without insurance",
+          "abortion clinic ann arbor michigan"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": "related_searches",
+      "text": "abortion clinic near Detroit, MI<|>does planned parenthood do abortions for free<|>abortion pill cost cvs<|>does planned parenthood do abortions same day<|>abortion clinic warren mi<|>planned parenthood abortion cost<|>how much is an abortion at planned parenthood without insurance<|>abortion clinic ann arbor michigan",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}
