@@ -156,6 +156,17 @@ Levers A + B together remove ~48 ms/corpus-pass (~2% of the ~2050 ms/pass parse
 total on this box); Lever C is a wash but simplifies. Modest, but every change is
 a net simplification (fewer selectors, one walk) with byte-identical output.
 
+## Cross-corpus regression check (done, pre-implementation)
+
+The fixture snapshot suite covers 102 SERPs; Lever B's precedence change could in
+theory diverge on inputs the fixtures don't hold. Ran current-vs-union for every
+changed classifier over the larger, adversarial `data/crawl6-unknowns` corpus
+(**804 SERPs**, all of which produced `unknown` components — the hardest edge
+cases). Comparisons: **9,931** main unknown components (× 2 levels = ~19.9k header
+checks) + **488** footer components. Result: **0 mismatches** on every lever
+(`header`, `kp`, `images`, `local`, `footer`). Combined with the definitional
+safety of A/C, this clears the byte-identity bar for the whole change.
+
 ## Verification gate
 
 - `uv run pytest tests/test_parse_serp.py` green **with no snapshot updates** —
