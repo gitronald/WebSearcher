@@ -1,9 +1,10 @@
+import logging
+
 from selectolax.lexbor import LexborNode as Node
 
-from .. import logger
 from .extractor_main import _find_all_with_class
 
-log = logger.Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 class ExtractorFooter:

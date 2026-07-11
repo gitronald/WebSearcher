@@ -1,8 +1,8 @@
+import logging
+
 from selectolax.lexbor import LexborNode as Node
 
-from .. import logger
-
-log = logger.Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 class ExtractorRightHandSide:
