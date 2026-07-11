@@ -46,7 +46,5 @@ class ExtractorFooter:
     @staticmethod
     def is_hidden_footer(element: Node) -> bool:
         """Filter out hidden footer components (no visual presence)."""
-        for css in ("span.oUAcPd", "div.RTaUke", "div.KJ7Tg"):
-            if element.css_first(css) is not None:
-                return True
-        return False
+        # Comma-union boolean OR of the three probes -- one short-circuiting walk.
+        return element.css_first("span.oUAcPd, div.RTaUke, div.KJ7Tg") is not None

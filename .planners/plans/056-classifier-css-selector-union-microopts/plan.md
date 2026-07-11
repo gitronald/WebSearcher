@@ -183,3 +183,33 @@ safety of A/C, this clears the byte-identity bar for the whole change.
 2. Lever C (images, local_results, is_hidden_footer) — trivial, same pattern.
 3. Lever B (header union) — corpus-verified; add the precedence comment.
 4. Run snapshot suite (no updates) + full suite; run the same-session A/B bench.
+
+## Log
+
+### 2026-07-10 — implemented (branch `feature/classifier-css-selector-union-microopts`)
+
+Applied all three levers in `classifiers/main.py` + `extractors/extractor_footer.py`:
+- Lever A: `knowledge_panel` 6 probes -> one `_KNOWLEDGE_PANEL_CSS` union (root
+  `jscontroller` check kept separate).
+- Lever B: `_HEADER_CSS_BY_LEVEL` now one union selector per level; `_classify_header`
+  drops the inner `for css in` loop. Precedence-change caveat noted in the comment.
+- Lever C: `images`, `local_results`, `is_hidden_footer` unioned.
+
+**Tests:** `pytest tests/test_parse_serp.py` -> 102 snapshots passed, no updates
+(byte-identity holds). Full suite `pytest` -> 643 passed.
+
+**Same-session A/B** (`bench --iterations 40 --runs 5`, Python 3.14.3, 102-SERP
+corpus, back-to-back on one box):
+
+| | corpus median | per-SERP median |
+|---|---|---|
+| base (dev)        | 1598.1 ms | 13.185 ms |
+| new (union)       | 1575.8 ms | 12.814 ms |
+
+New is faster on every run (warmest run 1563.4 -> 1548.2 ms). ~1.4% off corpus
+total, **2.8% off the median SERP** (classify frames are a larger share of a
+typical SERP than of the few huge ones where `make_soup` dominates). The
+per-corpus estimate in "Expected impact" (~48 ms) was optimistic; the realized
+corpus-total delta is ~15-22 ms, at the upper edge of the ~0.8-1.5% noise floor,
+but directionally consistent across all five runs. Landed as a
+simplification-with-a-small-speedup.
