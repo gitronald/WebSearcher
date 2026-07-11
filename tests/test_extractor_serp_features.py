@@ -2,7 +2,12 @@
 
 from pathlib import Path
 
+import pytest
+
+import WebSearcher as ws
 from WebSearcher.extractors.extractor_serp_features import FeatureExtractor
+
+FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 
 def make_html(body="", lang="en"):
@@ -37,6 +42,44 @@ def test_extract_no_result_stats():
     features = FeatureExtractor.extract_features(html)
     assert features.result_estimate_count is None
     assert features.result_estimate_time is None
+
+
+# Result estimate -- script-tag fallback ---------------------------------------
+# On some SERPs the `#result-stats` div is injected client-side and absent from
+# the static markup; the estimate survives HTML-escaped inside an inline
+# `<script>`. The fallback recovers it when the DOM lookup finds nothing.
+
+# The escaped shape as it appears in the raw HTML: `\x3c` for `<`, backslash-
+# escaped quotes on the div's attribute.
+SCRIPT_STATS = (
+    r'<script>var a="\x3cdiv id=\"result-stats\">About 0 results'
+    r'\x3cnobr> (0.19s)&nbsp;\x3c/nobr>\x3c/div>";</script>'
+)
+
+
+def test_extract_result_estimate_from_script_fallback():
+    features = FeatureExtractor.extract_features(make_html(SCRIPT_STATS))
+    assert features.result_estimate_count == 0
+    assert features.result_estimate_time == 0.19
+
+
+def test_script_fallback_nonzero_count():
+    body = (
+        r'<script>var a="\x3cdiv id=\"result-stats\">About 26,600,000 results'
+        r'\x3cnobr> (0.68s)&nbsp;\x3c/nobr>\x3c/div>";</script>'
+    )
+    features = FeatureExtractor.extract_features(make_html(body))
+    assert features.result_estimate_count == 26600000
+    assert features.result_estimate_time == 0.68
+
+
+def test_dom_div_wins_over_script_when_both_present():
+    # When the rendered div is present, the fallback must not fire -- the DOM
+    # estimate takes precedence over any escaped script copy.
+    body = '<div id="result-stats">About 500 results (0.42 seconds)</div>' + SCRIPT_STATS
+    features = FeatureExtractor.extract_features(make_html(body))
+    assert features.result_estimate_count == 500
+    assert features.result_estimate_time == 0.42
 
 
 # Language extraction ----------------------------------------------------------
@@ -165,6 +208,14 @@ def make_soup(body="", lang="en"):
     return utils.make_soup(make_html(body, lang))
 
 
+def test_soup_result_estimate_from_script_fallback():
+    # Node input with no DOM #result-stats: the soup path scans <script> bodies
+    # for the escaped copy, matching the raw-HTML fallback.
+    features = FeatureExtractor.extract_features(make_soup(SCRIPT_STATS))
+    assert features.result_estimate_count == 0
+    assert features.result_estimate_time == 0.19
+
+
 def test_soup_language():
     features = FeatureExtractor.extract_features(make_soup("<p>hola</p>", lang="es"))
     assert features.language == "es"
@@ -214,3 +265,22 @@ def test_features_model_dump():
     assert isinstance(d, dict)
     assert d["result_estimate_count"] == 10
     assert d["captcha"] is False
+
+
+# Result estimate -- captured-SERP fixtures ------------------------------------
+# Real SERPs whose #result-stats div is injected client-side (absent from the
+# static markup); the estimate is recovered from the inline <script> fallback.
+
+
+@pytest.mark.parametrize(
+    "fixture,expected_time",
+    [
+        ("result_estimate_script_fallback_1.html", 0.19),
+        ("result_estimate_script_fallback_2.html", 0.52),
+    ],
+)
+def test_result_estimate_script_fallback_fixtures(fixture, expected_time):
+    html = (FIXTURES_DIR / fixture).read_text(encoding="utf-8", errors="replace")
+    features = ws.parse_serp(html)["features"]
+    assert features["result_estimate_count"] == 0
+    assert features["result_estimate_time"] == expected_time
