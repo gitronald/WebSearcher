@@ -10,6 +10,14 @@ from ..models.features import SERPFeatures
 # to the smallest relevant element so the whole document is never re-serialized
 # (str(soup) was the single largest removable cost per parse -- see plan 023).
 RX_RESULT_STATS = re.compile(r'<div id="result-stats">.*?</div>')
+# Fallback: on some SERPs the `#result-stats` div is injected client-side and is
+# absent from the static markup, so the primary regex/CSS lookup finds nothing.
+# The estimate is still present, HTML-escaped inside an inline `<script>` (e.g.
+# `result-stats\">About 0 results\x3cnobr> (0.19s)&nbsp;\x3c/nobr>`). Grab a short
+# window after the escaped `result-stats"`>` so RX_RESULT_COUNT / RX_RESULT_TIME
+# recover count and time exactly as they would from the rendered div. The `\` and
+# `"` are optional to tolerate un-escaped and layout variants.
+RX_RESULT_STATS_SCRIPT = re.compile(r'result-stats\\?"?>.{0,80}')
 RX_RESULT_COUNT = re.compile(r"([0-9,]+) results")
 RX_RESULT_TIME = re.compile(r"\(([0-9.]+)s?\s*(?:seconds)?\)")
 RX_LANGUAGE = re.compile(r'<html[^>]*\slang="([^"]+)"')
@@ -59,6 +67,17 @@ class FeatureExtractor:
         return SERPFeatures(**features)
 
     @staticmethod
+    def _find_result_stats_html(raw_html: str) -> str | None:
+        """Locate the result-stats markup in the raw SERP HTML: the rendered
+        `#result-stats` div when present, else -- as a fallback -- its escaped
+        copy inside an inline `<script>` (see RX_RESULT_STATS_SCRIPT)."""
+        stats_match = RX_RESULT_STATS.search(raw_html)
+        if stats_match:
+            return stats_match.group(0)
+        script_match = RX_RESULT_STATS_SCRIPT.search(raw_html)
+        return script_match.group(0) if script_match else None
+
+    @staticmethod
     def _parse_result_estimate(stats_html: str | None) -> dict:
         """Parse count/time from the serialized result-stats div markup."""
         if not stats_html:
@@ -75,12 +94,10 @@ class FeatureExtractor:
     @staticmethod
     def _extract_from_html(html: str) -> dict:
         """Regex over the original markup -- no re-serialization cost."""
-        stats_match = RX_RESULT_STATS.search(html)
+        stats_html = FeatureExtractor._find_result_stats_html(html)
         lang_match = RX_LANGUAGE.search(html)
         return {
-            **FeatureExtractor._parse_result_estimate(
-                stats_match.group(0) if stats_match else None
-            ),
+            **FeatureExtractor._parse_result_estimate(stats_html),
             "language": lang_match.group(1) if lang_match else None,
             "server_error": NOTICE_SERVER_ERROR in html,
             "infinity_scroll": INFINITY_SCROLL_SPAN in html,
@@ -90,9 +107,18 @@ class FeatureExtractor:
     def _extract_from_soup(soup: Node) -> dict:
         """Structural lookups -- avoids serializing the whole document."""
         stats_div = soup.css_first('div[id="result-stats"]')
-        stats_match = (
-            RX_RESULT_STATS.search(stats_div.html or "") if stats_div is not None else None
-        )
+        if stats_div is not None:
+            stats_match = RX_RESULT_STATS.search(stats_div.html or "")
+            stats_html = stats_match.group(0) if stats_match else None
+        else:
+            # Fallback: the div is injected client-side, so scan the inline
+            # <script> bodies for its escaped copy (see _find_result_stats_html).
+            stats_html = None
+            for script in soup.css("script"):
+                script_match = RX_RESULT_STATS_SCRIPT.search(script.html or "")
+                if script_match:
+                    stats_html = script_match.group(0)
+                    break
 
         # language: read the <html lang=...> attribute directly. The root passed
         # in is already <html>; for non-root inputs, descend to <html>.
@@ -108,9 +134,7 @@ class FeatureExtractor:
         )
 
         return {
-            **FeatureExtractor._parse_result_estimate(
-                stats_match.group(0) if stats_match else None
-            ),
+            **FeatureExtractor._parse_result_estimate(stats_html),
             "language": language,
             "server_error": NOTICE_SERVER_ERROR in page_text,
             "infinity_scroll": infinity_scroll,
