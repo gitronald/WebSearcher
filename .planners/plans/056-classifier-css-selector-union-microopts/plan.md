@@ -1,11 +1,11 @@
 ---
 id: 56
 slug: classifier-css-selector-union-microopts
-status: active
+status: done
 branch: feature/classifier-css-selector-union-microopts
 created: 2026-07-10T23:15:13-07:00
-concluded:
-pr:
+concluded: 2026-07-10T23:42:32-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/191
 ---
 
 # Union sequential css_first probes in classifiers
