@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.4] - 2026-07-10
+
 - Recover the result-count/time estimate on SERPs where the `#result-stats` div is injected client-side and so is absent from the static markup: a fallback now scans the inline `<script>` bodies for the escaped copy Google emits there (e.g. `result-stats\">About 0 results\x3cnobr> (0.19s)`) and feeds it to the existing count/time regexes, so `features` carries the estimate exactly as it would from the rendered div. Both the regex (`_extract_from_html`) and structural (`_extract_from_soup`) paths use the fallback; new fixtures and coverage tests pin it
 - Parse micro-optimization (byte-identical, snapshot-pinned): replaced the classifier chain's sequential `css_first` boolean-OR probes with a single comma-union `css_first`, so selectolax runs one short-circuiting subtree walk per classifier instead of N independent walks (plan 056)
 - Dev tooling: bumped the SHA-pinned GitHub Actions to their latest releases
