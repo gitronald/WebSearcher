@@ -5,7 +5,7 @@ status: active
 branch: feature/logging-no-import-side-effect
 created: 2026-07-11T13:30:52-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/193
 ---
 
 # Stop configuring logging at import time
@@ -149,3 +149,10 @@ uv run python -c "import logging; import WebSearcher; print(logging.getLogger().
     pins a released tag, so the change reaches it only on a deliberate bump — and fixes
     the order-dependence bug (its `logging.basicConfig` is currently a silent no-op) that
     motivates this plan.
+- 2026-07-11: Implemented on `feature/logging-no-import-side-effect` (commits `b53ab71`
+  code, `4b2518e` changelog). All ten sites converted or deleted (four dead `log`
+  assignments removed), unused `logger`/`Logger` imports dropped, `NullHandler` added in
+  `__init__.py`. Verified: import leaves root handlers empty (root level back to default
+  WARNING); a post-import `basicConfig` takes effect; a requests-backend `SearchEngine`
+  still installs the JSONL console + file sinks and emits the crawl-log schema unchanged;
+  643 tests and 102 snapshots pass; ruff and pyrefly clean. Draft PR opened.
