@@ -1098,7 +1098,7 @@ wheels = [
 
 [[package]]
 name = "websearcher"
-version = "0.11.4"
+version = "0.11.5a0"
 source = { editable = "." }
 dependencies = [
     { name = "brotli" },
