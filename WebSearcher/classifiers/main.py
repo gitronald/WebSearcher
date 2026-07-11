@@ -80,11 +80,17 @@ class _ComponentSignals:
         self.names = names
 
 
-_HEADER_CSS_BY_LEVEL: dict[int, tuple[str, ...]] = {
+# One comma-union selector per heading level (the three probes joined). selectolax
+# runs a single subtree walk and yields matches in document order; the loop below
+# checks all of them for a marker prefix. This differs from checking each probe
+# group in turn only if a component carries competing headers that match different
+# markers in a different order -- verified 0 divergences over the 102-SERP fixtures
+# and the 804-SERP crawl6-unknowns corpus (plan 056), and pinned by the snapshot
+# suite.
+_HEADER_CSS_BY_LEVEL: dict[int, str] = {
     level: (
-        f'h{level}[role="heading"]',
-        f"h{level}.O3JH7, h{level}.q8U8x, h{level}.mfMhoc",
-        f'[aria-level="{level}"][role="heading"]',
+        f'h{level}[role="heading"], h{level}.O3JH7, h{level}.q8U8x, '
+        f'h{level}.mfMhoc, [aria-level="{level}"][role="heading"]'
     )
     for level in (2, 3)
 }
@@ -113,17 +119,16 @@ class ClassifyMainHeader:
     def _classify_header(node: Node, level: int) -> str:
         """Check text in common headers for dict matches."""
         markers = header_text_to_type(level)
-        for css in _HEADER_CSS_BY_LEVEL[level]:
-            for header in node.css(css):
-                text = (get_text(header) or "").strip()
-                # local_results' "locations" is the lone endswith marker.
-                if text.endswith("locations"):
-                    return "local_results"
-                for marker, label in markers.items():
-                    if marker == "locations":
-                        continue
-                    if text.startswith(marker):
-                        return label
+        for header in node.css(_HEADER_CSS_BY_LEVEL[level]):
+            text = (get_text(header) or "").strip()
+            # local_results' "locations" is the lone endswith marker.
+            if text.endswith("locations"):
+                return "local_results"
+            for marker, label in markers.items():
+                if marker == "locations":
+                    continue
+                if text.startswith(marker):
+                    return label
         return "unknown"
 
 
@@ -394,9 +399,8 @@ class ClassifyMain:
     @staticmethod
     def images(cmpt) -> str:
         node: Node = cmpt
-        for css in ('div[id="imagebox_bigimages"]', 'div[id="iur"]'):
-            if node.css_first(css) is not None:
-                return "images"
+        if node.css_first('div[id="imagebox_bigimages"], div[id="iur"]') is not None:
+            return "images"
         return "unknown"
 
     @staticmethod
@@ -539,21 +543,24 @@ class ClassifyMain:
                 return condition_type
         return "unknown"
 
+    # Descendant signals for a knowledge panel. A single comma-union css_first is a
+    # byte-identical boolean OR of the individual probes (which selector matches is
+    # irrelevant) that runs one short-circuiting subtree walk instead of N. The last
+    # entry is the knowledge-vertical onebox (e.g. language pronunciation practice
+    # widget) surfaced as its own sub-column block on kp-wholepage tabs.
+    _KNOWLEDGE_PANEL_CSS = (
+        "h1.VW3apb, div.knowledge-panel, div.knavi, div.kp-blk, "
+        "div.kp-wholepage-osrp, "
+        'div[aria-label="Featured results"][role="complementary"], '
+        'div[jscontroller="qTdDb"], div.obcontainer, [id$="__onebox_content"]'
+    )
+
     @staticmethod
     def knowledge_panel(cmpt) -> str:
         node: Node = cmpt
-        for css in (
-            "h1.VW3apb",
-            "div.knowledge-panel, div.knavi, div.kp-blk, div.kp-wholepage-osrp",
-            'div[aria-label="Featured results"][role="complementary"]',
-            'div[jscontroller="qTdDb"]',
-            "div.obcontainer",
-            # Knowledge-vertical onebox (e.g. language pronunciation practice
-            # widget) surfaced as its own sub-column block on kp-wholepage tabs.
-            '[id$="__onebox_content"]',
-        ):
-            if node.css_first(css) is not None:
-                return "knowledge"
+        if node.css_first(ClassifyMain._KNOWLEDGE_PANEL_CSS) is not None:
+            return "knowledge"
+        # Root-attribute check (not a descendant), so it stays out of the union.
         if node.attrs.get("jscontroller") == "qTdDb":
             return "knowledge"
         return "unknown"
@@ -561,9 +568,8 @@ class ClassifyMain:
     @staticmethod
     def local_results(cmpt) -> str:
         node: Node = cmpt
-        for css in ("div.Qq3Lb", "div.VkpGBb"):
-            if node.css_first(css) is not None:
-                return "local_results"
+        if node.css_first("div.Qq3Lb, div.VkpGBb") is not None:
+            return "local_results"
         return "unknown"
 
     @staticmethod

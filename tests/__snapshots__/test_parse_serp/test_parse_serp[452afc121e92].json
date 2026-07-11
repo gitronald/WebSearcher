@@ -5,8 +5,8 @@
     "language": "en",
     "main_layout": "standard",
     "overlay_precise_location": false,
-    "result_estimate_count": null,
-    "result_estimate_time": null,
+    "result_estimate_count": 422000000.0,
+    "result_estimate_time": 0.26,
     "server_error": false
   },
   "results": [
