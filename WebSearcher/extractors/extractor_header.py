@@ -1,10 +1,7 @@
 from selectolax.lexbor import LexborNode as Node
 
-from .. import logger
 from .._slx import get_text
 from .extractor_main import _find_all_with_class
-
-log = logger.Logger().start(__name__)
 
 
 class ExtractorHeader:

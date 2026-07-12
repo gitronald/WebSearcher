@@ -62,7 +62,7 @@ class Logger:
         log_config (dict): Configuration dictionary for the logger.
 
     Methods:
-        start(name: Optional[str]): Initializes and retrieves the logger instance.
+        start(name): Applies the configuration process-wide and returns the named logger.
     """
 
     def __init__(
@@ -130,6 +130,14 @@ class Logger:
             "loggers": loggers,
         }
 
-    def start(self, name: str | None = __name__) -> logging.Logger:
+    def start(self, name: str | None) -> logging.Logger:
+        """Apply this configuration and return the named logger.
+
+        Calls ``logging.config.dictConfig``, which (re)configures the root
+        logger's handlers and third-party logger levels process-wide. Call it
+        only from a crawl entry point (``SearchEngine.__init__``) -- never at
+        module scope, where it would run at import time and clobber the
+        importing application's logging setup.
+        """
         logging.config.dictConfig(self.log_config)
         return logging.getLogger(name)

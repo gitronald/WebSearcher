@@ -1,12 +1,12 @@
+import logging
 from dataclasses import dataclass
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtree_css
-from ..logger import Logger
 
-log = Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 @dataclass(frozen=True)

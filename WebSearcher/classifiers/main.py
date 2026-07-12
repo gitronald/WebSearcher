@@ -2,11 +2,8 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from .. import logger
 from .._slx import _iter_text_fragments, class_tokens, get_text
 from ..parsers.component_types import header_text_to_type
-
-log = logger.Logger().start(__name__)
 
 _VIDEO_CLASSES = {"VibNM", "mLmaBd", "RzdJxc", "sHEJob"}
 _LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}

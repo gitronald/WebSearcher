@@ -1,13 +1,14 @@
+import logging
+
 from selectolax.lexbor import LexborNode as Node
 
-from .. import logger
 from ..parsers.component_list import ComponentList
 from .extractor_footer import ExtractorFooter
 from .extractor_header import ExtractorHeader
 from .extractor_main import ExtractorMain
 from .extractor_rhs import ExtractorRightHandSide
 
-log = logger.Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 class Extractor:

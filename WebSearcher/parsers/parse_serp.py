@@ -3,10 +3,7 @@ from selectolax.lexbor import LexborNode as Node
 from .. import utils
 from ..extractors import Extractor
 from ..extractors.extractor_serp_features import FeatureExtractor
-from ..logger import Logger
 from .components.ai_overview import raw_serp_html
-
-log = Logger().start(__name__)
 
 
 def parse_serp(serp: str | Node, url: str | None = None) -> dict:
