@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.5] - 2026-07-11
+
 - **Breaking (logging):** `import WebSearcher` no longer configures logging as a side effect. Ten modules ran `Logger().start()` at module scope, attaching the JSONL `StreamHandler` to the root logger and forcing root to DEBUG on bare import -- silently swallowing a later `logging.basicConfig(...)` in the importing application (root already had a handler, so `basicConfig` no-ops) and raising verbosity process-wide. Those modules now use plain `logging.getLogger(__name__)` loggers and the package installs a `NullHandler` on its own logger -- the standard library pattern: root belongs to the application, and a `basicConfig` after import now takes effect. Import likewise no longer force-sets third-party logger levels (`requests`/`urllib3` to WARNING, `asyncio`/`chardet.charsetprober`/`parso` to INFO), so an application whose root logger runs at DEBUG will now see e.g. `urllib3` connection chatter from the `SearchEngine`-free HTTP helpers (`download_locations`) unless it sets those levels itself; crawl runs still apply them. Parse-only use (`parse_serp`, `load_html`, classifiers, extractors, and the `ws-demo parse`/`show` subcommands) is now fully silent -- including warnings and parse-error lines that previously printed as JSONL to stderr, since the `NullHandler` also suppresses Python's `lastResort` fallback -- until the application configures logging; parse-error markers still land in the parsed rows either way. Crawl-time logging is unchanged: constructing a `SearchEngine` still configures the full JSONL crawl log (console and file sinks, foreign-log capture included) exactly as before (plan 057)
 
 ## [0.11.4] - 2026-07-10
