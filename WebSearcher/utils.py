@@ -1,5 +1,6 @@
 import atexit
 import hashlib
+import logging
 import re
 import subprocess
 import urllib.parse as urlparse
@@ -12,10 +13,9 @@ import requests
 import tldextract
 from selectolax.lexbor import LexborNode as Node
 
-from . import logger
 from ._slx import has_text, make_soup
 
-log = logger.Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 # Files ------------------------------------------------------------------------

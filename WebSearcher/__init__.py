@@ -1,5 +1,6 @@
 __version__ = "0.11.5a0"
 
+import logging
 from typing import TYPE_CHECKING
 
 from .classifiers import ClassifyFooter, ClassifyMain
@@ -8,6 +9,10 @@ from .extractors.extractor_serp_features import FeatureExtractor
 from .locations import download_locations, update_locations_file
 from .parsers.parse_serp import parse_serp
 from .utils import load_html, load_soup, make_soup
+
+# Own only the package logger: the NullHandler keeps unconfigured (parse-only) use
+# silent -- no lastResort stderr fallback -- while root stays the application's.
+logging.getLogger(__name__).addHandler(logging.NullHandler())
 
 if TYPE_CHECKING:
     from .searchers import SearchEngine

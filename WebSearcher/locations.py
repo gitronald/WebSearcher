@@ -9,13 +9,11 @@ from typing import Any
 import requests
 from google.protobuf.internal import decoder, encoder  # uv add protobuf
 
-from . import logger, utils
+from . import utils
 
 # Private protobuf APIs not exposed in stubs; access via getattr to silence type checker.
 _varint_bytes = getattr(encoder, "_VarintBytes")
 _decode_varint = getattr(decoder, "_DecodeVarint")
-
-log = logger.Logger().start(__name__)
 
 GEOTARGETS_URL = "https://developers.google.com/adwords/api/docs/appendix/geotargeting"
 

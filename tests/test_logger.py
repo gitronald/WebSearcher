@@ -3,6 +3,8 @@
 import io
 import json
 import logging
+import subprocess
+import sys
 from datetime import datetime
 
 from WebSearcher.logger import JsonlFormatter, Logger, formatters
@@ -213,3 +215,21 @@ def test_search_event_round_trips_through_logger():
     assert payload["response_code"] == 200
     assert payload["qry"] == "pizza"
     assert payload["loc"] == "Boston,MA,US"
+
+
+# Import-time behavior --------------------------------------------------------
+
+
+def test_import_configures_no_logging():
+    # The invariant needs a fresh interpreter: in-process, other tests have
+    # already run dictConfig (root mutated) and WebSearcher sits in sys.modules,
+    # so a bare re-import here would neither re-run __init__ nor see clean root.
+    probe = (
+        "import logging, WebSearcher; "
+        "root = logging.getLogger(); "
+        "assert root.handlers == [], f'root mutated by import: {root.handlers}'; "
+        "assert root.level == logging.WARNING, f'root level changed: {root.level}'; "
+        "assert any(isinstance(h, logging.NullHandler) "
+        "for h in logging.getLogger('WebSearcher').handlers), 'package NullHandler missing'"
+    )
+    subprocess.run([sys.executable, "-c", probe], check=True)

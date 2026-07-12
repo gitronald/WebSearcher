@@ -2,10 +2,10 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 057 | [Stop configuring logging at import time](plans/057-logging-no-import-side-effect/plan.md) | active | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
+| 057 | [Stop configuring logging at import time](plans/057-logging-no-import-side-effect/plan.md) | done | 2026-07-11 17:03 PT | [#193](https://github.com/gitronald/WebSearcher/pull/193) |
 | 056 | [Union sequential css_first probes in classifiers](plans/056-classifier-css-selector-union-microopts/plan.md) | done | 2026-07-10 23:42 PT | [#191](https://github.com/gitronald/WebSearcher/pull/191) |
 | 052 | [Native JSONL crawl-log sink](plans/052-jsonl-log-sink/plan.md) | done | 2026-06-22 19:45 PT | [#181](https://github.com/gitronald/WebSearcher/pull/181) |
 | 051 | [Drop all search backends except patchright and requests](plans/051-drop-extra-searchers/plan.md) | done | 2026-06-22 11:10 PT | [#177](https://github.com/gitronald/WebSearcher/pull/177) |

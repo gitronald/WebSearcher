@@ -1,11 +1,11 @@
 ---
 id: 57
 slug: logging-no-import-side-effect
-status: active
+status: done
 branch: feature/logging-no-import-side-effect
 created: 2026-07-11T13:30:52-07:00
-concluded:
-pr:
+concluded: 2026-07-11T17:03:41-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/193
 ---
 
 # Stop configuring logging at import time
@@ -149,3 +149,47 @@ uv run python -c "import logging; import WebSearcher; print(logging.getLogger().
     pins a released tag, so the change reaches it only on a deliberate bump — and fixes
     the order-dependence bug (its `logging.basicConfig` is currently a silent no-op) that
     motivates this plan.
+- 2026-07-11: Implemented on `feature/logging-no-import-side-effect` (commits `b53ab71`
+  code, `4b2518e` changelog). All ten sites converted or deleted (four dead `log`
+  assignments removed), unused `logger`/`Logger` imports dropped, `NullHandler` added in
+  `__init__.py`. Verified: import leaves root handlers empty (root level back to default
+  WARNING); a post-import `basicConfig` takes effect; a requests-backend `SearchEngine`
+  still installs the JSONL console + file sinks and emits the crawl-log schema unchanged;
+  643 tests and 102 snapshots pass; ruff and pyrefly clean. Draft PR opened.
+- 2026-07-11: Review gate (ten finder angles, per-candidate adversarial verification, then
+  a gap sweep; review posted to the PR). **Review follow-up** (commit `b3fd8df`):
+  - `Logger.start(name)` made required, with a docstring stating that it reconfigures the
+    root logger process-wide and must only be called from a crawl entry point — the old
+    default bound to `logger.py`'s own `__name__`, so an argless call would have silently
+    yielded a logger named `WebSearcher.logger`.
+  - Added `test_import_configures_no_logging`: a subprocess-based regression test pinning
+    the no-import-side-effect invariant (fresh interpreter required — in-process
+    assertions are order-dependent because the suite itself runs `dictConfig` and the
+    package is already in `sys.modules`).
+  - Changelog gained the third-party-logger-levels clause: import no longer forces
+    `urllib3`/`requests` to WARNING, visible to apps running root at DEBUG that call the
+    location helpers without a `SearchEngine`.
+  - Conscious no-ops: the `NullHandler` `addHandler` stays unguarded (reload stacking is
+    output-neutral and matches the `requests`/`urllib3` idiom), and no lint ban on
+    `Logger().start` outside `searchers/` (the new regression test pins the invariant).
+  - Gate after fixes: 644 tests and 102 snapshots pass; ruff and pyrefly clean.
+
+## Retrospective
+
+- The draft undercounted the blast radius five-fold (two sites claimed, ten real) —
+  re-grounding plan evidence against the code before implementing caught it, and the
+  corrected scope changed the shape of the work (import cleanup, dead-logger deletion).
+- The fix's stated rationale differed from its real mechanism: the "No handlers could be
+  found" fallback is Python 2 lore, and in Python 3 the `NullHandler`'s only effect is
+  suppressing `lastResort` — which turns "less output" into "fully silent errors" on the
+  parse path. Naming that consequence explicitly in the plan and changelog converted a
+  surprise into a documented choice.
+- Deleting dead loggers beat converting them: four of the ten modules never logged, so
+  mechanical conversion would have preserved dead code and orphaned imports.
+- The invariant only became durable at review time, when a subprocess-based test was
+  added — import-time side effects cannot be asserted in-process from a suite that itself
+  configures logging, so fresh-interpreter probes are the right shape for this class of
+  regression test.
+- The downstream check reframed the breaking change as a deferred fix: the known consumer
+  pins a released tag, and its silently no-op'd `logging.basicConfig` starts working at
+  the next bump — the very bug this plan set out to remove.

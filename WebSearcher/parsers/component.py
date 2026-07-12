@@ -1,3 +1,4 @@
+import logging
 import traceback
 from collections.abc import Callable
 
@@ -5,7 +6,6 @@ from selectolax.lexbor import LexborNode as Node
 
 from .._slx import get_text
 from ..classifiers import ClassifyFooter, ClassifyMain
-from ..logger import Logger
 from ..models.data import (
     ERR_BAD_OUTPUT,
     ERR_EXCEPTION,
@@ -22,7 +22,7 @@ from .components import (
     parse_unknown,
 )
 
-log = Logger().start(__name__)
+log = logging.getLogger(__name__)
 
 
 class Component:
