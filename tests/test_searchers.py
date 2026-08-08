@@ -130,3 +130,79 @@ def test_save_record_writes_metadata_only_line_when_unparsed(tmp_path):
     assert loaded["serp_id"] == "abc123"
     assert loaded["features"] == {}
     assert loaded["results"] == []
+
+
+# SerpBase searcher -----------------------------------------------------------
+
+
+def test_serpbase_searcher_no_key_graceful():
+    # Missing API key -> empty ResponseOutput (response_code 0), no exception,
+    # so a crawl without SERPBASE_API_KEY leaves the other methods unaffected.
+    from WebSearcher.models.configs import SerpBaseConfig
+    from WebSearcher.models.searches import SearchParams
+    from WebSearcher.searchers.serpbase_searcher import SerpBaseSearcher
+
+    searcher = SerpBaseSearcher(
+        config=SerpBaseConfig(api_key=""), logger=logging.getLogger("test_searchers")
+    )
+    out = searcher.send_request(SearchParams(qry="pizza"))
+    assert out.response_code == 0
+    assert out.html == ""
+
+
+def test_serpbase_searcher_renders_parseable_serp(monkeypatch):
+    # With a key (here via env var) the JSON response renders into minimal
+    # Google-style HTML that the standard parser turns into `general` results.
+    from WebSearcher.models.configs import SerpBaseConfig
+    from WebSearcher.models.searches import SearchParams
+    from WebSearcher.parsers.parse_serp import parse_serp
+    from WebSearcher.searchers.serpbase_searcher import SerpBaseSearcher
+
+    monkeypatch.setenv("SERPBASE_API_KEY", "test-key")
+
+    class FakeResponse:
+        status_code = 200
+        url = "https://api.serpbase.dev/google/search?q=pizza&api_key=test-key"
+
+        def json(self):
+            return {
+                "organic_results": [
+                    {
+                        "title": "Best Pizza in Town",
+                        "link": "https://example.com/pizza",
+                        "snippet": "A tiny pizzeria serving wood-fired margherita since 1987.",
+                    },
+                    {
+                        "title": "Pizza Wiki",
+                        "link": "https://example.org/wiki/pizza",
+                        "snippet": "Pizza is a traditional Italian dish consisting of a flat base.",
+                    },
+                ]
+            }
+
+    class FakeSession:
+        headers = {}
+
+        def get(self, url, params=None, timeout=None):
+            assert params["q"] == "pizza"
+            assert params["api_key"] == "test-key"
+            return FakeResponse()
+
+        def close(self):
+            pass
+
+    searcher = SerpBaseSearcher(
+        config=SerpBaseConfig(api_key=""), logger=logging.getLogger("test_searchers")
+    )
+    searcher.sesh = FakeSession()
+    out = searcher.send_request(SearchParams(qry="pizza"))
+    assert out.response_code == 200
+    assert '<div id="rso">' in out.html
+    assert '<div class="g">' in out.html
+
+    parsed = parse_serp(out.html, url=out.url)
+    general = [r for r in parsed["results"] if r["type"] == "general"]
+    assert len(general) == 2
+    assert general[0]["title"] == "Best Pizza in Town"
+    assert general[0]["url"] == "https://example.com/pizza"
+    assert "wood-fired margherita" in general[0]["text"]
