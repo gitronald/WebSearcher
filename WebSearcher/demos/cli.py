@@ -14,7 +14,7 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
         "method",
         nargs="?",
         default="patchright",
-        choices=["requests", "patchright"],
+        choices=["requests", "patchright", "serpbase"],
         help="Search method",
     )
     p.add_argument("--data-dir", default=None, help="Directory to save outputs")

@@ -58,9 +58,21 @@ class RequestsConfig(BaseConfig):
         return sesh
 
 
+class SerpBaseConfig(BaseConfig):
+    """Configuration for the SerpBase REST API backend."""
+
+    api_key: str = Field(
+        default="",
+        description="SerpBase API key (falls back to the SERPBASE_API_KEY env var)",
+    )
+    base_url: str = "https://api.serpbase.dev"
+    timeout: int = 15
+
+
 class SearchMethod(Enum):
     REQUESTS = "requests"
     PATCHRIGHT = "patchright"
+    SERPBASE = "serpbase"
 
     @classmethod
     def create(cls, method=None):
@@ -85,3 +97,4 @@ class SearchConfig(BaseConfig):
     log: LogConfig = Field(default_factory=LogConfig)
     requests: RequestsConfig = Field(default_factory=RequestsConfig)
     patchright: PatchrightConfig = Field(default_factory=PatchrightConfig)
+    serpbase: SerpBaseConfig = Field(default_factory=SerpBaseConfig)

@@ -8,12 +8,14 @@ from ..models.configs import (
     RequestsConfig,
     SearchConfig,
     SearchMethod,
+    SerpBaseConfig,
 )
 from ..models.data import BaseSERP, ParsedSERP
 from ..models.searches import SearchParams
 from ..parsers.parse_serp import parse_serp
 from .patchright_searcher import PatchrightSearcher
 from .requests_searcher import RequestsSearcher
+from .serpbase_searcher import SerpBaseSearcher
 
 WS_VERSION = metadata.version("WebSearcher")
 
@@ -27,17 +29,20 @@ class SearchEngine:
         log_config: dict | LogConfig = {},
         requests_config: dict | RequestsConfig = {},
         patchright_config: dict | PatchrightConfig = {},
+        serpbase_config: dict | SerpBaseConfig = {},
         crawl_id: str = "",
     ) -> None:
         """Initialize the search engine
 
         Args:
             method: The method to use for searching: 'patchright' (a headed Chrome
-                via the patchright stealth fork) or 'requests' (pure HTTP, no
-                browser). Defaults to SearchMethod.PATCHRIGHT.
+                via the patchright stealth fork), 'requests' (pure HTTP, no
+                browser), or 'serpbase' (SerpBase REST API, no browser, no
+                scraping). Defaults to SearchMethod.PATCHRIGHT.
             log_config: Common search configuration. Defaults to {}.
             requests_config: Requests-specific configuration. Defaults to {}.
             patchright_config: Patchright-specific configuration. Defaults to {}.
+            serpbase_config: SerpBase-specific configuration. Defaults to {}.
             crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
 
@@ -49,6 +54,7 @@ class SearchEngine:
                 "log": LogConfig.create(log_config),
                 "requests": RequestsConfig.create(requests_config),
                 "patchright": PatchrightConfig.create(patchright_config),
+                "serpbase": SerpBaseConfig.create(serpbase_config),
             }
         )
         # Name the logger after the subpackage, not __name__ (which doubles to
@@ -61,12 +67,14 @@ class SearchEngine:
         }
 
         # Initialize searcher based on method
-        self.searcher: RequestsSearcher | PatchrightSearcher
+        self.searcher: RequestsSearcher | PatchrightSearcher | SerpBaseSearcher
         if self.config.method == SearchMethod.REQUESTS:
             self.searcher = RequestsSearcher(config=self.config.requests, logger=self.log)
         elif self.config.method == SearchMethod.PATCHRIGHT:
             self.searcher = PatchrightSearcher(config=self.config.patchright, logger=self.log)
             self.searcher.init_driver()
+        elif self.config.method == SearchMethod.SERPBASE:
+            self.searcher = SerpBaseSearcher(config=self.config.serpbase, logger=self.log)
 
         # Initialize search params and output
         self.search_params = SearchParams.create()

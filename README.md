@@ -151,6 +151,27 @@ se = ws.SearchEngine(
 )
 ```   
 
+##### API method (no browser, no scraping)
+
+`method="serpbase"` fetches results from the [SerpBase](https://serpbase.dev)
+Google Search Results API instead of driving a browser or scraping HTML, so it
+keeps working on headless hosts and avoids Google's `/sorry/` CAPTCHA blocks.
+Results are rendered into a minimal SERP document and flow through the same
+parser, so the output schema is unchanged.
+
+```python
+import WebSearcher as ws
+
+# Reads SERPBASE_API_KEY from the environment (or pass serpbase_config).
+se = ws.SearchEngine(method="serpbase", serpbase_config={"api_key": "..."})
+se.search("election news", num_results=10)
+se.parse_serp()
+se.parsed.results[0]
+```
+
+Without an API key the backend logs a warning and returns an empty response, so
+a crawl configured for `serpbase` degrades gracefully instead of failing.
+
 #### 2. Conduct a Search
 
 Logs are emitted as JSON Lines -- one structured object per line, with only the
