@@ -1,7 +1,7 @@
 ---
 id: 59
 slug: selectolax-1-0-upgrade
-status: active
+status: implemented
 branch: feature/selectolax-1-0-upgrade
 created: 2026-10-14T20:12:13-07:00
 concluded:
@@ -114,6 +114,7 @@ which release items the a baseline should watch.
   - 0.4.10 -> 0.4.13 (059a): 1556.9 -> 1571.2 ms corpus total, +0.9%, at the noise floor; no measurable change.
   - 0.4.13 -> 1.0.0 (059d, A B B A): 1569.2 -> 828.0 ms, -47.2%, from lexbor parsing (`make_soup` 2.2x) and CSS matching; `text()`-only frames barely moved.
   - Output: snapshot suite byte-identical at every step; pyrefly needed test-only narrowing for 1.0's corrected `css_first` stubs (059c).
+- **2026-10-14T21:51:27-07:00** — Implemented: 25 commits ahead of `dev`.
 
 ## Handoff
 
