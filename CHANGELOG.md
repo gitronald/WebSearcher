@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Require `selectolax>=1.0.0` (from `>=0.4.10`). WebSearcher already used only the lexbor backend, so its API and parsed output are unchanged (snapshot suite byte-identical). Parsing the 102-SERP fixture corpus is about 47% faster (corpus total 828 ms vs 1569 ms on selectolax 0.4.13, same-session A/B), mostly from faster HTML parsing and CSS matching. Note for applications that also use selectolax directly: 1.0 removed the Modest backend (`selectolax.parser` now raises `ImportError`) and `parse_fragment()`, so such code must move to `selectolax.lexbor` before upgrading (plan 059)
 - Dev tooling: parse benchmark rows in `tests/benchmarks/results.jsonl` record the installed `selectolax_version`
+- A search that lands on a `/sorry/` CAPTCHA page now logs a WARNING `captcha` event (with `qry`/`loc`) after the `search` event, for either backend. The patchright backend no longer logs that case as an ERROR `fetch` line with a `#search` timeout traceback (it moves to DEBUG); other fetch failures still log as errors. The `ws-demo` `search`, `headers`, and `locations` commands print a CAPTCHA notice with the blocked URL instead of only "(no results)"
 
 ### Fixed
 
