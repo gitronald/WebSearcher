@@ -15,6 +15,7 @@ import time
 import weakref
 from collections.abc import Callable
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 import orjson
@@ -59,8 +60,8 @@ class PatchrightSearcher:
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
-        user_data_dir = self.config.user_data_dir
-        if not user_data_dir:
+        user_data_dir = str(Path(self.config.user_data_dir).expanduser())
+        if not self.config.user_data_dir:
             self._tmp_profile = tempfile.mkdtemp(prefix="ws-patchright-")
             user_data_dir = self._tmp_profile
 
@@ -158,7 +159,8 @@ class PatchrightSearcher:
                     f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
                 )
         finally:
-            self.delete_cookies()
+            if self.config.clear_cookies:
+                self.delete_cookies()
 
         return response_output
 

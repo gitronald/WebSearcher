@@ -16,6 +16,7 @@ dependencies = [
     "patchright>=1.60.1",
     "protobuf>=6.33.5,<8.0.0",
     "orjson>=3.11.5,<4.0.0",
+    "platformdirs>=4.10.0",
 ]
 
 [project.urls]
