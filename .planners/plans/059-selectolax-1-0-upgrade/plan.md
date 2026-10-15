@@ -107,6 +107,9 @@ which release items the a baseline should watch.
   - Worktree: `.worktrees/selectolax-1-0-upgrade`
   - PR: pending
 - **2026-10-14T20:45:08-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/200
+- **2026-10-14T21:20:07-07:00** — 059a and 059b done; see their Logs.
+  - Bench harness fix landed in 059a (`gc.collect()` after each timed SERP); rows before this effort are not comparable with its rows.
+  - Follow-up plan candidates from 059b: (1) move `get_text`'s strip+separator path to native `text(skip_empty=True)` plus a filter for non-ASCII-whitespace fragments, with its own byte-identity proof; (2) `LexborHTMLParser(..., encoding=True)` for `bytes` input to `make_soup`.
 
 ## Handoff
 
