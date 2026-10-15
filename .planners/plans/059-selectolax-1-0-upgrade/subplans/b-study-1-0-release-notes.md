@@ -216,3 +216,9 @@ components; `text()` speed in `get_text`/`has_captcha`/`_iter_text_fragments` fr
 `get_text`'s strip+separator case; `encoding=True` for `bytes` input to `make_soup`.
 
 ## Log
+
+- **2026-10-14T21:19:59-07:00** — Done. Findings cover all 48 items in the v0.4.11, v0.4.12, v0.4.13, and v1.0.0 notes (3 + 4 + 3 + 38 rows).
+  - No `adopt now` items: c is the bare upgrade, the CHANGELOG entry, and the bump.
+  - `skip_empty` looked like an adopt-now candidate and was tested instead of assumed: under 1.0.0 native `text(..., strip=True, skip_empty=True)` differs from `get_text`'s walker on 1.8% of nodes (non-ASCII whitespace), so it is a follow-up. The current fast path still matches the walker on all 323,168 nodes under 1.0.0.
+  - Probes committed as sidecars: `skip_empty_059.py`, `skip_empty_diff_059.py` (run from the repo root, commands in Findings).
+  - Watch items for d: snapshot output (lexbor update, qualified attr names), detached-subtree walks (ad, shopping_ads, knowledge_rhs, notices), `text()` frames in the profile.
