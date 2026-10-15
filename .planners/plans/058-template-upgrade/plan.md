@@ -72,3 +72,12 @@ may surface failures there.
   - Base: `dev` at `708e633`
   - Worktree: `.worktrees/template-upgrade`
   - PR: pending
+- **2026-10-14T19:01:21-07:00** — Applied the 0.11.2 sync matrix (6 commits on the feature branch).
+  - Pyrefly: the owner chose strict with every site fixed in this PR over relaxing implicit-any-type-argument or keeping the default preset. 651 errors, cleared by a span-driven codemod (bare `dict` to `dict[str, Any]`, `parse_*() -> list` to `list[dict[str, Any]]`, unannotated `elem`/`cmpt` to `Node`) and then about 100 hand annotations. One suppression: a test that passes an invalid type on purpose.
+  - Behavior: 644 tests and 102 snapshots pass unchanged. The one runtime-visible edit is `RequestsSearcher._handle_response_content`, whose error path returned `bytes` into the `str` field `html`. It now returns `response.text`.
+  - Coverage: `branch = true` puts the total at 79.30%, so `fail_under = 79`.
+  - ruff hook rev: v0.16.10 rather than the template's v0.16.6, to match the locked ruff (0.16.10).
+  - `.gitignore`: merged in place, keeping its CRLF line endings, so the diff shows only the added entries.
+  - `.claude/`: `settings.json`, `hooks/lint-typecheck.sh`, and an adapted `CLAUDE.md` were written to the main checkout. They are on disk only, since `.claude/` is gitignored. `settings.local.json` was skipped because the permission baseline lives in the user-level settings.
+  - The repo already had the template's alert stance (vulnerability alerts on, automated security fixes off), so no change was made.
+  - Shared git hooks re-installed from the main checkout after the worktree run; `INSTALL_PYTHON` points at the main `.venv`.
