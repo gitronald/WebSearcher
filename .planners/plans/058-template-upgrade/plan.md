@@ -5,7 +5,7 @@ status: active
 branch: feature/template-upgrade
 created: 2026-10-14T18:49:31-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/198
 ---
 
 # Upgrade to proj-template 0.11.2
@@ -81,3 +81,4 @@ may surface failures there.
   - `.claude/`: `settings.json`, `hooks/lint-typecheck.sh`, and an adapted `CLAUDE.md` were written to the main checkout. They are on disk only, since `.claude/` is gitignored. `settings.local.json` was skipped because the permission baseline lives in the user-level settings.
   - The repo already had the template's alert stance (vulnerability alerts on, automated security fixes off), so no change was made.
   - Shared git hooks re-installed from the main checkout after the worktree run; `INSTALL_PYTHON` points at the main `.venv`.
+- **2026-10-14T19:01:50-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/198
