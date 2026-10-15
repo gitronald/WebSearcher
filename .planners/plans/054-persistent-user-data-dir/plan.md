@@ -72,3 +72,7 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - `tests/test_search_methods.py`'s `make_patchright` fixture (built via `__new__`) now sets a default `config`, since `send_request` reads `config.clear_cookies`.
 - **2026-10-15T09:04:26-07:00** — Implemented: 6 commits ahead of `dev`.
 - **2026-10-15T09:10:42-07:00** — Reactivated: back to active after review.
+- **2026-10-15T09:10:42-07:00** — Review: default profile location changed.
+    - Supersedes the open-question-1 resolution logged above. The OS per-user data dir hid a large, mostly disposable profile where it is rarely seen or cleaned, and the common browser tools (Selenium, Puppeteer, Playwright) default to temp profiles with no persistent default. The bare `--user-data-dir` now means `./.ws_profile` in the working directory, like `.venv` or `.pytest_cache`; `platformdirs` and `utils.default_user_data_dir()` are removed.
+    - A profile directory WebSearcher creates gets a `.gitignore` of `*`, since it holds cookies; an existing directory is left untouched (`prepare_profile_dir` in `patchright_searcher.py`). Tested against a real `git status` in a temp repo.
+    - Checks re-run on the branch: ruff, ruff format, pyrefly clean; 665 tests pass.
