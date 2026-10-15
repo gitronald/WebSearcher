@@ -27,6 +27,7 @@ selectolax node, so:
   ``UPPER_SNAKE_CASE`` and are built once at import.
 """
 
+from collections.abc import Callable
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
@@ -78,11 +79,14 @@ from .twitter_result import parse_twitter_result
 from .videos import parse_videos
 from .view_more_news import parse_view_more_news
 
+# A component parser: takes the component node, returns one parsed dict or a list of them.
+ParserFunc = Callable[[Node], list[dict[str, Any]] | dict[str, Any]]
+
 # Single source of parser dispatch: type name -> parser function.
 # Sections come from the component_types registry; labels come from each
 # type's ``label`` field. The dispatch dicts and label dicts below are
 # derived from this map joined against the registry.
-PARSERS = {
+PARSERS: dict[str, ParserFunc] = {
     "ad": parse_ads,
     "articles": parse_articles,
     "ai_overview": parse_ai_overview,
@@ -135,11 +139,11 @@ PARSERS = {
 }
 
 
-def _section_parser_dict(section: Section) -> dict[str, Any]:
+def _section_parser_dict(section: Section) -> dict[str, ParserFunc]:
     return {t.name: PARSERS[t.name] for t in types_in_section(section) if t.name in PARSERS}
 
 
-def _section_parser_labels(section: Section) -> dict[str, Any]:
+def _section_parser_labels(section: Section) -> dict[str, str]:
     return {t.name: t.label for t in types_in_section(section) if t.name in PARSERS}
 
 

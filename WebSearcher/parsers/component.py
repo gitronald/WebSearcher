@@ -17,6 +17,7 @@ from ..models.data import (
     error_details,
 )
 from .components import (
+    ParserFunc,
     footer_parser_dict,
     header_parser_dict,
     main_parser_dict,
@@ -24,9 +25,6 @@ from .components import (
 )
 
 log = logging.getLogger(__name__)
-
-# A component parser: takes the component node, returns one parsed dict or a list of them.
-ParserFunc = Callable[[Node], Any]
 
 
 class Component:
@@ -88,7 +86,7 @@ class Component:
             return main_parser_dict.get(self.type)
         return None
 
-    def run_parser(self, parser_func: ParserFunc) -> Any:
+    def run_parser(self, parser_func: ParserFunc) -> list[dict[str, Any]] | dict[str, Any]:
         log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
         try:
             parsed_list = parser_func(self.elem)
