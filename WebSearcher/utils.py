@@ -10,7 +10,6 @@ from typing import Any
 
 import brotli
 import orjson
-import platformdirs
 import requests
 import tldextract
 from selectolax.lexbor import LexborNode as Node
@@ -21,17 +20,6 @@ log = logging.getLogger(__name__)
 
 
 # Files ------------------------------------------------------------------------
-
-
-def default_user_data_dir() -> Path:
-    """Default location for a persistent browser profile.
-
-    The OS's per-user data directory for WebSearcher (e.g.
-    ``~/.local/share/WebSearcher/profile`` on Linux,
-    ``~/Library/Application Support/WebSearcher/profile`` on macOS, and
-    ``%LOCALAPPDATA%\\WebSearcher\\profile`` on Windows).
-    """
-    return Path(platformdirs.user_data_dir("WebSearcher", appauthor=False)) / "profile"
 
 
 def read_lines(fp: str | Path):

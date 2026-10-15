@@ -2,12 +2,14 @@
 
 import argparse
 
-from ..utils import default_user_data_dir
 from .headers import headers
 from .locations import locations
 from .parse import parse
 from .search import search, searches
 from .show import show
+
+# Persistent browser profile for a bare --user-data-dir, relative to the working dir
+DEFAULT_PROFILE_DIR = ".ws_profile"
 
 
 def _add_engine_args(p: argparse.ArgumentParser) -> None:
@@ -25,12 +27,12 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--user-data-dir",
         nargs="?",
-        const=str(default_user_data_dir()),
+        const=DEFAULT_PROFILE_DIR,
         default=None,
         metavar="PATH",
         help=(
             "Reuse a persistent browser profile (patchright only) and keep its cookies "
-            "between searches. Bare flag: %(const)s"
+            "between searches. Bare flag: ./%(const)s"
         ),
     )
 

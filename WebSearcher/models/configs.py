@@ -30,7 +30,7 @@ class PatchrightConfig(BaseConfig):
     headless: bool = False
     channel: str = "chrome"
     # Browser profile dir. Empty -> a temp profile, removed on close; a path ->
-    # a persistent profile reused across runs (see utils.default_user_data_dir).
+    # a persistent profile reused across runs (created git-ignored if new).
     user_data_dir: str = ""
     # Clear cookies after every request. Set False with a persistent profile,
     # or its cookies (e.g. from a solved CAPTCHA) are lost each request.

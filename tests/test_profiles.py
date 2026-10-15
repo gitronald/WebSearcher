@@ -2,18 +2,17 @@
 
 import importlib
 import logging
-import sys
+import subprocess
 import time
 from pathlib import Path
 from typing import Any
 
 import pytest
 
-from WebSearcher import utils
 from WebSearcher.demos import cli
 from WebSearcher.models.configs import PatchrightConfig
 from WebSearcher.models.searches import SearchParams
-from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
+from WebSearcher.searchers.patchright_searcher import PatchrightSearcher, prepare_profile_dir
 
 # The demos package re-exports the `search` function under the module's name
 demo_search = importlib.import_module("WebSearcher.demos.search")
@@ -26,15 +25,24 @@ def test_clear_cookies_defaults_true():
     assert PatchrightConfig().clear_cookies is True
 
 
-def test_default_user_data_dir_names_the_app():
-    path = utils.default_user_data_dir()
-    assert path.parts[-2:] == ("WebSearcher", "profile")
+def test_new_profile_dir_is_git_ignored(tmp_path):
+    subprocess.run(["git", "init", "-q", str(tmp_path)], check=True)
+    profile = tmp_path / "nested" / ".ws_profile"
+    prepare_profile_dir(profile)
+    (profile / "Cookies").write_text("secret")
+    status = subprocess.run(
+        ["git", "status", "--porcelain", "--untracked-files=all"],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    assert status.stdout == ""
 
 
-@pytest.mark.skipif(not sys.platform.startswith("linux"), reason="XDG paths are Linux-only")
-def test_default_user_data_dir_follows_xdg(monkeypatch, tmp_path):
-    monkeypatch.setenv("XDG_DATA_HOME", str(tmp_path))
-    assert utils.default_user_data_dir() == tmp_path / "WebSearcher" / "profile"
+def test_existing_profile_dir_is_left_untouched(tmp_path):
+    prepare_profile_dir(tmp_path)
+    assert list(tmp_path.iterdir()) == []
 
 
 # Cookie clearing in send_request -----------------------------------------------
@@ -95,7 +103,7 @@ def test_cli_user_data_dir_defaults_off(monkeypatch):
 
 def test_cli_bare_user_data_dir_uses_default(monkeypatch):
     got = _run_cli(monkeypatch, ["search", "q", "--user-data-dir"])
-    assert got["user_data_dir"] == str(utils.default_user_data_dir())
+    assert got["user_data_dir"] == ".ws_profile"
 
 
 def test_cli_user_data_dir_path(monkeypatch, tmp_path):
@@ -151,6 +159,7 @@ def test_persistent_profile_saves_and_reloads_cookies(tmp_path):
     _set_cookie(first)
     first.cleanup()
     assert profile.is_dir()  # a persistent profile is kept on close
+    assert (profile / ".gitignore").read_text().endswith("*\n")
 
     second = _launch(str(profile))
     try:
