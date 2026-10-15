@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking (dependency):** require `selectolax>=1.0.0` (from `>=0.4.10`). WebSearcher only uses the lexbor backend, and parsed output is unchanged (snapshot suite byte-identical). selectolax 1.0 removed its Modest backend, though: code that imports `selectolax.parser` itself now gets an `ImportError`, and `parse_fragment()` is gone, so an application that uses selectolax directly alongside WebSearcher must move to `selectolax.lexbor` before upgrading (plan 059)
+- Dev tooling: parse benchmark rows in `tests/benchmarks/results.jsonl` record the installed `selectolax_version`
+
+### Fixed
+
+- Dev tooling: the parse benchmark no longer runs out of memory on a full corpus run. Timing pauses the garbage collector, and each parse leaves reference cycles that hold its document tree, so they piled up across SERPs; it now collects (untimed) after each SERP. Benchmark rows from earlier versions were measured under that heap growth and are not comparable with new ones
+
 ## [0.11.6] - 2026-10-14
 
 ### Changed
