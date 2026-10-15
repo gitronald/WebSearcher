@@ -19,7 +19,7 @@ from WebSearcher.locations import (
 
 
 def test_encode_decode_roundtrip_integers():
-    fields = {1: 2, 2: 32}
+    fields: dict[int, int | str] = {1: 2, 2: 32}
     encoded = encode_protobuf_string(fields)
     decoded = decode_protobuf_string(encoded)
     assert decoded == fields
