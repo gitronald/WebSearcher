@@ -82,3 +82,4 @@ may surface failures there.
   - The repo already had the template's alert stance (vulnerability alerts on, automated security fixes off), so no change was made.
   - Shared git hooks re-installed from the main checkout after the worktree run; `INSTALL_PYTHON` points at the main `.venv`.
 - **2026-10-14T19:01:50-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/198
+- **2026-10-14T19:05:37-07:00** — Bumped ruff to 0.17.0 (dev group >=0.17,<0.18 and hook rev v0.17.0 together). It clears the 5-day minimumReleaseAge, and lint and format are clean with no changes.
