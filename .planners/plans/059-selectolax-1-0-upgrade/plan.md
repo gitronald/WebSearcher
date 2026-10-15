@@ -27,8 +27,8 @@ is 0.4.13 (2026-09-29).
 | Subplan | Scope | Status | Note |
 |---|---|---|---|
 | [a](subplans/a-pre-1-0-baseline-bench.md) | Bump to selectolax 0.4.13 and benchmark the baseline | done |  |
-| [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | active |  |
-| [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | draft |  |
+| [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | done |  |
+| [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | active |  |
 | [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | draft |  |
 <!-- planners:subplans:end -->
 
