@@ -15,6 +15,7 @@ import time
 import weakref
 from collections.abc import Callable
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 import orjson
@@ -27,6 +28,19 @@ from ..models.searches import SearchParams
 # CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
+
+
+def prepare_profile_dir(path: Path) -> None:
+    """Create a new persistent profile dir that git ignores.
+
+    A profile holds cookies and session tokens, so a new one gets a ``.gitignore``
+    of ``*`` (as ``.pytest_cache`` does) and stays out of any repo it sits in. An
+    existing directory is left untouched.
+    """
+    if path.exists():
+        return
+    path.mkdir(parents=True)
+    (path / ".gitignore").write_text("# Browser profile created by WebSearcher\n*\n")
 
 
 def _cleanup_at_exit(ref: "weakref.ref[PatchrightSearcher]") -> None:
@@ -59,8 +73,11 @@ class PatchrightSearcher:
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
-        user_data_dir = self.config.user_data_dir
-        if not user_data_dir:
+        if self.config.user_data_dir:
+            profile = Path(self.config.user_data_dir).expanduser()
+            prepare_profile_dir(profile)
+            user_data_dir = str(profile)
+        else:
             self._tmp_profile = tempfile.mkdtemp(prefix="ws-patchright-")
             user_data_dir = self._tmp_profile
 
@@ -158,7 +175,8 @@ class PatchrightSearcher:
                     f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
                 )
         finally:
-            self.delete_cookies()
+            if self.config.clear_cookies:
+                self.delete_cookies()
 
         return response_output
 

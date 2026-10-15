@@ -14,6 +14,7 @@ import sys
 import textwrap
 import weakref
 
+from WebSearcher.models.configs import PatchrightConfig
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
 
@@ -59,6 +60,7 @@ class FakePageNavFails:
 
 def make_patchright(page) -> PatchrightSearcher:
     searcher = PatchrightSearcher.__new__(PatchrightSearcher)
+    searcher.config = PatchrightConfig()
     searcher.log = LOG
     searcher.page = page
     searcher.context = None

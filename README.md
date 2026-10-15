@@ -148,9 +148,51 @@ se = ws.SearchEngine(
         "headless": False,
         "channel": "chrome",
         "user_data_dir": "",  # a temp profile is created when empty
+        "clear_cookies": True,  # clear cookies after every request
     }
 )
 ```   
+
+##### Warm browser profile
+
+By default each run starts from a fresh temporary profile and clears cookies
+after every request, so every search looks like a brand-new session. Those are
+the sessions most likely to be met with a CAPTCHA. To carry a profile across
+runs instead, point `user_data_dir` at a directory you keep and turn off
+per-request cookie clearing:
+
+```python
+se = ws.SearchEngine(
+    patchright_config={
+        "user_data_dir": ".ws_profile",
+        "clear_cookies": False,
+    }
+)
+```
+
+Any path works. A profile keeps the browser's cache and grows as it is used,
+so keep it somewhere you will see it. When WebSearcher creates a new profile
+directory, it writes a `.gitignore` of `*` inside it, so the profile's cookies
+stay out of any repo it sits in; an existing directory is left as is. The
+demos take the same setting as `--user-data-dir`, which also keeps cookies
+between searches. A bare flag uses `.ws_profile` in the current directory:
+
+```bash
+uv run ws-demo search "election news" --user-data-dir
+```
+
+To warm a profile, run a headed search with it, solve any CAPTCHA by hand in
+the browser window, and reuse the directory afterwards. The demo closes the
+browser a few seconds after the page loads; add `--leave-open` to keep the
+window open until you press Enter:
+
+```bash
+uv run ws-demo search "election news" --user-data-dir --leave-open
+```
+
+A profile can only be open in one browser at a time: a second process
+launched on the same directory fails with a `ProcessSingleton` error, so give
+concurrent runs separate directories.
 
 #### 2. Conduct a Search
 

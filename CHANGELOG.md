@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Persistent browser profiles for the patchright backend: a new `PatchrightConfig.clear_cookies` toggle (default `True`, the current behavior) lets a profile passed as `user_data_dir` keep its cookies between requests, a new profile directory is created with a `.gitignore` of `*` so its cookies stay out of git, and `ws-demo search`/`searches` take `--user-data-dir [PATH]` (bare flag: `./.ws_profile`), which also keeps cookies. A `~` in `user_data_dir` is now expanded (plan 054)
+- `ws-demo search`/`searches` take `--leave-open`, which keeps the browser window open after the run until Enter is pressed, e.g. to solve a CAPTCHA by hand while warming a profile
+
 ### Changed
 
 - Require `selectolax>=1.0.0` (from `>=0.4.10`). WebSearcher already used only the lexbor backend, so its API and parsed output are unchanged (snapshot suite byte-identical). Parsing the 102-SERP fixture corpus is about 47% faster (corpus total 828 ms vs 1569 ms on selectolax 0.4.13, same-session A/B), mostly from faster HTML parsing and CSS matching. Note for applications that also use selectolax directly: 1.0 removed the Modest backend (`selectolax.parser` now raises `ImportError`) and `parse_fragment()`, so such code must move to `selectolax.lexbor` before upgrading (plan 059)
