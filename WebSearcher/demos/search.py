@@ -50,11 +50,24 @@ QUERIES = {
 }
 
 
+def _search_engine(method: str, user_data_dir: str | None) -> ws.SearchEngine:
+    """Build the demo's SearchEngine, on a persistent profile when ``user_data_dir`` is set.
+
+    A persistent profile keeps its cookies between requests too, so the trust it
+    carries (e.g. a CAPTCHA solved by hand) is not cleared after each search.
+    """
+    if not user_data_dir:
+        return ws.SearchEngine(method=method)
+    patchright_config = {"user_data_dir": user_data_dir, "clear_cookies": False}
+    return ws.SearchEngine(method=method, patchright_config=patchright_config)
+
+
 def search(
     query: str = "why is the sky blue?",
     method: str = "patchright",
     data_dir: str | None = None,
     ai_expand: bool = True,
+    user_data_dir: str | None = None,
 ):
     """Search and parse a single query (patchright or requests), saving serps/parsed/searches."""
     data_path = Path(data_dir) if data_dir else _default_data_dir()
@@ -63,9 +76,11 @@ def search(
 
     header = f"WebSearcher v{ws.__version__}\nSearch Query: {query}\n"
     header += f"Output Dir: {data_path}\n"
+    if user_data_dir:
+        header += f"Browser Profile: {user_data_dir}\n"
     print(header)
 
-    se = ws.SearchEngine(method=method)
+    se = _search_engine(method, user_data_dir)
     se.search(query, ai_expand=ai_expand)
     se.parse_serp()
     se.save_serp(append_to=fps["serps"])
@@ -83,11 +98,12 @@ def searches(
     data_dir: str | None = None,
     ai_expand: bool = True,
     delay: float = 30.0,
+    user_data_dir: str | None = None,
 ):
     """Search a battery of queries spanning SERP component types, reusing one browser session.
 
     Saves serps/parsed/searches like ``search``. Pass ``types`` to limit to specific QUERIES
-    groups. Handles CAPTCHAs (waits 5 min and retries once) and jitters the inter-query delay.
+    groups. Pass ``user_data_dir`` to reuse a persistent browser profile. Handles CAPTCHAs (waits 5 min and retries once) and jitters the inter-query delay.
     """
     data_path = Path(data_dir) if data_dir else _default_data_dir()
     data_path.mkdir(parents=True, exist_ok=True)
@@ -98,8 +114,10 @@ def searches(
     else:
         queries = [q for group in QUERIES.values() for q in group]
     print(f"Running {len(queries)} queries, saving to {data_path}")
+    if user_data_dir:
+        print(f"Browser profile: {user_data_dir}")
 
-    se = ws.SearchEngine(method=method)
+    se = _search_engine(method, user_data_dir)
 
     for i, qry in enumerate(queries):
         se.search(qry, ai_expand=ai_expand)

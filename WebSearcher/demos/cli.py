@@ -2,6 +2,7 @@
 
 import argparse
 
+from ..utils import default_user_data_dir
 from .headers import headers
 from .locations import locations
 from .parse import parse
@@ -21,6 +22,17 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--no-ai-expand", dest="ai_expand", action="store_false", help="Do not expand AI overviews"
     )
+    p.add_argument(
+        "--user-data-dir",
+        nargs="?",
+        const=str(default_user_data_dir()),
+        default=None,
+        metavar="PATH",
+        help=(
+            "Reuse a persistent browser profile (patchright only) and keep its cookies "
+            "between searches. Bare flag: %(const)s"
+        ),
+    )
 
 
 def _add_search_args(p: argparse.ArgumentParser) -> None:
@@ -36,6 +48,7 @@ def _run_search(args: argparse.Namespace) -> None:
         args.method,
         data_dir=args.data_dir,
         ai_expand=args.ai_expand,
+        user_data_dir=args.user_data_dir,
     )
     se.close()
 
@@ -96,6 +109,8 @@ def main(argv: list[str] | None = None) -> None:
     p_loc.add_argument("--data-dir", default="data/html", help="Directory to save outputs")
 
     args = parser.parse_args(argv)
+    if getattr(args, "user_data_dir", None) and args.method != "patchright":
+        parser.error("--user-data-dir requires the patchright method")
     if args.command == "parse":
         parse(args.filepath)
     elif args.command == "show":
@@ -115,6 +130,7 @@ def main(argv: list[str] | None = None) -> None:
             data_dir=args.data_dir,
             ai_expand=args.ai_expand,
             delay=args.delay,
+            user_data_dir=args.user_data_dir,
         )
         se.close()
     elif args.command == "headers":
