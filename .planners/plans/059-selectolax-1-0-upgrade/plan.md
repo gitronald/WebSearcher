@@ -1,11 +1,11 @@
 ---
 id: 59
 slug: selectolax-1-0-upgrade
-status: active
+status: done
 branch: feature/selectolax-1-0-upgrade
 created: 2026-10-14T20:12:13-07:00
-concluded:
-pr:
+concluded: 2026-10-14T21:50:21-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/200
 ---
 
 # Upgrade selectolax to 1.0
@@ -26,10 +26,10 @@ is 0.4.13 (2026-09-29).
 <!-- planners:subplans:start -->
 | Subplan | Scope | Status | Note |
 |---|---|---|---|
-| [a](subplans/a-pre-1-0-baseline-bench.md) | Bump to selectolax 0.4.13 and benchmark the baseline | draft |  |
-| [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | draft |  |
-| [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | draft |  |
-| [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | draft |  |
+| [a](subplans/a-pre-1-0-baseline-bench.md) | Bump to selectolax 0.4.13 and benchmark the baseline | done |  |
+| [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | done |  |
+| [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | done |  |
+| [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | done |  |
 <!-- planners:subplans:end -->
 
 ### Decisions
@@ -106,10 +106,38 @@ which release items the a baseline should watch.
   - Base: `dev` at `1c7630c`
   - Worktree: `.worktrees/selectolax-1-0-upgrade`
   - PR: pending
+- **2026-10-14T20:45:08-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/200
+- **2026-10-14T21:20:07-07:00** — 059a and 059b done; see their Logs.
+  - Bench harness fix landed in 059a (`gc.collect()` after each timed SERP); rows before this effort are not comparable with its rows.
+  - Follow-up plan candidates from 059b: (1) move `get_text`'s strip+separator path to native `text(skip_empty=True)` plus a filter for non-ASCII-whitespace fragments, with its own byte-identity proof; (2) `LexborHTMLParser(..., encoding=True)` for `bytes` input to `make_soup`.
+- **2026-10-14T21:50:53-07:00** — 059c and 059d done. Measured effect per step (same-session within each step, not across):
+  - 0.4.10 -> 0.4.13 (059a): 1556.9 -> 1571.2 ms corpus total, +0.9%, at the noise floor; no measurable change.
+  - 0.4.13 -> 1.0.0 (059d, A B B A): 1569.2 -> 828.0 ms, -47.2%, from lexbor parsing (`make_soup` 2.2x) and CSS matching; `text()`-only frames barely moved.
+  - Output: snapshot suite byte-identical at every step; pyrefly needed test-only narrowing for 1.0's corrected `css_first` stubs (059c).
+- **2026-10-14T21:51:27-07:00** — Implemented: 25 commits ahead of `dev`.
+- **2026-10-14T21:56:48-07:00** — Both follow-up candidates from 059b retired, after measuring them on selectolax 1.0.0 (`0.11.7a2`); no follow-up plan.
+  - (1) Native `skip_empty` path for `get_text`'s strip+separator case: not worth it. On 1.0.0 that case is 2,747 calls per corpus pass costing about 9 ms of about 830 ms (0.9%), so even a free native version would save about the benchmark's noise floor, while needing a filter for the non-ASCII-whitespace fragments `skip_empty` keeps (059b: 1.8% of nodes differ) and its own corpus-wide identity proof. Per pass, the native `get_text` fast path is 10,953 calls and 22 ms, the script/style walker case 128 calls and 8 ms. Repeat: `uv run python .planners/plans/059-selectolax-1-0-upgrade/textpath_059f.py`.
+  - The release note's "text up to 5x faster" was checked directly (best of 5, two passes per version, `uv run --no-project --with selectolax==<v> --with orjson python .planners/plans/059-selectolax-1-0-upgrade/text_speed_059f.py`): per-node calls got faster (`text(deep=True)` on 202,794 divs 439-454 -> 181-185 ms, 2.4x; `text(deep=False)` on 71,495 text nodes 59-60 -> 40-41 ms, 1.5x), whole-document `text()` did not (71-98 vs 86-95 ms; with `separator=" ", strip=True` 73-75 vs 72-73 ms). Parsing for comparison: 459-466 -> 206-209 ms, 2.2x. The parser already sends most `get_text` calls through native `text()`, so it already gets the per-node gain.
+  - The remaining Python walker time is in early-exit consumers that a full native `text()` cannot replace: `ExtractorMain.is_valid` 26 ms/pass (2.8%, stops after 15 characters) and `has_text` 12 ms/pass (1.3%, stops at the first non-blank fragment). Repeat: `uv run python .planners/plans/059-selectolax-1-0-upgrade/walker_budget_059f.py`.
+  - (2) `LexborHTMLParser(..., encoding=True)` for `bytes` input to `make_soup`: retired. It is a behavior change, not a speedup: `make_soup` decodes `bytes` as UTF-8 with replacement, and detection would change output for non-UTF-8 input. The one in-repo `bytes` path is `utils.load_soup(fp, zipped=True)`, which hands brotli-decompressed bytes to `make_soup` (`demos/parse.py` calls `load_soup`); the parser's own callers pass `str`. Revisit only if a non-UTF-8 SERP shows up. (Corrected at close: this entry first said no in-repo caller passes `bytes`.)
+- **2026-10-14T22:04:58-07:00** — Close-out. Review gate run at medium level (code review with finders and verification) on PR #200; check gate clean (ruff check, ruff format --check, pyrefly 0 errors, 644 tests and 102 snapshots passing, coverage 79.3%).
+  - Review follow-up: one confirmed finding, fixed in `b2a11c6`: the umbrella Log and subplan b said no in-repo caller passes `bytes` to `make_soup`, but `utils.load_soup(fp, zipped=True)` does (brotli-decompressed bytes; `demos/parse.py` calls `load_soup`). The retirement of the `encoding=True` follow-up stands on its primary reason (detection changes output for non-UTF-8 input); the text now names the bytes path. No regression test: a plan-text correction, no code changed.
+  - Conscious no-ops: the CHANGELOG's "about 10-15%" effect of the bench gc fix rests on console timings in 059a's Log, not committed rows (the pre-fix runs were killed before writing any), and the entry already says which rows are comparable; the per-file test narrowing helpers (`comp`, `_node`, `_wrap`) duplicate one another, but they predate this effort, which only typed them, so consolidation is a separate refactor; `version("selectolax")` is looked up twice per bench run, which is negligible and keeps the lookup visible at each site.
 
 ## Handoff
 
-Nothing started. Questions:
+State: closed. All four subplans done; PR #200 reviewed (medium gate, one plan-text
+correction) and merged to `dev` at `0.11.7a2` with selectolax 1.0.0. The baseline
+worktree from d and the feature worktree are removed. Nothing remains, and no
+follow-up plan is owed: both candidates from b were retired after measurement (see
+the umbrella Log).
+
+Not verified: the speedup on hardware other than this machine, and on interpreters
+other than CPython 3.14.8. Earlier `results.jsonl` rows (June, Python 3.14.3, 80-87
+SERPs) are not comparable with this effort's rows. The stable `0.11.7` release that
+carries this to users is out of scope here and follows the normal release path.
+
+Questions:
 
 1. Should `WebSearcher/parsers/bench.py` stamp the installed selectolax version
    on each `results.jsonl` row? It would make rows self-describing instead of
@@ -132,3 +160,12 @@ Nothing started. Questions:
    - stanza's version check accepts only `major.minor.patch` with an optional
      `aN`, so four-segment strings are refused as well as anything below
      `v0.11.6`.
+
+## Retrospective
+
+- **The two-step split paid for itself in attribution, not in findings.** 0.4.10 -> 0.4.13 was flat (+0.9%, at the noise floor) and 0.4.13 -> 1.0.0 was -47.2% on the corpus, so the whole win is the 1.0 release. Without the split the same number would have been reported with a weaker claim about where it came from.
+- **The release notes were wrong about where our time would go.** b capped the advertised 5x `text()` speedup at about 10% of profiled time and that cap held; the real gain came from lexbor parsing (2.2x on `make_soup`) and CSS matching, which b had only marked `watch`. Reading notes tells you what to check, not what will move; the back-to-back profile with identical call counts is what told the story.
+- **A benchmark harness bug surfaced before any upgrade work and changed the baseline.** The pre-fix bench leaked parse trees with gc disabled and could not finish a full corpus run; fixing it moved timings 10-15%, so every earlier row in `results.jsonl` became non-comparable. Check the measuring instrument first when a plan's deliverable is a measurement.
+- **Byte-identity gating was cheap and decisive.** The snapshot suite passed unchanged at each step, so none of the 38 1.0.0 release items needed a per-component diagnosis; the only code change the upgrade forced was type narrowing in tests, because 1.0's stubs stopped lying about `css_first`.
+- **Testing a tempting "adopt now" item killed it.** Native `skip_empty` looked like a free swap for `get_text`'s slow path and differed on 1.8% of nodes (non-ASCII whitespace), then measured at under 1% of parse time once 1.0 was in. Measure before scheduling a follow-up; both candidates retired without a plan.
+- **Review caught a plan claim the code contradicted.** "No in-repo caller passes `bytes`" was false (`load_soup(zipped=True)`); the conclusion survived on its other reason, but a grep at writing time would have avoided the correction. Verify "no caller" claims the same way as code-usage claims.

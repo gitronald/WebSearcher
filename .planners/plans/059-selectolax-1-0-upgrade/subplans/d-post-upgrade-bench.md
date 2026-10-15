@@ -1,5 +1,5 @@
 ---
-status: draft
+status: done
 branch:
 needs: [c]
 ---
@@ -68,3 +68,26 @@ Remove the baseline worktree when done: `git worktree remove .worktrees/selectol
   0.4.13 from a, 0.4.13 -> 1.0.0 from here).
 
 ## Log
+
+- **2026-10-14T21:50:53-07:00** — Done. selectolax 1.0.0 (`0.11.7a2`, A, `.worktrees/selectolax-1-0-upgrade` at `771c854`) vs 0.4.13 (`0.11.7a1`, B, detached `.worktrees/selectolax-baseline` at `39a5f33`), one session, order A B B A, `--iterations 50 --runs 5`, 102 SERPs, Python 3.14.8. The runs started after c's code was final (`771c854`) and before c was marked done; c's CI was confirmed green while they ran.
+  - A1 `20261015T042259Z_771c854`: corpus_total_median_ms 827.5, noise_floor_pct 0.52
+  - B1 `20261015T042639Z_39a5f33`: 1565.3, 0.90
+  - B2 `20261015T043326Z_39a5f33`: 1573.1, 1.22 (`git_dirty: true` from B1's appended row)
+  - A2 `20261015T044013Z_771c854`: 828.4, 0.94 (`git_dirty: true` from A1's appended row)
+  - Session check: A-to-A +0.1%, B-to-B +0.5%, both inside their noise floors, so no rerun.
+  - A vs B: 828.0 vs 1569.2 ms (means of the pairs), -741 ms, **-47.2%**, about 50x the widest noise floor (1.22%). Per-SERP median 6.7-6.8 ms vs 12.8-13.3 ms.
+  - Profiles back to back, 20 iterations: A `20261015T044407Z_771c854` 24.20 s, B `20261015T044435Z_39a5f33` 39.60 s, identical call counts (25,369,181), so the same code paths ran. tottime A vs B:
+    - `_slx.py:85(make_soup)` 4.392 vs 9.584 s (lexbor parsing, 2.2x)
+    - `classifiers/main.py:55(__init__)` 2.496 vs 4.198 s (CSS probes)
+    - `_slx.py:47(_iter_text_fragments)` 1.317 vs 1.786 s
+    - `extractors/__init__.py:34(_get_dom_positions)` 1.154 vs 1.566 s
+    - `_slx.py:188(subtree_css)` 0.622 vs 1.295 s
+    - `_slx.py:100(get_text)` 0.577 vs 1.214 s
+    - `extractor_main.py:621(is_valid)` 0.412 vs 0.866 s
+    - `classifiers/main.py:115(_classify_header)` 0.445 vs 0.952 s
+    - `utils.py:107(has_captcha)` 0.982 vs 0.995 s (one whole-document `text()`: unchanged, so the "5x text" note is not where the win comes from)
+    - `_ai_overview_payloads.py:62(_iter_payload_blobs)` 0.896 vs 0.913 s (pure-Python regex: unchanged, a control for machine drift)
+  - The gain comes from parsing and CSS matching, which b had classed as lexbor-update `watch` items rather than predicted. b's ~10% ceiling for the `text()` change was right; the rest came from elsewhere.
+  - Output checks: full suite on A, 644 passed, 102 snapshots byte-identical (c). Watch types present in the snapshots and unchanged: ad 52 rows, shopping_ads 53, knowledge_rhs 3, notice 18 (2,583 rows, 36 types). `attrs` qualified names: no change in any snapshot. No before/after section needed in the PR.
+  - Rows: all six (4 benchmark, 2 profile) committed in `tests/benchmarks/results.jsonl` (`6ee3fe3`); B's rows copied from the baseline tree, which was then removed (`git worktree remove`; no hook pointed into it). Both `.prof` files sit in the gitignored `tests/benchmarks/profiles/`.
+  - Deviation: d's done-when asks for the per-step effects in the umbrella's Retrospective. They are in the umbrella Log and Handoff instead, for `/planners close` to carry into the Retrospective it writes.

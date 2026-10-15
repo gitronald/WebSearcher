@@ -1,12 +1,16 @@
 """Tests for ad subtype classification"""
 
+from selectolax.lexbor import LexborNode as Node
+
 from WebSearcher import utils
 from WebSearcher.parsers.components.ads import classify_ad_type
 
 
-def comp(inner: str):
+def comp(inner: str) -> Node:
     """Wrap inner HTML in a component ``Node`` (selectors match descendants, not self)."""
-    return utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    assert node is not None
+    return node
 
 
 def test_classify_standard_ad():

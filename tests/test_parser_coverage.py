@@ -10,6 +10,7 @@ from pathlib import Path
 
 import orjson
 import pytest
+from selectolax.lexbor import LexborNode as Node
 
 import WebSearcher as ws
 from WebSearcher import utils
@@ -89,7 +90,7 @@ def test_places_nearby_carousel():
         '<a href="#"><div aria-level="3" role="heading">Mega Mart</div></a>'
     )
     assert _classify(inner) == "places_nearby"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_places_nearby(node)
     assert [r["title"] for r in rows] == ["Family Food Centre", "Mega Mart"]
     assert all(r["url"] is None for r in rows)  # JS-driven cards, no static url
@@ -127,7 +128,7 @@ def test_gallery_structural():
         '<div class="kE4COc">Author B</div></div>'
     )
     assert _classify(inner) == "gallery"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_gallery(node)
     # header row: heading title + category chips joined into text
     assert rows[0]["sub_type"] == "header"
@@ -352,10 +353,14 @@ def test_buying_guide(serps_by_qry):
 # has no such signal and stays header-text-only (documented, not fixed).
 
 
+def _wrap(inner: str) -> Node:
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    assert node is not None
+    return node
+
+
 def _classify(inner: str) -> str:
-    return ClassifyMain.classify(
-        utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
-    )
+    return ClassifyMain.classify(_wrap(inner))
 
 
 def test_buying_guide_classifies_structurally_without_english_header():
@@ -420,7 +425,7 @@ def test_datasets_classifies_and_parses():
         '<a href="https://data.test/b"><h3>Population by faith</h3></a>'
     )
     assert _classify(inner) == "datasets"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_datasets(node)
     assert len(rows) == 2
     assert rows[0]["title"] == "Global religion 2022"
@@ -436,7 +441,7 @@ def test_recipes_async_popular_variant():
         '<a href="https://food.test/herb">go</a></div>'
     )
     assert _classify(inner) == "recipes"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     from WebSearcher.parsers.components.recipes import parse_recipes
 
     rows = parse_recipes(node)
@@ -455,7 +460,7 @@ def test_images_strip_classifies_and_parses():
         '<a href="https://v.test/x">I See - YouTube</a>'
     )
     assert _classify(inner) == "images"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     from WebSearcher.parsers.components.images import parse_image_strip
 
     rows = parse_image_strip(node)
@@ -474,7 +479,7 @@ def test_refine_by_chips():
         '<a href="#">general feedback</a>'
     )
     assert _classify(inner) == "refine_by"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_refine_by(node)
     assert [r["title"] for r in rows] == ["Pink", "Blue"]  # feedback "#" chip skipped
     assert rows[0]["url"] == "/search?q=pink"
@@ -493,7 +498,7 @@ def test_shopping_ideas_chips():
         '<a href="/search?q=jerseys">Jerseys</a><a href="/search?q=hats">Hats</a>'
     )
     assert _classify(inner) == "shopping_ideas"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_shopping_ideas(node)
     assert len(rows) == 2
     assert rows[0]["title"] == "Jerseys"
@@ -509,7 +514,7 @@ def test_articles_module():
         '<a href="#">general feedback</a>'
     )
     assert _classify(inner) == "articles"
-    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    node = _wrap(inner)
     rows = parse_articles(node)
     assert len(rows) == 1  # deduped by url, feedback "#" skipped
     assert rows[0]["title"] == "Publisher Headline"
