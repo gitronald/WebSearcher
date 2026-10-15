@@ -1,8 +1,11 @@
 .venv/
 .archive/
 .claude/
+.vscode/
+.DS_Store
 
 build/
+dist/
 notebooks/
 
 # data/ stays untracked except the geotargets CSV and its pull ledger
@@ -17,13 +20,15 @@ data/locations/*
 # Benchmark profiles (binary cProfile dumps; regenerable). results.jsonl stays tracked.
 tests/benchmarks/profiles/
 
-*.egg-info
-*__pycache__
+*.egg-info/
+__pycache__/
 
 # Caches
 .pytest_cache/
 .ruff_cache/
+.hypothesis/
 .coverage
+.coverage.*
 
 # Environment files
 .env
