@@ -1,3 +1,4 @@
+import logging
 import time
 from datetime import UTC, datetime
 
@@ -12,7 +13,7 @@ from ..models.searches import SearchParams
 class RequestsSearcher:
     """Handle Requests-based web interactions for search engines"""
 
-    def __init__(self, config: RequestsConfig, logger):
+    def __init__(self, config: RequestsConfig, logger: logging.Logger):
         """Initialize a Requests searcher with the given configuration
 
         Args:
@@ -75,7 +76,7 @@ class RequestsSearcher:
 
         return response_output
 
-    def _handle_response_content(self, response):
+    def _handle_response_content(self, response: requests.Response) -> str:
         try:
             if self.config.unzip:
                 html = self._unzip_html(response.content)
@@ -84,9 +85,9 @@ class RequestsSearcher:
             return html.decode("utf-8", "ignore")
         except Exception:
             self.log.exception("", extra={"event": "response"})
-            return response.content
+            return response.text
 
-    def _unzip_html(self, content) -> bytes:
+    def _unzip_html(self, content: bytes) -> bytes:
         """Unzip brotli zipped html"""
         try:
             return brotli.decompress(content)

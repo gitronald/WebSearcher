@@ -3,6 +3,7 @@
 import json
 import logging.config
 from datetime import datetime
+from typing import override
 
 # Setting
 LOG_LEVEL_DEFAULT = "INFO"
@@ -30,6 +31,7 @@ class JsonlFormatter(logging.Formatter):
     (a parse/save/foreign line has no ``qry``/``loc``/``response_code``).
     """
 
+    @override
     def format(self, record: logging.LogRecord) -> str:
         name = record.name
         is_own = name == PACKAGE or name.startswith(f"{PACKAGE}.")

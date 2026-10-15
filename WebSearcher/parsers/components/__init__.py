@@ -27,6 +27,10 @@ selectolax node, so:
   ``UPPER_SNAKE_CASE`` and are built once at import.
 """
 
+from typing import Any
+
+from selectolax.lexbor import LexborNode as Node
+
 from ..._slx import get_text
 from ..component_types import Section, types_in_section
 from .ads import parse_ads
@@ -131,11 +135,11 @@ PARSERS = {
 }
 
 
-def _section_parser_dict(section: Section) -> dict:
+def _section_parser_dict(section: Section) -> dict[str, Any]:
     return {t.name: PARSERS[t.name] for t in types_in_section(section) if t.name in PARSERS}
 
 
-def _section_parser_labels(section: Section) -> dict:
+def _section_parser_labels(section: Section) -> dict[str, Any]:
     return {t.name: t.label for t in types_in_section(section) if t.name in PARSERS}
 
 
@@ -148,6 +152,6 @@ main_parser_labels = _section_parser_labels("main")
 footer_parser_labels = _section_parser_labels("footer")
 
 
-def parse_unknown(elem) -> list:
+def parse_unknown(elem: Node) -> list[dict[str, Any]]:
     """Catch-all for components classified as ``unknown``: capture text only."""
     return [{"type": "unknown", "text": get_text(elem, "<|>", strip=True)}]

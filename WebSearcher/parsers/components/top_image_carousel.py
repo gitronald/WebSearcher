@@ -4,15 +4,17 @@ Each item is a thumbnail link; the component itself has a title and points
 at a parent listing.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ._common import mark_hidden_item, parse_alink
 
 
-def parse_top_image_carousel(elem, sub_rank: int = 0) -> list:
+def parse_top_image_carousel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed: dict = {"type": "top_image_carousel", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "top_image_carousel", "sub_rank": sub_rank}
 
     titles = node.css("span.Wkr6U")
     if titles:
@@ -26,7 +28,7 @@ def parse_top_image_carousel(elem, sub_rank: int = 0) -> list:
         alinks = list(images.iter(include_text=False))
     else:
         carousel = node.css_first("g-scrolling-carousel")
-        alinks = list(carousel.css("a")) if carousel is not None else []
+        alinks = list(carousel.css("a")) if carousel is not None else list[Node]()
 
     items = []
     for a in alinks:

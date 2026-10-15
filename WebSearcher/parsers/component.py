@@ -1,6 +1,7 @@
 import logging
 import traceback
 from collections.abc import Callable
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -23,6 +24,9 @@ from .components import (
 )
 
 log = logging.getLogger(__name__)
+
+# A component parser: takes the component node, returns one parsed dict or a list of them.
+ParserFunc = Callable[[Node], Any]
 
 
 class Component:
@@ -47,17 +51,17 @@ class Component:
         self.section = section
         self.type = type
         self.cmpt_rank = cmpt_rank
-        self.result_list: list[dict] = []
+        self.result_list: list[dict[str, Any]] = []
 
     def __str__(self) -> str:
         return str(vars(self))
 
-    def to_dict(self) -> dict:
+    def to_dict(self) -> dict[str, Any]:
         # Shallow copy so callers can't mutate the Component's attribute table
         # through the returned dict (``__dict__`` is the live instance namespace).
         return dict(self.__dict__)
 
-    def classify_component(self, classify_type_func: Callable | None = None):
+    def classify_component(self, classify_type_func: Callable[[Node], str] | None = None) -> None:
         """Classify the component type"""
         if classify_type_func:
             self.type = classify_type_func(self.elem)
@@ -68,7 +72,7 @@ class Component:
                 elif self.section == "footer":
                     self.type = ClassifyFooter.classify(self.elem)
 
-    def select_parser(self, parser_type_func: Callable | None = None) -> Callable | None:
+    def select_parser(self, parser_type_func: ParserFunc | None = None) -> ParserFunc | None:
         """Return the parser for this component, or ``None`` if the (known)
         type has no registered parser -- the caller reports that as a
         ``"not implemented"`` error."""
@@ -84,7 +88,7 @@ class Component:
             return main_parser_dict.get(self.type)
         return None
 
-    def run_parser(self, parser_func: Callable) -> list:
+    def run_parser(self, parser_func: ParserFunc) -> Any:
         log.debug(f"parsing: {self.cmpt_rank} | {self.section} | {self.type}")
         try:
             parsed_list = parser_func(self.elem)
@@ -92,7 +96,7 @@ class Component:
             parsed_list = self.create_parsed_list_error(ERR_EXCEPTION, is_exception=True)
         return parsed_list
 
-    def parse_component(self, parser_type_func: Callable | None = None):
+    def parse_component(self, parser_type_func: ParserFunc | None = None) -> None:
 
         if not self.type:
             parsed_list = self.create_parsed_list_error(ERR_NULL_TYPE)
@@ -113,7 +117,9 @@ class Component:
         parsed_list = parsed_list if isinstance(parsed_list, list) else [parsed_list]
         self.add_parsed_result_list(parsed_list)
 
-    def create_parsed_list_error(self, error_msg: str, is_exception: bool = False) -> list:
+    def create_parsed_list_error(
+        self, error_msg: str, is_exception: bool = False
+    ) -> list[dict[str, Any]]:
         error_traceback = ""
         if is_exception:
             log.exception(f"{error_msg}: {self.cmpt_rank} | {self.section} | {self.type}")
@@ -129,11 +135,11 @@ class Component:
             }
         ]
 
-    def add_parsed_result_list(self, parsed_result_list):
+    def add_parsed_result_list(self, parsed_result_list: list[dict[str, Any]]) -> None:
         for parsed_result in parsed_result_list:
             self.add_parsed_result(parsed_result)
 
-    def add_parsed_result(self, parsed_result):
+    def add_parsed_result(self, parsed_result: dict[str, Any]) -> None:
         """Add a parsed result with BaseResult validation to results_list"""
         parsed_result_validated = BaseResult(**parsed_result).model_dump()
         self.result_list.append(parsed_result_validated)

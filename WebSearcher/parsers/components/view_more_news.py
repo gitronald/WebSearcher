@@ -4,13 +4,15 @@ Highly similar to the vertically stacked Top Stories and Latest news layouts,
 but distinguished by a news icon in the top left.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ._common import mark_timestamp_row
 
 
-def parse_view_more_news(elem) -> list:
+def parse_view_more_news(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     container = node.css_first("div.qmv19b")
     if container is not None:
@@ -23,12 +25,12 @@ def parse_view_more_news(elem) -> list:
         ]
     else:
         carousel = node.css_first("g-scrolling-carousel")
-        subs = list(carousel.css("g-inner-card")) if carousel is not None else []
+        subs = list(carousel.css("g-inner-card")) if carousel is not None else list[Node]()
     return [parse_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_sub(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "view_more_news", "sub_rank": sub_rank}
+def parse_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "view_more_news", "sub_rank": sub_rank}
     title_div = sub.css_first("div.jBgGLd")
     a = sub.css_first("a")
     parsed["title"] = get_text(title_div) if title_div is not None else None

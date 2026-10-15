@@ -4,21 +4,23 @@ A carousel of thumbnail images linking to streaming providers / entertainment
 options relevant to the query.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
 from ._common import mark_hidden_item
 
 
-def parse_available_on(elem, sub_rank: int = 0) -> list:
+def parse_available_on(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed: dict = {"type": "available_on", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "available_on", "sub_rank": sub_rank}
     parsed["title"] = get_text(node.css_first("span.GzssTd"), " ") or get_text(
         node.css_first("span.mgAbYb"), " "
     )
     parsed["details"] = None
 
-    items: list[dict] = []
+    items: list[dict[str, Any]] = []
 
     # Legacy layout: tile divs inside the widget; skip the empty ones.
     for item in node.css("div.kno-fb-ctx"):
@@ -37,7 +39,7 @@ def parse_available_on(elem, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_available_on_item(sub: Node) -> dict:
+def parse_available_on_item(sub: Node) -> dict[str, Any]:
     a = sub.css_first("a")
     item = {
         "url": a.attributes.get("href") if a is not None else None,
@@ -47,7 +49,7 @@ def parse_available_on_item(sub: Node) -> dict:
     return mark_hidden_item(item, sub)
 
 
-def parse_available_on_item_modern(a: Node) -> dict:
+def parse_available_on_item_modern(a: Node) -> dict[str, Any]:
     item = {
         "url": a.attributes.get("href"),
         "text": get_text(a.css_first("div.bclEt"), " "),

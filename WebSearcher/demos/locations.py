@@ -2,13 +2,14 @@
 
 import csv
 from pathlib import Path
+from typing import Any
 
 import WebSearcher as ws
 
 from ._common import _default_data_dir, _print_results_table
 
 
-def _find_location(csv_path: Path, canonical_name: str) -> dict | None:
+def _find_location(csv_path: Path, canonical_name: str) -> dict[str, Any] | None:
     """Return the geotargets row whose 'Canonical Name' matches, or None (stdlib csv)."""
     with open(csv_path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):

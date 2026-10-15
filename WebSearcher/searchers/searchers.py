@@ -1,5 +1,7 @@
 from importlib import metadata
 from pathlib import Path
+from types import TracebackType
+from typing import Any
 
 from .. import logger, utils
 from ..models.configs import (
@@ -24,9 +26,9 @@ class SearchEngine:
     def __init__(
         self,
         method: str | SearchMethod = SearchMethod.PATCHRIGHT,
-        log_config: dict | LogConfig = {},
-        requests_config: dict | RequestsConfig = {},
-        patchright_config: dict | PatchrightConfig = {},
+        log_config: dict[str, Any] | LogConfig = {},
+        requests_config: dict[str, Any] | RequestsConfig = {},
+        patchright_config: dict[str, Any] | PatchrightConfig = {},
         crawl_id: str = "",
     ) -> None:
         """Initialize the search engine
@@ -88,7 +90,12 @@ class SearchEngine:
     def __enter__(self) -> "SearchEngine":
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        exc_tb: TracebackType | None,
+    ) -> None:
         self.close()
 
     def search(
@@ -215,7 +222,7 @@ class SearchEngine:
         self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
         utils.write_lines([self.serp_metadata], append_to)
 
-    def to_record(self) -> dict:
+    def to_record(self) -> dict[str, Any]:
         """Build one merged per-SERP record: metadata (excludes HTML) + features + results.
 
         Each key appears once. Identity and metadata are taken from ``self.serp``;

@@ -97,7 +97,7 @@ class ClassifyMainHeader:
     """Classify a main-section component by its h2/h3 header text."""
 
     @staticmethod
-    def classify(cmpt, levels: tuple[int, ...] = (2, 3)) -> str:
+    def classify(cmpt: Node, levels: tuple[int, ...] = (2, 3)) -> str:
         node: Node = cmpt
         # A whole-page entity panel (``kp-wholepage-osrp``) can embed sub-carousels
         # ("People also search for") and feedback affordances whose level-2 headings
@@ -133,7 +133,7 @@ class ClassifyMain:
     """Classify a component from the main section based on its selectolax Node."""
 
     @staticmethod
-    def classify(cmpt) -> str:
+    def classify(cmpt: Node) -> str:
         node: Node = cmpt
         signals = _ComponentSignals(node)
 
@@ -226,7 +226,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def discussions_and_forums(cmpt) -> str:
+    def discussions_and_forums(cmpt: Node) -> str:
         node: Node = cmpt
         # bs4 ``find("div", {"class": "IFnjPb", "role": "heading"})`` = AND of
         # both conditions; CSS compound div.IFnjPb[role="heading"] = same.
@@ -238,7 +238,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def images_strip(cmpt) -> str:
+    def images_strip(cmpt: Node) -> str:
         """Type the left-bar/inline "Images" thumbnail strip as ``images``.
 
         The older layout (root ``div.TzHB6b``) labels a small image/video result
@@ -255,7 +255,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def gallery(cmpt) -> str:
+    def gallery(cmpt: Node) -> str:
         """Type the async discovery gallery ("What to read", "Courses", "Explore
         stocks", ...) by its title ``data-attrid``.
 
@@ -273,7 +273,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def dictionary_panel(cmpt) -> str:
+    def dictionary_panel(cmpt: Node) -> str:
         """Type the Oxford Languages word-definition panel as ``knowledge``.
 
         The dictionary "definition on board" box carries a ``div.dob-modules``
@@ -290,7 +290,7 @@ class ClassifyMain:
         return "knowledge" if node.css_first("div.dob-modules") is not None else "unknown"
 
     @staticmethod
-    def available_on(cmpt) -> str:
+    def available_on(cmpt: Node) -> str:
         node: Node = cmpt
         for heading in node.css("span.mgAbYb"):
             if (get_text(heading, strip=True) or "") == "Available on":
@@ -299,14 +299,14 @@ class ClassifyMain:
         return "available_on" if "/Available on" in text else "unknown"
 
     @staticmethod
-    def banner(cmpt) -> str:
+    def banner(cmpt: Node) -> str:
         node: Node = cmpt
         if "ULSxyf" not in class_tokens(node):
             return "unknown"
         return "banner" if node.css_first("div.uzjuFc") is not None else "unknown"
 
     @staticmethod
-    def buying_guide(cmpt) -> str:
+    def buying_guide(cmpt: Node) -> str:
         """Classify a faceted "Buying guide" accordion by its row class.
 
         ``div.ITWcLb`` rows are buying_guide's unique, stable structural signal,
@@ -318,7 +318,7 @@ class ClassifyMain:
         return "buying_guide" if node.css_first("div.ITWcLb") is not None else "unknown"
 
     @staticmethod
-    def finance_panel(cmpt) -> str:
+    def finance_panel(cmpt: Node) -> str:
         node: Node = cmpt
         return (
             "knowledge"
@@ -327,7 +327,7 @@ class ClassifyMain:
         )
 
     @staticmethod
-    def flights(cmpt) -> str:
+    def flights(cmpt: Node) -> str:
         node: Node = cmpt
         # The flight-status widget renders its heading as a bare <h2> with no
         # role="heading", so check both.
@@ -337,7 +337,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def general(cmpt) -> str:
+    def general(cmpt: Node) -> str:
         """Classify general components."""
         node: Node = cmpt
         node_id = node.mem_id
@@ -361,7 +361,7 @@ class ClassifyMain:
         return "general" if any(conditions.values()) else "unknown"
 
     @staticmethod
-    def election(cmpt) -> str:
+    def election(cmpt: Node) -> str:
         """Classify the live election-results tracker (``eer`` = election results).
 
         Its ``h2`` ("Election results for the … are updated live …") carries no
@@ -377,14 +377,14 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def general_questions(cmpt) -> str:
+    def general_questions(cmpt: Node) -> str:
         node: Node = cmpt
         hybrid = node.css_first("div.ifM9O")
         g_accordion = node.css_first("g-accordion")
         return "general_questions" if hybrid is not None and g_accordion is not None else "unknown"
 
     @staticmethod
-    def img_cards(cmpt) -> str:
+    def img_cards(cmpt: Node) -> str:
         node: Node = cmpt
         if "class" not in node.attributes:
             return "unknown"
@@ -394,14 +394,14 @@ class ClassifyMain:
         return "img_cards" if node.css_first("block-component") is not None else "unknown"
 
     @staticmethod
-    def images(cmpt) -> str:
+    def images(cmpt: Node) -> str:
         node: Node = cmpt
         if node.css_first('div[id="imagebox_bigimages"], div[id="iur"]') is not None:
             return "images"
         return "unknown"
 
     @staticmethod
-    def ai_overview(cmpt) -> str:
+    def ai_overview(cmpt: Node) -> str:
         """Classify AI Overview components.
 
         Skip the sibling "Related Links" expansion that also contains a
@@ -418,7 +418,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def ai_overview_banner(cmpt) -> str:
+    def ai_overview_banner(cmpt: Node) -> str:
         """Classify the standalone AI-overview loading/unavailable banner.
 
         SERPs serialized mid-generation ("Thinking") or after Google declined
@@ -455,7 +455,7 @@ class ClassifyMain:
     )
 
     @staticmethod
-    def knowledge_submodule(cmpt) -> str:
+    def knowledge_submodule(cmpt: Node) -> str:
         """Classify knowledge-panel submodules splatted into the main column.
 
         Standalone entity-attribute modules (Movies, Played by, Calories, ...)
@@ -485,7 +485,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def hotel_carousel(cmpt) -> str:
+    def hotel_carousel(cmpt: Node) -> str:
         """Classify hotel carousels whose heading evades the ``locations`` rule.
 
         "Similar to <hotel>" / "Popular hotels in <place>" / "More <brand>"
@@ -505,14 +505,14 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def knowledge_block(cmpt) -> str:
+    def knowledge_block(cmpt: Node) -> str:
         node: Node = cmpt
         if class_tokens(node) != ["ULSxyf"]:
             return "unknown"
         return "knowledge" if node.css_first("block-component") is not None else "unknown"
 
     @staticmethod
-    def knowledge_box(cmpt) -> str:
+    def knowledge_box(cmpt: Node) -> str:
         """Classify knowledge component types."""
         node: Node = cmpt
         attrs = node.attributes
@@ -553,7 +553,7 @@ class ClassifyMain:
     )
 
     @staticmethod
-    def knowledge_panel(cmpt) -> str:
+    def knowledge_panel(cmpt: Node) -> str:
         node: Node = cmpt
         if node.css_first(ClassifyMain._KNOWLEDGE_PANEL_CSS) is not None:
             return "knowledge"
@@ -563,19 +563,19 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def local_results(cmpt) -> str:
+    def local_results(cmpt: Node) -> str:
         node: Node = cmpt
         if node.css_first("div.Qq3Lb, div.VkpGBb") is not None:
             return "local_results"
         return "unknown"
 
     @staticmethod
-    def map_result(cmpt) -> str:
+    def map_result(cmpt: Node) -> str:
         node: Node = cmpt
         return "map_results" if node.css_first("div.lu_map_section") is not None else "unknown"
 
     @staticmethod
-    def people_also_ask(cmpt) -> str:
+    def people_also_ask(cmpt: Node) -> str:
         """Secondary check for people also ask (header text is primary)."""
         node: Node = cmpt
         # bs4 ``check_dict_value(cmpt.attrs, "class", ["g","kno-kp","mnr-c","g-blk"])``
@@ -587,7 +587,7 @@ class ClassifyMain:
         )
 
     @staticmethod
-    def products(cmpt) -> str:
+    def products(cmpt: Node) -> str:
         """Classify organic shopping packs that otherwise fall into ``general``."""
         node: Node = cmpt
         if node.css_first('[data-attrid="apg-product-result"]') is not None:
@@ -608,12 +608,12 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def promo(cmpt) -> str:
+    def promo(cmpt: Node) -> str:
         node: Node = cmpt
         return "promo" if node.css_first("promo-throttler") is not None else "unknown"
 
     @staticmethod
-    def short_videos(cmpt) -> str:
+    def short_videos(cmpt: Node) -> str:
         node: Node = cmpt
         heading = node.css_first('span[role="heading"].IFnjPb')
         if heading is not None and (get_text(heading, strip=True) or "") == "Short videos":
@@ -621,7 +621,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def videos(cmpt) -> str:
+    def videos(cmpt: Node) -> str:
         """Classify video carousel components."""
         node: Node = cmpt
         return (
@@ -631,7 +631,7 @@ class ClassifyMain:
         )
 
     @staticmethod
-    def knowledge_subcard(cmpt) -> str:
+    def knowledge_subcard(cmpt: Node) -> str:
         """Catch knowledge-panel extension subcards by structural pattern."""
         node: Node = cmpt
         if node.css_first("div.JNkvid") is None:
@@ -641,7 +641,7 @@ class ClassifyMain:
         return "knowledge"
 
     @staticmethod
-    def locations(cmpt) -> str:
+    def locations(cmpt: Node) -> str:
         """Classify locations components (hotels, etc.)."""
         node: Node = cmpt
         heading = node.css_first('[role="heading"]')
@@ -654,7 +654,7 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
-    def top_stories(cmpt) -> str:
+    def top_stories(cmpt: Node) -> str:
         node: Node = cmpt
         if node.css_first("g-scrolling-carousel") is None:
             return "unknown"
@@ -663,20 +663,20 @@ class ClassifyMain:
         return "top_stories"
 
     @staticmethod
-    def news_quotes(cmpt) -> str:
+    def news_quotes(cmpt: Node) -> str:
         node: Node = cmpt
         header_div = node.css_first('g-tray-header[role="heading"]')
         text = get_text(header_div, strip=True) if header_div is not None else None
         return "news_quotes" if text == "News quotes" else "unknown"
 
     @staticmethod
-    def twitter(cmpt) -> str:
+    def twitter(cmpt: Node) -> str:
         node: Node = cmpt
         cmpt_type = "twitter" if node.css_first("div.eejeod") is not None else "unknown"
         return ClassifyMain.twitter_type(node, cmpt_type)
 
     @staticmethod
-    def twitter_type(cmpt, cmpt_type: str = "unknown") -> str:
+    def twitter_type(cmpt: Node, cmpt_type: str = "unknown") -> str:
         """Distinguish twitter types ('twitter_cards', 'twitter_result')."""
         node: Node = cmpt
         if cmpt_type == "twitter" or (get_text(node, strip=True) or "") == "Twitter Results":

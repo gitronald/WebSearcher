@@ -8,13 +8,14 @@ table. Runtime-deps-only (stdlib table helper, no polars), so it runs on a plain
 
 import json
 from pathlib import Path
+from typing import Any
 
 import WebSearcher as ws
 
 from ._common import _default_data_dir, _print_results_table
 
 
-def _details_summary(d: dict | None) -> str:
+def _details_summary(d: dict[str, Any] | None) -> str:
     """One-line summary of a result's ``details`` payload (for the optional column)."""
     if not d:
         return "-"
@@ -50,7 +51,7 @@ def show(
     list_queries: bool = False,
     details: bool = False,
     max_width: int = 60,
-) -> dict | None:
+) -> dict[str, Any] | None:
     """Parse the saved SERP for ``query`` (from ``{data_dir}/serps.json``) and print it.
 
     Returns the parsed dict, or ``None`` when listing queries or no match is found.

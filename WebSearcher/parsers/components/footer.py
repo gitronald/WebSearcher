@@ -4,20 +4,22 @@ Image-card grids, "discover more" carousels, and the omitted-results notice
 that appear under the main results column.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
 from ._common import mark_hidden_item, mark_hidden_row
 
 
-def parse_img_cards(elem) -> list:
+def parse_img_cards(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     subs = [d for d in node.css("div.g") if d.mem_id != node.mem_id and has_text(d)]
     return [parse_img_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_img_card(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "img_cards", "sub_rank": sub_rank}
+def parse_img_card(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "img_cards", "sub_rank": sub_rank}
     parsed["title"] = get_text(sub.css_first('div[aria-level="3"][role="heading"]'), " ")
     images = sub.css("img")
     if images:
@@ -30,7 +32,7 @@ def parse_img_card(sub: Node, sub_rank: int = 0) -> dict:
     return mark_hidden_row(parsed, sub)
 
 
-def parse_discover_more(elem) -> list:
+def parse_discover_more(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     carousel = node.css_first("g-scrolling-carousel")
     text = (
@@ -41,6 +43,6 @@ def parse_discover_more(elem) -> list:
     return [{"type": "discover_more", "sub_rank": 0, "text": text}]
 
 
-def parse_omitted_notice(elem) -> list:
+def parse_omitted_notice(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     return [{"type": "omitted_notice", "sub_rank": 0, "text": get_text(node, " ")}]

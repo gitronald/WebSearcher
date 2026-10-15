@@ -5,6 +5,8 @@ captured as the sub_type so downstream code can distinguish variants like
 "what people are saying".
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
@@ -12,7 +14,7 @@ from ...utils import slugify
 from .top_stories import parse_top_stories
 
 
-def parse_perspectives(elem) -> list:
+def parse_perspectives(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     header = node.css_first('[aria-level="2"][role="heading"]') or node.css_first(
         'h2[role="heading"]'

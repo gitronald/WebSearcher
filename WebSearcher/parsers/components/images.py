@@ -5,14 +5,16 @@ title and URL), and a multimedia carousel (image / video previews without
 text). Each subcomponent is tagged with the matching sub_type.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_images(elem) -> list:
+def parse_images(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list = []
+    parsed_list: list[dict[str, Any]] = []
 
     if node.css_first("g-expandable-container") is not None:
         # Small images: thumbnails with text labels
@@ -38,7 +40,7 @@ def parse_images(elem) -> list:
     return [p for p in parsed_list if any([p["title"], p["url"]])]
 
 
-def parse_image_strip(node: Node) -> list:
+def parse_image_strip(node: Node) -> list[dict[str, Any]]:
     by_url: dict[str, str] = {}
     captioned: set[str] = set()
     for anchor in node.css("a[href]"):
@@ -65,7 +67,7 @@ def parse_image_strip(node: Node) -> list:
     ]
 
 
-def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:
+def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     return {
         "type": "images",
         "sub_type": "multimedia",
@@ -76,7 +78,7 @@ def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict:
     }
 
 
-def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict:
+def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     title_a = sub.css_first("a.EZAeBe")
     title = (
         get_text(title_a, " ")
@@ -106,7 +108,7 @@ def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict:
     }
 
 
-def parse_image_small(sub: Node, sub_rank: int = 0) -> dict:
+def parse_image_small(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     return {
         "type": "images",
         "sub_type": "small",

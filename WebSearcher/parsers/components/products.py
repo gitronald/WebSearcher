@@ -14,6 +14,7 @@ schema produced by :mod:`WebSearcher.parsers.components.shopping_ads`.
 """
 
 import re
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -22,7 +23,7 @@ from ..._slx import get_text
 _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
 
-def parse_products(elem) -> list:
+def parse_products(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     # Family B: immersive product grid (no links). Modern cards are
     # data-attrid="apg-product-result"; older cards are g-inner-card. Both use
@@ -41,10 +42,10 @@ def parse_products(elem) -> list:
     return []
 
 
-def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict:
+def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     title = _img_alt(card) or _text(card, "div.gkQHve")
 
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "products",
         "sub_type": "grid",
         "sub_rank": sub_rank,
@@ -54,7 +55,7 @@ def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict:
         "cite": _text(card, "span.WJMUdc"),  # store / merchant name
     }
 
-    details: dict = {"type": "ratings"}
+    details: dict[str, Any] = {"type": "ratings"}
     price = _text(card, "span.lmQWe") or _first_price(card)
     if price:
         details["price"] = price
@@ -72,11 +73,11 @@ def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict:
+def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     link = card.css_first("a.J0tlkf")
     brand = _text(card, "span.V8apnb") or _img_alt(card)
 
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "products",
         "sub_type": "brands",
         "sub_rank": sub_rank,
@@ -86,7 +87,7 @@ def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict:
         "cite": None,
     }
 
-    details: dict = {"type": "ratings"}
+    details: dict[str, Any] = {"type": "ratings"}
     rating = _text(card, "span.yi40Hd")
     if rating:
         details["rating"] = rating

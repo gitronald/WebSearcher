@@ -47,9 +47,9 @@ PROFILES_DIR = BENCH_DIR / "profiles"
 SCHEMA_VERSION = 1
 
 
-def load_records(fixtures: list[Path], limit: int | None) -> list[dict]:
+def load_records(fixtures: list[Path], limit: int | None) -> list[dict[str, Any]]:
     """Load SERP records from one or more bz2-compressed JSON-lines fixtures."""
-    records: list[dict] = []
+    records: list[dict[str, Any]] = []
     for path in fixtures:
         with bz2.open(path, "rt") as f:
             records.extend(orjson.loads(line) for line in f)
@@ -61,7 +61,7 @@ def mad(values: list[float], center: float) -> float:
     return statistics.median(abs(v - center) for v in values)
 
 
-def git_info() -> dict:
+def git_info() -> dict[str, Any]:
     """Best-effort git sha/branch/dirty for stamping benchmark records."""
 
     def _git(*args: str) -> str:
@@ -80,7 +80,7 @@ def git_info() -> dict:
     }
 
 
-def run_metadata(paths: list[Path], n_serps: int, iterations: int) -> dict:
+def run_metadata(paths: list[Path], n_serps: int, iterations: int) -> dict[str, Any]:
     """Common version/corpus metadata stamped on every results.jsonl row.
 
     The `id` (UTC timestamp + short sha) doubles as the profile filename, so a
@@ -101,7 +101,7 @@ def run_metadata(paths: list[Path], n_serps: int, iterations: int) -> dict:
     }
 
 
-def append_result(record: dict) -> None:
+def append_result(record: dict[str, Any]) -> None:
     """Append one JSON record (newline-delimited) to the cumulative results log."""
     BENCH_DIR.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_PATH, "ab") as f:
@@ -134,7 +134,9 @@ def percentile(values: list[float], pct: float) -> float:
     return s[lo] + (s[hi] - s[lo]) * (k - lo)
 
 
-def run_benchmark(htmls: list[str], iterations: int, runs: int, meta: dict, save: bool) -> None:
+def run_benchmark(
+    htmls: list[str], iterations: int, runs: int, meta: dict[str, Any], save: bool
+) -> None:
     """Time the corpus over `runs` passes and report per-SERP and per-run stats."""
     print(f"\nBenchmark: {iterations} iterations x {runs} runs\n")
 
@@ -186,7 +188,7 @@ def run_benchmark(htmls: list[str], iterations: int, runs: int, meta: dict, save
         print(f"\nSaved benchmark row to {RESULTS_PATH.relative_to(REPO_ROOT)} (id={meta['id']})")
 
 
-def profile_top(stats: Any, sort: str, top: int) -> list[dict]:
+def profile_top(stats: Any, sort: str, top: int) -> list[dict[str, Any]]:
     """Top functions by the chosen sort key, as structured rows for the log.
 
     `stats` is typed Any because the runtime `.stats` dict (key -> (cc, nc, tt,
@@ -206,7 +208,13 @@ def profile_top(stats: Any, sort: str, top: int) -> list[dict]:
 
 
 def run_profile(
-    htmls: list[str], iterations: int, sort: str, out: Path | None, top: int, meta: dict, save: bool
+    htmls: list[str],
+    iterations: int,
+    sort: str,
+    out: Path | None,
+    top: int,
+    meta: dict[str, Any],
+    save: bool,
 ) -> None:
     """cProfile the corpus, print top functions, and save the .prof + a results row."""
     print(f"\nProfiling {len(htmls)} SERPs x {iterations} iterations (sort={sort})\n")
