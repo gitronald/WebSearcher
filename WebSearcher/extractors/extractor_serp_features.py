@@ -1,4 +1,5 @@
 import re
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -78,7 +79,7 @@ class FeatureExtractor:
         return script_match.group(0) if script_match else None
 
     @staticmethod
-    def _parse_result_estimate(stats_html: str | None) -> dict:
+    def _parse_result_estimate(stats_html: str | None) -> dict[str, Any]:
         """Parse count/time from the serialized result-stats div markup."""
         if not stats_html:
             return {"result_estimate_count": None, "result_estimate_time": None}
@@ -92,7 +93,7 @@ class FeatureExtractor:
         }
 
     @staticmethod
-    def _extract_from_html(html: str) -> dict:
+    def _extract_from_html(html: str) -> dict[str, Any]:
         """Regex over the original markup -- no re-serialization cost."""
         stats_html = FeatureExtractor._find_result_stats_html(html)
         lang_match = RX_LANGUAGE.search(html)
@@ -104,7 +105,7 @@ class FeatureExtractor:
         }
 
     @staticmethod
-    def _extract_from_soup(soup: Node) -> dict:
+    def _extract_from_soup(soup: Node) -> dict[str, Any]:
         """Structural lookups -- avoids serializing the whole document."""
         stats_div = soup.css_first('div[id="result-stats"]')
         if stats_div is not None:

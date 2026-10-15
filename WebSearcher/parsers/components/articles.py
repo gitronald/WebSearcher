@@ -6,12 +6,14 @@ external publisher with a "<publisher> <headline>" caption. Rendered with a
 thumbnail anchor plus a caption anchor to the same url, so dedupe by url.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_articles(elem) -> list:
+def parse_articles(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     by_url: dict[str, str | None] = {}
     for anchor in node.css("a[href]"):

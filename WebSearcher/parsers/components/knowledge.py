@@ -6,6 +6,8 @@ sports, weather, finance, dictionary, translation, calculator, election
 results, "things to know", and the generic panel layout.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, node_string, walk_descendants
@@ -14,7 +16,7 @@ from ._common import parse_alink
 from .general import parse_general_result
 
 
-def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
+def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
 
     # kp-wholepage VisualDigest band: a digest of entity facts + a featured web
@@ -31,7 +33,7 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
     if section_rows is not None:
         return section_rows
 
-    parsed: dict = {"type": "knowledge", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "knowledge", "sub_rank": sub_rank}
 
     # Embedded result: space-join multi-fragment text so titles like
     # "Donald Trump 45th and 47th U.S. President" stay readable.
@@ -48,7 +50,7 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
         node.css_first('div[role="heading"][aria-level="3"]'), " ", strip=True
     )
 
-    details: dict = {}
+    details: dict[str, Any] = {}
 
     heading = node.css_first('div[role="heading"]')
     if heading is not None and (heading_text := get_text(heading, " ", strip=True)):
@@ -104,7 +106,9 @@ def parse_knowledge_panel(elem, sub_rank: int = 0) -> list:
 # its text is not in the known set, so the panel fallback does not also run.
 
 
-def _subtype_wholepage_header(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_wholepage_header(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     """The kp-wholepage panel header: entity title, descriptor, and the tab nav
     strip (Overview / Songs / Albums / Events / ...).
 
@@ -138,7 +142,9 @@ def _subtype_wholepage_header(node: Node, parsed: dict, details: dict, h2_text: 
     return True
 
 
-def _subtype_featured_results(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_featured_results(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     pxiwbd = node.css_first("div.pxiwBd")
     if pxiwbd is None:
         return False
@@ -151,7 +157,9 @@ def _subtype_featured_results(node: Node, parsed: dict, details: dict, h2_text: 
     return True
 
 
-def _subtype_featured_snippet(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_featured_snippet(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if not (
         h2_text == "Featured snippet from the web"
         or node.css_first("div.answered-question") is not None
@@ -170,7 +178,9 @@ def _subtype_featured_snippet(node: Node, parsed: dict, details: dict, h2_text: 
     return True
 
 
-def _subtype_unit_converter(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_unit_converter(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if h2_text != "Unit Converter":
         return False
     parsed["sub_type"] = "unit_converter"
@@ -179,7 +189,9 @@ def _subtype_unit_converter(node: Node, parsed: dict, details: dict, h2_text: st
     return True
 
 
-def _subtype_sports(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_sports(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if h2_text != "Sports Results":
         return False
     parsed["sub_type"] = "sports"
@@ -190,14 +202,18 @@ def _subtype_sports(node: Node, parsed: dict, details: dict, h2_text: str) -> bo
     return True
 
 
-def _subtype_weather(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_weather(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if h2_text != "Weather Result":
         return False
     parsed["sub_type"] = "weather"
     return True
 
 
-def _subtype_finance(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_finance(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if not (
         h2_text == "Finance Results"
         or node.css_first('div[id="knowledge-finance-wholepage__entity-summary"]') is not None
@@ -207,7 +223,9 @@ def _subtype_finance(node: Node, parsed: dict, details: dict, h2_text: str) -> b
     return True
 
 
-def _subtype_dictionary(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_dictionary(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     is_dictionary = node.css_first('div[data-attrid="DictionaryHeader"]') is not None or (
         (button := node.css_first('div[role="button"]')) is not None
         and (get_text(button) or "") == "Dictionary"
@@ -242,7 +260,9 @@ def _subtype_dictionary(node: Node, parsed: dict, details: dict, h2_text: str) -
     return True
 
 
-def _subtype_translate(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_translate(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if h2_text not in ("Translation Result", "Resultado de traducción"):
         return False
     parsed["sub_type"] = "translate"
@@ -251,14 +271,18 @@ def _subtype_translate(node: Node, parsed: dict, details: dict, h2_text: str) ->
     return True
 
 
-def _subtype_calculator(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_calculator(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if h2_text != "Calculator Result":
         return False
     parsed["sub_type"] = "calculator"
     return True
 
 
-def _subtype_election(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_election(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if details.get("heading") != "2020 US election results":
         return False
     parsed["sub_type"] = "election"
@@ -267,7 +291,9 @@ def _subtype_election(node: Node, parsed: dict, details: dict, h2_text: str) -> 
     return True
 
 
-def _subtype_things_to_know(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_things_to_know(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     heading_span = node.css_first('span[role="heading"].IFnjPb')
     if heading_span is None:
         return False
@@ -281,7 +307,9 @@ def _subtype_things_to_know(node: Node, parsed: dict, details: dict, h2_text: st
     return True
 
 
-def _subtype_dynamic_section(node: Node, parsed: dict, details: dict, h2_text: str) -> bool:
+def _subtype_dynamic_section(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> bool:
     if node.css_first("div.JNkvid") is None:
         return False
     # A whole-page entity panel (kp-wholepage-osrp) is a generic "panel": an internal
@@ -311,7 +339,9 @@ def _subtype_dynamic_section(node: Node, parsed: dict, details: dict, h2_text: s
     return True
 
 
-def _subtype_panel(node: Node, parsed: dict, details: dict, h2_text: str) -> None:
+def _subtype_panel(
+    node: Node, parsed: dict[str, Any], details: dict[str, Any], h2_text: str
+) -> None:
     """Fallback handler: the generic panel layout (no specific sub_type matched)."""
     parsed["sub_type"] = "panel"
     # bs4 ``find_all(["span","div","a"], string=True)`` matches tags whose
@@ -373,7 +403,7 @@ def _visual_digest_kind(suffix: str) -> str:
     return (suffix[: -len("Result")] if suffix.endswith("Result") else suffix).lower()
 
 
-def _parse_visual_digest(node: Node) -> list:
+def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
     """Parse a kp-wholepage VisualDigest band (the ``featured_results`` panel).
 
     The band is a ``div.pxiwBd`` container whose sub-results -- an image collage,
@@ -385,7 +415,7 @@ def _parse_visual_digest(node: Node) -> list:
     new variant is captured rather than dropped. Image thumbnails are lazy-loaded
     1x1 gifs in the static HTML, so only the caption is recoverable.
     """
-    results: list[dict] = []
+    results: list[dict[str, Any]] = []
     emitted: set[int] = set()
     for n in node.css("[data-attrid]"):
         attrid = n.attributes.get("data-attrid") or ""
@@ -465,7 +495,7 @@ def _list_strings(node: Node, tag: str) -> list[str]:
     return out
 
 
-def _parse_song_item(li: Node) -> dict:
+def _parse_song_item(li: Node) -> dict[str, Any]:
     """A song listitem -> ``{title, album?, year?}``.
 
     The year is a trailing standalone 4-digit span; the album is the remaining
@@ -483,7 +513,7 @@ def _parse_song_item(li: Node) -> dict:
     return item
 
 
-def _parse_event_item(li: Node) -> dict:
+def _parse_event_item(li: Node) -> dict[str, Any]:
     """An upcoming-event listitem -> ``{date, time, location, venue}``.
 
     The four fields render as single-string divs in that fixed order (some
@@ -494,7 +524,7 @@ def _parse_event_item(li: Node) -> dict:
     return {k: v for k, v in zip(keys, fields)}
 
 
-def _parse_album_item(li: Node) -> dict:
+def _parse_album_item(li: Node) -> dict[str, Any]:
     """An album listitem -> ``{title, year}``.
 
     Visually an image grid, but the cover thumbnails are lazy-loaded 1x1 gifs in
@@ -516,7 +546,7 @@ _MUSIC_ITEM_PARSERS = {
 }
 
 
-def _parse_music_section(node: Node) -> list | None:
+def _parse_music_section(node: Node) -> list[dict[str, Any]] | None:
     """Parse a kp-wholepage music-artist section into a single component row.
 
     The section is kept as one ``knowledge`` row carrying the section label as
@@ -556,7 +586,7 @@ def _join_texts(div: list[Node]) -> str:
     return "|".join(get_text(d, separator=" ") or "" for d in div if (get_text(d) or ""))
 
 
-def _first_external_link(node: Node) -> dict | None:
+def _first_external_link(node: Node) -> dict[str, Any] | None:
     """Return the first absolute (external) anchor (url + text) within ``node``.
 
     Skips root-relative Google links (``/search?``, ``/intl/...`` disclaimers,

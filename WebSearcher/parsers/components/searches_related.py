@@ -5,6 +5,9 @@ include the classic suggestion list, curated lists (e.g. song names),
 accordion-style sections, and link rows under "brs_col".
 """
 
+from collections.abc import Iterable
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
@@ -12,7 +15,7 @@ from ...utils import slugify
 from .ads import _parse_ad_standard_sub
 
 
-def parse_searches_related(elem, sub_rank: int = 0) -> list:
+def parse_searches_related(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
 
     # The "Find related products & services" module renders as one block with
@@ -25,7 +28,7 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
     ]
     sub_rank += len(ad_rows)
 
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "searches_related",
         "sub_rank": sub_rank,
         "title": None,
@@ -44,7 +47,7 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
 
     output_list: list[str] = []
 
-    def _push(items):
+    def _push(items: Iterable[Node]) -> None:
         for item in items:
             text = (get_text(item) or "").strip()
             if text:
@@ -82,7 +85,7 @@ def parse_searches_related(elem, sub_rank: int = 0) -> list:
 
     parsed["text"] = "<|>".join(output_list)
     if output_list or dropdown_list:
-        details: dict = {"type": "text", "items": output_list}
+        details: dict[str, Any] = {"type": "text", "items": output_list}
         if dropdown_list:
             details["dropdown"] = dropdown_list
         if header:

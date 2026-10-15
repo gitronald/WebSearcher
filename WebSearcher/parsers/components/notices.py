@@ -10,6 +10,7 @@ on visible text.
 
 import re
 from collections.abc import Callable
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -38,7 +39,7 @@ _SUB_TYPE_TEXT: dict[str, set[str]] = {
 }
 
 
-def parse_notices(elem) -> list:
+def parse_notices(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     sub_type = _classify_sub_type(node)
     sub_parser = _SUB_TYPE_PARSERS.get(sub_type)
@@ -69,7 +70,7 @@ def _classify_sub_type(node: Node) -> str:
     return "unknown"
 
 
-def _parse_no_results_replacement(node: Node) -> dict:
+def _parse_no_results_replacement(node: Node) -> dict[str, Any]:
     output: dict[str, str | None] = {"title": None, "text": None}
 
     # bs4 ``copy.copy(node)`` cloned the subtree so the subsequent
@@ -88,7 +89,7 @@ def _parse_no_results_replacement(node: Node) -> dict:
     return output
 
 
-def _parse_query_edit(node: Node) -> dict:
+def _parse_query_edit(node: Node) -> dict[str, Any]:
     title = get_text(node.css_first("span.gL9Hy"), " ", strip=True)
     modified = get_text(node.css_first("a#fprsl"), " ", strip=True)
     if title and modified:
@@ -102,7 +103,7 @@ def _parse_query_edit(node: Node) -> dict:
     return {"title": title, "text": text}
 
 
-def _parse_query_suggestion(node: Node) -> dict:
+def _parse_query_suggestion(node: Node) -> dict[str, Any]:
     title = None
     for name in ("span", "div"):
         title = get_text(node.css_first(f"{name}.gL9Hy"), " ", strip=True)
@@ -114,7 +115,7 @@ def _parse_query_suggestion(node: Node) -> dict:
     return {"title": title, "text": "<|>".join(suggestions)}
 
 
-def _parse_location_heading(node: Node) -> dict:
+def _parse_location_heading(node: Node) -> dict[str, Any]:
     heading = node.css_first("div.eKPi4")
     if heading is None:
         return {"title": None, "text": None}
@@ -124,7 +125,7 @@ def _parse_location_heading(node: Node) -> dict:
     return {"title": title, "text": None}
 
 
-def _parse_language_tip(node: Node) -> dict:
+def _parse_language_tip(node: Node) -> dict[str, Any]:
     title = get_text(node.css_first("div.Ww4FFb"), " ")
     return {
         "title": re.sub(r"\s+", " ", title) if title else None,
@@ -132,7 +133,7 @@ def _parse_language_tip(node: Node) -> dict:
     }
 
 
-def _parse_no_results(node: Node) -> dict:
+def _parse_no_results(node: Node) -> dict[str, Any]:
     """True-empty results page (#topstuff card): 'Your search - <qry> - did not
     match any documents.' followed by a 'Suggestions:' body. Title = the search
     line, text = the suggestions."""
@@ -146,7 +147,7 @@ def _parse_no_results(node: Node) -> dict:
     return {"title": title, "text": body or None}
 
 
-def _parse_query_truncated(node: Node) -> dict:
+def _parse_query_truncated(node: Node) -> dict[str, Any]:
     """32-word query-truncation card: '<token> (and any subsequent words) was
     ignored because we limit queries to 32 words.'"""
     text = re.sub(r"\s+", " ", (get_text(node) or "").strip())
@@ -154,7 +155,7 @@ def _parse_query_truncated(node: Node) -> dict:
 
 
 # type-name -> handler. Built once at import; ``location_*`` share a handler.
-_SUB_TYPE_PARSERS: dict[str, Callable[[Node], dict]] = {
+_SUB_TYPE_PARSERS: dict[str, Callable[[Node], dict[str, Any]]] = {
     "query_edit": _parse_query_edit,
     "query_edit_no_results": _parse_no_results_replacement,
     "query_suggestion": _parse_query_suggestion,

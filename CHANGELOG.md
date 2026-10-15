@@ -7,42 +7,94 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.6] - 2026-10-14
+
+### Changed
+
+- Type the whole package under pyrefly's strict preset (explicit type arguments on every `dict`/`list`, annotated parser and extractor signatures); annotations only, with the parser snapshot suite unchanged
+- Packaging: the project URLs use `https`, and the sdist allowlist is root-anchored
+- Dev tooling: synced CI, pre-commit, and tool config to proj-template 0.11.2 (ruff 0.17, a branch-coverage floor in CI, and the 3.12/3.13 CI cells now actually run on those Python versions)
+
+### Fixed
+
+- Fix the requests backend's error path storing raw `bytes` in the `str` `html` field of a search response: on a failed content decode it now stores `response.text`
+
+### Security
+
+- Relocked `urllib3` (2.8.0), `soupsieve`, and `virtualenv` past published advisories; the lockfile governs the repo's dev and CI environments, not installs from PyPI
+
 ## [0.11.5] - 2026-07-11
+
+### Changed
 
 - **Breaking (logging):** `import WebSearcher` no longer configures logging as a side effect. Ten modules ran `Logger().start()` at module scope, attaching the JSONL `StreamHandler` to the root logger and forcing root to DEBUG on bare import -- silently swallowing a later `logging.basicConfig(...)` in the importing application (root already had a handler, so `basicConfig` no-ops) and raising verbosity process-wide. Those modules now use plain `logging.getLogger(__name__)` loggers and the package installs a `NullHandler` on its own logger -- the standard library pattern: root belongs to the application, and a `basicConfig` after import now takes effect. Import likewise no longer force-sets third-party logger levels (`requests`/`urllib3` to WARNING, `asyncio`/`chardet.charsetprober`/`parso` to INFO), so an application whose root logger runs at DEBUG will now see e.g. `urllib3` connection chatter from the `SearchEngine`-free HTTP helpers (`download_locations`) unless it sets those levels itself; crawl runs still apply them. Parse-only use (`parse_serp`, `load_html`, classifiers, extractors, and the `ws-demo parse`/`show` subcommands) is now fully silent -- including warnings and parse-error lines that previously printed as JSONL to stderr, since the `NullHandler` also suppresses Python's `lastResort` fallback -- until the application configures logging; parse-error markers still land in the parsed rows either way. Crawl-time logging is unchanged: constructing a `SearchEngine` still configures the full JSONL crawl log (console and file sinks, foreign-log capture included) exactly as before (plan 057)
 
 ## [0.11.4] - 2026-07-10
 
-- Recover the result-count/time estimate on SERPs where the `#result-stats` div is injected client-side and so is absent from the static markup: a fallback now scans the inline `<script>` bodies for the escaped copy Google emits there (e.g. `result-stats\">About 0 results\x3cnobr> (0.19s)`) and feeds it to the existing count/time regexes, so `features` carries the estimate exactly as it would from the rendered div. Both the regex (`_extract_from_html`) and structural (`_extract_from_soup`) paths use the fallback; new fixtures and coverage tests pin it
+### Changed
+
 - Parse micro-optimization (byte-identical, snapshot-pinned): replaced the classifier chain's sequential `css_first` boolean-OR probes with a single comma-union `css_first`, so selectolax runs one short-circuiting subtree walk per classifier instead of N independent walks (plan 056)
 - Dev tooling: bumped the SHA-pinned GitHub Actions to their latest releases
 
+### Fixed
+
+- Recover the result-count/time estimate on SERPs where the `#result-stats` div is injected client-side and so is absent from the static markup: a fallback now scans the inline `<script>` bodies for the escaped copy Google emits there (e.g. `result-stats\">About 0 results\x3cnobr> (0.19s)`) and feeds it to the existing count/time regexes, so `features` carries the estimate exactly as it would from the rendered div. Both the regex (`_extract_from_html`) and structural (`_extract_from_soup`) paths use the fallback; new fixtures and coverage tests pin it
+
 ## [0.11.3] - 2026-07-09
+
+### Added
 
 - Classify knowledge-panel and image related-entity carousels as `searches_related` instead of letting them fall through to `unknown` (or an empty-shell `general` row). Four aria-level-2 heading labels -- "Search instead for", "Other people search", "You can also search for", and "People also search in Images" -- are registered on the `searches_related` component type (with their dynamic sub_types declared); these carousels are already rows of `a.ngTNl` `google.com/search?q=` query links the existing parser extracts, so only the heading labels were unregistered. The change is additive `header_texts` on a main-section type (the did-you-mean "Search instead for:" `notice` is header-section and classified on a separate path), so existing corpus snapshots are unchanged; a new parametrized coverage test pins every heading
 
 ## [0.11.2] - 2026-07-08
 
+### Added
+
 - Parse the true-empty no-results card ("Your search - `<qry>` - did not match any documents." plus its "Suggestions:" body) and the 32-word query-truncation card ("... was ignored because we limit queries to 32 words.") as `notice` components (`sub_type="no_results"` / `sub_type="query_truncated"`) carrying the card title and text, instead of the previous boolean feature flags. A new `extract_status_notices` pass picks up the structural `div.card-section` cards Google renders in `#topstuff`/`#botstuff` outside the `#oFNiHe` notice widget, scoped so the low-relevance in-`#rso` "did not match any documents" banner stays typed separately. New fixture SERPs and coverage tests pin both cards
-- Capture `div.d4rhi` host-group sub-results nested *inside* a `div.g` main result (the 2023+ "second result from the same host", stacked/indented under it) -- the `div.g` branch previously returned before the sub-result branch and silently dropped them; each nested block is now emitted as its own organic result (`sub_rank` 1, 2, ...)
-- **Breaking (output):** removed the `features.notice_no_results` and `features.notice_shortened_query` boolean flags -- both notices now surface as `notice` components (see above), so consumers reading the flags must switch to scanning components for `sub_type` `no_results` / `query_truncated`
+
+### Changed
+
 - **Breaking (output):** renamed the `features.notice_server_error` flag to `features.server_error` (bare error-page chrome stays a page-state flag, not a component)
 - **Breaking (output):** renamed the `general` host-group sub-result `sub_type` from `subresult` to `indented`; consumers filtering on the old value must switch
 
+### Removed
+
+- **Breaking (output):** removed the `features.notice_no_results` and `features.notice_shortened_query` boolean flags -- both notices now surface as `notice` components (see above), so consumers reading the flags must switch to scanning components for `sub_type` `no_results` / `query_truncated`
+
+### Fixed
+
+- Capture `div.d4rhi` host-group sub-results nested *inside* a `div.g` main result (the 2023+ "second result from the same host", stacked/indented under it) -- the `div.g` branch previously returned before the sub-result branch and silently dropped them; each nested block is now emitted as its own organic result (`sub_rank` 1, 2, ...)
+
 ## [0.11.1] - 2026-07-08
 
+### Added
+
 - Broad parser-coverage pass classifying the large majority of previously-`unknown` components across the crawl corpus. New component types: `gallery` (JS-hydrated discovery gallery), `places_nearby` ("Explore places nearby" carousel), `datasets` ("Datasets" search module), `refine_by` and `shopping_ideas` (faceted product-filter and product-category chips), and `articles` (entity-panel "Articles" module). Extended types: `knowledge` gains the left-bar dictionary panel plus hotel, entity, sports, and attribute submodules; `recipes`, `recent_posts`, `top_stories`, and `election_dates` gain new carousel and heading variants; `images` parses left-bar and inline thumbnail strips; `products` types JS-hydrated tray carousels; `flights` handles bare-`<h2>` status widgets; and `locations` matches multi-span hotel-carousel headings. All rules are additive and end-of-chain, so existing corpus snapshots are unchanged -- the only same-row changes are hollow `general`/`unknown` shells upgraded to typed rows with content. New fixture SERPs and coverage tests pin every path
-- Capture modern ad sitelinks (bare `a.ynAwRc` anchors) as `ad/submenu` instead of silently dropping them, and the "Sponsored results" ad unit embedded in the "Find related products & services" module
 - Classify the standalone AI-overview loading/unavailable banner as `ai_overview`/`sub_type="unavailable"` (previously `unknown`)
+
+### Changed
+
 - Drop bare accessibility section-heading shells ("Web results", "Ads", and "Description") at extraction instead of surfacing them as empty `unknown` rows
+
+### Fixed
+
+- Capture modern ad sitelinks (bare `a.ynAwRc` anchors) as `ad/submenu` instead of silently dropping them, and the "Sponsored results" ad unit embedded in the "Find related products & services" module
 - Close the browser in the `ws-demo` CLI run path, and enable the Chrome sandbox in the patchright backend
 
 ## [0.11.0] - 2026-07-04
 
+### Added
+
+- Added `SearchEngine.close()` for deterministic teardown of the searcher backend (closes the browser window / HTTP session), and made `SearchEngine` a context manager (`with ws.SearchEngine() as se:`) that closes on exit
+
+### Changed
+
+- **Breaking (logging):** crawl logs are now emitted as JSON Lines only -- one structured JSON object per line. The text formatters (`minimal`/`medium`/`detailed`) and the `console_format`/`file_format` selectors are gone from both `Logger` and `LogConfig`, so every console and file sink emits the `jsonl` schema. Each line always carries `timestamp`/`pid`/`level` and adds only the keys that apply (`event`; `message`; `response_code`/`qry`/`loc` on search lines; `output` for tracebacks; `source` with `event="external"` for third-party logs), so consumers must read the optional keys with `.get(...)`. This retires the after-the-fact text-log parser for new crawls (plan 052)
+
+### Removed
+
 - **Breaking:** removed the `selenium` (undetected-chromedriver), `zendriver`, and `playwright` browser backends, leaving `patchright` (now the **default**) and `requests` (the no-browser HTTP path). Constructing `SearchEngine(method="selenium"|"zendriver"|"playwright")` now raises (the `SearchMethod` enum no longer defines them), the default backend changes from `selenium` to `patchright` (a bare `ws.SearchEngine()` launches patchright instead of undetected-chromedriver), and `SeleniumConfig`/`ZendriverConfig` and the `selenium_config`/`zendriver_config`/`playwright_config` kwargs are gone. **Migration:** pass `method="patchright"` (now the default); the default `channel="chrome"` drives an installed Google Chrome (`patchright install chrome` if missing), or run `patchright install chromium` and set `channel="chromium"` for the bundled browser -- either way the browser binary is a post-install step pip can't run automatically. The install footprint drops `selenium` + `undetected-chromedriver` and adds `patchright` (which bundles its node driver); `requests` is unchanged. This is plan 039's green-lit migration follow-up, now that plan 049 confirmed patchright runs headed on a no-display host via Xvfb (plan 051)
 - Dropped the `ws-demo` `--headless` flag -- the browser backend must run *headed* (Chrome's own `--headless` is reliably blocked by search engines), so the flag only exposed a non-working path for live collection; the `PatchrightConfig(headless=...)` passthrough is unchanged
-- **Breaking (logging):** crawl logs are now emitted as JSON Lines only -- one structured JSON object per line. The text formatters (`minimal`/`medium`/`detailed`) and the `console_format`/`file_format` selectors are gone from both `Logger` and `LogConfig`, so every console and file sink emits the `jsonl` schema. Each line always carries `timestamp`/`pid`/`level` and adds only the keys that apply (`event`; `message`; `response_code`/`qry`/`loc` on search lines; `output` for tracebacks; `source` with `event="external"` for third-party logs), so consumers must read the optional keys with `.get(...)`. This retires the after-the-fact text-log parser for new crawls (plan 052)
-- Added `SearchEngine.close()` for deterministic teardown of the searcher backend (closes the browser window / HTTP session), and made `SearchEngine` a context manager (`with ws.SearchEngine() as se:`) that closes on exit
 
 ## [0.10.2] - 2026-06-21
 

@@ -6,6 +6,7 @@ submenus (rating, list, table, mini), scholarly results, products, and videos.
 """
 
 import re
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -14,7 +15,7 @@ from ._common import parse_alink_list
 from ._video_card import parse_evlb_card
 
 
-def parse_general_results(elem) -> list:
+def parse_general_results(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     subs = find_subcomponents(node)
     return [parse_general_result(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
@@ -77,7 +78,7 @@ def _in_paa_source(sub: Node, root: Node) -> bool:
     return False
 
 
-def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
+def parse_general_result(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     if is_general_video(sub):
         return parse_general_video(sub, sub_rank=sub_rank)
 
@@ -93,7 +94,7 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
     title_a = title_div.css_first("a") if title_div is not None else None
     cite_el = next((n for n in sub.css("cite") if n.mem_id != sub_id), None)
 
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "general",
         "sub_rank": sub_rank,
         "title": get_text(title_h3, " ") if title_h3 is not None else None,
@@ -105,8 +106,8 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict:
     return parse_subtype_details(sub, parsed)
 
 
-def parse_subtype_details(sub: Node, parsed: dict) -> dict:
-    details: dict = {}
+def parse_subtype_details(sub: Node, parsed: dict[str, Any]) -> dict[str, Any]:
+    details: dict[str, Any] = {}
 
     # If top menu with children, ignore URLs and get correct title URL.
     top_menu = sub.css_first("div.yWc32e")
@@ -203,12 +204,12 @@ _RATING_REVIEW_BY_RE = re.compile("Review by")
 _PRODUCT_SPLIT_RE = re.compile("-|·")
 
 
-def parse_rating_aria_label(aria_label: str) -> dict:
+def parse_rating_aria_label(aria_label: str) -> dict[str, Any]:
     """Parse 'Rated 2.5 out of 5, (5,114) user reviews' into structured fields."""
     rating_match = _ARIA_RATING_RE.search(aria_label or "")
     if not rating_match:
         return {}
-    result: dict = {
+    result: dict[str, Any] = {
         "rating": float(rating_match.group(1)),
         "scale": int(rating_match.group(2)),
     }
@@ -218,10 +219,10 @@ def parse_rating_aria_label(aria_label: str) -> dict:
     return result
 
 
-def parse_ratings(text) -> dict:
-    text = [t.strip() for t in text]
+def parse_ratings(parts: list[str]) -> dict[str, Any]:
+    text = [t.strip() for t in parts]
     rating = re.split("Rating: ", text[0])[-1]
-    details: dict = (
+    details: dict[str, Any] = (
         {"rating": float(rating)} if _RATING_NUMERIC_RE.match(rating) else {"rating": rating}
     )
 
@@ -236,7 +237,7 @@ def parse_ratings(text) -> dict:
     return details
 
 
-def parse_product(text: str) -> dict:
+def parse_product(text: str) -> dict[str, Any]:
     parts = re.split(_PRODUCT_SPLIT_RE, text)
     if len(parts) == 1:
         return {"price": parts[0].strip()[1:]}
@@ -250,7 +251,7 @@ def is_general_video(sub: Node) -> bool:
     return "PmEWq" in class_tokens(sub)
 
 
-def parse_general_video(sub: Node, sub_rank: int = 0) -> dict:
+def parse_general_video(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     a = sub.css_first("a[href]")
     title_el = sub.css_first("h3.LC20lb")
     body_el = sub.css_first(".ITZIwc")

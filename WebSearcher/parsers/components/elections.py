@@ -15,6 +15,8 @@ capture the panel heading plus its outbound resource links; the live vote tallie
 are intentionally not captured (volatile, and not what an audit keys on).
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
@@ -26,14 +28,14 @@ def _panel_heading(node: Node) -> str | None:
     return get_text(heading, " ", strip=True) if heading is not None else None
 
 
-def _resource_links(node: Node) -> list[dict]:
+def _resource_links(node: Node) -> list[dict[str, Any]]:
     """Outbound (http) links in the panel, skipping UI chrome (feedback/menu
     actions use ``javascript:``/fragment hrefs)."""
     links = [a for a in node.css("a") if str(a.attributes.get("href", "")).startswith("http")]
     return parse_alink_list(links)
 
 
-def _parse_election_panel(node: Node, type_name: str) -> list:
+def _parse_election_panel(node: Node, type_name: str) -> list[dict[str, Any]]:
     items = _resource_links(node)
     return [
         {
@@ -45,13 +47,13 @@ def _parse_election_panel(node: Node, type_name: str) -> list:
     ]
 
 
-def parse_election_dates(elem) -> list:
+def parse_election_dates(elem: Node) -> list[dict[str, Any]]:
     return _parse_election_panel(elem, "election_dates")
 
 
-def parse_election_results(elem) -> list:
+def parse_election_results(elem: Node) -> list[dict[str, Any]]:
     return _parse_election_panel(elem, "election_results")
 
 
-def parse_election_resources(elem) -> list:
+def parse_election_resources(elem: Node) -> list[dict[str, Any]]:
     return _parse_election_panel(elem, "election_resources")

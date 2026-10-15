@@ -5,13 +5,15 @@ Currently handles hotel listings: each item is an anchor pointing to a
 short description.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ...models.data import ERR_NO_HOTELS, ERR_UNKNOWN_SUBTYPE, error_details
 
 
-def parse_locations(elem) -> list:
+def parse_locations(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     sub_type = classify_locations_sub_type(node)
     if sub_type == "hotels":
@@ -40,8 +42,8 @@ def classify_locations_sub_type(node: Node) -> str:
     return "unknown"
 
 
-def parse_hotels(node: Node) -> list:
-    items: list = []
+def parse_hotels(node: Node) -> list[dict[str, Any]]:
+    items: list[dict[str, Any]] = []
     for a in node.css("a[href]"):
         href = a.attributes.get("href") or ""
         if "/travel/" not in href:
@@ -85,7 +87,7 @@ def parse_hotels(node: Node) -> list:
     return items
 
 
-def _parse_hotel_item(a: Node, sub_rank: int) -> dict:
+def _parse_hotel_item(a: Node, sub_rank: int) -> dict[str, Any]:
     name_div = a.css_first("div.sxdlOc") or a.css_first("div.BTPx6e")
     price_span = a.css_first("span.sRlU8b")
     rating_span = a.css_first("span.yi40Hd")
@@ -105,7 +107,7 @@ def _parse_hotel_item(a: Node, sub_rank: int) -> dict:
     }
 
 
-def _parse_hotel_card(card: Node, name_span: Node, sub_rank: int) -> dict:
+def _parse_hotel_card(card: Node, name_span: Node, sub_rank: int) -> dict[str, Any]:
     a = card.css_first('a[href*="/local/places/hotel/"]')
     price_span = card.css_first("span.rDUZLd")
     rating_span = card.css_first("span.yi40Hd")
@@ -128,8 +130,8 @@ def _parse_hotel_details(
     rating_span: Node | None,
     reviews_span: Node | None,
     stars_span: Node | None,
-) -> dict | None:
-    details: dict = {}
+) -> dict[str, Any] | None:
+    details: dict[str, Any] = {}
     if price_span is not None:
         details["price"] = get_text(price_span, strip=True)
     if rating_span is not None:

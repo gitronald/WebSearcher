@@ -3,11 +3,15 @@
 A general result followed by a People Also Ask cluster (typically 3 questions).
 """
 
+from typing import Any
+
+from selectolax.lexbor import LexborNode as Node
+
 from .general import parse_general_results
 from .people_also_ask import parse_people_also_ask
 
 
-def parse_general_questions(elem) -> list:
+def parse_general_questions(elem: Node) -> list[dict[str, Any]]:
     parsed_list_general = parse_general_results(elem)
     parsed_list_ppa = parse_people_also_ask(elem)
     parsed_list_general[0]["details"] = parsed_list_ppa[0].get("details", None)

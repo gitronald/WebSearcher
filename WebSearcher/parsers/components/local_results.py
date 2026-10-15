@@ -5,6 +5,7 @@ businesses relevant to the query, with rating, contact, and address details.
 """
 
 import re
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -43,7 +44,7 @@ def _header_to_sub_type(header: str) -> str | None:
     return _LOCAL_RESULTS_CATEGORIES.get(header_lower)
 
 
-def parse_local_results(elem) -> list:
+def parse_local_results(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     # bs4 find_all is descendants-only; elem itself may carry ``VkpGBb`` and must
     # not be its own first sub-result.
@@ -82,8 +83,8 @@ def parse_local_results(elem) -> list:
     ]
 
 
-def parse_local_result(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "local_results", "sub_rank": sub_rank}
+def parse_local_result(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "local_results", "sub_rank": sub_rank}
     parsed["title"] = get_text(sub.css_first("div.dbg0pd"), " ")
 
     links_dict = _link_text_to_url(sub)
@@ -96,8 +97,8 @@ def parse_local_result(sub: Node, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def parse_local_details(sub: Node, links_dict: dict[str, str]) -> dict:
-    details: dict = {"type": "place"}
+def parse_local_details(sub: Node, links_dict: dict[str, str]) -> dict[str, Any]:
+    details: dict[str, Any] = {"type": "place"}
     rllt = sub.css_first(".rllt__details")
     if rllt is not None:
         # ``find_all("div", recursive=False)``: direct element children only.
@@ -154,7 +155,7 @@ def _link_text_to_url(sub: Node) -> dict[str, str]:
     return out
 
 
-def _classify_row(text: str, details: dict) -> None:
+def _classify_row(text: str, details: dict[str, Any]) -> None:
     """Classify each `·`-separated part of a local-result row into a detail field."""
     for part in (p.strip() for p in re.split(r"\s*·\s*", text) if p.strip()):
         rating_match = _RATING_RE.match(part)

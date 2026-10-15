@@ -15,6 +15,8 @@ Per-item / chip markup is version-specific obfuscated classes; a content variant
 classes don't match still types via the structural classifier but yields fewer rows.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
@@ -23,9 +25,9 @@ from ._common import mark_hidden_row
 _TEXT_SEP = "<|>"
 
 
-def parse_gallery(elem) -> list:
+def parse_gallery(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list[dict] = []
+    parsed_list: list[dict[str, Any]] = []
 
     # Header row: cluster heading + joined category-filter chips.
     heading = node.css_first('[aria-level="2"][role="heading"]')

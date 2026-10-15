@@ -5,16 +5,18 @@ automation is required to capture the dropdown content; this parser only
 captures the question text.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_people_also_ask(elem, sub_rank: int = 0) -> list:
+def parse_people_also_ask(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
     questions = node.css("div.related-question-pair")
     parsed_questions = list(filter(None, (parse_question(q) for q in questions)))
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "people_also_ask",
         "sub_rank": sub_rank,
         "text": "<|>".join(parsed_questions) if parsed_questions else None,

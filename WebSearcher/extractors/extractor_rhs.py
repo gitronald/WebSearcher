@@ -1,15 +1,18 @@
 import logging
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
+
+from ..parsers.component_list import ComponentList
 
 log = logging.getLogger(__name__)
 
 
 class ExtractorRightHandSide:
-    def __init__(self, soup: Node | None, components):
+    def __init__(self, soup: Node | None, components: ComponentList):
         self.soup: Node | None = soup
         self.components = components
-        self.rhs: dict = {}
+        self.rhs: dict[str, Any] = {}
 
     def extract(self):
         """Extract the RHS Knowledge Panel, if present."""

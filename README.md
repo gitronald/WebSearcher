@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.11.6`: Package fully typed under pyrefly's strict preset (annotations only, parser snapshots unchanged); the requests backend's error path now stores `str` HTML instead of raw bytes; dev tooling synced to the latest project template, with dependencies relocked past published advisories
 - `0.11.5`: **Breaking logging** -- `import WebSearcher` no longer configures logging as a side effect (no root-logger handler or forced DEBUG level on import), so an application's own `logging.basicConfig` now takes effect; parse-only use is silent until the application configures logging, and crawl-time logging via `SearchEngine` is unchanged
 - `0.11.4`: Recover the result-count/time estimate on result pages where the stats element is injected client-side and absent from the static markup, via an inline `<script>` fallback; plus a byte-identical classifier parse micro-optimization (union `css_first` probes)
 - `0.11.3`: Classify knowledge-panel and image related-entity carousels ("Search instead for", "Other people search", "You can also search for", "People also search in Images") as `searches_related` instead of `unknown`; additive heading labels, existing corpus snapshots unchanged
@@ -95,7 +96,7 @@ uv run ws-demo show "election news"
 ```
 
 ```
-WebSearcher v0.11.5 | qry='election news' | 15 components
+WebSearcher v0.11.6 | qry='election news' | 15 components
 
 type              title                                                         url
 ----------------  ------------------------------------------------------------  ------------------------------------------------------------

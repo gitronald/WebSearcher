@@ -7,14 +7,16 @@ title span is not an ``h2``/``h3``, so the module is typed by header text via
 ``ClassifyMainHeader`` (``header_texts={2: ("Datasets",)}``).
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_datasets(elem) -> list:
+def parse_datasets(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list[dict] = []
+    parsed_list: list[dict[str, Any]] = []
     for i, h3 in enumerate(node.css("h3")):
         url = None
         anchor = h3

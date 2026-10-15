@@ -6,14 +6,16 @@ and an aria-level-3 heading; the carousel also holds empty placeholder slots,
 which are skipped.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_most_read_articles(elem) -> list:
+def parse_most_read_articles(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    out: list = []
+    out: list[dict[str, Any]] = []
     for li in node.css('[role="listitem"]'):
         a = li.css_first("a[href]")
         heading = li.css_first('[aria-level="3"]')

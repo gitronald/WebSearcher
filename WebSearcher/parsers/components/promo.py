@@ -6,12 +6,14 @@ It carries no organic result, so its value is the presence signal (shopping
 intent). The CTA link is an internal ``/search`` query, kept verbatim.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_promo(elem) -> list:
+def parse_promo(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
 
     cta = node.css_first("a[href]")

@@ -4,12 +4,14 @@ A list of forum/discussion threads (Reddit, Stack Overflow, etc.) with title,
 source, and link. Each row has multiple known card layouts.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_discussions_and_forums(elem) -> list:
+def parse_discussions_and_forums(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     for sel in ("div.LJ7wUe", "div.JlqpRe", "div.EDblX"):
         subs = node.css(sel)
@@ -18,7 +20,7 @@ def parse_discussions_and_forums(elem) -> list:
     return []
 
 
-def parse_item(sub: Node, sub_rank: int = 0) -> dict:
+def parse_item(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     return {
         "type": "discussions_and_forums",
         "sub_type": None,

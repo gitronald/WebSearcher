@@ -4,8 +4,9 @@ import logging
 import re
 import subprocess
 import urllib.parse as urlparse
-from collections.abc import Mapping, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
+from typing import Any
 
 import brotli
 import orjson
@@ -30,7 +31,7 @@ def read_lines(fp: str | Path):
             return [line.strip() for line in infile]
 
 
-def write_lines(iter_data, fp: str | Path, overwrite=False):
+def write_lines(iter_data: Iterable[Any], fp: str | Path, overwrite: bool = False) -> None:
     fp = Path(fp)
     mode = "w" if overwrite else "a+"
 
@@ -57,7 +58,7 @@ def load_soup(fp: str | Path, zipped: bool = False) -> Node:
 # Strings ----------------------------------------------------------------------
 
 
-def get_between_parentheses(s, regex=r"\((.*?)\)"):
+def get_between_parentheses(s: str, regex: str = r"\((.*?)\)") -> str:
     match = re.search(regex, s)
     return match.group(1) if match else ""
 
@@ -77,7 +78,7 @@ def slugify(text: str, sep: str = "_") -> str:
 # Hashing ----------------------------------------------------------------------
 
 
-def hash_id(s):
+def hash_id(s: str) -> str:
     return hashlib.sha224(s.encode("utf-8")).hexdigest()
 
 

@@ -24,6 +24,7 @@ import functools
 import html
 import json
 import re
+from typing import Any
 
 _UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
@@ -36,7 +37,7 @@ _LDPB_PUSH = re.compile(
 
 
 @functools.lru_cache(maxsize=2)
-def extract_payloads(raw_html: str) -> dict[str, dict]:
+def extract_payloads(raw_html: str) -> dict[str, dict[str, Any]]:
     """Return ``{uuid: {"header": payload | None, "type_a": [...], "type_b": [...]}}``.
 
     Scans the raw HTML string for all three delivery forms, decodes each JSON
@@ -44,7 +45,7 @@ def extract_payloads(raw_html: str) -> dict[str, dict]:
     overview cmpts within one parse skip the rescan; ``maxsize=2`` keeps the
     cache from holding multiple SERPs' worth of payloads.
     """
-    out: dict[str, dict] = {}
+    out: dict[str, dict[str, Any]] = {}
     for raw in _iter_payload_blobs(raw_html):
         classified = _classify(raw)
         if classified is None:
@@ -111,7 +112,7 @@ def _classify(raw: str) -> tuple[str, str, object] | None:
             snippet = body[1] if isinstance(body[1], str) else None
             favicon = body[2] if isinstance(body[2], str) else None
             domain = body[3] if isinstance(body[3], str) else None
-            publisher_list = body[4] if isinstance(body[4], list) else []
+            publisher_list: list[Any] = body[4] if isinstance(body[4], list) else []
             publisher = (
                 publisher_list[0] if publisher_list and isinstance(publisher_list[0], str) else None
             )
@@ -145,7 +146,7 @@ def _classify(raw: str) -> tuple[str, str, object] | None:
     return None
 
 
-def _coerce_src_id(raw) -> str | None:
+def _coerce_src_id(raw: object) -> str | None:
     if raw is None:
         return None
     if isinstance(raw, bool):

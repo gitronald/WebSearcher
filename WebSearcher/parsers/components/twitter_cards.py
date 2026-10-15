@@ -13,16 +13,16 @@ from ..._slx import get_text
 from ...utils import url_unquote
 
 
-def parse_twitter_cards(elem) -> list:
+def parse_twitter_cards(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     parsed_header = parse_twitter_header(node)
     carousel = node.css_first("g-scrolling-carousel")
-    subs = list(carousel.css("g-inner-card")) if carousel is not None else []
+    subs = list(carousel.css("g-inner-card")) if carousel is not None else list[Node]()
     parsed_cards = [parse_twitter_card(sub, sub_rank + 1) for sub_rank, sub in enumerate(subs)]
     return [parsed_header] + parsed_cards
 
 
-def parse_twitter_header(node: Node, sub_rank: int = 0) -> dict:
+def parse_twitter_header(node: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "header", "sub_rank": sub_rank}
     element_current = node.css_first("g-link")
     element_legacy = node.css_first("h3.r")
@@ -45,7 +45,7 @@ def parse_twitter_header(node: Node, sub_rank: int = 0) -> dict:
     return parsed
 
 
-def parse_twitter_card(sub: Node, sub_rank: int = 0) -> dict:
+def parse_twitter_card(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed: dict[str, Any] = {"type": "twitter_cards", "sub_type": "card", "sub_rank": sub_rank}
 
     # Tweet account

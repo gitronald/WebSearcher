@@ -29,7 +29,7 @@ def _is_chrome_box(title: str) -> bool:
     return "feedback" in title.lower() or title == "Sponsored"
 
 
-def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
+def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
     parsed_list = parse_knowledge_rhs_main(node)
     main_title = parsed_list[0]["title"] if parsed_list else None
@@ -64,7 +64,7 @@ def parse_knowledge_rhs(elem, sub_rank: int = 0) -> list:
     return parsed_list
 
 
-def _under_any(node: Node, ids: set, stop_id: int) -> bool:
+def _under_any(node: Node, ids: set[int], stop_id: int) -> bool:
     """True if any ancestor of ``node`` (up to ``stop_id``, exclusive) is in ``ids``."""
     p = node.parent
     while p is not None and p.mem_id != stop_id:
@@ -74,12 +74,14 @@ def _under_any(node: Node, ids: set, stop_id: int) -> bool:
     return False
 
 
-def _collect_links(node: Node, exclude_ids: set | None = None, stop_id: int = -1) -> list:
+def _collect_links(
+    node: Node, exclude_ids: set[int] | None = None, stop_id: int = -1
+) -> list[dict[str, str]]:
     """Non-navigational-chrome links under ``node`` (deduped). Links nested
     inside an ``exclude_ids`` node (an already-emitted fact row) are skipped so
     box rows don't re-list links the fact rows carry."""
-    items: list = []
-    seen: set = set()
+    items: list[dict[str, str]] = []
+    seen: set[tuple[str, str]] = set()
     for a in node.css("a[href]"):
         href = a.attributes.get("href")
         text = get_text(a, " ", strip=True) or ""
@@ -95,7 +97,9 @@ def _collect_links(node: Node, exclude_ids: set | None = None, stop_id: int = -1
     return items
 
 
-def _rhs_box_links(heading: Node, exclude_ids: set | None = None, stop_id: int = -1) -> list:
+def _rhs_box_links(
+    heading: Node, exclude_ids: set[int] | None = None, stop_id: int = -1
+) -> list[dict[str, str]]:
     """Links of the box a heading labels: climb to the first ancestor holding
     links, then collect them (deduped, chrome dropped). A box left with no
     real links is then handled as a text-only section by the caller."""
@@ -111,7 +115,7 @@ def _rhs_box_links(heading: Node, exclude_ids: set | None = None, stop_id: int =
     return _collect_links(box, exclude_ids=exclude_ids, stop_id=stop_id)
 
 
-def _rhs_qa_topics(node: Node) -> list:
+def _rhs_qa_topics(node: Node) -> list[str]:
     """The panel's "Things to know" Q&A topic labels (``lab/title/*`` attrids).
 
     Ordered as they appear so the main panel row can list them; the box pass
@@ -123,13 +127,13 @@ def _rhs_qa_topics(node: Node) -> list:
     ]
 
 
-def _rhs_expander_topics(node: Node) -> list:
+def _rhs_expander_topics(node: Node) -> list[str]:
     """Topic labels of "Things to know" Q&A boxes flagged only by the ``…``
     expander span (``iwY1Mb``), for panels without ``lab/title/*`` attrids.
 
     ``_is_qa_topic_box`` skips these headings in the box pass, so without this
     fallback their titles would be dropped entirely (plan 041)."""
-    topics = []
+    topics: list[str] = []
     for heading in node.css('[role="heading"][aria-level="2"]'):
         if heading.css_first("span.iwY1Mb") is None:
             continue
@@ -140,7 +144,7 @@ def _rhs_expander_topics(node: Node) -> list:
     return topics
 
 
-def _is_qa_topic_box(heading: Node, qa_topics: set) -> bool:
+def _is_qa_topic_box(heading: Node, qa_topics: set[str]) -> bool:
     """True if a heading is a "Things to know" Q&A topic, not a real link-box.
 
     These are already surfaced cleanly on the main panel row, so the box pass
@@ -182,7 +186,9 @@ def _fact_box_heading(fact: Node, root: Node) -> Node | None:
     return best
 
 
-def _parse_rhs_facts(node: Node, start_rank: int = 1) -> tuple:
+def _parse_rhs_facts(
+    node: Node, start_rank: int = 1
+) -> tuple[list[dict[str, Any]], set[int], set[int]]:
     """One ``side_bar`` row per ``kc:/`` entity-fact row.
 
     Labeled facts ("Born: April 8, 1901") put the label in ``title`` and the
@@ -191,9 +197,9 @@ def _parse_rhs_facts(node: Node, start_rank: int = 1) -> tuple:
     The attrid rides in ``details`` as provenance, alongside the row's links
     when it has any. Returns ``(rows, fact_ids, used_heading_ids)`` so the box
     pass can skip content these rows already carry."""
-    rows: list = []
-    fact_ids: set = set()
-    used_heading_ids: set = set()
+    rows: list[dict[str, Any]] = []
+    fact_ids: set[int] = set()
+    used_heading_ids: set[int] = set()
     for fact in node.css("[data-attrid^='kc:/']"):
         attrid = str(fact.attributes.get("data-attrid") or "")
         if attrid in _FACT_ROW_CHROME:
@@ -276,10 +282,10 @@ def _box_sibling_text(heading: Node) -> str | None:
 def _parse_rhs_boxes(
     node: Node,
     start_rank: int = 1,
-    fact_ids: set | None = None,
-    used_heading_ids: set | None = None,
+    fact_ids: set[int] | None = None,
+    used_heading_ids: set[int] | None = None,
     main_title: str | None = None,
-) -> list:
+) -> list[dict[str, Any]]:
     """One ``side_bar`` row per aria-level=2 box (title = heading, links in
     details). Boxes whose content the fact pass already emitted are skipped;
     a link-less content box keeps its title and sibling text instead of being
@@ -287,7 +293,7 @@ def _parse_rhs_boxes(
     fact_ids = fact_ids or set()
     used_heading_ids = used_heading_ids or set()
     qa_topics = set(_rhs_qa_topics(node))
-    rows: list = []
+    rows: list[dict[str, Any]] = []
     for heading in node.css('[role="heading"][aria-level="2"]'):
         title = get_text(heading, " ", strip=True)
         if not title or _is_chrome_box(title) or _is_qa_topic_box(heading, qa_topics):
@@ -334,7 +340,7 @@ def _parse_rhs_boxes(
     return rows
 
 
-def parse_knowledge_rhs_main(elem, sub_rank: int = 0) -> list:
+def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
     parsed: dict[str, Any] = {
         "type": "side_bar",
@@ -433,8 +439,8 @@ def parse_knowledge_rhs_main(elem, sub_rank: int = 0) -> list:
     return [parsed]
 
 
-def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {
+def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {
         "type": "side_bar",
         "sub_type": "links",
         "sub_rank": sub_rank + 1,

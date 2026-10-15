@@ -2,13 +2,14 @@ import logging
 
 from selectolax.lexbor import LexborNode as Node
 
+from ..parsers.component_list import ComponentList
 from .extractor_main import _find_all_with_class
 
 log = logging.getLogger(__name__)
 
 
 class ExtractorFooter:
-    def __init__(self, soup: Node | None, components):
+    def __init__(self, soup: Node | None, components: ComponentList):
         self.soup: Node | None = soup
         self.components = components
 

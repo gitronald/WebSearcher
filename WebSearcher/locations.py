@@ -245,7 +245,7 @@ def save_zip_response(response: requests.Response, fp: str) -> None:
                     write_csv(fp, reader=reader)
 
 
-def write_csv(fp: str, lines: list | None = None, reader: Any = None) -> None:
+def write_csv(fp: str, lines: list[list[str]] | None = None, reader: Any = None) -> None:
     with open(fp, "w", encoding="utf-8") as outfile:
         writer = csv.writer(outfile)
         if reader:

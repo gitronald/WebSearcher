@@ -1,11 +1,13 @@
 """Offline demo: parse a saved SERP ``.html`` file and print its components."""
 
+from typing import Any
+
 import WebSearcher as ws
 
 from ._common import _print_results_table
 
 
-def parse(filepath: str) -> dict:
+def parse(filepath: str) -> dict[str, Any]:
     """Offline demo: parse a saved SERP .html file and print its components."""
     soup = ws.load_soup(filepath)
     parsed = ws.parse_serp(soup)
