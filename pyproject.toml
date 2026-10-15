@@ -44,7 +44,7 @@ dev = [
     # Same minor as the ruff-pre-commit rev in .pre-commit-config.yaml, so the
     # commit hook and `uv run ruff` (CI, the Stop hook) apply one rule set.
     # Bump the two together.
-    "ruff>=0.16,<0.17",
+    "ruff>=0.17,<0.18",
     "pytest-cov>=7.0.0",
     # bs4 + lxml are dev-only: used by show_serp.py's overlay stripping (the
     # serp-inspect skill). Runtime parsing is selectolax-only.
