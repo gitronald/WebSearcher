@@ -64,3 +64,9 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
   - Worktree: `.worktrees/persistent-user-data-dir`
   - PR: pending
 - **2026-10-15T09:04:21-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/201
+- **2026-10-15T09:04:21-07:00** — Implemented.
+    - Open question 1 (default location): resolved to the OS per-user data dir via `platformdirs` (`utils.default_user_data_dir()`, e.g. `~/.local/share/WebSearcher/profile`), per the user's direction that the profile live in the standard place for browser profiles rather than in the repo. An explicit path still works; the CLI's bare `--user-data-dir` uses the default.
+    - Open question 2 (concurrent-run lock): not needed. A local probe launched two headless Chrome processes on one profile dir; the second fails at once with `Failed to create a ProcessSingleton for your profile directory`. Documented in the README instead of adding a lock.
+    - Cookie clearing: `PatchrightConfig.clear_cookies` defaults to `True` (unchanged behavior for library callers); the demos set it `False` whenever `--user-data-dir` is given.
+    - Tests: `tests/test_profiles.py` includes a real headless-Chrome save/load round trip (cookie set, close, relaunch on the same dir, cookie present; temp-profile control shows no carry-over). No navigation; skips when Chrome cannot launch. Per the user, no live searches were run, so the warm-profile effect on CAPTCHA rate is not verified.
+    - `tests/test_search_methods.py`'s `make_patchright` fixture (built via `__new__`) now sets a default `config`, since `send_request` reads `config.clear_cookies`.
