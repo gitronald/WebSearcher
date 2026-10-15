@@ -1,11 +1,14 @@
 """Tests for SearchEngine record building and saving (to_record / save_record)"""
 
 import logging
+from typing import override
 
 import orjson
 
-from WebSearcher.models.data import ParsedSERP
+from WebSearcher.models.data import ParsedSERP, ResponseOutput
+from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers import SearchEngine
+from WebSearcher.searchers.requests_searcher import RequestsSearcher
 
 # Minimal SERP/parsed fixtures ------------------------------------------------
 
@@ -130,3 +133,41 @@ def test_save_record_writes_metadata_only_line_when_unparsed(tmp_path):
     assert loaded["serp_id"] == "abc123"
     assert loaded["features"] == {}
     assert loaded["results"] == []
+
+
+class FakeSearcher(RequestsSearcher):
+    """Return a canned response instead of sending a request."""
+
+    def __init__(self, url: str):
+        self.url = url
+
+    @override
+    def send_request(self, search_params: SearchParams) -> ResponseOutput:
+        return ResponseOutput(url=self.url, html="<html></html>", response_code=200)
+
+
+def search_with(url: str) -> SearchEngine:
+    se = make_engine(SERP, ParsedSERP())
+    se.searcher = FakeSearcher(url)
+    se.session_data = {"method": "patchright", "version": "0.9.0", "crawl_id": ""}
+    se.search("pizza")
+    return se
+
+
+def captcha_events(caplog) -> list[logging.LogRecord]:
+    return [r for r in caplog.records if getattr(r, "event", None) == "captcha"]
+
+
+def test_search_logs_captcha_on_sorry_redirect(caplog):
+    with caplog.at_level(logging.INFO, logger="test_searchers"):
+        search_with("https://www.google.com/sorry/index?continue=x")
+    events = captcha_events(caplog)
+    assert len(events) == 1
+    assert events[0].levelno == logging.WARNING
+    assert getattr(events[0], "qry") == "pizza"
+
+
+def test_search_logs_no_captcha_on_normal_serp(caplog):
+    with caplog.at_level(logging.INFO, logger="test_searchers"):
+        search_with("https://www.google.com/search?q=pizza")
+    assert captcha_events(caplog) == []

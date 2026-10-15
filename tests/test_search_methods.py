@@ -75,3 +75,19 @@ def test_patchright_nav_failure_no_stale_capture(monkeypatch):
     out = make_patchright(FakePageNavFails()).send_request(params)
     assert out.url == params.url  # request URL kept, not the previous page's
     assert out.html == ""
+
+
+def test_patchright_block_logs_no_error(monkeypatch, caplog):
+    # A /sorry/ block is reported by SearchEngine as a captcha event, not as a
+    # backend error with a traceback.
+    monkeypatch.setattr("WebSearcher.searchers.patchright_searcher.time.sleep", lambda s: None)
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        make_patchright(FakePageBlocked()).send_request(SearchParams.create({"qry": "test"}))
+    assert not [r for r in caplog.records if r.levelno >= logging.ERROR]
+
+
+def test_patchright_nav_failure_logs_error(monkeypatch, caplog):
+    monkeypatch.setattr("WebSearcher.searchers.patchright_searcher.time.sleep", lambda s: None)
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        make_patchright(FakePageNavFails()).send_request(SearchParams.create({"qry": "test"}))
+    assert [r for r in caplog.records if r.levelno == logging.ERROR]

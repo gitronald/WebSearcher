@@ -146,6 +146,11 @@ class SearchEngine:
                 "loc": self.serp["loc"],
             },
         )
+        if utils.is_sorry_redirect(self.serp["url"]):
+            self.log.warning(
+                "blocked: redirected to a /sorry/ CAPTCHA page",
+                extra={"event": "captcha", "qry": self.serp["qry"], "loc": self.serp["loc"]},
+            )
 
     # ==========================================================================
     # Parsing

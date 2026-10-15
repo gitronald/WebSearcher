@@ -121,9 +121,6 @@ class PatchrightSearcher:
                     response_output.html = expanded_html
 
         except Exception as e:
-            self.log.exception(
-                f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
-            )
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
@@ -137,6 +134,16 @@ class PatchrightSearcher:
                         response_output.html = self.page.content()
                 except Exception:
                     pass
+            if utils.is_sorry_redirect(response_output.url):
+                # A block, not a fault: SearchEngine.search logs it as a captcha event.
+                self.log.debug(
+                    f"SERP | {self.driver_name} | /sorry/ redirect | {str(e)}",
+                    extra={"event": "fetch"},
+                )
+            else:
+                self.log.exception(
+                    f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
+                )
         finally:
             self.delete_cookies()
 
