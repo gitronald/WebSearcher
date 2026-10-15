@@ -44,6 +44,8 @@ prerelease to `0.11.7a2`.
    code that imports `selectolax.parser` directly breaks. Keep the README's Recent
    Changes for release time.
 6. Bump the prerelease: `stanza release prerelease -y` (`0.11.7a1 -> 0.11.7a2`).
+   Push the branch first so it is level with origin; stanza pushes the bump
+   itself.
 7. Push the branch and open the draft PR into `dev` if `/planners implement` has
    not already opened it.
 

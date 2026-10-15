@@ -18,9 +18,12 @@ measured against.
 1. Start the plan with `/planners implement 059`: it activates the plan on `dev`,
    creates `feature/selectolax-1-0-upgrade` and its worktree at
    `.worktrees/selectolax-1-0-upgrade`. Run `uv sync --all-groups` in the worktree.
-2. Settle the umbrella's Handoff question 1 (stamp the selectolax version on bench
-   rows). If yes, add it to the row metadata in `WebSearcher/parsers/bench.py` and
-   commit it before any benchmark runs, so every row in this effort carries it.
+2. Stamp the selectolax version on bench rows (umbrella Handoff question 1,
+   answered yes): add it to the row metadata in `WebSearcher/parsers/bench.py`
+   and commit it before any benchmark runs, so every row in this effort carries
+   it. Update the "Rows do not stamp dependency versions" line in the
+   `parse-bench` skill (`.claude/skills/parse-bench/SKILL.md`, gitignored) to
+   match.
 3. Reference run on the current lock (0.4.10, `0.11.7a0`):
 
    ```bash
@@ -40,6 +43,10 @@ measured against.
    The snapshot suite must pass with no snapshot updates (umbrella decision 5).
    Commit `pyproject.toml` and `uv.lock`.
 5. Bump the prerelease: `stanza release prerelease -y` (`0.11.7a0 -> 0.11.7a1`).
+   Push the branch first and keep it level with origin
+   (`git push -u origin feature/selectolax-1-0-upgrade`): stanza's preflight
+   fails on a branch origin does not have, and it pushes the bump itself
+   (umbrella Handoff question 2).
    Confirm `uv run python -c "import WebSearcher; print(WebSearcher.__version__)"`.
 6. Baseline runs on 0.4.13 (`0.11.7a1`), in the same session as step 3:
 

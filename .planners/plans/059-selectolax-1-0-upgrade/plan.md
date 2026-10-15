@@ -101,11 +101,26 @@ which release items the a baseline should watch.
 
 ## Handoff
 
-Nothing started. Open questions:
+Nothing started. Questions:
 
 1. Should `WebSearcher/parsers/bench.py` stamp the installed selectolax version
    on each `results.jsonl` row? It would make rows self-describing instead of
-   relying on decision 2. Small change; decide at the start of a.
-2. `stanza release prerelease` has been preflighted on `dev` only. Its branch
-   check allows any non-`main`/`master` branch for a prerelease, but running it
-   on the feature branch (or in its worktree) is not verified.
+   relying on decision 2. **Answered 2026-10-14: yes.** Subplan a, step 2, adds
+   it before any benchmark runs; decision 2 still stands, so rows also differ by
+   `ws_version`.
+2. Does `stanza release prerelease` work on the feature branch, in its worktree?
+   **Answered 2026-10-14: yes, once the branch is on origin.** Tested with stanza
+   1.5.0 on a throwaway feature branch in a `.worktrees/` worktree off `dev`
+   (since deleted):
+   - `--local -y` bumped `0.11.7a0 -> 0.11.7a1` on the current branch, committing
+     `WebSearcher/__init__.py`, `pyproject.toml`, and `uv.lock` as
+     `version [prerelease]: 0.11.7a1`.
+   - Without `--local`, preflight fetches `origin/<branch>` and fails when the
+     branch is not on origin (`couldn't find remote ref`), or is ahead of or
+     behind it. After the bump it runs `git push origin <branch>` itself.
+   - So push the branch and keep it level before each bump; a and c say so.
+     The remote path was read from stanza's source, not run, to avoid pushing a
+     throwaway branch.
+   - stanza's version check accepts only `major.minor.patch` with an optional
+     `aN`, so four-segment strings are refused as well as anything below
+     `v0.11.6`.
