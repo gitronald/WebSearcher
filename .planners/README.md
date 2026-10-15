@@ -2,7 +2,6 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | active | — | — |
 | 060 | [Recognize the reworked AI overview layout](plans/060-ai-overview-role-heading-layout/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
