@@ -115,6 +115,11 @@ which release items the a baseline should watch.
   - 0.4.13 -> 1.0.0 (059d, A B B A): 1569.2 -> 828.0 ms, -47.2%, from lexbor parsing (`make_soup` 2.2x) and CSS matching; `text()`-only frames barely moved.
   - Output: snapshot suite byte-identical at every step; pyrefly needed test-only narrowing for 1.0's corrected `css_first` stubs (059c).
 - **2026-10-14T21:51:27-07:00** — Implemented: 25 commits ahead of `dev`.
+- **2026-10-14T21:56:48-07:00** — Both follow-up candidates from 059b retired, after measuring them on selectolax 1.0.0 (`0.11.7a2`); no follow-up plan.
+  - (1) Native `skip_empty` path for `get_text`'s strip+separator case: not worth it. On 1.0.0 that case is 2,747 calls per corpus pass costing about 9 ms of about 830 ms (0.9%), so even a free native version would save about the benchmark's noise floor, while needing a filter for the non-ASCII-whitespace fragments `skip_empty` keeps (059b: 1.8% of nodes differ) and its own corpus-wide identity proof. Per pass, the native `get_text` fast path is 10,953 calls and 22 ms, the script/style walker case 128 calls and 8 ms. Repeat: `uv run python .planners/plans/059-selectolax-1-0-upgrade/textpath_059f.py`.
+  - The release note's "text up to 5x faster" was checked directly (best of 5, two passes per version, `uv run --no-project --with selectolax==<v> --with orjson python .planners/plans/059-selectolax-1-0-upgrade/text_speed_059f.py`): per-node calls got faster (`text(deep=True)` on 202,794 divs 439-454 -> 181-185 ms, 2.4x; `text(deep=False)` on 71,495 text nodes 59-60 -> 40-41 ms, 1.5x), whole-document `text()` did not (71-98 vs 86-95 ms; with `separator=" ", strip=True` 73-75 vs 72-73 ms). Parsing for comparison: 459-466 -> 206-209 ms, 2.2x. The parser already sends most `get_text` calls through native `text()`, so it already gets the per-node gain.
+  - The remaining Python walker time is in early-exit consumers that a full native `text()` cannot replace: `ExtractorMain.is_valid` 26 ms/pass (2.8%, stops after 15 characters) and `has_text` 12 ms/pass (1.3%, stops at the first non-blank fragment). Repeat: `uv run python .planners/plans/059-selectolax-1-0-upgrade/walker_budget_059f.py`.
+  - (2) `LexborHTMLParser(..., encoding=True)` for `bytes` input to `make_soup`: retired. It is a behavior change, not a speedup; no in-repo caller passes `bytes`, and it would change output for non-UTF-8 input. Revisit only if a non-UTF-8 SERP shows up.
 
 ## Handoff
 
@@ -129,8 +134,8 @@ Remaining, in order:
   Log's per-step results (0.4.10 -> 0.4.13 no measurable change; 0.4.13 -> 1.0.0
   -47.2% corpus parse time; snapshots byte-identical throughout). d's done-when put
   them in the Retrospective; they wait in the Log for close to carry over.
-- Follow-up plan candidates (umbrella Log, from b): native `skip_empty` text path;
-  `encoding=True` for `bytes` input.
+- Follow-up plan candidates from b: both retired 2026-10-14 after measurement (see
+  the umbrella Log). No follow-up plan is owed.
 
 Not verified: the speedup on hardware other than this machine, and on interpreters
 other than CPython 3.14.8. Earlier `results.jsonl` rows (June, Python 3.14.3, 80-87
