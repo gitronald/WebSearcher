@@ -5,7 +5,7 @@ status: active
 branch: feature/selectolax-1-0-upgrade
 created: 2026-10-14T20:12:13-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/200
 ---
 
 # Upgrade selectolax to 1.0
@@ -106,6 +106,7 @@ which release items the a baseline should watch.
   - Base: `dev` at `1c7630c`
   - Worktree: `.worktrees/selectolax-1-0-upgrade`
   - PR: pending
+- **2026-10-14T20:45:08-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/200
 
 ## Handoff
 
