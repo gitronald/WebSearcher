@@ -6,7 +6,7 @@ from pathlib import Path
 
 import WebSearcher as ws
 
-from ._common import _default_data_dir, _print_results_table
+from ._common import _default_data_dir, _print_captcha_notice, _print_results_table
 
 # Queries organized by target component type (3 per type) for the `searches` battery.
 # Some queries trigger multiple types (e.g. ad + shopping_ads).
@@ -72,6 +72,7 @@ def search(
     se.save_search(append_to=fps["searches"])
     se.save_parsed(append_to=fps["parsed"])
 
+    _print_captcha_notice(se.parsed.features, se.serp["url"])
     _print_results_table(se.parsed.results)
     return se
 

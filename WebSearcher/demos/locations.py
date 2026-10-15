@@ -6,7 +6,7 @@ from typing import Any
 
 import WebSearcher as ws
 
-from ._common import _default_data_dir, _print_results_table
+from ._common import _default_data_dir, _print_captcha_notice, _print_results_table
 
 
 def _find_location(csv_path: Path, canonical_name: str) -> dict[str, Any] | None:
@@ -45,5 +45,6 @@ def locations(
     se.save_search(append_to=data_path / "searches.json")
     se.save_serp(save_dir=data_path)
 
+    _print_captcha_notice(se.parsed.features, se.serp["url"])
     _print_results_table(se.parsed.results, columns=("type", "title"))
     return se
