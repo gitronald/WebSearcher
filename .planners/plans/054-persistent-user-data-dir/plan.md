@@ -1,8 +1,8 @@
 ---
 id: 54
 slug: persistent-user-data-dir
-status: draft
-branch:
+status: active
+branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
 concluded:
 pr:
@@ -55,3 +55,11 @@ IP/session reputation. Grounding snippet:
 uv run ws-demo search "why is the sky blue" patchright --data-dir .claude/scratch/probe
 uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratch/probe/serps.json').read_text().splitlines()[-1]); print(r['url'], r['response_code'], 'id=\"search\"' in r['html'])"
 ```
+
+## Log
+
+- **2026-10-15T09:00:23-07:00** — Activated.
+  - Branch: `feature/persistent-user-data-dir`
+  - Base: `dev` at `21ee414`
+  - Worktree: `.worktrees/persistent-user-data-dir`
+  - PR: pending

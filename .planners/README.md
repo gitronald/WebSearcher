@@ -2,8 +2,8 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
+| 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | active | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
-| 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
 | 059 | [Upgrade selectolax to 1.0](plans/059-selectolax-1-0-upgrade/plan.md) | done | 2026-10-14 21:50 PT | [#200](https://github.com/gitronald/WebSearcher/pull/200) |
 | 058 | [Upgrade to proj-template 0.11.2](plans/058-template-upgrade/plan.md) | done | 2026-10-14 19:14 PT | [#198](https://github.com/gitronald/WebSearcher/pull/198) |
