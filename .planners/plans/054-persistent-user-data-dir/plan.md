@@ -1,7 +1,7 @@
 ---
 id: 54
 slug: persistent-user-data-dir
-status: active
+status: implemented
 branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
 concluded:
@@ -70,3 +70,4 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - Cookie clearing: `PatchrightConfig.clear_cookies` defaults to `True` (unchanged behavior for library callers); the demos set it `False` whenever `--user-data-dir` is given.
     - Tests: `tests/test_profiles.py` includes a real headless-Chrome save/load round trip (cookie set, close, relaunch on the same dir, cookie present; temp-profile control shows no carry-over). No navigation; skips when Chrome cannot launch. Per the user, no live searches were run, so the warm-profile effect on CAPTCHA rate is not verified.
     - `tests/test_search_methods.py`'s `make_patchright` fixture (built via `__new__`) now sets a default `config`, since `send_request` reads `config.clear_cookies`.
+- **2026-10-15T09:04:26-07:00** — Implemented: 6 commits ahead of `dev`.
