@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Type the whole package under pyrefly's strict preset (explicit type arguments on every `dict`/`list`, annotated parser and extractor signatures); annotations only, with the parser snapshot suite unchanged
 - Packaging: the project URLs use `https`, and the sdist allowlist is root-anchored
 - Dev tooling: synced CI, pre-commit, and tool config to proj-template 0.11.2 (ruff 0.17, a branch-coverage floor in CI, and the 3.12/3.13 CI cells now actually run on those Python versions)
+- Relocked `urllib3` (2.8.0), `soupsieve`, and `virtualenv` past published advisories; the lockfile governs the repo's dev and CI environments, not installs from PyPI
 
 ## [0.11.5] - 2026-07-11
 
