@@ -78,3 +78,7 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - Checks re-run on the branch: ruff, ruff format, pyrefly clean; 665 tests pass.
 - **2026-10-15T09:10:44-07:00** — Implemented: 11 commits ahead of `dev`.
 - **2026-10-15T09:49:49-07:00** — Reactivated: back to active after review.
+- **2026-10-15T09:49:49-07:00** — Added `--leave-open` (user request after a manual warm-up test).
+    - The user ran `ws-demo search --user-data-dir` from the worktree and solved the CAPTCHA within the demo's roughly 12-second `#search` wait, before the demo closed the browser. To keep the window open on demand, `ws-demo search`/`searches` now take `--leave-open`: the browser lives only as long as the process, so the CLI blocks on Enter before `close()`, and Ctrl-C or EOF also close it. Rejected with `requests`.
+    - Tests in `tests/test_profiles.py` check that the prompt comes before the close (Enter, EOF, and Ctrl-C, for both commands) and that there is no prompt without the flag. README warm-up steps now use the flag.
+    - Checks: ruff, ruff format, pyrefly clean; 673 tests pass.
