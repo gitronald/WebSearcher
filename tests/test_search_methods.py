@@ -7,7 +7,12 @@ failure *before* navigation captures nothing, so the previous query's page is
 never recorded under the new query.
 """
 
+import gc
 import logging
+import subprocess
+import sys
+import textwrap
+import weakref
 
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
@@ -91,3 +96,94 @@ def test_patchright_nav_failure_logs_error(monkeypatch, caplog):
     with caplog.at_level(logging.DEBUG, logger=LOG.name):
         make_patchright(FakePageNavFails()).send_request(SearchParams.create({"qry": "test"}))
     assert [r for r in caplog.records if r.levelno == logging.ERROR]
+
+
+# Exit hook --------------------------------------------------------------------
+
+
+class FakeContext:
+    def __init__(self):
+        self.closed = False
+
+    def close(self):
+        self.closed = True
+
+
+class FakePlaywright:
+    def stop(self):
+        pass
+
+
+def make_open_patchright() -> PatchrightSearcher:
+    """A searcher that looks launched (fake context/driver), with its exit hook."""
+    searcher = make_patchright(None)
+    searcher.playwright = FakePlaywright()
+    searcher.context = FakeContext()
+    searcher._tmp_profile = ""
+    searcher._exit_hook = None
+    searcher._register_exit_hook()
+    return searcher
+
+
+def test_exit_hook_closes_open_searcher():
+    searcher = make_open_patchright()
+    context = searcher.context
+    hook = searcher._exit_hook
+    assert hook is not None
+    hook()
+    assert context.closed
+    assert searcher.playwright is None
+
+
+def test_cleanup_unregisters_exit_hook(monkeypatch):
+    unregistered = []
+    monkeypatch.setattr(
+        "WebSearcher.searchers.patchright_searcher.atexit.unregister", unregistered.append
+    )
+    searcher = make_open_patchright()
+    hook = searcher._exit_hook
+    searcher.cleanup()
+    assert unregistered == [hook]
+    assert searcher._exit_hook is None
+
+
+def test_exit_hook_does_not_keep_searcher_alive():
+    searcher = make_open_patchright()
+    hook = searcher._exit_hook
+    assert hook is not None
+    ref = weakref.ref(searcher)
+    del searcher
+    gc.collect()
+    assert ref() is None
+    hook()  # the searcher is gone: a no-op, not an error
+
+
+def test_exit_hook_runs_at_interpreter_exit():
+    # The real atexit path, in a fresh interpreter that exits without cleanup().
+    script = textwrap.dedent(
+        """
+        import logging
+        from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
+
+        class Context:
+            def close(self):
+                print("context closed", flush=True)
+
+        class Playwright:
+            def stop(self):
+                print("playwright stopped", flush=True)
+
+        searcher = PatchrightSearcher.__new__(PatchrightSearcher)
+        searcher.log = logging.getLogger("exit-hook-test")
+        searcher.playwright = Playwright()
+        searcher.context = Context()
+        searcher.page = None
+        searcher._tmp_profile = ""
+        searcher._exit_hook = None
+        searcher._register_exit_hook()
+        """
+    )
+    out = subprocess.run([sys.executable, "-c", script], capture_output=True, text=True, timeout=60)
+    assert out.returncode == 0, out.stderr
+    assert out.stdout.splitlines() == ["context closed", "playwright stopped"]
+    assert out.stderr == ""

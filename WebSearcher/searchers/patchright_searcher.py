@@ -6,10 +6,14 @@ stealth baseline. Lifecycle is fully deterministic: ``context.close()`` +
 ``playwright.stop()``.
 """
 
+import atexit
+import functools
 import logging
 import shutil
 import tempfile
 import time
+import weakref
+from collections.abc import Callable
 from datetime import UTC, datetime
 from typing import Any
 
@@ -23,6 +27,13 @@ from ..models.searches import SearchParams
 # CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
+
+
+def _cleanup_at_exit(ref: "weakref.ref[PatchrightSearcher]") -> None:
+    """Close a searcher still open at interpreter exit (registered by ``init_driver``)."""
+    searcher = ref()
+    if searcher is not None:
+        searcher.cleanup()
 
 
 class PatchrightSearcher:
@@ -44,6 +55,7 @@ class PatchrightSearcher:
         self.page: Any = None
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
+        self._exit_hook: Callable[[], None] | None = None
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
@@ -60,6 +72,7 @@ class PatchrightSearcher:
         from patchright.sync_api import sync_playwright
 
         self.playwright = sync_playwright().start()
+        self._register_exit_hook()
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=user_data_dir,
             channel=self.config.channel,
@@ -168,6 +181,18 @@ class PatchrightSearcher:
         except Exception:
             return None
 
+    def _register_exit_hook(self) -> None:
+        """Close this searcher at interpreter exit if it is still open then.
+
+        ``__del__`` is not guaranteed to run at exit, and when it does,
+        patchright's event loop is already gone, so the close never completes
+        and the temp profile is left behind. ``atexit`` runs while the
+        interpreter is intact. The hook holds a weak reference, so it never
+        keeps a dropped searcher alive; ``cleanup`` unregisters it.
+        """
+        self._exit_hook = functools.partial(_cleanup_at_exit, weakref.ref(self))
+        atexit.register(self._exit_hook)
+
     def cleanup(self) -> bool:
         """Close the context and stop playwright.
 
@@ -190,6 +215,9 @@ class PatchrightSearcher:
             )
             return False
         finally:
+            if self._exit_hook is not None:
+                atexit.unregister(self._exit_hook)
+                self._exit_hook = None
             self.playwright = None
             self.context = None
             self.page = None
