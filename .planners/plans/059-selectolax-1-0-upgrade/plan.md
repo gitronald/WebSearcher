@@ -110,6 +110,10 @@ which release items the a baseline should watch.
 - **2026-10-14T21:20:07-07:00** — 059a and 059b done; see their Logs.
   - Bench harness fix landed in 059a (`gc.collect()` after each timed SERP); rows before this effort are not comparable with its rows.
   - Follow-up plan candidates from 059b: (1) move `get_text`'s strip+separator path to native `text(skip_empty=True)` plus a filter for non-ASCII-whitespace fragments, with its own byte-identity proof; (2) `LexborHTMLParser(..., encoding=True)` for `bytes` input to `make_soup`.
+- **2026-10-14T21:50:53-07:00** — 059c and 059d done. Measured effect per step (same-session within each step, not across):
+  - 0.4.10 -> 0.4.13 (059a): 1556.9 -> 1571.2 ms corpus total, +0.9%, at the noise floor; no measurable change.
+  - 0.4.13 -> 1.0.0 (059d, A B B A): 1569.2 -> 828.0 ms, -47.2%, from lexbor parsing (`make_soup` 2.2x) and CSS matching; `text()`-only frames barely moved.
+  - Output: snapshot suite byte-identical at every step; pyrefly needed test-only narrowing for 1.0's corrected `css_first` stubs (059c).
 
 ## Handoff
 
