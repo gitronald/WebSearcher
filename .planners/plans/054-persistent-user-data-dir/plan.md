@@ -83,3 +83,4 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - Tests in `tests/test_profiles.py` check that the prompt comes before the close (Enter, EOF, and Ctrl-C, for both commands) and that there is no prompt without the flag. README warm-up steps now use the flag.
     - Checks: ruff, ruff format, pyrefly clean; 673 tests pass.
 - **2026-10-15T09:49:51-07:00** — Implemented: 16 commits ahead of `dev`.
+- **2026-10-15T09:54:23-07:00** — Manual check by the user (not re-run by the session): with a profile warmed by solving one CAPTCHA by hand, `ws-demo search --user-data-dir` returned results with no CAPTCHA. Removing the profile brought the CAPTCHA back on the next search. A `ws-demo searches` batch run was started afterwards; its outcome is not recorded here.
