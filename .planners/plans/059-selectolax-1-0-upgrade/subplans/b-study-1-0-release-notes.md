@@ -127,9 +127,11 @@ below.
 - **Wheels.** PyPI 1.0.0 has cp312, cp313 and cp314 wheels for manylinux, musllinux,
   macOS and Windows (82 files; `requires_python >=3.9,<3.16`), matching CI's 3.12-3.14.
 - **New API.** `make_soup` accepts `bytes` and decodes as UTF-8 with replacement.
-  `LexborHTMLParser(..., encoding=True)` would detect a non-UTF-8 encoding instead. Every
-  in-repo caller passes `str`; changing bytes handling changes output for non-UTF-8
-  input, so it is a follow-up.
+  `LexborHTMLParser(..., encoding=True)` would detect a non-UTF-8 encoding instead. The
+  parser pipeline passes `str`; the one in-repo `bytes` path is `utils.load_soup(fp,
+  zipped=True)`, which hands brotli-decompressed bytes to `make_soup`. Changing bytes
+  handling changes output for non-UTF-8 input, so it is a follow-up. (Corrected at
+  close: this first said every in-repo caller passes `str`.)
 - **`skip_empty` (tested, not adoptable as is).** Under 1.0.0 the existing `get_text`
   fast path still equals the Python walker on all 323,168 eligible element nodes for
   `(sep, strip)` in `("", True)`, `(" ", False)`, `("", False)`. Native
@@ -203,7 +205,7 @@ below.
 | 1.0.0 | `attrs` reading freed memory | free | memory safety; we read `attrs` only while the node is alive |
 | 1.0.0 | leak in `attrs[key] = None` | n/a | no attribute writes |
 | 1.0.0 | possible leak in `clone()` | n/a | no `clone` |
-| 1.0.0 | `encoding=True` on `LexborHTMLParser` | follow-up | `make_soup` decodes bytes as UTF-8 with replacement (`_slx.py:93`); detection would change output for non-UTF-8 bytes; all in-repo callers pass `str` |
+| 1.0.0 | `encoding=True` on `LexborHTMLParser` | follow-up | `make_soup` decodes bytes as UTF-8 with replacement (`_slx.py:93`); detection would change output for non-UTF-8 bytes; the parser passes `str`, `load_soup(zipped=True)` passes bytes |
 
 **For c:** no `adopt now` items. c is the bare upgrade, the CHANGELOG entry, and the
 prerelease bump.
