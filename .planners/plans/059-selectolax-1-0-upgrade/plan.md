@@ -29,7 +29,7 @@ is 0.4.13 (2026-09-29).
 | [a](subplans/a-pre-1-0-baseline-bench.md) | Bump to selectolax 0.4.13 and benchmark the baseline | done |  |
 | [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | done |  |
 | [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | done |  |
-| [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | active |  |
+| [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | done |  |
 <!-- planners:subplans:end -->
 
 ### Decisions
@@ -117,7 +117,25 @@ which release items the a baseline should watch.
 
 ## Handoff
 
-Nothing started. Questions:
+State: all four subplans done; the plan is `implemented` and PR #200 is ready for
+review. Everything is committed and pushed on `feature/selectolax-1-0-upgrade`
+(`0.11.7a2`, selectolax 1.0.0). The baseline worktree from d is removed.
+
+Remaining, in order:
+
+- Review PR #200 (the user).
+- `/planners close 059`: merge to `dev`, and write the Retrospective from the umbrella
+  Log's per-step results (0.4.10 -> 0.4.13 no measurable change; 0.4.13 -> 1.0.0
+  -47.2% corpus parse time; snapshots byte-identical throughout). d's done-when put
+  them in the Retrospective; they wait in the Log for close to carry over.
+- Follow-up plan candidates (umbrella Log, from b): native `skip_empty` text path;
+  `encoding=True` for `bytes` input.
+
+Not verified: the speedup on hardware other than this machine, and on interpreters
+other than CPython 3.14.8. Earlier `results.jsonl` rows (June, Python 3.14.3, 80-87
+SERPs) are not comparable with this effort's rows.
+
+Questions:
 
 1. Should `WebSearcher/parsers/bench.py` stamp the installed selectolax version
    on each `results.jsonl` row? It would make rows self-describing instead of
