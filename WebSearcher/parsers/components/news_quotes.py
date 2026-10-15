@@ -4,13 +4,15 @@ A horizontal carousel of news quotes, each pairing a pull-quote with the
 underlying article title, source, and timestamp.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ._common import mark_timestamp_row
 
 
-def parse_news_quotes(elem) -> list:
+def parse_news_quotes(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     subs = list(node.css("g-inner-card"))
     return [parse_news_quote(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
@@ -20,8 +22,8 @@ def _is_tag(n: Node | None) -> bool:
     return n is not None and bool(n.tag) and not n.tag.startswith("-")
 
 
-def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "news_quotes", "sub_rank": sub_rank}
+def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "news_quotes", "sub_rank": sub_rank}
     # bs4 .children was text-inclusive; preserve that to match the original
     # element-counting destructure (1 / 2 / 3 children).
     children = list(sub.iter(include_text=True))
@@ -38,7 +40,7 @@ def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict:
         parsed["text"] = get_text(quote) if _is_tag(quote) else None
         return parsed
 
-    result_children: list = list(result.iter(include_text=True))
+    result_children: list[Node] = list(result.iter(include_text=True))
     if len(result_children) == 2:
         title, meta = result_children
         if not _is_tag(meta):

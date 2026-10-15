@@ -32,6 +32,7 @@ none of these markers and correctly yield empty output.
 from __future__ import annotations
 
 import contextvars
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -45,9 +46,9 @@ raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
 )
 
 
-def parse_ai_overview(elem, sub_rank: int = 0) -> list[dict]:
+def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "ai_overview",
         "sub_rank": sub_rank,
         "title": None,
@@ -71,7 +72,7 @@ def parse_ai_overview(elem, sub_rank: int = 0) -> list[dict]:
     parsed["sub_type"] = "sectioned" if sections else "flat"
     parsed["text"] = lede or None
 
-    details: dict = {"type": "ai_overview"}
+    details: dict[str, Any] = {"type": "ai_overview"}
     if sections:
         details["sections"] = sections
     if lede_citations:
@@ -127,16 +128,18 @@ def _root_html(node: Node) -> str:
     return cur.html or ""
 
 
-def _extract_body(content: Node, payloads: dict[str, dict]) -> tuple[str, list[dict], list[dict]]:
+def _extract_body(
+    content: Node, payloads: dict[str, dict[str, Any]]
+) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]]]:
     """Walk the content area and split into lede + lede citations + sections."""
     elements = _collect_body_elements(content)
     if not elements:
         return "", [], []
 
     lede_parts: list[str] = []
-    lede_citations: list[dict] = []
-    sections: list[dict] = []
-    current: dict | None = None
+    lede_citations: list[dict[str, Any]] = []
+    sections: list[dict[str, Any]] = []
+    current: dict[str, Any] | None = None
 
     for elem in elements:
         button_citations = _extract_button_citations(elem, payloads)
@@ -201,7 +204,7 @@ def _collect_body_elements(content: Node) -> list[Node]:
 
 def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
     elem_ids = {e.mem_id for e in elements}
-    kept = []
+    kept: list[Node] = []
     for e in elements:
         parent = e.parent
         skip = False
@@ -215,7 +218,7 @@ def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
     return kept
 
 
-def _doc_position(elem: Node) -> tuple:
+def _doc_position(elem: Node) -> tuple[int, ...]:
     """Crude document position via ancestor chain indices."""
     path = []
     node: Node | None = elem
@@ -237,7 +240,7 @@ def _is_section_heading(elem: Node) -> bool:
     return elem.attributes.get("role") == "heading" and elem.attributes.get("aria-level") == "3"
 
 
-def _collect_inline_links(elem: Node) -> list[dict]:
+def _collect_inline_links(elem: Node) -> list[dict[str, Any]]:
     """Collect anchors from inline body content (skips sources tray and #)."""
     links = []
     seen: set[str] = set()
@@ -265,9 +268,11 @@ def _find_parent_tag_class(node: Node, tag: str, cls: str) -> Node | None:
     return None
 
 
-def _extract_button_citations(elem: Node, payloads: dict[str, dict]) -> list[dict]:
+def _extract_button_citations(
+    elem: Node, payloads: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
     """Build citation dicts for ``button.rBl3me`` widgets within ``elem``."""
-    citations: list[dict] = []
+    citations: list[dict[str, Any]] = []
     for button in elem.css("button.rBl3me"):
         uuid_raw = button.attributes.get("data-icl-uuid")
         if not uuid_raw:
@@ -313,9 +318,9 @@ def _button_additional_count(button: Node) -> int:
         return 0
 
 
-def _index_type_a_by_src_id(payloads: dict[str, dict]) -> dict[str, dict]:
+def _index_type_a_by_src_id(payloads: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     """Flatten all Type-A payloads into a ``data-src-id -> entry`` map."""
-    out: dict[str, dict] = {}
+    out: dict[str, dict[str, Any]] = {}
     for bucket in payloads.values():
         for entry in bucket.get("type_a", []):
             src_id = entry.get("source_id")
@@ -325,7 +330,9 @@ def _index_type_a_by_src_id(payloads: dict[str, dict]) -> dict[str, dict]:
     return out
 
 
-def _extract_sources(node: Node, type_a_by_src_id: dict[str, dict]) -> list[dict]:
+def _extract_sources(
+    node: Node, type_a_by_src_id: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
     """Build the sources list in tray (rank) order."""
     sources_ul = node.css_first("ul.bTFeG")
     if sources_ul is None:
@@ -345,7 +352,7 @@ def _extract_sources(node: Node, type_a_by_src_id: dict[str, dict]) -> list[dict
         if src_id:
             seen_src_ids.add(src_id)
 
-        payload = type_a_by_src_id.get(src_id, {}) if src_id else {}
+        payload: dict[str, Any] = type_a_by_src_id.get(src_id, {}) if src_id else {}
         publisher = payload.get("publisher") or _tray_publisher(li) or ""
         sources.append(
             {
@@ -375,7 +382,7 @@ _LEGACY_SOURCE_LI_CLASS = "LLtSOc"
 _SOURCES_UL_CLASS = "zVKf0d"
 
 
-def _extract_body_legacy(content: Node) -> tuple[str, list[dict], list[dict]]:
+def _extract_body_legacy(content: Node) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]]]:
     """Walk the 2024 SGE body into lede + sections (no payload citations)."""
     self_id = content.mem_id
     paragraphs = [n for n in content.css(f"div.{_LEGACY_PARA_CLASS}") if n.mem_id != self_id]
@@ -392,8 +399,8 @@ def _extract_body_legacy(content: Node) -> tuple[str, list[dict], list[dict]]:
         return "", [], []
 
     lede_parts: list[str] = []
-    sections: list[dict] = []
-    current: dict | None = None
+    sections: list[dict[str, Any]] = []
+    current: dict[str, Any] | None = None
 
     for elem in elements:
         heading = _legacy_section_heading(elem)
@@ -430,9 +437,9 @@ def _legacy_section_heading(elem: Node) -> str | None:
     return text or None
 
 
-def _extract_sources_legacy(node: Node) -> list[dict]:
+def _extract_sources_legacy(node: Node) -> list[dict[str, Any]]:
     """Build the sources list from the legacy ``li.LLtSOc`` tray cards."""
-    sources: list[dict] = []
+    sources: list[dict[str, Any]] = []
     seen: set[str] = set()
     for li in node.css(f"li.{_LEGACY_SOURCE_LI_CLASS}"):
         a = li.css_first("a[href]")

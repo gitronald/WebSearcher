@@ -1,11 +1,11 @@
 ---
 id: 58
 slug: template-upgrade
-status: active
+status: done
 branch: feature/template-upgrade
 created: 2026-10-14T18:49:31-07:00
-concluded:
-pr:
+concluded: 2026-10-14T19:14:28-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/198
 ---
 
 # Upgrade to proj-template 0.11.2
@@ -72,3 +72,28 @@ may surface failures there.
   - Base: `dev` at `708e633`
   - Worktree: `.worktrees/template-upgrade`
   - PR: pending
+- **2026-10-14T19:01:21-07:00** — Applied the 0.11.2 sync matrix (6 commits on the feature branch).
+  - Pyrefly: the owner chose strict with every site fixed in this PR over relaxing implicit-any-type-argument or keeping the default preset. 651 errors, cleared by a span-driven codemod (bare `dict` to `dict[str, Any]`, `parse_*() -> list` to `list[dict[str, Any]]`, unannotated `elem`/`cmpt` to `Node`) and then about 100 hand annotations. One suppression: a test that passes an invalid type on purpose.
+  - Behavior: 644 tests and 102 snapshots pass unchanged. The one runtime-visible edit is `RequestsSearcher._handle_response_content`, whose error path returned `bytes` into the `str` field `html`. It now returns `response.text`.
+  - Coverage: `branch = true` puts the total at 79.30%, so `fail_under = 79`.
+  - ruff hook rev: v0.16.10 rather than the template's v0.16.6, to match the locked ruff (0.16.10).
+  - `.gitignore`: merged in place, keeping its CRLF line endings, so the diff shows only the added entries.
+  - `.claude/`: `settings.json`, `hooks/lint-typecheck.sh`, and an adapted `CLAUDE.md` were written to the main checkout. They are on disk only, since `.claude/` is gitignored. `settings.local.json` was skipped because the permission baseline lives in the user-level settings.
+  - The repo already had the template's alert stance (vulnerability alerts on, automated security fixes off), so no change was made.
+  - Shared git hooks re-installed from the main checkout after the worktree run; `INSTALL_PYTHON` points at the main `.venv`.
+- **2026-10-14T19:01:50-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/198
+- **2026-10-14T19:05:37-07:00** — Bumped ruff to 0.17.0 (dev group >=0.17,<0.18 and hook rev v0.17.0 together). It clears the 5-day minimumReleaseAge, and lint and format are clean with no changes.
+- **2026-10-14T19:08:46-07:00** — Implemented: 9 commits ahead of `dev`.
+- **2026-10-14T19:14:54-07:00** — Review gate (/code-review, medium) on PR 198 found 7 candidates, of which 3 survived verification. Summary posted to the PR.
+  - Review follow-up: the parser registry was typed `dict[str, Any]` and `ParserFunc` was `Callable[[Node], Any]`, so pyrefly never checked parser signatures. Fixed in 24deedb: `ParserFunc` (a dict or a list of dicts) is now defined beside `PARSERS` and types the registry, the section dicts, and `run_parser`, and the label dicts are now `dict[str, str]`. The regression guard is pyrefly in CI; an injected `lambda x: None` entry now fails with `bad-assignment`.
+  - Conscious no-op: `else list[Node]()` at five sites. The `top-bars` site assigns into a `dict[str, Any]` and needs this form, so one idiom is kept at all five.
+  - Rejected: the `node: Node = elem` alias lines and the repeated `drop_tags` annotation (both already on dev), and `uv run planners` in the hooks (it resolves from PATH like the old entry).
+  - Checks: ruff check, ruff format --check, and pyrefly at 0 errors; 644 tests and 102 snapshots pass; coverage 79.30% against a 79% floor.
+
+## Retrospective
+
+- The sync matrix held up as planned. The one large item was pyrefly strict: 651 errors against the 648 estimated. A codemod driven by error spans cleared most of them, and about 100 sites needed annotations by hand, so the "fix every site in one PR" decision cost hours, not days.
+- The snapshot suite is what made an annotation-only diff across 70 files safe to merge. With 102 snapshots unchanged, the one runtime edit (`response.text` on the requests error path) was the only behavior change left to review.
+- A codemod defaults to `Any` wherever the precise type is not local, and the review caught the case that mattered: the parser registry, whose callable type is the contract every parser follows. Next time, after a codemod, grep for `Any` on registries and dispatch tables.
+- The `UV_PYTHON` CI fix ran the 3.12 and 3.13 cells on their own interpreters for the first time, and they passed. The feared caveat did not materialize.
+- `.claude/` is gitignored here, so the template's Claude payload lives only in the main checkout. A fresh clone does not get it.

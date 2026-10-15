@@ -1,3 +1,5 @@
+from typing import Any
+
 from pydantic import BaseModel, Field, model_validator
 
 # Closed vocabulary of parse-error messages, recorded in a result's
@@ -15,7 +17,7 @@ ERR_UNKNOWN_SUBTYPE = "unknown sub_type"  # "unknown sub_type: <value>"
 ERR_NO_HOTELS = "no hotel items found"
 
 
-def error_details(error: str) -> dict:
+def error_details(error: str) -> dict[str, Any]:
     """Build a metadata-only ``details`` dict for a parse failure.
 
     A generic ``type: "item"`` row (no content payload) carrying just the
@@ -44,8 +46,8 @@ class ParsedSERP(BaseModel):
     serp_id: str = ""
     version: str = ""
     method: str = ""
-    features: dict = Field(default_factory=dict)
-    results: list[dict] = Field(default_factory=list)
+    features: dict[str, Any] = Field(default_factory=dict)
+    results: list[dict[str, Any]] = Field(default_factory=list)
 
 
 class BaseResult(BaseModel):
@@ -75,7 +77,7 @@ class BaseResult(BaseModel):
     url: str | None = Field(None, description="URL of the search result")
     text: str | None = Field(None, description="Snippet text from the search result")
     cite: str | None = Field(None, description="Citation or source information")
-    details: dict | None = Field(
+    details: dict[str, Any] | None = Field(
         None, description="Typed content payload plus reserved metadata keys; see class docstring"
     )
 

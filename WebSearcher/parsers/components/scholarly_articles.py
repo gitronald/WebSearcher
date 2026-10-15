@@ -3,12 +3,14 @@
 Links to academic articles surfaced via Google Scholar.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_scholarly_articles(elem) -> list:
+def parse_scholarly_articles(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     rows = node.css("tr")
     if len(rows) < 2:
@@ -17,8 +19,8 @@ def parse_scholarly_articles(elem) -> list:
     return [parse_article(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def parse_article(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "scholarly_articles", "sub_rank": sub_rank}
+def parse_article(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "scholarly_articles", "sub_rank": sub_rank}
     parsed["title"] = get_text(sub)
     a = sub.css_first("a")
     if a is not None:

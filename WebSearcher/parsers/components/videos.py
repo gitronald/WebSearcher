@@ -6,6 +6,8 @@ Changelog
 2025-04-27: added div subcomponent class and sub_type labels
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
@@ -23,7 +25,7 @@ _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
 ]
 
 
-def parse_videos(elem) -> list:
+def parse_videos(elem: Node) -> list[dict[str, Any]]:
     """Parse a videos component (links to videos, frequently YouTube)."""
     node: Node = elem
 
@@ -50,8 +52,8 @@ def parse_videos(elem) -> list:
     return [{"type": "videos", "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
 
-def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict:
-    parsed: dict = {
+def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {
         "type": "videos",
         "sub_type": sub_type,
         "sub_rank": sub_rank,

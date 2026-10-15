@@ -33,7 +33,13 @@ class ComponentList:
     def __iter__(self):
         yield from self.components
 
-    def add_component(self, elem, section="unknown", type="unknown", cmpt_rank=None):
+    def add_component(
+        self,
+        elem: Node,
+        section: str = "unknown",
+        type: str = "unknown",
+        cmpt_rank: int | None = None,
+    ) -> None:
         """Add a component to the list of components"""
         cmpt_rank = self.cmpt_rank_counter if cmpt_rank is None else cmpt_rank
         component = Component(elem, section, type, cmpt_rank)
@@ -41,7 +47,7 @@ class ComponentList:
         self.components.append(component)
         self.cmpt_rank_counter += 1
 
-    def reorder_by_dom_position(self, positions):
+    def reorder_by_dom_position(self, positions: dict[int, int]) -> None:
         """Reorder components by DOM position within each section.
 
         ``positions`` maps ``mem_id -> pre-order index`` for every element in
@@ -55,7 +61,7 @@ class ComponentList:
         section_order = {"header": 0, "main": 1, "footer": 2, "rhs": 3}
         main_components = [c for c in self.components if c.section == "main"]
 
-        def _range(elem):
+        def _range(elem: Node) -> tuple[int, int] | None:
             start = positions.get(elem.mem_id)
             if start is None:
                 return None
@@ -67,7 +73,7 @@ class ComponentList:
 
         ranges = {id(c): _range(c.elem) for c in main_components}
 
-        def _effective_pos(cmpt):
+        def _effective_pos(cmpt: Component) -> float:
             rng = ranges[id(cmpt)]
             if rng is None:
                 return float("inf")
@@ -91,7 +97,7 @@ class ComponentList:
                         return best
             return start
 
-        def sort_key(cmpt):
+        def sort_key(cmpt: Component) -> tuple[int, float | None]:
             section_idx = section_order.get(cmpt.section, 1)
             if cmpt.section == "main":
                 return (section_idx, _effective_pos(cmpt))

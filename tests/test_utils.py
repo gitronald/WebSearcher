@@ -220,6 +220,7 @@ def test_load_html(tmp_path):
     fp = tmp_path / "page.html"
     fp.write_text("<html><body>hello</body></html>")
     content = utils.load_html(fp)
+    assert isinstance(content, str)
     assert "hello" in content
 
 
@@ -230,6 +231,7 @@ def test_load_html_brotli(tmp_path):
     original = b"<html><body>compressed</body></html>"
     fp.write_bytes(brotli.compress(original))
     content = utils.load_html(fp, zipped=True)
+    assert isinstance(content, bytes)
     assert b"compressed" in content
 
 

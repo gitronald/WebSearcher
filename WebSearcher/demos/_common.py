@@ -4,12 +4,13 @@ Stdlib only (no polars), so the demos run on a plain ``pip install WebSearcher``
 """
 
 from pathlib import Path
+from typing import Any
 
 import WebSearcher as ws
 
 
 def _print_results_table(
-    results: list[dict],
+    results: list[dict[str, Any]],
     columns: tuple[str, ...] = ("type", "sub_type", "title", "url"),
     max_width: int = 80,
 ) -> None:
@@ -18,7 +19,7 @@ def _print_results_table(
         print("(no results)")
         return
 
-    def cell(value) -> str:
+    def cell(value: object) -> str:
         s = "" if value is None else str(value)
         return s if len(s) <= max_width else s[: max_width - 3] + "..."
 

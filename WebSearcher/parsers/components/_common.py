@@ -6,12 +6,15 @@ small, documented behavior differences (text separator, ``data-url`` fallback)
 via explicit arguments.
 """
 
+from collections.abc import Iterable
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, is_hidden
 
 
-def mark_hidden_row(parsed: dict, node: Node | None) -> dict:
+def mark_hidden_row(parsed: dict[str, Any], node: Node | None) -> dict[str, Any]:
     """Record ``visible=False`` in a result row's ``details`` when ``node`` is
     hidden (the inline ``display:none`` lazy-render pattern; see
     :func:`._slx.is_hidden`).
@@ -31,7 +34,7 @@ def mark_hidden_row(parsed: dict, node: Node | None) -> dict:
     return parsed
 
 
-def mark_timestamp_row(parsed: dict, timestamp: str | None) -> dict:
+def mark_timestamp_row(parsed: dict[str, Any], timestamp: str | None) -> dict[str, Any]:
     """Record a ``timestamp`` in a result row's ``details`` (only when present).
 
     Mirrors :func:`mark_hidden_row`: a content row gets the flag as a sibling
@@ -46,7 +49,7 @@ def mark_timestamp_row(parsed: dict, timestamp: str | None) -> dict:
     return parsed
 
 
-def mark_hidden_item(item: dict, node: Node | None) -> dict:
+def mark_hidden_item(item: dict[str, Any], node: Node | None) -> dict[str, Any]:
     """Record ``visible=False`` on a ``details["items"]`` entry when ``node`` is
     hidden. Only-when-False, mirroring :func:`mark_hidden_row`."""
     if is_hidden(node):
@@ -54,7 +57,7 @@ def mark_hidden_item(item: dict, node: Node | None) -> dict:
     return item
 
 
-def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict:
+def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict[str, Any]:
     """Extract ``{"url", "text"}`` from an anchor node.
 
     Args:
@@ -76,7 +79,7 @@ def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict
     return {"url": url, "text": get_text(a, sep) or ""}
 
 
-def parse_alink_list(alinks, sep: str = "") -> list:
+def parse_alink_list(alinks: Iterable[Node], sep: str = "") -> list[dict[str, Any]]:
     """Map ``parse_alink`` over real anchor tags that carry an ``href``."""
     items = []
     for a in alinks:

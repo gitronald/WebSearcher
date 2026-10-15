@@ -1,10 +1,12 @@
 import logging
+from collections.abc import Iterable
 from dataclasses import dataclass
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtree_css
+from ..parsers.component_list import ComponentList
 
 log = logging.getLogger(__name__)
 
@@ -73,7 +75,7 @@ _BAD_LABELS = frozenset(
 )
 
 
-def _filter_empty(nodes) -> list[Node]:
+def _filter_empty(nodes: Iterable[Node | None]) -> list[Node]:
     return [n for n in nodes if n is not None and has_text(n)]
 
 
@@ -84,7 +86,7 @@ def _find_all_with_class(node: Node, css: str, *, filter_empty: bool = True) -> 
 
 
 class ExtractorMain:
-    def __init__(self, soup: Node | None, components):
+    def __init__(self, soup: Node | None, components: ComponentList):
         self.soup: Node | None = soup
         self.components = components
 
@@ -125,7 +127,9 @@ class ExtractorMain:
         rcnt = self.soup.css_first('div[id="rcnt"]')
         # bs4 ``find_all("div", {"class": ["XqFnDf","M8OgIe"]})`` = OR of tokens.
         layout_divs["top-bars"] = (
-            _find_all_with_class(rcnt, "div.XqFnDf, div.M8OgIe") if rcnt is not None else []
+            _find_all_with_class(rcnt, "div.XqFnDf, div.M8OgIe")
+            if rcnt is not None
+            else list[Node]()
         )
 
         layouts: dict[str, bool] = {
@@ -171,7 +175,7 @@ class ExtractorMain:
             ads.remove(recursive=False)
             self.components.add_component(ads, section="main", type="ad")
 
-    def _main_column(self, drop_tags: set | None = None):
+    def _main_column(self, drop_tags: set[str | None] | None = None) -> None:
         if drop_tags is None:
             drop_tags = {"script", "style", None}
         if self.layout_label is None:
@@ -217,10 +221,10 @@ class ExtractorMain:
         return best
 
     @staticmethod
-    def _kp_marker_ancestors(markers: list[Node], cont: Node) -> set:
+    def _kp_marker_ancestors(markers: list[Node], cont: Node) -> set[int]:
         """Every ``mem_id`` on a marker -> ``cont`` path: a node "carries" a marker
         iff it is (or is an ancestor of) one, i.e. its id is in this set."""
-        ancestors: set = set()
+        ancestors: set[int] = set()
         for m in markers:
             node = m
             while node is not None:
@@ -231,7 +235,7 @@ class ExtractorMain:
         return ancestors
 
     @staticmethod
-    def _kp_emit_blocks(node: Node, marker_ids: set, ancestors: set) -> list[Node]:
+    def _kp_emit_blocks(node: Node, marker_ids: set[int], ancestors: set[int]) -> list[Node]:
         """Recursively flatten an active tab into its result blocks.
 
         A child is emitted as a block unless it is a *grouping wrapper* -- a
@@ -366,7 +370,7 @@ class ExtractorMain:
         direct = [c for c in target.iter(include_text=False) if keep & set(class_tokens(c))]
         return len(sub_column) > len(direct)
 
-    def extract_from_standard(self, drop_tags: set | None = None) -> list:
+    def extract_from_standard(self, drop_tags: set[str | None] | None = None) -> list[Node]:
         rso_div = self.layout_divs["rso"]
         if rso_div is None:
             return []
@@ -433,7 +437,7 @@ class ExtractorMain:
                     col.extend(c for c in d.iter(include_text=False) if "A6K0A" in class_tokens(c))
         return col
 
-    def _extract_from_standard_sub_type(self, sub_type: str = "") -> list:
+    def _extract_from_standard_sub_type(self, sub_type: str = "") -> list[Node]:
         self.layout_label = sub_type
         rso_div = self.layout_divs["rso"]
         if rso_div is None:
@@ -477,9 +481,9 @@ class ExtractorMain:
         ]
         return _filter_empty(column)
 
-    def extract_from_top_bar(self, drop_tags: set | None = None) -> list:
+    def extract_from_top_bar(self, drop_tags: set[str | None] | None = None) -> list[Node]:
         drop_tags = drop_tags or {"script", "style", None}
-        out: list = []
+        out: list[Node] = []
         tops = ExtractorMain.extract_top_divs(
             self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
         )
@@ -492,7 +496,7 @@ class ExtractorMain:
         rso_divs = (
             _find_all_with_class(rso_div, div_classes_css, filter_empty=False)
             if rso_div is not None
-            else []
+            else list[Node]()
         )
         if rso_divs:
             self.layout_label = "top-bars-divs"
@@ -505,8 +509,12 @@ class ExtractorMain:
         return out
 
     @staticmethod
-    def extract_top_divs(top_bars, drop_tags: set | None = None, rso=None) -> list:
-        out: list = []
+    def extract_top_divs(
+        top_bars: list[Node] | None,
+        drop_tags: set[str | None] | None = None,
+        rso: Node | None = None,
+    ) -> list[Node]:
+        out: list[Node] = []
         if not top_bars:
             return out
         for tb in top_bars:
@@ -541,7 +549,7 @@ class ExtractorMain:
         return out
 
     @staticmethod
-    def is_dictionary_header(elem: Node, rso=None) -> bool:
+    def is_dictionary_header(elem: Node, rso: Node | None = None) -> bool:
         """Check if element is a dictionary word header that duplicates an inline
         definitions component in the rso column."""
         if elem.css_first("div.kp-wholepage-osrp") is None:
@@ -554,11 +562,11 @@ class ExtractorMain:
             (get_text(b, strip=True) or "") == "Dictionary" for b in rso.css('div[role="button"]')
         )
 
-    def extract_from_left_bar(self, drop_tags: set | None = None) -> list:
+    def extract_from_left_bar(self, drop_tags: set[str | None] | None = None) -> list[Node]:
         assert self.soup is not None
         return _find_all_with_class(self.soup, "div.TzHB6b", filter_empty=False)
 
-    def extract_from_no_rso(self, drop_tags: set | None = None) -> list:
+    def extract_from_no_rso(self, drop_tags: set[str | None] | None = None) -> list[Node]:
         drop_tags = drop_tags or {"script", "style", None}
         assert self.soup is not None
         out: list[Node] = []
@@ -592,14 +600,14 @@ class ExtractorMain:
         ]
 
     @staticmethod
-    def extract_children(soup, drop_tags: set | None = None) -> list:
+    def extract_children(soup: Node | None, drop_tags: set[str | None] | None = None) -> list[Node]:
         """bs4 ``soup.children`` -> direct children. The original then expanded
         children that have no attrs by inlining their ``.contents`` (text-
         inclusive)."""
         drop_tags = drop_tags or {"script", "style", None}
         if soup is None:
             return []
-        cts: list = []
+        cts: list[Node] = []
         for ch in soup.iter(include_text=False):
             if ch.tag in drop_tags:
                 continue
@@ -611,7 +619,7 @@ class ExtractorMain:
         return cts
 
     @staticmethod
-    def is_valid(c) -> bool:
+    def is_valid(c: Node | None) -> bool:
         if c is None:
             return False
         if not c.tag or c.tag.startswith("-"):

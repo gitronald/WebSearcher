@@ -65,7 +65,7 @@ def test_search_method_invalid_string():
 
 def test_search_method_invalid_type():
     with pytest.raises(TypeError, match="Expected string or SearchMethod"):
-        SearchMethod.create(123)
+        SearchMethod.create(123)  # pyrefly: ignore[bad-argument-type]
 
 
 # PatchrightConfig -------------------------------------------------------------

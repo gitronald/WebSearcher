@@ -4,14 +4,16 @@ A header row plus a list of clickable suggestions Google offers when a query
 is flagged (e.g., misspellings, restricted topics).
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_banner(elem) -> list:
+def parse_banner(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list[dict] = [
+    parsed_list: list[dict[str, Any]] = [
         {
             "type": "banner",
             "sub_type": "header",

@@ -8,6 +8,7 @@ card into ``title`` / ``url`` plus a ``ratings`` details block.
 """
 
 import re
+from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -26,7 +27,7 @@ _RATING_TEXT_CLASS = "yi40Hd"
 _N_REVIEWS_CLASS = "RDApEe"
 
 
-def parse_recipes(elem) -> list:
+def parse_recipes(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     cards = list(node.css(f"a.{_CARD_CLASS}"))
     if not cards:
@@ -36,13 +37,13 @@ def parse_recipes(elem) -> list:
     return [_parse_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
-def _parse_card(card: Node, sub_rank: int = 0) -> dict:
+def _parse_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     href = card.attributes.get("href")
     if not href:
         # Async variant: the card is a wrapper div, url is on an inner anchor.
         anchor = card.css_first("a[href]")
         href = anchor.attributes.get("href") if anchor is not None else None
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "recipes",
         "sub_rank": sub_rank,
         "title": _text(card, _TITLE_CLASS),
@@ -51,7 +52,7 @@ def _parse_card(card: Node, sub_rank: int = 0) -> dict:
         "cite": None,
     }
 
-    details: dict = {"type": "ratings"}
+    details: dict[str, Any] = {"type": "ratings"}
     source = _text(card, _SOURCE_CLASS)
     if source:
         details["source"] = source

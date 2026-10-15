@@ -4,12 +4,14 @@ Renders as a section like "Flights to <destination>" followed by route cards
 linking to google.com/travel/flights with origin labels (e.g. "From Casablanca").
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_flights(elem) -> list:
+def parse_flights(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     # The flight-status widget uses a bare <h2> with no role="heading".
     heading = node.css_first('[role="heading"][aria-level="2"]') or node.css_first("h2")
@@ -20,7 +22,7 @@ def parse_flights(elem) -> list:
         text = get_text(a, " ", strip=True)
         if href and href != "#" and text:
             items.append({"url": href, "text": text})
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "flights",
         "sub_rank": 0,
         "title": title,

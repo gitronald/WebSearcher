@@ -5,13 +5,15 @@ sponsored hotel carousel (role=listitem cards from atvcap). Each card
 captures price, source, rating, review count, stars, and amenity tags.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import class_tokens, get_text
 from ._common import mark_hidden_row
 
 
-def parse_shopping_ads(elem) -> list:
+def parse_shopping_ads(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     # Sponsored hotel carousel (atvcap)
     cards = list(node.css('[role="listitem"]'))
@@ -38,8 +40,8 @@ def parse_shopping_ads(elem) -> list:
     return [_parse_pla_card(card, sub_rank) for sub_rank, card in enumerate(cards)]
 
 
-def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
-    parsed: dict = {"type": "shopping_ads", "sub_rank": sub_rank}
+def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+    parsed: dict[str, Any] = {"type": "shopping_ads", "sub_rank": sub_rank}
     card = sub.css_first("a.clickable-card")
     if card is not None:
         parsed["url"] = card.attributes.get("href")
@@ -47,7 +49,7 @@ def _parse_pla_unit(sub: Node, sub_rank: int = 0) -> dict:
     return mark_hidden_row(parsed, sub)
 
 
-def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
+def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     """Parse a modern product-listing-ad card (``a.clickable-card``).
 
     Title comes from the card's ``aria-label`` (full product name) with the
@@ -65,7 +67,7 @@ def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
         p = p.parent
 
     title = card.attributes.get("aria-label") or _card_text(unit, "span.pymv4e")
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": "shopping_ads",
         "sub_type": "product",
         "sub_rank": sub_rank,
@@ -75,7 +77,7 @@ def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict:
         "cite": None,
     }
 
-    details: dict = {"type": "ratings"}
+    details: dict[str, Any] = {"type": "ratings"}
     price = _card_text(unit, "span.e10twf")
     if price:
         details["price"] = price
@@ -95,7 +97,7 @@ def _card_text(node: Node, css: str) -> str | None:
     return text or None
 
 
-def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
+def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     name_div = card.css_first("div.KZYtMc")
     price_div = card.css_first("div.XO8mWb")
     source_div = card.css_first("div.sX5I1c")
@@ -118,7 +120,7 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict:
         else:
             rating = rating_text
 
-    details: dict = {"type": "ratings"}
+    details: dict[str, Any] = {"type": "ratings"}
     if price_div is not None:
         details["price"] = get_text(price_div, strip=True)
     if source_div is not None:

@@ -6,6 +6,8 @@ stacked horizontally and feature a larger image, resembling the video
 component.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
@@ -14,7 +16,7 @@ from ._common import mark_hidden_row
 from ._video_card import parse_evlb_card
 
 
-def parse_top_stories(elem, ctype: str = "top_stories") -> list:
+def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, Any]]:
     node: Node = elem
     divs: list[Node] = []
     divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
@@ -42,7 +44,7 @@ def parse_top_stories(elem, ctype: str = "top_stories") -> list:
     return [{"type": ctype, "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
 
-def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
+def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
     title = None
     for sel in ("div.n0jPhd", "div.eAaXgc", "div.xcQxib"):
         t = get_text(sub.css_first(sel), " ")
@@ -51,7 +53,7 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict:
             break
     a = sub.css_first("a")
     url = a.attributes.get("href") if a is not None else None
-    parsed: dict = {
+    parsed: dict[str, Any] = {
         "type": ctype,
         "sub_rank": sub_rank,
         "title": title,
@@ -87,7 +89,7 @@ def get_cite(sub: Node) -> str | None:
     return get_text(sub.css_first("cite"), " ")
 
 
-def get_top_story_details(sub: Node) -> dict:
+def get_top_story_details(sub: Node) -> dict[str, Any]:
     return {
         "img_url": get_img_url(sub),
         "orient": "v" if sub.css_first("span.uaCsqe") is not None else "h",

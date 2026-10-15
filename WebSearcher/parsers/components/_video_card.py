@@ -13,12 +13,14 @@ data-side enrichment and says nothing about visibility, so callers must not
 set ``visible`` based on a card hit.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, walk_descendants
 
 
-def _card_fields(card: Node) -> dict | None:
+def _card_fields(card: Node) -> dict[str, Any] | None:
     """Truthy metadata fields of one ``evlb_*`` card, or ``None`` for a stub.
 
     Thumbnail URLs may be ``data:image/...`` lazy-load placeholders; they are
@@ -39,7 +41,7 @@ def _card_fields(card: Node) -> dict | None:
     return fields
 
 
-def parse_evlb_card(scope: Node) -> dict | None:
+def parse_evlb_card(scope: Node) -> dict[str, Any] | None:
     """Extract video metadata fields from the first populated ``evlb_*`` card
     inside ``scope`` (a video tile), or ``None`` when no card yields a field."""
     for card in scope.css('div[id^="evlb_"]'):
@@ -49,7 +51,7 @@ def parse_evlb_card(scope: Node) -> dict | None:
     return None
 
 
-def evlb_fields_by_tile(root: Node, tiles: list[Node]) -> dict[int, dict]:
+def evlb_fields_by_tile(root: Node, tiles: list[Node]) -> dict[int, dict[str, Any]]:
     """Card fields keyed by tile ``mem_id``, for tiles whose card sits BESIDE
     them (e.g. ``short_videos`` anchors) in a per-video wrapper
     (``div.WVV5ke``) rather than inside.
@@ -63,7 +65,7 @@ def evlb_fields_by_tile(root: Node, tiles: list[Node]) -> dict[int, dict]:
     wrappers resolve to the innermost (document order: outer first, inner
     overwrites)."""
     tile_ids = {t.mem_id for t in tiles}
-    fields_by_tile: dict[int, dict] = {}
+    fields_by_tile: dict[int, dict[str, Any]] = {}
     for wrapper in root.css("div.WVV5ke"):
         inside = []
         for n in walk_descendants(wrapper):

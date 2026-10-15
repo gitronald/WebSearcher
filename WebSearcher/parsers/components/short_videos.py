@@ -4,6 +4,8 @@ A horizontal carousel of short-form video cards (YouTube Shorts, TikTok, etc.)
 with a heading, source, and duration.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
@@ -11,7 +13,7 @@ from ._common import mark_hidden_row
 from ._video_card import evlb_fields_by_tile
 
 
-def parse_short_videos(elem) -> list:
+def parse_short_videos(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     # Filter to full card links (with heading), skip thumbnail-only duplicates.
     cards = [a for a in node.css("a.rIRoqf") if a.css_first('div[role="heading"]') is not None]
@@ -24,7 +26,7 @@ def parse_short_videos(elem) -> list:
 
     parsed_list = []
     for i, card in enumerate(cards):
-        parsed: dict = {
+        parsed: dict[str, Any] = {
             "type": "short_videos",
             "sub_rank": i,
             "url": card.attributes.get("href"),

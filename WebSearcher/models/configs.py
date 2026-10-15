@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Any, Self
 
 import requests
 from pydantic import BaseModel, Field, computed_field
@@ -10,7 +11,7 @@ class BaseConfig(BaseModel):
     """Base class for all configuration classes"""
 
     @classmethod
-    def create(cls, config=None):
+    def create(cls, config: "dict[str, Any] | Self | None" = None) -> Self:
         """Create a config instance from a dictionary or existing instance"""
         if isinstance(config, dict):
             return cls(**config)
@@ -63,7 +64,7 @@ class SearchMethod(Enum):
     PATCHRIGHT = "patchright"
 
     @classmethod
-    def create(cls, method=None):
+    def create(cls, method: "str | SearchMethod | None" = None) -> "SearchMethod":
         """Convert string to SearchMethod enum or return existing enum instance"""
         if method is None:
             return cls.PATCHRIGHT

@@ -4,15 +4,17 @@ Visually similar to a general result but linking to a Twitter account, with
 a tweet sometimes embedded in the snippet.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ._common import mark_timestamp_row
 
 
-def parse_twitter_result(elem, sub_rank: int = 0) -> list:
+def parse_twitter_result(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed: dict = {"type": "twitter_result", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "twitter_result", "sub_rank": sub_rank}
 
     header = node.css_first("div.DOqJne")
     if header is not None:

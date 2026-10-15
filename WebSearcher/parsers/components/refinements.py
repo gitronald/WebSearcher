@@ -11,22 +11,24 @@ heading span (typed by header text via ``ClassifyMainHeader``):
 Both render as a flat list of query-chip anchors, so they share one parser.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_refine_by(elem) -> list:
+def parse_refine_by(elem: Node) -> list[dict[str, Any]]:
     return _parse_query_chips(elem, "refine_by")
 
 
-def parse_shopping_ideas(elem) -> list:
+def parse_shopping_ideas(elem: Node) -> list[dict[str, Any]]:
     return _parse_query_chips(elem, "shopping_ideas")
 
 
-def _parse_query_chips(elem, cmpt_type: str) -> list:
+def _parse_query_chips(elem: Node, cmpt_type: str) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list[dict] = []
+    parsed_list: list[dict[str, Any]] = []
     for anchor in node.css("a[href]"):
         href = anchor.attributes.get("href")
         title = get_text(anchor, " ", strip=True)

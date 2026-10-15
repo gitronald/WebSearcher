@@ -7,14 +7,16 @@ are JS-driven (their anchors are ``#`` placeholders), so only the name is
 extractable -- like the immersive products grid, rows carry a title but no url.
 """
 
+from typing import Any
+
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 
 
-def parse_places_nearby(elem) -> list:
+def parse_places_nearby(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed_list: list[dict] = []
+    parsed_list: list[dict[str, Any]] = []
     for i, heading in enumerate(node.css('[aria-level="3"][role="heading"]')):
         name = get_text(heading, strip=True)
         if not name:

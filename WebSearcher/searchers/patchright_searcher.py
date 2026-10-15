@@ -6,6 +6,7 @@ stealth baseline. Lifecycle is fully deterministic: ``context.close()`` +
 ``playwright.stop()``.
 """
 
+import logging
 import shutil
 import tempfile
 import time
@@ -29,7 +30,7 @@ class PatchrightSearcher:
 
     driver_name = "patchright"
 
-    def __init__(self, config: PatchrightConfig, logger):
+    def __init__(self, config: PatchrightConfig, logger: logging.Logger):
         """Initialize a patchright searcher with the given configuration
 
         Args:

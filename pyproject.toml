@@ -19,11 +19,18 @@ dependencies = [
 ]
 
 [project.urls]
-homepage = "http://github.com/gitronald/WebSearcher"
-repository = "http://github.com/gitronald/WebSearcher"
+homepage = "https://github.com/gitronald/WebSearcher"
+repository = "https://github.com/gitronald/WebSearcher"
 
 [project.scripts]
 ws-demo = 'WebSearcher.demos:main'
+
+# Which proj-template release this repo was scaffolded from, stamped by
+# proj-init.sh and re-stamped by the install-template skill on upgrade. Inert to
+# consumers: build backends translate only [project], so this never reaches the
+# wheel or the PyPI metadata. Read it to audit template drift across repos.
+[tool.proj-template]
+version = "0.11.2"
 
 [dependency-groups]
 dev = [
@@ -33,8 +40,11 @@ dev = [
     "pyarrow>=23.0.0",
     "polars>=1.37.1",
     "pre-commit>=4.5.1",
-    "pyrefly",
-    "ruff>=0.15.6",
+    "pyrefly>=1.0.0",
+    # Same minor as the ruff-pre-commit rev in .pre-commit-config.yaml, so the
+    # commit hook and `uv run ruff` (CI, the Stop hook) apply one rule set.
+    # Bump the two together.
+    "ruff>=0.17,<0.18",
     "pytest-cov>=7.0.0",
     # bs4 + lxml are dev-only: used by show_serp.py's overlay stripping (the
     # serp-inspect skill). Runtime parsing is selectolax-only.
@@ -43,8 +53,10 @@ dev = [
 ]
 
 [tool.pyrefly]
+preset = "strict"
 python-version = "3.12"
-project-includes = ["WebSearcher"]
+project-includes = ["."]
+project-excludes = ["**/__pycache__", "**/.venv", ".worktrees/**", ".claude/**", "data/**"]
 # patchright is a runtime dep but ships no type stubs, so fall back to Any on its
 # lazy imports instead of erroring.
 ignore-missing-imports = [
@@ -52,20 +64,42 @@ ignore-missing-imports = [
     "patchright.sync_api",
 ]
 
+# tests/ stays type-checked (imports, undefined names, type mismatches),
+# but the implicit-any check is relaxed there so unannotated pytest fixture
+# params (e.g. `def test_x(tmp_path):`) don't force annotations.
+[[tool.pyrefly.sub-config]]
+matches = "tests/**"
+
+[tool.pyrefly.sub-config.errors]
+implicit-any = false
+
 [tool.pytest.ini_options]
-addopts = "--cov=WebSearcher --cov-report=term-missing"
+testpaths = ["tests"]
+addopts = "--cov --cov-report=term-missing"
 
 [tool.coverage.run]
 source = ["WebSearcher"]
+branch = true
 omit = ["WebSearcher/searchers/*_searcher.py", "WebSearcher/parsers/bench.py"]  # bench is a dev tool, run from a checkout
 
 [tool.coverage.report]
 show_missing = true
 skip_empty = true
+# Current branch-coverage total at the 0.11.2 template upgrade; raise as tests grow.
+fail_under = 79
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
 
 [tool.ruff]
 target-version = "py312"
 line-length = 100
+# ruff 0.16 formats Python fences inside Markdown; keep it off prose (READMEs,
+# changelogs, plans). Drop this line to have fenced code formatted.
+extend-exclude = ["*.md"]
 
 [tool.ruff.lint]
 select = [
@@ -87,10 +121,14 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.sdist]
 # Allowlist what the sdist ships. The wheel already contains only the
 # WebSearcher/ package; this trims the sdist to match (~24MB -> a few hundred KB).
-# Anything not listed here (docs, tests, CI config, dev dotfiles) stays in the
-# repo but is kept out of the distributed source archive. pyproject.toml,
-# README.md, and LICENSE are added automatically as project metadata.
+# Root-anchored (leading "/") so bare names don't glob at every depth. Anything
+# not listed here (docs, plans, tests, CI config, dev dotfiles) stays in the repo
+# but is kept out of the distributed source archive. hatchling force-includes
+# pyproject.toml, PKG-INFO, and .gitignore regardless, so treat those as
+# sdist-visible.
 only-include = [
-    "WebSearcher",  # the importable package (includes the demos at WebSearcher/demos/)
-    "CHANGELOG.md",
+    "/WebSearcher",  # the importable package (includes the demos at WebSearcher/demos/)
+    "/README.md",
+    "/CHANGELOG.md",
+    "/LICENSE",
 ]
