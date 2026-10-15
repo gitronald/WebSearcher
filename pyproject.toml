@@ -25,6 +25,13 @@ repository = "https://github.com/gitronald/WebSearcher"
 [project.scripts]
 ws-demo = 'WebSearcher.demos:main'
 
+# Which proj-template release this repo was scaffolded from, stamped by
+# proj-init.sh and re-stamped by the install-template skill on upgrade. Inert to
+# consumers: build backends translate only [project], so this never reaches the
+# wheel or the PyPI metadata. Read it to audit template drift across repos.
+[tool.proj-template]
+version = "0.11.2"
+
 [dependency-groups]
 dev = [
     "pytest>=9.0.3",
@@ -78,6 +85,8 @@ omit = ["WebSearcher/searchers/*_searcher.py", "WebSearcher/parsers/bench.py"]  
 [tool.coverage.report]
 show_missing = true
 skip_empty = true
+# Current branch-coverage total at the 0.11.2 template upgrade; raise as tests grow.
+fail_under = 79
 exclude_lines = [
     "pragma: no cover",
     "if __name__ == .__main__.:",
