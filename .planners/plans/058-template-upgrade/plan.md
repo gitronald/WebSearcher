@@ -1,7 +1,7 @@
 ---
 id: 58
 slug: template-upgrade
-status: draft
+status: active
 branch: feature/template-upgrade
 created: 2026-10-14T18:49:31-07:00
 concluded:
@@ -64,3 +64,11 @@ may surface failures there.
 4. Coverage floor, then the `[tool.proj-template]` stamp
 5. `.claude/` payload in the main checkout (untracked)
 6. Verify (ruff, pyrefly, pre-commit, pytest), repair the shared git hooks, open the PR into `dev`
+
+## Log
+
+- **2026-10-14T18:50:03-07:00** — Activated.
+  - Branch: `feature/template-upgrade`
+  - Base: `dev` at `708e633`
+  - Worktree: `.worktrees/template-upgrade`
+  - PR: pending
