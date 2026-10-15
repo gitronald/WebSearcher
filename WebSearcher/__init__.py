@@ -1,4 +1,4 @@
-__version__ = "0.11.6"
+__version__ = "0.11.7a0"
 
 import logging
 from typing import TYPE_CHECKING
