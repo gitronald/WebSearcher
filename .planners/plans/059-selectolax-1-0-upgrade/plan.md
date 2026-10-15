@@ -1,10 +1,10 @@
 ---
 id: 59
 slug: selectolax-1-0-upgrade
-status: implemented
+status: done
 branch: feature/selectolax-1-0-upgrade
 created: 2026-10-14T20:12:13-07:00
-concluded:
+concluded: 2026-10-14T21:50:21-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/200
 ---
 
@@ -126,23 +126,16 @@ which release items the a baseline should watch.
 
 ## Handoff
 
-State: all four subplans done; the plan is `implemented` and PR #200 is ready for
-review. Everything is committed and pushed on `feature/selectolax-1-0-upgrade`
-(`0.11.7a2`, selectolax 1.0.0). The baseline worktree from d is removed.
-
-Remaining, in order:
-
-- Review PR #200 (the user).
-- `/planners close 059`: merge to `dev`, and write the Retrospective from the umbrella
-  Log's per-step results (0.4.10 -> 0.4.13 no measurable change; 0.4.13 -> 1.0.0
-  -47.2% corpus parse time; snapshots byte-identical throughout). d's done-when put
-  them in the Retrospective; they wait in the Log for close to carry over.
-- Follow-up plan candidates from b: both retired 2026-10-14 after measurement (see
-  the umbrella Log). No follow-up plan is owed.
+State: closed. All four subplans done; PR #200 reviewed (medium gate, one plan-text
+correction) and merged to `dev` at `0.11.7a2` with selectolax 1.0.0. The baseline
+worktree from d and the feature worktree are removed. Nothing remains, and no
+follow-up plan is owed: both candidates from b were retired after measurement (see
+the umbrella Log).
 
 Not verified: the speedup on hardware other than this machine, and on interpreters
 other than CPython 3.14.8. Earlier `results.jsonl` rows (June, Python 3.14.3, 80-87
-SERPs) are not comparable with this effort's rows.
+SERPs) are not comparable with this effort's rows. The stable `0.11.7` release that
+carries this to users is out of scope here and follows the normal release path.
 
 Questions:
 
@@ -167,3 +160,12 @@ Questions:
    - stanza's version check accepts only `major.minor.patch` with an optional
      `aN`, so four-segment strings are refused as well as anything below
      `v0.11.6`.
+
+## Retrospective
+
+- **The two-step split paid for itself in attribution, not in findings.** 0.4.10 -> 0.4.13 was flat (+0.9%, at the noise floor) and 0.4.13 -> 1.0.0 was -47.2% on the corpus, so the whole win is the 1.0 release. Without the split the same number would have been reported with a weaker claim about where it came from.
+- **The release notes were wrong about where our time would go.** b capped the advertised 5x `text()` speedup at about 10% of profiled time and that cap held; the real gain came from lexbor parsing (2.2x on `make_soup`) and CSS matching, which b had only marked `watch`. Reading notes tells you what to check, not what will move; the back-to-back profile with identical call counts is what told the story.
+- **A benchmark harness bug surfaced before any upgrade work and changed the baseline.** The pre-fix bench leaked parse trees with gc disabled and could not finish a full corpus run; fixing it moved timings 10-15%, so every earlier row in `results.jsonl` became non-comparable. Check the measuring instrument first when a plan's deliverable is a measurement.
+- **Byte-identity gating was cheap and decisive.** The snapshot suite passed unchanged at each step, so none of the 38 1.0.0 release items needed a per-component diagnosis; the only code change the upgrade forced was type narrowing in tests, because 1.0's stubs stopped lying about `css_first`.
+- **Testing a tempting "adopt now" item killed it.** Native `skip_empty` looked like a free swap for `get_text`'s slow path and differed on 1.8% of nodes (non-ASCII whitespace), then measured at under 1% of parse time once 1.0 was in. Measure before scheduling a follow-up; both candidates retired without a plan.
+- **Review caught a plan claim the code contradicted.** "No in-repo caller passes `bytes`" was false (`load_soup(zipped=True)`); the conclusion survived on its other reason, but a grep at writing time would have avoided the correction. Verify "no caller" claims the same way as code-usage claims.
