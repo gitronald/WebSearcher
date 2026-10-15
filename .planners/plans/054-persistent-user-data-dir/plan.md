@@ -1,7 +1,7 @@
 ---
 id: 54
 slug: persistent-user-data-dir
-status: active
+status: implemented
 branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
 concluded:
@@ -82,3 +82,4 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - The user ran `ws-demo search --user-data-dir` from the worktree and solved the CAPTCHA within the demo's roughly 12-second `#search` wait, before the demo closed the browser. To keep the window open on demand, `ws-demo search`/`searches` now take `--leave-open`: the browser lives only as long as the process, so the CLI blocks on Enter before `close()`, and Ctrl-C or EOF also close it. Rejected with `requests`.
     - Tests in `tests/test_profiles.py` check that the prompt comes before the close (Enter, EOF, and Ctrl-C, for both commands) and that there is no prompt without the flag. README warm-up steps now use the flag.
     - Checks: ruff, ruff format, pyrefly clean; 673 tests pass.
+- **2026-10-15T09:49:51-07:00** — Implemented: 16 commits ahead of `dev`.
