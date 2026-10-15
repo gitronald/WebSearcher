@@ -1,0 +1,111 @@
+---
+id: 59
+slug: selectolax-1-0-upgrade
+status: draft
+branch: feature/selectolax-1-0-upgrade
+created: 2026-10-14T20:12:13-07:00
+concluded:
+pr:
+---
+
+# Upgrade selectolax to 1.0
+
+## Plan
+
+### Goal
+
+Move the parser from selectolax 0.4.x to 1.0.0 (released 2026-10-03, notes at
+<https://github.com/rushter/selectolax/releases/tag/v1.0.0>), with a measured
+performance comparison on each side of the jump and a check of our selectolax
+usage against the release's breaking changes. Today `pyproject.toml` declares
+`selectolax>=0.4.10` and `uv.lock` resolves 0.4.10; the latest pre-1.0 release
+is 0.4.13 (2026-09-29).
+
+### Subplans
+
+<!-- planners:subplans:start -->
+| Subplan | Scope | Status | Note |
+|---|---|---|---|
+| [a](subplans/a-pre-1-0-baseline-bench.md) | Bump to selectolax 0.4.13 and benchmark the baseline | draft |  |
+| [b](subplans/b-study-1-0-release-notes.md) | Study the selectolax 1.0 release notes for our use | draft |  |
+| [c](subplans/c-upgrade-to-1-0.md) | Upgrade selectolax to 1.0 and bump the prerelease | draft |  |
+| [d](subplans/d-post-upgrade-bench.md) | Benchmark and verify selectolax 1.0 against the baseline | draft |  |
+<!-- planners:subplans:end -->
+
+### Decisions
+
+1. **Two steps, not one.** First move to the latest pre-1.0 release (0.4.13) and
+   benchmark it as the baseline; only then move to 1.0.0. That separates the
+   0.4.10 -> 0.4.13 delta from the 0.4.13 -> 1.0.0 delta, so a regression or win
+   is attributed to the right release.
+2. **Bump the prerelease before each benchmark.** Bench rows in
+   `tests/benchmarks/results.jsonl` stamp `ws_version` and the git sha but not the
+   selectolax version, so the version string is what tells the rows apart:
+   0.4.13 runs as `0.11.7a1`, 1.0.0 runs as `0.11.7a2`.
+3. **Version strings come from `stanza release prerelease -y`**, which only
+   increments the alpha number (`0.11.7a0 -> 0.11.7a1 -> 0.11.7a2`;
+   `stanza release prerelease --check --json` on `dev` reports
+   `to_version: 0.11.7a1`). stanza has no option to set an explicit version, and
+   its preflight requires a prerelease to sort above the latest tag (`v0.11.6`),
+   so no `0.11.5.x` or other hand-picked string.
+4. **Performance claims come only from same-session A/B runs.** Cross-session
+   runs of `WebSearcher.parsers.bench` swing 10-15%, so a row from subplan a is
+   not compared with a row from subplan d. Each comparison re-runs both sides
+   back to back in one session and gates on the noise floor the bench prints.
+5. **Correctness gate: the snapshot suite stays byte-identical.**
+   `tests/test_parse_serp.py` runs with no snapshot updates. Any snapshot that
+   changes under 1.0.0 is diagnosed against a specific release-note item before
+   it is accepted, and recorded with before/after parsed rows.
+6. **Bounds.** Step a sets `selectolax>=0.4.13,<1.0.0` so the lock cannot float to
+   1.0.0 early; step c replaces it with `selectolax>=1.0.0`.
+7. **Adopt only low-risk improvements in this effort.** Subplan b sorts the
+   release's changes into "free" (no code change), "adopt now" (small, covered by
+   the snapshot suite), and "follow-up" (needs a parser refactor). Subplan c does
+   the first two; the third becomes its own plan.
+8. **One branch, one PR.** All four steps land on
+   `feature/selectolax-1-0-upgrade` and merge to `dev` through a single PR.
+
+### Order
+
+`a -> b -> c -> d`
+
+a and b are independent in principle; they run in this order so b can note
+which release items the a baseline should watch.
+
+### Risks
+
+- **Text extraction drift.** 1.0.0 rewrites `text()` (raw-byte concatenation),
+  honors `skip_empty` under `deep=True`, and substitutes U+FFFD for undecodable
+  bytes on the `deep=False` path. `WebSearcher/_slx.py` wraps both paths
+  (`_node_text`, `get_text`), so whitespace or replacement-character changes would
+  show up across every component type.
+- **Attribute names.** `attrs`/`attributes` now report qualified names
+  (`xlink:href` no longer collapses into `href`). Any SVG-bearing card that read
+  an `href` this way changes.
+- **Tree mutation and iteration.** Fixes to `iter()` during removal, `unwrap()`,
+  and `head`/`body` staleness touch helpers that walk or re-parse subtrees
+  (`reparse_fragment`, `walk_descendants`, the sibling iterators in `_slx.py`).
+- **Downstream consumers** that import selectolax themselves (the Modest
+  `selectolax.parser` module is now an `ImportError` stub) break on upgrade
+  regardless of what WebSearcher does. The CHANGELOG entry calls this out.
+- **Wheel coverage.** CI tests Python 3.12-3.14; confirm 1.0.0 ships wheels for
+  each before relying on it.
+
+### Out of scope
+
+- Parser refactors to exploit new 1.0 APIs (for example
+  `LexborHTMLParser(..., encoding=True)` for bytes input); b lists them, a
+  follow-up plan does them.
+- The stable `0.11.7` release itself; this effort ends on `0.11.7a2` merged to
+  `dev`.
+
+## Handoff
+
+Nothing started. Open questions:
+
+1. Should `WebSearcher/parsers/bench.py` stamp the installed selectolax version
+   on each `results.jsonl` row? It would make rows self-describing instead of
+   relying on decision 2. Small change; decide at the start of a.
+2. `stanza release prerelease` has been preflighted on `dev` only. Its branch
+   check allows any non-`main`/`master` branch for a prerelease, but running it
+   on the feature branch (or in its worktree) is not verified.
