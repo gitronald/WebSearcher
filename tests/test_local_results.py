@@ -65,7 +65,9 @@ def _local_results(header: str):
         '<div class="dbg0pd">Amour de Hair</div></div></div>'
         "</div>"
     )
-    return parse_local_results(utils.make_soup(html).css_first("div.wrap"))
+    node = utils.make_soup(html).css_first("div.wrap")
+    assert node is not None
+    return parse_local_results(node)
 
 
 def test_unknown_header_drops_sub_type_but_keeps_heading():

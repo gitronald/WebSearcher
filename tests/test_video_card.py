@@ -12,6 +12,7 @@ from pathlib import Path
 
 import orjson
 import pytest
+from selectolax.lexbor import LexborNode as Node
 
 import WebSearcher as ws
 from WebSearcher import utils
@@ -20,8 +21,10 @@ from WebSearcher.parsers.components._video_card import evlb_fields_by_tile, pars
 SERPS_PATH = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
 
-def _node(html: str):
-    return utils.make_soup(f"<div>{html}</div>").css_first("div")
+def _node(html: str) -> Node:
+    node = utils.make_soup(f"<div>{html}</div>").css_first("div")
+    assert node is not None
+    return node
 
 
 CARD_HTML = (
@@ -93,6 +96,7 @@ def test_fields_by_tile_ignores_card_outside_root():
         f'<div class="WVV5ke">{CARD_HTML}</div></div>'
     )
     root = doc.css_first("div#cmpt")
+    assert root is not None
     assert evlb_fields_by_tile(root, root.css("a.rIRoqf")) == {}
 
 

@@ -138,7 +138,9 @@ def test_synthetic_labeled_fact():
         '<span class="w8qArf">Born :</span>'
         '<span class="LrzXr">April 8, 1901</span></div></div>'
     )
-    rows = parse_knowledge_rhs(make_soup(html).css_first("div"))
+    node = make_soup(html).css_first("div")
+    assert node is not None
+    rows = parse_knowledge_rhs(node)
     assert len(rows) == 1
     assert rows[0]["sub_type"] == "fact"
     assert rows[0]["title"] == "Born"
@@ -152,7 +154,9 @@ def test_synthetic_linkless_box_keeps_title_and_text():
         '<div role="heading" aria-level="2"><span>Payment options</span></div>'
         "</div><div>PayPal Apple Pay</div></div>"
     )
-    rows = parse_knowledge_rhs(make_soup(html).css_first("div"))
+    node = make_soup(html).css_first("div")
+    assert node is not None
+    rows = parse_knowledge_rhs(node)
     assert len(rows) == 1
     assert rows[0]["sub_type"] == "links"
     assert rows[0]["title"] == "Payment options"
@@ -170,7 +174,9 @@ def test_synthetic_expander_topics_without_lab_title():
         '<div role="heading" aria-level="2">'
         '<span>Secrets</span><span class="iwY1Mb">&hellip;</span> secrets</div></div>'
     )
-    rows = parse_knowledge_rhs(make_soup(html).css_first("div"))
+    node = make_soup(html).css_first("div")
+    assert node is not None
+    rows = parse_knowledge_rhs(node)
     assert len(rows) == 1
     assert rows[0]["sub_type"] == "panel"
     assert rows[0]["title"] == "Things to know"

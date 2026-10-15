@@ -8,6 +8,8 @@ synthetic markup. Each parser previously wrote a top-level key (``timestamp`` /
 rides in ``details`` (recorded only when present).
 """
 
+from selectolax.lexbor import LexborNode as Node
+
 from WebSearcher import utils
 from WebSearcher.parsers.components.news_quotes import parse_news_quote
 from WebSearcher.parsers.components.twitter_result import parse_twitter_result
@@ -15,8 +17,10 @@ from WebSearcher.parsers.components.videos import parse_video
 from WebSearcher.parsers.components.view_more_news import parse_sub
 
 
-def _node(html: str):
-    return utils.make_soup(f"<div>{html}</div>").css_first("div")
+def _node(html: str) -> Node:
+    node = utils.make_soup(f"<div>{html}</div>").css_first("div")
+    assert node is not None
+    return node
 
 
 def test_view_more_news_timestamp_in_details():
@@ -86,5 +90,6 @@ def test_news_quotes_timestamp_in_details():
         "<div><span>Source</span><span>2 days ago</span></div></div></g-inner-card>"
     )
     inner = sub.css_first("g-inner-card")
+    assert inner is not None
     parsed = parse_news_quote(inner)
     assert parsed["details"]["timestamp"] == "2 days ago"

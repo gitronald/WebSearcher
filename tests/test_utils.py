@@ -40,12 +40,16 @@ def test_get_between_parentheses_no_match():
 def test_make_soup_from_string():
     soup = utils.make_soup("<html><body><p>hello</p></body></html>")
     assert isinstance(soup, Node)
-    assert soup.css_first("p").text(deep=True) == "hello"
+    p = soup.css_first("p")
+    assert p is not None
+    assert p.text(deep=True) == "hello"
 
 
 def test_make_soup_from_bytes():
     soup = utils.make_soup(b"<html><body><p>bytes</p></body></html>")
-    assert soup.css_first("p").text(deep=True) == "bytes"
+    p = soup.css_first("p")
+    assert p is not None
+    assert p.text(deep=True) == "bytes"
 
 
 def test_make_soup_passthrough():
@@ -240,4 +244,6 @@ def test_load_soup(tmp_path):
     fp.write_text("<html><body><p>soup test</p></body></html>")
     soup = utils.load_soup(fp)
     assert isinstance(soup, Node)
-    assert soup.css_first("p").text(deep=True) == "soup test"
+    p = soup.css_first("p")
+    assert p is not None
+    assert p.text(deep=True) == "soup test"
