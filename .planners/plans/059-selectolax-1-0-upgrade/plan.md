@@ -123,6 +123,10 @@ which release items the a baseline should watch.
 - **2026-10-14T22:04:58-07:00** — Close-out. Review gate run at medium level (code review with finders and verification) on PR #200; check gate clean (ruff check, ruff format --check, pyrefly 0 errors, 644 tests and 102 snapshots passing, coverage 79.3%).
   - Review follow-up: one confirmed finding, fixed in `b2a11c6`: the umbrella Log and subplan b said no in-repo caller passes `bytes` to `make_soup`, but `utils.load_soup(fp, zipped=True)` does (brotli-decompressed bytes; `demos/parse.py` calls `load_soup`). The retirement of the `encoding=True` follow-up stands on its primary reason (detection changes output for non-UTF-8 input); the text now names the bytes path. No regression test: a plan-text correction, no code changed.
   - Conscious no-ops: the CHANGELOG's "about 10-15%" effect of the bench gc fix rests on console timings in 059a's Log, not committed rows (the pre-fix runs were killed before writing any), and the entry already says which rows are comparable; the per-file test narrowing helpers (`comp`, `_node`, `_wrap`) duplicate one another, but they predate this effort, which only typed them, so consolidation is a separate refactor; `version("selectolax")` is looked up twice per bench run, which is negligible and keeps the lookup visible at each site.
+- **2026-10-15T08:03:01-07:00** — Added sidecar `bench-history.md`: every recorded parse-timing run from the bs4 era to selectolax 1.0, with a source column (plan Log vs `tests/benchmarks/results.jsonl`) and corpus size, Python, and iterations per row.
+    - The clean bs4 -> selectolax comparison is plan 026's final A/B (`9e633bf` vs `94bc682`): about 98 -> 19.0 ms/SERP, ~5.2x; the 0.9.0 CHANGELOG's "~2x" came from an earlier adapter-era A/B with an outlier bs4 side.
+    - Plan 026's "122.4 ms bs4 baseline" (`68b8423`) is the selectolax adapter build, not bs4, so the `convert-bs4-to-selectolax` skill's "~3.4x (122 -> 36 ms)" is adapter -> native.
+    - Unresolved: a ~2.5x drop between plan 035 (Python 3.13.12) and plan 036 (3.14.3) on the same 87-SERP corpus, with no same-session check isolating the cause.
 
 ## Handoff
 
