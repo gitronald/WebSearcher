@@ -1,10 +1,10 @@
 ---
 id: 54
 slug: persistent-user-data-dir
-status: implemented
+status: done
 branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
-concluded:
+concluded: 2026-10-15T11:35:22-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/201
 ---
 
@@ -87,3 +87,11 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
 - **2026-10-15T11:22:14-07:00** — Batch run by the user on the warmed profile (`ws-demo searches --user-data-dir --leave-open`), read back from the run's `serps.json` by the session. 40 queries in a row returned results over about 27 minutes at the default 30-second delay. The 41st of 48 ('election results') hit a `/sorry/` CAPTCHA, and the retry after the 5-minute wait was blocked again (429), so the batch stopped and `--leave-open` held the window at the Enter prompt as intended. Whether the query itself or the cumulative rate triggered the block is not known.
 - **2026-10-15T11:35:29-07:00** — Close review (medium, /code-review on PR 201): no behavior bugs found; three cosmetic fixes in `8f60256`.
   - Review follow-up: raised a stray unwrapped paragraph in the README warm-profile section, a 156-char `searches()` docstring line, and a 101-char `--leave-open` help line; all fixed (docs and help text only, so no new tests; ruff, ruff format, pyrefly clean, 673 tests pass). Conscious no-ops, as intended behavior: `_close` is skipped on Ctrl-C mid-run (the atexit hook closes the browser), a pre-existing profile dir gets no `.gitignore`, `clear_cookies` stays `True` by default, and the `exists()`/`mkdir` race applies only to concurrent runs on one profile, which are unsupported.
+
+## Retrospective
+
+- The core change was small (a `clear_cookies` toggle and passing `user_data_dir` through), but the per-request cookie wipe in `send_request` was the real blocker: a persistent profile without it would never have warmed.
+- The default location changed twice. The OS data dir hid a large, disposable profile where it was rarely seen, so `./.ws_profile` with a self-written `.gitignore` (the `.pytest_cache` pattern) replaced it. Settling where state lives before implementing would have saved a round.
+- `--leave-open` came from the user's own manual test, not the spec: the demo closed the browser before a CAPTCHA could be solved. A hands-on run of an interactive feature caught what the unit tests could not.
+- Probing Chrome's `ProcessSingleton` behavior made a concurrency lock unnecessary; a five-minute experiment replaced a design question.
+- A warmed profile held for 40 consecutive queries before a block. Rate limits still apply, so warming lowers the CAPTCHA rate but does not remove it.
