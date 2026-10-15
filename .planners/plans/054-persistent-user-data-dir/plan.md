@@ -5,7 +5,7 @@ status: active
 branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/201
 ---
 
 # Support a persistent user-data-dir for warm browser profiles
@@ -63,3 +63,4 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
   - Base: `dev` at `21ee414`
   - Worktree: `.worktrees/persistent-user-data-dir`
   - PR: pending
+- **2026-10-15T09:04:21-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/201
