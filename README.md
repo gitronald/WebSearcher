@@ -182,7 +182,14 @@ uv run ws-demo search "election news" --user-data-dir
 ```
 
 To warm a profile, run a headed search with it, solve any CAPTCHA by hand in
-the browser window, and reuse the directory afterwards. A profile can only be
+the browser window, and reuse the directory afterwards. The demo closes the
+browser a few seconds after the page loads; add `--leave-open` to keep the
+window open until you press Enter:
+
+```bash
+uv run ws-demo search "election news" --user-data-dir --leave-open
+```
+ A profile can only be
 open in one browser at a time: a second process launched on the same
 directory fails with a `ProcessSingleton` error, so give concurrent runs
 separate directories.
