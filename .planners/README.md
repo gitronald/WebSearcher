@@ -2,7 +2,7 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 058 | [Upgrade to proj-template 0.11.2](plans/058-template-upgrade/plan.md) | active | — | [#198](https://github.com/gitronald/WebSearcher/pull/198) |
+| 058 | [Upgrade to proj-template 0.11.2](plans/058-template-upgrade/plan.md) | implemented | — | [#198](https://github.com/gitronald/WebSearcher/pull/198) |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
