@@ -112,7 +112,11 @@ def append_result(record: dict[str, Any]) -> None:
 
 
 def time_parse(html: str, iterations: int) -> list[float]:
-    """Time `iterations` parses of one SERP; gc paused to reduce jitter."""
+    """Time `iterations` parses of one SERP; gc paused to reduce jitter.
+
+    Each parse leaves reference cycles that hold its document tree, so collect
+    (untimed) once timing ends; otherwise the uncollected trees pile up across
+    SERPs and a full corpus run exhausts memory."""
     times = []
     gc.disable()
     try:
@@ -122,6 +126,7 @@ def time_parse(html: str, iterations: int) -> list[float]:
             times.append((time.perf_counter() - t0) * 1000.0)  # ms
     finally:
         gc.enable()
+        gc.collect()
     return times
 
 
