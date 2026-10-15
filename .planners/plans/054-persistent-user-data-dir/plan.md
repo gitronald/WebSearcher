@@ -1,7 +1,7 @@
 ---
 id: 54
 slug: persistent-user-data-dir
-status: active
+status: implemented
 branch: feature/persistent-user-data-dir
 created: 2026-07-07T12:55:32-07:00
 concluded:
@@ -76,3 +76,4 @@ uv run python -c "import json,pathlib; r=json.loads(pathlib.Path('.claude/scratc
     - Supersedes the open-question-1 resolution logged above. The OS per-user data dir hid a large, mostly disposable profile where it is rarely seen or cleaned, and the common browser tools (Selenium, Puppeteer, Playwright) default to temp profiles with no persistent default. The bare `--user-data-dir` now means `./.ws_profile` in the working directory, like `.venv` or `.pytest_cache`; `platformdirs` and `utils.default_user_data_dir()` are removed.
     - A profile directory WebSearcher creates gets a `.gitignore` of `*`, since it holds cookies; an existing directory is left untouched (`prepare_profile_dir` in `patchright_searcher.py`). Tested against a real `git status` in a temp repo.
     - Checks re-run on the branch: ruff, ruff format, pyrefly clean; 665 tests pass.
+- **2026-10-15T09:10:44-07:00** — Implemented: 11 commits ahead of `dev`.
