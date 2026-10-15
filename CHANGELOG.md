@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- A patchright `SearchEngine` still open when the interpreter exits is now closed by an `atexit` hook registered when the browser launches. The garbage-collection fallback (`__del__`) often never ran at exit, leaving the temporary browser profile behind in the system temp directory, and when it did run, patchright's event loop was already gone, so the close never completed and the driver could crash with an `EPIPE` stack trace. The hook holds only a weak reference, so it never keeps a dropped engine alive, and `close()` unregisters it; explicit `close()` or `with ws.SearchEngine() as se:` is still the way to close a browser during a run, and the hook does not run in processes that end via `os._exit` (such as `multiprocessing` pool workers) or on SIGKILL
 - Dev tooling: the parse benchmark no longer runs out of memory on a full corpus run. Timing pauses the garbage collector, and each parse leaves reference cycles that hold its document tree, so they piled up across SERPs; it now collects (untimed) after each SERP. On the current corpus this also lowered measured parse times by about 10-15%, so compare new benchmark rows only with rows recorded after this fix
 
 ## [0.11.6] - 2026-10-14
