@@ -1,10 +1,10 @@
 ---
 id: 58
 slug: template-upgrade
-status: implemented
+status: done
 branch: feature/template-upgrade
 created: 2026-10-14T18:49:31-07:00
-concluded:
+concluded: 2026-10-14T19:14:28-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/198
 ---
 
@@ -89,3 +89,11 @@ may surface failures there.
   - Conscious no-op: `else list[Node]()` at five sites. The `top-bars` site assigns into a `dict[str, Any]` and needs this form, so one idiom is kept at all five.
   - Rejected: the `node: Node = elem` alias lines and the repeated `drop_tags` annotation (both already on dev), and `uv run planners` in the hooks (it resolves from PATH like the old entry).
   - Checks: ruff check, ruff format --check, and pyrefly at 0 errors; 644 tests and 102 snapshots pass; coverage 79.30% against a 79% floor.
+
+## Retrospective
+
+- The sync matrix held up as planned. The one large item was pyrefly strict: 651 errors against the 648 estimated. A codemod driven by error spans cleared most of them, and about 100 sites needed annotations by hand, so the "fix every site in one PR" decision cost hours, not days.
+- The snapshot suite is what made an annotation-only diff across 70 files safe to merge. With 102 snapshots unchanged, the one runtime edit (`response.text` on the requests error path) was the only behavior change left to review.
+- A codemod defaults to `Any` wherever the precise type is not local, and the review caught the case that mattered: the parser registry, whose callable type is the contract every parser follows. Next time, after a codemod, grep for `Any` on registries and dispatch tables.
+- The `UV_PYTHON` CI fix ran the 3.12 and 3.13 cells on their own interpreters for the first time, and they passed. The feared caveat did not materialize.
+- `.claude/` is gitignored here, so the template's Claude payload lives only in the main checkout. A fresh clone does not get it.
