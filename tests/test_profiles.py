@@ -81,20 +81,40 @@ def test_send_request_clears_cookies_per_config(clear_cookies, expected):
 # CLI and demo wiring -----------------------------------------------------------
 
 
-def _run_cli(monkeypatch, argv: list[str]) -> dict[str, Any]:
+def _run_cli(monkeypatch, argv: list[str], events: list[str] | None = None) -> dict[str, Any]:
+    """Run the CLI on fake engines, recording each close in ``events``.
+
+    Pass the list given to ``_fake_input`` to record prompts and closes in order.
+    """
+    events = [] if events is None else events
     captured: dict[str, Any] = {}
 
     class _Engine:
         def close(self) -> None:
-            pass
+            events.append("close")
 
     def fake_search(query, method, **kwargs):
         captured.update(kwargs, query=query, method=method)
         return _Engine()
 
+    def fake_searches(**kwargs):
+        captured.update(kwargs)
+        return _Engine()
+
     monkeypatch.setattr(cli, "search", fake_search)
+    monkeypatch.setattr(cli, "searches", fake_searches)
     cli.main(argv)
     return captured
+
+
+def _fake_input(events: list[str], raises: type[BaseException] | None = None):
+    def fake_input(prompt: str = "") -> str:
+        events.append("input")
+        if raises is not None:
+            raise raises
+        return ""
+
+    return fake_input
 
 
 def test_cli_user_data_dir_defaults_off(monkeypatch):
@@ -114,6 +134,27 @@ def test_cli_user_data_dir_path(monkeypatch, tmp_path):
 def test_cli_user_data_dir_rejects_requests(monkeypatch):
     with pytest.raises(SystemExit):
         _run_cli(monkeypatch, ["search", "q", "requests", "--user-data-dir"])
+
+
+def test_cli_closes_without_waiting_by_default(monkeypatch):
+    events: list[str] = []
+    monkeypatch.setattr("builtins.input", _fake_input(events))
+    _run_cli(monkeypatch, ["search", "q"], events)
+    assert events == ["close"]
+
+
+@pytest.mark.parametrize("command", [["search", "q"], ["searches"]])
+@pytest.mark.parametrize("raises", [None, EOFError, KeyboardInterrupt])
+def test_cli_leave_open_waits_for_input_then_closes(monkeypatch, command, raises):
+    events: list[str] = []
+    monkeypatch.setattr("builtins.input", _fake_input(events, raises))
+    _run_cli(monkeypatch, [*command, "--leave-open"], events)
+    assert events == ["input", "close"]
+
+
+def test_cli_leave_open_rejects_requests(monkeypatch):
+    with pytest.raises(SystemExit):
+        _run_cli(monkeypatch, ["search", "q", "requests", "--leave-open"])
 
 
 def test_demo_engine_keeps_cookies_on_persistent_profile(monkeypatch):
