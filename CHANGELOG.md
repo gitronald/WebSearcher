@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.11.6] - 2026-10-14
+
 - Fix the requests backend's error path storing raw `bytes` in the `str` `html` field of a search response: on a failed content decode it now stores `response.text`
 - Type the whole package under pyrefly's strict preset (explicit type arguments on every `dict`/`list`, annotated parser and extractor signatures); annotations only, with the parser snapshot suite unchanged
 - Packaging: the project URLs use `https`, and the sdist allowlist is root-anchored
