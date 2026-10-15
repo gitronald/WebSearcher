@@ -1,7 +1,7 @@
 ---
 id: 59
 slug: selectolax-1-0-upgrade
-status: draft
+status: active
 branch: feature/selectolax-1-0-upgrade
 created: 2026-10-14T20:12:13-07:00
 concluded:
@@ -98,6 +98,14 @@ which release items the a baseline should watch.
   follow-up plan does them.
 - The stable `0.11.7` release itself; this effort ends on `0.11.7a2` merged to
   `dev`.
+
+## Log
+
+- **2026-10-14T20:44:24-07:00** — Activated.
+  - Branch: `feature/selectolax-1-0-upgrade`
+  - Base: `dev` at `1c7630c`
+  - Worktree: `.worktrees/selectolax-1-0-upgrade`
+  - PR: pending
 
 ## Handoff
 
