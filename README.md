@@ -164,18 +164,18 @@ per-request cookie clearing:
 ```python
 se = ws.SearchEngine(
     patchright_config={
-        "user_data_dir": str(ws.utils.default_user_data_dir()),
+        "user_data_dir": ".ws_profile",
         "clear_cookies": False,
     }
 )
 ```
 
-`ws.utils.default_user_data_dir()` is the OS's per-user data directory for
-WebSearcher (`~/.local/share/WebSearcher/profile` on Linux,
-`~/Library/Application Support/WebSearcher/profile` on macOS,
-`%LOCALAPPDATA%\WebSearcher\profile` on Windows); any path works. The demos take
-the same setting as `--user-data-dir` (bare flag for the default, or a path),
-which also keeps cookies between searches:
+Any path works. A profile keeps the browser's cache and grows as it is used,
+so keep it somewhere you will see it. When WebSearcher creates a new profile directory, it writes a
+`.gitignore` of `*` inside it, so the profile's cookies stay out of any repo
+it sits in; an existing directory is left as is. The demos take the same
+setting as `--user-data-dir`, which also keeps cookies between searches. A
+bare flag uses `.ws_profile` in the current directory:
 
 ```bash
 uv run ws-demo search "election news" --user-data-dir
