@@ -39,7 +39,7 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--leave-open",
         action="store_true",
-        help="Keep the browser window open after searching until Enter is pressed (patchright only)",
+        help="Keep the browser open after searching until Enter is pressed (patchright only)",
     )
 
 

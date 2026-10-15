@@ -103,7 +103,8 @@ def searches(
     """Search a battery of queries spanning SERP component types, reusing one browser session.
 
     Saves serps/parsed/searches like ``search``. Pass ``types`` to limit to specific QUERIES
-    groups. Pass ``user_data_dir`` to reuse a persistent browser profile. Handles CAPTCHAs (waits 5 min and retries once) and jitters the inter-query delay.
+    groups. Pass ``user_data_dir`` to reuse a persistent browser profile. Handles CAPTCHAs
+    (waits 5 min and retries once) and jitters the inter-query delay.
     """
     data_path = Path(data_dir) if data_dir else _default_data_dir()
     data_path.mkdir(parents=True, exist_ok=True)

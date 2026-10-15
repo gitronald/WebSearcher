@@ -171,11 +171,11 @@ se = ws.SearchEngine(
 ```
 
 Any path works. A profile keeps the browser's cache and grows as it is used,
-so keep it somewhere you will see it. When WebSearcher creates a new profile directory, it writes a
-`.gitignore` of `*` inside it, so the profile's cookies stay out of any repo
-it sits in; an existing directory is left as is. The demos take the same
-setting as `--user-data-dir`, which also keeps cookies between searches. A
-bare flag uses `.ws_profile` in the current directory:
+so keep it somewhere you will see it. When WebSearcher creates a new profile
+directory, it writes a `.gitignore` of `*` inside it, so the profile's cookies
+stay out of any repo it sits in; an existing directory is left as is. The
+demos take the same setting as `--user-data-dir`, which also keeps cookies
+between searches. A bare flag uses `.ws_profile` in the current directory:
 
 ```bash
 uv run ws-demo search "election news" --user-data-dir
@@ -189,10 +189,10 @@ window open until you press Enter:
 ```bash
 uv run ws-demo search "election news" --user-data-dir --leave-open
 ```
- A profile can only be
-open in one browser at a time: a second process launched on the same
-directory fails with a `ProcessSingleton` error, so give concurrent runs
-separate directories.
+
+A profile can only be open in one browser at a time: a second process
+launched on the same directory fails with a `ProcessSingleton` error, so give
+concurrent runs separate directories.
 
 #### 2. Conduct a Search
 
