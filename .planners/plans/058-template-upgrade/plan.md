@@ -84,3 +84,8 @@ may surface failures there.
 - **2026-10-14T19:01:50-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/198
 - **2026-10-14T19:05:37-07:00** — Bumped ruff to 0.17.0 (dev group >=0.17,<0.18 and hook rev v0.17.0 together). It clears the 5-day minimumReleaseAge, and lint and format are clean with no changes.
 - **2026-10-14T19:08:46-07:00** — Implemented: 9 commits ahead of `dev`.
+- **2026-10-14T19:14:54-07:00** — Review gate (/code-review, medium) on PR 198 found 7 candidates, of which 3 survived verification. Summary posted to the PR.
+  - Review follow-up: the parser registry was typed `dict[str, Any]` and `ParserFunc` was `Callable[[Node], Any]`, so pyrefly never checked parser signatures. Fixed in 24deedb: `ParserFunc` (a dict or a list of dicts) is now defined beside `PARSERS` and types the registry, the section dicts, and `run_parser`, and the label dicts are now `dict[str, str]`. The regression guard is pyrefly in CI; an injected `lambda x: None` entry now fails with `bad-assignment`.
+  - Conscious no-op: `else list[Node]()` at five sites. The `top-bars` site assigns into a `dict[str, Any]` and needs this form, so one idiom is kept at all five.
+  - Rejected: the `node: Node = elem` alias lines and the repeated `drop_tags` annotation (both already on dev), and `uv run planners` in the hooks (it resolves from PATH like the old entry).
+  - Checks: ruff check, ruff format --check, and pyrefly at 0 errors; 644 tests and 102 snapshots pass; coverage 79.30% against a 79% floor.
