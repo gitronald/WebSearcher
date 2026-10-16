@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-10-16
+
 ### Added
 
 - Persistent browser profiles for the patchright backend: a new `PatchrightConfig.clear_cookies` toggle (default `True`, the current behavior) lets a profile passed as `user_data_dir` keep its cookies between requests, a new profile directory is created with a `.gitignore` of `*` so its cookies stay out of git, and `ws-demo search`/`searches` take `--user-data-dir [PATH]` (bare flag: `./.ws_profile`), which also keeps cookies. A `~` in `user_data_dir` is now expanded (plan 054)
