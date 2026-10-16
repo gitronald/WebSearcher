@@ -10,15 +10,8 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
-- `0.11.6`: Package fully typed under pyrefly's strict preset (annotations only, parser snapshots unchanged); the requests backend's error path now stores `str` HTML instead of raw bytes; dev tooling synced to the latest project template, with dependencies relocked past published advisories
-- `0.11.5`: **Breaking logging** -- `import WebSearcher` no longer configures logging as a side effect (no root-logger handler or forced DEBUG level on import), so an application's own `logging.basicConfig` now takes effect; parse-only use is silent until the application configures logging, and crawl-time logging via `SearchEngine` is unchanged
-- `0.11.4`: Recover the result-count/time estimate on result pages where the stats element is injected client-side and absent from the static markup, via an inline `<script>` fallback; plus a byte-identical classifier parse micro-optimization (union `css_first` probes)
-- `0.11.3`: Classify knowledge-panel and image related-entity carousels ("Search instead for", "Other people search", "You can also search for", "People also search in Images") as `searches_related` instead of `unknown`; additive heading labels, existing corpus snapshots unchanged
-- `0.11.2`: Parse the no-results and 32-word query-truncation cards as `notice` components (`no_results` / `query_truncated`) and capture host-group sub-results nested in a main result. **Breaking output** -- dropped the `notice_no_results` / `notice_shortened_query` feature flags (now notices), renamed `notice_server_error` to `server_error`, and renamed the `general` sub_type `subresult` to `indented`
-- `0.11.1`: Broad parser-coverage pass classifying most previously-`unknown` components -- new types (`gallery`, `places_nearby`, `datasets`, `refine_by`, `shopping_ideas`, `articles`), extended `knowledge` / `recipes` / `products` / `images` / `top_stories` coverage, modern ad sitelinks, and the AI-overview unavailable banner
-- `0.11.0`: **Breaking** -- dropped the `selenium`, `zendriver`, and `playwright` backends; `patchright` is now the default and drives an installed Google Chrome (`patchright install chrome` if missing). Crawl logs are now JSON Lines only, and `SearchEngine` gained `close()` and context-manager teardown
-- `0.10.0`: Reliable `/sorry/` CAPTCHA detection, an automated weekly geotargets refresh, and richer two-tier parsed output (**breaking output**)
-- `0.9.0`: **Breaking** -- rewrote the parser onto `selectolax` for ~2x faster parsing (dropping BeautifulSoup + lxml) and shipped in-package demos via `ws-demo`
+- `0.12.0`: Persistent patchright browser profiles (`--user-data-dir`, `PatchrightConfig.clear_cookies`) with `--leave-open` for warming them by hand, CAPTCHA redirects logged as `captcha` events, and `selectolax>=1.0` for about 47% faster parsing with unchanged output
+- `0.11.x`: **Breaking** -- `patchright` is the only browser backend, crawl logs are JSON Lines, `import WebSearcher` no longer configures logging, and notice/sub_type output was renamed; plus broad parser coverage of previously-`unknown` components and full pyrefly strict typing
 
 See [CHANGELOG.md](CHANGELOG.md) for a longer history of changes by version.
 
