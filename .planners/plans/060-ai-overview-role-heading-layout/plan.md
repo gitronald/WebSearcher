@@ -5,7 +5,7 @@ status: active
 branch: feature/ai-overview-role-heading-layout
 created: 2026-10-15T11:24:54-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/203
 ---
 
 # Recognize the reworked AI overview layout
@@ -93,3 +93,4 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
   - Base: `dev` at `3b4283e`
   - Worktree: `.worktrees/ai-overview-role-heading-layout`
   - PR: pending
+- **2026-10-16T10:50:37-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/203
