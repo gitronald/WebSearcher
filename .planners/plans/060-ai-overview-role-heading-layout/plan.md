@@ -1,7 +1,7 @@
 ---
 id: 60
 slug: ai-overview-role-heading-layout
-status: active
+status: implemented
 branch: feature/ai-overview-role-heading-layout
 created: 2026-10-15T11:24:54-07:00
 concluded:
@@ -105,6 +105,7 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
   - Open question 3 answered: the three controller-without-heading corpus SERPs keep their types (2 `ai_overview` unavailable, 1 `knowledge`).
   - Checks: `uv run pytest` 693 passed; ruff and pyrefly clean. The new coverage and payload tests fail on `dev` (14 of 15; the PAA guard passes on both).
   - Repro: `uv run python .planners/plans/060-ai-overview-role-heading-layout/probe_aio_layout.py data/demo-ws-v0.11.7a2-warm-profile/serps.json --summary` now prints `('new', 'ai_overview'): 27`.
+- **2026-10-16T10:52:42-07:00** — Implemented: 6 commits ahead of `dev`.
 
 ## Handoff
 
