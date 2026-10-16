@@ -68,12 +68,26 @@
     {
       "cite": null,
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": "Wikipedia",
+            "source_ids": []
+          },
+          {
+            "additional_count": 0,
+            "publisher": "Hemmings",
+            "source_ids": []
+          }
+        ],
+        "type": "ai_overview"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
       "sub_type": "flat",
-      "text": "Models & Trim Levels: Available as a 2-door sedan, station wagon, hardtop, and the sporty Rogue . Performance:",
+      "text": "The phrase \"American 1967\" typically refers to the Rambler American , a highly popular and affordable compact car manufactured by American Motors Corporation (AMC). The 1967 Rambler American is especially notable as it was the final year AMC offered a convertible body style for this compact line. The 1967 American featured specific highlights: Models & Trim Levels: Available as a 2-door sedan, station wagon, hardtop, and the sporty Rogue . Performance:",
       "title": null,
       "type": "ai_overview",
       "url": null

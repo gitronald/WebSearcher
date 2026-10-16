@@ -14,91 +14,136 @@
       "cite": null,
       "cmpt_rank": 0,
       "details": {
-        "heading": "AI Overview",
-        "text": "AI Overview|The sky is blue because | |NASA Space Place (.gov)| |National Oceanic and Atmospheric Administration (.gov)| +1| |University of California, Riverside| +2| While violet light has an even shorter wavelength than blue light, the sun emits less violet light, and human eyes are much more sensitive to blue light.| |Montreal Science Centre| +1| |National Weather Service (.gov)| +1|NASA Space Place|NASA Space Place|National Environmental Satellite, Data, and Information Service|National Environmental Satellite, Data, and Information Service| | |NASA Space Place (.gov)|NASA Space Place (.gov)|NASA Space Place (.gov)|NASA Space Place (.gov)|Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids|Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids|It's easy to see that the sky is blue. Have you ever wondered why? Sunlight reaches Earth's atmosphere and is scattered in all dir...|University of California, Riverside|University of California, Riverside|University of California, Riverside|University of California, Riverside|Why is the sky blue?|Why is the sky blue?|Cause: Air molecules (oxygen/nitrogen) scatter shorter blue solar wavelengths more than red (Rayleigh scattering/Tyndall effect). ...|National Oceanic and Atmospheric Administration (.gov)|National Oceanic and Atmospheric Administration (.gov)|National Oceanic and Atmospheric Administration (.gov)|National Oceanic and Atmospheric Administration (.gov)|Why Is the Sky Blue? | NESDIS | National Environmental Satellite, Data, and Information Service|Why Is the Sky Blue? | NESDIS | National Environmental Satellite, Data, and Information Service|Mechanism: Gases and particles in Earth's atmosphere scatter sunlight in all directions; white sunlight contains all rainbow color...|NASA+|NASA+|·|NASA+ Streaming Service|NASA+ Streaming Service|Space Place in a Snap: Why Is the Sky Blue?|Space Place in a Snap: Why Is the Sky Blue?|why is the sky. blue in the middle of a bright sunny day the sky is usually a shade of blue. why blue and not purple green or oran...|why is the sky. blue in the middle of a bright sunny day the sky is usually a shade of blue. why blue and not purple green or oran...|why is the sky. blue in the middle of a bright sunny day the sky is usually a shade of blue. why blue and not purple green or oran...|YouTube|YouTube|·|CrunchLabs|CrunchLabs|Why Is The Sky Blue?|Why Is The Sky Blue?|Why Is The Sky Blue? why is the sky blue and the answer is the same reason sunsets are red it's called ray le scattering earth's a...|Why Is The Sky Blue? why is the sky blue and the answer is the same reason sunsets are red it's called ray le scattering earth's a...|Why Is The Sky Blue? why is the sky blue and the answer is the same reason sunsets are red it's called ray le scattering earth's a...|Montreal Science Centre|Montreal Science Centre|Montreal Science Centre|Montreal Science Centre|Why is the Sky Blue? | Montreal Science Centre|Why is the Sky Blue? | Montreal Science Centre|* Author: Myriam Kessiby (Montreal Science Centre) * Mechanism: Sun white light contains all rainbow colors traveling in different...|* Author: Myriam Kessiby (Montreal Science Centre) * Mechanism: Sun white light contains all rainbow colors traveling in different...|* Author: Myriam Kessiby (Montreal Science Centre) * Mechanism: Sun white light contains all rainbow colors traveling in different...|National Weather Service (.gov)|National Weather Service (.gov)|National Weather Service (.gov)|National Weather Service (.gov)|Why Is The Sky Blue?|Why Is The Sky Blue?|So why are sunrises and sunsets red? At sunrise and sunset, the sunlight passes through more atmosphere than during the day when t...|So why are sunrises and sunsets red? At sunrise and sunset, the sunlight passes through more atmosphere than during the day when t...|So why are sunrises and sunsets red? At sunrise and sunset, the sunlight passes through more atmosphere than during the day when t...|Show all|Show less|Learn more|Copied to clipboard|Failed to copy to clipboard.  Try again later.|Copied|Failed to copy|Copy|This public link is valid for 7 days and shares a thread, including any personal information you added. This link or copies made by others cannot be deleted. If you share with third parties, their policies apply.|Copy link|Can’t copy the link right now. Try again later.|Can’t copy the link right now. Try again later.|Facebook|Gmail|X|Reddit|WhatsApp|Share|Share|Good response|Good response|Bad response|Bad response|More|More|About this response|Saved time|Clear|Helpful|Comprehensive|Other|Incorrect|Inappropriate|Not working|Unhelpful|Other|A copy of this chat will be included.|A copy of this chat and the content you shared will be included.|A copy of this chat and the content you shared will be included.|A copy of this chat and the content you shared will be included.|Submit|Thanks for letting us know|Thanks for letting us know|Privacy Policy|Privacy Policy|Terms of Service|Terms of Service|make a legal removal request|make a legal removal request|spaceplace.nasa.gov|spaceplace.nasa.gov|nesdis.noaa.gov|nesdis.noaa.gov|plus.nasa.gov|plus.nasa.gov|math.ucr.edu|math.ucr.edu|youtube.com|youtube.com|montrealsciencecentre.com|montrealsciencecentre.com|weather.gov|weather.gov|Transcribing...|Add files and tools|Add files and tools|Microphone|Microphone|Stop|Stop|Retry|Retry|Send|Send|Send|Send|Show more|My Ad Center",
-        "type": "panel",
-        "urls": [
+        "citations": [
           {
-            "text": "",
-            "url": "/goto?url=CAESYAHrOzAVO7R2VQgEDhzySjd_glCEHWe_UHFiqJreAwFMhduNQbym-O6etWLw09EKbETszQr65eiDvcyz01RZrWGmYHGEzU-h8HG1xLSPRNrq-h0hyTEXZ2GIwymT6i61oA"
+            "additional_count": 0,
+            "publisher": "NASA Space Place (.gov)",
+            "source_ids": [
+              "1"
+            ]
+          }
+        ],
+        "sections": [
+          {
+            "citations": [
+              {
+                "additional_count": 1,
+                "publisher": "National Oceanic and Atmospheric Administration (.gov)",
+                "source_ids": [
+                  "3",
+                  "2_0"
+                ]
+              },
+              {
+                "additional_count": 2,
+                "publisher": "University of California, Riverside",
+                "source_ids": [
+                  "5",
+                  "13_0"
+                ]
+              },
+              {
+                "additional_count": 1,
+                "publisher": "Montreal Science Centre",
+                "source_ids": [
+                  "10"
+                ]
+              }
+            ],
+            "heading": "How It Works",
+            "text": "Sunlight contains all colors: White light from the sun is actually a mix of every color in the rainbow. Each color travels in waves of different lengths, with red having the longest waves and blue and violet having the shortest waves. Rayleigh scattering: When sunlight reaches Earth, it collides with gases in the atmosphere (mainly nitrogen and oxygen). Because blue light travels in smaller, shorter waves, it bounces around and scatters in every direction much more easily than red or yellow light. Human eye sensitivity: While violet light has an even shorter wavelength than blue light, the sun emits less violet light, and human eyes are much more sensitive to blue light."
           },
           {
-            "text": "",
-            "url": "/goto?url=CAEShwEB6zswFeWV5T8Ph_dqaHqIab1N6UFF3MruSmY_Y4AiR5asESZdmj9obCmX1qKkMwSSCc4CVmUtQZe3ZkgpIk9kzXGooBUsRYP1liHJVCoMjcV5YgwHYN65juD88KCH6SdeSLh9KbqPm2aHuA4KJWyhmrZcZiffdS4TqxWQanTkh-OLlBQ6aHk"
+            "citations": [
+              {
+                "additional_count": 1,
+                "publisher": "National Weather Service (.gov)",
+                "source_ids": [
+                  "12"
+                ]
+              }
+            ],
+            "heading": "Why Sunsets Are Red",
+            "hyperlinks": [
+              {
+                "text": "NASA Space Place",
+                "url": "https://spaceplace.nasa.gov/blue-sky/"
+              },
+              {
+                "text": "National Environmental Satellite, Data, and Information Service",
+                "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
+              }
+            ],
+            "text": "When the sun sets or rises, its light must travel through a much thicker layer of the atmosphere to reach your eyes. This longer path scatters almost all the blue and violet light away before it gets to you. The longer wavelengths—such as red, orange, and yellow—pass straight through to your eyes. Learn more about light physics and space science at the NASA Space Place or read the breakdown by the National Environmental Satellite, Data, and Information Service ."
+          }
+        ],
+        "sources": [
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://spaceplace.nasa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NASA Space Place (.gov)",
+            "snippet": "It's easy to see that the sky is blue. Have you ever wondered why? Sunlight reaches Earth's atmosphere and is scattered in all dir...",
+            "source_id": "1",
+            "title": "Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids",
+            "url": "https://spaceplace.nasa.gov/blue-sky/"
           },
           {
-            "text": "",
-            "url": "/goto?url=CAESfwHrOzAVF34P5l9oAA5RT6bu08rOSVtkSfO_AZe81S3W8v-LnyBZRJueviILUI27shLCBQj_X7n08SALEsQMbiGiCxVjYmISf9DKtbk5a9AD42vyioa5e0MAHZav6SipscaRXsbtf_7tCRd2KqbxolRXKu8tA4wVDPnh4ofpgFQ"
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://math.ucr.edu&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "University of California, Riverside",
+            "snippet": "Cause: Air molecules (oxygen/nitrogen) scatter shorter blue solar wavelengths more than red (Rayleigh scattering/Tyndall effect). ...",
+            "source_id": "5",
+            "title": "Why is the sky blue?",
+            "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
           },
           {
-            "text": "",
-            "url": "/goto?url=CAESdgHrOzAVTIsBof6HmzsST8uFi8p49xoWnVuhrJiuQUQmLIubvZpVsi3dgKqL5jukR0hpxz-Ntxc7moCFLsEy87CRl9w4zQr5dzhW6VrJdBiN8zVAWk75zY0h1TE8kBNP1ihrUmeow6LYufexA-WHPdyha9anOks"
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.nesdis.noaa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Oceanic and Atmospheric Administration (.gov)",
+            "snippet": "Mechanism: Gases and particles in Earth's atmosphere scatter sunlight in all directions; white sunlight contains all rainbow color...",
+            "source_id": "3",
+            "title": "Why Is the Sky Blue? | NESDIS | National Environmental Satellite, Data, and Information Service",
+            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue"
           },
           {
-            "text": "",
-            "url": "/goto?url=CAESXgHrOzAVVkT4jntMITSf2ukFh4PKQhbv7QVcIZz3NAgYzglJs5II63pHRoLDd9P4eEDcDZYfieUYSpngcd5Wp93YL8aiMwfnFG_D1sMt6DtNyKjWudygpQZ8xW1uAns"
-          },
-          {
-            "text": "",
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://plus.nasa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "NASA+",
+            "snippet": "why is the sky. blue in the middle of a bright sunny day the sky is usually a shade of blue. why blue and not purple green or oran...",
+            "source_id": "2_0",
+            "title": "Space Place in a Snap: Why Is the Sky Blue?",
             "url": "/goto?url=CAESgwEB6zswFdFAonQ3dds74OFMjBsfDHGShbQ0whNFIQV-iK7kcgJi64M2lgjgOoKWcp-c89JD60HBXEyKyv1eGL3gMYqLgHwyJQV0huxlZt225m8nScs2iAlK2VlhIJBKfKoTMwCjqrXkvnO9wkHzwBm94xGQdrWyVIZTJGkAa1NlPGfPbg"
           },
           {
-            "text": "",
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "YouTube",
+            "snippet": "Why Is The Sky Blue? why is the sky blue and the answer is the same reason sunsets are red it's called ray le scattering earth's a...",
+            "source_id": "13_0",
+            "title": "Why Is The Sky Blue?",
             "url": "/goto?url=CAESZQHrOzAVOYwGknfQPQApTbiWtBLvXcyKtZMKHe2shwvEPaauxUIEvNGhEwaHKz7A8sCXRQuY24BPywfH6vEVTFhnSdVlUMAwKW95sR3WgQPumf8k44ytwdcZPZ_TZa4hAhlVBkHf"
           },
           {
-            "text": "Learn more",
-            "url": "https://support.google.com/websearch?p=ai_overviews"
+            "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.montrealsciencecentre.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Montreal Science Centre",
+            "snippet": "* Author: Myriam Kessiby (Montreal Science Centre) * Mechanism: Sun white light contains all rainbow colors traveling in different...",
+            "source_id": "10",
+            "title": "Why is the Sky Blue? | Montreal Science Centre",
+            "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue"
           },
           {
-            "text": "Privacy Policy",
-            "url": "https://policies.google.com/privacy"
-          },
-          {
-            "text": "Terms of Service",
-            "url": "https://policies.google.com/terms"
-          },
-          {
-            "text": "make a legal removal request",
-            "url": "https://support.google.com/legal/answer/3110420"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESYAHrOzAVDcQQlKVw60t_s4-UhXVOQkac6U7q17f9xtz4fCJ_r3BC06ZE4NeLOecSIX-JWSsL46G-vdKQ9xkAPZPu0u9bQFYApP9hpqvj4aeq9ZLhfAJqPMCfJDYxqUWZ4w"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAEShwEB6zswFasMgczKoeMgaQZNGwAadxERGpHa14S9BhK2FpOpWyxp6lKNyueDpezFWezvxscuwdVvxg3G6c52FSSUVgRRSrqbtldfmG3SfO3oQNaUGK4RE4Cb4C4SJqYDYx6-h53Rt9EcGSL408QXCYGLpLjL6w1PBNcEy9cBhorhpsqZ38Ub_sA"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESgwEB6zswFSK245usAJVF-sz8ik1RQT2aR5sspNBnKJ1F-pPyGxVCyf6W0xNksp5Am53K4iAfNE5BKB-K_9Vq8Qtad9CIxhp3PNENXUdiVvlcCQSzn_aLM5Dq860boNpyUWT4awcZ_uOX-MOi6f-NoOBtcY1x3kRIMeFyH6lPkLURlR0c3g"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESfwHrOzAV8g8lvnyLcCDZQKDKYnQKlFWFO6YVsdWHdE8M25uaWHdtBUY8TNTRDPeFV-JrpGpcOk6dI1pnpmjV8XVhNLmdsv_YmO9KPi_-WfaVzeKAwuC0s_6Umm82-TvpLZF16WsSGy1qXG49jywh5bVP6Ge5TfIVcZmfEjkUme8"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESZQHrOzAVg2eYC6iOfxkIYgfLjjnM0h_u4_zaK3LF_ganwPpsikXecQomgRl2bWhcNOVydNnAFp4n845xNx7UnErpiAXz9IMMMXkyEOlI8qr2Sz7JE4L626V9NSLSV1KhkgPIOZhq"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESdgHrOzAV1CGA7vkGBkt8cF7NfuhFnv14-p73-1Rb9endQDm9UQWaxWz8sQJFadOX3b8CfLFQK7jjRk-_-EMhA1eUcRcMaekShkrToyDsE7H7ywNz9A2NSjUwEiPzfLC7BoY-YRyhBM80p3se0cwK6TeEEe-KyBk"
-          },
-          {
-            "text": "",
-            "url": "/goto?url=CAESXgHrOzAVoEBgtyHfwVFICcXt0sZJa2eOnfeQarbdGVFrYrlwV6Bwenxb-380srgZBWbPL1ja7xL1bxRh8AQNYBsG_QgdoMzKH-RTkXvkOFBOSOI4ohKSH8DDCtsXQeo"
+            "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.weather.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "National Weather Service (.gov)",
+            "snippet": "So why are sunrises and sunsets red? At sunrise and sunset, the sunlight passes through more atmosphere than during the day when t...",
+            "source_id": "12",
+            "title": "Why Is The Sky Blue?",
+            "url": "https://www.weather.gov/fgz/SkyBlue"
           }
-        ]
+        ],
+        "type": "ai_overview"
       },
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
-      "sub_type": "panel",
-      "text": null,
+      "sub_type": "sectioned",
+      "text": "The sky is blue because Earth's atmosphere scatters short-wavelength blue light from the sun in all directions more than it scatters other colors .",
       "title": null,
-      "type": "knowledge",
+      "type": "ai_overview",
       "url": null
     },
     {

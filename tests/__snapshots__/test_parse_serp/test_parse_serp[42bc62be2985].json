@@ -112,12 +112,20 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "sections": [
+          {
+            "heading": "Key Market Statistics",
+            "text": "Day's Range: $342.56 – $347.85 Previous Close: $342.96 Open Price: $346.95 Volume: 18,714,393 Market Capitalization: ~$5.02 trillion P/E Ratio: 39.41 52-Week High / Low: $348.15 / $243.42"
+          }
+        ],
+        "type": "ai_overview"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
-      "sub_type": "flat",
-      "text": null,
+      "sub_type": "sectioned",
+      "text": "Apple Inc. (AAPL) is trading at $343.89 , up $0.93 (+0.27%) from its previous close, as tracked on CNBC .",
       "title": null,
       "type": "ai_overview",
       "url": null

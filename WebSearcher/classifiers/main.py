@@ -162,7 +162,10 @@ class ClassifyMain:
             (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
             (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
             (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
-            (ClassifyMain.ai_overview, lambda s: "Fzsovc" in s.classes or "h2" in s.names),
+            (
+                ClassifyMain.ai_overview,
+                lambda s: "Fzsovc" in s.classes or "mZJni" in s.classes or "h2" in s.names,
+            ),
             # available_on's full-component ``get_text`` fallback (the
             # ``/Available on`` substring path) fires 0x across the corpus; the
             # real cases are caught by its cheap ``span.mgAbYb`` heading. Gating on
@@ -407,6 +410,13 @@ class ClassifyMain:
         Skip the sibling "Related Links" expansion that also contains a
         ``Fzsovc`` div -- that surface is a different component (extended
         sources and follow-up sections) and is not parsed here.
+
+        The role-heading layout (2026-10) has neither ``Fzsovc`` nor an ``h2``:
+        its "AI Overview" heading is a ``div[role=heading]``. It is typed by the
+        ``EYwa3d`` controller together with the ``div.mZJni`` body, ahead of
+        ``knowledge_panel``, which the embedded ``qTdDb`` controller would
+        otherwise match. People-also-ask answers carry ``mZJni`` without the
+        controller, so they are not claimed here.
         """
         node: Node = cmpt
         h2 = node.css_first("h2")
@@ -414,6 +424,11 @@ class ClassifyMain:
         if h2_text == "Related Links":
             return "unknown"
         if node.css_first("div.Fzsovc") is not None or h2_text == "AI Overview":
+            return "ai_overview"
+        if (
+            node.css_first("div.mZJni") is not None
+            and node.css_first('div[jscontroller="EYwa3d"]') is not None
+        ):
             return "ai_overview"
         return "unknown"
 

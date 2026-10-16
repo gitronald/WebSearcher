@@ -27,6 +27,13 @@ body container is missing we fall back to the legacy extractors below; those
 captures predate the JSON citation payloads, so legacy sources come straight
 from the rendered tray. "Can't generate an AI overview right now" failures carry
 none of these markers and correctly yield empty output.
+
+The role-heading layout (2026-10) keeps ``div.mZJni`` but renames the markup
+inside it, so it runs through the current-DOM path with an extra class per
+role (see the ``_BODY_*``/``_CITATION_*`` constants). Its sources are
+``div[data-src-id]`` cards with no ``ul.bTFeG`` tray, and its payloads carry
+``/goto?url=`` redirects in place of full URLs; ``_index_full_url_by_goto``
+recovers the full URL where a payload header names it.
 """
 
 from __future__ import annotations
@@ -62,8 +69,9 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
         # DOM ships these JSON citation payloads, so skip it for legacy SERPs.
         payloads = extract_payloads(_root_html(node))
         type_a_by_src_id = _index_type_a_by_src_id(payloads)
-        lede, lede_citations, sections = _extract_body(content, payloads)
-        sources = _extract_sources(node, type_a_by_src_id)
+        full_url_by_goto = _index_full_url_by_goto(payloads)
+        lede, lede_citations, sections = _extract_body(content, payloads, full_url_by_goto)
+        sources = _extract_sources(node, type_a_by_src_id, full_url_by_goto)
     else:
         # Legacy SGE (2024) markup: the current-DOM body container is absent.
         lede, lede_citations, sections = _extract_body_legacy(node)
@@ -92,9 +100,27 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     return [parsed]
 
 
-_BODY_PARA_CLASS = "Y3BBE"
+# Body markup per layout: ``Y3BBE``/``otQkpb``/``KsbFXc``/``IaGLZe`` in the
+# Fzsovc layout; ``n6owBd`` paragraphs, ``div[role=heading][aria-level=3]``
+# headings, and ``XSq4R``/``T9WCjf`` lists in the role-heading layout (2026-10).
+_BODY_PARA_CLASSES = ("Y3BBE", "n6owBd")
 _BODY_HEADING_CLASS = "otQkpb"
-_LIST_CLASSES = ("KsbFXc", "IaGLZe")
+_BODY_HEADING_CSS = f'div.{_BODY_HEADING_CLASS}, div[role="heading"][aria-level="3"]'
+_LIST_CLASSES = ("KsbFXc", "IaGLZe", "XSq4R", "T9WCjf")
+
+# The role-heading layout closes with a follow-up prompt ("Would you like to
+# know ...") in this wrapper. It invites a next query rather than answering
+# this one, so it is left out of the body.
+_FOLLOW_UP_CLASS = "AHmQrc"
+
+# Citation widgets: ``button.rBl3me`` (publisher ``span.iFMVXd``, count
+# ``span.IjM6od``) in the Fzsovc layout; ``button.vDOt8c`` (publisher
+# ``span.QNca8b``, count ``span.OkUHJe``) in the role-heading layout, wrapped
+# in ``span.NMq1me`` with a hidden ``a.PMDqCb`` to the lead source.
+_CITATION_BUTTON_CSS = "button.rBl3me, button.vDOt8c"
+_CITATION_PUBLISHER_CSS = "span.iFMVXd, span.QNca8b"
+_CITATION_COUNT_CSS = "span.IjM6od, span.OkUHJe"
+_CITATION_STRIP_CSS = "button.rBl3me, span.NMq1me"
 
 # Messages shown when Google declines to synthesize an overview. Both are
 # present (hidden) on every AI-overview page, so they only carry meaning when
@@ -129,7 +155,7 @@ def _root_html(node: Node) -> str:
 
 
 def _extract_body(
-    content: Node, payloads: dict[str, dict[str, Any]]
+    content: Node, payloads: dict[str, dict[str, Any]], full_url_by_goto: dict[str, str]
 ) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]]]:
     """Walk the content area and split into lede + lede citations + sections."""
     elements = _collect_body_elements(content)
@@ -143,10 +169,11 @@ def _extract_body(
 
     for elem in elements:
         button_citations = _extract_button_citations(elem, payloads)
-        # Strip buttons before text extraction so the "Publisher +N" label
-        # does not leak into the section text.
-        for button in elem.css("button.rBl3me"):
-            button.decompose()
+        # Strip citation widgets before text extraction so the "Publisher +N"
+        # label does not leak into the section text, nor their hidden source
+        # anchors into the inline links.
+        for widget in elem.css(_CITATION_STRIP_CSS):
+            widget.decompose()
 
         if _is_section_heading(elem):
             current = {
@@ -161,7 +188,7 @@ def _extract_body(
             continue
 
         text = get_text(elem, " ", strip=True) or ""
-        hyperlinks = _collect_inline_links(elem)
+        hyperlinks = _collect_inline_links(elem, full_url_by_goto)
 
         if current is None:
             if text:
@@ -187,18 +214,23 @@ def _extract_body(
 def _collect_body_elements(content: Node) -> list[Node]:
     """Collect paragraph/heading/list elements from the body in document order."""
     self_id = content.mem_id
-    paragraphs = [n for n in content.css(f"div.{_BODY_PARA_CLASS}") if n.mem_id != self_id]
-    headings = [n for n in content.css(f"div.{_BODY_HEADING_CLASS}") if n.mem_id != self_id]
+    paragraphs: list[Node] = []
+    for cls in _BODY_PARA_CLASSES:
+        paragraphs.extend(n for n in content.css(f"div.{cls}") if n.mem_id != self_id)
+    headings = [n for n in content.css(_BODY_HEADING_CSS) if n.mem_id != self_id]
     lists: list[Node] = []
     for cls in _LIST_CLASSES:
         for elem in content.css(f"ul.{cls}, ol.{cls}"):
             if elem.mem_id != self_id:
                 lists.append(elem)
 
-    elements = paragraphs + headings + lists
+    # Keyed by mem_id: a comma-union selector yields an element once per
+    # selector it matches (``otQkpb`` headings also carry the role attributes).
+    elements = list({e.mem_id: e for e in paragraphs + headings + lists}.values())
     # Deduplicate (Y3BBE divs can nest inside one another in some layouts)
     # and drop elements whose ancestor is already in the set.
     elements = _drop_nested_descendants(elements)
+    elements = [e for e in elements if _find_parent_tag_class(e, "div", _FOLLOW_UP_CLASS) is None]
     return sorted(elements, key=_doc_position)
 
 
@@ -240,8 +272,15 @@ def _is_section_heading(elem: Node) -> bool:
     return elem.attributes.get("role") == "heading" and elem.attributes.get("aria-level") == "3"
 
 
-def _collect_inline_links(elem: Node) -> list[dict[str, Any]]:
-    """Collect anchors from inline body content (skips sources tray and #)."""
+def _collect_inline_links(
+    elem: Node, full_url_by_goto: dict[str, str] | None = None
+) -> list[dict[str, Any]]:
+    """Collect anchors from inline body content (skips sources tray and #).
+
+    ``/goto?url=`` redirects (role-heading layout) are swapped for the full
+    URL when the citation payloads resolve them.
+    """
+    full_urls = full_url_by_goto or {}
     links = []
     seen: set[str] = set()
     for a in elem.css("a[href]"):
@@ -250,10 +289,11 @@ def _collect_inline_links(elem: Node) -> list[dict[str, Any]]:
             continue
         if _find_parent_tag_class(a, "ul", "bTFeG") is not None:
             continue
-        if href in seen:
+        url = full_urls.get(href, href)
+        if url in seen:
             continue
-        seen.add(href)
-        links.append({"url": href, "text": get_text(a, " ", strip=True) or ""})
+        seen.add(url)
+        links.append({"url": url, "text": get_text(a, " ", strip=True) or ""})
     return links
 
 
@@ -271,9 +311,9 @@ def _find_parent_tag_class(node: Node, tag: str, cls: str) -> Node | None:
 def _extract_button_citations(
     elem: Node, payloads: dict[str, dict[str, Any]]
 ) -> list[dict[str, Any]]:
-    """Build citation dicts for ``button.rBl3me`` widgets within ``elem``."""
+    """Build citation dicts for the citation buttons within ``elem``."""
     citations: list[dict[str, Any]] = []
-    for button in elem.css("button.rBl3me"):
+    for button in elem.css(_CITATION_BUTTON_CSS):
         uuid_raw = button.attributes.get("data-icl-uuid")
         if not uuid_raw:
             continue
@@ -299,8 +339,8 @@ def _extract_button_citations(
 
 
 def _button_publisher(button: Node) -> str | None:
-    """Pull the publisher label from ``span.iFMVXd`` inside a ``rBl3me`` button."""
-    span = button.css_first("span.iFMVXd")
+    """Pull the publisher label from inside a citation button."""
+    span = button.css_first(_CITATION_PUBLISHER_CSS)
     if span is None:
         return None
     text = get_text(span, " ", strip=True)
@@ -308,7 +348,7 @@ def _button_publisher(button: Node) -> str | None:
 
 
 def _button_additional_count(button: Node) -> int:
-    span = button.css_first("span.IjM6od")
+    span = button.css_first(_CITATION_COUNT_CSS)
     if span is None:
         return 0
     text = (get_text(span, " ", strip=True) or "").lstrip("+").strip()
@@ -330,20 +370,71 @@ def _index_type_a_by_src_id(payloads: dict[str, dict[str, Any]]) -> dict[str, di
     return out
 
 
+def _index_full_url_by_goto(payloads: dict[str, dict[str, Any]]) -> dict[str, str]:
+    """Map ``/goto?url=`` redirects to full URLs (role-heading layout).
+
+    That layout's Type-A entries carry a redirect where the full URL used to
+    be. A header names the full URL of its button's lead source only: the
+    bucket's first Type-A entry, when that entry agrees with the header on
+    publisher and domain. A lead source whose entry sits in another button's
+    bucket is matched across buckets when exactly one redirect fits. Anything
+    else stays a redirect (about half the sources in the 2026-10 captures).
+    """
+    redirects = {
+        entry["url"]: entry
+        for bucket in payloads.values()
+        for entry in bucket.get("type_a", [])
+        if (entry.get("url") or "").startswith("/goto?")
+    }
+    out: dict[str, str] = {}
+    unmatched: list[dict[str, Any]] = []
+    for bucket in payloads.values():
+        header = bucket.get("header") or {}
+        if not header.get("url"):
+            continue
+        type_a = bucket.get("type_a", [])
+        lead = type_a[0] if type_a else None
+        if lead is not None and lead.get("url") in redirects and _names_source(header, lead):
+            out[lead["url"]] = header["url"]
+        else:
+            unmatched.append(header)
+    for header in unmatched:
+        fits = [url for url, entry in redirects.items() if _names_source(header, entry)]
+        if len(fits) == 1:
+            out.setdefault(fits[0], header["url"])
+    return out
+
+
+def _names_source(header: dict[str, Any], entry: dict[str, Any]) -> bool:
+    """Whether a header's full URL can belong to a Type-A entry."""
+    domain = entry.get("domain")
+    return (
+        entry.get("publisher") == header.get("publisher")
+        and bool(domain)
+        and header["url"].startswith(domain)
+    )
+
+
 def _extract_sources(
-    node: Node, type_a_by_src_id: dict[str, dict[str, Any]]
+    node: Node,
+    type_a_by_src_id: dict[str, dict[str, Any]],
+    full_url_by_goto: dict[str, str],
 ) -> list[dict[str, Any]]:
     """Build the sources list in tray (rank) order."""
     sources_ul = node.css_first("ul.bTFeG")
-    if sources_ul is None:
-        return []
+    if sources_ul is not None:
+        cards = sources_ul.css("li.CyMdWb")
+    else:
+        # Role-heading layout: each source card is a ``div[data-src-id]``, in a
+        # list below the body (``cRH23c``) or a panel inside it (``fSJHKf``).
+        cards = node.css("div[data-src-id]")
     sources = []
     seen_src_ids: set[str] = set()
-    for li in sources_ul.css("li.CyMdWb"):
-        src_id_node = li.css_first("[data-src-id]")
+    for card in cards:
+        src_id_node = card if "data-src-id" in card.attributes else card.css_first("[data-src-id]")
         src_id_raw = src_id_node.attributes.get("data-src-id") if src_id_node is not None else None
         src_id = str(src_id_raw) if src_id_raw else None
-        a = li.css_first("a[href]")
+        a = card.css_first("a[href]")
         href = str(a.attributes["href"]) if a is not None else None
         if not href or href == "#":
             continue
@@ -353,11 +444,12 @@ def _extract_sources(
             seen_src_ids.add(src_id)
 
         payload: dict[str, Any] = type_a_by_src_id.get(src_id, {}) if src_id else {}
-        publisher = payload.get("publisher") or _tray_publisher(li) or ""
+        publisher = payload.get("publisher") or _tray_publisher(card) or ""
+        url = payload.get("url") or href
         sources.append(
             {
                 "source_id": src_id,
-                "url": payload.get("url") or href,
+                "url": full_url_by_goto.get(url, url),
                 "title": payload.get("title"),
                 "snippet": payload.get("snippet"),
                 "publisher": publisher,
