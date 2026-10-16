@@ -37,7 +37,9 @@ def _sub_type(html):
     (``div.kp-blk``), not the document root, so select that node to mirror real
     usage and avoid matches leaking outside the panel as fragments grow.
     """
-    return parse_knowledge_panel(make_soup(html).css_first("div.kp-blk"))[0]
+    node = make_soup(html).css_first("div.kp-blk")
+    assert node is not None
+    return parse_knowledge_panel(node)[0]
 
 
 # --- detector-only branches (synthetic markup) -----------------------------

@@ -6,11 +6,16 @@ stealth baseline. Lifecycle is fully deterministic: ``context.close()`` +
 ``playwright.stop()``.
 """
 
+import atexit
+import functools
 import logging
 import shutil
 import tempfile
 import time
+import weakref
+from collections.abc import Callable
 from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 
 import orjson
@@ -23,6 +28,26 @@ from ..models.searches import SearchParams
 # CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
+
+
+def prepare_profile_dir(path: Path) -> None:
+    """Create a new persistent profile dir that git ignores.
+
+    A profile holds cookies and session tokens, so a new one gets a ``.gitignore``
+    of ``*`` (as ``.pytest_cache`` does) and stays out of any repo it sits in. An
+    existing directory is left untouched.
+    """
+    if path.exists():
+        return
+    path.mkdir(parents=True)
+    (path / ".gitignore").write_text("# Browser profile created by WebSearcher\n*\n")
+
+
+def _cleanup_at_exit(ref: "weakref.ref[PatchrightSearcher]") -> None:
+    """Close a searcher still open at interpreter exit (registered by ``init_driver``)."""
+    searcher = ref()
+    if searcher is not None:
+        searcher.cleanup()
 
 
 class PatchrightSearcher:
@@ -44,11 +69,15 @@ class PatchrightSearcher:
         self.page: Any = None
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
+        self._exit_hook: Callable[[], None] | None = None
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
-        user_data_dir = self.config.user_data_dir
-        if not user_data_dir:
+        if self.config.user_data_dir:
+            profile = Path(self.config.user_data_dir).expanduser()
+            prepare_profile_dir(profile)
+            user_data_dir = str(profile)
+        else:
             self._tmp_profile = tempfile.mkdtemp(prefix="ws-patchright-")
             user_data_dir = self._tmp_profile
 
@@ -60,6 +89,7 @@ class PatchrightSearcher:
         from patchright.sync_api import sync_playwright
 
         self.playwright = sync_playwright().start()
+        self._register_exit_hook()
         self.context = self.playwright.chromium.launch_persistent_context(
             user_data_dir=user_data_dir,
             channel=self.config.channel,
@@ -121,9 +151,6 @@ class PatchrightSearcher:
                     response_output.html = expanded_html
 
         except Exception as e:
-            self.log.exception(
-                f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
-            )
             # Capture the live URL and whatever HTML rendered anyway -- a
             # CAPTCHA challenge redirects to /sorry/ and never shows #search,
             # so the redirect would otherwise be discarded with the timeout.
@@ -137,8 +164,19 @@ class PatchrightSearcher:
                         response_output.html = self.page.content()
                 except Exception:
                     pass
+            if utils.is_sorry_redirect(response_output.url):
+                # A block, not a fault: SearchEngine.search logs it as a captcha event.
+                self.log.debug(
+                    f"SERP | {self.driver_name} | /sorry/ redirect | {str(e)}",
+                    extra={"event": "fetch"},
+                )
+            else:
+                self.log.exception(
+                    f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
+                )
         finally:
-            self.delete_cookies()
+            if self.config.clear_cookies:
+                self.delete_cookies()
 
         return response_output
 
@@ -160,6 +198,18 @@ class PatchrightSearcher:
             return self.page.content()
         except Exception:
             return None
+
+    def _register_exit_hook(self) -> None:
+        """Close this searcher at interpreter exit if it is still open then.
+
+        ``__del__`` is not guaranteed to run at exit, and when it does,
+        patchright's event loop is already gone, so the close never completes
+        and the temp profile is left behind. ``atexit`` runs while the
+        interpreter is intact. The hook holds a weak reference, so it never
+        keeps a dropped searcher alive; ``cleanup`` unregisters it.
+        """
+        self._exit_hook = functools.partial(_cleanup_at_exit, weakref.ref(self))
+        atexit.register(self._exit_hook)
 
     def cleanup(self) -> bool:
         """Close the context and stop playwright.
@@ -183,6 +233,9 @@ class PatchrightSearcher:
             )
             return False
         finally:
+            if self._exit_hook is not None:
+                atexit.unregister(self._exit_hook)
+                self._exit_hook = None
             self.playwright = None
             self.context = None
             self.page = None

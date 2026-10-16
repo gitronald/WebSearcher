@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-10-16
+
+### Added
+
+- Persistent browser profiles for the patchright backend: a new `PatchrightConfig.clear_cookies` toggle (default `True`, the current behavior) lets a profile passed as `user_data_dir` keep its cookies between requests, a new profile directory is created with a `.gitignore` of `*` so its cookies stay out of git, and `ws-demo search`/`searches` take `--user-data-dir [PATH]` (bare flag: `./.ws_profile`), which also keeps cookies. A `~` in `user_data_dir` is now expanded (plan 054)
+- `ws-demo search`/`searches` take `--leave-open`, which keeps the browser window open after the run until Enter is pressed, e.g. to solve a CAPTCHA by hand while warming a profile
+
+### Changed
+
+- Require `selectolax>=1.0.0` (from `>=0.4.10`). WebSearcher already used only the lexbor backend, so its API and parsed output are unchanged (snapshot suite byte-identical). Parsing the 102-SERP fixture corpus is about 47% faster (corpus total 828 ms vs 1569 ms on selectolax 0.4.13, same-session A/B), mostly from faster HTML parsing and CSS matching. Note for applications that also use selectolax directly: 1.0 removed the Modest backend (`selectolax.parser` now raises `ImportError`) and `parse_fragment()`, so such code must move to `selectolax.lexbor` before upgrading (plan 059)
+- Dev tooling: parse benchmark rows in `tests/benchmarks/results.jsonl` record the installed `selectolax_version`
+- A search that lands on a `/sorry/` CAPTCHA page now logs a WARNING `captcha` event (either backend) instead of patchright's ERROR `#search` timeout traceback, and the `ws-demo` `search`, `headers`, and `locations` commands print a CAPTCHA notice instead of only "(no results)". Known gap: a CAPTCHA dialog overlaid on an otherwise normal SERP is not yet flagged as `captcha`
+
+### Fixed
+
+- A patchright `SearchEngine` left open at interpreter exit is now closed by an `atexit` hook (weak reference; `close()` unregisters it). The `__del__` fallback often never ran at exit, leaving the temp browser profile behind, and when it did, the close failed with an `EPIPE` trace from the driver. Call `close()` (or use `with`) to close a browser mid-run; the hook does not run in processes that end via `os._exit`, such as `multiprocessing` pool workers
+- Dev tooling: the parse benchmark no longer runs out of memory on a full corpus run. Timing pauses the garbage collector, and each parse leaves reference cycles that hold its document tree, so they piled up across SERPs; it now collects (untimed) after each SERP. On the current corpus this also lowered measured parse times by about 10-15%, so compare new benchmark rows only with rows recorded after this fix
+
 ## [0.11.6] - 2026-10-14
 
 ### Changed

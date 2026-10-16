@@ -6,13 +6,17 @@ called a nonexistent ``Node.get_text`` method and would have raised; this
 guards the fixed behavior.
 """
 
+from selectolax.lexbor import LexborNode as Node
+
 from WebSearcher import utils
 from WebSearcher.parsers.component import Component
 from WebSearcher.parsers.component_list import ComponentList
 
 
-def comp(inner: str):
-    return utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+def comp(inner: str) -> Node:
+    node = utils.make_soup(f'<div class="wrap">{inner}</div>').css_first("div.wrap")
+    assert node is not None
+    return node
 
 
 def test_unknown_component_captures_text_without_error():

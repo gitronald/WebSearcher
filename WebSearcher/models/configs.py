@@ -29,7 +29,12 @@ class LogConfig(BaseConfig):
 class PatchrightConfig(BaseConfig):
     headless: bool = False
     channel: str = "chrome"
+    # Browser profile dir. Empty -> a temp profile, removed on close; a path ->
+    # a persistent profile reused across runs (created git-ignored if new).
     user_data_dir: str = ""
+    # Clear cookies after every request. Set False with a persistent profile,
+    # or its cookies (e.g. from a solved CAPTCHA) are lost each request.
+    clear_cookies: bool = True
     # Keep Chrome's OS-level sandbox on: the driver appends --no-sandbox unless
     # this is exactly True, and the default backend visits live web content.
     chromium_sandbox: bool = True

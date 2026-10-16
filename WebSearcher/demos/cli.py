@@ -1,12 +1,16 @@
 """argparse CLI for the ``ws-demo`` command (and ``python -m WebSearcher.demos``)."""
 
 import argparse
+from typing import Any
 
 from .headers import headers
 from .locations import locations
 from .parse import parse
 from .search import search, searches
 from .show import show
+
+# Persistent browser profile for a bare --user-data-dir, relative to the working dir
+DEFAULT_PROFILE_DIR = ".ws_profile"
 
 
 def _add_engine_args(p: argparse.ArgumentParser) -> None:
@@ -21,11 +25,41 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
     p.add_argument(
         "--no-ai-expand", dest="ai_expand", action="store_false", help="Do not expand AI overviews"
     )
+    p.add_argument(
+        "--user-data-dir",
+        nargs="?",
+        const=DEFAULT_PROFILE_DIR,
+        default=None,
+        metavar="PATH",
+        help=(
+            "Reuse a persistent browser profile (patchright only) and keep its cookies "
+            "between searches. Bare flag: ./%(const)s"
+        ),
+    )
+    p.add_argument(
+        "--leave-open",
+        action="store_true",
+        help="Keep the browser open after searching until Enter is pressed (patchright only)",
+    )
 
 
 def _add_search_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("query", nargs="?", default="why is the sky blue?", help="Search query")
     _add_engine_args(p)
+
+
+def _close(se: Any, leave_open: bool) -> None:
+    """Close the engine, first waiting for Enter when ``leave_open`` is set.
+
+    The browser lives only as long as this process, so leaving it open means
+    blocking here. Ctrl-C or end of input closes it too.
+    """
+    if leave_open:
+        try:
+            input("Browser left open. Press Enter to close it... ")
+        except (EOFError, KeyboardInterrupt):
+            print()
+    se.close()
 
 
 def _run_search(args: argparse.Namespace) -> None:
@@ -36,8 +70,9 @@ def _run_search(args: argparse.Namespace) -> None:
         args.method,
         data_dir=args.data_dir,
         ai_expand=args.ai_expand,
+        user_data_dir=args.user_data_dir,
     )
-    se.close()
+    _close(se, args.leave_open)
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -96,6 +131,13 @@ def main(argv: list[str] | None = None) -> None:
     p_loc.add_argument("--data-dir", default="data/html", help="Directory to save outputs")
 
     args = parser.parse_args(argv)
+    if getattr(args, "method", "patchright") != "patchright":
+        for flag, value in (
+            ("--user-data-dir", args.user_data_dir),
+            ("--leave-open", args.leave_open),
+        ):
+            if value:
+                parser.error(f"{flag} requires the patchright method")
     if args.command == "parse":
         parse(args.filepath)
     elif args.command == "show":
@@ -115,8 +157,9 @@ def main(argv: list[str] | None = None) -> None:
             data_dir=args.data_dir,
             ai_expand=args.ai_expand,
             delay=args.delay,
+            user_data_dir=args.user_data_dir,
         )
-        se.close()
+        _close(se, args.leave_open)
     elif args.command == "headers":
         headers(args.query, data_dir=args.data_dir)
     elif args.command == "locations":

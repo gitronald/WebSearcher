@@ -32,6 +32,7 @@ import subprocess
 import sys
 import time
 from datetime import UTC, datetime
+from importlib.metadata import version
 from pathlib import Path
 from typing import Any
 
@@ -93,6 +94,7 @@ def run_metadata(paths: list[Path], n_serps: int, iterations: int) -> dict[str, 
         "id": now.strftime("%Y%m%dT%H%M%SZ") + "_" + (gi["git_sha"] or "nogit"),
         "timestamp": now.isoformat(),
         "ws_version": getattr(ws, "__version__", None),
+        "selectolax_version": version("selectolax"),
         "python": platform.python_version(),
         "fixtures": [p.name for p in paths],
         "n_serps": n_serps,
@@ -110,7 +112,11 @@ def append_result(record: dict[str, Any]) -> None:
 
 
 def time_parse(html: str, iterations: int) -> list[float]:
-    """Time `iterations` parses of one SERP; gc paused to reduce jitter."""
+    """Time `iterations` parses of one SERP; gc paused to reduce jitter.
+
+    Each parse leaves reference cycles that hold its document tree, so collect
+    (untimed) once timing ends; otherwise the uncollected trees pile up across
+    SERPs and a full corpus run exhausts memory."""
     times = []
     gc.disable()
     try:
@@ -120,6 +126,7 @@ def time_parse(html: str, iterations: int) -> list[float]:
             times.append((time.perf_counter() - t0) * 1000.0)  # ms
     finally:
         gc.enable()
+        gc.collect()
     return times
 
 
@@ -301,7 +308,8 @@ def main(argv: list[str] | None = None) -> None:
     # Record the interpreter: timings are only comparable within one Python build.
     print(
         f"Python {platform.python_version()} "
-        f"({platform.python_implementation()}, {sys.platform}) | WebSearcher {ws.__version__}"
+        f"({platform.python_implementation()}, {sys.platform}) | WebSearcher {ws.__version__} "
+        f"| selectolax {version('selectolax')}"
     )
 
     records = load_records(paths, args.limit or None)

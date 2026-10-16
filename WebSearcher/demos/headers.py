@@ -4,7 +4,7 @@ from pathlib import Path
 
 import WebSearcher as ws
 
-from ._common import _default_data_dir, _print_results_table
+from ._common import _default_data_dir, _print_captcha_notice, _print_results_table
 
 MODIFIED_HEADERS = {
     "Host": "www.google.com",
@@ -29,5 +29,6 @@ def headers(query: str, data_dir: str | None = None):
     se.save_serp(append_to=fps["serps"])
     se.save_parsed(append_to=fps["parsed"])
 
+    _print_captcha_notice(se.parsed.features, se.serp["url"])
     _print_results_table(se.parsed.results)
     return se

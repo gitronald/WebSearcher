@@ -32,5 +32,13 @@ def _print_results_table(
         print(fmt.format(*row))
 
 
+def _print_captcha_notice(features: dict[str, Any], url: str) -> bool:
+    """Print a notice when the parse flagged a CAPTCHA block; return whether it did."""
+    if not features.get("captcha"):
+        return False
+    print(f"CAPTCHA: the search was blocked ({url})")
+    return True
+
+
 def _default_data_dir() -> Path:
     return Path("data") / f"demo-ws-v{ws.__version__}"
