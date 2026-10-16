@@ -5,9 +5,10 @@ in the AI overview. Three delivery forms appear in practice:
 
 1. HTML comment ``<!--TgQPHd|<json>-->`` — most common (97% of button-bearing
    SERPs in the audit). The role-heading layout (2026-10) writes
-   ``<!--TgQPHd|||<json>-->``, and some captures put jsuid keys before the
-   pipes (``<!--TgQPHd<keys>||<json>-->``), so any prefix up to the last pipe
-   is skipped.
+   ``<!--TgQPHd|||<json>-->``, and some captures put jsuid keys before or
+   between the pipes (``<!--TgQPHd<keys>||<json>-->``,
+   ``<!--TgQPHd|<keys>|<json>-->``), so any prefix up to the last pipe before
+   the JSON is skipped.
 2. HTML comment ``<!--Sv6Kpe<json>-->`` — same payload shapes, no ``|``
    separator before the JSON.
 3. Script push ``(j.lDPB=j.lDPB||[]).push([["<jsid>","<escaped-json>"]])`` —
@@ -35,7 +36,7 @@ from typing import Any
 
 _UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd[^|\[]*\|+(.+?)-->", re.DOTALL)
+_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd[^\[>]*\|(\[.+?)-->", re.DOTALL)
 _COMMENT_SV6KPE = re.compile(r"<!--Sv6Kpe(.+?)-->", re.DOTALL)
 _LDPB_PUSH = re.compile(
     r'\["[a-zA-Z0-9_]+","(\[\[\\"[0-9a-f-]{36}\\".*?\]\])"\]',

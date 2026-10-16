@@ -150,6 +150,24 @@ def test_keyed_comment_prefix():
     assert extract_payloads(raw)[UUID]["header"]["total"] == 2
 
 
+def test_keys_between_pipes_skipped():
+    """Keys between two pipes are skipped too, up to the last pipe before the JSON."""
+    raw = (
+        "<!--TgQPHd|BSarAd_f/scS1X|"
+        f"[[null,null,&quot;{UUID}&quot;,null,null,1,0,&quot;f&quot;,&quot;Pub&quot;,2]]-->"
+    )
+    assert extract_payloads(raw)[UUID]["header"]["total"] == 2
+
+
+def test_comment_without_json_does_not_swallow_next():
+    """A payload-less comment does not run on into the next comment."""
+    raw = (
+        "<!--TgQPHd||GVEHxc=1-->"
+        f"<!--TgQPHd|[[null,null,&quot;{UUID}&quot;,null,null,1,0,&quot;f&quot;,&quot;Pub&quot;,2]]-->"
+    )
+    assert extract_payloads(raw)[UUID]["header"]["total"] == 2
+
+
 def test_role_heading_header_carries_full_url():
     raw = (
         f"<!--TgQPHd|||[[&quot;{UUID}&quot;,null,null,0,&quot;https://fav&quot;,"

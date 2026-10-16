@@ -227,8 +227,8 @@ def _collect_body_elements(content: Node) -> list[Node]:
     # Keyed by mem_id: a comma-union selector yields an element once per
     # selector it matches (``otQkpb`` headings also carry the role attributes).
     elements = list({e.mem_id: e for e in paragraphs + headings + lists}.values())
-    # Deduplicate (Y3BBE divs can nest inside one another in some layouts)
-    # and drop elements whose ancestor is already in the set.
+    # Drop elements whose ancestor is already in the set (Y3BBE divs can nest
+    # inside one another in some layouts).
     elements = _drop_nested_descendants(elements)
     elements = [e for e in elements if _find_parent_tag_class(e, "div", _FOLLOW_UP_CLASS) is None]
     return sorted(elements, key=_doc_position)
