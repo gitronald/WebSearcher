@@ -4,7 +4,10 @@ Google ships per-UUID JSON blobs that back the citation buttons and source tray
 in the AI overview. Three delivery forms appear in practice:
 
 1. HTML comment ``<!--TgQPHd|<json>-->`` — most common (97% of button-bearing
-   SERPs in the audit).
+   SERPs in the audit). The role-heading layout (2026-10) writes
+   ``<!--TgQPHd|||<json>-->``, and some captures put jsuid keys before the
+   pipes (``<!--TgQPHd<keys>||<json>-->``), so any prefix up to the last pipe
+   is skipped.
 2. HTML comment ``<!--Sv6Kpe<json>-->`` — same payload shapes, no ``|``
    separator before the JSON.
 3. Script push ``(j.lDPB=j.lDPB||[]).push([["<jsid>","<escaped-json>"]])`` —
@@ -12,9 +15,13 @@ in the AI overview. Three delivery forms appear in practice:
 
 Each UUID can have multiple payloads of three shapes:
 
-- ``header``  — ``[[null, null, <uuid>, null, null, 1, 0, <favicon>, <publisher>, <total_count>]]``
+- ``header``  — ``[[null, null, <uuid>, null, null, 1, 0, <favicon>, <publisher>, <total_count>]]``,
+  or in the role-heading layout
+  ``[[<uuid>, null, null, 0, <favicon>, <publisher>, <total_count>, <full_url>, ...]]``,
+  which also carries the full URL of the button's lead source.
 - ``type_a``  — ``[[<uuid>, [<title>, <snippet>, <favicon>, <domain>, [<publisher>], <full_url>, null, null, "<data-src-id>", ...]]]``
-  (``data-src-id`` is at ``inner[1][8]`` and may be int or str.)
+  (``data-src-id`` is at ``inner[1][8]`` and may be int or str.) In the
+  role-heading layout ``<full_url>`` is a ``/goto?url=`` redirect instead.
 - ``type_b``  — ``[[<uuid>, "<index>", 0, <full_url>, <favicon>, ""]]``
 """
 
@@ -28,7 +35,7 @@ from typing import Any
 
 _UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd\|(.+?)-->", re.DOTALL)
+_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd[^|\[]*\|+(.+?)-->", re.DOTALL)
 _COMMENT_SV6KPE = re.compile(r"<!--Sv6Kpe(.+?)-->", re.DOTALL)
 _LDPB_PUSH = re.compile(
     r'\["[a-zA-Z0-9_]+","(\[\[\\"[0-9a-f-]{36}\\".*?\]\])"\]',
@@ -100,6 +107,27 @@ def _classify(raw: str) -> tuple[str, str, object] | None:
                 "favicon": inner[7] or "",
                 "publisher": inner[8] or "",
                 "total": inner[9] if isinstance(inner[9], int) else 0,
+                "url": None,
+            },
+        )
+
+    # Role-heading layout header: uuid first, full URL of the lead source at [7]
+    if (
+        len(inner) >= 8
+        and isinstance(inner[0], str)
+        and _UUID_RE.match(inner[0])
+        and inner[1] is None
+        and inner[2] is None
+        and isinstance(inner[7], str)
+    ):
+        return (
+            "header",
+            inner[0],
+            {
+                "favicon": inner[4] if isinstance(inner[4], str) else "",
+                "publisher": inner[5] if isinstance(inner[5], str) else "",
+                "total": inner[6] if isinstance(inner[6], int) else 0,
+                "url": inner[7],
             },
         )
 

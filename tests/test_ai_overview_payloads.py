@@ -17,6 +17,7 @@ def test_header_payload():
         "favicon": "https://favicon",
         "publisher": "Yahoo Finance",
         "total": 2,
+        "url": None,
     }
     assert out[UUID]["type_a"] == []
     assert out[UUID]["type_b"] == []
@@ -122,3 +123,43 @@ def test_multiple_payloads_per_uuid():
     out = extract_payloads(raw)
     assert out[UUID]["header"]["total"] == 2
     assert [p["source_id"] for p in out[UUID]["type_a"]] == ["1", "2"]
+
+
+# --- role-heading layout (plan 060) ---------------------------------------
+
+
+def test_triple_pipe_comment():
+    """The role-heading layout writes ``<!--TgQPHd|||<json>-->``."""
+    raw = (
+        f"<!--TgQPHd|||[[&quot;{UUID}&quot;,[&quot;T&quot;,&quot;S&quot;,&quot;f&quot;,"
+        "&quot;https://dom&quot;,[&quot;Pub&quot;],&quot;/goto?url=CAES&quot;,null,0,"
+        "&quot;4&quot;,null]]]-->"
+    )
+    out = extract_payloads(raw)
+    (entry,) = out[UUID]["type_a"]
+    assert entry["source_id"] == "4"
+    assert entry["url"] == "/goto?url=CAES"
+
+
+def test_keyed_comment_prefix():
+    """jsuid keys between the marker and the pipes are skipped."""
+    raw = (
+        "<!--TgQPHdBSarAd_1/VWapad;BSarAd_1/YOIIaf||"
+        f"[[null,null,&quot;{UUID}&quot;,null,null,1,0,&quot;f&quot;,&quot;Pub&quot;,2]]-->"
+    )
+    assert extract_payloads(raw)[UUID]["header"]["total"] == 2
+
+
+def test_role_heading_header_carries_full_url():
+    raw = (
+        f"<!--TgQPHd|||[[&quot;{UUID}&quot;,null,null,0,&quot;https://fav&quot;,"
+        "&quot;NASA&quot;,3,&quot;https://nasa.gov/page&quot;,null,null,null,1,null,0]]-->"
+    )
+    out = extract_payloads(raw)
+    assert out[UUID]["header"] == {
+        "favicon": "https://fav",
+        "publisher": "NASA",
+        "total": 3,
+        "url": "https://nasa.gov/page",
+    }
+    assert out[UUID]["type_a"] == []
