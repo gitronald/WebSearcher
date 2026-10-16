@@ -891,6 +891,16 @@ def test_ai_overview_role_heading_citations_and_sources(serps_by_id):
     assert links[0] == {"url": "https://spaceplace.nasa.gov/blue-sky/", "text": "NASA Space Place"}
 
 
+def test_ai_overview_role_heading_follow_up(serps_by_id):
+    """The closing follow-up prompt is its own detail, not part of the body text."""
+    details = _aio_row(serps_by_id, "ef30639b2b33")["details"]
+    assert details["follow_up"] == (
+        "Would you like to know how particles like dust or pollution change the color "
+        "of the sky, or how skies on other planets like Mars look?"
+    )
+    assert "follow_up" not in _aio_row(serps_by_id, "adf0f7391ecc")["details"]
+
+
 def test_ai_overview_role_heading_in_body_source_panel(serps_by_id):
     """Some overviews list sources in a panel inside the body (div.fSJHKf)."""
     sources = _aio_row(serps_by_id, "adf0f7391ecc")["details"]["sources"]

@@ -72,10 +72,12 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
         full_url_by_goto = _index_full_url_by_goto(payloads)
         lede, lede_citations, sections = _extract_body(content, payloads, full_url_by_goto)
         sources = _extract_sources(node, type_a_by_src_id, full_url_by_goto)
+        follow_up = _extract_follow_up(content)
     else:
         # Legacy SGE (2024) markup: the current-DOM body container is absent.
         lede, lede_citations, sections = _extract_body_legacy(node)
         sources = _extract_sources_legacy(node)
+        follow_up = None
 
     parsed["sub_type"] = "sectioned" if sections else "flat"
     parsed["text"] = lede or None
@@ -87,6 +89,8 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
         details["citations"] = lede_citations
     if sources:
         details["sources"] = sources
+    if follow_up:
+        details["follow_up"] = follow_up
 
     parsed["details"] = details if len(details) > 1 else None
 
@@ -110,7 +114,8 @@ _LIST_CLASSES = ("KsbFXc", "IaGLZe", "XSq4R", "T9WCjf")
 
 # The role-heading layout closes with a follow-up prompt ("Would you like to
 # know ...") in this wrapper. It invites a next query rather than answering
-# this one, so it is left out of the body.
+# this one, so it is kept out of the body text and reported as
+# ``details["follow_up"]``.
 _FOLLOW_UP_CLASS = "AHmQrc"
 
 # Citation widgets: ``button.rBl3me`` (publisher ``span.iFMVXd``, count
@@ -152,6 +157,14 @@ def _root_html(node: Node) -> str:
     while cur.parent is not None:
         cur = cur.parent
     return cur.html or ""
+
+
+def _extract_follow_up(content: Node) -> str | None:
+    """Text of the closing follow-up prompt, or None when there is none."""
+    wrapper = content.css_first(f"div.{_FOLLOW_UP_CLASS}")
+    if wrapper is None:
+        return None
+    return get_text(wrapper, " ", strip=True) or None
 
 
 def _extract_body(
