@@ -2,6 +2,8 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
+| 060 | [Recognize the reworked AI overview layout](plans/060-ai-overview-role-heading-layout/plan.md) | active | — | — |
+| 061 | [Parse the AI overview answer embedded in people also ask](plans/061-paa-embedded-ai-overview/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
 | 060 | [Recognize the reworked AI overview layout](plans/060-ai-overview-role-heading-layout/plan.md) | done | 2026-10-16 15:05 PT | [#203](https://github.com/gitronald/WebSearcher/pull/203) |
