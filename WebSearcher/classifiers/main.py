@@ -337,6 +337,10 @@ class ClassifyMain:
         heading = node.css_first('[role="heading"]') or node.css_first("h2")
         if heading is not None and (get_text(heading, strip=True) or "").startswith("Flight"):
             return "flights"
+        # The flight-search widget (``es75Cc``) was headed "Flight prices"; the
+        # 2026-10 version is headed "Search flights", so match the controller.
+        if node.css_first('div[jscontroller="es75Cc"]') is not None:
+            return "flights"
         return "unknown"
 
     @staticmethod

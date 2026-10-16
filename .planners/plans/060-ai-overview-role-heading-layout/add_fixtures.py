@@ -30,6 +30,11 @@ NOTES = {
         "than the end-of-chain banner rule."
     ),
     "42bc62be2985": "Role-heading AI overview with no source tray (finance answer).",
+    "3765fb676f3c": (
+        "Role-heading AI overview that the banner rule typed as an empty ai_overview, "
+        "and the flight-search widget headed 'Search flights' (es75Cc), which fell "
+        "through to a hollow general row."
+    ),
 }
 
 

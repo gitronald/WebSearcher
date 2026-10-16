@@ -814,6 +814,8 @@ AIO_ROLE_HEADING = {
     "ef30639b2b33": ["How It Works", "Why Sunsets Are Red"],  # why is the sky blue
     "adf0f7391ecc": 3,  # is it worth learning rust reddit (emoji-led headings)
     "42bc62be2985": ["Key Market Statistics"],  # aapl stock price, no sources
+    # cheap flights to new york: typed by the banner rule, parsed empty
+    "3765fb676f3c": ["Sample Fares & Routes (SFO to NYC)", "Best Time to Find Cheap Fares"],
 }
 
 
@@ -911,3 +913,13 @@ def test_ai_overview_role_heading_classifies_over_knowledge_controller():
 def test_ai_overview_role_heading_needs_controller():
     """People-also-ask answers embed div.mZJni without the EYwa3d controller."""
     assert _classify('<div class="mZJni"><div class="n6owBd">Body</div></div>') != "ai_overview"
+
+
+def test_flight_search_widget_search_flights_heading(serps_by_id):
+    """The es75Cc flight-search widget, now headed "Search flights", is typed flights."""
+    html = serps_by_id["3765fb676f3c"]["html"]
+    (row,) = [r for r in _rows(html, "flights") if r["title"] == "Search flights"]
+    items = row["details"]["items"]
+    assert len(items) == 4
+    assert all(i["url"].startswith("https://www.google.com/travel/flights") for i in items)
+    assert all(r["title"] or r["url"] for r in _rows(html, "general"))
