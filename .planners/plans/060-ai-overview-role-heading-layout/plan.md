@@ -1,10 +1,10 @@
 ---
 id: 60
 slug: ai-overview-role-heading-layout
-status: implemented
+status: done
 branch: feature/ai-overview-role-heading-layout
 created: 2026-10-15T11:24:54-07:00
-concluded:
+concluded: 2026-10-16T15:05:56-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/203
 ---
 
@@ -116,14 +116,22 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
 
 ## Handoff
 
-**State.** Steps 1-4 are committed and pushed on `feature/ai-overview-role-heading-layout`; PR #203 carries before/after rows for each changed fixture. Nothing is uncommitted. Waiting on review.
+**State.** Done. Steps 1-4, the review fixes, and the Handoff follow-ups (questions 4 and 5) are committed and pushed on `feature/ai-overview-role-heading-layout` and merge through PR #203. Nothing is uncommitted.
 
 **Questions.**
 
-1. Is the new layout replacing the old one, or are both served? Open. Both parse paths are kept. Of the 6 "old+new" corpus SERPs, 5 are the Fzsovc layout (which also carries a role heading) and only `fc9c7b848175` has the new body markup.
-2. Should overview markup inside `people_also_ask` answers be parsed? Open, out of scope. Those components carry `div.mZJni` without the `EYwa3d` controller; the new rule does not claim them.
+1. Is the new layout replacing the old one, or are both served? Answered 2026-10-16: settled for this plan. Both parse paths are kept, so no action is needed either way; revisit only if old-layout captures stop appearing.
+2. Should overview markup inside `people_also_ask` answers be parsed? Handed to plan 061 (2026-10-16), which decides the hybrid output shape first.
 3. Do the 3 controller-without-heading corpus SERPs change type? Answered 2026-10-16: no.
-4. Should the closing follow-up prompt (`div.AHmQrc`) be kept, e.g. as its own detail field? Open. It is dropped from the text for now, since it invites a next query rather than answering this one.
-5. Should the new flights widget (hollow `general` on "cheap flights to new york") get its own plan? Open; not started.
+4. Should the closing follow-up prompt (`div.AHmQrc`) be kept? Answered 2026-10-16: yes, as `details["follow_up"]`, kept out of the text (9493943).
+5. Should the new flights widget (hollow `general` on "cheap flights to new york") be fixed? Answered 2026-10-16: fixed in this PR; `flights` matches the `es75Cc` controller (3d5bab3).
 
-**Not verified.** The redirect-to-URL matching is checked against the 27 run overviews only (no conflicts there); the header-is-lead-source reading is inferred from that run.
+**Not verified.** The redirect-to-URL matching is checked against the 27 run overviews and the new fixtures only (no conflicts there); the header-is-lead-source reading is inferred from that run. A same-site header could in principle map to the wrong page's redirect (`_names_source` matches by publisher and domain only); not seen.
+
+## Retrospective
+
+- The plan's marker list was half wrong: `div.mZJni` survived, so extending the current-DOM path beat adding a third parse path. Re-grounding markers in the real pipeline before coding (as the probe did) was what caught it.
+- Half the cause was in the payload regex, not the DOM: the triple-pipe comment form dropped every citation payload. The review then found the regex still missed keys between pipes. A corpus-wide old/new bucket comparison is a cheap guard for any change to that regex.
+- Holding a fixture back because it tripped an unrelated check (the flights row) left a Handoff question that turned out to be a one-line classifier fix. Fix such small neighbors in the same PR when the signal is clear.
+- `serp_id`-keyed fixtures were needed because several new queries repeat older corpus records; query-keyed lookups would have silently picked the old capture.
+- Observed, not investigated: in the 2026-10-15 run, many organic `general` rows also carry `/goto?url=` redirects as their URL. Worth a look on the next batch run.
