@@ -105,3 +105,17 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
   - Open question 3 answered: the three controller-without-heading corpus SERPs keep their types (2 `ai_overview` unavailable, 1 `knowledge`).
   - Checks: `uv run pytest` 693 passed; ruff and pyrefly clean. The new coverage and payload tests fail on `dev` (14 of 15; the PAA guard passes on both).
   - Repro: `uv run python .planners/plans/060-ai-overview-role-heading-layout/probe_aio_layout.py data/demo-ws-v0.11.7a2-warm-profile/serps.json --summary` now prints `('new', 'ai_overview'): 27`.
+
+## Handoff
+
+**State.** Steps 1-4 are committed and pushed on `feature/ai-overview-role-heading-layout`; PR #203 carries before/after rows for each changed fixture. Nothing is uncommitted. Waiting on review.
+
+**Questions.**
+
+1. Is the new layout replacing the old one, or are both served? Open. Both parse paths are kept. Of the 6 "old+new" corpus SERPs, 5 are the Fzsovc layout (which also carries a role heading) and only `fc9c7b848175` has the new body markup.
+2. Should overview markup inside `people_also_ask` answers be parsed? Open, out of scope. Those components carry `div.mZJni` without the `EYwa3d` controller; the new rule does not claim them.
+3. Do the 3 controller-without-heading corpus SERPs change type? Answered 2026-10-16: no.
+4. Should the closing follow-up prompt (`div.AHmQrc`) be kept, e.g. as its own detail field? Open. It is dropped from the text for now, since it invites a next query rather than answering this one.
+5. Should the new flights widget (hollow `general` on "cheap flights to new york") get its own plan? Open; not started.
+
+**Not verified.** The redirect-to-URL matching is checked against the 27 run overviews only (no conflicts there); the header-is-lead-source reading is inferred from that run.
