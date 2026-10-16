@@ -106,6 +106,8 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
   - Checks: `uv run pytest` 693 passed; ruff and pyrefly clean. The new coverage and payload tests fail on `dev` (14 of 15; the PAA guard passes on both).
   - Repro: `uv run python .planners/plans/060-ai-overview-role-heading-layout/probe_aio_layout.py data/demo-ws-v0.11.7a2-warm-profile/serps.json --summary` now prints `('new', 'ai_overview'): 27`.
 - **2026-10-16T10:52:42-07:00** — Implemented: 6 commits ahead of `dev`.
+- **2026-10-16T14:55:13-07:00** — Review gate run (/code-review, medium); fixes in 2c1b847; review posted on PR #203.
+  - Review follow-up: 12 candidates from two finders, 7 verified, 4 kept. Actioned: the TgQPHd regex stopped at the first pipe run, so `<!--TgQPHd|<keys>|[[...` comments kept their keys and failed to parse; it now skips to the last pipe before the JSON (`<!--TgQPHd[^\[>]*\|(\[.+?)-->`), with `test_keys_between_pipes_skipped` (fails on the old regex) and `test_comment_without_json_does_not_swallow_next`. Across 150 corpus and run SERPs no payload bucket is lost; the two recovered comments in `fc9c7b848175` match no payload shape, so no parsed output changes. Reworded the stale "Deduplicate" comment on `_drop_nested_descendants`. Conscious no-ops: same-site header-to-redirect mismatch in `_names_source` (all 16 fixture mappings check out; already under Not verified) and an unwrapped `button.vDOt8c` leaking its label (none in the corpus; stripping it inside a decomposed wrapper risks a dangling node). Checks: 695 passed, 105 snapshots unchanged, ruff and pyrefly clean.
 
 ## Handoff
 
