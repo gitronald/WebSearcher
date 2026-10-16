@@ -1,8 +1,8 @@
 ---
 id: 60
 slug: ai-overview-role-heading-layout
-status: draft
-branch:
+status: active
+branch: feature/ai-overview-role-heading-layout
 created: 2026-10-15T11:24:54-07:00
 concluded:
 pr:
@@ -85,3 +85,11 @@ uv run python $P tests/fixtures/serps.json.bz2 --summary
 3. The 3 corpus SERPs with the controller and no heading may be the existing
    "unavailable" banner case. Confirm during step 2 that the new rule does not
    change how they are typed.
+
+## Log
+
+- **2026-10-16T10:33:11-07:00** — Activated.
+  - Branch: `feature/ai-overview-role-heading-layout`
+  - Base: `dev` at `3b4283e`
+  - Worktree: `.worktrees/ai-overview-role-heading-layout`
+  - PR: pending
