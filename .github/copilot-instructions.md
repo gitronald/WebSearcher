@@ -27,10 +27,11 @@ WebSearcher relies heavily on `selectolax` for high-performance DOM parsing. The
 Key `selectolax` differences from BeautifulSoup (bs4):
 1. **Node selection:** `node.css("div.cls")` matches the node itself if it has the class. Use `_slx.subtree_first` / `_slx.subtree_css` for descendants-only semantics.
 2. **Document traversal:** `node.traverse()` walks the *entire* document past the subtree. Never use it on a component node. Use `_slx.walk_descendants(node)` instead.
-3. **Attributes:** `.attributes` allocates a new dict; prefer `.attrs` (e.g., `el.attrs.get("class")`). Use `el.id` instead of `el.attrs.get("id")`.
+3. **Attributes:** `.attributes` allocates a new dict; prefer `.attrs` (e.g., `el.attrs.get("class")`), which is 3-4x faster per read on a realistic 8-attribute node (even on a 1-3 attribute node). Use `el.id` instead of `el.attrs.get("id")`. Caveat: `.attrs` exists only on element nodes and raises `TypeError` on the document node, text nodes, and comments (`.attributes` returns `{}` there), so keep `.attributes` or guard with `_slx.is_element` for nodes that came from `iter()`, `.parent` walks, or the sibling helpers.
 4. **Class tokens:** Classes are single strings, not lists. Use `_slx.class_tokens(node)` for list-like checking.
 5. **Text extraction:** Native `node.text(strip=True)` doesn't strip empty fragments. Use `_slx.get_text(node, " ", strip=True)` for bs4-faithful behavior.
 6. **Identity:** Use `node.mem_id` instead of `id(node)` to uniquely identify DOM elements.
+7. **Node kinds:** `Node.iter(include_text=False)` still yields comment/CDATA nodes (tag `-comment`). Filter with `_slx.is_element` before destructuring a card's children or numbering rows, or a comment becomes an all-`None` row and shifts every later `sub_rank`.
 
 The `.claude/skills/convert-bs4-to-selectolax/` skill captures the full migration playbook (note: `.claude/` is gitignored and may not be present in a fresh checkout).
 
