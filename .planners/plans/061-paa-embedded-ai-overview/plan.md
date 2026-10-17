@@ -85,3 +85,8 @@ generated answer. Choose the output shape before writing code:
   - Base: `dev` at `c045ff7`
   - Worktree: `.worktrees/paa-embedded-ai-overview`
   - PR: pending
+- **2026-10-16T19:14:40-07:00** — Shape decided (step 1): option (a), the answer stays inside the people_also_ask row.
+  The answer renders inside the PAA box under its first question, so it is part of that component, not a separate overview. A rendered example (ef30639b2b33) showed this.
+  PAA rows that carry an answer get `sub_type: "ai_overview"`; rows without one keep `sub_type: null`.
+  The answer goes in `details.answer` beside `details.items`, with `question`, `text`, and, when present, `sections`, `citations`, `sources`, `follow_up`, the same fields as the main overview's details. `details.type` stays `"text"`.
+  Rejected (b), a separate `ai_overview` row: it would be the first component to emit rows of two types, and it would raise `ai_overview` row counts for 2026-10 SERPs.
