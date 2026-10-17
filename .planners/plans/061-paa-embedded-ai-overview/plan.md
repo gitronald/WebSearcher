@@ -1,7 +1,7 @@
 ---
 id: 61
 slug: paa-embedded-ai-overview
-status: active
+status: implemented
 branch: feature/paa-embedded-ai-overview
 created: 2026-10-16T15:06:11-07:00
 concluded:
@@ -98,3 +98,4 @@ generated answer. Choose the output shape before writing code:
   Run check (`data/demo-ws-v0.11.7a2-warm-profile/serps.json`, local): 31 of 37 PAAs carry an answer; all parse with text, 27 with sections, 209 sources (matching the probe's card count), 148 citations (the probe's 168 buttons less the unattributed panel-open buttons the shared helper drops). Every cited id is in the answer's own sources, and no citation labels leak into the text.
   Open question 1: yes for this run; every answer is under the first question and each PAA has at most one. The parser keeps the first answer if a capture ever shows more.
   Open question 2: no lazily expanded answers in the HTML of either corpus.
+- **2026-10-16T19:21:12-07:00** — Implemented: 6 commits ahead of `dev`.
