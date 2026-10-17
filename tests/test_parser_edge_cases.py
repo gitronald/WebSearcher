@@ -4,10 +4,12 @@ Each test builds the smallest HTML that exercised a crash or wrong field and
 pins the corrected behavior.
 """
 
+import pytest
+
 from WebSearcher._slx import make_soup
 from WebSearcher.models.data import ERR_NO_SUBCOMPONENTS
 from WebSearcher.parsers.components import footer, general, shopping_ads, top_stories, videos
-from WebSearcher.parsers.components._ai_overview_payloads import extract_payloads
+from WebSearcher.parsers.components._ai_overview_payloads import _decode_js_string, extract_payloads
 from WebSearcher.parsers.components.general_questions import parse_general_questions
 from WebSearcher.parsers.components.news_quotes import parse_news_quote, parse_news_quotes
 from WebSearcher.parsers.components.scholarly_articles import parse_article
@@ -216,3 +218,18 @@ def test_ldpb_push_decodes_non_ascii_and_surrogate_pairs():
     [type_a] = out[uuid]["type_a"]
     assert type_a["title"] == "Café 😀"
     assert type_a["snippet"] == "Snippet = ok"
+
+
+@pytest.mark.parametrize(
+    ("literal", "expected"),
+    [
+        (r"a\x41b", "aAb"),
+        (r"a\\x41b", r"a\x41b"),
+        (r"a\'b", "a'b"),
+        (r"a\\'b", "a\\'b"),
+        (r"a\\\'b", "a\\'b"),
+        (r"\"q\" é", '"q" é'),
+    ],
+)
+def test_decode_js_string_respects_escaped_backslashes(literal, expected):
+    assert _decode_js_string(literal) == expected

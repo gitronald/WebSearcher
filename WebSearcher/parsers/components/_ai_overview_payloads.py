@@ -83,7 +83,19 @@ def _iter_payload_blobs(raw_html: str):
             yield decoded
 
 
-_JS_HEX_ESCAPE = re.compile(r"\\x([0-9a-fA-F]{2})")
+# One escape sequence: a backslash and the character it escapes (``\xHH`` taken
+# whole). Matching pairs left to right keeps an escaped backslash (``\\``) from
+# being read as the start of the escape after it.
+_JS_ESCAPE = re.compile(r"\\(x[0-9a-fA-F]{2}|.)", re.DOTALL)
+
+
+def _js_to_json_escape(m: re.Match[str]) -> str:
+    esc = m.group(1)
+    if esc[0] == "x" and len(esc) == 3:
+        return "\\u00" + esc[1:]
+    if esc == "'":
+        return "'"
+    return m.group(0)
 
 
 def _decode_js_string(literal: str) -> str | None:
@@ -92,7 +104,7 @@ def _decode_js_string(literal: str) -> str | None:
     JSON string syntax covers everything JS emits here except ``\\xHH`` (mapped
     to ``\\u00HH``) and ``\\'`` (JSON forbids escaping ``'``). ``strict=False``
     tolerates raw control characters inside the literal."""
-    body = _JS_HEX_ESCAPE.sub(lambda m: "\\u00" + m.group(1), literal).replace("\\'", "'")
+    body = _JS_ESCAPE.sub(_js_to_json_escape, literal)
     try:
         value = json.loads(f'"{body}"', strict=False)
     except (json.JSONDecodeError, ValueError):
