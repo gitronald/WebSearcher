@@ -660,6 +660,239 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 42,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Donald John Trump is an American politician, media personality, and businessman who is the 47th president of the United States. A member of the Republican Party, he served as the 45th president from 2017 to 2021.",
+      "title": null,
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/Donald_Trump"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:born",
+        "items": [
+          {
+            "text": "Jamaica Hospital Medical Center, New York, NY",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Jamaica+Hospital+Medical+Center&si=AL3DRZELanY_V96Y0q8q1FLKlfOvH_NlT58VxGyuYFaMYKzFMyir6AnXC4dr34yPrbaTBMHQEGlk9HiRgVBbZZoqF12PNZ_erOWzKhB3OW0pviYyxm7JFfZ3shDsenlgYsPtIidFBdX5zaDd6q5MxCeWFenTmMVeNsHxSrD8noFfGIYIOvF2o8nq1BqEbUk8uE__yP6ap6BS9zictvWHsN7LblFyrbahFxeAs6bspIli0UmV63soDtw%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgZEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 43,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "June 14, 1946 (age 79 years), Jamaica Hospital Medical Center, New York, NY",
+      "title": "Born",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/government/politician:party",
+        "items": [
+          {
+            "text": "Republican Party",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Republican+Party&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRrUdcsLX7-nPSpyKZYIqfOJDBGOdz2E57-99eIANe1Pl8wwO7G3XqVt3qiEO4uERO4KYYXvGXEXRT6jOHlGcixAxcLt6zGSb8XfSKPYd5JeDPjiWx1lTb4E4mlK9t2l0ky4-1M_qoJaYHMURBGCmYARFqYnA&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgaEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 44,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Republican Party",
+      "title": "Party",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:spouse",
+        "items": [
+          {
+            "text": "Melania Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Melania+Trump&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmnbC4g-tiL7f4KIzaiBvkwPuQweuvjQA1fAes8NsiEcDdWQ0q2vyUm28zISe2WcfvHWebCSzLqTG_OD-n_gDH8cA_QRuupcW2Hbqzz_swhrRyQdUZuzx_EOgVXHZ6ZnG-7em_ydplOgVVw6KCOZbFIaZi1MvNj_PpiKyDoNGF8dX97RusoGx2xDbWOYGS_I9LakK4PmBBPp3ytcyIkmM-7kY5V-R&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgeEAI"
+          },
+          {
+            "text": "Marla Maples",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Marla+Maples&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmiAaFc5pELjnGXIPEmqQHM69y8we3Sw6BSAbFOvOglV1u-o_rBfRtyaOJtTR0zCDIdqXnJX58RWNvgaTNKR66BLG-r0d1rxoIG8PC21ABNmRzY-rblMJNSKFL4mOoHEsM97UQdWTg92X5MxppiaWr4FGTMUvQGRQlUuWnBmL0RL0NUUopImIIoKRHDN85C_P11vjIp2E33OaMu_crNmzgVocFnP2&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgeEAM"
+          },
+          {
+            "text": "Ivana Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Ivana+Trump&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmixPNbzrVXySPc7TFnyMlb8vHTBGNkoK15bvo3h4YWdgQ9CeFa91wkHCYHf2A9NuzkPjae4znSpee8mcH_by7vy7ti7yxOetjipQ0shzgVF8Xp2wkzlKspKGmbLSA9rr4dNnl9I6vS8OXsAorI28D2G5mQDucSYfyDaSM0umreqbohEvEA5j7Zb_FE31pqO7LjI6svCeqgWBhCJB0RbnPkXBvljj&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgeEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 45,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Melania Trump (m. 2005), Marla Maples (m. 1993–1999), Ivana Trump (m. 1977–1990)",
+      "title": "Spouse",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:children",
+        "items": [
+          {
+            "text": "Ivanka Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Ivanka+Trump&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmttLw4MEDqdtjEaALjWPcENI7p5kL1OGd3d-PkbaGn8SrLyLfH_Q9DV6gw3GangWeMiAQ62Ls_gE8EE030TgOGPrFCLm_SKNYtfljzkt4u09yZ6C20polbdRSBD2yIZGrLy7O2HC0IrDWPaLmnw1d-rPXs6pHNJjjtPdB9GUo7F6AzUcPh5pD6dTJdx0_FdJP0k--GZ1OuGSpAisj8RbNH6rDzsyVLBGsXmkqP0DLmoKMsR01w%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgdEAI"
+          },
+          {
+            "text": "Barron Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Barron+Trump&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnVHtZbyyTsVefPNUDz2kpksmYBRRzWf9zJoFWDClheprLzrAmP99fkKKJ9xB66SKDvk0GuPlHa-UJme_gY-ub8pviWr98uNIA40M2OYS2MRY1gKsfp53JBE_7ysf5kgqUQVMEVefFtMywbukdkALRSdJiVVopAE5jaWPwYP2D4BFQl5jiKbjORv8foclitzri5bRRfAa80xyYxfapMGWCIkVWa9r5mEGgwkopskTIyHm_KPqCA%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgdEAM"
+          },
+          {
+            "text": "Tiffany Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Tiffany+Trump&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTH6r75wFJFU2RZgDoaH2xo1VxbSp5ykTw7dCkzA0BP_ED6zuIo_OhVzZgDBy04SEZBPmzhFE5S_y_bMBDkpz1jSgttx3M4Rbbsh9K6LJmW9ygTu4V-lDD-hzeY5EJIyyhEVyz9lI7hjgaNdnr9G_swrySY3V9bYali-IwulZMHnBiNvA9wNlid4YexiDs-k2k7WOHp6qDTBEViq1c3mwa26DHKoSIn8xfjoIxNJQyWMSwzdM3Q%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgdEAQ"
+          },
+          {
+            "text": "Donald Trump Jr.",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Donald+Trump+Jr.&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmgyDJ9G7zP7lhD6QD41sz9IYOrKH1U53ynZLPvIJjZ4WCWciNzaxev9xATLEd8wLPquzmo51Az8Nh509jJ0FANqTM67tsFYLiA4BbkTUMpN1OAlIk2lCcuodDY2Cx9LZkj-7H9SennkbBWu6ZTl_Lip7UHsZkF8CJWB7Ks1yZWxrxB7blQidC3-jIS-255m2pCaSZ5otkC42ubBxvnt5LXjHr-k32FsHG3XLTsg3OMQg8lOs2A%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgdEAU"
+          },
+          {
+            "text": "Eric Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Eric+Trump&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTBIt1lKmXO4osR0ihvqOEkrGIDyqwWL1lwtcAWrdQvtAOhgwBK3-spFeemjkdLXufKU1sOQIUOAlyxMF3AIHBgsmZpYV_DXRBVMgS3u3Nd6RQ8blBohYgLNsPvO0LqSg0POZ81h90ogfsZcpyFmZUEaWQcFQ5R1tZh-Lsf8Lxq8cM9QXw3zaPRYyp3jA9v9KvYFgI8_p0S13dXPltkdMWpfYevP6TPserG5bqPPN7tnWQtHb7A%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgdEAY"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 46,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Ivanka Trump , Barron Trump , Tiffany Trump , Donald Trump Jr. , Eric Trump",
+      "title": "Children",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:education",
+        "items": [
+          {
+            "text": "Wharton School of the University of Pennsylvania",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Wharton+School+of+the+University+of+Pennsylvania&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmnPg5wLUDDgCl_ecvv5rYWwyW9aQh3rFrMqhQPSWTi9Modadw7RdklCYLhezLr_Vr3YbSr4jH6MDKeTDyBfjJVHoXw0QQZxUSbNIRlA7FmVX00Y72vD4Mtb-DBEDjhbmiwgdRvpU-WUyV9jOqo20sH3NjWrBz1kbgM7gUnf0fRPbgT-nOmJ0bbQ9eN1vjIk9g-Lxp77jZGAyoX5Q9SRLKacsV3Y9GbF8w3uZEappLxf11sHmFXGxxG3goQvz94drARGz9G8YO9a1s9kJcXwSBy8K0uKd&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgqEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 47,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Wharton School of the University of Pennsylvania (1966–1968) · See more",
+      "title": "Education",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/government/us_president:vice president",
+        "items": [
+          {
+            "text": "JD Vance",
+            "url": "/search?sca_esv=bd16726c6a722966&q=JD+Vance&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnbvllyXc385L3zTaSNxmTubQ_EKHgSwBTh8jILO-Opw9S0tnO6kOxXJFrbrrBaYjz_4IMwc68XAhtoHVLePSKSiXRAvk8A2bgZ7d517rW-L9xIXzubpwEfWOqGgzM_9Kl3n2n7zBQ30TheLEjAks2LkDwyztJqHhGAse8rseN5KtLcke2nY51cn_GpHrszIxbtvBjZY4-CRVJfO4bv4RWmUQZishS7wLDc4HrYrvLPfrStRrWw%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgpEAI"
+          },
+          {
+            "text": "Mike Pence",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Mike+Pence&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmkjDAC2YaRUVVYtfpZR4YMFPSBtLUNnF1DQObj1AmAMDaO-XOrKfMnO_YQPKSWO45KW9XB0anRkt-iQHyN7hqgwG_9gmOypBkOq2rs5c5id6dXacTh6xcKt4LC-wHLuUgYnDupSZDRp8BJXq0m2bpUm3ABuEH30A9ZioqC1-DlKA0z8QV9LM9Nb5k87cvm-NcHaelIwe-4ZIwmG97W5MC5a6mlS0fAWxyIFvSb3peTa3pF_47w%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgpEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 48,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "JD Vance (2025–), Mike Pence (2017–2021)",
+      "title": "Vice presidents",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/people/person:parents",
+        "items": [
+          {
+            "text": "Fred Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Fred+Trump&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmhKy6AGzyuldiSv7ZmSdEFtA0PmQEdIAtmYFaj-wZVdCbfRVyMNWmxQBL2c7qAmqCAaylbmPpAySzB085JpiDdJcSQnmj6GvBYkUYWhJ3011Vg6B4trQXoaQDJesnHR5_g-r4lg6OQK7FG3dU1WMf9ngWK1LpMnK8yoYLurDpxlhtHp2c-ud3pxRCEGR6riwdlVjJ7EhwxynrrIZpRod2eLUY_FQ&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgsEAI"
+          },
+          {
+            "text": "Mary Anne MacLeod Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&q=Mary+Anne+MacLeod+Trump&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTEppvYQ_-ftLNs2kT0Bk5NIgr9oueuRpA0WBBNN_uEkx6INmIq6AFUyv0W7Z0Ez_FD4z-UeurDH3Sv6dD4t3CQx766ZZk7wOvNM1ufZrYVY5ZVAKhVxtu62WTgUYgm9DERUsJWf0FRfO91XPwU-rYEDL_NPK29VsaYc3ZHfPZVjnFYIs0txO7OYUZdeJl9POOQtzQGnGu5xAKow07wcIradyvLEzQNEXfoSr2dPfRAAlkkkuog%3D%3D&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQmxN6BAgsEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 49,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Fred Trump , Mary Anne MacLeod Trump",
+      "title": "Parents",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/DonaldTrump"
+          },
+          {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/realdonaldtrump"
+          },
+          {
+            "text": "X (Twitter)",
+            "url": "https://twitter.com/realDonaldTrump"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/DonaldTrump"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 50,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Facebook Instagram X (Twitter) YouTube",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

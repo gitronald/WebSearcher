@@ -371,6 +371,225 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Apple",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:customer service phone",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "1 (800) 275-2273",
+      "title": "Customer service",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/business/business_operation:founder",
+        "items": [
+          {
+            "text": "Steve Jobs",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Steve+Jobs&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRp5AN7pSj-df7-yeAd-O-MNJO6DWFu93Fx7HxxRxSLNYbZhrS9eCUInkfV5vKpITcyvb7NpEgHcnaxTN1VrHmJZ0pTpnwCcRQ5hLE1YiWzuWWDUsNYWvJIz41_GsxzyJFf-kV44w1orncxlrC6QZTINxSuNkacAywPfdC5DUzD7VAEjB2N850yNRmaqt1EWbwVFkX4q2q1GdX9e9Ym1hArQijSLC&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgdEAI"
+          },
+          {
+            "text": "Steve Wozniak",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Steve+Wozniak&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRjjsFYlFp_giRDDSJ2emYt_Hps87ShTohpMdFcmzT_qgw4DOFbER_K-g0oYpsfEyVMZkoguItEPhtqpfD4yWCxbFWLIpBST8zKXq7F3MrsOlzWyH71fSVk6-dp0hGwMZOGMpojlC1CV21LCBHPcAzQgxs-R04a-L0TflY5NOwTdx2ANPfOGOF5JfSkHz83JFQVobbUBcc_eNZAevRz8jbQZtO2vc&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgdEAM"
+          },
+          {
+            "text": "Ronald Wayne",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Ronald+Wayne&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmo0-bSY6oiZZO1OVwcm8AHECxaP4V7M7v0L-Ei9VHyO9K24wWmFJi8aRg_68hsfcXbwxpVZFb5isOPf4gA3PZNJvP8qSwgfcBxyxAfARXIvW9Z6rEwgHkYTEnAnb7r3qu9n8oPvbZnBKdtKZPyFhbUxu89qw2Xc6MHmRQlnO0bZ4bCzN-JouKWtk3JB4kCyy3tgj1d1hdtav_jPmG8F7Qwu47y83&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgdEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Steve Jobs , Steve Wozniak , Ronald Wayne",
+      "title": "Founders",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:founded",
+        "items": [
+          {
+            "text": "Los Altos, CA",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Los+Altos&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRpFZIToXHvuSbi8erQ7I6qyyatMWK56bWzRmFOXVp8h6o1ORpxEQM2Q24sXokF6lFa06nKH1z2Bewu5EfGNR4nseexeox0Oujn70qV5681O4jAGQ0RHrF-p311rXUI2tobtVyQHAHr-R_sLeIlKt--sA9UH_&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgeEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "April 1, 1976, Los Altos, CA",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:headquarters",
+        "items": [
+          {
+            "text": "Cupertino, CA",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Cupertino&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRvxlFRj6UQ4pyEpMZ2ecxArdTNDGaV-G_YTGaySpyNh1BUdbV8sVMMsO9OH9bVY0bLVKsMb-bGcKX-kbRclQH6ps7MqJrBi2Cxiia71W3zLrvueAVFsbFQUtjTbpAreKAQm2HmnvzMew8SWCXvk7LMRA3AVK&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgaEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Cupertino, CA",
+      "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:coo",
+        "items": [
+          {
+            "text": "Sabih Khan",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Sabih+Khan&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnVk8O5VDU5kTQTnsreBkpDGBorbF2tyYCqFfwWr0hz_4pSNp9A59_kojXT6LhSWeEkRQOuIjKT0TYXay8AXxCQ1waVnJw1s6OMtw6uPwuvkZ5ch_5IZ5WfkXR7n1AVhyPWzhj2_ZB8BTYrnO01_v3xSSo3geR0tWkECIbTNMh0-NgVHd_A%3D%3D&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgiEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Sabih Khan",
+      "title": "COO",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/organization/organization:ceo",
+        "items": [
+          {
+            "text": "Tim Cook",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Tim+Cook&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmtNOjCzcEsa9uj8lo5PdA6XLDyfg9wNvLe0lwrl12BAvh97h9-OwoJyl-RW6XYad3Vw85bQBCViBQcdCUr2PVNW73ZAwKY_mY-QMKEVB7Fx-Q-miP-waJJ_0KPdpK8WhGeRyx2NyVB_KwLfeoQJi6jigzKGu&sa=X&ved=2ahUKEwiyuci-iMaSAxVHTTABHdYPJf0QmxN6BAgjEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Tim Cook (Aug 24, 2011–)",
+      "title": "CEO",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "LinkedIn",
+            "url": "https://www.linkedin.com/company/apple"
+          },
+          {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/apple"
+          },
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/Apple"
+          },
+          {
+            "text": "X (Twitter)",
+            "url": "https://x.com/Apple"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "LinkedIn Instagram YouTube X (Twitter)",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "4.7 ( 15K ) 15K Store reviews",
+            "url": "https://www.google.com/storepages?q=apple.com&c=US"
+          },
+          {
+            "text": "Top Quality Store",
+            "url": "https://www.google.com/storepages?q=apple.com&c=US"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 8,
+      "sub_type": "links",
+      "text": null,
+      "title": "Apple",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 9,
+      "sub_type": "links",
+      "text": "PayPal Apple Pay",
+      "title": "Payment options",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

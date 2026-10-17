@@ -500,6 +500,225 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services.",
+      "title": null,
+      "type": "side_bar",
+      "url": "/goto?url=CAESYwHrOzAVGuTEkc-bChPOAM4kFtBixba8UwXpk2jNQSq0JuZjTPjm9lhr86dDPgYC4W7KOQ6AhQ39HSGu8HsqhUhtdpmef4FgzeIsOqUJmMG8zOCJJZyNSxjSfM5n6dQ1aXk9hA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info description",
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "/goto?url=CAESYwHrOzAVGuTEkc-bChPOAM4kFtBixba8UwXpk2jNQSq0JuZjTPjm9lhr86dDPgYC4W7KOQ6AhQ39HSGu8HsqhUhtdpmef4FgzeIsOqUJmMG8zOCJJZyNSxjSfM5n6dQ1aXk9hA"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Description Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services. Wikipedia",
+      "title": "Company-info description",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info founded",
+        "items": [
+          {
+            "text": "Los Altos, CA",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Los+Altos&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpn-A0LEUv13uSlQ0U1BWwbr9UlkJg4awrPQhfuXfVSW_3KXO2j9vS8D-OoNUtg9LPBivJBR9-rvv_LWF-F_QYVUXmwxI1KKkYAkCu4kFwg2EjaoYgoqh6SQuE-TIFRC7xRUK-ECIMLHqRBeUzxUVoMK3CEt1&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAglEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "April 1, 1976, Los Altos, CA",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info headquarters",
+        "items": [
+          {
+            "text": "Cupertino, CA",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Cupertino&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMppg269OreNVNI6an8TGHsKdxVff4w36_9d3va9GKjf3uWJaGMDYBQL7YM4YaNMTdzsX846roqvthY4tnX7hsz9S1fUMOSKKzAwjaXNqUp1EYzx6twXTNQbt9M6PoX8K1W3reetp1Y2lVc5Cwrc-20PSrLGlK&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgzEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Cupertino, CA",
+      "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info ceo",
+        "items": [
+          {
+            "text": "John Ternus",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=John+Ternus&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0SWrSCSqkd1zzyG0tj5sHLoRMO45OB955b6q8HhPZLyB2w72jDd5drIZm0bGGcIDbrxClduFk0T1wbBkOHeyXdbRMSTBv4vliykm3vbJkdNkMpcFdZG8_g9B0RHTbWdj31sbGgHofZjcADH8Glfd0rB5F22ucu_Im6oAmXqifiu70L8yZA%3D%3D&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgvEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "John Ternus (Sep 1, 2026–)",
+      "title": "CEO",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info no-of-employees",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "166,000 (2025)",
+      "title": "Number of employees",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info founder",
+        "items": [
+          {
+            "text": "Steve Jobs",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Steve+Jobs&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMppoxeDGW8oaQl8s3FpJmwyYzlDrKc3Qh3GYnlPZwvXvkwcIy2lWr_NjZfrPgS6mO-n1g0-ST31MqIWMYri0F_ljTx-dj6_i5bUBTGONfsWHwY7AI1d_wiBSbBeUdqa4KCEG_b7ovPQzH2OyWbDXF7Oy2ynbw&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgiEAI"
+          },
+          {
+            "text": "Ronald Wayne",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Ronald+Wayne&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yZ8jjgOKtzNfzqOIfZ8RT4NsxuR-kMHV1qLrnvJpSDMRZYBOdftqKm-uPuW2OtojuQNhvVNN_CGA2U3cJ63bg7m17y6_Hea1-uX0E8UTUDnPfw3wW2UifjbYHWKu_XuQz5cJQpkYeUjxz2fLFCOKwLyvymOl&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgiEAM"
+          },
+          {
+            "text": "Steve Wozniak",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Steve+Wozniak&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpgnuQ4Ir0bMxSSXW6E7GXNAMDLeOzOFXpJptTA_BPK34Kg9p4pI-WIIrWes_pWlPeQfUoL-QU_NWlm-YQHXdMVkD4PmHSmMunPBuhlzsyFnKEhK-C1TXx7rp4Oa3_jMxJzBMqlsrkUg4okE5C4JNQeIFe6kg&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgiEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Steve Jobs , Ronald Wayne , Steve Wozniak",
+      "title": "Founders",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info subsidiaries",
+        "items": [
+          {
+            "text": "Beddit",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Beddit&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0d7ZMwLLRLDpq6PArHX-9erAQn8LI1XVfZSqv1Uw5Zhx_0YDcEvmVacPqe-KX4xM5AKcu7-LeRKV4Z7pk3kBFZUHpRZJQCzAqqtzWRLirJpRh8OLoGR2IgyCFGd-A8Dcpz1j53zbVB6gAw2OI3CTfBxxCsrCxQz2r9hUCQwgHjsebDrk0A%3D%3D&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgmEAI"
+          },
+          {
+            "text": "Beats by Dre",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Beats+Electronics&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW672n2VmBmsnmFO0hCe589klG2fYh6cexWzbHG32TgjHLlWYleMSuzf4QtyHgFl7N5Z-fcGXE0Qn5fFeiZdR0wjl4bNw9LUB2JR52ENIMSUWB8BDx7JU0aYkl00vQZ3v3rdG4QQzbydkRfd0LE2raR_NXXL464SG6ydKnsl4ca3ier41ejzg%3D%3D&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgmEAM"
+          },
+          {
+            "text": "Apple Store",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Apple+Store&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60ydpuB2joke4MeEMrvJzbI-pvFefOUtw6dHPQ7AA2BlFVwYOt622TDLLOjPmtCqwGOE54tG10Zs5Hh1P3UHoz6yHSOg01i8otAc1LyZwvVjxF_DbA86tt9NG9mXz_iGEs9hbQjccUwrr3CjeQ-WREGgJPKlPk&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgmEAQ"
+          },
+          {
+            "text": "Drive.ai",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Drive.ai&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0fx1lnER_XWB9B0i2pIun7amLSfgSCYp5Zyl9s40t6nxHdsDf09VfcEQD7OSTHdSeZGLvdy77FMzjqE3iknMEpM5k2XKxeuKGHAHlbQNrljvdeHnEORTIrc4yx5Kwu8bPfFpRH0wIDyPke0f9ubGaDNCqmj_hEVN3mVzNmi3b-LuYbzsxA%3D%3D&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQmxN6BAgmEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Beddit , Beats by Dre , Apple Store , Drive.ai · See more",
+      "title": "Subsidiaries",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "kc:/finance/stock:related markets",
+        "items": [
+          {
+            "text": "Dow Jones Industrial Average 52,046.21 0.82%",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Dow+Jones+Industrial+Average&stick=H4sIAAAAAAAAAONgecRozC3w8sc9YSmtSWtOXmNU4eIKzsgvd80rySypFBLjYoOyeKS4uDj0c_UNkgsry3kWscq45JcreOXnpRYreOallBaXFGUm5ig4lqUWJaanAgA_DJ8HVwAAAA&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQ0uIBegQIKhAB"
+          },
+          {
+            "text": "S&P 500 7,725.50 0.085%",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=S%26P+500&stick=H4sIAAAAAAAAAONgecRowi3w8sc9YSntSWtOXmNU5eIKzsgvd80rySypFBLnYoOyeKW4uTj1c_UNDM0qi4t5FrGyB6sFKJgaGAAADrlAZUMAAAA&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQ0uIBegQIKhAC"
+          },
+          {
+            "text": "Nasdaq Composite 26,594.88 0.37%",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Nasdaq+Composite&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNjCxMjYtyeBaxCvglFqckFio45-cW5BdnlqQCAKFIOJZNAAAA&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQ0uIBegQIKhAD"
+          },
+          {
+            "text": "Russell 2000 Index 2,747.69 0.67%",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=Russell+2000+Index&stick=H4sIAAAAAAAAAONgecRowi3w8sc9YSntSWtOXmNU5eIKzsgvd80rySypFBLnYoOyeKW4uTj1c_UNTKrK0sp5FrEKBZUWF6fm5CgYGRgYKHjmpaRWAABOlBlSTgAAAA&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQ0uIBegQIKhAE"
+          },
+          {
+            "text": "NYSE Composite 24,009.56 0.60%",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnv3JLpgzMaMQWY4SRjkW68-Z32tNQ:1792084132575&q=NYSE+Composite&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNjAqysvIseRax8vlFBrsqOOfnFuQXZ5akAgCFXkhqSwAAAA&sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQ0uIBegQIKhAF"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Dow Jones Industrial Average 52,046.21 0.82% S&P 500 7,725.50 0.085% Nasdaq Composite 26,594.88 0.37% Russell 2000 Index 2,747.69 0.67% NYSE Composite 24,009.56 0.60%",
+      "title": "Related markets",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

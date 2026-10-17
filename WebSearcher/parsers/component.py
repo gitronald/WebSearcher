@@ -1,6 +1,5 @@
 import logging
 import traceback
-from collections.abc import Callable
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
@@ -51,31 +50,18 @@ class Component:
         self.cmpt_rank = cmpt_rank
         self.result_list: list[dict[str, Any]] = []
 
-    def __str__(self) -> str:
-        return str(vars(self))
-
-    def to_dict(self) -> dict[str, Any]:
-        # Shallow copy so callers can't mutate the Component's attribute table
-        # through the returned dict (``__dict__`` is the live instance namespace).
-        return dict(self.__dict__)
-
-    def classify_component(self, classify_type_func: Callable[[Node], str] | None = None) -> None:
+    def classify_component(self) -> None:
         """Classify the component type"""
-        if classify_type_func:
-            self.type = classify_type_func(self.elem)
-        else:
-            if self.type == "unknown":
-                if self.section == "main":
-                    self.type = ClassifyMain.classify(self.elem)
-                elif self.section == "footer":
-                    self.type = ClassifyFooter.classify(self.elem)
+        if self.type == "unknown":
+            if self.section == "main":
+                self.type = ClassifyMain.classify(self.elem)
+            elif self.section == "footer":
+                self.type = ClassifyFooter.classify(self.elem)
 
-    def select_parser(self, parser_type_func: ParserFunc | None = None) -> ParserFunc | None:
+    def select_parser(self) -> ParserFunc | None:
         """Return the parser for this component, or ``None`` if the (known)
         type has no registered parser -- the caller reports that as a
         ``"not implemented"`` error."""
-        if parser_type_func:
-            return parser_type_func
         if self.type == "unknown":
             return parse_unknown
         if self.section == "header":
@@ -94,13 +80,12 @@ class Component:
             parsed_list = self.create_parsed_list_error(ERR_EXCEPTION, is_exception=True)
         return parsed_list
 
-    def parse_component(self, parser_type_func: ParserFunc | None = None) -> None:
-
+    def parse_component(self) -> None:
         if not self.type:
             parsed_list = self.create_parsed_list_error(ERR_NULL_TYPE)
         else:
             # Select and run parser; a missing parser is "not implemented".
-            parser_func = self.select_parser(parser_type_func)
+            parser_func = self.select_parser()
             if parser_func is None:
                 parsed_list = self.create_parsed_list_error(ERR_NOT_IMPLEMENTED)
             else:
@@ -139,7 +124,14 @@ class Component:
 
     def add_parsed_result(self, parsed_result: dict[str, Any]) -> None:
         """Add a parsed result with BaseResult validation to results_list"""
-        parsed_result_validated = BaseResult(**parsed_result).model_dump()
+        try:
+            parsed_result_validated = BaseResult(**parsed_result).model_dump()
+        except Exception:
+            # A row BaseResult rejects (not a dict, wrong field type) is a parser
+            # bug in one component; report it as that component's error row
+            # instead of letting it abort the whole parse_serp.
+            [error_row] = self.create_parsed_list_error(ERR_EXCEPTION, is_exception=True)
+            parsed_result_validated = BaseResult(**error_row).model_dump()
         self.result_list.append(parsed_result_validated)
 
     def export_results(self):

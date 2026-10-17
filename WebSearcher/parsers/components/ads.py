@@ -1,8 +1,10 @@
 """Parse ad components.
 
-Six layouts dispatched by classify_ad_type: legacy text ads, local-service
-profile cards, secondary text ads, shopping ads, standard text ads (with
-optional submenu sitelinks), and the horizontal sponsored carousel.
+Six layouts, each detected by a selector in ``AD_SUBTYPE_SELECTORS`` and parsed
+by its own function: legacy text ads, local-service profile cards, secondary
+text ads, shopping ads, standard text ads (with optional submenu sitelinks),
+and the horizontal sponsored carousel. ``parse_ads`` runs every layout whose
+selector matches, since one ``#tads`` block can host more than one.
 """
 
 from typing import Any
@@ -12,8 +14,8 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text, has_text
 from .shopping_ads import parse_shopping_ads
 
-# bs4 ``find("div", {"class": "X"})`` -> CSS class selector. The order matters:
-# classify_ad_type returns the first label whose selector matches.
+# bs4 ``find("div", {"class": "X"})`` -> CSS class selector. Insertion order is
+# the order the matching layouts' rows are emitted in.
 AD_SUBTYPE_SELECTORS: dict[str, str] = {
     "legacy": "div.ad_cclk",
     "local_service": "gls-profile-entrypoint",
@@ -22,14 +24,6 @@ AD_SUBTYPE_SELECTORS: dict[str, str] = {
     "standard": "div.uEierd",
     "carousel": "g-scrolling-carousel",
 }
-
-
-def classify_ad_type(elem: Node) -> str:
-    node: Node = elem
-    for label, css in AD_SUBTYPE_SELECTORS.items():
-        if node.css_first(css) is not None:
-            return label
-    return "unknown"
 
 
 def parse_ads(elem: Node) -> list[dict[str, Any]]:
@@ -51,9 +45,12 @@ def parse_ads(elem: Node) -> list[dict[str, Any]]:
     parsed: list[dict[str, Any]] = []
     for label, css in AD_SUBTYPE_SELECTORS.items():
         if node.css_first(css) is not None:
-            parser = subtype_parsers.get(label)
-            if parser:
-                parsed.extend(parser(node))
+            parsed.extend(subtype_parsers[label](node))
+    # Each layout parser numbers its own rows from 0, so a block hosting two
+    # layouts would repeat sub_rank; renumber across the whole component so
+    # (cmpt_rank, sub_rank) stays unique.
+    for sub_rank, row in enumerate(parsed):
+        row["sub_rank"] = sub_rank
     return parsed
 
 
@@ -268,62 +265,55 @@ def parse_ad_menu(sub: Node) -> dict[str, Any] | None:
 # ------------------------------------------------------------------------------
 
 
-def parse_ad_carousel(
-    elem: Node, sub_type: str = "carousel", filter_visible: bool = True
-) -> list[dict[str, Any]]:
+def parse_ad_carousel(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-
-    output_list = []
     ad_carousel = node.css_first("g-scrolling-carousel")
     if ad_carousel is None:
-        return output_list
+        return []
 
     # Possible ad carousel item types -- card layout first, then div fallback.
+    # Hidden (not-yet-shown) items are dropped before numbering so sub_rank
+    # stays contiguous.
     carousel_cards = [d for d in ad_carousel.css("g-inner-card") if has_text(d)]
     if carousel_cards:
-        for sub_rank, sub in enumerate(carousel_cards):
-            if filter_visible and _is_hidden_card(sub):
-                continue
-            output_list.append(_parse_ad_carousel_card(sub, sub_type, sub_rank))
-        return output_list
+        visible = [d for d in carousel_cards if not _is_hidden_card(d)]
+        return [_parse_ad_carousel_card(sub, sub_rank) for sub_rank, sub in enumerate(visible)]
 
-    carousel_divs = [d for d in ad_carousel.css("div.ZPze1e") if has_text(d)]
-    for sub_rank, sub in enumerate(carousel_divs):
-        if filter_visible and _is_hidden_div(sub):
-            continue
-        output_list.append(_parse_ad_carousel_div(sub, sub_type, sub_rank))
-    return output_list
+    carousel_divs = [
+        d for d in ad_carousel.css("div.ZPze1e") if has_text(d) and not _is_hidden_div(d)
+    ]
+    return [_parse_ad_carousel_div(sub, sub_rank) for sub_rank, sub in enumerate(carousel_divs)]
 
 
 def _is_hidden_div(sub: Node) -> bool:
-    return sub.attributes.get("data-has-shown") == "false"
+    return sub.attrs.get("data-has-shown") == "false"
 
 
 def _is_hidden_card(sub: Node) -> bool:
-    return bool(sub.attributes.get("data-viewurl"))
+    return bool(sub.attrs.get("data-viewurl"))
 
 
-def _parse_ad_carousel_div(sub: Node, sub_type: str, sub_rank: int) -> dict[str, Any]:
+def _parse_ad_carousel_div(sub: Node, sub_rank: int) -> dict[str, Any]:
     a = sub.css_first("a")
     return {
         "type": "ad",
-        "sub_type": sub_type,
+        "sub_type": "carousel",
         "sub_rank": sub_rank,
         "title": get_text(sub.css_first("div.e7SMre"), " "),
-        "url": a.attributes.get("href") if a is not None else None,
+        "url": a.attrs.get("href") if a is not None else None,
         "text": get_text(sub.css_first("div.vrAZpb"), " "),
         "cite": get_text(sub.css_first("div.zpIwr"), " "),
     }
 
 
-def _parse_ad_carousel_card(sub: Node, sub_type: str, sub_rank: int) -> dict[str, Any]:
+def _parse_ad_carousel_card(sub: Node, sub_rank: int) -> dict[str, Any]:
     a = sub.css_first("a.KTsHxd")
     return {
         "type": "ad",
-        "sub_type": sub_type,
+        "sub_type": "carousel",
         "sub_rank": sub_rank,
         "title": get_text(sub.css_first("div.gCv54b"), " "),
-        "url": a.attributes.get("href") if a is not None else None,
+        "url": a.attrs.get("href") if a is not None else None,
         "text": get_text(sub.css_first("div.VHpBje"), " "),
         "cite": get_text(sub.css_first("div.j958Pd"), " "),
     }
