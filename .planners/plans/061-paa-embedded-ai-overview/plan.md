@@ -99,3 +99,7 @@ generated answer. Choose the output shape before writing code:
   Open question 1: yes for this run; every answer is under the first question and each PAA has at most one. The parser keeps the first answer if a capture ever shows more.
   Open question 2: no lazily expanded answers in the HTML of either corpus.
 - **2026-10-16T19:21:12-07:00** — Implemented: 6 commits ahead of `dev`.
+- **2026-10-16T20:21:48-07:00** — Review gate run (/code-review medium on PR #204): 3 plausible findings, 0 confirmed, 4 rejected. Review posted to the PR.
+  - Review follow-up: raised: `_question_of` walked past the PAA component to any outer `data-q`; `general_questions` carries `details.answer` without the PAA's `sub_type`; skipped answer candidates have citation widgets decomposed before the skip.
+  - Actioned (6f36f2d): `parse_answer` iterates the component's question pairs and takes each one's `div.mZJni`, so the lookup is bounded to the component. Regression test `test_paa_answer_bounded_to_question_pairs` fails on the previous parser; snapshots unchanged.
+  - Conscious no-ops: the `general_questions` shape (0 such rows in the corpus or the 2026-10 run; its `sub_type` belongs to the general parser) and the mutation before the skip (nothing reads a skipped subtree). Rejected: per-call index rebuild (0.004 ms vs about 20 ms per parse_serp), src-id collisions, and empty `data-q`.
