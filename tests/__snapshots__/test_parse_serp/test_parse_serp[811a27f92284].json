@@ -1442,6 +1442,148 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/people/person:born",
+        "items": [
+          {
+            "text": "West Reading, PA",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=West+Reading&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTIRN-k4lBr5HfOsf4Lym3Xj_kXBfvdSE6mfeIP4tqcmC9JJ5LS1wQdVpL2smoowdVv9QefUlLx7wO4N_IAuGJs6Vgm1DTL_HpDpOxc6g79f6YIVIYQQlpQ63GRc5MZLRbi7O3WNkJnrwCaEKmLnHLr_cGOKG&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQmxN6BAgaEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 86,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "December 13, 1989 (age 36 years), West Reading, PA",
+      "title": "Born",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/people/person:parents",
+        "items": [
+          {
+            "text": "Andrea Swift",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Andrea+Swift&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTPBFeqDxNTGvvh1hPYXqlIjF22dcJi0Yu82oPUXxzDxir3wgkS2kyfPjT2d9orDXslkUkYK7OzdfWkB9RAz2F_nOw82Mcd9TUz4zCy-FAEYoaE-hz5K4tA2aFCRTu5jxMqrcqe0UCeKV32Yg3OqTVUTYbySC8oV8Fb1UcCnkzjmIJqsSepRL_ufkeJOR2ceTk-kWOaadcgzyxvzKtWxA5pEeojnijaM46J9b121z4q7bG8JZ_g%3D%3D&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQmxN6BAgbEAI"
+          },
+          {
+            "text": "Scott Kingsley Swift",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Scott+Kingsley+Swift&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTN6vRwy0BG2MW1rZPSjwgUj9uQ6Lqjf5EvnuYmUprBeVRcqZwU4RVGuga04tF6dV3uws1opDOSWuZ0Odx3tQnYEe4FMjCJ2I27DEVmFgfY83IaI2WH1C4h50MtXKKKlT0Zf0oZLiK2dlMADELL-GyPYFihLU-CQL9ZyUtLiTTNIl4a90jLtKCk_iqmof4Ir7GNPxeV_Trk26L47oLJKzt61AKGxX-grhVcBBLU4TkU5pbd5NuA%3D%3D&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQmxN6BAgbEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 87,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Andrea Swift , Scott Kingsley Swift",
+      "title": "Parents",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/people/person:sibling",
+        "items": [
+          {
+            "text": "Austin Swift",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Austin+Swift&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTLzkTBNqN2R2No16HNg2MJGMb_y40WxFbSnd3o6rhX4zclLt6TcP-oUSnWaiD2NtZvE_KG2rDzur5NjvhEsEdiCo5MmzCLnijxkV-Ez9521Id9icZgI4LPUUQgRGa3msF99LK0EEasAfz1MlQrV3hdjFlupe&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQmxN6BAgiEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 88,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Austin Swift",
+      "title": "Siblings",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/people/person:full name",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 89,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Taylor Alison Swift",
+      "title": "Full name",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/people/person:current_partner",
+        "items": [
+          {
+            "text": "Travis Kelce",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Travis+Kelce&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTHTi1vwsff0vVewvRYONLlmQl2DdINEJv4XX07RQjdLZPPnOzlsJxnbBw4kYpP3opNGlHIkP1Yxb5hwm6LckTItl6ZZ3E1UxAwEENnrrVZJptRx-Ar584mYgtHx3O77LqXCbYRANhAMcBMHmpRKfUZakWha2&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQmxN6BAglEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 90,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Travis Kelce",
+      "title": "Partner",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "Instagram",
+            "url": "https://www.instagram.com/taylorswift"
+          },
+          {
+            "text": "Facebook",
+            "url": "https://www.facebook.com/TaylorSwift"
+          },
+          {
+            "text": "TikTok",
+            "url": "https://www.tiktok.com/@taylorswift"
+          },
+          {
+            "text": "X (Twitter)",
+            "url": "https://twitter.com/taylorswift13"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 91,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Instagram Facebook TikTok X (Twitter)",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

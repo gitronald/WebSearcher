@@ -1141,6 +1141,132 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "attrid": "kc:/people/person:born",
+        "items": [
+          {
+            "text": "Ulm, Germany",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Ulm&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmvS6tEXaD8ZWe_avPDeG_ahzJtLRsJurAnL5LPfOOC9Lt_uN4T9bFzRBCpxHRfo7bDN-EpCE-y78g2B7olI7rPOi_3iVNSaepMB_EU_g0NN0hngVfn-6c7mgLxvpRDXgsxAWhWttoXhzzPorcOANgWb6sk0F&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgZEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 68,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "March 14, 1879, Ulm, Germany",
+      "title": "Born",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "attrid": "kc:/people/deceased_person:died",
+        "items": [
+          {
+            "text": "Princeton, NJ",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=princeton+nj&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRjpnBl6z5uSj4wl2kyICrAIOzKJwiOOmD-71NuzO-NuUYsQefV6Jzf4VY2RLu1VPLLDEuV_s9ESpvMosIGK6qQgWaVQMmlqz_MRsLqMuiGoThjY5pD_szUiUUBhHz_dWqryxk7JGu9zsv_qapY_YJwn_n0QR&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgcEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 69,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "April 18, 1955 (age 76 years), Princeton, NJ",
+      "title": "Died",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "attrid": "kc:/people/person:spouse",
+        "items": [
+          {
+            "text": "Elsa Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Elsa+Einstein&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTC4FJExovuJBkLb9JkqYuqqczotFxAzDrubk3x7euiU7h2i3Wb1PgCDZPf_KBr7vc9Sb6fEZEcZMXCXMaBFvMlf32k60KIbQsneaPpHBnxennJH9GzmkP6oP5ksvRaSQkyJn1-MkdVax1NUE4oPif-C__IGwsIL95KNoWCWC7SFPHG6h0q8iXyJ1_1oMp6aFOmcak18blXizUoZK7HBDE1SUbbGf&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAglEAI"
+          },
+          {
+            "text": "Mileva Marić",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Mileva+Mari%C4%87&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmlM0c-GnsFAjcv5GiwCVLakslPNNB7xQ-fPinjQB-37atxNYUzmICxolnMcvMjdeg6oPB5mC_ZutfhH_fibJhgmaW95G6Cm871ohrUQYZQJ_1WlNPbx0LGu6PO3vAGaj7d0Ozy2iMfCNhfB7V15UvJ99pcL_x4QAroakPGKty0sJnt6ZxjD7_LcG61OZz_pLaHEWbu_8ONQMf4O5aICIjT5FxGMi&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAglEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 70,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Elsa Einstein (m. 1919–1936), Mileva Marić (m. 1903–1919)",
+      "title": "Spouse",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "attrid": "kc:/people/person:children",
+        "items": [
+          {
+            "text": "Eduard Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Eduard+Einstein&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmsjNHo_-k-2KMs0aI_YHecBTXZI1Hf7NB0iEmGnVu-vvt7Y1fOBB8z1zmCZeXyHJOi7AgXudYxgl1aECpOXiCrm4tB4Ug9BdYw5gEwefnIiYaO6M0onjnWsDJ7FTvgpD0Qnj3YBj6Ppb3LTMFyyIFfbpykThhK-f8BZwxm0-qHONduTX86c1A2hY0KXXDE_uBOf28PSK0m9WntrmPwhQeUum0T8fZHCjsRshuFC_O-yBP_xfpQ%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgYEAI"
+          },
+          {
+            "text": "Lieserl Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Lieserl+Einstein&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmqQMt7jiXowxshvrrsVzTRwyte6Mb-XqNFY4IOVPHCv2-FHzLB2RhX19WPRFVnKYgkEhmzczwtAudnWzLkfMFLykhd-0HYIoazstpGQgzZlHWScSxHlbLWY3Z_Qusl9u_rX7X9-quz2pjxiBCkoh07IReNoPTybYxMB3W5qJ27cDISQ4zgyHdyolP_rjvHctez18p2QUhTeIvxnDxeDD7Gg0DfuQi9IbSzA2FJklt8VbBY7t3w%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgYEAM"
+          },
+          {
+            "text": "Hans Albert Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Hans+Albert+Einstein&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmv_nivdkLbDaH1h_lr2Q61yjzYJ2OftrtmQB-Avvc3eFT9IDHm32srVLrueAXzv7IkD1bw-PT3Kw6bDu1RFP8fVdFB14mlYdnN8EiNUtDOXp8n6OFFY0bn_m_sbjlt5isghCKfWq-_AtvO38Rf-WZ0M5SLP8RH6zuEQWv-m86cNtpunphUr-fUzB55PpgAZUBahIoWmjXZ-CDH-fzbLxe1hiekX5IX9v3x946jiIVizROz02lg%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgYEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 71,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Eduard Einstein , Lieserl Einstein , Hans Albert Einstein",
+      "title": "Children",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "attrid": "kc:/people/person:education",
+        "items": [
+          {
+            "text": "University of Zurich",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=University+of+Zurich&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmlnHcmjZeEuOqKf9WHuRA1ZjNvkZcdr3akVms5OoyLZ27HpMcnIXU9iOAdVKfgkfUcI-F77Nlopm2EmaefZehrQ5Bbih5TyOV06g_jV4KncojrN0ncn5LaNRmuIwfuJHkoaA_tGZlZdFs0Ed0MIRhY8DGaSBjHPet2t8eybH14JP5tQt5jRjij9hvMG4GnnczaOII3jVj4uuTf8aPAkEn5CUcIV94PvrQ5H46VnOHAh5Xg7ZLw%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgaEAI"
+          },
+          {
+            "text": "ETH Zürich",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=ETH+Z%C3%BCrich&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmiRKClhjEVV3z_tfv2t6nRrk5wZifFxjslnkeV6t4Py6NSS3EwusvAFkWSRUsMszmeEavxKhuvPnrsKfe2Shwf9jSz3LLSWAn0Nh7gvACFyXrKWdBPGg4gZfAhOKBfx3E48PvQDE3GyLnWoGDV-kcWEbFHS0QQnUDWYov80peyZ1ggxrOF5nGEbJeMT6JeI4lSFIHChZEr9-CzihwR1gkXYQbFdi&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgaEAM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 72,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "University of Zurich (1905), ETH Zürich (1897–1900) · See more",
+      "title": "Education",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

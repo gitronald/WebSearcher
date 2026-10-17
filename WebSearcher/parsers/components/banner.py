@@ -8,7 +8,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text
+from ._common import first_text
 
 
 def parse_banner(elem: Node) -> list[dict[str, Any]]:
@@ -18,8 +18,8 @@ def parse_banner(elem: Node) -> list[dict[str, Any]]:
             "type": "banner",
             "sub_type": "header",
             "sub_rank": 0,
-            "title": _get_result_text(node, ".v3jTId"),
-            "text": _get_result_text(node, ".Cy9gW"),
+            "title": (first_text(node, ".v3jTId", sep="") or ""),
+            "text": (first_text(node, ".Cy9gW", sep="") or ""),
         }
     ]
 
@@ -29,15 +29,9 @@ def parse_banner(elem: Node) -> list[dict[str, Any]]:
                 "type": "banner",
                 "sub_type": "suggestion",
                 "sub_rank": i + 1,
-                "title": _get_result_text(suggestion, ".AbPV3"),
-                "url": suggestion.attributes.get("href"),
+                "title": (first_text(suggestion, ".AbPV3", sep="") or ""),
+                "url": suggestion.attrs.get("href"),
             }
         )
 
     return parsed_list
-
-
-def _get_result_text(node: Node, selector: str) -> str:
-    """Find first descendant matching ``selector`` and return its stripped text.
-    Returns ``""`` (not ``None``) when missing, matching the original behavior."""
-    return get_text(node.css_first(selector), strip=True) or ""

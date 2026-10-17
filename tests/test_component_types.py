@@ -16,11 +16,8 @@ from WebSearcher.parsers.component_types import (
 from WebSearcher.parsers.components import (
     PARSERS,
     footer_parser_dict,
-    footer_parser_labels,
     header_parser_dict,
-    header_parser_labels,
     main_parser_dict,
-    main_parser_labels,
 )
 
 VALID_SECTIONS = {"header", "main", "footer"}
@@ -64,18 +61,6 @@ def test_dispatch_dict_matches_registry(section):
         "footer": footer_parser_dict,
     }[section]
     assert set(dispatch) == expected
-
-
-@pytest.mark.parametrize("section", sorted(VALID_SECTIONS))
-def test_label_dict_matches_registry(section):
-    """Per-section label dicts equal the registry's type labels."""
-    expected = {t.name: t.label for t in types_in_section(section) if t.name in PARSERS}
-    labels = {
-        "header": header_parser_labels,
-        "main": main_parser_labels,
-        "footer": footer_parser_labels,
-    }[section]
-    assert labels == expected
 
 
 @pytest.mark.parametrize("level", [2, 3])

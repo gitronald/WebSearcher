@@ -33,7 +33,8 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
         metavar="PATH",
         help=(
             "Reuse a persistent browser profile (patchright only) and keep its cookies "
-            "between searches. Bare flag: ./%(const)s"
+            "between searches. Bare flag: ./%(const)s. Put the bare flag after the query: "
+            "a query that follows it is read as PATH."
         ),
     )
     p.add_argument(

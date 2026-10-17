@@ -1,5 +1,6 @@
 from selectolax.lexbor import LexborNode as Node
 
+from .._slx import is_element
 from .component import Component
 
 
@@ -17,7 +18,7 @@ def _last_descendant(elem: Node) -> Node:
     while True:
         last: Node | None = None
         for ch in node.iter(include_text=False):
-            if ch.tag and not ch.tag.startswith("-"):
+            if is_element(ch):
                 last = ch
         if last is None:
             return node
@@ -117,6 +118,3 @@ class ComponentList:
                 results.append(result)
                 self.serp_rank_counter += 1
         return results
-
-    def to_records(self):
-        return [cmpt.to_dict() for cmpt in self.components]

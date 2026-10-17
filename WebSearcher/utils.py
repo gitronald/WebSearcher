@@ -1,16 +1,15 @@
-import atexit
 import hashlib
 import logging
 import re
 import subprocess
 import urllib.parse as urlparse
-from collections.abc import Iterable, Mapping, Sequence
+from collections.abc import Iterable, Mapping
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 import brotli
 import orjson
-import requests
 import tldextract
 from selectolax.lexbor import LexborNode as Node
 
@@ -20,11 +19,13 @@ log = logging.getLogger(__name__)
 
 
 # Files ------------------------------------------------------------------------
+# Text files are always UTF-8: SERP HTML and orjson output are UTF-8, and the
+# locale default (cp1252 on Windows) would corrupt or reject them.
 
 
 def read_lines(fp: str | Path):
     fp = Path(fp)
-    with open(fp) as infile:
+    with open(fp, encoding="utf-8") as infile:
         if fp.suffix == ".json":
             return [orjson.loads(line) for line in infile]
         else:
@@ -33,9 +34,10 @@ def read_lines(fp: str | Path):
 
 def write_lines(iter_data: Iterable[Any], fp: str | Path, overwrite: bool = False) -> None:
     fp = Path(fp)
+    fp.parent.mkdir(parents=True, exist_ok=True)
     mode = "w" if overwrite else "a+"
 
-    with open(fp, mode) as outfile:
+    with open(fp, mode, encoding="utf-8") as outfile:
         for data in iter_data:
             if fp.suffix == ".json":
                 line_output = orjson.dumps(data).decode("utf-8")
@@ -46,9 +48,11 @@ def write_lines(iter_data: Iterable[Any], fp: str | Path, overwrite: bool = Fals
 
 def load_html(fp: str | Path, zipped: bool = False) -> str | bytes:
     """Load html file, with option for brotli decompression"""
-    read_type = "rb" if zipped else "r"
-    with open(fp, read_type) as infile:
-        return brotli.decompress(infile.read()) if zipped else infile.read()
+    if zipped:
+        with open(fp, "rb") as infile:
+            return brotli.decompress(infile.read())
+    with open(fp, encoding="utf-8") as infile:
+        return infile.read()
 
 
 def load_soup(fp: str | Path, zipped: bool = False) -> Node:
@@ -80,6 +84,15 @@ def slugify(text: str, sep: str = "_") -> str:
 
 def hash_id(s: str) -> str:
     return hashlib.sha224(s.encode("utf-8")).hexdigest()
+
+
+# Time -------------------------------------------------------------------------
+
+
+def utc_timestamp() -> str:
+    """Naive UTC ISO-8601 timestamp (``2026-10-16T20:18:00.123456``), the
+    ``timestamp`` format both searcher backends record on a response."""
+    return datetime.now(UTC).replace(tzinfo=None).isoformat()
 
 
 # Parsing ----------------------------------------------------------------------
@@ -123,9 +136,7 @@ def get_link_list(soup: Node | None) -> list[str] | None:
     """All descendant anchor ``href``s in document order; ``None`` when none."""
     if soup is None:
         return None
-    out = [
-        str(a.attributes["href"]) for a in soup.css("a") if a.attributes.get("href") and has_text(a)
-    ]
+    out = [str(a.attrs["href"]) for a in soup.css("a") if a.attrs.get("href") and has_text(a)]
     return out or None
 
 
@@ -152,31 +163,6 @@ def get_domain(url: str | None) -> str:
     if domain.subdomain and domain.subdomain != "www":
         return ".".join([domain.subdomain, domain.domain, domain.suffix])
     return ".".join([domain.domain, domain.suffix])
-
-
-# Sessions ---------------------------------------------------------------------
-
-
-def start_sesh(
-    headers: Mapping[str, str] | None = None,
-    proxy_port: int | None = None,
-) -> requests.Session:
-    protocols = ["http", "https"]
-    proxy_base = "socks5://127.0.0.1:"
-
-    sesh = requests.Session()
-
-    if headers:  # Add headers to all requests
-        sesh.headers.update(headers)
-
-    if proxy_port:  # Send all requests through an ssh tunnel
-        proxies = {p: f"{proxy_base}{proxy_port}" for p in protocols}
-        sesh.proxies.update(proxies)
-
-    for protocol in protocols:  # Auto retry if random connection error
-        sesh.mount(protocol, requests.adapters.HTTPAdapter(max_retries=3))
-
-    return sesh
 
 
 # SSH --------------------------------------------------------------------------
@@ -212,27 +198,3 @@ class SSH:
 
     def open_tunnel(self) -> None:
         self.tunnel = subprocess.Popen(self.cmd, shell=False)
-
-
-def generate_ssh_tunnels(
-    ips: Sequence[str],
-    ports: Sequence[int],
-    keyfile: str,
-) -> list[SSH]:
-    """Generate SSH tunnels for each (IP, port) combination"""
-
-    def generate_ssh_tunnel(ip: str, port: int, keyfile: str = keyfile) -> SSH:
-        ssh_tunnel = SSH(ip=ip, port=port, keyfile=keyfile)
-        subprocess.call(["chmod", "600", keyfile])
-        log.info(f"{ssh_tunnel.cmd_str}")
-        ssh_tunnel.open_tunnel()
-        atexit.register(exit_handler, ssh_tunnel)  # Always kill tunnels on exit
-        return ssh_tunnel
-
-    return [generate_ssh_tunnel(ip, port) for ip, port in zip(ips, ports)]
-
-
-def exit_handler(ssh: SSH) -> None:
-    log.info(f"Killing: {ssh.machine} on port: {ssh.port}")
-    if ssh.tunnel:
-        ssh.tunnel.kill()

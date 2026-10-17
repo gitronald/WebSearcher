@@ -24,7 +24,7 @@ def parse_article(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed["title"] = get_text(sub)
     a = sub.css_first("a")
     if a is not None:
-        parsed["url"] = a.attributes["href"]
+        parsed["url"] = a.attrs.get("href")
         parsed["title"] = get_text(a)
         span = sub.css_first("span")
         parsed["cite"] = (get_text(span) or "").replace(" - ‎", "") if span is not None else None

@@ -8,10 +8,9 @@ class ClassifyFooter:
     @staticmethod
     def classify(cmpt: Node) -> str:
         node: Node = cmpt
-        attrs = node.attributes
         layout_conditions = [
-            "id" in attrs and attrs["id"] in {"bres", "brs"},
-            "class" in attrs and class_tokens(node) == ["MjjYud"],
+            node.id in {"bres", "brs"},
+            class_tokens(node) == ["MjjYud"],
         ]
 
         # Ordered list of classifiers to try

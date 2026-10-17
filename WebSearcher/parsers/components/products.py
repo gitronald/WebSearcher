@@ -19,6 +19,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ._common import first_text
 
 _PRICE_RE = re.compile(r"\$[\d,]+(?:\.\d+)?")
 
@@ -43,7 +44,7 @@ def parse_products(elem: Node) -> list[dict[str, Any]]:
 
 
 def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
-    title = _img_alt(card) or _text(card, "div.gkQHve")
+    title = _img_alt(card) or first_text(card, "div.gkQHve")
 
     parsed: dict[str, Any] = {
         "type": "products",
@@ -52,20 +53,20 @@ def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
         "title": title or None,
         "url": None,  # JS-driven cards carry no href
         "text": None,
-        "cite": _text(card, "span.WJMUdc"),  # store / merchant name
+        "cite": first_text(card, "span.WJMUdc"),  # store / merchant name
     }
 
     details: dict[str, Any] = {"type": "ratings"}
-    price = _text(card, "span.lmQWe") or _first_price(card)
+    price = first_text(card, "span.lmQWe") or _first_price(card)
     if price:
         details["price"] = price
     source = parsed["cite"]
     if source:
         details["source"] = source
-    rating = _text(card, "span.yi40Hd")
+    rating = first_text(card, "span.yi40Hd")
     if rating:
         details["rating"] = rating
-    n_reviews = _text(card, "span.RDApEe")
+    n_reviews = first_text(card, "span.RDApEe")
     if n_reviews:
         details["n_reviews"] = n_reviews.strip("()")
 
@@ -75,23 +76,23 @@ def _parse_grid_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
 
 def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     link = card.css_first("a.J0tlkf")
-    brand = _text(card, "span.V8apnb") or _img_alt(card)
+    brand = first_text(card, "span.V8apnb") or _img_alt(card)
 
     parsed: dict[str, Any] = {
         "type": "products",
         "sub_type": "brands",
         "sub_rank": sub_rank,
         "title": brand or None,
-        "url": link.attributes.get("href") if link is not None else None,
-        "text": _text(card, "div.dw0Zb"),
+        "url": link.attrs.get("href") if link is not None else None,
+        "text": first_text(card, "div.dw0Zb"),
         "cite": None,
     }
 
     details: dict[str, Any] = {"type": "ratings"}
-    rating = _text(card, "span.yi40Hd")
+    rating = first_text(card, "span.yi40Hd")
     if rating:
         details["rating"] = rating
-    n_reviews = _text(card, "span.ZRQmE")
+    n_reviews = first_text(card, "span.ZRQmE")
     if n_reviews:
         details["n_reviews"] = n_reviews.strip("()")
 
@@ -99,16 +100,11 @@ def _parse_brand_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     return parsed
 
 
-def _text(node: Node, css: str) -> str | None:
-    text = get_text(node.css_first(css), " ", strip=True)
-    return text or None
-
-
 def _img_alt(node: Node) -> str | None:
     img = node.css_first("img[alt]")
     if img is None:
         return None
-    alt = img.attributes.get("alt") or ""
+    alt = img.attrs.get("alt") or ""
     return alt.strip() or None
 
 

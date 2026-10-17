@@ -25,13 +25,13 @@ from ._common import parse_alink_list
 
 def _panel_heading(node: Node) -> str | None:
     heading = node.css_first('[role="heading"], h1, h2, h3')
-    return get_text(heading, " ", strip=True) if heading is not None else None
+    return get_text(heading, " ", strip=True)
 
 
 def _resource_links(node: Node) -> list[dict[str, Any]]:
     """Outbound (http) links in the panel, skipping UI chrome (feedback/menu
     actions use ``javascript:``/fragment hrefs)."""
-    links = [a for a in node.css("a") if str(a.attributes.get("href", "")).startswith("http")]
+    links = [a for a in node.css("a") if str(a.attrs.get("href", "")).startswith("http")]
     return parse_alink_list(links)
 
 

@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Fixed
+
+- Right-hand-side knowledge panels rendered without the `kp-wholepage`/`knowledge-panel` wrappers (the `jOAHU`/`rhs_column` and `A6K0A` layouts, and "See results about" boxes) were dropped from the parse entirely; they are now routed to the `knowledge_rhs` parser via their `data-attrid` markers (13 corpus SERPs gain 76 `side_bar` rows), and any other non-empty `#rhs` content is kept as an `unknown` rhs component instead of vanishing
+- Parsers no longer raise, losing the whole component, on an anchor without `href` (general top-menu, scholarly_articles, twitter_result, view_more_news) or on a news_quotes card with an unexpected number of children; a parser row that fails `BaseResult` validation becomes that component's error row instead of aborting `parse_serp`
+- `general` submenu ratings parsed the selectolax node repr instead of the sibling text (rating `'<LexborNode'`), the rating regex matched the empty string, and a review count lost its leading digit when the text carried no bullet; `twitter_cards` legacy headers read the url from the `h3` (always `None`) instead of its anchor; `videos` description text was re-extracted without a separator (`TitleChannel`); `top_stories` emitted all-`None` rows for HTML comments inside `div.qmv19b` and parsed cards matched by two selectors twice; `ad` components hosting two layouts repeated `sub_rank` (now renumbered across the component, carousel ranks contiguous); the footer omitted-results notice nested in `#bres` was emitted twice; `general_questions` dropped the general row's own details when the PAA block was empty and never carried its `sub_type`
+- AI overview `lDPB` script-push payloads decoded non-ASCII text as Latin-1 (`CafÃ©`) and left emoji as lone surrogates; they are now decoded as a JS string literal
+- Extractor: whitespace-only `#tads`/`#tadsb`/`#atvcap` shells were emitted as empty ad components, padded accessibility labels (`<h2> Main results </h2>`) passed the bad-label filter, and the no-rso Twitter section selected the wrong wrapper (`css_first` matched the node itself)
+- Classifier preconditions that were narrower than their classifiers: `products` now reaches `[data-attrid="apg-product-result"]` cards and the "Explore brands" heading, and the AI-overview `EYwa3d` banner no longer needs the `hdzaWe` wrapper class; `maps`, `events` and `covid_alert` (emitted by `knowledge_box`) are registered component types
+- Requests backend: per-search `headers` no longer persist on the shared session for later searches, and the recorded `user_agent` is the one actually sent; `RequestsConfig.sesh` is a real optional field (a supplied session is honored; it was rebuilt on every access and leaked into `model_dump`)
+- Patchright backend: `cleanup()` stops the driver even when closing the browser context fails, and a launch that fails at any step (driver start, browser launch, first page) closes whatever started and removes the temp profile immediately
+- File IO (`write_lines`, `read_lines`, `load_html`, `save_serp`, `ws-demo show`) is UTF-8 regardless of locale and creates missing parent directories; the geotargets update job raises a clear error on an HTTP failure or a page without a geotargets link, and its CSV uses a newline-safe writer on Windows
+
+### Changed
+
+- `short_videos` reports an empty component with the no-subcomponents error like `videos`/`top_stories`; sponsored hotel cards and footer image cards with no data carry no `details` instead of a hollow `{"type": ...}` block
+- `knowledge` panel text joins skip whitespace-only spans, so a `|`-joined text no longer carries empty `| |` entries (one corpus SERP changes)
+- `Logger()` defaults to `file_mode="a"`, matching `LogConfig` (SearchEngine behavior unchanged); the SERP `version` stamp comes from `WebSearcher.__version__` rather than installed-package metadata
+- `ai_overview` registers its `unavailable` sub_type and `knowledge_rhs` its `panel`/`fact`/`links` sub_types; `component_types` is complete for every type the classifiers emit
+- Internal: shared `_slx.is_element`/`bounded_text`/`text_contains`, `_common.first_text`/`under_any` helpers replace per-module copies; `.attrs` replaces `.attributes` on CSS-selected nodes; the classifier chain table is built once at import
+
+### Removed
+
+- Dead code: `utils.start_sesh`, `generate_ssh_tunnels`, `exit_handler`; `ads.classify_ad_type`; `Component.to_dict`, `ComponentList.to_records`, the unused classify/parser override hooks and parser option parameters; the test-only per-section parser label dicts
+
 ## [0.12.0] - 2026-10-16
 
 ### Added

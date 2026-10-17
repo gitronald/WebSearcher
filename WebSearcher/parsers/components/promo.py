@@ -17,7 +17,7 @@ def parse_promo(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
 
     cta = node.css_first("a[href]")
-    cta_url = cta.attributes["href"] if cta is not None else None
+    cta_url = cta.attrs["href"] if cta is not None else None
 
     cta_label = get_text(node.css_first("span.EfVwZc"), " ", strip=True) or None
 

@@ -19,7 +19,7 @@ def parse_perspectives(elem: Node) -> list[dict[str, Any]]:
     header = node.css_first('[aria-level="2"][role="heading"]') or node.css_first(
         'h2[role="heading"]'
     )
-    heading_text = get_text(header, " ", strip=True) if header is not None else None
+    heading_text = get_text(header, " ", strip=True)
     sub_type = slugify(heading_text.lower()) if heading_text else None
 
     results = parse_top_stories(node, ctype="perspectives")

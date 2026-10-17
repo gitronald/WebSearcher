@@ -24,8 +24,8 @@ def parse_datasets(elem: Node) -> list[dict[str, Any]]:
             anchor = anchor.parent
             if anchor is None:
                 break
-            if anchor.tag == "a" and anchor.attributes.get("href"):
-                url = anchor.attributes.get("href")
+            if anchor.tag == "a" and anchor.attrs.get("href"):
+                url = anchor.attrs.get("href")
                 break
         parsed_list.append(
             {

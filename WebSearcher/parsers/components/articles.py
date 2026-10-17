@@ -17,7 +17,7 @@ def parse_articles(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     by_url: dict[str, str | None] = {}
     for anchor in node.css("a[href]"):
-        href = anchor.attributes.get("href")
+        href = anchor.attrs.get("href")
         # Skip the module's feedback affordance (href "#") and empty chips.
         if not href or href.startswith("#"):
             continue

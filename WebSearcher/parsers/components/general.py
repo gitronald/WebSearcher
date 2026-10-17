@@ -10,7 +10,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import class_tokens, get_text, next_sibling
+from ..._slx import class_tokens, get_text, next_sibling, subtree_css, subtree_first
 from ._common import parse_alink_list
 from ._video_card import parse_evlb_card
 
@@ -22,16 +22,13 @@ def parse_general_results(elem: Node) -> list[dict[str, Any]]:
 
 
 def find_subcomponents(node: Node) -> list[Node]:
-    self_id = node.mem_id
-    # Standard format -- exclude self so a wrapping div.g doesn't match itself.
-    subs = [n for n in node.css("div.g") if n.mem_id != self_id]
+    # Standard format -- descendants only, so a wrapping div.g doesn't match itself.
+    subs = subtree_css(node, "div.g")
     if subs:
         parent_g = subs[0]  # first .g in document order
-        # Nested .g dedup: if parent_g itself contains another .g descendant
-        # (excluding parent_g itself), return only the outer wrapper.
-        parent_id = parent_g.mem_id
-        nested = next((n for n in parent_g.css("div.g") if n.mem_id != parent_id), None)
-        if nested is not None:
+        # Nested .g dedup: if parent_g itself contains another .g descendant,
+        # return only the outer wrapper.
+        if subtree_first(parent_g, "div.g") is not None:
             subs = [parent_g]
         # Host-group sub-results (div.d4rhi) can nest *inside* a div.g main result
         # (2023+ "second result from the same host", stacked/indented under it).
@@ -40,16 +37,16 @@ def find_subcomponents(node: Node) -> list[Node]:
         # so parse_general_results enumerates them (sub_rank 1, 2, ...); the main
         # div.g parses only its own title/cite/snippet via first-match selection,
         # so each nested d4rhi is emitted exactly once as its own indented result.
-        return subs + [n for n in node.css("div.d4rhi") if n.mem_id != self_id]
+        return subs + subtree_css(node, "div.d4rhi")
 
     # Sub-results format (2023+) -- d4rhi host-group with no div.g wrapper
-    additional = [n for n in node.css("div.d4rhi") if n.mem_id != self_id]
+    additional = subtree_css(node, "div.d4rhi")
     if additional:
-        first = next((n for n in node.css("div") if n.mem_id != self_id), None)
+        first = subtree_first(node, "div")
         return [first] + additional if first is not None else additional
 
     # Video results
-    subs = [n for n in node.css("div.PmEWq") if n.mem_id != self_id]
+    subs = subtree_css(node, "div.PmEWq")
     if subs:
         return subs
 
@@ -59,7 +56,7 @@ def find_subcomponents(node: Node) -> list[Node]:
     # People-Also-Ask sources (a tF2Cxc inside div.related-question-pair) are not
     # organics and are excluded. Gated to the multi-tF2Cxc case so single-result
     # blocks keep the whole-node fallback below.
-    tfs = [n for n in node.css("div.tF2Cxc") if n.mem_id != self_id and not _in_paa_source(n, node)]
+    tfs = [n for n in subtree_css(node, "div.tF2Cxc") if not _in_paa_source(n, node)]
     if len(tfs) > 1:
         return tfs
 
@@ -82,25 +79,20 @@ def parse_general_result(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     if is_general_video(sub):
         return parse_general_video(sub, sub_rank=sub_rank)
 
-    sub_id = sub.mem_id
-    title_div = next((n for n in sub.css("div.rc") if n.mem_id != sub_id), None) or next(
-        (n for n in sub.css("div.yuRUbf") if n.mem_id != sub_id), None
-    )
-    body_div = next((n for n in sub.css("span.st") if n.mem_id != sub_id), None) or next(
-        (n for n in sub.css("div.VwiC3b") if n.mem_id != sub_id), None
-    )
+    title_div = subtree_first(sub, "div.rc") or subtree_first(sub, "div.yuRUbf")
+    body_div = subtree_first(sub, "span.st") or subtree_first(sub, "div.VwiC3b")
 
     title_h3 = title_div.css_first("h3") if title_div is not None else None
     title_a = title_div.css_first("a") if title_div is not None else None
-    cite_el = next((n for n in sub.css("cite") if n.mem_id != sub_id), None)
+    cite_el = subtree_first(sub, "cite")
 
     parsed: dict[str, Any] = {
         "type": "general",
         "sub_rank": sub_rank,
-        "title": get_text(title_h3, " ") if title_h3 is not None else None,
-        "url": title_a.attributes.get("href") if title_a is not None else None,
-        "text": get_text(body_div, " ") if body_div is not None else None,
-        "cite": get_text(cite_el, " ") if cite_el is not None else None,
+        "title": get_text(title_h3, " "),
+        "url": title_a.attrs.get("href") if title_a is not None else None,
+        "text": get_text(body_div, " "),
+        "cite": get_text(cite_el, " "),
     }
 
     return parse_subtype_details(sub, parsed)
@@ -120,7 +112,7 @@ def parse_subtype_details(sub: Node, parsed: dict[str, Any]) -> dict[str, Any]:
             if h3 is not None:
                 a = h3.css_first("a")
                 if a is not None:
-                    parsed["url"] = a.attributes["href"]
+                    parsed["url"] = a.attrs.get("href")
 
     sub_classes = class_tokens(sub)
     if "d4rhi" in sub_classes:
@@ -141,8 +133,10 @@ def parse_subtype_details(sub: Node, parsed: dict[str, Any]) -> dict[str, Any]:
         parsed["sub_type"] = "submenu_rating"
         sibling = next_sibling(stars)
         if sibling is not None:
-            text = str(sibling).strip()
-            if len(text):
+            # The sibling is usually a bare text node (" Rating: 4.5 - 12 votes");
+            # ``str(node)`` would be the selectolax repr, not its text.
+            text = (get_text(sibling) or "").strip()
+            if text:
                 ratings = parse_ratings(text.split("-"))
                 details.update(ratings)
                 details["type"] = "review"
@@ -187,7 +181,7 @@ def parse_subtype_details(sub: Node, parsed: dict[str, Any]) -> dict[str, Any]:
 
     elif (rating_span := sub.css_first("span.Y0A0hc, span.z3HNkc")) is not None:
         # Modern rating widget (e.g. entertainment titles with star ratings)
-        ratings = parse_rating_aria_label(str(rating_span.attributes.get("aria-label", "")))
+        ratings = parse_rating_aria_label(str(rating_span.attrs.get("aria-label", "")))
         if ratings:
             details["type"] = "ratings"
             details.update(ratings)
@@ -198,7 +192,9 @@ def parse_subtype_details(sub: Node, parsed: dict[str, Any]) -> dict[str, Any]:
 
 _ARIA_RATING_RE = re.compile(r"Rated\s+(\d+(?:\.\d+)?)\s+out of\s+(\d+)")
 _ARIA_REVIEWS_RE = re.compile(r"\(([\d,]+)\)\s*user reviews?")
-_RATING_NUMERIC_RE = re.compile(r"^\d*[.]?\d*$")
+# A number with at least one digit (``4``, ``4.5``, ``.5``, ``5.``); the previous
+# ``^\d*[.]?\d*$`` also matched ``""`` and ``"."``, which ``float`` rejects.
+_RATING_NUMERIC_RE = re.compile(r"^(?:\d+\.?\d*|\.\d+)$")
 _RATING_VOTES_RE = re.compile(r" vote[s]?| review[s]?")
 _RATING_REVIEW_BY_RE = re.compile("Review by")
 _PRODUCT_SPLIT_RE = re.compile("-|·")
@@ -228,9 +224,11 @@ def parse_ratings(parts: list[str]) -> dict[str, Any]:
 
     if len(text) > 1:
         if _RATING_VOTES_RE.search(text[1]):
-            reviews = re.split(_RATING_VOTES_RE, text[1])[0]
-            reviews = reviews.replace(",", "")[1:]  # [1:] drops unicode char
-            details["reviews"] = int(reviews)
+            # Keep only the digits: the count may be prefixed by a bullet or
+            # other unicode glyph and may carry thousands separators.
+            digits = re.sub(r"\D", "", re.split(_RATING_VOTES_RE, text[1])[0])
+            if digits:
+                details["reviews"] = int(digits)
         elif _RATING_REVIEW_BY_RE.search(text[1]):
             details["reviews"] = 1
 
@@ -266,9 +264,9 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "type": "general",
         "sub_type": "video",
         "sub_rank": sub_rank,
-        "title": get_text(title_el, strip=True) if title_el is not None else None,
-        "url": a.attributes.get("href", "") if a is not None else None,
-        "text": get_text(body_el, strip=True) if body_el is not None else None,
-        "cite": get_text(cite_el, strip=False) if cite_el is not None else None,
+        "title": get_text(title_el, strip=True),
+        "url": a.attrs.get("href", "") if a is not None else None,
+        "text": get_text(body_el, strip=True),
+        "cite": get_text(cite_el, strip=False),
         "details": {"type": "video", **fields} if fields else None,
     }

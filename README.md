@@ -361,7 +361,7 @@ Happy to have help! If you see a component that we aren't covering yet, please a
 ### Add a Parser
 
 1. Register the component type in `parsers/component_types.py` -- the single source of truth for `name`, `label`, `sections`, and (for header-text classification) `header_texts`. Dispatch and classification are derived from this registry.  
-2. Add classifier to `classifiers/{main,footer,headers}.py` for structural signals (header-text matches instead go in the registry's `header_texts`)  
+2. Add classifier to `classifiers/{main,footer}.py` for structural signals (header-text matches instead go in the registry's `header_texts`)  
 3. Add parser as new file in `/parsers/components`  
 4. Add new parser to imports and the `PARSERS` catalogue in `/parsers/components/__init__.py` (its section dispatch and label are derived by joining this against the registry, so the `name` must match step 1)  
 
@@ -417,7 +417,7 @@ To release a new version:
 ---
 ## Similar Packages
 
-Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (currently 46 registered in `parsers/component_types.py`, before counting `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
+Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (57 registered in `parsers/component_types.py` as of v0.12, before counting `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
 
 - https://github.com/jarun/googler
 - http://googolplex.sourceforge.net

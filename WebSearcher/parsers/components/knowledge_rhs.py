@@ -14,8 +14,8 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, next_sibling, next_siblings, previous_sibling
-from ._common import parse_alink
+from ..._slx import get_text, is_element, next_sibling, next_siblings, previous_sibling
+from ._common import parse_alink, under_any
 
 # Chrome links that show up inside RHS boxes but are not content.
 _RHS_BOX_CHROME = {"Claim this knowledge panel", "Send feedback", "Feedback", "See more"}
@@ -35,9 +35,7 @@ def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     main_title = parsed_list[0]["title"] if parsed_list else None
     description = node.css_first("h2.Uo8X3b")
     if description is not None and description.parent is not None:
-        tag_subs = [
-            s for s in next_siblings(description.parent) if s.tag and not s.tag.startswith("-")
-        ]
+        tag_subs = [s for s in next_siblings(description.parent) if is_element(s)]
         for i, s in enumerate(tag_subs):
             sub = parse_knowledge_rhs_sub(s, i)
             # Skip hollow follow-on sections (no heading and no links).
@@ -64,16 +62,6 @@ def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     return parsed_list
 
 
-def _under_any(node: Node, ids: set[int], stop_id: int) -> bool:
-    """True if any ancestor of ``node`` (up to ``stop_id``, exclusive) is in ``ids``."""
-    p = node.parent
-    while p is not None and p.mem_id != stop_id:
-        if p.mem_id in ids:
-            return True
-        p = p.parent
-    return False
-
-
 def _collect_links(
     node: Node, exclude_ids: set[int] | None = None, stop_id: int = -1
 ) -> list[dict[str, str]]:
@@ -83,14 +71,14 @@ def _collect_links(
     items: list[dict[str, str]] = []
     seen: set[tuple[str, str]] = set()
     for a in node.css("a[href]"):
-        href = a.attributes.get("href")
+        href = a.attrs.get("href")
         text = get_text(a, " ", strip=True) or ""
         # Drop non-navigational affordances: missing or "#" hrefs (general
         # feedback, expanders, "Write a review", "Ask a question") carry no
         # content.
         if not href or href == "#" or text in _RHS_BOX_CHROME or (text, href) in seen:
             continue
-        if exclude_ids and _under_any(a, exclude_ids, stop_id):
+        if exclude_ids and under_any(a, exclude_ids, stop_id):
             continue
         seen.add((text, href))
         items.append({"url": href, "text": text})
@@ -123,7 +111,7 @@ def _rhs_qa_topics(node: Node) -> list[str]:
     return [
         attr.split("/")[-1]
         for d in node.css("[data-attrid]")
-        if (attr := str(d.attributes.get("data-attrid") or "")).startswith("lab/title/")
+        if (attr := str(d.attrs.get("data-attrid") or "")).startswith("lab/title/")
     ]
 
 
@@ -138,7 +126,7 @@ def _rhs_expander_topics(node: Node) -> list[str]:
         if heading.css_first("span.iwY1Mb") is None:
             continue
         label_span = heading.css_first("span")
-        label = get_text(label_span, " ", strip=True) if label_span is not None else None
+        label = get_text(label_span, " ", strip=True)
         if label:
             topics.append(label)
     return topics
@@ -171,7 +159,7 @@ def _fact_box_heading(fact: Node, root: Node) -> Node | None:
         others = [
             n
             for n in box.css("[data-attrid^='kc:/']")
-            if n.mem_id != fact.mem_id and not _under_any(n, {fact.mem_id}, box.mem_id)
+            if n.mem_id != fact.mem_id and not under_any(n, {fact.mem_id}, box.mem_id)
         ]
         if others:
             break
@@ -201,11 +189,11 @@ def _parse_rhs_facts(
     fact_ids: set[int] = set()
     used_heading_ids: set[int] = set()
     for fact in node.css("[data-attrid^='kc:/']"):
-        attrid = str(fact.attributes.get("data-attrid") or "")
+        attrid = str(fact.attrs.get("data-attrid") or "")
         if attrid in _FACT_ROW_CHROME:
             continue
         # Outermost match wins: skip kc:/ rows nested in an emitted one.
-        if _under_any(fact, fact_ids, node.mem_id):
+        if under_any(fact, fact_ids, node.mem_id):
             continue
 
         label_el = fact.css_first("span.w8qArf")
@@ -272,7 +260,7 @@ def _box_sibling_text(heading: Node) -> str | None:
     if heading.parent is None:
         return None
     for s in next_siblings(heading.parent):
-        if s.tag and not s.tag.startswith("-"):
+        if is_element(s):
             text = get_text(s, " ", strip=True)
             if text:
                 return text
@@ -298,7 +286,7 @@ def _parse_rhs_boxes(
         title = get_text(heading, " ", strip=True)
         if not title or _is_chrome_box(title) or _is_qa_topic_box(heading, qa_topics):
             continue
-        if heading.mem_id in used_heading_ids or _under_any(heading, fact_ids, node.mem_id):
+        if heading.mem_id in used_heading_ids or under_any(heading, fact_ids, node.mem_id):
             continue
         items = _rhs_box_links(heading, exclude_ids=fact_ids, stop_id=node.mem_id)
         if items:
@@ -356,10 +344,8 @@ def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, An
     h3 = node.css_first("h3")
     if h3 is not None and (get_text(h3) or "") == "Images":
         sibling = next_sibling(h3)
-        if sibling is not None and sibling.tag and not sibling.tag.startswith("-"):
-            img_urls = [
-                img.attributes["href"] for img in sibling.css("a") if "href" in img.attributes
-            ]
+        if is_element(sibling):
+            img_urls = [img.attrs["href"] for img in sibling.css("a") if "href" in img.attrs]
             if img_urls:
                 parsed["details"]["img_urls"] = img_urls
 
@@ -378,8 +364,8 @@ def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, An
         if span is not None:
             parsed["text"] = get_text(span)
         a = description.parent.css_first("a")
-        if a is not None and "href" in a.attributes:
-            parsed["url"] = a.attributes["href"]
+        if a is not None and "href" in a.attrs:
+            parsed["url"] = a.attrs["href"]
 
     # description (kno-rdesc)
     description = node.css_first("div.kno-rdesc")
@@ -387,19 +373,19 @@ def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, An
         span = description.css_first("span")
         parsed["text"] = get_text(span) if span is not None else parsed["text"]
         a = description.css_first("a")
-        if a is not None and "href" in a.attributes:
-            parsed["url"] = a.attributes["href"]
+        if a is not None and "href" in a.attrs:
+            parsed["url"] = a.attrs["href"]
 
     # submenu
     if description is not None and description.parent is not None:
         alinks = list(description.parent.css("a"))
         prev = previous_sibling(description.parent)
-        if prev is not None and prev.tag and not prev.tag.startswith("-"):
+        if is_element(prev):
             alinks += list(prev.css("a"))
         if len(alinks) > 1:  # 1st match has main description
             urls = []
             for a in alinks[1:]:
-                if "href" in a.attributes:
+                if "href" in a.attrs:
                     urls.append(parse_alink(a))
             if urls:
                 parsed["details"]["urls"] = urls
@@ -456,7 +442,7 @@ def parse_knowledge_rhs_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     if alinks:
         items = []
         for a in alinks:
-            if "href" in a.attributes:
+            if "href" in a.attrs:
                 items.append(parse_alink(a))
         parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 

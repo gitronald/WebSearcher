@@ -12,9 +12,9 @@ from ..._slx import get_text
 from ._common import mark_timestamp_row
 
 
-def parse_twitter_result(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
+def parse_twitter_result(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    parsed: dict[str, Any] = {"type": "twitter_result", "sub_rank": sub_rank}
+    parsed: dict[str, Any] = {"type": "twitter_result", "sub_rank": 0}
 
     header = node.css_first("div.DOqJne")
     if header is not None:
@@ -23,7 +23,7 @@ def parse_twitter_result(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
             anchor = title.css_first("a")
             if anchor is not None:
                 parsed["title"] = get_text(anchor)
-                parsed["url"] = anchor.attributes["href"]
+                parsed["url"] = anchor.attrs.get("href")
 
         cite = header.css_first("cite")
         if cite is not None:
@@ -40,7 +40,7 @@ def parse_twitter_result(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
             parsed["text"] = get_text(body, " ")
             timestamp = get_text(timestamp_url.css_first("span"), " ")
             a = timestamp_url.css_first("a")
-            tweet_url = a.attributes.get("href") if a is not None else None
+            tweet_url = a.attrs.get("href") if a is not None else None
             parsed["details"] = {"type": "tweet", "url": tweet_url} if tweet_url else None
             mark_timestamp_row(parsed, timestamp)
     return [parsed]

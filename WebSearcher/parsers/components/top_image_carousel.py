@@ -20,7 +20,7 @@ def parse_top_image_carousel(elem: Node, sub_rank: int = 0) -> list[dict[str, An
     if titles:
         parsed["title"] = "|".join((get_text(t) or "") for t in titles)
         a = node.css_first("a")
-        parsed["url"] = a.attributes.get("href") if a is not None else None
+        parsed["url"] = a.attrs.get("href") if a is not None else None
 
     images = node.css_first('div[role="list"]')
     if images is not None:
@@ -32,7 +32,7 @@ def parse_top_image_carousel(elem: Node, sub_rank: int = 0) -> list[dict[str, An
 
     items = []
     for a in alinks:
-        if "href" in a.attributes or "data-url" in a.attributes:
+        if "href" in a.attrs or "data-url" in a.attrs:
             items.append(mark_hidden_item(parse_alink(a, "|", data_url_fallback=True), a))
     parsed["details"] = {"type": "hyperlinks", "items": items} if items else None
 

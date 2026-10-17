@@ -9,6 +9,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row
 from ._video_card import evlb_fields_by_tile
 
@@ -18,7 +19,9 @@ def parse_short_videos(elem: Node) -> list[dict[str, Any]]:
     # Filter to full card links (with heading), skip thumbnail-only duplicates.
     cards = [a for a in node.css("a.rIRoqf") if a.css_first('div[role="heading"]') is not None]
     if not cards:
-        return [{"type": "short_videos", "sub_rank": 0}]
+        return [
+            {"type": "short_videos", "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}
+        ]
 
     # The hidden evlb_* card sits beside each anchor in a per-video wrapper,
     # not inside it -- map wrappers to anchors within this component only.
@@ -29,7 +32,7 @@ def parse_short_videos(elem: Node) -> list[dict[str, Any]]:
         parsed: dict[str, Any] = {
             "type": "short_videos",
             "sub_rank": i,
-            "url": card.attributes.get("href"),
+            "url": card.attrs.get("href"),
             "title": get_text(card.css_first('div[role="heading"]'), " "),
         }
 
