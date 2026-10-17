@@ -1,7 +1,7 @@
 """Parse the AI Overview component.
 
 Google's AI Overview is a synthesized answer panel that appears at or near the
-top of a SERP. It comes in two layouts:
+top of a SERP. It comes in three states:
 
 - ``flat`` — a single answer block (intro paragraph + optional bullet list)
 - ``sectioned`` — an intro lede followed by N section subheadings (each with its
@@ -11,7 +11,7 @@ top of a SERP. It comes in two layouts:
   sources; recorded explicitly so a decline is distinguishable from a parser
   miss (which stays ``flat`` with empty output).
 
-Both layouts share a "Sources" tray at the bottom that lists the publishers the
+The flat and sectioned layouts share a "Sources" tray at the bottom that lists the publishers the
 overview drew from. Per-section ``button.rBl3me`` widgets carry citation
 metadata sourced from JSON payloads that Google ships in HTML comments / script
 pushes alongside the rendered markup. See ``_ai_overview_payloads`` for the

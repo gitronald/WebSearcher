@@ -1,6 +1,6 @@
 """Runnable demos, shipped inside the package so they work after `pip install WebSearcher`.
 
-Absorbed from the old `scripts/demo_*.py` (plan 033). Those imported `polars` and `typer`,
+Absorbed from the old `scripts/demo_*.py` (plan 037). Those imported `polars` and `typer`,
 which are dev-only dependencies, and were wired as `scripts.*` console entry points that the
 wheel never shipped -- so the documented demo command failed on a clean install. This package
 depends only on WebSearcher's runtime deps: it prints results with a small stdlib table helper
