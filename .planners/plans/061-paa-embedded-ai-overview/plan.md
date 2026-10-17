@@ -1,8 +1,8 @@
 ---
 id: 61
 slug: paa-embedded-ai-overview
-status: draft
-branch:
+status: active
+branch: feature/paa-embedded-ai-overview
 created: 2026-10-16T15:06:11-07:00
 concluded:
 pr:
@@ -77,3 +77,11 @@ generated answer. Choose the output shape before writing code:
    PAA? True for all 31 in the run; check any new captures.
 2. Do lazily expanded answers (questions after the first) ever ship in the
    HTML? None seen.
+
+## Log
+
+- **2026-10-16T19:02:51-07:00** — Activated.
+  - Branch: `feature/paa-embedded-ai-overview`
+  - Base: `dev` at `c045ff7`
+  - Worktree: `.worktrees/paa-embedded-ai-overview`
+  - PR: pending
