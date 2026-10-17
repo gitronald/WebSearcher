@@ -69,7 +69,7 @@ class _ComponentSignals:
         ids: set[str] = set()
         names: set[str] = set()
         # ``el.attrs`` is a non-allocating view over the element's attribute
-        # table (vs ``el.attrs`` which materializes a dict per call);
+        # table (vs ``el.attributes``, which materializes a dict per call);
         # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
         # The leading truthiness guard narrows ``str | None`` -> ``str`` for the
         # type checker and short-circuits the (common) no-id element before the

@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `knowledge` panel text joins skip whitespace-only spans, so a `|`-joined text no longer carries empty `| |` entries (one corpus SERP changes)
 - `Logger()` defaults to `file_mode="a"`, matching `LogConfig` (SearchEngine behavior unchanged); the SERP `version` stamp comes from `WebSearcher.__version__` rather than installed-package metadata
 - `ai_overview` registers its `unavailable` sub_type and `knowledge_rhs` its `panel`/`fact`/`links` sub_types; `component_types` is complete for every type the classifiers emit
-- Internal: shared `_slx.is_element`, `_common.first_text`/`under_any` helpers replace per-module copies; `.attrs` replaces `.attributes` on CSS-selected nodes; the classifier chain table is built once at import
+- Internal: shared `_slx.is_element`/`bounded_text`/`text_contains`, `_common.first_text`/`under_any` helpers replace per-module copies; `.attrs` replaces `.attributes` on CSS-selected nodes; the classifier chain table is built once at import
 
 ### Removed
 

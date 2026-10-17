@@ -417,7 +417,7 @@ To release a new version:
 ---
 ## Similar Packages
 
-Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (54 registered in `parsers/component_types.py` as of v0.12, before counting `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
+Many of the packages I've found for collecting web search data via python are no longer maintained, but others are still ongoing and interesting or useful. The primary strength of WebSearcher is its parser, which provides a level of detail that enables examinations of SERP [composition](http://dl.acm.org/citation.cfm?doid=3178876.3186143) by recording the type and position of each result, and its modular design, which has allowed us to (itermittenly) maintain it for so long and to cover such a wide array of component types (57 registered in `parsers/component_types.py` as of v0.12, before counting `sub_types`). Feel free to add to the list of packages or services through a pull request if you are aware of others:
 
 - https://github.com/jarun/googler
 - http://googolplex.sourceforge.net
