@@ -91,3 +91,10 @@ generated answer. Choose the output shape before writing code:
   The answer goes in `details.answer` beside `details.items`, with `question`, `text`, and, when present, `sections`, `citations`, `sources`, `follow_up`, the same fields as the main overview's details. `details.type` stays `"text"`.
   Rejected (b), a separate `ai_overview` row: it would be the first component to emit rows of two types, and it would raise `ai_overview` row counts for 2026-10 SERPs.
 - **2026-10-16T19:19:30-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/204
+- **2026-10-16T19:19:40-07:00** — Steps 2-4 done (PR #204).
+  Step 2: `extract_overview(content, scope)` in `ai_overview.py` is now the shared current-DOM path; `parse_ai_overview` and the PAA parser both call it. Main-overview output is unchanged (all its snapshots byte-identical). PAA source cards are scoped to the `data-q` question holding the answer.
+  Step 3: no SERP added to the corpus. The two fixtures cover sectioned answers with and without hyperlinks; the one variant they lack, a flat answer (4 of 31 in the run), is covered by a synthetic test. 7 tests added to `tests/test_parser_coverage.py`; all 7 fail on the previous parser (checked by restoring it temporarily).
+  Step 4: only the PAA rows of ef30639b2b33 and 42bc62be2985 changed, adding `sub_type` and `details.answer`; row counts and features are unchanged.
+  Run check (`data/demo-ws-v0.11.7a2-warm-profile/serps.json`, local): 31 of 37 PAAs carry an answer; all parse with text, 27 with sections, 209 sources (matching the probe's card count), 148 citations (the probe's 168 buttons less the unattributed panel-open buttons the shared helper drops). Every cited id is in the answer's own sources, and no citation labels leak into the text.
+  Open question 1: yes for this run; every answer is under the first question and each PAA has at most one. The parser keeps the first answer if a capture ever shows more.
+  Open question 2: no lazily expanded answers in the HTML of either corpus.
