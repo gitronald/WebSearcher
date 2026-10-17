@@ -92,6 +92,116 @@
       "cite": null,
       "cmpt_rank": 3,
       "details": {
+        "answer": {
+          "citations": [
+            {
+              "additional_count": 1,
+              "publisher": "TipRanks",
+              "source_ids": [
+                "6",
+                "7"
+              ]
+            }
+          ],
+          "question": "What is the price target for Apple?",
+          "sections": [
+            {
+              "citations": [
+                {
+                  "additional_count": 3,
+                  "publisher": "Zacks Investment Research",
+                  "source_ids": [
+                    "8",
+                    "10"
+                  ]
+                }
+              ],
+              "heading": "Analyst Forecast Breakdown",
+              "text": "Average / Consensus Price Target: $340.02 (varying slightly between $331.19 and $340.50 depending on the tracking platform) High Forecast: $400.00 to $405.00 Low Forecast: $245.00 Consensus Rating: Moderate Buy (based on roughly 31 to 39 analysts)"
+            },
+            {
+              "citations": [
+                {
+                  "additional_count": 0,
+                  "publisher": "MarketBeat",
+                  "source_ids": [
+                    "11"
+                  ]
+                },
+                {
+                  "additional_count": 0,
+                  "publisher": "MarketBeat",
+                  "source_ids": []
+                },
+                {
+                  "additional_count": 0,
+                  "publisher": "MarketBeat",
+                  "source_ids": []
+                },
+                {
+                  "additional_count": 0,
+                  "publisher": "MarketBeat",
+                  "source_ids": []
+                }
+              ],
+              "heading": "Recent Notable Price Target Updates",
+              "hyperlinks": [
+                {
+                  "text": "MarketBeat",
+                  "url": "https://www.marketbeat.com/stocks/NASDAQ/AAPL/forecast/"
+                },
+                {
+                  "text": "TipRanks",
+                  "url": "https://www.tipranks.com/stocks/aapl/forecast"
+                }
+              ],
+              "text": "Evercore / Loop Capital: Set targets around $380.00 Bank of America: Reaffirmed a $370.00 target Morgan Stanley: Adjusted its target from $360.00 down to $355.00 (maintaining an Overweight rating) Phillip Securities: Raised its target from $290.00 to $300.00 (Neutral rating) You can check live updates and consensus shifts on MarketBeat or TipRanks ."
+            }
+          ],
+          "sources": [
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.zacks.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "Zacks Investment Research",
+              "snippet": "Price Target Based on short-term price targets offered by 36 analysts, the average price target for Apple comes to $331.19. The fo...",
+              "source_id": "8",
+              "title": "What is the current Price Target and Forecast for Apple (AAPL)",
+              "url": "https://www.zacks.com/stock/research/AAPL/price-target-stock-forecast"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.tipranks.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "TipRanks",
+              "snippet": "Average Price Target. $337.51. △(0.26% Upside). Created with Highcharts 11.3.0 Past 12 Months 12 Month Forecast Dec ​ 2025 Sep ​ 2...",
+              "source_id": "6",
+              "title": "Apple (AAPL) Stock Forecast, Price Targets and Analysts Predictions",
+              "url": "https://www.tipranks.com/stocks/aapl/forecast"
+            },
+            {
+              "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.marketbeat.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "MarketBeat",
+              "snippet": "Consensus Price Target. ... The highest price target for AAPL is $400.00, while the lowest price target for AAPL is $245.00. The a...",
+              "source_id": "11",
+              "title": "Apple (AAPL) Stock Forecast and Price Target 2026 - MarketBeat",
+              "url": "https://www.marketbeat.com/stocks/NASDAQ/AAPL/forecast/"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.investing.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "Investing.com",
+              "snippet": "FAQ * Is AAPL a Buy, Sell, or Hold? The consensus rating for Apple is \"Buy\", based on insights from 39 analysts. 25 analysts recom...",
+              "source_id": "10",
+              "title": "Apple (AAPL) Stock Forecast & Price Target",
+              "url": "/goto?url=CAESgQEB6zswFT7ezbnRcjMMmvOpyuuyjnPrvXtI9cypPhFaUXSCAqeh6JInOxfTaeUwAi3XQXECbTd-anbfxp8r7FK-e59RxZOv0MdPaE-E7h53GMOV11l0XjwYeh-r-eAWI-jiOtJkIyDVeUN_eV6H5Uj6UzefysbjodbAINC7zWCAGpE"
+            },
+            {
+              "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.marketbeat.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "MarketBeat",
+              "snippet": "Key Points Capital Analysts LLC cut its Apple position by 2.1%, selling 4,227 shares and retaining 195,454 shares valued at approx...",
+              "source_id": "7",
+              "title": "4,227 Apple Inc. $AAPL Shares Sold by Capital Analysts LLC",
+              "url": "/goto?url=CAESrAEB6zswFbIWZlPV261KihQXw1M_kl9JhbLUWbT6FqFEeYHImSd7n4Xyu19Q0QFpmMmvMGoRFM-ZnjZRhvbc8Pf6p5DUuokQV3LXA4fXzlcMM-9xPohIV773RuMVlf7Vsd92UXWYaDld8wA5mz7vfE7b9yFW8Wy9DE006AbX_Ovbx3qmq13MIH5h5aisp6q2PP7LAoE68-Nss_E1A0eIqCCwgEfyCk6PXhhQwrtO"
+            }
+          ],
+          "text": "The average 12-month analyst price target for Apple Inc. (AAPL) is approximately $340.02 , with stock trading near $336.64 ."
+        },
         "items": [
           "What is the price target for Apple?",
           "What is Jim Cramer saying about Apple?",
@@ -103,7 +213,7 @@
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "ai_overview",
       "text": "What is the price target for Apple?<|>What is Jim Cramer saying about Apple?<|>What is the highest price Apple stock has ever been?<|>How much is $10,000 invested in Apple 20 years ago?",
       "title": null,
       "type": "people_also_ask",

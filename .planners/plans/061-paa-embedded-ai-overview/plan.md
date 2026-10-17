@@ -1,11 +1,11 @@
 ---
 id: 61
 slug: paa-embedded-ai-overview
-status: active
+status: done
 branch: feature/paa-embedded-ai-overview
 created: 2026-10-16T15:06:11-07:00
-concluded:
-pr:
+concluded: 2026-10-16T20:21:30-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/204
 ---
 
 # Parse the AI overview answer embedded in people also ask
@@ -85,3 +85,28 @@ generated answer. Choose the output shape before writing code:
   - Base: `dev` at `c045ff7`
   - Worktree: `.worktrees/paa-embedded-ai-overview`
   - PR: pending
+- **2026-10-16T19:14:40-07:00** — Shape decided (step 1): option (a), the answer stays inside the people_also_ask row.
+  The answer renders inside the PAA box under its first question, so it is part of that component, not a separate overview. A rendered example (ef30639b2b33) showed this.
+  PAA rows that carry an answer get `sub_type: "ai_overview"`; rows without one keep `sub_type: null`.
+  The answer goes in `details.answer` beside `details.items`, with `question`, `text`, and, when present, `sections`, `citations`, `sources`, `follow_up`, the same fields as the main overview's details. `details.type` stays `"text"`.
+  Rejected (b), a separate `ai_overview` row: it would be the first component to emit rows of two types, and it would raise `ai_overview` row counts for 2026-10 SERPs.
+- **2026-10-16T19:19:30-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/204
+- **2026-10-16T19:19:40-07:00** — Steps 2-4 done (PR #204).
+  Step 2: `extract_overview(content, scope)` in `ai_overview.py` is now the shared current-DOM path; `parse_ai_overview` and the PAA parser both call it. Main-overview output is unchanged (all its snapshots byte-identical). PAA source cards are scoped to the `data-q` question holding the answer.
+  Step 3: no SERP added to the corpus. The two fixtures cover sectioned answers with and without hyperlinks; the one variant they lack, a flat answer (4 of 31 in the run), is covered by a synthetic test. 7 tests added to `tests/test_parser_coverage.py`; all 7 fail on the previous parser (checked by restoring it temporarily).
+  Step 4: only the PAA rows of ef30639b2b33 and 42bc62be2985 changed, adding `sub_type` and `details.answer`; row counts and features are unchanged.
+  Run check (`data/demo-ws-v0.11.7a2-warm-profile/serps.json`, local): 31 of 37 PAAs carry an answer; all parse with text, 27 with sections, 209 sources (matching the probe's card count), 148 citations (the probe's 168 buttons less the unattributed panel-open buttons the shared helper drops). Every cited id is in the answer's own sources, and no citation labels leak into the text.
+  Open question 1: yes for this run; every answer is under the first question and each PAA has at most one. The parser keeps the first answer if a capture ever shows more.
+  Open question 2: no lazily expanded answers in the HTML of either corpus.
+- **2026-10-16T19:21:12-07:00** — Implemented: 6 commits ahead of `dev`.
+- **2026-10-16T20:21:48-07:00** — Review gate run (/code-review medium on PR #204): 3 plausible findings, 0 confirmed, 4 rejected. Review posted to the PR.
+  - Review follow-up: raised: `_question_of` walked past the PAA component to any outer `data-q`; `general_questions` carries `details.answer` without the PAA's `sub_type`; skipped answer candidates have citation widgets decomposed before the skip.
+  - Actioned (6f36f2d): `parse_answer` iterates the component's question pairs and takes each one's `div.mZJni`, so the lookup is bounded to the component. Regression test `test_paa_answer_bounded_to_question_pairs` fails on the previous parser; snapshots unchanged.
+  - Conscious no-ops: the `general_questions` shape (0 such rows in the corpus or the 2026-10 run; its `sub_type` belongs to the general parser) and the mutation before the skip (nothing reads a skipped subtree). Rejected: per-call index rebuild (0.004 ms vs about 20 ms per parse_serp), src-id collisions, and empty `data-q`.
+
+## Retrospective
+
+- Deciding the output shape first (step 1) kept the change small: keeping the answer inside the PAA row avoided a component that emits rows of two types, and left `ai_overview` row counts for 2026-10 SERPs unchanged.
+- Pulling `extract_overview` out of plan 060's parser paid off at once. The PAA answer reuses the body, citation, and source code unchanged, and every main-overview snapshot stayed byte-identical, which showed the refactor was safe.
+- The review's one actionable finding was structural: an upward `data-q` walk could leave the component. Starting from the question pairs the parser already holds is both bounded and simpler. Prefer walking down from known nodes over walking up from a match.
+- The fixture corpus has only 2 embedded answers against 31 in the 2026-10 run. Run-level checks against the local capture caught what the fixtures could not (flat answers, citation and source counts), so keep a run file in the evidence loop for layout-driven plans.

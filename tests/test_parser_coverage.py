@@ -16,6 +16,7 @@ import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
 from WebSearcher.parsers.components.datasets import parse_datasets
+from WebSearcher.parsers.components.people_also_ask import parse_people_also_ask
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -933,3 +934,119 @@ def test_flight_search_widget_search_flights_heading(serps_by_id):
     assert len(items) == 4
     assert all(i["url"].startswith("https://www.google.com/travel/flights") for i in items)
     assert all(r["title"] or r["url"] for r in _rows(html, "general"))
+
+
+# --- people_also_ask embedded AI overview answer (plan 061) -----------------
+#
+# In the 2026-10 layout the first PAA question ships its generated answer
+# expanded, in the role-heading overview markup. It stays in the PAA row as
+# details["answer"], and the row's sub_type is "ai_overview".
+
+PAA_ANSWER = {
+    # serp_id: (question, section headings, source count)
+    "ef30639b2b33": ("Why is the sky blue a simple answer?", ["How It Works"], 7),
+    "42bc62be2985": (
+        "What is the price target for Apple?",
+        ["Analyst Forecast Breakdown", "Recent Notable Price Target Updates"],
+        5,
+    ),
+}
+
+
+def _paa_row(serps_by_id, sid):
+    (row,) = _rows(serps_by_id[sid]["html"], "people_also_ask")
+    return row
+
+
+def _answer_citations(answer):
+    cites = list(answer.get("citations", []))
+    for section in answer.get("sections", []):
+        cites.extend(section.get("citations", []))
+    return cites
+
+
+@pytest.mark.parametrize("sid", PAA_ANSWER)
+def test_paa_answer_fields(serps_by_id, sid):
+    row = _paa_row(serps_by_id, sid)
+    question, headings, n_sources = PAA_ANSWER[sid]
+    assert row["sub_type"] == "ai_overview"
+    assert _row_error(row) is None
+    details = row["details"]
+    assert details["type"] == "text"
+    assert len(details["items"]) == 4  # the question list is unchanged
+    answer = details["answer"]
+    assert answer["question"] == question == details["items"][0]
+    assert answer["text"]
+    assert [s["heading"] for s in answer["sections"]] == headings
+    assert all(s["text"] for s in answer["sections"])
+    # Scoped to the question: the page's main overview has its own source cards.
+    assert len(answer["sources"]) == n_sources
+
+
+@pytest.mark.parametrize("sid", PAA_ANSWER)
+def test_paa_answer_citations_and_leakage(serps_by_id, sid):
+    answer = _paa_row(serps_by_id, sid)["details"]["answer"]
+    cites = _answer_citations(answer)
+    assert cites
+    ids = {s["source_id"] for s in answer["sources"]}
+    assert {i for c in cites for i in c["source_ids"]} <= ids
+    labels = [
+        f"{c['publisher']} +{c['additional_count']}"
+        for c in cites
+        if c["publisher"] and c["additional_count"]
+    ]
+    for text in [answer["text"]] + [s["text"] for s in answer["sections"]]:
+        assert not any(label in text for label in labels)
+
+
+def test_paa_answer_lede_citation(serps_by_id):
+    answer = _paa_row(serps_by_id, "ef30639b2b33")["details"]["answer"]
+    assert answer["citations"] == [
+        {"publisher": "NASA Space Place (.gov)", "additional_count": 1, "source_ids": ["1", "9"]}
+    ]
+
+
+def _paa(inner):
+    elem = utils.make_soup(f"<div><div>People also ask</div>{inner}</div>").css_first("div")
+    assert elem is not None
+    return parse_people_also_ask(elem)[0]
+
+
+def test_paa_flat_answer():
+    """An answer with no section headings is the lede alone."""
+    row = _paa(
+        '<div class="related-question-pair" data-q="Is it blue?">'
+        '<div class="JlqpRe">Is it blue?</div>'
+        '<div class="mZJni"><div class="n6owBd">Yes, it scatters blue light.</div></div></div>'
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+    )
+    assert row["sub_type"] == "ai_overview"
+    assert row["details"] == {
+        "type": "text",
+        "items": ["Is it blue?", "Why?"],
+        "answer": {"question": "Is it blue?", "text": "Yes, it scatters blue light."},
+    }
+
+
+def test_paa_without_answer():
+    row = _paa(
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+        '<div class="mZJni"><div class="n6owBd">Outside any question.</div></div>'
+    )
+    assert row["sub_type"] is None
+    assert row["details"] == {"type": "text", "items": ["Why?"]}
+
+
+def test_paa_answer_bounded_to_question_pairs():
+    """An overview outside every question pair is not bound to an outer ``data-q``."""
+    html = (
+        '<div data-q="Outer question"><div id="paa"><div>People also ask</div>'
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+        '<div class="mZJni"><div class="n6owBd">Outside any question.</div></div>'
+        "</div></div>"
+    )
+    elem = utils.make_soup(html).css_first("div#paa")
+    assert elem is not None
+    row = parse_people_also_ask(elem)[0]
+    assert row["sub_type"] is None
+    assert row["details"] == {"type": "text", "items": ["Why?"]}
