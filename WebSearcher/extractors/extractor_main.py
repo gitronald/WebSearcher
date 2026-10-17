@@ -600,7 +600,7 @@ class ExtractorMain:
         for ch in soup.iter(include_text=False):
             if ch.tag in _DROP_TAGS:
                 continue
-            if not ch.attributes:
+            if not ch.attributes:  # ``ch`` may be a comment node: no ``.attrs``
                 # ``contents`` was text-inclusive; preserve that.
                 cts.extend(ch.iter(include_text=True))
             else:

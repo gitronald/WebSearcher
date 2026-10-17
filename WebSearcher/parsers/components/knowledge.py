@@ -6,13 +6,14 @@ sports, weather, finance, dictionary, translation, calculator, election
 results, "things to know", and the generic panel layout.
 """
 
+from collections.abc import Iterable
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, node_string, walk_descendants
 from ...utils import slugify
-from ._common import parse_alink
+from ._common import parse_alink, under_any
 from .general import parse_general_result
 
 
@@ -42,9 +43,9 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
         h3 = result.css_first("h3")
         a = result.css_first("a")
         cite_el = result.css_first("cite")
-        parsed["title"] = get_text(h3, " ", strip=True) if h3 is not None else None
-        parsed["url"] = a.attributes.get("href") if a is not None else None
-        parsed["cite"] = get_text(cite_el, " ", strip=True) if cite_el is not None else None
+        parsed["title"] = get_text(h3, " ", strip=True)
+        parsed["url"] = a.attrs.get("href") if a is not None else None
+        parsed["cite"] = get_text(cite_el, " ", strip=True)
 
     parsed["text"] = get_text(
         node.css_first('div[role="heading"][aria-level="3"]'), " ", strip=True
@@ -61,7 +62,7 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
         urls = []
         seen_urls: set[str] = set()
         for a in alinks:
-            href = a.attributes.get("href")
+            href = a.attrs.get("href")
             if href is not None and href != "#" and href not in seen_urls:
                 seen_urls.add(href)
                 urls.append(parse_alink(a, "|"))
@@ -85,7 +86,7 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
     img_div = node.css_first("div.img-brk")
     if img_div is not None:
         a = img_div.css_first("a")
-        href = a.attributes.get("href") if a is not None else None
+        href = a.attrs.get("href") if a is not None else None
         if href:
             details["img_urls"] = [href]
     if details:
@@ -126,7 +127,7 @@ def _subtype_wholepage_header(
 
     parsed["sub_type"] = "panel"
     title_el = node.css_first('[data-attrid="title"]')
-    parsed["title"] = get_text(title_el, " ", strip=True) if title_el is not None else None
+    parsed["title"] = get_text(title_el, " ", strip=True)
     subtitle = get_text(subtitle_el, " ", strip=True) or None
     parsed["text"] = subtitle
     if subtitle:
@@ -166,7 +167,7 @@ def _subtype_featured_snippet(
     ):
         return False
     parsed["sub_type"] = "featured_snippet"
-    if span_text := _join_texts(list(node.css("span"))):
+    if span_text := _join_texts(node.css("span")):
         details["text"] = span_text
 
     # General component with no abstract
@@ -184,7 +185,7 @@ def _subtype_unit_converter(
     if h2_text != "Unit Converter":
         return False
     parsed["sub_type"] = "unit_converter"
-    if span_text := _join_texts(list(node.css("span"))):
+    if span_text := _join_texts(node.css("span")):
         details["text"] = span_text
     return True
 
@@ -255,7 +256,7 @@ def _subtype_dictionary(
         else:
             span_first = node.css_first('span[jsslot=""]')
             if span_first is not None:
-                if span_text := _join_texts(list(span_first.css("span"))).split("Translate")[0]:
+                if span_text := _join_texts(span_first.css("span")).split("Translate")[0]:
                     details["text"] = span_text
     return True
 
@@ -266,7 +267,7 @@ def _subtype_translate(
     if h2_text not in ("Translation Result", "Resultado de traducción"):
         return False
     parsed["sub_type"] = "translate"
-    if span_text := _join_texts(list(node.css("span"))).split("Community Verified")[0]:
+    if span_text := _join_texts(node.css("span")).split("Community Verified")[0]:
         details["text"] = span_text
     return True
 
@@ -286,7 +287,7 @@ def _subtype_election(
     if details.get("heading") != "2020 US election results":
         return False
     parsed["sub_type"] = "election"
-    if span_text := _join_texts(list(node.css("span"))):
+    if span_text := _join_texts(node.css("span")):
         details["text"] = span_text
     return True
 
@@ -418,7 +419,7 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
     results: list[dict[str, Any]] = []
     emitted: set[int] = set()
     for n in node.css("[data-attrid]"):
-        attrid = n.attributes.get("data-attrid") or ""
+        attrid = n.attrs.get("data-attrid") or ""
         is_digest = attrid.startswith("VisualDigest")
         is_fact = attrid.startswith("lab/fact/")
         if not (is_digest or is_fact):
@@ -426,13 +427,7 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
 
         # Skip nodes nested inside an already-emitted sub-result (the outermost
         # match per sub-result wins; guards against nested data-attrid markers).
-        p, nested = n.parent, False
-        while p is not None and p.mem_id != node.mem_id:
-            if p.mem_id in emitted:
-                nested = True
-                break
-            p = p.parent
-        if nested:
+        if under_any(n, emitted, node.mem_id):
             continue
 
         if is_fact:
@@ -452,7 +447,7 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
                     continue
             else:
                 a = n.css_first("a[href]")
-                url = a.attributes.get("href") if a is not None else None
+                url = a.attrs.get("href") if a is not None else None
                 if url is None and not text:
                     continue
             details = {"kind": kind}
@@ -558,7 +553,7 @@ def _parse_music_section(node: Node) -> list[dict[str, Any]] | None:
     block = node.css_first('[data-attrid^="kc:/music/artist:"]')
     if block is None:
         return None
-    key = (block.attributes.get("data-attrid") or "").split(":")[-1]
+    key = (block.attrs.get("data-attrid") or "").split(":")[-1]
     sub_type = _MUSIC_SECTION_SUBTYPE.get(key)
     item_fn = _MUSIC_ITEM_PARSERS.get(sub_type) if sub_type else None
     if item_fn is None:
@@ -575,15 +570,17 @@ def _parse_music_section(node: Node) -> list[dict[str, Any]] | None:
             "type": "knowledge",
             "sub_type": sub_type,
             "sub_rank": 0,
-            "title": get_text(heading, " ", strip=True) if heading is not None else None,
+            "title": get_text(heading, " ", strip=True),
             "text": None,
             "details": {"type": sub_type, "items": parsed_items},
         }
     ]
 
 
-def _join_texts(div: list[Node]) -> str:
-    return "|".join(get_text(d, separator=" ") or "" for d in div if (get_text(d) or ""))
+def _join_texts(nodes: Iterable[Node]) -> str:
+    """``|``-join the space-separated text of each node, skipping blank ones."""
+    texts = (get_text(d, separator=" ") or "" for d in nodes)
+    return "|".join(t for t in texts if t.strip())
 
 
 def _first_external_link(node: Node) -> dict[str, Any] | None:
@@ -593,7 +590,7 @@ def _first_external_link(node: Node) -> dict[str, Any] | None:
     etc.) — only ``http(s)://`` targets count.
     """
     for a in node.css("a[href]"):
-        href = str(a.attributes["href"])
+        href = str(a.attrs["href"])
         if not href.startswith(("http://", "https://")):
             continue
         return {"url": href, "text": get_text(a, " ", strip=True) or ""}

@@ -29,7 +29,7 @@ def parse_most_read_articles(elem: Node) -> list[dict[str, Any]]:
                 "type": "most_read_articles",
                 "sub_rank": len(out),
                 "title": title,
-                "url": a.attributes["href"],
+                "url": a.attrs["href"],
             }
         )
     return out

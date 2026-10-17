@@ -81,7 +81,7 @@ class _ComponentSignals:
         ids: set[str] = set()
         names: set[str] = set()
         # ``el.attrs`` is a non-allocating view over the element's attribute
-        # table (vs ``el.attributes`` which materializes a dict per call);
+        # table (vs ``el.attrs`` which materializes a dict per call);
         # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
         # The leading truthiness guard narrows ``str | None`` -> ``str`` for the
         # type checker and short-circuits the (common) no-id element before the
@@ -620,7 +620,7 @@ class ClassifyMain:
     def news_quotes(cmpt: Node) -> str:
         node: Node = cmpt
         header_div = node.css_first('g-tray-header[role="heading"]')
-        text = get_text(header_div, strip=True) if header_div is not None else None
+        text = get_text(header_div, strip=True)
         return "news_quotes" if text == "News quotes" else "unknown"
 
     @staticmethod

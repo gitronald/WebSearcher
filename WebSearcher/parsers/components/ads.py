@@ -72,10 +72,10 @@ def _parse_ad_legacy_sub(sub: Node, sub_rank: int) -> dict[str, Any]:
         "type": "ad",
         "sub_type": "legacy",
         "sub_rank": sub_rank,
-        "title": get_text(h3, " ") if h3 is not None else None,
-        "url": get_text(cite_el, " ") if cite_el is not None else None,
+        "title": get_text(h3, " "),
+        "url": get_text(cite_el, " "),
         "cite": None,
-        "text": get_text(creative, " ") if creative is not None else None,
+        "text": get_text(creative, " "),
         "details": _parse_ad_legacy_sub_details(sub),
     }
 
@@ -101,7 +101,7 @@ def parse_ad_local_service(elem: Node) -> list[dict[str, Any]]:
 def _parse_local_service_profile(profile: Node, sub_rank: int) -> dict[str, Any]:
     title = get_text(profile.css_first("span.bk5vhd"), " ")
     a = profile.css_first("a")
-    url = a.attributes.get("href") if a is not None else None
+    url = a.attrs.get("href") if a is not None else None
 
     detail_rows = list(profile.css("div.P4vvKf"))
     text = (
@@ -113,7 +113,7 @@ def _parse_local_service_profile(profile: Node, sub_rank: int) -> dict[str, Any]
     details = None
     rating_span = profile.css_first("span[aria-label]")
     if rating_span is not None:
-        details = {"type": "text", "items": [rating_span.attributes["aria-label"]]}
+        details = {"type": "text", "items": [rating_span.attrs["aria-label"]]}
 
     return {
         "type": "ad",
@@ -154,7 +154,7 @@ def _parse_ad_secondary_sub_url(sub: Node) -> str:
     if url_div is None:
         return ""
     a = url_div.css_first("a")
-    return (a.attributes.get("href") if a is not None else None) or ""
+    return (a.attrs.get("href") if a is not None else None) or ""
 
 
 def _parse_ad_secondary_sub_text(sub: Node) -> str:
@@ -167,9 +167,9 @@ def _parse_ad_secondary_sub_details(sub: Node) -> dict[str, Any] | None:
         details_section = sub.css_first(css)
         if details_section is not None:
             urls = [
-                str(a.attributes["href"])
+                str(a.attrs["href"])
                 for a in details_section.css("a")
-                if has_text(a) and a.attributes.get("href")
+                if has_text(a) and a.attrs.get("href")
             ]
             if urls:
                 return {"type": "links", "items": urls}
@@ -207,7 +207,7 @@ def _parse_ad_standard_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "sub_type": sub_type,
         "sub_rank": sub_rank,
         "title": get_text(sub.css_first('div[role="heading"]'), " "),
-        "url": sVXRqc.attributes.get("href") if sVXRqc is not None else None,
+        "url": sVXRqc.attrs.get("href") if sVXRqc is not None else None,
         "cite": get_text(sub.css_first('span[role="text"]'), " "),
         "text": _parse_ad_standard_text(sub),
         "details": submenu,
@@ -233,9 +233,9 @@ def parse_ad_menu(sub: Node) -> dict[str, Any] | None:
     for item in sub.css("div.MhgNwc"):
         parsed_item: dict[str, Any] = {"url": "", "title": "", "text": ""}
         for div in item.css("div.MUxGbd"):
-            if div.attributes.get("role") == "listitem":
+            if div.attrs.get("role") == "listitem":
                 a = div.css_first("a")
-                parsed_item["url"] = (a.attributes.get("href") if a is not None else None) or ""
+                parsed_item["url"] = (a.attrs.get("href") if a is not None else None) or ""
                 parsed_item["title"] = get_text(div, " ") or ""
             else:
                 parsed_item["text"] = get_text(div, " ") or ""
@@ -247,7 +247,7 @@ def parse_ad_menu(sub: Node) -> dict[str, Any] | None:
         if sitelink_div is not None:
             for link in sitelink_div.css("a[href]"):
                 text = get_text(link, strip=True) or ""
-                href = link.attributes.get("href", "") or ""
+                href = link.attrs.get("href", "") or ""
                 if text and href:
                     items.append({"url": href, "title": text})
 
@@ -255,7 +255,7 @@ def parse_ad_menu(sub: Node) -> dict[str, Any] | None:
     if not items:
         for link in sub.css("a.ynAwRc"):
             text = get_text(link, " ", strip=True) or ""
-            href = link.attributes.get("href", "") or ""
+            href = link.attrs.get("href", "") or ""
             if text and href:
                 items.append({"url": href, "title": text})
 
