@@ -2,7 +2,7 @@ from enum import Enum
 from typing import Any, Self
 
 import requests
-from pydantic import BaseModel, Field, computed_field
+from pydantic import BaseModel, Field
 
 from ..utils import SSH
 
@@ -54,14 +54,10 @@ class RequestsConfig(BaseConfig):
     )
     ssh_tunnel: SSH | None = None
     unzip: bool = True
-
-    @computed_field
-    @property
-    def sesh(self) -> requests.Session:
-        """Create and configure a requests session with the current headers."""
-        sesh = requests.Session()
-        sesh.headers.update(self.headers)
-        return sesh
+    # An existing ``requests.Session`` to reuse (cookies, proxies, adapters).
+    # Left ``None``, the searcher builds one from ``headers``. Kept out of dumps
+    # and repr: a live session is not configuration.
+    sesh: requests.Session | None = Field(default=None, exclude=True, repr=False)
 
 
 class SearchMethod(Enum):

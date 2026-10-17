@@ -1,10 +1,10 @@
 import logging
 import time
-from datetime import UTC, datetime
 
 import brotli
 import requests
 
+from .. import utils
 from ..models.configs import RequestsConfig
 from ..models.data import ResponseOutput
 from ..models.searches import SearchParams
@@ -17,12 +17,12 @@ class RequestsSearcher:
         """Initialize a Requests searcher with the given configuration
 
         Args:
-            config: RequestsConfig instance
-            headers: Dictionary of HTTP headers
+            config: RequestsConfig instance (headers, optional session and SSH tunnel)
             logger: Logger instance
         """
         self.config = config
         self.log = logger
+        # Reuse a caller-supplied session; otherwise build one from the headers.
         self.sesh = self.config.sesh or self._start_session()
 
     def _start_session(self):
@@ -51,17 +51,19 @@ class RequestsSearcher:
             ResponseOutput with response data
         """
 
-        if search_params.headers:
-            self.sesh.headers.update(search_params.headers)
-
+        # Per-search headers ride on this request only (requests merges them over
+        # the session headers); updating the shared Session would leak them into
+        # every later search.
+        headers = dict(search_params.headers) if search_params.headers else None
+        user_agent = (headers or {}).get("User-Agent") or self.sesh.headers.get("User-Agent", "")
         response_output = ResponseOutput(
             url=search_params.url,
-            user_agent=self.config.headers.get("User-Agent", ""),
-            timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
+            user_agent=str(user_agent),
+            timestamp=utils.utc_timestamp(),
         )
 
         try:
-            response = self.sesh.get(search_params.url, timeout=10)
+            response = self.sesh.get(search_params.url, headers=headers, timeout=10)
             # Final URL after redirects -- a /sorry/ target marks a CAPTCHA block
             response_output.url = response.url
             response_output.html = self._handle_response_content(response)

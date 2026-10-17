@@ -72,20 +72,21 @@ class Logger:
         console: bool = True,
         console_level: str = LOG_LEVEL_DEFAULT,
         file_name: str = "",
-        file_mode: str = "w",
+        file_mode: str = "a",
         file_level: str = LOG_LEVEL_DEFAULT,
     ) -> None:
         """
         Initializes the Logger configuration.
 
         All logs are emitted as JSON Lines (one JSON object per line); there is no
-        text format.
+        text format. The defaults match ``models.configs.LogConfig``, which
+        ``SearchEngine`` passes through, so a direct ``Logger()`` behaves the same.
 
         Args:
             console (bool): Flag to enable or disable console logging.
             console_level (str): Logging level for the console. Default is 'INFO'.
             file_name (str): Name of the file to log messages. If empty, file logging is disabled.
-            file_mode (str): File mode for file logging. Default is 'w' (write).
+            file_mode (str): File mode for file logging. Default is 'a' (append).
             file_level (str): Logging level for the file. Default is 'INFO'.
         """
 
