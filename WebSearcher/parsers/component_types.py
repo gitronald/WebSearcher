@@ -347,6 +347,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="People Also Ask",
         sections=("main", "footer"),
         header_texts={2: ("People also ask", "Más preguntas")},
+        sub_types=("ai_overview",),
         description="Related questions that people search for",
     ),
     ComponentType(

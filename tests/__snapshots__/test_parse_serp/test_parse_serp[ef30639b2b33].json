@@ -164,6 +164,113 @@
       "cite": null,
       "cmpt_rank": 2,
       "details": {
+        "answer": {
+          "citations": [
+            {
+              "additional_count": 1,
+              "publisher": "NASA Space Place (.gov)",
+              "source_ids": [
+                "1",
+                "9"
+              ]
+            }
+          ],
+          "question": "Why is the sky blue a simple answer?",
+          "sections": [
+            {
+              "citations": [
+                {
+                  "additional_count": 4,
+                  "publisher": "YouTube",
+                  "source_ids": [
+                    "6_0",
+                    "10_0",
+                    "5_0",
+                    "3_0"
+                  ]
+                },
+                {
+                  "additional_count": 0,
+                  "publisher": null,
+                  "source_ids": [
+                    "4"
+                  ]
+                }
+              ],
+              "heading": "How It Works",
+              "hyperlinks": [
+                {
+                  "text": "NASA Space Place",
+                  "url": "https://spaceplace.nasa.gov/blue-sky/"
+                },
+                {
+                  "text": "National Geographic Kids",
+                  "url": "/goto?url=CAESbQHrOzAV2pwdznOuXBxpOoe5_4MdVZWNeylL-On2G6VjgYuWqYymfWOadNf4mhh2cJSwGUjFx8BbQw6zcrQV2HLdCGOZxMfKFQJd-XkpBtrTPLeT1uhq0y6o_QSuC1esrQmOI8kAWy8puEkDHo4"
+                }
+              ],
+              "text": "White Light: Sunlight looks white or yellow, but it is actually made up of all the colors of the rainbow combined. Different Waves: Each color travels in a different wave size; red and yellow have long, lazy waves, while blue has short, choppy waves. Scattering (Rayleigh Scattering): When sunlight hits the gases and air molecules in our atmosphere, the short blue waves bounce and scatter everywhere. Your Eyes: When you look up, your eyes catch this scattered blue light from all over the sky. You can learn more about how light and space work at NASA Space Place or read the fun breakdown from National Geographic Kids ."
+            }
+          ],
+          "sources": [
+            {
+              "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://spaceplace.nasa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "NASA Space Place (.gov)",
+              "snippet": "It's easy to see that the sky is blue. Have you ever wondered why? Sunlight reaches Earth's atmosphere and is scattered in all dir...",
+              "source_id": "1",
+              "title": "Why Is the Sky Blue? | NASA Space Place – NASA Science for Kids",
+              "url": "https://spaceplace.nasa.gov/blue-sky/"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "YouTube",
+              "snippet": "why is the sky. blue in the middle of a bright sunny. day the sky is usually a shade of blue. why blue and not purple green or ora...",
+              "source_id": "6_0",
+              "title": "Why Is the Sky Blue?",
+              "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=1"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "YouTube",
+              "snippet": "the sky looks. so beautiful yes the sky is the big open space above us that we see when we look up. but why is the sky. blue why n...",
+              "source_id": "5_0",
+              "title": "Why Is the Sky Blue? - Learning Junction - Video for Kids",
+              "url": "/goto?url=CAESZwHrOzAV2RUsYvSNFp6AgeSUo9CplhdFVAkn6SxCR5ZAwU-eiV49t69AU8Ojuaxxo1pxJ6P1vgTfQmoiqjQC5MDbcorl0-UOAfHNDaAox6vtHzGXEIrw1cw2bq6GKTKNCLAzl8Om-2E"
+            },
+            {
+              "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://kids.nationalgeographic.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "National Geographic Kids",
+              "snippet": "So why is the sky blue? The light shining from the sun is made of all the colors of the rainbow, and each color travels on its own...",
+              "source_id": "4",
+              "title": "Why is the sky blue? - National Geographic Kids",
+              "url": "/goto?url=CAESbQHrOzAV2pwdznOuXBxpOoe5_4MdVZWNeylL-On2G6VjgYuWqYymfWOadNf4mhh2cJSwGUjFx8BbQw6zcrQV2HLdCGOZxMfKFQJd-XkpBtrTPLeT1uhq0y6o_QSuC1esrQmOI8kAWy8puEkDHo4"
+            },
+            {
+              "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.rmg.co.uk&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "Royal Museums Greenwich",
+              "snippet": "Why is the sky blue? Here's the short answer... As white light passes through our atmosphere, tiny air molecules cause it to 'scat...",
+              "source_id": "9",
+              "title": "Why is the sky blue? | Royal Observatory",
+              "url": "/goto?url=CAEScgHrOzAVKG5jA-h7fbFJyMdXRFaefqu5S9sfQBbhzcRqFuZgOofGxZrZCSWjmY43Glln9VE-kDFTrt5ANSlT8y38K01r_ppESQU86g2uYCPw6HkRyCOspvbwK7JuRFBOT_ONPjwtEU2hEW209DlRlbQ2lA"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "YouTube",
+              "snippet": "hey there have you ever just looked up and wondered. it's probably one of the very first big questions we all ask as kids. and you...",
+              "source_id": "10_0",
+              "title": "Why Is the Sky Blue? | Science for Kids ☀️",
+              "url": "/goto?url=CAESYwHrOzAVzBgbJdbi-93pNqk4qL-nf_2rlGr2dLK_SsF1OIflkYLKSq8z2pgNJJYTgL0CcEJ2-4RE2ylXlnNTMSyMkoVQR56dh6GiwooB_e1xW1kkbQAFrFROcPqaDxEO49a47Q"
+            },
+            {
+              "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+              "publisher": "YouTube",
+              "snippet": "hey kids in today's video we will be learning about as to why the sky is blue are you ready let's. begin. why is the sky. blue dur...",
+              "source_id": "3_0",
+              "title": "Why is the sky blue? - Science for Kids",
+              "url": "/goto?url=CAESZwHrOzAVcilUSw4LTWVDq7SYTLeN5-TeKlYeyILfjmDdtEI2-ihtJbObzq0rDCdba_uZJOmscpgyKj-5-JrV4kymJfiwMTs3d-XVL5RL29JTcakRLewZ59X68ICYUP0746aUMtjn5ts"
+            }
+          ],
+          "text": "The sky is blue because Earth's atmosphere scatters sunlight in every direction , and blue light scatters more than other colors because it travels in smaller, shorter waves."
+        },
         "items": [
           "Why is the sky blue a simple answer?",
           "Does the ocean reflect the sky?",
@@ -175,7 +282,7 @@
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
-      "sub_type": null,
+      "sub_type": "ai_overview",
       "text": "Why is the sky blue a simple answer?<|>Does the ocean reflect the sky?<|>How to explain to a kid why the sky is blue?<|>Why is the sky blue joke answer?",
       "title": null,
       "type": "people_also_ask",
