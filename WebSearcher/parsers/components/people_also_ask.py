@@ -23,7 +23,7 @@ def parse_people_also_ask(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
     questions = node.css("div.related-question-pair")
     parsed_questions = list(filter(None, (parse_question(q) for q in questions)))
     # Read the answer after the questions: it decomposes citation widgets.
-    answer = parse_answer(node)
+    answer = parse_answer(questions)
     details: dict[str, Any] | None = None
     if parsed_questions or answer:
         details = {"type": "text", "items": parsed_questions}
@@ -47,29 +47,19 @@ def parse_question(question: Node) -> str | None:
     return None
 
 
-def parse_answer(node: Node) -> dict[str, Any] | None:
+def parse_answer(questions: list[Node]) -> dict[str, Any] | None:
     """The generated answer shipped expanded under a question, or None.
 
     Source cards are scoped to the question holding the answer. Only the first
     answer is kept: every PAA seen so far carries at most one, under its first
     question.
     """
-    for content in node.css("div.mZJni"):
-        question = _question_of(content)
-        if question is None:
+    for question in questions:
+        content = question.css_first("div.mZJni")
+        if content is None:
             continue
         overview = extract_overview(content, question)
         if overview["text"] is None and "sections" not in overview:
             continue
         return {"question": question.attributes.get("data-q") or None, **overview}
-    return None
-
-
-def _question_of(content: Node) -> Node | None:
-    """The nearest ancestor carrying the question text (``data-q``)."""
-    parent = content.parent
-    while parent is not None:
-        if "data-q" in parent.attributes:
-            return parent
-        parent = parent.parent
     return None

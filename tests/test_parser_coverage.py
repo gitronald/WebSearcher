@@ -1035,3 +1035,18 @@ def test_paa_without_answer():
     )
     assert row["sub_type"] is None
     assert row["details"] == {"type": "text", "items": ["Why?"]}
+
+
+def test_paa_answer_bounded_to_question_pairs():
+    """An overview outside every question pair is not bound to an outer ``data-q``."""
+    html = (
+        '<div data-q="Outer question"><div id="paa"><div>People also ask</div>'
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+        '<div class="mZJni"><div class="n6owBd">Outside any question.</div></div>'
+        "</div></div>"
+    )
+    elem = utils.make_soup(html).css_first("div#paa")
+    assert elem is not None
+    row = parse_people_also_ask(elem)[0]
+    assert row["sub_type"] is None
+    assert row["details"] == {"type": "text", "items": ["Why?"]}
