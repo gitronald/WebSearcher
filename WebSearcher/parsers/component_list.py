@@ -117,6 +117,3 @@ class ComponentList:
                 results.append(result)
                 self.serp_rank_counter += 1
         return results
-
-    def to_records(self):
-        return [cmpt.to_dict() for cmpt in self.components]
