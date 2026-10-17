@@ -5,7 +5,15 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import _iter_text_fragments, class_tokens, get_text, has_text, subtree_css
+from .._slx import (
+    _iter_text_fragments,
+    class_tokens,
+    get_text,
+    has_text,
+    is_element,
+    subtree_css,
+    subtree_first,
+)
 from ..parsers.component_list import ComponentList
 
 log = logging.getLogger(__name__)
@@ -33,8 +41,10 @@ class _StandardLayout:
 
 
 # Names mirror the observable ``kp-wp-tab-*`` container each sub-layout detects;
-# detection precedence follows insertion order. ``standard-fallback`` is the
-# empty-rso fallback handled directly in ``extract_from_standard`` (no tab).
+# detection precedence follows insertion order. Two further labels are set
+# directly in ``extract_from_standard`` (no tab recipe): ``standard-kp-wholepage``
+# for a whole-page panel parsed as a sub-column, and ``standard-fallback`` for
+# the empty-rso fallback.
 _STANDARD_LAYOUTS: dict[str, _StandardLayout] = {
     "standard-overview": _StandardLayout(
         detect_css='div[id="kp-wp-tab-overview"]',
@@ -74,6 +84,10 @@ _BAD_LABELS = frozenset(
     {"Main results", "Twitter Results", "Web results", "Ads", "Description", ""}
 )
 
+# Child tags never emitted as components when a column is split into its direct
+# children (``None`` is selectolax's tag for the document node).
+_DROP_TAGS: frozenset[str | None] = frozenset({"script", "style", None})
+
 
 def _filter_empty(nodes: Iterable[Node | None]) -> list[Node]:
     return [n for n in nodes if n is not None and has_text(n)]
@@ -94,12 +108,6 @@ class ExtractorMain:
             "rso": None,
             "top-bars": None,
             "left-bar": None,
-        }
-        self.layouts = {
-            "top-bars": False,
-            "left-bar": False,
-            "standard": False,
-            "no-rso": False,
         }
         self.layout_label: str | None = None
         self.layout_extractors = {
@@ -150,34 +158,29 @@ class ExtractorMain:
 
         log.debug(f"main_layout: {layout_label}")
         self.layout_label = layout_label
-        self.layouts.update(layouts)
         self.layout_divs.update(layout_divs)
+
+    def _ads_block(self, css_id: str, cmpt_type: str) -> None:
+        """Detach the ad container ``#css_id`` and add it as one ``cmpt_type``
+        component. A shell with no text (an empty or whitespace-only wrapper)
+        is left alone rather than emitted as an empty ad component."""
+        assert self.soup is not None
+        ads = self.soup.css_first(f'div[id="{css_id}"]')
+        if ads is not None and has_text(ads):
+            ads.remove(recursive=False)
+            self.components.add_component(ads, section="main", type=cmpt_type)
 
     def _ads_top_carousel(self):
         """Extract sponsored carousel ads (e.g. Sponsored hotels via atvcap)."""
-        assert self.soup is not None
-        ads = self.soup.css_first('div[id="atvcap"]')
-        if ads is not None and (get_text(ads) or ""):
-            ads.remove(recursive=False)
-            self.components.add_component(ads, section="main", type="shopping_ads")
+        self._ads_block("atvcap", "shopping_ads")
 
     def _ads_top(self):
-        assert self.soup is not None
-        ads = self.soup.css_first('div[id="tads"]')
-        if ads is not None and (get_text(ads) or ""):
-            ads.remove(recursive=False)
-            self.components.add_component(ads, section="main", type="ad")
+        self._ads_block("tads", "ad")
 
     def _ads_bottom(self):
-        assert self.soup is not None
-        ads = self.soup.css_first('div[id="tadsb"]')
-        if ads is not None and (get_text(ads) or ""):
-            ads.remove(recursive=False)
-            self.components.add_component(ads, section="main", type="ad")
+        self._ads_block("tadsb", "ad")
 
-    def _main_column(self, drop_tags: set[str | None] | None = None) -> None:
-        if drop_tags is None:
-            drop_tags = {"script", "style", None}
+    def _main_column(self) -> None:
         if self.layout_label is None:
             raise ValueError("no layout_label set")
         try:
@@ -185,7 +188,7 @@ class ExtractorMain:
         except KeyError:
             raise ValueError(f"no extractor for layout_label: {self.layout_label}")
 
-        column = extractor(drop_tags)
+        column = extractor()
         column = _filter_empty(column)
         for c in column:
             if ExtractorMain.is_valid(c):
@@ -259,14 +262,10 @@ class ExtractorMain:
             # fragments. Non-marker grouping wrappers keep descending via the
             # ``ancestors`` branch below, unchanged.
             organic_wrapper = ch.mem_id in marker_ids and (
-                len(
-                    [
-                        g
-                        for g in subtree_css(ch, "div.g")
-                        if g.mem_id != ch.mem_id
-                        and g.css_first("h3") is not None
-                        and g.css_first("a[href]") is not None
-                    ]
+                sum(
+                    1
+                    for g in subtree_css(ch, "div.g")
+                    if g.css_first("h3") is not None and g.css_first("a[href]") is not None
                 )
                 >= 2
             )
@@ -370,11 +369,10 @@ class ExtractorMain:
         direct = [c for c in target.iter(include_text=False) if keep & set(class_tokens(c))]
         return len(sub_column) > len(direct)
 
-    def extract_from_standard(self, drop_tags: set[str | None] | None = None) -> list[Node]:
+    def extract_from_standard(self) -> list[Node]:
         rso_div = self.layout_divs["rso"]
         if rso_div is None:
             return []
-        drop_tags = drop_tags or {"script", "style", None}
 
         top_divs = (
             ExtractorMain.extract_top_divs(
@@ -420,7 +418,7 @@ class ExtractorMain:
                 log.debug(f"main_layout: {self.layout_label} (update)")
                 return top_divs + sub_column
 
-        col = ExtractorMain.extract_children(rso_div, drop_tags)
+        col = ExtractorMain.extract_children(rso_div)
         col = top_divs + col
         col = [c for c in col if ExtractorMain.is_valid(c)]
 
@@ -481,8 +479,7 @@ class ExtractorMain:
         ]
         return _filter_empty(column)
 
-    def extract_from_top_bar(self, drop_tags: set[str | None] | None = None) -> list[Node]:
-        drop_tags = drop_tags or {"script", "style", None}
+    def extract_from_top_bar(self) -> list[Node]:
         out: list[Node] = []
         tops = ExtractorMain.extract_top_divs(
             self.layout_divs["top-bars"], rso=self.layout_divs["rso"]
@@ -500,20 +497,16 @@ class ExtractorMain:
         )
         if rso_divs:
             self.layout_label = "top-bars-divs"
-            col = [div for div in rso_divs if div.tag not in drop_tags]
+            col = [div for div in rso_divs if div.tag not in _DROP_TAGS]
         else:
             self.layout_label = "top-bars-children"
-            col = ExtractorMain.extract_children(self.layout_divs["rso"], drop_tags)
+            col = ExtractorMain.extract_children(self.layout_divs["rso"])
         log.debug(f"main_layout: {self.layout_label} (update)")
         out.extend(col)
         return out
 
     @staticmethod
-    def extract_top_divs(
-        top_bars: list[Node] | None,
-        drop_tags: set[str | None] | None = None,
-        rso: Node | None = None,
-    ) -> list[Node]:
+    def extract_top_divs(top_bars: list[Node] | None, rso: Node | None = None) -> list[Node]:
         out: list[Node] = []
         if not top_bars:
             return out
@@ -562,12 +555,11 @@ class ExtractorMain:
             (get_text(b, strip=True) or "") == "Dictionary" for b in rso.css('div[role="button"]')
         )
 
-    def extract_from_left_bar(self, drop_tags: set[str | None] | None = None) -> list[Node]:
+    def extract_from_left_bar(self) -> list[Node]:
         assert self.soup is not None
         return _find_all_with_class(self.soup, "div.TzHB6b", filter_empty=False)
 
-    def extract_from_no_rso(self, drop_tags: set[str | None] | None = None) -> list[Node]:
-        drop_tags = drop_tags or {"script", "style", None}
+    def extract_from_no_rso(self) -> list[Node]:
         assert self.soup is not None
         out: list[Node] = []
         # bs4 ``find_all("div", {"class": "UDZeY OTFaAf"})`` is multi-token EXACT.
@@ -577,7 +569,9 @@ class ExtractorMain:
         for div in sec1:
             h2 = div.css_first("h2")
             if h2 is not None and (get_text(h2) or "") == "Twitter Results":
-                inner_div = div.css_first("div")
+                # bs4 ``div.find("div").parent``: the wrapper of the first *inner*
+                # div (``css_first`` would match ``div`` itself).
+                inner_div = subtree_first(div, "div")
                 if inner_div is not None and inner_div.parent is not None:
                     out.append(inner_div.parent)
             elif (sec_header := div.css_first("g-section-with-header")) is not None:
@@ -588,30 +582,25 @@ class ExtractorMain:
             elif div.css_first("div.oIk2Cb") is not None:
                 out.append(div)
             else:
-                out.extend(n for n in div.css("div.g") if n.mem_id != div.mem_id)
+                out.extend(subtree_css(div, "div.g"))
         # Page-level trailing section -- appended once, not per sec1 div.
         sec2 = self.soup.css_first("div.WvKfwe.a3spGf")
         if sec2 is not None and class_tokens(sec2) == ["WvKfwe", "a3spGf"]:
             out.extend(sec2.iter(include_text=True))
-        return [
-            c
-            for c in out
-            if c is not None and c.tag and not c.tag.startswith("-") and c.tag not in drop_tags
-        ]
+        return [c for c in out if is_element(c) and c.tag not in _DROP_TAGS]
 
     @staticmethod
-    def extract_children(soup: Node | None, drop_tags: set[str | None] | None = None) -> list[Node]:
+    def extract_children(soup: Node | None) -> list[Node]:
         """bs4 ``soup.children`` -> direct children. The original then expanded
         children that have no attrs by inlining their ``.contents`` (text-
         inclusive)."""
-        drop_tags = drop_tags or {"script", "style", None}
         if soup is None:
             return []
         cts: list[Node] = []
         for ch in soup.iter(include_text=False):
-            if ch.tag in drop_tags:
+            if ch.tag in _DROP_TAGS:
                 continue
-            if not ch.attributes:
+            if not ch.attributes:  # ``ch`` may be a comment node: no ``.attrs``
                 # ``contents`` was text-inclusive; preserve that.
                 cts.extend(ch.iter(include_text=True))
             else:
@@ -625,13 +614,15 @@ class ExtractorMain:
         if not c.tag or c.tag.startswith("-"):
             return False
         # Bound the text scan: the longest bad label is 15 chars, so once the
-        # accumulated text exceeds that it cannot match and we stop walking.
+        # accumulated (stripped) text exceeds that it cannot match and we stop
+        # walking. Compare stripped so a padded heading ("<h2> Ads </h2>") still
+        # counts as a bare label.
         text = ""
         for s in _iter_text_fragments(c):
             text += s
-            if len(text) > 15:
+            if len(text.strip()) > 15:
                 break
-        if text in _BAD_LABELS:
+        if text.strip() in _BAD_LABELS:
             return False
         # Skip bottom ads wrapper (extracted separately)
         if c.css_first('div[id="tadsb"]') is not None:

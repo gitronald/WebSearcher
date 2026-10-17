@@ -30,7 +30,7 @@ def _parse_query_chips(elem: Node, cmpt_type: str) -> list[dict[str, Any]]:
     node: Node = elem
     parsed_list: list[dict[str, Any]] = []
     for anchor in node.css("a[href]"):
-        href = anchor.attributes.get("href")
+        href = anchor.attrs.get("href")
         title = get_text(anchor, " ", strip=True)
         # Skip the module's feedback affordance and any empty chips.
         if not href or href.startswith("#") or not title:

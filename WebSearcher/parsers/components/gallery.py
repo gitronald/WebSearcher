@@ -31,7 +31,7 @@ def parse_gallery(elem: Node) -> list[dict[str, Any]]:
 
     # Header row: cluster heading + joined category-filter chips.
     heading = node.css_first('[aria-level="2"][role="heading"]')
-    heading_text = get_text(heading, strip=True) if heading is not None else None
+    heading_text = get_text(heading, strip=True)
     chips = [t for t in (get_text(b, strip=True) for b in node.css('[role="button"].alvTwe')) if t]
     if heading_text or chips:
         parsed_list.append(
@@ -59,7 +59,7 @@ def parse_gallery(elem: Node) -> list[dict[str, Any]]:
             "sub_rank": len(parsed_list),
             "title": title,
             "url": None,
-            "text": get_text(author_el, strip=True) if author_el is not None else None,
+            "text": get_text(author_el, strip=True),
         }
         parsed_list.append(mark_hidden_row(row, title_el))
     return parsed_list

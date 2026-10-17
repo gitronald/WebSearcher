@@ -1,9 +1,11 @@
-"""Parsers for video components
+"""Parse a "Videos" component.
 
-Changelog
-2024-05-08: added find_all for divs with class 'VibNM'
-2024-05-08: added adjustment for new cite and timestamp
-2025-04-27: added div subcomponent class and sub_type labels
+A list or carousel of video tiles (frequently YouTube). Each row carries the
+tile's url, heading, description text, source (``cite``), and, when the tile
+ships Google's hidden ``evlb_*`` "About this result" card, a ``video`` details
+block (channel, upload date, duration) via :func:`._video_card.parse_evlb_card`.
+``sub_type`` records which tile layout matched (see ``_SUBTYPE_SELECTORS``) or
+the carousel's section heading (e.g. ``trailers-and-clips``).
 """
 
 from typing import Any
@@ -24,6 +26,10 @@ _SUBTYPE_SELECTORS: list[tuple[str, str]] = [
     ("vertical", "div.sHEJob"),
 ]
 
+_SECTION_LABELS: dict[str, str] = {
+    "Trailers & clips": "trailers-and-clips",
+}
+
 
 def parse_videos(elem: Node) -> list[dict[str, Any]]:
     """Parse a videos component (links to videos, frequently YouTube)."""
@@ -38,12 +44,9 @@ def parse_videos(elem: Node) -> list[dict[str, Any]]:
             sub_type = label
             break
 
-    section_labels = {
-        "Trailers & clips": "trailers-and-clips",
-    }
     section_heading = node.css_first('div[role="heading"][aria-level="2"]')
     if section_heading is not None:
-        label = section_labels.get(get_text(section_heading, " ", strip=True) or "")
+        label = _SECTION_LABELS.get(get_text(section_heading, " ", strip=True) or "")
         if label:
             sub_type = label
 
@@ -53,13 +56,18 @@ def parse_videos(elem: Node) -> list[dict[str, Any]]:
 
 
 def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict[str, Any]:
+    # The first div.MjS0Lc holds the description, the second the cite/timestamp.
+    details = sub.css("div.MjS0Lc")
+    text_div = details[0] if details else None
+    citetime_div = details[1] if len(details) >= 2 else None
+
     parsed: dict[str, Any] = {
         "type": "videos",
         "sub_type": sub_type,
         "sub_rank": sub_rank,
         "url": get_url(sub),
         "title": get_text(sub.css_first('div[role="heading"]'), " "),
-        "text": get_text(sub.css_first("div.MjS0Lc"), " "),
+        "text": get_text(text_div, " "),
     }
 
     # Content details first, so the timestamp/visible flags ride as siblings.
@@ -67,26 +75,21 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict[str, Any]:
     if fields:
         parsed["details"] = {"type": "video", **fields}
 
-    details = list(sub.css("div.MjS0Lc"))
-    if details:
-        text_div = details[0] if len(details) >= 1 else None
-        citetime_div = details[1] if len(details) >= 2 else None
-        parsed["text"] = get_text(text_div) if text_div is not None else None
-
-        if citetime_div is not None:
-            citetime = citetime_div.css_first("div.zECGdd")
-            if citetime is not None:
-                items = list(citetime.iter(include_text=False))
-                if len(items) == 2:
-                    cite, timestamp = items
-                    parsed["cite"] = get_text(cite)
-                    mark_timestamp_row(parsed, get_text(timestamp))
-                elif items:
-                    parsed["cite"] = get_text(items[0])
-    elif sub.css_first("span.ocUPSd") is not None:
-        parsed["cite"] = get_text(sub)
-    elif sub.css_first("cite") is not None:
-        parsed["cite"] = get_text(sub.css_first("cite"), " ")
+    if citetime_div is not None:
+        citetime = citetime_div.css_first("div.zECGdd")
+        if citetime is not None:
+            items = list(citetime.iter(include_text=False))
+            if len(items) == 2:
+                cite, timestamp = items
+                parsed["cite"] = get_text(cite)
+                mark_timestamp_row(parsed, get_text(timestamp))
+            elif items:
+                parsed["cite"] = get_text(items[0])
+    elif not details:
+        if sub.css_first("span.ocUPSd") is not None:
+            parsed["cite"] = get_text(sub)
+        elif (cite_el := sub.css_first("cite")) is not None:
+            parsed["cite"] = get_text(cite_el, " ")
 
     return mark_hidden_row(parsed, sub)
 
@@ -94,7 +97,7 @@ def parse_video(sub: Node, sub_type: str, sub_rank: int = 0) -> dict[str, Any]:
 def get_url(sub: Node) -> str | None:
     """First non-hash href in the subcomponent."""
     for a in sub.css("a"):
-        href = a.attributes.get("href")
+        href = a.attrs.get("href")
         if href and not href.startswith("#"):
             return href
     return None

@@ -61,5 +61,5 @@ def parse_answer(questions: list[Node]) -> dict[str, Any] | None:
         overview = extract_overview(content, question)
         if overview["text"] is None and "sections" not in overview:
             continue
-        return {"question": question.attributes.get("data-q") or None, **overview}
+        return {"question": question.attrs.get("data-q") or None, **overview}
     return None

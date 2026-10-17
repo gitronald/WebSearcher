@@ -8,6 +8,17 @@ from .extractor_main import _find_all_with_class
 log = logging.getLogger(__name__)
 
 
+def _within_any(node: Node, containers: list[Node]) -> bool:
+    """True if ``node`` is one of ``containers`` or sits inside one of them."""
+    ids = {c.mem_id for c in containers}
+    cur: Node | None = node
+    while cur is not None:
+        if cur.mem_id in ids:
+            return True
+        cur = cur.parent
+    return False
+
+
 class ExtractorFooter:
     def __init__(self, soup: Node | None, components: ComponentList):
         self.soup: Node | None = soup
@@ -34,7 +45,9 @@ class ExtractorFooter:
                     footer_component_list.append(footer_component_div)
 
         omitted_notice = self.soup.css_first("div.ClPXac")
-        if omitted_notice is not None:
+        if omitted_notice is not None and not _within_any(omitted_notice, footer_component_list):
+            # A notice nested inside #bres (or an expanded MjjYud) is already
+            # part of that component; adding it again would double-count it.
             footer_component_list.append(omitted_notice)
 
         footer_component_list = [

@@ -258,6 +258,225 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, best known for its consumer electronics, software and online services.",
+      "title": null,
+      "type": "side_bar",
+      "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info description",
+        "items": [
+          {
+            "text": "Wikipedia",
+            "url": "https://en.wikipedia.org/wiki/Apple_Inc."
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Description Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, best known for its consumer electronics, software and online services. Wikipedia",
+      "title": "Company-info description",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info ceo",
+        "items": [
+          {
+            "text": "Tim Cook",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Tim+Cook&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmtNOjCzcEsa9uj8lo5PdA6WdQRVxP8HocIlyiAARiR2qXG_9xUCYs2hNC6z4qQWsTG4KnwkxWo8RcsJZIOnFc-bxjjfxgCNA-GiJHWB99oVeGZ1FJPP15Grs2Oe1FO0NH3nsQBHAHC-w4miUA8JNP0VpDdoh&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgUEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Tim Cook (Aug 24, 2011–)",
+      "title": "CEO",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info founded",
+        "items": [
+          {
+            "text": "Los Altos, CA",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Los+Altos&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRpFZIToXHvuSbi8erQ7I6qygkQcL1APeEj312ytydGKDxc4j6yBflWsl6GZPgkihEwQb_mUAmA0ZreW6RIvX8mdIrGEcxYB2PKIlN-NZr1oW_DK7q7VO_Bsf5VtY40Ppp-hsiPfwEXpCHqZcOHH_epfz3UHM&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgWEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "April 1, 1976, Los Altos, CA",
+      "title": "Founded",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info founder",
+        "items": [
+          {
+            "text": "Steve Jobs",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Steve+Jobs&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRp5AN7pSj-df7-yeAd-O-MNrHPiCv31ZE8seYfJ6A5Epe0wpI241ZM8gnCpniGQ60HpQCnIO4Rwgpx9PTyUSJ6RwcyLtrN-g7eUHRw1kokCecQ9nWev6yXCks3ZnHI-1rMlyJpMbCeSf5u1qIUs8FzI2e4EV&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgXEAI"
+          },
+          {
+            "text": "Ronald Wayne",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Ronald+Wayne&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmo0-bSY6oiZZO1OVwcm8AHHrPhW6dX66QXSCS92MQqI646HB1b8bFLX2FEH2azsLO5fRZCRwjT1k5Zt40BEf-mYg45z9QAACRLZq0FWgkSKhRuOCPgzQI5wPcWI-MW04xNT8TTX8wmuYQ2KfbaLtSOD10xiM&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgXEAM"
+          },
+          {
+            "text": "Steve Wozniak",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Steve+Wozniak&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRjjsFYlFp_giRDDSJ2emYt9YAAeoaNZa43h5DuRXKi7I1kt0vO6ls7TpWk6uk4_GRrWs8p3JDAILA3GmIvpp2IaHcTZoSlob0aZWmD-iCjr7kbdRitf09UvymluEO3KEGsfdA_tND_BxcfKQTlCOCwf-Hwle&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgXEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Steve Jobs , Ronald Wayne , Steve Wozniak",
+      "title": "Founders",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info headquarters",
+        "items": [
+          {
+            "text": "Cupertino, CA",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Cupertino&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRvxlFRj6UQ4pyEpMZ2ecxArZ7obeZLFZtx5kiffxoFfQloxCJ1DfX09BETMU-eiFNntks-o4eh_rE1GrChf8v8MdutGEy710JzpxjLY_ZjPuxwV1qA1Ug4N2-zOX-19y-bBOggfo4VBRfctjWkW_7krAjOrt&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgYEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Cupertino, CA",
+      "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info no-of-employees",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "166,000 (2025)",
+      "title": "Number of employees",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:company-info subsidiaries",
+        "items": [
+          {
+            "text": "Beddit",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Beddit&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnf28tyk_SgTT76oiX0sqwqBwq_3KofjtvmaqlYbl4Gk4GBHP6YC72CjMmBp2QrzhnS8YtDMikb5Rmhu6jcvOAwOi3JDwwxDkgvjirNZMOunocM51FnyWG3NIzl7XJBxdrAvhW2ZLGfvAOrHTIJLQ8eISj0lQXCUyl4BnrffOEbK7UszvHQ%3D%3D&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgeEAI"
+          },
+          {
+            "text": "Beats by Dre",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Beats+by+Dre&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTNLc-n1eCobrf68e0G-VvaFwBKWVPDeKksTyiQofepTcqzMZmcD3rK8NcylE0_QvjqJVlt-8rKvaQ8t6jSOwi04pskZLDRP-Nyi6GgRePC-Az-ciEjYD8b5d7PczXVrPGiF4JnuI5AFPAQPd5sUhxNz0XnuucsnRLi8pt2murS3N9PllKg%3D%3D&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgeEAM"
+          },
+          {
+            "text": "Apple Store",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Apple+Store&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmhZEcVGVpa_L3mU1SP30zkCTbTyUhJNsfAM5WZEppxk3BMgx0R0r-ueSKJxD5VjgJYNkjB5uoX5JSG1bdaRxOMg8MoLof65ZXKwiTP2gsSRpYPHOs_BqD-fwwllJxebhwENFc0XsLlE7pEEv2pHzxGTStGq4&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgeEAQ"
+          },
+          {
+            "text": "Apple Studios",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Apple+Studios&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnQBFrbYIJmULoicQsmgDW819u98xEiIhGvxuaPxlxxoqULi0VjQBumNMyfoNNW4i3Aolwl38LgA1qQXHKq_bVa6scHpsqj7Rdev052MIxjZwJNUjFNNaQX2oE2zSCwj3gCdJ8nhfDB8jSEQ0RfXTuWSbL1LJCKj763pTzcXA-kMkFtta2g%3D%3D&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4QmxN6BAgeEAU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Beddit , Beats by Dre , Apple Store , Apple Studios · See more",
+      "title": "Subsidiaries",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "attrid": "kc:/finance/stock:related markets",
+        "items": [
+          {
+            "text": "Dow Jones Industrial Average 50,115.67 2.47%",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Dow+Jones+Industrial+Average&stick=H4sIAAAAAAAAAONgecRozC3w8sc9YSmtSWtOXmNU4eIKzsgvd80rySypFBLjYoOyeKS4uDj0c_UNkgsry3kWscq45JcreOXnpRYreOallBaXFGUm5ig4lqUWJaanAgA_DJ8HVwAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q0uIBegQIHxAB"
+          },
+          {
+            "text": "S&P 500 6,932.30 1.97%",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=S%26P+500&stick=H4sIAAAAAAAAAONgecRowi3w8sc9YSntSWtOXmNU5eIKzsgvd80rySypFBLnYoOyeKW4uTj1c_UNDM0qi4t5FrGyB6sFKJgaGAAADrlAZUMAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q0uIBegQIHxAC"
+          },
+          {
+            "text": "Nasdaq Composite 23,031.21 2.18%",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Nasdaq+Composite&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNjCxMjYtyeBaxCvglFqckFio45-cW5BdnlqQCAKFIOJZNAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q0uIBegQIHxAD"
+          },
+          {
+            "text": "Russell 2000 Index 2,670.34 3.60%",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Russell+2000+Index&stick=H4sIAAAAAAAAAONgecRowi3w8sc9YSntSWtOXmNU5eIKzsgvd80rySypFBLnYoOyeKW4uTj1c_UNTKrK0sp5FrEKBZUWF6fm5CgYGRgYKHjmpaRWAABOlBlSTgAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q0uIBegQIHxAE"
+          },
+          {
+            "text": "NYSE Composite 23,252.81 2.29%",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=NYSE+Composite&stick=H4sIAAAAAAAAAONgecRoyi3w8sc9YSmdSWtOXmNU4-IKzsgvd80rySypFJLgYoOy-KR4uLj0c_UNjAqysvIseRax8vlFBrsqOOfnFuQXZ5akAgCFXkhqSwAAAA&sa=X&ved=2ahUKEwjt6qyFicaSAxX5RzABHWAvPe4Q0uIBegQIHxAF"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Dow Jones Industrial Average 50,115.67 2.47% S&P 500 6,932.30 1.97% Nasdaq Composite 23,031.21 2.18% Russell 2000 Index 2,670.34 3.60% NYSE Composite 23,252.81 2.29%",
+      "title": "Related markets",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

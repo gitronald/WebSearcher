@@ -143,17 +143,9 @@ def _section_parser_dict(section: Section) -> dict[str, ParserFunc]:
     return {t.name: PARSERS[t.name] for t in types_in_section(section) if t.name in PARSERS}
 
 
-def _section_parser_labels(section: Section) -> dict[str, str]:
-    return {t.name: t.label for t in types_in_section(section) if t.name in PARSERS}
-
-
 header_parser_dict = _section_parser_dict("header")
 main_parser_dict = _section_parser_dict("main")
 footer_parser_dict = _section_parser_dict("footer")
-
-header_parser_labels = _section_parser_labels("header")
-main_parser_labels = _section_parser_labels("main")
-footer_parser_labels = _section_parser_labels("footer")
 
 
 def parse_unknown(elem: Node) -> list[dict[str, Any]]:

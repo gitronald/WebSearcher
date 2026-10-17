@@ -1,12 +1,25 @@
-from typing import Any
+from collections.abc import Callable
 
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import _iter_text_fragments, class_tokens, get_text
 from ..parsers.component_types import header_text_to_type
 
-_VIDEO_CLASSES = {"VibNM", "mLmaBd", "RzdJxc", "sHEJob"}
-_LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}
+# Class / id signals shared by a classifier's precondition (set membership on the
+# component's signals) and the classifier's own selector, so the two cannot drift
+# apart -- a token present in only one of them would silently disable the rule.
+_VIDEO_CLASSES = frozenset({"VibNM", "mLmaBd", "RzdJxc", "sHEJob"})
+_LOCAL_CLASSES = frozenset({"Qq3Lb", "VkpGBb"})
+_IMAGE_IDS = ("imagebox_bigimages", "iur")
+
+
+def _class_css(classes: frozenset[str]) -> str:
+    return ", ".join(f"div.{c}" for c in sorted(classes))
+
+
+_VIDEO_CSS = _class_css(_VIDEO_CLASSES)
+_LOCAL_CSS = _class_css(_LOCAL_CLASSES)
+_IMAGE_CSS = ", ".join(f'div[id="{i}"]' for i in _IMAGE_IDS)
 
 
 # Tag names and ids the classifier chain actually gates on. The chain consults
@@ -15,8 +28,8 @@ _LOCAL_CLASSES = {"Qq3Lb", "VkpGBb"}
 # one frozenset membership test per element instead of growing a set ~2.5M times
 # per corpus pass. NOTE: any new precondition that tests ``s.names``/``s.ids``
 # for a token MUST register it here, or the precondition will silently never
-# fire (the token never enters the set). The 87-snapshot suite pins the existing
-# tokens. ``classes`` is consulted broadly (incl. intersection with
+# fire (the token never enters the set). The parse_serp snapshot suite pins the
+# existing tokens. ``classes`` is consulted broadly (incl. intersection with
 # ``_VIDEO_CLASSES``/``_LOCAL_CLASSES``) so it must stay complete.
 _NAME_SIGNALS: frozenset[str] = frozenset(
     {
@@ -31,12 +44,23 @@ _NAME_SIGNALS: frozenset[str] = frozenset(
 )
 _ID_SIGNALS: frozenset[str] = frozenset(
     {
-        "imagebox_bigimages",
-        "iur",
+        *_IMAGE_IDS,
         "knowledge-finance-wholepage__entity-summary",
         "eer-masthead",
     }
 )
+
+
+def _bounded_text(node: Node, limit: int) -> str:
+    """Stripped, ``""``-joined text of ``node`` (as ``get_text(strip=True)``),
+    but the walk stops once the text exceeds ``limit`` characters -- for exact
+    comparisons against short labels, so a large component is not serialized."""
+    text = ""
+    for frag in _iter_text_fragments(node):
+        text += frag.strip()
+        if len(text) > limit:
+            break
+    return text
 
 
 class _ComponentSignals:
@@ -57,7 +81,7 @@ class _ComponentSignals:
         ids: set[str] = set()
         names: set[str] = set()
         # ``el.attrs`` is a non-allocating view over the element's attribute
-        # table (vs ``el.attributes`` which materializes a dict per call);
+        # table (vs ``el.attrs`` which materializes a dict per call);
         # ``el.id`` is a direct property, 3x cheaper than ``attrs.get('id')``.
         # The leading truthiness guard narrows ``str | None`` -> ``str`` for the
         # type checker and short-circuits the (common) no-id element before the
@@ -136,92 +160,8 @@ class ClassifyMain:
     def classify(cmpt: Node) -> str:
         node: Node = cmpt
         signals = _ComponentSignals(node)
-
-        # Preconditions test ``s.classes`` freely, but any ``s.names``/``s.ids``
-        # token must also live in ``_NAME_SIGNALS``/``_ID_SIGNALS`` (see above) or
-        # the precondition silently never fires.
-        component_classifiers = [
-            (ClassifyMain.locations, None),
-            (ClassifyMain.top_stories, lambda s: "g-scrolling-carousel" in s.names),
-            (ClassifyMain.discussions_and_forums, lambda s: "IFnjPb" in s.classes),
-            # Structural-first: ITWcLb rows type a buying_guide before the
-            # English-only header-text path, so a localized/reworded heading
-            # ("Buying guide: ...") still classifies.
-            (ClassifyMain.buying_guide, lambda s: "ITWcLb" in s.classes),
-            # Structural-first: a left-bar/inline dictionary panel (``dob-modules``,
-            # no ``kp-blk``/``ULSxyf`` wrapper) is a ``knowledge`` panel whose
-            # "Dictionary" label sits in a non-heading span; type it structurally
-            # so ``parse_knowledge_panel``'s ``_subtype_dictionary`` recovers it,
-            # before the header-text path (which would miss it) reaches unknown.
-            (ClassifyMain.dictionary_panel, None),
-            # NOTE: ``most_read_articles`` has no unique structural signal -- it is
-            # classified purely by its English header "Most-read articles" via
-            # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
-            # Unlike buying_guide/products it cannot be made structural-first.
-            (ClassifyMainHeader.classify, None),
-            (ClassifyMain.news_quotes, lambda s: "g-tray-header" in s.names),
-            (ClassifyMain.img_cards, lambda s: "block-component" in s.names),
-            (ClassifyMain.images, lambda s: "imagebox_bigimages" in s.ids or "iur" in s.ids),
-            (
-                ClassifyMain.ai_overview,
-                lambda s: "Fzsovc" in s.classes or "mZJni" in s.classes or "h2" in s.names,
-            ),
-            # available_on's full-component ``get_text`` fallback (the
-            # ``/Available on`` substring path) fires 0x across the corpus; the
-            # real cases are caught by its cheap ``span.mgAbYb`` heading. Gating on
-            # that class stops the expensive fallback from running on the ~10
-            # non-available_on components/SERP that otherwise reach this classifier
-            # (plan 036 Lever 3). Tradeoff: a non-mgAbYb component carrying
-            # ``/Available on`` text would no longer be typed available_on --
-            # unobserved on the corpus, accepted as evidence-backed dead code.
-            (ClassifyMain.available_on, lambda s: "mgAbYb" in s.classes),
-            (ClassifyMain.knowledge_panel, None),
-            (ClassifyMain.knowledge_block, lambda s: "block-component" in s.names),
-            (ClassifyMain.banner, lambda s: "uzjuFc" in s.classes),
-            (
-                ClassifyMain.finance_panel,
-                lambda s: "knowledge-finance-wholepage__entity-summary" in s.ids,
-            ),
-            (ClassifyMain.map_result, lambda s: "lu_map_section" in s.classes),
-            (ClassifyMain.general_questions, lambda s: "ifM9O" in s.classes),
-            (ClassifyMain.short_videos, lambda s: "IFnjPb" in s.classes),
-            (ClassifyMain.videos, lambda s: bool(s.classes & _VIDEO_CLASSES)),
-            (ClassifyMain.knowledge_subcard, lambda s: "JNkvid" in s.classes),
-            (ClassifyMain.twitter, None),
-            (ClassifyMain.flights, None),
-            (ClassifyMain.promo, lambda s: "promo-throttler" in s.names),
-            (
-                ClassifyMain.products,
-                lambda s: (
-                    "product-viewer-group" in s.names
-                    or "g-more-link" in s.names
-                    or "gON1yc" in s.classes
-                ),
-            ),
-            (
-                ClassifyMain.election,
-                lambda s: (
-                    "eer-rc-b" in s.classes or "eer-rc-i" in s.classes or "eer-masthead" in s.ids
-                ),
-            ),
-            (ClassifyMain.general, None),
-            (ClassifyMain.people_also_ask, None),
-            (ClassifyMain.knowledge_box, None),
-            (ClassifyMain.local_results, lambda s: bool(s.classes & _LOCAL_CLASSES)),
-            # End-of-chain rules: each keys on a signal that also lives inside
-            # components other classifiers own (knowledge panels embed lab/
-            # attribute modules and AI-overview controllers; kp hotel sections
-            # carry travel links), so they may only claim components nothing
-            # above typed.
-            (ClassifyMain.knowledge_submodule, None),
-            (ClassifyMain.hotel_carousel, None),
-            (ClassifyMain.gallery, None),
-            (ClassifyMain.images_strip, None),
-            (ClassifyMain.ai_overview_banner, lambda s: "hdzaWe" in s.classes),
-        ]
-
-        for classifier, precondition in component_classifiers:
-            if precondition is not None and not precondition(signals):
+        for classifier, precondition in _COMPONENT_CLASSIFIERS:
+            if precondition is not None and not precondition(signals, node):
                 continue
             cmpt_type = classifier(node)
             if cmpt_type != "unknown":
@@ -350,7 +290,7 @@ class ClassifyMain:
         node_id = node.mem_id
         # bs4 distinguished "class" present vs absent via ``"class" in cmpt.attrs``
         # -- preserve that distinction explicitly.
-        if "class" in node.attributes:
+        if "class" in node.attrs:
             cls = class_tokens(node)
             conditions = {
                 "format-01": cls == ["g"],
@@ -393,7 +333,7 @@ class ClassifyMain:
     @staticmethod
     def img_cards(cmpt: Node) -> str:
         node: Node = cmpt
-        if "class" not in node.attributes:
+        if "class" not in node.attrs:
             return "unknown"
         cls = class_tokens(node)
         if not any(s in {"hlcw0c", "MjjYud"} for s in cls):
@@ -403,7 +343,7 @@ class ClassifyMain:
     @staticmethod
     def images(cmpt: Node) -> str:
         node: Node = cmpt
-        if node.css_first('div[id="imagebox_bigimages"], div[id="iur"]') is not None:
+        if node.css_first(_IMAGE_CSS) is not None:
             return "images"
         return "unknown"
 
@@ -532,32 +472,31 @@ class ClassifyMain:
 
     @staticmethod
     def knowledge_box(cmpt: Node) -> str:
-        """Classify knowledge component types."""
+        """Classify knowledge-adjacent widgets by structural signal, first match wins.
+
+        ``maps``, ``events`` and ``covid_alert`` are registered in
+        ``component_types`` but have no parser yet, so they surface as
+        not-implemented rows rather than being mistyped."""
         node: Node = cmpt
-        attrs = node.attributes
-        condition: dict[str, Any] = {}
-        condition["flights"] = (
-            attrs.get("jscontroller") == "Z2bSc"
+        if (
+            node.attrs.get("jscontroller") == "Z2bSc"
             or node.css_first('div[jscontroller="Z2bSc"]') is not None
-        )
-        condition["maps"] = attrs.get("data-hveid") == "CAMQAA"
-        condition["locations"] = node.css_first("div.zd2Jbb") is not None
-        condition["events"] = node.css_first("g-card.URhAHe") is not None
-        condition["jobs"] = node.css_first("g-card.cvoI5e") is not None
+        ):
+            return "flights"
+        if node.attrs.get("data-hveid") == "CAMQAA":
+            return "maps"
+        if node.css_first("div.zd2Jbb") is not None:
+            return "locations"
+        if node.css_first("g-card.URhAHe") is not None:
+            return "events"
+        if node.css_first("g-card.cvoI5e") is not None:
+            return "jobs"
         # bs4 ``next(iter(cmpt.stripped_strings), None)`` -- first non-blank text
         # fragment in the subtree; ``_iter_text_fragments`` replicates stripped_strings.
-        first_text: str | None = None
-        for raw in _iter_text_fragments(node):
-            stripped = raw.strip()
-            if stripped:
-                first_text = stripped
-                break
-        if first_text is not None:
-            condition["covid_alert"] = first_text == "COVID-19 alert"
-        for condition_type, conditions in condition.items():
-            if conditions:
-                return condition_type
-        return "unknown"
+        first_text = next(
+            (s for s in (raw.strip() for raw in _iter_text_fragments(node)) if s), None
+        )
+        return "covid_alert" if first_text == "COVID-19 alert" else "unknown"
 
     # Descendant signals for a knowledge panel. A single comma-union css_first is a
     # byte-identical boolean OR of the individual probes (which selector matches is
@@ -584,7 +523,7 @@ class ClassifyMain:
     @staticmethod
     def local_results(cmpt: Node) -> str:
         node: Node = cmpt
-        if node.css_first("div.Qq3Lb, div.VkpGBb") is not None:
+        if node.css_first(_LOCAL_CSS) is not None:
             return "local_results"
         return "unknown"
 
@@ -643,11 +582,7 @@ class ClassifyMain:
     def videos(cmpt: Node) -> str:
         """Classify video carousel components."""
         node: Node = cmpt
-        return (
-            "videos"
-            if node.css_first("div.VibNM, div.mLmaBd, div.RzdJxc, div.sHEJob") is not None
-            else "unknown"
-        )
+        return "videos" if node.css_first(_VIDEO_CSS) is not None else "unknown"
 
     @staticmethod
     def knowledge_subcard(cmpt: Node) -> str:
@@ -685,23 +620,110 @@ class ClassifyMain:
     def news_quotes(cmpt: Node) -> str:
         node: Node = cmpt
         header_div = node.css_first('g-tray-header[role="heading"]')
-        text = get_text(header_div, strip=True) if header_div is not None else None
+        text = get_text(header_div, strip=True)
         return "news_quotes" if text == "News quotes" else "unknown"
 
     @staticmethod
     def twitter(cmpt: Node) -> str:
+        """Twitter components ('twitter_cards' carousel vs single 'twitter_result'):
+        a ``div.eejeod`` body, or a bare "Twitter Results" heading block."""
         node: Node = cmpt
-        cmpt_type = "twitter" if node.css_first("div.eejeod") is not None else "unknown"
-        return ClassifyMain.twitter_type(node, cmpt_type)
+        if node.css_first("div.eejeod") is None and _bounded_text(node, 15) != "Twitter Results":
+            return "unknown"
+        return (
+            "twitter_cards"
+            if node.css_first("g-scrolling-carousel") is not None
+            else "twitter_result"
+        )
 
-    @staticmethod
-    def twitter_type(cmpt: Node, cmpt_type: str = "unknown") -> str:
-        """Distinguish twitter types ('twitter_cards', 'twitter_result')."""
-        node: Node = cmpt
-        if cmpt_type == "twitter" or (get_text(node, strip=True) or "") == "Twitter Results":
-            return (
-                "twitter_cards"
-                if node.css_first("g-scrolling-carousel") is not None
-                else "twitter_result"
-            )
-        return cmpt_type
+
+# The classifier chain, in precedence order. A precondition is a *necessary*
+# condition for its classifier (so a skip can never change a classification);
+# it tests the component's one-pass signals and, where a signal is not a class,
+# id or tag name, probes the node directly. Preconditions test ``s.classes``
+# freely, but any ``s.names``/``s.ids`` token must also live in
+# ``_NAME_SIGNALS``/``_ID_SIGNALS`` (see above) or the precondition silently
+# never fires. Built once at import rather than per component.
+_Precondition = Callable[[_ComponentSignals, Node], bool]
+_COMPONENT_CLASSIFIERS: tuple[tuple[Callable[[Node], str], _Precondition | None], ...] = (
+    (ClassifyMain.locations, None),
+    (ClassifyMain.top_stories, lambda s, n: "g-scrolling-carousel" in s.names),
+    (ClassifyMain.discussions_and_forums, lambda s, n: "IFnjPb" in s.classes),
+    # Structural-first: ITWcLb rows type a buying_guide before the
+    # English-only header-text path, so a localized/reworded heading
+    # ("Buying guide: ...") still classifies.
+    (ClassifyMain.buying_guide, lambda s, n: "ITWcLb" in s.classes),
+    # Structural-first: a left-bar/inline dictionary panel (``dob-modules``,
+    # no ``kp-blk``/``ULSxyf`` wrapper) is a ``knowledge`` panel whose
+    # "Dictionary" label sits in a non-heading span; type it structurally
+    # so ``parse_knowledge_panel``'s ``_subtype_dictionary`` recovers it,
+    # before the header-text path (which would miss it) reaches unknown.
+    (ClassifyMain.dictionary_panel, None),
+    # NOTE: ``most_read_articles`` has no unique structural signal -- it is
+    # classified purely by its English header "Most-read articles" via
+    # ``ClassifyMainHeader`` below, so a localized heading is unclassifiable.
+    # Unlike buying_guide/products it cannot be made structural-first.
+    (ClassifyMainHeader.classify, None),
+    (ClassifyMain.news_quotes, lambda s, n: "g-tray-header" in s.names),
+    (ClassifyMain.img_cards, lambda s, n: "block-component" in s.names),
+    (ClassifyMain.images, lambda s, n: any(i in s.ids for i in _IMAGE_IDS)),
+    (
+        ClassifyMain.ai_overview,
+        lambda s, n: "Fzsovc" in s.classes or "mZJni" in s.classes or "h2" in s.names,
+    ),
+    # available_on's full-component ``get_text`` fallback (the
+    # ``/Available on`` substring path) fires 0x across the corpus; the
+    # real cases are caught by its cheap ``span.mgAbYb`` heading. Gating on
+    # that class stops the expensive fallback from running on the ~10
+    # non-available_on components/SERP that otherwise reach this classifier
+    # (plan 036 Lever 3). Tradeoff: a non-mgAbYb component carrying
+    # ``/Available on`` text would no longer be typed available_on --
+    # unobserved on the corpus, accepted as evidence-backed dead code.
+    (ClassifyMain.available_on, lambda s, n: "mgAbYb" in s.classes),
+    (ClassifyMain.knowledge_panel, None),
+    (ClassifyMain.knowledge_block, lambda s, n: "block-component" in s.names),
+    (ClassifyMain.banner, lambda s, n: "uzjuFc" in s.classes),
+    (
+        ClassifyMain.finance_panel,
+        lambda s, n: "knowledge-finance-wholepage__entity-summary" in s.ids,
+    ),
+    (ClassifyMain.map_result, lambda s, n: "lu_map_section" in s.classes),
+    (ClassifyMain.general_questions, lambda s, n: "ifM9O" in s.classes),
+    (ClassifyMain.short_videos, lambda s, n: "IFnjPb" in s.classes),
+    (ClassifyMain.videos, lambda s, n: bool(s.classes & _VIDEO_CLASSES)),
+    (ClassifyMain.knowledge_subcard, lambda s, n: "JNkvid" in s.classes),
+    (ClassifyMain.twitter, None),
+    (ClassifyMain.flights, None),
+    (ClassifyMain.promo, lambda s, n: "promo-throttler" in s.names),
+    # ``products`` also fires on ``[data-attrid="apg-product-result"]`` cards and
+    # an "Explore brands" heading, neither a class/id/tag signal, so the gate
+    # probes for them directly rather than silently excluding those layouts.
+    (
+        ClassifyMain.products,
+        lambda s, n: (
+            "product-viewer-group" in s.names
+            or "g-more-link" in s.names
+            or "gON1yc" in s.classes
+            or n.css_first('[data-attrid="apg-product-result"], [role="heading"]') is not None
+        ),
+    ),
+    (
+        ClassifyMain.election,
+        lambda s, n: "eer-rc-b" in s.classes or "eer-rc-i" in s.classes or "eer-masthead" in s.ids,
+    ),
+    (ClassifyMain.general, None),
+    (ClassifyMain.people_also_ask, None),
+    (ClassifyMain.knowledge_box, None),
+    (ClassifyMain.local_results, lambda s, n: bool(s.classes & _LOCAL_CLASSES)),
+    # End-of-chain rules: each keys on a signal that also lives inside
+    # components other classifiers own (knowledge panels embed lab/
+    # attribute modules and AI-overview controllers; kp hotel sections
+    # carry travel links), so they may only claim components nothing
+    # above typed. ``ai_overview_banner`` keys on the ``EYwa3d`` controller,
+    # which is a jscontroller attribute rather than a class, so it has no gate.
+    (ClassifyMain.knowledge_submodule, None),
+    (ClassifyMain.hotel_carousel, None),
+    (ClassifyMain.gallery, None),
+    (ClassifyMain.images_strip, None),
+    (ClassifyMain.ai_overview_banner, None),
+)

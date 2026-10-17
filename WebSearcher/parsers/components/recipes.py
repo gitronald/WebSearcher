@@ -13,6 +13,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ._common import first_text
 
 _CARD_CLASS = "a-no-hover-decoration"
 # Async-loaded ("Popular recipes") carousel: each card is a div wrapping a title
@@ -38,22 +39,22 @@ def parse_recipes(elem: Node) -> list[dict[str, Any]]:
 
 
 def _parse_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
-    href = card.attributes.get("href")
+    href = card.attrs.get("href")
     if not href:
         # Async variant: the card is a wrapper div, url is on an inner anchor.
         anchor = card.css_first("a[href]")
-        href = anchor.attributes.get("href") if anchor is not None else None
+        href = anchor.attrs.get("href") if anchor is not None else None
     parsed: dict[str, Any] = {
         "type": "recipes",
         "sub_rank": sub_rank,
-        "title": _text(card, _TITLE_CLASS),
+        "title": first_text(card, f"div.{_TITLE_CLASS}"),
         "url": str(href) if href else None,
         "text": None,
         "cite": None,
     }
 
     details: dict[str, Any] = {"type": "ratings"}
-    source = _text(card, _SOURCE_CLASS)
+    source = first_text(card, f"div.{_SOURCE_CLASS}")
     if source:
         details["source"] = source
     rating = _rating(card)
@@ -62,10 +63,10 @@ def _parse_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     n_reviews = _n_reviews(card)
     if n_reviews is not None:
         details["n_reviews"] = n_reviews
-    duration = _text(card, _DURATION_CLASS)
+    duration = first_text(card, f"div.{_DURATION_CLASS}")
     if duration:
         details["duration"] = duration
-    ingredients = _text(card, _INGREDIENTS_CLASS)
+    ingredients = first_text(card, f"div.{_INGREDIENTS_CLASS}")
     if ingredients:
         details["ingredients"] = ingredients
 
@@ -73,19 +74,11 @@ def _parse_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     return parsed
 
 
-def _text(card: Node, class_: str) -> str | None:
-    div = card.css_first(f"div.{class_}")
-    if div is None:
-        return None
-    text = get_text(div, " ", strip=True)
-    return text or None
-
-
 def _rating(card: Node) -> str | None:
     """Read the rating from the ``z3HNkc`` aria-label, falling back to text."""
     span = card.css_first(f"span.{_RATING_CLASS}")
-    if span is not None and span.attributes.get("aria-label"):
-        match = re.search(r"[\d.]+", str(span.attributes["aria-label"]))
+    if span is not None and span.attrs.get("aria-label"):
+        match = re.search(r"[\d.]+", str(span.attrs["aria-label"]))
         if match:
             return match.group()
     span = card.css_first(f"span.{_RATING_TEXT_CLASS}")

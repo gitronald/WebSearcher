@@ -332,6 +332,19 @@
       "title": null,
       "type": "searches_related",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "See results about",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

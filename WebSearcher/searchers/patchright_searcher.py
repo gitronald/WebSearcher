@@ -14,7 +14,6 @@ import tempfile
 import time
 import weakref
 from collections.abc import Callable
-from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -90,14 +89,20 @@ class PatchrightSearcher:
 
         self.playwright = sync_playwright().start()
         self._register_exit_hook()
-        self.context = self.playwright.chromium.launch_persistent_context(
-            user_data_dir=user_data_dir,
-            channel=self.config.channel,
-            headless=self.config.headless,
-            no_viewport=True,
-            chromium_sandbox=self.config.chromium_sandbox,
-        )
-        self.page = self.context.pages[0] if self.context.pages else self.context.new_page()
+        try:
+            self.context = self.playwright.chromium.launch_persistent_context(
+                user_data_dir=user_data_dir,
+                channel=self.config.channel,
+                headless=self.config.headless,
+                no_viewport=True,
+                chromium_sandbox=self.config.chromium_sandbox,
+            )
+            self.page = self.context.pages[0] if self.context.pages else self.context.new_page()
+        except Exception:
+            # Chrome missing, profile locked, ...: stop the driver and drop the
+            # temp profile now rather than leaving them to garbage collection.
+            self.cleanup()
+            raise
 
         browser_version = ""
         if self.context.browser is not None:
@@ -123,7 +128,7 @@ class PatchrightSearcher:
         response_output = ResponseOutput(
             url=search_params.url,
             user_agent=self.browser_info.get("user_agent", ""),
-            timestamp=datetime.now(UTC).replace(tzinfo=None).isoformat(),
+            timestamp=utils.utc_timestamp(),
         )
 
         pre_nav_url: str | None = None
@@ -222,9 +227,13 @@ class PatchrightSearcher:
             return True
 
         try:
-            if self.context is not None:
-                self.context.close()
-            self.playwright.stop()
+            # Stop the driver even when closing the context fails (Chrome already
+            # crashed or was closed by hand), or its node process is orphaned.
+            try:
+                if self.context is not None:
+                    self.context.close()
+            finally:
+                self.playwright.stop()
             self.log.debug("Browser successfully closed", extra={"event": "cleanup"})
             return True
         except Exception as e:

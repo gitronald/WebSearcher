@@ -1,7 +1,7 @@
 """Parse the AI Overview component.
 
 Google's AI Overview is a synthesized answer panel that appears at or near the
-top of a SERP. It comes in two layouts:
+top of a SERP. It comes in three states:
 
 - ``flat`` — a single answer block (intro paragraph + optional bullet list)
 - ``sectioned`` — an intro lede followed by N section subheadings (each with its
@@ -11,7 +11,7 @@ top of a SERP. It comes in two layouts:
   sources; recorded explicitly so a decline is distinguishable from a parser
   miss (which stays ``flat`` with empty output).
 
-Both layouts share a "Sources" tray at the bottom that lists the publishers the
+The flat and sectioned layouts share a "Sources" tray at the bottom that lists the publishers the
 overview drew from. Per-section ``button.rBl3me`` widgets carry citation
 metadata sourced from JSON payloads that Google ships in HTML comments / script
 pushes alongside the rendered markup. See ``_ai_overview_payloads`` for the
@@ -43,7 +43,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import class_tokens, get_text
+from ..._slx import class_tokens, get_text, subtree_css, walk_descendants
 from ._ai_overview_payloads import extract_payloads
 
 # Set by ``parse_serp`` so ``_root_html`` skips a full-document serialization
@@ -248,16 +248,13 @@ def _extract_body(
 
 def _collect_body_elements(content: Node) -> list[Node]:
     """Collect paragraph/heading/list elements from the body in document order."""
-    self_id = content.mem_id
     paragraphs: list[Node] = []
     for cls in _BODY_PARA_CLASSES:
-        paragraphs.extend(n for n in content.css(f"div.{cls}") if n.mem_id != self_id)
-    headings = [n for n in content.css(_BODY_HEADING_CSS) if n.mem_id != self_id]
+        paragraphs.extend(subtree_css(content, f"div.{cls}"))
+    headings = subtree_css(content, _BODY_HEADING_CSS)
     lists: list[Node] = []
     for cls in _LIST_CLASSES:
-        for elem in content.css(f"ul.{cls}, ol.{cls}"):
-            if elem.mem_id != self_id:
-                lists.append(elem)
+        lists.extend(subtree_css(content, f"ul.{cls}, ol.{cls}"))
 
     # Keyed by mem_id: a comma-union selector yields an element once per
     # selector it matches (``otQkpb`` headings also carry the role attributes).
@@ -266,7 +263,7 @@ def _collect_body_elements(content: Node) -> list[Node]:
     # inside one another in some layouts).
     elements = _drop_nested_descendants(elements)
     elements = [e for e in elements if _find_parent_tag_class(e, "div", _FOLLOW_UP_CLASS) is None]
-    return sorted(elements, key=_doc_position)
+    return _in_document_order(content, elements)
 
 
 def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
@@ -285,17 +282,14 @@ def _drop_nested_descendants(elements: list[Node]) -> list[Node]:
     return kept
 
 
-def _doc_position(elem: Node) -> tuple[int, ...]:
-    """Crude document position via ancestor chain indices."""
-    path = []
-    node: Node | None = elem
-    while node is not None and node.parent is not None:
-        siblings = list(node.parent.iter(include_text=False))
-        node_id = node.mem_id
-        idx = next((i for i, s in enumerate(siblings) if s.mem_id == node_id), 0)
-        path.append(idx)
-        node = node.parent
-    return tuple(reversed(path))
+def _in_document_order(root: Node, elements: list[Node]) -> list[Node]:
+    """``elements`` (descendants of ``root``) sorted into document order.
+
+    One pre-order walk of ``root`` assigns each descendant an index, so the sort
+    is linear in the subtree instead of rebuilding every ancestor's sibling
+    list per element. Elements outside ``root`` (none in practice) sort last."""
+    order = {n.mem_id: i for i, n in enumerate(walk_descendants(root))}
+    return sorted(elements, key=lambda e: order.get(e.mem_id, len(order)))
 
 
 def _is_section_heading(elem: Node) -> bool:
@@ -304,7 +298,7 @@ def _is_section_heading(elem: Node) -> bool:
     cls = class_tokens(elem)
     if _BODY_HEADING_CLASS in cls:
         return True
-    return elem.attributes.get("role") == "heading" and elem.attributes.get("aria-level") == "3"
+    return elem.attrs.get("role") == "heading" and elem.attrs.get("aria-level") == "3"
 
 
 def _collect_inline_links(
@@ -319,7 +313,7 @@ def _collect_inline_links(
     links = []
     seen: set[str] = set()
     for a in elem.css("a[href]"):
-        href = str(a.attributes["href"])
+        href = str(a.attrs["href"])
         if href == "#" or href.startswith("/search?"):
             continue
         if _find_parent_tag_class(a, "ul", "bTFeG") is not None:
@@ -349,7 +343,7 @@ def _extract_button_citations(
     """Build citation dicts for the citation buttons within ``elem``."""
     citations: list[dict[str, Any]] = []
     for button in elem.css(_CITATION_BUTTON_CSS):
-        uuid_raw = button.attributes.get("data-icl-uuid")
+        uuid_raw = button.attrs.get("data-icl-uuid")
         if not uuid_raw:
             continue
         uuid = str(uuid_raw)
@@ -466,11 +460,11 @@ def _extract_sources(
     sources = []
     seen_src_ids: set[str] = set()
     for card in cards:
-        src_id_node = card if "data-src-id" in card.attributes else card.css_first("[data-src-id]")
-        src_id_raw = src_id_node.attributes.get("data-src-id") if src_id_node is not None else None
+        src_id_node = card if "data-src-id" in card.attrs else card.css_first("[data-src-id]")
+        src_id_raw = src_id_node.attrs.get("data-src-id") if src_id_node is not None else None
         src_id = str(src_id_raw) if src_id_raw else None
         a = card.css_first("a[href]")
-        href = str(a.attributes["href"]) if a is not None else None
+        href = str(a.attrs["href"]) if a is not None else None
         if not href or href == "#":
             continue
         if src_id and src_id in seen_src_ids:
@@ -511,17 +505,14 @@ _SOURCES_UL_CLASS = "zVKf0d"
 
 def _extract_body_legacy(content: Node) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]]]:
     """Walk the 2024 SGE body into lede + sections (no payload citations)."""
-    self_id = content.mem_id
-    paragraphs = [n for n in content.css(f"div.{_LEGACY_PARA_CLASS}") if n.mem_id != self_id]
+    paragraphs = subtree_css(content, f"div.{_LEGACY_PARA_CLASS}")
     lists = [
         lst
-        for lst in content.css("ul, ol")
-        if lst.mem_id != self_id
-        and _SOURCES_UL_CLASS not in class_tokens(lst)
+        for lst in subtree_css(content, "ul, ol")
+        if _SOURCES_UL_CLASS not in class_tokens(lst)
         and _find_parent_tag_class(lst, "li", _LEGACY_SOURCE_LI_CLASS) is None
     ]
-    elements = _drop_nested_descendants(paragraphs + lists)
-    elements = sorted(elements, key=_doc_position)
+    elements = _in_document_order(content, _drop_nested_descendants(paragraphs + lists))
     if not elements:
         return "", [], []
 
@@ -572,19 +563,19 @@ def _extract_sources_legacy(node: Node) -> list[dict[str, Any]]:
         a = li.css_first("a[href]")
         if a is None:
             continue
-        href = str(a.attributes["href"])
+        href = str(a.attrs["href"])
         if not href or href == "#" or href in seen:
             continue
         seen.add(href)
 
-        title = a.attributes.get("aria-label")
+        title = a.attrs.get("aria-label")
         if not title:
             title_div = li.css_first("div.mNme1d")
-            title = get_text(title_div, " ", strip=True) if title_div is not None else None
+            title = get_text(title_div, " ", strip=True)
         publisher_div = li.css_first("div.R8BTeb")
         publisher = get_text(publisher_div, " ", strip=True) if publisher_div is not None else ""
         snippet_span = li.css_first("span.gxZfx")
-        snippet = get_text(snippet_span, " ", strip=True) if snippet_span is not None else None
+        snippet = get_text(snippet_span, " ", strip=True)
 
         sources.append(
             {

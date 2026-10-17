@@ -6,11 +6,16 @@ calls selectolax's ``HTMLParser`` / ``Node`` API directly. This module hosts
 the small set of helpers that don't translate cleanly to a bare ``.css(...)``
 call:
 
-- bs4-faithful ``get_text`` (strip-then-drop-empties; skip script/style/template)
-  -- selectolax native ``Node.text(strip=True)`` keeps empty fragments, which
-  silently breaks slug and link-key parsers downstream.
+- bs4-faithful ``get_text`` (strip-then-drop-empties; skip script/style/template
+  *descendants* -- a root that is itself one of those tags still yields its
+  text) -- selectolax native ``Node.text(strip=True)`` keeps empty fragments,
+  which silently breaks slug and link-key parsers downstream.
+- ``has_text`` -- short-circuiting "subtree has any non-whitespace text" probe;
+  the extractors' emptiness check.
 - ``class_tokens`` -- ``class`` is a whitespace-separated string in selectolax,
   not a list as in bs4.
+- ``is_element`` -- bs4 ``isinstance(x, Tag)``: filters the comment/CDATA nodes
+  that ``Node.iter(include_text=False)`` still yields.
 - ``walk_descendants`` -- pre-order DFS over a node's subtree.
   Necessary because ``Node.traverse(...)`` walks the *entire document* from
   this point forward, not just the subtree.
@@ -21,8 +26,8 @@ call:
 - ``next_sibling`` / ``previous_sibling`` / ``next_siblings`` -- text-inclusive,
   matching bs4 (selectolax ``.next`` may skip text nodes).
 - ``node_string`` -- bs4 ``Tag.string`` semantics (single-string-child, recursing
-  through a single tag child). Used by the one ``find(name_list, string=True)``
-  call site in ``knowledge.py``.
+  through a single tag child). Used by the ``find(name_list, string=True)``
+  call sites in ``knowledge.py``.
 - ``reparse_fragment`` -- re-parse a node's HTML into an independent tree, for
   the ``copy.copy(tag)`` pattern that the notices parser relies on.
 - ``make_soup`` -- ``HTMLParser(html).root`` with bytes handling.
@@ -212,12 +217,25 @@ def is_hidden(node: Node | None) -> bool:
     or JS-driven runtime hiding -- both out of scope (they would require a CSS
     or JS engine). Returns ``False`` for ``None`` so parsers can chain
     ``css_first`` + ``is_hidden`` without a guard."""
-    while node is not None:
-        style = (node.attributes.get("style") or "").lower().replace(" ", "")
+    # ``.attrs`` (a view, no dict allocation) is only defined on element nodes;
+    # the walk ends at the document node above ``<html>``, so stop there.
+    while node is not None and is_element(node):
+        style = (node.attrs.get("style") or "").lower().replace(" ", "")
         if "display:none" in style:
             return True
         node = node.parent
     return False
+
+
+def is_element(node: Node | None) -> bool:
+    """True if ``node`` is a real element (bs4 ``isinstance(x, Tag)``).
+
+    ``Node.iter(include_text=False)`` still yields comment and CDATA nodes, whose
+    ``tag`` starts with ``"-"`` (``"-comment"``); text nodes are ``"-text"``.
+    Parsers that destructure a card's children or enumerate a container's
+    children use this to skip them, since a comment would otherwise parse into
+    an all-``None`` row and shift every later ``sub_rank``."""
+    return node is not None and bool(node.tag) and not node.tag.startswith("-")
 
 
 def next_sibling(node: Node, include_text: bool = True) -> Node | None:

@@ -28,17 +28,19 @@ def parse_twitter_header(node: Node, sub_rank: int = 0) -> dict[str, Any]:
     element_legacy = node.css_first("h3.r")
     if node.css_first("h3") is not None:
         if element_legacy is not None:
-            href = element_legacy.attributes.get("href", "")
+            # The h3 carries no href of its own; the link is its anchor child.
+            link = element_legacy.css_first("a")
+            href = link.attrs.get("href") if link is not None else None
             parsed["url"] = url_unquote(str(href)) if href else None
-            parsed["title"] = get_text(element_legacy.css_first("a"), " ")
+            parsed["title"] = get_text(link, " ")
         elif element_current is not None:
             link = element_current.css_first("a")
-            href = link.attributes.get("href") if link is not None else None
+            href = link.attrs.get("href") if link is not None else None
             parsed["url"] = url_unquote(str(href)) if href else None
             parsed["title"] = get_text(element_current, " ")
     elif element_current is not None:
         link = element_current.css_first("a")
-        parsed["url"] = link.attributes.get("href") if link is not None else None
+        parsed["url"] = link.attrs.get("href") if link is not None else None
         parsed["title"] = get_text(element_current, " ")
     parsed["cite"] = get_text(node.css_first("cite"), " ")
 
@@ -56,7 +58,7 @@ def parse_twitter_card(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     div = sub.css_first("div.Brgz0")
     if div is not None:
         a = div.css_first("a")
-        url = a.attributes.get("href") if a is not None else None
+        url = a.attrs.get("href") if a is not None else None
         parsed["url"] = url_unquote(url) if url else None
         parsed["text"] = get_text(div.css_first("div.xcQxib"), " ")
         parsed["cite"] = get_text(div.css_first("div.rmxqbe"), " ")

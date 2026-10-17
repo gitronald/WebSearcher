@@ -57,6 +57,25 @@ def mark_hidden_item(item: dict[str, Any], node: Node | None) -> dict[str, Any]:
     return item
 
 
+def first_text(node: Node, css: str, sep: str = " ") -> str | None:
+    """Stripped text of the first ``css`` match under ``node``, or ``None`` when
+    there is no match or no text -- the common optional sub-field read that
+    several card parsers each kept a private copy of."""
+    return get_text(node.css_first(css), sep, strip=True) or None
+
+
+def under_any(node: Node, ids: set[int], stop_id: int) -> bool:
+    """True if any ancestor of ``node`` (up to ``stop_id``, exclusive) is in
+    ``ids`` -- the "outermost emitted match wins" check the knowledge parsers
+    use to skip markers nested inside an already-emitted sub-result."""
+    p = node.parent
+    while p is not None and p.mem_id != stop_id:
+        if p.mem_id in ids:
+            return True
+        p = p.parent
+    return False
+
+
 def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict[str, Any]:
     """Extract ``{"url", "text"}`` from an anchor node.
 
@@ -70,12 +89,12 @@ def parse_alink(a: Node, sep: str = "", data_url_fallback: bool = False) -> dict
 
     A missing ``href`` (and ``data-url``, when ``data_url_fallback``) yields
     ``url=None`` rather than raising -- callers needing strict behavior must
-    guard ``"href" in a.attributes`` before calling.
+    guard ``"href" in a.attrs`` before calling.
     """
     if data_url_fallback:
-        url = a.attributes.get("href") or a.attributes.get("data-url")
+        url = a.attrs.get("href") or a.attrs.get("data-url")
     else:
-        url = a.attributes.get("href")
+        url = a.attrs.get("href")
     return {"url": url, "text": get_text(a, sep) or ""}
 
 
@@ -83,6 +102,6 @@ def parse_alink_list(alinks: Iterable[Node], sep: str = "") -> list[dict[str, An
     """Map ``parse_alink`` over real anchor tags that carry an ``href``."""
     items = []
     for a in alinks:
-        if a.tag and not a.tag.startswith("-") and "href" in a.attributes:
+        if a.tag and not a.tag.startswith("-") and "href" in a.attrs:
             items.append(parse_alink(a, sep))
     return items

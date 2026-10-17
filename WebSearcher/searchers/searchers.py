@@ -1,9 +1,8 @@
-from importlib import metadata
 from pathlib import Path
 from types import TracebackType
 from typing import Any
 
-from .. import logger, utils
+from .. import __version__, logger, utils
 from ..models.configs import (
     LogConfig,
     PatchrightConfig,
@@ -17,7 +16,9 @@ from ..parsers.parse_serp import parse_serp
 from .patchright_searcher import PatchrightSearcher
 from .requests_searcher import RequestsSearcher
 
-WS_VERSION = metadata.version("WebSearcher")
+# Stamped on every saved SERP; the same value as ``WebSearcher.__version__`` so a
+# source checkout and an installed wheel report one version.
+WS_VERSION = __version__
 
 
 class SearchEngine:
@@ -37,14 +38,14 @@ class SearchEngine:
             method: The method to use for searching: 'patchright' (a headed Chrome
                 via the patchright stealth fork) or 'requests' (pure HTTP, no
                 browser). Defaults to SearchMethod.PATCHRIGHT.
-            log_config: Common search configuration. Defaults to {}.
+            log_config: Logging configuration (console/file sinks and levels; see
+                ``LogConfig``). Defaults to {}.
             requests_config: Requests-specific configuration. Defaults to {}.
             patchright_config: Patchright-specific configuration. Defaults to {}.
             crawl_id: A unique identifier for the crawl. Defaults to ''.
         """
 
         # Initialize config settings, log, and session data
-        self.method = method.value if isinstance(method, SearchMethod) else method
         self.config = SearchConfig.create(
             {
                 "method": SearchMethod.create(method),
@@ -115,7 +116,8 @@ class SearchEngine:
             lang: A language code (e.g., 'en')
             num_results: The number of results to return
             ai_expand: Whether to expand AI overviews (browser backend only)
-            headers: Custom headers to include in the request
+            headers: Custom headers to include in the request (requests backend
+                only; the browser backend sends Chrome's own headers)
         """
 
         self.log.debug("", extra={"event": "search_config"})
@@ -197,7 +199,8 @@ class SearchEngine:
             utils.write_lines([self.serp], append_to)
         elif save_dir:
             fp = Path(save_dir) / f"{self.serp['serp_id']}.html"
-            with open(fp, "w") as outfile:
+            fp.parent.mkdir(parents=True, exist_ok=True)
+            with open(fp, "w", encoding="utf-8") as outfile:
                 outfile.write(self.serp["html"])
 
     def save_parsed(self, save_dir: str | Path = "", append_to: str | Path = ""):
@@ -224,8 +227,11 @@ class SearchEngine:
             )
             return
 
-        self.serp_metadata = {k: v for k, v in self.serp.items() if k != "html"}
-        utils.write_lines([self.serp_metadata], append_to)
+        utils.write_lines([self._serp_metadata()], append_to)
+
+    def _serp_metadata(self) -> dict[str, Any]:
+        """The SERP record without its HTML."""
+        return {k: v for k, v in self.serp.items() if k != "html"}
 
     def to_record(self) -> dict[str, Any]:
         """Build one merged per-SERP record: metadata (excludes HTML) + features + results.
@@ -236,7 +242,7 @@ class SearchEngine:
         are not duplicated into the record. This merges ``save_search`` and
         ``save_parsed`` into a single write of one logical record.
         """
-        meta = {k: v for k, v in self.serp.items() if k != "html"}
+        meta = self._serp_metadata()
         return {**meta, "features": self.parsed.features, "results": self.parsed.results}
 
     def save_record(self, append_to: str | Path = "", ws_version: str = ""):
@@ -264,8 +270,8 @@ class SearchEngine:
         """Save parsed results
 
         Args:
-            save_dir (str, optional): Save results as `save_dir/results/{serp_id}.json`
-            append_to (bool, optional): Append results to this file path
+            save_dir (str | Path, optional): Save results to `save_dir/results.json`
+            append_to (str | Path, optional): Append results to this file path
         """
         if not save_dir and not append_to:
             self.log.warning(
