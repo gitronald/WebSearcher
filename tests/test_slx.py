@@ -4,6 +4,8 @@ The helpers were previously covered only indirectly through whole-SERP
 snapshots; these pin the bs4-compatibility contracts each one documents.
 """
 
+import pytest
+
 from WebSearcher import _slx
 from WebSearcher._slx import make_soup
 
@@ -139,3 +141,20 @@ def test_make_soup_accepts_bytes_and_nodes():
     root = make_soup(b"<p>caf\xc3\xa9</p>")
     assert _slx.get_text(root.css_first("p")) == "café"
     assert make_soup(root) is root
+
+
+@pytest.mark.parametrize(
+    ("html", "needle", "expected"),
+    [
+        ("<p>ab<b>cd</b>ef</p>", "bcde", True),
+        ("<p>ab<script>cd</script>ef</p>", "bef", True),
+        ("<p>ab<script>cd</script>ef</p>", "bcd", False),
+        ("<p>a</p><p>b</p><p>c</p>", "abc", True),
+        ("<p>abc</p>", "x", False),
+        ("<p>abc</p>", "c", True),
+    ],
+)
+def test_text_contains_matches_joined_text(html, needle, expected):
+    node = make_soup(html)
+    assert _slx.text_contains(node, needle) is expected
+    assert (needle in (_slx.get_text(node) or "")) is expected

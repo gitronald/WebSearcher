@@ -151,6 +151,21 @@ def has_text(node: Node | None) -> bool:
     return False
 
 
+def text_contains(node: Node, needle: str) -> bool:
+    """``needle in get_text(node)`` without joining the whole subtree's text.
+
+    Scans fragments with early exit, carrying only the last ``len(needle) - 1``
+    characters forward so a match split across inline tags is still found."""
+    keep = len(needle) - 1
+    tail = ""
+    for frag in _iter_text_fragments(node):
+        buf = tail + frag
+        if needle in buf:
+            return True
+        tail = buf[-keep:] if keep > 0 else ""
+    return False
+
+
 def class_tokens(node: Node) -> list[str]:
     """Return the ``class`` attribute as a list of tokens (selectolax stores it
     as a single whitespace-separated string). Uses ``node.attrs`` (a view) so
