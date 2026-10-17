@@ -1,10 +1,10 @@
 ---
 id: 61
 slug: paa-embedded-ai-overview
-status: implemented
+status: done
 branch: feature/paa-embedded-ai-overview
 created: 2026-10-16T15:06:11-07:00
-concluded:
+concluded: 2026-10-16T20:21:30-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/204
 ---
 
@@ -103,3 +103,10 @@ generated answer. Choose the output shape before writing code:
   - Review follow-up: raised: `_question_of` walked past the PAA component to any outer `data-q`; `general_questions` carries `details.answer` without the PAA's `sub_type`; skipped answer candidates have citation widgets decomposed before the skip.
   - Actioned (6f36f2d): `parse_answer` iterates the component's question pairs and takes each one's `div.mZJni`, so the lookup is bounded to the component. Regression test `test_paa_answer_bounded_to_question_pairs` fails on the previous parser; snapshots unchanged.
   - Conscious no-ops: the `general_questions` shape (0 such rows in the corpus or the 2026-10 run; its `sub_type` belongs to the general parser) and the mutation before the skip (nothing reads a skipped subtree). Rejected: per-call index rebuild (0.004 ms vs about 20 ms per parse_serp), src-id collisions, and empty `data-q`.
+
+## Retrospective
+
+- Deciding the output shape first (step 1) kept the change small: keeping the answer inside the PAA row avoided a component that emits rows of two types, and left `ai_overview` row counts for 2026-10 SERPs unchanged.
+- Pulling `extract_overview` out of plan 060's parser paid off at once. The PAA answer reuses the body, citation, and source code unchanged, and every main-overview snapshot stayed byte-identical, which showed the refactor was safe.
+- The review's one actionable finding was structural: an upward `data-q` walk could leave the component. Starting from the question pairs the parser already holds is both bounded and simpler. Prefer walking down from known nodes over walking up from a match.
+- The fixture corpus has only 2 embedded answers against 31 in the 2026-10 run. Run-level checks against the local capture caught what the fixtures could not (flat answers, citation and source counts), so keep a run file in the evidence loop for layout-driven plans.
