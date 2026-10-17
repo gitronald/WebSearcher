@@ -9,7 +9,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import class_tokens, get_text
+from ..._slx import class_tokens, get_text, subtree_css
 from ._common import first_text, mark_hidden_row
 
 
@@ -27,11 +27,7 @@ def parse_shopping_ads(elem: Node) -> list[dict[str, Any]]:
     # parser that lacks the aria-label fallback. Narrow with the compound CSS
     # then verify exact class-token list.
     _legacy = ["mnr-c", "pla-unit"]
-    subs = [
-        d
-        for d in node.css("div.mnr-c.pla-unit")
-        if d.mem_id != node.mem_id and class_tokens(d) == _legacy
-    ]
+    subs = [d for d in subtree_css(node, "div.mnr-c.pla-unit") if class_tokens(d) == _legacy]
     if subs:
         return [_parse_pla_unit(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 

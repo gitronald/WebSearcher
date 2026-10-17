@@ -14,7 +14,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, next_sibling, next_siblings, previous_sibling
+from ..._slx import get_text, is_element, next_sibling, next_siblings, previous_sibling
 from ._common import parse_alink, under_any
 
 # Chrome links that show up inside RHS boxes but are not content.
@@ -35,9 +35,7 @@ def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     main_title = parsed_list[0]["title"] if parsed_list else None
     description = node.css_first("h2.Uo8X3b")
     if description is not None and description.parent is not None:
-        tag_subs = [
-            s for s in next_siblings(description.parent) if s.tag and not s.tag.startswith("-")
-        ]
+        tag_subs = [s for s in next_siblings(description.parent) if is_element(s)]
         for i, s in enumerate(tag_subs):
             sub = parse_knowledge_rhs_sub(s, i)
             # Skip hollow follow-on sections (no heading and no links).
@@ -262,7 +260,7 @@ def _box_sibling_text(heading: Node) -> str | None:
     if heading.parent is None:
         return None
     for s in next_siblings(heading.parent):
-        if s.tag and not s.tag.startswith("-"):
+        if is_element(s):
             text = get_text(s, " ", strip=True)
             if text:
                 return text
@@ -346,7 +344,7 @@ def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, An
     h3 = node.css_first("h3")
     if h3 is not None and (get_text(h3) or "") == "Images":
         sibling = next_sibling(h3)
-        if sibling is not None and sibling.tag and not sibling.tag.startswith("-"):
+        if is_element(sibling):
             img_urls = [img.attrs["href"] for img in sibling.css("a") if "href" in img.attrs]
             if img_urls:
                 parsed["details"]["img_urls"] = img_urls
@@ -382,7 +380,7 @@ def parse_knowledge_rhs_main(elem: Node, sub_rank: int = 0) -> list[dict[str, An
     if description is not None and description.parent is not None:
         alinks = list(description.parent.css("a"))
         prev = previous_sibling(description.parent)
-        if prev is not None and prev.tag and not prev.tag.startswith("-"):
+        if is_element(prev):
             alinks += list(prev.css("a"))
         if len(alinks) > 1:  # 1st match has main description
             urls = []

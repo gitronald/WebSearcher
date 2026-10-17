@@ -36,6 +36,7 @@ call:
 from __future__ import annotations
 
 from collections.abc import Iterator
+from typing import TypeGuard
 
 from selectolax.lexbor import LexborHTMLParser as HTMLParser
 from selectolax.lexbor import LexborNode as Node
@@ -151,6 +152,28 @@ def has_text(node: Node | None) -> bool:
     return False
 
 
+def bounded_text(node: Node, limit: int, strip: bool = False) -> str:
+    """Text of ``node`` for an exact comparison against short labels, without
+    walking a large subtree: the walk stops once the text exceeds ``limit``
+    characters, so it can no longer equal a label of ``limit`` or fewer.
+
+    ``strip=True`` matches ``get_text(node, strip=True)`` (each fragment
+    stripped, joined with ``""``); ``strip=False`` matches
+    ``get_text(node).strip()``. Either equals the full result whenever that is
+    ``limit`` characters or fewer."""
+    text = ""
+    for frag in _iter_text_fragments(node):
+        if strip:
+            text += frag.strip()
+            if len(text) > limit:
+                break
+        else:
+            text += frag
+            if len(text.strip()) > limit:
+                break
+    return text if strip else text.strip()
+
+
 def text_contains(node: Node, needle: str) -> bool:
     """``needle in get_text(node)`` without joining the whole subtree's text.
 
@@ -242,7 +265,7 @@ def is_hidden(node: Node | None) -> bool:
     return False
 
 
-def is_element(node: Node | None) -> bool:
+def is_element(node: Node | None) -> TypeGuard[Node]:
     """True if ``node`` is a real element (bs4 ``isinstance(x, Tag)``).
 
     ``Node.iter(include_text=False)`` still yields comment and CDATA nodes, whose

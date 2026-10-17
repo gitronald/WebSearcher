@@ -11,7 +11,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, is_hidden
+from ..._slx import get_text, is_element, is_hidden
 
 
 def mark_hidden_row(parsed: dict[str, Any], node: Node | None) -> dict[str, Any]:
@@ -102,6 +102,6 @@ def parse_alink_list(alinks: Iterable[Node], sep: str = "") -> list[dict[str, An
     """Map ``parse_alink`` over real anchor tags that carry an ``href``."""
     items = []
     for a in alinks:
-        if a.tag and not a.tag.startswith("-") and "href" in a.attrs:
+        if is_element(a) and "href" in a.attrs:
             items.append(parse_alink(a, sep))
     return items

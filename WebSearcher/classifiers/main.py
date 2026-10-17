@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import _iter_text_fragments, class_tokens, get_text
+from .._slx import _iter_text_fragments, bounded_text, class_tokens, get_text
 from ..parsers.component_types import header_text_to_type
 
 # Class / id signals shared by a classifier's precondition (set membership on the
@@ -49,18 +49,6 @@ _ID_SIGNALS: frozenset[str] = frozenset(
         "eer-masthead",
     }
 )
-
-
-def _bounded_text(node: Node, limit: int) -> str:
-    """Stripped, ``""``-joined text of ``node`` (as ``get_text(strip=True)``),
-    but the walk stops once the text exceeds ``limit`` characters -- for exact
-    comparisons against short labels, so a large component is not serialized."""
-    text = ""
-    for frag in _iter_text_fragments(node):
-        text += frag.strip()
-        if len(text) > limit:
-            break
-    return text
 
 
 class _ComponentSignals:
@@ -628,7 +616,10 @@ class ClassifyMain:
         """Twitter components ('twitter_cards' carousel vs single 'twitter_result'):
         a ``div.eejeod`` body, or a bare "Twitter Results" heading block."""
         node: Node = cmpt
-        if node.css_first("div.eejeod") is None and _bounded_text(node, 15) != "Twitter Results":
+        if (
+            node.css_first("div.eejeod") is None
+            and bounded_text(node, 15, strip=True) != "Twitter Results"
+        ):
             return "unknown"
         return (
             "twitter_cards"

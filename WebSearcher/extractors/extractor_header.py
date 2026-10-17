@@ -23,9 +23,12 @@ class ExtractorHeader:
         if appbar is None:
             return
         # bs4 ``find(lambda tag: tag.has_attr("src") and not tag.has_attr("data-src"))``
-        # -- predicate over all descendant elements.
-        has_img = any("src" in el.attrs and "data-src" not in el.attrs for el in appbar.css("*"))
-        if appbar.css_first("g-scrolling-carousel") is not None and has_img:
+        # -- predicate over the appbar and its descendants, probed only once the
+        # cheap carousel check passes.
+        if (
+            appbar.css_first("g-scrolling-carousel") is not None
+            and appbar.css_first("[src]:not([data-src])") is not None
+        ):
             self.components.add_component(appbar, section="header", type="top_image_carousel")
 
     def extract_notices(self):

@@ -6,7 +6,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from .._slx import (
-    _iter_text_fragments,
+    bounded_text,
     class_tokens,
     get_text,
     has_text,
@@ -472,11 +472,7 @@ class ExtractorMain:
         # and empty nodes from the combined column.
         main_divs = list(container.iter(include_text=True)) if container is not None else []
         column = top_divs + main_divs
-        column = [
-            d
-            for d in column
-            if d.tag and not d.tag.startswith("-") and d.tag not in {"script", "style"}
-        ]
+        column = [d for d in column if is_element(d) and d.tag not in {"script", "style"}]
         return _filter_empty(column)
 
     def extract_from_top_bar(self) -> list[Node]:
@@ -609,20 +605,12 @@ class ExtractorMain:
 
     @staticmethod
     def is_valid(c: Node | None) -> bool:
-        if c is None:
+        if c is None or not is_element(c):
             return False
-        if not c.tag or c.tag.startswith("-"):
-            return False
-        # Bound the text scan: the longest bad label is 15 chars, so once the
-        # accumulated (stripped) text exceeds that it cannot match and we stop
-        # walking. Compare stripped so a padded heading ("<h2> Ads </h2>") still
-        # counts as a bare label.
-        text = ""
-        for s in _iter_text_fragments(c):
-            text += s
-            if len(text.strip()) > 15:
-                break
-        if text.strip() in _BAD_LABELS:
+        # The longest bad label is 15 chars. Strip the joined text, not each
+        # fragment, so a padded heading ("<h2> Ads </h2>") still counts as a bare
+        # label and a label split by inline tags keeps its inner space.
+        if bounded_text(c, 15) in _BAD_LABELS:
             return False
         # Skip bottom ads wrapper (extracted separately)
         if c.css_first('div[id="tadsb"]') is not None:

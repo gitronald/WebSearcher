@@ -158,3 +158,26 @@ def test_text_contains_matches_joined_text(html, needle, expected):
     node = make_soup(html)
     assert _slx.text_contains(node, needle) is expected
     assert (needle in (_slx.get_text(node) or "")) is expected
+
+
+@pytest.mark.parametrize(
+    "html",
+    [
+        "<h2> Ads </h2>",
+        "<h2>Main <b>results</b></h2>",
+        "<h2>Twitter<span> Results </span></h2>",
+        "<div>  </div>",
+        "<div>a much longer body of text than any label</div>",
+    ],
+)
+def test_bounded_text_matches_get_text_up_to_limit(html):
+    node = make_soup(html)
+    for strip, full in [
+        (True, _slx.get_text(node, strip=True) or ""),
+        (False, (_slx.get_text(node) or "").strip()),
+    ]:
+        bounded = _slx.bounded_text(node, 15, strip=strip)
+        if len(full) <= 15:
+            assert bounded == full
+        else:
+            assert len(bounded) > 15 and full.startswith(bounded)

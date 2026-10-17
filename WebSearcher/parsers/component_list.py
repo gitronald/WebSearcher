@@ -1,5 +1,6 @@
 from selectolax.lexbor import LexborNode as Node
 
+from .._slx import is_element
 from .component import Component
 
 
@@ -17,7 +18,7 @@ def _last_descendant(elem: Node) -> Node:
     while True:
         last: Node | None = None
         for ch in node.iter(include_text=False):
-            if ch.tag and not ch.tag.startswith("-"):
+            if is_element(ch):
                 last = ch
         if last is None:
             return node
