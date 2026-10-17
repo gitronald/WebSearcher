@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Extractor: whitespace-only `#tads`/`#tadsb`/`#atvcap` shells were emitted as empty ad components, padded accessibility labels (`<h2> Main results </h2>`) passed the bad-label filter, and the no-rso Twitter section selected the wrong wrapper (`css_first` matched the node itself)
 - Classifier preconditions that were narrower than their classifiers: `products` now reaches `[data-attrid="apg-product-result"]` cards and the "Explore brands" heading, and the AI-overview `EYwa3d` banner no longer needs the `hdzaWe` wrapper class; `maps`, `events` and `covid_alert` (emitted by `knowledge_box`) are registered component types
 - Requests backend: per-search `headers` no longer persist on the shared session for later searches, and the recorded `user_agent` is the one actually sent; `RequestsConfig.sesh` is a real optional field (a supplied session is honored; it was rebuilt on every access and leaked into `model_dump`)
-- Patchright backend: `cleanup()` stops the driver even when closing the browser context fails, and a failed launch cleans up the driver and temp profile immediately
+- Patchright backend: `cleanup()` stops the driver even when closing the browser context fails, and a launch that fails at any step (driver start, browser launch, first page) closes whatever started and removes the temp profile immediately
 - File IO (`write_lines`, `read_lines`, `load_html`, `save_serp`, `ws-demo show`) is UTF-8 regardless of locale and creates missing parent directories; the geotargets update job raises a clear error on an HTTP failure or a page without a geotargets link, and its CSV uses a newline-safe writer on Windows
 
 ### Changed

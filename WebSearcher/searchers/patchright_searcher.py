@@ -87,9 +87,9 @@ class PatchrightSearcher:
         )
         from patchright.sync_api import sync_playwright
 
-        self.playwright = sync_playwright().start()
-        self._register_exit_hook()
         try:
+            self.playwright = sync_playwright().start()
+            self._register_exit_hook()
             self.context = self.playwright.chromium.launch_persistent_context(
                 user_data_dir=user_data_dir,
                 channel=self.config.channel,
@@ -98,9 +98,11 @@ class PatchrightSearcher:
                 chromium_sandbox=self.config.chromium_sandbox,
             )
             self.page = self.context.pages[0] if self.context.pages else self.context.new_page()
+            user_agent = self.page.evaluate("navigator.userAgent")
         except Exception:
-            # Chrome missing, profile locked, ...: stop the driver and drop the
-            # temp profile now rather than leaving them to garbage collection.
+            # Driver failed to start, Chrome missing, profile locked, ...: close
+            # whatever did start and drop the temp profile now rather than
+            # leaving them to the exit hook.
             self.cleanup()
             raise
 
@@ -112,7 +114,7 @@ class PatchrightSearcher:
             "browser_name": self.config.channel,
             "browser_version": browser_version,
             "driver_version": self.driver_name,
-            "user_agent": self.page.evaluate("navigator.userAgent"),
+            "user_agent": user_agent,
         }
         self.browser_info["browser_id"] = utils.hash_id(
             orjson.dumps(self.browser_info).decode("utf-8")
@@ -221,9 +223,11 @@ class PatchrightSearcher:
 
         ``context.close()`` ends the browser process and ``playwright.stop()``
         shuts down the driver transport, so teardown is deterministic. A temp
-        profile directory created by ``init_driver`` is removed afterwards.
+        profile directory created by ``init_driver`` is removed afterwards, also
+        when the driver never started.
         """
         if not self.playwright:
+            self._remove_tmp_profile()
             return True
 
         try:
@@ -248,9 +252,12 @@ class PatchrightSearcher:
             self.playwright = None
             self.context = None
             self.page = None
-            if self._tmp_profile:
-                shutil.rmtree(self._tmp_profile, ignore_errors=True)
-                self._tmp_profile = ""
+            self._remove_tmp_profile()
+
+    def _remove_tmp_profile(self) -> None:
+        if self._tmp_profile:
+            shutil.rmtree(self._tmp_profile, ignore_errors=True)
+            self._tmp_profile = ""
 
     def delete_cookies(self):
         """Delete all cookies from the browser"""
