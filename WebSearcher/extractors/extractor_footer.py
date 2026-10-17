@@ -3,20 +3,10 @@ import logging
 from selectolax.lexbor import LexborNode as Node
 
 from ..parsers.component_list import ComponentList
+from ..parsers.components._common import under_any
 from .extractor_main import _find_all_with_class
 
 log = logging.getLogger(__name__)
-
-
-def _within_any(node: Node, containers: list[Node]) -> bool:
-    """True if ``node`` is one of ``containers`` or sits inside one of them."""
-    ids = {c.mem_id for c in containers}
-    cur: Node | None = node
-    while cur is not None:
-        if cur.mem_id in ids:
-            return True
-        cur = cur.parent
-    return False
 
 
 class ExtractorFooter:
@@ -44,15 +34,19 @@ class ExtractorFooter:
                 else:
                     footer_component_list.append(footer_component_div)
 
-        omitted_notice = self.soup.css_first("div.ClPXac")
-        if omitted_notice is not None and not _within_any(omitted_notice, footer_component_list):
-            # A notice nested inside #bres (or an expanded MjjYud) is already
-            # part of that component; adding it again would double-count it.
-            footer_component_list.append(omitted_notice)
-
         footer_component_list = [
             e for e in footer_component_list if not ExtractorFooter.is_hidden_footer(e)
         ]
+
+        omitted_notice = self.soup.css_first("div.ClPXac")
+        if omitted_notice is not None and not ExtractorFooter.is_hidden_footer(omitted_notice):
+            # A notice nested inside a kept #bres (or an expanded MjjYud) is
+            # already part of that component; adding it again would double-count
+            # it. Dedup against the filtered list so a notice whose container was
+            # dropped as hidden is still emitted on its own.
+            ids = {c.mem_id for c in footer_component_list}
+            if omitted_notice.mem_id not in ids and not under_any(omitted_notice, ids, -1):
+                footer_component_list.append(omitted_notice)
         log.debug(f"footer_components: {len(footer_component_list)}")
 
         for footer_component in footer_component_list:

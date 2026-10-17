@@ -84,6 +84,19 @@ def test_omitted_notice_outside_bres_is_still_emitted():
     assert len(footer) == 2
 
 
+def test_omitted_notice_in_hidden_bres_is_still_emitted():
+    # The hidden-footer filter drops #bres here, so the nested notice must
+    # not be deduplicated against it.
+    html = (
+        f'{ORGANIC}<div id="botstuff"><div id="bres">'
+        '<div class="ClPXac">Notices about Filtered Results</div>'
+        '<span class="oUAcPd">hidden</span></div></div>'
+    )
+    parsed = ws.parse_serp(html)
+    footer = [r for r in parsed["results"] if r["section"] == "footer"]
+    assert len(footer) == 1
+
+
 # extractor_rhs ---------------------------------------------------------------------
 
 
