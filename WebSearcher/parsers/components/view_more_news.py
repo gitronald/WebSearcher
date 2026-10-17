@@ -8,7 +8,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text
+from ..._slx import get_text, is_element
 from ._common import mark_timestamp_row
 
 
@@ -18,11 +18,9 @@ def parse_view_more_news(elem: Node) -> list[dict[str, Any]]:
     if container is not None:
         # Bs4 .children yielded both Tags and NavigableStrings; the original
         # filtered with is_tag. selectolax iter(include_text=False) still yields
-        # comment/CDATA nodes (tag prefixed with "-"), which would parse into
-        # spurious all-None rows and shift every sub_rank, so drop them too.
-        subs = [
-            s for s in container.iter(include_text=False) if s.tag and not s.tag.startswith("-")
-        ]
+        # comment/CDATA nodes, which would parse into spurious all-None rows and
+        # shift every sub_rank, so drop them too.
+        subs = [s for s in container.iter(include_text=False) if is_element(s)]
     else:
         carousel = node.css_first("g-scrolling-carousel")
         subs = list(carousel.css("g-inner-card")) if carousel is not None else list[Node]()
@@ -33,8 +31,8 @@ def parse_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed: dict[str, Any] = {"type": "view_more_news", "sub_rank": sub_rank}
     title_div = sub.css_first("div.jBgGLd")
     a = sub.css_first("a")
-    parsed["title"] = get_text(title_div) if title_div is not None else None
-    parsed["url"] = a.attributes["href"] if a is not None else None
+    parsed["title"] = get_text(title_div)
+    parsed["url"] = a.attrs.get("href") if a is not None else None
 
     cite_span = sub.css_first("span.wqg8ad")
     cite_el = sub.css_first("cite")
@@ -62,6 +60,6 @@ def parse_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
 
 def get_img_url(node: Node) -> str | None:
     img = node.css_first("img")
-    if img is not None and "data-src" in img.attributes:
-        return str(img.attributes["data-src"])
+    if img is not None and "data-src" in img.attrs:
+        return str(img.attrs["data-src"])
     return None

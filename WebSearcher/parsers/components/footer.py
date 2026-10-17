@@ -8,26 +8,27 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, has_text
+from ..._slx import get_text, has_text, subtree_css
 from ._common import mark_hidden_item, mark_hidden_row
 
 
 def parse_img_cards(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
-    subs = [d for d in node.css("div.g") if d.mem_id != node.mem_id and has_text(d)]
+    subs = [d for d in subtree_css(node, "div.g") if has_text(d)]
     return [parse_img_card(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
 def parse_img_card(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed: dict[str, Any] = {"type": "img_cards", "sub_rank": sub_rank}
     parsed["title"] = get_text(sub.css_first('div[aria-level="3"][role="heading"]'), " ")
-    images = sub.css("img")
-    if images:
-        items = [
-            mark_hidden_item({"url": i.attributes["src"], "text": i.attributes["alt"]}, i)
-            for i in images
-            if "src" in i.attributes and "alt" in i.attributes
-        ]
+    items = [
+        mark_hidden_item({"url": i.attrs["src"], "text": i.attrs["alt"]}, i)
+        for i in sub.css("img")
+        if "src" in i.attrs and "alt" in i.attrs
+    ]
+    # Only images carrying both src and alt are recorded; emit no details
+    # rather than a hollow ``{"type": "hyperlinks", "items": []}``.
+    if items:
         parsed["details"] = {"type": "hyperlinks", "items": items}
     return mark_hidden_row(parsed, sub)
 

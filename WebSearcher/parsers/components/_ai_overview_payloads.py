@@ -73,13 +73,31 @@ def _iter_payload_blobs(raw_html: str):
     for m in _COMMENT_SV6KPE.finditer(raw_html):
         yield html.unescape(m.group(1))
     for m in _LDPB_PUSH.finditer(raw_html):
-        # The JS push stores the JSON as a double-escaped string. Apply the
-        # unicode-escape pass to convert ``\"`` -> ``"`` and ``=`` -> ``=``
-        # before json.loads.
-        try:
-            yield m.group(1).encode("utf-8").decode("unicode_escape")
-        except UnicodeDecodeError:
-            continue
+        # The JS push stores the JSON as a JS string literal (``\"`` -> ``"``,
+        # ``\x3d`` -> ``=``, ``\uXXXX`` escapes). Decode it as a string literal
+        # rather than through ``unicode_escape``, which reads UTF-8 bytes as
+        # Latin-1 (``Café`` -> ``CafÃ©``) and leaves ``😀`` pairs as
+        # lone surrogates that fail later UTF-8 encoding.
+        decoded = _decode_js_string(m.group(1))
+        if decoded is not None:
+            yield decoded
+
+
+_JS_HEX_ESCAPE = re.compile(r"\\x([0-9a-fA-F]{2})")
+
+
+def _decode_js_string(literal: str) -> str | None:
+    """Decode the body of a JS double-quoted string literal to text.
+
+    JSON string syntax covers everything JS emits here except ``\\xHH`` (mapped
+    to ``\\u00HH``) and ``\\'`` (JSON forbids escaping ``'``). ``strict=False``
+    tolerates raw control characters inside the literal."""
+    body = _JS_HEX_ESCAPE.sub(lambda m: "\\u00" + m.group(1), literal).replace("\\'", "'")
+    try:
+        value = json.loads(f'"{body}"', strict=False)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    return value if isinstance(value, str) else None
 
 
 def _classify(raw: str) -> tuple[str, str, object] | None:

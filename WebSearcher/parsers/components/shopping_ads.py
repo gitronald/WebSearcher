@@ -143,6 +143,8 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict[str, Any]:
         "url": a.attributes.get("href") if a is not None else None,
         "text": None,
         "cite": None,
-        "details": details if details else None,
+        # ``details`` always holds ``type``; a card with no price/source/rating
+        # gets no details rather than a hollow ``{"type": "ratings"}``.
+        "details": details if len(details) > 1 else None,
     }
     return mark_hidden_row(parsed, card)
