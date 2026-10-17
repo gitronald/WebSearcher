@@ -65,34 +65,17 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
 
     content = node.css_first("div.mZJni")
     if content is not None:
-        # Payload extraction serializes the whole document; only the current
-        # DOM ships these JSON citation payloads, so skip it for legacy SERPs.
-        payloads = extract_payloads(_root_html(node))
-        type_a_by_src_id = _index_type_a_by_src_id(payloads)
-        full_url_by_goto = _index_full_url_by_goto(payloads)
-        lede, lede_citations, sections = _extract_body(content, payloads, full_url_by_goto)
-        sources = _extract_sources(node, type_a_by_src_id, full_url_by_goto)
-        follow_up = _extract_follow_up(content)
+        overview = extract_overview(content, node)
     else:
         # Legacy SGE (2024) markup: the current-DOM body container is absent.
         lede, lede_citations, sections = _extract_body_legacy(node)
-        sources = _extract_sources_legacy(node)
-        follow_up = None
+        overview = _overview_fields(
+            lede, sections, lede_citations, _extract_sources_legacy(node), None
+        )
 
-    parsed["sub_type"] = "sectioned" if sections else "flat"
-    parsed["text"] = lede or None
-
-    details: dict[str, Any] = {"type": "ai_overview"}
-    if sections:
-        details["sections"] = sections
-    if lede_citations:
-        details["citations"] = lede_citations
-    if sources:
-        details["sources"] = sources
-    if follow_up:
-        details["follow_up"] = follow_up
-
-    parsed["details"] = details if len(details) > 1 else None
+    parsed["text"] = overview.pop("text")
+    parsed["sub_type"] = "sectioned" if "sections" in overview else "flat"
+    parsed["details"] = {"type": "ai_overview", **overview} if overview else None
 
     # Distinguish a genuine "Google declined to generate" panel from a parser
     # miss: both otherwise yield empty output. The decline message is shipped
@@ -102,6 +85,45 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
         parsed["sub_type"] = "unavailable"
 
     return [parsed]
+
+
+def extract_overview(content: Node, scope: Node) -> dict[str, Any]:
+    """Parse a current-DOM overview body (``div.mZJni``).
+
+    Returns the lede as ``text`` plus whichever of ``sections``, ``citations``,
+    ``sources``, and ``follow_up`` are present. ``scope`` bounds the source
+    cards: the whole component for the main overview, the question for an
+    answer embedded in people-also-ask. Citation widgets are decomposed from
+    ``content`` as the body is read.
+    """
+    # Payload extraction serializes the whole document; only the current DOM
+    # ships these JSON citation payloads, so legacy SERPs never reach it.
+    payloads = extract_payloads(_root_html(content))
+    type_a_by_src_id = _index_type_a_by_src_id(payloads)
+    full_url_by_goto = _index_full_url_by_goto(payloads)
+    lede, lede_citations, sections = _extract_body(content, payloads, full_url_by_goto)
+    sources = _extract_sources(scope, type_a_by_src_id, full_url_by_goto)
+    return _overview_fields(lede, sections, lede_citations, sources, _extract_follow_up(content))
+
+
+def _overview_fields(
+    lede: str,
+    sections: list[dict[str, Any]],
+    citations: list[dict[str, Any]],
+    sources: list[dict[str, Any]],
+    follow_up: str | None,
+) -> dict[str, Any]:
+    """``text`` plus the non-empty detail fields, in output order."""
+    fields: dict[str, Any] = {"text": lede or None}
+    for key, value in (
+        ("sections", sections),
+        ("citations", citations),
+        ("sources", sources),
+        ("follow_up", follow_up),
+    ):
+        if value:
+            fields[key] = value
+    return fields
 
 
 # Body markup per layout: ``Y3BBE``/``otQkpb``/``KsbFXc``/``IaGLZe`` in the
