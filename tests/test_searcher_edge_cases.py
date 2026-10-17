@@ -7,7 +7,7 @@ import requests
 
 from WebSearcher import utils
 from WebSearcher.locations import get_latest_url, write_csv
-from WebSearcher.models.configs import RequestsConfig
+from WebSearcher.models.configs import PatchrightConfig, RequestsConfig
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
 from WebSearcher.searchers.requests_searcher import RequestsSearcher
@@ -66,6 +66,21 @@ def test_per_search_headers_do_not_leak_into_the_session():
     assert "X" not in sesh.headers.values()
 
 
+def test_recorded_user_agent_matches_lowercase_header_override():
+    sesh = requests.Session()
+    sent: list[str] = []
+
+    def _get(url, **kwargs):
+        prepared = sesh.prepare_request(requests.Request("GET", url, headers=kwargs["headers"]))
+        sent.append(prepared.headers["User-Agent"])
+        return _Response(url)
+
+    sesh.get = _get  # type: ignore[method-assign]
+    out = _searcher(sesh).send_request(SearchParams(qry="a", headers={"user-agent": "X"}))
+    assert sent == ["X"]
+    assert out.user_agent == "X"
+
+
 def test_patchright_cleanup_stops_driver_when_context_close_fails():
     class _Context:
         def close(self):
@@ -88,6 +103,68 @@ def test_patchright_cleanup_stops_driver_when_context_close_fails():
     assert searcher.cleanup() is False
     assert pw.stopped is True
     assert searcher.playwright is None
+
+
+def _fake_patchright(monkeypatch, start=None, evaluate=None):
+    """Stub ``sync_playwright`` and return the event list the stubs append to."""
+    events: list[str] = []
+
+    class _Page:
+        def evaluate(self, expr):
+            if evaluate is not None:
+                raise evaluate
+            return "UA"
+
+    class _Context:
+        browser = None
+        pages = [_Page()]
+
+        def close(self):
+            events.append("context.close")
+
+    class _Chromium:
+        def launch_persistent_context(self, **kw):
+            return _Context()
+
+    class _Playwright:
+        chromium = _Chromium()
+
+        def stop(self):
+            events.append("playwright.stop")
+
+    class _Starter:
+        def start(self):
+            if start is not None:
+                raise start
+            return _Playwright()
+
+    import patchright.sync_api
+
+    monkeypatch.setattr(patchright.sync_api, "sync_playwright", _Starter)
+    return events
+
+
+def test_patchright_failed_driver_start_removes_temp_profile(monkeypatch, tmp_path):
+    monkeypatch.setattr("tempfile.tempdir", str(tmp_path))
+    _fake_patchright(monkeypatch, start=RuntimeError("no driver"))
+    searcher = PatchrightSearcher(PatchrightConfig(), LOG)
+    with pytest.raises(RuntimeError, match="no driver"):
+        searcher.init_driver()
+    assert list(tmp_path.iterdir()) == []
+    assert searcher._tmp_profile == ""
+    assert searcher._exit_hook is None
+
+
+def test_patchright_failure_after_launch_closes_browser_and_driver(monkeypatch, tmp_path):
+    monkeypatch.setattr("tempfile.tempdir", str(tmp_path))
+    events = _fake_patchright(monkeypatch, evaluate=RuntimeError("page crashed"))
+    searcher = PatchrightSearcher(PatchrightConfig(), LOG)
+    with pytest.raises(RuntimeError, match="page crashed"):
+        searcher.init_driver()
+    assert events == ["context.close", "playwright.stop"]
+    assert list(tmp_path.iterdir()) == []
+    assert searcher.playwright is None
+    assert searcher._exit_hook is None
 
 
 # utils IO -----------------------------------------------------------------------

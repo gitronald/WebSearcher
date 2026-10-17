@@ -3,6 +3,7 @@ import time
 
 import brotli
 import requests
+from requests.structures import CaseInsensitiveDict
 
 from .. import utils
 from ..models.configs import RequestsConfig
@@ -53,8 +54,9 @@ class RequestsSearcher:
 
         # Per-search headers ride on this request only (requests merges them over
         # the session headers); updating the shared Session would leak them into
-        # every later search.
-        headers = dict(search_params.headers) if search_params.headers else None
+        # every later search. Case-insensitive, as requests sends them, so a
+        # lowercase "user-agent" override is the one recorded.
+        headers = CaseInsensitiveDict(search_params.headers) if search_params.headers else None
         user_agent = (headers or {}).get("User-Agent") or self.sesh.headers.get("User-Agent", "")
         response_output = ResponseOutput(
             url=search_params.url,
