@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- AI overviews in the 2026-10 role-heading layout (a `div[role=heading]` title with a `div.mZJni` body under the `EYwa3d` controller, and no `Fzsovc` or `h2`) are classified as `ai_overview` and parsed, including their script-push payloads, instead of falling through to `knowledge_panel`
+- A people-also-ask block whose first question ships its AI overview answer already expanded (the 2026-10 layout) keeps that answer as `details.answer`, with the question text and the main overview's fields, and the row carries `sub_type` `ai_overview`; source cards are scoped to that question
+- An AI overview's closing follow-up prompt is kept as `details.follow_up` instead of being dropped from the body
+- The 2026-10 flight-search widget, now headed "Search flights", is typed `flights` again by its `es75Cc` controller
+
 ### Fixed
 
 - Right-hand-side knowledge panels rendered without the `kp-wholepage`/`knowledge-panel` wrappers (the `jOAHU`/`rhs_column` and `A6K0A` layouts, and "See results about" boxes) were dropped from the parse entirely; they are now routed to the `knowledge_rhs` parser via their `data-attrid` markers (13 corpus SERPs gain 76 `side_bar` rows), and any other non-empty `#rhs` content is kept as an `unknown` rhs component instead of vanishing
@@ -26,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `Logger()` defaults to `file_mode="a"`, matching `LogConfig` (SearchEngine behavior unchanged); the SERP `version` stamp comes from `WebSearcher.__version__` rather than installed-package metadata
 - `ai_overview` registers its `unavailable` sub_type and `knowledge_rhs` its `panel`/`fact`/`links` sub_types; `component_types` is complete for every type the classifiers emit
 - Internal: shared `_slx.is_element`/`bounded_text`/`text_contains`, `_common.first_text`/`under_any` helpers replace per-module copies; `.attrs` replaces `.attributes` on CSS-selected nodes; the classifier chain table is built once at import
+- Development tooling follows the project template's 0.11.7 release: ruff 0.17, pyrefly 1.4, and newer SHA-pinned CI actions
 
 ### Removed
 
