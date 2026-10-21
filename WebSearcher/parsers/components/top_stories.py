@@ -3,14 +3,15 @@
 These components contain links to news articles and often feature an image.
 Sometimes the subcomponents are stacked vertically, and sometimes they are
 stacked horizontally and feature a larger image, resembling the video
-component.
+component. Also backs the perspectives, latest_from, local_news and
+recent_posts parsers via the ``ctype`` argument.
 """
 
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, has_text
+from ..._slx import get_text, has_text, is_element
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row
 from ._video_card import parse_evlb_card
@@ -20,10 +21,12 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     node: Node = elem
     divs: list[Node] = []
     divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
-    # find_children equivalent: direct element children of div.qmv19b (no empty filter)
+    # find_children equivalent: direct element children of div.qmv19b (no empty
+    # filter). iter(include_text=False) still yields comment/CDATA nodes, which
+    # would parse into all-None rows and shift every later sub_rank.
     container = node.css_first("div.qmv19b")
     if container is not None:
-        divs.extend(container.iter(include_text=False))
+        divs.extend(c for c in container.iter(include_text=False) if is_element(c))
     divs.extend(d for d in node.css("div.IJl0Z") if has_text(d))  # Top Stories
     divs.extend(d for d in node.css("div.JJZKK") if has_text(d))  # Perspectives
 
@@ -37,7 +40,10 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
         link_divs = [d for d in node.css("a.WlydOe") if has_text(d)]
         divs.extend([div.parent for div in link_divs if div.parent is not None])
 
-    divs = [d for d in divs if d is not None]
+    # The selectors above overlap (a qmv19b child can itself be a g-inner-card),
+    # so keep the first occurrence of each node in document order.
+    seen: set[int] = set()
+    divs = [d for d in divs if not (d.mem_id in seen or seen.add(d.mem_id))]
 
     if divs:
         return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
@@ -52,7 +58,7 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
             title = t
             break
     a = sub.css_first("a")
-    url = a.attributes.get("href") if a is not None else None
+    url = a.attrs.get("href") if a is not None else None
     parsed: dict[str, Any] = {
         "type": ctype,
         "sub_rank": sub_rank,
@@ -81,24 +87,9 @@ def get_cite(sub: Node) -> str | None:
     img_cite = sub.css_first("g-img.sL0zmc")  # Top Stories - image cite
     if img_cite is not None:
         img = img_cite.css_first("img")
-        alt = img.attributes.get("alt") if img is not None else None
+        alt = img.attrs.get("alt") if img is not None else None
         return str(alt) if alt else None
 
     if sub.css_first("g-img.QyR1Ze") is not None:
         return get_text(sub.css_first("span"), " ")
     return get_text(sub.css_first("cite"), " ")
-
-
-def get_top_story_details(sub: Node) -> dict[str, Any]:
-    return {
-        "img_url": get_img_url(sub),
-        "orient": "v" if sub.css_first("span.uaCsqe") is not None else "h",
-        "live_stamp": sub.css_first("span.EugGe") is not None,
-    }
-
-
-def get_img_url(node: Node) -> str | None:
-    img = node.css_first("img")
-    if img is not None and "data-src" in img.attributes:
-        return str(img.attributes["data-src"])
-    return None

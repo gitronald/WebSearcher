@@ -66,7 +66,7 @@ def show(
     queries: list[str] = []
     html: str | None = None
     url: str | None = None
-    with open(fp) as f:
+    with open(fp, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if not line:

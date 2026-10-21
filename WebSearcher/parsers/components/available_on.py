@@ -42,7 +42,7 @@ def parse_available_on(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
 def parse_available_on_item(sub: Node) -> dict[str, Any]:
     a = sub.css_first("a")
     item = {
-        "url": a.attributes.get("href") if a is not None else None,
+        "url": a.attrs.get("href") if a is not None else None,
         "text": get_text(sub.css_first("div.i3LlFf"), " "),
         "cost": get_text(sub.css_first("div.V8xno"), " "),
     }
@@ -51,7 +51,7 @@ def parse_available_on_item(sub: Node) -> dict[str, Any]:
 
 def parse_available_on_item_modern(a: Node) -> dict[str, Any]:
     item = {
-        "url": a.attributes.get("href"),
+        "url": a.attrs.get("href"),
         "text": get_text(a.css_first("div.bclEt"), " "),
         "cost": get_text(a.css_first("div.rsj3fb"), " "),
     }

@@ -1,4 +1,4 @@
-__version__ = "0.12.0"
+__version__ = "0.12.1"
 
 import logging
 from typing import TYPE_CHECKING
@@ -33,8 +33,9 @@ __all__ = [
 
 
 def __getattr__(name: str):
-    # Lazy-load SearchEngine so parse-only consumers don't pay the browser-backend
-    # (patchright) import cost on `import WebSearcher`.
+    # Lazy-load SearchEngine so parse-only consumers don't pay the searcher stack's
+    # import cost (requests, brotli, the models) on `import WebSearcher`; patchright
+    # itself is imported later still, inside PatchrightSearcher.init_driver.
     if name == "SearchEngine":
         from .searchers import SearchEngine
 

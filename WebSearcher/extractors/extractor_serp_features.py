@@ -4,7 +4,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from .. import utils
-from .._slx import get_text
+from .._slx import get_text, text_contains
 from ..models.features import SERPFeatures
 
 # The raw-HTML path searches the original markup. The soup path scopes each probe
@@ -124,10 +124,12 @@ class FeatureExtractor:
         # language: read the <html lang=...> attribute directly. The root passed
         # in is already <html>; for non-root inputs, descend to <html>.
         html_tag = soup if soup.tag == "html" else soup.css_first("html")
-        language = html_tag.attributes.get("lang") if html_tag is not None else None
+        language = html_tag.attrs.get("lang") if html_tag is not None else None
 
-        # Text notices: one get_text() pass replaces three full-document scans.
-        page_text = get_text(soup) or ""
+        # server_error: scan text fragments with early exit instead of
+        # concatenating the whole document's text (the Python walker path, since
+        # a page has <script>); a notice split by inline tags still matches.
+        server_error = text_contains(soup, NOTICE_SERVER_ERROR)
 
         # infinity_scroll: serialize only candidate spans for exact-substring match.
         infinity_scroll = any(
@@ -137,6 +139,6 @@ class FeatureExtractor:
         return {
             **FeatureExtractor._parse_result_estimate(stats_html),
             "language": language,
-            "server_error": NOTICE_SERVER_ERROR in page_text,
+            "server_error": server_error,
             "infinity_scroll": infinity_scroll,
         }

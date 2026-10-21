@@ -33,7 +33,7 @@ def _card_fields(card: Node) -> dict[str, Any] | None:
         "source": get_text(card.css_first("span.KrMNbf"), strip=True),
         "channel": get_text(card.css_first("span.PNsAZd"), strip=True),
         "publish_date": get_text(card.css_first("span.DKsccc"), strip=True),
-        "thumbnail_url": img.attributes.get("src") if img is not None else None,
+        "thumbnail_url": img.attrs.get("src") if img is not None else None,
     }
     fields = {k: v for k, v in fields.items() if v}
     if not any(k != "thumbnail_url" for k in fields):

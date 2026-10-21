@@ -14,7 +14,7 @@ from ..._slx import get_text
 def parse_jobs(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     heading = node.css_first('[role="heading"][aria-level="2"]')
-    title = get_text(heading, " ", strip=True) if heading is not None else None
+    title = get_text(heading, " ", strip=True)
     items = [
         get_text(h, " ", strip=True) or "" for h in node.css('[role="heading"][aria-level="3"]')
     ]

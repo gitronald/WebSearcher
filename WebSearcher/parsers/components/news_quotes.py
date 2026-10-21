@@ -8,7 +8,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text
+from ..._slx import get_text, is_element
 from ._common import mark_timestamp_row
 
 
@@ -18,55 +18,57 @@ def parse_news_quotes(elem: Node) -> list[dict[str, Any]]:
     return [parse_news_quote(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def _is_tag(n: Node | None) -> bool:
-    return n is not None and bool(n.tag) and not n.tag.startswith("-")
-
-
 def parse_news_quote(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     parsed: dict[str, Any] = {"type": "news_quotes", "sub_rank": sub_rank}
     # bs4 .children was text-inclusive; preserve that to match the original
     # element-counting destructure (1 / 2 / 3 children).
     children = list(sub.iter(include_text=True))
 
-    if len(children) == 1 and _is_tag(children[0]):
+    if len(children) == 1 and is_element(children[0]):
         # Unfold nested div
         children = list(children[0].iter(include_text=True))
     if len(children) == 2:
         quote, result = children
-    else:  # Remove dummy div in middle
+    elif len(children) == 3:  # Remove dummy div in middle
         quote, _, result = children
+    else:
+        # Unrecognized card shape: keep the quote text rather than raising on
+        # the destructure and losing every other card in the carousel.
+        first = next((c for c in children if is_element(c)), None)
+        parsed["text"] = (
+            get_text(first) if first is not None else get_text(sub, " ", strip=True) or None
+        )
+        return parsed
 
-    if not _is_tag(result):
-        parsed["text"] = get_text(quote) if _is_tag(quote) else None
+    if not is_element(result):
+        parsed["text"] = get_text(quote) if is_element(quote) else None
         return parsed
 
     result_children: list[Node] = list(result.iter(include_text=True))
     if len(result_children) == 2:
         title, meta = result_children
-        if not _is_tag(meta):
-            return parsed
-        meta_children = list(meta.iter(include_text=True))
-        cite, timestamp = meta_children[0], meta_children[1] if len(meta_children) >= 2 else None
-        parsed["title"] = get_text(title) if _is_tag(title) else None
-        parsed["url"] = title.attributes.get("href") if _is_tag(title) else None
-        parsed["cite"] = get_text(cite) if _is_tag(cite) else None
-        if timestamp is not None and _is_tag(timestamp):
-            mark_timestamp_row(parsed, get_text(timestamp))
-    else:
-        title = result_children[1]
-        cite = result_children[0]
-        timestamp = result_children[2]  # dates are now relative vs absolute
+        parsed["title"] = get_text(title) if is_element(title) else None
+        parsed["url"] = title.attrs.get("href") if is_element(title) else None
+        if is_element(meta):
+            meta_children = list(meta.iter(include_text=True))
+            cite = meta_children[0] if meta_children else None
+            timestamp = meta_children[1] if len(meta_children) >= 2 else None
+            parsed["cite"] = get_text(cite) if is_element(cite) else None
+            if is_element(timestamp):
+                mark_timestamp_row(parsed, get_text(timestamp))
+    elif len(result_children) >= 3:
+        cite, title, timestamp = result_children[0], result_children[1], result_children[2]
         # bs4 ``.div`` / ``.span`` -> first descendant of that tag.
-        if _is_tag(title):
+        if is_element(title):
             t_div = title.css_first("div")
             if t_div is not None:
                 parsed["title"] = get_text(t_div)
-            parsed["url"] = title.attributes.get("href")
-        if _is_tag(cite):
+            parsed["url"] = title.attrs.get("href")
+        if is_element(cite):
             c_span = cite.css_first("span")
             if c_span is not None:
                 parsed["cite"] = get_text(c_span)
-        if _is_tag(timestamp):
+        if is_element(timestamp):
             ts_div = timestamp.css_first("div")
             if ts_div is not None:
                 mark_timestamp_row(parsed, get_text(ts_div))

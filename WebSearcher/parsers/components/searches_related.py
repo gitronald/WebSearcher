@@ -39,7 +39,7 @@ def parse_searches_related(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]
     header = None
     for sel in ('h2[role="heading"]', 'div[aria-level="2"][role="heading"]', "span.mgAbYb"):
         found = node.css_first(sel)
-        text = get_text(found, " ") if found is not None else None
+        text = get_text(found, " ")
         if text:
             header = text
             break

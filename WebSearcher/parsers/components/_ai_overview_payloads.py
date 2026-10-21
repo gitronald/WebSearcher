@@ -4,7 +4,11 @@ Google ships per-UUID JSON blobs that back the citation buttons and source tray
 in the AI overview. Three delivery forms appear in practice:
 
 1. HTML comment ``<!--TgQPHd|<json>-->`` — most common (97% of button-bearing
-   SERPs in the audit).
+   SERPs in the audit). The role-heading layout (2026-10) writes
+   ``<!--TgQPHd|||<json>-->``, and some captures put jsuid keys before or
+   between the pipes (``<!--TgQPHd<keys>||<json>-->``,
+   ``<!--TgQPHd|<keys>|<json>-->``), so any prefix up to the last pipe before
+   the JSON is skipped.
 2. HTML comment ``<!--Sv6Kpe<json>-->`` — same payload shapes, no ``|``
    separator before the JSON.
 3. Script push ``(j.lDPB=j.lDPB||[]).push([["<jsid>","<escaped-json>"]])`` —
@@ -12,9 +16,13 @@ in the AI overview. Three delivery forms appear in practice:
 
 Each UUID can have multiple payloads of three shapes:
 
-- ``header``  — ``[[null, null, <uuid>, null, null, 1, 0, <favicon>, <publisher>, <total_count>]]``
+- ``header``  — ``[[null, null, <uuid>, null, null, 1, 0, <favicon>, <publisher>, <total_count>]]``,
+  or in the role-heading layout
+  ``[[<uuid>, null, null, 0, <favicon>, <publisher>, <total_count>, <full_url>, ...]]``,
+  which also carries the full URL of the button's lead source.
 - ``type_a``  — ``[[<uuid>, [<title>, <snippet>, <favicon>, <domain>, [<publisher>], <full_url>, null, null, "<data-src-id>", ...]]]``
-  (``data-src-id`` is at ``inner[1][8]`` and may be int or str.)
+  (``data-src-id`` is at ``inner[1][8]`` and may be int or str.) In the
+  role-heading layout ``<full_url>`` is a ``/goto?url=`` redirect instead.
 - ``type_b``  — ``[[<uuid>, "<index>", 0, <full_url>, <favicon>, ""]]``
 """
 
@@ -28,7 +36,7 @@ from typing import Any
 
 _UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
-_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd\|(.+?)-->", re.DOTALL)
+_COMMENT_TGQPHD = re.compile(r"<!--TgQPHd[^\[>]*\|(\[.+?)-->", re.DOTALL)
 _COMMENT_SV6KPE = re.compile(r"<!--Sv6Kpe(.+?)-->", re.DOTALL)
 _LDPB_PUSH = re.compile(
     r'\["[a-zA-Z0-9_]+","(\[\[\\"[0-9a-f-]{36}\\".*?\]\])"\]',
@@ -65,13 +73,43 @@ def _iter_payload_blobs(raw_html: str):
     for m in _COMMENT_SV6KPE.finditer(raw_html):
         yield html.unescape(m.group(1))
     for m in _LDPB_PUSH.finditer(raw_html):
-        # The JS push stores the JSON as a double-escaped string. Apply the
-        # unicode-escape pass to convert ``\"`` -> ``"`` and ``=`` -> ``=``
-        # before json.loads.
-        try:
-            yield m.group(1).encode("utf-8").decode("unicode_escape")
-        except UnicodeDecodeError:
-            continue
+        # The JS push stores the JSON as a JS string literal (``\"`` -> ``"``,
+        # ``\x3d`` -> ``=``, ``\uXXXX`` escapes). Decode it as a string literal
+        # rather than through ``unicode_escape``, which reads UTF-8 bytes as
+        # Latin-1 (``Café`` -> ``CafÃ©``) and leaves ``😀`` pairs as
+        # lone surrogates that fail later UTF-8 encoding.
+        decoded = _decode_js_string(m.group(1))
+        if decoded is not None:
+            yield decoded
+
+
+# One escape sequence: a backslash and the character it escapes (``\xHH`` taken
+# whole). Matching pairs left to right keeps an escaped backslash (``\\``) from
+# being read as the start of the escape after it.
+_JS_ESCAPE = re.compile(r"\\(x[0-9a-fA-F]{2}|.)", re.DOTALL)
+
+
+def _js_to_json_escape(m: re.Match[str]) -> str:
+    esc = m.group(1)
+    if esc[0] == "x" and len(esc) == 3:
+        return "\\u00" + esc[1:]
+    if esc == "'":
+        return "'"
+    return m.group(0)
+
+
+def _decode_js_string(literal: str) -> str | None:
+    """Decode the body of a JS double-quoted string literal to text.
+
+    JSON string syntax covers everything JS emits here except ``\\xHH`` (mapped
+    to ``\\u00HH``) and ``\\'`` (JSON forbids escaping ``'``). ``strict=False``
+    tolerates raw control characters inside the literal."""
+    body = _JS_ESCAPE.sub(_js_to_json_escape, literal)
+    try:
+        value = json.loads(f'"{body}"', strict=False)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    return value if isinstance(value, str) else None
 
 
 def _classify(raw: str) -> tuple[str, str, object] | None:
@@ -100,6 +138,27 @@ def _classify(raw: str) -> tuple[str, str, object] | None:
                 "favicon": inner[7] or "",
                 "publisher": inner[8] or "",
                 "total": inner[9] if isinstance(inner[9], int) else 0,
+                "url": None,
+            },
+        )
+
+    # Role-heading layout header: uuid first, full URL of the lead source at [7]
+    if (
+        len(inner) >= 8
+        and isinstance(inner[0], str)
+        and _UUID_RE.match(inner[0])
+        and inner[1] is None
+        and inner[2] is None
+        and isinstance(inner[7], str)
+    ):
+        return (
+            "header",
+            inner[0],
+            {
+                "favicon": inner[4] if isinstance(inner[4], str) else "",
+                "publisher": inner[5] if isinstance(inner[5], str) else "",
+                "total": inner[6] if isinstance(inner[6], int) else 0,
+                "url": inner[7],
             },
         )
 

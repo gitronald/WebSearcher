@@ -1,0 +1,388 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 82700000.0,
+    "result_estimate_time": 0.33,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "items": [
+          {
+            "text": "Delta 5h 24m Nonstop from $377",
+            "url": "https://www.google.com/travel/flights?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&source=flun&uitype=cuAA&hl=en&gl=us&curr=USD&ep=CAE&tfs=CAEQAhooEgoyMDI2LTEyLTAzMgJETGoHCAESA1NGT3INCAISCS9tLzAyXzI4NhooEgoyMDI2LTEyLTA5MgJETGoNCAISCS9tLzAyXzI4NnIHCAESA1NGT3poQ2pSSU1qZG1XbXRwTlRSTlVXOUJSa1ZIT1hkQ1J5MHRMUzB0TFMwdExYQm1kMjh4TTBGQlFVRkJSM0pTUWxkdlFWTm1PV05CRWdOdVJFd2FDd2pFcGdJUUFob0RWVk5FT0RCd3hLWUM&ved=1t:2773&ictx=111"
+          },
+          {
+            "text": "Alaska 5h 34m Nonstop from $377",
+            "url": "https://www.google.com/travel/flights?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&source=flun&uitype=cuAA&hl=en&gl=us&curr=USD&ep=CAE&tfs=CAEQAhooEgoyMDI2LTEyLTAzMgJBU2oHCAESA1NGT3INCAISCS9tLzAyXzI4NhooEgoyMDI2LTEyLTA5MgJBU2oNCAISCS9tLzAyXzI4NnIHCAESA1NGT3poQ2pSSU1qZG1XbXRwTlRSTlVXOUJSa1ZIT1hkQ1J5MHRMUzB0TFMwdExYQm1kMjh4TTBGQlFVRkJSM0pTUWxkdlFWTm1PV05CRWdOdVFWTWFDd2pFcGdJUUFob0RWVk5FT0RCd3hLWUM&ved=1t:2773&ictx=111"
+          },
+          {
+            "text": "American 5h 25m Nonstop from $397",
+            "url": "https://www.google.com/travel/flights?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&source=flun&uitype=cuAA&hl=en&gl=us&curr=USD&ep=CAE&tfs=CAEQAhooEgoyMDI2LTEyLTAzMgJBQWoHCAESA1NGT3INCAISCS9tLzAyXzI4NhooEgoyMDI2LTEyLTA5MgJBQWoNCAISCS9tLzAyXzI4NnIHCAESA1NGT3poQ2pSSU1qZG1XbXRwTlRSTlVXOUJSa1ZIT1hkQ1J5MHRMUzB0TFMwdExYQm1kMjh4TTBGQlFVRkJSM0pTUWxkdlFWTm1PV05CRWdOdVFVRWFDd2lVdGdJUUFob0RWVk5FT0RCd2xMWUM&ved=1t:2773&ictx=111"
+          },
+          {
+            "text": "Southwest 11h 0m+ Connecting from $397",
+            "url": "https://www.google.com/travel/flights?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&source=flun&uitype=cuAA&hl=en&gl=us&curr=USD&ep=CAE&tfs=CAEQAhooEgoyMDI2LTEyLTAzMgJXTmoHCAESA1NGT3INCAISCS9tLzAyXzI4NhooEgoyMDI2LTEyLTA5MgJXTmoNCAISCS9tLzAyXzI4NnIHCAESA1NGT3poQ2pSSU1qZG1XbXRwTlRSTlVXOUJSa1ZIT1hkQ1J5MHRMUzB0TFMwdExYQm1kMjh4TTBGQlFVRkJSM0pTUWxkdlFWTm1PV05CRWdOalYwNGFDd2lVdGdJUUFob0RWVk5FT0RCd2xMWUM&ved=1t:2773&ictx=111"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Search flights",
+      "type": "flights",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "citations": [
+          {
+            "additional_count": 1,
+            "publisher": "Google",
+            "source_ids": [
+              "3",
+              "1_0"
+            ]
+          }
+        ],
+        "follow_up": "If you can share your preferred travel dates or number of passengers , I can pull exact pricing and flight times for you.",
+        "sections": [
+          {
+            "citations": [
+              {
+                "additional_count": 2,
+                "publisher": "Expedia",
+                "source_ids": [
+                  "2"
+                ]
+              }
+            ],
+            "heading": "Sample Fares & Routes (SFO to NYC)",
+            "text": "American Airlines (Connecting): From $362 round-trip (e.g., Dec 3 – Dec 9) Delta Air Lines (Nonstop): From $377 round-trip (approx. 5 hr 24 min) Alaska Airlines (Nonstop): From $377 round-trip (approx. 5 hr 34 min) Frontier Airlines (Budget): One-way and round-trip promotional options frequently drop lower during off-peak dates."
+          },
+          {
+            "citations": [
+              {
+                "additional_count": 2,
+                "publisher": "Momondo",
+                "source_ids": [
+                  "8",
+                  "6"
+                ]
+              },
+              {
+                "additional_count": 2,
+                "publisher": "www.skyscanner.com",
+                "source_ids": [
+                  "4",
+                  "5"
+                ]
+              },
+              {
+                "additional_count": 1,
+                "publisher": "KAYAK",
+                "source_ids": []
+              }
+            ],
+            "heading": "Best Time to Find Cheap Fares",
+            "hyperlinks": [
+              {
+                "text": "Google Flights",
+                "url": "https://www.google.com/travel/flights?tfs=CCwQAhopEgoyMDI2LTEyLTAzagwIAxIIL20vMHFjcmpyDQgDEgkvbS8wMl8yODYaKRIKMjAyNi0xMi0wOWoNCAMSCS9tLzAyXzI4NnIMCAMSCC9tLzBxY3JqSAFSA1VTRA&curr=USD&hl=en-US&gl=US"
+              },
+              {
+                "text": "KAYAK",
+                "url": "https://www.kayak.com/flight-routes/San-Francisco-SFO/New-York-NYC"
+              }
+            ],
+            "text": "Cheapest Months: January and February offer the lowest seasonal averages (around $266–$291), while November and December (outside of the major holidays) also feature reduced rates. New York Airports: You can fly into JFK (John F. Kennedy), LGA ( LaGuardia ), or EWR ( Newark Liberty ) . Newark and JFK typically offer the most competitive nonstop pricing from SFO . Booking Tips: Aim to book roughly 4 weeks to 4 months in advance, and check comparison tools like Google Flights or KAYAK to track live price drops for your specific dates."
+          }
+        ],
+        "sources": [
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.skyscanner.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "www.skyscanner.com",
+            "snippet": "Flights to New York: One-way from $34, round-trip from $63; average flight time 2h 57m; peak month July, cheapest month November; ...",
+            "source_id": "4",
+            "title": "$63 Cheap Flights to New York NY in 2027 | Skyscanner",
+            "url": "https://www.skyscanner.com/flights-to/nyca/cheap-flights-to-new-york.html"
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.expedia.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Expedia",
+            "snippet": "Kennedy International Airport (JFK), LaGuardia Airport (LGA), and Newark Liberty International Airport (EWR), Frontier Airlines ca...",
+            "source_id": "2",
+            "title": "$44 Cheap Flights to New York, NY - Expedia",
+            "url": "https://www.expedia.com/Cheap-Flights-To-New-York.d178293.Travel-Guide-Flights"
+          },
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.momondo.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Momondo",
+            "snippet": "What is the cheapest month to fly to New York? The cheapest month to fly to New York from United States is in January. Flight pric...",
+            "source_id": "8",
+            "title": "$98 Cheap Flights to New York in 2026/27 - Momondo",
+            "url": "https://www.momondo.com/flights/new-york-city"
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.google.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Google",
+            "snippet": "The cheapest flights from San Francisco to New York are usually in January. Typical ticket prices in January range from $185 to $3...",
+            "source_id": "3",
+            "title": "Find Cheap Flights from San Francisco to New York (SFO",
+            "url": "https://www.google.com/travel/flights/flights-from-san-francisco-to-new-york.html?gl=US&hl=en-US"
+          },
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.kayak.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "KAYAK",
+            "snippet": "Route: SFO to NYC Pricing: Lowest $125 (recent), Round-trip $331-$591 typical, January cheapest ($314 avg), June/July highest ($56...",
+            "source_id": "5",
+            "title": "$125 CHEAP FLIGHTS from San Francisco to New York (SFO - NYC) | KAYAK",
+            "url": "https://www.kayak.com/flight-routes/San-Francisco-SFO/New-York-NYC"
+          },
+          {
+            "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://www.priceline.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "Priceline",
+            "snippet": "When is the cheapest time to fly? Cheapest in early February at about $288. Fares from San Francisco to New York are lowest in ear...",
+            "source_id": "6",
+            "title": "Cheap Flights San Francisco to New York from $139 - Priceline",
+            "url": "/goto?url=CAESnAEB6zswFcYwEmUnhu3LRud1qSCP4a8leTdpOyPxY7ItFnuE25HFVWvO8_Vyb88VVWAbXjJYyVyCu7Iv8duNN422_zdAzjDfIAh_h3upQZUFnsyGIEJ5XJWkAO-mu56FHJPFMOwjVNB9mltVMjoqwQfTdTbbLFCAIZvDqyJcxk0KUL-vFZhmxySWRg5XGMyHWN3QATVyHoQcp964VPI"
+          },
+          {
+            "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.google.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
+            "publisher": "",
+            "snippet": "Round trip flights to New York starting from $362",
+            "source_id": "1_0",
+            "title": "Flights from San Francisco to New York",
+            "url": "https://www.google.com/travel/flights?tfs=CCwQAhopEgoyMDI2LTEyLTAzagwIAxIIL20vMHFjcmpyDQgDEgkvbS8wMl8yODYaKRIKMjAyNi0xMi0wOWoNCAMSCS9tLzAyXzI4NnIMCAMSCC9tLzBxY3JqSAFSA1VTRHpoQ2pSSVdUazBSVm95V2pVMmJVbEJSRjlGTmtGQ1J5MHRMUzB0TFMwdExYQm1hbU14TjBGQlFVRkJSM0pTUWxkdlMzWldkbmRCRWdOalFVRWFDd2pvbWdJUUFob0RWVk5FT0ROdzZKb0M&curr=USD&hl=en-US&gl=US"
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "sectioned",
+      "text": "Round-trip flights from the San Francisco Bay Area (SFO) to New York start around $338 to $362 for upcoming late-autumn and winter dates on carriers like American Airlines, Delta Air Lines, and United Airlines.",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.expedia.com  › ... › New York",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Trending flights to New York. Prices were available within the past 7 days and  start at $44 for one-way flights and $84 for roundtrip , for the period specified. Read more",
+      "title": "$44 Cheap Flights to New York, NY",
+      "type": "general",
+      "url": "/goto?url=CAESiQEB6zswFW-_5P_GXOermUV_4OcB-kDqLQ2mg2oQLFBKBx7T_ndEnTLpkZbBIw8QvEm2XMx-_Zd4aZk-nom2JvTa_Md_Mzh2hBgRnqeX-gvSz9Ym4hEqd6ky2qwIpP-tkGNiXah7fi5dQZ3mPd9wTmvHVb-Bj1puD49Z-lb02o7zV3LTNYp-1f__xQ"
+    },
+    {
+      "cite": "https://www.google.com  › Flights › From San Francisco",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Use Google Flights  to find cheap flights from San Francisco to New York, starting at $338, and book tickets for your next trip. Fastest flight 5 hr 17 min … ...",
+      "title": "Find Cheap Flights from San Francisco to New York (SFO",
+      "type": "general",
+      "url": "https://www.google.com/travel/flights/flights-from-san-francisco-to-new-york.html?gl=US&hl=en-US"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "items": [
+          "Which month is the cheapest to fly to New York?",
+          "Can you skip the first leg of a flight?",
+          "How to get the cheapest flights to New York?",
+          "How to get a 50% discount on flights?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Which month is the cheapest to fly to New York?<|>Can you skip the first leg of a flight?<|>How to get the cheapest flights to New York?<|>How to get a 50% discount on flights?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.skyscanner.com  › ... › New York",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "$ 33 is the cheapest price for a one-way flight to New York . Or you can book a round-trip fare for $76. Stay on top ... Read more",
+      "title": "$76 Cheap Flights to New York NY in 2027 | Skyscanner",
+      "type": "general",
+      "url": "/goto?url=CAEShAEB6zswFQiE8igAa4xcqco3V8w7jvvce1DXp3HKy6efryk67j-tUgA_FneKgE3syz897BGF7zBF6eVlCeod3GgmexKI04FOiC3IkdQmiK8cxMBHMICqZZWm6jCoLdE7zYshNVK4llFfCLPyp3q_4NqXZ38QLIw1CjQBhmBAyJhCW9ZIGMg"
+    },
+    {
+      "cite": "https://www.kayak.com  › ... › New York State",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Round-trip flights from San Francisco to New York typically range from $331 to $591 . The lowest price found in the past 5 days was $355, on Frontier. Read more",
+      "title": "$128 Find Cheap Flights from San Francisco to New York",
+      "type": "general",
+      "url": "/goto?url=CAESfQHrOzAV96rPuKlS2vyEP8kk5l2c67NZ1nlOhNYYavB8Qd1Iwu2YBLVQG4vBI3OUlJ4fJh32slQeeZU4lbY_DFm7kTV331D38khopjv7PhN3Dx0LV39IFkqs7rTGRSqeRpzZbKgQiq1U10IzVLBdtV6u-_aQcaKT6r2Toz0s"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "items": [
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&q=SFO+airport&skip=s&sa=X&ved=2ahUKEwjhhe3GvryXAxVhEjQIHVj1DKkQp_ENegQIZRAQ"
+          },
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&q=JFK+airport&skip=s&sa=X&ved=2ahUKEwjhhe3GvryXAxVhEjQIHVj1DKkQqPENegQIZRAR"
+          },
+          {
+            "text": "OAG",
+            "url": "/goto?url=CAEShAEB6zswFUehWn35i2Z36sLU7rD-fqwpO6gtxVmrPMe6ciGKqCnfW7wW3gtjYdprPVRPRM5_V4GROXArVNB2XDVxJamoNcThp6OQRKbr4SfAL0gC1ca_Cz1oXS8Iw0OOfZ8V-ihuvboW13u_AuXOHhRkb-letdcsq3yw03V-Ntu76tkgzVA"
+          },
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&q=SFO+airport&skip=s&sa=X&ved=2ahUKEwjhhe3GvryXAxVhEjQIHVj1DKkQp_ENegQIZRAo"
+          },
+          {
+            "text": "Airport info",
+            "url": "/search?sca_esv=e8b19434261761b5&sxsrf=APpeQnsoXsHSIWQxy772eA7sPQHtiwTeww:1792083305915&q=EWR+airport&skip=s&sa=X&ved=2ahUKEwjhhe3GvryXAxVhEjQIHVj1DKkQqPENegQIZRAp"
+          },
+          {
+            "text": "OAG",
+            "url": "/goto?url=CAEShAEB6zswFcZWm7eC7UuYYFk2FrLXzaJ9Um0NOzHINBbgwHqjDg8llL1DBIAlUSjUho4BGPyiOrOqiM56llpScJUfb3mJVR9OlzuMMenMtbT3tmqmBausK5VA8VJkU-0Mz-LH8Ah10WHbj3JL9GvA8oNaLI7zV0Dy0J72CNgd_clRHSbtcMw"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": null,
+      "title": "Flight status",
+      "type": "flights",
+      "url": null
+    },
+    {
+      "cite": "https://www.aa.com  › ... › Flights to United States",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Find cheap flights to New York with American Airlines . You can often find lower fares by booking in advance and traveling during off-peak times.",
+      "title": "Flights to New York",
+      "type": "general",
+      "url": "/goto?url=CAESZwHrOzAVrQLcWmUHVrXUlf0Q8uO9a5pSkfRmZ9i4iPljwuZ9Yc74Zmfc7M-MeEk6ZFQOlTGDgnT4qq4oy3T0Lm7gLy5yckEBwtSDYJ-VO3PkbMw8vgkcnf9i8Bjb9Uq-sEtX1h7xme0"
+    },
+    {
+      "cite": "https://www.priceline.com  › Flights › United States",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The typical one-way fare is $215. A round-trip at or under $393 is a good deal on this route right now. Tuesday departures average $418 on this route, the ...",
+      "title": "Flight Deals from San Francisco to New York",
+      "type": "general",
+      "url": "/goto?url=CAESnAEB6zswFR1-kZYWh1WtjPQydPU3NAJAqWFN4a2WsrViqVZJpdvMgeWv0-g4CUAEtEcmSUkO4k3snY_v7-pv9d5dKsWEaWak_2xRXR1SqcSTcNcifzm6XMA9yhoL4sUDmArlkRLy--ZwNItnEH-edftW_FpBMKwnk0gZgQ7cXnQQUyC56iv2Krbub7gvdqmGMXvCtP_pggDl1wqxIDc"
+    },
+    {
+      "cite": "https://www.momondo.com  › flights › new-york-city",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The cheapest month to fly to New York from United States is in  January . Flight prices, which tend to average around $266, are often lower during this time ... Read more",
+      "title": "$98 Cheap Flights to New York in 2026/27",
+      "type": "general",
+      "url": "/goto?url=CAESaAHrOzAVw0qpcmg_y_oncy8VaL8CgNcB9AmFurwElYGBDfLydg0hwMBsZDDSDrr7XhesDow5kYpldkancwr3CoelNmYQT5MQYYHB6LC1sWYuot3r9q3_jxjrDH602ZLBSmZMCIcjEfio"
+    },
+    {
+      "cite": "https://www.travelocity.com  › ... › New York",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Searching for flights to New York ? We've compared flight deals and tickets from all airlines flying to New York.",
+      "title": "Cheap Flights to New York",
+      "type": "general",
+      "url": "/goto?url=CAESjQEB6zswFUpU6YDxv1Unopk43h1SvbXP_EdVqt8XbJQJl5z90KoSHWwJNugjNB2bdqu7wJ-4-HEM9XFxzGp4hUC9ONK-HJ5IwWi7xCpV2hK8JXLqnKLIDbfsSeFyo-aFur9aTblKzeAVLG5zWWX095veWkJ8qrp3riSYJuYWPlTpK-sDuUuOlFFmAYCVcWA"
+    },
+    {
+      "cite": "https://www.expedia.com  › ... › Flights to New York",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Compare cheap Flights from San Francisco (SFO) to New York (NYC)  start at $159 for one-way and $318 for round trip . Earn your airline miles on top of our ...",
+      "title": "San Francisco to New York cheap flights from ...",
+      "type": "general",
+      "url": "/goto?url=CAESfwHrOzAVTlMb92Y3zuM0jIeykHaXI0fpkVz4Jotb-CZyTxRZ_--bYIXnT0vSvp3RNO2bmSH8nkgedrgeU1nIz8GFaPjAUq7NAKX33XXopHU0YI9CwKrjppvOcrdLoLFe07txFWUzGByET3ynvC0I5ULp6pLlc_bXa-ef7kcGczg"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Flights to NYC round-trip",
+          "Flights to NYC one-way",
+          "Flights to nyc Google",
+          "SFO to NYC round-trip",
+          "Cheapest time to fly to NYC",
+          "SFO to nyc flight",
+          "Last minute flights to NYC",
+          "San Francisco to nyc flight time"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Flights to NYC round-trip<|>Flights to NYC one-way<|>Flights to nyc Google<|>SFO to NYC round-trip<|>Cheapest time to fly to NYC<|>SFO to nyc flight<|>Last minute flights to NYC<|>San Francisco to nyc flight time",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

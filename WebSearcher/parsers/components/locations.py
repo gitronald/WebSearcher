@@ -33,11 +33,11 @@ def classify_locations_sub_type(node: Node) -> str:
     heading = node.css_first('[role="heading"]')
     if heading is not None:
         text = get_text(heading, strip=True) or ""
-        if "Hotels" in text or "Hotel" in text:
+        if "Hotel" in text:
             return "hotels"
     # Fallback: any /travel/ link present
     for a in node.css("a[href]"):
-        if "/travel/" in (a.attributes.get("href") or ""):
+        if "/travel/" in (a.attrs.get("href") or ""):
             return "hotels"
     return "unknown"
 
@@ -45,13 +45,13 @@ def classify_locations_sub_type(node: Node) -> str:
 def parse_hotels(node: Node) -> list[dict[str, Any]]:
     items: list[dict[str, Any]] = []
     for a in node.css("a[href]"):
-        href = a.attributes.get("href") or ""
+        href = a.attrs.get("href") or ""
         if "/travel/" not in href:
             continue
         name_div = a.css_first("div.sxdlOc") or a.css_first("div.BTPx6e")
         if name_div is None:
             continue
-        items.append(_parse_hotel_item(a, len(items)))
+        items.append(_parse_hotel_item(a, name_div, len(items)))
 
     # Card carousel variant ("Similar to <hotel>" / "Popular hotels in <place>"):
     # per card one name span and one local/places anchor, siblings inside the
@@ -87,8 +87,7 @@ def parse_hotels(node: Node) -> list[dict[str, Any]]:
     return items
 
 
-def _parse_hotel_item(a: Node, sub_rank: int) -> dict[str, Any]:
-    name_div = a.css_first("div.sxdlOc") or a.css_first("div.BTPx6e")
+def _parse_hotel_item(a: Node, name_div: Node, sub_rank: int) -> dict[str, Any]:
     price_span = a.css_first("span.sRlU8b")
     rating_span = a.css_first("span.yi40Hd")
     reviews_span = a.css_first("span.RDApEe")
@@ -99,9 +98,9 @@ def _parse_hotel_item(a: Node, sub_rank: int) -> dict[str, Any]:
         "type": "locations",
         "sub_type": "hotels",
         "sub_rank": sub_rank,
-        "title": get_text(name_div, strip=True) if name_div is not None else None,
-        "url": a.attributes.get("href"),
-        "text": get_text(desc_div, strip=True) if desc_div is not None else None,
+        "title": get_text(name_div, strip=True),
+        "url": a.attrs.get("href"),
+        "text": get_text(desc_div, strip=True),
         "cite": None,
         "details": _parse_hotel_details(price_span, rating_span, reviews_span, stars_span),
     }
@@ -118,7 +117,7 @@ def _parse_hotel_card(card: Node, name_span: Node, sub_rank: int) -> dict[str, A
         "sub_type": "hotels",
         "sub_rank": sub_rank,
         "title": get_text(name_span, strip=True),
-        "url": a.attributes.get("href") if a is not None else None,
+        "url": a.attrs.get("href") if a is not None else None,
         "text": None,
         "cite": None,
         "details": _parse_hotel_details(price_span, rating_span, reviews_span, None),

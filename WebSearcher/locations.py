@@ -225,28 +225,37 @@ def append_ledger_row(ledger_fp: str | Path, date_collected: str, filename: str)
 
 
 def get_latest_url(url: str) -> str:
-    html = requests.get(url, timeout=REQUEST_TIMEOUT).content
-    soup = utils.make_soup(html)
-    links = utils.get_link_list(soup) or []
-    url_list = [u for u in links if u]
-    geo_urls = [u for u in url_list if "geotargets" in u]
+    """URL of the newest geotargets CSV linked from the developer page.
 
-    # Get current CSV url and use as filename
-    geo_url = sorted(geo_urls)[-1]
-    return "https://developers.google.com" + geo_url
+    Raises ``requests.HTTPError`` on a failed fetch and ``ValueError`` when the
+    page carries no geotargets link, so the scheduled update job fails with a
+    clear message instead of a bare ``IndexError``."""
+    response = requests.get(url, timeout=REQUEST_TIMEOUT)
+    response.raise_for_status()
+    soup = utils.make_soup(response.content)
+    links = utils.get_link_list(soup) or []
+    geo_urls = sorted(u for u in links if "geotargets" in u)
+    if not geo_urls:
+        raise ValueError(f"no geotargets link found at {url}")
+    # Latest CSV url (lexically last, the filenames are dated); used as filename.
+    return "https://developers.google.com" + geo_urls[-1]
 
 
 def save_zip_response(response: requests.Response, fp: str) -> None:
+    """Write the archive's CSV member to ``fp`` (upstream ships exactly one)."""
     with zipfile.ZipFile(io.BytesIO(response.content)) as zip_ref:
-        for member in zip_ref.namelist():
-            if member.endswith(".csv"):
-                with zip_ref.open(member) as csv_file:
-                    reader = csv.reader(io.TextIOWrapper(csv_file, "utf-8"))
-                    write_csv(fp, reader=reader)
+        csv_members = [m for m in zip_ref.namelist() if m.endswith(".csv")]
+        if not csv_members:
+            raise ValueError("geotargets archive contains no .csv member")
+        with zip_ref.open(csv_members[0]) as csv_file:
+            reader = csv.reader(io.TextIOWrapper(csv_file, "utf-8"))
+            write_csv(fp, reader=reader)
 
 
 def write_csv(fp: str, lines: list[list[str]] | None = None, reader: Any = None) -> None:
-    with open(fp, "w", encoding="utf-8") as outfile:
+    # ``newline=""`` so csv.writer's ``\r\n`` terminator is not translated again
+    # on Windows (the other opens in this module do the same).
+    with open(fp, "w", encoding="utf-8", newline="") as outfile:
         writer = csv.writer(outfile)
         if reader:
             writer.writerows(reader)

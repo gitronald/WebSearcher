@@ -51,7 +51,7 @@ def get_url(sub: Node) -> str | None:
     # Prefer the publisher anchor if present, fall back to the first anchor.
     for sel in ("a.v4kUNc", "a"):
         a = sub.css_first(sel)
-        href = a.attributes.get("href") if a is not None else None
+        href = a.attrs.get("href") if a is not None else None
         if href:
             return href
     return None

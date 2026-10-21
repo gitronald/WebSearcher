@@ -231,6 +231,23 @@ def test_soup_server_error_flag():
     assert features.server_error is True
 
 
+def test_soup_server_error_flag_split_by_inline_tags():
+    features = FeatureExtractor.extract_features(
+        make_soup(
+            "<p>We're sorry but it appears that there has been an <b>internal server error</b> "
+            "while processing <script>x</script>your request.</p>"
+        )
+    )
+    assert features.server_error is True
+
+
+def test_soup_server_error_flag_not_matched_across_unrelated_text():
+    features = FeatureExtractor.extract_features(
+        make_soup("<p>We're sorry but it appears that there has been an internal</p>")
+    )
+    assert features.server_error is False
+
+
 def test_soup_infinity_scroll():
     features = FeatureExtractor.extract_features(
         make_soup('<span class="RVQdVd">More results</span>')

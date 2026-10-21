@@ -93,10 +93,10 @@ def test_requests_config_has_default_headers():
     assert "Host" in cfg.headers
 
 
-def test_requests_config_sesh():
+def test_requests_config_sesh_defaults_to_none_and_is_not_dumped():
     cfg = RequestsConfig()
-    sesh = cfg.sesh
-    assert "User-Agent" in sesh.headers
+    assert cfg.sesh is None
+    assert "sesh" not in cfg.model_dump()
 
 
 # SearchConfig -----------------------------------------------------------------

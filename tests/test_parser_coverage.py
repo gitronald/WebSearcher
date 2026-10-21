@@ -16,6 +16,7 @@ import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
 from WebSearcher.parsers.components.datasets import parse_datasets
+from WebSearcher.parsers.components.people_also_ask import parse_people_also_ask
 
 FIXTURE = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -800,3 +801,252 @@ def test_general_d4rhi_main_result_kept_once(serps_by_qry):
         assert len(mains) == 1 and mains[0]["sub_type"] is None
         indented = [r for r in group if r["sub_type"] == "indented"]
         assert all(r["url"] != mains[0]["url"] for r in indented)  # not a duplicate of the main
+
+
+# --- ai_overview role-heading layout (plan 060) ------------------------------
+#
+# The 2026-10 layout has no Fzsovc/h2: its "AI Overview" heading is a
+# div[role=heading], and the body markup inside div.mZJni is renamed. These
+# records were typed knowledge (via an embedded qTdDb controller) or reached
+# ai_overview only through the banner rule and parsed empty. Keyed by serp_id:
+# their queries repeat older corpus records.
+
+AIO_ROLE_HEADING = {
+    "ef30639b2b33": ["How It Works", "Why Sunsets Are Red"],  # why is the sky blue
+    "adf0f7391ecc": 3,  # is it worth learning rust reddit (emoji-led headings)
+    "42bc62be2985": ["Key Market Statistics"],  # aapl stock price, no sources
+    # cheap flights to new york: typed by the banner rule, parsed empty
+    "3765fb676f3c": ["Sample Fares & Routes (SFO to NYC)", "Best Time to Find Cheap Fares"],
+}
+
+
+@pytest.fixture(scope="module")
+def serps_by_id():
+    if not FIXTURE.exists():
+        pytest.skip("parser-coverage fixture not available")
+    return {r["serp_id"][:12]: r for r in _load()}
+
+
+def _aio_row(serps_by_id, sid):
+    rows = _rows(serps_by_id[sid]["html"], "ai_overview")
+    assert len(rows) == 1
+    return rows[0]
+
+
+@pytest.mark.parametrize("sid", AIO_ROLE_HEADING)
+def test_ai_overview_role_heading_sections(serps_by_id, sid):
+    row = _aio_row(serps_by_id, sid)
+    assert row["sub_type"] == "sectioned"
+    assert row["text"]
+    assert _row_error(row) is None
+    sections = row["details"]["sections"]
+    expected = AIO_ROLE_HEADING[sid]
+    if isinstance(expected, int):
+        assert len(sections) == expected
+    else:
+        assert [s["heading"] for s in sections] == expected
+    assert all(s["text"] for s in sections)
+
+
+@pytest.mark.parametrize("sid", AIO_ROLE_HEADING)
+def test_ai_overview_role_heading_no_widget_leakage(serps_by_id, sid):
+    """Citation labels and the closing follow-up prompt stay out of the text."""
+    row = _aio_row(serps_by_id, sid)
+    texts = [row["text"]] + [s["text"] for s in row["details"]["sections"]]
+    labels = [
+        f"{c['publisher']} +{c['additional_count']}"
+        for c in _citations(row)
+        if c["publisher"] and c["additional_count"]
+    ]
+    for text in texts:
+        assert "Would you like" not in text
+        assert not any(label in text for label in labels)
+
+
+def _citations(row):
+    details = row["details"]
+    cites = list(details.get("citations", []))
+    for section in details["sections"]:
+        cites.extend(section.get("citations", []))
+    return cites
+
+
+def test_ai_overview_role_heading_citations_and_sources(serps_by_id):
+    row = _aio_row(serps_by_id, "ef30639b2b33")
+    details = row["details"]
+    assert details["citations"] == [
+        {"publisher": "NASA Space Place (.gov)", "additional_count": 0, "source_ids": ["1"]}
+    ]
+    sources = details["sources"]
+    ids = [s["source_id"] for s in sources]
+    assert len(ids) == len(set(ids)) == 7
+    by_id = {s["source_id"]: s for s in sources}
+    # Lead sources resolve from /goto redirects to the full URL; the rest keep
+    # the redirect.
+    assert by_id["1"]["url"] == "https://spaceplace.nasa.gov/blue-sky/"
+    assert by_id["2_0"]["url"].startswith("/goto?url=")
+    assert all(s["title"] and s["publisher"] for s in sources)
+    # Every cited source id is in the tray.
+    assert {i for c in _citations(row) for i in c["source_ids"]} <= set(ids)
+    links = details["sections"][1]["hyperlinks"]
+    assert links[0] == {"url": "https://spaceplace.nasa.gov/blue-sky/", "text": "NASA Space Place"}
+
+
+def test_ai_overview_role_heading_follow_up(serps_by_id):
+    """The closing follow-up prompt is its own detail, not part of the body text."""
+    details = _aio_row(serps_by_id, "ef30639b2b33")["details"]
+    assert details["follow_up"] == (
+        "Would you like to know how particles like dust or pollution change the color "
+        "of the sky, or how skies on other planets like Mars look?"
+    )
+    assert "follow_up" not in _aio_row(serps_by_id, "adf0f7391ecc")["details"]
+
+
+def test_ai_overview_role_heading_in_body_source_panel(serps_by_id):
+    """Some overviews list sources in a panel inside the body (div.fSJHKf)."""
+    sources = _aio_row(serps_by_id, "adf0f7391ecc")["details"]["sources"]
+    assert len(sources) == 14
+
+
+def test_ai_overview_role_heading_without_sources(serps_by_id):
+    assert "sources" not in _aio_row(serps_by_id, "42bc62be2985")["details"]
+
+
+def test_ai_overview_role_heading_classifies_over_knowledge_controller():
+    cmpt_type = _classify(
+        '<div jscontroller="EYwa3d"><div role="heading">AI Overview</div>'
+        '<div class="mZJni"><div class="n6owBd">Body</div>'
+        '<div jscontroller="qTdDb"></div></div></div>'
+    )
+    assert cmpt_type == "ai_overview"
+
+
+def test_ai_overview_role_heading_needs_controller():
+    """People-also-ask answers embed div.mZJni without the EYwa3d controller."""
+    assert _classify('<div class="mZJni"><div class="n6owBd">Body</div></div>') != "ai_overview"
+
+
+def test_flight_search_widget_search_flights_heading(serps_by_id):
+    """The es75Cc flight-search widget, now headed "Search flights", is typed flights."""
+    html = serps_by_id["3765fb676f3c"]["html"]
+    (row,) = [r for r in _rows(html, "flights") if r["title"] == "Search flights"]
+    items = row["details"]["items"]
+    assert len(items) == 4
+    assert all(i["url"].startswith("https://www.google.com/travel/flights") for i in items)
+    assert all(r["title"] or r["url"] for r in _rows(html, "general"))
+
+
+# --- people_also_ask embedded AI overview answer (plan 061) -----------------
+#
+# In the 2026-10 layout the first PAA question ships its generated answer
+# expanded, in the role-heading overview markup. It stays in the PAA row as
+# details["answer"], and the row's sub_type is "ai_overview".
+
+PAA_ANSWER = {
+    # serp_id: (question, section headings, source count)
+    "ef30639b2b33": ("Why is the sky blue a simple answer?", ["How It Works"], 7),
+    "42bc62be2985": (
+        "What is the price target for Apple?",
+        ["Analyst Forecast Breakdown", "Recent Notable Price Target Updates"],
+        5,
+    ),
+}
+
+
+def _paa_row(serps_by_id, sid):
+    (row,) = _rows(serps_by_id[sid]["html"], "people_also_ask")
+    return row
+
+
+def _answer_citations(answer):
+    cites = list(answer.get("citations", []))
+    for section in answer.get("sections", []):
+        cites.extend(section.get("citations", []))
+    return cites
+
+
+@pytest.mark.parametrize("sid", PAA_ANSWER)
+def test_paa_answer_fields(serps_by_id, sid):
+    row = _paa_row(serps_by_id, sid)
+    question, headings, n_sources = PAA_ANSWER[sid]
+    assert row["sub_type"] == "ai_overview"
+    assert _row_error(row) is None
+    details = row["details"]
+    assert details["type"] == "text"
+    assert len(details["items"]) == 4  # the question list is unchanged
+    answer = details["answer"]
+    assert answer["question"] == question == details["items"][0]
+    assert answer["text"]
+    assert [s["heading"] for s in answer["sections"]] == headings
+    assert all(s["text"] for s in answer["sections"])
+    # Scoped to the question: the page's main overview has its own source cards.
+    assert len(answer["sources"]) == n_sources
+
+
+@pytest.mark.parametrize("sid", PAA_ANSWER)
+def test_paa_answer_citations_and_leakage(serps_by_id, sid):
+    answer = _paa_row(serps_by_id, sid)["details"]["answer"]
+    cites = _answer_citations(answer)
+    assert cites
+    ids = {s["source_id"] for s in answer["sources"]}
+    assert {i for c in cites for i in c["source_ids"]} <= ids
+    labels = [
+        f"{c['publisher']} +{c['additional_count']}"
+        for c in cites
+        if c["publisher"] and c["additional_count"]
+    ]
+    for text in [answer["text"]] + [s["text"] for s in answer["sections"]]:
+        assert not any(label in text for label in labels)
+
+
+def test_paa_answer_lede_citation(serps_by_id):
+    answer = _paa_row(serps_by_id, "ef30639b2b33")["details"]["answer"]
+    assert answer["citations"] == [
+        {"publisher": "NASA Space Place (.gov)", "additional_count": 1, "source_ids": ["1", "9"]}
+    ]
+
+
+def _paa(inner):
+    elem = utils.make_soup(f"<div><div>People also ask</div>{inner}</div>").css_first("div")
+    assert elem is not None
+    return parse_people_also_ask(elem)[0]
+
+
+def test_paa_flat_answer():
+    """An answer with no section headings is the lede alone."""
+    row = _paa(
+        '<div class="related-question-pair" data-q="Is it blue?">'
+        '<div class="JlqpRe">Is it blue?</div>'
+        '<div class="mZJni"><div class="n6owBd">Yes, it scatters blue light.</div></div></div>'
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+    )
+    assert row["sub_type"] == "ai_overview"
+    assert row["details"] == {
+        "type": "text",
+        "items": ["Is it blue?", "Why?"],
+        "answer": {"question": "Is it blue?", "text": "Yes, it scatters blue light."},
+    }
+
+
+def test_paa_without_answer():
+    row = _paa(
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+        '<div class="mZJni"><div class="n6owBd">Outside any question.</div></div>'
+    )
+    assert row["sub_type"] is None
+    assert row["details"] == {"type": "text", "items": ["Why?"]}
+
+
+def test_paa_answer_bounded_to_question_pairs():
+    """An overview outside every question pair is not bound to an outer ``data-q``."""
+    html = (
+        '<div data-q="Outer question"><div id="paa"><div>People also ask</div>'
+        '<div class="related-question-pair" data-q="Why?"><div class="JlqpRe">Why?</div></div>'
+        '<div class="mZJni"><div class="n6owBd">Outside any question.</div></div>'
+        "</div></div>"
+    )
+    elem = utils.make_soup(html).css_first("div#paa")
+    assert elem is not None
+    row = parse_people_also_ask(elem)[0]
+    assert row["sub_type"] is None
+    assert row["details"] == {"type": "text", "items": ["Why?"]}

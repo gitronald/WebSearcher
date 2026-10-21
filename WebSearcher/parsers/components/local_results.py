@@ -55,7 +55,7 @@ def parse_local_results(elem: Node) -> list[dict[str, Any]]:
         header = None
         for sel in ('h2[role="heading"]', 'div[aria-level="2"][role="heading"]'):
             found = subtree_first(node, sel)
-            text = get_text(found, " ") if found is not None else None
+            text = get_text(found, " ")
             if text:
                 header = text
                 break
@@ -142,16 +142,16 @@ def _link_text_to_url(sub: Node) -> dict[str, str]:
     """
     out: dict[str, str] = {}
     website = sub.css_first("a.L48Cpd")
-    if website is not None and website.attributes.get("href"):
-        out["website"] = str(website.attributes["href"])
+    if website is not None and website.attrs.get("href"):
+        out["website"] = str(website.attrs["href"])
     # A card can carry several ``a.VDgVie`` anchors (e.g. a "Schedule"/booking
     # button alongside "Directions"); the Directions button is the one also
     # tagged ``Q7PwXb`` (the booking button uses ``pYH8Dd``). Keying off the
     # class is locale-independent and still works for sponsored cards whose
     # Directions href is an ``/aclk`` ad redirect rather than ``/maps/dir``.
     directions = sub.css_first("a.Q7PwXb.VDgVie")
-    if directions is not None and directions.attributes.get("href"):
-        out["directions"] = str(directions.attributes["href"])
+    if directions is not None and directions.attrs.get("href"):
+        out["directions"] = str(directions.attrs["href"])
     return out
 
 

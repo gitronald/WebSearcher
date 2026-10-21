@@ -68,7 +68,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="ai_overview",
         label="AI Overview",
         sections=("main",),
-        sub_types=("flat", "sectioned"),
+        sub_types=("flat", "sectioned", "unavailable"),
         description="AI-generated synthesized answer panel",
     ),
     ComponentType(
@@ -188,6 +188,27 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="Flights",
         sections=("main",),
     ),
+    # ``maps``, ``events`` and ``covid_alert`` are emitted by
+    # ``ClassifyMain.knowledge_box`` but have no parser yet, so they surface as
+    # not-implemented rows; registered so the type vocabulary stays complete.
+    ComponentType(
+        name="maps",
+        label="Maps",
+        sections=("main",),
+        description="Map box (no parser yet)",
+    ),
+    ComponentType(
+        name="events",
+        label="Events",
+        sections=("main",),
+        description="Events card carousel (no parser yet)",
+    ),
+    ComponentType(
+        name="covid_alert",
+        label="COVID-19 Alert",
+        sections=("main",),
+        description="COVID-19 alert notice (no parser yet)",
+    ),
     ComponentType(
         name="jobs",
         label="Jobs",
@@ -263,7 +284,9 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         sections=("main",),
         # Component type assigned to the RHS column container; its parser emits
         # result rows as ``type="side_bar"`` with ``sub_type="panel"`` (the main
-        # entity panel) or ``sub_type="links"`` (link boxes).
+        # entity panel), ``sub_type="fact"`` (one row per attribute/value fact)
+        # or ``sub_type="links"`` (link boxes).
+        sub_types=("panel", "fact", "links"),
         description="Knowledge panels in right-hand sidebar",
     ),
     ComponentType(
@@ -347,6 +370,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         label="People Also Ask",
         sections=("main", "footer"),
         header_texts={2: ("People also ask", "Más preguntas")},
+        sub_types=("ai_overview",),
         description="Related questions that people search for",
     ),
     ComponentType(

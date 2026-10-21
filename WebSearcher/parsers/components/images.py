@@ -44,7 +44,7 @@ def parse_image_strip(node: Node) -> list[dict[str, Any]]:
     by_url: dict[str, str] = {}
     captioned: set[str] = set()
     for anchor in node.css("a[href]"):
-        href = anchor.attributes.get("href")
+        href = anchor.attrs.get("href")
         if not href:
             continue
         caption = get_text(anchor, " ", strip=True)
@@ -87,7 +87,7 @@ def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     )
     if title_a is not None:
         first_a = sub.css_first("a")
-        url = first_a.attributes.get("href") if first_a is not None else None
+        url = first_a.attrs.get("href") if first_a is not None else None
     else:
         url = get_img_url(sub)
 
@@ -95,7 +95,7 @@ def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         title = get_img_alt(sub)
     if not url:
         fallback_a = sub.css_first("a.EZAeBe, a.ddkIM")
-        url = fallback_a.attributes.get("href") if fallback_a is not None else None
+        url = fallback_a.attrs.get("href") if fallback_a is not None else None
 
     return {
         "type": "images",
@@ -124,9 +124,9 @@ def get_img_url(sub: Node) -> str | None:
     img = sub.css_first("img")
     candidates: list[str | None] = []
     if img is not None:
-        candidates.append(img.attributes.get("src"))
-        candidates.append(img.attributes.get("title"))
-    candidates.append(sub.attributes.get("data-lpage"))
+        candidates.append(img.attrs.get("src"))
+        candidates.append(img.attrs.get("title"))
+    candidates.append(sub.attrs.get("data-lpage"))
     for url in candidates:
         if url and not url.startswith("data:image"):
             return str(url)
@@ -135,5 +135,5 @@ def get_img_url(sub: Node) -> str | None:
 
 def get_img_alt(sub: Node) -> str | None:
     img = sub.css_first("img")
-    alt = img.attributes.get("alt") if img is not None else None
+    alt = img.attrs.get("alt") if img is not None else None
     return f"alt-text: {alt}" if alt else None
