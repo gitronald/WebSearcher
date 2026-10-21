@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.12.1`: AI overviews in the 2026-10 role-heading layout and inside people-also-ask, recovered right-hand knowledge panels, a sweep of parser and extractor fixes, and per-search request headers that no longer leak into later searches
 - `0.12.0`: Persistent patchright browser profiles (`--user-data-dir`, `PatchrightConfig.clear_cookies`) with `--leave-open` for warming them by hand, CAPTCHA redirects logged as `captcha` events, and `selectolax>=1.0` for about 47% faster parsing with unchanged output
 - `0.11.x`: **Breaking** -- `patchright` is the only browser backend, crawl logs are JSON Lines, `import WebSearcher` no longer configures logging, and notice/sub_type output was renamed; plus broad parser coverage of previously-`unknown` components and full pyrefly strict typing
 
