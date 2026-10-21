@@ -40,6 +40,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Removed
 
 - Dead code: `utils.start_sesh`, `generate_ssh_tunnels`, `exit_handler`; `ads.classify_ad_type`; `Component.to_dict`, `ComponentList.to_records`, the unused classify/parser override hooks and parser option parameters; the test-only per-section parser label dicts
+- `SearchEngine.method`, a copy of the configured method kept beside the config; read `SearchEngine.config.method.value` for the same string
 
 ## [0.12.0] - 2026-10-16
 
