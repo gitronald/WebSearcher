@@ -15,21 +15,13 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.12", "3.13", "3.14"]
-    # UV_PYTHON outranks the .python-version pin for uv sync and every uv run,
-    # so each matrix cell actually tests its own interpreter. Without it,
-    # bare `uv run` re-resolves to .python-version and every cell silently
-    # runs the same Python.
+    # Required to outrank .python-version so each cell tests its own Python
     env:
       UV_PYTHON: ${{ matrix.python-version }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
-      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7  # v10.2.0
+      - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884  # v10.3.0
       - run: uv python install ${{ matrix.python-version }}
-      # --python restates UV_PYTHON above, which already covers this step. It is
-      # spelled out anyway because this is the one step whose interpreter choice
-      # is load-bearing for the rest: a copied-out sync line, or an edit that
-      # drops the env block, silently falls back to .python-version and every
-      # matrix cell tests the same Python again.
       - run: uv sync --all-groups --python ${{ matrix.python-version }}
       - run: uv run ruff check .
       - run: uv run ruff format --check .
