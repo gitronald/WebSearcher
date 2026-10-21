@@ -1,14 +1,7 @@
 name: Renovate
 
-# Self-hosted Renovate dependency updates. Config: .github/renovate.json
-#
-# Runs on a weekly schedule and on demand. Requires two repository secrets for a
-# least-privilege GitHub App:
-#   RENOVATE_CLIENT_ID       - the GitHub App's Client ID
-#   RENOVATE_APP_PRIVATE_KEY - the App's private key (PEM)
-# Creating the App and pushing the secrets is a one-time setup, documented at
+# Self-hosted Renovate; App secrets setup:
 # https://github.com/gitronald/proj-template/blob/main/docs/guides/github-automation.md
-# Renovate runs with the App token (not GITHUB_TOKEN) so its update PRs trigger CI.
 
 on:
   schedule:
@@ -36,7 +29,7 @@ jobs:
     steps:
       - name: Generate a least-privilege App token
         id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1  # v3.2.0
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510  # v3.3.0
         with:
           client-id: ${{ secrets.RENOVATE_CLIENT_ID }}
           private-key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
@@ -44,11 +37,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Run Renovate
-        # configurationFile loads .github/renovate.json as Renovate's global config so the
-        # settings apply even before the repo config is discovered on the default branch.
-        # Renovate also auto-discovers the same committed file as repo config; the two layers
-        # are identical, so the merge is harmless.
-        uses: renovatebot/github-action@9fea9f0fbf80401026d11d03911d62b1f70fef1f  # v46.3.3
+        # Load as global config so settings apply before repo config is discovered
+        uses: renovatebot/github-action@f0f41e5f2e706165f6814b1d0f0d0e319de7d1d9  # v46.3.8
         with:
           token: ${{ steps.app-token.outputs.token }}
           configurationFile: .github/renovate.json
