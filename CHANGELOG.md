@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.1] - 2026-10-21
+
 ### Added
 
 - AI overviews in the 2026-10 role-heading layout (a `div[role=heading]` title with a `div.mZJni` body under the `EYwa3d` controller, and no `Fzsovc` or `h2`) are classified as `ai_overview` and parsed, including their script-push payloads, instead of falling through to `knowledge_panel`
