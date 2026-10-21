@@ -25,25 +25,20 @@ repository = "https://github.com/gitronald/WebSearcher"
 [project.scripts]
 ws-demo = 'WebSearcher.demos:main'
 
-# Which proj-template release this repo was scaffolded from, stamped by
-# proj-init.sh and re-stamped by the install-template skill on upgrade. Inert to
-# consumers: build backends translate only [project], so this never reaches the
-# wheel or the PyPI metadata. Read it to audit template drift across repos.
+# proj-template release stamp, set by proj-init.sh and install-template; inert to consumers.
 [tool.proj-template]
-version = "0.11.2"
+version = "0.11.7"
 
 [dependency-groups]
 dev = [
-    "pytest>=9.0.3",
+    "pytest>=9.1.1",
     "syrupy>=4.8.1",
     "typer>=0.15.2",
     "pyarrow>=23.0.0",
     "polars>=1.37.1",
     "pre-commit>=4.5.1",
-    "pyrefly>=1.0.0",
-    # Same minor as the ruff-pre-commit rev in .pre-commit-config.yaml, so the
-    # commit hook and `uv run ruff` (CI, the Stop hook) apply one rule set.
-    # Bump the two together.
+    "pyrefly>=1.3.2",
+    # Same minor as the ruff-pre-commit rev in .pre-commit-config.yaml; bump the two together.
     "ruff>=0.17,<0.18",
     "pytest-cov>=7.0.0",
     # bs4 + lxml are dev-only: used by show_serp.py's overlay stripping (the
@@ -64,9 +59,7 @@ ignore-missing-imports = [
     "patchright.sync_api",
 ]
 
-# tests/ stays type-checked (imports, undefined names, type mismatches),
-# but the implicit-any check is relaxed there so unannotated pytest fixture
-# params (e.g. `def test_x(tmp_path):`) don't force annotations.
+# tests/ stays type-checked, but unannotated pytest fixture params don't fail implicit-any.
 [[tool.pyrefly.sub-config]]
 matches = "tests/**"
 
@@ -97,9 +90,8 @@ exclude_lines = [
 [tool.ruff]
 target-version = "py312"
 line-length = 100
-# ruff 0.16 formats Python fences inside Markdown; keep it off prose (READMEs,
-# changelogs, plans). Drop this line to have fenced code formatted.
-extend-exclude = ["*.md"]
+# ruff formats Python fences in Markdown; keep it off plans, the changelog, and the README.
+extend-exclude = [".planners/", "CHANGELOG.md", "README.md"]
 
 [tool.ruff.lint]
 select = [
@@ -119,13 +111,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
-# Allowlist what the sdist ships. The wheel already contains only the
-# WebSearcher/ package; this trims the sdist to match (~24MB -> a few hundred KB).
-# Root-anchored (leading "/") so bare names don't glob at every depth. Anything
-# not listed here (docs, plans, tests, CI config, dev dotfiles) stays in the repo
-# but is kept out of the distributed source archive. hatchling force-includes
-# pyproject.toml, PKG-INFO, and .gitignore regardless, so treat those as
-# sdist-visible.
+# Ship only what a PyPI consumer needs (~24MB -> a few hundred KB); a leading "/" anchors each path.
+# hatchling always adds pyproject.toml, PKG-INFO, and .gitignore, so keep secrets out of them.
 only-include = [
     "/WebSearcher",  # the importable package (includes the demos at WebSearcher/demos/)
     "/README.md",
