@@ -13,6 +13,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text
+from ._common import under_any
 from .shopping_ads import parse_shopping_ads
 
 # bs4 ``find("div", {"class": "X"})`` -> CSS class selector. Insertion order is
@@ -288,14 +289,17 @@ def parse_ad_text(elem: Node) -> list[dict[str, Any]]:
     """2026-10 text ads: one ``div[data-text-ad]`` per ad, with the standard
     layout's link, heading, and display URL but no ``div.uEierd`` wrapper.
 
-    Older text ads carry ``data-text-ad`` inside that wrapper, so this layout
-    yields to ``parse_ad_standard`` whenever one is present; otherwise those ads
-    would be parsed twice.
+    Older text ads carry ``data-text-ad`` inside that wrapper, so units nested in
+    a ``div.uEierd`` are left to ``parse_ad_standard``; otherwise those ads would
+    be parsed twice.
     """
     node: Node = elem
-    if node.css_first("div.uEierd") is not None:
-        return []
-    subs = [d for d in node.css("div[data-text-ad]") if has_text(d)]
+    wrapped = {w.mem_id for w in node.css("div.uEierd")}
+    subs = [
+        d
+        for d in node.css("div[data-text-ad]")
+        if has_text(d) and d.mem_id not in wrapped and not under_any(d, wrapped, node.mem_id)
+    ]
     return [
         _parse_ad_standard_sub(sub, sub_rank, _TEXT_AD_TEXT_CSS)
         for sub_rank, sub in enumerate(subs)

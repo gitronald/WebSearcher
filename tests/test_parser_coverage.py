@@ -1162,3 +1162,28 @@ def test_text_ad_rule_leaves_related_products_ads_to_searches_related():
     )
     assert cmpt_type == "searches_related"
     assert _classify('<div data-text-ad="1"><div role="heading">Ad</div></div>') == "ad"
+
+
+def test_wrapped_banner_rule_needs_the_controller():
+    # A qTdDb wrapper with no EYwa3d banner is a knowledge panel.
+    node = _wrap('<div jscontroller="qTdDb"><div>Thinking</div></div>')
+    assert ClassifyMain.ai_overview_wrapped_banner(node) == "unknown"
+    assert ClassifyMain.classify(node) == "knowledge"
+
+
+def _story(age_html: str) -> dict:
+    from WebSearcher.parsers.components.top_stories import parse_top_story
+
+    html = f'<a class="aJWbwf" href="/s"><div class="n0jPhd">T</div>{age_html}</a>'
+    node = utils.make_soup(html).css_first("a.aJWbwf")
+    assert node is not None
+    return parse_top_story(node, "top_stories")
+
+
+def test_top_story_age_skips_video_label():
+    video = '<div class="OSrXXb"><span class="Uz7khf">Video</span><span>24 hours ago</span></div>'
+    assert _story(video)["details"]["timestamp"] == "24 hours ago"
+    label_only = '<div class="OSrXXb"><span class="Uz7khf">Video</span></div>'
+    assert _story(label_only).get("details") is None
+    nested = '<div class="OSrXXb"><span><span>3</span> days ago</span></div>'
+    assert _story(nested)["details"]["timestamp"] == "3 days ago"

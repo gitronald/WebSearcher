@@ -11,7 +11,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, has_text, is_element
+from ..._slx import class_tokens, get_text, has_text, is_element
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row, mark_timestamp_row
 from ._video_card import parse_evlb_card
@@ -77,12 +77,16 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
     fields = parse_evlb_card(sub)
     if fields:
         parsed["details"] = {"type": "video", **fields}
-    # 2026-10 cards carry the story's age ("8 hours ago") as the last span of
-    # div.OSrXXb, after an optional "Video" label.
+    # 2026-10 cards carry the story's age ("8 hours ago") as the last child span
+    # of div.OSrXXb, after an optional "Video" label (span.Uz7khf).
     age = sub.css_first("div.OSrXXb")
     if age is not None:
-        spans = age.css("span")
-        mark_timestamp_row(parsed, get_text(spans[-1], " ") if spans else None)
+        spans = [
+            c
+            for c in age.iter(include_text=False)
+            if is_element(c) and c.tag == "span" and "Uz7khf" not in class_tokens(c)
+        ]
+        mark_timestamp_row(parsed, get_text(spans[-1], " ", strip=True) if spans else None)
     return mark_hidden_row(parsed, sub)
 
 

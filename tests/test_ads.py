@@ -85,3 +85,18 @@ def test_text_ad_yields_to_standard_wrapper():
         comp('<div class="uEierd"><div data-text-ad="1"><div role="heading">A</div></div></div>')
     )
     assert [(r["sub_type"], r["title"]) for r in rows] == [("standard", "A")]
+
+
+def test_text_ad_beside_wrapped_ad_is_kept():
+    # A block mixing an older wrapped ad and a bare 2026-10 unit parses both,
+    # each once.
+    rows = parse_ads(
+        comp(
+            '<div class="uEierd"><div data-text-ad="1"><div role="heading">Old</div></div></div>'
+            + TEXT_AD
+        )
+    )
+    assert [(r["sub_type"], r["title"]) for r in rows] == [
+        ("standard", "Old"),
+        ("submenu", "Shop Shoes"),
+    ]

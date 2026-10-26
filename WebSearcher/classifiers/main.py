@@ -407,6 +407,10 @@ class ClassifyMain:
         ``knowledge``. The parser routes these to ``sub_type="unavailable"``.
         """
         node: Node = cmpt
+        # Every banner carries the controller; probe it before the union walk,
+        # since nearly every component reaching this rule lacks one.
+        if node.css_first('div[jscontroller="EYwa3d"]') is None:
+            return "unknown"
         if node.css_first(ClassifyMain._KNOWLEDGE_CONTENT_CSS) is not None:
             return "unknown"
         found = False
