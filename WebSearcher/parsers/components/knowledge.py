@@ -386,6 +386,8 @@ _SUBTYPE_HANDLERS = (
 )
 
 
+_TRAILER_ATTRID = "/media_common/media_item/trailer/"
+
 # Known VisualDigest sub-result suffixes -> a stable ``kind``. Unknown suffixes
 # fall back to a slug of the suffix so a new sub-result type is captured (with a
 # best-effort kind) rather than silently dropped.
@@ -414,7 +416,10 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
     a per-row ``details["kind"]`` records which sub-result it is. Any
     ``VisualDigest*`` sub-result is handled (kind derived from the attrid) so a
     new variant is captured rather than dropped. Image thumbnails are lazy-loaded
-    1x1 gifs in the static HTML, so only the caption is recoverable.
+    1x1 gifs in the static HTML, so only the caption is recoverable. The 2026-10
+    film band leads with an inline trailer whose attrid carries the video title
+    (``/media_common/media_item/trailer/<title>``); it has no link, so the row
+    keeps the title and the visible "YouTube · <channel> Trailer · 2:04" strip.
     """
     results: list[dict[str, Any]] = []
     emitted: set[int] = set()
@@ -422,7 +427,8 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
         attrid = n.attrs.get("data-attrid") or ""
         is_digest = attrid.startswith("VisualDigest")
         is_fact = attrid.startswith("lab/fact/")
-        if not (is_digest or is_fact):
+        is_trailer = attrid.startswith(_TRAILER_ATTRID)
+        if not (is_digest or is_fact or is_trailer):
             continue
 
         # Skip nodes nested inside an already-emitted sub-result (the outermost
@@ -430,7 +436,12 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
         if under_any(n, emitted, node.mem_id):
             continue
 
-        if is_fact:
+        title = None
+        if is_trailer:
+            url, text = None, get_text(n, " ", strip=True) or None
+            title = attrid[len(_TRAILER_ATTRID) :] or None
+            details = {"kind": "video"}
+        elif is_fact:
             # Facts render as "Label|Value" (e.g. "Age|29 years", "Genre|Pop").
             parts = [p for p in (get_text(n, "|", strip=True) or "").split("|") if p]
             if len(parts) < 2:
@@ -458,6 +469,7 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
                 "type": "knowledge",
                 "sub_type": "featured_results",
                 "sub_rank": len(results),
+                "title": title,
                 "url": url,
                 "text": text,
                 "details": details,

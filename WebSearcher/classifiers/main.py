@@ -2,7 +2,7 @@ from collections.abc import Callable
 
 from selectolax.lexbor import LexborNode as Node
 
-from .._slx import _iter_text_fragments, bounded_text, class_tokens, get_text
+from .._slx import _iter_text_fragments, bounded_text, class_tokens, get_text, subtree_css
 from ..parsers.component_types import header_text_to_type
 
 # Class / id signals shared by a classifier's precondition (set membership on the
@@ -365,6 +365,20 @@ class ClassifyMain:
         return "unknown"
 
     @staticmethod
+    def text_ad(cmpt: Node) -> str:
+        """Classify a 2026-10 text-ad block rendered outside ``#tads``/``#tadsb``.
+
+        The block (root ``div.yhQgZb``, level-2 "Sponsored result(s)" heading)
+        sits mid-page, where the extractor's ad-block path does not reach it.
+        Its ads are ``div[data-text-ad]`` units, which ``parse_ads`` reads.
+        End-of-chain, not a header text: "Find related products & services"
+        modules embed a "Sponsored results" unit above their suggestions and are
+        typed ``searches_related`` earlier, whose parser emits those ads.
+        """
+        node: Node = cmpt
+        return "ad" if node.css_first("div[data-text-ad]") is not None else "unknown"
+
+    @staticmethod
     def ai_overview_banner(cmpt: Node) -> str:
         """Classify the standalone AI-overview loading/unavailable banner.
 
@@ -377,6 +391,34 @@ class ClassifyMain:
         if node.css_first('div[jscontroller="EYwa3d"]') is not None:
             return "ai_overview"
         return "unknown"
+
+    @staticmethod
+    def ai_overview_wrapped_banner(cmpt: Node) -> str:
+        """Classify the AI-overview banner wrapped in a ``qTdDb`` container.
+
+        From 2026-10 the "Thinking" / "An AI Overview is not available" banner
+        (``EYwa3d`` controller, no ``div.mZJni`` body) arrives inside a
+        ``div[jscontroller=qTdDb]``, the controller ``knowledge_panel`` matches,
+        so it never reaches ``ai_overview_banner`` at the end of the chain. Claim
+        it ahead of ``knowledge_panel`` when every ``qTdDb`` wrapper holds
+        nothing but the banner (all of its text lies inside an ``EYwa3d`` node)
+        and no other knowledge-panel marker is present. A panel that embeds the
+        banner beside content of its own fails that test and stays
+        ``knowledge``. The parser routes these to ``sub_type="unavailable"``.
+        """
+        node: Node = cmpt
+        if node.css_first(ClassifyMain._KNOWLEDGE_CONTENT_CSS) is not None:
+            return "unknown"
+        found = False
+        for wrapper in node.css('div[jscontroller="qTdDb"]'):
+            text = get_text(wrapper, "", strip=True)
+            if not text:
+                continue
+            banners = subtree_css(wrapper, 'div[jscontroller="EYwa3d"]')
+            if text != "".join(get_text(b, "", strip=True) or "" for b in banners):
+                return "unknown"
+            found = True
+        return "ai_overview" if found else "unknown"
 
     # Heading texts for knowledge-panel submodules with no structural signal
     # (no data-attrid / custom element). Checked only by the end-of-chain
@@ -399,6 +441,8 @@ class ClassifyMain:
         "Popular destinations",
         "Surfing destinations",
         "Camping destinations",
+        # Sports tournament bracket (knockout rounds).
+        "Bracket",
     )
 
     @staticmethod
@@ -488,15 +532,20 @@ class ClassifyMain:
 
     # Descendant signals for a knowledge panel. A single comma-union css_first is a
     # byte-identical boolean OR of the individual probes (which selector matches is
-    # irrelevant) that runs one short-circuiting subtree walk instead of N. The last
-    # entry is the knowledge-vertical onebox (e.g. language pronunciation practice
-    # widget) surfaced as its own sub-column block on kp-wholepage tabs.
-    _KNOWLEDGE_PANEL_CSS = (
+    # irrelevant) that runs one short-circuiting subtree walk instead of N. The
+    # Featured results band renders as role=complementary or, from 2026-10, as
+    # role=group. The last content entry is the knowledge-vertical onebox (e.g.
+    # language pronunciation practice widget) surfaced as its own sub-column block
+    # on kp-wholepage tabs. ``qTdDb`` is kept apart because the AI-overview banner
+    # also arrives inside it (see ``ai_overview_wrapped_banner``).
+    _KNOWLEDGE_CONTENT_CSS = (
         "h1.VW3apb, div.knowledge-panel, div.knavi, div.kp-blk, "
         "div.kp-wholepage-osrp, "
         'div[aria-label="Featured results"][role="complementary"], '
-        'div[jscontroller="qTdDb"], div.obcontainer, [id$="__onebox_content"]'
+        'div[aria-label="Featured results"][role="group"], '
+        'div.obcontainer, [id$="__onebox_content"]'
     )
+    _KNOWLEDGE_PANEL_CSS = _KNOWLEDGE_CONTENT_CSS + ', div[jscontroller="qTdDb"]'
 
     @staticmethod
     def knowledge_panel(cmpt: Node) -> str:
@@ -671,6 +720,10 @@ _COMPONENT_CLASSIFIERS: tuple[tuple[Callable[[Node], str], _Precondition | None]
     # ``/Available on`` text would no longer be typed available_on --
     # unobserved on the corpus, accepted as evidence-backed dead code.
     (ClassifyMain.available_on, lambda s, n: "mgAbYb" in s.classes),
+    # Ahead of knowledge_panel: the 2026-10 AI-overview banner arrives inside
+    # the qTdDb controller knowledge_panel matches. A real overview body
+    # (mZJni) was already typed by ai_overview above.
+    (ClassifyMain.ai_overview_wrapped_banner, lambda s, n: "mZJni" not in s.classes),
     (ClassifyMain.knowledge_panel, None),
     (ClassifyMain.knowledge_block, lambda s, n: "block-component" in s.names),
     (ClassifyMain.banner, lambda s, n: "uzjuFc" in s.classes),
@@ -716,5 +769,6 @@ _COMPONENT_CLASSIFIERS: tuple[tuple[Callable[[Node], str], _Precondition | None]
     (ClassifyMain.hotel_carousel, None),
     (ClassifyMain.gallery, None),
     (ClassifyMain.images_strip, None),
+    (ClassifyMain.text_ad, None),
     (ClassifyMain.ai_overview_banner, None),
 )
