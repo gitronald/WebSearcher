@@ -24,9 +24,12 @@
       "url": null
     },
     {
-      "cite": null,
+      "cite": "Forbes",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -37,9 +40,12 @@
       "url": "https://www.forbes.com/sites/jamiecartereurope/2026/02/05/northern-lights-alert-11-states-may-see-aurora-thursday/"
     },
     {
-      "cite": null,
+      "cite": "New York Post",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -50,9 +56,12 @@
       "url": "https://nypost.com/2026/02/05/science/northern-lights-potentially-visible-from-11-states-amid-record-solar-storm/"
     },
     {
-      "cite": null,
+      "cite": "OregonLive.com",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -63,9 +72,12 @@
       "url": "https://www.oregonlive.com/environment/2026/02/heres-why-the-northern-lights-feel-more-common-than-ever.html"
     },
     {
-      "cite": null,
+      "cite": "Detroit Free Press",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "9 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -76,9 +88,12 @@
       "url": "https://www.freep.com/story/news/local/michigan/2026/02/06/aurora-borealis-michigan-northern-lights-noaa/88544176007/"
     },
     {
-      "cite": null,
+      "cite": "Yahoo",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "9 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -89,9 +104,12 @@
       "url": "https://www.yahoo.com/lifestyle/articles/wisconsin-sky-watchers-another-chance-144225022.html"
     },
     {
-      "cite": null,
+      "cite": "The Weather Channel",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -102,9 +120,12 @@
       "url": "https://weather.com/science/space/video/space-station-view-of-awesome-auroras"
     },
     {
-      "cite": null,
+      "cite": "Travel And Tour World",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "7 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -213,6 +234,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -229,6 +251,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -245,6 +268,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "9 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -261,6 +285,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -277,6 +302,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -293,6 +319,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -313,6 +340,7 @@
         "publish_date": "Feb 3, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/zAP859pN3UU/hqdefault.jpg",
+        "timestamp": "3 days ago",
         "title": "Best Places to See the Northern Lights (Where & When to Go)",
         "type": "video"
       },
@@ -330,6 +358,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "15 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -346,6 +375,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "12 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -362,6 +392,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -378,6 +409,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "20 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -394,6 +426,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 hour ago",
         "type": "item"
       },
       "section": "main",
@@ -410,6 +443,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "5 days ago",
         "type": "item"
       },
       "section": "main",
@@ -442,6 +476,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "6 days ago",
         "type": "item"
       },
       "section": "main",
@@ -458,6 +493,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -474,6 +510,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "6 days ago",
         "type": "item"
       },
       "section": "main",
@@ -506,6 +543,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 week ago",
         "type": "item"
       },
       "section": "main",
@@ -522,6 +560,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Dec 1, 2025",
         "type": "item"
       },
       "section": "main",
@@ -538,6 +577,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -554,6 +594,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 days ago",
         "type": "item"
       },
       "section": "main",
@@ -570,6 +611,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Oct 4, 2024",
         "type": "item"
       },
       "section": "main",
@@ -586,6 +628,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "5 days ago",
         "type": "item"
       },
       "section": "main",
@@ -602,6 +645,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -618,6 +662,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "6 days ago",
         "type": "item"
       },
       "section": "main",
@@ -638,6 +683,7 @@
         "publish_date": "Apr 10, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/UI9eajgOH24/hqdefault.jpg",
+        "timestamp": "Apr 10, 2025",
         "title": "*SOLO* Bucketlist Experience Travel! chasing the Northern Lights ...",
         "type": "video"
       },
@@ -655,6 +701,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -671,6 +718,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "5 days ago",
         "type": "item"
       },
       "section": "main",
@@ -687,6 +735,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 8, 2025",
         "type": "item"
       },
       "section": "main",
@@ -703,6 +752,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Oct 18, 2025",
         "type": "item",
         "visible": false
       },
@@ -720,6 +770,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Apr 13, 2024",
         "type": "item",
         "visible": false
       },
@@ -737,6 +788,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "May 16, 2025",
         "type": "item",
         "visible": false
       },
@@ -805,6 +857,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item",
         "visible": false
       },
@@ -822,6 +875,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 11, 2025",
         "type": "item",
         "visible": false
       },
@@ -839,6 +893,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item",
         "visible": false
       },
@@ -856,6 +911,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item",
         "visible": false
       },
@@ -890,6 +946,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item",
         "visible": false
       },

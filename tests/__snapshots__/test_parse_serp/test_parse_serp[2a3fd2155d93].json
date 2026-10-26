@@ -1,0 +1,27 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 0.0,
+    "result_estimate_time": 0.2,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    }
+  ]
+}

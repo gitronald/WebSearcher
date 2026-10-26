@@ -54,7 +54,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "10 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -67,7 +70,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "42 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -80,7 +86,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -93,7 +102,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "7 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -106,7 +118,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -119,7 +134,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -132,7 +150,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -143,9 +164,12 @@
       "url": "https://www.nasa.gov/humans-in-space/nasas-spacex-crew-12-to-study-adaptation-to-altered-gravity/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -156,9 +180,12 @@
       "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/"
     },
     {
-      "cite": null,
+      "cite": "NASA Watch",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 1,
@@ -169,9 +196,12 @@
       "url": "https://nasawatch.com/ask-the-administrator/nasa-announces-a-new-directive-but-wont-let-you-read-it/"
     },
     {
-      "cite": null,
+      "cite": "Ars Technica",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 2,
@@ -182,9 +212,12 @@
       "url": "https://arstechnica.com/space/2026/02/nasa-will-finally-allow-astronauts-to-bring-their-iphones-to-space/"
     },
     {
-      "cite": null,
+      "cite": "Space",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "4 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 3,
@@ -300,6 +333,7 @@
         "publish_date": "Feb 2, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/M8eeuqdjZoA/hqdefault.jpg",
+        "timestamp": "4 days ago",
         "title": "NASA Is Sending Humans Back to the Moon (THIS MONTH)",
         "type": "video"
       },
@@ -317,6 +351,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -337,6 +372,7 @@
         "publish_date": "Feb 6, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/3R2H0rcP2vg/hqdefault.jpg",
+        "timestamp": "7 hours ago",
         "title": "Restoring NASA's Core Competencies",
         "type": "video"
       },
@@ -354,6 +390,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -370,6 +407,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -390,6 +428,7 @@
         "publish_date": "Feb 2, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/CngcQx4Rc2c/hqdefault.jpg",
+        "timestamp": "5 days ago",
         "title": "Back to the moon: Inside NASA's Artemis II mission",
         "type": "video"
       },
@@ -411,6 +450,7 @@
         "publish_date": "Feb 3, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/pFUorE3ldlM/hqdefault.jpg",
+        "timestamp": "3 days ago",
         "title": "NASA delays Artemis II mission to March after hydrogen leak",
         "type": "video"
       },
@@ -428,6 +468,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -448,6 +489,7 @@
         "publish_date": "Feb 4, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/xalPEv7KqVU/hqdefault.jpg",
+        "timestamp": "2 days ago",
         "title": "The Real Reason U.S. Is Racing to the Moon Again",
         "type": "video"
       },
@@ -465,6 +507,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "6 days ago",
         "type": "item"
       },
       "section": "main",
@@ -485,6 +528,7 @@
         "publish_date": "Feb 4, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/IdnCRkO6_fY/hqdefault.jpg",
+        "timestamp": "2 days ago",
         "title": "Hydrogen Leaks & Delays: Is NASA's Artemis II Ready for Humans?",
         "type": "video"
       },
@@ -502,6 +546,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",

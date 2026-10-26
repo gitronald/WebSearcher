@@ -217,6 +217,7 @@
         "publish_date": "Jan 15, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/z41eCEc15w0/hqdefault.jpg",
+        "timestamp": "3 weeks ago",
         "title": "How Climate Change Triggers Earthquakes and Tsunamis",
         "type": "video"
       },
@@ -234,6 +235,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "16 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -250,6 +252,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -266,6 +269,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -286,6 +290,7 @@
         "publish_date": "Jan 21, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/JQxFQark-q0/hqdefault.jpg",
+        "timestamp": "2 weeks ago",
         "title": "Understanding the science behind earthquakes",
         "type": "video"
       },
@@ -307,6 +312,7 @@
         "publish_date": "Jan 10, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/qqSC5o58zvg/hqdefault.jpg",
+        "timestamp": "4 weeks ago",
         "title": "Anatomy of an earthquake",
         "type": "video"
       },
@@ -328,6 +334,7 @@
         "publish_date": "Nov 27, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/hzEpGpofkK4/hqdefault.jpg",
+        "timestamp": "Nov 27, 2025",
         "title": "The exact cause of 25000 earthquakes | Scienceplained",
         "type": "video"
       },
@@ -345,6 +352,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -361,6 +369,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 25, 2025",
         "type": "item"
       },
       "section": "main",

@@ -11,9 +11,12 @@
   },
   "results": [
     {
-      "cite": null,
+      "cite": "AP News",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "6 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -24,9 +27,12 @@
       "url": "https://apnews.com/article/pakistan-islamabad-shiite-mosque-blast-8f0b7b8a8783db37644d88610512c9af"
     },
     {
-      "cite": null,
+      "cite": "The Washington Post",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 1,
@@ -37,9 +43,12 @@
       "url": "https://www.washingtonpost.com/world/2026/02/06/russia-general-assassination-attempt-moscow/"
     },
     {
-      "cite": null,
+      "cite": "Politico",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 2,
@@ -50,9 +59,12 @@
       "url": "https://www.politico.com/news/2026/02/06/canada-greenland-consulate-opens-flag-00769338"
     },
     {
-      "cite": null,
+      "cite": "Financial Times",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 3,
@@ -63,9 +75,12 @@
       "url": "https://www.ft.com/content/c8fa222b-d4e5-4678-9450-68ce5fb53516"
     },
     {
-      "cite": null,
+      "cite": "Reuters",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "14 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 4,
@@ -76,9 +91,12 @@
       "url": "https://www.reuters.com/sustainability/land-use-biodiversity/more-storms-coming-leonardo-swells-rivers-bursts-aquifers-spain-portugal-2026-02-06/"
     },
     {
-      "cite": null,
+      "cite": "The Washington Post",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 5,

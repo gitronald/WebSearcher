@@ -44,9 +44,12 @@
       "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
     },
     {
-      "cite": null,
+      "cite": "Yahoo Finance",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 0,
@@ -57,9 +60,12 @@
       "url": "https://finance.yahoo.com/news/apple-stock-steady-rock-amid-192518495.html"
     },
     {
-      "cite": null,
+      "cite": "TipRanks",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -70,9 +76,12 @@
       "url": "https://www.tipranks.com/news/how-geopolitical-headwinds-made-apple-stock-aapl-a-safe-haven"
     },
     {
-      "cite": null,
+      "cite": "Above Avalon",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "8 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 2,
@@ -83,9 +92,12 @@
       "url": "https://www.aboveavalon.com/notes/2026/2/6/apple-reaccelerates-share-buyback-apples-stellar-free-cash-flow-takeaways-from-apples-1q26-10-q"
     },
     {
-      "cite": null,
+      "cite": "Sherwood News",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "10 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 3,

@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.2] - 2026-10-26
+
+### Added
+
+- Top stories in the 2026-10 layout (`g-section-with-header.yG4QQe`, one `a.aJWbwf` per card in both the vertical list and the `div.MmyPhf` clusters) are parsed with title, url, and source; every component in that layout had returned "no subcomponents parsed"
+- Top-stories cards, and the perspectives, recent-posts, latest-from, and local-news cards that share their parser, record the source name (`div.MgUUmf`) as `cite` and the story age ("8 hours ago", `div.OSrXXb`) as `details.timestamp`
+- Text ads in the 2026-10 layout (`div[data-text-ad]` without the `div.uEierd` wrapper) are parsed as `ad` rows with title, url, display url, description, and `div.qmaLCb` sitelinks, keeping the `standard`/`submenu` sub-types; the same block rendered mid-page outside `#tads`/`#tadsb` (root `div.yhQgZb`) is typed `ad` instead of `unknown`
+- The "Featured results" band rendered as `div[role=group]` (film and person pages) is typed `knowledge`/`featured_results` instead of `unknown`, and its inline trailer becomes a `video` row carrying the video title
+- A sports "Bracket" module is typed `knowledge`
+
+### Fixed
+
+- The AI-overview "Thinking" / "An AI Overview is not available" banner, which the 2026-10 layout wraps in the `qTdDb` knowledge controller, was typed as an empty `knowledge` panel; it is `ai_overview`/`unavailable` again
+
 ## [0.12.1] - 2026-10-21
 
 ### Added
