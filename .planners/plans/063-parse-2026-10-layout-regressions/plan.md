@@ -128,9 +128,10 @@ SERP and `general` row counts unchanged.
 
 ## Handoff
 
-**State.** Code, fixtures, and tests are committed and pushed on
-`feature/parse-2026-10-layout-regressions` (draft PR #209). Not yet run: the
-whole-batch reparse check against the acceptance criteria, and the release.
+**State.** Code, fixtures, tests, and the changelog entry are committed and
+pushed on `feature/parse-2026-10-layout-regressions` (PR #209). The
+whole-batch reparse check passed (Log, 2026-10-26). Not done: review, merge,
+and the release.
 
 **Open questions.**
 
@@ -143,5 +144,5 @@ whole-batch reparse check against the acceptance criteria, and the release.
    before and after are no longer comparable until all are reparsed. Not
    changed here; waiting on a decision.
 
-**Remaining order.** Whole-batch reparse check -> mark implemented -> review
--> release.
+**Remaining order.** Review (owner) -> merge -> patch release (owner's
+go-ahead; publishing is enabled, so a stable release reaches PyPI).
