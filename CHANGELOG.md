@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.2] - 2026-10-26
+
 ### Added
 
 - Top stories in the 2026-10 layout (`g-section-with-header.yG4QQe`, one `a.aJWbwf` per card in both the vertical list and the `div.MmyPhf` clusters) are parsed with title, url, and source; every component in that layout had returned "no subcomponents parsed"
