@@ -118,3 +118,23 @@ SERP and `general` row counts unchanged.
   - Featured results: `div[role=group][aria-label="Featured results"]` joins the knowledge-panel selectors; `_parse_visual_digest` emits the `inline-video` trailer (attrid `/media_common/media_item/trailer/<title>`) as a `video` row with that title. "Bracket" joins `_KNOWLEDGE_SUBMODULE_HEADINGS`.
   - Fixtures: 7 records via the sidecar `add_fixtures.py` (715c39159a62, 67e221b91701, 0e2fb5edf0bb, 60bf643e2bf8, 2a3fd2155d93, c3675409cbf7, dc60ac7b1e9b); corpus integrity passes.
   - `test_perspectives_have_url` now checks only rows with a title or text: the new fixtures carry perspectives carousel placeholders (`data-init-vis="false"`, no text or link) that parse to empty rows. See Handoff question 1.
+
+## Handoff
+
+**State.** Code, fixtures, and tests are committed and pushed on
+`feature/parse-2026-10-layout-regressions` (draft PR #209). Not yet run: the
+whole-batch reparse check against the acceptance criteria, and the release.
+
+**Open questions.**
+
+1. Perspectives carousel placeholders. Cards not yet loaded at capture
+   (`[role=listitem][data-init-vis="false"]`, about 300 bytes, no text or
+   link) each parse to an empty `perspectives` row: about 68% of perspectives
+   rows in both the 2026-07 and 2026-10 batches. Dropping them in the
+   `role=listitem` fallback is a one-line `has_text` filter, but it changes
+   perspectives row counts for any batch reparsed afterwards, so batches parsed
+   before and after are no longer comparable until all are reparsed. Not
+   changed here; waiting on a decision.
+
+**Remaining order.** Whole-batch reparse check -> mark implemented -> review
+-> release.
