@@ -5,7 +5,7 @@ status: active
 branch: feature/parse-2026-10-layout-regressions
 created: 2026-10-26T12:57:47-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/209
 ---
 
 # Parse the 2026-10 top stories, text ad, and AI banner layouts
@@ -109,3 +109,4 @@ SERP and `general` row counts unchanged.
   - Base: `dev` at `c010f88`
   - Worktree: `.worktrees/063-parse-2026-10-layout-regressions`
   - PR: pending
+- **2026-10-26T13:11:56-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/209
