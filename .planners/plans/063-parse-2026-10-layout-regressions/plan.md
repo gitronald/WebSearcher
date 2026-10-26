@@ -121,6 +121,9 @@ SERP and `general` row counts unchanged.
   - `unknown` rows fell by about 95%; the rest are booking widgets, a periodic table, and a destinations module.
   - Component type transitions, all four reviewed: `knowledge` -> `ai_overview` (the banner, all empty before); `ai_overview` -> `knowledge` (Featured results bands with an `EYwa3d` controller, which the end-of-chain banner rule had typed as hollow `ai_overview/flat` rows, now `featured_results` rows with trailers and images); `unknown` -> `knowledge`; `unknown` -> `ad`. The only same-type row-count changes are `top_stories` and `ad` components gaining rows.
 - **2026-10-26T13:20:59-07:00** — Implemented: 10 commits ahead of `dev`.
+- **2026-10-26T13:46:08-07:00** — Close prep: crawl batch ids dropped from the 7 new fixtures (provenance stays in each note) and crawl figures removed from this plan (25c3b8d); `tests/test_parse_serp.py` CRLF line endings restored after a scripted edit had rewritten the whole file as LF (6d26bd9 region; the diff is now the one test).
+  - Review follow-up (medium `/code-review`, posted on PR #209): 3 findings, all fixed in e28bca3 with regression tests. `ai_overview_wrapped_banner` now probes the `EYwa3d` controller before its union walk (confirmed waste: about 5.6% of classify time on the fixture corpus; `test_wrapped_banner_rule_needs_the_controller`). The top-story age is the last direct child span of `div.OSrXXb`, skipping the `span.Uz7khf` "Video" label, stripped (`test_top_story_age_skips_video_label`). `parse_ad_text` skips only units nested in a `div.uEierd`, so a bare unit beside a wrapped ad is kept (`test_text_ad_beside_wrapped_ad_is_kept`). Five lower-confidence candidates were dropped as not reproducible (qmaLCb on older ads, p4wth fallback, nested EYwa3d, trailer nesting, duplicate uEierd probe).
+  - Gate after fixes: ruff, ruff format, pyrefly clean; 832 passed; 113 snapshots unchanged.
 
 ## Handoff
 
