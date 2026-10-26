@@ -5,9 +5,9 @@ includes the main panel (title, description, image grid, submenu links) and
 zero or more follow-on sections beneath it.
 
 Rows are emitted as ``type="side_bar"`` with ``sub_type="panel"`` for the main
-entity panel, ``sub_type="fact"`` for each ``kc:/`` entity-fact row (label +
-value, e.g. "Director: David Lean"), and ``sub_type="links"`` for each link
-box / follow-on section.
+entity panel, ``sub_type="fact"`` for each ``kc:/`` or ``lab/fact/`` entity-fact
+row (label + value, e.g. "Director: David Lean"), and ``sub_type="links"`` for
+each link box / follow-on section.
 """
 
 from typing import Any
@@ -15,13 +15,28 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, is_element, next_sibling, next_siblings, previous_sibling
-from ._common import parse_alink, under_any
+from ._common import parse_alink, parse_lab_fact, under_any
 
 # Chrome links that show up inside RHS boxes but are not content.
-_RHS_BOX_CHROME = {"Claim this knowledge panel", "Send feedback", "Feedback", "See more"}
+_RHS_BOX_CHROME = {
+    "Claim this knowledge panel",
+    "Send feedback",
+    "Feedback",
+    "See more",
+    "Disclaimer",
+}
 
 # kc:/ rows that are edit affordances, not entity facts.
 _FACT_ROW_CHROME = {"kc:/local:edit info", "kc:/local:pending edits"}
+
+# Entity-fact rows: ``kc:/`` attrids, and the ``lab/fact/`` rows of the 2026-10
+# "Featured results" band.
+_FACT_CSS = "[data-attrid^='kc:/'], [data-attrid^='lab/fact/']"
+
+# Box headings: aria-level=2, plus the 2026-10 level-3 section headings
+# (``span.mgAbYb`` "People also search for"). The bare level-3 headings in those
+# boxes are item names, not sections.
+_BOX_HEADING_CSS = '[role="heading"][aria-level="2"], [role="heading"][aria-level="3"].mgAbYb'
 
 
 def _is_chrome_box(title: str) -> bool:
@@ -43,8 +58,8 @@ def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
                 parsed_list.append(sub)
     else:
         # Complementary kp-wholepage RHS panel: entity facts ride on ``kc:/``
-        # data-attrid rows, and its sections (Listen / About / Profiles /
-        # People also search for) are boxes anchored by aria-level=2 headings
+        # (or ``lab/fact/``) data-attrid rows, and its sections (Listen / About /
+        # Profiles / People also search for) are boxes anchored by headings
         # rather than Uo8X3b follow-on siblings. Emit the fact rows first
         # (they carry the label+value semantics), then one row per box with
         # the box's remaining links in details.
@@ -57,6 +72,7 @@ def parse_knowledge_rhs(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
                 fact_ids=fact_ids,
                 used_heading_ids=used_heading_ids,
                 main_title=main_title,
+                seen_urls={u for row in parsed_list for u in _row_urls(row)},
             )
         )
     return parsed_list
@@ -72,7 +88,7 @@ def _collect_links(
     seen: set[tuple[str, str]] = set()
     for a in node.css("a[href]"):
         href = a.attrs.get("href")
-        text = get_text(a, " ", strip=True) or ""
+        text = get_text(a, " ", strip=True) or _listitem_text(a, stop_id)
         # Drop non-navigational affordances: missing or "#" hrefs (general
         # feedback, expanders, "Write a review", "Ask a question") carry no
         # content.
@@ -83,6 +99,25 @@ def _collect_links(
         seen.add((text, href))
         items.append({"url": href, "text": text})
     return items
+
+
+def _row_urls(row: dict[str, Any]) -> list[str]:
+    """The URLs an emitted row carries: its own and its details' links."""
+    details = row.get("details") or {}
+    links = [*details.get("items", []), *details.get("urls", [])]
+    urls = [i["url"] for i in links if isinstance(i, dict) and i.get("url")]
+    return [row["url"], *urls] if row.get("url") else urls
+
+
+def _listitem_text(a: Node, stop_id: int) -> str:
+    """Text of the ``role=listitem`` a text-less anchor sits in: the 2026-10
+    "People also search for" cards put the name beside the link, not in it."""
+    p = a.parent
+    while p is not None and p.mem_id != stop_id:
+        if p.attrs.get("role") == "listitem":
+            return get_text(p, " ", strip=True) or ""
+        p = p.parent
+    return ""
 
 
 def _rhs_box_links(
@@ -174,41 +209,53 @@ def _fact_box_heading(fact: Node, root: Node) -> Node | None:
     return best
 
 
+def _kc_fact_label_text(fact: Node) -> tuple[str | None, str | None]:
+    """``(label, value)`` of a ``kc:/`` fact row; ``label`` is ``None`` for a
+    label-less row, whose value is then the row's whole text."""
+    label_el = fact.css_first("span.w8qArf")
+    label = (get_text(label_el, " ", strip=True) or "").rstrip(" :") or None
+    if label is None:
+        return None, get_text(fact, " ", strip=True) or None
+    value_el = fact.css_first("span.LrzXr")
+    if value_el is not None:
+        return label, get_text(value_el, " ", strip=True) or None
+    # No value span (e.g. the hours table): everything after the "Label :"
+    # prefix in the row's text.
+    full = get_text(fact, " ", strip=True) or ""
+    return label, full.split(":", 1)[-1].strip() or None
+
+
 def _parse_rhs_facts(
     node: Node, start_rank: int = 1
 ) -> tuple[list[dict[str, Any]], set[int], set[int]]:
-    """One ``side_bar`` row per ``kc:/`` entity-fact row.
+    """One ``side_bar`` row per ``kc:/`` or ``lab/fact/`` entity-fact row.
 
     Labeled facts ("Born: April 8, 1901") put the label in ``title`` and the
     value in ``text``; label-less rows (reviews, social profiles, watch
     actions) fall back to the enclosing box heading or a humanized attrid tail.
     The attrid rides in ``details`` as provenance, alongside the row's links
-    when it has any. Returns ``(rows, fact_ids, used_heading_ids)`` so the box
-    pass can skip content these rows already carry."""
+    when it has any and a ``lab/fact/`` row's source. Returns
+    ``(rows, fact_ids, used_heading_ids)`` so the box pass can skip content
+    these rows already carry."""
     rows: list[dict[str, Any]] = []
     fact_ids: set[int] = set()
     used_heading_ids: set[int] = set()
-    for fact in node.css("[data-attrid^='kc:/']"):
+    for fact in node.css(_FACT_CSS):
         attrid = str(fact.attrs.get("data-attrid") or "")
         if attrid in _FACT_ROW_CHROME:
             continue
-        # Outermost match wins: skip kc:/ rows nested in an emitted one.
+        # Outermost match wins: skip fact rows nested in an emitted one.
         if under_any(fact, fact_ids, node.mem_id):
             continue
 
-        label_el = fact.css_first("span.w8qArf")
-        label = (get_text(label_el, " ", strip=True) or "").rstrip(" :") or None
-        if label is not None:
-            value_el = fact.css_first("span.LrzXr")
-            if value_el is not None:
-                text = get_text(value_el, " ", strip=True) or None
-            else:
-                # No value span (e.g. the hours table): everything after the
-                # "Label :" prefix in the row's text.
-                full = get_text(fact, " ", strip=True) or ""
-                text = full.split(":", 1)[-1].strip() or None
+        source = None
+        if attrid.startswith("lab/fact/"):
+            lab_fact = parse_lab_fact(fact)
+            if lab_fact is None:
+                continue
+            label, text, source = lab_fact
         else:
-            text = get_text(fact, " ", strip=True) or None
+            label, text = _kc_fact_label_text(fact)
 
         links = _collect_links(fact)
         title = label
@@ -239,6 +286,8 @@ def _parse_rhs_facts(
             details = {"type": "hyperlinks", "attrid": attrid, "items": links}
         else:
             details = {"type": "item", "attrid": attrid}
+        if source:
+            details["source"] = source
 
         fact_ids.add(fact.mem_id)
         rows.append(
@@ -273,22 +322,29 @@ def _parse_rhs_boxes(
     fact_ids: set[int] | None = None,
     used_heading_ids: set[int] | None = None,
     main_title: str | None = None,
+    seen_urls: set[str] | None = None,
 ) -> list[dict[str, Any]]:
-    """One ``side_bar`` row per aria-level=2 box (title = heading, links in
-    details). Boxes whose content the fact pass already emitted are skipped;
-    a link-less content box keeps its title and sibling text instead of being
-    dropped (plan 041)."""
+    """One ``side_bar`` row per box (title = heading, links in details).
+    Boxes whose content the fact pass already emitted are skipped; a link-less
+    content box keeps its title and sibling text instead of being dropped
+    (plan 041). A level-3 section keeps only links no earlier row carries
+    (``seen_urls`` holds the main panel's and fact rows' links): its "About" /
+    "Overview" sections repeat the description's source link."""
     fact_ids = fact_ids or set()
     used_heading_ids = used_heading_ids or set()
+    seen_urls = set(seen_urls or ())
     qa_topics = set(_rhs_qa_topics(node))
     rows: list[dict[str, Any]] = []
-    for heading in node.css('[role="heading"][aria-level="2"]'):
+    for heading in node.css(_BOX_HEADING_CSS):
         title = get_text(heading, " ", strip=True)
         if not title or _is_chrome_box(title) or _is_qa_topic_box(heading, qa_topics):
             continue
         if heading.mem_id in used_heading_ids or under_any(heading, fact_ids, node.mem_id):
             continue
         items = _rhs_box_links(heading, exclude_ids=fact_ids, stop_id=node.mem_id)
+        if heading.attrs.get("aria-level") == "3":
+            items = [i for i in items if i["url"] not in seen_urls]
+        seen_urls.update(i["url"] for i in items)
         if items:
             rows.append(
                 {
@@ -303,17 +359,19 @@ def _parse_rhs_boxes(
         # Link-less box: keep the section title (and any sibling text) unless
         # it duplicates the main panel title, is a survey prompt, or its
         # content was already emitted by the fact pass (climb like
-        # ``_rhs_box_links`` and look for an emitted kc:/ row).
-        if title == main_title or title.endswith("?"):
+        # ``_rhs_box_links`` and look for an emitted fact row). A level-3
+        # section without links is a script-loaded tab ("Standings", "Stat
+        # Leaders") with nothing to keep.
+        if title == main_title or title.endswith("?") or heading.attrs.get("aria-level") == "3":
             continue
         box = heading.parent
         for _ in range(5):
             if box is None:
                 break
-            if box.css_first("a[href]") is not None or box.css_first("[data-attrid^='kc:/']"):
+            if box.css_first("a[href]") is not None or box.css_first(_FACT_CSS):
                 break
             box = box.parent
-        if box is not None and any(n.mem_id in fact_ids for n in box.css("[data-attrid^='kc:/']")):
+        if box is not None and any(n.mem_id in fact_ids for n in box.css(_FACT_CSS)):
             continue
         rows.append(
             {
