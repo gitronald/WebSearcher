@@ -71,9 +71,12 @@
       "url": null
     },
     {
-      "cite": null,
+      "cite": "USA Today",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -84,9 +87,12 @@
       "url": "https://www.usatoday.com/story/news/politics/2026/02/04/supreme-court-california-redistrict-congressional-map-trump/88396246007/"
     },
     {
-      "cite": null,
+      "cite": "Devex",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
@@ -97,9 +103,12 @@
       "url": "https://www.devex.com/news/us-congress-passes-50-billion-foreign-affairs-bill-111821"
     },
     {
-      "cite": null,
+      "cite": "USA Today",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "timestamp": "29 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 2,
@@ -110,9 +119,12 @@
       "url": "https://www.usatoday.com/story/news/politics/2026/02/06/jeffrey-epstein-files-unredacted-congress/88554181007/"
     },
     {
-      "cite": null,
+      "cite": "CNBC",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "timestamp": "6 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 3,

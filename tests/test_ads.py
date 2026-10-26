@@ -39,6 +39,49 @@ def test_every_selector_has_a_parser():
         "secondary",
         "shopping",
         "standard",
+        "text",
         "carousel",
     }
     assert parse_ads(comp('<div class="uEierd"></div>')) == []
+
+
+# 2026-10 text ad: no div.uEierd wrapper; the heading itself carries Va3FIb.
+TEXT_AD = (
+    '<div data-text-ad="1"><div class="v5yQqb">'
+    '<a class="sVXRqc" data-pcu="https://shop.test/" href="/goto?url=tok">'
+    '<div class="Va3FIb" role="heading" aria-level="3"><span>Shop Shoes</span></div>'
+    '<span role="text">https://shop.test</span></a></div>'
+    '<div class="p4wth">Free shipping on every order.</div>'
+    '<div class="qmaLCb"><a href="/goto?url=a">Sale</a><a href="/aclk?b">New In</a></div>'
+    "</div>"
+)
+
+
+def test_text_ad_dispatches_to_text_parser():
+    rows = parse_ads(comp(TEXT_AD))
+    assert rows == [
+        {
+            "type": "ad",
+            "sub_type": "submenu",
+            "sub_rank": 0,
+            "title": "Shop Shoes",
+            "url": "/goto?url=tok",
+            "cite": "https://shop.test",
+            "text": "Free shipping on every order.",
+            "details": {
+                "type": "menu",
+                "items": [
+                    {"url": "/goto?url=a", "title": "Sale"},
+                    {"url": "/aclk?b", "title": "New In"},
+                ],
+            },
+        }
+    ]
+
+
+def test_text_ad_yields_to_standard_wrapper():
+    # Older text ads carry data-text-ad inside div.uEierd; parse them once.
+    rows = parse_ads(
+        comp('<div class="uEierd"><div data-text-ad="1"><div role="heading">A</div></div></div>')
+    )
+    assert [(r["sub_type"], r["title"]) for r in rows] == [("standard", "A")]

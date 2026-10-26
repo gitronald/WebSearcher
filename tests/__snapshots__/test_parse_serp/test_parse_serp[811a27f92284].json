@@ -148,9 +148,12 @@
       "url": "https://www.taylorswift.com/"
     },
     {
-      "cite": null,
+      "cite": "Entertainment Weekly",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "7 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
@@ -161,9 +164,12 @@
       "url": "https://ew.com/taylor-swift-opalite-music-video-celebrity-cameos-full-list-11901072"
     },
     {
-      "cite": null,
+      "cite": "Business Insider",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "6 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
@@ -174,9 +180,12 @@
       "url": "https://www.businessinsider.com/taylor-swift-opalite-music-video-details-easter-eggs-2026-2"
     },
     {
-      "cite": null,
+      "cite": "TheWrap",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "4 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
@@ -187,9 +196,12 @@
       "url": "https://www.thewrap.com/culture-lifestyle/culture/taylor-swift-opalite-music-video-not-on-youtube/"
     },
     {
-      "cite": null,
+      "cite": "InStyle",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "4 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 3,
@@ -200,9 +212,12 @@
       "url": "https://www.instyle.com/taylor-swift-surprise-cameo-winter-olympics-2026-opening-ceremony-11901476"
     },
     {
-      "cite": null,
+      "cite": "ELLE",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "26 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 4,
@@ -213,9 +228,12 @@
       "url": "https://www.elle.com/fashion/celebrity-style/a70273102/taylor-swift-2026-olympics-polo-ralph-lauren-bear-shirt/"
     },
     {
-      "cite": null,
+      "cite": "People.com",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "42 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 5,
@@ -226,9 +244,12 @@
       "url": "https://people.com/taylor-swift-sends-message-to-athletes-during-2026-winter-olympics-opening-ceremony-11901766"
     },
     {
-      "cite": null,
+      "cite": "Times of India",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "6 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 6,
@@ -292,6 +313,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "8 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -308,6 +330,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "11 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -324,6 +347,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "20 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -340,6 +364,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -356,6 +381,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "11 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -372,6 +398,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -388,6 +415,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -404,6 +432,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -420,6 +449,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -436,6 +466,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -452,6 +483,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "6 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -500,6 +532,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "11 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -516,6 +549,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "11 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -580,6 +614,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -596,6 +631,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -692,6 +728,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -708,6 +745,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -772,6 +810,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 hours ago",
         "type": "item",
         "visible": false
       },
@@ -789,6 +828,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item",
         "visible": false
       },
@@ -806,6 +846,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "7 hours ago",
         "type": "item",
         "visible": false
       },
@@ -823,6 +864,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "8 hours ago",
         "type": "item",
         "visible": false
       },
@@ -840,6 +882,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "8 hours ago",
         "type": "item",
         "visible": false
       },
@@ -857,6 +900,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 hours ago",
         "type": "item",
         "visible": false
       },
@@ -874,6 +918,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "20 hours ago",
         "type": "item",
         "visible": false
       },
@@ -908,6 +953,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item",
         "visible": false
       },
@@ -925,6 +971,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item",
         "visible": false
       },
@@ -942,6 +989,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item",
         "visible": false
       },
@@ -959,6 +1007,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item",
         "visible": false
       },
@@ -976,6 +1025,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "9 hours ago",
         "type": "item",
         "visible": false
       },
@@ -1010,6 +1060,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 hours ago",
         "type": "item",
         "visible": false
       },
@@ -1027,6 +1078,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "8 hours ago",
         "type": "item",
         "visible": false
       },
@@ -1044,6 +1096,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item",
         "visible": false
       },
@@ -1061,6 +1114,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "15 hours ago",
         "type": "item",
         "visible": false
       },
@@ -1110,7 +1164,10 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "timestamp": "11 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 65,
       "sub_rank": 0,
@@ -1123,7 +1180,10 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "timestamp": "11 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 66,
       "sub_rank": 1,
@@ -1136,7 +1196,10 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "timestamp": "Dec 11, 2025",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 67,
       "sub_rank": 2,

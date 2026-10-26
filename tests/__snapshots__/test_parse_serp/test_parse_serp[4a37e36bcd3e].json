@@ -152,9 +152,12 @@
       "url": "https://www.instagram.com/reel/DaHJZnVOnLp/"
     },
     {
-      "cite": null,
+      "cite": "Yahoo Sports",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -165,9 +168,12 @@
       "url": "https://sports.yahoo.com/articles/preview-portugal-vs-croatia-team-230500515.html"
     },
     {
-      "cite": null,
+      "cite": "ESPN",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "timestamp": "4 weeks ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -178,9 +184,12 @@
       "url": "https://www.espn.com/soccer/story/_/id/48757621/2026-world-cup-squad-lists-players-announced-all-48-teams"
     },
     {
-      "cite": null,
+      "cite": "BBC",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "timestamp": "1 week ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,
@@ -191,9 +200,12 @@
       "url": "https://www.bbc.com/sport/football/articles/c2ly7gz8p0qo"
     },
     {
-      "cite": null,
+      "cite": "Al Jazeera",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "timestamp": "1 month ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 3,

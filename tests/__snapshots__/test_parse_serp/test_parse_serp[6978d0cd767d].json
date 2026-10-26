@@ -108,6 +108,7 @@
         "publish_date": "Jan 20, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/zsPD9aohymw/hqdefault.jpg",
+        "timestamp": "2 weeks ago",
         "title": "The Only Programming Languages Worth Learning in 2026",
         "type": "video"
       },
@@ -125,6 +126,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 days ago",
         "type": "item"
       },
       "section": "main",
@@ -141,6 +143,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 29, 2025",
         "type": "item"
       },
       "section": "main",
@@ -161,6 +164,7 @@
         "publish_date": "Dec 11, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/9UNIK5wIKBU/hqdefault.jpg",
+        "timestamp": "Dec 11, 2025",
         "title": "Top 5 Programming Languages to learn in 2026! (Important)",
         "type": "video"
       },
@@ -178,6 +182,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -194,6 +199,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -210,6 +216,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -226,6 +233,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -246,6 +254,7 @@
         "publish_date": "Jan 12, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/xqI_6fnNU_c/hqdefault.jpg",
+        "timestamp": "3 weeks ago",
         "title": "YouTube",
         "type": "video"
       },
@@ -263,6 +272,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 27, 2025",
         "type": "item"
       },
       "section": "main",
@@ -279,6 +289,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -299,6 +310,7 @@
         "publish_date": "Jan 14, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/MaJVlbBc9ro/hqdefault.jpg",
+        "timestamp": "3 weeks ago",
         "title": "What Programming Language to Learn in 2026",
         "type": "video"
       },

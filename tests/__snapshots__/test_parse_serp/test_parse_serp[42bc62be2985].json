@@ -73,10 +73,10 @@
       "url": "https://www.google.com/finance/portfolio/watchlist?sa=X&ved=2ahUKEwiCt4TRwbyXAxWXNzQIHaj2AgEQnIcKegQIRRAJ"
     },
     {
-      "cite": null,
+      "cite": "Yahoo Finance",
       "cmpt_rank": 2,
       "details": {
-        "error": "no subcomponents parsed",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -84,9 +84,105 @@
       "sub_rank": 0,
       "sub_type": null,
       "text": null,
-      "title": null,
+      "title": "Apple retakes $5 trillion market cap, only second company to eclipse milestone number",
       "type": "top_stories",
-      "url": null
+      "url": "/goto?url=CAESywEB6zswFRLHMYydXM6X7mBBd3qmejwf7vX3W4U_kcyZoXzYNe23Bt9TbVH9IL-PtAJQDibN1pP_N-H9lnYDYe9Pt37C0ZT-5fNBEiGvqvq4mU5bt5ecCWCSNH0135RzBMu6PpqxlXxGcvTLOxi_TyWOQ53WM2AXkqzImUcvLzRC-jvZcuFjL-TGo5klzzU7eLuIgGDKAHou8cFcfhMNpOUu6Xr081ymYgUFik5p2HBcCaLWBflsEfzIdnTwUwcWEV8nLl9vfIg0WSF-Dg"
+    },
+    {
+      "cite": "Coinpaper",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "50 minutes ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 1,
+      "sub_type": null,
+      "text": null,
+      "title": "Apple Stock Reaches Historic $5 Trillion Valuation While AI Giants Lose Billions in Market Capitalization",
+      "type": "top_stories",
+      "url": "/goto?url=CAESwAEB6zswFQmUIUQcp32vHcvp12RYmMYsYTmrxgTd3ox-CrrpIj2KY37E17u_XBYdplNwy0sd-4l12fg3HPcpLEDdKgteUVNBQYynq3-BItpJdFeNAo2AZay_q5u-BxCy6LSW-0Wr8g-fRkRtekPUDvo2VoePhO4rHJpMtMNAxbyF53_Vr1YfEJqqOkYcUWgXonoz_gveFoYPtXDQintHjQyLQYk1qxj27WVvkURFdRnEzF5t4bncpFifxBxJHG6rzn0"
+    },
+    {
+      "cite": "24/7 Wall St.",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "6 hours ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 2,
+      "sub_type": null,
+      "text": null,
+      "title": "Apple Needs Just a 7% Gain to Become the World’s Most Valuable Company",
+      "type": "top_stories",
+      "url": "/goto?url=CAESqwEB6zswFZaAKl-RBE6Rbt_kByJcdiOjz3z5p4EIK2QWhylOZvhxgq0yUvRrYeb50uc90ZK18qXUBnxaIiUwTel0BpBs2El_fnahlSB1edmvmVQxeKGZ9rsLjN6eIpT0heZmzZXbN0JRY6NZIqjwALj6rrVd1SXcI54I1gMbkIZ8WL_u9Qv-pigiBgKUtlVss5Y40Z5ft2TMIfWV7fzggg6n7mkXWMV8-FUYRu0"
+    },
+    {
+      "cite": "Reuters Connect",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "16 hours ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": "Licensable picture: China: APPLE STOCK",
+      "type": "top_stories",
+      "url": "/goto?url=CAESrAEB6zswFZNV6oyvPuuYVDGPP1i1_VjvH_DwtYEd1r8WpuZ_6lsR_whHhO9Z7OEvNNzNhQOpcIyyYcMjmhpITmS1ssQWo7KS91sPJhrhHP7nxdksMf2dgdmFTW7taIfohinY1nfG1cBJ38QkFMUVGRLZquGWXeQKoh1d_ez_bN26mgZ7LdSbqkd8JwV3necmKrePwlCBrsZP3WF7LU1ldFufIgQw0iK0FAajc3ee"
+    },
+    {
+      "cite": "Reuters",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "7 hours ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 4,
+      "sub_type": null,
+      "text": null,
+      "title": "Tim Cook says Apple Intelligence approved in China, The Paper reports",
+      "type": "top_stories",
+      "url": "/goto?url=CAEStQEB6zswFUAePciIwrDnJZYPUNDahQNq8jEpFhovXxXRDU3Y9cpXj7qYFmTW5QeCa4kInhQA_63M_iiuvho75Cm71w9q8GzSDkuccNYvx1XwHv9Zcc_K0xnaS2QYN8FVPOMsxeJOZwuJqvxnWSwL-JHs06JUG34nhTLBixbKPHNFIex4B2A4pjJKvk66KfcFKeynk-qAhPJr7pq6I_FLUQTGPHww-ICM0YcXdU8XQKRBk2JrvC1I"
+    },
+    {
+      "cite": "Yahoo Finance",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "25 minutes ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 5,
+      "sub_type": null,
+      "text": null,
+      "title": "Apple Closes In On World's Most Valuable Company Crown — iPhone Duo Preorders, China AI Rollout In Focus",
+      "type": "top_stories",
+      "url": "/goto?url=CAESnQEB6zswFVNwr3jstKQToXh5NA9YUIpFlFtFTitiuQQ6hJR3jo92xTNGFqImzljLSR_ja7LbdvJioOiCJl3zjFZExkb_GE1CsMSN0zZYVax-uNrjUkginR-52-f1uE7mMqm9oTQEEoT-41uQeAQ_X_gdrl5gGp4pKGe_GUy-Uxr6I_vE86VLp9qVi8yiAY-ESfxUG638sQO3waDAW-6E"
+    },
+    {
+      "cite": "Business Insider",
+      "cmpt_rank": 2,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 6,
+      "sub_type": null,
+      "text": null,
+      "title": "Ad pros say Apple's chaotic new commercial fails at what the brand once did best",
+      "type": "top_stories",
+      "url": "/goto?url=CAESkwEB6zswFSbSDN-b0F9IoOwzByU-94i67F-GiTMUA_wVpsi75X1z2Dna53Bl23uXiKpQ0Yugyr3Ni6AeeENJkHymvL_BNXwFbVQwbuynYr6OXy6RWpgvq32MRsmRkNvIcRFw5SjMYU5O-GsF2wNMwEDOSzu_a6Ebwi_DD9z8AiPKd4PR-68q8i5lXEzdlt14rIU5iu0"
     },
     {
       "cite": null,
@@ -211,7 +307,7 @@
         "type": "text"
       },
       "section": "main",
-      "serp_rank": 3,
+      "serp_rank": 9,
       "sub_rank": 0,
       "sub_type": "ai_overview",
       "text": "What is the price target for Apple?<|>What is Jim Cramer saying about Apple?<|>What is the highest price Apple stock has ever been?<|>How much is $10,000 invested in Apple 20 years ago?",
@@ -232,7 +328,7 @@
         "type": "ai_overview"
       },
       "section": "main",
-      "serp_rank": 4,
+      "serp_rank": 10,
       "sub_rank": 0,
       "sub_type": "sectioned",
       "text": "Apple Inc. (AAPL) is trading at $343.89 , up $0.93 (+0.27%) from its previous close, as tracked on CNBC .",
@@ -245,7 +341,7 @@
       "cmpt_rank": 5,
       "details": null,
       "section": "main",
-      "serp_rank": 5,
+      "serp_rank": 11,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apple Inc. (AAPL) %) As of 10:45:07 AM EDT. Close  342.96  Open 346.95. Range 344.30 - 347.85 52 Week Range 243.42 - 348.15 Volume 10,798,040 Avg.",
@@ -258,7 +354,7 @@
       "cmpt_rank": 6,
       "details": null,
       "section": "main",
-      "serp_rank": 6,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "The current price stands at $336.08 , placing the stock -1.2% above today's low and -3.5% off the high. The Apple(AAPL)'s current trading volume is 16.92M, ... Read more",
@@ -271,10 +367,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "11 hours ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 7,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -287,10 +384,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 8,
+      "serp_rank": 14,
       "sub_rank": 1,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -303,10 +401,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "18 hours ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 9,
+      "serp_rank": 15,
       "sub_rank": 2,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -319,10 +418,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 16,
       "sub_rank": 3,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -335,10 +435,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 hours ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 17,
       "sub_rank": 4,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -351,10 +452,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 18,
       "sub_rank": 5,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -367,10 +469,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 19,
       "sub_rank": 6,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -383,10 +486,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 20,
       "sub_rank": 7,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -399,10 +503,11 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 days ago",
         "type": "item"
       },
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 21,
       "sub_rank": 8,
       "sub_type": "what_people_are_saying",
       "text": null,
@@ -415,7 +520,7 @@
       "cmpt_rank": 8,
       "details": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 22,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Stock Quote : NASDAQ:  AAPL  ; Day's Open344.61 ; Closing Price342.96 ; Volume50.1 ; Intraday High347.09 ; Intraday Low341.72. Read more",
@@ -428,7 +533,7 @@
       "cmpt_rank": 9,
       "details": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 23,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apple (AAPL) is trading at 342.96  Open Price 344.605 Previous close 342.96 Previous close 342.96 P/E Ratio 39.4634 Sector Information Technology Shares",
@@ -441,7 +546,7 @@
       "cmpt_rank": 10,
       "details": null,
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 24,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apple ( AAPL )  stock price  today is $341.59 - $347.07. See Apple news, earnings, and  stock  charts on Coinbase. (1Y) $243.42 HIGH (1Y) $348.15 LOW (24H) $341.59 ...",
@@ -454,7 +559,7 @@
       "cmpt_rank": 11,
       "details": null,
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 25,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Executive $344.91  +1.91 (0.56%) View Full Chart As of Oct 15, 2026, 7:53:14",
@@ -467,7 +572,7 @@
       "cmpt_rank": 12,
       "details": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 26,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Apple Inc. AAPL:NASDAQ  · Open346.95 · Day High347.85 · Day Low344.28 · Prev Close342.96 · 52 Week High348.15 · 52 Week High Date10/13/26 · 52 Week Low243.42 ... Read more",
@@ -493,7 +598,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 21,
+      "serp_rank": 27,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Amazon stock price<|>Apple share price nse today<|>AAPL price<|>AAPL stock news today<|>Google stock price<|>Apple share price in 2007<|>Apple share price chart<|>Microsoft stock price",
@@ -506,7 +611,7 @@
       "cmpt_rank": 14,
       "details": null,
       "section": "rhs",
-      "serp_rank": 22,
+      "serp_rank": 28,
       "sub_rank": 0,
       "sub_type": "panel",
       "text": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services.",
@@ -528,7 +633,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 23,
+      "serp_rank": 29,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "Description Apple Inc. is an American multinational technology company headquartered in Cupertino, California, in Silicon Valley, and known for consumer electronics, software and online services. Wikipedia",
@@ -550,7 +655,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 24,
+      "serp_rank": 30,
       "sub_rank": 2,
       "sub_type": "fact",
       "text": "April 1, 1976, Los Altos, CA",
@@ -572,7 +677,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
+      "serp_rank": 31,
       "sub_rank": 3,
       "sub_type": "fact",
       "text": "Cupertino, CA",
@@ -594,7 +699,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 26,
+      "serp_rank": 32,
       "sub_rank": 4,
       "sub_type": "fact",
       "text": "John Ternus (Sep 1, 2026–)",
@@ -610,7 +715,7 @@
         "type": "item"
       },
       "section": "rhs",
-      "serp_rank": 27,
+      "serp_rank": 33,
       "sub_rank": 5,
       "sub_type": "fact",
       "text": "166,000 (2025)",
@@ -640,7 +745,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 28,
+      "serp_rank": 34,
       "sub_rank": 6,
       "sub_type": "fact",
       "text": "Steve Jobs , Ronald Wayne , Steve Wozniak",
@@ -674,7 +779,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 29,
+      "serp_rank": 35,
       "sub_rank": 7,
       "sub_type": "fact",
       "text": "Beddit , Beats by Dre , Apple Store , Drive.ai · See more",
@@ -712,7 +817,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 30,
+      "serp_rank": 36,
       "sub_rank": 8,
       "sub_type": "fact",
       "text": "Dow Jones Industrial Average 52,046.21 0.82% S&P 500 7,725.50 0.085% Nasdaq Composite 26,594.88 0.37% Russell 2000 Index 2,747.69 0.67% NYSE Composite 24,009.56 0.60%",

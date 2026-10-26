@@ -268,6 +268,7 @@
         "publish_date": "Jan 18, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/wDHxu52hnH0/hqdefault.jpg",
+        "timestamp": "3 weeks ago",
         "title": "Why Photosynthesis Shows Irreducible Complexity",
         "type": "video"
       },
@@ -285,6 +286,7 @@
       "cmpt_rank": 9,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 26, 2025",
         "type": "item"
       },
       "section": "main",
@@ -301,6 +303,7 @@
       "cmpt_rank": 9,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -321,6 +324,7 @@
         "publish_date": "Nov 13, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/dtZVbrog_mU/hqdefault.jpg",
+        "timestamp": "Nov 13, 2025",
         "title": "Photosynthesis | A-Level Biology Revision Livestream",
         "type": "video"
       },
@@ -342,6 +346,7 @@
         "publish_date": "Dec 6, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/r90D4XK42c4/hqdefault.jpg",
+        "timestamp": "Dec 6, 2025",
         "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight",
         "type": "video"
       },

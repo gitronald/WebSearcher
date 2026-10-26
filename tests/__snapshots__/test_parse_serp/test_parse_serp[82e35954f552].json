@@ -24,9 +24,12 @@
       "url": "https://abc7chicago.com/"
     },
     {
-      "cite": null,
+      "cite": "NBC News",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -37,9 +40,12 @@
       "url": "https://www.nbcnews.com/news/us-news/border-patrol-marimar-martinez-shooting-chicago-text-message-release-rcna257765"
     },
     {
-      "cite": null,
+      "cite": "WBEZ Chicago",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 hour ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -50,9 +56,12 @@
       "url": "https://www.wbez.org/the-rundown-chicago-news-podcast/2026/02/06/friday-february-6-2026"
     },
     {
-      "cite": null,
+      "cite": "ABC News",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -63,9 +72,12 @@
       "url": "https://abcnews.go.com/US/chicago-woman-shot-cbp-fall-seeks-release-body/story?id=129887807"
     },
     {
-      "cite": null,
+      "cite": "AP News",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -76,9 +88,12 @@
       "url": "https://apnews.com/article/orchid-flower-show-chicago-botanic-garden-d81d4a00adf020e397db06db43ff542f"
     },
     {
-      "cite": null,
+      "cite": "WTOP",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "5 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -89,9 +104,12 @@
       "url": "https://wtop.com/lifestyle/2026/02/photos-of-chicagos-retro-70s-themed-orchids-show/"
     },
     {
-      "cite": null,
+      "cite": "CBS News",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 hour ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -102,9 +120,12 @@
       "url": "https://www.cbsnews.com/chicago/news/gabryel-ayers-vigil-shooting-death-auburn-gresham-79th-may/"
     },
     {
-      "cite": null,
+      "cite": "FOX 32 Chicago",
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "11 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,

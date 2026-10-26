@@ -1050,3 +1050,115 @@ def test_paa_answer_bounded_to_question_pairs():
     row = parse_people_also_ask(elem)[0]
     assert row["sub_type"] is None
     assert row["details"] == {"type": "text", "items": ["Why?"]}
+
+
+# --- 2026-10 layouts (plan 063) ----------------------------------------------
+#
+# Fixtures from a 2026-10 crawl batch parsed with 0.12.1, where top stories and
+# text ads returned "no subcomponents parsed", the AI-overview banner arrived
+# wrapped in the qTdDb knowledge controller, and the Featured results band
+# (role=group) reached unknown.
+
+TOP_STORIES_2026_10 = {
+    "virginia tech vs west virginia": 3,  # vertical list
+    "jenna ortega": 7,  # div.MmyPhf clusters + "Also in the news"
+}
+
+
+@pytest.mark.parametrize("qry", TOP_STORIES_2026_10)
+def test_top_stories_2026_10_cards(serps_by_qry, qry):
+    rows = _rows(serps_by_qry[qry]["html"], "top_stories")
+    assert len(rows) == TOP_STORIES_2026_10[qry]
+    for row in rows:
+        assert row["title"] and row["url"] and row["cite"], row
+        assert _row_error(row) is None
+        assert row["details"]["timestamp"].endswith("ago")
+
+
+def test_text_ads_2026_10(serps_by_qry):
+    rows = _rows(serps_by_qry["chargers vs raiders"]["html"], "ad")
+    assert [r["cite"] for r in rows] == ["https://www.viagogo.com", "https://www.tickpick.com"]
+    for row in rows:
+        assert row["sub_type"] == "submenu"
+        assert row["title"] and row["url"] and row["text"]
+        assert row["text"] != row["title"]
+        assert row["details"]["items"]
+
+
+def test_text_ad_mid_page_block(serps_by_qry):
+    results = ws.parse_serp(serps_by_qry["ceiling chandelier"]["html"])["results"]
+    ads = [r for r in results if r["type"] == "ad"]
+    assert len(ads) == 1 and ads[0]["title"] and _row_error(ads[0]) is None
+    assert not [r for r in results if r["type"] == "unknown"]
+
+
+@pytest.mark.parametrize("qry", ["solitair1lalakakwwowoows9owpalqlsaeu5l", "chargers vs raiders"])
+def test_ai_overview_wrapped_banner(serps_by_qry, qry):
+    results = ws.parse_serp(serps_by_qry[qry]["html"])["results"]
+    assert (results[0]["type"], results[0]["sub_type"]) == ("ai_overview", "unavailable")
+    empty_panels = [
+        r for r in results if r["type"] == "knowledge" and not (r["title"] or r["text"] or r["url"])
+    ]
+    assert not empty_panels
+
+
+_BANNER = (
+    '<div jscontroller="EYwa3d"><span>An AI Overview is not available for this search</span>'
+    '<div role="heading" aria-level="2"><span>Thinking</span></div></div>'
+)
+
+
+def test_wrapped_banner_classifies_as_ai_overview():
+    cmpt_type = _classify(
+        f'<div jscontroller="qTdDb"><div class="hdzaWe">{_BANNER}</div></div>'
+        '<div jscontroller="qTdDb"></div>'
+    )
+    assert cmpt_type == "ai_overview"
+
+
+def test_knowledge_panel_embedding_banner_stays_knowledge():
+    # Panel content beside the banner inside the qTdDb wrapper.
+    assert (
+        _classify(f'<div jscontroller="qTdDb"><div>Barack Obama</div>{_BANNER}</div>')
+        == "knowledge"
+    )
+    # Another knowledge-panel marker outside the wrapper.
+    assert (
+        _classify(f'<div class="kp-blk">Obama</div><div jscontroller="qTdDb">{_BANNER}</div>')
+        == "knowledge"
+    )
+
+
+def test_featured_results_group_band(serps_by_qry):
+    rows = _knowledge(serps_by_qry['"the car" movie']["html"], "featured_results")
+    kinds = [r["details"]["kind"] for r in rows]
+    assert kinds[0] == "video" and "description" in kinds
+    assert rows[0]["title"].startswith("The Car Official Trailer")
+    assert rows[0]["text"].startswith("YouTube")
+
+
+def test_featured_results_group_band_classifies_as_knowledge():
+    assert (
+        _classify(
+            '<div role="group" aria-label="Featured results">'
+            '<div data-attrid="VisualDigestDescription">Source: IMDb</div></div>'
+        )
+        == "knowledge"
+    )
+
+
+def test_bracket_module_is_knowledge(serps_by_qry):
+    results = ws.parse_serp(serps_by_qry["fifa finals bracket"]["html"])["results"]
+    assert not [r for r in results if r["type"] == "unknown"]
+
+
+def test_text_ad_rule_leaves_related_products_ads_to_searches_related():
+    # "Find related products & services" embeds a "Sponsored results" unit;
+    # searches_related (typed by its heading earlier in the chain) emits the ads.
+    cmpt_type = _classify(
+        '<span class="L8u9l" role="heading" aria-level="2">Sponsored results</span>'
+        '<div class="uEierd"><div data-text-ad="1"><div role="heading">Ad</div></div></div>'
+        '<div role="heading" aria-level="2">Find related products &amp; services</div>'
+    )
+    assert cmpt_type == "searches_related"
+    assert _classify('<div data-text-ad="1"><div role="heading">Ad</div></div>') == "ad"

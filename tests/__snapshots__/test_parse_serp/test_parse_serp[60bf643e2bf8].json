@@ -1,0 +1,624 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 116000000.0,
+    "result_estimate_time": 0.32,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unknown",
+      "text": null,
+      "title": null,
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "citations": [
+          {
+            "additional_count": 2,
+            "publisher": "Mirodemi",
+            "source_ids": []
+          }
+        ],
+        "sections": [
+          {
+            "citations": [
+              {
+                "additional_count": 2,
+                "publisher": "Mirodemi",
+                "source_ids": []
+              },
+              {
+                "additional_count": 2,
+                "publisher": "Shades of Light",
+                "source_ids": []
+              }
+            ],
+            "heading": "Popular Styles & Price Ranges",
+            "hyperlinks": [
+              {
+                "text": "Home Depot",
+                "url": "/goto?url=CAESogIB6zswFRpE8KoaLrT7NfmSh0S_sC8LjRL3uEzFO0rQVY_ZakBu9EipSoOSvebOU3tL2GIQENDQKU0V9a05tT19J-lE0EcYP1vA-ykD7w3oHILi_iL4xQ-jgo6Zv5_YGH3luD7frnsM6nbJmFF4s2QY0UZUoRdYKlbXTAHmg6jSXLLQKiN8PaeUl5-aFM-PQghgjn3ZzcUeeV1l6TZiKjZCkE91D5ZzZWPyT1RW86NjwLpP0TG6pBg1-GPw3YM0t9GMJvgcjPJGH1OYKQpCc3cK7R--sljLOS4MNnLBnclQeaYf_TyWtg0TyWa6fYPJiDaKmQD8R9J2fQmD-QCO8MfZ4Lmpa1KhVpc2c97IU9zZIzRPuFUPNTznSQqn4tWHAHsUJA"
+              },
+              {
+                "text": "Wayfair",
+                "url": "/goto?url=CAESrwIB6zswFeh5drldtkan2UQ5E-cruD4JmgAEL92mk7OLfL4qO918j5AutxSe7fwZX_cY_vH_hMNcqg6FGkHsdvyX6yaQje3JZ9KvhDKFMsGy4qCbSfj3I0R9aMPRBcGLS4l8I-LF2wx_9Muz_nUN83Fsjc2EBCuwdNUWmkw6MVZT7bsu9BpC4AtyYKqFY5KD_DoNIirzLVb2bOu3-fwt_8Ozzfh3C_6AxGwy_P3oGu9hJ057W4JnxLpkDYe6afNq72WioPcoN3aZGsAOlnE4E90OT1tuoEK2UacjL4isGEnG4teP518US74ASi7hjZ5YqLPrY01wuVD2659NCnk_e42kFIhDrjadligU86WJJkiBvy1zOEtkiwW_2jiis5QICc5_8XMX182DZCK_dfowync"
+              },
+              {
+                "text": "Visual Comfort",
+                "url": "/goto?url=CAEScAHrOzAVnUKtVanp-_wt53HTEHPdUI7sIJ0OByjYA_IbvHSvrnG5aNcFtK7MKrVa18ZPPY5tpKb4gsnHp0huHH8tMoEZi5EMHWhqHEVmVwVvrcqOgQ_ZhAj0tT6Bqh6omim8qMHKGg9BPVFYCsPC0xM"
+              },
+              {
+                "text": "Shades of Light",
+                "url": "/goto?url=CAEScwHrOzAVKus5Lu1OPkif7ZX_0vnthUShTr1EBPJuXLH3H8leLT6qCRHR3VubisLxTjM6WASIYO9hedkndQBqfMoL2-sdHAsa2mZGRZzohw6P0iNa9Tsli5v7YNayLxMCPeGxigNlQkh1hyvu7zvVWT29Kfc"
+              }
+            ],
+            "text": "Flush Mount / Low-Profile: Ideal for hallways, bedrooms, and low ceilings. Options like the Merra 5-Light Chrome Flush Mount Chandelier with K9 Crystals Go to product viewer dialog for this item. start around $46 at Home Depot , while larger tiered pieces like the House of Hampton Shullsburg 12-Light Flush Mount Go to product viewer dialog for this item. run around $530 at Wayfair . Hanging & Empire Chandeliers: Classic multi-tier or chain-hung styles—such as the Edvivi Clarus 7-Light Empire Chandelier Go to product viewer dialog for this item. —cost around $182 , whereas designer lines from Visual Comfort or Shades of Light range from $300 to over $3,500 depending on the materials and size."
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "9",
+            "title": null,
+            "url": "/goto?url=CAESbwHrOzAV57FN1OU6mGA6U4qX2ti4K5kkAvOpIhoiMEMDOzku8yFDJrMXInpJLHqwJ-u1WwIC_1pvCmHqZSis0FpWmc87cOYB9mzcZQDBr1Hv2xnDHvBkKHWB8yBY22pZSglj83KJQDPV9xdAg_PkKQ"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "7",
+            "title": null,
+            "url": "/goto?url=CAESeAHrOzAV7BZ4eBL6FdQLw2kdmxsSLqBkpwaJk2jIiKKmuOwcAz4xMv9korzK4fpQG1t8-AnekH13tFu5WaXKHOW9pnIoIddQATvPdSToL_N0r76zIcmSOQQynp5oaGMEOwTQhj1bVLEK78NJ2FS6gyxteRDR1MAR8w"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "6",
+            "title": null,
+            "url": "/goto?url=CAEScwHrOzAVKus5Lu1OPkif7ZX_0vnthUShTr1EBPJuXLH3H8leLT6qCRHR3VubisLxTjM6WASIYO9hedkndQBqfMoL2-sdHAsa2mZGRZzohw6P0iNa9Tsli5v7YNayLxMCPeGxigNlQkh1hyvu7zvVWT29Kfc"
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "sectioned",
+      "text": "Ceiling chandeliers range from compact flush-mount designs for low ceilings to multi-tier statement fixtures for formal dining rooms and entryways .",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "Sofary",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "30",
+        "price": "$359.99",
+        "rating": "5.0",
+        "source": "Sofary",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "grid",
+      "text": null,
+      "title": "sofary Modern Art Design Crystal Spiral Chandelier for Foyer. 18% OFF.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Home Depot",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "321",
+        "price": "$45.98",
+        "rating": "4.8",
+        "source": "Home Depot",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 1,
+      "sub_type": "grid",
+      "text": null,
+      "title": "11 in. 5-Light Flush Mount Chandelier with K9 Crystals.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "west elm",
+      "cmpt_rank": 2,
+      "details": {
+        "price": "$699.00",
+        "source": "west elm",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 2,
+      "sub_type": "grid",
+      "text": null,
+      "title": "West Elm Lachlan Chandelier/Semi-Flush Mount.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Crate & Barrel",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "42",
+        "price": "$799.00",
+        "rating": "4.7",
+        "source": "Crate & Barrel",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 3,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Etienne Glass Chandelier Light 27.7.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "IKEA",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "49",
+        "price": "$249.99",
+        "rating": "2.4",
+        "source": "IKEA",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 4,
+      "sub_type": "grid",
+      "text": null,
+      "title": "IKEA GRINSBYN chandelier w light bulbs.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Home Depot",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "821",
+        "price": "$41.70",
+        "rating": "4.7",
+        "source": "Home Depot",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 5,
+      "sub_type": "grid",
+      "text": null,
+      "title": "8.7 in. 3-Light Chrome Flush Mount Chandelier with K9 Crystals.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Shades of Light",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "1",
+        "price": "$978.00",
+        "rating": "5.0",
+        "source": "Shades of Light",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 6,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Shades of Light Kalini Double Drum Chandelier 16.25\"H x 30\"W x 30\"D Matte Brass / Bleached Natural Rope.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Target",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "6",
+        "price": "$200.00",
+        "rating": "4.7",
+        "source": "Target",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 7,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Threshold Glam Glass Ceiling Chandelier Brass",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Home Depot",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "1K",
+        "price": "$38.31",
+        "rating": "4.5",
+        "source": "Home Depot",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 8,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Edvivi Amorette 1-Light Chrome Finish Mini Pendant Chandelier Wrought Iron.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": "Crate & Barrel",
+      "cmpt_rank": 2,
+      "details": {
+        "n_reviews": "1",
+        "price": "$1,599.99",
+        "rating": "5.0",
+        "source": "Crate & Barrel",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 9,
+      "sub_type": "grid",
+      "text": null,
+      "title": "Revelry Glass Chandelier Light 28. 19% OFF.",
+      "type": "products",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://www.1800lighting.com  › ceiling-lighting-chand...",
+      "cmpt_rank": 4,
+      "details": {
+        "rating": 4.7,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Shop Capitol Lighting's beautiful selection of chandeliers ! From traditional styles to modern designs, illuminate any space in your ...",
+      "title": "Chandelier Lighting Fixtures - Elegant Styles & Designs",
+      "type": "general",
+      "url": "/goto?url=CAEStQEB6zswFRjCQuTM0Bpefs-AoAit__P6pgvhHWxSwfqyzrfyx0FL-JTOqaKTN1cPZBkjPv0IqgIPMBq-ZI8X1fBruqC9uHYE2DUaGBBwy7QPfIUFLIv4-o1OhxgxEO_M-_Mi2NOPDU4CkZ6Kv304IPHNNsH5mPl66ogVg11XFo7ST0QSxmvmuXM7vk50t-OixTqsAQLHGSeqWKPoW8Q2ZuqX80JlJHHEKHO9YA4NW-VT-DFZGqcO"
+    },
+    {
+      "cite": "https://www.sofary.com  › collections › living-room-chan...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Shop our collections of beautiful designed  Living Room Chandeliers, Modern Crystal Chandelier , and. Sale price $249.99 Regular price$309.99 ...",
+      "title": "Modern Luxury Crystal Chandeliers - Living Room",
+      "type": "general",
+      "url": "/goto?url=CAEStgEB6zswFYO363P07_j6pmBiOKZCtq6wpnq3g71afa52RsflSGFk5UNdlrGbp7rmua1laYRrFyv0qCiVgsoT3T5Guz3B-pg3fKKxpOSyiSh4kxj9BZZTivaeTRyOqX8LrCvJxaLROWnhbPbbhDhb3BOZeKW8FC-X_eZME_RkNJcS6ojKxgzQEYWI43bCi8ssS-L65oEMcrKuZTBR0CBXMcS8reQFo5S8gW2dEM4mY-5CTXeJZ6NBLg"
+    },
+    {
+      "cite": "https://lights.com  › collections › chandeliers",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "Our Chandelier Collection offers  statement lighting for every room , from modern chandeliers over dining tables to soft, ambient designs for bedrooms, ...",
+      "title": "Dining Room Chandeliers & More",
+      "type": "general",
+      "url": "/goto?url=CAESpgEB6zswFSS6J9PZmOSbTdJLFOImmt1daeHz2J5FbpV1rPVuMUUnEVoj-GRzWwYPz8hjVSszuo9amXXUEgcPc5XBxv85_3uH0XNwc6q5f5LRzlYt7FlfHGz2K5_gnh70lvQxgLj5EYFhT00EWoWvNy6EAdUGPp7_v7y2bO5bouPRd2Y6k55SZEYG4817gFTNXRr0fjFDzpW_-MOlUpwA_UUBz6iDIKwl"
+    },
+    {
+      "cite": "https://www.fergusonhome.com › chandeliers",
+      "cmpt_rank": 7,
+      "details": {
+        "items": [
+          {
+            "title": "Chandeliers",
+            "url": "/goto?url=CAESigIB6zswFSnwIqxEhvRnun_d56Aszv7hYkL0m3gkuzP6n1wlhnmdkJy-KfR_Lnsui5xgWEfITB0H326KQ6XCtr9XOVS_RdF6pWUfwvHgsgTAuRNpKNJJjW7CF0aZiUtTJgyOTHFN2N-kbfE0HInXMe3Ngh2FtD1F1XYyPakEl_C-VVf54SPxTJuYWEfujiEgQcvZb8SZc6YLOc0DWjL0pKclVI_yNFzlJkJViIg-ZOi-5SolKEyUNhV8fHs-EPn3zXTv0dUasvHlA7R3705RA-3DCG4iZY-0U8NsnI_MePsoqa-3ezw22_3VhkkGMpXTR2MFaxCeC3Be88vJSlaQEfE_5-jWnVrvS6hffw"
+          },
+          {
+            "title": "LED Chandeliers",
+            "url": "/goto?url=CAESdQHrOzAVYKs3j9cSycw63R5ZeBU_eo38InMC6S3d2QxH5ld3mBT9QfVjms0BcQSHDjXVSRN3b2vRAf4gWn62Y8mRmv4gOu1gmCGXGPBBtlvjkcV5-OzlAOcFcr6zUsZQEF2JRpivHabSd6LbnILUGUpgtyJgag"
+          },
+          {
+            "title": "Ring Chandeliers",
+            "url": "/goto?url=CAESdgHrOzAVI0CF3uG1BwhEeYfeGdjtUMaFgLzaMmqqJVnZeTSwPKsxrVJi_-BALmL5aUuus0_tFvarea3IrM9vXjCXNNzIDHREp7r59lbFR9VC9VoC8101ocmJA8_wjbYLJB0eN_va7AgnLG3K_WfYb0g9ZmQOyjE"
+          },
+          {
+            "title": "Shop Chandeliers",
+            "url": "/goto?url=CAESigIB6zswFSnwIqxEhvRnun_d56Aszv7hYkL0m3gkuzP6n1wlhnmdkJy-KfR_Lnsui5xgWEfITB0H326KQ6XCtr9XOVS_RdF6pWUfwvHgsgTAuRNpKNJJjW7CF0aZiUtTJgyOTHFN2N-kbfE0HInXMe3Ngh2FtD1F1XYyPakEl_C-VVf54SPxTJuYWEfujiEgQcvZb8SZc6YLOc0DWjL0pKclVI_yNFzlJkJViIg-ZOi-5SolKEyUNhV8fHs-EPn3zXTv0dUasvHlA7R3705RA-3DCG4iZY-0U8NsnI_MePsoqa-3ezw22_3VhkkGMpXTR2MFaxCeC3Be88vJSlaQEfE_5-jWnVrvS6hffw"
+          },
+          {
+            "title": "Drum Chandeliers",
+            "url": "/goto?url=CAESdgHrOzAVfP57Oqm68Rh9aac-jOQbBgfOylsMCvHwed11KW8WyCRcd9IvKHhloh5XwPNe5BMJrLrgygTLuAWho2u5meN1lcDahFUCalzX2fwO5EwfkF_21gmuW5JtXa0ODLJ0CRHFGZjdcmOYxQgRJiR8oux4SVw"
+          }
+        ],
+        "type": "menu"
+      },
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Explore Beaded Chandeliers By Price, Style, Brand, Hanging Options and More. Lighting That Energizes As Well As Enhances Your Life. Create A Stunning Look! Designer Collections. Live Customer Service. Price Match Guarantee. Free...",
+      "title": "Chandelier Lighting Fixtures - Chandelier Lights",
+      "type": "ad",
+      "url": "/goto?url=CAESawHrOzAV0lzwJ-jbvq6msxDtzGnzRNR1axF8lNj-TRdamjb7RPDSK-WsYPZEO2QiurIvG9hM0nUuWzLiO_a4ytZP8jxqOd9hUz_2AbrccRzqqr8ljPbMtUTct9kp-ka3u_Yk95YFAlkD8G1l"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "BAOURE 8-Lights High Ceiling Chandelier, Dimmable Integrated ...",
+      "type": "images",
+      "url": "/goto?url=CAES5QEB6zswFc8rDeiO709RAro-SYj0EWPLzai2ryXZcTlh5XPPlpLJrlq_62bcfoR4iFEiExqm65q3ZksA5YVzfcTqyKuU6mSOhbv24r4H4iP-5zz4A-QZHVSzYd5oQu75XbRas_8lehCu1-R7nUXGRz5lN96HL7bFcdDDxl6Hesjz6PcYRFse0iOCScL9hYbrl1g7gL1afNmPXq6iYJO37-j95jCrKjMFJRfJCHsVeVapYKQhilu9W1f-LU0BMQscv7AVndI0a56gzC7vtrAeLggcJo1SchUJW3bgPXaWvfb6OT7bEvux"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Modern Flush Mount Ceiling Chandeliers | Mirodemi",
+      "type": "images",
+      "url": "/goto?url=CAESsAEB6zswFUwmMljH48Bc8KMHXiTpP7AtXSM_stZO_mcHmTv1JZ8vkgB6ZHvhyXsIrim6Q5ZydqUbElI-irvq0LB8RePjPoxpS_546AXzGhhPnDGk_Oo7eKhvYbCLy9Ianb8BEYTBW8a1RD2FYRnwwyft0V7nNuzNcRSLvGrmte6bclYZzteJQkXkpvh3VzYOhYdKWf7pmtKXmai6lQZqs_ADz7ReEeASBEk6quISrlJemQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Modern Chandeliers – LightFixturesUSA",
+      "type": "images",
+      "url": "/goto?url=CAEStwEB6zswFXpZCskuhmxx9JCAaYdj5aoXYmey6L6vzhSoOpu7_dORn9QOCKCG5bBn62ZfJVKEBs8Yr7wMiS4jqzvj8kXd4O38UAF4_LOn01whdPlxIcxDBGVuAaIWSCj1hwrrf4p_ZwdJ-lZsweBTUzyJb6LJsy2J_b0p58zUljA9Z67hxS6LbfBOpFR-X_uiKG9NJhIDN0lNThbn5_4iAKnwJrdOKR5wOqQulYOldKzHelqHAdpuixI"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 3,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Modern Luxury Crystal Chandeliers - Living Room | Sofary ...",
+      "type": "images",
+      "url": "/goto?url=CAEStgEB6zswFZzH7s3PnGU4hGhor9alSyJ_oY07XP4-XeTo5m6NJDkhlU-Dx5QnGZvyUfRO7lbuE_nSScitmcgstXnzT5eQi28cR_ttMynmwDdcn_fPvzW8UUvF5A67mLvEafvtdZz4qOP0wi7wBoL0Z_5OxYkeFQESxJgVGYEWiIiOVFwTSaapiUwVrhcQUUNyzPBflM2dLFZNhyInT9Mu_X-V4O7PK8kMdfdKpSf4sOSD1xdZfVcyPQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 4,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Amazon.com: Crystal Ceiling Lights LED Lights Modern Ceiling ...",
+      "type": "images",
+      "url": "/goto?url=CAESYAHrOzAVxrs7AaSyAdVdLOFXN9C5FHadLQeU51c3f3r9A779BqvLsI-NvUJNGKSMXKXcQ21hp5rBsgIH1JN1XgDDyZ8hex37fbGs4L8nKd3M-2WT2pdTstsPYfyww_TM-w"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 5,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Modern Chandeliers – LightFixturesUSA",
+      "type": "images",
+      "url": "/goto?url=CAEStwEB6zswFXPeyYpxBR4lMFr54NFVopquagKB0xd4X5fVwg0qQVYyyzmbDGRtztvGZljZhKOgwSyFtnjwMCXwqYNEUihzQMfz6ZgdqPqjgVVUpv29wuw7YNN5qxPSOOuCkNCzVSNrkzAbZsH5gE2vnLjOZ7S9578P5Btu9TeEBGTXswGw16Le5Wb1OGiBYSq8oFsM7rfoppFWUML8xsAE3HWVlaesawPo4X5YlXRLkutS5wnRcjPOUZY"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 6,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Modern Luxury Crystal Chandeliers - Living Room | Sofary ...",
+      "type": "images",
+      "url": "/goto?url=CAEStgEB6zswFbHQNK0lD1nvyVhFAcxH2rmGJgdXpPy6ivV3Tu8bAJtYe51WI1wpd3NnoyfRTeKUYjfmiSXKaZ0zGFpYLxJm6uKW6K4LkUqAWGnlE9C5Kpl_NpJhWRBLBimFH04PLxQa3hGRYArbNK82c5GBpAaVxO1ThB5QVT5A4AZIz04Q961JIrg7snTiEANvMLxeWFFxbza_IGdbmbeDKNZU60Iat3QsU7s9IIvDIcWdHw7xQDGe6w"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 7,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Rectangular Multi-step Bright Crystal Chandelier",
+      "type": "images",
+      "url": "/goto?url=CAES0gEB6zswFSy8lmqoLS6olV3WdkjtjFM2zOlXAQDY8CBNwlv7JIxXH-s-Iq1jYhA9BoGadNHWHQKonaAKO6l0sgDIGIr7r2d26i71wmlZp6chMCZj1PpTA-DkHTEyCo3i9wYYLDXsd5Q13ccC_VxucA5tkrck8HU0wXwOigIM2-DIRzz5GExO6DWSIviiuKdT0Dh8at4o8peDrszEOKwPhYeiIkVKW7ymGUs_5654m25odDS4bMHF2-h0pRDvqMS7sfGLd_QowbxI9U7KeT01GxjixeY"
+    },
+    {
+      "cite": "https://www.homedepot.com  › Lighting",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "We have a wide variety of modern, classy and sophisticated options including  crystal chandeliers, capiz chandeliers, beaded chandeliers, sputnik chandeliers  ...",
+      "title": "Chandeliers",
+      "type": "general",
+      "url": "/goto?url=CAESeAHrOzAVkSuibm61q_xDT-qRoTlBFTnDgMZl1WnFNpKXNEMzguWIu5Ob3mQDiCcDUAMT6TtGLLeWwKnRIEhOnK4p3b3s8W6K7A6-7r18g2Ipc0F5UQeOfqPikXzP1LU0J20AH0EeCH1rNMACILX70MHZoDS3rtnrpA"
+    },
+    {
+      "cite": "https://www.us.pooky.com  › collections › chandeliers",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "Shop Pooky's chandelier lights, from  modern chandelier ceiling lamps  to characterful designs in glass, brass, color and beautifully crafted finishes.",
+      "title": "Chandelier Ceiling Lights & Lamps",
+      "type": "general",
+      "url": "/goto?url=CAESrAEB6zswFSNADhT1czQeFfZAa5ltA6c9QOu3y4cN01fg6Fofd6ZvliMg_lSVI85mhMSZvRpyuBfzrzrNDv2h3c2KPVnqSGF5ttkwtV7g6GRj19RUfOGxyHDDj_-Nx5aDZbDYLTiqfLUYpBhlFtMUlMa-I97xmwrvxQh28yUgO4pznfyDZlX8qH9jjZVNEwIO1BRdQfOZne8Yy7spbI-o8yDJId-MrLwibIC03X7i"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "items": [
+          "What type of chandeliers are in style now?",
+          "Can you put a chandelier on the ceiling?",
+          "What chandeliers are out of style?",
+          "What is the difference between a chandelier and a ceiling light?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 27,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What type of chandeliers are in style now?<|>Can you put a chandelier on the ceiling?<|>What chandeliers are out of style?<|>What is the difference between a chandelier and a ceiling light?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.lowes.com  › ... › Ceiling Lights",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 28,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A chandelier is a decorative light that hangs from a ceiling  and usually features several arms or branches, each fitted for an individual light bulb.",
+      "title": "Chandeliers at Lowes.com",
+      "type": "general",
+      "url": "/goto?url=CAESgwEB6zswFZsJBBHuBPoVHC0Z8_bH6pFkfd8mO_YHvKcSNP3Pfi6AOi8Lo5bYRCgakrcmNg7B1kPD9F9vc96kMSCIdj4_AvMV9SH8JNvG1frwehaWyFQjSyRtfh1LTEzpcHLvgV4W-qgqYoazJQYxPlzInGgKU__YY6D-szg8jFScYCKf5w"
+    },
+    {
+      "cite": "https://www.amazon.com  › Chandeliers-Ceiling-Light-Fi...",
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "main",
+      "serp_rank": 29,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Black Farmhouse Chandelier , Modern Industrial Metal Ceiling Light Rustic Hanging Pendant Lights with E12 base for Kitchen Island",
+      "title": "Chandeliers - Ceiling Light Fixtures",
+      "type": "general",
+      "url": "/goto?url=CAESlwEB6zswFcgBNUAmGp0DYjdEcJrLUhS9xnBSZ_1ogCeAFi-Pc3YVeQ-VYTn_EAOoxCdpkSOdjDxKb9v_7uRQXUhS97-eIwrVMm91oS2WemYnooah9xZyc6z1VtACpzsnijzC7jbZg5F6m8sjW6IsVUsZxT_4GkcART_YE5Kf6vuYsAEVe3rVRC_4ARtICZE0yVeDmWguEprv"
+    },
+    {
+      "cite": "https://www.shadesoflight.com  › ... › All Chandeliers",
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "main",
+      "serp_rank": 30,
+      "sub_rank": 0,
+      "sub_type": "image_strip",
+      "text": "Shop a wide selection of chandeliers at Shades of Light . From crystal chandeliers to modern designs, find the perfect chandelier lighting for your room!",
+      "title": "Shop Modern Chandelier Light Fixtures",
+      "type": "general",
+      "url": "/goto?url=CAEStAEB6zswFWlCCHmXsAYZVY-F1nIe1EDbfdNin9sLaBkUJNWhMLmZju8Afn_3FjGxc4br2y8rxKgaWl9pl4suSvt4b5eH5KNNKwBJe5KbmtH-hDYINURgmXl-hMcO0bAr3e-tMSrB0r2cA3GkYggN4T7d2tTKUKlLNGZgI0zYdZyAdSq50LDuDQurQl4AUAFLy0giXxR3Ipff-kUy6QT0Cc6KTRBF5AzyBmVNr20UUvi4If35Qow"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "heading": "Things to know",
+        "type": "panel"
+      },
+      "section": "main",
+      "serp_rank": 31,
+      "sub_rank": 0,
+      "sub_type": "things_to_know",
+      "text": "Cost . How much does a ceiling chandelier typically cost?",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Ceiling chandelier light",
+          "Modern ceiling chandelier",
+          "Ceiling chandelier for living room",
+          "Chandelier for living room with high ceiling",
+          "Black ceiling chandelier",
+          "Ceiling Chandelier with Fan",
+          "Ceiling Chandelier Small",
+          "Ceiling Chandelier for Bedroom"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 32,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Ceiling chandelier light<|>Modern ceiling chandelier<|>Ceiling chandelier for living room<|>Chandelier for living room with high ceiling<|>Black ceiling chandelier<|>Ceiling Chandelier with Fan<|>Ceiling Chandelier Small<|>Ceiling Chandelier for Bedroom",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}
