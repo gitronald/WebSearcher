@@ -89,7 +89,24 @@ def _parse_pla_card(card: Node, sub_rank: int = 0) -> dict[str, Any]:
 
 
 def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict[str, Any]:
-    name_div = card.css_first("div.KZYtMc")
+    a = card.css_first("a[href]")
+    parsed = {
+        "type": "shopping_ads",
+        "sub_type": "hotels",
+        "sub_rank": sub_rank,
+        "title": get_text(card.css_first("div.KZYtMc"), strip=True),
+        "url": a.attrs.get("href") if a is not None else None,
+        "text": None,
+        "cite": None,
+        "details": parse_listing_card_details(card),
+    }
+    return mark_hidden_row(parsed, card)
+
+
+def parse_listing_card_details(card: Node) -> dict[str, Any] | None:
+    """The ``ratings`` details of a sponsored listing card (price, source,
+    rating, review count, stars, amenity), shared by the sponsored hotel
+    carousel and the 2026-10 listing ads in ``ads.py``."""
     price_div = card.css_first("div.XO8mWb")
     source_div = card.css_first("div.sX5I1c")
     rating_span = card.css_first("span.Y0A0hc")
@@ -125,17 +142,6 @@ def _parse_sponsored_hotel(card: Node, sub_rank: int = 0) -> dict[str, Any]:
     if amenity:
         details["amenity"] = amenity
 
-    a = card.css_first("a[href]")
-    parsed = {
-        "type": "shopping_ads",
-        "sub_type": "hotels",
-        "sub_rank": sub_rank,
-        "title": get_text(name_div, strip=True),
-        "url": a.attrs.get("href") if a is not None else None,
-        "text": None,
-        "cite": None,
-        # ``details`` always holds ``type``; a card with no price/source/rating
-        # gets no details rather than a hollow ``{"type": "ratings"}``.
-        "details": details if len(details) > 1 else None,
-    }
-    return mark_hidden_row(parsed, card)
+    # ``details`` always holds ``type``; a card with no price/source/rating
+    # gets no details rather than a hollow ``{"type": "ratings"}``.
+    return details if len(details) > 1 else None
