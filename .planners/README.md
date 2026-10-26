@@ -2,10 +2,10 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 063 | [Parse the 2026-10 top stories, text ad, and AI banner layouts](plans/063-parse-2026-10-layout-regressions/plan.md) | implemented | — | [#209](https://github.com/gitronald/WebSearcher/pull/209) |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
+| 063 | [Parse the 2026-10 top stories, text ad, and AI banner layouts](plans/063-parse-2026-10-layout-regressions/plan.md) | done | 2026-10-26 13:45 PT | [#209](https://github.com/gitronald/WebSearcher/pull/209) |
 | 061 | [Parse the AI overview answer embedded in people also ask](plans/061-paa-embedded-ai-overview/plan.md) | done | 2026-10-16 20:21 PT | [#204](https://github.com/gitronald/WebSearcher/pull/204) |
 | 060 | [Recognize the reworked AI overview layout](plans/060-ai-overview-role-heading-layout/plan.md) | done | 2026-10-16 15:05 PT | [#203](https://github.com/gitronald/WebSearcher/pull/203) |
 | 054 | [Support a persistent user-data-dir for warm browser profiles](plans/054-persistent-user-data-dir/plan.md) | done | 2026-10-15 11:35 PT | [#201](https://github.com/gitronald/WebSearcher/pull/201) |

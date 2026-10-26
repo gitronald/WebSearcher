@@ -1,10 +1,10 @@
 ---
 id: 63
 slug: parse-2026-10-layout-regressions
-status: implemented
+status: done
 branch: feature/parse-2026-10-layout-regressions
 created: 2026-10-26T12:57:47-07:00
-concluded:
+concluded: 2026-10-26T13:45:31-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/209
 ---
 
