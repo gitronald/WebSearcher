@@ -166,7 +166,10 @@
     {
       "cite": "The Times of Israel",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -179,7 +182,10 @@
     {
       "cite": "",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "timestamp": "3 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -192,7 +198,10 @@
     {
       "cite": "ABC7 New York",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "timestamp": "8 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,
@@ -205,7 +214,10 @@
     {
       "cite": "amNewYork",
       "cmpt_rank": 5,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 3,

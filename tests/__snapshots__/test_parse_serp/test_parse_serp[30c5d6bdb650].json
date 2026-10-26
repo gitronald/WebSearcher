@@ -140,9 +140,12 @@
       "url": "https://www.wired.com/"
     },
     {
-      "cite": null,
+      "cite": "MacRumors",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "11 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 0,
@@ -153,9 +156,12 @@
       "url": "https://www.macrumors.com/2026/02/06/iphone-18-pro-max-next-level-battery-life/"
     },
     {
-      "cite": null,
+      "cite": "Seeking Alpha",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "9 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 1,
@@ -166,9 +172,12 @@
       "url": "https://seekingalpha.com/news/4548563-apple-heads-to-moon-after-nasa-chief-approves-iphones-for-upcoming-missions"
     },
     {
-      "cite": null,
+      "cite": "9to5Mac",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 2,
@@ -179,9 +188,12 @@
       "url": "https://9to5mac.com/2026/02/05/new-iphone-launching-soon-with-four-new-features/"
     },
     {
-      "cite": null,
+      "cite": "SamMobile",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 3,
@@ -192,9 +204,12 @@
       "url": "https://www.sammobile.com/news/one-ui-8-watch-update-is-breaking-galaxy-watch-5-pro-battery-indicator/"
     },
     {
-      "cite": null,
+      "cite": "The Verge",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "13 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 4,
@@ -205,9 +220,12 @@
       "url": "https://www.theverge.com/tech/874736/android-quick-share-apple-airdrop-support-expansion"
     },
     {
-      "cite": null,
+      "cite": "Ars Technica",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 5,

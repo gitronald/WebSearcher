@@ -54,7 +54,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "40 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 0,
@@ -67,7 +70,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "55 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
@@ -80,7 +86,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 hour ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
@@ -93,7 +102,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "14 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -106,7 +118,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "14 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -119,7 +134,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "14 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -132,7 +150,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "15 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -145,7 +166,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "18 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 7,
@@ -158,7 +182,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 8,
@@ -171,7 +198,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 9,
@@ -182,9 +212,12 @@
       "url": "https://www.nytimes.com/2026/02/05/us/san-ramon-california-earthquake-swarm.html"
     },
     {
-      "cite": null,
+      "cite": "The Wall Street Journal",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -195,9 +228,12 @@
       "url": "https://www.wsj.com/business/new-york-times-earnings-q4-2025-nyt-2b057b41?gaa_at=eafs&gaa_n=AWEtsqdtn0X9XN56oTZewrgyV_yemoxWHPafMxItlpq6fc1nafLvbxKfKzoy&gaa_ts=6986869c&gaa_sig=-xnT43ZDvWw_EdbTcJsn5GYF8XmkGjjcdQnHJsup6vWlohVbeGJb7WWg56tzM8a-LmN8QfDzaD8oiUkN2xCCYA%3D%3D"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "55 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 1,
@@ -208,9 +244,12 @@
       "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html"
     },
     {
-      "cite": null,
+      "cite": "Fox News",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 2,
@@ -221,9 +260,12 @@
       "url": "https://www.foxnews.com/media/dhs-lashes-out-ny-times-after-report-claiming-pregnant-women-minneapolis-hiding-from-ice"
     },
     {
-      "cite": null,
+      "cite": "Alternet",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "8 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 3,
@@ -272,6 +314,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -288,6 +331,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "5 days ago",
         "type": "item"
       },
       "section": "main",
@@ -304,6 +348,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -320,6 +365,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -336,6 +382,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -352,6 +399,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -368,6 +416,7 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",

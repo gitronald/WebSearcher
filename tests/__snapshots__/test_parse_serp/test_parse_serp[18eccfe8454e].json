@@ -146,7 +146,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 week ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
@@ -159,7 +162,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 week ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 1,
@@ -172,7 +178,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 2,
@@ -185,7 +194,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 3,
@@ -198,7 +210,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 4,
@@ -211,7 +226,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 5,
@@ -224,7 +242,10 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 6,
@@ -239,6 +260,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 week ago",
         "type": "item"
       },
       "section": "main",
@@ -255,6 +277,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 week ago",
         "type": "item"
       },
       "section": "main",
@@ -271,6 +294,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
         "type": "item"
       },
       "section": "main",
@@ -287,6 +311,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -303,6 +328,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "3 weeks ago",
         "type": "item"
       },
       "section": "main",
@@ -319,6 +345,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "Nov 9, 2025",
         "type": "item"
       },
       "section": "main",
@@ -335,6 +362,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 week ago",
         "type": "item"
       },
       "section": "main",
@@ -355,6 +383,7 @@
         "publish_date": "Dec 30, 2025",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/l2GLS-W_TyE/hqdefault.jpg",
+        "timestamp": "1 month ago",
         "title": "Top Chef Host Kristen Kish's 3 Best Restaurants in Austin",
         "type": "video"
       },
@@ -372,6 +401,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -388,6 +418,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -404,6 +435,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",
@@ -420,6 +452,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 month ago",
         "type": "item"
       },
       "section": "main",

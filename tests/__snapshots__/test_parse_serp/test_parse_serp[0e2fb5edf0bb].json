@@ -1,0 +1,322 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 69200000.0,
+    "result_estimate_time": 0.28,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Raiders vs Chargers",
+        "text": "Raiders vs Chargers",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "► 13:55",
+            "url": "/goto?url=CAESdQHrOzAVhHoyj3931dU4y6PhSVK5e0gTElmSpcnAiCwf18M6eRKtZrLu-TtRMCLt4R9VVB6xHFC8TryZhVpljVTPpqz0CIU8CK46S0aENbTbMxBUCjjAo7Nif3pr2_0QiX8N4y_NFD1VXDAQ3hQq61Ci72TM_Q"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "sports",
+      "text": "Raiders vs Chargers",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          "Who is favored to win, Chargers or Raiders?",
+          "Which Raiders player is in jail?",
+          "Why do Mexicans like the Raiders so much?",
+          "Why is the Chargers Raiders game delayed?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Who is favored to win, Chargers or Raiders?<|>Which Raiders player is in jail?<|>Why do Mexicans like the Raiders so much?<|>Why is the Chargers Raiders game delayed?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.espn.com  › nfl › game › gameId › raiders-...",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Game summary of the Las Vegas Raiders vs. Los Angeles Chargers NFL game ... Kirk Cousins connects with Cody White for 2 TDs and  Raiders beat Chargers 26-14 .",
+      "title": "Raiders 26-14 Chargers (Sep 20, 2026) Final Score",
+      "type": "general",
+      "url": "/goto?url=CAESfAHrOzAVC1OslUMCV0wTdoQ46qa3pyKOjhX-Q-v5RaSMg0IAqna82gIDM-DEnaHxD8cYdwDGyFrphys9ZnkN_JWpInP5HTUW5IfPD6Yk73me5kPAfHduoxZTRQaZmBuOLMGnOAg-fRI0P_zdXYSfsQPJbG21SYMog-DHYYw"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Chargers–Raiders_riva...",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Though the  Raiders  had largely dominated the series for much of the later 20th Century, the  Chargers  amassed a 13-game winning streak from 2003 to 2009, shortly ...",
+      "title": "Chargers–Raiders rivalry",
+      "type": "general",
+      "url": "/goto?url=CAESeQHrOzAVdp2Mxk5r98ynGft1Qrk3gClhOZRFF7xU-TH_-jd7HLqZmf4d9B4WsFie89d6n93ew2AJvb49NXwEdoPe2Lys2Y61mJFoBFa4Ns91qrUz90u3Iklcz5s4E2DXCL6P2-GZX2TXHccbttooHPhPOFrW7bKDq4Y"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "heading": "Find related products & services",
+        "items": [
+          "Raiders vs Chargers tickets",
+          "NFL scores",
+          "NFL",
+          "Kirk Cousins",
+          "Rams vs Raiders",
+          "Raiders vs Saints"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "Raiders vs Chargers tickets<|>NFL scores<|>NFL<|>Kirk Cousins<|>Rams vs Raiders<|>Raiders vs Saints",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://www.footballdb.com  › teams › nfl › teamvsteam",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The  Chargers vs. Raiders rivalry has been played 134 times  (including 1 postseason game), with the Los Angeles Chargers winning 62 games and the Las Vegas ...",
+      "title": "Los Angeles Chargers vs. Las Vegas Raiders",
+      "type": "general",
+      "url": "/goto?url=CAEShgEB6zswFdJfc7Ml-T_uD8nloZySktEDI4U_8DAsaojK2jtANAW9jBgBz8EXr-wAu6gRTbxMt64HaTKY0DewxQfH8AfATbdLEpw502oLEjTlOcPFgJ9wYAmBEoeH3EdDut9IlfiT9E961SlbcUghuniiTEoyVcg4N9cMGfryVS5O6GCR14ZHeA"
+    },
+    {
+      "cite": "https://www.espn.com  › nfl › game › gameId › charger...",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Live coverage of the Los Angeles  Chargers vs . Las Vegas  Raiders  NFL game on ESPN, including live score, highlights and updated stats.",
+      "title": "Chargers vs. Raiders (Dec 13, 2026) Live Score",
+      "type": "general",
+      "url": "/goto?url=CAESfAHrOzAV51gGV-XpdxixwUwmAMLoUuVCcDtt06IJCpxvj_TYbAzGLDv9chYANVCztD_VQzmXEk0i2UOAQO_ujnDRx5bqdGO7lbgFYASlVKav3dLOv2Cwbuoy1KyW8N5sBmrXAipHfQzZZU_TUSFsl98Rihjf-vpISfv2Iwo"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "2-0! Raiders Beat Chargers 26-14 in LA YouTube  ·  Raiders 1 month ago",
+      "type": "videos",
+      "url": "/goto?url=CAESZgHrOzAVkrUzOGhftJW6_CqNQUWJS4H_9Js6Pwt5vqJSXzu2kkFbGXplw8I9N_Fa4X4ACKzIrj8UI7F55OnwOF9Nni6Gnn6JOjbZQb3yXqYzLxNJfQmG47V2PXWOiScRgRUa98lWeg"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 1,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Las Vegas Raiders' top plays vs. Los Angeles Chargers | Week 2 NFL.com 1 month ago",
+      "type": "videos",
+      "url": "/goto?url=CAESegHrOzAVFwHqu3lO2_mlb4FS2wLFpqmxZztkvBaEipXQd8PQ44d0fgFNdyc5vP3CQBeGhKc2gNjkOuKBi3P6Vm7TsALpVqUJ8OsK6ygyO-Nst8ZqbGFxTtmuU27IzrYnbCP__Icv-rbE-qA9JNlEPl_JXgzIT5ST_TjI"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 2,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Top 10 Chargers vs. Raiders Moments of All Time YouTube  ·  Los Angeles Chargers 1 month ago",
+      "type": "videos",
+      "url": "/goto?url=CAESZgHrOzAVroihDBdFSv12-GJNbgk3Wsxpc-_nsLPQ35VYK8QVYx7GJdhH_jECgeaTcEmGoK73n4Fm3dDgRxCR1amryJx29oGmCkr2z3EWcZt2XBhLk_ytXssyoFyIXZarDodwGb-dqQ"
+    },
+    {
+      "cite": "https://seatgeek.com  › NFL",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Chargers home games are played at SoFi Stadium in Inglewood,  prices starting around $223 for Chargers vs Raiders tickets , You can find cheap Chargers vs ...",
+      "title": "Los Angeles Chargers vs Las Vegas Raiders Tickets 2026- ...",
+      "type": "general",
+      "url": "/goto?url=CAESaAHrOzAVhraKD8adVhGnC_T8stmVgFO8ndag8OO_Rw4PkBk_yA1sFSFySlyCISYgGx8KxqXN6D_VjGjhcCq-aNZSUQNKgXifc_jRR0GkiVtCCmK1XUxSOK76eqgraW1shuoFIIHmNEd5"
+    },
+    {
+      "cite": "https://www.nfl.com  › videos › raiders-vs-chargers-hig...",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Highlights of the matchup between the Las Vegas  Raiders  and Los Angeles  Chargers  from Week 2 of the 2026 NFL season. a 20-17 win.",
+      "title": "Raiders vs. Chargers highlights | Week 2",
+      "type": "general",
+      "url": "/goto?url=CAESewHrOzAVQueUvlXA0rji2BCNBtBc2V32xhkQHCy2KeuqO-tZOqWENoR6yQfbpmVYIvVAyoWhL92_KqrvjZzlTT0AWavQdoHHAKqb7MzvcrToGFNTKgqlGJAC8ZugzENOZONlRcfDxcit8RFvgzPIiReZKtEz5cEfLRA7CQ"
+    },
+    {
+      "cite": "https://www.ticketmaster.com  › ... › Las Vegas Raiders",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Buy  Las Vegas Raiders vs. Los Angeles Chargers  tickets at the Allegiant Stadium in LAS VEGAS, NV for Dec 13, 2026 at Ticketmaster.",
+      "title": "Las Vegas Raiders vs. Los Angeles Chargers Tickets Dec ...",
+      "type": "general",
+      "url": "/goto?url=CAESqwEB6zswFdl6SIjhNeByiknIz9AkzMsmf1K5P5d98VKoVxYQel_Oaul8fpgq-lHis7S4bHcyHQ7pa4_Wwqa8WEo8_WVSQ9JI7LkZH3VCW1y9hzwadCNNchP_oIF5tfpGIIsqyeDilsZARBy-3eOI7usYnfEQrnZIXWLu750LVksq97cQnkOGLOWfSC5zRDcqH9QeHTi4AtZ902b_hHbDLL-Bi6jaChv7wgEvkhQ"
+    },
+    {
+      "cite": "https://www.raiders.com  › matchups › los-angeles-chargers",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Get an exclusive look at the  all-time historical matchups between the Raiders and Chargers  throughout the years.",
+      "title": "Raiders vs. Chargers All-Time Historical Matchups",
+      "type": "general",
+      "url": "/goto?url=CAESeQHrOzAVjPqlTMtkvoT9RFrRoHXMPjpCl4DdRIONDwI3fCMcR-z0WEyJQeYnU44dNn2r7vJhWBn9ChISmy_WrLACZVBaO6j8-OqAa1yzzMY_CM5AQay-WVxjkVDQD41GcAA4bWUuEksXa_VGY7ntQEV2zoz_HaAMHcY"
+    },
+    {
+      "cite": "https://www.viagogo.com",
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "title": "Chargers @ Las Vegas",
+            "url": "/goto?url=CAESsQEB6zswFY-X8rM4r6QxQhgCHHcRj84-JaEze_6nTJlNQ2XLghR1Ir-r4z-JK124URE-y1v8DIYcFGYCie3rV9SmAtzMZdbU8XJ5h4xc1DYWezyLtfZ9LAV_A55BKmTZsCC0nZAo4VGeVu5-cCjhRMb7TmR5_5UJc-rj9NpokAHcoZhQpXQaxyr7DM--a_6BzMX1GbPE_923AOMTliskdoe5KKNYruer0Grg73bvW8TBQS0"
+          },
+          {
+            "title": "Titans @ Las Vegas 12/27",
+            "url": "/goto?url=CAESsQEB6zswFY-X8rM4r6QxQhgCHHcRj84-JaEze_6nTJlNQ2XLghR1Ir-r4z-JK124URE-y1v8DIYcFGYCie3rV9SmAtzMZdbU8XJ5h4xc1DYWezyLtfZ9LAV_A55BKmTZsCC0nZAo4VGeVu5-cCjhRMb7TmR5_5UJc-rj9NpokAHcoZhQpXQaxyr7DM--a_6BzMX1GbPE_923AOMTliskdoe5KKNYruer0Grg73bvW8TBQS0"
+          },
+          {
+            "title": "Single Game Tickets",
+            "url": "/aclk?sa=L&ai=DChsSEwiS3ZGt8NaXAxW2YEcBHVysBBoYACICCAIQCRoCcXU&co=1&gclid=EAIaIQobChMIkt2RrfDWlwMVtmBHAR1crAQaEAMYASAEEgJQh_D_BwE&cid=CAASugHkaBqKQM5VZFGRcirbsvQAkvcvzGfxneH2q6TXFNoIui69PyFAHNgcZ64BmGGwbegvX00P7DpJGkev6QHYR7TZnbw2yWsYdP972Zq0J23nOwi04yax2ZeTBdLEoQzYfKnotHEv7NsWoUS5pTKoGjnAF2bcpjyl9DuXI1k6bGmtZliUNXZPHvbfEPD7OHWLsqbNUvWaBW5fmjZdyHCoNJAhRO8Sr26G7k3-v5-7ca7TKbU-m4xwMRhD1qo&cce=2&sig=AOD64_3pNx56gCnJQ-WkijTFErZGNQ6AqQ&adurl=&q="
+          }
+        ],
+        "type": "menu"
+      },
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Tickets On Sale Available Now — Tickets On Sale Today And Selling Fast, Secure Your Seats Now. USA Tickets 2026. Huge...",
+      "title": "Chargers Vs Raiders | 2026",
+      "type": "ad",
+      "url": "/goto?url=CAESlwEB6zswFVZ1pvuQ1MBKTERe8EpM4ql66tZ8G_zXacdhOJE4KsV3jZ-cGhwY4er51bpbnrbLJ1_y8bwU54Sn1bx7edw1k1r2F5f1uz-97ranWKGLp5YOUltCPRrWNr5hqzysKgF4MQGboFuSUaHphypZiM5HCg2B0RBtXBodFLxaenRfAzII7RGHXbc_ORkK7xsdhoa8uoUI"
+    },
+    {
+      "cite": "https://www.tickpick.com",
+      "cmpt_rank": 13,
+      "details": {
+        "items": [
+          {
+            "title": "Las Vegas Raiders Vs. Los Angeles Chargers",
+            "url": "/aclk?sa=L&ai=DChsSEwiS3ZGt8NaXAxW2YEcBHVysBBoYACICCAIQBhoCcXU&co=1&gclid=EAIaIQobChMIkt2RrfDWlwMVtmBHAR1crAQaEAMYAiADEgKWqfD_BwE&cid=CAASugHkaBqKQM5VZFGRcirbsvQAkvcvzGfxneH2q6TXFNoIui69PyFAHNgcZ64BmGGwbegvX00P7DpJGkev6QHYR7TZnbw2yWsYdP972Zq0J23nOwi04yax2ZeTBdLEoQzYfKnotHEv7NsWoUS5pTKoGjnAF2bcpjyl9DuXI1k6bGmtZliUNXZPHvbfEPD7OHWLsqbNUvWaBW5fmjZdyHCoNJAhRO8Sr26G7k3-v5-7ca7TKbU-m4xwMRhD1qo&cce=2&sig=AOD64_3exckuqfupBS6eUcptOXDgT5aIlQ&adurl=&q="
+          },
+          {
+            "title": "Green Bay Packers Schedule",
+            "url": "/goto?url=CAEStAEB6zswFeDYGJs-qBEPTThkw5DFKORiDDMJa9N61zbqBct7w21BAnJahJw_vb6ivzA2eNQRVgyxL1sMJSmDcadJvGGLYrmIQ7xk0bsEc1vTfHc0gulT215RUzuaRbf64ZDZiAXRQWAPnl7ThRfprZD1pCpbv_CZmL7lvDLdGFBCla6g4yGp0s1zDiU2bc7-EpypJL7MMm8i-2rknD6hcV-zPoLHx_Z1l_tOfKRUVbGEp9NxXLM"
+          },
+          {
+            "title": "NFL Tickets",
+            "url": "/goto?url=CAESYAHrOzAVAIx7suBDQ9MhuLopoitskT2wPyaqE7vQD-dNRb1xANasroQ9W4LO-bsE_azPYfUEIsBwsGW8tSbSviRU9IJY79SqOoY9ueZiQK0GVcVYOaCs1NOjKgkacH_XAw"
+          }
+        ],
+        "type": "menu"
+      },
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 1,
+      "sub_type": "submenu",
+      "text": "Get the best prices on Las Vegas Raiders vs Los Angeles Chargers tickets",
+      "title": "Raiders vs Chargers Tickets - Raiders vs Chargers Game",
+      "type": "ad",
+      "url": "/goto?url=CAESlwEB6zswFeE7NEqKgV4m9C9Y504qpn9pIKvu8f8mZfppdiW1xLNQuMgoBtA5_Gos6OayuRqrXTXBOyHN-Pj8NJSkmHkJf8M4J1EJYwKuMO1KlmxuDpXRLmglJ15qRrpNYPq9hJVKyJH-J79PvmGeeMyQe-dksQ5AzK5I2QJrnusOI58y_pL-uNzZmNanUQOKn7VtL3-q_luP"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Chargers vs Raiders tickets",
+          "Chargers vs raiders prediction",
+          "Chargers vs raiders live",
+          "Chargers vs raiders stats",
+          "Chargers vs raiders 2021",
+          "Chargers vs Raiders 63-21",
+          "Chargers vs Raiders score",
+          "Chargers vs Raiders 2026"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Chargers vs Raiders tickets<|>Chargers vs raiders prediction<|>Chargers vs raiders live<|>Chargers vs raiders stats<|>Chargers vs raiders 2021<|>Chargers vs Raiders 63-21<|>Chargers vs Raiders score<|>Chargers vs Raiders 2026",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

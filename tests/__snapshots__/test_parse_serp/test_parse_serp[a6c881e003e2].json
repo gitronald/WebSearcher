@@ -13,7 +13,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "34 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 0,
       "sub_rank": 0,
@@ -52,7 +55,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "57 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 3,
@@ -78,7 +84,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "18 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 5,
@@ -104,7 +113,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "1 hour ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 7,
@@ -130,7 +142,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "2 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 9,
@@ -156,7 +171,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 11,
@@ -182,7 +200,10 @@
     {
       "cite": null,
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "timestamp": "20 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 13,

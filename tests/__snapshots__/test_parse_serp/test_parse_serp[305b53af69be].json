@@ -130,9 +130,12 @@
       "url": "https://www.instagram.com/p/DUYFnxqEZ16/"
     },
     {
-      "cite": null,
+      "cite": "CNN",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "8 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -143,9 +146,12 @@
       "url": "https://www.cnn.com/2026/02/05/politics/schumer-trump-ny-funding-rename"
     },
     {
-      "cite": null,
+      "cite": "NBC News",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,
@@ -156,9 +162,12 @@
       "url": "https://www.nbcnews.com/politics/donald-trump/trump-asked-dulles-penn-station-named-exchange-gateway-money-released-rcna257708"
     },
     {
-      "cite": null,
+      "cite": "Axios",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 2,
@@ -169,9 +178,12 @@
       "url": "https://www.axios.com/2026/02/06/trump-schumer-dulles-penn-gateway-democrats-nyc"
     },
     {
-      "cite": null,
+      "cite": "The Guardian",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 3,
@@ -182,9 +194,12 @@
       "url": "https://www.theguardian.com/us-news/2026/feb/06/donald-trump-voting-midterms-democrat-national-strike"
     },
     {
-      "cite": null,
+      "cite": "The Daily Beast",
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "timestamp": "55 minutes ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 4,
@@ -295,6 +310,7 @@
         "publish_date": "Feb 3, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/oC8qsi9Uu7c/hqdefault.jpg",
+        "timestamp": "3 days ago",
         "title": "Trump's All Over the Epstein Files, Attacks Jimmy Kimmel After the Grammys \n& Don Lemon Gets Arrested",
         "type": "video"
       },
@@ -312,6 +328,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "2 days ago",
         "type": "item"
       },
       "section": "main",
@@ -332,6 +349,7 @@
         "publish_date": "Feb 5, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/7hmzdUBt0M4/hqdefault.jpg",
+        "timestamp": "16 hours ago",
         "title": "WATCH: Trump says he will revoke church tax exempt status if leaders 'say \nsomething bad about' him",
         "type": "video"
       },
@@ -349,6 +367,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "12 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -365,6 +384,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "4 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -381,6 +401,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -397,6 +418,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "16 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -413,6 +435,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "7 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -429,6 +452,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "1 day ago",
         "type": "item"
       },
       "section": "main",
@@ -445,6 +469,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "10 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -465,6 +490,7 @@
         "publish_date": "Feb 4, 2026",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/Og51cLThBYQ/hqdefault.jpg",
+        "timestamp": "1 day ago",
         "title": "What Trump says he learned from Minneapolis chaos",
         "type": "video"
       },
@@ -482,6 +508,7 @@
       "cmpt_rank": 7,
       "details": {
         "heading": "What people are saying",
+        "timestamp": "15 hours ago",
         "type": "item"
       },
       "section": "main",
@@ -509,7 +536,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "18 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 30,
       "sub_rank": 0,
@@ -522,7 +552,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 31,
       "sub_rank": 1,
@@ -535,7 +568,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 32,
       "sub_rank": 2,
@@ -548,7 +584,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 3,
@@ -561,7 +600,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 4,
@@ -574,7 +616,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 5,
@@ -587,7 +632,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 36,
       "sub_rank": 6,
@@ -600,7 +648,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 37,
       "sub_rank": 7,
@@ -613,7 +664,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 38,
       "sub_rank": 8,
@@ -626,7 +680,10 @@
     {
       "cite": null,
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "timestamp": "2 days ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 39,
       "sub_rank": 9,
