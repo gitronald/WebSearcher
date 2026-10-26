@@ -1,8 +1,8 @@
 ---
 id: 63
 slug: parse-2026-10-layout-regressions
-status: draft
-branch:
+status: active
+branch: feature/parse-2026-10-layout-regressions
 created: 2026-10-26T12:57:47-07:00
 concluded:
 pr:
@@ -101,3 +101,11 @@ On the 2026-10 batch after a reparse: `top_stories` and `ad` error rates under
 3%, about 4 rows per top-stories component, no `unknown` rows starting with
 "Sponsored", no empty `knowledge/panel` rows carrying the banner text, and the
 SERP and `general` row counts unchanged.
+
+## Log
+
+- **2026-10-26T12:58:34-07:00** — Activated.
+  - Branch: `feature/parse-2026-10-layout-regressions`
+  - Base: `dev` at `c010f88`
+  - Worktree: `.worktrees/063-parse-2026-10-layout-regressions`
+  - PR: pending
