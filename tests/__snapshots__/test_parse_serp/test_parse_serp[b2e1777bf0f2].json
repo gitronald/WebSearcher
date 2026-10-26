@@ -66,13 +66,13 @@
         "kind": "fact",
         "label": "Born",
         "type": "item",
-        "value": "Ulm, Germany"
+        "value": "Mar 14, 1879 · Ulm, Germany"
       },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "featured_results",
-      "text": "Born: Ulm, Germany",
+      "text": "Born: Mar 14, 1879 · Ulm, Germany",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -84,13 +84,13 @@
         "kind": "fact",
         "label": "Died",
         "type": "item",
-        "value": "Princeton, NJ"
+        "value": "Apr 18, 1955 · Princeton, NJ"
       },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
       "sub_type": "featured_results",
-      "text": "Died: Princeton, NJ",
+      "text": "Died: Apr 18, 1955 · Princeton, NJ",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -1306,6 +1306,100 @@
       "sub_type": "fact",
       "text": "University of Zurich (1905), ETH Zürich (1897–1900) · See more",
       "title": "Education",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "",
+            "url": "https://en.wikipedia.org/wiki/Albert_Einstein#:~:text=Albert%20Einstein%20(14%20March%201879%20%E2%80%93%2018,known%20for%20developing%20the%20theory%20of%20relativity."
+          },
+          {
+            "text": "",
+            "url": "https://www.thalesgroup.com/en/news-centre/insights/enterprise/mobile-communications/everyday-inventions-inspired-einstein#:~:text=Albert%20Einstein's%20contributions%20extend%20beyond%20theoretical%20physics.,the%20way%20for%20technologies%20that%20enhance%20our"
+          },
+          {
+            "text": "",
+            "url": "https://fi.edu/en/news/case-files-albert-einstein#:~:text=Born%20in%20Germany%20in%201879%2C%20the%20frizzy%2Dhaired,where%20he%20spent%20the%20later%20years%20of"
+          },
+          {
+            "text": "",
+            "url": "https://www.alberteinstein.com/#:~:text=Albert%20Einstein%20was%20a%20theoretical%20physicist%20and,He%20developed%20the%20general%20theory%20of%20relativity."
+          },
+          {
+            "text": "",
+            "url": "https://www.nsf.gov/news/albert-einstein-his-own-words#:~:text=Today%2C%20Einstein%20is%20best%20known%20for%20his,relativity%2C%20which%20he%20first%20published%20in%201915."
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          },
+          {
+            "text": "Satyendra Nath Bose",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Satyendra+Nath+Bose&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRlocWbxBqH_JBtBF41rP35F0n0t1qlm5xe3s3jov9FKRvk1ABLAO3YEL08swt2X8RdS02FRGk8uybTV6G1Ztx8BgIrMDrB5EaNou1keKuhrQ7nLssAOjJxTBJEexnbqsOTCPXGnU0dLCEO3hlGGm7B0DKfNcKAZI-F09uZEcbKvadJzh0FsNIU-dcARsWVnqaBn89rkWWoQ09GDM5CcwjzasgoSH_Ht1EHGwOr5sFhsyIFQUrw%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgdEAI"
+          },
+          {
+            "text": "John von Neumann",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=John+von+Neumann&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRnnCGy0mBLuSRauvkkX4d7n4Tk_SW2qTQZbv1QjFqPvdub0ySzFrIjy3HPuY6ruH7v_JBpATnpXgomLKHkvlUyg_YRlWKBU6EFR-hDPEoEwzoYKCpRuSIZqcrjyVESeaRCMenOxTZNvRxUBRnZy4DPG7-Sh4wKyzFkZ13MJuWMtQ23A6NwYtvnWHH2DvRj-8pS2JiqslOwYaHBNvVyejlqYpeYDN9TvHdzLoi2_4ZAujRYo4Mw%3D%3D&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgdEAM"
+          },
+          {
+            "text": "Isaac Newton",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Isaac+Newton&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRhEksFTG6C-cbpchhPqsyMciKMABFXpupeftAm3OXvaHeJI_OlssTluMd-pos0ibYwQnjR7PqZmK9rII_AAM997dDEWl9tugzN5rgVrsepn_XUW4n3wT-sSaf9tdm9GqcOvvcGnipGIULJy3F0dvZ8R7hVzf6M9eBX-ptad2qvoUU8mHDcDoYo8hWYXxEi75kph2ONIU7IJPWtHsWpjVGeaSDE1V&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgeEAI"
+          },
+          {
+            "text": "Satyendra Nath Bose",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Satyendra+Nath+Bose&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRlocWbxBqH_JBtBF41rP35GQye2iQ7qTRzOKSiaOTtarEmkX7ZIaY0vgp-jGybPLUuy-SXs_KqJ5swusGDvEieUN8l6uNcLkVMLnEGZxmCGauHClxLVzHs7sLnBqR_3AQhM70N10zK-xr358WyvUed8pB6iA5I_wwtXI2yUD316j0X8_WqkHQpQdG8xj7xLiOIFGxOwTpMs_RNAilEzGN2xd0qUv&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgeEAM"
+          },
+          {
+            "text": "Galileo Galilei",
+            "url": "/search?sca_esv=a23961d46812ec7b&q=Galileo+Galilei&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRoTK_C7MJ6lRZ15-dMPiLfHjGmnFVvtYNkiA17VkZuEz22_G97iJXRFkgPiY9QAE30iXcBs4a6AF18UunzvLi-7ZDNTU6yWyskS7Lw6B1qPbDCgr5AUwZdneyAaibNGTrDDzvayh8ncS-uQXDryDEfQDxlP58Mw6G_qdXmeq_vjSmArFVDQbWb87FTZ14Vj0npiw8g6kJ7gqDHir6JfQeevPi8aC&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0QmxN6BAgeEAQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 73,
+      "sub_rank": 5,
+      "sub_type": "links",
+      "text": null,
+      "title": "Overview",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "Isaac Newton",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRhEksFTG6C-cbpchhPqsyMc1VeicVWnQ2bBwl4oCbqse2o5mmdSPDjMf_t82Na6iNFMDeEf3Yep17LqMyRuGTz2V9380FsfQqOc46IHgN_AlwFT7HSCpYZ8QqUZ61_Vugb1OjiB1_rts4PMbKwK8BAHADHR_&q=Isaac+Newton&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Qs9oBKAB6BAgLEAY"
+          },
+          {
+            "text": "Eduard Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmsjNHo_-k-2KMs0aI_YHecCK1Yw1trq1d_oTCi7JgfQPnwBsdawVA4CPVEIz88pk_S3M0AKYtDG86FAuMg0yNG5Jdk4vLegRjniIn8zMIDtZ_TPSlaWNXXaMXqkx394i_I2kTXqo8T_pxHS9bBklWASglE9Q2M4DdoJl-ADqyKPdisofug%3D%3D&q=Eduard+Einstein&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Qs9oBKAB6BAgLEAo"
+          },
+          {
+            "text": "Elsa Einstein",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTC4FJExovuJBkLb9JkqYuqquATwPx3Dt6PCAcnuWehhVpd3cl5jeXf_KjlEHaDtz-O6Bulb6Zv-8gnIADI8sR1Xog0KHpsyRnEdz_n-if3jlSwJ7_kRijaeMf4xKHMCqmcbGAM74ykxmStQNboz1vO3Fabb-rbkfyIi-Qx-mNtABN72jDg%3D%3D&q=Elsa+Einstein&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Qs9oBKAB6BAgLEA4"
+          },
+          {
+            "text": "Mileva Marić",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmlM0c-GnsFAjcv5GiwCVLamGN9iisZJI7vM5zZf1PddnmoC1VCdOjSybfEMDS4yWk7L16SdI6SzEvEmfUVRnLNcewUdY2UCDR-s4kPRSBRce8NWT5ura5WlJAZ1-GtGeA-LmpwUHGTnoSjM8XqnTGK0HNEho&q=Mileva+Mari%C4%87&sa=X&ved=2ahUKEwiW1JKtiMaSAxWVoq8BHegXMk0Qs9oBKAB6BAgLEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 74,
+      "sub_rank": 6,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

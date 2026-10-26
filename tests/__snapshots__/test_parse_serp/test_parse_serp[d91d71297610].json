@@ -277,10 +277,6 @@
         "attrid": "kc:/shopping/gpc:user-review-composer",
         "items": [
           {
-            "text": "",
-            "url": "https://customerreviews.google.com/user?type=PRODUCT"
-          },
-          {
             "text": "Your Review",
             "url": "https://customerreviews.google.com/user?type=PRODUCT"
           }

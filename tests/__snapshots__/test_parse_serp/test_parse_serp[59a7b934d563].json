@@ -1,0 +1,597 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "overlay_precise_location": false,
+    "result_estimate_count": 156.0,
+    "result_estimate_time": 0.23,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "Chicopee Woods Golf Course",
+        "subtitle": "4.4 653 Google reviews ‧ Public golf course in Gainesville, Georgia ‧ Closed",
+        "type": "panel"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": "4.4 653 Google reviews ‧ Public golf course in Gainesville, Georgia ‧ Closed",
+      "title": "Chicopee Woods Golf Course",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "type": "panel",
+        "urls": [
+          {
+            "text": "",
+            "url": "/maps/place/chicopee+woods+golf+course/data=!4m2!3m1!1s0x88f5f3de4e7fdf65:0x79dfaf206fd23a3c?sa=X&ved=1t:242&ictx=111"
+          },
+          {
+            "text": "Reviews|4.4|(|653|)|People say this golf course offers a beautiful and challenging 27-hole layout with well-maintained greens and fairways. Visitors also highlight the reasonable green fees, excellent practice facilities, and friendly staff.<ctrl100>|Some reviews mention the staff can be unhelpful.|+27|Summarized by AI",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&q=chicopee+woods+golf+course&si=APenkKn5T4YN59srr511wD6k6Pufj9DEzRUvB1XJSwUeeT5aft_Sxl64H6Mh0PoBBOYEuBPWWOm3vun0qMkWN3Is47-muRfImKh1cl-WAdlYPG4E25q_LND6AV8_Ye09CNMPDr5F7TooS6iLg3wXlFoLCfeQfRpiXg%3D%3D&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0QrrQLegQIHRAB"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "featured_results",
+      "text": "0:18 View all photos 2515 Atlanta Hwy Gainesville, GA 30504 Hours Closed Popular times 10 AM 6 PM Reviews 4.4 ( 653 ) People say this golf course offers a beautiful and challenging 27-hole layout with well-maintained greens and fairways. Visitors also highlight the reasonable green fees, excellent practice facilities, and friendly staff.<ctrl100> Some reviews mention the staff can be unhelpful. +27 Summarized by AI",
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.chicopeewoodsgolfcourse.com",
+      "cmpt_rank": 2,
+      "details": {
+        "items": [
+          {
+            "text": "Rates",
+            "url": "/goto?url=CAEScQHrOzAVFNLiejRBrJ0jbNbt9oqHXaDJukXhBQDGl65D6v3t4HIZPHqZQ9vSyeNq6wDViWGR0VZ_uAryPbHFTIw4oQC5yOL6HKYRILyupWhGlAvGFH1IvjEdgqLLMvp55nuhjf2bRabrTuPNjd3kTtPa"
+          },
+          {
+            "text": "Book A Tee Time",
+            "url": "/goto?url=CAESbAHrOzAV_vFEgxCyEd9EhQTxEo51J9z5q2Aj0NS7Tf7qW3uRfwYU0XfuWNeKQJlxBw3ilDznaqJh6aLkcbSRuV6K9fFBJnZVkwjKdgN-rIW20DE5sCwbkvI_L6Dlm8576T9RqM8n-oXmjJHUHw"
+          },
+          {
+            "text": "Daily Rates",
+            "url": "/goto?url=CAESbwHrOzAVp-oHv-1mHA4fpfdNOCw5mz5gn7bWCQjskeCZELrv-pIkXZSEEaiUAxAwOECwC4Tc-1CLrsnMteuTMikMcEVXmr2kW-VFGIffuKI7TlvG8GoJOF-xclRyOh2tg0tJmqaDpdtlBHFanDreng"
+          },
+          {
+            "text": "Chicopee Woods",
+            "url": "/goto?url=CAESiQEB6zswFR4u9ZL_hZavqxHc37rb96qBzMOavBgVTu4t3_f9GKpwkUbX--jWIIU0xeE-ehKb2a4srbE-Nq2GVmM1oARcEBwjcclQbUvg5QzIvLwucP9W8YkZDkfKQXorqP16EHhGCK49qmfQ-OB8ZfHIC_QcxvfC0BqfkkVJiAeF6mCgJEGuxfNb6Q"
+          },
+          {
+            "text": "Course Photos",
+            "url": "/goto?url=CAESeAHrOzAVUJcuwGI1G-RnLrvBXYuJWoHvhGhXVXvExDsNeyiCbAWSbwpgWgG0grb1NcJB88p_nXJOQrrJyqBXuuPyELmX7AWK-w7ZRiQaRQV3UJ_rxTA02NvukUgsO-og1rZUyNi1M_BQskJWNmWpWLRa6TYltnJkhw"
+          },
+          {
+            "text": "More results from chicopeewoodsgolfcourse.com »",
+            "url": "/search?q=chicopee+woods+golf+course+site:chicopeewoodsgolfcourse.com&sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0QrAN6BAhREAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "This beautiful  course  in Gainesville, Georgia is home to 27 holes that have to be played to be appreciated. Home to GA PGA sectional and state tournaments, ...",
+      "title": "Chicopee Woods Golf Course: Homepage",
+      "type": "general",
+      "url": "/goto?url=CAESYwHrOzAVlCenxr93_DqeY9t0GKwLRk-hntUyQi1aV0WG8vIFBrHAzNXhuKWub1-57uVYzci60h6yWOWCCCzoyUWPMGnOWhrmwy4LKShWB0ycEu8tJosnM2xDENOBTiQkRBGVaw"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "heading": "Reserve a tee time . Chicopee Woods Golf Course",
+        "text": "Reserve a tee time|. |Chicopee Woods Golf Course|Mon, Oct 26|Any|Any|⁦Chicopee Woods Golf Course⁩|⁦$46 - $65⁩|18 holes|18 holes|18 holes|8:55 AM|8:55 AM|8:55 AM|1:12 PM|1:12 PM|1:12 PM|1:40 PM|1:40 PM|1:40 PM|1:47 PM|1:47 PM|1:47 PM|1:54 PM|1:54 PM|1:54 PM|2:01 PM|2:01 PM|2:01 PM|2:15 PM|2:15 PM|2:15 PM|2:22 PM|2:22 PM|2:22 PM|2:57 PM|2:57 PM|2:57 PM|+9 more|+9 more|+9 more|Booking times are provided in partnership with|Supreme Golf|GolfNow|TeeOff|Tee It Up|See more",
+        "type": "panel",
+        "urls": [
+          {
+            "text": "See more",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&si=APenkKkKfKqs9ewmllL95a_HJjTLgd-4I_HQc5bxq9ynNzClyyaoi6j72cly0zoThCE-YUkcy1n7f4Q5qyvCHt-m39AUSAjynVfKgdhuc3EkHJVekq1rTOwDKiRNerrqabyTGB5016Z4ntMABra22ouIARrV8MhAbQ%3D%3D&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Q5IkOegQIXBAl"
+          }
+        ]
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": null,
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": "https://www.golfpass.com  › ... › Georgia › Gainesville",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Located in Gainesville , Chicopee Woods Golf Course is one of the area's most popular public courses. The 27-hole layout is divided intro three nines that are ...",
+      "title": "Chicopee Woods Golf Course - School Nine",
+      "type": "general",
+      "url": "/goto?url=CAESlwEB6zswFXxUEzhSh-miRpzVmZMbk3po9nUI2yuIhFKBo0_W_1RAi1Vw6HZRND4uF3ujLG4zO7HPUGxmRmqGEDXGzWfgrMOHo8CzaGEmPsCsjNrdT9NeKe9le5Smin9QC-bpO6yNuF1P8JEudcCGozxW3shhFOvYFGcEeo9LfoJmQ6_ZIanTEgOaniNycK_e9UBZhJgRvjvv"
+    },
+    {
+      "cite": "https://www.golfnow.com  › tee-times › facility › search",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "This 27-hole facility is  conveniently located just a mile from I-985 in Gainesville, Georgia , and about 50 miles northeast of downtown Atlanta. Carved out of ...",
+      "title": "Chicopee Woods Golf Course Tee Times - Gainesville, GA",
+      "type": "general",
+      "url": "/goto?url=CAESjAEB6zswFYOONumImxHRXFppgrU9SV7CdMRAQuH4HoH71yPojj8LDCWQYrd1a2IiTHr1pD0rlNXBqSehXlo2I1vHR9LFUyqKs4U0BJXRxnJht2gC0tONlS51xc-_b453zbimk7qfzSYEgsVvzVGbWTGMhG4BZNViloKD1pE30WFCWZyISpLT6OrYm9zsiA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://course.bluegolf.com  › bluegolf › chicopeemillsch...",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "This beautiful course in Gainesville, Georgia is home to  27 holes that have to be played to be appreciated . Home to GA PGA sectional and state tournaments,",
+      "title": "Chicopee Woods Golf Club - Mill/School - Course Profile",
+      "type": "general",
+      "url": "/goto?url=CAESigEB6zswFaGiJTGh1AaO-oa089texT3Kj9Lix_2sYh4GIDpQ0fzFITNWpQ1sAif6r44ljBGZO9tFKg0oOkBP2m81f-gOMlaOmeRelr8LDYJT8Zwtlipo5C7eroNtlnJvb-hKO6JrYMKLginxkle8KGX5JNrr-QTQ2XMnywCHiUpwguWDVT4zH2fE1Is"
+    },
+    {
+      "cite": "https://coursefinder.golf.com  › course-profile › 6890-chi...",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Chicopee Woods GC (Mill ) is a regulation style public golf course designed by Denis Griffiths in 1991. With 9 holes, yardage of 3447, and a par",
+      "title": "Chicopee Woods Golf Course (Mill)",
+      "type": "general",
+      "url": "/goto?url=CAESjgEB6zswFZkmDlbj5dIsgCOcDy-ZfcG69No2zX_AgFMdtNmOBWZq6085t6ths9tehSHGX3znORJCa4jPD2waYb91QhkW-yQsolo8_rLGzP0ed8C04hme5AkgjSTiGecAx5ZaD1LtuxxZ2ZwQgT-Z_YB-GMWp4uad3rWUD4vMWyeXXKNDc2obz3nqTRaMyZCF"
+    },
+    {
+      "cite": "https://www.yelp.com  › ... › Active Life › Golf",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Superb greens - smooth, flawless, fast and varied contour . Very good bunkers … of hills and slopes. This a gorgeous 27-hole golf course.",
+      "title": "Chicopee Woods Golf Course - Gainesville, Georgia",
+      "type": "general",
+      "url": "/goto?url=CAESegHrOzAVHOT4O6AWwENRMHMmPUfeAgfR-4wQGoI3ZSrN_6nS3awUJp6a_xStYNVJ3KlGHpDtkXve7mqLEBImH79zQw3mVGpTKcEdfLRQORG-tnBoFYFyxACe9gaoW9rzicOeYYhye40T5MNxS_De5wCqqjaxhqSANWDT"
+    },
+    {
+      "cite": "https://www.tripadvisor.com  › Attraction_Review-g349...",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Chicopee Woods is  27 holes of pure golfing pleasure  conveniently located just off I-985 in Gainesville! The NEW Mini-Verde greens are now open!",
+      "title": "Chicopee Woods Golf Course - All You SHOULD Know ...",
+      "type": "general",
+      "url": "/goto?url=CAEStQEB6zswFTfpDMNQpoDqwsvFdyyAj2DjMGnLFvJe3pYJJgA4w9ExAXTslqVeqAhqE_FESE35k8cjcl3mw6pMa29zLdgQsPU-AlGIj1_cJYOnd5rskaATlPgzzq3Xz0gg5EWs4hq28w4U34vMtLJ6MzJxVRkV7beP8cFyJ4q46gcagECnkvPyWajXsjL41F_geK-UX3YdnclaN4-sD5IyRHjAo3rcD5d5f2oCT8Jj9sb3DN7OFtYY"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Chicopee woods golf course scorecard",
+          "Chicopee Woods golf course tee times",
+          "Chicopee woods golf course map",
+          "Chicopee woods golf course membership cost",
+          "Chicopee Woods Golf Course reviews",
+          "Chicopee Woods golf course Photos",
+          "Chicopee Woods Golf Course jobs",
+          "Chicopee Woods Golf Course driving range"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Chicopee woods golf course scorecard<|>Chicopee Woods golf course tee times<|>Chicopee woods golf course map<|>Chicopee woods golf course membership cost<|>Chicopee Woods Golf Course reviews<|>Chicopee Woods golf course Photos<|>Chicopee Woods Golf Course jobs<|>Chicopee Woods Golf Course driving range",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:unified_actions",
+        "items": [
+          {
+            "text": "Website",
+            "url": "http://www.chicopeewoodsgolfcourse.com/"
+          },
+          {
+            "text": "Call",
+            "url": "tel:+17705347322"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "Website Directions +4 Write a review Edit your review Save Saved Share Call Book online",
+      "title": "Unified actions",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:scalable attributes",
+        "items": [
+          {
+            "text": "About this summary",
+            "url": "https://support.google.com/local-listings/answer/9851099"
+          },
+          {
+            "text": "Report summary",
+            "url": "https://www.google.com/local/content/rap/report?postId=5%401:CAIQACodChtlc19oOmZVTnlxUmttdEdfVW9ZVDhLZUNrS1E%7CCAIQACorChtlc19oOmZVTnlxUmttdEdfVW9ZVDhLZUNrS1ESDAiI6fvVBhCZiYC6AQ&d=286732321&t=21"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Beautiful 27-hole public golf course featuring well-maintained fairways and greens. About this summary Report summary",
+      "title": "Scalable attributes",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:address",
+        "items": [
+          {
+            "text": "Address",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&q=chicopee+woods+golf+course+address&ludocid=8781930352245619260&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Q6BN6BAgvEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "2515 Atlanta Hwy, Gainesville, GA 30504",
+      "title": "Address",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:alt phone",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "(770) 534-7322",
+      "title": "Phone",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:menu",
+        "items": [
+          {
+            "text": "chicopee-woods.play.teeitup.com",
+            "url": "https://chicopee-woods.play.teeitup.com/"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Products and Services: chicopee-woods.play.teeitup.com",
+      "title": "Menu",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:hours",
+        "items": [
+          {
+            "text": "Hours",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&q=chicopee+woods+golf+course+hours&ludocid=8781930352245619260&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Q6BN6BAgwEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Closed · Opens 7 AM",
+      "title": "Hours",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:third_party_aggregator_ratings",
+        "items": [
+          {
+            "text": "GolfPass 4.6/5 2,108 reviews",
+            "url": "/goto?url=CAESlwEB6zswFQDI12iLsaQ0mBWaqDZ7Pjkd5yIYoeo88P4B8PVPESyi2ITFQUprHRoaQT_IfYsMudBfrlOttb1tOU5l1yE7iQtlRL7CVbxeQL4bLqDdBBKIb1K18-T-3m3eN2f9TrlJBJftRvQKh6xWGRRqeONlz0ZY1k6lzdyrqqqv_HJUnXyvwmW22TB2dMLKA1XP2WdwMIfP"
+          },
+          {
+            "text": "GolfNow 4.6/5 2,108 reviews",
+            "url": "/goto?url=CAESjAEB6zswFYjWXzs_5pNyXzeKmu6naHzah_NiyFYaHF5hVhNRXzEDIQmtM4YE5-eYrxntYSy9gcz_RsTsjUriICDm-CwCoK7-wAQrZmSYvqbfKdMvjkGnKKFYJ3KAXaZ98VsQ2_eNG0l1aVXsYKEAkPRXNLe_kcAUcZRjI7xEYRrBXyC4ne8d0Ej1RKWs3Q"
+          },
+          {
+            "text": "18Birdies 4.6/5 631 votes",
+            "url": "/goto?url=CAESogEB6zswFUVLx0bMlXHOLeOg2pMVFmh4kSmeJBiUEaSivk7WGG83rJgO2YCgukJLeI5RJ-j_HvXLozdNDSwWjetBLYmF1TUx_ZZ6OTqMLlT9dl8AzoL3pXTAS8L5ry9VsN7kruvoWwQ4F7ikGxBKfpb3MIVrkt8PwymiGZcst6soGkf8pXudbMBehSS-LW7_bJDIuGCLJQ9fu9iZ0AuRipzsYRk"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Reviews from the web GolfPass 4.6/5 2,108 reviews GolfNow 4.6/5 2,108 reviews 18Birdies 4.6/5 631 votes",
+      "title": "Third party aggregator ratings",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:review_summary",
+        "items": [
+          {
+            "text": "Google policies",
+            "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/101467513288660506374?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\" Staff is super friendly & great service !!\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s101467513288660506374!2s0x88f5f3de4e7fdf65:0x79dfaf206fd23a3c?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/108127592261653633623?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"Best place to hit a few awsome environment great people \"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s108127592261653633623!2s0x88f5f3de4e7fdf65:0x79dfaf206fd23a3c?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/105289209455285615364?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"The course layout, condition, food , and practice facility are all 5 stars.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s105289209455285615364!2s0x88f5f3de4e7fdf65:0x79dfaf206fd23a3c?ved=1t:31295&ictx=111"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Google reviews More info Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Edit your review Add photos Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. \" Staff is super friendly & great service !!\" \"Best place to hit a few awsome environment great people \" \"The course layout, condition, food , and practice facility are all 5 stars.\" View all Google reviews",
+      "title": "Review summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:busyness",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Mon Tue Wed Thu Fri Sat Sun 2 PM: Usually a little busy 9a 12p 3p 6p 9p People typically spend 15 min to 1 hr here",
+      "title": "Busyness",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "Instagram",
+            "url": "/goto?url=CAESZQHrOzAVo1mnng11M7A0xrnLjoMmRN71zI7eRRQj6VowvmnPqMQUtBsUQGdJk6gG4OeZMDWMpOaP4m6qHaz8oU7uLb4bbGMyMIHVgGqiUQbZ51SkVFpw4cSVLO7HgzC8GPhW4eWS"
+          },
+          {
+            "text": "LinkedIn",
+            "url": "/goto?url=CAESdgHrOzAVh4sELMtKGuz7eo5h1otlMMvOMhPx1zN7hPk6JOskpgK-STes3JZZQN2NouUbfOdugzAHVJF4XKYGYEhByN6cKXa_PYE9UxtMaAgipuo33riXj_WmZYsQGzZjF1qWRCVPUcheoaxtLxjvUFIqXAFF-mE"
+          },
+          {
+            "text": "Facebook",
+            "url": "/goto?url=CAESZAHrOzAV1LsCI9EkMcBimdIf69QeFyUDrPQHrCRtl61GwwVVKxJ4sVgvIwWh7hfj5MXtwF23H-mjDfNCAr4CldwpD9aF9DKY-yI2QmpigPpOSsvy2C7InP8rTqB7aa1fB9HY_kI"
+          },
+          {
+            "text": "X (Twitter)",
+            "url": "/goto?url=CAESXgHrOzAVWXQJnR9-D11_yrGjz0DP4Y6GHSQPCJVxwq-wgjLrh65CMTRXHXQzjX4Nv97vEnB-TNWvsdpFHGImeiogHgcYv4IqQXzct4Re414L0F-s7T6w-A0bVhSDtfU"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 9,
+      "sub_type": "fact",
+      "text": "Profiles Instagram LinkedIn Facebook X (Twitter)",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:appointment",
+        "items": [
+          {
+            "text": "golfnow.com",
+            "url": "https://www.golfnow.com/tee-times/facility/3745/search?utm_source=google&utm_medium=organic&utm_campaign=reserve&utm_content=primary&rwg_token=AE37R_jLF-fAnKPFMEJC-9I03w7elZldlyiXkpK3aGHw1l4B7I9_tMdH9VyJVOfxpVVYkrw1lJZ81y9IuU-BUi01Ev-5YRy-Hg%3D%3D"
+          },
+          {
+            "text": "teeoff.com",
+            "url": "https://www.teeoff.com/tee-times/facility/3745/search?utm_source=google&utm_medium=organic&utm_campaign=reserve&utm_content=primary&rwg_token=AE37R_jMduP0rWyqtv9WgA7V01dZ1J5ItAe69Nltu4ftNN38YYpAmr7MP-V7WZ-K1767L8rGdoxJVQA5kUV2ND4uasOTZLMI9g%3D%3D"
+          },
+          {
+            "text": "supremegolf.com",
+            "url": "https://supremegolf.com/explore/united-states/georgia/gainesville/chicopee-woods-golf-course-village-course-georgia?utm_campaign=reserve&utm_content=course&utm_medium=organic&utm_source=google&rwg_token=AE37R_gt7ZtsMa9XWqOIUgzey2_GY5xMoUoXRGHvbkvyN-jG_P7vzAFeiyov6tK7pIalIo2Wp84KGJ18SS6u1Jz1eAQ7GmAgYA%3D%3D"
+          },
+          {
+            "text": "teeitup.com",
+            "url": "https://chicopee-woods.book.teeitup.com/?course=3745&utm_source=google&utm_medium=organic&utm_campaign=reserve&utm_content=primary&rwg_token=AE37R_j4xsLsj2QhKr-KS_XLwewKokRH2T0tFunc5P4icHZFumtwFiBUgmur0VE_rffuMFQXwLLLOjJAT7FcL7LwJ7ZKMr_MoQ%3D%3D"
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/reserve?p=link_ranking&hl=en-US"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 10,
+      "sub_type": "fact",
+      "text": "Appointments: golfnow.com , teeoff.com , supremegolf.com , teeitup.com Providers About these providers Providers are listed in random order. However, if the business has specified a preferred provider, it will appear first. Learn more",
+      "title": "Appointment",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "Wednesday Dogfight Wed, Oct 28, 11:30 AM Chicopee Woods Golf Course Visit site",
+            "url": "/goto?url=CAEShAEB6zswFW8GtCFyCOXptQYXVE806oBdHk6iKVn0uzzl1xuC45G0xzahJmxMov9YS0DlKpeJWSxXrCBLxoPDu46KjO3j1UkanygYAakY1wiqv0oyXabgtX3shhaEBymQoPf8qJLR60VwPf0CGjmiD-hnn2m3CGDqQjSRDO1Ityzu8GPelJQ"
+          },
+          {
+            "text": "Wednesday Dogfight Wed, Nov 4, 11:30 AM Chicopee Woods Golf Course Visit site",
+            "url": "/goto?url=CAEShAEB6zswFW8GtCFyCOXptQYXVE806oBdHk6iKVn0uzzl1xuC45G0xzahJmxMov9YS0DlKpeJWSxXrCBLxoPDu46KjO3j1UkanygYAakY1wiqv0oyXabgtX3shhaEBymQoPf8qJLR60VwPf0CGjmiD-hnn2m3CGDqQjSRDO1Ityzu8GPelJQ"
+          },
+          {
+            "text": "Wednesday Dogfight Wed, Nov 11, 11:30 AM Chicopee Woods Golf Course Visit site",
+            "url": "/goto?url=CAEShAEB6zswFW8GtCFyCOXptQYXVE806oBdHk6iKVn0uzzl1xuC45G0xzahJmxMov9YS0DlKpeJWSxXrCBLxoPDu46KjO3j1UkanygYAakY1wiqv0oyXabgtX3shhaEBymQoPf8qJLR60VwPf0CGjmiD-hnn2m3CGDqQjSRDO1Ityzu8GPelJQ"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 11,
+      "sub_type": "links",
+      "text": null,
+      "title": "Events",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "The Château Élan Golf Club",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM6R6gZJnqOPiPYFJzV8hAs2a2TZtWqB1ApFXqIPu2epCgShyQHNwTdnYFUSZeVe4lMwnmnI7kIHykdgFSP_bC8HXghjpymEYTX9UBFXXEuQOMTEBsNL62zTQ2wQuqcSOorltsySuE9KdSMIdH6qKmRCrF0D-oKnn-gMXCh1z9Hl9L8dwNJhyY154-EWg1L2Q9PDLgtEjAKlam2hCRWGjRgdv4DL_fxLypmn1DO9OjHwGBcFQqKFrjI7z9XcHbymF_JY3WBJ-pYC9DTLPahddkjFzn2A3&q=Ch%C3%A2teau+%C3%89lan+Golf+Club&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Qs9oBKAB6BAgkEAU"
+          },
+          {
+            "text": "Chestatee Golf Club",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM1f9oK-X4m7q-wy8_EsEv9pQuwMnu1gAMz3jqy93zoq_YYi_blY275rruN1odLqqaQZezpDTRhT6ZoA-3BXS1CqZA9EJtOn-mzT5eQdvLBMY9ys_YpZofT2NEql-l-ROGFfAFUTUStm0SslydfTNW2xeV_3KEvHz7jzRHPWK7Ed2QhPmY0euH0pH_okvf3_Ha5laF9Zk7goyFY-pJg5_UgsHeXg3ga197Jlc3CPYAwIMmqll6nqHhC6pM8KMkJ03xbyZjWCBfeaRWELHqeFlfKFmueWD&q=Chestatee+Golf+Club&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Qs9oBKAB6BAgkEAk"
+          },
+          {
+            "text": "The Chimneys Golf Course",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM9RdBSrMvpqHpTsDHBGHMf7f392w9D5z7VGpfVacvXYpESwiik6rDjHFc86Vg8_tDPR5yhK2Ic5tY4_mxEnk5Wy-TOU_o5spAdkuA9ud4TzIKbriuSWXTCPJn4Gh95HAqUNtW1MmzVmJ6eotwtXVgVfsLIlVYafM9_e4rY_r-Eu-0_r_36GmrbU009CjTtzXzYEGnBNE2I_rimQu_C39ckKyEdP73Te5BcuY9BPvEuJ6hP0s-HEvSWNQbEG6aH3L62U7_axO_LuIBDEwEeAZG4fKdpZ6&q=The+Chimneys+Golf+Course&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Qs9oBKAB6BAgkEA0"
+          },
+          {
+            "text": "Hampton Golf Village",
+            "url": "/search?sca_esv=4384285448d5361a&sxsrf=APpeQnsfqsx0PZY6fGbnZmlYDKG0-SDtDg:1792996539202&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM1bHU58MYX5qT5HECidsqyb1x7MbJ4DGV3prdhOwSyGeg4INjoxUHFcx1R3JbXFoz9z4IQB8TZnl-xXnx1wXnmrM5ZzQGPqyWpMpuiCgm4rl7PjCO9O0d8tdr6_uBaqDl9ig203FgpjPC1Zl9fD75SN28KqHLYS5ZMNz_H6Hi9H7AK0wJ03jfF1VBlYNzC0TH9JUcTh5mQKNbP2t9XvK7Xtz4GQSoTKlbVb4LXJS5aBCm43J24XH3IUsILj-vjlzJ_OHwAy3kl57KeSTCAdPSlIWiinq&q=Hampton+Golf+Village&sa=X&ved=2ahUKEwi8ybXOiNeXAxWYmYkEHbfsBG0Qs9oBKAB6BAgkEBE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 12,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

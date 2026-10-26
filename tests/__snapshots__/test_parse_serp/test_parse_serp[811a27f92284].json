@@ -89,13 +89,13 @@
         "kind": "fact",
         "label": "Age",
         "type": "item",
-        "value": "Dec 13, 1989"
+        "value": "36 years · Dec 13, 1989"
       },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "featured_results",
-      "text": "Age: Dec 13, 1989",
+      "text": "Age: 36 years · Dec 13, 1989",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -107,13 +107,13 @@
         "kind": "fact",
         "label": "Parents",
         "type": "item",
-        "value": "Scott Kingsley Swift"
+        "value": "Andrea Swift, Scott Kingsley Swift"
       },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
       "sub_type": "featured_results",
-      "text": "Parents: Scott Kingsley Swift",
+      "text": "Parents: Andrea Swift, Scott Kingsley Swift",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -1645,6 +1645,105 @@
       "sub_type": "fact",
       "text": "Instagram Facebook TikTok X (Twitter)",
       "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "items": [
+          {
+            "text": "",
+            "url": "https://en.wikipedia.org/wiki/Taylor_Swift#:~:text=Taylor%20Alison%20Swift%20(born%20December%2013%2C%201989),culture%2C%20she%20is%20known%20for%20her%20autobiographical"
+          },
+          {
+            "text": "",
+            "url": "https://www.bu.edu/articles/2023/what-makes-taylor-swift-the-pop-icon-she-is/#:~:text=%E2%80%9CShe's%20an%20advocate%2C%20a%20style%20icon%2C%20a,and%20a%20record%2Dbreaking%20road%20warrior%2C%E2%80%9D%20Billboard%20writes."
+          },
+          {
+            "text": "",
+            "url": "https://www.lpslions.org/article/1474216#:~:text=Swift%20has%20been%20in%20the%20music%20industry,years%2C%20she%20has%20produced%20ten%20studio%20albums."
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/websearch?p=ai_overviews&hl=en"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 92,
+      "sub_rank": 6,
+      "sub_type": "links",
+      "text": null,
+      "title": "Overview",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "items": [
+          {
+            "text": "YouTube",
+            "url": "https://www.youtube.com/channel/UCqECaJ8Gagnn7YCbPEzWH6g?feature=gws_kp_artist&feature=gws_kp_artist"
+          },
+          {
+            "text": "iHeartRadio",
+            "url": "https://www.iheart.com/artist/taylor-swift-33221/?autoplay=true"
+          },
+          {
+            "text": "Apple Music",
+            "url": "https://music.apple.com/us/artist/taylor-swift/159260351"
+          },
+          {
+            "text": "Pandora",
+            "url": "http://www.pandora.com/?sc=miR188587"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 93,
+      "sub_rank": 7,
+      "sub_type": "links",
+      "text": null,
+      "title": "Listen",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 18,
+      "details": {
+        "items": [
+          {
+            "text": "Brittany Mahomes Trending",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLneBxO25mgc6aHM4ajxvwssYbZv4Zv9BtKaftKH9GmkF9n4I-KNthdmI2IXwLDMwJyY9ZMavxLuEWO7KKVBrIL8ct_ysDQsfy_K36Z5yEZUXWvITZydpCmPXo0oYxLPMiNpmwVqz0Yu_8Q3ZMDi_wmNZStlPWBVWHX4Eqv4DV7gVWv3MG2A%3D%3D&q=Brittany+Mahomes&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQs9oBKAB6BAgLEAY"
+          },
+          {
+            "text": "Mariah Carey Trending",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRtrxomagIMcjT9rFc1x7l5it1gQf5VGuiUl4T48W1x21x6aUJgCHIY7Bx14Cp_YpK0wzOw0wt7OfbJqkO2V566sOrsMiIWSv4OZV1sx-WCuR3KnnHFSBki9Dg-u_1ez6rP2BGMYmjor5Kt8K3ghIfcnNrKTg&q=Mariah+Carey&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQs9oBKAB6BAgLEAo"
+          },
+          {
+            "text": "Travis Kelce",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTHTi1vwsff0vVewvRYONLlmQo6CwTMMqduHPI9jfWf9IHXDPb0n8pfVamnFjhK-zAvaYad9Nt_sTy8jIeE4eZ9A8qfv4Cn35CDQzWmHLnrVvLQmMH-f1ScszSUZziuBM2UG0O8xVHX5WokETw5sijUbcnND-T2-3YNgEWuAIO7GKSf6Ndw%3D%3D&q=Travis+Kelce&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQs9oBKAB6BAgLEA4"
+          },
+          {
+            "text": "Austin Swift",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTLzkTBNqN2R2No16HNg2MJHxim7IDG0-FbfJ0upeJxQ9xHkpg8p-AfNDkzMsag2xoOgUG4WuGMH-8uHYUssXGT_elkYXNQthkpBNatgXLfA4YAfK4uzp09AIGIRyWPQfl2GgPopm91ec58TF6gju-z4UwF63Eb1pjVY8hUeESCvAIqlDZQ%3D%3D&q=Austin+Swift&sa=X&ved=2ahUKEwiJubvRiMaSAxVvRDABHSVKB6wQs9oBKAB6BAgLEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 94,
+      "sub_rank": 8,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

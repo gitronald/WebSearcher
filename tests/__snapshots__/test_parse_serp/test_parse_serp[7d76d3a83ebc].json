@@ -84,13 +84,13 @@
         "kind": "fact",
         "label": "Age",
         "type": "item",
-        "value": "Jun 14, 1946"
+        "value": "79 years · Jun 14, 1946"
       },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "featured_results",
-      "text": "Age: Jun 14, 1946",
+      "text": "Age: 79 years · Jun 14, 1946",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -948,6 +948,68 @@
       "sub_type": "fact",
       "text": "Facebook Instagram X (Twitter) YouTube",
       "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Ballotpedia",
+            "url": "https://www.ballotpedia.org/"
+          },
+          {
+            "text": "Wikipedia",
+            "url": "http://www.wikipedia.com/"
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/knowledgepanel?p=about_knowledge_panels"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 51,
+      "sub_rank": 9,
+      "sub_type": "links",
+      "text": null,
+      "title": "Overview",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Vladimir Putin",
+            "url": "/search?sca_esv=bd16726c6a722966&si=AL3DRZHmwLjWhgnaPB3UTu10R6S5qNLXiQiKMeezfKyB1FMsRuhybHFlfRTUxcw-YzKceWSVKTIUuslQHVo3nNtB1sjV9rYH3QFpm-bZ6LB2RYxe1IT9Q50XrWehY6nvOvYF3lw8Ul2m-_RHDhQV86tzmxggkje89weOlk0gxz2Ag3IhgJFJgjoxiplwFFd6jgofGzNrNjRXk1SgVZgoNFGpZHA_hAxKTQ%3D%3D&q=Vladimir+Putin&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQs9oBKAB6BAgNEAY"
+          },
+          {
+            "text": "Melania Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmnbC4g-tiL7f4KIzaiBvkwNg9duWkue044svrIoezIs7ONR3S_hC1Do_2Cl0spv2Hv1kShJMEJot6lOpXFZ8ZtV87Me7Wz2I_gT-IxWDwu4Gj_ptBNVvI8QrjoMIsfivuTI9I79gPI1dvlIllYMzFChnA1Q3VA_pHxB55pb8Lzw9EUarPw%3D%3D&q=Melania+Trump&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQs9oBKAB6BAgNEAo"
+          },
+          {
+            "text": "Joe Biden",
+            "url": "/search?sca_esv=bd16726c6a722966&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmtAuhUFI5mkXaz7Wpf76LcN7CH4vHcBSr35l9cRa7Xw9Kk8Iqw8D2n6axf9S24uV5tTwD9w_Lm2R2Sy5Iq8hDuz2NwsQfPEcWj5UTSquaDISyyN8K0BzH1kgszHJvU4DTc5jDdrI4iddvClnD4as2ZCuAdVF&q=Joe+Biden&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQs9oBKAB6BAgNEA4"
+          },
+          {
+            "text": "Ivana Trump",
+            "url": "/search?sca_esv=bd16726c6a722966&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmixPNbzrVXySPc7TFnyMlb-GLhDE-eVDgpE0xYiyAK284COUg5LTvqKgiMy7b9dlm9XaSMTMcHgQdBbBIKcuUh1LTTvQ0AJTs7fyf7W0C4OplGzryueWZcXnQwj1h-tNYXKOw7R8EV-zuT0YYFLLG6129lzn&q=Ivana+Trump&sa=X&ved=2ahUKEwjLqraipMSSAxVrSjABHWpuH8oQs9oBKAB6BAgNEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 52,
+      "sub_rank": 10,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

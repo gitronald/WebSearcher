@@ -1,0 +1,640 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard-kp-wholepage",
+    "overlay_precise_location": false,
+    "result_estimate_count": 145.0,
+    "result_estimate_time": 0.26,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "header",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unknown",
+      "text": null,
+      "title": null,
+      "type": "notice",
+      "url": null
+    },
+    {
+      "cite": "https://www.lochmandy.com",
+      "cmpt_rank": 1,
+      "details": {
+        "items": [
+          {
+            "text": "Used Vehicles",
+            "url": "/goto?url=CAESYwHrOzAVIRA6gpLQH4velow1ortR0yjtDUhCjerikBAFrT5Gmi3uq0KnGNFdKfCO-5DuKdSZE9sr7JbW-1Np24zUwGheYSwVh-I620E68fDZaYnMrs0TMwHTxdYBJTDbzTt5lQ"
+          },
+          {
+            "text": "New Vehicles",
+            "url": "/goto?url=CAESYgHrOzAVpl6OZ0N2wWpGGmBUZ0EeA3UhRo9Uu2OmjBrGjpQe52_09_LFqisa2Xojs4GWzkOOjVbhXtMPv_asqoqoQqLxpW9yB942HCyU678oHyQ3i2gtM7kpWr0dFhnKf9rE"
+          },
+          {
+            "text": "Staff",
+            "url": "/goto?url=CAESZAHrOzAVL6yJBEfdO8mPplzj9Yp3UQNG10NVpRdLVb59Y_28BkdNs3xe4Q85k3sLnRl6Yjm3QbowWzFNgS62elU7U0DhDC7HgRaa9TKvq_ZSzVAwVuwYoTwVA5XcGZsF0WEWB4o"
+          },
+          {
+            "text": "Auto Service",
+            "url": "/goto?url=CAESXQHrOzAVX6RbiqwMi0PAUUFrf9W5FtzilTknWZMW24lcpVFrpJZjF-YDPRHXmSZhQJLiUSKydEziIe-BQlKhCeZShOJ44WOfXFi62uGyO9p7DWcAzAnB58u-XQjoLw"
+          },
+          {
+            "text": "Used Trucks for Sale in Elkhart",
+            "url": "/goto?url=CAESbwHrOzAVuz9xFbOW5Zkks8FY4wQaCblx8Sh7qVF8snCffYy0jvn3BBB4XUKICPwY-HYOOHx2zNm5eFlpPh1_lYPodv2OphqeR-WwRpaAcPjxf3QF3Cr2o-EpOWTbvckl9V43K4JxA7KSc34eAJMFZw"
+          },
+          {
+            "text": "More results from lochmandy.com »",
+            "url": "/search?q=lochmandy+elkhart+site:lochmandy.com&sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4QrAN6BAhhEAE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "submenu",
+      "text": "Visit our car dealers in  Elkhart , IN, for new Ford trucks, certified Chevy service, OEM Buick parts, used cars for sale and so much more! Buy a car in ...",
+      "title": "New & Used Car Dealer In Elkhart, IN - Lochmandy Auto Group",
+      "type": "general",
+      "url": "/goto?url=CAESVQHrOzAVgD0KgImEXZMmoklgCRNjBzJBvQAhxekhJsWpZFVxEK1SicQ9hZmJGv851GLOO3y9VhcsYzKTbN82kw_g7L4FK_CvKe2nMMtfGwHU9V5w4VY"
+    },
+    {
+      "cite": "https://www.lochmandygm.com",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Our location is just South of Elkhart Municipal Airport on  920 N. Nappanee St , call us at (574) 369-5113 and we'll find it for them.",
+      "title": "Lochmandy Motor Sales | Buick, GMC, Chevrolet, Cadillac ...",
+      "type": "general",
+      "url": "/goto?url=CAESVwHrOzAVgG45MHR539-FMs31MmPWxeABePfGzGjt2pU0dpWmg9Cr762pCpRxTxAEB7JuwxunGZp3ni667cnsQF7eTDxB0qP7rMce9iJ7wB7D-tKQMpWxwg"
+    },
+    {
+      "cite": "https://www.lochmandychrysler.com",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Lochmandy  Motor Sales, Sales: 574-564-5268 Service: 574-564-6327 Parts: 920 N Nappanee St,  Elkhart , IN 46514. Offer to Drivers Throughout  Elkhart  and Granger. ...",
+      "title": "Lochmandy Motor Sales, INC - CDJR | Chrysler, Dodge, Jeep ...",
+      "type": "general",
+      "url": "/goto?url=CAESXQHrOzAV6NOblrVgxcw_LuoXVwiptnzJKt8eTx3cXEb5s9MuBh_NN-eNkmhBQcanvJwlsXlxxh1E4_5ZmHMSjsJgZCS12WqLXr0a17X9PFlq5ubpYfWevQeqdtJZ1A"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "items": [
+          "Who owns Lochmandy Motors?",
+          "Who is the most popular car dealer in the USA?",
+          "What are my rights when buying a used car in Indiana?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Who owns Lochmandy Motors?<|>Who is the most popular car dealer in the USA?<|>What are my rights when buying a used car in Indiana?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.capitalone.com  › cars › dealership › Loch...",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Lochmandy  Motor Sales. Located in  Elkhart , IN, is an Auto Navigator … 920 N Nappanee St  Elkhart , IN 46514. Monday-Friday 7 AM - 1 AM ET Saturday 8 AM - 11 PM ET",
+      "title": "Lochmandy Motor Sales in Elkhart, IN",
+      "type": "general",
+      "url": "/goto?url=CAESjAEB6zswFTzgRI6ZcaqdNYahVJP4eb9LqrvFuHApuQOk2nOo0kd88bRNjouv3I0vX_PImAakvR6b7B21w88HYihHHvsqcbvc531TOc5V9K5jZkvA9lOn5JZvAmGpna04rNgQ0lCftdYkaw0ffrdZe-ge3dsHg_ywrTirMhyNTaVOtJZeqn7Iu4WVWIrmEA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "heading": "Find related products & services",
+        "items": [
+          "Buick dealer near me",
+          "GMC dealer near me",
+          "Zeigler Ford Elkhart",
+          "Jeep dealership near me",
+          "Car dealerships near me",
+          "Cargurus"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "Buick dealer near me<|>GMC dealer near me<|>Zeigler Ford Elkhart<|>Jeep dealership near me<|>Car dealerships near me<|>Cargurus",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://www.yelp.com  › ... › Automotive › Car Dealers",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "LOCHMANDY AUTO GROUP,  920 N Nappanee St, Elkhart, IN 46514 , 10 Photos, (574) 264-1174, Mon - 8:30 am - 8:00 pm, Tue - 8:30 am - 8:00 pm, Wed - 8:30 am ...",
+      "title": "Lochmandy Auto Group - Elkhart, Indiana",
+      "type": "general",
+      "url": "/goto?url=CAEScAHrOzAVo-FAGcHZmonKDrMo3zI2JHI4XQxaJIgur-DvFj3PcAQBFAfpxdzrWG2VIszopCbCi3VcCKaUvgWeeXHobH5DT4XEUw26ipjTsief5MyJKtZE8q3yzlUGxMwmA-m1qlpNKvwV9KOiM9Cy0UU"
+    },
+    {
+      "cite": "https://www.cars.com  › Find a Dealer",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "94 reviews)  920 N Nappanee St, Elkhart, IN 46514  Reviews. Knowledgeable, attentive and friendly staff. Great vehicles and great people at Lochmandy!",
+      "title": "Lochmandy Motor Sales, Inc. CDJR - Elkhart, IN",
+      "type": "general",
+      "url": "/goto?url=CAESfwHrOzAVRqwAvj-IBLMZmHqnwZhQ2gvsoxIlxf6i9BTtQVeyzZ7CNIXEjYT543HuC-tlQukBaQazgPkUhxRER-74BxaxA9efb75-ZYbkdXgC7SHkh4bBzFzQn1zBVF3id7kC1VtgCQ1kXCJv1T0G0aX8P4Wg9sGcGG0vLvr_R2M"
+    },
+    {
+      "cite": "https://www.autostoday.com  › Dealerships",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Explore Lochmandy Motor Sales in Elkhart, IN , offering 165 vehicles. Check reviews, get directions, and find dealership contact details on AutosToday.",
+      "title": "Lochmandy Motor Sales dealership in Elkhart, IN",
+      "type": "general",
+      "url": "/goto?url=CAESggEB6zswFZugJ-PbbdbSl5buyXFKKz3Iu6eU4k1wLWLxyo_D8WnvDNVdK4nMzQrE6MTnZ-4NjKyFWGlEP52swzL9Mgkvc7dAAUfGSIan24QMfA6YjGbP1aL4gpzHYM3PNAAG_bI3kKNzk681a-oqHW0ET7upFwZX2xUVvIGyhnaQAsU5"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Lochmandy elkhart inventory",
+          "Lochmandy Motors used cars",
+          "Lochmandy Motors Elkhart service",
+          "Lochmandy Bremen",
+          "Lochmandy GMC",
+          "Lochmandy Chrysler",
+          "Lochmandy elkhart phone number",
+          "Lochmandy Dodge"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Lochmandy elkhart inventory<|>Lochmandy Motors used cars<|>Lochmandy Motors Elkhart service<|>Lochmandy Bremen<|>Lochmandy GMC<|>Lochmandy Chrysler<|>Lochmandy elkhart phone number<|>Lochmandy Dodge",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": "carousel",
+      "text": "$49,911 · MSRP $54,995 · New · Tyler Chevrolet · Niles",
+      "title": "2026 Chevrolet Silverado 1500 LT",
+      "type": "ad",
+      "url": "/aclk?sa=L&ai=DChsSEwjzysfI6daXAxUSPNQBHYVFLBcYACICCAIQBBoCb2E&co=1&gclid=EAIaIQobChMI88rHyOnWlwMVEjzUAR2FRSwXEAsYASABEgKaGvD_BwE&cid=CAASugHkaH7vanl7B-Bmj_nVCx6IzlUj_duzAQQlJPaPZLAEdqIZ1iqK_7Q3AFlNh8S-EnW8zixRz7lf1F2yTTHsnw6Ce7DXExCWkonMV09wMnajJWT0MlQ5hWpCcjKzNXrbeh-nylbOXKG58oXrx4NvTNnksMHR8fPv-_qiiu2C0ttsM16Z56Beyn46jQllSwO23b5plG5qDgRe3VmnA0n3HR1ZCYmAAluUFoFcxOF6BaC_GgUffsoYy8IIXgU&cce=2&sig=AOD64_3HLOotfb2bz_VR13vApiCKslj10A&ctype=303&q=&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4QiLoGegUIhwEQCw&adurl="
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 1,
+      "sub_type": "carousel",
+      "text": "$29,580 · MSRP $31,835 · New · Nissan of Warsaw · Warsaw",
+      "title": "2026 Nissan Kicks SR",
+      "type": "ad",
+      "url": "/aclk?sa=L&ai=DChsSEwjzysfI6daXAxUSPNQBHYVFLBcYACICCAIQAxoCb2E&co=1&gclid=EAIaIQobChMI88rHyOnWlwMVEjzUAR2FRSwXEAsYAiABEgIpUPD_BwE&cid=CAASugHkaH7vanl7B-Bmj_nVCx6IzlUj_duzAQQlJPaPZLAEdqIZ1iqK_7Q3AFlNh8S-EnW8zixRz7lf1F2yTTHsnw6Ce7DXExCWkonMV09wMnajJWT0MlQ5hWpCcjKzNXrbeh-nylbOXKG58oXrx4NvTNnksMHR8fPv-_qiiu2C0ttsM16Z56Beyn46jQllSwO23b5plG5qDgRe3VmnA0n3HR1ZCYmAAluUFoFcxOF6BaC_GgUffsoYy8IIXgU&cce=2&sig=AOD64_3xhFyDqKINDvzn022q4gyHpuwr3Q&ctype=303&q=&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4QiLoGegUIhwEQHQ&adurl="
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 2,
+      "sub_type": "carousel",
+      "text": "$38,680 · MSRP $42,415 · New · Warsaw Chrysler Dodge Jeep Ram · Warsaw",
+      "title": "2026 Jeep Wrangler Sport",
+      "type": "ad",
+      "url": "/aclk?sa=L&ai=DChsSEwjzysfI6daXAxUSPNQBHYVFLBcYACICCAIQBRoCb2E&co=1&gclid=EAIaIQobChMI88rHyOnWlwMVEjzUAR2FRSwXEAsYAyABEgLioPD_BwE&cid=CAASugHkaH7vanl7B-Bmj_nVCx6IzlUj_duzAQQlJPaPZLAEdqIZ1iqK_7Q3AFlNh8S-EnW8zixRz7lf1F2yTTHsnw6Ce7DXExCWkonMV09wMnajJWT0MlQ5hWpCcjKzNXrbeh-nylbOXKG58oXrx4NvTNnksMHR8fPv-_qiiu2C0ttsM16Z56Beyn46jQllSwO23b5plG5qDgRe3VmnA0n3HR1ZCYmAAluUFoFcxOF6BaC_GgUffsoYy8IIXgU&cce=2&sig=AOD64_2VHDDlfGw9NmpS5GJUF2OVgWLhDA&ctype=303&q=&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4QiLoGegUIhwEQLw&adurl="
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "subtitle": "4.72,806 Google reviews    Car dealer in Elkhart, Indiana",
+        "type": "panel"
+      },
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "Lochmandy Auto Group",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:unified_actions",
+        "items": [
+          {
+            "text": "Website",
+            "url": "https://www.lochmandy.com/?utm_campaign=gbp-website-button&utm_medium=organic&utm_source=google"
+          },
+          {
+            "text": "Call",
+            "url": "tel:+15742641174"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Website Directions +4 Write a review Edit your review Save Saved Share Call",
+      "title": "Unified actions",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:scalable attributes",
+        "items": [
+          {
+            "text": "About this summary",
+            "url": "https://support.google.com/local-listings/answer/9851099"
+          },
+          {
+            "text": "Report summary",
+            "url": "https://www.google.com/local/content/rap/report?postId=5%401:CAIQACodChtlc19oOk1OZC1YLVNIbFd6U2tlNDQ3T1JYQ0E%7CCAIQACorChtlc19oOk1OZC1YLVNIbFd6U2tlNDQ3T1JYQ0ESDAjo2fvVBhDmq9CeAg&d=286732321&t=21"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "Full-service car dealership featuring a wide selection of new and pre-owned vehicles and professional automotive maintenance. About this summary Report summary",
+      "title": "Scalable attributes",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:departments",
+        "items": [
+          {
+            "text": "Buick at Lochmandy Motor Sales, INC.",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&q=Buick+at+Lochmandy+Motor+Sales,+INC.&ludocid=13019885648521582201&lsig=AB86z5V9YY3KCGjSAAynuvPbWxEW&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Q8m16BAg1EAE"
+          },
+          {
+            "text": "GMC at Lochmandy Motor Sales, INC.",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&q=GMC+at+Lochmandy+Motor+Sales,+INC.&ludocid=5639071128106369303&lsig=AB86z5VdMgbP_Jgtg9GelUbjrFQ7&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Q8m16BAg1EAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "Departments: Buick at Lochmandy Motor Sales, INC. · GMC at Lochmandy Motor Sales, INC.",
+      "title": "Departments",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:address",
+        "items": [
+          {
+            "text": "Address",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&q=lochmandy+address&ludocid=11870469767014528736&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Q6BN6BAgkEAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "920 N Nappanee St, Elkhart, IN 46514",
+      "title": "Address",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:alt phone",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "(574) 264-1174",
+      "title": "Phone",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:menu",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": null,
+      "title": "Menu",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:hours",
+        "items": [
+          {
+            "text": "Hours",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&q=lochmandy+hours&ludocid=11870469767014528736&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Q6BN6BAglEBo"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "Closed · Opens 8:30 AM · More hours",
+      "title": "Hours",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/location/location:third_party_aggregator_ratings",
+        "items": [
+          {
+            "text": "4.8/5 Facebook · 1,249 votes",
+            "url": "/goto?url=CAESXgHrOzAVNMZEnybO96csjjjTnHJpYLIo1nQu1dzMp4Ff35hbeDxQZxEip6w9Xy-zVKP20hbXsUKCL-jFGnv554KyXTNe8_nxybo5L6mKHeNQ-1vHTJr1IiigRAc4QPM"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 8,
+      "sub_type": "fact",
+      "text": "Reviews from the web 4.8/5 Facebook · 1,249 votes",
+      "title": "Third party aggregator ratings",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:review_summary",
+        "items": [
+          {
+            "text": "Google policies",
+            "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/116715477415906443381?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"The service , the staff , and the facility are top notch.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s116715477415906443381!2s0x8816dcad91efffff:0xa4bc615c53ea36e0?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/102315750404629389420?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"I ended up with a small SUV I love and fits my family need perfectly.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s102315750404629389420!2s0x8816dcad91efffff:0xa4bc615c53ea36e0?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/103254396365778383548?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"I love the service packages and quality of cars.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s103254396365778383548!2s0x8816dcad91efffff:0xa4bc615c53ea36e0?ved=1t:31295&ictx=111"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 23,
+      "sub_rank": 9,
+      "sub_type": "fact",
+      "text": "Google reviews More info Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Edit your review Add photos Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. \"The service , the staff , and the facility are top notch.\" \"I ended up with a small SUV I love and fits my family need perfectly.\" \"I love the service packages and quality of cars.\" View all Google reviews",
+      "title": "Review summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:posts",
+        "items": [
+          {
+            "text": "Learn more",
+            "url": "https://www.lochmandy.com/inventory/used-3C4NJCBB5HT642991/?utm_source=google&utm_medium=organic&utm_campaign=gmb_post"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 10,
+      "sub_type": "fact",
+      "text": "Lochmandy Auto Group on Google Used 2017 Jeep Compass Latitude Oct 23 - Oct 30 Finance for $210/mo. for 72… 2 days ago Learn more View All",
+      "title": "Posts",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:busyness",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 25,
+      "sub_rank": 11,
+      "sub_type": "fact",
+      "text": "Mon Tue Wed Thu Fri Sat Sun 5 PM: Usually as busy as it gets 9a 12p 3p 6p 9p People typically spend 10 min to 1.5 hr here",
+      "title": "Busyness",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/common/topic:social media presence",
+        "items": [
+          {
+            "text": "Facebook",
+            "url": "/goto?url=CAESXQHrOzAVav6xYh0bRySMgQe7jO6uRlsRBN25AQ-9XUSsBRWIE1nD5dhDKCat71SI-1RyiuP0cH7cZc2Jq8N8-86EKGKONlv0zvvVca6UImnJMBtPv1daiVBjk5HKQQ"
+          },
+          {
+            "text": "Instagram",
+            "url": "/goto?url=CAESZQHrOzAVU_2XM2kMep41aU0C0MVUVIaCdQdqOPuZW1BtWc-XR9palhhKe_DICpIpYk-14LJUdFfU_SSh68gEBQfqRnusB7-t7n2xSD4mLqFePKkWO1-G877jE8CtgUBFrjEd_llk"
+          },
+          {
+            "text": "LinkedIn",
+            "url": "/goto?url=CAESdgHrOzAVkxxjRTi7OD51hEKtCfyDQK5uJowgSWkXJtFagl4dugJaQUWttJDMaqu3UIdsKaMuBVL2w-7I3uKq_rxlHBmCo0G3zdOsSIuQE9Z21VQBeNtVTDa1GOFgtCdsMONCm9PPDnZ1ymakB6sIQ2iuKZyjI68"
+          },
+          {
+            "text": "X (Twitter)",
+            "url": "/goto?url=CAESYgHrOzAV0Wredu1FmRkT9iXoPcILAVWr4lZc0Fsgp1D-3hXuqOxvczH6AB9mxwdFZHV_bquWk0HP8Pik5UgrrsYoCoCTr6UFetzkai2J3KX_Opvdu9-UBP1o6Ri0EM1Yf1X5"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 26,
+      "sub_rank": 12,
+      "sub_type": "fact",
+      "text": "Profiles Facebook Instagram LinkedIn X (Twitter)",
+      "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:merchant_description",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 27,
+      "sub_rank": 13,
+      "sub_type": "fact",
+      "text": "From Lochmandy Auto Group \"Lochmandy Motor Sales, INC always maintains competitive new Chrysler, Dodge, Jeep, Ram, Buick and GMC vehicles. We also carry the area’s largest selection of pre-owned inventory. Staffed with experience sales representatives and top-trained... More",
+      "title": "Merchant description",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "attrid": "kc:/local:appointment",
+        "items": [
+          {
+            "text": "lochmandy.com",
+            "url": "https://www.lochmandy.com/service/schedule-service/?utm_campaign=gbp-service-appointment&utm_medium=organic&utm_source=google"
+          },
+          {
+            "text": "Learn more",
+            "url": "https://support.google.com/reserve?p=link_ranking&hl=en-US"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 28,
+      "sub_rank": 14,
+      "sub_type": "fact",
+      "text": "Appointments: lochmandy.com Providers About these providers Providers are listed in random order. However, if the business has specified a preferred provider, it will appear first. Learn more",
+      "title": "Appointment",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "Service Center at Gurley Leep Honda",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0Qh3Z1txxbEh4B_FAf5h5PMxwABDczDZkd3xm6RyZpvrTvdmWPVyW5JUYnFN2sR1_a6gk5xH2avXFIZPOEINjeS2D1Rfpz9jz-GN33tpA8Q1a3lpb8SfMsXkasd_54c2exNX9zAr0e0Q_bIJRLaC8saHwMVkOXs2nEhlG2mO9U8KB5BTFmYq0ZsQvEZjx630nLt88bOSSHTdkEYcGainvbU_Hp07bMLEVTBPdYccjoK3zlrEmKlDMKuEmRB9ebmF_u5o-VYC8cn3BqgYGcZMhdNiJgDo31Kd45Sdc9B7zUOAMeF8ow%3D%3D&q=gurley+leep+honda+service&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Qs9oBKAB6BAgiEAU"
+          },
+          {
+            "text": "Gurley Leep Hyundai",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OM51QQ-LMX6LY6wshGf_3GommFcCxeFrtgzSlVrXOw3sX8g0OOQSPX97fAfdssQScwSIjt6HgYOMqW-7CsoqLWslme5vbgc5xzHPrpxpG5nEqy4qlLgV_WEaOkYILMqdND7Iw0nFwpWk4VRNb6_r1__2CJwhL2IHJ5vK-9joBNFxGhURLhIwK7ZqoEOGKHb8swfNXVsshrftSyU591WShgMoHVOotnUksTqZyqo4Ak79XxjrxOJKI7WHTRN1rlupKSozhpLI9UAzCflNeXUTMZDenxbpD&q=Gurley+Leep+Hyundai&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Qs9oBKAB6BAgiEAk"
+          },
+          {
+            "text": "TC Auto Sales LLC",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0SABHUA5ccIaLHeIAZnM35oe3Ni5o0R4hMeQkjwqCKhjGfjY5l6LrGp3ythfJLd7tnOakn2Ve1wjc2h3PJnuX5yfMHtliiavkENwZGFqJ_O1KmrxFXiukRGsu686E0ldIwOTIkabROAdcbTA7cVqP3FBNIHft_dmifzFNXfrbiw3USXgbxdycdLEjRGGgZOp4LDySqlxhI7tVdQeT7bx1FuWvaNvyW4vbH8XJ4o5nDLziobQryZvuT9YSMy4iQ2fYU5dhLN1hnJXTZYzkx4gQEzLYbOK&q=TC+Auto+Sales+LLC&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Qs9oBKAB6BAgiEA0"
+          },
+          {
+            "text": "Dunlap Auto Deals",
+            "url": "/search?sca_esv=60c478df29d3e95c&sxsrf=APpeQntEauqgBXVBj7rO37kyobh4QtJgtg:1792988205306&si=APenkKllX05q7xl66dAosm6nb1iuMgV7Bv8meTZS-zIzIS3OMzIqy1d-wMiXXomkDNrjBz7gySCc1rq43SyjYY2pnfqoyT8ZqcQ5o0FirzosmLg4mV3jKfPiYh1XdZl6k0eGIAVz7dIAh55Qys0dkL7qq-u0dS2Zs--2vqdLSyMOinS_2VQJ4PV6B9AYc1SQF7wlwb1PwqHE4SkuzTOjdsddtMNjzbZYglJd8DcYdpTp58pDSZvecNL7DYoqaz_-_0HInOuqgyrtXswJgyfAwG4bfstnAg3qJ-9rtaePJndvj3JgNHsrZzkVdzqteN3kxJhJDZu6VAyU&q=Dunlap+Auto+Deals&sa=X&ved=2ahUKEwin48DI6daXAxW5misGHbbFNv4Qs9oBKAB6BAgiEBE"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 29,
+      "sub_rank": 15,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

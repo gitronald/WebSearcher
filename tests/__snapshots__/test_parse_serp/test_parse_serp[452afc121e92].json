@@ -68,13 +68,13 @@
         "kind": "fact",
         "label": "Played by",
         "type": "item",
-        "value": "Entourage"
+        "value": "Kevin Dillon · Entourage"
       },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 1,
       "sub_type": "featured_results",
-      "text": "Played by: Entourage",
+      "text": "Played by: Kevin Dillon · Entourage",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -86,13 +86,13 @@
         "kind": "fact",
         "label": "Notable aliases",
         "type": "item",
-        "value": "Johnny Drama"
+        "value": "Johnny 'Drama' Chase, Johnny Chase, Johnny Drama"
       },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "featured_results",
-      "text": "Notable aliases: Johnny Drama",
+      "text": "Notable aliases: Johnny 'Drama' Chase, Johnny Chase, Johnny Drama",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -528,6 +528,39 @@
       "sub_type": "fact",
       "text": "Johnny 'Drama' Chase, Johnny Chase, Johnny Drama",
       "title": "Notable aliases",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 17,
+      "details": {
+        "items": [
+          {
+            "text": "Ari Gold",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yRCSKV9ukP8q7QpFVbzsLgj7XfhqiIkmoez5wYDGi0ni8O8M41DqzKZoMGzsSsOXF5g82jNi9pZAZn5gsxRAp5vgyP1Eu_94avgqDSIKqgDXiLeynF798pxxt-VJS3gmg8dIAdfrjCguDM2rTQt9N3BZzFeK&q=Ari+Gold&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQs9oBKAB6BAgNEAY"
+          },
+          {
+            "text": "Turtle",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yfDv5zgKVNis5vjGH5SNQnyYItCkXU4bbEWZPgViZ34xguvCUvYRSZ8Qu7qTZ9V7s4nAI38YYTj3k-EUNCVJSp-W7kGlCh-RCrSIkL86N7XCZ-ROssDeca4tO53gNM2fkFJ5Usr_anWU9tGyTPLHbkUHKO0sT_7B50aIHsaJqF33_zhMzg%3D%3D&q=Turtle+(Entourage)&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQs9oBKAB6BAgNEAo"
+          },
+          {
+            "text": "Vincent Chase",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yXamgz2ZpyCw2JTBZn2CwdnSV_39b1njIp1b4d5kVf2jtmk-8bdCTQpI4uHRrHN6rqtqj_4nmIT5Jd5s4161J0zsj12j2tzv3YWczDYQPYbahKeKlLvui4IgkaMrbM99PqOagiIt8uvxAq0nKdgMX0ALQQa2rEaHLC_ZF1QCizARaMs2iw%3D%3D&q=Vincent+Chase&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQs9oBKAB6BAgNEA4"
+          },
+          {
+            "text": "Eric Murphy",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW67y3HkKMcUVvVKwq93CDMoz8jnAhdhHf_rcPEPY9MVGIigOAtxIjFrbcscuIyNkkuj6Mv72YUIZEYspeWXHqb5t3DjX_1vWPklv5PLdC4yqfe6dwaf-rc5ch77xyLknrWBS1SqTc9Yg8bP2FbWvLRFlRx4kDEokMpZ_LM2dBFtTfbIUgZhA%3D%3D&q=Eric+Murphy+(Entourage)&sa=X&ved=2ahUKEwjOu5yMzLCVAxVUCnkGHV-qLjAQs9oBKAB6BAgNEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 30,
+      "sub_rank": 3,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

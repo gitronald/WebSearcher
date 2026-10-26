@@ -66,13 +66,13 @@
         "kind": "fact",
         "label": "Age",
         "type": "item",
-        "value": "Sep 27, 2002"
+        "value": "24 years · Sep 27, 2002"
       },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 2,
       "sub_type": "featured_results",
-      "text": "Age: Sep 27, 2002",
+      "text": "Age: 24 years · Sep 27, 2002",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -84,13 +84,13 @@
         "kind": "fact",
         "label": "Upcoming movie",
         "type": "item",
-        "value": "2027"
+        "value": "The Great Beyond · 2027"
       },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
       "sub_type": "featured_results",
-      "text": "Upcoming movie: 2027",
+      "text": "Upcoming movie: The Great Beyond · 2027",
       "title": null,
       "type": "knowledge",
       "url": null
@@ -840,6 +840,39 @@
       "sub_type": "fact",
       "text": "Instagram Facebook TikTok Threads",
       "title": "Social media presence",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 16,
+      "details": {
+        "items": [
+          {
+            "text": "Ariana Grande Trending",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnu1X4h-u-XqMAdIlWOoEEOXUPGDGg:1792987504742&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW677bfMd4kfvsb1tvuM3OozrEpKHhUVhnuPkwiFYUWPk2Mfa9aRb3yCDajDAwpEzNThh_QO7aPvx5OPQRUprF5Sau2g4sT65gXjoafZYlXm7niqsTlVMHJi7y7g7bMh92fmUZXR7dnNdhqFjLJJGA8CquGgJH0QUFlP5xReSHcowJgHLmEHg%3D%3D&q=Ariana+Grande&sa=X&ved=2ahUKEwiA67n65taXAxWnm4kEHWbKEnIQs9oBKAB6BAgXEAY"
+          },
+          {
+            "text": "Emma Myers",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnu1X4h-u-XqMAdIlWOoEEOXUPGDGg:1792987504742&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW677PoqMyphp9weWwFyTbvdXQF-Lx6LTiu1OjVOjCR3ohfhyjonN5MbbBPl5haeLy3coK4clTZoLpbe-dlZcaOU8978wD08uvkof6uRfpQeVX47updiNcXTZCR8BcNOz1UglbK5ft_4nrv3T2LAO73rr7MtcvZn43MZLLG478HWBHs6hSrxQ%3D%3D&q=Emma+Myers&sa=X&ved=2ahUKEwiA67n65taXAxWnm4kEHWbKEnIQs9oBKAB6BAgXEAo"
+          },
+          {
+            "text": "Aliyah Ortega",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnu1X4h-u-XqMAdIlWOoEEOXUPGDGg:1792987504742&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0RGatwHiKIbuqKBzL9W0FaofrMrint1HiKKNur1R2cjoXQHK_FtHpwumHAQVyIb5ARweHX7MdizYyIal3NIxcKRzT4a3TkJHQxa-XDBcYlDwd5PEf8pz74sLC7sUxrXlDpl8s8NwoN0Ofl7PF3A4jkgp82yJQG_TTOMVMpt81zA171i-PA%3D%3D&q=Aliyah+Ortega&sa=X&ved=2ahUKEwiA67n65taXAxWnm4kEHWbKEnIQs9oBKAB6BAgXEA4"
+          },
+          {
+            "text": "Natalie Ortega",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnu1X4h-u-XqMAdIlWOoEEOXUPGDGg:1792987504742&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0Y5yc2gjD0cZPR3nMIb3tFz6efdYiWknUm5Ra7VPN-FJo6mIR8-7dHl00AVfcT4gcCqeHkrcc5jG0QbYCj84lT59yDLQ5oDqdkIxqP2KfI1fvMjbNK-MArIoEUBavpdNF05nUozGbgyZ0ryN4mBPxgOJ-s_fwKFG-R9zzo-RGzrHJjukMA%3D%3D&q=Natalie+Ortega&sa=X&ved=2ahUKEwiA67n65taXAxWnm4kEHWbKEnIQs9oBKAB6BAgXEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 47,
+      "sub_rank": 7,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

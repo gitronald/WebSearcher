@@ -457,6 +457,39 @@
       "title": "MPAA rating",
       "type": "side_bar",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "items": [
+          {
+            "text": "The Car: Road to Revenge",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnuENdB5J1t5ESFG-SUL6EcLAPBiNA:1792987445708&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0YV6rJ2ItEZ0QkGzA1JHRJxD0qNKFb5JtIn4JTwd1unKNgy6QdjzAnWl9pzaVuzf6pu1L1ss2_0mGEwrzq_wXiQVXFe9o_r2emgVR8iNA34clu-SpXvcAoqojBHIv3dU-GymBRBSSKoWI-mntGV5_tPSzMeg0KCNyodmHpmeEFcI_20Kao_x1iA5_NfxEb1vGjPCBCY%3D&q=The+Car:+Road+to+Revenge&sa=X&ved=2ahUKEwj90abe5taXAxVhFlkFHaDTDW0Qs9oBKAB6BAgUEAY"
+          },
+          {
+            "text": "Christine 1983",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnuENdB5J1t5ESFG-SUL6EcLAPBiNA:1792987445708&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60ye_3J0Gg61fMwUhjY9k-ygXtaA8o_opStXGjfB8zuXS5okEKLRYAdx3A9OR90aP1E7h6hWke34j9pR9yX0BQ54wWDI_V6xqtn4gOhgGis_DJgV5UXDJEHAQA3KyL3RQ7uFsdbHMbbdBhCeKRgO7G-sfcZzUQMMjpAQAk8Mh6kFdzdjj2eA%3D%3D&q=Christine+1983&sa=X&ved=2ahUKEwj90abe5taXAxVhFlkFHaDTDW0Qs9oBKAB6BAgUEAo"
+          },
+          {
+            "text": "Killer Car",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnuENdB5J1t5ESFG-SUL6EcLAPBiNA:1792987445708&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0SOvlzlVXZLin2nANgDfIFcdxwa_vOzAcCjSby2ihRhtZafhscs_gpUcyhP9jecBXzzjT23K17K0lbkG32gIqrCp7VV14ZA0eOjNNBDeZigzfbyu2dD3OpVxVhTf_CjwUDlXCAMe15Ygkpb3GjAjU-uhMsiKNLxQZ6t-HOHG-n94q0UgAQ%3D%3D&q=Killer+Car+Film&sa=X&ved=2ahUKEwj90abe5taXAxVhFlkFHaDTDW0Qs9oBKAB6BAgUEA4"
+          },
+          {
+            "text": "The Hearse 1980",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnuENdB5J1t5ESFG-SUL6EcLAPBiNA:1792987445708&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW678MOuPnYqU0u217998lnVfZrsShjEoYZvQ29WJDMItvjf0hCINSbj4bPeKIqnPFYp7QTe93mmM6INVFftwx7v8-TuuQPbknKkZPT_0oB6mDDUjVy_kxGLMFTxAJuscRN9eeYpbnqDUORu4PlTSIi8jwexJPs&q=The+Hearse&sa=X&ved=2ahUKEwj90abe5taXAxVhFlkFHaDTDW0Qs9oBKAB6BAgUEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 24,
+      "sub_rank": 6,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }
