@@ -1,9 +1,10 @@
 """Parse ad components.
 
-Six layouts, each detected by a selector in ``AD_SUBTYPE_SELECTORS`` and parsed
+Seven layouts, each detected by a selector in ``AD_SUBTYPE_SELECTORS`` and parsed
 by its own function: legacy text ads, local-service profile cards, secondary
 text ads, shopping ads, standard text ads (with optional submenu sitelinks),
-and the horizontal sponsored carousel. ``parse_ads`` runs every layout whose
+2026-10 text ads (the standard ad without its ``div.uEierd`` wrapper), and the
+horizontal sponsored carousel. ``parse_ads`` runs every layout whose
 selector matches, since one ``#tads`` block can host more than one.
 """
 
@@ -22,6 +23,7 @@ AD_SUBTYPE_SELECTORS: dict[str, str] = {
     "secondary": "div.d5oMvf",
     "shopping": "div.commercial-unit-desktop-top",
     "standard": "div.uEierd",
+    "text": "div[data-text-ad]",
     "carousel": "g-scrolling-carousel",
 }
 
@@ -40,6 +42,7 @@ def parse_ads(elem: Node) -> list[dict[str, Any]]:
         "secondary": parse_ad_secondary,
         "shopping": parse_ad_shopping,
         "standard": parse_ad_standard,
+        "text": parse_ad_text,
         "carousel": parse_ad_carousel,
     }
     parsed: list[dict[str, Any]] = []
@@ -198,7 +201,15 @@ def parse_ad_standard(elem: Node) -> list[dict[str, Any]]:
     return [_parse_ad_standard_sub(sub, sub_rank) for sub_rank, sub in enumerate(subs)]
 
 
-def _parse_ad_standard_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
+# Description selectors, first non-empty wins. The 2026-10 text ad puts Va3FIb
+# on its heading, so it reads only its own description div.
+_STANDARD_TEXT_CSS = ("div.yDYNvb", "div.Va3FIb")
+_TEXT_AD_TEXT_CSS = ("div.p4wth",)
+
+
+def _parse_ad_standard_sub(
+    sub: Node, sub_rank: int = 0, text_css: tuple[str, ...] = _STANDARD_TEXT_CSS
+) -> dict[str, Any]:
     submenu = parse_ad_menu(sub)
     sub_type = "submenu" if submenu else "standard"
     sVXRqc = sub.css_first("a.sVXRqc")
@@ -209,14 +220,14 @@ def _parse_ad_standard_sub(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "title": get_text(sub.css_first('div[role="heading"]'), " "),
         "url": sVXRqc.attrs.get("href") if sVXRqc is not None else None,
         "cite": get_text(sub.css_first('span[role="text"]'), " "),
-        "text": _parse_ad_standard_text(sub),
+        "text": _parse_ad_standard_text(sub, text_css),
         "details": submenu,
     }
 
 
-def _parse_ad_standard_text(sub: Node) -> str:
+def _parse_ad_standard_text(sub: Node, text_css: tuple[str, ...]) -> str:
     text = ""
-    for css in ("div.yDYNvb", "div.Va3FIb"):
+    for css in text_css:
         t = get_text(sub.css_first(css), " ")
         if t:
             text = t
@@ -259,7 +270,36 @@ def parse_ad_menu(sub: Node) -> dict[str, Any] | None:
             if text and href:
                 items.append({"url": href, "title": text})
 
+    # Format 4: qmaLCb sitelink row (2026-10 text ads)
+    if not items:
+        for link in sub.css("div.qmaLCb a[href]"):
+            text = get_text(link, " ", strip=True) or ""
+            href = link.attrs.get("href", "") or ""
+            if text and href:
+                items.append({"url": href, "title": text})
+
     return {"type": "menu", "items": items} if items else None
+
+
+# ------------------------------------------------------------------------------
+
+
+def parse_ad_text(elem: Node) -> list[dict[str, Any]]:
+    """2026-10 text ads: one ``div[data-text-ad]`` per ad, with the standard
+    layout's link, heading, and display URL but no ``div.uEierd`` wrapper.
+
+    Older text ads carry ``data-text-ad`` inside that wrapper, so this layout
+    yields to ``parse_ad_standard`` whenever one is present; otherwise those ads
+    would be parsed twice.
+    """
+    node: Node = elem
+    if node.css_first("div.uEierd") is not None:
+        return []
+    subs = [d for d in node.css("div[data-text-ad]") if has_text(d)]
+    return [
+        _parse_ad_standard_sub(sub, sub_rank, _TEXT_AD_TEXT_CSS)
+        for sub_rank, sub in enumerate(subs)
+    ]
 
 
 # ------------------------------------------------------------------------------
