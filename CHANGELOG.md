@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- Sponsored listing carousels in the 2026-10 layout ("Sponsored tickets & tours", "Sponsored hotels", "Sponsored events": `role=listitem` cards in `#tads`) are parsed as `ad`/`carousel` rows with title, url, and the sponsored hotel carousel's price / source / rating `details`, plus the block heading as `details.heading`; every such block had returned "no subcomponents parsed". Hotel cards link to `#`, so their url is `None`
+- Vehicle ad carousels (`g-inner-card.mDwMqb` cards) are parsed with title, url, and the price / MSRP / condition / seller / location rows as `text`; every field of their rows had been empty
+- The 2026-10 "Complementary Results" right-hand panel parses its `lab/fact/*` rows as `side_bar`/`fact` rows, with the fact's source as `details.source`, and its level-3 sections ("People also search for", "Listen", "About", ...) as `side_bar`/`links` rows; the panel had returned "no subcomponents parsed". Older right-hand panels gain the level-3 sections they used to drop. A level-3 section keeps only links no earlier row of the panel carries, and one without links is skipped
+- A right-hand link whose anchor has no text takes the text of the list item it sits in (the name beside a "People also search for" card)
+- "Reserve a tee time" and "Book an appointment" booking widgets are typed `knowledge` instead of `unknown`
+
+### Fixed
+
+- Text ads with a place card had no url or description: a location-extension ad now takes its url from the `a[data-pcu]` link, a local place ad from its first action button ("Website"), and both read their description from `div.aDWSGc`; the place ad's title drops the trailing whitespace of its "Why this ad?" affordance
+- Entity facts (`lab/fact/*`) in the "Featured results" band took their last text fragment as the value, which was the fact's source ("Year: <source>") or its second line ("Born: Ulm, Germany"); the value now keeps both lines ("Mar 14, 1879 · Ulm, Germany") and every list entry ("Andrea Swift, Scott Kingsley Swift"), and the source moves to `details.source`
+
 ## [0.12.2] - 2026-10-26
 
 ### Added
