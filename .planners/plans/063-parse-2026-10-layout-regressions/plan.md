@@ -1,7 +1,7 @@
 ---
 id: 63
 slug: parse-2026-10-layout-regressions
-status: active
+status: implemented
 branch: feature/parse-2026-10-layout-regressions
 created: 2026-10-26T12:57:47-07:00
 concluded:
@@ -125,6 +125,7 @@ SERP and `general` row counts unchanged.
   - Banner: empty `knowledge` rows carrying the banner text 36,984 -> 2; SERPs whose only row is a knowledge panel 548 -> 0; `ai_overview/unavailable` rows 15,171 -> 52,154.
   - `unknown` rows 128 -> 7 (5 booking widgets, a periodic table, a destinations module). Rows with any error 3,163 -> 615.
   - Component type transitions, all four reviewed: `knowledge` -> `ai_overview` 36,983 (the banner, all empty before); `ai_overview` -> `knowledge` 254 (Featured results bands with an `EYwa3d` controller, which the end-of-chain banner rule had typed as hollow `ai_overview/flat` rows, now `featured_results` rows with trailers and images); `unknown` -> `knowledge` 91; `unknown` -> `ad` 30. The only same-type row-count changes are `top_stories` (1,508 -> 6,086 rows) and `ad` (322 -> 644).
+- **2026-10-26T13:20:59-07:00** — Implemented: 10 commits ahead of `dev`.
 
 ## Handoff
 
