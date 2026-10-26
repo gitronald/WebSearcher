@@ -34,6 +34,47 @@ def test_under_any_stops_at_the_component_root():
     assert _common.under_any(p, {b.mem_id}, root.mem_id) is False
 
 
+def _fact(inner: str) -> tuple[str, str, str | None] | None:
+    return _common.parse_lab_fact(_node(f"<div data-attrid='lab/fact/1p/X'>{inner}</div>", "div"))
+
+
+def test_lab_fact_keeps_the_value_and_records_the_source():
+    # The source follows the value; it used to be read as the value.
+    assert _fact(
+        "<span jsname='BQbCV'>Year</span><div class='TLIZ'><span>1916</span></div>"
+        "<div class='KDFsyf'><span>planters.test</span></div>"
+    ) == ("Year", "1916", "planters.test")
+
+
+def test_lab_fact_joins_a_two_line_value_and_a_list():
+    assert _fact(
+        "<span jsname='BQbCV'>Born</span>"
+        "<div class='TLIZ'><span>Mar 14, 1879</span><div>Ulm, Germany</div></div>"
+    ) == ("Born", "Mar 14, 1879 · Ulm, Germany", None)
+    # An expanded duplicate list beside the value container is not read.
+    assert _fact(
+        "<span jsname='BQbCV'>Parents</span>"
+        "<div class='TLIZ'><span><a>Ann Lee</a>,<a>Bob Lee</a></span></div>"
+        "<div><a>Ann Lee</a><a>Bob Lee</a></div>"
+    ) == ("Parents", "Ann Lee, Bob Lee", None)
+
+
+def test_lab_fact_without_label_span_or_value():
+    # Rows without the label span take their first fragment as the label.
+    assert _fact("<span>Artist</span><div class='TLIZ'>Pitbull</div>") == (
+        "Artist",
+        "Pitbull",
+        None,
+    )
+    # Without a value container: the fragments after the label, minus the source.
+    assert _fact("<span>Year</span><span>1916</span><div class='KDFsyf'>planters.test</div>") == (
+        "Year",
+        "1916",
+        "planters.test",
+    )
+    assert _fact("<span jsname='BQbCV'>Year</span><div class='TLIZ'></div>") is None
+
+
 def test_in_document_order_sorts_by_position_in_root():
     root = _node(
         "<div id='r'><p id='a'>1</p><ul id='l'><li id='c'>2</li></ul><p id='b'>3</p></div>", "#r"
