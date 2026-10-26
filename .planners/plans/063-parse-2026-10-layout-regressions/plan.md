@@ -118,6 +118,13 @@ SERP and `general` row counts unchanged.
   - Featured results: `div[role=group][aria-label="Featured results"]` joins the knowledge-panel selectors; `_parse_visual_digest` emits the `inline-video` trailer (attrid `/media_common/media_item/trailer/<title>`) as a `video` row with that title. "Bracket" joins `_KNOWLEDGE_SUBMODULE_HEADINGS`.
   - Fixtures: 7 records via the sidecar `add_fixtures.py` (715c39159a62, 67e221b91701, 0e2fb5edf0bb, 60bf643e2bf8, 2a3fd2155d93, c3675409cbf7, dc60ac7b1e9b); corpus integrity passes.
   - `test_perspectives_have_url` now checks only rows with a title or text: the new fixtures carry perspectives carousel placeholders (`data-init-vis="false"`, no text or link) that parse to empty rows. See Handoff question 1.
+- **2026-10-26T13:20:48-07:00** — Whole-batch check: the 2026-10 batch (102,048 SERPs) reparsed with this branch at 6bd6696 (0.12.2a0, through an editable overlay, output kept out of the canonical store) against its 0.12.1 parse. Every acceptance criterion holds.
+  - SERPs 102,048 -> 102,048; `general` rows 825,219 -> 825,219; same component set (0 components only on either side).
+  - `top_stories`: errors 1,510 of 1,510 -> 2 of 6,088 (two empty shells); 4.03 rows per component.
+  - `ad`: errors 1,057 of 1,093 -> 17 of 1,453 (1.2%; the 17 are "Sponsored hotels" / "Sponsored tickets & tours" carousels, a separate layout that also errored in the 2026-07 batch); `unknown` rows starting "Sponsored" 30 -> 0. 46 ad rows (3%) still have no url: a text-ad variant without `a.sVXRqc`, not chased.
+  - Banner: empty `knowledge` rows carrying the banner text 36,984 -> 2; SERPs whose only row is a knowledge panel 548 -> 0; `ai_overview/unavailable` rows 15,171 -> 52,154.
+  - `unknown` rows 128 -> 7 (5 booking widgets, a periodic table, a destinations module). Rows with any error 3,163 -> 615.
+  - Component type transitions, all four reviewed: `knowledge` -> `ai_overview` 36,983 (the banner, all empty before); `ai_overview` -> `knowledge` 254 (Featured results bands with an `EYwa3d` controller, which the end-of-chain banner rule had typed as hollow `ai_overview/flat` rows, now `featured_results` rows with trailers and images); `unknown` -> `knowledge` 91; `unknown` -> `ad` 30. The only same-type row-count changes are `top_stories` (1,508 -> 6,086 rows) and `ad` (322 -> 644).
 
 ## Handoff
 
