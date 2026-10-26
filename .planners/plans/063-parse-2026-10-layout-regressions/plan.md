@@ -14,17 +14,12 @@ pr: https://github.com/gitronald/WebSearcher/pull/209
 
 ### Problem
 
-A 2026-10 crawl batch of 102,707 SERPs, parsed with 0.12.1, parses completely,
-and organic results reconcile against the DOM. But Google reworked four
-components since the 2026-07 batch (parsed with 0.11.4), and the parsers no
-longer match them:
-
-| Metric | 2026-07 batch | 2026-10 batch |
-|---|---|---|
-| `top_stories` rows with "no subcomponents parsed" | 2.6% (166 of 6,498) | 100% (1,510 of 1,510) |
-| `ad` rows with "no subcomponents parsed" | 2.4% (20 of 849) | 96.7% (1,057 of 1,093) |
-| `knowledge/panel` rows that are the AI-overview "Thinking" banner | -- | about 31,000 |
-| unknown rows | 11 | 128 |
+A 2026-10 crawl parsed with 0.12.1 parses completely, and its organic results
+reconcile against the DOM. But Google reworked four components since 2026-07,
+and the parsers no longer match them. Every top-stories component and nearly
+every text ad returns "no subcomponents parsed" (both were around 2% in 2026-07
+captures). The AI-overview "Thinking" banner is typed as an empty knowledge
+panel on a large share of SERPs, and the unknown count rose about tenfold.
 
 ### Findings
 
@@ -58,7 +53,7 @@ longer match them:
    `VisualDigest*` sub-results: a trailer (`inline-video`), images, and a
    `VisualDigestDescription` blurb ("Source: IMDb ..."). `knowledge_panel`
    only recognizes the band with `role=complementary`, so these reach
-   `unknown` (about 95 rows in the batch). `parse_knowledge_panel` already
+   `unknown`. `parse_knowledge_panel` already
    parses VisualDigest bands.
 5. **Long tail.** A sports "Bracket" module (`span.mgAbYb` level-2 heading),
    and booking widgets ("Reserve a tee time", "Book an appointment",
@@ -76,12 +71,12 @@ longer match them:
 3. The related-products module saved before its items load ("Find related
    products & services" with a "Thinking . . ." placeholder and empty skeleton
    items) has no content to recover. It stays one empty `searches_related` row.
-4. Booking widgets stay `unknown`. Each is one SERP in 100k, and the static
-   HTML holds only a widget shell.
+4. Booking widgets stay `unknown`. They are rare, and the static HTML holds
+   only a widget shell.
 
 ### Steps
 
-1. Fixtures: add one or two SERPs per finding (1 to 4) from the batch to
+1. Fixtures: add one or two SERPs per finding (1 to 4) from the crawl to
    `tests/fixtures/serps.json.bz2`, each with a `note`.
 2. `parse_top_stories`: fall back to `a.aJWbwf` cards; `parse_top_story` reads
    the cite from `div.MgUUmf` and the age from `div.OSrXXb`.
@@ -97,7 +92,7 @@ longer match them:
 
 ### Acceptance
 
-On the 2026-10 batch after a reparse: `top_stories` and `ad` error rates under
+On a 2026-10 crawl after a reparse: `top_stories` and `ad` error rates under
 3%, about 4 rows per top-stories component, no `unknown` rows starting with
 "Sponsored", no empty `knowledge/panel` rows carrying the banner text, and the
 SERP and `general` row counts unchanged.
@@ -118,13 +113,13 @@ SERP and `general` row counts unchanged.
   - Featured results: `div[role=group][aria-label="Featured results"]` joins the knowledge-panel selectors; `_parse_visual_digest` emits the `inline-video` trailer (attrid `/media_common/media_item/trailer/<title>`) as a `video` row with that title. "Bracket" joins `_KNOWLEDGE_SUBMODULE_HEADINGS`.
   - Fixtures: 7 records via the sidecar `add_fixtures.py` (715c39159a62, 67e221b91701, 0e2fb5edf0bb, 60bf643e2bf8, 2a3fd2155d93, c3675409cbf7, dc60ac7b1e9b); corpus integrity passes.
   - `test_perspectives_have_url` now checks only rows with a title or text: the new fixtures carry perspectives carousel placeholders (`data-init-vis="false"`, no text or link) that parse to empty rows. See Handoff question 1.
-- **2026-10-26T13:20:48-07:00** — Whole-batch check: the 2026-10 batch (102,048 SERPs) reparsed with this branch at 6bd6696 (0.12.2a0, through an editable overlay, output kept out of the canonical store) against its 0.12.1 parse. Every acceptance criterion holds.
-  - SERPs 102,048 -> 102,048; `general` rows 825,219 -> 825,219; same component set (0 components only on either side).
-  - `top_stories`: errors 1,510 of 1,510 -> 2 of 6,088 (two empty shells); 4.03 rows per component.
-  - `ad`: errors 1,057 of 1,093 -> 17 of 1,453 (1.2%; the 17 are "Sponsored hotels" / "Sponsored tickets & tours" carousels, a separate layout that also errored in the 2026-07 batch); `unknown` rows starting "Sponsored" 30 -> 0. 46 ad rows (3%) still have no url: a text-ad variant without `a.sVXRqc`, not chased.
-  - Banner: empty `knowledge` rows carrying the banner text 36,984 -> 2; SERPs whose only row is a knowledge panel 548 -> 0; `ai_overview/unavailable` rows 15,171 -> 52,154.
-  - `unknown` rows 128 -> 7 (5 booking widgets, a periodic table, a destinations module). Rows with any error 3,163 -> 615.
-  - Component type transitions, all four reviewed: `knowledge` -> `ai_overview` 36,983 (the banner, all empty before); `ai_overview` -> `knowledge` 254 (Featured results bands with an `EYwa3d` controller, which the end-of-chain banner rule had typed as hollow `ai_overview/flat` rows, now `featured_results` rows with trailers and images); `unknown` -> `knowledge` 91; `unknown` -> `ad` 30. The only same-type row-count changes are `top_stories` (1,508 -> 6,086 rows) and `ad` (322 -> 644).
+- **2026-10-26T13:20:48-07:00** — Whole-crawl check: a 2026-10 crawl reparsed with this branch at 6bd6696 (0.12.2a0) and compared with its 0.12.1 parse. Every acceptance criterion holds.
+  - Same SERPs, `general` rows, and component set on both sides.
+  - `top_stories`: error rate 100% -> under 0.1% (two empty shells); about 4 rows per component.
+  - `ad`: error rate 97% -> 1.2%; the remainder are "Sponsored hotels" / "Sponsored tickets & tours" carousels, a separate layout that also errored in 2026-07 captures. No `unknown` rows start with "Sponsored". About 3% of ad rows still have no url: a text-ad variant without `a.sVXRqc`, not chased.
+  - Banner: empty `knowledge` rows carrying the banner text are gone (two remain), and no SERP's only row is a knowledge panel.
+  - `unknown` rows fell by about 95%; the rest are booking widgets, a periodic table, and a destinations module.
+  - Component type transitions, all four reviewed: `knowledge` -> `ai_overview` (the banner, all empty before); `ai_overview` -> `knowledge` (Featured results bands with an `EYwa3d` controller, which the end-of-chain banner rule had typed as hollow `ai_overview/flat` rows, now `featured_results` rows with trailers and images); `unknown` -> `knowledge`; `unknown` -> `ad`. The only same-type row-count changes are `top_stories` and `ad` components gaining rows.
 - **2026-10-26T13:20:59-07:00** — Implemented: 10 commits ahead of `dev`.
 
 ## Handoff
@@ -138,12 +133,13 @@ and the release.
 
 1. Perspectives carousel placeholders. Cards not yet loaded at capture
    (`[role=listitem][data-init-vis="false"]`, about 300 bytes, no text or
-   link) each parse to an empty `perspectives` row: about 68% of perspectives
-   rows in both the 2026-07 and 2026-10 batches. Dropping them in the
+   link) each parse to an empty `perspectives` row: 10 of the fixture corpus's
+   420 perspectives rows, on its two 2026-10 top-stories records, and a large
+   share of perspectives rows in crawl-scale captures. Dropping them in the
    `role=listitem` fallback is a one-line `has_text` filter, but it changes
-   perspectives row counts for any batch reparsed afterwards, so batches parsed
-   before and after are no longer comparable until all are reparsed. Not
-   changed here; waiting on a decision.
+   perspectives row counts for any capture reparsed afterwards, so captures
+   parsed before and after are no longer comparable until all are reparsed.
+   Not changed here; waiting on a decision.
 
 **Remaining order.** Review (owner) -> merge -> patch release (owner's
 go-ahead; publishing is enabled, so a stable release reaches PyPI).

@@ -1,9 +1,9 @@
 """Append the plan 063 SERPs to the fixture corpus.
 
-Copies the chosen records from a JSON-lines file of SERPs extracted from the
-2026-10 crawl batch (by ``serp_id``) into ``tests/fixtures/serps.json.bz2``,
-giving each a ``note``. Records already in the corpus (by ``serp_id``) are
-skipped, so a re-run is a no-op.
+Copies the chosen records from a JSON-lines file of SERPs extracted from a
+2026-10 crawl (by ``serp_id``) into ``tests/fixtures/serps.json.bz2``, giving
+each a ``note`` and dropping its crawl batch id. Records already in the corpus
+(by ``serp_id``) are skipped, so a re-run is a no-op.
 
     uv run python .planners/plans/063-parse-2026-10-layout-regressions/add_fixtures.py \\
         <samples.jsonl>
@@ -73,6 +73,7 @@ def main() -> None:
         note = NOTES.get(record["serp_id"][:12])
         if note is None or record["serp_id"] in have:
             continue
+        record["crawl_id"] = ""  # provenance lives in the note
         record["note"] = f"{PROVENANCE}. {note}"
         lines.append(orjson.dumps(record))
         have.add(record["serp_id"])
