@@ -13,7 +13,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text, is_element
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
-from ._common import mark_hidden_row
+from ._common import mark_hidden_row, mark_timestamp_row
 from ._video_card import parse_evlb_card
 
 
@@ -34,6 +34,11 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
         # Modern Perspectives: every carousel item is role=listitem (covers both
         # standard cards and embedded tweets, including AI-themed sub-carousels).
         divs.extend(node.css('[role="listitem"]'))
+
+    if not divs:
+        # 2026-10 Top Stories (g-section-with-header.yG4QQe): every story card is
+        # an a.aJWbwf, in the vertical list and in the div.MmyPhf clusters alike.
+        divs.extend(d for d in node.css("a.aJWbwf") if has_text(d))
 
     if not divs:
         # Older Top Stories vertical layout
@@ -72,6 +77,12 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
     fields = parse_evlb_card(sub)
     if fields:
         parsed["details"] = {"type": "video", **fields}
+    # 2026-10 cards carry the story's age ("8 hours ago") as the last span of
+    # div.OSrXXb, after an optional "Video" label.
+    age = sub.css_first("div.OSrXXb")
+    if age is not None:
+        spans = age.css("span")
+        mark_timestamp_row(parsed, get_text(spans[-1], " ") if spans else None)
     return mark_hidden_row(parsed, sub)
 
 
@@ -92,4 +103,8 @@ def get_cite(sub: Node) -> str | None:
 
     if sub.css_first("g-img.QyR1Ze") is not None:
         return get_text(sub.css_first("span"), " ")
+
+    source = sub.css_first("div.MgUUmf")  # Top Stories - 2026-10 source name
+    if source is not None:
+        return get_text(source, " ")
     return get_text(sub.css_first("cite"), " ")
