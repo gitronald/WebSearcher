@@ -127,22 +127,36 @@ SERP and `general` row counts unchanged.
 
 ## Handoff
 
-**State.** Code, fixtures, tests, and the changelog entry are committed and
-pushed on `feature/parse-2026-10-layout-regressions` (PR #209). The
-whole-batch reparse check passed (Log, 2026-10-26). Not done: review, merge,
-and the release.
+**State.** Done: code, fixtures, tests, changelog, and review fixes are on
+`feature/parse-2026-10-layout-regressions`, merged through PR #209. The
+release is the next step on `dev`.
 
 **Open questions.**
 
-1. Perspectives carousel placeholders. Cards not yet loaded at capture
-   (`[role=listitem][data-init-vis="false"]`, about 300 bytes, no text or
-   link) each parse to an empty `perspectives` row: 10 of the fixture corpus's
-   420 perspectives rows, on its two 2026-10 top-stories records, and a large
-   share of perspectives rows in crawl-scale captures. Dropping them in the
-   `role=listitem` fallback is a one-line `has_text` filter, but it changes
-   perspectives row counts for any capture reparsed afterwards, so captures
-   parsed before and after are no longer comparable until all are reparsed.
-   Not changed here; waiting on a decision.
+1. Perspectives carousel placeholders: answered 2026-10-26, moved to plan 064
+   (drop the empty rows at parse time; consumers reparse earlier captures for
+   comparability). `test_perspectives_have_url` stays scoped to rows with
+   content until then.
 
-**Remaining order.** Review (owner) -> merge -> patch release (owner's
-go-ahead; publishing is enabled, so a stable release reaches PyPI).
+**Not verified.** The 46-row text-ad variant without `a.sVXRqc` (no url) was
+not examined. The booking widgets stay `unknown` by decision 4.
+
+## Retrospective
+
+- The plan's markup notes were right, but two of its proposed mechanisms were
+  wrong once tried: a "Sponsored result" header text stole an older
+  related-products module, and a new `text` sub-type would have split ad
+  counts across layouts. Running the snapshot suite and a per-row snapshot
+  diff before committing caught both.
+- Reuse-first paid off three times: the banner already had a type
+  (`ai_overview/unavailable`), the role=group band already had a parser
+  (VisualDigest), and the new text ad is the standard ad without its wrapper.
+- The banner's scale was invisible from SERP-level counts (only the
+  banner-only SERPs stood out); counting rows by their details text exposed
+  it. Component-level type transitions from a whole-crawl reparse are the
+  check that shows a new rule claims only what it should.
+- Selectors added for a new layout also fire on older ones (cite and age on
+  perspectives and friends). Here that was a gain, but it widens the snapshot
+  diff, so review it as part of the change, not as noise.
+- Scripted edits must preserve a file's line endings; one CRLF file was
+  rewritten wholesale before review caught it.
