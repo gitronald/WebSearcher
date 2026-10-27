@@ -33,7 +33,9 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     if not divs:
         # Modern Perspectives: every carousel item is role=listitem (covers both
         # standard cards and embedded tweets, including AI-themed sub-carousels).
-        divs.extend(node.css('[role="listitem"]'))
+        # Cards not yet loaded at capture are empty placeholders with no text or
+        # link; data-init-vis="false" is no signal, loaded cards carry it too.
+        divs.extend(d for d in node.css('[role="listitem"]') if has_text(d))
 
     if not divs:
         # 2026-10 Top Stories (g-section-with-header.yG4QQe): every story card is
