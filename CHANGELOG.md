@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- Row-count change for `perspectives` and `recent_posts`: carousel cards not yet loaded at capture (empty `role=listitem` placeholders with no text or link) no longer parse to rows with `title`, `url`, `text`, and `cite` all `None`. In captures from 2026-07 on these placeholders outnumber the loaded cards, so per-type row counts drop; reparse earlier captures with this release before comparing them with later ones
+- Row-count change for `perspectives` and `recent_posts`: carousel cards not yet loaded at capture (empty `role=listitem` placeholders with no text or link) no longer parse to rows with `title`, `url`, `text`, and `cite` all `None`; a carousel holding only placeholders parses to the "no subcomponents parsed" error row. In captures from 2026-07 on these placeholders outnumber the loaded cards, so per-type row counts drop; reparse earlier captures with this release before comparing them with later ones
 
 ## [0.12.2] - 2026-10-26
 
