@@ -152,14 +152,9 @@ def test_general_results_have_title_or_url(all_results):
 
 
 def test_perspectives_have_url(all_results):
-    """Perspectives results with content should have a url.
-
-    Carousel cards not yet loaded at capture (``data-init-vis="false"``
-    placeholders, no text or link) parse to empty rows; that gap is an open
-    question in plan 063, so they are left out here.
-    """
+    """Perspectives results should have a url"""
     for r in all_results:
-        if r["type"] == "perspectives" and (r["title"] or r["text"]):
+        if r["type"] == "perspectives":
             assert r["url"] is not None, f"perspectives sub {r['sub_rank']}: no url"
 
 
