@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.3] - 2026-10-26
+
 ### Added
 
 - Sponsored listing carousels in the 2026-10 layout ("Sponsored tickets & tours", "Sponsored hotels", "Sponsored events": `role=listitem` cards in `#tads`) are parsed as `ad`/`carousel` rows with title, url, and the sponsored hotel carousel's price / source / rating `details`, plus the block heading as `details.heading`; every such block had returned "no subcomponents parsed". Hotel cards link to `#`, so their url is `None`
