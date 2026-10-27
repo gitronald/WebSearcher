@@ -21,6 +21,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Text ads with a place card had no url or description: a location-extension ad now takes its url from the `a[data-pcu]` link, a local place ad (sub-type `place`) from its first action button ("Website"), and both read their description from `div.aDWSGc`; the place ad's title drops the trailing whitespace of its "Why this ad?" affordance
 - Entity facts (`lab/fact/*`) in the "Featured results" band took their last text fragment as the value, which was the fact's source ("Year: <source>") or its second line ("Born: Ulm, Germany"); the value now keeps both lines ("Mar 14, 1879 · Ulm, Germany") and every list entry ("Andrea Swift, Scott Kingsley Swift"), and the source moves to `details.source`
 
+### Changed
+
+- Row-count change for `perspectives` and `recent_posts`: carousel cards not yet loaded at capture (empty `role=listitem` placeholders with no text or link) no longer parse to rows with `title`, `url`, `text`, and `cite` all `None`. In captures from 2026-07 on these placeholders outnumber the loaded cards, so per-type row counts drop; reparse earlier captures with this release before comparing them with later ones
+
 ## [0.12.2] - 2026-10-26
 
 ### Added
