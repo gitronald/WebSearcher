@@ -64,3 +64,9 @@ No `perspectives` row in the fixture corpus has `title`, `url`, `text`, and
   - Worktree: `.worktrees/064-perspectives-placeholder-rows`
   - PR: pending
 - **2026-10-26T17:52:28-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/211
+- **2026-10-26T17:52:28-07:00** — Implementation notes.
+    - Step 1 signal check: `data-init-vis="false"` is not a safe signal. In the fixture corpus 260 loaded cards (text and link) carry it, and the placeholder class `be9mkb` appears on 15 loaded cards. Every listitem without text also has no link, in the fixtures (27 of 443) and in a 1,500-SERP sample of a 2026-10 crawl (988 placeholders against 460 loaded cards). The fallback filters on `has_text`, as the other selectors do.
+    - The fallback is shared, so `recent_posts` placeholders go too (3 rows in the fixtures), the same empty `role=listitem` card.
+    - Snapshots: 5 records lose 30 rows (27 `perspectives`, 3 `recent_posts`), every one with `title`, `url`, `text`, and `cite` all `None`; no row added, `sub_rank` contiguous, `serp_rank` sequential. Four records carry perspectives placeholders, not the two the plan counted: `0287f7dfbfc8` and `f3ce392b5af9` arrived in the 2026-10 follow-up fixtures after the plan was written.
+    - `test_perspectives_have_url` is back to its pre-063 form; new unit test `test_perspectives_placeholder_cards_are_not_rows`.
+    - Gate: ruff, ruff format, pyrefly clean; 867 passed, coverage 85.06%.
