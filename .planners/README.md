@@ -2,7 +2,7 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 064 | [Drop empty perspectives placeholder rows](plans/064-perspectives-placeholder-rows/plan.md) | draft | — | — |
+| 064 | [Drop empty perspectives placeholder rows](plans/064-perspectives-placeholder-rows/plan.md) | active | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |

@@ -1,8 +1,8 @@
 ---
 id: 64
 slug: perspectives-placeholder-rows
-status: draft
-branch:
+status: active
+branch: feature/perspectives-placeholder-rows
 created: 2026-10-26T13:40:53-07:00
 concluded:
 pr:
@@ -55,3 +55,11 @@ question 1).
 
 No `perspectives` row in the fixture corpus has `title`, `url`, `text`, and
 `cite` all `None`; loaded cards keep their rows and order.
+
+## Log
+
+- **2026-10-26T17:47:42-07:00** — Activated.
+  - Branch: `feature/perspectives-placeholder-rows`
+  - Base: `dev` at `ebe1b64`
+  - Worktree: `.worktrees/064-perspectives-placeholder-rows`
+  - PR: pending
