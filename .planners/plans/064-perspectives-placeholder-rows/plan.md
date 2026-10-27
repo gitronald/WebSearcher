@@ -1,11 +1,11 @@
 ---
 id: 64
 slug: perspectives-placeholder-rows
-status: draft
-branch:
+status: done
+branch: feature/perspectives-placeholder-rows
 created: 2026-10-26T13:40:53-07:00
-concluded:
-pr:
+concluded: 2026-10-26T17:57:55-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/211
 ---
 
 # Drop empty perspectives placeholder rows
@@ -55,3 +55,30 @@ question 1).
 
 No `perspectives` row in the fixture corpus has `title`, `url`, `text`, and
 `cite` all `None`; loaded cards keep their rows and order.
+
+## Log
+
+- **2026-10-26T17:47:42-07:00** — Activated.
+  - Branch: `feature/perspectives-placeholder-rows`
+  - Base: `dev` at `ebe1b64`
+  - Worktree: `.worktrees/064-perspectives-placeholder-rows`
+  - PR: pending
+- **2026-10-26T17:52:28-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/211
+- **2026-10-26T17:52:28-07:00** — Implementation notes.
+    - Step 1 signal check: `data-init-vis="false"` is not a safe signal. In the fixture corpus 260 loaded cards (text and link) carry it, and the placeholder class `be9mkb` appears on 15 loaded cards. Every listitem without text also has no link, in the fixtures (27 of 443) and in a 1,500-SERP sample of a 2026-10 crawl (988 placeholders against 460 loaded cards). The fallback filters on `has_text`, as the other selectors do.
+    - The fallback is shared, so `recent_posts` placeholders go too (3 rows in the fixtures), the same empty `role=listitem` card.
+    - Snapshots: 5 records lose 30 rows (27 `perspectives`, 3 `recent_posts`), every one with `title`, `url`, `text`, and `cite` all `None`; no row added, `sub_rank` contiguous, `serp_rank` sequential. Four records carry perspectives placeholders, not the two the plan counted: `0287f7dfbfc8` and `f3ce392b5af9` arrived in the 2026-10 follow-up fixtures after the plan was written.
+    - `test_perspectives_have_url` is back to its pre-063 form; new unit test `test_perspectives_placeholder_cards_are_not_rows`.
+    - Gate: ruff, ruff format, pyrefly clean; 867 passed, coverage 85.06%.
+- **2026-10-26T17:52:33-07:00** — Implemented: 5 commits ahead of `dev`.
+- **2026-10-26T17:58:19-07:00** — Review gate (/code-review, level low) and fixes.
+    - Review follow-up: four findings. Actioned, each with a test that fails on the prior commit: a carousel of only placeholders fell through to the `a.aJWbwf` / `a.WlydOe` fallbacks, which the base never reached once a listitem matched (the later fallbacks now run only when no listitem matched; `test_perspectives_placeholders_only_do_not_reach_later_fallbacks`); the `has_text` filter would drop a link-only card, against the plan's "no content and no link" rule (a listitem is kept with text or an `a[href]`; `test_perspectives_link_only_card_is_a_row`). Conscious no-op: a carousel holding only placeholders now parses to the "no subcomponents parsed" error row, which fits Decision 1; the CHANGELOG entry now says so.
+    - Neither case occurs in the fixtures or in a 1,500-SERP sample of a 2026-10 crawl: old against new, 0 components change content, 158 drop only placeholders, `perspectives` 1,448 -> 460 rows, `recent_posts` 97 -> 39, `top_stories` unchanged; the revised filter's output is byte-identical to the first fix's.
+    - Gate: ruff, ruff format, pyrefly clean; 869 passed, coverage 85.08%; snapshots unchanged by the review fixes. Review posted on the PR.
+
+## Retrospective
+
+- Step 1's check paid off: `data-init-vis="false"` looked like the natural signal and would have dropped most loaded cards, since 260 of the fixture's loaded cards carry it. Measure a proposed marker against loaded content before using it.
+- The fix is in a fallback shared by five card types, so `recent_posts` placeholders went too. That is right under Decision 1, but the snapshot diff showed it before the plan did.
+- Filtering a fallback changes which later fallback runs, not only which rows survive. The review caught the fallthrough; keep a selector's precedence when narrowing what it keeps.
+- Counts in a plan go stale when fixtures land after it is written (two of the four affected records arrived the same day). Re-count from the snapshot diff rather than checking against the plan's number.

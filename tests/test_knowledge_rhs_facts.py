@@ -123,6 +123,24 @@ def test_consumed_box_outside_links_merged(serps_by_qry):
     assert any("mgmplus.com" in u for u in urls)
 
 
+def test_lab_fact_rows_and_level3_section(serps_by_qry):
+    # 2026-10 "Complementary Results" panel: lab/fact rows (one sourced) and a
+    # level-3 "People also search for" section whose card links carry no text.
+    rows = _side_bar(serps_by_qry, "mr peanut")
+    facts = {r["title"]: r for r in rows if r["sub_type"] == "fact"}
+    assert facts["Creator"]["text"] == "Antonio Gentile"
+    assert facts["Year"]["text"] == "1916"
+    assert facts["Year"]["details"]["source"] == "planters.com"
+    assert facts["Year"]["details"]["attrid"] == "lab/fact/1p/Year"
+    also = next(r for r in rows if r["title"] == "People also search for")
+    assert [i["text"] for i in also["details"]["items"]] == [
+        "Mr. Monopoly",
+        "Pillsbury Doughboy",
+        "Mr. Peanutbutter",
+        "Charlie the Tuna",
+    ]
+
+
 def test_edit_affordance_rows_skipped(serps_by_qry):
     attrids = {r["details"]["attrid"] for r in _facts(serps_by_qry, "central park new york")}
     assert "kc:/local:edit info" not in attrids
@@ -162,6 +180,38 @@ def test_synthetic_linkless_box_keeps_title_and_text():
     assert rows[0]["title"] == "Payment options"
     assert rows[0]["text"] == "PayPal Apple Pay"
     assert rows[0]["details"] is None
+
+
+_L3 = '<div><span role="heading" aria-level="3" class="mgAbYb">{}</span></div>'
+
+
+def test_synthetic_linkless_level3_section_skipped():
+    # A link-less level-3 section is a script-loaded tab ("Standings"); unlike a
+    # level-2 box it keeps nothing.
+    node = make_soup(f"<div>{_L3.format('Standings')}<div>Group A</div></div>").css_first("div")
+    assert node is not None
+    assert parse_knowledge_rhs(node) == []
+
+
+def test_synthetic_level3_sections_keep_only_new_links():
+    # A link the main panel row already carries is dropped from a level-3
+    # section, and a section left with no links is skipped. "Disclaimer" is
+    # chrome.
+    wiki = '<a href="https://en.wikipedia.org/wiki/A">Wikipedia</a>'
+    html = (
+        f'<div><div><div class="kno-rdesc"><span>A desc.</span>{wiki}</div></div>'
+        f"<div>{_L3.format('About')}{wiki}</div>"
+        f'<div>{_L3.format("Overview")}<a href="/disclaimer">Disclaimer</a></div>'
+        f'<div>{_L3.format("Profiles")}{wiki}<a href="https://x.test/a">X</a></div></div>'
+    )
+    node = make_soup(html).css_first("div")
+    assert node is not None
+    rows = parse_knowledge_rhs(node)
+    assert [(r["sub_type"], r["title"], r.get("url")) for r in rows] == [
+        ("panel", None, "https://en.wikipedia.org/wiki/A"),
+        ("links", "Profiles", None),
+    ]
+    assert rows[1]["details"]["items"] == [{"url": "https://x.test/a", "text": "X"}]
 
 
 def test_synthetic_expander_topics_without_lab_title():

@@ -64,6 +64,41 @@ def first_text(node: Node, css: str, sep: str = " ") -> str | None:
     return get_text(node.css_first(css), sep, strip=True) or None
 
 
+def parse_lab_fact(fact: Node) -> tuple[str, str, str | None] | None:
+    """``(label, value, source)`` of a ``lab/fact/*`` entity-fact row, or ``None``
+    when it carries no value.
+
+    The row renders the label, then the value (a primary line plus an optional
+    secondary one: "Mar 14, 1879" over "Ulm, Germany") in ``div.TLIZ``, then an
+    optional source ("planters.com") in ``div.KDFsyf``. Reading the value from
+    its own container keeps the source, and the expanded duplicate list some
+    rows render beside the value, out of it. The value's fragments join with
+    " · ", except a "," list separator ("Andrea Swift, Scott Kingsley Swift").
+    Rows without the label span (``lab/fact/Artist``) take the row's first text
+    fragment as the label."""
+    parts = _split_text(fact)
+    source = first_text(fact, "div.KDFsyf")
+    label = first_text(fact, '[jsname="BQbCV"]') or (parts[0] if parts else None)
+    value_el = fact.css_first("div.TLIZ")
+    if value_el is not None:
+        values = _split_text(value_el)
+    else:
+        values = parts[1:]
+        if source and values and values[-1] == source:
+            values = values[:-1]
+    if not label or not values:
+        return None
+    value = values[0]
+    for p in values[1:]:
+        value += p if p == "," else (" " if value.endswith(",") else " · ") + p
+    return label, value, source
+
+
+def _split_text(node: Node) -> list[str]:
+    """The node's non-empty text fragments."""
+    return [p for p in (get_text(node, "|", strip=True) or "").split("|") if p]
+
+
 def under_any(node: Node, ids: set[int], stop_id: int) -> bool:
     """True if any ancestor of ``node`` (up to ``stop_id``, exclusive) is in
     ``ids`` -- the "outermost emitted match wins" check the knowledge parsers

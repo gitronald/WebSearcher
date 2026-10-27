@@ -489,6 +489,39 @@
       "title": "Adapted from",
       "type": "side_bar",
       "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Parks and Recreation 2009 – 2015",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGDMkmBg1SB5TH8o8Xeh03tgmwpgZCgiYi5BFB_ELNOTGq6uNvPNlTWSPT4tOGIw8O0D3W7y5zk2IZPxOMOs6-kI2AzzoFXcY-JNyisNyDdytBCXurHUheLMRfGQqDE5cPfY5QqZrNNCcmxzcFo2Plm45aIKaftBfzPrToC4Qg5bLr8T31vSnQOuacePJh-00VI6SxPzoxG7qXuaqf43R50Bo1-ag%3D%3D&q=Parks+and+Recreation&sa=X&ved=2ahUKEwjtw-CdhsaSAxWCBBAIHRpxLBMQs9oBKAB6BAgGEAY"
+          },
+          {
+            "text": "The Paper Since 2025",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnRhf6oRVM3x5NIRe0NZob4d2CTKeXgpIXm7I6VO3szfDfKYZebLVNEH9nkYWZAVk5LcnhgXU9OrnPAN8V_gUdkkoZYQfYqZP3V9dViOUFVKT8s8UyqtRfjatNF-PS1DV06gDuQQw3EuyVcKK2ZlY65lZ6-PQ8YMYEjpUMUAxx5P8C44v9w%3D%3D&q=The+Paper&sa=X&ved=2ahUKEwjtw-CdhsaSAxWCBBAIHRpxLBMQs9oBKAB6BAgGEAo"
+          },
+          {
+            "text": "Arrested Development 2003 – 2019",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZEaipurC9pse1xO2aCwuJWfKA_Njx1c7Qs8ap9rx81jmta9asHi91frVU2KeUBA9rEgq5VvL-jq9wXrOSWuWt5wgyWDmEXKem9CT0RDTnXbq8XNWH356SSuuHGGR8SmWXt1Q-uRPx7LXdotqsyaHM5K-hyvr5y84_knQ_qO12j9OZFYNYAg5vcV-b_2XMZGQFy1i0kof2XmmTswLcWNuxVj-iH3JQ%3D%3D&q=Arrested+Development&sa=X&ved=2ahUKEwjtw-CdhsaSAxWCBBAIHRpxLBMQs9oBKAB6BAgGEA4"
+          },
+          {
+            "text": "The Office: Superfan Episodes Since 2020",
+            "url": "/search?sca_esv=a23961d46812ec7b&si=AL3DRZGNtcdgKOqVhotcr-UG2kkYpwR2WO4qu3O00NmpwBmLnYwUlpT9ip6vcS_7iHVAx7neIIu0D7DQn5Q3Gl-m1SdYjrzbqQD36JZyxFAW3m66IlNsehmfRgJkRxccf7yec2Dw6nY27bmAksj5Vmrkprr7I7a1o3q78dEiE8yvys2bFTPH2u4X4yat_N3mdyId7TioQQdMxiMxgmGfzbKV2NwUfNlnvac80gis9HrAeAD6WAFUz-M%3D&q=The+Office:+Superfan+Episodes&sa=X&ved=2ahUKEwjtw-CdhsaSAxWCBBAIHRpxLBMQs9oBKAB6BAgGEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 22,
+      "sub_rank": 8,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
     }
   ]
 }

@@ -194,32 +194,6 @@
     },
     {
       "cite": null,
-      "cmpt_rank": 10,
-      "details": null,
-      "section": "main",
-      "serp_rank": 13,
-      "sub_rank": 3,
-      "sub_type": null,
-      "text": null,
-      "title": null,
-      "type": "recent_posts",
-      "url": null
-    },
-    {
-      "cite": null,
-      "cmpt_rank": 10,
-      "details": null,
-      "section": "main",
-      "serp_rank": 14,
-      "sub_rank": 4,
-      "sub_type": null,
-      "text": null,
-      "title": null,
-      "type": "recent_posts",
-      "url": null
-    },
-    {
-      "cite": null,
       "cmpt_rank": 11,
       "details": {
         "heading": "People also search for",
@@ -236,7 +210,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 15,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Twitter sign in<|>Twitter sign up<|>Twitter web<|>Twitter owner<|>Twitter sign up or login<|>Twitter app download<|>Twitter Inc phone Number<|>When did Twitter become popular",
@@ -252,7 +226,7 @@
         "type": "panel"
       },
       "section": "rhs",
-      "serp_rank": 16,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": "panel",
       "text": null,
@@ -274,7 +248,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 17,
+      "serp_rank": 15,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "March 21, 2006, San Francisco, CA",
@@ -308,7 +282,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 18,
+      "serp_rank": 16,
       "sub_rank": 2,
       "sub_type": "fact",
       "text": "Jack Dorsey , Biz Stone , Noah Glass , Evan Williams",
@@ -330,11 +304,44 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 19,
+      "serp_rank": 17,
       "sub_rank": 3,
       "sub_type": "fact",
       "text": "San Francisco, CA",
       "title": "Headquarters",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "text": "Meta",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW673lNB_MkQDqYh94cHdlbIS-LVZw7MNacdNihqQo_v8uvUkZgzXaigfqz25mhW0A3ATanOiYOWi8mNl8zYat34G0QSFSEptZO3yCgmq493jEIJrfYuSmlaMzpEs2bIk3l-_d46ygs7PoVostv8EtHktiESBxu&q=Meta&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQs9oBKAB6BAgHEAY"
+          },
+          {
+            "text": "Google",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yWUZBpNOr2dTksWepCd_OsiMdAkJNltloqgV2oMl_0vBH1rKm08wEOnUWMwrxSKuBNJ3OaLwzfcjA92c1bfyiO4mzsb-1OtmQ7xhnpp3Kv7_0qNZbSDCEHfaaKAjEtlBnA9f9ns-mKFN56BBydFx9xXltqF1&q=Google&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQs9oBKAB6BAgHEAo"
+          },
+          {
+            "text": "Flipkart",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW6709pib2STFkTZKZFe9OvJ6c1fzqRYHiF8F7Od89vwqolBYToV_SlKVRBA_AOC0wmAKVEQ-B-VN87tBT3XYJFwwK2c1_cUWWUP8bBIrcKo8wq6QVW2kYTyK_V1rKozeXoI5Y444tRdpd1rUlb9iww9b0wIYhk&q=Flipkart&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQs9oBKAB6BAgHEA4"
+          },
+          {
+            "text": "Walmart",
+            "url": "/search?sca_esv=63391fa8cbb1a4b9&si=APenkKnxxBAKu8uEyVJp5QG7kNERIzt0EhsYdVrbw5Is3icMpjAl38MlY-kriJdCERa-t7nZWbsTCENrkLynzhBuxrkoIvFekZwP1YN1zmWc8WXatApGFkzouF6-R-k-RdzcVbsfc8pFezwYk9QRar_EirXqM20MmiGXSSqHmeJQaFzpcien5lu6ayOt4dPy2rUS3MMIXPRE&q=Walmart&sa=X&ved=2ahUKEwiN2MqTy7CVAxWK1fACHT9GKCIQs9oBKAB6BAgHEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 4,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
       "type": "side_bar",
       "url": null
     }

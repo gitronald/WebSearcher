@@ -1,0 +1,422 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 2280000.0,
+    "result_estimate_time": 0.27,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "n_reviews": "828",
+        "price": "$39",
+        "rating": "4.4",
+        "source": "GetYourGuide",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Astronomical Clock Tower Entry Ticket & Audio Guide",
+      "type": "ad",
+      "url": "/goto?url=CAESYgHrOzAVXCzheAppEzeWt75nymmUsX_JpSoWdolxliqZOfxDz_u0bjTdiljapx9WKnAR1eV9nURI88Xgj2US0xIQ9N0gytMbfOu_bdpozDwnK8kfrO6bhz9AO8tnMR_zJSLY"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "price": "$443",
+        "source": "GetYourGuide",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 1,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Private day trip from Vienna to Prague and back, in English",
+      "type": "ad",
+      "url": "/goto?url=CAESYQHrOzAVoCi9ixFHEQheW5Z9n0J7WlQ7BmdZ5zkFs_L9sEMeva2I-zO9ec4EewB1I2OHM0ZPd2YR5bodwCQnywLVM-GDa8oGF5E1lV0CIQtGZ5Ghjs44BkGKaB2KX_h_8NU"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "n_reviews": "10",
+        "price": "$118",
+        "rating": "4.1",
+        "source": "GetYourGuide",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 2,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Night Walking Tour",
+      "type": "ad",
+      "url": "/goto?url=CAESWAHrOzAV82fMgLQDfcn3hLw-5pzVlpChzqSakFwI2bTIGZckIE5ZQdRFfjE_NqWUTcfH0JqMQVR-9QnZrpFxIUkAdwwLJm1SuSU3sLFj2SaufYsqHuNg8E4"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "n_reviews": "18",
+        "price": "$20",
+        "rating": "5.0",
+        "source": "GetYourGuide",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 3,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "From Nazi Occupation to Velvet Revolution Tour",
+      "type": "ad",
+      "url": "/goto?url=CAESWAHrOzAV82fMgLQDfcn3hLw-5pzVlpChzqSakFwI2bTIGZckIE5ZQdRFfjE_NqWUTcfH0JqMQVR-9QnZrpFxIUkAdwwLJm1SuSU3sLFj2SaufYsqHuNg8E4"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "price": "$5,045",
+        "source": "TourRadar",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 4,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Christmastime in the Heart of Germany with 2 Nights in Prague 2026",
+      "type": "ad",
+      "url": "/goto?url=CAESWAHrOzAV_f3DtE3lPG6eCR_R684MELDYeOibKfUe4WmfOSC1S68g-8zBNh096GCk0tdXuZkvzpBK2VRCdQU41zM9lvEzMLqsxgXRBgGe_N62-czAQsDkZek"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "price": "$5,045",
+        "source": "TourRadar",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 5,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Christmastime in the Heart of Germany with 2 Nights in Prague 2026 (from Frankfurt-am-Main to …",
+      "type": "ad",
+      "url": "/goto?url=CAESWAHrOzAV_f3DtE3lPG6eCR_R684MELDYeOibKfUe4WmfOSC1S68g-8zBNh096GCk0tdXuZkvzpBK2VRCdQU41zM9lvEzMLqsxgXRBgGe_N62-czAQsDkZek"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "n_reviews": "6.3K",
+        "price": "$18",
+        "rating": "4.5",
+        "source": "GetYourGuide",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 6,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Klementinum Library & Astronomical Tower Guided Tour",
+      "type": "ad",
+      "url": "/goto?url=CAESYgHrOzAVXCzheAppEzeWt75nymmUsX_JpSoWdolxliqZOfxDz_u0bjTdiljapx9WKnAR1eV9nURI88Xgj2US0xIQ9N0gytMbfOu_bdpozDwnK8kfrO6bhz9AO8tnMR_zJSLY"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored tickets & tours",
+        "n_reviews": "299",
+        "price": "$41",
+        "rating": "4.8",
+        "source": "Trip.com",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 7,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "WWII in Prague Tour & The Crypt of Operation Anthropoid",
+      "type": "ad",
+      "url": "/goto?url=CAESZwHrOzAVh2jqi9XkquegtZ1tjEOG5zPTQvYJND26PUbQwjAzQ20HpHjIJLCKLvcrmbkoLG2k_GsRT18HJZ3Rz-pBl9TV23EBH8QXP-YLxi19Y5zg9wn9IDfWmVUwcP4yrMqFlpuL3Ak"
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Prague_astronomical_c...",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The Prague astronomical clock, or Prague Orloj is a  medieval astronomical clock attached to the Old Town Hall in Prague , the capital of the Czech Republic.",
+      "title": "Prague astronomical clock",
+      "type": "general",
+      "url": "/goto?url=CAEScgHrOzAVgqPwPLeTpexCfC2mBdNzwoO_C82ROxslJ80farB53bgHtUh_qR2vc7rD_nsV1Irs_fbu8waD3Vu-Ta7J9KMvqLq6n1TcMfK3k5e09OOu6GxNvNCHxHSDQNF9bQevYSsl6qfw4P22wMXlN8zRwA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "What is so special about the astronomical clock in Prague?",
+          "What happens every hour at astronomical clock in Prague?",
+          "Does the astronomical clock in Prague still work?",
+          "Is the clock in Prague the oldest in the world?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What is so special about the astronomical clock in Prague?<|>What happens every hour at astronomical clock in Prague?<|>Does the astronomical clock in Prague still work?<|>Is the clock in Prague the oldest in the world?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.visitczechia.com  › en-us › news › 2024/11",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Nov 4, 2024  —  Czechia's most famous astronomical clock can be found at the Old Town Hall in Prague . It's an ingenious device that for centuries has shown not ...",
+      "title": "Czechia's Astronomical Clocks – more than just the ...",
+      "type": "general",
+      "url": "/goto?url=CAESlQEB6zswFV6wfAfSUHZ18EuQj47BCNh07nMWEP65Z9grCzhbVmyxitb0CkyjNqWh6OZ4j-vgnRBz-77vw63OZRXzqKZG4L9KUbJsw7XxLlNLVUOTikrHyeoKUQ5zSA40OrOs9xINAQz1hiB7qx_QT-g-MfnH6aHWSY7Du2PxVYp1LNFcKoFsQx7SGAtDgEHBAASi-jQzUA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Watch the Beauty of Prague Astronomical Clock YouTube  ·  Kuya JDL Oct 30, 2024",
+      "type": "videos",
+      "url": "/goto?url=CAESZgHrOzAV7X5-d7cxLdXKI6aWe2NQ7fPbgUkt4Ol1xpal-DyoUus8MV1dKPMbAV_ptHYBRDEkS_EY_B4e6ENdAE8M_4gVd-gYj-D19nCQOeJdiTqjf4nSCHQHbKLHJ7ahQR62a2M8yw"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Prague's Astronomical Clock | Where Art Meets Science YouTube  ·  Multimedia Empire Sep 28, 2024",
+      "type": "videos",
+      "url": "/goto?url=CAESZQHrOzAVnaJN4umGBJyA109jaWOKWunrKPkfSY1te4rNNXfYvLcVsPIUvCftYZgusrEfoAYNnNnvDoUK_QxTFr7l5YohTaA7xRHYJqR-pyuzD15T-3OE1yvnl2hBFwbYZkMdh34X"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 2,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "officially known as the Prague Astronomical Clock, or Pražský ... Facebook  ·  Photography by Ann Bruen Jun 17, 2026",
+      "type": "videos",
+      "url": "/goto?url=CAESlQEB6zswFaAv7_pPyLSP8PPNqDSHdivBw7d_qKxj-t4trlDAiU45T9LpIIHAc__8nIBpR344Eu1AQKvVUEj39tk__BKUHEOB5C862WquDNGeUygpQotGO67GEx6VBZd8BjiM7WZ7lLfY6UrG9FuiaAvuIzw5rAvbPbVZwbq89w26CeFZBhhkYdF9WogcB3mje4Zu1E-JvQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 3,
+      "sub_type": "vertical",
+      "text": null,
+      "title": "Old Town Square, Prague  The Astronomical Clock is more ... Instagram  ·  Tarana Husain Khan Jul 13, 2025",
+      "type": "videos",
+      "url": "/goto?url=CAESbAHrOzAV_bEQizp-_Qhn8gC7YNUPffSb7i9p8OQOEEWeIR8pV1PqN1mRe61qbYJ4Nb5SsfT6R1gzg4hrwuSv8g7dP349nNqwLojfM-QsPefcLufPSINVnWYWIlzZnZQaPu9LS-gs2ItXtbjMaw"
+    },
+    {
+      "cite": "https://prague.eu  › objevujte › old-town-hall-with-astro...",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Visitors will find remarkable namely the  astronomical clock on the Southern side of the town hall's tower . It was built in 1410 by Mikuláš of Kadaň,",
+      "title": "Old Town Hall with Astronomical Clock",
+      "type": "general",
+      "url": "/goto?url=CAESnwEB6zswFUKKijbNUCPyEOjJZHo2Q_j--0bkg159DKeu_9eb1SWe_bBkh8MtrfAiI4M8CuOs1uDkrtB-d2r_RvRmNqLA3uFKKilX262xCG78xSyyhbXfN7-OLA9yl69w50PjjxZQEidsdA4srUYJLaNwjbi4lVpv9WJy8aX35yttfEqoh9-ubVGkZnaGe0nQdl0eoGSeSW_9unXWzLugLYI"
+    },
+    {
+      "cite": "https://www.czechcenter.org  › blog › prague-astronomica...",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mar 11, 2020  —  The astronomical clock in Prague, otherwise known as The Orloj,  shows the relative positions of the Sun, Moon, Earth, and Zodiac constellations .",
+      "title": "Prague's Astronomical Clock",
+      "type": "general",
+      "url": "/goto?url=CAESdQHrOzAVpH14TTiO9la0YZvr8qHlvhPmWjgt6hD1cH_29mwl0ivjpxe9AKNjcuqvTF8S0EAxcUegEDlbjfQQ74xJHkoIeI1INiOArH9XY2fZfWh1WFY64RmkuGC4o4oujfgJkKwZbHf0d-XSmL_3EcgmJ_Cs2g"
+    },
+    {
+      "cite": "2.1K+ reactions  ·  2 weeks ago",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Built in 1410 , this incredible medieval clock has been keeping time for more than 600 years. Its astronomical dial shows the Sun and Moon's ...",
+      "title": "The Astronomical Clock, Prague, Czech Republic Built in ...",
+      "type": "general",
+      "url": "/goto?url=CAESygEB6zswFWlJtcthzXZBtDbGmcGFYsc-T_kUdKHzTBvR_zkBdfR5-w4U0vzirCvP6UtYS2inYKkzAb2EBiD9YjrDmOpegtY6cfGIi0uV2IDIhtTa_b6QJ2yGes9L5U8Q7Tl6IJhx2p9fzi_sctYGiuj1v5JANha-dCoVJ7rAO3R4cmTJCNeVEDCnfvqBihyLRwLRfot_owWxI1A2KSTO1ulE-D1h3vhDIcGBE9L6M1Umbfqr1YCGo97iDEojMgHMDY2dXAWOn__OwnY2"
+    },
+    {
+      "cite": "https://www.getours.com  › sightseeing › prague-s-famo...",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Prague's astronomical clock , on the southern wall of the Old Town Hall. First installed in 1410, this clock is the third-oldest astronomical clock in the world ...",
+      "title": "Prague's Astronomical Clock | Grand European Travel",
+      "type": "general",
+      "url": "/goto?url=CAESlgEB6zswFYHOJBikGgJoZz8h0V-p1mewqeCTr26302gqarRXdDidAe1F14HzW8ofHpvg0M1Ga1mDSTAl3gftdbrjAJjnmDMx7fje1FoA-TG_jLMwZe38hOqHETBSLKXN6X5Ol-ieS2qzqVeso3_P25aKNTsPuBQhyZmO1ouPcBZaPrkhk5UUQ4x3DR2Z8IY1LyYTklfU6_w"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "5 days ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Prague Astronomical Clock — Czech Republic 🇨🇿 Standing proudly in Prague’s Old Town Square, this extraordinary medieval clock has fascinated visitors for centuries. Its intricate astronomical dial, moving figures, and remarkable craftsmanship reveal the g",
+      "type": "perspectives",
+      "url": "/goto?url=CAESyAEB6zswFWR7F1C9yXRvx9jXmYKx2MgSaInyyogF6Qd456uENOOzvAaQ8_LneD2HwsrHqChtBvSOKdzsaQgSJem8dayhPacLjSr9KUbQxLymMnrnRa08ZlSpg812_k7DafXWjgz_sYrdS5atFFfvkzzs3YAwhbD-osap9LYAE3_7P9qe1n2thhpUdJBfbZMTZz2aFjwelbG5SyWSyS9IdcL87ZZdQlS_T2ZgiYWR2gFyXhd8hZjqrLUQyLAo6cRMS3uf0q0fP5DbRw"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "3 weeks ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 1,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "The Astronomical Clock, Prague 📌\n\nBuilt in 1410, this incredible medieval clock has been keeping time for more than 600 years. Its astronomical dial shows the position of the Sun and Moon, while every hour, the Twelve Apostles make their procession above the Old Town Square. Standing here feels like watching history tick by! \n\nA true masterpiece of medieval engineering, the clock stands within Prague’s UNESCO-listed Historic Centre, making this one of the city’s most iconic landmarks. Don’t miss it when visiting this incredible city.\n\nAstronomical clock, Prague 📍\n\n#astronomicalclockprague #praguehistoriccentre #unescowordheritage #travellingprague #exploreprague🇨🇿",
+      "type": "perspectives",
+      "url": "/goto?url=CAESdQHrOzAV-xgXq1MvBZxxBP5rGtYxkC6zdt6Zq3Vpiof5dJaRxpRtBpcFOVTHDrR9KuHhfZh0_oF5xGt6rh--XSSXTWUIQwg_qnz8d9TqK3BruxLPjXVdeXA2HhMY-ZWJaClS-5NREB-ZC5v2YgV_PN4pA6yIYw"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "1 week ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 2,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Prague Astronomical Clock Explained in 15 Seconds 🕰️",
+      "type": "perspectives",
+      "url": "/goto?url=CAESZQHrOzAVGJuVpvyZnkclW0LExzJ0MHYzeLUj_tO-sDHOUcuTG679p13_ji73iNTMBJZdU-v0iaMAgQkUcH1xO_2suuYnAPgPqqGWY2KWQLKPiicA8RAk_AqpmbynJ0etP7kqmT96"
+    },
+    {
+      "cite": "30+ comments  ·  7 months ago",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 0,
+      "sub_type": "video",
+      "text": "Prague Astronomical Clock, it measures Babylonian and Old Bohemian time, shows the movements of celestial bodies. It was first installed in 1410 ...",
+      "title": "Prague Astronomical Clock, it measures Babylonian and Old ...",
+      "type": "general",
+      "url": "/goto?url=CAESngEB6zswFZR3AslWRt2dWLwRnLrtZcPeahtL4wvc86MVkCvXLsy2RGipvCtxYONRIwZdn__GDRtGr9fDInu1IMUX8mO-q5ISQTAUEI-5B7VpCcEC84gHR26DAaCzIyxbi8mteFMaC2qzg-3g4XJzdeBoziTpnEIZKbpYDt9ZowNegnriU-Jh1mr4RZP_qIwFzEmiv5857wqVwxDNuHKPjQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Prague Astronomical clock",
+          "Prague Astronomical Clock tickets",
+          "Prague astronomical clock photos",
+          "Brno astronomical clock",
+          "Prague clock curse",
+          "Oldest astronomical clock in the world",
+          "Astronomical clock Strasbourg",
+          "Prague astronomical clock history"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 24,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Prague Astronomical clock<|>Prague Astronomical Clock tickets<|>Prague astronomical clock photos<|>Brno astronomical clock<|>Prague clock curse<|>Oldest astronomical clock in the world<|>Astronomical clock Strasbourg<|>Prague astronomical clock history",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

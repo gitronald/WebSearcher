@@ -1,0 +1,435 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 335000.0,
+    "result_estimate_time": 0.35,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": null,
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "unavailable",
+      "text": null,
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.yelp.com  › Home Services › Painters",
+      "cmpt_rank": 1,
+      "details": {
+        "n_reviews": 402,
+        "rating": 4.5,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Best Painters in Suwanee, GA - Last Updated October 2026 -  Proactive Residential , KBuilders Painting, Freeland Painting, George Holmes Painting, ...",
+      "title": "THE BEST 10 PAINTERS NEAR SUWANEE, GA 30024",
+      "type": "general",
+      "url": "/goto?url=CAESgQEB6zswFczkbv29qOsBXHceB5YjZREPNE3hi49DZyp8bs-g5BNTGA2g0o-lBV0NwSkm7ECPfql38VK_qAiREPo6iLQuxEo-QcbFH-9itJ8Hy_gt5iYn3KQSUSZRgHsCWr8woMdhOdYpz6Tw12vLjSIovObM2S7XTlBEHbTCDP6iuBA"
+    },
+    {
+      "cite": "https://certapro.com  › northeast-ga › professional-painter...",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "CertaPro Painters® of Northeast Georgia offers  professional interior and exterior painting services  to the Suwanee, GA service area. In addition to interior and ...",
+      "title": "Professional Painters in Suwanee, GA",
+      "type": "general",
+      "url": "/goto?url=CAESfgHrOzAVjrIJIqQuRjUoO5UjxFC_NEUB-6kJhyKPc475b9O3JkKQ6hrtROlmHfMg737ChfTheHniMIdATum4L4s58Eiym1cdESKo8BGT3VtsMgZwtIMbblZ46xxqmNe26hzHZHBiY4nTUXFOnAqSiEslo0ruAvF4X_i3DsQkKQ"
+    },
+    {
+      "cite": "https://soperfectpaint.com  › ... › Gwinnett County",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Professional interior & exterior painting in Suwanee, GA . Licensed, insured, 42 years of experience. Free estimates. Call 770-985-3075.",
+      "title": "Professional Painter in Suwanee, GA",
+      "type": "general",
+      "url": "/goto?url=CAESewHrOzAVvFhCNs65OE5Oh68bSblRgVOJJpCLIfTj-3E-G1sZCxol6Uy3cIpeYeEII0fcdApYfrzJm_JUrxz7KO9PwV8coWA0JM4T0wzJj_JLvUvTNr1dUHALQgWwGEe-_SNWa1mF3Ais4Yw24nyZyJZZSbIQBVBOebVZuA"
+    },
+    {
+      "cite": "https://www.houzz.com  › ... › All Professionals › Painters",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Search 998 Suwanee house painters & painting companies  to find the best house painter for your project. See the top reviewed local house painters in Suwanee ...",
+      "title": "House Painters & Painting Companies Near Suwanee",
+      "type": "general",
+      "url": "/goto?url=CAESkQEB6zswFR4JYpd4IBngZIxO694AtxkIDfuAbT_1YtcmN9yU8m0C1nQ_oQ836fdWqgNoJ5RV2HDLcxflIcKu3RW-QCgqM9Ui9EXQq9ym__7fWpW_fqWXWBFqaIWraPDik6_oowzsmliaBaTDUFnfmFQh-7DSm4FJ_YFioCYCuRQMG74F9gCyWWwFvyIzW_ZPlpxg"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 5,
+      "details": {
+        "heading": "Find related products & services",
+        "items": [
+          "Professional house painters",
+          "Home painters",
+          "Residential painters",
+          "House painter",
+          "Professional painter",
+          "Painting company"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "Professional house painters<|>Home painters<|>Residential painters<|>House painter<|>Professional painter<|>Painting company",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://kodeshpropertysolutionscom.com",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Your local painting company in Suwanee  offering residential painting contractors and commercial painting services throughout Johns Creek, Alpharetta, Duluth, ...",
+      "title": "House Painters Near Me | Interior & Exterior Painting Services ...",
+      "type": "general",
+      "url": "/goto?url=CAESYgHrOzAVgqZRasinz3tWqv3UxYe4bK8nvZW9-X6G6_zg9-HXuhTOWRSFUoq_5YZ7gfu96q7zQALTM_YDHyXHqBn2sVpD2nj1Etdt4mEbQZoLOr4iNftJ22wizGpG1nE1dx57"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "items": [
+          "Is Suwanee a wealthy area?",
+          "How much does it cost to paint a house in Georgia?",
+          "Who is a famous painter from Georgia?",
+          "How to find painters to hire?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Is Suwanee a wealthy area?<|>How much does it cost to paint a house in Georgia?<|>Who is a famous painter from Georgia?<|>How to find painters to hire?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://network.procore.com  › ... › Georgia › Suwanee",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Pro Source Painting is a Specialty Contractor that serves the Suwanee, GA area  and specializes in Joint Sealants, Painting, Painting and Coatings, Traffic ...",
+      "title": "Find Painting Contractors in Suwanee, GA",
+      "type": "general",
+      "url": "/goto?url=CAESbQHrOzAVluoTsPNOFKIBZL8M8Hlmd1vr9f3IR_a4UPKqXgD4pJb4UK4dxLhV157IIBtvMlqts4JzCQd65KSUCXAP9SkkNrcqaqctbVOY79CIpNEm5QUc6j1UMP71mwzz46JyvDA9y74SfhLZ-4M"
+    },
+    {
+      "cite": "70+ followers",
+      "cmpt_rank": 9,
+      "details": {
+        "n_reviews": 4,
+        "rating": 5.0,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "With over 25 years of experience,  All About Painting is ready to be your painter of choice ! Call us today for a professional, complimentary estimate!",
+      "title": "All About Painting | Suwanee GA",
+      "type": "general",
+      "url": "/goto?url=CAESbAHrOzAVzZTR8Ea4Lm2QzarZEYL6uxxGSpG9NX0Y6PXFo_-8ITbXSM0t0L4-VO6C3WsMHDPB76MRk-mPPC7FXF6zRKzujMKSUELVw6Mzzzql6CrcfgwfiWpAj0zFABIPhdwPqzabWx01XVwsGQ"
+    },
+    {
+      "cite": "https://www.brightsidepropainting.com  › suwaneepropa...",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Suwanee Painting & Remodeling Professionals ·  Interior Painting  · Tiling of Floors, Bathrooms, Showers & Backsplashes · Drywall Repair · Crown Molding Installation.",
+      "title": "Suwanee Painting & Remodeling Professionals",
+      "type": "general",
+      "url": "/goto?url=CAEScwHrOzAVwtDZwKlbeOq75QX3o-LpgRdw7p58yE1A11959VgaaTMCRqqpufiq7C685vZXvt9aK1t2z989qVkosikndgoZCkv5uAgcU1BHClEmz3VQr4olM_bdkf45SNDZauPyjjuQlUjs57OE6Ey5JYH7uZk"
+    },
+    {
+      "cite": "https://www.mendez-painting.com  › suwanee-ga",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "For  expert painting services in Suwanee, GA , trust Mendez Painting to bring your vision to life. Contact us today for a free estimate, and let's get started on ...",
+      "title": "Painting Company | Suwanee, GA",
+      "type": "general",
+      "url": "/goto?url=CAESZQHrOzAVKsxz2mjKHHKEDXEerwLyr2JEimQaN0EjXmwu-HxJcW0IHMGo3yfKVnkRDhJspQqx45xMaQUT2PlrR2Dg6U-BWUrQCdneTqsTs_rtPKV1FoF3MpOjnYYxcco-pEp_Tuj8"
+    },
+    {
+      "cite": "https://www.certapro.com › house › painters",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": "standard",
+      "text": "We will always offer superior services that meet your schedule and your budget. CertaPro Painters...",
+      "title": "CertaPro House Painters - All Paint Estimates Are Free",
+      "type": "ad",
+      "url": "/goto?url=CAESpgEB6zswFXK3r7zGpwrPGXv2CXbrpDeWCN21DnLH9YYSryfjdLtDtZMZAc4JHjvNdwBwMXXZUBju0U_7wplJuP1tcNkP2YDlkAgk7zLtAkQSfkMYTmUiiKQXL3AuHCZC7YdRbsAGmTBFoU6b5i7RqPjvb-17OekoPe2oDmeh2eYFiq7UUkSJJn_xUZ_xWHGfGOGVGw9eoEEJrxVaQxO-nVZXdVgyddpT"
+    },
+    {
+      "cite": "https://www.atlantapaintingcompany.com › professional › painter",
+      "cmpt_rank": 12,
+      "details": {
+        "items": [
+          {
+            "title": "Atlanta Painting Company",
+            "url": "/aclk?sa=L&ai=DChsSEwip4sHb4daXAxUNXP8BHXDbL44YACICCAIQCBoCbWQ&co=1&gclid=EAIaIQobChMIqeLB2-HWlwMVDVz_AR1w2y-OEAMYAiAEEgJcF_D_BwE&cid=CAASugHkaAgESmgQcQ8Dy3ZzhiWu0EAXyD0lCIwtmzB124yOOzCDCzWy0q9AvBSPHwQw6hwYBzZWNnOGDZ6dVOSSS4s0Xw7onItvfSvVzMDsOBMGNL8W_TGo4yXCrRtQhj4lg3eKTi7jS2Yyjrfe_D2LZYKBsT1kvOPt7zsJt1R9MO5Pst4Zz4Eay5dEaAuyAngQ2yIr0dCxLhFE53oaJGePCjG9sZmMC7lhlcQSR0Svr_yY4GNuhnEvWRVDA6Y&cce=2&sig=AOD64_0V0tzf34jYzJ8ar717mygCMtgAhg&adurl=&q="
+          },
+          {
+            "title": "Reviews",
+            "url": "/goto?url=CAESaQHrOzAV27X9PCEPaT-P4nbQVuVDR3hMzaGE7IeOV_aIBagQSS0JyyainO_XihBMkVQS3ET63Mkj3P2ZK6aG5R46O0Ik3Iiq-TDLb3zS6YVVwZX3Yn1_jB0LKM-O5FLGqzeKxhji9OxOzA"
+          },
+          {
+            "title": "Gallery",
+            "url": "/goto?url=CAESaQHrOzAVipSRxlNsCLLth5k7W3w_FOaj8Yjun8PtamfRZ_K1XvualrWOhCsg-43ojzDOXo8DXKxLs1aluJ0inQnkBFBqRGG-8lzByKqDwnPGf0n-xhT3_jPSQloJmRL68BFt9X4zwjgvjA"
+          },
+          {
+            "title": "Area's #1 Painting Company",
+            "url": "/aclk?sa=L&ai=DChsSEwip4sHb4daXAxUNXP8BHXDbL44YACICCAIQChoCbWQ&co=1&gclid=EAIaIQobChMIqeLB2-HWlwMVDVz_AR1w2y-OEAMYAiAFEgKhp_D_BwE&cid=CAASugHkaAgESmgQcQ8Dy3ZzhiWu0EAXyD0lCIwtmzB124yOOzCDCzWy0q9AvBSPHwQw6hwYBzZWNnOGDZ6dVOSSS4s0Xw7onItvfSvVzMDsOBMGNL8W_TGo4yXCrRtQhj4lg3eKTi7jS2Yyjrfe_D2LZYKBsT1kvOPt7zsJt1R9MO5Pst4Zz4Eay5dEaAuyAngQ2yIr0dCxLhFE53oaJGePCjG9sZmMC7lhlcQSR0Svr_yY4GNuhnEvWRVDA6Y&cce=2&sig=AOD64_2UQDrTOARBKbSns1aO1VJ8LG1xWQ&adurl=&q="
+          },
+          {
+            "title": "Commercial Painting",
+            "url": "/goto?url=CAESdQHrOzAVPBwnEYcHPJ7JSnobliiI3eRixuIB-zuAPWGAena-0CNiy0d8mD1PcTUAdKEV-SwxTyWk1uwgpvgC_SotU4lV_3s7I2BykG1UhLLPi1y-2tx9ER8noS4naDWT8FuP2_S9aaJBm_7NWYTSsmvIJKgP4A"
+          }
+        ],
+        "type": "menu"
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 1,
+      "sub_type": "submenu",
+      "text": "Brighten Your Home With Our Expert Painting Service. Get Your Free Quote Today. Let Our Precision Painters Update The Paint On The Outside Or Inside Of Your Home. High quality materials.",
+      "title": "Interior & Exterior Painting | Residential Painters",
+      "type": "ad",
+      "url": "/goto?url=CAESYgHrOzAVuTQqgZ6OUI9AMhxBXQsz3Y2anwnNUKMw4h0a7zWsp2w57lO2MJAmBVVsHbRUsJDIfazfckOp9FHL_MHOKNsQOFYmnxVo02TMbH1oVR5a1uK6lNzub11-pxnFFPKF"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "subtitle": "4.715 Google reviews    Painter in Gwinnett County, Georgia",
+        "type": "panel"
+      },
+      "section": "rhs",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "George Holmes Painting",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/local:unified_actions",
+        "items": [
+          {
+            "text": "Website",
+            "url": "https://www.paintersuwaneega.com/"
+          },
+          {
+            "text": "Call",
+            "url": "tel:+17706140948"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 15,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "Website Directions Write a review Edit your review Save Saved Share Call",
+      "title": "Unified actions",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/location/location:address",
+        "items": [
+          {
+            "text": "Address",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnsZxGgokQKtS3igM6gksYK8HGuk5g:1792986097586&q=george+holmes+painting+address&ludocid=438938460142345748&sa=X&ved=2ahUKEwi277vb4daXAxX_jokEHexvPOUQ6BN6BAg7EAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 2,
+      "sub_type": "fact",
+      "text": "4779 Sunview Ct, Suwanee, GA 30024",
+      "title": "Address",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/local:alt phone",
+        "items": [
+          {
+            "text": "Phone",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnsZxGgokQKtS3igM6gksYK8HGuk5g:1792986097586&q=george+holmes+painting+phone&ludocid=438938460142345748&sa=X&ved=2ahUKEwi277vb4daXAxX_jokEHexvPOUQ6BN6BAg-EAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 3,
+      "sub_type": "fact",
+      "text": "(770) 614-0948",
+      "title": "Phone",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/location/location:hours",
+        "items": [
+          {
+            "text": "Hours",
+            "url": "/search?sca_esv=6a1f16ae858d4bf3&sxsrf=APpeQnsZxGgokQKtS3igM6gksYK8HGuk5g:1792986097586&q=george+holmes+painting+hours&ludocid=438938460142345748&sa=X&ved=2ahUKEwi277vb4daXAxX_jokEHexvPOUQ6BN6BAg4EAI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 4,
+      "sub_type": "fact",
+      "text": "Closed · Opens 7 AM Mon",
+      "title": "Hours",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/local/services:service_area_description",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 19,
+      "sub_rank": 5,
+      "sub_type": "fact",
+      "text": "Areas served: Suwanee",
+      "title": "Service area description",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/collection/knowledge_panels/local_reviewable:review_summary",
+        "items": [
+          {
+            "text": "Google policies",
+            "url": "https://support.google.com/contributionpolicy/answer/7400114?ref_topic=7422769"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/107396333101898205617?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"There service , quality and price were all exceptional.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s107396333101898205617!2s0x88f597249b010107:0x6176c34330a9e14?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/114916629523426673302?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"Honest, fair, reliable, and nice to work with.\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s114916629523426673302!2s0x88f597249b010107:0x6176c34330a9e14?ved=1t:31295&ictx=111"
+          },
+          {
+            "text": "",
+            "url": "https://www.google.com/maps/contrib/109291587669834276563?hl=en-US&ved=1t:31296&ictx=111"
+          },
+          {
+            "text": "\"Very happy with the whole experience .\"",
+            "url": "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s109291587669834276563!2s0x88f597249b010107:0x6176c34330a9e14?ved=1t:31295&ictx=111"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 20,
+      "sub_rank": 6,
+      "sub_type": "fact",
+      "text": "Reviews More info Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Edit your review Add photos Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. \"There service , quality and price were all exceptional.\" \"Honest, fair, reliable, and nice to work with.\" \"Very happy with the whole experience .\" View all Google reviews",
+      "title": "Review summary",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "attrid": "kc:/local:merchant_description",
+        "type": "item"
+      },
+      "section": "rhs",
+      "serp_rank": 21,
+      "sub_rank": 7,
+      "sub_type": "fact",
+      "text": "From George Holmes Painting \"Residential repaint specialist for 30 plus years. Owners are hands on to help you with the upkeep and protection of your valuable home. Free estimates. Liscened and Insured. Building our business as a working relationship for maintaining your home... More",
+      "title": "Merchant description",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}

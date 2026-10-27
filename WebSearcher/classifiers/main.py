@@ -447,6 +447,9 @@ class ClassifyMain:
         "Camping destinations",
         # Sports tournament bracket (knockout rounds).
         "Bracket",
+        # Local-business booking widgets ("<action> . <business>").
+        "Reserve a tee time",
+        "Book an appointment",
     )
 
     @staticmethod

@@ -1,9 +1,10 @@
 """Parse ad components.
 
-Seven layouts, each detected by a selector in ``AD_SUBTYPE_SELECTORS`` and parsed
+Eight layouts, each detected by a selector in ``AD_SUBTYPE_SELECTORS`` and parsed
 by its own function: legacy text ads, local-service profile cards, secondary
 text ads, shopping ads, standard text ads (with optional submenu sitelinks),
-2026-10 text ads (the standard ad without its ``div.uEierd`` wrapper), and the
+2026-10 text ads (the standard ad without its ``div.uEierd`` wrapper), 2026-10
+sponsored listing carousels (tickets & tours, hotels, events), and the
 horizontal sponsored carousel. ``parse_ads`` runs every layout whose
 selector matches, since one ``#tads`` block can host more than one.
 """
@@ -12,9 +13,9 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import get_text, has_text
-from ._common import under_any
-from .shopping_ads import parse_shopping_ads
+from ..._slx import get_text, has_text, is_element, next_siblings
+from ._common import first_text, mark_hidden_row, under_any
+from .shopping_ads import parse_listing_card_details, parse_shopping_ads
 
 # bs4 ``find("div", {"class": "X"})`` -> CSS class selector. Insertion order is
 # the order the matching layouts' rows are emitted in.
@@ -25,6 +26,7 @@ AD_SUBTYPE_SELECTORS: dict[str, str] = {
     "shopping": "div.commercial-unit-desktop-top",
     "standard": "div.uEierd",
     "text": "div[data-text-ad]",
+    "listing": '[role="listitem"] div.KZYtMc',
     "carousel": "g-scrolling-carousel",
 }
 
@@ -44,6 +46,7 @@ def parse_ads(elem: Node) -> list[dict[str, Any]]:
         "shopping": parse_ad_shopping,
         "standard": parse_ad_standard,
         "text": parse_ad_text,
+        "listing": parse_ad_listing,
         "carousel": parse_ad_carousel,
     }
     parsed: list[dict[str, Any]] = []
@@ -203,23 +206,33 @@ def parse_ad_standard(elem: Node) -> list[dict[str, Any]]:
 
 
 # Description selectors, first non-empty wins. The 2026-10 text ad puts Va3FIb
-# on its heading, so it reads only its own description div.
+# on its heading, so it reads only its own description div; its place-card
+# variants (a location extension, or a local place ad) put it in aDWSGc.
 _STANDARD_TEXT_CSS = ("div.yDYNvb", "div.Va3FIb")
-_TEXT_AD_TEXT_CSS = ("div.p4wth",)
+_TEXT_AD_TEXT_CSS = ("div.p4wth", "div.aDWSGc")
 
 
 def _parse_ad_standard_sub(
     sub: Node, sub_rank: int = 0, text_css: tuple[str, ...] = _STANDARD_TEXT_CSS
 ) -> dict[str, Any]:
     submenu = parse_ad_menu(sub)
-    sub_type = "submenu" if submenu else "standard"
-    sVXRqc = sub.css_first("a.sVXRqc")
+    # The link is a.sVXRqc on a plain text ad. A text ad with a place card links
+    # through a.Zlr9V, which carries the same data-pcu landing URL. A local place
+    # ad is the place card alone: no landing URL, only its action buttons
+    # ("Website" first), and it gets its own sub_type.
+    link = sub.css_first("a.sVXRqc") or sub.css_first("a[data-pcu]")
+    is_place = link is None and sub.css_first("div.Tw0YHf") is not None
+    link = link or sub.css_first("a[href]")
+    sub_type = "place" if is_place else "submenu" if submenu else "standard"
+    # A place card's heading also holds the "Why this ad?" affordance, which
+    # leaves trailing whitespace after the business name.
+    title = get_text(sub.css_first('div[role="heading"]'), " ")
     return {
         "type": "ad",
         "sub_type": sub_type,
         "sub_rank": sub_rank,
-        "title": get_text(sub.css_first('div[role="heading"]'), " "),
-        "url": sVXRqc.attrs.get("href") if sVXRqc is not None else None,
+        "title": title.strip() if title else title,
+        "url": link.attrs.get("href") if link is not None else None,
         "cite": get_text(sub.css_first('span[role="text"]'), " "),
         "text": _parse_ad_standard_text(sub, text_css),
         "details": submenu,
@@ -309,6 +322,40 @@ def parse_ad_text(elem: Node) -> list[dict[str, Any]]:
 # ------------------------------------------------------------------------------
 
 
+def parse_ad_listing(elem: Node) -> list[dict[str, Any]]:
+    """2026-10 sponsored listing carousels ("Sponsored tickets & tours",
+    "Sponsored hotels", "Sponsored events"): ``role=listitem`` cards with the
+    sponsored hotel carousel's name / price / source / rating fields, so they
+    share its card details. The block heading names the vertical and rides in
+    each row's ``details``. Hotel cards link to ``#`` (a script handler), which
+    carries no destination and is dropped."""
+    node: Node = elem
+    heading = first_text(node, "span.S3Mu6d")
+    cards = [c for c in node.css('[role="listitem"]') if c.css_first("div.KZYtMc") is not None]
+    rows = []
+    for sub_rank, card in enumerate(cards):
+        a = card.css_first("a[href]")
+        href = a.attrs.get("href") if a is not None else None
+        details = parse_listing_card_details(card)
+        if heading:
+            details = {**(details or {"type": "item"}), "heading": heading}
+        parsed = {
+            "type": "ad",
+            "sub_type": "carousel",
+            "sub_rank": sub_rank,
+            "title": first_text(card, "div.KZYtMc"),
+            "url": href if href and href != "#" else None,
+            "text": None,
+            "cite": None,
+            "details": details,
+        }
+        rows.append(mark_hidden_row(parsed, card))
+    return rows
+
+
+# ------------------------------------------------------------------------------
+
+
 def parse_ad_carousel(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
     ad_carousel = node.css_first("g-scrolling-carousel")
@@ -351,13 +398,29 @@ def _parse_ad_carousel_div(sub: Node, sub_rank: int) -> dict[str, Any]:
 
 
 def _parse_ad_carousel_card(sub: Node, sub_rank: int) -> dict[str, Any]:
-    a = sub.css_first("a.KTsHxd")
+    # 2026-10 vehicle cards: link a.RtAwOe, a role=heading title, then price /
+    # MSRP / condition / seller / location rows. The seller is a dealer name, not
+    # a display url, so it stays in the text rather than ``cite``.
+    a = sub.css_first("a.KTsHxd") or sub.css_first("a.RtAwOe")
+    heading = sub.css_first('[role="heading"]')
     return {
         "type": "ad",
         "sub_type": "carousel",
         "sub_rank": sub_rank,
-        "title": get_text(sub.css_first("div.gCv54b"), " "),
+        "title": get_text(sub.css_first("div.gCv54b") or heading, " "),
         "url": a.attrs.get("href") if a is not None else None,
-        "text": get_text(sub.css_first("div.VHpBje"), " "),
+        "text": get_text(sub.css_first("div.VHpBje"), " ") or _carousel_card_summary(heading),
         "cite": get_text(sub.css_first("div.j958Pd"), " "),
     }
+
+
+def _carousel_card_summary(heading: Node | None) -> str | None:
+    """The card rows after a vehicle card's title, " · "-joined."""
+    if heading is None:
+        return None
+    parts = [
+        text
+        for s in next_siblings(heading)
+        if is_element(s) and (text := get_text(s, " ", strip=True))
+    ]
+    return " · ".join(parts) or None

@@ -61,7 +61,7 @@ COMPONENT_TYPES: tuple[ComponentType, ...] = (
         name="ad",
         label="Ad",
         sections=("main",),
-        sub_types=("standard", "legacy", "secondary", "submenu"),
+        sub_types=("standard", "legacy", "secondary", "submenu", "place"),
         description="Advertisements displayed in search results",
     ),
     ComponentType(

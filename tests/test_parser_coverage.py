@@ -1152,6 +1152,52 @@ def test_bracket_module_is_knowledge(serps_by_qry):
     assert not [r for r in results if r["type"] == "unknown"]
 
 
+@pytest.mark.parametrize(
+    ("qry", "heading"),
+    [
+        ("chicopee woods golf course", "Reserve a tee time"),
+        ("juliana-hairstylist-beautician", "Book an appointment"),
+    ],
+)
+def test_booking_widget_is_knowledge(serps_by_qry, qry, heading):
+    results = ws.parse_serp(serps_by_qry[qry]["html"])["results"]
+    assert not [r for r in results if r["type"] == "unknown"]
+    headings = [(r["details"] or {}).get("heading") or "" for r in _rows_of(results, "knowledge")]
+    assert sum(h.startswith(heading) for h in headings) == 1
+
+
+def _rows_of(results, type_):
+    return [r for r in results if r["type"] == type_]
+
+
+@pytest.mark.parametrize(
+    ("qry", "n_ads", "linked"),
+    [
+        ("suwanee-painters", 2, True),  # text ad with a place card + a plain text ad
+        ("sydney rosen company, 714 sansom st, philadelphia, pa 19106", 2, True),  # place ads
+        ("lochmandy elkhart", 3, True),  # vehicle carousel
+        ("astronomical clocks czech republic", 8, True),  # tickets & tours listings
+        ("bora bora resort", 7, False),  # hotel listings link to "#"
+    ],
+)
+def test_2026_10_ad_variants_parse(serps_by_qry, qry, n_ads, linked):
+    ads = _rows_of(ws.parse_serp(serps_by_qry[qry]["html"])["results"], "ad")
+    assert len(ads) == n_ads
+    for ad in ads:
+        assert ad["title"] and _row_error(ad) is None
+        assert (ad["url"] is not None) is linked
+        assert ad["text"] or (ad["details"] or {}).get("price")
+
+
+def test_featured_results_fact_keeps_full_value(serps_by_qry):
+    rows = _knowledge(serps_by_qry["albert einstein"]["html"], "featured_results")
+    facts = {
+        r["details"]["label"]: r["details"]["value"] for r in rows if r["details"]["kind"] == "fact"
+    }
+    assert facts["Born"] == "Mar 14, 1879 · Ulm, Germany"
+    assert facts["Died"] == "Apr 18, 1955 · Princeton, NJ"
+
+
 def test_text_ad_rule_leaves_related_products_ads_to_searches_related():
     # "Find related products & services" embeds a "Sponsored results" unit;
     # searches_related (typed by its heading earlier in the chain) emits the ads.

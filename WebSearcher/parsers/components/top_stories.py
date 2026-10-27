@@ -30,17 +30,21 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     divs.extend(d for d in node.css("div.IJl0Z") if has_text(d))  # Top Stories
     divs.extend(d for d in node.css("div.JJZKK") if has_text(d))  # Perspectives
 
-    if not divs:
-        # Modern Perspectives: every carousel item is role=listitem (covers both
-        # standard cards and embedded tweets, including AI-themed sub-carousels).
-        divs.extend(node.css('[role="listitem"]'))
+    # Modern Perspectives: every carousel item is role=listitem (covers both
+    # standard cards and embedded tweets, including AI-themed sub-carousels).
+    # Cards not yet loaded at capture are empty placeholders with no text and no
+    # link; data-init-vis="false" is no signal, loaded cards carry it too. A
+    # carousel of placeholders only stops here, as the error row, rather than
+    # reaching the fallbacks below.
+    listitems: list[Node] = [] if divs else node.css('[role="listitem"]')
+    divs.extend(d for d in listitems if has_text(d) or d.css_first("a[href]") is not None)
 
-    if not divs:
+    if not divs and not listitems:
         # 2026-10 Top Stories (g-section-with-header.yG4QQe): every story card is
         # an a.aJWbwf, in the vertical list and in the div.MmyPhf clusters alike.
         divs.extend(d for d in node.css("a.aJWbwf") if has_text(d))
 
-    if not divs:
+    if not divs and not listitems:
         # Older Top Stories vertical layout
         link_divs = [d for d in node.css("a.WlydOe") if has_text(d)]
         divs.extend([div.parent for div in link_divs if div.parent is not None])

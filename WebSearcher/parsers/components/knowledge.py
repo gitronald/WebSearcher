@@ -13,7 +13,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, node_string, walk_descendants
 from ...utils import slugify
-from ._common import parse_alink, under_any
+from ._common import parse_alink, parse_lab_fact, under_any
 from .general import parse_general_result
 
 
@@ -442,13 +442,16 @@ def _parse_visual_digest(node: Node) -> list[dict[str, Any]]:
             title = attrid[len(_TRAILER_ATTRID) :] or None
             details = {"kind": "video"}
         elif is_fact:
-            # Facts render as "Label|Value" (e.g. "Age|29 years", "Genre|Pop").
-            parts = [p for p in (get_text(n, "|", strip=True) or "").split("|") if p]
-            if len(parts) < 2:
+            # Facts render as label + value, with an optional source
+            # ("Age" / "79 years · Jun 14, 1946", "Year" / "1916" / "planters.com").
+            fact = parse_lab_fact(n)
+            if fact is None:
                 continue
-            label, value = parts[0], parts[-1]
+            label, value, source = fact
             url, text = None, f"{label}: {value}"
             details = {"kind": "fact", "label": label, "value": value}
+            if source:
+                details["source"] = source
         else:
             kind = _visual_digest_kind(attrid[len("VisualDigest") :])
             text = get_text(n, " ", strip=True) or None

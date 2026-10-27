@@ -1,0 +1,528 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 15300000.0,
+    "result_estimate_time": 0.29,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "rating": "4.7",
+        "reviews": "(1.5K)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "Secluded resort with a diving center",
+      "title": "Le Bora Bora by Pearl Resorts",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0l2NGZLeGZHSWo4bTlBUkFCOApCCRF3cRO4o9d0H0IJEcU_aBUgUzahQgkR7ggIQKKQpvNaSwgBMkeqAUQQASoKIgZyZXNvcnQoADIeEAEiGgta8Oh3--BuTJe2HZKOlT5UcBgcGTmVZ09KMhQQAiIQYm9yYSBib3JhIHJlc29ydA&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "rating": "4.8",
+        "reviews": "(878)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "Popular with guests from the United States",
+      "title": "The St. Regis Bora Bora Resort",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0k2cjdvenRYVjVwSDFBUkFCOApCCRF3cRO4o9d0H0IJEcU_aBUgUzahQgkR7ggIQKKQpvNaSwgBMkeqAUQQASoKIgZyZXNvcnQoADIeEAEiGgta8Oh3--BuTJe2HZKOlT5UcBgcGTmVZ09KMhQQAiIQYm9yYSBib3JhIHJlc29ydA&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "rating": "4.7",
+        "reviews": "(919)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": "Luxe seaside resort with a spa & a pool",
+      "title": "Four Seasons Resort Bora Bora",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0lnc3V6amRicHdmamxBUkFCOApCCRF3cRO4o9d0H0IJEcU_aBUgUzahQgkR7ggIQKKQpvNaSwgBMkeqAUQQASoKIgZyZXNvcnQoADIeEAEiGgta8Oh3--BuTJe2HZKOlT5UcBgcGTmVZ09KMhQQAiIQYm9yYSBib3JhIHJlc29ydA&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "918",
+        "price": "$1,841",
+        "rating": "4.7",
+        "source": "Expedia.com",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Four Seasons Resort Bora Bora",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "1.1K",
+        "price": "$1,554",
+        "rating": "4.6",
+        "source": "Conrad Bora Bora Nui",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 1,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Conrad Bora Bora Nui",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "883",
+        "price": "$1,008",
+        "rating": "4.8",
+        "source": "The St. Regis Bora Bora Resort",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 2,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "The St. Regis Bora Bora Resort",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "337",
+        "price": "$1,032",
+        "rating": "4.6",
+        "source": "The Westin Bora Bora Resort & Spa",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 3,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "The Westin Bora Bora Resort & Spa",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "1.1K",
+        "price": "$740",
+        "rating": "4.6",
+        "source": "Expedia.com",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 4,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "InterContinental Le Moana Bora Bora Resort",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "1.5K",
+        "price": "$1,412",
+        "rating": "4.7",
+        "source": "Expedia.com",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 5,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Le Bora Bora by Pearl Resorts",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "heading": "Sponsored hotels",
+        "n_reviews": "649",
+        "price": "$294",
+        "rating": "4.1",
+        "source": "Expedia.com",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 6,
+      "sub_type": "carousel",
+      "text": null,
+      "title": "Hotel Royal Bora Bora",
+      "type": "ad",
+      "url": null
+    },
+    {
+      "cite": "https://www.fourseasons.com  › borabora",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Four Seasons Resort Bora Bora  offers an unrivalled collection of overwater bungalow suites, luxury beachfront villas and fine dining in French Polynesia.",
+      "title": "Luxury Resort in Bora Bora, French Polynesia",
+      "type": "general",
+      "url": "/goto?url=CAESYAHrOzAVsYG6TvahzmBfi7y12O5IqikbDgXkOrw1j0ICSbzTQbOSKCS_QoJqVQ8a-KyRYzk-nHaL_5FH5uN0D0X9UN8-421gSz9FKp299Nj83X4GFU8LGFZmcFOtnqN62g"
+    },
+    {
+      "cite": "https://jyoshankar.com  › Blog",
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The 6 best luxury resorts in Bora Bora ·  1 ) FOUR SEASONS BORA BORA  · 2 ) ST REGIS BORA BORA · 3 ) LE BORA BORA BY PEARL RESORTS · 4 ) CONRAD BORA BORA NUI ...",
+      "title": "The 6 best luxury resorts in Bora Bora",
+      "type": "general",
+      "url": "/goto?url=CAESgQEB6zswFasOWDdbxsL5Z93tupj8uEzWmm_5Qa6MJ6v91io0NE92psoB0pbisWhzRrDUZEK-QzldktCXe8kvMPZw9qGkP0kBHpCel-y1xKvppuYOzIY8H0OD4xq9Dzbb-Y0FKM18-Ld9Hf6npDlWJSAtTvg4fu1G1YxMyNDNRRBzuUk"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": {
+        "items": [
+          "How much will a trip to Bora Bora cost?",
+          "How much does it cost to stay at Bora Bora resort?",
+          "What country is Bora Bora on?",
+          "Which Bora Bora resort is best?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "How much will a trip to Bora Bora cost?<|>How much does it cost to stay at Bora Bora resort?<|>What country is Bora Bora on?<|>Which Bora Bora resort is best?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://www.marriott.com  › French Polynesia › Bora Bora",
+      "cmpt_rank": 5,
+      "details": {
+        "n_reviews": 1323,
+        "rating": 4.8,
+        "scale": 5,
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "The resort features  overwater bungalows and land villas , a private-island spa, Lagoonarium, fitness center, four restaurants and two bars.",
+      "title": "The St. Regis Bora Bora Resort | 5-Star Luxury Overwater ...",
+      "type": "general",
+      "url": "/goto?url=CAESjgEB6zswFalIqHAl1ydDK33_szWHw3_1iO1BineiE732dZEt9-trlcLVdifynFz-7Xz5v3wBXlTmvncMrGCyNyAeFn2iNZOl7wvcy5u-CeWCaQSpO46TOCRNpVyYAwUovMHxVOfqz072NwDybOxoPSePPyYGfv-o4DO6_khyLY7WIy9NzPw-wWpxJGEnWOtl"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 6,
+      "details": {
+        "heading": "Find related products & services",
+        "items": [
+          "Bora Bora private villa",
+          "Hotels Bora Bora",
+          "Bora Bora Marriott",
+          "St regis Bora Bora all inclusive packages",
+          "Bora Bora Hilton",
+          "Best place to stay in Bora Bora"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": "find_related_products_&_services",
+      "text": "Bora Bora private villa<|>Hotels Bora Bora<|>Bora Bora Marriott<|>St regis Bora Bora all inclusive packages<|>Bora Bora Hilton<|>Best place to stay in Bora Bora",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": "https://www.tripadvisor.com  › ... › Bora Bora Hotels",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "5 Star Resorts ·  1. Conrad Bora Bora Nui  · 2. The Westin Bora Bora Resort & Spa · 3. The St. Regis Bora Bora Resort · 4. Four Seasons ...",
+      "title": "THE 5 BEST Bora Bora 5 Star Resorts of 2026 (with Prices)",
+      "type": "general",
+      "url": "/goto?url=CAESigEB6zswFXO-MJ6SGBq8J11kSMRmTSN1SIe6VX3CekDzBuOds8w6-PXzaYKQdlqCmkdX7mHNth8ChdmI_A4B7fHkqPTtlnvgJkIqJ_qIK4Ar-S-iOiM5oAswOxEqoIDsoZnBxeeHu3JzJjDVLYf3pCgoDHOgAz3zpQAwnZwoGj3waN1EWVyOzVJClp4"
+    },
+    {
+      "cite": "https://bora-bora-insider.com  › best-all-inclusive-resorts...",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "10 Best All-Inclusive Resorts In Bora Bora (2026) ·  1. Intercontinental Bora Bora Le Moana Resort  · 2. Four Seasons Resort Bora Bora · 3. Conrad Hilton Bora ...",
+      "title": "10 Best All-Inclusive Resorts In Bora Bora (2026)",
+      "type": "general",
+      "url": "/goto?url=CAESgQEB6zswFbh0KMI557peN8g3YxXef08n1uJsjSjbTOcjoY22UG-08RJ1TZCt2mqwjA6miXTSbPvQqF8Y3DvYNbDdldFOpvYkYTqlZiWhqGC2ekRv_58kN5M0vHgr2DNclgMFzn66OJ8jVS3vBwSQQhhi3mJa8qWZ3zIVzSeXLAxkjpQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": {
+        "rating": "4.6",
+        "reviews": "(1.1K)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "Lush beachfront hotel with dining",
+      "title": "InterContinental Le Moana Bora Bora Resort",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0kxTUtaMUtIYXNhTlRFQUU4CkIJEdL_CATmGNaSQgkRtJA4DtKjgC9CCRFWRQMy61_1a1pLCAEyR6oBRBABKgoiBnJlc29ydCgAMh4QASIaC1rw6Hf74G5Ml7Ydko6VPlRwGBwZOZVnT0oyFBACIhBib3JhIGJvcmEgcmVzb3J0&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": {
+        "rating": "4.6",
+        "reviews": "(1.1K)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "Chic beach retreat with dining & a spa",
+      "title": "Conrad Bora Bora Nui",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0k4XzZUaElhVTJiZ21FQUU4CkIJEdL_CATmGNaSQgkRtJA4DtKjgC9CCRFWRQMy61_1a1pLCAEyR6oBRBABKgoiBnJlc29ydCgAMh4QASIaC1rw6Hf74G5Ml7Ydko6VPlRwGBwZOZVnT0oyFBACIhBib3JhIGJvcmEgcmVzb3J0&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 9,
+      "details": {
+        "rating": "4.6",
+        "reviews": "(340)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "The Westin Bora Bora Resort & Spa",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyFENnc0k5Nkhxc0x6Z29fTG1BUkFCOApCCRHS_wgE5hjWkkIJEbSQOA7So4AvQgkRVkUDMutf9WtaSwgBMkeqAUQQASoKIgZyZXNvcnQoADIeEAEiGgta8Oh3--BuTJe2HZKOlT5UcBgcGTmVZ09KMhQQAiIQYm9yYSBib3JhIHJlc29ydA&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": "https://www.booking.com  › ... › French Polynesia",
+      "cmpt_rank": 10,
+      "details": null,
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Four Seasons Resort Bora Bora  features luxurious over-water bungalows and beachfront villas … offers 2 swimming pools, 2 bars, 4 restaurants and a luxurious ...",
+      "title": "Resorts in Bora Bora - French Polynesia",
+      "type": "general",
+      "url": "/goto?url=CAEScwHrOzAVVysdm6MwZTIFzkYZom62moKvIuYnQtN8ROaDXz2JLpySjlM4tg-wVN4nF8IBCRL_12mpgLBjwfCJ2eKFjV71jSyHnjbsa6_l8Ik-8zIDcGQJ2PlNrA9Jm5g9RSzcwumduwbF_XbvF1OqP5EuN48"
+    },
+    {
+      "cite": "https://ladyhattan.com  › bora-bora-four-seasons-resort",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 21,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Here at the Four Seasons,  each overwater bungalow is huge and filled with posh amenities , all to the backdrop of amazing views of Bora Bora and its surrounding ...",
+      "title": "Bora, Bora - The Four Seasons Resort",
+      "type": "general",
+      "url": "/goto?url=CAEScAHrOzAVEZlJ482b5P2xANQLTA7FojLOQPK-v53BfCsbc-3KtHRGa6fsMt3EuUlYFul7kQzMraJqIqBg1Md_8vtt5ABZwVJlJ9SVy4VSNzS7_-5ZLF-CA9oJEahpuEavnJLATWX0kGEOMvh4Kf9AahA"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "rating": "4.1",
+        "reviews": "(924)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 22,
+      "sub_rank": 0,
+      "sub_type": "hotels",
+      "text": "Relaxed quarters, dining & loaner boats",
+      "title": "Hotel Maitai Polynesia",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0lrcDc0NnFMT25lWnBFQUU4CkIJERuzG4QGx4w2QgkRN6otymrz_09CCREshosEKGYPXFpLCAEyR6oBRBABKgoiBnJlc29ydCgAMh4QASIaC1rw6Hf74G5Ml7Ydko6VPlRwGBwZOZVnT0oyFBACIhBib3JhIGJvcmEgcmVzb3J0&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$241",
+        "rating": "4.1",
+        "reviews": "(654)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 23,
+      "sub_rank": 1,
+      "sub_type": "hotels",
+      "text": "Laid-back hotel with a private beach",
+      "title": "Hotel Royal Bora Bora",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0l1SWZIbU9XMDdlOGZFQUU4CkIJERuzG4QGx4w2QgkRN6otymrz_09CCREshosEKGYPXFpLCAEyR6oBRBABKgoiBnJlc29ydCgAMh4QASIaC1rw6Hf74G5Ml7Ydko6VPlRwGBwZOZVnT0oyFBACIhBib3JhIGJvcmEgcmVzb3J0&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 12,
+      "details": {
+        "price": "$212",
+        "rating": "4.9",
+        "reviews": "(171)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 24,
+      "sub_rank": 2,
+      "sub_type": "hotels",
+      "text": "Laid-back hotel with an outdoor pool",
+      "title": "Bora Bora Holidays Lodge",
+      "type": "locations",
+      "url": "/travel/search?g2lb=4965990,72471280,72573224,72647020,72686036,72803964,72882230,73064764,121529350,121608706,121738283,121921501,121951222,122078727,122093076&hl=en-US&gl=us&ssta=1&q=bora+bora+resort&ts=CAESCgoCCAMKAggDEAAaHBIaEhQKBwjqDxALGBMSBwjqDxALGBQYATICEAAqBwoFOgNVU0Q&qs=CAEyE0Nnb0k0cXpKNS1PNm1OTklFQUU4CkIJERuzG4QGx4w2QgkRN6otymrz_09CCREshosEKGYPXFpLCAEyR6oBRBABKgoiBnJlc29ydCgAMh4QASIaC1rw6Hf74G5Ml7Ydko6VPlRwGBwZOZVnT0oyFBACIhBib3JhIGJvcmEgcmVzb3J0&ap=aAG6AQhvdmVydmlldw&ictx=111&ved=1t:196188"
+    },
+    {
+      "cite": "https://www.tahiti.com  › hotels › bora-bora",
+      "cmpt_rank": 13,
+      "details": null,
+      "section": "main",
+      "serp_rank": 25,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Search Bora Bora`s Best Resort Hotel Deals  - Early Booking and Long-Stay Discounts, Stay 5 Pay 3, Island Combo Offers, Resort Credits and More!",
+      "title": "Bora Bora Resorts and Hotels",
+      "type": "general",
+      "url": "/goto?url=CAESYgHrOzAVpsbduVneDq88vPnbWB5_GJdsXuGWjPQ_-5qW5afQruuS8oz-XhDI5EH0qfH4gcVYELxTxBGPuSxVbxylQZHf6h1EUQcWLT-kZuw_HBKq1yfHsRtII3UlPUgf7MnJ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "main",
+      "serp_rank": 26,
+      "sub_rank": 0,
+      "sub_type": "medium",
+      "text": null,
+      "title": "Top Three Best Luxury Hotels in Bora Bora — JETSET & TRAVEL",
+      "type": "images",
+      "url": "/goto?url=CAESewHrOzAVI67SsOVnusYA2pFUa4363UhxY1qi2MtPyNBkVpVid_bOcZQ2U2EBySRTz2-be7bJFfvbYmx7HpY-0RUiBRxy1CPMg0q4meqKf9cL9iFTA9_eivgIbzrTVgd14sox7GF0m9hQ11BUs3gZF_1uACm9katQckZBzQ"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "main",
+      "serp_rank": 27,
+      "sub_rank": 1,
+      "sub_type": "medium",
+      "text": null,
+      "title": "The St. Regis Bora Bora Resort | 5-Star Luxury Overwater ...",
+      "type": "images",
+      "url": "/goto?url=CAESjgEB6zswFY9fXkanNKAMR6Dtn8ucjZHf6FZ5-TKRTd_rLhaijc_GgcIzGHvSQthBaIVB8LdCiquVoXh0IXRy-SEEKFWdB5foBx5gn1r7VURXOa7syTY_xBMuazAyjfVDIZ0NhlUgk1cSIvwVgqfHD8n_Bg3w5QBK8FjBeQD8D59gVOnzb_f5SOq58AXvgPyi"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": null,
+      "section": "main",
+      "serp_rank": 28,
+      "sub_rank": 2,
+      "sub_type": "medium",
+      "text": null,
+      "title": "The St. Regis Bora Bora Resort - Bora Bora Hotels - Bora ...",
+      "type": "images",
+      "url": "/goto?url=CAESnAEB6zswFXjxNe6k1mv13Eltfk0d6hqdUUwdwjjw7TCRVOAuStbLe1B6csN7_Y4T1UT7rHVsG4b8Jn_wk1o2l9A8K1JSIczA4gNWlDoyelacg-pVKNQP-Vi-KRcRsyxLH_9lN6G6Yz8faGXctU5_jt880INe1dxyFO6TgcG6NU7BUEojtvFs8Dt7YMro-C1bGFIYbG4sb4DnINtPkYg"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 15,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Bora bora resort all inclusive",
+          "St Regis Bora Bora",
+          "Bora bora resorts for couples",
+          "Bora bora resort packages",
+          "Wi bora bora resort",
+          "Wi bora bora resort and spa",
+          "Bora Bora resorts location",
+          "Bora bora resort reviews"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 29,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Bora bora resort all inclusive<|>St Regis Bora Bora<|>Bora bora resorts for couples<|>Bora bora resort packages<|>Wi bora bora resort<|>Wi bora bora resort and spa<|>Bora Bora resorts location<|>Bora bora resort reviews",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    }
+  ]
+}

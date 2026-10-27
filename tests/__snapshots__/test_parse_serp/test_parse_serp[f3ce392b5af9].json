@@ -1,0 +1,351 @@
+{
+  "features": {
+    "captcha": false,
+    "infinity_scroll": false,
+    "language": "en",
+    "main_layout": "standard",
+    "overlay_precise_location": false,
+    "result_estimate_count": 79800000.0,
+    "result_estimate_time": 0.29,
+    "server_error": false
+  },
+  "results": [
+    {
+      "cite": null,
+      "cmpt_rank": 0,
+      "details": {
+        "heading": "AI Overview",
+        "text": "AI Overview|Mr. Peanut",
+        "type": "panel"
+      },
+      "section": "main",
+      "serp_rank": 0,
+      "sub_rank": 0,
+      "sub_type": "panel",
+      "text": null,
+      "title": "AI Overview Mr. Peanut",
+      "type": "knowledge",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 1,
+      "details": {
+        "citations": [
+          {
+            "additional_count": 0,
+            "publisher": "Wikipedia",
+            "source_ids": []
+          },
+          {
+            "additional_count": 3,
+            "publisher": "PLANTERS® Brand",
+            "source_ids": []
+          }
+        ],
+        "type": "ai_overview"
+      },
+      "section": "main",
+      "serp_rank": 1,
+      "sub_rank": 0,
+      "sub_type": "flat",
+      "text": "Mr. Peanut (properly named Bartholomew Richard Fitzgerald-Smythe ) is the iconic anthropomorphic Mr. Peanut mascot and advertising logo for the Planters snack-food brand. Origin: He was created in 1916 by 14-year-old Antonio Gentile as part of a student design contest held by the Planters Nut and Chocolate Company . The Look: Gentile’s original sketch was enhanced by a commercial artist who added his signature top hat, monocle, cane, spats, and white gloves to give him the appearance of an old-fashioned gentleman. Identity: He is traditionally characterized as having British heritage and a refined demeanor.",
+      "title": null,
+      "type": "ai_overview",
+      "url": null
+    },
+    {
+      "cite": "https://www.planters.com  › mr-peanut",
+      "cmpt_rank": 2,
+      "details": null,
+      "section": "main",
+      "serp_rank": 2,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "For over a century, MR. PEANUT ®  has stood as a symbol of enduring quality and character:  monocle polished, top hat tipped, and always composed under pressure .",
+      "title": "Mr. Peanut",
+      "type": "general",
+      "url": "/goto?url=CAESXgHrOzAVc0BBmRD-8iNWEhJ7gQVI33B2as6OMOz-6JLJ3_rBd-BSzOiHrXlISGUcuvgC2D80XLNfEddQdVzy7K5_u3Nt1IVEbPqbGpl25rC0l_hOss18OjCpRnggTGk"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": {
+        "items": [
+          "What was the Mr. Peanut controversy?",
+          "Is Mr. Peanut still around?",
+          "Who replaced Mr. Peanut?",
+          "Who is Mr. Peanut based off of?"
+        ],
+        "type": "text"
+      },
+      "section": "main",
+      "serp_rank": 3,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "What was the Mr. Peanut controversy?<|>Is Mr. Peanut still around?<|>Who replaced Mr. Peanut?<|>Who is Mr. Peanut based off of?",
+      "title": null,
+      "type": "people_also_ask",
+      "url": null
+    },
+    {
+      "cite": "https://en.wikipedia.org  › wiki › Mr._Peanut",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 4,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mr. Peanut  is the advertising logo and mascot of Planters, an American snack-food company owned by Hormel. He is depicted as an anthropomorphic peanut in ...",
+      "title": "Mr. Peanut",
+      "type": "general",
+      "url": "/goto?url=CAESYwHrOzAVLYI2DUcMgoUVGwp1vgjnmiFaOTjf-S45wY7-OtlHLxzcBEjgm5ryqGA5h_QmcU6we-YLNXTYxBwfwyNQr4eC6TkcR6oW1TK0A3lAzr742bN0yAmrRQlv8JBHTO8JJg"
+    },
+    {
+      "cite": "643.6K+ followers",
+      "cmpt_rank": 5,
+      "details": null,
+      "section": "main",
+      "serp_rank": 5,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Bartholomew Richard Fitzgerald-Smythe, aka Mr. Peanut . 109 years young. Can usually be found in the @planters_nutmobile.",
+      "title": "Mr. Peanut (@mrpeanut)",
+      "type": "general",
+      "url": "/goto?url=CAESXQHrOzAVSUBS95M-AEOG7polZ4pxV6D3un8ckrXeIdfh1duJO_Pxel4ClLfZJc96UFR_LnjGYcFI5iygD8t1EUsjRudliRSheGbWw7op2J1NaoV6ta5bNIQXFM560Q"
+    },
+    {
+      "cite": "https://www.hormelfoods.com  › newsroom › news › 13...",
+      "cmpt_rank": 6,
+      "details": null,
+      "section": "main",
+      "serp_rank": 6,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Jan 21, 2022  —  Mr. Peanut® —the dapper little legume who has been peddling Planters peanuts for more than a century—has died at the ripe old age of 104.",
+      "title": "13 Salty Facts About Mr. Peanut®",
+      "type": "general",
+      "url": "/goto?url=CAEShAEB6zswFY_zh6v8ayltbP0DX8zdgdp3JmmM5CEmEoWTZsn4aDQZ0WZgvsKzu4cbI0pvXActMB5tGYnQzyXiEtgg_tEJP0x_NpG2y9ZeAloBs-YydQr6oW2Pe_EE2srLY97acttBaRTZoTmQgHxAeSCFMoxwqNfQXuyUiteYQ70kD6VyNko"
+    },
+    {
+      "cite": "https://www.planters.com  › our-story",
+      "cmpt_rank": 7,
+      "details": null,
+      "section": "main",
+      "serp_rank": 7,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "From the pencil of schoolboy Antonio Gentile in 1916 came  MR. PEANUT ® , the dapper icon recognized the world over. Whether it's in commercials, movies, or ...",
+      "title": "Our Story — PLANTERS® Brand",
+      "type": "general",
+      "url": "/goto?url=CAESXgHrOzAValagnhrMVLc7NTNynEAScckq20_0_S7Uzd5_1okaEQcjIgSydE6u8-votLTS3Fl8AFJXg9ni3M1VAN0I1MDTTSwc-V4ySKWPFiw-nBmHCY9xu9CXX-riZmM"
+    },
+    {
+      "cite": "31.8K+ followers",
+      "cmpt_rank": 8,
+      "details": null,
+      "section": "main",
+      "serp_rank": 8,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mr. Peanut @Planters 31.8K subscribers•594 videos  Bartholomew Richard Fitzgerald-Smythe, aka Mr. Peanut . 109 years young. New NUTmobile Tour 3.7K",
+      "title": "Planters - Mr. Peanut",
+      "type": "general",
+      "url": "/goto?url=CAESXAHrOzAV0dTEIPAXbzV5nY-tx1y66sldasNWx44_IbpjK73d14dlOnR72WyOmFozBNBj4h3DL_dQayMksCN8O55BjFuAfklCjvYQStQZqupO9X9NcW56s1hY9br_"
+    },
+    {
+      "cite": "113K+ followers",
+      "cmpt_rank": 9,
+      "details": null,
+      "section": "main",
+      "serp_rank": 9,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "Mr. Peanut  @MrPeanut Mr. P, Aries, Inquisitive. Planters Joined December 2010 205 Following 113.2K Followers. Grab a handful peanuts, SHAKE THE APPROPRIATE ...",
+      "title": "Mr. Peanut (@MrPeanut) / X",
+      "type": "general",
+      "url": "/goto?url=CAESWQHrOzAVnZ5nOZvb_fyayU4bWmogpwF7qzTw09aK_vlTHBi0xa4F0IlhMnilIpJj6bBvm-X6xJnFuJKbxE0vmPtCrYcxRsvmtjQZijGHgLei2rNbgbpRweOG"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "3 days ago",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 0,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "We Tested a 30-Year Old Mr Peanut Toy That 'Makes' Peanut Butter (feat @emmymade )",
+      "type": "perspectives",
+      "url": "/goto?url=CAESZgHrOzAVneaxAebxngDZf62pYmPxAbP_5Nru2xwjUL727b8okWycK-EEEhUng16r2Tk2MhF65_JNEGWVWckmAhPQSJKiOyQbUIhZbggWIXnaYmXx1QH5hRW2UeCDXnbsfnGxPPk39w"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "Aug 14, 2026",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 1,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Peanut Found His New Bestfriend",
+      "type": "perspectives",
+      "url": "/goto?url=CAESZQHrOzAVI34kebZAz5ZpPQfwWALU6Hfj7WN-m-5iryUzRu_K70zoHKrycBduC2O5T6Vtopi2Qw_dWAS6C9dynymvYMvzGzZ_5bSCTCzZRYhNBRRgCb3ccKfW9aWEh1Zl5cU5M9kM"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "Aug 14, 2026",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 2,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "🥜 Mr. Peanut, the mascot with the top hat, monocle, and cane, was born out of a fifteen year old immigrant boy selling nuts on a street corner in Wilkes-Barre. 🇮🇹 Amedeo Obici arrived in Wilkes-Barre in 1892 with almost nothing and started working at a fruit an",
+      "type": "perspectives",
+      "url": "/goto?url=CAESyQEB6zswFXCvB8VtVKWUxHOfDSxskvUTKrIjvamfTpfSzPo1z_oK7DYaaknt6Qc_u4-R23Vou4teX8Y8_ypQT4yHyIOXCfppwDEUnBU7SNYqJ8X-qJ8h2CM3c0rLyibT2xb5l3v8F-VaF0rk13b2yOAgnCQDj2jY3bqLZA_Iw9nK3UqzkTuI2NF1TIs6frKj0waslpU0dFJZRukTUBB9XE8cj8Iska0DMksWpizYaxhic4cWu3LpCawVC3OtFWt8Y9BTPJ4eq9JDeFk"
+    },
+    {
+      "cite": "https://americanhistory.si.edu  › explore › stories › mr-p...",
+      "cmpt_rank": 11,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "May 6, 2014  —  Gentile earned $5, and became forever known as the young boy who created  Mr .  Peanut . polish from a graphic artist.  Mr .  Peanut , the trademark ...",
+      "title": "Mr. Peanut and Antonio Gentile: A trademark that defined ...",
+      "type": "general",
+      "url": "/goto?url=CAESngEB6zswFdy2KkbPvtvR_WlebSgrzxElhc67bABONwmI5bDArw1hk4e4HsrmMnYiWgqH-pfINHr_ZdS6xKIVGoBkZCIh5hg82mML9sQ4M-LdeO1bWyJcqRA8KFqhFXqR9TsafMZNpgJhhZrnZldkIbGxR7eqNtKN-8WUKj0-LARMPieZ4JYFbnPsfYwB21NW6FzkXkQEtHnEpN0ZlJI01g"
+    },
+    {
+      "cite": "https://www.amazon.com  › Peanut-Vintage-Contemporari...",
+      "cmpt_rank": 12,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 0,
+      "sub_type": null,
+      "text": "A man suspected of killing his wife  is investigated by detectives with their own marital troubles, while a mysterious hitman named Mobius complicates the case.",
+      "title": "Mr. Peanut (Vintage Contemporaries) - Ross, Adam",
+      "type": "general",
+      "url": "/goto?url=CAEShwEB6zswFWG7kUVG5eINvSLhLJCVdy5BYagrKPYxfUXp0m88t0UDHwif5BgeA7fkDycpglMwmODV1Rw_Og8FIsRjYJH2s4oD4f4D8Z6q0u3UAr-oqYlSTEwyRmeyKTCqq6m62FD6yO4wOfyqImSj4msVj4Q7OQmPsLU3Aq7kJauzMSTc_ZegSv0"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 13,
+      "details": {
+        "heading": "People also search for",
+        "items": [
+          "Mr peanut death",
+          "Mr Peanut streamer",
+          "Mr Peanut costume",
+          "Mr peanut brand",
+          "Mr Peanut products",
+          "Mr peanut Baby",
+          "Mr Peanut Mandela",
+          "Mr Peanut name"
+        ],
+        "type": "text"
+      },
+      "section": "footer",
+      "serp_rank": 15,
+      "sub_rank": 0,
+      "sub_type": "people_also_search_for",
+      "text": "Mr peanut death<|>Mr Peanut streamer<|>Mr Peanut costume<|>Mr peanut brand<|>Mr Peanut products<|>Mr peanut Baby<|>Mr Peanut Mandela<|>Mr Peanut name",
+      "title": null,
+      "type": "searches_related",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "lab/fact/1p/Creator",
+        "items": [
+          {
+            "text": "Creator Antonio Gentile",
+            "url": "/search?sca_esv=4d36bf67006e2f52&sxsrf=APpeQnspEa2F9TuVnR3W4Pk51r0uJLXXew:1792993546303&q=Antonio+Gentile&si=APenkKkicnuBo3HChbgOSg9PTrSKjmOZoDYMZFfiLeKjxtW67w3fHyID3jFoDRcqco9MpWaUlMu_sb7NTZncOF44C1irkUbzvF_kpYrwm-tXoPkkGZ3R8ENPHyE1k3nSr1l4ZrI8hm18LRGqsjkZhrdki4z_yXRhm4RqRJRc90Zhsh5Zi7nUqlKvNilD8T5gXsmdQEU0WwUsYmlKCsejQRWJZKxQJuHdMQ%3D%3D&sa=X&ved=2ahUKEwiZvKW7_daXAxXVjokEHQQ6KmsQ18AJegQIIBAB"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 16,
+      "sub_rank": 0,
+      "sub_type": "fact",
+      "text": "Antonio Gentile",
+      "title": "Creator",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "attrid": "lab/fact/1p/Year",
+        "items": [
+          {
+            "text": "Year 1916 planters.com",
+            "url": "/goto?url=CAESXgHrOzAVNHdUXkkcixRfdTUFlhYTfvjWuBNfI1yAYjYyTXv8plnKR_MqKJZO_aVl8fW8zdR-bf2rC6HJjGppQ1i3PYx_f_ExHkPF3rywddFS5RXnvb0vmXAzZ4UbEFY"
+          }
+        ],
+        "source": "planters.com",
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 17,
+      "sub_rank": 1,
+      "sub_type": "fact",
+      "text": "1916",
+      "title": "Year",
+      "type": "side_bar",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 14,
+      "details": {
+        "items": [
+          {
+            "text": "Mr. Monopoly",
+            "url": "/search?sca_esv=4d36bf67006e2f52&sxsrf=APpeQnspEa2F9TuVnR3W4Pk51r0uJLXXew:1792993546303&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yTrNG0567HqqdBCgbyVPAUTBLSbeqFWfqIg-QKLSQ76OtO4TLSChstgcxll4axk8-_vLdGL0jeb3XFyUi4oGziB3qh4buqI_YKlnq05mGhlheEA6a2tuf1zwKtIFrwF2qQugijHLT4VMouPywbF7pdaczUDVAmbKBandh3k9hbcblPiNNQ%3D%3D&q=Mr.+Monopoly&sa=X&ved=2ahUKEwiZvKW7_daXAxXVjokEHQQ6KmsQs9oBKAB6BAgUEAY"
+          },
+          {
+            "text": "Pillsbury Doughboy",
+            "url": "/search?sca_esv=4d36bf67006e2f52&sxsrf=APpeQnspEa2F9TuVnR3W4Pk51r0uJLXXew:1792993546303&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yeQs_pU8mRA_z61iRvswnct4TEbrnLUE5-W0DEQ0bUE5U8mxI4ch5ClGmEfkLrp5ia-GhBYxqTxBtZ4g6rtgRaB7wT3O3d9Je0zsVYdVzLKWH9Ix5t182BoOdcYuVLJ1YB241G0IAJLn6yEUitvSCHRWZFBTdOSc8ERlFgVtx39VizsuaA%3D%3D&q=Pillsbury+Doughboy&sa=X&ved=2ahUKEwiZvKW7_daXAxXVjokEHQQ6KmsQs9oBKAB6BAgUEAo"
+          },
+          {
+            "text": "Mr. Peanutbutter",
+            "url": "/search?sca_esv=4d36bf67006e2f52&sxsrf=APpeQnspEa2F9TuVnR3W4Pk51r0uJLXXew:1792993546303&si=APenkKmVGdgpMPDQZoEWS8RIAhsqXAKlNLP0B8DNkkiU9KPI0cWJ6L2JyTDbtJL9CYg9A0Gsx3DjRaDtRY839KeCGc3wvuJn_xxkwdEUqSfkb6zY5gE-UtpURhN9oluUmoXwJmfhBTgZIkaaVWUVw3dlET9lZjV84XghDFlMlhGFTlSXQKSzKzFTj0DgxBChbVGLPAwqRqdHbNmaSAfb6x8wyczy0b75VQ%3D%3D&q=Mr.+Peanutbutter&sa=X&ved=2ahUKEwiZvKW7_daXAxXVjokEHQQ6KmsQs9oBKAB6BAgUEA4"
+          },
+          {
+            "text": "Charlie the Tuna",
+            "url": "/search?sca_esv=4d36bf67006e2f52&sxsrf=APpeQnspEa2F9TuVnR3W4Pk51r0uJLXXew:1792993546303&si=APenkKlisoOXLiCMwraINHtdqOQii4CK9kOlkQc8Apn-pS60yZFtAOHHunr4R96HeQ8Im3nqputrme3_d8yNlUWFxoIoUlTH5yQaGGMpUc1ZT6nKuVrWgR2suZg_FuvLI6UKH-V_piQzJZe2uyD8EfOAi9imNaQlLqvZAjbdinrDSNcQj_oEglW04-4Arkvle2i6T0oDS1e_Lg3lMVpa8Ls87q6OgbU72A%3D%3D&q=Charlie+the+Tuna&sa=X&ved=2ahUKEwiZvKW7_daXAxXVjokEHQQ6KmsQs9oBKAB6BAgUEBI"
+          }
+        ],
+        "type": "hyperlinks"
+      },
+      "section": "rhs",
+      "serp_rank": 18,
+      "sub_rank": 2,
+      "sub_type": "links",
+      "text": null,
+      "title": "People also search for",
+      "type": "side_bar",
+      "url": null
+    }
+  ]
+}
