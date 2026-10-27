@@ -1,7 +1,7 @@
 ---
 id: 64
 slug: perspectives-placeholder-rows
-status: active
+status: implemented
 branch: feature/perspectives-placeholder-rows
 created: 2026-10-26T13:40:53-07:00
 concluded:
@@ -70,3 +70,4 @@ No `perspectives` row in the fixture corpus has `title`, `url`, `text`, and
     - Snapshots: 5 records lose 30 rows (27 `perspectives`, 3 `recent_posts`), every one with `title`, `url`, `text`, and `cite` all `None`; no row added, `sub_rank` contiguous, `serp_rank` sequential. Four records carry perspectives placeholders, not the two the plan counted: `0287f7dfbfc8` and `f3ce392b5af9` arrived in the 2026-10 follow-up fixtures after the plan was written.
     - `test_perspectives_have_url` is back to its pre-063 form; new unit test `test_perspectives_placeholder_cards_are_not_rows`.
     - Gate: ruff, ruff format, pyrefly clean; 867 passed, coverage 85.06%.
+- **2026-10-26T17:52:33-07:00** — Implemented: 5 commits ahead of `dev`.
