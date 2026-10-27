@@ -125,17 +125,34 @@ def test_top_stories_overlapping_selectors_do_not_duplicate_cards():
     assert [r["title"] for r in rows] == ["a", "b"]
 
 
+_PLACEHOLDER = "<div role='listitem' class='be9mkb' data-init-vis='false'><div></div></div>"
+
+
 def test_perspectives_placeholder_cards_are_not_rows():
-    placeholder = "<div role='listitem' class='be9mkb' data-init-vis='false'><div></div></div>"
     card = (
         "<div role='listitem' data-init-vis='false'><a href='/p'>"
         "<div class='n0jPhd'>Loaded</div><div class='Dx69l'>Site</div></a></div>"
     )
-    html = f"<div><div role='list'>{placeholder}{card}{placeholder}</div></div>"
+    html = f"<div><div role='list'>{_PLACEHOLDER}{card}{_PLACEHOLDER}</div></div>"
     rows = top_stories.parse_top_stories(_node(html, "div"), ctype="perspectives")
     assert [(r["sub_rank"], r["title"], r["url"], r["cite"]) for r in rows] == [
         (0, "Loaded", "/p", "Site")
     ]
+
+
+def test_perspectives_link_only_card_is_a_row():
+    card = "<div role='listitem'><a href='/v' aria-label='clip'><img src='x.jpg'></a></div>"
+    html = f"<div><div role='list'>{_PLACEHOLDER}{card}</div></div>"
+    rows = top_stories.parse_top_stories(_node(html, "div"), ctype="perspectives")
+    assert [(r["sub_rank"], r["url"]) for r in rows] == [(0, "/v")]
+
+
+def test_perspectives_placeholders_only_do_not_reach_later_fallbacks():
+    other = "<div><a class='WlydOe' href='/z'>Other</a></div>"
+    html = f"<div><div role='list'>{_PLACEHOLDER}{_PLACEHOLDER}</div>{other}</div>"
+    rows = top_stories.parse_top_stories(_node(html, "div"), ctype="perspectives")
+    assert len(rows) == 1
+    assert rows[0]["details"]["error"] == ERR_NO_SUBCOMPONENTS
 
 
 def test_view_more_news_comment_node_is_not_a_row():
