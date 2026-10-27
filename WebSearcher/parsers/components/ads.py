@@ -216,11 +216,14 @@ def _parse_ad_standard_sub(
     sub: Node, sub_rank: int = 0, text_css: tuple[str, ...] = _STANDARD_TEXT_CSS
 ) -> dict[str, Any]:
     submenu = parse_ad_menu(sub)
-    sub_type = "submenu" if submenu else "standard"
     # The link is a.sVXRqc on a plain text ad. A text ad with a place card links
-    # through a.Zlr9V, which carries the same data-pcu landing URL, and a local
-    # place ad has only its action buttons ("Website" first).
-    link = sub.css_first("a.sVXRqc") or sub.css_first("a[data-pcu]") or sub.css_first("a[href]")
+    # through a.Zlr9V, which carries the same data-pcu landing URL. A local place
+    # ad is the place card alone: no landing URL, only its action buttons
+    # ("Website" first), and it gets its own sub_type.
+    link = sub.css_first("a.sVXRqc") or sub.css_first("a[data-pcu]")
+    is_place = link is None and sub.css_first("div.Tw0YHf") is not None
+    link = link or sub.css_first("a[href]")
+    sub_type = "place" if is_place else "submenu" if submenu else "standard"
     # A place card's heading also holds the "Why this ad?" affordance, which
     # leaves trailing whitespace after the business name.
     title = get_text(sub.css_first('div[role="heading"]'), " ")

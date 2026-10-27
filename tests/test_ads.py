@@ -118,14 +118,16 @@ def test_text_ad_with_place_card_links_through_data_pcu():
             "</div></div>"
         )
     )
-    assert [(r["title"], r["url"], r["cite"], r["text"]) for r in rows] == [
-        ("Paint Co", "/goto?url=p", "https://paint.test", "Free estimates.")
+    # The place card rides on a text ad with a landing URL, so it stays "standard".
+    assert [(r["sub_type"], r["title"], r["url"], r["cite"], r["text"]) for r in rows] == [
+        ("standard", "Paint Co", "/goto?url=p", "https://paint.test", "Free estimates.")
     ]
 
 
 def test_local_place_ad_links_through_its_first_button():
-    # A place-only ad has no data-pcu link: the url is its first action button
-    # ("Website"), and the "Why this ad?" whitespace is stripped from the title.
+    # A place-only ad has no data-pcu link: it is sub_type "place", the url is its
+    # first action button ("Website"), and the "Why this ad?" whitespace is
+    # stripped from the title.
     rows = parse_ads(
         comp(
             '<div data-text-ad="1"><div class="Tw0YHf">'
@@ -137,8 +139,8 @@ def test_local_place_ad_links_through_its_first_button():
             "</div></div>"
         )
     )
-    assert [(r["title"], r["url"], r["cite"], r["text"]) for r in rows] == [
-        ("Shop Name", "https://www.google.com/aclk?site", None, "Open late.")
+    assert [(r["sub_type"], r["title"], r["url"], r["cite"], r["text"]) for r in rows] == [
+        ("place", "Shop Name", "https://www.google.com/aclk?site", None, "Open late.")
     ]
 
 
