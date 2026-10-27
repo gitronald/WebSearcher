@@ -5,7 +5,7 @@ status: active
 branch: feature/perspectives-placeholder-rows
 created: 2026-10-26T13:40:53-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/211
 ---
 
 # Drop empty perspectives placeholder rows
@@ -63,3 +63,4 @@ No `perspectives` row in the fixture corpus has `title`, `url`, `text`, and
   - Base: `dev` at `ebe1b64`
   - Worktree: `.worktrees/064-perspectives-placeholder-rows`
   - PR: pending
+- **2026-10-26T17:52:28-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/211
