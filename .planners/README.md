@@ -3,7 +3,6 @@
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
 | 066 | [Make patchright captures settle, isolate requests, and detect challenges by markup](plans/066-patchright-capture-fixes/plan.md) | active | — | — |
-| 065 | [Keep every geotargets release in the locations history](plans/065-keep-every-geotargets-release/plan.md) | active | — | — |
 | 067 | [Tell a not-loaded AI overview from a declined one](plans/067-ai-overview-not-loaded/plan.md) | draft | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
