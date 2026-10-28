@@ -141,6 +141,9 @@ loop in the workflow.
   - Workflow: a bounded loop (6 runs) commits each pull as `update locations: <release>` under the `github-actions[bot]` identity. `create-pull-request` carries those commits; its v8.1.1 README lists "commits made during the workflow that have not been pushed" among the changes it includes. The job polls `mergeable` and then runs `gh pr merge --merge --delete-branch --subject "merge: PR #<n> - bot/locations-update"`.
   - Checks: 875 tests pass (coverage 85.13%), ruff and pyrefly clean, and the listing was run live against the page (returns 08-12 and 10-06).
 - **2026-10-28T10:19:21-07:00** — Implemented: 26 commits ahead of `dev`.
+- **2026-10-28T10:54:11-07:00** — Review gate (medium, /code-review): 3 findings, all fixed, review posted to PR #214.
+  - Review follow-up: raised the workflow's cut/sed parse of the CRLF ledger (left `.csv` and a CR on the release name in commit subjects and the PR title), the repeated filename-from-URL parse, and RELEASE_FILE re-spelling RELEASE_DATE. Actioned: the workflow reads the last ledger row with csv (fef042f, probed against the real ledger; workflow shell has no pytest coverage), `release_filename` with a test and RELEASE_FILE built from RELEASE_DATE (e7d49dc). Conscious no-ops: a failing pull mid-loop drops that run's earlier commits (fail loudly, next run retries in order); the gap warning stays in the step log (decision 4); the loop stays in the workflow (it commits between pulls); DATED_URL repeated in the one-off sidecars.
+  - Checks: ruff, ruff format, pyrefly, pytest (876 passed, coverage 85.14%).
 
 ## Handoff
 
