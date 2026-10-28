@@ -1,8 +1,8 @@
 ---
 id: 66
 slug: patchright-capture-fixes
-status: draft
-branch:
+status: active
+branch: feature/patchright-capture-fixes
 created: 2026-10-28T09:27:24-07:00
 concluded:
 pr:
@@ -127,3 +127,9 @@ order.
 - Chrome memory per engine and how many engines a host can run in parallel.
 
 ## Log
+
+- **2026-10-28T09:39:09-07:00** — Activated.
+  - Branch: `feature/patchright-capture-fixes`
+  - Base: `dev` at `2133286`
+  - Worktree: `.worktrees/066-patchright-capture-fixes`
+  - PR: pending
