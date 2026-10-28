@@ -21,7 +21,7 @@ GEOTARGETS_URL = "https://developers.google.com/adwords/api/docs/appendix/geotar
 # Release date embedded in the upstream filename; the page also links itself
 # (``/google-ads/api/data/geotargets``), so match the dated file, not the word.
 RELEASE_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
-RELEASE_FILE = re.compile(r"geotargets-\d{4}-\d{2}-\d{2}\.csv")
+RELEASE_FILE = re.compile(rf"geotargets-{RELEASE_DATE.pattern}\.csv")
 
 # Upstream header, unchanged 2018 -> 2026 across the seeded archive; drift
 # means the schema consumers rely on has moved, so fail loudly.
@@ -172,7 +172,7 @@ def update_locations_file(
     last_filename = read_ledger_last_filename(ledger_fp)
     last_date = release_date(last_filename) if last_filename else ""
 
-    oldest_listed = release_urls[0].split("/")[-1].removesuffix(".zip")
+    oldest_listed = release_filename(release_urls[0])
     if last_filename and last_date < release_date(oldest_listed):
         print(
             f"warning: ledger ends at {last_filename}, older than every listed release "
@@ -184,7 +184,7 @@ def update_locations_file(
         print(f"Version up to date: {last_filename}")
         return None
     url_next = unseen[0]
-    filename = url_next.split("/")[-1].removesuffix(".zip")
+    filename = release_filename(url_next)
 
     fp.parent.mkdir(parents=True, exist_ok=True)
     tmp_fp = fp.parent / (fp.name + ".tmp")
@@ -244,6 +244,11 @@ def append_ledger_row(ledger_fp: str | Path, date_collected: str, filename: str)
         if write_header:
             writer.writerow(["date_collected", "filename"])
         writer.writerow([date_collected, filename])
+
+
+def release_filename(url: str) -> str:
+    """Upstream CSV filename of a release URL, as the ledger records it."""
+    return url.split("/")[-1].removesuffix(".zip")
 
 
 def release_date(filename: str) -> str:

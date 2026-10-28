@@ -248,6 +248,13 @@ def test_get_release_urls_orders_by_date_and_skips_page_link(monkeypatch):
     ]
 
 
+def test_release_filename_drops_path_and_zip_suffix():
+    assert locations.release_filename(release_url("2026-08-12")) == "geotargets-2026-08-12.csv"
+    assert locations.release_filename("/static/geotargets-2026-08-12.csv") == (
+        "geotargets-2026-08-12.csv"
+    )
+
+
 def test_release_date_reads_both_filename_shapes():
     assert locations.release_date("geotargets-2026-10-06.csv") == "2026-10-06"
     assert locations.release_date("AdWords API Location Criteria 2018-09-04.csv") == "2018-09-04"
