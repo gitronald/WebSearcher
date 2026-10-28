@@ -140,6 +140,10 @@ order.
     - Item 3: `has_captcha` matches `CAPTCHA_SELECTOR` (`form#captcha-form`, a `/sorry/` form action, `div.g-recaptcha`, `#recaptcha`, a `/recaptcha/` or `/sorry/` iframe, and the `Captcha Dialog` dialog). An overlay capture already existed in the main checkout's ignored `data/`. `tests/fixtures/captcha_dialog_overlay.html` is the trimmed dialog from it, with the continue token redacted. None of the selectors matches any of the 121 corpus SERPs. One corpus SERP ("central park new york", snippet "protected by reCAPTCHA") went from `captcha: true` to `false`; it is the only snapshot change.
     - Item 4: the show-more click and the `aria-expanded="true"` wait use 5 s. In the corpus, 9 of 33 show-more controls have no `aria-expanded`, so those clicks keep a 2 s sleep and log `unconfirmed`. Outcomes: `expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, `capture_failed`, in the message text, because the JSONL formatter drops unknown `extra=` keys.
 - **2026-10-28T10:03:03-07:00** — Implemented: 6 commits ahead of `dev`.
+- **2026-10-28T10:31:04-07:00** — Live probe, run by hand by the user on one warmed persistent profile (`clear_cookies=False`), 6 queries per run, outputs in the ignored `data/plan-066/`.
+    - Isolation: all 18 rows (dev, branch, and branch with `--ai-expand`) have `has_search: true` and a `<title>` that names their own query.
+    - Timing: dev median 5.54 s (4.60-6.31), branch median 3.33 s (2.63-5.59), so the branch is about 2.2 s faster at the median, within the plan's limit. Both runs report version `0.12.4a0`, so the rows cannot show which code ran. The dev/branch split rests on the checkout each run was launched from.
+    - AI expand: not answered by this run. The probe kept only summary rows, so the click's effect could not be separated from the differences between page loads (e.g. "central park new york" was 3.7 MB without expansion and 2.6 MB with it, on separate loads). The probe now saves the page just before and after the click on the same load, and compares the parsed AI overview rows.
 
 ## Handoff
 
