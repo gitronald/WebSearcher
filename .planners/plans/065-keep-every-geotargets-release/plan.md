@@ -1,10 +1,10 @@
 ---
 id: 65
 slug: keep-every-geotargets-release
-status: implemented
+status: done
 branch: feature/keep-every-geotargets-release
 created: 2026-10-27T11:46:08-07:00
-concluded:
+concluded: 2026-10-28T10:53:49-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/214
 ---
 
@@ -147,9 +147,9 @@ loop in the workflow.
 
 ## Handoff
 
-State: all work is committed and pushed on `feature/keep-every-geotargets-release`, with PR #214 against dev.
+State: closed. All work, including the review fixes, is committed on `feature/keep-every-geotargets-release` and merged into dev through PR #214. No open questions remain.
 
-Not verified:
+Not verified (both are checks to make after the merge, not work left in this plan):
 
 - The new workflow has not run. `create-pull-request` keeping one commit per release, and the in-job merge, are taken from the action's README and not observed. The first `workflow_dispatch` on dev after the merge (`gh workflow run update-locations.yml --ref dev`) should report up to date and open no PR.
 - Scheduled runs read the workflow file from master, so until the next stable release the Monday job still runs the old workflow against master's ledger, which ends at 06-15. Its next run (2026-11-02 06:00 UTC) will try to land 10-06 against dev's backfilled ledger. Expect a failed run or a bot PR whose ledger diff drops or reorders rows. Close such a PR unmerged. A release before that date avoids it.
@@ -157,3 +157,11 @@ Not verified:
 Questions:
 
 1. Should the plan's Out of scope line ("the ledger up to 2026-06-15 is the seeded archive and is complete") be corrected in the spec, or left as the record of what was believed? The Log carries the correction (15 missing releases found and backfilled). **Answered 2026-10-28: correct it.** Done in Out of scope.
+
+## Retrospective
+
+- The defect was bigger than the plan's evidence showed: three releases lost to the force-pushed branch, not two, and 15 more that the seeded archive never had. Probing the dated static URL day by day, rather than trusting the page's two-release listing or the run logs, is what found them.
+- The PR's force-push timeline (GraphQL `HeadRefForcePushedEvent`) outlived the expired run logs and kept every bot commit fetchable by SHA. It is the first place to look when a bot branch has eaten history.
+- Decision 2 alone would not have fixed the re-pulls: the job read master's ledger, which moves only at a release. Next time, check which ref a scheduled job reads before writing "out of scope" about it.
+- Shell parsing of a csv-module file has to allow for CRLF. The review caught a `sed '\.csv$'` that never matched; reading the row with `csv` in the workflow avoids the class of bug.
+- The workflow itself is still unobserved. A change to a scheduled job should name its first post-merge run as the check, which the Handoff does.
