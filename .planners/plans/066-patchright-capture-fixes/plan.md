@@ -139,3 +139,56 @@ order.
     - Item 2: `reset_page` navigates to `about:blank` before each `goto`, and replaces the page (`context.new_page()`) when that navigation is interrupted or ends elsewhere, so `pre_nav_url` is always the blank page. The reset is not done after the capture, because `ws-demo --leave-open` keeps the SERP on screen for solving a challenge by hand. The cookie clear stays after the request (decision below).
     - Item 3: `has_captcha` matches `CAPTCHA_SELECTOR` (`form#captcha-form`, a `/sorry/` form action, `div.g-recaptcha`, `#recaptcha`, a `/recaptcha/` or `/sorry/` iframe, and the `Captcha Dialog` dialog). An overlay capture already existed in the main checkout's ignored `data/`. `tests/fixtures/captcha_dialog_overlay.html` is the trimmed dialog from it, with the continue token redacted. None of the selectors matches any of the 121 corpus SERPs. One corpus SERP ("central park new york", snippet "protected by reCAPTCHA") went from `captcha: true` to `false`; it is the only snapshot change.
     - Item 4: the show-more click and the `aria-expanded="true"` wait use 5 s. In the corpus, 9 of 33 show-more controls have no `aria-expanded`, so those clicks keep a 2 s sleep and log `unconfirmed`. Outcomes: `expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, `capture_failed`, in the message text, because the JSONL formatter drops unknown `extra=` keys.
+
+## Handoff
+
+### State
+
+- Items 1-4 are implemented on `feature/patchright-capture-fixes` (PR #213), committed and
+  pushed. `uv run pytest`, `ruff check`, `ruff format --check`, and `pyrefly check` pass.
+- `probe_one_engine.py` (sidecar) runs queries in sequence on one engine and appends a
+  JSONL row per query: seconds, `has_search`, whether the `<title>` names its own query,
+  final URL, and HTML length. It imports whichever WebSearcher the running environment
+  has, so the same script times `dev` from the main checkout and this branch from the
+  worktree.
+
+### Not verified (live checks, run by hand)
+
+The user runs the live searches by hand. Each run below opens one headed Chrome. Run them
+in this order: the main checkout's environment imports `dev`'s code, and the worktree's
+imports this branch.
+
+1. Baseline on `dev` (from the main checkout):
+
+       uv run python .worktrees/066-patchright-capture-fixes/.planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
+         --out data/plan-066/dev.jsonl "why is the sky blue" "central park new york" \
+         "how to boil an egg" "python list comprehension" "weather tomorrow" "best pizza near me"
+
+2. This branch, same queries (from the worktree):
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
+         --out data/plan-066/branch.jsonl "why is the sky blue" "central park new york" \
+         "how to boil an egg" "python list comprehension" "weather tomorrow" "best pizza near me"
+
+   Pass: every row has `has_search: true` and `title_matches: true`, and the branch's
+   median `seconds` is no more than about 1 s above the `dev` median. If it is well
+   below, the first `sleep(2)` in `send_request` may be dropped as well (plan item 1).
+
+3. AI expand on this branch (from the worktree); read the `SERP | ai_expand | <outcome>`
+   DEBUG lines on the console:
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
+         --out data/plan-066/ai-expand.jsonl --ai-expand "why is the sky blue" "how do vaccines work"
+
+### Open questions
+
+1. Does clearing cookies after a request prompt the late reload? Not investigated: it needs
+   a few hundred queries per arm, with `clear_cookies` on and off. Left open by decision
+   (2026-10-28). The cookie clear stays after the request. The blank-page reset before the
+   next `goto` already keeps a late reload out of the next request.
+2. The plan's isolation run (a few hundred queries on one engine, each `<title>` matching
+   its query) is not run, for the same reason. The probe script does this check when given
+   a longer query list.
+3. Is the `Captcha Dialog` aria-label localized? The overlay selector also matches the
+   dialog's `/sorry/` iframe, which does not depend on language, so a non-English overlay
+   should still flag. Not verified.
