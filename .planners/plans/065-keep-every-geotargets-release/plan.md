@@ -1,11 +1,11 @@
 ---
 id: 65
 slug: keep-every-geotargets-release
-status: active
+status: done
 branch: feature/keep-every-geotargets-release
 created: 2026-10-27T11:46:08-07:00
-concluded:
-pr:
+concluded: 2026-10-28T10:53:49-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/214
 ---
 
 # Keep every geotargets release in the locations history
@@ -114,9 +114,14 @@ loop in the workflow.
 
 ### Out of scope
 
-- Releases older than 2026-07-16: the ledger up to 2026-06-15 is the seeded archive and is
-  complete.
-- The branch-from-master, PR-to-dev arrangement, which stays as plan 031 set it.
+- Releases older than 2022-12-21: Google's dated URLs serve nothing earlier, so gaps in the
+  seeded archive before that date cannot be enumerated. (Corrected 2026-10-28: this line first
+  said the seeded archive up to 2026-06-15 was complete. The probe found 15 releases missing
+  from it, now backfilled; see Log.)
+- The PR-to-dev arrangement, which stays as plan 031 set it. (Corrected 2026-10-28: this line
+  first kept the branch-from-master half as well. The job read master's ledger, which moves
+  only at a release, so merging into dev would not have stopped the re-pulls; the workflow now
+  checks out dev. See Log.)
 
 ## Log
 
@@ -125,3 +130,38 @@ loop in the workflow.
   - Base: `dev` at `8b5ae40`
   - Worktree: `.worktrees/065-keep-every-geotargets-release`
   - PR: pending
+- **2026-10-28T10:17:01-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/214
+- **2026-10-28T10:17:17-07:00** — Implemented decisions 1-4, with the backfill widened from two releases to every release Google still serves.
+  - Lost to the force-pushed bot branch: three releases, not two. The PR's GraphQL `HeadRefForcePushedEvent` chain (`beforeCommit`/`afterCommit`) lists all 16 weekly commits, starting with `328248f` on 2026-07-13, which pulled `geotargets-2026-07-06`; the PR was renamed 07-06 -> 07-16 on 2026-07-27, 07-16 -> 08-12 on 2026-08-24, and 08-12 -> 10-06 on 2026-10-19. Run logs from July return HTTP 410 (expired); the timeline does not.
+  - Every force-pushed commit is still fetchable by SHA (`git fetch origin <sha>`). Each release's CSV blob is identical across all its weekly re-pulls, and a fresh download of 07-06, 07-16, and 10-06 through `download_csv` is byte-identical to the bot's blob, so recovered and downloaded snapshots are interchangeable.
+  - The seeded archive was not complete, contrary to Out of scope. `probe_releases.py` (sidecar) sends a HEAD per day to the dated static URL: 2018-09-01 to 2026-10-28 finds 33 releases served, the oldest 2022-12-21 (nothing earlier answers). 15 of them were in neither git nor the ledger: 2023-05-03, 2023-08-21, 2024-06-12, 2024-06-19, 2024-06-28, 2024-07-11, 2025-04-01, 2025-06-26, 2025-07-15, 2026-01-22, 2026-03-23, 2026-03-31, 2026-05-05, 2026-05-14, 2026-05-28. Every ledger release from 2022-12-21 on is served. Releases before 2022-12-21 cannot be enumerated.
+  - `backfill_history.py` (sidecar, adapted from plan 031's `seed_history.py`) replayed 18 releases oldest first, then restored 10-06: 3 from the bot commits (`--recovered 328248f1c8 --recovered 03bdb35782 --recovered 7c233c46eb`), keeping the job's `date_collected` (2026-07-13, 2026-07-27, 2026-08-24) and author date; 15 downloaded (`--download <date>`), with the backfill date 2026-10-28. The ledger at each commit is the final ledger cut at that release. Checked: the tip CSV equals the pre-backfill blob, the ledger diff is 18 added rows and no removed ones, release order holds, and `git log --format=%s -- data/locations/geotargets.csv` lists 47 snapshots. The 10-06 row keeps its merged `2026-10-26` date (first pulled 2026-10-19).
+  - Deviation, workflow: decision 2 alone does not move the ledger the job reads. The job checked out master, whose ledger ends at 06-15 and moves only at a release, while PRs merge into dev. The workflow now checks out `ref: dev`, which the plan had listed as out of scope.
+  - Module: `get_release_urls` lists dated release links only. The live page also links itself (`/google-ads/api/data/geotargets`), which the old lexical sort skipped only by accident. `release_date` reads both filename shapes. `update_locations_file` pulls the oldest unseen release and prints the gap warning; `get_latest_url` is the last listed release.
+  - Workflow: a bounded loop (6 runs) commits each pull as `update locations: <release>` under the `github-actions[bot]` identity. `create-pull-request` carries those commits; its v8.1.1 README lists "commits made during the workflow that have not been pushed" among the changes it includes. The job polls `mergeable` and then runs `gh pr merge --merge --delete-branch --subject "merge: PR #<n> - bot/locations-update"`.
+  - Checks: 875 tests pass (coverage 85.13%), ruff and pyrefly clean, and the listing was run live against the page (returns 08-12 and 10-06).
+- **2026-10-28T10:19:21-07:00** — Implemented: 26 commits ahead of `dev`.
+- **2026-10-28T10:54:11-07:00** — Review gate (medium, /code-review): 3 findings, all fixed, review posted to PR #214.
+  - Review follow-up: raised the workflow's cut/sed parse of the CRLF ledger (left `.csv` and a CR on the release name in commit subjects and the PR title), the repeated filename-from-URL parse, and RELEASE_FILE re-spelling RELEASE_DATE. Actioned: the workflow reads the last ledger row with csv (fef042f, probed against the real ledger; workflow shell has no pytest coverage), `release_filename` with a test and RELEASE_FILE built from RELEASE_DATE (e7d49dc). Conscious no-ops: a failing pull mid-loop drops that run's earlier commits (fail loudly, next run retries in order); the gap warning stays in the step log (decision 4); the loop stays in the workflow (it commits between pulls); DATED_URL repeated in the one-off sidecars.
+  - Checks: ruff, ruff format, pyrefly, pytest (876 passed, coverage 85.14%).
+
+## Handoff
+
+State: closed. All work, including the review fixes, is committed on `feature/keep-every-geotargets-release` and merged into dev through PR #214. No open questions remain.
+
+Not verified (both are checks to make after the merge, not work left in this plan):
+
+- The new workflow has not run. `create-pull-request` keeping one commit per release, and the in-job merge, are taken from the action's README and not observed. The first `workflow_dispatch` on dev after the merge (`gh workflow run update-locations.yml --ref dev`) should report up to date and open no PR.
+- Scheduled runs read the workflow file from master, so until the next stable release the Monday job still runs the old workflow against master's ledger, which ends at 06-15. Its next run (2026-11-02 06:00 UTC) will try to land 10-06 against dev's backfilled ledger. Expect a failed run or a bot PR whose ledger diff drops or reorders rows. Close such a PR unmerged. A release before that date avoids it.
+
+Questions:
+
+1. Should the plan's Out of scope line ("the ledger up to 2026-06-15 is the seeded archive and is complete") be corrected in the spec, or left as the record of what was believed? The Log carries the correction (15 missing releases found and backfilled). **Answered 2026-10-28: correct it.** Done in Out of scope.
+
+## Retrospective
+
+- The defect was bigger than the plan's evidence showed: three releases lost to the force-pushed branch, not two, and 15 more that the seeded archive never had. Probing the dated static URL day by day, rather than trusting the page's two-release listing or the run logs, is what found them.
+- The PR's force-push timeline (GraphQL `HeadRefForcePushedEvent`) outlived the expired run logs and kept every bot commit fetchable by SHA. It is the first place to look when a bot branch has eaten history.
+- Decision 2 alone would not have fixed the re-pulls: the job read master's ledger, which moves only at a release. Next time, check which ref a scheduled job reads before writing "out of scope" about it.
+- Shell parsing of a csv-module file has to allow for CRLF. The review caught a `sed '\.csv$'` that never matched; reading the row with `csv` in the workflow avoids the class of bug.
+- The workflow itself is still unobserved. A change to a scheduled job should name its first post-merge run as the check, which the Handoff does.

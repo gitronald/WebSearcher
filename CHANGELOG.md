@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- `update_locations_file` pulls the oldest listed geotargets release newer than the ledger instead of only the newest, so a caller that loops until it returns `None` records every release, one at a time, in order. When the ledger's last release is older than every release the page lists, it prints a warning naming the gap. New `get_release_urls` lists every dated release link on the page, oldest first, and `get_latest_url` returns the last of them
+- The weekly locations job runs on `dev`, commits each new release separately, and merges its own pull request, so a release can no longer be replaced by a newer one while its pull request waits
+
 ## [0.12.3] - 2026-10-26
 
 ### Added
