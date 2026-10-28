@@ -10,6 +10,9 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.13.0`: Browser captures wait for the page to settle instead of fixed sleeps and start each query from a blank page, a `has_search` flag on responses and SERP records, `captcha` keyed on challenge markup instead of page text, a locations updater that records every geotargets release, and `brotli>=1.2.1` for a security fix
+- `0.12.3`: Sponsored listing and vehicle ad carousels, the 2026-10 "Complementary Results" right-hand panel, local place ads, and entity facts that keep their full value
+- `0.12.2`: Top stories and text ads in the 2026-10 layout, source and age on news-style cards, and the "Featured results" band typed as `knowledge`
 - `0.12.1`: AI overviews in the 2026-10 role-heading layout and inside people-also-ask, recovered right-hand knowledge panels, a sweep of parser and extractor fixes, and per-search request headers that no longer leak into later searches
 - `0.12.0`: Persistent patchright browser profiles (`--user-data-dir`, `PatchrightConfig.clear_cookies`) with `--leave-open` for warming them by hand, CAPTCHA redirects logged as `captcha` events, and `selectolax>=1.0` for about 47% faster parsing with unchanged output
 - `0.11.x`: **Breaking** -- `patchright` is the only browser backend, crawl logs are JSON Lines, `import WebSearcher` no longer configures logging, and notice/sub_type output was renamed; plus broad parser coverage of previously-`unknown` components and full pyrefly strict typing
@@ -406,7 +409,7 @@ Runs on every push and pull request to `dev`, `master`, and `feature/**` branche
 Triggered by pushing a `v*` tag. Builds the package with `uv build` and publishes to PyPI via trusted publishing (no API tokens). It only runs when the repository variable `PUBLISH_ENABLED` is `"true"`; otherwise both jobs skip. For instructions on how to set this, see: [Enable or disable PyPI publishing](.planners/guides/enable-pypi-publishing.md).
 
 **Update locations** (`.github/workflows/update-locations.yml`)  
-Weekly cron (Mondays 06:00 UTC) plus manual dispatch. Refreshes the geotargets CSV (`python -m WebSearcher.locations`) and opens a PR only when the data changed.
+Weekly cron (Mondays 06:00 UTC) plus manual dispatch. Checks out `dev` and pulls each geotargets release newer than the ledger (`python -m WebSearcher.locations`), oldest first, with one commit per release. When there is a new release, it opens a PR into `dev` and merges it in the same job; the header check on each download is the safeguard.
 
 **Renovate** (`.github/workflows/renovate.yml`)  
 Weekly cron plus manual dispatch. Self-hosted [Renovate](https://docs.renovatebot.com/) opens dependency-update PRs (config in `.github/renovate.json`).

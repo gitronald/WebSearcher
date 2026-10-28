@@ -68,7 +68,8 @@ class NetworkTracker:
     """Track a page's requests in flight, ignoring speculative prefetches.
 
     Stands in for the driver's ``networkidle``, which counts a prefetch that
-    never finishes and then runs to its timeout on most SERPs (plan 066).
+    never finishes and then runs to its timeout on about a fifth of SERPs
+    (plan 066).
     Attach before navigating: a request started earlier is not tracked.
     """
 

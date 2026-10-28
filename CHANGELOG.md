@@ -21,9 +21,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
-- The browser backend waits for the SERP to finish loading before capturing it, instead of fixed 2 s sleeps before and after the `#search` wait, which together took 4 s on every request. A SERP that replaced itself in that window was captured as an ~80 KB shell without `#search` or raised "the page is navigating"; the capture now waits for load and for the network to go quiet (up to 8 s), re-checks `#search`, and retries the read while the page is still navigating. The quiet wait covers a streamed AI overview, which can keep loading for about 5 s after `#search`, and ignores the speculative prefetches of result links (`Sec-Purpose: prefetch`), which Chrome can hold open for about 10 s and which kept the browser driver's own network-idle wait from ending on most SERPs
+- The browser backend waits for the SERP to finish loading before capturing it, instead of fixed 2 s sleeps before and after the `#search` wait, which together took 4 s on every request. A SERP that replaced itself in that window was captured as an ~80 KB shell without `#search` or raised "the page is navigating"; the capture now waits for load and for the network to go quiet (up to 8 s), re-checks `#search`, and retries the read while the page is still navigating. The quiet wait covers a streamed AI overview, which can keep loading for about 5 s after `#search`, and ignores the speculative prefetches of result links (`Sec-Purpose: prefetch`), which Chrome can hold open for about 10 s and which kept the browser driver's own network-idle wait from ending on about a fifth of SERPs
 - One engine reused across queries could record the previous query's SERP, or a late navigation of it, under the next query. Each request now starts from a blank page, and the page is replaced when the previous SERP's navigation interrupts that reset
-- `ai_expand` waits up to 5 s for the show-more click and for the control's `aria-expanded="true"` instead of a fixed sleep, and logs its outcome as a DEBUG `ai_expand` event (`expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, or `capture_failed`), so a missed click is distinguishable from a SERP without an AI overview
+- `ai_expand` waits up to 5 s for the show-more click and for the control's `aria-expanded="true"` instead of a fixed sleep (a control without `aria-expanded` still gets a fixed 2 s), and logs its outcome as a DEBUG `ai_expand` event (`expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, or `capture_failed`), so a missed click is distinguishable from a SERP without an AI overview
+
+### Security
+
+- `brotli>=1.2.1`, past the decoder out-of-bounds write in 1.2.0 (GHSA-9v8h-qqgm-4m35); the lock also moves the dev-only `virtualenv` past GHSA-cx6f-vjhg-g3cc
 
 ## [0.12.3] - 2026-10-26
 
