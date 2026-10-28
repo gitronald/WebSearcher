@@ -612,8 +612,12 @@ NOT_LOADED_FIXTURE = Path(__file__).parent / "fixtures" / "ai_overview_not_loade
 _DECLINE_HIDDEN = 'jsname="lGsj1" class="YWpX0d" style="display:none"'
 
 
-def _ai_overview_fixture(html: str) -> dict:
-    node = utils.make_soup(html).css_first("div.bzXtMb")
+def _ai_overview_fixture(html: str, drop_css: str | None = None) -> dict:
+    soup = utils.make_soup(html)
+    if drop_css:
+        for elem in soup.css(drop_css):
+            elem.decompose()
+    node = soup.css_first("div.bzXtMb")
     assert node is not None
     (row,) = parse_ai_overview(node)
     return row
@@ -635,13 +639,19 @@ def test_ai_overview_decline_shown():
 
 def test_ai_overview_empty_without_messages_stays_flat():
     # No body and no decline messages: a parser miss, not a page state.
-    node = utils.make_soup(NOT_LOADED_FIXTURE.read_text())
-    for span in node.css("span.YWpX0d"):
-        span.decompose()
-    root = node.css_first("div.bzXtMb")
-    assert root is not None
-    (row,) = parse_ai_overview(root)
+    row = _ai_overview_fixture(NOT_LOADED_FIXTURE.read_text(), drop_css="span.YWpX0d")
     assert row["sub_type"] == "flat"
+
+
+@pytest.mark.parametrize("tag", ["script", "noscript", "style"])
+def test_ai_overview_marker_in_unrendered_tag_not_a_decline(tag):
+    # A marker string in unrendered text is not a shown message.
+    root_open = '<div class="bzXtMb M8OgIe" jsname="Ya7sxe">'
+    marker = "An AI Overview is not available for this search"
+    html = NOT_LOADED_FIXTURE.read_text()
+    assert html.startswith(root_open)
+    row = _ai_overview_fixture(html.replace(root_open, f"{root_open}<{tag}>{marker}</{tag}>", 1))
+    assert row["sub_type"] == "not_loaded"
 
 
 # --- crawl-6 unknown submodules (second pass) --------------------------------

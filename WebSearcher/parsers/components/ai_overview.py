@@ -168,6 +168,9 @@ _UNAVAILABLE_MARKERS = (
     "generate an AI overview right now",
 )
 
+# Their text is never rendered, so a marker string inside one is not a message.
+_UNRENDERED_TAGS = frozenset({"script", "noscript", "style", "template"})
+
 
 def _decline_messages_shown(node: Node) -> bool | None:
     """Whether a decline message is shown: ``None`` when neither is present.
@@ -178,6 +181,8 @@ def _decline_messages_shown(node: Node) -> bool | None:
     """
     found = False
     for elem in walk_descendants(node):
+        if elem.tag in _UNRENDERED_TAGS:
+            continue
         own_text = (elem.text(deep=False) or "").strip()
         if not any(marker in own_text for marker in _UNAVAILABLE_MARKERS):
             continue
