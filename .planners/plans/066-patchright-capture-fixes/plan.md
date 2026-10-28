@@ -5,7 +5,7 @@ status: active
 branch: feature/patchright-capture-fixes
 created: 2026-10-28T09:27:24-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/213
 ---
 
 # Make patchright captures settle, isolate requests, and detect challenges by markup
@@ -133,3 +133,4 @@ order.
   - Base: `dev` at `2133286`
   - Worktree: `.worktrees/066-patchright-capture-fixes`
   - PR: pending
+- **2026-10-28T09:46:37-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/213
