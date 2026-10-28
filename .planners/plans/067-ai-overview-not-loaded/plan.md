@@ -95,3 +95,10 @@ does not, so it can land first if step 1 stalls.
 
 - Making the requests backend load the overview. It cannot run the page's JavaScript.
 - How long the browser backend waits for the overview to finish (plan 066, item 1).
+
+## Log
+
+- **2026-10-28T11:03:57-07:00** — Decline candidates captured in a browser (plan 066's second timeline run, patchright, warmed profile, `data/plan-066/timeline-2.jsonl`, captures in `timeline-2-html/`).
+    - "chargers vs raiders" and "astronomical clocks czech republic" each loaded a full overview (sectioned, 4 sources) by +3 s after `#search`. Their requests-backend `unavailable` rows in the corpus were overviews that had not loaded, not declines.
+    - "suwanee-painters" had no AI overview component at all in the browser, while the requests capture (two days earlier) had one with no body. Not a decline capture either.
+    - Still no capture with a decline message shown. Step 1 stays open.
