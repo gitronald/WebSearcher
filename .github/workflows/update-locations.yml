@@ -37,7 +37,8 @@ jobs:
             uv run --no-dev python -m WebSearcher.locations
             after=$(tail -n 1 data/locations/ledger.csv)
             [ "$before" = "$after" ] && break
-            release=$(echo "$after" | cut -d, -f2 | sed 's/\.csv$//')
+            # The ledger is CRLF (csv module default), so read it with csv, not cut.
+            release=$(uv run --no-dev python -c "import csv; print(list(csv.reader(open('data/locations/ledger.csv', newline='')))[-1][1].removesuffix('.csv'))")
             git add data/locations/geotargets.csv data/locations/ledger.csv
             git commit -m "update locations: $release"
           done
