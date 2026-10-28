@@ -1,7 +1,7 @@
 ---
 id: 65
 slug: keep-every-geotargets-release
-status: active
+status: implemented
 branch: feature/keep-every-geotargets-release
 created: 2026-10-27T11:46:08-07:00
 concluded:
@@ -135,6 +135,7 @@ loop in the workflow.
   - Module: `get_release_urls` lists dated release links only. The live page also links itself (`/google-ads/api/data/geotargets`), which the old lexical sort skipped only by accident. `release_date` reads both filename shapes. `update_locations_file` pulls the oldest unseen release and prints the gap warning; `get_latest_url` is the last listed release.
   - Workflow: a bounded loop (6 runs) commits each pull as `update locations: <release>` under the `github-actions[bot]` identity. `create-pull-request` carries those commits; its v8.1.1 README lists "commits made during the workflow that have not been pushed" among the changes it includes. The job polls `mergeable` and then runs `gh pr merge --merge --delete-branch --subject "merge: PR #<n> - bot/locations-update"`.
   - Checks: 875 tests pass (coverage 85.13%), ruff and pyrefly clean, and the listing was run live against the page (returns 08-12 and 10-06).
+- **2026-10-28T10:19:21-07:00** — Implemented: 26 commits ahead of `dev`.
 
 ## Handoff
 
