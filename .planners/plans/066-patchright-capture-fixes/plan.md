@@ -182,123 +182,32 @@ order.
 
 ### State
 
-- Items 1-4 are implemented on `feature/patchright-capture-fixes` (PR #213), committed and
-  pushed. `uv run pytest`, `ruff check`, `ruff format --check`, and `pyrefly check` pass.
-- `probe_one_engine.py` (sidecar) runs queries in sequence on one engine and appends a
-  JSONL row per query: seconds, `has_search`, whether the `<title>` names its own query,
-  final URL, and HTML length. It imports whichever WebSearcher the running environment
-  has, so the same script times `dev` from the main checkout and this branch from the
-  worktree.
+- Items 1-4 are implemented on `feature/patchright-capture-fixes` (PR #213, ready for
+  review), committed and pushed. `dev` was merged in on 2026-10-28. `uv run pytest` (905),
+  `ruff check`, `ruff format --check`, and `pyrefly check` pass.
+- Item 1 went further than the spec, from the live runs (Log): both fixed 2 s sleeps are
+  gone. The settle step waits for load, then for 500 ms with no request in flight, ignoring
+  speculative prefetches (`Sec-Purpose: prefetch`), capped at 8 s. The driver's
+  `networkidle` is no longer used, because a SERP's prefetch of a result link held it to
+  its timeout.
+- Live checks, all run on 2026-10-28 on one warmed profile (`data/plan-066/`, ignored):
+  dev against branch timing and isolation, the `ai_expand` comparison, three AI overview
+  load timelines, the prefetch check, and the settle step with and without the first sleep.
+  The results are in the Log. They used `clear_cookies=False`, so the cookie clear after
+  each request was not exercised.
+- Sidecar probes, for repeating any of these: `probe_one_engine.py` (per-query timing,
+  isolation, AI overview counts, and before/after-click captures with `--ai-expand`) and
+  `probe_ai_timeline.py` (captures at fixed offsets after `#search`, with network
+  timings and request URLs). Usage is in each script's docstring. Both need a warmed
+  profile (`--user-data-dir`); a fresh profile was challenged on its first query.
 
-### Not verified (live checks, run by hand)
+### Remaining
 
-The user runs the live searches by hand. Each run below opens one headed Chrome. Run them
-in this order: the main checkout's environment imports `dev`'s code, and the worktree's
-imports this branch. A fresh temp profile was challenged on its first query (2026-10-28),
-so every run uses one profile, warmed first. With a profile the probe keeps cookies
-between requests (`clear_cookies=False`, as `ws-demo` does), so these runs do not exercise
-the cookie clear after each request.
-
-0. Warm the profile (from the main checkout). Solve the challenge if one appears, search
-   a little by hand, then press Enter to close:
-
-       uv run ws-demo search "why is the sky blue" --user-data-dir .ws_profile --leave-open
-
-1. Baseline on `dev` (from the main checkout):
-
-       uv run python .worktrees/066-patchright-capture-fixes/.planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out data/plan-066/dev.jsonl --user-data-dir .ws_profile \
-         "why is the sky blue" "central park new york" "how to boil an egg" \
-         "python list comprehension" "weather tomorrow" "best pizza near me"
-
-2. This branch, same queries and profile (from the worktree):
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out ../../data/plan-066/branch.jsonl --user-data-dir ../../.ws_profile \
-         "why is the sky blue" "central park new york" "how to boil an egg" \
-         "python list comprehension" "weather tomorrow" "best pizza near me"
-
-   Pass: every row has `has_search: true` and `title_matches: true`, and the branch's
-   median `seconds` is no more than about 1 s above the `dev` median. If it is well
-   below, the first `sleep(2)` in `send_request` may be dropped as well (plan item 1).
-
-3. AI expand on this branch, same queries (from the worktree). Each row records the
-   logged `ai_expand` outcome (queries without an AI overview should log `no_control`)
-   and compares the AI overview rows parsed from the page just before the click with
-   those parsed after it, on the same load: `ai_rows_identical`, plus `rows`, `text_chars`,
-   `sections`, `citations`, and `sources` in `ai_before`/`ai_after`. Both captures are saved
-   in `data/plan-066/ai-expand-html/`. Runs 1 and 2 passed on 2026-10-28 (see Log); this
-   run is to be repeated with the comparison:
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out ../../data/plan-066/ai-expand.jsonl --user-data-dir ../../.ws_profile \
-         --ai-expand "why is the sky blue" "central park new york" "how to boil an egg" \
-         "python list comprehension" "weather tomorrow" "best pizza near me"
-
-4. AI overview load timeline on this branch (from the worktree). `probe_ai_timeline.py`
-   captures the page at fixed offsets after `#search` without clicking, and reports when the
-   AI overview first appears (`first_ai_at`) and stops changing (`stable_at`), next to load,
-   the first 500 ms network-quiet stretch from the start (`first_quiet_at`, when the driver's
-   `networkidle` fires), and the first one after load (`idle_at`). Per capture it also records
-   two candidate signals for a targeted wait: `body` (`div.mZJni`) and `generating` (visible
-   "Generating" spinners, checked live). The first run (3 queries) is in the Log. The second
-   run widens the sample, and its last three queries are plan 067's decline candidates:
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
-         --out ../../data/plan-066/timeline-2.jsonl --user-data-dir ../../.ws_profile \
-         "why is the sky blue" "how to boil an egg" "python list comprehension" \
-         "how does a heat pump work" "difference between a crocodile and an alligator" \
-         "how to remove a stripped screw" "best way to learn spanish" "is coffee good for you" \
-         "how do vaccines work" "what causes inflation" "how to make sourdough starter" \
-         "difference between roth and traditional ira" "how long to cook a turkey" \
-         "what is quantum computing" "how to get rid of fruit flies" \
-         "chargers vs raiders" "astronomical clocks czech republic" "suwanee-painters"
-
-   What to read: whether `first_quiet_at` ever comes before `stable_at` (the network-idle
-   wait would return early), how far past `#search` `stable_at` reaches (sizes the cap), and
-   whether `generating` drops to 0 at `stable_at` (a targeted wait that does not use the
-   obfuscated `mZJni` class).
-
-5. What keeps a page busy (from the worktree). The probe now records each query's
-   requests still open at the end, those open longer than 1 s, and those started after
-   load, by host and path. Run it on the 4 queries that never went quiet in run 4 and the 3
-   that streamed:
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
-         --out ../../data/plan-066/timeline-3.jsonl --user-data-dir ../../.ws_profile \
-         "how to remove a stripped screw" "best way to learn spanish" \
-         "how long to cook a turkey" "how to get rid of fruit flies" \
-         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
-
-   What to read: whether the never-quiet pages share a recurring request the settle step
-   could ignore, and which request carries the stream.
-
-6. Verify the prefetch-aware settle step (from the worktree). Run 5 found that every
-   never-quiet page held one `www.google.com/goto` request (type `other`) open: a
-   speculation-rules prefetch of a result link. The settle step now ignores requests
-   with `Sec-Purpose: prefetch` (verified with a local page, see Log). Two runs, on the
-   same 7 queries as run 5:
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
-         --out ../../data/plan-066/timeline-4.jsonl --user-data-dir ../../.ws_profile \
-         "how to remove a stripped screw" "best way to learn spanish" \
-         "how long to cook a turkey" "how to get rid of fruit flies" \
-         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
-
-       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out ../../data/plan-066/settle.jsonl --user-data-dir ../../.ws_profile \
-         "how to remove a stripped screw" "best way to learn spanish" \
-         "how long to cook a turkey" "how to get rid of fruit flies" \
-         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
-
-   Pass: in the first, the open `/goto` requests show `prefetch` as their purpose. In the
-   second, the four formerly never-quiet queries take about 3 s rather than running to the
-   cap, no `network busy at cap` DEBUG line appears, and the three streamed overviews have
-   their full sources (8, 4, and 4 in run 4's final captures).
+1. CI on PR #213, then review and merge (`/planners close`), which waits on the user.
+2. The open questions below. None blocks the merge.
+3. Plan 067 (not-loaded AI overviews labelled `unavailable`) is a separate draft.
 
 ### Open questions
-
-- (2026-10-28) Runs 1-3 above are done; results are in the Log.
 
 1. Does clearing cookies after a request prompt the late reload? Not investigated: it needs
    a few hundred queries per arm, with `clear_cookies` on and off. Left open by decision
