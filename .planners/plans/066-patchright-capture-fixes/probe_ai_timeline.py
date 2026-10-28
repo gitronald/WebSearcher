@@ -22,6 +22,11 @@ delays it. A row per query records:
   cannot show it)
 - ``first_ai_at`` / ``stable_at``: the first offset with an AI overview row, and
   the offset from which every capture matches the last one
+- ``inflight_at_end``: the requests still open when the last capture is taken
+  (what keeps a page from going quiet), ``long_requests``: requests open for
+  more than ``LONG_REQUEST_S`` (a streamed overview), and ``after_load``: the
+  requests started after load, counted by URL. URLs are recorded as host and
+  path, without the query string
 
 The first and last captures are saved in ``<out stem>-html/``.
 
@@ -30,10 +35,12 @@ The first and last captures are saved in ``<out stem>-html/``.
 """
 
 import argparse
+import collections
 import re
 import time
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 import orjson
 
@@ -45,6 +52,7 @@ from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
 # Seconds after #search appears at which the HTML is captured
 OFFSETS = (0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12)
 IDLE_MS = 500
+LONG_REQUEST_S = 1.0
 
 # Live count of rendered "Generating" spinners
 GENERATING_JS = (
@@ -65,6 +73,8 @@ class NetworkLog:
         self.t0 = t0
         self.inflight: set[Any] = set()
         self.events: list[tuple[float, int]] = []  # (time, requests in flight after it)
+        self.started: dict[Any, float] = {}
+        self.finished: list[dict[str, Any]] = []
         self._handlers = {
             "request": self._start,
             "requestfinished": self._end,
@@ -78,11 +88,41 @@ class NetworkLog:
 
     def _start(self, request: Any) -> None:
         self.inflight.add(request)
+        self.started[request] = self.now()
         self.events.append((self.now(), len(self.inflight)))
 
     def _end(self, request: Any) -> None:
         self.inflight.discard(request)
+        if request in self.started:
+            self.finished.append(
+                {**describe(request), "start": self.started.pop(request), "end": self.now()}
+            )
         self.events.append((self.now(), len(self.inflight)))
+
+    def requests_summary(self, load_at: float | None) -> dict[str, Any]:
+        """Open, long-running, and after-load requests, times rounded to 0.01 s."""
+        now = self.now()
+        open_requests: list[dict[str, Any]] = [
+            {**describe(r), "start": round(start, 2)} for r, start in self.started.items()
+        ]
+        long_requests = [
+            {**r, "start": round(r["start"], 2), "end": round(r["end"], 2)}
+            for r in self.finished
+            if r["end"] - r["start"] > LONG_REQUEST_S
+        ]
+        long_requests += [
+            {**r, "end": None} for r in open_requests if now - r["start"] > LONG_REQUEST_S
+        ]
+        after_load = collections.Counter(
+            f"{r['type']} {r['url']}"
+            for r in [*self.finished, *open_requests]
+            if load_at is not None and r["start"] > load_at
+        )
+        return {
+            "inflight_at_end": open_requests,
+            "long_requests": sorted(long_requests, key=lambda r: r["start"]),
+            "after_load": dict(after_load.most_common(15)),
+        }
 
     def idle_at(self, after: float) -> float | None:
         """First time >= ``after`` with nothing in flight for ``IDLE_MS``."""
@@ -100,6 +140,13 @@ class NetworkLog:
     def detach(self) -> None:
         for name, handler in self._handlers.items():
             self.page.remove_listener(name, handler)
+
+
+def describe(request: Any) -> dict[str, Any]:
+    """A request's resource type and URL, as host and path without the query string."""
+    parts = urlsplit(request.url)
+    url = f"{parts.netloc}{parts.path}" if parts.netloc else request.url[:60]
+    return {"type": request.resource_type, "url": url}
 
 
 def ai_overview(html: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
@@ -155,6 +202,7 @@ def probe(searcher: PatchrightSearcher, qry: str, html_dir: Path) -> dict[str, A
         row["load_at"] = round(timing[1] / 1000, 2) if timing[1] else None
         row["idle_at"] = net.idle_at(row["load_at"] or search_at)
         row["first_quiet_at"] = net.idle_at(0.0)
+        row.update(net.requests_summary(row["load_at"]))
     finally:
         net.detach()
 
@@ -218,6 +266,10 @@ def main() -> None:
                 f"from #search: AI first {row.get('first_ai_at')}, "
                 f"stable {row.get('stable_at')} {row.get('error', '')}"
             )
+            for r in row.get("long_requests", []):
+                print(f"  long: {r['start']}-{r['end']} s {r['type']} {r['url']}")
+            for r in row.get("inflight_at_end", []):
+                print(f"  open at end: since {r['start']} s {r['type']} {r['url']}")
             for s in row.get("snapshots", []):
                 print(
                     f"  +{s['at']:5.2f}s inflight={s['inflight']:3} rows={s['rows']} "

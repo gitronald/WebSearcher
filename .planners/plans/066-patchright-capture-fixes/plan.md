@@ -243,6 +243,20 @@ the cookie clear after each request.
    whether `generating` drops to 0 at `stable_at` (a targeted wait that does not use the
    obfuscated `mZJni` class).
 
+5. What keeps a page busy (from the worktree). The probe now records each query's
+   requests still open at the end, those open longer than 1 s, and those started after
+   load, by host and path. Run it on the 4 queries that never went quiet in run 4 and the 3
+   that streamed:
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
+         --out ../../data/plan-066/timeline-3.jsonl --user-data-dir ../../.ws_profile \
+         "how to remove a stripped screw" "best way to learn spanish" \
+         "how long to cook a turkey" "how to get rid of fruit flies" \
+         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
+
+   What to read: whether the never-quiet pages share a recurring request the settle step
+   could ignore, and which request carries the stream.
+
 ### Open questions
 
 - (2026-10-28) Runs 1-3 above are done; results are in the Log.
