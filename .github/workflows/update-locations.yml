@@ -13,37 +13,70 @@ jobs:
   update-locations:
     runs-on: ubuntu-latest
     steps:
+      # Check out dev, the branch the PR merges into, so the ledger the job compares
+      # against moves when a PR merges. master's ledger moves only at a release, and
+      # a job reading it re-pulls every release since then (plan 065).
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          ref: dev
       - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884  # v10.3.0
       - run: uv sync --no-dev
-      - name: Update geotargets CSV
-        run: uv run --no-dev python -m WebSearcher.locations
 
-      # The upstream filename embeds the real release date; the run date is
-      # just when we caught it. Carry the release date in the commit message.
-      - name: Read pulled release name
-        id: ledger
+      # Each module run pulls the oldest release newer than the ledger, so loop and
+      # commit after each pull: one commit per release, oldest first. The upstream
+      # filename embeds the real release date; the run date is just when we caught
+      # it. Bounded so a ledger that never advances cannot spin.
+      - name: Pull and commit each new geotargets release
+        id: pull
         run: |
-          release=$(uv run --no-dev python -c "import csv; print(list(csv.reader(open('data/locations/ledger.csv', newline='')))[-1][1].removesuffix('.csv'))")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          release=""
+          for _ in 1 2 3 4 5 6; do
+            before=$(tail -n 1 data/locations/ledger.csv)
+            uv run --no-dev python -m WebSearcher.locations
+            after=$(tail -n 1 data/locations/ledger.csv)
+            [ "$before" = "$after" ] && break
+            release=$(echo "$after" | cut -d, -f2 | sed 's/\.csv$//')
+            git add data/locations/geotargets.csv data/locations/ledger.csv
+            git commit -m "update locations: $release"
+          done
           echo "release=$release" >> "$GITHUB_OUTPUT"
 
-      # No-op when the update was skipped (working tree unchanged).
+      # Carries the commits made above (the action includes unpushed commits made
+      # during the workflow), so the PR has one commit per release.
       - uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1  # v8.1.1
+        id: cpr
+        if: steps.pull.outputs.release != ''
         with:
-          # Branch is cut from the default branch (master), but the PR targets dev so
-          # the refresh lands on the active dev line. master stays an ancestor of dev
-          # in this repo's flow, so the PR diff is just the CSV change, not the dev delta.
           base: dev
           add-paths: data/locations/*.csv
           branch: bot/locations-update
           delete-branch: true
-          commit-message: "update locations: ${{ steps.ledger.outputs.release }}"
-          title: "update locations: ${{ steps.ledger.outputs.release }}"
+          title: "update locations: ${{ steps.pull.outputs.release }}"
           labels: data
           body: |
-            Automated geotargets CSV refresh (weekly cron).
+            Automated geotargets CSV refresh (weekly cron), one commit per upstream release.
 
-            - `data/locations/geotargets.csv` overwritten with the latest upstream release
+            - `data/locations/geotargets.csv` overwritten with each new upstream release
             - `data/locations/ledger.csv` logs the collection date and upstream filename
 
-            See `.planners/plans/031-automate-locations-download/plan.md`.
+            Merged by the job: the header check in the pull is the safeguard. See
+            `.planners/plans/031-automate-locations-download/plan.md` and
+            `.planners/plans/065-keep-every-geotargets-release/plan.md`.
+
+      # Merge in the job so the branch never waits a week and gets rebuilt over an
+      # unmerged release. No checks run on a PR opened with the workflow token, so
+      # there is nothing to wait for but GitHub's mergeability computation. Switch
+      # to `gh pr merge --auto` if dev ever gets required checks.
+      - name: Merge the pull request
+        if: steps.cpr.outputs.pull-request-operation == 'created' || steps.cpr.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
+        run: |
+          for _ in $(seq 1 12); do
+            [ "$(gh pr view "$PR" --json mergeable -q .mergeable)" = MERGEABLE ] && break
+            sleep 5
+          done
+          gh pr merge "$PR" --merge --delete-branch --subject "merge: PR #$PR - bot/locations-update"
