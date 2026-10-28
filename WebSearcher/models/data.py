@@ -1,6 +1,6 @@
 from typing import Any
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, computed_field, model_validator
 
 # Closed vocabulary of parse-error messages, recorded in a result's
 # ``details["error"]``. An error row carries no content payload, so its
@@ -34,6 +34,17 @@ class ResponseOutput(BaseModel):
     user_agent: str = ""
     response_code: int = 0
     timestamp: str = ""
+
+    @computed_field
+    @property
+    def has_search(self) -> bool:
+        """Whether the HTML holds the ``#search`` results container.
+
+        ``False`` for a challenge page, an empty capture, or a SERP shell
+        captured before the page finished replacing itself, so a caller can
+        retry without parsing first.
+        """
+        return 'id="search"' in self.html
 
     def __getitem__(self, key: str):
         return getattr(self, key)
@@ -109,6 +120,7 @@ class BaseSERP(BaseModel):
     html: str = Field(..., description="Raw HTML of the SERP")
     timestamp: str = Field(..., description="ISO format timestamp of the crawl")
     response_code: int = Field(..., description="HTTP response code")
+    has_search: bool = Field(False, description="Whether the HTML holds the #search container")
     user_agent: str = Field(..., description="User agent used for the request")
     serp_id: str = Field(..., description="Unique identifier for this SERP")
     crawl_id: str = Field(..., description="Identifier for grouping related SERPs")

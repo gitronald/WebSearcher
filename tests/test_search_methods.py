@@ -50,11 +50,15 @@ class FakePageBlocked:
 
 
 class FakePageNavFails:
-    """goto raises before navigating; the page stays on the previous SERP."""
+    """The page holds the previous SERP; the search's goto raises before navigating."""
 
-    url = PREV_URL
+    def __init__(self):
+        self.url = PREV_URL
 
-    def goto(self, url, wait_until=None):
+    def goto(self, url, wait_until=None, timeout=None):
+        if url == "about:blank":
+            self.url = url
+            return None
         raise Exception("net::ERR_CONNECTION_RESET")
 
 

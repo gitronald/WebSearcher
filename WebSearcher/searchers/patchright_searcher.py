@@ -26,7 +26,25 @@ from ..models.searches import SearchParams
 
 # CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
+SHOW_MORE_EXPANDED_SELECTOR = f'{SHOW_MORE_SELECTOR}[aria-expanded="true"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
+
+# Capture timing (ms). A SERP can replace itself once more after #search first
+# renders (plan 066), so a capture waits for the load states, bounded because a
+# SERP's background requests can keep the network from going idle.
+SEARCH_TIMEOUT_MS = 10_000
+LOAD_TIMEOUT_MS = 5_000
+NETWORKIDLE_TIMEOUT_MS = 3_000
+RESET_TIMEOUT_MS = 5_000
+EXPAND_TIMEOUT_MS = 5_000
+
+# Attempts at page.content() while the page is still navigating
+CONTENT_ATTEMPTS = 3
+
+
+def _is_navigating_error(e: Exception) -> bool:
+    """Whether ``e`` is the error ``page.content()`` raises mid-navigation."""
+    return "page is navigating" in str(e)
 
 
 def prepare_profile_dir(path: Path) -> None:
@@ -135,16 +153,25 @@ class PatchrightSearcher:
 
         pre_nav_url: str | None = None
         try:
+            # Start from a blank page, so a late navigation of the previous SERP
+            # cannot land in this request, and the "URL moved" check below never
+            # takes the previous query's SERP for this one.
+            self.reset_page()
             pre_nav_url = self.page.url
             response = self.page.goto(search_params.url, wait_until="domcontentloaded")
             # Record the status before the #search wait so a blocked request
             # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
             response_output.response_code = response.status if response else 200
             time.sleep(2)
-            self.page.wait_for_selector("#search", timeout=10_000)
-            time.sleep(2)
-            response_output.html = self.page.content()
+            self.page.wait_for_selector("#search", timeout=SEARCH_TIMEOUT_MS)
+            self.settle_page()
+            response_output.html = self.page_content()
             response_output.url = self.page.url
+            if not response_output.has_search:
+                self.log.warning(
+                    f"SERP | {self.driver_name} | captured HTML has no #search",
+                    extra={"event": "capture"},
+                )
 
             # Expand AI overview if requested
             if search_params.ai_expand:
@@ -168,7 +195,7 @@ class PatchrightSearcher:
                     live_url = self.page.url
                     if live_url and live_url != pre_nav_url:
                         response_output.url = live_url
-                        response_output.html = self.page.content()
+                        response_output.html = self.page_content(require_search=False)
                 except Exception:
                     pass
             if utils.is_sorry_redirect(response_output.url):
@@ -187,24 +214,105 @@ class PatchrightSearcher:
 
         return response_output
 
-    def expand_ai_overview(self):
-        """Expand AI overview box by clicking it"""
-        show_more_button = self.page.locator(SHOW_MORE_SELECTOR).first
-        try:
-            show_more_button.click(timeout=1_000)
-        except Exception:
-            return None
+    def reset_page(self) -> None:
+        """Park the page on ``about:blank``, or replace it when that fails.
 
-        time.sleep(2)  # Wait for additional content to load
+        The blank-page navigation fails when the previous SERP navigates over
+        it ("interrupted by another navigation"); a new page in the same context
+        then drops the old one.
+        """
+        if self.page.url == "about:blank":
+            return
+        try:
+            self.page.goto("about:blank", wait_until="load", timeout=RESET_TIMEOUT_MS)
+            if self.page.url == "about:blank":
+                return
+        except Exception as e:
+            self.log.debug(f"SERP | blank-page reset failed | {e}", extra={"event": "reset_page"})
+        self.log.debug("SERP | replacing page", extra={"event": "reset_page"})
+        self.page.close()
+        self.page = self.context.new_page()
+
+    def settle_page(self, require_search: bool = True) -> None:
+        """Wait for the page to finish loading, then confirm ``#search`` is attached.
+
+        Each load state is bounded and its timeout ignored: a SERP's background
+        requests can keep the network busy, and a late capture beats none.
+        """
+        for state, timeout in (("load", LOAD_TIMEOUT_MS), ("networkidle", NETWORKIDLE_TIMEOUT_MS)):
+            try:
+                self.page.wait_for_load_state(state, timeout=timeout)
+            except Exception:
+                pass
+        if require_search:
+            self.page.wait_for_selector("#search", state="attached", timeout=SEARCH_TIMEOUT_MS)
+
+    def page_content(self, require_search: bool = True) -> str:
+        """Return ``page.content()``, retrying while the page is navigating.
+
+        Only the "page is navigating" error is retried: each retry backs off,
+        settles the page again, and (with ``require_search``) re-checks ``#search``.
+        """
+        for attempt in range(1, CONTENT_ATTEMPTS + 1):
+            try:
+                return self.page.content()
+            except Exception as e:
+                if attempt == CONTENT_ATTEMPTS or not _is_navigating_error(e):
+                    raise
+                self.log.debug(
+                    f"SERP | page navigating during capture | attempt {attempt}",
+                    extra={"event": "capture"},
+                )
+                time.sleep(0.5 * attempt)
+                self.settle_page(require_search)
+        raise AssertionError("unreachable")
+
+    def expand_ai_overview(self) -> str | None:
+        """Expand the AI overview by clicking its show-more control.
+
+        Returns the expanded HTML, or ``None`` when nothing was expanded. The
+        outcome is logged as an ``ai_expand`` event: ``expanded``, ``unconfirmed``
+        (clicked, but the control has no ``aria-expanded`` to confirm it),
+        ``not_expanded`` (clicked, and ``aria-expanded`` stayed false),
+        ``no_control``, ``click_failed``, or ``capture_failed``.
+        """
+        show_more = self.page.locator(SHOW_MORE_SELECTOR).first
+        if show_more.count() == 0:
+            return self._ai_expand_outcome("no_control")
+        try:
+            confirmable = (
+                show_more.get_attribute("aria-expanded", timeout=EXPAND_TIMEOUT_MS) is not None
+            )
+            show_more.click(timeout=EXPAND_TIMEOUT_MS)
+        except Exception:
+            return self._ai_expand_outcome("click_failed")
+
+        if confirmable:
+            try:
+                self.page.wait_for_selector(
+                    SHOW_MORE_EXPANDED_SELECTOR, state="attached", timeout=EXPAND_TIMEOUT_MS
+                )
+            except Exception:
+                return self._ai_expand_outcome("not_expanded")
+            outcome = "expanded"
+        else:
+            time.sleep(2)  # Nothing to wait on: give the added content time to load
+            outcome = "unconfirmed"
+
         try:
             self.page.locator(SHOW_ALL_SELECTOR).first.click(timeout=1_000)
         except Exception:
             pass
 
         try:
-            return self.page.content()
+            html = self.page_content(require_search=False)
         except Exception:
-            return None
+            return self._ai_expand_outcome("capture_failed")
+        self._ai_expand_outcome(outcome)
+        return html
+
+    def _ai_expand_outcome(self, outcome: str) -> None:
+        self.log.debug(f"SERP | ai_expand | {outcome}", extra={"event": "ai_expand"})
 
     def _register_exit_hook(self) -> None:
         """Close this searcher at interpreter exit if it is still open then.
