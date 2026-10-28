@@ -327,16 +327,19 @@ def test_has_search_in_response_dump():
 
 
 class FakeLocator:
-    def __init__(self, count=1, aria_expanded=None, click_error=None):
+    def __init__(self, count=1, aria_expanded=None, click_error=None, count_error=None):
         self._count = count
         self.aria_expanded = aria_expanded
         self.click_error = click_error
+        self.count_error = count_error
 
     @property
     def first(self):
         return self
 
     def count(self):
+        if self.count_error:
+            raise self.count_error
         return self._count
 
     def get_attribute(self, name, timeout=None):
@@ -375,6 +378,7 @@ class FakeExpandPage(FakePage):
         (FakeLocator(aria_expanded=None), True, "unconfirmed", "<html>expanded</html>"),
         (FakeLocator(count=0), True, "no_control", None),
         (FakeLocator(click_error=Exception("Timeout 5000ms")), True, "click_failed", None),
+        (FakeLocator(count_error=Exception("Target closed")), True, "click_failed", None),
     ],
 )
 def test_expand_ai_overview_outcomes(caplog, show_more, expands, outcome, html):

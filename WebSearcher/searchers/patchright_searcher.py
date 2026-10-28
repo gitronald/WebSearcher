@@ -355,9 +355,9 @@ class PatchrightSearcher:
         ``no_control``, ``click_failed``, or ``capture_failed``.
         """
         show_more = self.page.locator(SHOW_MORE_SELECTOR).first
-        if show_more.count() == 0:
-            return self._ai_expand_outcome("no_control")
         try:
+            if show_more.count() == 0:
+                return self._ai_expand_outcome("no_control")
             confirmable = (
                 show_more.get_attribute("aria-expanded", timeout=EXPAND_TIMEOUT_MS) is not None
             )
