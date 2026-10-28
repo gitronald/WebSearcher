@@ -209,6 +209,8 @@ the cookie clear after each request.
 
 ### Open questions
 
+- (2026-10-28) Runs 1-3 above are done; results are in the Log.
+
 1. Does clearing cookies after a request prompt the late reload? Not investigated: it needs
    a few hundred queries per arm, with `clear_cookies` on and off. Left open by decision
    (2026-10-28). The cookie clear stays after the request. The blank-page reset before the
@@ -219,3 +221,6 @@ the cookie clear after each request.
 3. Is the `Captcha Dialog` aria-label localized? The overlay selector also matches the
    dialog's `/sorry/` iframe, which does not depend on language, so a non-English overlay
    should still flag. Not verified.
+4. Should `ai_expand` stay? In the current layout the click added no data on 3 of 3
+   queries (see Log), while the click and wait add time to each query that has an
+   overview. The decision is out of this plan's scope and is the user's to make.
