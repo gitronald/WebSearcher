@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `has_search` on the response and the SERP record: whether the captured HTML holds the `#search` results container. It is `False` for a challenge page, an empty capture, or a SERP shell, so a caller can retry without parsing first. The browser backend also logs a WARNING `capture` event when it captures a page without `#search`
+
+### Changed
+
+- The `captcha` feature is keyed on challenge markup instead of the word "CAPTCHA" in the page text: the `/sorry/` page's form, a reCAPTCHA container or frame, and the in-page "Captcha Dialog" overlay (a frame of a `/sorry/` page shown over a SERP with results). A SERP whose result snippet quotes a site's form ("protected by reCAPTCHA") is no longer flagged, and the overlay, which was not detected before, now is. The `/sorry/` redirect URL still flags it independently. Callers that branch on `captcha` will see fewer flags on normal SERPs
+
+### Fixed
+
+- The browser backend waits for the SERP to finish loading before capturing it, instead of a fixed 2 s sleep after `#search` renders. A SERP that replaced itself in that window was captured as an ~80 KB shell without `#search` or raised "the page is navigating"; the capture now waits for the load states, re-checks `#search`, and retries the read while the page is still navigating
+- One engine reused across queries could record the previous query's SERP, or a late navigation of it, under the next query. Each request now starts from a blank page, and the page is replaced when the previous SERP's navigation interrupts that reset
+- `ai_expand` waits up to 5 s for the show-more click and for the control's `aria-expanded="true"` instead of a fixed sleep, and logs its outcome as a DEBUG `ai_expand` event (`expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, or `capture_failed`), so a missed click is distinguishable from a SERP without an AI overview
+
 ## [0.12.3] - 2026-10-26
 
 ### Added
