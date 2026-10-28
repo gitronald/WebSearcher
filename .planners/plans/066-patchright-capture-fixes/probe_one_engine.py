@@ -5,7 +5,8 @@ and whether the SERP's ``<title>`` names its own query (a mismatch means another
 query's page was recorded). Runs against whatever WebSearcher the current
 environment imports, so the same script times the base branch and this one.
 
-With ``--ai-expand``, each row also records the logged ``ai_expand`` outcome and
+Each row also records counts over the parsed AI overview rows (``ai``). With
+``--ai-expand``, each row also records the logged ``ai_expand`` outcome and
 compares the AI overview rows parsed from the page just before the show-more
 click with those parsed after it, on the same page load. Both HTML captures are
 saved next to the output, in ``<out stem>-html/``.
@@ -117,6 +118,10 @@ def main() -> None:
                 "response_code": se.serp["response_code"],
                 "html_len": len(html),
             }
+            if html:
+                summary = ai_overview_summary(html)
+                summary.pop("results")
+                row["ai"] = summary
             if args.ai_expand:
                 row["ai_expand"] = list(outcomes.messages)
             if "html" in before:

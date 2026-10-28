@@ -143,10 +143,14 @@ class NetworkLog:
 
 
 def describe(request: Any) -> dict[str, Any]:
-    """A request's resource type and URL, as host and path without the query string."""
+    """A request's resource type, URL (host and path, no query string), and Sec-Purpose."""
     parts = urlsplit(request.url)
     url = f"{parts.netloc}{parts.path}" if parts.netloc else request.url[:60]
-    return {"type": request.resource_type, "url": url}
+    return {
+        "type": request.resource_type,
+        "url": url,
+        "purpose": request.headers.get("sec-purpose"),
+    }
 
 
 def ai_overview(html: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
@@ -267,9 +271,9 @@ def main() -> None:
                 f"stable {row.get('stable_at')} {row.get('error', '')}"
             )
             for r in row.get("long_requests", []):
-                print(f"  long: {r['start']}-{r['end']} s {r['type']} {r['url']}")
+                print(f"  long: {r['start']}-{r['end']} s {r['type']} {r['purpose']} {r['url']}")
             for r in row.get("inflight_at_end", []):
-                print(f"  open at end: since {r['start']} s {r['type']} {r['url']}")
+                print(f"  open at end: since {r['start']} s {r['type']} {r['purpose']} {r['url']}")
             for s in row.get("snapshots", []):
                 print(
                     f"  +{s['at']:5.2f}s inflight={s['inflight']:3} rows={s['rows']} "
