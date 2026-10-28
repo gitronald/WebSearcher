@@ -1,7 +1,7 @@
 ---
 id: 66
 slug: patchright-capture-fixes
-status: active
+status: implemented
 branch: feature/patchright-capture-fixes
 created: 2026-10-28T09:27:24-07:00
 concluded:
@@ -139,6 +139,7 @@ order.
     - Item 2: `reset_page` navigates to `about:blank` before each `goto`, and replaces the page (`context.new_page()`) when that navigation is interrupted or ends elsewhere, so `pre_nav_url` is always the blank page. The reset is not done after the capture, because `ws-demo --leave-open` keeps the SERP on screen for solving a challenge by hand. The cookie clear stays after the request (decision below).
     - Item 3: `has_captcha` matches `CAPTCHA_SELECTOR` (`form#captcha-form`, a `/sorry/` form action, `div.g-recaptcha`, `#recaptcha`, a `/recaptcha/` or `/sorry/` iframe, and the `Captcha Dialog` dialog). An overlay capture already existed in the main checkout's ignored `data/`. `tests/fixtures/captcha_dialog_overlay.html` is the trimmed dialog from it, with the continue token redacted. None of the selectors matches any of the 121 corpus SERPs. One corpus SERP ("central park new york", snippet "protected by reCAPTCHA") went from `captcha: true` to `false`; it is the only snapshot change.
     - Item 4: the show-more click and the `aria-expanded="true"` wait use 5 s. In the corpus, 9 of 33 show-more controls have no `aria-expanded`, so those clicks keep a 2 s sleep and log `unconfirmed`. Outcomes: `expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, `capture_failed`, in the message text, because the JSONL formatter drops unknown `extra=` keys.
+- **2026-10-28T10:03:03-07:00** — Implemented: 6 commits ahead of `dev`.
 
 ## Handoff
 
