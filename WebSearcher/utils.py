@@ -117,19 +117,34 @@ def is_sorry_redirect(url: str | None) -> bool:
     return parts.path == "/sorry" or parts.path.startswith("/sorry/")
 
 
-def has_captcha(soup: Node | None, html: str | None = None) -> bool:
-    """Boolean for 'CAPTCHA' appearance in the document text.
+# Challenge markup: the /sorry/ page's form and reCAPTCHA widget, and the
+# "Captcha Dialog" overlay a normal SERP can show, which frames a /sorry/ page.
+CAPTCHA_SELECTOR = ", ".join(
+    [
+        "form#captcha-form",
+        'form[action*="/sorry/"]',
+        "div.g-recaptcha",
+        "#recaptcha",
+        'iframe[src*="/recaptcha/"]',
+        'iframe[src*="/sorry/"]',
+        'div[role="dialog"][aria-label="Captcha Dialog"]',
+    ]
+)
 
-    If ``html`` (the raw markup) is provided, a substring check rules out the
-    common no-captcha case without a document text walk. Falls back to
-    ``soup.text(deep=True)`` so script/style/template content doesn't
-    false-positive on JS that happens to contain the literal.
+
+def has_captcha(soup: Node | None, html: str | None = None) -> bool:
+    """Boolean for CAPTCHA challenge markup in the document (``CAPTCHA_SELECTOR``).
+
+    Keyed on markup, not the word: a result snippet quoting a site's form
+    ("protected by reCAPTCHA") is not a challenge. If ``html`` (the raw markup)
+    is provided, a substring check rules out the common no-challenge case
+    without a selector query.
     """
-    if html is not None and "CAPTCHA" not in html:
+    if html is not None and not any(s in html for s in ("captcha", "Captcha", "/sorry/")):
         return False
     if soup is None:
         return False
-    return "CAPTCHA" in (soup.text(deep=True) or "")
+    return soup.css_first(CAPTCHA_SELECTOR) is not None
 
 
 def get_link_list(soup: Node | None) -> list[str] | None:
