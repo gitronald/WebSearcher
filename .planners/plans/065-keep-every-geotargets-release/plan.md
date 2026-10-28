@@ -114,8 +114,10 @@ loop in the workflow.
 
 ### Out of scope
 
-- Releases older than 2026-07-16: the ledger up to 2026-06-15 is the seeded archive and is
-  complete.
+- Releases older than 2022-12-21: Google's dated URLs serve nothing earlier, so gaps in the
+  seeded archive before that date cannot be enumerated. (Corrected 2026-10-28: this line first
+  said the seeded archive up to 2026-06-15 was complete. The probe found 15 releases missing
+  from it, now backfilled; see Log.)
 - The branch-from-master, PR-to-dev arrangement, which stays as plan 031 set it.
 
 ## Log
@@ -148,4 +150,4 @@ Not verified:
 
 Questions:
 
-1. Should the plan's Out of scope line ("the ledger up to 2026-06-15 is the seeded archive and is complete") be corrected in the spec, or left as the record of what was believed? The Log carries the correction (15 missing releases found and backfilled).
+1. Should the plan's Out of scope line ("the ledger up to 2026-06-15 is the seeded archive and is complete") be corrected in the spec, or left as the record of what was believed? The Log carries the correction (15 missing releases found and backfilled). **Answered 2026-10-28: correct it.** Done in Out of scope.
