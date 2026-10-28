@@ -2,6 +2,7 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
+| 068 | [Add a websearcher command with a demo group](plans/068-websearcher-cli/plan.md) | draft | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
