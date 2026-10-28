@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-10-28
+
 ### Added
 
 - `has_search` on the response and the SERP record: whether the captured HTML holds the `#search` results container. It is `False` for a challenge page, an empty capture, or a SERP shell, so a caller can retry without parsing first. The browser backend also logs a WARNING `capture` event when it captures a page without `#search`
