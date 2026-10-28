@@ -15,6 +15,7 @@ from selectolax.lexbor import LexborNode as Node
 import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.classifiers.main import ClassifyMain
+from WebSearcher.parsers.components.ai_overview import parse_ai_overview
 from WebSearcher.parsers.components.datasets import parse_datasets
 from WebSearcher.parsers.components.people_also_ask import parse_people_also_ask
 
@@ -560,23 +561,25 @@ def test_knowledge_submodule_entity_tail_headings():
         ), heading
 
 
-# --- ai_overview unavailable banner (crawl-6 unknowns) ----------------------
+# --- ai_overview loading banner (crawl-6 unknowns) --------------------------
 #
 # SERPs serialized mid-generation ("Thinking") or after Google declined to
 # synthesize an overview carry the EYwa3d controller but none of the
 # Fzsovc/h2 markers. The same controller also lives inside knowledge panels
 # embedding an AI-overview module, so the banner rule runs last in the chain
-# and only claims otherwise-unknown components.
+# and only claims otherwise-unknown components. These requests-backend
+# captures never ran the script that streams the body in, so both decline
+# messages are still hidden.
 
 BANNER_QRYS = ["save your do , hair wrap", "moulinex a15453 760w toaster"]
 
 
 @pytest.mark.parametrize("qry", BANNER_QRYS)
-def test_ai_overview_banner_unavailable(serps_by_qry, qry):
+def test_ai_overview_banner_not_loaded(serps_by_qry, qry):
     rows = _rows(serps_by_qry[qry]["html"], "ai_overview")
     assert len(rows) == 1
     (row,) = rows
-    assert row["sub_type"] == "unavailable"
+    assert row["sub_type"] == "not_loaded"
     assert row["title"] is None and row["url"] is None and row["text"] is None
     assert _row_error(row) is None
 
@@ -596,6 +599,59 @@ def test_ai_overview_banner_unknown_without_controller():
         )
         == "unknown"
     )
+
+
+# --- ai_overview not loaded vs declined ---------------------------------------
+#
+# A browser capture taken before the overview streamed in, trimmed to its
+# component. Each decline message sits in its own ``span.YWpX0d`` under an
+# inline ``display:none``. No capture yet shows a decline; the declined case
+# assumes the page's script removes that style from one message.
+
+NOT_LOADED_FIXTURE = Path(__file__).parent / "fixtures" / "ai_overview_not_loaded.html"
+_DECLINE_HIDDEN = 'jsname="lGsj1" class="YWpX0d" style="display:none"'
+
+
+def _ai_overview_fixture(html: str, drop_css: str | None = None) -> dict:
+    soup = utils.make_soup(html)
+    if drop_css:
+        for elem in soup.css(drop_css):
+            elem.decompose()
+    node = soup.css_first("div.bzXtMb")
+    assert node is not None
+    (row,) = parse_ai_overview(node)
+    return row
+
+
+def test_ai_overview_not_loaded_fixture():
+    row = _ai_overview_fixture(NOT_LOADED_FIXTURE.read_text())
+    assert row["sub_type"] == "not_loaded"
+    assert row["text"] is None and row["details"] is None
+
+
+def test_ai_overview_decline_shown():
+    html = NOT_LOADED_FIXTURE.read_text()
+    assert _DECLINE_HIDDEN in html
+    row = _ai_overview_fixture(html.replace(_DECLINE_HIDDEN, 'jsname="lGsj1" class="YWpX0d"'))
+    assert row["sub_type"] == "unavailable"
+    assert row["text"] is None and row["details"] is None
+
+
+def test_ai_overview_empty_without_messages_stays_flat():
+    # No body and no decline messages: a parser miss, not a page state.
+    row = _ai_overview_fixture(NOT_LOADED_FIXTURE.read_text(), drop_css="span.YWpX0d")
+    assert row["sub_type"] == "flat"
+
+
+@pytest.mark.parametrize("tag", ["script", "noscript", "style"])
+def test_ai_overview_marker_in_unrendered_tag_not_a_decline(tag):
+    # A marker string in unrendered text is not a shown message.
+    root_open = '<div class="bzXtMb M8OgIe" jsname="Ya7sxe">'
+    marker = "An AI Overview is not available for this search"
+    html = NOT_LOADED_FIXTURE.read_text()
+    assert html.startswith(root_open)
+    row = _ai_overview_fixture(html.replace(root_open, f"{root_open}<{tag}>{marker}</{tag}>", 1))
+    assert row["sub_type"] == "not_loaded"
 
 
 # --- crawl-6 unknown submodules (second pass) --------------------------------
@@ -1095,7 +1151,7 @@ def test_text_ad_mid_page_block(serps_by_qry):
 @pytest.mark.parametrize("qry", ["solitair1lalakakwwowoows9owpalqlsaeu5l", "chargers vs raiders"])
 def test_ai_overview_wrapped_banner(serps_by_qry, qry):
     results = ws.parse_serp(serps_by_qry[qry]["html"])["results"]
-    assert (results[0]["type"], results[0]["sub_type"]) == ("ai_overview", "unavailable")
+    assert (results[0]["type"], results[0]["sub_type"]) == ("ai_overview", "not_loaded")
     empty_panels = [
         r for r in results if r["type"] == "knowledge" and not (r["title"] or r["text"] or r["url"])
     ]

@@ -240,7 +240,7 @@ class PatchrightSearcher:
             if not response_output.has_search:
                 self.log.warning(
                     f"SERP | {self.driver_name} | captured HTML has no #search",
-                    extra={"event": "capture"},
+                    extra={"event": "capture", "qry": search_params.qry, "loc": search_params.loc},
                 )
 
             # Expand AI overview if requested

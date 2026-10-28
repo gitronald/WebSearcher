@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.13.1`: Empty AI overviews whose body had not loaded are `sub_type="not_loaded"` instead of `unavailable`, which now requires a shown decline message, and the browser's no-`#search` capture warning names the query and location
 - `0.13.0`: Browser captures wait for the page to settle instead of fixed sleeps and start each query from a blank page, a `has_search` flag on responses and SERP records, `captcha` keyed on challenge markup instead of page text, a locations updater that records every geotargets release, and `brotli>=1.2.1` for a security fix
 - `0.12.3`: Sponsored listing and vehicle ad carousels, the 2026-10 "Complementary Results" right-hand panel, local place ads, and entity facts that keep their full value
 - `0.12.2`: Top stories and text ads in the 2026-10 layout, source and age on news-style cards, and the "Featured results" band typed as `knowledge`

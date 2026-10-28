@@ -1,15 +1,21 @@
 """Parse the AI Overview component.
 
 Google's AI Overview is a synthesized answer panel that appears at or near the
-top of a SERP. It comes in three states:
+top of a SERP. It comes in four states:
 
 - ``flat`` — a single answer block (intro paragraph + optional bullet list)
 - ``sectioned`` — an intro lede followed by N section subheadings (each with its
   own bullet list and optional inline links)
-- ``unavailable`` — the component was detected but Google declined to synthesize
-  an overview ("An AI Overview is not available for this search"). No body or
-  sources; recorded explicitly so a decline is distinguishable from a parser
-  miss (which stays ``flat`` with empty output).
+- ``not_loaded`` — the component was detected but its body had not arrived when
+  the page was captured: no body container, and the decline messages still
+  hidden. The page's script streams the body in after the first HTML, so a
+  requests-backend capture, or a browser capture taken too early, lands here.
+- ``unavailable`` — Google declined to synthesize an overview and shows a
+  message ("An AI Overview is not available for this search") instead.
+
+A not-loaded or declined overview has no body or sources; both are recorded
+explicitly so they are distinguishable from a parser miss (which stays
+``flat`` with empty output).
 
 The flat and sectioned layouts share a "Sources" tray at the bottom that lists the publishers the
 overview drew from. Per-section ``button.rBl3me`` widgets carry citation
@@ -25,8 +31,8 @@ tray is ``li.LLtSOc`` cards (anchor ``a.KEVENd``, title in the anchor's
 ``aria-label`` / ``div.mNme1d``, snippet in ``span.gxZfx``). When the current
 body container is missing we fall back to the legacy extractors below; those
 captures predate the JSON citation payloads, so legacy sources come straight
-from the rendered tray. "Can't generate an AI overview right now" failures carry
-none of these markers and correctly yield empty output.
+from the rendered tray. Legacy captures taken while the overview was still
+"Searching" carry none of these markers and parse as ``not_loaded``.
 
 The role-heading layout (2026-10) keeps ``div.mZJni`` but renames the markup
 inside it, so it runs through the current-DOM path with an extra class per
@@ -43,7 +49,7 @@ from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
-from ..._slx import class_tokens, get_text, subtree_css, walk_descendants
+from ..._slx import class_tokens, get_text, is_hidden, subtree_css, walk_descendants
 from ._ai_overview_payloads import extract_payloads
 
 # Set by ``parse_serp`` so ``_root_html`` skips a full-document serialization
@@ -77,12 +83,16 @@ def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     parsed["sub_type"] = "sectioned" if "sections" in overview else "flat"
     parsed["details"] = {"type": "ai_overview", **overview} if overview else None
 
-    # Distinguish a genuine "Google declined to generate" panel from a parser
-    # miss: both otherwise yield empty output. The decline message is shipped
-    # (hidden) on every AI-overview page, so it is only meaningful when no
-    # content was extracted.
-    if parsed["text"] is None and parsed["details"] is None and _is_unavailable(node):
-        parsed["sub_type"] = "unavailable"
+    # An empty overview is a decline, an overview whose body has not loaded, or
+    # a parser miss (left ``flat``). The decline messages ship on every
+    # AI-overview page under ``display:none``, so they tell a decline only once
+    # one is shown; hidden messages with no body mean the body never arrived.
+    if parsed["text"] is None and parsed["details"] is None:
+        shown = _decline_messages_shown(node)
+        if shown:
+            parsed["sub_type"] = "unavailable"
+        elif shown is not None and content is None:
+            parsed["sub_type"] = "not_loaded"
 
     return [parsed]
 
@@ -149,18 +159,37 @@ _CITATION_PUBLISHER_CSS = "span.iFMVXd, span.QNca8b"
 _CITATION_COUNT_CSS = "span.IjM6od, span.OkUHJe"
 _CITATION_STRIP_CSS = "button.rBl3me, span.NMq1me"
 
-# Messages shown when Google declines to synthesize an overview. Both are
-# present (hidden) on every AI-overview page, so they only carry meaning when
-# no overview content was extracted. The second is apostrophe-agnostic.
+# Messages shown when Google declines to synthesize an overview. Both ship on
+# every AI-overview page inside ``span.YWpX0d`` under an inline
+# ``display:none``, so they only carry meaning when no overview content was
+# extracted. The second is apostrophe-agnostic.
 _UNAVAILABLE_MARKERS = (
     "An AI Overview is not available for this search",
     "generate an AI overview right now",
 )
 
+# Their text is never rendered, so a marker string inside one is not a message.
+_UNRENDERED_TAGS = frozenset({"script", "noscript", "style", "template"})
 
-def _is_unavailable(node: Node) -> bool:
-    text = get_text(node, " ", strip=True) or ""
-    return any(marker in text for marker in _UNAVAILABLE_MARKERS)
+
+def _decline_messages_shown(node: Node) -> bool | None:
+    """Whether a decline message is shown: ``None`` when neither is present.
+
+    A message counts as shown when neither it nor an ancestor carries an inline
+    ``display:none``. No capture yet shows a decline, so this assumes the
+    page's script shows one by removing that style (unverified).
+    """
+    found = False
+    for elem in walk_descendants(node):
+        if elem.tag in _UNRENDERED_TAGS:
+            continue
+        own_text = (elem.text(deep=False) or "").strip()
+        if not any(marker in own_text for marker in _UNAVAILABLE_MARKERS):
+            continue
+        found = True
+        if not is_hidden(elem):
+            return True
+    return False if found else None
 
 
 def _root_html(node: Node) -> str:

@@ -306,15 +306,19 @@ def test_other_content_errors_not_retried():
 
 
 def test_capture_without_search_is_flagged(caplog):
+    # The warning names the search, so a caller's log needs no line of its own to say which
     page = FakePage(contents=[SHELL_HTML])
     with caplog.at_level(logging.DEBUG, logger=LOG.name):
-        out = search(make_patchright(page))
+        out = search(make_patchright(page), loc="Boston,Massachusetts,United States")
     assert out.html == SHELL_HTML
     assert out.has_search is False
-    assert [
+    warnings = [
         r
         for r in caplog.records
         if getattr(r, "event", None) == "capture" and r.levelno == logging.WARNING
+    ]
+    assert [(getattr(r, "qry", None), getattr(r, "loc", None)) for r in warnings] == [
+        ("test", "Boston,Massachusetts,United States")
     ]
 
 
