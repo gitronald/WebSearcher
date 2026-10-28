@@ -96040,7 +96040,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9074074,Song Cau,"Song Cau,Dak Lak,Vietnam",9040370,VN,City,Active
 9074075,Phu Ly,"Phu Ly,Ninh Binh,Vietnam",9040338,VN,City,Active
 9074076,Song Cong,"Song Cong,Thai Nguyen,Vietnam",9040330,VN,City,Active
-9074078,Hoa Binh,"Hoa Binh,Vietnam",2704,VN,City,Active
+9074078,Hoa Binh,"Hoa Binh,Phu Tho,Vietnam",9047182,VN,City,Active
 9074079,Phuc Yen,"Phuc Yen,Phu Tho,Vietnam",9047182,VN,City,Active
 9074080,Sam Son,"Sam Son,Thanh Hoa,Vietnam",9040340,VN,City,Active
 9074082,Bac Kan,"Bac Kan,Thai Nguyen,Vietnam",9040330,VN,City,Active
@@ -112140,58 +112140,6 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9112858,Arkansas's 2nd Congressional District 2022 redistricting,"Arkansas's 2nd Congressional District 2022 redistricting,Arkansas,United States",21135,US,Congressional District,Active
 9112859,Arkansas's 3rd Congressional District 2022 redistricting,"Arkansas's 3rd Congressional District 2022 redistricting,Arkansas,United States",21135,US,Congressional District,Active
 9112860,Arkansas's 4th Congressional District 2022 redistricting,"Arkansas's 4th Congressional District 2022 redistricting,Arkansas,United States",21135,US,Congressional District,Active
-9112861,California's 1st Congressional District 2022 redistricting,"California's 1st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112862,California's 2nd Congressional District 2022 redistricting,"California's 2nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112863,California's 3rd Congressional District 2022 redistricting,"California's 3rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112864,California's 4th Congressional District 2022 redistricting,"California's 4th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112865,California's 5th Congressional District 2022 redistricting,"California's 5th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112866,California's 6th congressional district 2022 redistricting,"California's 6th congressional district 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112867,California's 7th Congressional District 2022 redistricting,"California's 7th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112868,California's 8th Congressional District 2022 redistricting,"California's 8th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112869,California's 9th Congressional District 2022 redistricting,"California's 9th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112870,California's 10th Congressional District 2022 redistricting,"California's 10th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112871,California's 11th Congressional District 2022 redistricting,"California's 11th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112872,California's 12th Congressional District 2022 redistricting,"California's 12th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112873,California's 13th Congressional District 2022 redistricting,"California's 13th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112874,California's 14th Congressional District 2022 redistricting,"California's 14th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112875,California's 15th Congressional District 2022 redistricting,"California's 15th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112876,California's 16th Congressional District 2022 redistricting,"California's 16th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112877,California's 17th Congressional District 2022 redistricting,"California's 17th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112878,California's 18th Congressional District 2022 redistricting,"California's 18th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112879,California's 19th Congressional District 2022 redistricting,"California's 19th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112880,California's 20th Congressional District 2022 redistricting,"California's 20th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112881,California's 21st Congressional District 2022 redistricting,"California's 21st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112882,California's 22nd Congressional District 2022 redistricting,"California's 22nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112883,California's 23rd Congressional District 2022 redistricting,"California's 23rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112884,California's 24th Congressional District 2022 redistricting,"California's 24th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112885,California's 25th Congressional District 2022 redistricting,"California's 25th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112886,California's 26th Congressional District 2022 redistricting,"California's 26th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112887,California's 27th Congressional District 2022 redistricting,"California's 27th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112888,California's 28th Congressional District 2022 redistricting,"California's 28th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112889,California's 29th Congressional District 2022 redistricting,"California's 29th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112890,California's 30th Congressional District 2022 redistricting,"California's 30th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112891,California's 31st Congressional District 2022 redistricting,"California's 31st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112892,California's 32nd Congressional District 2022 redistricting,"California's 32nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112893,California's 33rd Congressional District 2022 redistricting,"California's 33rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112894,California's 34th Congressional District 2022 redistricting,"California's 34th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112895,California's 35th Congressional District 2022 redistricting,"California's 35th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112896,California's 36th Congressional District 2022 redistricting,"California's 36th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112897,California's 37th Congressional District 2022 redistricting,"California's 37th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112898,California's 38th Congressional District 2022 redistricting,"California's 38th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112899,California's 39th Congressional District 2022 redistricting,"California's 39th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112900,California's 40th Congressional District 2022 redistricting,"California's 40th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112901,California's 41st Congressional District 2022 redistricting,"California's 41st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112902,California's 42nd Congressional District 2022 redistricting,"California's 42nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112903,California's 43rd Congressional District 2022 redistricting,"California's 43rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112904,California's 44th Congressional District 2022 redistricting,"California's 44th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112905,California's 45th congressional district 2022 redistricting,"California's 45th congressional district 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112906,California's 46th Congressional District 2022 redistricting,"California's 46th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112907,California's 47th Congressional District 2022 redistricting,"California's 47th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112908,California's 48th Congressional District 2022 redistricting,"California's 48th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112909,California's 49th Congressional District 2022 redistricting,"California's 49th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112910,California's 50th Congressional District 2022 redistricting,"California's 50th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112911,California's 51st Congressional District 2022 redistricting,"California's 51st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
-9112912,California's 52nd Congressional District 2022 redistricting,"California's 52nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Active
 9112913,Colorado's 1st Congressional District 2022 redistricting,"Colorado's 1st Congressional District 2022 redistricting,Colorado,United States",21138,US,Congressional District,Active
 9112914,Colorado's 2nd Congressional District 2022 redistricting,"Colorado's 2nd Congressional District 2022 redistricting,Colorado,United States",21138,US,Congressional District,Active
 9112915,Colorado's 3rd Congressional District 2022 redistricting,"Colorado's 3rd Congressional District 2022 redistricting,Colorado,United States",21138,US,Congressional District,Active
@@ -112347,21 +112295,6 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9113085,New Mexico's 2nd Congressional District 2022 redistricting,"New Mexico's 2nd Congressional District 2022 redistricting,New Mexico,United States",21165,US,Congressional District,Active
 9113086,New Mexico's 3rd Congressional District 2022 redistricting,"New Mexico's 3rd Congressional District 2022 redistricting,New Mexico,United States",21165,US,Congressional District,Active
 9113101,North Dakota's At-Large Congressional District 2022 redistricting,"North Dakota's At-Large Congressional District 2022 redistricting,North Dakota,United States",21161,US,Congressional District,Active
-9113102,Ohio's 1st Congressional District 2022 redistricting,"Ohio's 1st Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113103,Ohio's 2nd Congressional District 2022 redistricting,"Ohio's 2nd Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113104,Ohio's 3rd Congressional District 2022 redistricting,"Ohio's 3rd Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113105,Ohio's 4th Congressional District 2022 redistricting,"Ohio's 4th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113106,Ohio's 5th Congressional District 2022 redistricting,"Ohio's 5th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113107,Ohio's 6th Congressional District 2022 redistricting,"Ohio's 6th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113108,Ohio's 7th Congressional District 2022 redistricting,"Ohio's 7th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113109,Ohio's 8th Congressional District 2022 redistricting,"Ohio's 8th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113110,Ohio's 9th Congressional District 2022 redistricting,"Ohio's 9th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113111,Ohio's 10th Congressional District 2022 redistricting,"Ohio's 10th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113112,Ohio's 11th Congressional District 2022 redistricting,"Ohio's 11th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113113,Ohio's 12th Congressional District 2022 redistricting,"Ohio's 12th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113114,Ohio's 13th Congressional District 2022 redistricting,"Ohio's 13th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113115,Ohio's 14th Congressional District 2022 redistricting,"Ohio's 14th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
-9113116,Ohio's 15th Congressional District 2022 redistricting,"Ohio's 15th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Active
 9113117,Oklahoma's 1st Congressional District 2022 redistricting,"Oklahoma's 1st Congressional District 2022 redistricting,Oklahoma,United States",21169,US,Congressional District,Active
 9113118,Oklahoma's 2nd Congressional District 2022 redistricting,"Oklahoma's 2nd Congressional District 2022 redistricting,Oklahoma,United States",21169,US,Congressional District,Active
 9113119,Oklahoma's 3rd Congressional District 2022 redistricting,"Oklahoma's 3rd Congressional District 2022 redistricting,Oklahoma,United States",21169,US,Congressional District,Active
@@ -112402,44 +112335,6 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9113154,Tennessee's 7th Congressional District 2022 redistricting,"Tennessee's 7th Congressional District 2022 redistricting,Tennessee,United States",21175,US,Congressional District,Active
 9113155,Tennessee's 8th Congressional District 2022 redistricting,"Tennessee's 8th Congressional District 2022 redistricting,Tennessee,United States",21175,US,Congressional District,Active
 9113156,Tennessee's 9th Congressional District 2022 redistricting,"Tennessee's 9th Congressional District 2022 redistricting,Tennessee,United States",21175,US,Congressional District,Active
-9113157,Texas's 1st Congressional District 2022 redistricting,"Texas's 1st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113158,Texas's 2nd Congressional District 2022 redistricting,"Texas's 2nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113159,Texas's 3rd Congressional District 2022 redistricting,"Texas's 3rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113160,Texas's 4th Congressional District 2022 redistricting,"Texas's 4th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113161,Texas's 5th Congressional District 2022 redistricting,"Texas's 5th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113162,Texas's 6th Congressional District 2022 redistricting,"Texas's 6th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113163,Texas's 7th Congressional District 2022 redistricting,"Texas's 7th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113164,Texas's 8th Congressional District 2022 redistricting,"Texas's 8th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113165,Texas's 9th Congressional District 2022 redistricting,"Texas's 9th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113166,Texas's 10th Congressional District 2022 redistricting,"Texas's 10th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113167,Texas's 11th Congressional District 2022 redistricting,"Texas's 11th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113168,Texas's 12th Congressional District 2022 redistricting,"Texas's 12th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113169,Texas's 13th Congressional District 2022 redistricting,"Texas's 13th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113170,Texas's 14th Congressional District 2022 redistricting,"Texas's 14th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113171,Texas's 15th Congressional District 2022 redistricting,"Texas's 15th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113172,Texas's 16th Congressional District 2022 redistricting,"Texas's 16th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113173,Texas's 17th Congressional District 2022 redistricting,"Texas's 17th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113174,Texas's 18th Congressional District 2022 redistricting,"Texas's 18th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113175,Texas's 19th Congressional District 2022 redistricting,"Texas's 19th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113176,Texas's 20th Congressional District 2022 redistricting,"Texas's 20th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113177,Texas's 21st Congressional District 2022 redistricting,"Texas's 21st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113178,Texas's 22nd Congressional District 2022 redistricting,"Texas's 22nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113179,Texas's 23rd Congressional District 2022 redistricting,"Texas's 23rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113180,Texas's 24th Congressional District 2022 redistricting,"Texas's 24th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113181,Texas's 25th Congressional District 2022 redistricting,"Texas's 25th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113182,Texas's 26th Congressional District 2022 redistricting,"Texas's 26th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113183,Texas's 27th Congressional District 2022 redistricting,"Texas's 27th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113184,Texas's 28th Congressional District 2022 redistricting,"Texas's 28th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113185,Texas's 29th Congressional District 2022 redistricting,"Texas's 29th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113186,Texas's 30th Congressional District 2022 redistricting,"Texas's 30th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113187,Texas's 31st Congressional District 2022 redistricting,"Texas's 31st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113188,Texas's 32nd Congressional District 2022 redistricting,"Texas's 32nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113189,Texas's 33rd Congressional District 2022 redistricting,"Texas's 33rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113190,Texas's 34th Congressional District 2022 redistricting,"Texas's 34th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113191,Texas's 35th Congressional District 2022 redistricting,"Texas's 35th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113192,Texas's 36th Congressional District 2022 redistricting,"Texas's 36th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113193,Texas's 37th Congressional District 2022 redistricting,"Texas's 37th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
-9113194,Texas's 38th Congressional District 2022 redistricting,"Texas's 38th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Active
 9113195,Utah's 1st Congressional District 2022 redistricting,"Utah's 1st Congressional District 2022 redistricting,Utah,United States",21177,US,Congressional District,Active
 9113196,Utah's 2nd Congressional District 2022 redistricting,"Utah's 2nd Congressional District 2022 redistricting,Utah,United States",21177,US,Congressional District,Active
 9113197,Utah's 3rd Congressional District 2022 redistricting,"Utah's 3rd Congressional District 2022 redistricting,Utah,United States",21177,US,Congressional District,Active
@@ -205316,20 +205211,6 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9206987,Louisiana's 4th Congressional District 2024 redistricting,"Louisiana's 4th Congressional District 2024 redistricting,Louisiana,United States",21151,US,Congressional District,Active
 9206988,Louisiana's 5th Congressional District 2024 redistricting,"Louisiana's 5th Congressional District 2024 redistricting,Louisiana,United States",21151,US,Congressional District,Active
 9206989,Louisiana's 6th Congressional District 2024 redistricting,"Louisiana's 6th Congressional District 2024 redistricting,Louisiana,United States",21151,US,Congressional District,Active
-9206990,North Carolina's 1st Congressional District 2024 redistricting,"North Carolina's 1st Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206991,North Carolina's 2nd Congressional District 2024 redistricting,"North Carolina's 2nd Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206992,North Carolina's 3rd Congressional District 2024 redistricting,"North Carolina's 3rd Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206993,North Carolina's 4th Congressional District 2024 redistricting,"North Carolina's 4th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206994,North Carolina's 5th Congressional District 2024 redistricting,"North Carolina's 5th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206995,North Carolina's 6th Congressional District 2024 redistricting,"North Carolina's 6th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206996,North Carolina's 7th Congressional District 2024 redistricting,"North Carolina's 7th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206997,North Carolina's 8th Congressional District 2024 redistricting,"North Carolina's 8th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206998,North Carolina's 9th Congressional District 2024 redistricting,"North Carolina's 9th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9206999,North Carolina's 10th Congressional District 2024 redistricting,"North Carolina's 10th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9207000,North Carolina's 11th Congressional District 2024 redistricting,"North Carolina's 11th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9207001,North Carolina's 12th Congressional District 2024 redistricting,"North Carolina's 12th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9207002,North Carolina's 13th Congressional District 2024 redistricting,"North Carolina's 13th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
-9207003,North Carolina's 14th Congressional District 2024 redistricting,"North Carolina's 14th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Active
 9207004,New York's 1st Congressional District 2024 redistricting,"New York's 1st Congressional District 2024 redistricting,New York,United States",21167,US,Congressional District,Active
 9207005,New York's 2nd Congressional District 2024 redistricting,"New York's 2nd Congressional District 2024 redistricting,New York,United States",21167,US,Congressional District,Active
 9207006,New York's 3rd Congressional District 2024 redistricting,"New York's 3rd Congressional District 2024 redistricting,New York,United States",21167,US,Congressional District,Active
@@ -222544,7 +222425,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9224265,Jablonica,"Jablonica,Trnava Region,Slovakia",9062587,SK,Municipality,Active
 9224266,Pidhaitsi,"Pidhaitsi,Volyn Oblast,Ukraine",21110,UA,City,Active
 9224267,Dabou,"Dabou,Lagunes District,Cote d'Ivoire",9248521,CI,City,Active
-9224268,Thuan Giao,"Thuan Giao,Vietnam",2704,VN,Ward,Active
+9224268,Thuan Giao,"Thuan Giao,Ho Chi Minh,Vietnam",9040373,VN,Ward,Active
 9224269,Wilberforce,"Wilberforce,New South Wales,Australia",20035,AU,City,Active
 9224270,Sonsonate,"Sonsonate,Sonsonate Department,El Salvador",9075924,SV,City,Active
 9224271,Wingrave,"Wingrave,England,United Kingdom",20339,GB,City,Active
@@ -225109,7 +224990,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9226837,Cuddington,"Cuddington,England,United Kingdom",20339,GB,District,Active
 9226838,Macclesfield,"Macclesfield,Victoria,Australia",20040,AU,City,Active
 9226839,Wiazow,"Wiazow,Lower Silesian Voivodeship,Poland",20847,PL,City,Active
-9226840,My Phong,"My Phong,Vietnam",2704,VN,Ward,Active
+9226840,My Phong,"My Phong,Dong Thap,Vietnam",9040326,VN,Ward,Active
 9226841,Vex,"Vex,Valais,Switzerland",20149,CH,Municipality,Active
 9226842,Weiz,"Weiz,Styria,Austria",20047,AT,Municipality,Active
 9226843,Seer Green,"Seer Green,England,United Kingdom",20339,GB,City,Active
@@ -229364,7 +229245,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9231115,Ikotun/Ijegun,"Ikotun/Ijegun,Lagos,Nigeria",21564,NG,District,Active
 9231116,451 34,"451 34,Vastra Gotaland County,Sweden",21013,SE,Postal Code,Active
 9231117,Chealea,"Chealea,Kampong Cham Province,Cambodia",9069943,KH,Municipality,Active
-9231118,Trung An,"Trung An,Vietnam",2704,VN,Ward,Active
+9231118,Trung An,"Trung An,Dong Thap,Vietnam",9040326,VN,Ward,Active
 9231119,Alikhan Bokeikhanov District,"Alikhan Bokeikhanov District,Karaganda Region,Kazakhstan",9070292,KZ,District,Active
 9231120,Arabkir,"Arabkir,Yerevan,Armenia",9070053,AM,Neighborhood,Active
 9231121,170006,"170006,Caldas,Colombia",20201,CO,Postal Code,Active
@@ -230841,7 +230722,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9232603,Newton Longville,"Newton Longville,Newton Longville,England,United Kingdom",20339,GB,City,Active
 9232604,Jelsava,"Jelsava,Banska Bystrica Region,Slovakia",9062581,SK,Municipality,Active
 9232605,Skelmorlie,"Skelmorlie,Scotland,United Kingdom",20342,GB,City,Active
-9232606,Phuoc Binh,"Phuoc Binh,Vietnam",2704,VN,Ward,Active
+9232606,Phuoc Binh,"Phuoc Binh,Dong Nai,Vietnam",9040372,VN,Ward,Active
 9232607,64100,"64100,Ostrobothnia,Finland",9075504,FI,Postal Code,Active
 9232608,Belovo,"Belovo,Pazardzhik,Bulgaria",9040108,BG,Municipality,Active
 9232609,Kalalani,"Kalalani,Kwale County,Kenya",9070339,KE,Neighborhood,Active
@@ -234687,7 +234568,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9236472,Gafanha da Encarnacao,"Gafanha da Encarnacao,Aveiro District,Portugal",20865,PT,City,Active
 9236473,Tirtonirmolo,"Tirtonirmolo,Special Region of Yogyakarta,Indonesia",20451,ID,District,Active
 9236474,Baray,"Baray,Kampong Thom Province,Cambodia",9069940,KH,District,Active
-9236475,Phu Van,"Phu Van,Vietnam",2704,VN,Ward,Active
+9236475,Phu Van,"Phu Van,Ninh Binh,Vietnam",9040338,VN,Ward,Active
 9236476,Municipality of Barbera del Valles,"Municipality of Barbera del Valles,Catalonia,Spain",20278,ES,Municipality,Active
 9236477,Uspenka,"Uspenka,Pavlodar Region,Kazakhstan",9069571,KZ,City,Active
 9236478,Polomolok,"Polomolok,Region XII,Philippines",9061347,PH,Municipality,Active
@@ -235786,7 +235667,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9237578,Columbus,"Columbus,Wisconsin,United States",21182,US,Municipality,Active
 9237579,Cara-Cara,"Cara-Cara,State of Parana,Brazil",20101,BR,Neighborhood,Active
 9237580,Nong Han,"Nong Han,Chiang Mai,Thailand",21036,TH,District,Active
-9237581,An Phu,"An Phu,Vietnam",2704,VN,Ward,Active
+9237581,An Phu,"An Phu,Ho Chi Minh,Vietnam",9040373,VN,Ward,Active
 9237582,Wola Duchacka,"Wola Duchacka,Lesser Poland Voivodeship,Poland",20852,PL,Neighborhood,Active
 9237583,Claveria,"Claveria,Northern Mindanao,Philippines",9061346,PH,Municipality,Active
 9237584,Churchill,"Churchill,England,United Kingdom",20339,GB,District,Active
@@ -240556,7 +240437,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9242369,Pagedangan,"Pagedangan,Pagedangan,Banten,Indonesia",9056637,ID,District,Active
 9242370,Greater Skopje,"Greater Skopje,North Macedonia",2807,MK,Municipality,Active
 9242371,Madaoua,"Madaoua,Madaoua,Tahoua Region,Niger",9070277,NE,City,Active
-9242372,Binh An,"Binh An,Vietnam",2704,VN,Commune,Active
+9242372,Binh An,"Binh An,An Giang,Vietnam",9040324,VN,Commune,Active
 9242373,Stradom,"Stradom,Silesian Voivodeship,Poland",20859,PL,Neighborhood,Active
 9242374,Uhlingen-Birkendorf,"Uhlingen-Birkendorf,Baden-Wurttemberg,Germany",20228,DE,Municipality,Active
 9242375,Kallegarden,"Kallegarden,Vastra Gotaland County,Sweden",21013,SE,District,Active
@@ -242637,7 +242518,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9244456,El Ouatia,"El Ouatia,Guelmim-Oued Noun,Morocco",9073777,MA,City,Active
 9244457,Marchamalo,"Marchamalo,Castile-La Mancha,Spain",20276,ES,Municipality,Active
 9244458,Le Castellet,"Le Castellet,Provence-Alpes-Cote d'Azur,France",20332,FR,City,Active
-9244459,Tho Tang,"Tho Tang,Vietnam",2704,VN,Commune,Active
+9244459,Tho Tang,"Tho Tang,Phu Tho,Vietnam",9047182,VN,Commune,Active
 9244460,Miramar,"Miramar,Cordoba Province,Argentina",20026,AR,City,Active
 9244461,Bunju,"Bunju,Dar es Salam,Tanzania",9252906,TZ,Municipality,Active
 9244462,Torres Novas,"Torres Novas,Santarem District,Portugal",20877,PT,City,Active
@@ -243920,7 +243801,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9245749,Bahati,"Bahati,Nakuru County,Kenya",9070308,KE,District,Active
 9245750,Aral District,"Aral District,Kyzylorda Region,Kazakhstan",9069573,KZ,District,Active
 9245751,Taghzout,"Taghzout,Bouira Province,Algeria",9069684,DZ,City,Active
-9245752,Tan Hai,"Tan Hai,Vietnam",2704,VN,Ward,Active
+9245752,Tan Hai,"Tan Hai,Ho Chi Minh,Vietnam",9040373,VN,Ward,Active
 9245753,Kosminek,"Kosminek,Lublin Voivodeship,Poland",20851,PL,Neighborhood,Active
 9245754,Larache,"Larache,Tangier-Tetouan-Al Hoceima,Morocco",9073773,MA,Province,Active
 9245755,Lietavska Lucka,"Lietavska Lucka,Zilina Region,Slovakia",9062582,SK,Municipality,Active
@@ -244790,7 +244671,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9246621,Bang Lamung,"Bang Lamung,Chon Buri,Thailand",21030,TH,District,Active
 9246622,Lauperswil,"Lauperswil,Canton of Bern,Switzerland",20129,CH,Municipality,Active
 9246623,Atwima Nwabiagya South,"Atwima Nwabiagya South,Ashanti Region,Ghana",9069836,GH,District,Active
-9246624,Hoa Loi,"Hoa Loi,Vietnam",2704,VN,Ward,Active
+9246624,Hoa Loi,"Hoa Loi,Ho Chi Minh,Vietnam",9040373,VN,Ward,Active
 9246625,New Haven,"New Haven,Enugu,Nigeria",21554,NG,District,Active
 9246626,Buyaga,"Buyaga,Western Region,Uganda",9069986,UG,County,Active
 9246627,Keith,"Keith,South Australia,Australia",20038,AU,City,Active
@@ -251690,7 +251571,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9253554,Stoneville,"Stoneville,Western Australia,Australia",20041,AU,Neighborhood,Active
 9253555,Omaha,"Omaha,Auckland,New Zealand",20791,NZ,City,Active
 9253556,Saint Patrick Parish,"Saint Patrick Parish,Dominica",2212,DM,Region,Active
-9253557,Long Nguyen,"Long Nguyen,Vietnam",2704,VN,Ward,Active
+9253557,Long Nguyen,"Long Nguyen,Ho Chi Minh,Vietnam",9040373,VN,Ward,Active
 9253558,Belgorodsky District,"Belgorodsky District,Belgorod Oblast,Russia",20919,RU,District,Active
 9253559,Vaulnaveys-le-Haut,"Vaulnaveys-le-Haut,Auvergne-Rhone-Alpes,France",9069525,FR,City,Active
 9253560,Velky Meder,"Velky Meder,Velky Meder,Trnava Region,Slovakia",9062587,SK,Borough,Active
@@ -252293,7 +252174,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9254162,Gmina Wyry,"Gmina Wyry,Silesian Voivodeship,Poland",20859,PL,Municipality,Active
 9254163,La Candelaria,"La Candelaria,Antioquia,Colombia",20198,CO,Municipality,Active
 9254164,Daya,"Daya,South Sulawesi,Indonesia",20448,ID,District,Active
-9254165,Dao Thanh,"Dao Thanh,Vietnam",2704,VN,Ward,Active
+9254165,Dao Thanh,"Dao Thanh,Dong Thap,Vietnam",9040326,VN,Ward,Active
 9254166,Exaltacion,"Exaltacion,Beni Department,Bolivia",9069869,BO,Municipality,Active
 9254167,Leskoec,"Leskoec,Municipality of Ohrid,North Macedonia",9075775,MK,City,Active
 9254168,Hyde,"Hyde,Greater Manchester,England,United Kingdom",20339,GB,City,Active
@@ -253107,7 +252988,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9254977,Svay Chrum,"Svay Chrum,Svay Rieng Province,Cambodia",9069941,KH,District,Active
 9254978,Oltiariq,"Oltiariq,Fergana Region,Uzbekistan",9075982,UZ,City,Active
 9254979,Sukosan,"Sukosan,Zadar County,Croatia",20409,HR,City,Active
-9254980,Lien Huong,"Lien Huong,Vietnam",2704,VN,Commune,Active
+9254980,Lien Huong,"Lien Huong,Lam Dong,Vietnam",9040368,VN,Commune,Active
 9254981,Sibbesse,"Sibbesse,Lower Saxony,Germany",20234,DE,Municipality,Active
 9254982,Coddington,"Coddington,England,United Kingdom",20339,GB,City,Active
 9254983,Mraykh,"Mraykh,Makkah Province,Saudi Arabia",20988,SA,District,Active
@@ -259335,7 +259216,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9261237,Sagbayan,"Sagbayan,Central Visayas,Philippines",9061344,PH,Municipality,Active
 9261238,Robore,"Robore,Santa Cruz Department,Bolivia",20085,BO,Municipality,Active
 9261239,Portel,"Portel,Evora District,Portugal",20870,PT,District,Active
-9261240,Yendi,"Yendi,Northern Region,Ghana",9070369,GH,District,Active
+9261240,Yendi Municipal,"Yendi Municipal,Northern Region,Ghana",9070369,GH,District,Active
 9261241,Aarlanderveen,"Aarlanderveen,South Holland,Netherlands",20770,NL,City,Active
 9261242,Standon,"Standon,England,United Kingdom",20339,GB,District,Active
 9261244,Rahaeng,"Rahaeng,Pathum Thani,Thailand",21027,TH,Municipality,Active
@@ -259700,7 +259581,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9261603,Um Rawaba,"Um Rawaba,North Kordofan,Sudan",9229393,SD,District,Active
 9261604,Bayzak District,"Bayzak District,Jambyl Region,Kazakhstan",9070288,KZ,District,Active
 9261605,Bath,"Bath,England,United Kingdom",20339,GB,City,Active
-9261606,Tu Minh,"Tu Minh,Vietnam",2704,VN,Ward,Active
+9261606,Tu Minh,"Tu Minh,Hai Phong,Vietnam",9040353,VN,Ward,Active
 9261607,Pakrac,"Pakrac,Pozega-Slavonia County,Croatia",21442,HR,City,Active
 9261608,Kadugodi,"Kadugodi,Karnataka,India",20460,IN,Neighborhood,Active
 9261609,Emfuleni Local Municipality,"Emfuleni Local Municipality,Gauteng,South Africa",21216,ZA,Municipality,Active
@@ -262239,6 +262120,125 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9264153,Durango,"Durango,Basque Country,Spain",20289,ES,Municipality,Active
 9264154,Ujung Serdang,"Ujung Serdang,North Sumatra,Indonesia",20450,ID,District,Active
 9264155,Nienhagen,"Nienhagen,Lower Saxony,Germany",20234,DE,Municipality,Active
+9264156,California's 2nd Congressional District 2026 redistricting,"California's 2nd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264157,California's 1st Congressional District 2026 redistricting,"California's 1st Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264158,California's 5th Congressional District 2026 redistricting,"California's 5th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264159,California's 18th Congressional District 2026 redistricting,"California's 18th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264160,California's 12th Congressional District 2026 redistricting,"California's 12th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264161,California's 13th Congressional District 2026 redistricting,"California's 13th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264162,California's 14th Congressional District 2026 redistricting,"California's 14th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264163,California's 17th Congressional District 2026 redistricting,"California's 17th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264164,California's 15th Congressional District 2026 redistricting,"California's 15th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264165,California's 9th Congressional District 2026 redistricting,"California's 9th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264166,California's 11th Congressional District 2026 redistricting,"California's 11th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264167,California's 10th Congressional District 2026 redistricting,"California's 10th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264168,California's 16th Congressional District 2026 redistricting,"California's 16th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264169,California's 20th Congressional District 2026 redistricting,"California's 20th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264170,California's 22nd Congressional District 2026 redistricting,"California's 22nd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264171,California's 19th Congressional District 2026 redistricting,"California's 19th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264172,California's 4th Congressional District 2026 redistricting,"California's 4th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264173,California's 3rd Congressional District 2026 redistricting,"California's 3rd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264174,California's 6th congressional district 2026 redistricting,"California's 6th congressional district 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264175,California's 7th Congressional District 2026 redistricting,"California's 7th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264176,California's 25th Congressional District 2026 redistricting,"California's 25th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264177,California's 29th Congressional District 2026 redistricting,"California's 29th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264178,California's 30th Congressional District 2026 redistricting,"California's 30th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264179,California's 33rd Congressional District 2026 redistricting,"California's 33rd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264180,California's 43rd Congressional District 2026 redistricting,"California's 43rd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264181,California's 37th Congressional District 2026 redistricting,"California's 37th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264182,California's 34th Congressional District 2026 redistricting,"California's 34th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264183,California's 38th Congressional District 2026 redistricting,"California's 38th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264184,California's 32nd Congressional District 2026 redistricting,"California's 32nd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264185,California's 27th Congressional District 2026 redistricting,"California's 27th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264186,California's 28th Congressional District 2026 redistricting,"California's 28th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264187,California's 35th Congressional District 2026 redistricting,"California's 35th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264188,California's 31st Congressional District 2026 redistricting,"California's 31st Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264189,California's 8th Congressional District 2026 redistricting,"California's 8th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264190,California's 51st Congressional District 2026 redistricting,"California's 51st Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264191,California's 36th Congressional District 2026 redistricting,"California's 36th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264192,California's 49th Congressional District 2026 redistricting,"California's 49th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264193,California's 52nd Congressional District 2026 redistricting,"California's 52nd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264194,California's 50th Congressional District 2026 redistricting,"California's 50th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264195,California's 42nd Congressional District 2026 redistricting,"California's 42nd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264196,California's 41st Congressional District 2026 redistricting,"California's 41st Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264197,California's 45th congressional district 2026 redistricting,"California's 45th congressional district 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264198,California's 39th Congressional District 2026 redistricting,"California's 39th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264199,California's 40th Congressional District 2026 redistricting,"California's 40th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264200,California's 48th Congressional District 2026 redistricting,"California's 48th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264201,California's 46th Congressional District 2026 redistricting,"California's 46th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264202,California's 47th Congressional District 2026 redistricting,"California's 47th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264203,California's 44th Congressional District 2026 redistricting,"California's 44th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264204,California's 26th Congressional District 2026 redistricting,"California's 26th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264205,California's 24th Congressional District 2026 redistricting,"California's 24th Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264206,California's 23rd Congressional District 2026 redistricting,"California's 23rd Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264207,California's 21st Congressional District 2026 redistricting,"California's 21st Congressional District 2026 redistricting,California,United States",21137,US,Congressional District,Active
+9264208,Texas's 1st Congressional District 2026 redistricting,"Texas's 1st Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264209,Texas's 8th Congressional District 2026 redistricting,"Texas's 8th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264210,Texas's 36th Congressional District 2026 redistricting,"Texas's 36th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264211,Texas's 2nd Congressional District 2026 redistricting,"Texas's 2nd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264212,Texas's 29th Congressional District 2026 redistricting,"Texas's 29th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264213,Texas's 7th Congressional District 2026 redistricting,"Texas's 7th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264214,Texas's 18th Congressional District 2026 redistricting,"Texas's 18th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264215,Texas's 38th Congressional District 2026 redistricting,"Texas's 38th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264216,Texas's 9th Congressional District 2026 redistricting,"Texas's 9th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264217,Texas's 22nd Congressional District 2026 redistricting,"Texas's 22nd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264218,Texas's 14th Congressional District 2026 redistricting,"Texas's 14th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264219,Texas's 27th Congressional District 2026 redistricting,"Texas's 27th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264220,Texas's 10th Congressional District 2026 redistricting,"Texas's 10th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264221,Texas's 37th Congressional District 2026 redistricting,"Texas's 37th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264222,Texas's 25th Congressional District 2026 redistricting,"Texas's 25th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264223,Texas's 17th Congressional District 2026 redistricting,"Texas's 17th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264224,Texas's 6th Congressional District 2026 redistricting,"Texas's 6th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264225,Texas's 5th Congressional District 2026 redistricting,"Texas's 5th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264226,Texas's 4th Congressional District 2026 redistricting,"Texas's 4th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264227,Texas's 3rd Congressional District 2026 redistricting,"Texas's 3rd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264228,Texas's 26th Congressional District 2026 redistricting,"Texas's 26th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264229,Texas's 12th Congressional District 2026 redistricting,"Texas's 12th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264230,Texas's 33rd Congressional District 2026 redistricting,"Texas's 33rd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264231,Texas's 24th Congressional District 2026 redistricting,"Texas's 24th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264232,Texas's 32nd Congressional District 2026 redistricting,"Texas's 32nd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264233,Texas's 30th Congressional District 2026 redistricting,"Texas's 30th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264234,Texas's 31st Congressional District 2026 redistricting,"Texas's 31st Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264235,Texas's 21st Congressional District 2026 redistricting,"Texas's 21st Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264236,Texas's 20th Congressional District 2026 redistricting,"Texas's 20th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264237,Texas's 35th Congressional District 2026 redistricting,"Texas's 35th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264238,Texas's 28th Congressional District 2026 redistricting,"Texas's 28th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264239,Texas's 34th Congressional District 2026 redistricting,"Texas's 34th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264240,Texas's 15th Congressional District 2026 redistricting,"Texas's 15th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264241,Texas's 16th Congressional District 2026 redistricting,"Texas's 16th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264242,Texas's 23rd Congressional District 2026 redistricting,"Texas's 23rd Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264243,Texas's 11th Congressional District 2026 redistricting,"Texas's 11th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264244,Texas's 19th Congressional District 2026 redistricting,"Texas's 19th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264245,Texas's 13th Congressional District 2026 redistricting,"Texas's 13th Congressional District 2026 redistricting,Texas,United States",21176,US,Congressional District,Active
+9264246,Ohio's 11th Congressional District 2026 redistricting,"Ohio's 11th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264247,Ohio's 13th Congressional District 2026 redistricting,"Ohio's 13th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264248,Ohio's 14th Congressional District 2026 redistricting,"Ohio's 14th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264249,Ohio's 7th Congressional District 2026 redistricting,"Ohio's 7th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264250,Ohio's 6th Congressional District 2026 redistricting,"Ohio's 6th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264251,Ohio's 12th Congressional District 2026 redistricting,"Ohio's 12th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264252,Ohio's 3rd Congressional District 2026 redistricting,"Ohio's 3rd Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264253,Ohio's 4th Congressional District 2026 redistricting,"Ohio's 4th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264254,Ohio's 5th Congressional District 2026 redistricting,"Ohio's 5th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264255,Ohio's 9th Congressional District 2026 redistricting,"Ohio's 9th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264256,Ohio's 8th Congressional District 2026 redistricting,"Ohio's 8th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264257,Ohio's 1st Congressional District 2026 redistricting,"Ohio's 1st Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264258,Ohio's 10th Congressional District 2026 redistricting,"Ohio's 10th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264259,Ohio's 2nd Congressional District 2026 redistricting,"Ohio's 2nd Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264260,Ohio's 15th Congressional District 2026 redistricting,"Ohio's 15th Congressional District 2026 redistricting,Ohio,United States",21168,US,Congressional District,Active
+9264261,North Carolina's 10th Congressional District 2026 redistricting,"North Carolina's 10th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264262,North Carolina's 5th Congressional District 2026 redistricting,"North Carolina's 5th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264263,North Carolina's 6th Congressional District 2026 redistricting,"North Carolina's 6th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264264,North Carolina's 12th Congressional District 2026 redistricting,"North Carolina's 12th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264265,North Carolina's 13th Congressional District 2026 redistricting,"North Carolina's 13th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264266,North Carolina's 8th Congressional District 2026 redistricting,"North Carolina's 8th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264267,North Carolina's 14th Congressional District 2026 redistricting,"North Carolina's 14th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264268,North Carolina's 9th Congressional District 2026 redistricting,"North Carolina's 9th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264269,North Carolina's 11th Congressional District 2026 redistricting,"North Carolina's 11th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264270,North Carolina's 7th Congressional District 2026 redistricting,"North Carolina's 7th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264271,North Carolina's 2nd Congressional District 2026 redistricting,"North Carolina's 2nd Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264272,North Carolina's 4th Congressional District 2026 redistricting,"North Carolina's 4th Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264273,North Carolina's 1st Congressional District 2026 redistricting,"North Carolina's 1st Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
+9264274,North Carolina's 3rd Congressional District 2026 redistricting,"North Carolina's 3rd Congressional District 2026 redistricting,North Carolina,United States",21160,US,Congressional District,Active
 9266289,Zvornik,"Zvornik,Republika Srpska,Bosnia and Herzegovina",20079,BA,City,Active
 9266364,Sanski Most,"Sanski Most,Sanski Most,Federation of Bosnia and Herzegovina,Bosnia and Herzegovina",20078,BA,City,Active
 9281594,Gracanica,"Gracanica,Gracanica,Federation of Bosnia and Herzegovina,Bosnia and Herzegovina",20078,BA,City,Active
@@ -268582,7 +268582,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041150,Brussels Airport,"Brussels Airport,Flanders,Belgium",9069523,BE,Airport,Removal Planned
 9041151,Sorocaba Airport,"Sorocaba Airport,State of Sao Paulo,Brazil",20106,BR,Airport,Removal Planned
 9041152,Afonso Pena International Airport,"Afonso Pena International Airport,State of Parana,Brazil",20101,BR,Airport,Removal Planned
-9041153,Aeroporto de Bacacheri,"Aeroporto Regional,State of Parana,Brazil",20101,BR,Airport,Removal Planned
+9041153,Aeroporto de Bacacheri,"Aeroporto de Bacacheri,State of Parana,Brazil",20101,BR,Airport,Removal Planned
 9041154,Pinto Martins – Fortaleza International Airport,"Pinto Martins – Fortaleza International Airport,Ceara,Brazil",20089,BR,Airport,Removal Planned
 9041155,RIOgaleao International Airport,"RIOgaleao International Airport,State of Rio de Janeiro,Brazil",20102,BR,Airport,Removal Planned
 9041156,Sao Paulo/Guarulhos–Governor Andre Franco Montoro International Airport,"Sao Paulo/Guarulhos–Governor Andre Franco Montoro International Airport,State of Sao Paulo,Brazil",20106,BR,Airport,Removal Planned
@@ -268615,7 +268615,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041188,Alicante-Elche Miguel Hernandez Airport,"Alicante-Elche Miguel Hernandez Airport,Valencian Community,Spain",21388,ES,Airport,Removal Planned
 9041189,Cuatro Vientos Airport,"Cuatro Vientos Airport,Community of Madrid,Spain",20282,ES,Airport,Removal Planned
 9041190,Sabadell Airport,"Sabadell Airport,Catalonia,Spain",20278,ES,Airport,Removal Planned
-9041191,Cesar Manrique-Lanzarote Airport,"Lanzarote Airport,Canary Islands,Spain",20277,ES,Airport,Removal Planned
+9041191,Cesar Manrique-Lanzarote Airport,"Cesar Manrique-Lanzarote Airport,Canary Islands,Spain",20277,ES,Airport,Removal Planned
 9041192,Josep Tarradellas Barcelona-El Prat Airport,"Josep Tarradellas Barcelona-El Prat Airport,Catalonia,Spain",20278,ES,Airport,Removal Planned
 9041193,Ibiza Airport,"Ibiza Airport,Balearic Islands,Spain",21387,ES,Airport,Removal Planned
 9041194,A Coruna Airport,"A Coruna Airport,Galicia,Spain",20280,ES,Airport,Removal Planned
@@ -268625,7 +268625,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041200,Madrid-Torrejon Airport,"Madrid-Torrejon Airport,Community of Madrid,Spain",20282,ES,Airport,Removal Planned
 9041201,Helsinki Airport,"Helsinki Airport,Uusimaa,Finland",9075506,FI,Airport,Removal Planned
 9041202,Nimes-Courbessac Aerodrome,"Nimes-Courbessac Aerodrome,Occitanie,France",9068897,FR,Airport,Removal Planned
-9041203,Bordeaux Aeroport,"Bordeaux Airport,Nouvelle-Aquitaine,France",9069522,FR,Airport,Removal Planned
+9041203,Bordeaux Aeroport,"Bordeaux Aeroport,Nouvelle-Aquitaine,France",9069522,FR,Airport,Removal Planned
 9041204,EuroAirport Basel-Mulhouse-Freiburg,"EuroAirport Basel-Mulhouse-Freiburg,Grand Est,France",9068896,FR,Airport,Removal Planned
 9041205,Paris Airport-Le Bourget,"Paris Airport-Le Bourget,Ile-de-France,France",20321,FR,Airport,Removal Planned
 9041207,Nice Cote d'Azur Airport,"Nice Cote d'Azur Airport,Provence-Alpes-Cote d'Azur,France",20332,FR,Airport,Removal Planned
@@ -268861,11 +268861,11 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041447,Modesto City–County Airport,"Modesto City–County Airport,California,United States",21137,US,Airport,Removal Planned
 9041448,Minot International Airport,"Minot International Airport,North Dakota,United States",21161,US,Airport,Removal Planned
 9041449,Monterey Regional Airport,"Monterey Regional Airport,California,United States",21137,US,Airport,Removal Planned
-9041450,Minneapolis-Saint Paul International Airport,"Minneapolis–Saint Paul International Airport,Minnesota,United States",21156,US,Airport,Removal Planned
+9041450,Minneapolis-Saint Paul International Airport,"Minneapolis-Saint Paul International Airport,Minnesota,United States",21156,US,Airport,Removal Planned
 9041451,Louis Armstrong New Orleans International Airport,"Louis Armstrong New Orleans International Airport,Louisiana,United States",21151,US,Airport,Removal Planned
 9041452,Martin State Airport,"Martin State Airport,Maryland,United States",21153,US,Airport,Removal Planned
 9041453,Myrtle Beach International Airport,"Myrtle Beach International Airport,South Carolina,United States",21173,US,Airport,Removal Planned
-9041454,Oakland San Francisco Bay Airport,"Oakland International Airport,California,United States",21137,US,Airport,Removal Planned
+9041454,Oakland San Francisco Bay Airport,"Oakland San Francisco Bay Airport,California,United States",21137,US,Airport,Removal Planned
 9041455,Kahului Airport,"Kahului Airport,Hawaii,United States",21144,US,Airport,Removal Planned
 9041456,Will Rogers International Airport,"Will Rogers International Airport,Oklahoma,United States",21169,US,Airport,Removal Planned
 9041457,Eppley Airfield,"Eppley Airfield,Nebraska,United States",21162,US,Airport,Removal Planned
@@ -268895,7 +268895,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041482,Santa Barbara Airport,"Santa Barbara Airport,California,United States",21137,US,Airport,Removal Planned
 9041484,Scottsdale Airport,"Scottsdale Airport,Arizona,United States",21136,US,Airport,Removal Planned
 9041485,Stockton Metropolitan Airport,"Stockton Metropolitan Airport,California,United States",21137,US,Airport,Removal Planned
-9041486,Seattle-Tacoma International Airport,"Seattle–Tacoma International Airport,Washington,United States",21180,US,Airport,Removal Planned
+9041486,Seattle-Tacoma International Airport,"Seattle-Tacoma International Airport,Washington,United States",21180,US,Airport,Removal Planned
 9041487,San Francisco International Airport,"San Francisco International Airport,California,United States",21137,US,Airport,Removal Planned
 9041488,Shreveport Regional Airport,"Shreveport Regional Airport,Louisiana,United States",21151,US,Airport,Removal Planned
 9041489,San Jose Mineta International Airport,"San Jose Mineta International Airport,California,United States",21137,US,Airport,Removal Planned
@@ -268912,7 +268912,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041501,Tallahassee International Airport,"Tallahassee International Airport,Florida,United States",21142,US,Airport,Removal Planned
 9041502,Torrance Municipal Airport - Zamperini Field,"Torrance Municipal Airport - Zamperini Field,California,United States",21137,US,Airport,Removal Planned
 9041503,Tampa International Airport,"Tampa International Airport,Florida,United States",21142,US,Airport,Removal Planned
-9041504,Tri-Cities Airport (TRI),"Tri-Cities Airport,Tennessee,United States",21175,US,Airport,Removal Planned
+9041504,Tri-Cities Airport (TRI),"Tri-Cities Airport (TRI),Tennessee,United States",21175,US,Airport,Removal Planned
 9041505,Trenton-Mercer Airport,"Trenton-Mercer Airport,New Jersey,United States",21164,US,Airport,Removal Planned
 9041506,Tulsa International Airport,"Tulsa International Airport,Oklahoma,United States",21169,US,Airport,Removal Planned
 9041507,Cherry Capital Airport,"Cherry Capital Airport,Michigan,United States",21155,US,Airport,Removal Planned
@@ -268920,7 +268920,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041509,Van Nuys Airport,"Van Nuys Airport,California,United States",21137,US,Airport,Removal Planned
 9041510,Yuma International Airport,"Yuma International Airport,Arizona,United States",21136,US,Airport,Removal Planned
 9041511,King County International Airport - Boeing Field,"King County International Airport - Boeing Field,Washington,United States",21180,US,Airport,Removal Planned
-9041512,Baltimore/Washington International Thurgood Marshall Airport (BWI),"Baltimore/Washington International Airport,Maryland,United States",21153,US,Airport,Removal Planned
+9041512,Baltimore/Washington International Thurgood Marshall Airport (BWI),"Baltimore/Washington International Thurgood Marshall Airport (BWI),Maryland,United States",21153,US,Airport,Removal Planned
 9041513,Gerald R. Ford International Airport,"Gerald R. Ford International Airport,Michigan,United States",21155,US,Airport,Removal Planned
 9041514,Manchester-Boston Regional Airport,"Manchester-Boston Regional Airport,New Hampshire,United States",21163,US,Airport,Removal Planned
 9041515,Portland International Airport,"Portland International Airport,Oregon,United States",21170,US,Airport,Removal Planned
@@ -269534,7 +269534,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9059999,Hamad International Airport,"Hamad International Airport,Doha Municipality,Qatar",9069542,QA,Airport,Removal Planned
 9060000,New Chitose Airport,"New Chitose Airport,Hokkaido,Japan",20624,JP,Airport,Removal Planned
 9060001,Humberto Delgado Airport,"Humberto Delgado Airport,Lisbon,Portugal",20874,PT,Airport,Removal Planned
-9060002,Arizona State University,"Arizona State University Tempe Campus,Arizona,United States",21136,US,University,Removal Planned
+9060002,Arizona State University,"Arizona State University,Arizona,United States",21136,US,University,Removal Planned
 9060003,Liberty University,"Liberty University,Virginia,United States",21178,US,University,Removal Planned
 9060004,Miami Dade College - North Campus,"Miami Dade College - North Campus,Florida,United States",21142,US,University,Removal Planned
 9060005,University of Central Florida,"University of Central Florida,Florida,United States",21142,US,University,Removal Planned
@@ -269736,7 +269736,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9060202,The University of Sydney,"The University of Sydney,New South Wales,Australia",20035,AU,University,Removal Planned
 9060203,The University of Queensland,"The University of Queensland,Queensland,Australia",20037,AU,University,Removal Planned
 9060204,Curtin University,"Curtin University,Western Australia,Australia",20041,AU,University,Removal Planned
-9060205,Macquarie University Wallumattagal Campus,"Macquarie University,New South Wales,Australia",20035,AU,University,Removal Planned
+9060205,Macquarie University Wallumattagal Campus,"Macquarie University Wallumattagal Campus,New South Wales,Australia",20035,AU,University,Removal Planned
 9060206,La Trobe University,"La Trobe University,Victoria,Australia",20040,AU,University,Removal Planned
 9060207,The University of Western Australia,"The University of Western Australia,Western Australia,Australia",20041,AU,University,Removal Planned
 9060208,Princeton University,"Princeton University,New Jersey,United States",21164,US,University,Removal Planned
@@ -269848,7 +269848,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9069408,"Parc national de la Mauricie, entree Saint-Jean-des-Piles","Parc national de la Mauricie, entree Saint-Jean-des-Piles,Quebec,Canada",20123,CA,National Park,Removal Planned
 9069409,Mount Revelstoke National Park,"Mount Revelstoke National Park,British Columbia,Canada",20114,CA,National Park,Removal Planned
 9069410,Point Pelee National Park,"Point Pelee National Park,Ontario,Canada",20121,CA,National Park,Removal Planned
-9069411,Prince Albert National Park,"Prince Albert National Park Visitor Centre,Saskatchewan,Canada",20124,CA,National Park,Removal Planned
+9069411,Prince Albert National Park,"Prince Albert National Park,Saskatchewan,Canada",20124,CA,National Park,Removal Planned
 9069412,Prince Edward Island National Park,"Prince Edward Island National Park,Prince Edward Island,Canada",20122,CA,National Park,Removal Planned
 9069413,Pukaskwa National Park,"Pukaskwa National Park,Ontario,Canada",20121,CA,National Park,Removal Planned
 9069414,Quttinirpaaq National Park,"Quttinirpaaq National Park,Nunavut,Canada",20120,CA,National Park,Removal Planned
@@ -269880,15 +269880,15 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9074081,Bac Ninh,"Bac Ninh,Bac Ninh,Vietnam",9047164,VN,City,Removal Planned
 9074084,Di An,"Di An,Binh Duong,Vietnam",9047166,VN,City,Removal Planned
 9074085,Son La,"Son La,Son La,Vietnam",9047184,VN,City,Removal Planned
-9074088,Huong Tra,"Huong Tra,Hue City,Vietnam",9040349,VN,City,Removal Planned
+9074088,Huong Tra,"Huong Tra,Hue,Vietnam",9040349,VN,City,Removal Planned
 9074092,Nga Bay,"Nga Bay,Hau Giang,Vietnam",9047175,VN,City,Removal Planned
 9074098,Chi Linh,"Chi Linh,Hai Duong,Vietnam",9040354,VN,City,Removal Planned
 9074103,Ba Ria,"Ba Ria,Ba Ria - Vung Tau,Vietnam",9040374,VN,City,Removal Planned
 9074104,Tam Ky,"Tam Ky,Quang Nam,Vietnam",9040351,VN,City,Removal Planned
-9074107,Son Tay,"Son Tay,Hanoi,Vietnam",9040331,VN,City,Removal Planned
+9074107,Son Tay,"Son Tay,Ha Noi,Vietnam",9040331,VN,City,Removal Planned
 9074108,Hong Linh,"Hong Linh,Ha Tinh,Vietnam",9040342,VN,City,Removal Planned
 9074109,Lai Chau,"Lai Chau,Lai Chau,Vietnam",9047178,VN,City,Removal Planned
-9074111,Huong Thuy,"Huong Thuy,Hue City,Vietnam",9040349,VN,City,Removal Planned
+9074111,Huong Thuy,"Huong Thuy,Hue,Vietnam",9040349,VN,City,Removal Planned
 9074112,Tay Ninh,"Tay Ninh,Tay Ninh,Vietnam",9047185,VN,City,Removal Planned
 9074115,Thu Dau Mot,"Thu Dau Mot,Binh Duong,Vietnam",9047166,VN,City,Removal Planned
 9075202,Doddasiddavvanahalli,"Doddasiddavvanahalli,Karnataka,India",20460,IN,City,Removal Planned
@@ -269904,6 +269904,58 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9112844,Alabama's 5th Congressional District 2022 redistricting,"Alabama's 5th Congressional District 2022 redistricting,Alabama,United States",21133,US,Congressional District,Removal Planned
 9112845,Alabama's 6th Congressional District 2022 redistricting,"Alabama's 6th Congressional District 2022 redistricting,Alabama,United States",21133,US,Congressional District,Removal Planned
 9112846,Alabama's 7th Congressional District 2022 redistricting,"Alabama's 7th Congressional District 2022 redistricting,Alabama,United States",21133,US,Congressional District,Removal Planned
+9112861,California's 1st Congressional District 2022 redistricting,"California's 1st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112862,California's 2nd Congressional District 2022 redistricting,"California's 2nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112863,California's 3rd Congressional District 2022 redistricting,"California's 3rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112864,California's 4th Congressional District 2022 redistricting,"California's 4th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112865,California's 5th Congressional District 2022 redistricting,"California's 5th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112866,California's 6th congressional district 2022 redistricting,"California's 6th congressional district 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112867,California's 7th Congressional District 2022 redistricting,"California's 7th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112868,California's 8th Congressional District 2022 redistricting,"California's 8th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112869,California's 9th Congressional District 2022 redistricting,"California's 9th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112870,California's 10th Congressional District 2022 redistricting,"California's 10th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112871,California's 11th Congressional District 2022 redistricting,"California's 11th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112872,California's 12th Congressional District 2022 redistricting,"California's 12th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112873,California's 13th Congressional District 2022 redistricting,"California's 13th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112874,California's 14th Congressional District 2022 redistricting,"California's 14th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112875,California's 15th Congressional District 2022 redistricting,"California's 15th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112876,California's 16th Congressional District 2022 redistricting,"California's 16th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112877,California's 17th Congressional District 2022 redistricting,"California's 17th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112878,California's 18th Congressional District 2022 redistricting,"California's 18th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112879,California's 19th Congressional District 2022 redistricting,"California's 19th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112880,California's 20th Congressional District 2022 redistricting,"California's 20th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112881,California's 21st Congressional District 2022 redistricting,"California's 21st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112882,California's 22nd Congressional District 2022 redistricting,"California's 22nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112883,California's 23rd Congressional District 2022 redistricting,"California's 23rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112884,California's 24th Congressional District 2022 redistricting,"California's 24th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112885,California's 25th Congressional District 2022 redistricting,"California's 25th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112886,California's 26th Congressional District 2022 redistricting,"California's 26th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112887,California's 27th Congressional District 2022 redistricting,"California's 27th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112888,California's 28th Congressional District 2022 redistricting,"California's 28th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112889,California's 29th Congressional District 2022 redistricting,"California's 29th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112890,California's 30th Congressional District 2022 redistricting,"California's 30th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112891,California's 31st Congressional District 2022 redistricting,"California's 31st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112892,California's 32nd Congressional District 2022 redistricting,"California's 32nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112893,California's 33rd Congressional District 2022 redistricting,"California's 33rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112894,California's 34th Congressional District 2022 redistricting,"California's 34th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112895,California's 35th Congressional District 2022 redistricting,"California's 35th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112896,California's 36th Congressional District 2022 redistricting,"California's 36th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112897,California's 37th Congressional District 2022 redistricting,"California's 37th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112898,California's 38th Congressional District 2022 redistricting,"California's 38th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112899,California's 39th Congressional District 2022 redistricting,"California's 39th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112900,California's 40th Congressional District 2022 redistricting,"California's 40th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112901,California's 41st Congressional District 2022 redistricting,"California's 41st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112902,California's 42nd Congressional District 2022 redistricting,"California's 42nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112903,California's 43rd Congressional District 2022 redistricting,"California's 43rd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112904,California's 44th Congressional District 2022 redistricting,"California's 44th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112905,California's 45th congressional district 2022 redistricting,"California's 45th congressional district 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112906,California's 46th Congressional District 2022 redistricting,"California's 46th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112907,California's 47th Congressional District 2022 redistricting,"California's 47th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112908,California's 48th Congressional District 2022 redistricting,"California's 48th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112909,California's 49th Congressional District 2022 redistricting,"California's 49th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112910,California's 50th Congressional District 2022 redistricting,"California's 50th Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112911,California's 51st Congressional District 2022 redistricting,"California's 51st Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
+9112912,California's 52nd Congressional District 2022 redistricting,"California's 52nd Congressional District 2022 redistricting,California,United States",21137,US,Congressional District,Removal Planned
 9112955,Georgia's 1st Congressional District 2022 redistricting,"Georgia's 1st Congressional District 2022 redistricting,Georgia,United States",21143,US,Congressional District,Removal Planned
 9112956,Georgia's 2nd Congressional District 2022 redistricting,"Georgia's 2nd Congressional District 2022 redistricting,Georgia,United States",21143,US,Congressional District,Removal Planned
 9112957,Georgia's 3rd Congressional District 2022 redistricting,"Georgia's 3rd Congressional District 2022 redistricting,Georgia,United States",21143,US,Congressional District,Removal Planned
@@ -269938,6 +269990,59 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9113098,North Carolina's 12th Congressional District 2022 redistricting,"North Carolina's 12th Congressional District 2022 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
 9113099,North Carolina's 13th Congressional District 2022 redistricting,"North Carolina's 13th Congressional District 2022 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
 9113100,North Carolina's 14th Congressional District 2022 redistricting,"North Carolina's 14th Congressional District 2022 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9113102,Ohio's 1st Congressional District 2022 redistricting,"Ohio's 1st Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113103,Ohio's 2nd Congressional District 2022 redistricting,"Ohio's 2nd Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113104,Ohio's 3rd Congressional District 2022 redistricting,"Ohio's 3rd Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113105,Ohio's 4th Congressional District 2022 redistricting,"Ohio's 4th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113106,Ohio's 5th Congressional District 2022 redistricting,"Ohio's 5th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113107,Ohio's 6th Congressional District 2022 redistricting,"Ohio's 6th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113108,Ohio's 7th Congressional District 2022 redistricting,"Ohio's 7th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113109,Ohio's 8th Congressional District 2022 redistricting,"Ohio's 8th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113110,Ohio's 9th Congressional District 2022 redistricting,"Ohio's 9th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113111,Ohio's 10th Congressional District 2022 redistricting,"Ohio's 10th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113112,Ohio's 11th Congressional District 2022 redistricting,"Ohio's 11th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113113,Ohio's 12th Congressional District 2022 redistricting,"Ohio's 12th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113114,Ohio's 13th Congressional District 2022 redistricting,"Ohio's 13th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113115,Ohio's 14th Congressional District 2022 redistricting,"Ohio's 14th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113116,Ohio's 15th Congressional District 2022 redistricting,"Ohio's 15th Congressional District 2022 redistricting,Ohio,United States",21168,US,Congressional District,Removal Planned
+9113157,Texas's 1st Congressional District 2022 redistricting,"Texas's 1st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113158,Texas's 2nd Congressional District 2022 redistricting,"Texas's 2nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113159,Texas's 3rd Congressional District 2022 redistricting,"Texas's 3rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113160,Texas's 4th Congressional District 2022 redistricting,"Texas's 4th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113161,Texas's 5th Congressional District 2022 redistricting,"Texas's 5th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113162,Texas's 6th Congressional District 2022 redistricting,"Texas's 6th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113163,Texas's 7th Congressional District 2022 redistricting,"Texas's 7th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113164,Texas's 8th Congressional District 2022 redistricting,"Texas's 8th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113165,Texas's 9th Congressional District 2022 redistricting,"Texas's 9th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113166,Texas's 10th Congressional District 2022 redistricting,"Texas's 10th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113167,Texas's 11th Congressional District 2022 redistricting,"Texas's 11th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113168,Texas's 12th Congressional District 2022 redistricting,"Texas's 12th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113169,Texas's 13th Congressional District 2022 redistricting,"Texas's 13th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113170,Texas's 14th Congressional District 2022 redistricting,"Texas's 14th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113171,Texas's 15th Congressional District 2022 redistricting,"Texas's 15th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113172,Texas's 16th Congressional District 2022 redistricting,"Texas's 16th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113173,Texas's 17th Congressional District 2022 redistricting,"Texas's 17th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113174,Texas's 18th Congressional District 2022 redistricting,"Texas's 18th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113175,Texas's 19th Congressional District 2022 redistricting,"Texas's 19th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113176,Texas's 20th Congressional District 2022 redistricting,"Texas's 20th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113177,Texas's 21st Congressional District 2022 redistricting,"Texas's 21st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113178,Texas's 22nd Congressional District 2022 redistricting,"Texas's 22nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113179,Texas's 23rd Congressional District 2022 redistricting,"Texas's 23rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113180,Texas's 24th Congressional District 2022 redistricting,"Texas's 24th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113181,Texas's 25th Congressional District 2022 redistricting,"Texas's 25th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113182,Texas's 26th Congressional District 2022 redistricting,"Texas's 26th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113183,Texas's 27th Congressional District 2022 redistricting,"Texas's 27th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113184,Texas's 28th Congressional District 2022 redistricting,"Texas's 28th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113185,Texas's 29th Congressional District 2022 redistricting,"Texas's 29th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113186,Texas's 30th Congressional District 2022 redistricting,"Texas's 30th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113187,Texas's 31st Congressional District 2022 redistricting,"Texas's 31st Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113188,Texas's 32nd Congressional District 2022 redistricting,"Texas's 32nd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113189,Texas's 33rd Congressional District 2022 redistricting,"Texas's 33rd Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113190,Texas's 34th Congressional District 2022 redistricting,"Texas's 34th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113191,Texas's 35th Congressional District 2022 redistricting,"Texas's 35th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113192,Texas's 36th Congressional District 2022 redistricting,"Texas's 36th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113193,Texas's 37th Congressional District 2022 redistricting,"Texas's 37th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
+9113194,Texas's 38th Congressional District 2022 redistricting,"Texas's 38th Congressional District 2022 redistricting,Texas,United States",21176,US,Congressional District,Removal Planned
 9129383,New York's 1st Congressional District 2022 redistricting,"New York's 1st Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
 9129384,New York's 2nd Congressional District 2022 redistricting,"New York's 2nd Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
 9129385,New York's 3rd Congressional District 2022 redistricting,"New York's 3rd Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
@@ -269964,86 +270069,100 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9129406,New York's 24th Congressional District 2022 redistricting,"New York's 24th Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
 9129407,New York's 25th Congressional District 2022 redistricting,"New York's 25th Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
 9129408,New York's 26th Congressional District 2022 redistricting,"New York's 26th Congressional District 2022 redistricting,New York,United States",21167,US,Congressional District,Removal Planned
-9196275,My Djinh,"My Djinh,Hanoi,Vietnam",9040331,VN,Municipality,Removal Planned
-9197685,Binh Tan,"Binh Tan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9197840,District 5,"District 5,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9197905,District 3,"District 3,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9197998,Go Vap,"Go Vap,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198149,Cau Giay,"Cau Giay,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9198159,Hoang Mai,"Hoang Mai,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9198242,Djong Dja,"Djong Dja,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9198353,District 12,"District 12,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198559,Binh Thanh,"Binh Thanh,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9196275,My Djinh,"My Djinh,Ha Noi,Vietnam",9040331,VN,Municipality,Removal Planned
+9197685,Binh Tan,"Binh Tan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9197840,District 5,"District 5,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9197905,District 3,"District 3,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9197998,Go Vap,"Go Vap,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198149,Cau Giay,"Cau Giay,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9198159,Hoang Mai,"Hoang Mai,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9198242,Djong Dja,"Djong Dja,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9198353,District 12,"District 12,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198559,Binh Thanh,"Binh Thanh,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9198579,My An,"My An,Da Nang,Vietnam",9047170,VN,District,Removal Planned
-9198621,Ba Djinh,"Ba Djinh,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9198627,Phu Nhuan,"Phu Nhuan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198638,District 4,"District 4,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198844,Tan Phu,"Tan Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198864,Thu Djuc City,"Thu Djuc City,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198881,Tan Binh,"Tan Binh,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9198896,Tan Phong,"Tan Phong,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9199063,Ha Djong,"Ha Djong,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9199064,Hoc Mon,"Hoc Mon,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9199086,District 10,"District 10,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9199204,District 1,"District 1,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9207652,Thanh Loc,"Thanh Loc,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9198621,Ba Djinh,"Ba Djinh,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9198627,Phu Nhuan,"Phu Nhuan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198638,District 4,"District 4,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198844,Tan Phu,"Tan Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198864,Thu Djuc City,"Thu Djuc City,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198881,Tan Binh,"Tan Binh,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9198896,Tan Phong,"Tan Phong,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9199063,Ha Djong,"Ha Djong,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9199064,Hoc Mon,"Hoc Mon,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9199086,District 10,"District 10,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9199204,District 1,"District 1,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9206990,North Carolina's 1st Congressional District 2024 redistricting,"North Carolina's 1st Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206991,North Carolina's 2nd Congressional District 2024 redistricting,"North Carolina's 2nd Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206992,North Carolina's 3rd Congressional District 2024 redistricting,"North Carolina's 3rd Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206993,North Carolina's 4th Congressional District 2024 redistricting,"North Carolina's 4th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206994,North Carolina's 5th Congressional District 2024 redistricting,"North Carolina's 5th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206995,North Carolina's 6th Congressional District 2024 redistricting,"North Carolina's 6th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206996,North Carolina's 7th Congressional District 2024 redistricting,"North Carolina's 7th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206997,North Carolina's 8th Congressional District 2024 redistricting,"North Carolina's 8th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206998,North Carolina's 9th Congressional District 2024 redistricting,"North Carolina's 9th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9206999,North Carolina's 10th Congressional District 2024 redistricting,"North Carolina's 10th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9207000,North Carolina's 11th Congressional District 2024 redistricting,"North Carolina's 11th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9207001,North Carolina's 12th Congressional District 2024 redistricting,"North Carolina's 12th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9207002,North Carolina's 13th Congressional District 2024 redistricting,"North Carolina's 13th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9207003,North Carolina's 14th Congressional District 2024 redistricting,"North Carolina's 14th Congressional District 2024 redistricting,North Carolina,United States",21160,US,Congressional District,Removal Planned
+9207652,Thanh Loc,"Thanh Loc,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
 9207678,Thuan Giao,"Thuan Giao,Binh Duong,Vietnam",9047166,VN,Neighborhood,Removal Planned
-9207845,Hue,"Hue,Hue City,Vietnam",9040349,VN,District,Removal Planned
-9208070,Quang An,"Quang An,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9207845,Hue,"Hue,Hue,Vietnam",9040349,VN,District,Removal Planned
+9208070,Quang An,"Quang An,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9208732,Vung Tau,"Vung Tau,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9208864,Tan Djong Hiep,"Tan Djong Hiep,Binh Duong,Vietnam",9047166,VN,Neighborhood,Removal Planned
 9208989,Ninh Kieu,"Ninh Kieu,Can Tho,Vietnam",9040377,VN,District,Removal Planned
-9209262,Long Bien,"Long Bien,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9209262,Long Bien,"Long Bien,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9209353,Thu Dau Mot,"Thu Dau Mot,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
-9209804,Phuoc Kien,"Phuoc Kien,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9209932,An Phu,"An Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9209804,Phuoc Kien,"Phuoc Kien,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9209932,An Phu,"An Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9210408,Hoi An,"Hoi An,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
-9210411,Tay Thanh,"Tay Thanh,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9211423,Thao Dien,"Thao Dien,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9210411,Tay Thanh,"Tay Thanh,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9211423,Thao Dien,"Thao Dien,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
 9211772,Ngo Quyen,"Ngo Quyen,Hai Phong,Vietnam",9040353,VN,District,Removal Planned
-9211792,Truong Tho,"Truong Tho,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9211805,Tan Thuan Dong,"Tan Thuan Dong,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9212001,Hiep Binh Phuoc,"Hiep Binh Phuoc,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9212106,Thanh Xuan,"Thanh Xuan,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9211792,Truong Tho,"Truong Tho,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9211805,Tan Thuan Dong,"Tan Thuan Dong,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9212001,Hiep Binh Phuoc,"Hiep Binh Phuoc,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9212106,Thanh Xuan,"Thanh Xuan,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9212582,Thanh Hoa,"Thanh Hoa,Thanh Hoa,Vietnam",9040340,VN,District,Removal Planned
 9213055,Hai Chau District,"Hai Chau District,Da Nang,Vietnam",9047170,VN,District,Removal Planned
 9213108,Vinh,"Vinh,Nghe An,Vietnam",9040345,VN,District,Removal Planned
-9213289,District 6,"District 6,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9213852,Phuong 15,"Phuong 15,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9213289,District 6,"District 6,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9213852,Phuong 15,"Phuong 15,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9214524,Le Chan,"Le Chan,Hai Phong,Vietnam",9040353,VN,District,Removal Planned
-9214561,Phuong 15,"Phuong 15,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9214895,Thao Djien,"Thao Djien,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9214984,Me Tri,"Me Tri,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9214999,Phu Cuong,"Phu Cuong,Hanoi,Vietnam",9040331,VN,Neighborhood,Removal Planned
-9215455,District 7,"District 7,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9215597,Binh Hung Hoa A,"Binh Hung Hoa A,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9215643,Tan Thoi Nhat,"Tan Thoi Nhat,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9216092,Phuoc Long B,"Phuoc Long B,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9214561,Phuong 15,"Phuong 15,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9214895,Thao Djien,"Thao Djien,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9214984,Me Tri,"Me Tri,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9214999,Phu Cuong,"Phu Cuong,Ha Noi,Vietnam",9040331,VN,Neighborhood,Removal Planned
+9215455,District 7,"District 7,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9215597,Binh Hung Hoa A,"Binh Hung Hoa A,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9215643,Tan Thoi Nhat,"Tan Thoi Nhat,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9216092,Phuoc Long B,"Phuoc Long B,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
 9216296,p. Di An,"p. Di An,Binh Duong,Vietnam",9047166,VN,Neighborhood,Removal Planned
-9216389,Co Nhue 2,"Co Nhue 2,Hanoi,Vietnam",9040331,VN,Neighborhood,Removal Planned
-9216670,Hiep Thanh,"Hiep Thanh,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9217436,Long Bien,"Long Bien,Hanoi,Vietnam",9040331,VN,Neighborhood,Removal Planned
+9216389,Co Nhue 2,"Co Nhue 2,Ha Noi,Vietnam",9040331,VN,Neighborhood,Removal Planned
+9216670,Hiep Thanh,"Hiep Thanh,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9217436,Long Bien,"Long Bien,Ha Noi,Vietnam",9040331,VN,Neighborhood,Removal Planned
 9217561,My Tho,"My Tho,Tien Giang,Vietnam",9040329,VN,District,Removal Planned
 9218285,Hoa Thuan Tay,"Hoa Thuan Tay,Da Nang,Vietnam",9047170,VN,Neighborhood,Removal Planned
-9218895,Binh Tri Dong B,"Binh Tri Dong B,Ho Chi Minh City,Vietnam",9040373,VN,Neighborhood,Removal Planned
-9219280,Minh Khai,"Minh Khai,Hanoi,Vietnam",9040331,VN,Neighborhood,Removal Planned
+9218895,Binh Tri Dong B,"Binh Tri Dong B,Ho Chi Minh,Vietnam",9040373,VN,Neighborhood,Removal Planned
+9219280,Minh Khai,"Minh Khai,Ha Noi,Vietnam",9040331,VN,Neighborhood,Removal Planned
 9219308,Duy Xuyen District,"Duy Xuyen District,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
-9220831,District 8,"District 8,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9220955,District 11,"District 11,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9220831,District 8,"District 8,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9220955,District 11,"District 11,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9222247,An Phu,"An Phu,Binh Duong,Vietnam",9047166,VN,Neighborhood,Removal Planned
-9222757,Nam Tu Liem,"Nam Tu Liem,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9223284,Tan Phu,"Tan Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9223855,Thanh Xuan,"Thanh Xuan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9222757,Nam Tu Liem,"Nam Tu Liem,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9223284,Tan Phu,"Tan Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9223855,Thanh Xuan,"Thanh Xuan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9224127,Nghia Thanh,"Nghia Thanh,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9224642,Khai Quang,"Khai Quang,Vinh Phuc,Vietnam",9047189,VN,District,Removal Planned
 9225785,Nhon Phu,"Nhon Phu,Binh Dinh,Vietnam",9040360,VN,District,Removal Planned
 9226254,Thinh Djan,"Thinh Djan,Thai Nguyen,Vietnam",9040330,VN,District,Removal Planned
-9226258,Linh Trung,"Linh Trung,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9226296,Thu Thiem,"Thu Thiem,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9226258,Linh Trung,"Linh Trung,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9226296,Thu Thiem,"Thu Thiem,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9226589,An Tay,"An Tay,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
 9226626,Tu Minh,"Tu Minh,Hai Duong,Vietnam",9040354,VN,District,Removal Planned
 9227111,An Phuoc,"An Phuoc,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
-9227310,Long Thoi,"Long Thoi,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9227310,Long Thoi,"Long Thoi,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9227626,Tra Ba,"Tra Ba,Gia Lai,Vietnam",9040359,VN,District,Removal Planned
 9227933,Ia Der,"Ia Der,Gia Lai,Vietnam",9040359,VN,District,Removal Planned
 9227953,Phuong 5,"Phuong 5,Hau Giang,Vietnam",9047175,VN,District,Removal Planned
@@ -270053,7 +270172,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9229081,Nhon Binh,"Nhon Binh,Binh Dinh,Vietnam",9040360,VN,District,Removal Planned
 9229084,Djong Son,"Djong Son,Bac Giang,Vietnam",9047161,VN,District,Removal Planned
 9229214,Cam Nam,"Cam Nam,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
-9229296,Le Minh Xuan,"Le Minh Xuan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9229296,Le Minh Xuan,"Le Minh Xuan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9229301,Djai Phuc,"Djai Phuc,Bac Ninh,Vietnam",9047164,VN,District,Removal Planned
 9229539,Tan Dinh,"Tan Dinh,Bac Giang,Vietnam",9047161,VN,District,Removal Planned
 9229583,Tan Hanh,"Tan Hanh,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
@@ -270067,7 +270186,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9230895,Binh Khanh,"Binh Khanh,An Giang,Vietnam",9040324,VN,District,Removal Planned
 9231266,Thien Ke,"Thien Ke,Vinh Phuc,Vietnam",9047189,VN,District,Removal Planned
 9231365,Cam Kim,"Cam Kim,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
-9231515,Phuong 16,"Phuong 16,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9231515,Phuong 16,"Phuong 16,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9231630,Pho Moi,"Pho Moi,Lao Cai,Vietnam",9047180,VN,District,Removal Planned
 9231739,Chau Pha,"Chau Pha,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9232017,Binh Thang,"Binh Thang,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
@@ -270079,18 +270198,18 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9232735,Ho,"Ho,Bac Ninh,Vietnam",9047164,VN,District,Removal Planned
 9232743,Quang Thanh,"Quang Thanh,Thanh Hoa,Vietnam",9040340,VN,District,Removal Planned
 9232744,Gia Binh,"Gia Binh,Bac Ninh,Vietnam",9047164,VN,District,Removal Planned
-9232968,Phu My Hung,"Phu My Hung,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9232968,Phu My Hung,"Phu My Hung,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9233011,Quang Trung,"Quang Trung,Binh Dinh,Vietnam",9040360,VN,District,Removal Planned
-9233474,Binh Hung Hoa,"Binh Hung Hoa,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9233474,Binh Hung Hoa,"Binh Hung Hoa,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9233780,Djai Nai,"Djai Nai,Ha Tinh,Vietnam",9040342,VN,District,Removal Planned
 9233862,Lam Son,"Lam Son,Hung Yen,Vietnam",9047177,VN,District,Removal Planned
 9234220,Phong Khe,"Phong Khe,Bac Ninh,Vietnam",9047164,VN,District,Removal Planned
 9234477,Chi Lang,"Chi Lang,Lang Son,Vietnam",9047179,VN,District,Removal Planned
 9234514,Long Hoa,"Long Hoa,Can Tho,Vietnam",9040377,VN,District,Removal Planned
 9234762,Tan Kim,"Tan Kim,Long An,Vietnam",9047181,VN,District,Removal Planned
-9234776,Phuong 7,"Phuong 7,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9234851,Phu Xuan,"Phu Xuan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9234998,Cu Khe,"Cu Khe,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9234776,Phuong 7,"Phuong 7,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9234851,Phu Xuan,"Phu Xuan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9234998,Cu Khe,"Cu Khe,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9235144,Phuong 7,"Phuong 7,Ca Mau,Vietnam",9047168,VN,District,Removal Planned
 9235413,Phuoc Djong,"Phuoc Djong,Khanh Hoa,Vietnam",9040364,VN,District,Removal Planned
 9235598,Ninh Hiep,"Ninh Hiep,Khanh Hoa,Vietnam",9040364,VN,District,Removal Planned
@@ -270100,7 +270219,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9236202,phuong 12,"phuong 12,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9236410,Quang Hanh,"Quang Hanh,Quang Ninh,Vietnam",9075989,VN,District,Removal Planned
 9236607,An Ngai,"An Ngai,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
-9236632,Phu Thuan,"Phu Thuan,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9236632,Phu Thuan,"Phu Thuan,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9236852,Loi Binh Nhon,"Loi Binh Nhon,Vietnam",2704,VN,District,Removal Planned
 9237178,Hoa Thang,"Hoa Thang,Dak Lak,Vietnam",9040370,VN,District,Removal Planned
 9237209,An Cu,"An Cu,Tien Giang,Vietnam",9040329,VN,District,Removal Planned
@@ -270108,9 +270227,9 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9237479,Bac Ly,"Bac Ly,Quang Binh,Vietnam",9040344,VN,District,Removal Planned
 9237724,Le Hong Phong,"Le Hong Phong,Ha Nam,Vietnam",9047174,VN,District,Removal Planned
 9237801,Hoa Lu,"Hoa Lu,Gia Lai,Vietnam",9040359,VN,District,Removal Planned
-9237844,Duong No,"Duong No,Hue City,Vietnam",9040349,VN,District,Removal Planned
-9237919,Xuan Thoi Son,"Xuan Thoi Son,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9238690,Phuong 28,"Phuong 28,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9237844,Duong No,"Duong No,Hue,Vietnam",9040349,VN,District,Removal Planned
+9237919,Xuan Thoi Son,"Xuan Thoi Son,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9238690,Phuong 28,"Phuong 28,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9238703,Lap Vo,"Lap Vo,Dong Thap,Vietnam",9040326,VN,District,Removal Planned
 9239055,Phuong 9,"Phuong 9,Vinh Long,Vietnam",9047188,VN,District,Removal Planned
 9239104,Long Tam,"Long Tam,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
@@ -270121,11 +270240,11 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9239970,Phuoc Hai,"Phuoc Hai,Ba Ria - Vung Tau,Vietnam",9040374,VN,City,Removal Planned
 9240063,Long Phuoc,"Long Phuoc,Binh Phuoc,Vietnam",9047167,VN,District,Removal Planned
 9240279,Chau Phu B,"Chau Phu B,An Giang,Vietnam",9040324,VN,District,Removal Planned
-9240618,Tan Kien,"Tan Kien,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9240618,Tan Kien,"Tan Kien,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9241000,Binh Djuc,"Binh Djuc,An Giang,Vietnam",9040324,VN,District,Removal Planned
 9241353,Khue My,"Khue My,Da Nang,Vietnam",9047170,VN,District,Removal Planned
 9241513,Hung Dung,"Hung Dung,Nghe An,Vietnam",9040345,VN,District,Removal Planned
-9241717,Tan Tao A,"Tan Tao A,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9241717,Tan Tao A,"Tan Tao A,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9242289,Phuong 5,"Phuong 5,Bac Lieu,Vietnam",9047163,VN,District,Removal Planned
 9242525,Vinh My,"Vinh My,An Giang,Vietnam",9040324,VN,District,Removal Planned
 9242574,Long Hai,"Long Hai,Ba Ria - Vung Tau,Vietnam",9040374,VN,City,Removal Planned
@@ -270140,26 +270259,26 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9245067,Phuong 10,"Phuong 10,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9245207,Long Chau,"Long Chau,An Giang,Vietnam",9040324,VN,District,Removal Planned
 9245332,Tran Quang Dieu,"Tran Quang Dieu,Binh Dinh,Vietnam",9040360,VN,District,Removal Planned
-9245403,Tan Thoi Nhi,"Tan Thoi Nhi,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9245403,Tan Thoi Nhi,"Tan Thoi Nhi,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9245441,Vinh Hiep,"Vinh Hiep,Kien Giang,Vietnam",9040323,VN,District,Removal Planned
 9245560,Mui Ne,"Mui Ne,Binh Thuan,Vietnam",9040376,VN,District,Removal Planned
-9245846,Cu Khoi,"Cu Khoi,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9245846,Cu Khoi,"Cu Khoi,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9246024,Djat Cuoc,"Djat Cuoc,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
 9246672,Phuong 2,"Phuong 2,Soc Trang,Vietnam",9047183,VN,District,Removal Planned
 9246864,Phuong 3,"Phuong 3,Soc Trang,Vietnam",9047183,VN,District,Removal Planned
-9246874,Phong Phu,"Phong Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9246874,Phong Phu,"Phong Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9246886,Phuong 5,"Phuong 5,Lam Dong,Vietnam",9040368,VN,District,Removal Planned
 9246973,Djong Huong,"Djong Huong,Thanh Hoa,Vietnam",9040340,VN,District,Removal Planned
 9246997,Tan Thinh,"Tan Thinh,Hoa Binh,Vietnam",9047176,VN,District,Removal Planned
 9247105,Long Hung,"Long Hung,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
 9247187,Phuoc Thoi,"Phuoc Thoi,Can Tho,Vietnam",9040377,VN,District,Removal Planned
-9247496,Trung Gia,"Trung Gia,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9248009,Tan Nhut,"Tan Nhut,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9247496,Trung Gia,"Trung Gia,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9248009,Tan Nhut,"Tan Nhut,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9248050,Rach Soi,"Rach Soi,Kien Giang,Vietnam",9040323,VN,District,Removal Planned
-9248166,Nhon Djuc,"Nhon Djuc,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9248166,Nhon Djuc,"Nhon Djuc,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9249298,My Xa,"My Xa,Nam Dinh,Vietnam",9040337,VN,District,Removal Planned
 9249631,Luong Son,"Luong Son,Hoa Binh,Vietnam",9047176,VN,District,Removal Planned
-9250379,Phuc Djong,"Phuc Djong,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9250379,Phuc Djong,"Phuc Djong,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9250513,Long Hau,"Long Hau,Long An,Vietnam",9047181,VN,Neighborhood,Removal Planned
 9250667,Phuoc Tan,"Phuoc Tan,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
 9250727,Cam An,"Cam An,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
@@ -270182,8 +270301,8 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9253865,Vinh Phu,"Vinh Phu,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
 9254080,Quang Thang,"Quang Thang,Thanh Hoa,Vietnam",9040340,VN,District,Removal Planned
 9254114,Phuong 1,"Phuong 1,Ca Mau,Vietnam",9047168,VN,District,Removal Planned
-9254145,Da Phuoc,"Da Phuoc,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9254840,Tan Thong Hoi,"Tan Thong Hoi,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9254145,Da Phuoc,"Da Phuoc,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9254840,Tan Thong Hoi,"Tan Thong Hoi,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9255216,phuong 6,"phuong 6,Dong Thap,Vietnam",9040326,VN,District,Removal Planned
 9255332,Thanh Nhat,"Thanh Nhat,Dak Lak,Vietnam",9040370,VN,District,Removal Planned
 9255810,Binh Nham,"Binh Nham,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
@@ -270191,26 +270310,26 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9255952,Chanh Nghia,"Chanh Nghia,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
 9256162,Chanh My,"Chanh My,Binh Duong,Vietnam",9047166,VN,District,Removal Planned
 9256169,Vo Xu,"Vo Xu,Binh Thuan,Vietnam",9040376,VN,City,Removal Planned
-9256286,Thoi An,"Thoi An,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9256286,Thoi An,"Thoi An,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9256546,Thanh My,"Thanh My,Lam Dong,Vietnam",9040368,VN,District,Removal Planned
 9256719,Gia Sang,"Gia Sang,Thai Nguyen,Vietnam",9040330,VN,District,Removal Planned
 9256729,Ho Tram,"Ho Tram,Ba Ria - Vung Tau,Vietnam",9040374,VN,City,Removal Planned
 9256773,Tho Quang,"Tho Quang,Da Nang,Vietnam",9047170,VN,District,Removal Planned
-9256950,Tan Quy Tay,"Tan Quy Tay,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9256950,Tan Quy Tay,"Tan Quy Tay,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9256962,Tang Tien,"Tang Tien,Bac Giang,Vietnam",9047161,VN,District,Removal Planned
 9257348,Thoi Son,"Thoi Son,Tien Giang,Vietnam",9040329,VN,District,Removal Planned
 9257953,Cam Chau,"Cam Chau,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
-9258174,An Phu,"An Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9258469,Bo De,"Bo De,Hanoi,Vietnam",9040331,VN,District,Removal Planned
-9258488,Tan Phu,"Tan Phu,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9258174,An Phu,"An Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9258469,Bo De,"Bo De,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
+9258488,Tan Phu,"Tan Phu,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9258592,Luong Bang,"Luong Bang,Hung Yen,Vietnam",9047177,VN,District,Removal Planned
 9258768,Nam Phong,"Nam Phong,Nam Dinh,Vietnam",9040337,VN,District,Removal Planned
 9258810,Quang Trung,"Quang Trung,Quang Ninh,Vietnam",9075989,VN,District,Removal Planned
 9259099,Djong Hai,"Djong Hai,Thanh Hoa,Vietnam",9040340,VN,District,Removal Planned
-9259505,Xuan Djinh,"Xuan Djinh,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9259505,Xuan Djinh,"Xuan Djinh,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9259657,Song Djoc,"Song Djoc,Ca Mau,Vietnam",9047168,VN,District,Removal Planned
 9259767,An Binh,"An Binh,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
-9259826,Nhi Binh,"Nhi Binh,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
+9259826,Nhi Binh,"Nhi Binh,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
 9259830,Kien Djuc,"Kien Djuc,Dak Nong,Vietnam",9047171,VN,District,Removal Planned
 9260038,Binh Chau,"Binh Chau,Ba Ria - Vung Tau,Vietnam",9040374,VN,District,Removal Planned
 9260066,Nam Phuoc,"Nam Phuoc,Quang Nam,Vietnam",9040351,VN,District,Removal Planned
@@ -270223,8 +270342,8 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9262673,Vinh Ngoc,"Vinh Ngoc,Khanh Hoa,Vietnam",9040364,VN,District,Removal Planned
 9263275,Djong Dja,"Djong Dja,Binh Dinh,Vietnam",9040360,VN,District,Removal Planned
 9263359,Buu Long,"Buu Long,Dong Nai,Vietnam",9040372,VN,District,Removal Planned
-9263695,An Phu Djong,"An Phu Djong,Ho Chi Minh City,Vietnam",9040373,VN,District,Removal Planned
-9263745,Van Dinh,"Van Dinh,Hanoi,Vietnam",9040331,VN,District,Removal Planned
+9263695,An Phu Djong,"An Phu Djong,Ho Chi Minh,Vietnam",9040373,VN,District,Removal Planned
+9263745,Van Dinh,"Van Dinh,Ha Noi,Vietnam",9040331,VN,District,Removal Planned
 9263813,Phuong 6,"Phuong 6,Tien Giang,Vietnam",9040329,VN,District,Removal Planned
 9264032,Phuong 1,"Phuong 1,Lam Dong,Vietnam",9040368,VN,District,Removal Planned
 9264120,Gia Loc,"Gia Loc,Hai Duong,Vietnam",9040354,VN,District,Removal Planned
