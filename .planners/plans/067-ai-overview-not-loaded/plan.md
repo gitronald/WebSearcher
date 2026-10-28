@@ -120,3 +120,10 @@ does not, so it can land first if step 1 stalls.
 - **2026-10-28T13:12:02-07:00** — Review gate (medium /code-review), with the summary posted on PR #216.
   - Review follow-up: 6 findings (1 confirmed, 5 plausible), plus 3 rejected in verification. Fixed: script/noscript/style/template text was read as a shown decline message, a regression from the old get_text rule, which skipped script/style (now skipped; regression test test_ai_overview_marker_in_unrendered_tag_not_a_decline fails without the fix). Also fixed: the stays-flat test duplicated the fixture helper (the helper now takes drop_css). Conscious no-ops: inline-only hiding (is_hidden's contract, and every capture uses inline style); marker text split across tags; the ancestor walk past the component; the tri-state return. None of these occurs in corpus or plan-066 captures.
   - Checks: ruff check, ruff format --check, pyrefly (0 errors), and pytest (912 passed, 85.21% coverage).
+
+## Retrospective
+
+- Steps 2 and 3 landed as planned. Step 1, capturing a real decline, did not: the three browser recaptures of corpus `unavailable` queries each loaded a full overview or had no overview at all. So every `unavailable` row the corpus had was an overview that had not loaded, and the split relabels all 8 of them.
+- The `unavailable` rule (a decline message with no inline `display:none` on it or an ancestor) is still not verified. It is tested only on a synthetic decline built from real markup. The first real decline capture should become a fixture and either confirm the rule or replace it.
+- Re-grounding the evidence before implementing paid off again. The plan's "9 of 14" was a different count from the 8 rows the parser actually labels, and the 2025 legacy rows turned out to be not-loaded captures too (a "Searching" heading and a progress bar), not "Can't generate" failures.
+- Moving from a whole-subtree text match to an own-text walk lost `get_text`'s script/style skip without anyone noticing. The review caught it. When a text-matching rule is rewritten, check what the old helper filtered out implicitly.
