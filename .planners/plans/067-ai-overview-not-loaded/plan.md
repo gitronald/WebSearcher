@@ -1,10 +1,10 @@
 ---
 id: 67
 slug: ai-overview-not-loaded
-status: implemented
+status: done
 branch: feature/ai-overview-not-loaded
 created: 2026-10-28T10:44:00-07:00
-concluded:
+concluded: 2026-10-28T13:11:43-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/216
 ---
 
