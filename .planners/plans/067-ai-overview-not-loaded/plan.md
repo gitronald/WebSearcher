@@ -5,7 +5,7 @@ status: active
 branch: feature/ai-overview-not-loaded
 created: 2026-10-28T10:44:00-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/216
 ---
 
 # Tell a not-loaded AI overview from a declined one
@@ -107,3 +107,4 @@ does not, so it can land first if step 1 stalls.
   - Base: `dev` at `b7eebfe`
   - Worktree: `.worktrees/067-ai-overview-not-loaded`
   - PR: pending
+- **2026-10-28T12:53:31-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/216
