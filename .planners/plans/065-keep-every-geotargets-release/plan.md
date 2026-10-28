@@ -1,8 +1,8 @@
 ---
 id: 65
 slug: keep-every-geotargets-release
-status: draft
-branch:
+status: active
+branch: feature/keep-every-geotargets-release
 created: 2026-10-27T11:46:08-07:00
 concluded:
 pr:
@@ -117,3 +117,11 @@ loop in the workflow.
 - Releases older than 2026-07-16: the ledger up to 2026-06-15 is the seeded archive and is
   complete.
 - The branch-from-master, PR-to-dev arrangement, which stays as plan 031 set it.
+
+## Log
+
+- **2026-10-28T09:39:35-07:00** — Activated.
+  - Branch: `feature/keep-every-geotargets-release`
+  - Base: `dev` at `8b5ae40`
+  - Worktree: `.worktrees/065-keep-every-geotargets-release`
+  - PR: pending
