@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - The browser backend's WARNING `capture` event for a capture without `#search` carries the search's `qry` and `loc`, so the log line says which search it was
+- An empty `ai_overview` whose body had not loaded when the page was captured is `sub_type="not_loaded"` instead of `unavailable`. Both decline messages ship hidden on every AI overview page, so the old rule could not tell a decline from an overview the page's script had not yet streamed in. `unavailable` now requires a decline message that is shown. Requests-backend captures, which never run that script, and browser captures taken too early land in `not_loaded`; every `unavailable` row in the test corpus moves there. Callers that count `unavailable` as declines will see most of those rows move to the new label
 
 ## [0.13.0] - 2026-10-28
 

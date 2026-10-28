@@ -385,7 +385,8 @@ class ClassifyMain:
         SERPs serialized mid-generation ("Thinking") or after Google declined
         to synthesize an overview carry the AI overview's ``EYwa3d`` controller
         but none of the ``Fzsovc``/``h2 AI Overview`` markers ``ai_overview``
-        gates on. The parser routes these to ``sub_type="unavailable"``.
+        gates on. The parser routes these to ``sub_type="not_loaded"`` or, when
+        a decline message is shown, ``"unavailable"``.
         """
         node: Node = cmpt
         if node.css_first('div[jscontroller="EYwa3d"]') is not None:
@@ -404,7 +405,8 @@ class ClassifyMain:
         nothing but the banner (all of its text lies inside an ``EYwa3d`` node)
         and no other knowledge-panel marker is present. A panel that embeds the
         banner beside content of its own fails that test and stays
-        ``knowledge``. The parser routes these to ``sub_type="unavailable"``.
+        ``knowledge``. The parser routes these to ``sub_type="not_loaded"`` or,
+        when a decline message is shown, ``"unavailable"``.
         """
         node: Node = cmpt
         # Every banner carries the controller; probe it before the union walk,

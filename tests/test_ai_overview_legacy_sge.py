@@ -85,8 +85,8 @@ def test_legacy_sge_failures_stay_empty(serps_by_qry, qry):
     rows = _ai_overview_rows(serps_by_qry[qry]["html"])
     assert len(rows) == 1
     row = rows[0]
-    # "Can't generate" panels carry no body/sources -> empty, not hollow
+    # Captured while still "Searching": no body/sources -> empty, not hollow
     assert row["text"] is None
     assert row["details"] is None
-    # the decline is recorded explicitly, distinct from a parser miss
-    assert row["sub_type"] == "unavailable"
+    # the decline messages are still hidden, so the body had not loaded yet
+    assert row["sub_type"] == "not_loaded"
