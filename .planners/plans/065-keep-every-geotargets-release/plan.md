@@ -135,3 +135,16 @@ loop in the workflow.
   - Module: `get_release_urls` lists dated release links only. The live page also links itself (`/google-ads/api/data/geotargets`), which the old lexical sort skipped only by accident. `release_date` reads both filename shapes. `update_locations_file` pulls the oldest unseen release and prints the gap warning; `get_latest_url` is the last listed release.
   - Workflow: a bounded loop (6 runs) commits each pull as `update locations: <release>` under the `github-actions[bot]` identity. `create-pull-request` carries those commits; its v8.1.1 README lists "commits made during the workflow that have not been pushed" among the changes it includes. The job polls `mergeable` and then runs `gh pr merge --merge --delete-branch --subject "merge: PR #<n> - bot/locations-update"`.
   - Checks: 875 tests pass (coverage 85.13%), ruff and pyrefly clean, and the listing was run live against the page (returns 08-12 and 10-06).
+
+## Handoff
+
+State: all work is committed and pushed on `feature/keep-every-geotargets-release`, with PR #214 against dev.
+
+Not verified:
+
+- The new workflow has not run. `create-pull-request` keeping one commit per release, and the in-job merge, are taken from the action's README and not observed. The first `workflow_dispatch` on dev after the merge (`gh workflow run update-locations.yml --ref dev`) should report up to date and open no PR.
+- Scheduled runs read the workflow file from master, so until the next stable release the Monday job still runs the old workflow against master's ledger, which ends at 06-15. Its next run (2026-11-02 06:00 UTC) will try to land 10-06 against dev's backfilled ledger. Expect a failed run or a bot PR whose ledger diff drops or reorders rows. Close such a PR unmerged. A release before that date avoids it.
+
+Questions:
+
+1. Should the plan's Out of scope line ("the ledger up to 2026-06-15 is the seeded archive and is complete") be corrected in the spec, or left as the record of what was believed? The Log carries the correction (15 missing releases found and backfilled).
