@@ -149,6 +149,12 @@ order.
     - The parsed AI overview rows are identical before and after the click on all 3 (same text, sections, citations, and sources).
     - The raw documents have the same text: 0 lines of body text change. The click changes only presentation markup: `data-trnct` goes from true to false, the 383px `max-height` is removed, `aria-hidden` comes off the collapsed part, and a few empty wrapper divs are added. The expanded HTML is 239-1129 bytes smaller. In the current layout the full overview is in the DOM before the click, and expanding only reveals it.
     - Scope: 3 queries, one layout, one session. Older layouts (e.g. 2024 SGE) may have loaded content on expand; not tested.
+- **2026-10-28T10:43:25-07:00** — AI overview load timeline (user's run of `probe_ai_timeline.py`, 3 queries, warmed profile, `data/plan-066/timeline.jsonl`). Times are from the start of `goto` unless marked as from `#search`.
+    - "why is the sky blue": `#search` 0.98 s, load 1.72 s, network idle 3.18 s. The overview is complete at +0.5 s after `#search` (sources 3 to 8 between +0 and +0.5 s).
+    - "how to boil an egg": `#search` 0.94 s, load 2.10 s, idle 2.80 s. Complete at +0.5 s after `#search`.
+    - "python list comprehension" (a streamed overview, `data-aim="1"`): `#search` 0.59 s, load 1.15 s, idle 5.14 s. It parses as `unavailable` from +0 to +1.5 s, has text at +2 s, sections grow from 1 to 3 by +4 s, and sources go from 0 to 3 to 7 by +5 s. It is stable from +5.0 s after `#search` (5.6 s from `goto`). One request stays in flight from +0.5 to +4 s, so network idle (5.14 s) marks the end of the stream.
+    - What this means for the settle step: network idle tracks the overview's end, but the 3 s cap (`NETWORKIDLE_TIMEOUT_MS`) only covers the streamed case because the first `sleep(2)` delays the idle wait's start to about 2.5 s from `goto` (cap ends about 5.5 s, idle came at 5.14 s). Dropping that sleep without raising the cap would capture the streamed overview part-way through. The cap costs time only on a page that never goes idle, and all 3 went idle.
+    - The streamed overview's early captures reproduce the requests-backend mislabel in a browser: a not-yet-loaded overview parses as `unavailable` (plan 067).
 
 ## Handoff
 
