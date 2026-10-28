@@ -61,9 +61,24 @@ def test_make_soup_passthrough():
 # has_captcha ------------------------------------------------------------------
 
 
-def test_has_captcha_true():
-    soup = utils.make_soup("<html><body>Please solve this CAPTCHA</body></html>")
+def test_has_captcha_word_alone_false():
+    soup = utils.make_soup("<html><body>CAPTCHA: enabled to secure this form</body></html>")
+    assert utils.has_captcha(soup) is False
+
+
+def test_has_captcha_recaptcha_container():
+    soup = utils.make_soup('<html><body><div class="g-recaptcha"></div></body></html>')
     assert utils.has_captcha(soup) is True
+
+
+def test_has_captcha_recaptcha_iframe():
+    html = '<html><body><iframe src="https://www.google.com/recaptcha/api2/anchor"></iframe></body></html>'
+    assert utils.has_captcha(utils.make_soup(html), html=html) is True
+
+
+def test_has_captcha_sorry_form_action():
+    html = '<html><body><form action="https://www.google.com/sorry/index"></form></body></html>'
+    assert utils.has_captcha(utils.make_soup(html), html=html) is True
 
 
 def test_has_captcha_false():
@@ -74,6 +89,12 @@ def test_has_captcha_false():
 def test_has_captcha_sorry_fixture():
     soup = utils.load_soup(Path(__file__).parent / "fixtures" / "sorry_index.html")
     assert utils.has_captcha(soup) is True
+
+
+def test_has_captcha_dialog_overlay_fixture():
+    fp = Path(__file__).parent / "fixtures" / "captcha_dialog_overlay.html"
+    html = fp.read_text()
+    assert utils.has_captcha(utils.make_soup(html), html=html) is True
 
 
 # is_sorry_redirect ------------------------------------------------------------

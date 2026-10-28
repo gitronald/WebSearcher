@@ -7,10 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `has_search` on the response and the SERP record: whether the captured HTML holds the `#search` results container. It is `False` for a challenge page, an empty capture, or a SERP shell, so a caller can retry without parsing first. The browser backend also logs a WARNING `capture` event when it captures a page without `#search`
+
 ### Changed
 
+- The `captcha` feature is keyed on challenge markup instead of the word "CAPTCHA" in the page text: the `/sorry/` page's form, a reCAPTCHA container or frame, and the in-page "Captcha Dialog" overlay (a frame of a `/sorry/` page shown over a SERP with results). A SERP whose result snippet quotes a site's form ("protected by reCAPTCHA") is no longer flagged, and the overlay, which was not detected before, now is. The `/sorry/` redirect URL still flags it independently. Callers that branch on `captcha` will see fewer flags on normal SERPs
 - `update_locations_file` pulls the oldest listed geotargets release newer than the ledger instead of only the newest, so a caller that loops until it returns `None` records every release, one at a time, in order. When the ledger's last release is older than every release the page lists, it prints a warning naming the gap. New `get_release_urls` lists every dated release link on the page, oldest first, and `get_latest_url` returns the last of them
 - The weekly locations job runs on `dev`, commits each new release separately, and merges its own pull request, so a release can no longer be replaced by a newer one while its pull request waits
+
+### Fixed
+
+- The browser backend waits for the SERP to finish loading before capturing it, instead of fixed 2 s sleeps before and after the `#search` wait, which together took 4 s on every request. A SERP that replaced itself in that window was captured as an ~80 KB shell without `#search` or raised "the page is navigating"; the capture now waits for load and for the network to go quiet (up to 8 s), re-checks `#search`, and retries the read while the page is still navigating. The quiet wait covers a streamed AI overview, which can keep loading for about 5 s after `#search`, and ignores the speculative prefetches of result links (`Sec-Purpose: prefetch`), which Chrome can hold open for about 10 s and which kept the browser driver's own network-idle wait from ending on most SERPs
+- One engine reused across queries could record the previous query's SERP, or a late navigation of it, under the next query. Each request now starts from a blank page, and the page is replaced when the previous SERP's navigation interrupts that reset
+- `ai_expand` waits up to 5 s for the show-more click and for the control's `aria-expanded="true"` instead of a fixed sleep, and logs its outcome as a DEBUG `ai_expand` event (`expanded`, `unconfirmed`, `not_expanded`, `no_control`, `click_failed`, or `capture_failed`), so a missed click is distinguishable from a SERP without an AI overview
 
 ## [0.12.3] - 2026-10-26
 

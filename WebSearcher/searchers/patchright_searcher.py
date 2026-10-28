@@ -26,7 +26,93 @@ from ..models.searches import SearchParams
 
 # CSS selectors for the AI-overview expand controls
 SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
+SHOW_MORE_EXPANDED_SELECTOR = f'{SHOW_MORE_SELECTOR}[aria-expanded="true"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
+
+# Capture timing (ms). A SERP can replace itself once more after #search first
+# renders, and a streamed AI overview keeps loading for a few seconds after it
+# (plan 066), so a capture waits for load and then for the network to go quiet.
+# The quiet wait is capped because a page's background requests can keep it busy.
+# The cap is about twice the latest stream end seen (about 4.2 s from goto); it
+# costs time only on a page still busy at the cap.
+SEARCH_TIMEOUT_MS = 10_000
+LOAD_TIMEOUT_MS = 5_000
+NETWORKIDLE_TIMEOUT_MS = 8_000
+RESET_TIMEOUT_MS = 5_000
+EXPAND_TIMEOUT_MS = 5_000
+
+# The network is quiet after this long with no request in flight (the driver's
+# own networkidle rule), checked every IDLE_POLL_MS
+IDLE_MS = 500
+IDLE_POLL_MS = 100
+
+# Attempts at page.content() while the page is still navigating
+CONTENT_ATTEMPTS = 3
+
+
+def _is_navigating_error(e: Exception) -> bool:
+    """Whether ``e`` is the error ``page.content()`` raises mid-navigation."""
+    return "page is navigating" in str(e)
+
+
+def _is_prefetch(request: Any) -> bool:
+    """Whether ``request`` is a speculative prefetch (``Sec-Purpose: prefetch``).
+
+    A SERP's speculation rules prefetch its top results' links, and Chrome can
+    hold such a request open for about 10 s before dropping it.
+    """
+    return "prefetch" in request.headers.get("sec-purpose", "")
+
+
+class NetworkTracker:
+    """Track a page's requests in flight, ignoring speculative prefetches.
+
+    Stands in for the driver's ``networkidle``, which counts a prefetch that
+    never finishes and then runs to its timeout on most SERPs (plan 066).
+    Attach before navigating: a request started earlier is not tracked.
+    """
+
+    def __init__(self, page: Any) -> None:
+        self.page = page
+        self.inflight: set[Any] = set()
+        self.last_change = time.monotonic()
+        self._handlers: dict[str, Callable[[Any], None]] = {
+            "request": self._started,
+            "requestfinished": self._ended,
+            "requestfailed": self._ended,
+        }
+        for event, handler in self._handlers.items():
+            page.on(event, handler)
+
+    def _started(self, request: Any) -> None:
+        if _is_prefetch(request):
+            return
+        self.inflight.add(request)
+        self.last_change = time.monotonic()
+
+    def _ended(self, request: Any) -> None:
+        if request in self.inflight:
+            self.inflight.discard(request)
+            self.last_change = time.monotonic()
+
+    def wait_for_idle(self, timeout_ms: int) -> bool:
+        """Wait until no request has been in flight for ``IDLE_MS``.
+
+        Returns ``False`` when ``timeout_ms`` passes first. Waits with
+        ``page.wait_for_timeout``, which delivers the request events.
+        """
+        deadline = time.monotonic() + timeout_ms / 1000
+        while True:
+            now = time.monotonic()
+            if not self.inflight and now - self.last_change >= IDLE_MS / 1000:
+                return True
+            if now >= deadline:
+                return False
+            self.page.wait_for_timeout(IDLE_POLL_MS)
+
+    def detach(self) -> None:
+        for event, handler in self._handlers.items():
+            self.page.remove_listener(event, handler)
 
 
 def prepare_profile_dir(path: Path) -> None:
@@ -69,6 +155,7 @@ class PatchrightSearcher:
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
         self._exit_hook: Callable[[], None] | None = None
+        self.network: NetworkTracker | None = None
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
@@ -135,16 +222,25 @@ class PatchrightSearcher:
 
         pre_nav_url: str | None = None
         try:
+            # Start from a blank page, so a late navigation of the previous SERP
+            # cannot land in this request, and the "URL moved" check below never
+            # takes the previous query's SERP for this one.
+            self.reset_page()
             pre_nav_url = self.page.url
+            self.network = NetworkTracker(self.page)
             response = self.page.goto(search_params.url, wait_until="domcontentloaded")
             # Record the status before the #search wait so a blocked request
             # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
             response_output.response_code = response.status if response else 200
-            time.sleep(2)
-            self.page.wait_for_selector("#search", timeout=10_000)
-            time.sleep(2)
-            response_output.html = self.page.content()
+            self.page.wait_for_selector("#search", timeout=SEARCH_TIMEOUT_MS)
+            self.settle_page()
+            response_output.html = self.page_content()
             response_output.url = self.page.url
+            if not response_output.has_search:
+                self.log.warning(
+                    f"SERP | {self.driver_name} | captured HTML has no #search",
+                    extra={"event": "capture"},
+                )
 
             # Expand AI overview if requested
             if search_params.ai_expand:
@@ -168,7 +264,7 @@ class PatchrightSearcher:
                     live_url = self.page.url
                     if live_url and live_url != pre_nav_url:
                         response_output.url = live_url
-                        response_output.html = self.page.content()
+                        response_output.html = self.page_content(require_search=False)
                 except Exception:
                     pass
             if utils.is_sorry_redirect(response_output.url):
@@ -182,29 +278,119 @@ class PatchrightSearcher:
                     f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
                 )
         finally:
+            if self.network is not None:
+                self.network.detach()
+                self.network = None
             if self.config.clear_cookies:
                 self.delete_cookies()
 
         return response_output
 
-    def expand_ai_overview(self):
-        """Expand AI overview box by clicking it"""
-        show_more_button = self.page.locator(SHOW_MORE_SELECTOR).first
-        try:
-            show_more_button.click(timeout=1_000)
-        except Exception:
-            return None
+    def reset_page(self) -> None:
+        """Park the page on ``about:blank``, or replace it when that fails.
 
-        time.sleep(2)  # Wait for additional content to load
+        The blank-page navigation fails when the previous SERP navigates over
+        it ("interrupted by another navigation"); a new page in the same context
+        then drops the old one.
+        """
+        if self.page.url == "about:blank":
+            return
+        try:
+            self.page.goto("about:blank", wait_until="load", timeout=RESET_TIMEOUT_MS)
+            if self.page.url == "about:blank":
+                return
+        except Exception as e:
+            self.log.debug(f"SERP | blank-page reset failed | {e}", extra={"event": "reset_page"})
+        self.log.debug("SERP | replacing page", extra={"event": "reset_page"})
+        self.page.close()
+        self.page = self.context.new_page()
+
+    def settle_page(self, require_search: bool = True) -> None:
+        """Wait for load and a quiet network, then confirm ``#search`` is attached.
+
+        Each wait is bounded and its timeout ignored: a page's background
+        requests can keep the network busy, and a late capture beats none. The
+        quiet wait needs the request's ``NetworkTracker``, so it is skipped
+        outside ``send_request``.
+        """
+        try:
+            self.page.wait_for_load_state("load", timeout=LOAD_TIMEOUT_MS)
+        except Exception:
+            pass
+        if self.network is not None and not self.network.wait_for_idle(NETWORKIDLE_TIMEOUT_MS):
+            self.log.debug(
+                f"SERP | network busy at cap | {len(self.network.inflight)} in flight",
+                extra={"event": "capture"},
+            )
+        if require_search:
+            self.page.wait_for_selector("#search", state="attached", timeout=SEARCH_TIMEOUT_MS)
+
+    def page_content(self, require_search: bool = True) -> str:
+        """Return ``page.content()``, retrying while the page is navigating.
+
+        Only the "page is navigating" error is retried: each retry backs off,
+        settles the page again, and (with ``require_search``) re-checks ``#search``.
+        """
+        for attempt in range(1, CONTENT_ATTEMPTS + 1):
+            try:
+                return self.page.content()
+            except Exception as e:
+                if attempt == CONTENT_ATTEMPTS or not _is_navigating_error(e):
+                    raise
+                self.log.debug(
+                    f"SERP | page navigating during capture | attempt {attempt}",
+                    extra={"event": "capture"},
+                )
+                time.sleep(0.5 * attempt)
+                self.settle_page(require_search)
+        raise AssertionError("unreachable")
+
+    def expand_ai_overview(self) -> str | None:
+        """Expand the AI overview by clicking its show-more control.
+
+        Returns the expanded HTML, or ``None`` when nothing was expanded. The
+        outcome is logged as an ``ai_expand`` event: ``expanded``, ``unconfirmed``
+        (clicked, but the control has no ``aria-expanded`` to confirm it),
+        ``not_expanded`` (clicked, and ``aria-expanded`` stayed false),
+        ``no_control``, ``click_failed``, or ``capture_failed``.
+        """
+        show_more = self.page.locator(SHOW_MORE_SELECTOR).first
+        try:
+            if show_more.count() == 0:
+                return self._ai_expand_outcome("no_control")
+            confirmable = (
+                show_more.get_attribute("aria-expanded", timeout=EXPAND_TIMEOUT_MS) is not None
+            )
+            show_more.click(timeout=EXPAND_TIMEOUT_MS)
+        except Exception:
+            return self._ai_expand_outcome("click_failed")
+
+        if confirmable:
+            try:
+                self.page.wait_for_selector(
+                    SHOW_MORE_EXPANDED_SELECTOR, state="attached", timeout=EXPAND_TIMEOUT_MS
+                )
+            except Exception:
+                return self._ai_expand_outcome("not_expanded")
+            outcome = "expanded"
+        else:
+            time.sleep(2)  # Nothing to wait on: give the added content time to load
+            outcome = "unconfirmed"
+
         try:
             self.page.locator(SHOW_ALL_SELECTOR).first.click(timeout=1_000)
         except Exception:
             pass
 
         try:
-            return self.page.content()
+            html = self.page_content(require_search=False)
         except Exception:
-            return None
+            return self._ai_expand_outcome("capture_failed")
+        self._ai_expand_outcome(outcome)
+        return html
+
+    def _ai_expand_outcome(self, outcome: str) -> None:
+        self.log.debug(f"SERP | ai_expand | {outcome}", extra={"event": "ai_expand"})
 
     def _register_exit_hook(self) -> None:
         """Close this searcher at interpreter exit if it is still open then.

@@ -134,8 +134,22 @@ def test_no_string_matches():
 
 
 def test_captcha_detected():
-    html = make_html("<div>Please solve the CAPTCHA to continue</div>")
+    html = make_html('<div id="recaptcha" class="g-recaptcha" data-sitekey="x"></div>')
     features = FeatureExtractor.extract_features(html)
+    assert features.captcha is True
+
+
+def test_captcha_word_in_snippet_not_detected():
+    # A result snippet quoting a site's form text is not a challenge (plan 066)
+    html = make_html('<div id="search"><div>This site is protected by reCAPTCHA.</div></div>')
+    features = FeatureExtractor.extract_features(html)
+    assert features.captcha is False
+
+
+def test_captcha_dialog_overlay_fixture():
+    # A challenge overlaid on a SERP with results present
+    fp = Path(__file__).parent / "fixtures" / "captcha_dialog_overlay.html"
+    features = FeatureExtractor.extract_features(fp.read_text())
     assert features.captcha is True
 
 
@@ -162,7 +176,7 @@ def test_captcha_clean_html_normal_url():
 
 
 def test_captcha_sorry_fixture_html():
-    # No url passed: the fixture's page text alone must trip the HTML path.
+    # No url passed: the fixture's challenge markup alone must trip the HTML path.
     fp = Path(__file__).parent / "fixtures" / "sorry_index.html"
     features = FeatureExtractor.extract_features(fp.read_text())
     assert features.captcha is True
