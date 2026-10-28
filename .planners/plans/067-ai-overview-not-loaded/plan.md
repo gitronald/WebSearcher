@@ -1,7 +1,7 @@
 ---
 id: 67
 slug: ai-overview-not-loaded
-status: active
+status: implemented
 branch: feature/ai-overview-not-loaded
 created: 2026-10-28T10:44:00-07:00
 concluded:
@@ -116,3 +116,4 @@ does not, so it can land first if step 1 stalls.
       - Results: all 8 corpus rows flip `unavailable -> not_loaded`, and each snapshot diff is that one line. The browser early captures in plan 066's timeline-2 and timeline-3 runs (python list comprehension, chargers vs raiders, astronomical clocks; `*.first.html`) parse `not_loaded`.
       - Fixture: `tests/fixtures/ai_overview_not_loaded.html`, trimmed from plan 066's `python-list-comprehension.first.html` with the sidecar `trim_fixture.py`. Tests: not-loaded, decline shown (synthetic), and no messages stays `flat`. The three existing `unavailable` tests now expect `not_loaded`.
       - Checks: ruff check, ruff format --check, pyrefly (0 errors), and pytest (909 passed, 85.20% coverage) on the final tree.
+- **2026-10-28T12:53:36-07:00** — Implemented: 5 commits ahead of `dev`.
