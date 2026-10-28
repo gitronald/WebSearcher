@@ -189,9 +189,13 @@ the cookie clear after each request.
    median `seconds` is no more than about 1 s above the `dev` median. If it is well
    below, the first `sleep(2)` in `send_request` may be dropped as well (plan item 1).
 
-3. AI expand on this branch, same queries (from the worktree); read the
-   `SERP | ai_expand | <outcome>` DEBUG lines on the console. Queries without an AI overview
-   should log `no_control`:
+3. AI expand on this branch, same queries (from the worktree). Each row records the
+   logged `ai_expand` outcome (queries without an AI overview should log `no_control`)
+   and compares the AI overview rows parsed from the page just before the click with
+   those parsed after it, on the same load: `ai_rows_identical`, plus `rows`, `text_chars`,
+   `sections`, `citations`, and `sources` in `ai_before`/`ai_after`. Both captures are saved
+   in `data/plan-066/ai-expand-html/`. Runs 1 and 2 passed on 2026-10-28 (see Log); this
+   run is to be repeated with the comparison:
 
        uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
          --out ../../data/plan-066/ai-expand.jsonl --user-data-dir ../../.ws_profile \
