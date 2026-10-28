@@ -108,3 +108,11 @@ does not, so it can land first if step 1 stalls.
   - Worktree: `.worktrees/067-ai-overview-not-loaded`
   - PR: pending
 - **2026-10-28T12:53:31-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/216
+- **2026-10-28T12:53:31-07:00** — Implemented steps 2 and 3; step 1's live decline search skipped by decision.
+      - Decision: no new live searches for step 1. The user chose to land `not_loaded` and keep `unavailable` under the presumed rule (a decline message with no inline `display:none` on it or an ancestor). That rule is unverified: it is tested only on a synthetic decline made from real markup, by removing the `display:none` from one message's `span.YWpX0d` wrapper.
+      - Re-grounded evidence (repro script at the activation commit): 8 corpus AI overview rows parsed `unavailable` (6 requests-backend, 2 with no method: the 2025 legacy rows "tesla manifesto" and "honeywell c level management figures"). The plan's "9 of 14" was a different count. All 8 have no `div.mZJni` and both messages hidden. The 2025 rows show the "Searching" heading and a `role=progressbar` "Generating", so they too are not-loaded rather than declines.
+      - Markup differs by era: current captures wrap each message in its own `span.YWpX0d` with `display:none`; the 2025 captures hide one shared `span.YWpX0d` wrapper. The rule checks ancestors (`_slx.is_hidden`), so both forms are covered.
+      - Rule: no text and no details, then `unavailable` when a message is shown; `not_loaded` when messages are present, all hidden, and there is no body container; otherwise `flat` (a parser miss).
+      - Results: all 8 corpus rows flip `unavailable -> not_loaded`, and each snapshot diff is that one line. The browser early captures in plan 066's timeline-2 and timeline-3 runs (python list comprehension, chargers vs raiders, astronomical clocks; `*.first.html`) parse `not_loaded`.
+      - Fixture: `tests/fixtures/ai_overview_not_loaded.html`, trimmed from plan 066's `python-list-comprehension.first.html` with the sidecar `trim_fixture.py`. Tests: not-loaded, decline shown (synthetic), and no messages stays `flat`. The three existing `unavailable` tests now expect `not_loaded`.
+      - Checks: ruff check, ruff format --check, pyrefly (0 errors), and pytest (909 passed, 85.20% coverage) on the final tree.
