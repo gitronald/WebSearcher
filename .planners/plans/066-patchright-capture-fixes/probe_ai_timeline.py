@@ -9,9 +9,17 @@ delays it. A row per query records:
 - ``dcl_at`` / ``load_at``: DOMContentLoaded and load, from the browser's
   navigation timing, on the same clock
 - ``idle_at``: the first moment after load with no request in flight for
-  500 ms (playwright's ``networkidle``), from a log of request events
+  500 ms, from a log of request events
+- ``first_quiet_at``: the same, from the start of ``goto``. The driver's
+  ``networkidle`` fires once, at the first such stretch, even before load, so
+  an earlier value than ``idle_at`` means the settle step's network-idle wait
+  would return before the AI overview finished
 - ``snapshots``: per offset, the AI overview counts, the requests in flight,
-  and whether the parsed AI overview rows equal the last capture's
+  whether the parsed AI overview rows equal the last capture's, and two
+  candidate signals for a targeted wait: ``body`` (``div.mZJni`` present) and
+  ``generating`` (``role=progressbar`` elements labelled "Generating" that the
+  browser renders visible, checked live: a stylesheet hides them, so saved HTML
+  cannot show it)
 - ``first_ai_at`` / ``stable_at``: the first offset with an AI overview row, and
   the offset from which every capture matches the last one
 
@@ -30,12 +38,19 @@ from typing import Any
 import orjson
 
 import WebSearcher as ws
+from WebSearcher import utils
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers.patchright_searcher import PatchrightSearcher
 
 # Seconds after #search appears at which the HTML is captured
 OFFSETS = (0, 0.5, 1, 1.5, 2, 3, 4, 5, 6, 8, 10, 12)
 IDLE_MS = 500
+
+# Live count of rendered "Generating" spinners
+GENERATING_JS = (
+    "() => [...document.querySelectorAll('[role=progressbar][aria-label=Generating]')]"
+    ".filter((e) => e.checkVisibility()).length"
+)
 
 
 class NetworkLog:
@@ -91,6 +106,7 @@ def ai_overview(html: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Counts over the AI overview rows parsed from ``html``, and the rows."""
     rows = [r for r in ws.parse_serp(html)["results"] if r["type"] == "ai_overview"]
     details = [r.get("details") or {} for r in rows]
+    soup = utils.make_soup(html)
     counts = {
         "rows": len(rows),
         "sub_types": [r["sub_type"] for r in rows],
@@ -98,6 +114,7 @@ def ai_overview(html: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
         "sections": sum(len(d.get("sections", [])) for d in details),
         "sources": sum(len(d.get("sources", [])) for d in details),
         "complete_markers": html.count('data-complete="true"'),
+        "body": soup.css_first("div.mZJni") is not None,
     }
     return counts, rows
 
@@ -119,14 +136,15 @@ def probe(searcher: PatchrightSearcher, qry: str, html_dir: Path) -> dict[str, A
         search_at = net.now()
         row["search_at"] = round(search_at, 2)
 
-        captures: list[tuple[float, int, str, str]] = []
+        captures: list[tuple[float, int, str, str, int]] = []
         for offset in OFFSETS:
             wait_ms = (search_at + offset - net.now()) * 1000
             if wait_ms > 0:
                 page.wait_for_timeout(wait_ms)
             at = net.now() - search_at
             html = searcher.page_content(require_search=False)
-            captures.append((at, len(net.inflight), page.url, html))
+            generating = page.evaluate(GENERATING_JS)
+            captures.append((at, len(net.inflight), page.url, html, generating))
 
         timing = page.evaluate(
             "() => { const n = performance.getEntriesByType('navigation')[0];"
@@ -136,19 +154,23 @@ def probe(searcher: PatchrightSearcher, qry: str, html_dir: Path) -> dict[str, A
         row["dcl_at"] = round(timing[0] / 1000, 2) if timing[0] else None
         row["load_at"] = round(timing[1] / 1000, 2) if timing[1] else None
         row["idle_at"] = net.idle_at(row["load_at"] or search_at)
+        row["first_quiet_at"] = net.idle_at(0.0)
     finally:
         net.detach()
 
-    parsed = [ai_overview(html) for _, _, _, html in captures]
+    parsed = [ai_overview(c[3]) for c in captures]
     final_rows = parsed[-1][1]
     snapshots = []
-    for (at, inflight, page_url, html), (counts, rows) in zip(captures, parsed, strict=True):
+    for (at, inflight, page_url, html, generating), (counts, rows) in zip(
+        captures, parsed, strict=True
+    ):
         snapshots.append(
             {
                 "at": round(at, 2),
                 "inflight": inflight,
                 "url_changed": page_url != captures[0][2],
                 "has_search": 'id="search"' in html,
+                "generating": generating,
                 **counts,
                 "same_as_final": rows == final_rows,
             }
@@ -192,14 +214,16 @@ def main() -> None:
                 f.write(orjson.dumps(row) + b"\n")
             print(
                 f"{qry}: from goto: #search {row.get('search_at')} s, load {row.get('load_at')}, "
-                f"idle {row.get('idle_at')} | from #search: AI first {row.get('first_ai_at')}, "
+                f"first quiet {row.get('first_quiet_at')}, idle after load {row.get('idle_at')} | "
+                f"from #search: AI first {row.get('first_ai_at')}, "
                 f"stable {row.get('stable_at')} {row.get('error', '')}"
             )
             for s in row.get("snapshots", []):
                 print(
                     f"  +{s['at']:5.2f}s inflight={s['inflight']:3} rows={s['rows']} "
                     f"text={s['text_chars']:5} sections={s['sections']:2} "
-                    f"sources={s['sources']:2} complete={s['complete_markers']:2} "
+                    f"sources={s['sources']:2} complete={s['complete_markers']:3} "
+                    f"body={s['body']!s:5} generating={s['generating']} "
                     f"final={s['same_as_final']}"
                 )
             time.sleep(5)

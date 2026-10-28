@@ -215,13 +215,27 @@ the cookie clear after each request.
 
 4. AI overview load timeline on this branch (from the worktree). `probe_ai_timeline.py`
    captures the page at fixed offsets after `#search` without clicking, and reports when the
-   AI overview first appears (`first_ai_at`) and stops changing (`stable_at`), next to
-   load and network idle. Use it to size the settle step's network-idle cap
-   (`NETWORKIDLE_TIMEOUT_MS`, 3 s) or replace it with a targeted wait:
+   AI overview first appears (`first_ai_at`) and stops changing (`stable_at`), next to load,
+   the first 500 ms network-quiet stretch from the start (`first_quiet_at`, when the driver's
+   `networkidle` fires), and the first one after load (`idle_at`). Per capture it also records
+   two candidate signals for a targeted wait: `body` (`div.mZJni`) and `generating` (visible
+   "Generating" spinners, checked live). The first run (3 queries) is in the Log. The second
+   run widens the sample, and its last three queries are plan 067's decline candidates:
 
        uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
-         --out ../../data/plan-066/timeline.jsonl --user-data-dir ../../.ws_profile \
-         "why is the sky blue" "how to boil an egg" "python list comprehension"
+         --out ../../data/plan-066/timeline-2.jsonl --user-data-dir ../../.ws_profile \
+         "why is the sky blue" "how to boil an egg" "python list comprehension" \
+         "how does a heat pump work" "difference between a crocodile and an alligator" \
+         "how to remove a stripped screw" "best way to learn spanish" "is coffee good for you" \
+         "how do vaccines work" "what causes inflation" "how to make sourdough starter" \
+         "difference between roth and traditional ira" "how long to cook a turkey" \
+         "what is quantum computing" "how to get rid of fruit flies" \
+         "chargers vs raiders" "astronomical clocks czech republic" "suwanee-painters"
+
+   What to read: whether `first_quiet_at` ever comes before `stable_at` (the network-idle
+   wait would return early), how far past `#search` `stable_at` reaches (sizes the cap), and
+   whether `generating` drops to 0 at `stable_at` (a targeted wait that does not use the
+   obfuscated `mZJni` class).
 
 ### Open questions
 
