@@ -161,6 +161,13 @@ order.
     - 4 of 18 pages never went quiet in 12 s (stripped screw, learn spanish, cook a turkey, fruit flies), though their overviews were stable by +0.5 s. On those, the network-idle wait always runs to its cap, so the cap is a cost on about a fifth of searches. That rules out a large cap like 8 s.
     - The "Generating" spinner is not a completion signal. On the 3 streams it went from 1 to 0 at +1.5 to +2.0 s, when text began to arrive, 1-3 s before the stream ended. `div.mZJni` (the body) appears at +0.5 to +1.0 s, also early. Neither marks the end. Only the network going quiet does.
     - With the 3 s cap, starting about 2 s from `goto` (after the first sleep), the settle step covers `networkidle` firing up to about 5.1 s from `goto`. Chargers (about 4.1 s) and astronomical clocks (about 4.1 s) fit. Python list comprehension (5.62 s) does not, so its capture comes at the cap, between +4 and +5 s after `#search`, around the stream's end.
+- **2026-10-28T11:25:44-07:00** — Run 5 (user's run, 7 queries, `data/plan-066/timeline-3.jsonl`) and the settle-step fix.
+    - What keeps a page busy: on all 4 never-quiet pages, one `www.google.com/goto` request (type `other`) starts at 0.4-0.9 s from `goto` and is still open at the end. Every SERP carries a `<script type="speculationrules">` that prefetches its top results' `/goto?url=` links. The recurring requests (`gen_204` pings, `play.google.com/log`) all finish.
+    - The stream: on the 3 streamed pages, one `www.google.com/async/folsrch` fetch is open from about 0.3 s to 3.0-3.8 s from `goto`, and the quiet stretch begins as it ends.
+    - Local check (headless Chrome against a page on 127.0.0.1 whose speculation rules prefetch a URL that does not answer; scripts in the session scratch, not kept): Chrome sends `Sec-Purpose: prefetch` on the prefetch and the driver shows it in `request.headers` at the request event, with resource type `other`. The driver's `networkidle` counts the prefetch: with a 20 s hold it fired at 10.5 s (Chrome drops the prefetch after about 10 s), against 20.6 s for a plain `fetch()`.
+    - Fix: `NetworkTracker` in `patchright_searcher.py` tracks the page's requests in flight, ignoring `Sec-Purpose: prefetch`, and `settle_page` waits for 500 ms with none in flight, in place of the driver's `networkidle`. It is attached after the blank-page reset and before the search's `goto`, and detached in `send_request`'s `finally`. `NETWORKIDLE_TIMEOUT_MS` goes from 3 s to 8 s, about twice the latest stream end measured from the settle step's start (about 3.6 s). With prefetches ignored, the cap should only bite on pages that are still busy.
+    - Tests: fake-page tests for the tracker (prefetch ignored, busy until the request ends, cap, detach) and for the settle step waiting on a request in flight. `tests/test_patchright_network.py` runs the tracker in headless Chrome against a local server: a hanging prefetch is ignored (quiet within 2 s, and the prefetch request is asserted to have been made), and a plain request held 1.5 s is waited for. The full suite passes (905).
+    - Not verified on Google: that the `/goto` requests carry `Sec-Purpose: prefetch`, and the new timing. Handoff run 6.
 
 ## Handoff
 
@@ -256,6 +263,29 @@ the cookie clear after each request.
 
    What to read: whether the never-quiet pages share a recurring request the settle step
    could ignore, and which request carries the stream.
+
+6. Verify the prefetch-aware settle step (from the worktree). Run 5 found that every
+   never-quiet page held one `www.google.com/goto` request (type `other`) open: a
+   speculation-rules prefetch of a result link. The settle step now ignores requests
+   with `Sec-Purpose: prefetch` (verified with a local page, see Log). Two runs, on the
+   same 7 queries as run 5:
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
+         --out ../../data/plan-066/timeline-4.jsonl --user-data-dir ../../.ws_profile \
+         "how to remove a stripped screw" "best way to learn spanish" \
+         "how long to cook a turkey" "how to get rid of fruit flies" \
+         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
+         --out ../../data/plan-066/settle.jsonl --user-data-dir ../../.ws_profile \
+         "how to remove a stripped screw" "best way to learn spanish" \
+         "how long to cook a turkey" "how to get rid of fruit flies" \
+         "python list comprehension" "chargers vs raiders" "astronomical clocks czech republic"
+
+   Pass: in the first, the open `/goto` requests show `prefetch` as their purpose. In the
+   second, the four formerly never-quiet queries take about 3 s rather than running to the
+   cap, no `network busy at cap` DEBUG line appears, and the three streamed overviews have
+   their full sources (8, 4, and 4 in run 4's final captures).
 
 ### Open questions
 
