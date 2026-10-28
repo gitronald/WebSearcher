@@ -207,6 +207,16 @@ the cookie clear after each request.
          --ai-expand "why is the sky blue" "central park new york" "how to boil an egg" \
          "python list comprehension" "weather tomorrow" "best pizza near me"
 
+4. AI overview load timeline on this branch (from the worktree). `probe_ai_timeline.py`
+   captures the page at fixed offsets after `#search` without clicking, and reports when the
+   AI overview first appears (`first_ai_at`) and stops changing (`stable_at`), next to
+   load and network idle. Use it to size the settle step's network-idle cap
+   (`NETWORKIDLE_TIMEOUT_MS`, 3 s) or replace it with a targeted wait:
+
+       uv run python .planners/plans/066-patchright-capture-fixes/probe_ai_timeline.py \
+         --out ../../data/plan-066/timeline.jsonl --user-data-dir ../../.ws_profile \
+         "why is the sky blue" "how to boil an egg" "python list comprehension"
+
 ### Open questions
 
 - (2026-10-28) Runs 1-3 above are done; results are in the Log.
