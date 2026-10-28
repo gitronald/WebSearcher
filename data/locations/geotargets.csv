@@ -1472,7 +1472,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002164,Apsley,"Apsley,Ontario,Canada",20121,CA,City,Active
 1002165,Arnprior,"Arnprior,Ontario,Canada",20121,CA,City,Active
 1002166,Arva,"Arva,Ontario,Canada",20121,CA,City,Active
-1002167,Atikokan,"Atikokan,Ontario,Canada",20121,CA,City,Active
+1002167,Atikokan,"Atikokan,Atikokan,Ontario,Canada",20121,CA,City,Active
 1002168,Aurora,"Aurora,Aurora,Ontario,Canada",20121,CA,City,Active
 1002169,Aylmer,"Aylmer,Aylmer,Ontario,Canada",20121,CA,City,Active
 1002170,Ayr,"Ayr,Ontario,Canada",20121,CA,City,Active
@@ -1515,7 +1515,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002207,Casselman,"Casselman,Ontario,Canada",20121,CA,City,Active
 1002208,Cayuga,"Cayuga,Ontario,Canada",20121,CA,Neighborhood,Active
 1002209,Chalk River,"Chalk River,Ontario,Canada",20121,CA,City,Active
-1002210,Chapleau,"Chapleau,Ontario,Canada",20121,CA,City,Active
+1002210,Chapleau,"Chapleau,Chapleau,Ontario,Canada",20121,CA,City,Active
 1002211,Chatham,"Chatham,Ontario,Canada",20121,CA,Neighborhood,Active
 1002212,Chatsworth,"Chatsworth,Chatsworth,Ontario,Canada",20121,CA,City,Active
 1002213,Chelmsford,"Chelmsford,Ontario,Canada",20121,CA,Neighborhood,Active
@@ -1549,7 +1549,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002241,Dorset,"Dorset,Ontario,Canada",20121,CA,City,Active
 1002242,Dryden,"Dryden,Ontario,Canada",20121,CA,City,Active
 1002243,Dublin,"Dublin,Ontario,Canada",20121,CA,City,Active
-1002244,Dubreuilville,"Dubreuilville,Ontario,Canada",20121,CA,City,Active
+1002244,Dubreuilville,"Dubreuilville,Dubreuilville,Ontario,Canada",20121,CA,City,Active
 1002245,Dunchurch,"Dunchurch,Ontario,Canada",20121,CA,City,Active
 1002246,Dundas,"Dundas,Ontario,Canada",20121,CA,Neighborhood,Active
 1002247,Durham,"Durham,Ontario,Canada",20121,CA,City,Active
@@ -1563,7 +1563,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002255,Embrun,"Embrun,Ontario,Canada",20121,CA,City,Active
 1002256,Englehart,"Englehart,Ontario,Canada",20121,CA,City,Active
 1002257,Erin,"Erin,Ontario,Canada",20121,CA,City,Active
-1002258,Espanola,"Espanola,Ontario,Canada",20121,CA,City,Active
+1002258,Espanola,"Espanola,Espanola,Ontario,Canada",20121,CA,City,Active
 1002259,Essex,"Essex,Essex,Ontario,Canada",20121,CA,City,Active
 1002260,Etobicoke,"Etobicoke,Ontario,Canada",20121,CA,Neighborhood,Active
 1002261,Exeter,"Exeter,Ontario,Canada",20121,CA,City,Active
@@ -1633,7 +1633,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002325,London,"London,London,Ontario,Canada",20121,CA,City,Active
 1002326,Madoc,"Madoc,Centre Hastings,Ontario,Canada",20121,CA,City,Active
 1002327,Malton,"Malton,Ontario,Canada",20121,CA,Neighborhood,Active
-1002328,Manitouwadge,"Manitouwadge,Ontario,Canada",20121,CA,City,Active
+1002328,Manitouwadge,"Manitouwadge,Manitouwadge,Ontario,Canada",20121,CA,City,Active
 1002329,Manotick,"Manotick,Ontario,Canada",20121,CA,Neighborhood,Active
 1002330,Maple,"Maple,Ontario,Canada",20121,CA,Neighborhood,Active
 1002331,Mar,"Mar,Ontario,Canada",20121,CA,City,Active
@@ -1669,13 +1669,13 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002361,Newcastle,"Newcastle,Ontario,Canada",20121,CA,City,Active
 1002362,Newmarket,"Newmarket,Newmarket,Ontario,Canada",20121,CA,City,Active
 1002363,Niagara Falls,"Niagara Falls,Niagara Falls,Ontario,Canada",20121,CA,City,Active
-1002364,Nipigon,"Nipigon,Ontario,Canada",20121,CA,City,Active
+1002364,Nipigon,"Nipigon,Nipigon,Ontario,Canada",20121,CA,City,Active
 1002365,Nobleton,"Nobleton,Ontario,Canada",20121,CA,City,Active
 1002366,Noelville,"Noelville,Ontario,Canada",20121,CA,City,Active
 1002367,North Bay,"North Bay,Ontario,Canada",20121,CA,City,Active
 1002368,North York,"North York,Ontario,Canada",20121,CA,Neighborhood,Active
 1002369,Norval,"Norval,Ontario,Canada",20121,CA,Neighborhood,Active
-1002370,Norwich,"Norwich,Ontario,Canada",20121,CA,City,Active
+1002370,Norwich,"Norwich,Norwich,Ontario,Canada",20121,CA,City,Active
 1002371,Oakville,"Oakville,Oakville,Ontario,Canada",20121,CA,City,Active
 1002372,Orangeville,"Orangeville,Orangeville,Ontario,Canada",20121,CA,City,Active
 1002373,Orillia,"Orillia,Orillia,Ontario,Canada",20121,CA,City,Active
@@ -1698,7 +1698,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002390,Port Colborne,"Port Colborne,Port Colborne,Ontario,Canada",20121,CA,City,Active
 1002391,Port Credit,"Port Credit,Ontario,Canada",20121,CA,Neighborhood,Active
 1002392,Port Elgin,"Port Elgin,Ontario,Canada",20121,CA,Neighborhood,Active
-1002393,Port Hope,"Port Hope,Ontario,Canada",20121,CA,City,Active
+1002393,Port Hope,"Port Hope,Port Hope,Ontario,Canada",20121,CA,City,Active
 1002394,Port McNicoll,"Port McNicoll,Ontario,Canada",20121,CA,City,Active
 1002395,Port Perry,"Port Perry,Ontario,Canada",20121,CA,City,Active
 1002396,Powassan,"Powassan,Ontario,Canada",20121,CA,Municipality,Active
@@ -1747,7 +1747,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002440,West Nipissing,"West Nipissing,Ontario,Canada",20121,CA,City,Active
 1002441,Greater Sudbury,"Greater Sudbury,Ontario,Canada",20121,CA,City,Active
 1002442,Tecumseh,"Tecumseh,Essex,Ontario,Canada",20121,CA,City,Active
-1002443,Terrace Bay,"Terrace Bay,Ontario,Canada",20121,CA,City,Active
+1002443,Terrace Bay,"Terrace Bay,Terrace Bay,Ontario,Canada",20121,CA,City,Active
 1002444,Thessalon,"Thessalon,Ontario,Canada",20121,CA,City,Active
 1002445,Thornbury,"Thornbury,Ontario,Canada",20121,CA,Neighborhood,Active
 1002446,Thornhill,"Thornhill,Ontario,Canada",20121,CA,Neighborhood,Active
@@ -1769,7 +1769,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002462,Waterdown,"Waterdown,Ontario,Canada",20121,CA,Neighborhood,Active
 1002463,Waterford,"Waterford,Ontario,Canada",20121,CA,City,Active
 1002464,Waterloo,"Waterloo,Waterloo,Ontario,Canada",20121,CA,City,Active
-1002465,Wawa,"Wawa,Ontario,Canada",20121,CA,City,Active
+1002465,Wawa,"Wawa,Wawa,Ontario,Canada",20121,CA,City,Active
 1002466,Webequie,"Webequie,Ontario,Canada",20121,CA,City,Active
 1002467,Welland,"Welland,Welland,Ontario,Canada",20121,CA,City,Active
 1002468,West Hill,"West Hill,Ontario,Canada",20121,CA,Neighborhood,Active
@@ -1793,7 +1793,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1002486,Tignish,"Tignish,Prince Edward Island,Canada",20122,CA,City,Active
 1002487,Acton Vale,"Acton Vale,Quebec,Canada",20123,CA,City,Active
 1002488,Alma,"Alma,Quebec,Canada",20123,CA,City,Active
-1002489,Amos,"Amos,Amos,Quebec,Canada",20123,CA,City,Active
+1002489,Amos,"Amos,Quebec,Canada",20123,CA,City,Active
 1002490,L'Ancienne-Lorette,"L'Ancienne-Lorette,Quebec,Canada",20123,CA,City,Active
 1002491,Anjou,"Anjou,Quebec,Canada",20123,CA,Neighborhood,Active
 1002492,Val-des-Sources,"Val-des-Sources,Quebec,Canada",20123,CA,City,Active
@@ -5447,7 +5447,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1006503,Batley,"Batley,England,United Kingdom",20339,GB,City,Active
 1006504,Beaconsfield,"Beaconsfield,Beaconsfield,England,United Kingdom",20339,GB,City,Active
 1006505,Beaminster,"Beaminster,Beaminster,England,United Kingdom",20339,GB,City,Active
-1006506,Bedford,"Bedford,England,United Kingdom",20339,GB,Municipality,Active
+1006506,Bedford,"Bedford,Bedford,England,United Kingdom",20339,GB,Municipality,Active
 1006507,Beeston,"Beeston,Nottinghamshire,England,United Kingdom",20339,GB,City,Active
 1006508,Bellingdon,"Bellingdon,England,United Kingdom",20339,GB,City,Active
 1006509,North Turton,"North Turton,England,United Kingdom",20339,GB,City,Active
@@ -16893,7 +16893,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1019023,Sandy Point,"Sandy Point,Maine,United States",21154,US,Neighborhood,Active
 1019024,Sanford,"Sanford,Sanford,Maine,United States",21154,US,Neighborhood,Active
 1019025,Sangerville,"Sangerville,Maine,United States",21154,US,City,Active
-1019026,Scarborough,"Scarborough,Maine,United States",21154,US,Neighborhood,Active
+1019026,Scarborough,"Scarborough,Scarborough,Maine,United States",21154,US,Neighborhood,Active
 1019027,Seal Harbor,"Seal Harbor,Maine,United States",21154,US,Neighborhood,Active
 1019028,Searsmont,"Searsmont,Maine,United States",21154,US,City,Active
 1019029,Searsport,"Searsport,Searsport,Maine,United States",21154,US,Neighborhood,Active
@@ -22880,7 +22880,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1025019,Lemont Furnace,"Lemont Furnace,Pennsylvania,United States",21171,US,City,Active
 1025020,Lemoyne,"Lemoyne,Pennsylvania,United States",21171,US,City,Active
 1025021,Lenni,"Lenni,Pennsylvania,United States",21171,US,City,Active
-1025022,Leola,"Leola,Pennsylvania,United States",21171,US,Neighborhood,Active
+1025022,Leola,"Leola,Leola,Pennsylvania,United States",21171,US,Neighborhood,Active
 1025023,Levittown,"Levittown,Pennsylvania,United States",21171,US,City,Active
 1025024,Lewis Run,"Lewis Run,Pennsylvania,United States",21171,US,City,Active
 1025025,Lewisberry,"Lewisberry,Pennsylvania,United States",21171,US,City,Active
@@ -22889,7 +22889,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1025028,Ligonier,"Ligonier,Pennsylvania,United States",21171,US,City,Active
 1025029,Lincoln University,"Lincoln University,Pennsylvania,United States",21171,US,City,Active
 1025030,Line Lexington,"Line Lexington,Pennsylvania,United States",21171,US,City,Active
-1025031,Lionville,"Lionville,Pennsylvania,United States",21171,US,Neighborhood,Active
+1025031,Lionville,"Lionville,Lionville,Pennsylvania,United States",21171,US,Neighborhood,Active
 1025032,Lititz,"Lititz,Pennsylvania,United States",21171,US,City,Active
 1025033,Littlestown,"Littlestown,Pennsylvania,United States",21171,US,City,Active
 1025034,Lock Haven,"Lock Haven,Pennsylvania,United States",21171,US,City,Active
@@ -25309,7 +25309,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1027452,South Londonderry,"South Londonderry,Vermont,United States",21179,US,Neighborhood,Active
 1027453,South Royalton,"South Royalton,Vermont,United States",21179,US,Neighborhood,Active
 1027454,South Strafford,"South Strafford,Vermont,United States",21179,US,Neighborhood,Active
-1027455,Springfield,"Springfield,Vermont,United States",21179,US,City,Active
+1027455,Springfield,"Springfield,Springfield,Vermont,United States",21179,US,City,Active
 1027456,Saint Albans City,"Saint Albans City,Vermont,United States",21179,US,City,Active
 1027457,St. Johnsbury,"St. Johnsbury,Vermont,United States",21179,US,Neighborhood,Active
 1027458,Stamford,"Stamford,Vermont,United States",21179,US,City,Active
@@ -28716,7 +28716,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1031361,Tekax de Alvaro Obregon,"Tekax de Alvaro Obregon,Yucatan,Mexico",20725,MX,City,Active
 1031362,Teloloapan,"Teloloapan,Guerrero,Mexico",20705,MX,City,Active
 1031363,Tenancingo Municipality,"Tenancingo Municipality,Tlaxcala,Mexico",20723,MX,City,Active
-1031364,Tenancingo de Degollado,"Tenancingo,Mexico,Mexico",20709,MX,Neighborhood,Active
+1031364,Tenancingo de Degollado,"Tenancingo de Degollado,State of Mexico,Mexico",20709,MX,Neighborhood,Active
 1031365,Tenango de Arista,"Tenango de Arista,State of Mexico,Mexico",20709,MX,City,Active
 1031366,Teocaltiche,"Teocaltiche,Jalisco,Mexico",20708,MX,City,Active
 1031367,Tepalcatepec,"Tepalcatepec,Michoacan,Mexico",20710,MX,City,Active
@@ -63976,7 +63976,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9040192,Ranchi,"Ranchi,Ranchi,Jharkhand,India",21336,IN,City,Active
 9040193,Durgapur,"Durgapur,West Bengal,India",20472,IN,City,Active
 9040194,Bardhaman,"Bardhaman,West Bengal,India",20472,IN,City,Active
-9040195,Kataka,"Kataka,Odisha,India",20465,IN,City,Active
+9040195,Cuttack,"Cuttack,Cuttack,Odisha,India",20465,IN,City,Active
 9040196,Rourkela,"Rourkela,Odisha,India",20465,IN,City,Active
 9040197,Sambalpur,"Sambalpur,Sambalpur,Odisha,India",20465,IN,City,Active
 9040198,Raipur,"Raipur,Raipur,Chhattisgarh,India",21334,IN,City,Active
@@ -64337,7 +64337,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041013,Moreno,"Moreno,Buenos Aires Province,Argentina",20009,AR,City,Active
 9041014,Merlo,"Merlo,Buenos Aires Province,Argentina",20009,AR,City,Active
 9041015,Jose C. Paz,"Jose C. Paz,Buenos Aires Province,Argentina",20009,AR,City,Active
-9041016,Del Viso,"Del Viso,Jose C. Paz,Buenos Aires Province,Argentina",20009,AR,City,Active
+9041016,Del Viso,"Del Viso,Buenos Aires Province,Argentina",20009,AR,City,Active
 9041017,Pilar Centro,"Pilar Centro,Buenos Aires Province,Argentina",20009,AR,City,Active
 9041018,Benavidez,"Benavidez,Buenos Aires Province,Argentina",20009,AR,City,Active
 9041019,Grand Bourg,"Grand Bourg,Buenos Aires Province,Argentina",20009,AR,City,Active
@@ -73418,7 +73418,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9050502,Howrah,"Howrah,West Bengal,India",20472,IN,City,Active
 9050503,Jharsuguda,"Jharsuguda,Jharsuguda,Odisha,India",20465,IN,City,Active
 9050504,Kakkanad,"Kakkanad,Kerala,India",20461,IN,City,Active
-9050505,Karaikudi,"Karaikudi,Tamil Nadu,India",20469,IN,City,Active
+9050505,Karaikkudi (M.Corp),"Karaikkudi (M.Corp),Tamil Nadu,India",20469,IN,City,Active
 9050506,Karur,"Karur,Karur,Tamil Nadu,India",20469,IN,City,Active
 9050507,Khammam,"Khammam,Telangana,India",9061642,IN,City,Active
 9050508,Korba,"Korba,Chhattisgarh,India",21334,IN,City,Active
@@ -89004,7 +89004,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9066926,Tigatto,"Tigatto,Davao Region,Philippines",9061343,PH,Neighborhood,Active
 9066927,Tambac,"Tambac,Ilocos Region,Philippines",9061345,PH,Neighborhood,Active
 9066928,Santa Lucia,"Santa Lucia,Central Luzon,Philippines",9061341,PH,Neighborhood,Active
-9066929,Pasong Buaya II,"Pasong Buaya II,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
+9066929,Pasong Buaya II,"Pasong Buaya II,Bacoor,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
 9066930,San Roque,"San Roque,Zamboanga Peninsula,Philippines",9061354,PH,Neighborhood,Active
 9066931,Balabago,"Balabago,Western Visayas,Philippines",9061342,PH,Neighborhood,Active
 9066932,Lecheria,"Lecheria,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
@@ -89162,7 +89162,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9067084,San Luis,"San Luis,Rizal,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
 9067085,Muzon,"Muzon,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
 9067086,Bago Aplaya,"Bago Aplaya,Davao Region,Philippines",9061343,PH,Neighborhood,Active
-9067087,San Antonio,"San Antonio,Los Baños,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
+9067087,San Antonio,"San Antonio,Laguna,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
 9067088,Bagbaguin,"Bagbaguin,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067089,Bacao II,"Bacao II,Calabarzon,Philippines",9061340,PH,Neighborhood,Active
 9067090,Santa Ana,"Santa Ana,Taguig,Metro Manila,Philippines",20835,PH,Neighborhood,Active
@@ -89412,7 +89412,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9067335,A. Bonifacio,"A. Bonifacio,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067336,Holy Spirit,"Holy Spirit,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067337,San Antonio,"San Antonio,Metro Manila,Philippines",20835,PH,Neighborhood,Active
-9067338,Mariana,"Mariana,Metro Manila,Philippines",20835,PH,Neighborhood,Active
+9067338,Mariana,"Mariana,Mariana,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067339,Rosario,"Rosario,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067340,Kapitolyo,"Kapitolyo,Metro Manila,Philippines",20835,PH,Neighborhood,Active
 9067341,San Dionisio,"San Dionisio,Metro Manila,Philippines",20835,PH,Neighborhood,Active
@@ -103363,7 +103363,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9104074,9998,"9998,Groningen,Netherlands",20763,NL,Postal Code,Active
 9104075,9999,"9999,Groningen,Netherlands",20763,NL,Postal Code,Active
 9104076,V8E,"V8E,British Columbia,Canada",20114,CA,Postal Code,Active
-9104077,Ladakh,"Ladakh,India",2356,IN,Territory,Active
+9104077,Ladakh,"Ladakh,India",2356,IN,Union Territory,Active
 9104078,Yarmouth,"Yarmouth,Nova Scotia,Canada",20118,CA,Municipality,Active
 9104079,Wotton,"Wotton,Quebec,Canada",20123,CA,Municipality,Active
 9104080,Woolwich,"Woolwich,Ontario,Canada",20121,CA,Municipality,Active
@@ -103557,7 +103557,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9104268,Saint-Paul-de-l'Ile-aux-Noix,"Saint-Paul-de-l'Ile-aux-Noix,Quebec,Canada",20123,CA,Municipality,Active
 9104269,Saint-Patrice-de-Sherrington,"Saint-Patrice-de-Sherrington,Quebec,Canada",20123,CA,Municipality,Active
 9104270,Saint-Pacome,"Saint-Pacome,Quebec,Canada",20123,CA,Municipality,Active
-9104271,La Pocatiere,"La Pocatiere,Quebec,Canada",20123,CA,Municipality,Active
+9104271,Saint-Onesime-d'Ixworth,"Saint-Onesime-d'Ixworth,Quebec,Canada",20123,CA,Municipality,Active
 9104272,Saint-Octave-de-Metis,"Saint-Octave-de-Metis,Quebec,Canada",20123,CA,Municipality,Active
 9104273,Saint-Norbert-d'Arthabaska,"Saint-Norbert-d'Arthabaska,Quebec,Canada",20123,CA,Municipality,Active
 9104274,Saint-Norbert,"Saint-Norbert,Quebec,Canada",20123,CA,Municipality,Active
@@ -104071,7 +104071,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9104782,Cupar No. 218,"Cupar No. 218,Saskatchewan,Canada",20124,CA,Municipality,Active
 9104783,Craik No. 222,"Craik No. 222,Saskatchewan,Canada",20124,CA,Municipality,Active
 9104784,Crabtree,"Crabtree,Quebec,Canada",20123,CA,Municipality,Active
-9104785,Courcelles–Saint-Evariste,"Courcelles–Saint-Evariste,Quebec,Canada",20123,CA,Municipality,Active
+9104785,Courcelles,"Courcelles,Quebec,Canada",20123,CA,Municipality,Active
 9104786,Coulee-des-Adolphe,"Coulee-des-Adolphe,Quebec,Canada",20123,CA,Municipality,Active
 9104787,Coulee No. 136,"Coulee No. 136,Saskatchewan,Canada",20124,CA,Municipality,Active
 9104788,Coteau No. 255,"Coteau No. 255,Saskatchewan,Canada",20124,CA,Municipality,Active
@@ -117219,7 +117219,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9118117,Biak Numfor Regency,"Biak Numfor Regency,Papua,Indonesia",9056645,ID,Municipality,Active
 9118118,Sarmi Regency,"Sarmi Regency,Papua,Indonesia",9056645,ID,Municipality,Active
 9118119,Yalimo Regency,"Yalimo Regency,Papua,Indonesia",9056645,ID,Municipality,Active
-9118120,Central Mamberamo Regency,"Central Mamberamo Regency,Indonesia",2360,ID,Municipality,Active
+9118120,Central Mamberamo Regency,"Central Mamberamo Regency,Papua,Indonesia",9056645,ID,Municipality,Active
 9118121,Tolikara Regency,"Tolikara Regency,Papua,Indonesia",9056645,ID,Municipality,Active
 9118122,Puncak Jaya Regency,"Puncak Jaya Regency,Papua,Indonesia",9056645,ID,Municipality,Active
 9118123,Puncak Regency,"Puncak Regency,Papua,Indonesia",9056645,ID,Municipality,Active
@@ -121425,7 +121425,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9122326,Cikarang Timur,"Cikarang Timur,West Java,Indonesia",20438,ID,District,Active
 9122327,Mayangan,"Mayangan,East Java,Indonesia",20439,ID,District,Active
 9122328,Liang Anggang,"Liang Anggang,South Kalimantan,Indonesia",20443,ID,District,Active
-9122329,Kelila,"Kelila,Central Mamberamo Regency,Indonesia",9118120,ID,District,Active
+9122329,Kelila,"Kelila,Papua,Indonesia",9056645,ID,District,Active
 9122330,Tebing Tinggi Barat,"Tebing Tinggi Barat,Riau,Indonesia",20446,ID,District,Active
 9122331,Arguni Bawah,"Arguni Bawah,West Papua,Indonesia",9056649,ID,District,Active
 9122332,Nirunmas,"Nirunmas,Maluku,Indonesia",9056643,ID,District,Active
@@ -123587,7 +123587,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9124489,Karau Kuala,"Karau Kuala,Central Kalimantan,Indonesia",9056639,ID,District,Active
 9124490,Jalancagak,"Jalancagak,West Java,Indonesia",20438,ID,District,Active
 9124491,Paranggupito,"Paranggupito,Central Java,Indonesia",20441,ID,District,Active
-9124492,Eragayam,"Eragayam,Central Mamberamo Regency,Indonesia",9118120,ID,District,Active
+9124492,Eragayam,"Eragayam,Papua,Indonesia",9056645,ID,District,Active
 9124493,IV Nagari Bayang Utara,"IV Nagari Bayang Utara,West Sumatra,Indonesia",9056651,ID,District,Active
 9124494,Elelim,"Elelim,Papua,Indonesia",9056645,ID,District,Active
 9124495,Nanggulan,"Nanggulan,Special Region of Yogyakarta,Indonesia",20451,ID,District,Active
@@ -124866,7 +124866,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9125768,Bogonuk,"Bogonuk,Papua,Indonesia",9056645,ID,District,Active
 9125769,Galesong Selatan,"Galesong Selatan,South Sulawesi,Indonesia",20448,ID,District,Active
 9125770,Manonjaya,"Manonjaya,West Java,Indonesia",20438,ID,District,Active
-9125771,Ilugwa,"Ilugwa,Central Mamberamo Regency,Indonesia",9118120,ID,District,Active
+9125771,Ilugwa,"Ilugwa,Papua,Indonesia",9056645,ID,District,Active
 9125772,Tanjung Bintang,"Tanjung Bintang,Lampung,Indonesia",20444,ID,District,Active
 9125773,Sunggal,"Sunggal,Deli Serdang Regency,North Sumatra,Indonesia",20450,ID,District,Active
 9125774,Kapuas Timur,"Kapuas Timur,Central Kalimantan,Indonesia",9056639,ID,District,Active
@@ -126686,7 +126686,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9127589,Kutorejo,"Kutorejo,East Java,Indonesia",20439,ID,District,Active
 9127590,Biboki Anleu,"Biboki Anleu,East Nusa Tenggara,Indonesia",9056641,ID,District,Active
 9127591,Marancar,"Marancar,North Sumatra,Indonesia",20450,ID,District,Active
-9127592,Kobagma,"Kobagma,Central Mamberamo Regency,Indonesia",9118120,ID,District,Active
+9127592,Kobagma,"Kobagma,Papua,Indonesia",9056645,ID,District,Active
 9127593,Ndona Timur,"Ndona Timur,East Nusa Tenggara,Indonesia",9056641,ID,District,Active
 9127594,Kotarih,"Kotarih,North Sumatra,Indonesia",20450,ID,District,Active
 9127595,Dander,"Dander,East Java,Indonesia",20439,ID,District,Active
@@ -131726,7 +131726,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9133529,60521,"60521,Michoacan,Mexico",20710,MX,Postal Code,Active
 9133530,75069,"75069,Puebla,Mexico",20715,MX,Postal Code,Active
 9133531,84633,"84633,Sonora,Mexico",20720,MX,Postal Code,Active
-9133532,36914,"36914,Guanajuato,Mexico",20706,MX,Postal Code,Active
+9133532,36914,"36914,Santa Ana Pacueco,Guanajuato,Mexico",20706,MX,Postal Code,Active
 9133533,90596,"90596,Tlaxcala,Mexico",20723,MX,Postal Code,Active
 9133534,21961,"21961,Baja California,Mexico",20696,MX,Postal Code,Active
 9133535,76806,"76806,Queretaro,Mexico",20716,MX,Postal Code,Active
@@ -132206,7 +132206,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9134009,99784,"99784,Zacatecas,Mexico",20726,MX,Postal Code,Active
 9134010,41570,"41570,Guerrero,Mexico",20705,MX,Postal Code,Active
 9134011,25844,"25844,Coahuila,Mexico",20701,MX,Postal Code,Active
-9134012,27400,"27400,Coahuila,Mexico",20701,MX,Postal Code,Active
+9134012,27400,"27400,Torreon,Coahuila,Mexico",20701,MX,Postal Code,Active
 9134013,42965,"42965,Hidalgo,Mexico",20707,MX,Postal Code,Active
 9134014,61217,"61217,Michoacan,Mexico",20710,MX,Postal Code,Active
 9134015,29791,"29791,Chiapas,Mexico",20700,MX,Postal Code,Active
@@ -134914,7 +134914,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9136717,73589,"73589,Puebla,Mexico",20715,MX,Postal Code,Active
 9136718,63517,"63517,Nayarit,Mexico",20712,MX,Postal Code,Active
 9136719,60781,"60781,Michoacan,Mexico",20710,MX,Postal Code,Active
-9136720,68405,"68405,Oaxaca,Mexico",20714,MX,Postal Code,Active
+9136720,68405,"68405,Loma Bonita,Oaxaca,Mexico",20714,MX,Postal Code,Active
 9136721,61730,"61730,Michoacan,Mexico",20710,MX,Postal Code,Active
 9136722,61613,"61613,Michoacan,Mexico",20710,MX,Postal Code,Active
 9136723,42256,"42256,Hidalgo,Mexico",20707,MX,Postal Code,Active
@@ -136388,7 +136388,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9138191,50396,"50396,State of Mexico,Mexico",20709,MX,Postal Code,Active
 9138192,94149,"94149,Veracruz,Mexico",20724,MX,Postal Code,Active
 9138193,61839,"61839,Michoacan,Mexico",20710,MX,Postal Code,Active
-9138194,68402,"68402,Loma Bonita,Oaxaca,Mexico",20714,MX,Postal Code,Active
+9138194,68402,"68402,Oaxaca,Mexico",20714,MX,Postal Code,Active
 9138195,40944,"40944,Guerrero,Mexico",20705,MX,Postal Code,Active
 9138196,69840,"69840,Oaxaca,Mexico",20714,MX,Postal Code,Active
 9138197,85235,"85235,Sonora,Mexico",20720,MX,Postal Code,Active
@@ -137142,7 +137142,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9138945,41576,"41576,Guerrero,Mexico",20705,MX,Postal Code,Active
 9138946,61944,"61944,Michoacan,Mexico",20710,MX,Postal Code,Active
 9138947,63538,"63538,Nayarit,Mexico",20712,MX,Postal Code,Active
-9138948,61266,"61266,Michoacan,Mexico",20710,MX,Postal Code,Active
+9138948,61266,"61266,Maravatio,Michoacan,Mexico",20710,MX,Postal Code,Active
 9138949,70333,"70333,Oaxaca,Mexico",20714,MX,Postal Code,Active
 9138950,34686,"34686,Durango,Mexico",20704,MX,Postal Code,Active
 9138951,61051,"61051,Michoacan,Mexico",20710,MX,Postal Code,Active
@@ -141370,7 +141370,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9143173,73725,"73725,Puebla,Mexico",20715,MX,Postal Code,Active
 9143174,76478,"76478,Queretaro,Mexico",20716,MX,Postal Code,Active
 9143175,34795,"34795,Durango,Mexico",20704,MX,Postal Code,Active
-9143176,90255,"90255,Tlaxcala,Mexico",20723,MX,Postal Code,Active
+9143176,90255,"90255,Tlaxco,Tlaxcala,Mexico",20723,MX,Postal Code,Active
 9143177,80376,"80376,Sinaloa,Mexico",20718,MX,Postal Code,Active
 9143178,80687,"80687,Sinaloa,Mexico",20718,MX,Postal Code,Active
 9143179,33195,"33195,Chihuahua,Mexico",20699,MX,Postal Code,Active
@@ -149650,7 +149650,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9151453,855105,"855105,Bihar,India",20455,IN,Postal Code,Active
 9151454,855106,"855106,Bihar,India",20455,IN,Postal Code,Active
 9151455,855107,"855107,Bihar,India",20455,IN,Postal Code,Active
-9151456,855108,"855108,Bihar,India",20455,IN,Postal Code,Active
+9151456,855108,"855108,Kishanganj,Bihar,India",20455,IN,Postal Code,Active
 9151457,855113,"855113,Bihar,India",20455,IN,Postal Code,Active
 9151458,855114,"855114,Bihar,India",20455,IN,Postal Code,Active
 9151459,855115,"855115,Bihar,India",20455,IN,Postal Code,Active
@@ -180100,7 +180100,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9181903,Gingee,"Gingee,Tamil Nadu,India",20469,IN,Sub District,Active
 9181904,Silchar,"Silchar,Assam,India",20454,IN,Sub District,Active
 9181905,Garugubilli,"Garugubilli,Andhra Pradesh,India",20453,IN,Sub District,Active
-9181906,Rameswaram,"Rameswaram,Tamil Nadu,India",20469,IN,Sub District,Active
+9181906,Rameshwaram,"Rameshwaram,Tamil Nadu,India",20469,IN,Sub District,Active
 9181907,Nagpur,"Nagpur,Maharashtra,India",20462,IN,Sub District,Active
 9181908,Tangutur,"Tangutur,Andhra Pradesh,India",20453,IN,Sub District,Active
 9181909,Nelamangala,"Nelamangala,Karnataka,India",20460,IN,Sub District,Active
@@ -180867,7 +180867,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9182670,Kanchanpur,"Kanchanpur,Tripura,India",20470,IN,Sub District,Active
 9182671,Morena,"Morena,Madhya Pradesh,India",20464,IN,Sub District,Active
 9182672,Sheohar,"Sheohar,Bihar,India",20455,IN,Sub District,Active
-9182673,Kalamb,"Kalamb,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,Sub District,Active
+9182673,Kalamb,"Kalamb,Aurangabad Division,Maharashtra,India",20462,IN,Sub District,Active
 9182674,Babra,"Babra,Gujarat,India",20457,IN,Sub District,Active
 9182675,Pallavaram,"Pallavaram,Tamil Nadu,India",20469,IN,Sub District,Active
 9182676,Gyanpur,"Gyanpur,Uttar Pradesh,India",20471,IN,Sub District,Active
@@ -180930,7 +180930,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9182733,Raver,"Raver,Maharashtra,India",20462,IN,Sub District,Active
 9182734,Basantrai,"Basantrai,Jharkhand,India",21336,IN,Sub District,Active
 9182735,Attili,"Attili,Andhra Pradesh,India",20453,IN,Sub District,Active
-9182736,Shirur,"Shirur,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,Sub District,Active
+9182736,Shirur,"Shirur,Aurangabad Division,Maharashtra,India",20462,IN,Sub District,Active
 9182737,Koilkonda,"Koilkonda,Telangana,India",9061642,IN,Sub District,Active
 9182738,Deulgaon-Raja,"Deulgaon-Raja,Maharashtra,India",20462,IN,Sub District,Active
 9182739,Barwah,"Barwah,Indore Division,India",9186240,IN,Sub District,Active
@@ -182741,7 +182741,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9184544,Piduguralla,"Piduguralla,Andhra Pradesh,India",20453,IN,Sub District,Active
 9184545,Morwa Hadaf,"Morwa Hadaf,Gujarat,India",20457,IN,Sub District,Active
 9184546,Ralegaon,"Ralegaon,Maharashtra,India",20462,IN,Sub District,Active
-9184547,Nanded,"Nanded,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,Sub District,Active
+9184547,Nanded,"Nanded,Aurangabad Division,Maharashtra,India",20462,IN,Sub District,Active
 9184548,Penukonda,"Penukonda,Andhra Pradesh,India",20453,IN,Sub District,Active
 9184549,Shahjahanpur,"Shahjahanpur,Uttar Pradesh,India",20471,IN,Sub District,Active
 9184550,Sattanapalle,"Sattanapalle,Andhra Pradesh,India",20453,IN,Sub District,Active
@@ -183488,7 +183488,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9185291,Arjunimorgaon,"Arjunimorgaon,Maharashtra,India",20462,IN,Sub District,Active
 9185292,Chauthan,"Chauthan,Rajasthan,India",20468,IN,Sub District,Active
 9185293,Nagar,"Nagar,Maharashtra,India",20462,IN,Sub District,Active
-9185294,ಬೆಂಗಳೂರು ಸೌತ್,"ಬೆಂಗಳೂರು ಸೌತ್,Karnataka,India",20460,IN,Sub District,Active
+9185294,Bengaluru South District,"Bengaluru South District,Karnataka,India",20460,IN,Sub District,Active
 9185295,Kuchinda,"Kuchinda,Odisha,India",20465,IN,Sub District,Active
 9185296,Brahmapur,"Brahmapur,Odisha,India",20465,IN,Sub District,Active
 9185297,Behat,"Behat,Uttar Pradesh,India",20471,IN,Sub District,Active
@@ -183818,7 +183818,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9185621,Balrampur,"Balrampur,Madhya Pradesh,India",20464,IN,City,Active
 9185622,Bijapur,"Bijapur,Sendhwa,Madhya Pradesh,India",20464,IN,City,Active
 9185623,Narayanpur,"Narayanpur,Gangapur,Maharashtra,India",20462,IN,City,Active
-9185624,Pratappur,"Pratappur,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9185624,Pratappur,"Pratappur,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9185625,Narayanpur,"Narayanpur,Vaijapur,Maharashtra,India",20462,IN,City,Active
 9185626,Rajpur,"Rajpur,Maharashtra,India",20462,IN,City,Active
 9185627,Pratappur,"Pratappur,Nashik Division,Maharashtra,India",20462,IN,City,Active
@@ -183997,7 +183997,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9185800,Khalari,"Khalari,South Chotanagpur Division,Jharkhand,India",21336,IN,City,Active
 9185801,Chandrapura,"Chandrapura,Mahgawan,Madhya Pradesh,India",20464,IN,City,Active
 9185802,Raghogarh,"Raghogarh,Ujjain Division,Madhya Pradesh,India",20464,IN,City,Active
-9185803,Gandhinagar,"Gandhinagar,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9185803,Gandhinagar,"Gandhinagar,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9185804,Singrauli,"Singrauli,Madhya Pradesh,India",20464,IN,City,Active
 9185805,Mangrol,"Mangrol,Mangrol,Gujarat,India",20457,IN,City,Active
 9185806,Karanja Lad,"Karanja Lad,Maharashtra,India",20462,IN,City,Active
@@ -184147,14 +184147,14 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9185950,Jagdish Pur,"Jagdish Pur,Kanpur Division,Uttar Pradesh,India",20471,IN,City,Active
 9185951,Keshod,"Keshod,Keshod,Gujarat,India",20457,IN,City,Active
 9185952,Jagdishpur,"Jagdishpur,Jharkhand,India",21336,IN,City,Active
-9185953,Dhar,"Dhar,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9185953,Dhar,"Dhar,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9185954,Deoli (Gujar),"Deoli (Gujar),Maharashtra,India",20462,IN,City,Active
 9185955,Hingni,"Hingni,Maharashtra,India",20462,IN,City,Active
 9185956,Rajnagar,"Rajnagar,Jatara,Madhya Pradesh,India",20464,IN,City,Active
 9185957,Kotdwar,"Kotdwar,Kotdwar,Uttarakhand,India",21341,IN,City,Active
 9185958,Jagdishpur,"Jagdishpur,Madhya Pradesh,India",20464,IN,City,Active
 9185959,Indergarh,"Indergarh,Madhya Pradesh,India",20464,IN,City,Active
-9185960,Kotma,"Kotma,Madhya Pradesh,India",20464,IN,City,Active
+9185960,Kotma,"Kotma,Kotma,Madhya Pradesh,India",20464,IN,City,Active
 9185961,Dagar,"Dagar,Madhya Pradesh,India",20464,IN,City,Active
 9185962,Narsapur,"Narsapur,Karnataka,India",20460,IN,City,Active
 9185963,Bhainsa,"Bhainsa,Meerut Division,Uttar Pradesh,India",20471,IN,City,Active
@@ -184271,8 +184271,8 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9186074,Nagaon,"Nagaon,Maharashtra,India",20462,IN,City,Active
 9186075,Mandla,"Mandla,Maharashtra,India",20462,IN,City,Active
 9186076,Achalpur,"Achalpur,Uttar Pradesh,India",20471,IN,City,Active
-9186077,Karanja,"Karanja,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
-9186078,Amalner,"Amalner,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9186077,Karanja,"Karanja,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
+9186078,Amalner,"Amalner,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9186079,Nagar,"Nagar,Chitrakoot Division,Uttar Pradesh,India",20471,IN,City,Active
 9186080,Rengali,"Rengali,Redhakhol,Odisha,India",20465,IN,City,Active
 9186081,Deoli,"Deoli,Indore Division,Madhya Pradesh,India",20464,IN,City,Active
@@ -184281,7 +184281,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9186084,Gandhinagar,"Gandhinagar,Konkan Division,Maharashtra,India",20462,IN,City,Active
 9186085,Umred,"Umred,Madhya Pradesh,India",20464,IN,City,Active
 9186086,Musabani,"Musabani,Musabani,Jharkhand,India",21336,IN,City,Active
-9186087,Narsapur,"Narsapur,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9186087,Narsapur,"Narsapur,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9186088,Teghra,"Teghra,Darbhanga Division,Bihar,India",20455,IN,City,Active
 9186089,Khalari,"Khalari,Bihar,India",20455,IN,City,Active
 9186090,Deoli,"Deoli,Madhya Pradesh,India",20464,IN,City,Active
@@ -184353,7 +184353,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9186156,Shekhpura,"Shekhpura,Uttar Pradesh,India",20471,IN,City,Active
 9186157,Bagasara,"Bagasara,Maliya,Gujarat,India",20457,IN,City,Active
 9186158,Rajnagar,"Rajnagar,Madhya Pradesh,India",20464,IN,City,Active
-9186159,Achalpur,"Achalpur,Maharashtra,India",20462,IN,City,Active
+9186159,Achalpur,"Achalpur,Achalpur,Maharashtra,India",20462,IN,City,Active
 9186160,Rengali,"Rengali,Odisha,India",20465,IN,City,Active
 9186161,Dagar,"Dagar,Uttarakhand,India",21341,IN,City,Active
 9186162,Deoli,"Deoli,Meerut Division,Uttar Pradesh,India",20471,IN,City,Active
@@ -184478,7 +184478,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9186281,Karnal Division,"Karnal Division,Haryana,India",20458,IN,Department,Active
 9186282,Lucknow Division,"Lucknow Division,Uttar Pradesh,India",20471,IN,Department,Active
 9186283,Sagar Division,"Sagar Division,Madhya Pradesh,India",20464,IN,Department,Active
-9186284,Chhatrapati Sambhajinagar Division,"Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,Department,Active
+9186284,Aurangabad Division,"Aurangabad Division,Maharashtra,India",20462,IN,Department,Active
 9186285,Presidency Division,"Presidency Division,West Bengal,India",20472,IN,Department,Active
 9186286,Durg Division,"Durg Division,Chhattisgarh,India",21334,IN,Department,Active
 9186287,Central Assam Division,"Central Assam Division,Assam,India",20454,IN,Department,Active
@@ -188315,7 +188315,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9190118,Ivanhoe,"Ivanhoe,Victoria,Australia",20040,AU,City,Active
 9190119,Rubidoux,"Rubidoux,California,United States",21137,US,Neighborhood,Active
 9190120,Saddlebrooke,"Saddlebrooke,Arizona,United States",21136,US,City,Active
-9190121,Masterton,"Masterton,Wellington Region,New Zealand",21314,NZ,Neighborhood,Active
+9190121,Masterton,"Masterton,Masterton,Wellington Region,New Zealand",21314,NZ,Neighborhood,Active
 9190122,Roosevelt,"Roosevelt,Iowa,United States",21145,US,Neighborhood,Active
 9190123,Swanley,"Swanley,Swanley,England,United Kingdom",20339,GB,District,Active
 9190124,Cottleville,"Cottleville,Missouri,United States",21157,US,City,Active
@@ -188791,7 +188791,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9190594,Moonee Ponds,"Moonee Ponds,Victoria,Australia",20040,AU,City,Active
 9190595,Aberdare,"Aberdare,Aberdare,Wales,United Kingdom",20343,GB,City,Active
 9190596,Cudjoe Key,"Cudjoe Key,Florida,United States",21142,US,City,Active
-9190597,East End,"East End,St. Thomas,U.S. Virgin Islands",9070162,VI,Sub-District,Active
+9190597,East End,"East End,St. Thomas,U.S. Virgin Islands",9070162,VI,Sub District,Active
 9190598,Charlotte Harbor,"Charlotte Harbor,Florida,United States",21142,US,City,Active
 9190599,N9A 6J3,"N9A 6J3,Ontario,Canada",20121,CA,Postal Code,Active
 9190600,Isle of Palms,"Isle of Palms,Florida,United States",21142,US,Neighborhood,Active
@@ -190495,7 +190495,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9192298,Birch Run Township,"Birch Run Township,Michigan,United States",21155,US,Municipality,Active
 9192299,Greenock,"Greenock,Pennsylvania,United States",21171,US,City,Active
 9192300,Ascot,"Ascot,Western Australia,Australia",20041,AU,City,Active
-9192301,Taupo,"Taupo,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
+9192301,Taupo,"Taupo,Taupo,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
 9192302,Franklin Township,"Franklin Township,Warren County,Ohio,United States",21168,US,Municipality,Active
 9192303,Minnehaha,"Minnehaha,Washington,United States",21180,US,City,Active
 9192304,Gunnedah,"Gunnedah,New South Wales,Australia",20035,AU,City,Active
@@ -193411,7 +193411,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9195214,Black Creek,"Black Creek,Ontario,Canada",20121,CA,Neighborhood,Active
 9195215,Clearwater,"Clearwater,South Carolina,United States",21173,US,City,Active
 9195216,Dunean,"Dunean,South Carolina,United States",21173,US,City,Active
-9195217,Phase 3,"Phase 3,Maharashtra,India",20462,IN,Sub-Ward,Active
+9195217,Phase 3,"Phase 3,Maharashtra,India",20462,IN,Sub Ward,Active
 9195218,Autumn Ridge,"Autumn Ridge,Tennessee,United States",21175,US,Neighborhood,Active
 9195219,Oberdorla,"Oberdorla,Thuringia,Germany",20241,DE,City,Active
 9195220,The Village of Grogan's Mill,"The Village of Grogan's Mill,Texas,United States",21176,US,Neighborhood,Active
@@ -195518,7 +195518,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9197322,Rives de l'Yon,"Rives de l'Yon,Pays de la Loire,France",20329,FR,City,Active
 9197323,13331,"13331,Riyadh Province,Saudi Arabia",20987,SA,Postal Code,Active
 9197324,35514,"35514,Eastern Province,Saudi Arabia",20989,SA,Postal Code,Active
-9197325,McCalla,"McCalla,Alabama,United States",21133,US,City,Active
+9197325,McCalla,"McCalla,Tuscaloosa County,Alabama,United States",21133,US,City,Active
 9197326,Sun City Texas,"Sun City Texas,Texas,United States",21176,US,Neighborhood,Active
 9197327,Limhamn,"Limhamn,Skane County,Sweden",21011,SE,Post town,Active
 9197328,Near East Side,"Near East Side,Texas,United States",21176,US,Neighborhood,Active
@@ -195737,7 +195737,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9197541,13246,"13246,Riyadh Province,Saudi Arabia",20987,SA,Postal Code,Active
 9197542,6180,"6180,Wallonia,Belgium",9069524,BE,Postal Code,Active
 9197543,Ibes,"Ibes,State of Espirito Santo,Brazil",20091,BR,District,Active
-9197544,Malle,"Malle,Flanders,Belgium",9069523,BE,District,Active
+9197544,Malle,"Malle,Malle,Flanders,Belgium",9069523,BE,District,Active
 9197545,Ebingen,"Ebingen,Baden-Wurttemberg,Germany",20228,DE,City,Active
 9197546,莇生町,"莇生町,Aichi,Japan",20646,JP,Neighborhood,Active
 9197547,葛原,"葛原,Kanagawa,Japan",20637,JP,Neighborhood,Active
@@ -196271,7 +196271,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9198079,Sunnyvale West,"Sunnyvale West,California,United States",21137,US,Neighborhood,Active
 9198080,35100,"35100,Izmir,Turkiye",21070,TR,Postal Code,Active
 9198081,Thung Maha Mek,"Thung Maha Mek,Bangkok,Thailand",21025,TH,Neighborhood,Active
-9198082,Hicksville,"Hicksville,New York,United States",21167,US,Neighborhood,Active
+9198082,Hicksville,"Hicksville,Hicksville,New York,United States",21167,US,Neighborhood,Active
 9198083,Tsuen Wan District,"Tsuen Wan District,New Territories,Hong Kong",9069535,HK,District,Active
 9198084,City Centre,"City Centre,England,United Kingdom",20339,GB,Neighborhood,Active
 9198085,Lublin,"Lublin,Lublin Voivodeship,Poland",20851,PL,Municipality,Active
@@ -196406,7 +196406,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9198216,Sakae Ward,"Sakae Ward,Kanagawa,Japan",20637,JP,Neighborhood,Active
 9198217,15126,"15126,Banten,Indonesia",9056637,ID,Postal Code,Active
 9198218,28022,"28022,Community of Madrid,Spain",20282,ES,Postal Code,Active
-9198219,Reading,"Reading,England,United Kingdom",20339,GB,District,Active
+9198219,Reading,"Reading,Reading,England,United Kingdom",20339,GB,District,Active
 9198220,050021,"050021,Antioquia,Colombia",20198,CO,Postal Code,Active
 9198221,Nokomis,"Nokomis,Minnesota,United States",21156,US,Neighborhood,Active
 9198222,Sao Carlos,"Sao Carlos,Sao Carlos,State of Sao Paulo,Brazil",20106,BR,City,Active
@@ -196734,7 +196734,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9198546,Nishi Ward,"Nishi Ward,Sakai,Osaka,Japan",20650,JP,Neighborhood,Active
 9198547,Muscat,"Muscat,Muscat Governorate,Oman",9069735,OM,City,Active
 9198548,Lo Barnechea,"Lo Barnechea,Lo Barnechea,Santiago Metropolitan Region,Chile",20160,CL,City,Active
-9198549,Jabal Ali First,"Jabal Ali First,Dubai,United Arab Emirates",9041083,AE,Neighborhood,Active
+9198549,Jebel Ali Village,"Jebel Ali Village,Dubai,United Arab Emirates",9041083,AE,Neighborhood,Active
 9198550,Agincourt South-Malvern West,"Agincourt South-Malvern West,Ontario,Canada",20121,CA,Neighborhood,Active
 9198551,Itagui,"Itagui,Itagui,Antioquia,Colombia",20198,CO,City,Active
 9198552,Nou Barris,"Nou Barris,Catalonia,Spain",20278,ES,District,Active
@@ -197073,7 +197073,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9198893,Ikuno Ward,"Ikuno Ward,Osaka,Japan",20650,JP,Neighborhood,Active
 9198894,33011,"33011,Asturias,Spain",20286,ES,Postal Code,Active
 9198895,Iasi metropolitan area,"Iasi metropolitan area,Iasi County,Romania",20903,RO,Municipality,Active
-9198897,Al Yasmeen,"Al Yasmeen,Riyadh Province,Saudi Arabia",20987,SA,Neighborhood,Active
+9198897,Alyasmin,"Alyasmin,Riyadh Province,Saudi Arabia",20987,SA,Neighborhood,Active
 9198898,28017,"28017,Community of Madrid,Spain",20282,ES,Postal Code,Active
 9198899,Sao Sebastiao,"Sao Sebastiao,Sao Sebastiao,State of Sao Paulo,Brazil",20106,BR,City,Active
 9198900,Oakley,"Oakley,Ohio,United States",21168,US,Neighborhood,Active
@@ -205494,7 +205494,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9207346,Descanso,"Descanso,California,United States",21137,US,City,Active
 9207347,N0H 1J0,"N0H 1J0,Ontario,Canada",20121,CA,Postal Code,Active
 9207348,Saint Rita,"Saint Rita,Piedmont,Italy",9053436,IT,Neighborhood,Active
-9207349,Central,"Central,St. John,U.S. Virgin Islands",9070160,VI,Sub-District,Active
+9207349,Central,"Central,St. John,U.S. Virgin Islands",9070160,VI,Sub District,Active
 9207350,Jindalee,"Jindalee,Western Australia,Australia",20041,AU,City,Active
 9207351,45005,"45005,Castile-La Mancha,Spain",20276,ES,Postal Code,Active
 9207352,Bellingen,"Bellingen,New South Wales,Australia",20035,AU,City,Active
@@ -211546,7 +211546,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9213421,Amlwch,"Amlwch,Wales,United Kingdom",20343,GB,City,Active
 9213422,Piedade,"Piedade,State of Rio de Janeiro,Brazil",20102,BR,District,Active
 9213423,Ras Al Khor Industrial Area 2,"Ras Al Khor Industrial Area 2,Dubai,United Arab Emirates",9041083,AE,Neighborhood,Active
-9213424,Norbury,"Norbury,England,United Kingdom",20339,GB,City,Active
+9213424,Norbury,"Norbury,Cheshire East,England,United Kingdom",20339,GB,City,Active
 9213425,Tilney St. Lawrence,"Tilney St. Lawrence,England,United Kingdom",20339,GB,City,Active
 9213426,98063,"98063,Sicily,Italy",9053438,IT,Postal Code,Active
 9213427,Canton of Chateau-Gontier-sur-Mayenne-1,"Canton of Chateau-Gontier-sur-Mayenne-1,Pays de la Loire,France",20329,FR,District,Active
@@ -213644,7 +213644,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9215526,Feldmark,"Feldmark,North Rhine-Westphalia,Germany",20235,DE,Neighborhood,Active
 9215527,Agia Fyla,"Agia Fyla,Limassol,Cyprus",20215,CY,Neighborhood,Active
 9215528,Lincoln Township,"Lincoln Township,Berrien County,Michigan,United States",21155,US,Municipality,Active
-9215529,D Block,"D Block,Delhi,India",20456,IN,Sub-Ward,Active
+9215529,D Block,"D Block,Delhi,India",20456,IN,Sub Ward,Active
 9215530,Green Township,"Green Township,Michigan,United States",21155,US,City,Active
 9215531,Kurmond,"Kurmond,New South Wales,Australia",20035,AU,City,Active
 9215532,21050,"21050,Lombardy,Italy",9053433,IT,Postal Code,Active
@@ -215224,7 +215224,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9217112,V0E 1M0,"V0E 1M0,British Columbia,Canada",20114,CA,Postal Code,Active
 9217113,Vendelso,"Vendelso,Stockholm County,Sweden",21000,SE,Post town,Active
 9217114,33098,"33098,Friuli-Venezia Giulia,Italy",9053430,IT,Postal Code,Active
-9217115,Charlotte Amalie,"Charlotte Amalie,St. Thomas,U.S. Virgin Islands",9070162,VI,Sub-District,Active
+9217115,Charlotte Amalie,"Charlotte Amalie,St. Thomas,U.S. Virgin Islands",9070162,VI,Sub District,Active
 9217116,Chevrier,"Chevrier,Manitoba,Canada",20115,CA,Neighborhood,Active
 9217117,Aspull,"Aspull,England,United Kingdom",20339,GB,City,Active
 9217118,Ses Salines,"Ses Salines,Balearic Islands,Spain",21387,ES,Municipality,Active
@@ -215434,7 +215434,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9217322,Scholven,"Scholven,North Rhine-Westphalia,Germany",20235,DE,Neighborhood,Active
 9217323,Uellendahl-Katernberg,"Uellendahl-Katernberg,North Rhine-Westphalia,Germany",20235,DE,City,Active
 9217324,266,"266,Yilan County,Taiwan",21099,TW,Postal Code,Active
-9217325,Palma de Mallorca,"Palma de Mallorca,Balearic Islands,Spain",21387,ES,Municipality,Active
+9217325,Nord de Palma District,"Nord de Palma District,Balearic Islands,Spain",21387,ES,Municipality,Active
 9217326,Barravento,"Barravento,State of Goias,Brazil",20092,BR,District,Active
 9217327,Salt Creek Township,"Salt Creek Township,Indiana,United States",21148,US,Municipality,Active
 9217328,Naval Base,"Naval Base,Western Australia,Australia",20041,AU,City,Active
@@ -216934,7 +216934,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9218825,Cameron Park,"Cameron Park,Texas,United States",21176,US,Neighborhood,Active
 9218826,84125,"84125,Campania,Italy",9053428,IT,Postal Code,Active
 9218827,別所町,"別所町,Hyogo,Japan",20651,JP,Neighborhood,Active
-9218828,38039,"38039,Trentino-South Tyrol,Italy",9053439,IT,Postal Code,Active
+9218828,38039,"38039,Trentino-Alto Adige/Sudtirol,Italy",9053439,IT,Postal Code,Active
 9218829,Grand Falls,"Grand Falls,New Brunswick,Canada",20116,CA,City,Active
 9218830,Dravlje District,"Dravlje District,Ljubljana,Slovenia",9075874,SI,Municipality District,Active
 9218831,35013,"35013,Veneto,Italy",9053442,IT,Postal Code,Active
@@ -217060,7 +217060,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9218953,84085,"84085,Campania,Italy",9053428,IT,Postal Code,Active
 9218954,Marmstorf,"Marmstorf,Hamburg,Germany",20232,DE,Neighborhood,Active
 9218955,Saint-Hilaire-de-Loulay,"Saint-Hilaire-de-Loulay,Pays de la Loire,France",20329,FR,Neighborhood,Active
-9218956,Nanded Fata,"Nanded Fata,Maharashtra,India",20462,IN,Sub-Ward,Active
+9218956,Nanded Fata,"Nanded Fata,Maharashtra,India",20462,IN,Sub Ward,Active
 9218957,Baniyas North,"Baniyas North,Abu Dhabi,United Arab Emirates",9041082,AE,Neighborhood,Active
 9218958,San Isidro Partido,"San Isidro Partido,Buenos Aires Province,Argentina",20009,AR,Department,Active
 9218959,Origny-le-Roux,"Origny-le-Roux,Normandy,France",9068565,FR,City,Active
@@ -220435,7 +220435,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9222333,Arrondissement of Alencon,"Arrondissement of Alencon,Normandy,France",9068565,FR,Municipality,Active
 9222334,Beaver Township,"Beaver Township,Pennsylvania,United States",21171,US,Municipality,Active
 9222335,T3S 0A8,"T3S 0A8,Alberta,Canada",20113,CA,Postal Code,Active
-9222336,Cambridge,"Cambridge,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
+9222336,Cambridge,"Cambridge,Cambridge,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
 9222337,18160-000,"18160-000,State of Sao Paulo,Brazil",20106,BR,Postal Code,Active
 9222338,83059,"83059,Campania,Italy",9053428,IT,Postal Code,Active
 9222339,Piety Corner Historic District,"Piety Corner Historic District,Massachusetts,United States",21152,US,Neighborhood,Active
@@ -223392,7 +223392,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9225295,Arace,"Arace,State of Espirito Santo,Brazil",20091,BR,District,Active
 9225296,Banatski Karlovac,"Banatski Karlovac,Vojvodina,Serbia",21213,RS,City,Active
 9225297,Darling Downs,"Darling Downs,Western Australia,Australia",20041,AU,City,Active
-9225298,Uxbridge,"Uxbridge,Ontario,Canada",20121,CA,City,Active
+9225298,Uxbridge,"Uxbridge,Uxbridge,Ontario,Canada",20121,CA,City,Active
 9225299,Bosham,"Bosham,England,United Kingdom",20339,GB,District,Active
 9225300,Dorfles-Esbach,"Dorfles-Esbach,Bavaria,Germany",20229,DE,Municipality,Active
 9225301,Northaw and Cuffley,"Northaw and Cuffley,England,United Kingdom",20339,GB,District,Active
@@ -236062,7 +236062,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9238039,Imaduwa,"Imaduwa,Southern Province,Sri Lanka",9069785,LK,District,Active
 9238040,Hassfurt,"Hassfurt,Bavaria,Germany",20229,DE,Municipality,Active
 9238041,Haslach an der Muhl,"Haslach an der Muhl,Upper Austria,Austria",20045,AT,City,Active
-9238042,East Gwillimbury,"East Gwillimbury,Ontario,Canada",20121,CA,Neighborhood,Active
+9238042,East Gwillimbury,"East Gwillimbury,East Gwillimbury,Ontario,Canada",20121,CA,Neighborhood,Active
 9238043,Tubod,"Tubod,Northern Mindanao,Philippines",9061346,PH,Municipality,Active
 9238044,Losice,"Losice,Masovian Voivodeship,Poland",20853,PL,City,Active
 9238045,Sancoins,"Sancoins,Centre-Val de Loire,France",20317,FR,City,Active
@@ -253063,7 +253063,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9255114,Chust,"Chust,Namangan Region,Uzbekistan",9075977,UZ,City,Active
 9255115,Baldia,"Baldia,Sindh,Pakistan",9061356,PK,District,Active
 9255116,940 02,"940 02,Nitra Region,Slovakia",9062585,SK,Postal Code,Active
-9255117,AS Rao Nagar,"AS Rao Nagar,Telangana,India",9061642,IN,Neighborhood,Active
+9255117,Dr. A. S. Rao Nagar,"Dr. A. S. Rao Nagar,Telangana,India",9061642,IN,Neighborhood,Active
 9255118,Tom Price,"Tom Price,Western Australia,Australia",20041,AU,City,Active
 9255119,Parana Country Club,"Parana Country Club,Alto Parana Department,Paraguay",9069969,PY,Neighborhood,Active
 9255120,Vera,"Vera,Santa Fe Province,Argentina",20021,AR,City,Active
@@ -258121,7 +258121,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9260202,Provodov-Sonov,"Provodov-Sonov,Hradec Kralove Region,Czechia",21495,CZ,Municipality,Active
 9260203,Casuco,"Casuco,Malanje Province,Angola",9075423,AO,Municipality,Active
 9260204,Warren,"Warren,Connecticut,United States",21139,US,City,Active
-9260205,Kfarabida,"Kfarabida,North Governorate,Lebanon",9070353,LB,Municipality,Active
+9260205,Kfar Aabida,"Kfar Aabida,North Governorate,Lebanon",9070353,LB,Municipality,Active
 9260206,Ruessei Chrouy,"Ruessei Chrouy,Kandal Province,Cambodia",9075585,KH,Municipality,Active
 9260207,88610,"88610,Kainuu,Finland",9075513,FI,Postal Code,Active
 9260208,San Sebastian,"San Sebastian,San Sebastian,Puerto Rico",9069626,PR,City,Active
@@ -262205,14 +262205,6 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9264300,Florida's 7th Congressional District 2026 redistricting,"Florida's 7th Congressional District 2026 redistricting,Florida,United States",21142,US,Congressional District,Active
 9264301,Florida's 8th Congressional District 2026 redistricting,"Florida's 8th Congressional District 2026 redistricting,Florida,United States",21142,US,Congressional District,Active
 9264302,Florida's 9th Congressional District 2026 redistricting,"Florida's 9th Congressional District 2026 redistricting,Florida,United States",21142,US,Congressional District,Active
-9264303,Missouri's 1st Congressional District 2026 redistricting,"Missouri's 1st Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264304,Missouri's 2nd Congressional District 2026 redistricting,"Missouri's 2nd Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264305,Missouri's 3rd Congressional District 2026 redistricting,"Missouri's 3rd Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264306,Missouri's 4th Congressional District 2026 redistricting,"Missouri's 4th Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264307,Missouri's 5th Congressional District 2026 redistricting,"Missouri's 5th Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264308,Missouri's 6th Congressional District 2026 redistricting,"Missouri's 6th Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264309,Missouri's 7th Congressional District 2026 redistricting,"Missouri's 7th Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
-9264310,Missouri's 8th Congressional District 2026 redistricting,"Missouri's 8th Congressional District 2026 redistricting,Missouri,United States",21157,US,Congressional District,Active
 9264311,Utah's 1st Congressional District 2026 redistricting,"Utah's 1st Congressional District 2026 redistricting,Utah,United States",21177,US,Congressional District,Active
 9264312,Utah's 2nd Congressional District 2026 redistricting,"Utah's 2nd Congressional District 2026 redistricting,Utah,United States",21177,US,Congressional District,Active
 9264313,Utah's 3rd Congressional District 2026 redistricting,"Utah's 3rd Congressional District 2026 redistricting,Utah,United States",21177,US,Congressional District,Active
@@ -265497,6 +265489,14 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9267592,Tennessee's 7th Congressional District 2026 redistricting,"Tennessee's 7th Congressional District 2026 redistricting,Tennessee,United States",21175,US,Congressional District,Active
 9267593,Tennessee's 8th Congressional District 2026 redistricting,"Tennessee's 8th Congressional District 2026 redistricting,Tennessee,United States",21175,US,Congressional District,Active
 9267594,Tennessee's 9th Congressional District 2026 redistricting,"Tennessee's 9th Congressional District 2026 redistricting,Tennessee,United States",21175,US,Congressional District,Active
+9267595,"Missouri's 1st Congressional District October 6, 2026 districts","Missouri's 1st Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267596,"Missouri's 2nd Congressional District October 6, 2026 districts","Missouri's 2nd Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267597,"Missouri's 3rd Congressional District October 6, 2026 districts","Missouri's 3rd Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267598,"Missouri's 4th Congressional District October 6, 2026 districts","Missouri's 4th Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267599,"Missouri's 5th Congressional District October 6, 2026 districts","Missouri's 5th Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267600,"Missouri's 6th Congressional District October 6, 2026 districts","Missouri's 6th Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267601,"Missouri's 7th Congressional District October 6, 2026 districts","Missouri's 7th Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
+9267602,"Missouri's 8th Congressional District October 6, 2026 districts","Missouri's 8th Congressional District October 6, 2026 districts,Missouri,United States",21157,US,Congressional District,Active
 9281594,Gracanica,"Gracanica,Gracanica,Federation of Bosnia and Herzegovina,Bosnia and Herzegovina",20078,BA,City,Active
 9297803,Tuzla Canton,"Tuzla Canton,Federation of Bosnia and Herzegovina,Bosnia and Herzegovina",20078,BA,Canton,Active
 9297806,Canton 10,"Canton 10,Federation of Bosnia and Herzegovina,Bosnia and Herzegovina",20078,BA,Canton,Active
@@ -266002,7 +266002,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9298822,GCF Jabalpur,"GCF Jabalpur,Madhya Pradesh,India",20464,IN,City,Active
 9298823,Kovilpatti,"Kovilpatti,Kovilpatti,Tamil Nadu,India",20469,IN,City,Active
 9298825,Chhatarpur,"Chhatarpur,Madhya Pradesh,India",20464,IN,City,Active
-9298826,Sattur,"Sattur,Sattur,Tamil Nadu,India",20469,IN,City,Active
+9298826,Saathur,"Saathur,Tamil Nadu,India",20469,IN,City,Active
 9298828,Maihar,"Maihar,Maihar,Madhya Pradesh,India",20464,IN,City,Active
 9298829,Theni,"Theni,Tamil Nadu,India",20469,IN,City,Active
 9298831,Chak Imam Ali,"Chak Imam Ali,Uttar Pradesh,India",20471,IN,City,Active
@@ -266032,7 +266032,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9298867,Bahraich,"Bahraich,Bahraich,Uttar Pradesh,India",20471,IN,City,Active
 9298868,Karuvatta,"Karuvatta,Kerala,India",20461,IN,City,Active
 9298870,Phaphamau,"Phaphamau,Uttar Pradesh,India",20471,IN,City,Active
-9298871,Ullal,"Ullal,Karnataka,India",20460,IN,City,Active
+9298871,Ullal,"Ullal,Mysore Division,Karnataka,India",20460,IN,City,Active
 9298873,Raebareli,"Raebareli,Raebareli,Uttar Pradesh,India",20471,IN,City,Active
 9298874,New Mahe,"New Mahe,Kerala,India",20461,IN,City,Active
 9298876,Sarsawan,"Sarsawan,Uttar Pradesh,India",20471,IN,City,Active
@@ -266304,7 +266304,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299191,Renigunta,"Renigunta,Renigunta,Andhra Pradesh,India",20453,IN,Neighborhood,Active
 9299192,Candolim,"Candolim,Goa,India",21268,IN,City,Active
 9299193,Rajpura,"Rajpura,Rajpura,Punjab,India",20466,IN,Neighborhood,Active
-9299194,Gummidipoondi,"Gummidipoondi,Tamil Nadu,India",20469,IN,City,Active
+9299194,Gummidipundi,"Gummidipundi,Gummidipundi,Tamil Nadu,India",20469,IN,City,Active
 9299195,Guirim,"Guirim,Goa,India",21268,IN,City,Active
 9299196,Kharar,"Kharar,Kharar,Punjab,India",20466,IN,City,Active
 9299197,Salavankuppam,"Salavankuppam,Tamil Nadu,India",20469,IN,City,Active
@@ -266313,7 +266313,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299200,Semmanjeri,"Semmanjeri,Tamil Nadu,India",20469,IN,City,Active
 9299201,Gandhinagar,"Gandhinagar,Maharashtra,India",20462,IN,City,Active
 9299202,Nayagaon,"Nayagaon,Punjab,India",20466,IN,City,Active
-9299203,Navalur,"Navalur,Tamil Nadu,India",20469,IN,City,Active
+9299203,Navallur,"Navallur,Tamil Nadu,India",20469,IN,City,Active
 9299204,Peth Vadgaon,"Peth Vadgaon,Maharashtra,India",20462,IN,City,Active
 9299205,Kurali,"Kurali,Punjab,India",20466,IN,City,Active
 9299206,Siruseri,"Siruseri,Tamil Nadu,India",20469,IN,City,Active
@@ -266601,7 +266601,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299488,Thirumuruganpoondi,"Thirumuruganpoondi,Tamil Nadu,India",20469,IN,City,Active
 9299489,Kolenchery,"Kolenchery,Kerala,India",20461,IN,City,Active
 9299490,Anora Kala,"Anora Kala,Uttar Pradesh,India",20471,IN,City,Active
-9299491,Kangeyam,"Kangeyam,Tamil Nadu,India",20469,IN,City,Active
+9299491,Kangayam,"Kangayam,Kangayam,Tamil Nadu,India",20469,IN,City,Active
 9299492,Balotra,"Balotra,Rajasthan,India",20468,IN,City,Active
 9299493,Gonda,"Gonda,Gonda,Uttar Pradesh,India",20471,IN,City,Active
 9299494,Udumalaipettai,"Udumalaipettai,Tamil Nadu,India",20469,IN,City,Active
@@ -266631,7 +266631,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299518,Nallampalli,"Nallampalli,Nallampalli,Tamil Nadu,India",20469,IN,Neighborhood,Active
 9299519,Vandanam,"Vandanam,Kerala,India",20461,IN,City,Active
 9299520,Mau,"Mau,Lucknow Division,Uttar Pradesh,India",20471,IN,City,Active
-9299521,Tirupathur,"Tirupathur,Tamil Nadu,India",20469,IN,City,Active
+9299521,Thiruppathur,"Thiruppathur,Tamil Nadu,India",20469,IN,City,Active
 9299522,Aruppukkottai,"Aruppukkottai,Aruppukkottai,Tamil Nadu,India",20469,IN,City,Active
 9299523,Hariharpur,"Hariharpur,Uttar Pradesh,India",20471,IN,City,Active
 9299524,Ambur,"Ambur,Ambur,Tamil Nadu,India",20469,IN,City,Active
@@ -266685,7 +266685,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299572,Boovanahalli,"Boovanahalli,Karnataka,India",20460,IN,City,Active
 9299573,Keezhillam,"Keezhillam,Kerala,India",20461,IN,City,Active
 9299574,Basdeopur,"Basdeopur,Bihar,India",20455,IN,City,Active
-9299575,Kodigenahalli,"Kodigenahalli,Karnataka,India",20460,IN,City,Active
+9299575,Kadiganahalli,"Kadiganahalli,Karnataka,India",20460,IN,City,Active
 9299576,Sikenderguda,"Sikenderguda,Telangana,India",9061642,IN,City,Active
 9299577,Bhagalpur,"Bhagalpur,Bihar,India",20455,IN,City,Active
 9299578,Rajanukunte,"Rajanukunte,Karnataka,India",20460,IN,City,Active
@@ -266712,7 +266712,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299599,Ullal,"Ullal,Bangalore Division,Karnataka,India",20460,IN,City,Active
 9299600,Jaggaiahpet,"Jaggaiahpet,Andhra Pradesh,India",20453,IN,City,Active
 9299601,Bagbera colony,"Bagbera colony,Jharkhand,India",21336,IN,City,Active
-9299602,Sompura,"Sompura,ಬೆಂಗಳೂರು ಸೌತ್,Karnataka,India",20460,IN,City,Active
+9299602,Sompura,"Sompura,Bengaluru South District,Karnataka,India",20460,IN,City,Active
 9299603,283112,"283112,Uttar Pradesh,India",20471,IN,Postal Code,Active
 9299604,Suri,"Suri,West Bengal,India",20472,IN,City,Active
 9299605,Mallasandra,"Mallasandra,Karnataka,India",20460,IN,City,Active
@@ -266829,7 +266829,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299716,Sangli Miraj Kupwad,"Sangli Miraj Kupwad,Maharashtra,India",20462,IN,City,Active
 9299717,641654,"641654,Tamil Nadu,India",20469,IN,Postal Code,Active
 9299718,Gannavaram,"Gannavaram,Gannavaram,Andhra Pradesh,India",20453,IN,City,Active
-9299719,Miraj,"Miraj,Maharashtra,India",20462,IN,City,Active
+9299719,Miraj,"Miraj,Miraj,Maharashtra,India",20462,IN,City,Active
 9299720,735217,"735217,West Bengal,India",20472,IN,Postal Code,Active
 9299721,Kaza,"Kaza,Andhra Pradesh,India",20453,IN,City,Active
 9299722,Peth,"Peth,Maharashtra,India",20462,IN,City,Active
@@ -266933,7 +266933,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299820,Mannivakkam,"Mannivakkam,Tamil Nadu,India",20469,IN,City,Active
 9299821,Posettyguda,"Posettyguda,Telangana,India",9061642,IN,City,Active
 9299822,631603,"631603,Tamil Nadu,India",20469,IN,Postal Code,Active
-9299823,Padappai,"Padappai,Tamil Nadu,India",20469,IN,City,Active
+9299823,Padapai,"Padapai,Tamil Nadu,India",20469,IN,City,Active
 9299824,Hariguda,"Hariguda,Telangana,India",9061642,IN,City,Active
 9299825,303008,"303008,Rajasthan,India",20468,IN,Postal Code,Active
 9299826,Thailavaram,"Thailavaram,Tamil Nadu,India",20469,IN,City,Active
@@ -267000,7 +267000,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9299887,Pachora,"Pachora,Pachora,Maharashtra,India",20462,IN,City,Active
 9299888,700117,"700117,West Bengal,India",20472,IN,Postal Code,Active
 9299889,Kallambalam,"Kallambalam,Kerala,India",20461,IN,City,Active
-9299890,Pandharpur,"Pandharpur,Chhatrapati Sambhajinagar Division,Maharashtra,India",20462,IN,City,Active
+9299890,Pandharpur,"Pandharpur,Aurangabad Division,Maharashtra,India",20462,IN,City,Active
 9299891,321025,"321025,Rajasthan,India",20468,IN,Postal Code,Active
 9299892,Attingal,"Attingal,Kerala,India",20461,IN,City,Active
 9299893,Dharmapur,"Dharmapur,Maharashtra,India",20462,IN,City,Active
@@ -267116,7 +267116,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9300003,Singanallur,"Singanallur,Tamil Nadu,India",20469,IN,Neighborhood,Active
 9300004,Waliv,"Waliv,Maharashtra,India",20462,IN,City,Active
 9300005,506314,"506314,Telangana,India",9061642,IN,Postal Code,Active
-9300006,Madukkarai,"Madukkarai,Madukkarai,Tamil Nadu,India",20469,IN,Neighborhood,Active
+9300006,Madukkari,"Madukkari,Tamil Nadu,India",20469,IN,Neighborhood,Active
 9300007,Maljipada,"Maljipada,Maharashtra,India",20462,IN,City,Active
 9300008,755061,"755061,Odisha,India",20465,IN,Postal Code,Active
 9300009,Kuniyamuthur,"Kuniyamuthur,Tamil Nadu,India",20469,IN,Neighborhood,Active
@@ -267155,7 +267155,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9300042,South Nallur,"South Nallur,Tamil Nadu,India",20469,IN,City,Active
 9300043,Khed,"Khed,Maharashtra,India",20462,IN,City,Active
 9300044,208013,"208013,Uttar Pradesh,India",20471,IN,Postal Code,Active
-9300045,Sangagiri,"Sangagiri,Tamil Nadu,India",20469,IN,City,Active
+9300045,sathyanagar,"sathyanagar,Tamil Nadu,India",20469,IN,City,Active
 9300046,Kanchipuram,"Kanchipuram,Kanchipuram,Tamil Nadu,India",20469,IN,City,Active
 9300047,756025,"756025,Odisha,India",20465,IN,Postal Code,Active
 9300048,Palladam,"Palladam,Palladam,Tamil Nadu,India",20469,IN,City,Active
@@ -272121,7 +272121,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041451,Louis Armstrong New Orleans International Airport,Louis Armstrong New Orleans International Airport,21151,US,Airport,Removal Planned
 9041452,Martin State Airport,Martin State Airport,21153,US,Airport,Removal Planned
 9041453,Myrtle Beach International Airport,Myrtle Beach International Airport,21173,US,Airport,Removal Planned
-9041454,Oakland San Francisco Bay Airport,Oakland San Francisco Bay Airport,21137,US,Airport,Removal Planned
+9041454,Oakland International Airport,Oakland International Airport,21137,US,Airport,Removal Planned
 9041455,Kahului Airport,Kahului Airport,21144,US,Airport,Removal Planned
 9041456,Will Rogers International Airport,Will Rogers International Airport,21169,US,Airport,Removal Planned
 9041457,Eppley Airfield,Eppley Airfield,21162,US,Airport,Removal Planned
@@ -272957,7 +272957,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9060167,University of Kent,University of Kent,20339,GB,University,Removal Planned
 9060168,Leeds Beckett University,Leeds Beckett University,20339,GB,University,Removal Planned
 9060169,University of Munster,University of Munster,20235,DE,University,Removal Planned
-9060170,Ruhr-University Bochum,Ruhr-University Bochum,20235,DE,University,Removal Planned
+9060170,Ruhr-Universitat Bochum,Ruhr-Universitat Bochum,20235,DE,University,Removal Planned
 9060171,RWTH Aachen University,RWTH Aachen University,20235,DE,University,Removal Planned
 9060172,TUD | Dresden University of Technology,TUD | Dresden University of Technology,20239,DE,University,Removal Planned
 9060173,Johannes Gutenberg University of Mainz,Johannes Gutenberg University of Mainz,20236,DE,University,Removal Planned
@@ -273099,7 +273099,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9069403,Jasper National Park,Jasper National Park,20113,CA,National Park,Removal Planned
 9069404,Kejimkujik National Park and National Historic Site,Kejimkujik National Park and National Historic Site,20118,CA,National Park,Removal Planned
 9069405,Kluane National Park and Reserve,Kluane National Park and Reserve,20125,CA,National Park,Removal Planned
-9069406,Kootenay National Park Of Canada,Kootenay National Park Of Canada,20114,CA,National Park,Removal Planned
+9069406,Kootenay National Park,Kootenay National Park,20114,CA,National Park,Removal Planned
 9069407,Kouchibouguac National Park,Kouchibouguac National Park,20116,CA,National Park,Removal Planned
 9069408,"Parc national de la Mauricie, entree Saint-Jean-des-Piles","Parc national de la Mauricie, entree Saint-Jean-des-Piles",20123,CA,National Park,Removal Planned
 9069409,Mount Revelstoke National Park,Mount Revelstoke National Park,20114,CA,National Park,Removal Planned
@@ -273665,3 +273665,11 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9263813,Phuong 6,"Phuong 6,Tien Giang,Vietnam",9040329,VN,District,Removal Planned
 9264032,Phuong 1,"Phuong 1,Lam Dong,Vietnam",9040368,VN,District,Removal Planned
 9264120,Gia Loc,"Gia Loc,Hai Duong,Vietnam",9040354,VN,District,Removal Planned
+9264303,"Missouri's 1st Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 1st Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264304,"Missouri's 2nd Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 2nd Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264305,"Missouri's 3rd Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 3rd Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264306,"Missouri's 4th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 4th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264307,"Missouri's 5th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 5th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264308,"Missouri's 6th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 6th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264309,"Missouri's 7th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 7th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
+9264310,"Missouri's 8th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting","Missouri's 8th Congressional District June 11, 2026 - October 6, 2026 House Bill 1 proposed redistricting,Missouri,United States",21157,US,Congressional District,Removal Planned
