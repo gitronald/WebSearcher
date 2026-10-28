@@ -157,19 +157,29 @@ order.
 
 The user runs the live searches by hand. Each run below opens one headed Chrome. Run them
 in this order: the main checkout's environment imports `dev`'s code, and the worktree's
-imports this branch.
+imports this branch. A fresh temp profile was challenged on its first query (2026-10-28),
+so every run uses one profile, warmed first. With a profile the probe keeps cookies
+between requests (`clear_cookies=False`, as `ws-demo` does), so these runs do not exercise
+the cookie clear after each request.
+
+0. Warm the profile (from the main checkout). Solve the challenge if one appears, search
+   a little by hand, then press Enter to close:
+
+       uv run ws-demo search "why is the sky blue" --user-data-dir .ws_profile --leave-open
 
 1. Baseline on `dev` (from the main checkout):
 
        uv run python .worktrees/066-patchright-capture-fixes/.planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out data/plan-066/dev.jsonl "why is the sky blue" "central park new york" \
-         "how to boil an egg" "python list comprehension" "weather tomorrow" "best pizza near me"
+         --out data/plan-066/dev.jsonl --user-data-dir .ws_profile \
+         "why is the sky blue" "central park new york" "how to boil an egg" \
+         "python list comprehension" "weather tomorrow" "best pizza near me"
 
-2. This branch, same queries (from the worktree):
+2. This branch, same queries and profile (from the worktree):
 
        uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out data/plan-066/branch.jsonl "why is the sky blue" "central park new york" \
-         "how to boil an egg" "python list comprehension" "weather tomorrow" "best pizza near me"
+         --out ../../data/plan-066/branch.jsonl --user-data-dir ../../.ws_profile \
+         "why is the sky blue" "central park new york" "how to boil an egg" \
+         "python list comprehension" "weather tomorrow" "best pizza near me"
 
    Pass: every row has `has_search: true` and `title_matches: true`, and the branch's
    median `seconds` is no more than about 1 s above the `dev` median. If it is well
@@ -179,7 +189,8 @@ imports this branch.
    DEBUG lines on the console:
 
        uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
-         --out data/plan-066/ai-expand.jsonl --ai-expand "why is the sky blue" "how do vaccines work"
+         --out ../../data/plan-066/ai-expand.jsonl --user-data-dir ../../.ws_profile \
+         --ai-expand "why is the sky blue" "how do vaccines work"
 
 ### Open questions
 
