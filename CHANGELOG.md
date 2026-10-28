@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- The browser backend's WARNING `capture` event for a capture without `#search` carries the search's `qry` and `loc`, so the log line says which search it was
+
 ## [0.13.0] - 2026-10-28
 
 ### Added
