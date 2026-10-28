@@ -1,6 +1,7 @@
 import base64
 import csv
 import io
+import re
 import zipfile
 from datetime import UTC, datetime
 from pathlib import Path
@@ -16,6 +17,11 @@ _varint_bytes = getattr(encoder, "_VarintBytes")
 _decode_varint = getattr(decoder, "_DecodeVarint")
 
 GEOTARGETS_URL = "https://developers.google.com/adwords/api/docs/appendix/geotargeting"
+
+# Release date embedded in the upstream filename; the page also links itself
+# (``/google-ads/api/data/geotargets``), so match the dated file, not the word.
+RELEASE_DATE = re.compile(r"\d{4}-\d{2}-\d{2}")
+RELEASE_FILE = re.compile(r"geotargets-\d{4}-\d{2}-\d{2}\.csv")
 
 # Upstream header, unchanged 2018 -> 2026 across the seeded archive; drift
 # means the schema consumers rely on has moved, so fail loudly.
@@ -138,13 +144,18 @@ def update_locations_file(
     ledger_fp: str | Path = "data/locations/ledger.csv",
     url: str = GEOTARGETS_URL,
 ) -> str | None:
-    """Download the latest geotargets CSV, overwrite ``fp``, and log the pull.
+    """Pull the oldest listed geotargets release newer than the ledger.
 
     Change detection keys on the upstream filename, which embeds the real
-    release date (``geotargets-YYYY-MM-DD.csv``): if it matches the last
-    ledger row, nothing is downloaded. On a new release, ``fp`` is overwritten
-    in place and one ``date_collected,filename`` row is appended to
-    ``ledger_fp``.
+    release date (``geotargets-YYYY-MM-DD.csv``): releases dated on or before
+    the last ledger row are skipped. Otherwise the oldest newer one is
+    downloaded, ``fp`` is overwritten in place, and one
+    ``date_collected,filename`` row is appended to ``ledger_fp``. One release
+    per call, so a caller that commits each pull loops until this returns None.
+
+    The page lists only the current and previous release. When the ledger's
+    last release is older than both, releases between them cannot be
+    enumerated, and a warning names the gap so it can be backfilled by hand.
 
     Args:
         fp: Stable path the CSV is written to (overwritten each release)
@@ -157,17 +168,28 @@ def update_locations_file(
     fp = Path(fp)
     ledger_fp = Path(ledger_fp)
 
-    url_latest = get_latest_url(url)
-    filename = url_latest.split("/")[-1].removesuffix(".zip")
+    release_urls = get_release_urls(url)
+    last_filename = read_ledger_last_filename(ledger_fp)
+    last_date = release_date(last_filename) if last_filename else ""
 
-    if filename == read_ledger_last_filename(ledger_fp):
-        print(f"Version up to date: {filename}")
+    oldest_listed = release_urls[0].split("/")[-1].removesuffix(".zip")
+    if last_filename and last_date < release_date(oldest_listed):
+        print(
+            f"warning: ledger ends at {last_filename}, older than every listed release "
+            f"(oldest {oldest_listed}); releases between them may be missing"
+        )
+
+    unseen = [u for u in release_urls if release_date(u) > last_date]
+    if not unseen:
+        print(f"Version up to date: {last_filename}")
         return None
+    url_next = unseen[0]
+    filename = url_next.split("/")[-1].removesuffix(".zip")
 
     fp.parent.mkdir(parents=True, exist_ok=True)
     tmp_fp = fp.parent / (fp.name + ".tmp")
     try:
-        download_csv(url_latest, tmp_fp)
+        download_csv(url_next, tmp_fp)
         check_geotargets_header(tmp_fp)
         tmp_fp.replace(fp)
     finally:
@@ -224,8 +246,19 @@ def append_ledger_row(ledger_fp: str | Path, date_collected: str, filename: str)
         writer.writerow([date_collected, filename])
 
 
-def get_latest_url(url: str) -> str:
-    """URL of the newest geotargets CSV linked from the developer page.
+def release_date(filename: str) -> str:
+    """``YYYY-MM-DD`` release date embedded in a geotargets filename or URL.
+
+    Covers both upstream shapes, ``geotargets-YYYY-MM-DD.csv`` and the older
+    ``AdWords API Location Criteria YYYY-MM-DD.csv``."""
+    match = RELEASE_DATE.search(filename.split("/")[-1])
+    if not match:
+        raise ValueError(f"no release date in filename: {filename}")
+    return match.group(0)
+
+
+def get_release_urls(url: str) -> list[str]:
+    """URLs of every geotargets CSV linked from the developer page, oldest first.
 
     Raises ``requests.HTTPError`` on a failed fetch and ``ValueError`` when the
     page carries no geotargets link, so the scheduled update job fails with a
@@ -234,11 +267,15 @@ def get_latest_url(url: str) -> str:
     response.raise_for_status()
     soup = utils.make_soup(response.content)
     links = utils.get_link_list(soup) or []
-    geo_urls = sorted(u for u in links if "geotargets" in u)
+    geo_urls = sorted({u for u in links if RELEASE_FILE.search(u)}, key=release_date)
     if not geo_urls:
         raise ValueError(f"no geotargets link found at {url}")
-    # Latest CSV url (lexically last, the filenames are dated); used as filename.
-    return "https://developers.google.com" + geo_urls[-1]
+    return ["https://developers.google.com" + u for u in geo_urls]
+
+
+def get_latest_url(url: str) -> str:
+    """URL of the newest geotargets CSV linked from the developer page."""
+    return get_release_urls(url)[-1]
 
 
 def save_zip_response(response: requests.Response, fp: str) -> None:

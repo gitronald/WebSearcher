@@ -91,10 +91,13 @@ class FakeResponse:
         pass
 
 
-def mock_upstream(monkeypatch, url_latest: str, content: bytes) -> list[str]:
-    """Stub the listing-page scrape and the download; return the call log."""
+def mock_upstream(monkeypatch, url_latest: str | list[str], content: bytes) -> list[str]:
+    """Stub the listing-page scrape and the download; return the call log.
+
+    ``url_latest`` is the one listed release, or the listing oldest first."""
     download_calls = []
-    monkeypatch.setattr(locations, "get_latest_url", lambda url: url_latest)
+    release_urls = [url_latest] if isinstance(url_latest, str) else url_latest
+    monkeypatch.setattr(locations, "get_release_urls", lambda url: release_urls)
 
     def fake_get(url, timeout=None):
         download_calls.append(url)
@@ -213,6 +216,103 @@ def test_update_rejects_header_drift(tmp_path, monkeypatch):
         update_locations_file(fp=fp, ledger_fp=ledger_fp)
 
     assert not ledger_fp.exists()  # failed pull is not recorded; next run retries
+
+
+def release_url(release: str) -> str:
+    return f"https://developers.google.com/static/geo/geotargets-{release}.csv.zip"
+
+
+def zipped_csv() -> bytes:
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w") as zip_ref:
+        zip_ref.writestr("geotargets.csv", CSV_TEXT)
+    return buffer.getvalue()
+
+
+def read_ledger_filenames(ledger_fp) -> list[str]:
+    with open(ledger_fp, encoding="utf-8", newline="") as infile:
+        return [row["filename"] for row in csv.DictReader(infile)]
+
+
+def test_get_release_urls_orders_by_date_and_skips_page_link(monkeypatch):
+    page = (
+        b"<a href='/google-ads/api/data/geotargets'>page</a>"
+        b"<a href='/static/geo/geotargets-2026-10-06.csv.zip'>current</a>"
+        b"<a href='/static/geo/geotargets-2026-08-12.csv.zip'>previous</a>"
+    )
+    monkeypatch.setattr(locations.requests, "get", lambda url, timeout=None: FakeResponse(page))
+
+    assert locations.get_release_urls("https://example.invalid/page") == [
+        "https://developers.google.com/static/geo/geotargets-2026-08-12.csv.zip",
+        "https://developers.google.com/static/geo/geotargets-2026-10-06.csv.zip",
+    ]
+
+
+def test_release_date_reads_both_filename_shapes():
+    assert locations.release_date("geotargets-2026-10-06.csv") == "2026-10-06"
+    assert locations.release_date("AdWords API Location Criteria 2018-09-04.csv") == "2018-09-04"
+    assert locations.release_date(release_url("2026-08-12")) == "2026-08-12"
+    with pytest.raises(ValueError, match="no release date"):
+        locations.release_date("geotargets.csv")
+
+
+def test_update_pulls_oldest_unseen_release(tmp_path, monkeypatch):
+    download_calls = mock_upstream(
+        monkeypatch, [release_url("2026-08-12"), release_url("2026-10-06")], zipped_csv()
+    )
+    fp = tmp_path / "geotargets.csv"
+    ledger_fp = tmp_path / "ledger.csv"
+    append_ledger_row(ledger_fp, date_collected="", filename="geotargets-2026-08-12.csv")
+
+    pulled = update_locations_file(fp=fp, ledger_fp=ledger_fp)
+
+    assert pulled == "geotargets-2026-10-06.csv"
+    assert download_calls == [release_url("2026-10-06")]
+
+
+def test_update_loop_pulls_each_release_in_order(tmp_path, monkeypatch, capsys):
+    listing = [release_url("2026-06-15"), release_url("2026-07-06"), release_url("2026-07-16")]
+    download_calls = mock_upstream(monkeypatch, listing, zipped_csv())
+    fp = tmp_path / "geotargets.csv"
+    ledger_fp = tmp_path / "ledger.csv"
+    append_ledger_row(ledger_fp, date_collected="", filename="geotargets-2026-06-15.csv")
+
+    pulled = []
+    while (filename := update_locations_file(fp=fp, ledger_fp=ledger_fp)) is not None:
+        pulled.append(filename)
+
+    assert pulled == ["geotargets-2026-07-06.csv", "geotargets-2026-07-16.csv"]
+    assert download_calls == listing[1:]
+    assert read_ledger_filenames(ledger_fp) == [
+        "geotargets-2026-06-15.csv",
+        "geotargets-2026-07-06.csv",
+        "geotargets-2026-07-16.csv",
+    ]
+    assert "Version up to date: geotargets-2026-07-16.csv" in capsys.readouterr().out
+
+
+def test_update_warns_on_unenumerable_gap(tmp_path, monkeypatch, capsys):
+    mock_upstream(monkeypatch, [release_url("2026-08-12"), release_url("2026-10-06")], zipped_csv())
+    fp = tmp_path / "geotargets.csv"
+    ledger_fp = tmp_path / "ledger.csv"
+    append_ledger_row(ledger_fp, date_collected="", filename="geotargets-2026-06-15.csv")
+
+    pulled = update_locations_file(fp=fp, ledger_fp=ledger_fp)
+
+    out = capsys.readouterr().out
+    assert "warning: ledger ends at geotargets-2026-06-15.csv" in out
+    assert "oldest geotargets-2026-08-12.csv" in out
+    assert pulled == "geotargets-2026-08-12.csv"  # still pulls what it can see
+
+
+def test_update_no_gap_warning_when_ledger_is_listed(tmp_path, monkeypatch, capsys):
+    mock_upstream(monkeypatch, [release_url("2026-08-12"), release_url("2026-10-06")], zipped_csv())
+    ledger_fp = tmp_path / "ledger.csv"
+    append_ledger_row(ledger_fp, date_collected="", filename="geotargets-2026-08-12.csv")
+
+    update_locations_file(fp=tmp_path / "geotargets.csv", ledger_fp=ledger_fp)
+
+    assert "warning: ledger ends" not in capsys.readouterr().out
 
 
 def test_normalize_csv_text_preserves_quoted_newlines():
