@@ -1,8 +1,8 @@
 ---
 id: 67
 slug: ai-overview-not-loaded
-status: draft
-branch:
+status: active
+branch: feature/ai-overview-not-loaded
 created: 2026-10-28T10:44:00-07:00
 concluded:
 pr:
@@ -102,3 +102,8 @@ does not, so it can land first if step 1 stalls.
     - "chargers vs raiders" and "astronomical clocks czech republic" each loaded a full overview (sectioned, 4 sources) by +3 s after `#search`. Their requests-backend `unavailable` rows in the corpus were overviews that had not loaded, not declines.
     - "suwanee-painters" had no AI overview component at all in the browser, while the requests capture (two days earlier) had one with no body. Not a decline capture either.
     - Still no capture with a decline message shown. Step 1 stays open.
+- **2026-10-28T12:44:36-07:00** — Activated.
+  - Branch: `feature/ai-overview-not-loaded`
+  - Base: `dev` at `b7eebfe`
+  - Worktree: `.worktrees/067-ai-overview-not-loaded`
+  - PR: pending
