@@ -1,10 +1,10 @@
 ---
 id: 66
 slug: patchright-capture-fixes
-status: implemented
+status: done
 branch: feature/patchright-capture-fixes
 created: 2026-10-28T09:27:24-07:00
-concluded:
+concluded: 2026-10-28T11:49:55-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/213
 ---
 
@@ -186,9 +186,10 @@ order.
 
 ### State
 
-- Items 1-4 are implemented on `feature/patchright-capture-fixes` (PR #213, ready for
-  review), committed and pushed. `dev` was merged in on 2026-10-28. `uv run pytest` (905),
-  `ruff check`, `ruff format --check`, and `pyrefly check` pass.
+- Closed. Items 1-4 are implemented on `feature/patchright-capture-fixes` (PR #213),
+  reviewed, and merged into `dev` with this close. The review's one finding was fixed
+  (Log). `uv run pytest` (906), `ruff check`, `ruff format --check`, and `pyrefly check`
+  pass, and CI is green.
 - Item 1 went further than the spec, from the live runs (Log): both fixed 2 s sleeps are
   gone. The settle step waits for load, then for 500 ms with no request in flight, ignoring
   speculative prefetches (`Sec-Purpose: prefetch`), capped at 8 s. The driver's
@@ -207,22 +208,41 @@ order.
 
 ### Remaining
 
-1. CI on PR #213, then review and merge (`/planners close`), which waits on the user.
-2. The open questions below. None blocks the merge.
-3. Plan 067 (not-loaded AI overviews labelled `unavailable`) is a separate draft.
+1. Nothing in this plan. The open questions below are settled or left open on the record,
+   and none blocks the merge.
+2. Plan 067 (not-loaded AI overviews labelled `unavailable`) is a separate draft.
 
 ### Open questions
 
-1. Does clearing cookies after a request prompt the late reload? Not investigated: it needs
+1. **Settled, not pursued (2026-10-28).** Does clearing cookies after a request prompt the late reload? Not investigated: it needs
    a few hundred queries per arm, with `clear_cookies` on and off. Left open by decision
    (2026-10-28). The cookie clear stays after the request. The blank-page reset before the
    next `goto` already keeps a late reload out of the next request.
-2. The plan's isolation run (a few hundred queries on one engine, each `<title>` matching
+2. **Settled, not pursued (2026-10-28).** The plan's isolation run (a few hundred queries on one engine, each `<title>` matching
    its query) is not run, for the same reason. The probe script does this check when given
    a longer query list.
-3. Is the `Captcha Dialog` aria-label localized? The overlay selector also matches the
+3. **Left open, not verified.** No follow-up plan owns it; a non-English overlay capture would answer it. Is the `Captcha Dialog` aria-label localized? The overlay selector also matches the
    dialog's `/sorry/` iframe, which does not depend on language, so a non-English overlay
    should still flag. Not verified.
-4. Should `ai_expand` stay? In the current layout the click added no data on 3 of 3
+4. **Out of scope, the user's decision.** No follow-up plan yet. Should `ai_expand` stay? In the current layout the click added no data on 3 of 3
    queries (see Log), while the click and wait add time to each query that has an
    overview. The decision is out of this plan's scope and is the user's to make.
+
+## Retrospective
+
+- The plan's settle step (load, then the driver's `networkidle`) was not enough. Live
+  timelines showed the SERP's speculative prefetches of result links held `networkidle`
+  to its cap on about a fifth of pages. A tracker that ignores `Sec-Purpose: prefetch`
+  replaced it, and both fixed sleeps went away with no loss in completeness.
+- Measuring before deciding paid off. The `ai_expand` before/after comparison showed the
+  click adds no data in the current layout, and the load timelines located streamed
+  overviews' end, which set the 8 s cap from evidence instead of a guess.
+- Live checks ran by hand on a warmed profile, since a fresh profile was challenged on its
+  first query. The sidecar probes made each run repeatable; keep that pattern for
+  backend changes.
+- Two of the plan's verification goals (the cookie-clear question and a few-hundred-query
+  isolation run) were set aside because their cost was too high for what they would
+  settle; the blank-page reset covers the risk they were meant to measure.
+- The review's one finding (an unguarded `count()` in `expand_ai_overview`) came from
+  restructuring a function whose old version swallowed every error. When narrowing a
+  broad `except`, check every call that moved out of it.

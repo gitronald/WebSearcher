@@ -2,11 +2,11 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 066 | [Make patchright captures settle, isolate requests, and detect challenges by markup](plans/066-patchright-capture-fixes/plan.md) | implemented | — | [#213](https://github.com/gitronald/WebSearcher/pull/213) |
 | 067 | [Tell a not-loaded AI overview from a declined one](plans/067-ai-overview-not-loaded/plan.md) | draft | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
+| 066 | [Make patchright captures settle, isolate requests, and detect challenges by markup](plans/066-patchright-capture-fixes/plan.md) | done | 2026-10-28 11:49 PT | [#213](https://github.com/gitronald/WebSearcher/pull/213) |
 | 065 | [Keep every geotargets release in the locations history](plans/065-keep-every-geotargets-release/plan.md) | done | 2026-10-28 10:53 PT | [#214](https://github.com/gitronald/WebSearcher/pull/214) |
 | 064 | [Drop empty perspectives placeholder rows](plans/064-perspectives-placeholder-rows/plan.md) | done | 2026-10-26 17:57 PT | [#211](https://github.com/gitronald/WebSearcher/pull/211) |
 | 063 | [Parse the 2026-10 top stories, text ad, and AI banner layouts](plans/063-parse-2026-10-layout-regressions/plan.md) | done | 2026-10-26 13:45 PT | [#209](https://github.com/gitronald/WebSearcher/pull/209) |
