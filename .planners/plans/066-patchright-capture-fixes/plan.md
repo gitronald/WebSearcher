@@ -144,6 +144,11 @@ order.
     - Isolation: all 18 rows (dev, branch, and branch with `--ai-expand`) have `has_search: true` and a `<title>` that names their own query.
     - Timing: dev median 5.54 s (4.60-6.31), branch median 3.33 s (2.63-5.59), so the branch is about 2.2 s faster at the median, within the plan's limit. Both runs report version `0.12.4a0`, so the rows cannot show which code ran. The dev/branch split rests on the checkout each run was launched from.
     - AI expand: not answered by this run. The probe kept only summary rows, so the click's effect could not be separated from the differences between page loads (e.g. "central park new york" was 3.7 MB without expansion and 2.6 MB with it, on separate loads). The probe now saves the page just before and after the click on the same load, and compares the parsed AI overview rows.
+- **2026-10-28T10:34:35-07:00** — AI expand comparison (user's run, 6 queries on the warmed profile, `data/plan-066/ai-expand-2.jsonl`, with captures from just before and after each click in `ai-expand-2-html/`). All rows have `has_search: true` and matching titles.
+    - Outcomes: `expanded` on the 3 queries with an AI overview (sky blue, boil an egg, list comprehension), and `no_control` on the 3 without one. No click missed.
+    - The parsed AI overview rows are identical before and after the click on all 3 (same text, sections, citations, and sources).
+    - The raw documents have the same text: 0 lines of body text change. The click changes only presentation markup: `data-trnct` goes from true to false, the 383px `max-height` is removed, `aria-hidden` comes off the collapsed part, and a few empty wrapper divs are added. The expanded HTML is 239-1129 bytes smaller. In the current layout the full overview is in the DOM before the click, and expanding only reveals it.
+    - Scope: 3 queries, one layout, one session. Older layouts (e.g. 2024 SGE) may have loaded content on expand; not tested.
 
 ## Handoff
 
