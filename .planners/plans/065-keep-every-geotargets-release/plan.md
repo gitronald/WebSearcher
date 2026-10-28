@@ -118,7 +118,10 @@ loop in the workflow.
   seeded archive before that date cannot be enumerated. (Corrected 2026-10-28: this line first
   said the seeded archive up to 2026-06-15 was complete. The probe found 15 releases missing
   from it, now backfilled; see Log.)
-- The branch-from-master, PR-to-dev arrangement, which stays as plan 031 set it.
+- The PR-to-dev arrangement, which stays as plan 031 set it. (Corrected 2026-10-28: this line
+  first kept the branch-from-master half as well. The job read master's ledger, which moves
+  only at a release, so merging into dev would not have stopped the re-pulls; the workflow now
+  checks out dev. See Log.)
 
 ## Log
 
