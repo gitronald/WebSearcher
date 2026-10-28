@@ -33,8 +33,8 @@ SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
 # renders, and a streamed AI overview keeps loading for a few seconds after it
 # (plan 066), so a capture waits for load and then for the network to go quiet.
 # The quiet wait is capped because a page's background requests can keep it busy.
-# The cap is about twice the latest stream end measured from the settle step's
-# start (about 3.6 s); it costs time only on a page still busy at the cap.
+# The cap is about twice the latest stream end seen (about 4.2 s from goto); it
+# costs time only on a page still busy at the cap.
 SEARCH_TIMEOUT_MS = 10_000
 LOAD_TIMEOUT_MS = 5_000
 NETWORKIDLE_TIMEOUT_MS = 8_000
@@ -232,7 +232,6 @@ class PatchrightSearcher:
             # Record the status before the #search wait so a blocked request
             # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
             response_output.response_code = response.status if response else 200
-            time.sleep(2)
             self.page.wait_for_selector("#search", timeout=SEARCH_TIMEOUT_MS)
             self.settle_page()
             response_output.html = self.page_content()
