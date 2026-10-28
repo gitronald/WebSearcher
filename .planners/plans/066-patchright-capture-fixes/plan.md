@@ -177,6 +177,10 @@ order.
     - No time saved. Without the sleep: 2.61-3.82 s for the 4 instant overviews and 4.64-5.63 s for the 3 streams, median 3.82 s. With it (run 6): 3.12-3.29 s and 4.24-4.74 s, median 3.29 s. Per-query differences run from -0.5 to +1.0 s, which 7 queries cannot separate from load-to-load variation. After `#search` the page keeps loading scripts and sending pings until about 2.5-3 s from `goto` (timeline runs), so the quiet wait now covers the time the sleep used to.
     - No loss in completeness. The instant overviews parse to the same sections, sources, and text as run 6. The streams have as many or more sources (list comprehension 7 and 7, chargers 5 and 7, astronomical clocks 5 and 7).
     - Kept: the settle step adapts to each page, where the sleep was a fixed delay overlapping it.
+- **2026-10-28T11:50:19-07:00** — Review gate: /code-review at medium on PR #213 (correctness and reuse finders, then verifiers), posted to the PR. Checks pass (906 tests, ruff, ruff format, pyrefly) and CI is green on 3.12-3.14.
+  - Review follow-up: raised `expand_ai_overview` calling `show_more.count()` outside its try, so a closed page escaped to `send_request` as an ERROR fetch failure. Actioned in `1b04c79`: the count moved inside the try and logs `click_failed`, with a regression case in `test_expand_ai_overview_outcomes`.
+  - Rejected after verification: `reset_page` closing the only page (a probe showed the persistent context survives, headless and headed), and `has_search` missing an unquoted `id=search` (all 121 fixture SERPs agree with a parsed `#search`).
+  - Conscious no-ops: the second `#search` check after settling and the backoff before re-settling are intended by the plan; the probe scripts' duplicated helpers and the overlapping captcha tests at the utils and extractor levels are left as they are.
 
 ## Handoff
 
