@@ -11051,7 +11051,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1013339,Springdale,"Springdale,Arkansas,United States",21135,US,City,Active
 1013340,Stamps,"Stamps,Arkansas,United States",21135,US,City,Active
 1013341,Star City,"Star City,Arkansas,United States",21135,US,City,Active
-1013342,Arkansas State University,"Arkansas State University,Craighead County,Arkansas,United States",21135,US,Neighborhood,Active
+1013342,Arkansas State University,"Arkansas State University,Arkansas,United States",21135,US,Neighborhood,Active
 1013343,Stuttgart,"Stuttgart,Arkansas,United States",21135,US,City,Active
 1013344,Subiaco,"Subiaco,Arkansas,United States",21135,US,City,Active
 1013345,Sulphur Rock,"Sulphur Rock,Arkansas,United States",21135,US,City,Active
@@ -12067,7 +12067,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1014361,Vacaville,"Vacaville,California,United States",21137,US,City,Active
 1014362,Valencia,"Valencia,California,United States",21137,US,Neighborhood,Active
 1014363,Vallejo,"Vallejo,California,United States",21137,US,City,Active
-1014364,Valley Center,"Valley Center,San Diego County,California,United States",21137,US,City,Active
+1014364,Valley Center,"Valley Center,California,United States",21137,US,City,Active
 1014365,Valley Springs,"Valley Springs,California,United States",21137,US,City,Active
 1014366,Valley Village,"Valley Village,California,United States",21137,US,Neighborhood,Active
 1014367,Van Nuys,"Van Nuys,California,United States",21137,US,Neighborhood,Active
@@ -12107,7 +12107,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1014401,Williams,"Williams,California,United States",21137,US,City,Active
 1014402,Willits,"Willits,California,United States",21137,US,City,Active
 1014403,Willow Creek,"Willow Creek,California,United States",21137,US,City,Active
-1014404,Willows,"Willows,Glenn County,California,United States",21137,US,City,Active
+1014404,Willows,"Willows,California,United States",21137,US,City,Active
 1014405,Wilmington,"Wilmington,California,United States",21137,US,Neighborhood,Active
 1014406,Wilton,"Wilton,California,United States",21137,US,City,Active
 1014407,Winchester,"Winchester,California,United States",21137,US,City,Active
@@ -17327,7 +17327,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1019631,Twining,"Twining,Michigan,United States",21155,US,City,Active
 1019632,Ubly,"Ubly,Michigan,United States",21155,US,City,Active
 1019633,Union City,"Union City,Michigan,United States",21155,US,City,Active
-1019634,University Center,"University Center,Bay County,Michigan,United States",21155,US,City,Active
+1019634,University Center,"University Center,Michigan,United States",21155,US,City,Active
 1019635,Utica,"Utica,Michigan,United States",21155,US,City,Active
 1019636,Vanderbilt,"Vanderbilt,Michigan,United States",21155,US,City,Active
 1019637,Vassar,"Vassar,Michigan,United States",21155,US,City,Active
@@ -18726,7 +18726,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1021031,Buxton,"Buxton,North Carolina,United States",21160,US,City,Active
 1021032,Calabash,"Calabash,North Carolina,United States",21160,US,City,Active
 1021033,Camden,"Camden,North Carolina,United States",21160,US,City,Active
-1021034,Cameron,"Cameron,Moore County,North Carolina,United States",21160,US,City,Active
+1021034,Cameron,"Cameron,North Carolina,United States",21160,US,City,Active
 1021035,Camp Lejeune,"Camp Lejeune,North Carolina,United States",21160,US,Municipality,Active
 1021036,Candler,"Candler,North Carolina,United States",21160,US,City,Active
 1021037,Canton,"Canton,North Carolina,United States",21160,US,City,Active
@@ -20394,7 +20394,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1022704,Austerlitz,"Austerlitz,New York,United States",21167,US,Municipality,Active
 1022705,Ava,"Ava,New York,United States",21167,US,City,Active
 1022706,Averill Park,"Averill Park,New York,United States",21167,US,City,Active
-1022707,Avon,"Avon,Livingston County,New York,United States",21167,US,City,Active
+1022707,Avon,"Avon,New York,United States",21167,US,City,Active
 1022708,Babylon,"Babylon,New York,United States",21167,US,City,Active
 1022709,Bainbridge,"Bainbridge,New York,United States",21167,US,City,Active
 1022710,Baldwin,"Baldwin,New York,United States",21167,US,City,Active
@@ -21475,7 +21475,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1023787,Lewis Center,"Lewis Center,Ohio,United States",21168,US,City,Active
 1023788,Lewisburg,"Lewisburg,Ohio,United States",21168,US,City,Active
 1023789,Lewistown,"Lewistown,Ohio,United States",21168,US,City,Active
-1023790,Liberty Center,"Liberty Center,Henry County,Ohio,United States",21168,US,City,Active
+1023790,Liberty Center,"Liberty Center,Ohio,United States",21168,US,City,Active
 1023791,Lima,"Lima,Ohio,United States",21168,US,City,Active
 1023792,Lisbon,"Lisbon,Ohio,United States",21168,US,City,Active
 1023793,Lithopolis,"Lithopolis,Ohio,United States",21168,US,City,Active
@@ -22410,7 +22410,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1024723,Catawissa,"Catawissa,Pennsylvania,United States",21171,US,City,Active
 1024724,Center Valley,"Center Valley,Pennsylvania,United States",21171,US,City,Active
 1024725,Central City,"Central City,Pennsylvania,United States",21171,US,City,Active
-1024726,Centre Hall,"Centre Hall,Centre County,Pennsylvania,United States",21171,US,City,Active
+1024726,Centre Hall,"Centre Hall,Pennsylvania,United States",21171,US,City,Active
 1024727,Chadds Ford,"Chadds Ford,Pennsylvania,United States",21171,US,City,Active
 1024728,Chalfont,"Chalfont,Pennsylvania,United States",21171,US,City,Active
 1024729,Chambersburg,"Chambersburg,Pennsylvania,United States",21171,US,City,Active
@@ -24177,7 +24177,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1026494,Ingleside,"Ingleside,Texas,United States",21176,US,City,Active
 1026495,Ingram,"Ingram,Texas,United States",21176,US,City,Active
 1026496,Iowa Park,"Iowa Park,Texas,United States",21176,US,City,Active
-1026497,Irving,"Irving,Dallas County,Texas,United States",21176,US,City,Active
+1026497,Irving,"Irving,Texas,United States",21176,US,City,Active
 1026498,Italy,"Italy,Texas,United States",21176,US,City,Active
 1026499,Itasca,"Itasca,Texas,United States",21176,US,City,Active
 1026500,Ivanhoe,"Ivanhoe,Texas,United States",21176,US,City,Active
@@ -24345,7 +24345,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 1026662,Olney,"Olney,Texas,United States",21176,US,City,Active
 1026663,Onalaska,"Onalaska,Texas,United States",21176,US,City,Active
 1026664,Orange,"Orange,Texas,United States",21176,US,City,Active
-1026665,Orange Grove,"Orange Grove,Jim Wells County,Texas,United States",21176,US,City,Active
+1026665,Orange Grove,"Orange Grove,Texas,United States",21176,US,City,Active
 1026666,Orangefield,"Orangefield,Texas,United States",21176,US,City,Active
 1026667,Overton,"Overton,Texas,United States",21176,US,City,Active
 1026668,Ozona,"Ozona,Texas,United States",21176,US,City,Active
@@ -74323,7 +74323,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9051559,Bayshore Gardens,"Bayshore Gardens,Florida,United States",21142,US,City,Active
 9051560,Bayside,"Bayside,Wisconsin,United States",21182,US,City,Active
 9051561,Baywood-Los Osos,"Baywood-Los Osos,California,United States",21137,US,City,Active
-9051562,Bear Creek,"Bear Creek,Hays County,Texas,United States",21176,US,City,Active
+9051562,Bear Creek,"Bear Creek,Texas,United States",21176,US,City,Active
 9051563,Beavercreek,"Beavercreek,Ohio,United States",21168,US,City,Active
 9051564,Beaverdam Lake-Salisbury Mills,"Beaverdam Lake-Salisbury Mills,New York,United States",21167,US,City,Active
 9051565,Beckett Ridge,"Beckett Ridge,Ohio,United States",21168,US,City,Active
@@ -74422,7 +74422,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9051658,Brown Deer,"Brown Deer,Wisconsin,United States",21182,US,City,Active
 9051659,Brownstown Township,"Brownstown Township,Michigan,United States",21155,US,City,Active
 9051660,Brunswick,"Brunswick,Maine,United States",21154,US,City,Active
-9051661,Brushy Creek,"Brushy Creek,Williamson County,Texas,United States",21176,US,City,Active
+9051661,Brushy Creek,"Brushy Creek,Texas,United States",21176,US,City,Active
 9051662,Buckingham,"Buckingham,Florida,United States",21142,US,City,Active
 9051663,Buena Ventura Lakes,"Buena Ventura Lakes,Florida,United States",21142,US,City,Active
 9051664,Buena Vista Township,"Buena Vista Township,Michigan,United States",21155,US,City,Active
@@ -75895,7 +75895,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9053133,Westborough,"Westborough,Massachusetts,United States",21152,US,City,Active
 9053134,Westbrook,"Westbrook,Connecticut,United States",21139,US,City,Active
 9053135,Westchase,"Westchase,Florida,United States",21142,US,City,Active
-9053136,Westchester,"Westchester,Miami-Dade County,Florida,United States",21142,US,City,Active
+9053136,Westchester,"Westchester,Florida,United States",21142,US,City,Active
 9053137,Westerly,"Westerly,Rhode Island,United States",21172,US,City,Active
 9053138,Westlake,"Westlake,Texas,United States",21176,US,City,Active
 9053139,Westmere,"Westmere,New York,United States",21167,US,City,Active
@@ -188304,7 +188304,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9190118,Ivanhoe,"Ivanhoe,Victoria,Australia",20040,AU,City,Active
 9190119,Rubidoux,"Rubidoux,California,United States",21137,US,Neighborhood,Active
 9190120,Saddlebrooke,"Saddlebrooke,Arizona,United States",21136,US,City,Active
-9190121,Masterton,"Masterton,Wellington,New Zealand",21314,NZ,Neighborhood,Active
+9190121,Masterton,"Masterton,Wellington Region,New Zealand",21314,NZ,Neighborhood,Active
 9190122,Roosevelt,"Roosevelt,Iowa,United States",21145,US,Neighborhood,Active
 9190123,Swanley,"Swanley,Swanley,England,United Kingdom",20339,GB,District,Active
 9190124,Cottleville,"Cottleville,Missouri,United States",21157,US,City,Active
@@ -188393,7 +188393,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9190207,Trittau,"Trittau,Schleswig-Holstein,Germany",20237,DE,City,Active
 9190208,Witikon,"Witikon,Zurich,Switzerland",20151,CH,Quarter,Active
 9190209,North Sharon Amity / Reddman Road,"North Sharon Amity / Reddman Road,North Carolina,United States",21160,US,Neighborhood,Active
-9190210,Northgate,"Northgate,Alameda County,California,United States",21137,US,Neighborhood,Active
+9190210,Northgate,"Northgate,California,United States",21137,US,Neighborhood,Active
 9190211,Broxburn,"Broxburn,Scotland,United Kingdom",20342,GB,City,Active
 9190212,Poruba,"Poruba,Moravian-Silesian Region,Czechia",21498,CZ,City,Active
 9190213,Eagle Farm,"Eagle Farm,Queensland,Australia",20037,AU,City,Active
@@ -190010,7 +190010,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9191824,Northwest,"Northwest,Oregon,United States",21170,US,Neighborhood,Active
 9191825,55640,"55640,State of Mexico,Mexico",20709,MX,Postal Code,Active
 9191826,Shady Shores,"Shady Shores,Texas,United States",21176,US,City,Active
-9191827,Northwest Crossing,"Northwest Crossing,Bexar County,Texas,United States",21176,US,Neighborhood,Active
+9191827,Northwest Crossing,"Northwest Crossing,Texas,United States",21176,US,Neighborhood,Active
 9191828,Riverview,"Riverview,Delaware,United States",21141,US,City,Active
 9191829,Canyon Rim,"Canyon Rim,Utah,United States",21177,US,Neighborhood,Active
 9191830,Shevchenkivs'kyi District,"Shevchenkivs'kyi District,Kharkiv Oblast,Ukraine",21125,UA,District,Active
@@ -190484,7 +190484,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9192298,Birch Run Township,"Birch Run Township,Michigan,United States",21155,US,Municipality,Active
 9192299,Greenock,"Greenock,Pennsylvania,United States",21171,US,City,Active
 9192300,Ascot,"Ascot,Western Australia,Australia",20041,AU,City,Active
-9192301,Taupo,"Taupo,Waikato,New Zealand",21313,NZ,Neighborhood,Active
+9192301,Taupo,"Taupo,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
 9192302,Franklin Township,"Franklin Township,Warren County,Ohio,United States",21168,US,Municipality,Active
 9192303,Minnehaha,"Minnehaha,Washington,United States",21180,US,City,Active
 9192304,Gunnedah,"Gunnedah,New South Wales,Australia",20035,AU,City,Active
@@ -191254,7 +191254,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9193068,Sugar Creek,"Sugar Creek,North Carolina,United States",21160,US,Neighborhood,Active
 9193069,South Manchaca,"South Manchaca,Texas,United States",21176,US,Neighborhood,Active
 9193070,Five Oaks,"Five Oaks,Oregon,United States",21170,US,Neighborhood,Active
-9193071,Lakewood,"Lakewood,Dallas County,Texas,United States",21176,US,Neighborhood,Active
+9193071,Lakewood,"Lakewood,Texas,United States",21176,US,Neighborhood,Active
 9193072,Urrugne,"Urrugne,Nouvelle-Aquitaine,France",9069522,FR,City,Active
 9193073,Wyoming,"Wyoming,New South Wales,Australia",20035,AU,City,Active
 9193074,Salisbury,"Salisbury,South Australia,Australia",20038,AU,City,Active
@@ -191470,7 +191470,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9193284,Mill Plain,"Mill Plain,Washington,United States",21180,US,City,Active
 9193285,Lincoln Park,"Lincoln Park,Minnesota,United States",21156,US,Neighborhood,Active
 9193286,Opal Cliffs,"Opal Cliffs,California,United States",21137,US,Neighborhood,Active
-9193287,Union Square,"Union Square,Jefferson County,Colorado,United States",21138,US,Neighborhood,Active
+9193287,Union Square,"Union Square,Colorado,United States",21138,US,Neighborhood,Active
 9193288,Liberty Heights,"Liberty Heights,Massachusetts,United States",21152,US,Neighborhood,Active
 9193289,Evanston,"Evanston,Ohio,United States",21168,US,Neighborhood,Active
 9193290,Potosi,"Potosi,Texas,United States",21176,US,City,Active
@@ -193002,7 +193002,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9194816,Wilmot,"Wilmot,Arizona,United States",21136,US,Neighborhood,Active
 9194817,Floreat,"Floreat,Western Australia,Australia",20041,AU,City,Active
 9194818,Floresta Gardens - Bradrick,"Floresta Gardens - Bradrick,California,United States",21137,US,Neighborhood,Active
-9194819,Park Place,"Park Place,Harris County,Texas,United States",21176,US,Neighborhood,Active
+9194819,Park Place,"Park Place,Texas,United States",21176,US,Neighborhood,Active
 9194820,McLaughlin,"McLaughlin,Ontario,Canada",20121,CA,Neighborhood,Active
 9194821,Pfedelbach,"Pfedelbach,Baden-Wurttemberg,Germany",20228,DE,City,Active
 9194822,Bexleyheath,"Bexleyheath,England,United Kingdom",20339,GB,City,Active
@@ -196625,7 +196625,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9198439,Chuo Ward,"Chuo Ward,Hokkaido,Japan",20624,JP,Neighborhood,Active
 9198440,Angyalfold,"Angyalfold,Budapest,Hungary",20418,HU,Neighborhood,Active
 9198441,Rajajinagar,"Rajajinagar,Karnataka,India",20460,IN,Neighborhood,Active
-9198442,Lincoln Square,"Lincoln Square,Cook County,Illinois,United States",21147,US,Neighborhood,Active
+9198442,Lincoln Square,"Lincoln Square,Illinois,United States",21147,US,Neighborhood,Active
 9198443,West Humber-Clairville,"West Humber-Clairville,Ontario,Canada",20121,CA,Neighborhood,Active
 9198444,Westshore,"Westshore,Florida,United States",21142,US,Neighborhood,Active
 9198445,Al Sadd,"Al Sadd,Doha Municipality,Qatar",9069542,QA,District,Active
@@ -219804,7 +219804,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9221619,Neustadt in Sachsen,"Neustadt in Sachsen,Saxony,Germany",20239,DE,City,Active
 9221620,Ezanville,"Ezanville,Ile-de-France,France",20321,FR,City,Active
 9221621,江刺愛宕,"江刺愛宕,Iwate,Japan",20626,JP,Neighborhood,Active
-9221622,Lehigh Township,"Lehigh Township,Wayne County,Pennsylvania,United States",21171,US,Municipality,Active
+9221622,Lehigh Township,"Lehigh Township,Pennsylvania,United States",21171,US,Municipality,Active
 9221623,Komotini,"Komotini,Komotini,Decentralized Administration of Macedonia and Thrace,Greece",9075557,GR,City,Active
 9221624,Saint-Malo-de-Phily,"Saint-Malo-de-Phily,Brittany,France",20316,FR,City,Active
 9221625,Pell Lake,"Pell Lake,Wisconsin,United States",21182,US,City,Active
@@ -220518,7 +220518,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9222333,Arrondissement of Alencon,"Arrondissement of Alencon,Normandy,France",9068565,FR,Municipality,Active
 9222334,Beaver Township,"Beaver Township,Pennsylvania,United States",21171,US,Municipality,Active
 9222335,T3S 0A8,"T3S 0A8,Alberta,Canada",20113,CA,Postal Code,Active
-9222336,Cambridge,"Cambridge,Waikato,New Zealand",21313,NZ,Neighborhood,Active
+9222336,Cambridge,"Cambridge,Waikato Region,New Zealand",21313,NZ,Neighborhood,Active
 9222337,18160-000,"18160-000,State of Sao Paulo,Brazil",20106,BR,Postal Code,Active
 9222338,83059,"83059,Campania,Italy",9053428,IT,Postal Code,Active
 9222339,Piety Corner Historic District,"Piety Corner Historic District,Massachusetts,United States",21152,US,Neighborhood,Active
@@ -221090,6 +221090,37 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9222905,7130,"7130,Wallonia,Belgium",9069524,BE,Postal Code,Active
 9222906,Little Woods,"Little Woods,Louisiana,United States",21151,US,Neighborhood,Active
 9222907,Shinpara,"Shinpara,Shizuoka,Japan",20645,JP,Neighborhood,Active
+9222908,Andhra Pradesh Urban,"Andhra Pradesh Urban,Andhra Pradesh,India",20453,IN,Region,Active
+9222909,Assam Urban,"Assam Urban,Assam,India",20454,IN,Region,Active
+9222910,Bihar Urban,"Bihar Urban,Bihar,India",20455,IN,Region,Active
+9222911,Chandigarh Urban,"Chandigarh Urban,Chandigarh,India",21342,IN,Region,Active
+9222912,Chhattisgarh Urban,"Chhattisgarh Urban,Chhattisgarh,India",21334,IN,Region,Active
+9222913,Goa Urban,"Goa Urban,Goa,India",21268,IN,Region,Active
+9222914,Gujarat Urban,"Gujarat Urban,Gujarat,India",20457,IN,Region,Active
+9222915,Haryana Urban,"Haryana Urban,Haryana,India",20458,IN,Region,Active
+9222916,Himachal Pradesh Urban,"Himachal Pradesh Urban,Himachal Pradesh,India",21335,IN,Region,Active
+9222917,Jharkhand Urban,"Jharkhand Urban,Jharkhand,India",21336,IN,Region,Active
+9222918,Karnataka Urban,"Karnataka Urban,Karnataka,India",20460,IN,Region,Active
+9222919,Kerala Urban,"Kerala Urban,Kerala,India",20461,IN,Region,Active
+9222920,Madhya Pradesh Urban,"Madhya Pradesh Urban,Madhya Pradesh,India",20464,IN,Region,Active
+9222921,Maharashtra Urban,"Maharashtra Urban,Maharashtra,India",20462,IN,Region,Active
+9222922,Manipur Urban,"Manipur Urban,Manipur,India",21337,IN,Region,Active
+9222923,Meghalaya Urban,"Meghalaya Urban,Meghalaya,India",20463,IN,Region,Active
+9222924,Mizoram Urban,"Mizoram Urban,Mizoram,India",21338,IN,Region,Active
+9222925,Nagaland Urban,"Nagaland Urban,Nagaland,India",21339,IN,Region,Active
+9222926,Odisha Urban,"Odisha Urban,Odisha,India",20465,IN,Region,Active
+9222927,Puducherry Urban,"Puducherry Urban,Puducherry,India",20467,IN,Region,Active
+9222928,Punjab Urban,"Punjab Urban,Punjab,India",20466,IN,Region,Active
+9222929,Rajasthan Urban,"Rajasthan Urban,Rajasthan,India",20468,IN,Region,Active
+9222930,Sikkim Urban,"Sikkim Urban,Sikkim,India",21340,IN,Region,Active
+9222931,Tamil Nadu Urban,"Tamil Nadu Urban,Tamil Nadu,India",20469,IN,Region,Active
+9222932,Telangana Urban,"Telangana Urban,Telangana,India",9061642,IN,Region,Active
+9222933,Tripura Urban,"Tripura Urban,Tripura,India",20470,IN,Region,Active
+9222934,Uttarakhand Urban,"Uttarakhand Urban,Uttarakhand,India",21341,IN,Region,Active
+9222935,Uttar Pradesh Urban,"Uttar Pradesh Urban,Uttar Pradesh,India",20471,IN,Region,Active
+9222936,West Bengal Urban,"West Bengal Urban,West Bengal,India",20472,IN,Region,Active
+9222937,Jammu and Kashmir Urban,"Jammu and Kashmir Urban,Jammu and Kashmir,India",20459,IN,Region,Active
+9222938,India Urban,"India Urban,India",2356,IN,Region,Active
 9236584,Doboj,"Doboj,Republika Srpska,Bosnia and Herzegovina",20079,BA,City,Active
 9236892,Hyde Park,"Hyde Park,Utah,United States",21177,US,City,Active
 9254230,Travnik,"Travnik,Central Bosnia Canton,Bosnia and Herzegovina",9299010,BA,City,Active
@@ -227396,7 +227427,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041135,Gold Coast Airport,"Gold Coast Airport,Queensland,Australia",20037,AU,Airport,Removal Planned
 9041136,Bankstown Airport,"Bankstown Airport,New South Wales,Australia",20035,AU,Airport,Removal Planned
 9041138,Adelaide Airport,"Adelaide Airport,South Australia,Australia",20038,AU,Airport,Removal Planned
-9041139,Broome International and Domestic Airport,"Broome International Airport,Western Australia,Australia",20041,AU,Airport,Removal Planned
+9041139,Broome International and Domestic Airport,"Broome International and Domestic Airport,Western Australia,Australia",20041,AU,Airport,Removal Planned
 9041140,Canberra Airport,"Canberra Airport,Australian Capital Territory,Australia",20034,AU,Airport,Removal Planned
 9041141,Cairns Airport,"Cairns Airport,Queensland,Australia",20037,AU,Airport,Removal Planned
 9041142,Darwin International Airport,"Darwin International Airport,Northern Territory,Australia",20036,AU,Airport,Removal Planned
@@ -227410,7 +227441,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041150,Brussels Airport,"Brussels Airport,Flanders,Belgium",9069523,BE,Airport,Removal Planned
 9041151,Sorocaba Airport,"Sorocaba Airport,State of Sao Paulo,Brazil",20106,BR,Airport,Removal Planned
 9041152,Afonso Pena International Airport,"Afonso Pena International Airport,State of Parana,Brazil",20101,BR,Airport,Removal Planned
-9041153,Aeroporto do Bacacheri,"Bacacheri Airport,State of Parana,Brazil",20101,BR,Airport,Removal Planned
+9041153,Aeroporto do Bacacheri,"Aeroporto do Bacacheri,State of Parana,Brazil",20101,BR,Airport,Removal Planned
 9041154,Pinto Martins – Fortaleza International Airport,"Pinto Martins – Fortaleza International Airport,Ceara,Brazil",20089,BR,Airport,Removal Planned
 9041155,RIOgaleao International Airport,"RIOgaleao International Airport,State of Rio de Janeiro,Brazil",20102,BR,Airport,Removal Planned
 9041156,Sao Paulo/Guarulhos–Governor Andre Franco Montoro International Airport,"Sao Paulo/Guarulhos–Governor Andre Franco Montoro International Airport,State of Sao Paulo,Brazil",20106,BR,Airport,Removal Planned
@@ -227552,7 +227583,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041304,Bergen Airport,"Bergen Airport,Vestland,Norway",9302903,NO,Airport,Removal Planned
 9041305,"Trondheim Airport, Vaernes","Trondheim Airport, Vaernes,Trondelag,Norway",9299019,NO,Airport,Removal Planned
 9041306,Auckland Airport,"Auckland Airport,Auckland,New Zealand",20791,NZ,Airport,Removal Planned
-9041307,Christchurch International Airport,"Christchurch International Airport,Canterbury,New Zealand",21302,NZ,Airport,Removal Planned
+9041307,Christchurch International Airport,"Christchurch International Airport,Canterbury Region,New Zealand",21302,NZ,Airport,Removal Planned
 9041308,Bucharest Baneasa - Aurel Vlaicu International Airport,"Bucharest Baneasa - Aurel Vlaicu International Airport,Bucharest,Romania",20889,RO,Airport,Removal Planned
 9041309,Bucharest Henri Coanda International Airport,"Bucharest Henri Coanda International Airport,Ilfov County,Romania",9047108,RO,Airport,Removal Planned
 9041311,Sharurah Domestic Airport,"Sharurah Domestic Airport,Najran Province,Saudi Arabia",21454,SA,Airport,Removal Planned
@@ -227645,7 +227676,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041400,Grand Junction Regional Airport,"Grand Junction Regional Airport,Colorado,United States",21138,US,Airport,Removal Planned
 9041401,Greenville Downtown Airport,"Greenville Downtown Airport,South Carolina,United States",21173,US,Airport,Removal Planned
 9041403,Greenville-Spartanburg International Airport,"Greenville-Spartanburg International Airport,South Carolina,United States",21173,US,Airport,Removal Planned
-9041404,Phoenix Goodyear Airport,"Phoenix-Goodyear Airport,Arizona,United States",21136,US,Airport,Removal Planned
+9041404,Phoenix Goodyear Airport,"Phoenix Goodyear Airport,Arizona,United States",21136,US,Airport,Removal Planned
 9041405,Half Moon Bay Airport,"Half Moon Bay Airport,California,United States",21137,US,Airport,Removal Planned
 9041406,Hagerstown Regional Airport,"Hagerstown Regional Airport,Maryland,United States",21153,US,Airport,Removal Planned
 9041407,Hillsboro Airport,"Hillsboro Airport,Oregon,United States",21170,US,Airport,Removal Planned
@@ -227683,7 +227714,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041439,Memphis International Airport,"Memphis International Airport,Tennessee,United States",21175,US,Airport,Removal Planned
 9041440,McAllen International Airport,"McAllen International Airport,Texas,United States",21176,US,Airport,Removal Planned
 9041441,Morgantown Municipal Airport,"Morgantown Municipal Airport,West Virginia,United States",21183,US,Airport,Removal Planned
-9041442,Crystal Airport (KMIC),"Crystal Airport,Minnesota,United States",21156,US,Airport,Removal Planned
+9041442,Crystal Airport (KMIC),"Crystal Airport (KMIC),Minnesota,United States",21156,US,Airport,Removal Planned
 9041443,Charles B. Wheeler Downtown Airport,"Charles B. Wheeler Downtown Airport,Missouri,United States",21157,US,Airport,Removal Planned
 9041444,Milwaukee Mitchell International Airport,"Milwaukee Mitchell International Airport,Wisconsin,United States",21182,US,Airport,Removal Planned
 9041447,Modesto City–County Airport,"Modesto City–County Airport,California,United States",21137,US,Airport,Removal Planned
@@ -227748,7 +227779,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9041509,Van Nuys Airport,"Van Nuys Airport,California,United States",21137,US,Airport,Removal Planned
 9041510,Yuma International Airport,"Yuma International Airport,Arizona,United States",21136,US,Airport,Removal Planned
 9041511,King County International Airport - Boeing Field,"King County International Airport - Boeing Field,Washington,United States",21180,US,Airport,Removal Planned
-9041512,Baltimore/Washington International Airport,"Baltimore/Washington International Thurgood Marshall Airport,Maryland,United States",21153,US,Airport,Removal Planned
+9041512,Baltimore/Washington International Airport,"Baltimore/Washington International Airport,Maryland,United States",21153,US,Airport,Removal Planned
 9041513,Gerald R. Ford International Airport,"Gerald R. Ford International Airport,Michigan,United States",21155,US,Airport,Removal Planned
 9041514,Manchester-Boston Regional Airport,"Manchester-Boston Regional Airport,New Hampshire,United States",21163,US,Airport,Removal Planned
 9041515,Portland International Airport,"Portland International Airport,Oregon,United States",21170,US,Airport,Removal Planned
@@ -228432,7 +228463,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9060092,University of Arkansas,"University of Arkansas,Arkansas,United States",21135,US,University,Removal Planned
 9060093,Northern Illinois University,"Northern Illinois University,Illinois,United States",21147,US,University,Removal Planned
 9060094,The University of Toledo,"The University of Toledo,Ohio,United States",21168,US,University,Removal Planned
-9060095,"HACC, Central Pennsylvania's Community College","Harrisburg Area Community College,Pennsylvania,United States",21171,US,University,Removal Planned
+9060095,"HACC, Central Pennsylvania's Community College","HACC, Central Pennsylvania's Community College,Pennsylvania,United States",21171,US,University,Removal Planned
 9060096,Ball State University,"Ball State University,Indiana,United States",21148,US,University,Removal Planned
 9060097,"California State University, Fresno","California State University, Fresno,California,United States",21137,US,University,Removal Planned
 9060098,"University of California, Santa Barbara","University of California, Santa Barbara,California,United States",21137,US,University,Removal Planned
@@ -228646,7 +228677,7 @@ Criteria ID,Name,Canonical Name,Parent ID,Country Code,Target Type,Status
 9069400,Grasslands National Park,"Grasslands National Park,Saskatchewan,Canada",20124,CA,National Park,Removal Planned
 9069401,Gros Morne National Park,"Gros Morne National Park,Newfoundland and Labrador,Canada",20117,CA,National Park,Removal Planned
 9069402,Ivvavik National Park,"Ivvavik National Park,Yukon,Canada",20125,CA,National Park,Removal Planned
-9069403,Jasper National Park,"Jasper National Park Of Canada,Alberta,Canada",20113,CA,National Park,Removal Planned
+9069403,Jasper National Park,"Jasper National Park,Alberta,Canada",20113,CA,National Park,Removal Planned
 9069404,Kejimkujik National Park and National Historic Site,"Kejimkujik National Park and National Historic Site,Nova Scotia,Canada",20118,CA,National Park,Removal Planned
 9069405,Kluane National Park and Reserve,"Kluane National Park and Reserve,Yukon,Canada",20125,CA,National Park,Removal Planned
 9069406,Kootenay National Park,"Kootenay National Park,British Columbia,Canada",20114,CA,National Park,Removal Planned
