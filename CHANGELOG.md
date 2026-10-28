@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - The `captcha` feature is keyed on challenge markup instead of the word "CAPTCHA" in the page text: the `/sorry/` page's form, a reCAPTCHA container or frame, and the in-page "Captcha Dialog" overlay (a frame of a `/sorry/` page shown over a SERP with results). A SERP whose result snippet quotes a site's form ("protected by reCAPTCHA") is no longer flagged, and the overlay, which was not detected before, now is. The `/sorry/` redirect URL still flags it independently. Callers that branch on `captcha` will see fewer flags on normal SERPs
+- `update_locations_file` pulls the oldest listed geotargets release newer than the ledger instead of only the newest, so a caller that loops until it returns `None` records every release, one at a time, in order. When the ledger's last release is older than every release the page lists, it prints a warning naming the gap. New `get_release_urls` lists every dated release link on the page, oldest first, and `get_latest_url` returns the last of them
+- The weekly locations job runs on `dev`, commits each new release separately, and merges its own pull request, so a release can no longer be replaced by a newer one while its pull request waits
 
 ### Fixed
 
