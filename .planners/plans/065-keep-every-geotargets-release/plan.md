@@ -5,7 +5,7 @@ status: active
 branch: feature/keep-every-geotargets-release
 created: 2026-10-27T11:46:08-07:00
 concluded:
-pr:
+pr: https://github.com/gitronald/WebSearcher/pull/214
 ---
 
 # Keep every geotargets release in the locations history
@@ -125,3 +125,4 @@ loop in the workflow.
   - Base: `dev` at `8b5ae40`
   - Worktree: `.worktrees/065-keep-every-geotargets-release`
   - PR: pending
+- **2026-10-28T10:17:01-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/214
