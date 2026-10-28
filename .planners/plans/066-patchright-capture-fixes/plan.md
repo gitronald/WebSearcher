@@ -185,12 +185,14 @@ the cookie clear after each request.
    median `seconds` is no more than about 1 s above the `dev` median. If it is well
    below, the first `sleep(2)` in `send_request` may be dropped as well (plan item 1).
 
-3. AI expand on this branch (from the worktree); read the `SERP | ai_expand | <outcome>`
-   DEBUG lines on the console:
+3. AI expand on this branch, same queries (from the worktree); read the
+   `SERP | ai_expand | <outcome>` DEBUG lines on the console. Queries without an AI overview
+   should log `no_control`:
 
        uv run python .planners/plans/066-patchright-capture-fixes/probe_one_engine.py \
          --out ../../data/plan-066/ai-expand.jsonl --user-data-dir ../../.ws_profile \
-         --ai-expand "why is the sky blue" "how do vaccines work"
+         --ai-expand "why is the sky blue" "central park new york" "how to boil an egg" \
+         "python list comprehension" "weather tomorrow" "best pizza near me"
 
 ### Open questions
 
