@@ -30,13 +30,21 @@ SHOW_MORE_EXPANDED_SELECTOR = f'{SHOW_MORE_SELECTOR}[aria-expanded="true"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
 
 # Capture timing (ms). A SERP can replace itself once more after #search first
-# renders (plan 066), so a capture waits for the load states, bounded because a
-# SERP's background requests can keep the network from going idle.
+# renders, and a streamed AI overview keeps loading for a few seconds after it
+# (plan 066), so a capture waits for load and then for the network to go quiet.
+# The quiet wait is capped because a page's background requests can keep it busy.
+# The cap is about twice the latest stream end measured from the settle step's
+# start (about 3.6 s); it costs time only on a page still busy at the cap.
 SEARCH_TIMEOUT_MS = 10_000
 LOAD_TIMEOUT_MS = 5_000
-NETWORKIDLE_TIMEOUT_MS = 3_000
+NETWORKIDLE_TIMEOUT_MS = 8_000
 RESET_TIMEOUT_MS = 5_000
 EXPAND_TIMEOUT_MS = 5_000
+
+# The network is quiet after this long with no request in flight (the driver's
+# own networkidle rule), checked every IDLE_POLL_MS
+IDLE_MS = 500
+IDLE_POLL_MS = 100
 
 # Attempts at page.content() while the page is still navigating
 CONTENT_ATTEMPTS = 3
@@ -45,6 +53,66 @@ CONTENT_ATTEMPTS = 3
 def _is_navigating_error(e: Exception) -> bool:
     """Whether ``e`` is the error ``page.content()`` raises mid-navigation."""
     return "page is navigating" in str(e)
+
+
+def _is_prefetch(request: Any) -> bool:
+    """Whether ``request`` is a speculative prefetch (``Sec-Purpose: prefetch``).
+
+    A SERP's speculation rules prefetch its top results' links, and Chrome can
+    hold such a request open for about 10 s before dropping it.
+    """
+    return "prefetch" in request.headers.get("sec-purpose", "")
+
+
+class NetworkTracker:
+    """Track a page's requests in flight, ignoring speculative prefetches.
+
+    Stands in for the driver's ``networkidle``, which counts a prefetch that
+    never finishes and then runs to its timeout on most SERPs (plan 066).
+    Attach before navigating: a request started earlier is not tracked.
+    """
+
+    def __init__(self, page: Any) -> None:
+        self.page = page
+        self.inflight: set[Any] = set()
+        self.last_change = time.monotonic()
+        self._handlers: dict[str, Callable[[Any], None]] = {
+            "request": self._started,
+            "requestfinished": self._ended,
+            "requestfailed": self._ended,
+        }
+        for event, handler in self._handlers.items():
+            page.on(event, handler)
+
+    def _started(self, request: Any) -> None:
+        if _is_prefetch(request):
+            return
+        self.inflight.add(request)
+        self.last_change = time.monotonic()
+
+    def _ended(self, request: Any) -> None:
+        if request in self.inflight:
+            self.inflight.discard(request)
+            self.last_change = time.monotonic()
+
+    def wait_for_idle(self, timeout_ms: int) -> bool:
+        """Wait until no request has been in flight for ``IDLE_MS``.
+
+        Returns ``False`` when ``timeout_ms`` passes first. Waits with
+        ``page.wait_for_timeout``, which delivers the request events.
+        """
+        deadline = time.monotonic() + timeout_ms / 1000
+        while True:
+            now = time.monotonic()
+            if not self.inflight and now - self.last_change >= IDLE_MS / 1000:
+                return True
+            if now >= deadline:
+                return False
+            self.page.wait_for_timeout(IDLE_POLL_MS)
+
+    def detach(self) -> None:
+        for event, handler in self._handlers.items():
+            self.page.remove_listener(event, handler)
 
 
 def prepare_profile_dir(path: Path) -> None:
@@ -87,6 +155,7 @@ class PatchrightSearcher:
         self.browser_info: dict[str, str] = {}
         self._tmp_profile: str = ""
         self._exit_hook: Callable[[], None] | None = None
+        self.network: NetworkTracker | None = None
 
     def init_driver(self) -> None:
         """Launch Chrome via patchright with a persistent context"""
@@ -158,6 +227,7 @@ class PatchrightSearcher:
             # takes the previous query's SERP for this one.
             self.reset_page()
             pre_nav_url = self.page.url
+            self.network = NetworkTracker(self.page)
             response = self.page.goto(search_params.url, wait_until="domcontentloaded")
             # Record the status before the #search wait so a blocked request
             # (e.g. 429 on a /sorry/ redirect) keeps its real code on timeout.
@@ -209,6 +279,9 @@ class PatchrightSearcher:
                     f"SERP | {self.driver_name} error | {str(e)}", extra={"event": "fetch"}
                 )
         finally:
+            if self.network is not None:
+                self.network.detach()
+                self.network = None
             if self.config.clear_cookies:
                 self.delete_cookies()
 
@@ -234,16 +307,22 @@ class PatchrightSearcher:
         self.page = self.context.new_page()
 
     def settle_page(self, require_search: bool = True) -> None:
-        """Wait for the page to finish loading, then confirm ``#search`` is attached.
+        """Wait for load and a quiet network, then confirm ``#search`` is attached.
 
-        Each load state is bounded and its timeout ignored: a SERP's background
-        requests can keep the network busy, and a late capture beats none.
+        Each wait is bounded and its timeout ignored: a page's background
+        requests can keep the network busy, and a late capture beats none. The
+        quiet wait needs the request's ``NetworkTracker``, so it is skipped
+        outside ``send_request``.
         """
-        for state, timeout in (("load", LOAD_TIMEOUT_MS), ("networkidle", NETWORKIDLE_TIMEOUT_MS)):
-            try:
-                self.page.wait_for_load_state(state, timeout=timeout)
-            except Exception:
-                pass
+        try:
+            self.page.wait_for_load_state("load", timeout=LOAD_TIMEOUT_MS)
+        except Exception:
+            pass
+        if self.network is not None and not self.network.wait_for_idle(NETWORKIDLE_TIMEOUT_MS):
+            self.log.debug(
+                f"SERP | network busy at cap | {len(self.network.inflight)} in flight",
+                extra={"event": "capture"},
+            )
         if require_search:
             self.page.wait_for_selector("#search", state="attached", timeout=SEARCH_TIMEOUT_MS)
 

@@ -2,8 +2,9 @@
 
 Pinned: each request starts from a blank page (replacing the page when a late
 navigation of the previous SERP interrupts the reset); the capture settles the
-page and retries ``content()`` only while the page is navigating; a capture
-without ``#search`` is flagged; and the AI-overview expansion logs its outcome.
+page (load, then a quiet network that ignores speculative prefetches) and
+retries ``content()`` only while the page is navigating; a capture without
+``#search`` is flagged; and the AI-overview expansion logs its outcome.
 """
 
 import logging
@@ -17,8 +18,11 @@ from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers import patchright_searcher
 from WebSearcher.searchers.patchright_searcher import (
     CONTENT_ATTEMPTS,
+    IDLE_MS,
+    NETWORKIDLE_TIMEOUT_MS,
     SHOW_MORE_EXPANDED_SELECTOR,
     SHOW_MORE_SELECTOR,
+    NetworkTracker,
     PatchrightSearcher,
 )
 
@@ -31,9 +35,23 @@ SHELL_HTML = (
 NAVIGATING = "Page.content: Unable to retrieve content because the page is navigating and changing the content."
 
 
+class FakeClock:
+    """Stands in for ``time.monotonic``; ``FakePage.wait_for_timeout`` advances it."""
+
+    now = 0.0
+
+
 @pytest.fixture(autouse=True)
 def no_sleep(monkeypatch):
     monkeypatch.setattr(patchright_searcher.time, "sleep", lambda s: None)
+    FakeClock.now = 0.0
+    monkeypatch.setattr(patchright_searcher.time, "monotonic", lambda: FakeClock.now)
+
+
+class FakeRequest:
+    def __init__(self, url, prefetch=False):
+        self.url = url
+        self.headers = {"sec-purpose": "prefetch"} if prefetch else {}
 
 
 class FakeResponse:
@@ -52,6 +70,20 @@ class FakePage:
         self.contents = list(contents)
         self.calls: list[tuple] = []
         self.closed = False
+        self.handlers: dict[str, list] = {}
+
+    def on(self, event, handler):
+        self.handlers.setdefault(event, []).append(handler)
+
+    def remove_listener(self, event, handler):
+        self.handlers[event].remove(handler)
+
+    def emit(self, event, request):
+        for handler in list(self.handlers.get(event, [])):
+            handler(request)
+
+    def wait_for_timeout(self, ms):
+        FakeClock.now += ms / 1000
 
     def goto(self, url, wait_until=None, timeout=None):
         self.calls.append(("goto", url))
@@ -150,10 +182,100 @@ def test_capture_settles_then_checks_search_attached():
     assert after_goto == [
         ("wait_for_selector", "#search", None),
         ("wait_for_load_state", "load"),
-        ("wait_for_load_state", "networkidle"),
         ("wait_for_selector", "#search", "attached"),
         ("content",),
     ]
+
+
+class FakeBusyPage(FakePage):
+    """A request is in flight from navigation until ``busy_s`` seconds pass."""
+
+    def __init__(self, busy_s, **kwargs):
+        super().__init__(**kwargs)
+        self.busy_s = busy_s
+        self.request: FakeRequest | None = FakeRequest("https://www.google.com/async/folsrch")
+        self.captured_at: float | None = None
+
+    @override
+    def goto(self, url, wait_until=None, timeout=None):
+        response = super().goto(url, wait_until, timeout)
+        if url != "about:blank":
+            self.emit("request", self.request)
+        return response
+
+    @override
+    def wait_for_timeout(self, ms):
+        super().wait_for_timeout(ms)
+        if self.request is not None and FakeClock.now >= self.busy_s:
+            self.emit("requestfinished", self.request)
+            self.request = None
+
+    @override
+    def content(self):
+        self.captured_at = FakeClock.now
+        return super().content()
+
+
+def test_capture_waits_for_request_in_flight():
+    page = FakeBusyPage(busy_s=3.0)
+    out = search(make_patchright(page))
+    assert out.html == SERP_HTML
+    assert page.captured_at is not None
+    assert page.captured_at >= 3.0 + IDLE_MS / 1000
+
+
+def test_capture_waits_no_longer_than_cap(caplog):
+    page = FakeBusyPage(busy_s=60.0)
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        out = search(make_patchright(page))
+    assert out.html == SERP_HTML
+    assert page.captured_at is not None
+    assert page.captured_at <= NETWORKIDLE_TIMEOUT_MS / 1000 + 0.2
+    assert any("network busy at cap" in r.getMessage() for r in caplog.records)
+
+
+def test_send_request_detaches_network_tracker():
+    page = FakePage()
+    searcher = make_patchright(page)
+    search(searcher)
+    assert searcher.network is None
+    assert all(not handlers for handlers in page.handlers.values())
+
+
+# Network tracker ---------------------------------------------------------------
+
+
+def test_tracker_idle_after_quiet_period():
+    page = FakePage()
+    tracker = NetworkTracker(page)
+    assert tracker.wait_for_idle(5_000) is True
+    assert FakeClock.now == pytest.approx(IDLE_MS / 1000, abs=0.11)
+
+
+def test_tracker_ignores_speculative_prefetch():
+    page = FakePage()
+    tracker = NetworkTracker(page)
+    page.emit("request", FakeRequest("https://www.google.com/goto?url=x", prefetch=True))
+    assert tracker.wait_for_idle(5_000) is True
+    assert not tracker.inflight
+
+
+def test_tracker_busy_until_request_ends():
+    page = FakePage()
+    tracker = NetworkTracker(page)
+    request = FakeRequest("https://www.google.com/async/folsrch")
+    page.emit("request", request)
+    assert tracker.wait_for_idle(2_000) is False
+    page.emit("requestfailed", request)
+    assert tracker.wait_for_idle(2_000) is True
+
+
+def test_tracker_detach_removes_handlers():
+    page = FakePage()
+    tracker = NetworkTracker(page)
+    tracker.detach()
+    page.emit("request", FakeRequest("https://www.google.com/async/folsrch"))
+    assert not tracker.inflight
 
 
 def test_content_retried_while_page_is_navigating():

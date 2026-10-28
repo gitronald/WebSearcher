@@ -32,7 +32,20 @@ class FakeResponse:
     status = 429
 
 
-class FakePageBlocked:
+class FakeEvents:
+    """The page event methods the backend's network tracker uses; no events fire."""
+
+    def on(self, event, handler):
+        pass
+
+    def remove_listener(self, event, handler):
+        pass
+
+    def wait_for_timeout(self, ms):
+        pass
+
+
+class FakePageBlocked(FakeEvents):
     """goto lands on the /sorry/ redirect; #search wait then times out."""
 
     def __init__(self):
@@ -49,7 +62,7 @@ class FakePageBlocked:
         return SORRY_HTML
 
 
-class FakePageNavFails:
+class FakePageNavFails(FakeEvents):
     """The page holds the previous SERP; the search's goto raises before navigating."""
 
     def __init__(self):
@@ -69,6 +82,7 @@ def make_patchright(page) -> PatchrightSearcher:
     searcher.page = page
     searcher.context = None
     searcher.browser_info = {}
+    searcher.network = None
     return searcher
 
 
