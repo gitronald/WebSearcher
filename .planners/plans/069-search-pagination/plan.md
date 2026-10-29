@@ -1,7 +1,7 @@
 ---
 id: 69
 slug: search-pagination
-status: active
+status: implemented
 branch: feature/search-pagination
 created: 2026-10-29T10:20:59-07:00
 concluded:
@@ -161,3 +161,4 @@ fetched independently. Revise the decisions before implementing.
   - Tests: `SearchParams` URL with and without `start`, the stale-key drop, the `TypeError`, requests-backend and patchright-backend (`page.goto` mocked) recording of `start`, and CLI and demo pass-through. Full suite: 931 passed, coverage 85.86%. ruff check, ruff format, and pyrefly are clean.
   - Brief notes: banning network use and naming the existing fakes (`FakeSearcher`, `FakePage`, `_run_cli`) gave a clean first draft, with no revision pass needed. Codex added a throwaway offline pytest plugin under `/tmp` for its own runs and left nothing in the repo.
 - **2026-10-29T11:04:29-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/218
+- **2026-10-29T11:25:53-07:00** — Implemented: 5 commits ahead of `dev`.
