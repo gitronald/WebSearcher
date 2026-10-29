@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
-- The browser backend waits for an AI overview that is still generating before it captures the page, up to 15 s. An overview has finished when its container carries `data-loaded="1"`. Before, the capture waited only for a quiet network, up to 8 s, and saved slow overviews, such as the conversational answers Google gives "Tell me about {name}" queries, at their "Thinking" stage, where they parse as `not_loaded`. Pages without a generating overview are unaffected. Each wait is logged as a DEBUG `ai_wait` event with the time the overview took to load, or that the cap passed
+- The browser backend waits for an AI overview that is still generating before it captures the page, up to 15 s. An overview has finished when its container carries `data-loaded="1"`. Before, the capture waited only for a quiet network, up to 8 s, and saved slow overviews, such as the conversational answers Google gives "Tell me about {name}" queries, at their "Thinking" stage, where they parse as `not_loaded`. Pages without a generating overview are unaffected. Each wait is logged as a DEBUG `ai_wait` event with the time the overview took to load, or that the cap passed.
 
 ## [0.14.0] - 2026-10-29
 
