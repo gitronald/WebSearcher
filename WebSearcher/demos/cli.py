@@ -46,6 +46,7 @@ def _add_engine_args(p: argparse.ArgumentParser) -> None:
 
 def _add_search_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("query", nargs="?", default="why is the sky blue?", help="Search query")
+    p.add_argument("--start", type=int, default=None, help="Google's result offset")
     _add_engine_args(p)
 
 
@@ -72,6 +73,7 @@ def _run_search(args: argparse.Namespace) -> None:
         data_dir=args.data_dir,
         ai_expand=args.ai_expand,
         user_data_dir=args.user_data_dir,
+        start=args.start,
     )
     _close(se, args.leave_open)
 

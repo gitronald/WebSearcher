@@ -18,6 +18,7 @@ ALL_KEYS = ALWAYS_KEYS | {
     "response_code",
     "qry",
     "loc",
+    "start",
     "output",
     "source",
 }
@@ -77,6 +78,13 @@ def test_search_event_carries_only_its_fields():
     payload = emit(msg="", event="search", response_code=200, qry="pizza", loc="x")
     assert set(payload) == ALWAYS_KEYS | {"event", "response_code", "qry", "loc"}
     assert payload["response_code"] == 200
+
+
+def test_search_event_carries_start_offset():
+    # A paged search records its offset; 0 is kept, only None is dropped.
+    assert emit(msg="", event="search", qry="pizza", start=10)["start"] == 10
+    assert emit(msg="", event="search", qry="pizza", start=0)["start"] == 0
+    assert "start" not in emit(msg="", event="search", qry="pizza", start=None)
 
 
 def test_parse_log_drops_qry_loc_response_code():

@@ -6,11 +6,13 @@ import subprocess
 import time
 from pathlib import Path
 from typing import Any
+from unittest.mock import Mock
 
 import pytest
 
 from WebSearcher.demos import cli
 from WebSearcher.models.configs import PatchrightConfig
+from WebSearcher.models.data import ParsedSERP
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers.patchright_searcher import PatchrightSearcher, prepare_profile_dir
 
@@ -119,6 +121,36 @@ def _fake_input(events: list[str], raises: type[BaseException] | None = None):
 
 def test_cli_user_data_dir_defaults_off(monkeypatch):
     assert _run_cli(monkeypatch, ["search", "q"])["user_data_dir"] is None
+
+
+@pytest.mark.parametrize("start", [None, 0, 10])
+def test_cli_search_start(monkeypatch, start):
+    argv = ["search", "q"]
+    if start is not None:
+        argv.extend(["--start", str(start)])
+    assert _run_cli(monkeypatch, argv)["start"] == start
+
+
+@pytest.mark.parametrize("command", [["searches"], ["locations", "q"], ["headers", "q"]])
+def test_cli_start_only_on_search(monkeypatch, command):
+    with pytest.raises(SystemExit) as exc:
+        _run_cli(monkeypatch, [*command, "--start", "10"])
+    assert exc.value.code == 2
+
+
+@pytest.mark.parametrize("start", [None, 0, 10])
+def test_demo_search_passes_start_and_prints_header(monkeypatch, tmp_path, capsys, start):
+    engine = Mock()
+    engine.parsed = ParsedSERP()
+    engine.serp = {"url": "https://www.google.com/search?q=q"}
+    monkeypatch.setattr(demo_search, "_search_engine", lambda *args: engine)
+    assert demo_search.search("q", data_dir=str(tmp_path), start=start) is engine
+    engine.search.assert_called_once_with("q", ai_expand=True, start=start)
+    output = capsys.readouterr().out
+    if start is None:
+        assert "Start:" not in output
+    else:
+        assert f"Start: {start}\n" in output
 
 
 def test_cli_bare_user_data_dir_uses_default(monkeypatch):

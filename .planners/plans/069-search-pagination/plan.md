@@ -1,11 +1,11 @@
 ---
 id: 69
 slug: search-pagination
-status: active
+status: done
 branch: feature/search-pagination
 created: 2026-10-29T10:20:59-07:00
-concluded:
-pr:
+concluded: 2026-10-29T11:36:34-07:00
+pr: https://github.com/gitronald/WebSearcher/pull/218
 ---
 
 # Replace num_results with start-offset pagination
@@ -153,3 +153,25 @@ fetched independently. Revise the decisions before implementing.
   - Base: `dev` at `51b637f`
   - Worktree: `.worktrees/069-search-pagination`
   - PR: pending
+- **2026-10-29T11:04:14-07:00** — Steps 2-5 implemented: Codex (`codex exec`, workspace-write sandbox) drafted it in one pass, and the main session reviewed the diff, re-ran the checks, and committed. No live searches were run; every new test mocks the request.
+  - `num_results` and the `num` URL entry are removed from `SearchParams` and `SearchEngine.search()`. A stale `num_results` key in `SearchParams.create` is dropped silently, and `search(num_results=...)` raises `TypeError`.
+  - `start` sits in `search()`'s old `num_results` slot, after `lang`. In the URL it follows `q`, ahead of `hl` and `uule`, and only a positive value is emitted, so `None`, `0`, and a negative value all give the first-page URL. The SERP records `start` as passed, `0` included.
+  - `BaseSERP.start` sits after `lang`. All 121 snapshots passed unchanged.
+  - `ws-demo search --start N` is only on `search` (plan 068 has not landed). A test checks that `searches`, `locations`, and `headers` reject the flag.
+  - Tests: `SearchParams` URL with and without `start`, the stale-key drop, the `TypeError`, requests-backend and patchright-backend (`page.goto` mocked) recording of `start`, and CLI and demo pass-through. Full suite: 931 passed, coverage 85.86%. ruff check, ruff format, and pyrefly are clean.
+  - Brief notes: banning network use and naming the existing fakes (`FakeSearcher`, `FakePage`, `_run_cli`) gave a clean first draft, with no revision pass needed. Codex added a throwaway offline pytest plugin under `/tmp` for its own runs and left nothing in the repo.
+- **2026-10-29T11:04:29-07:00** — PR opened: https://github.com/gitronald/WebSearcher/pull/218
+- **2026-10-29T11:25:53-07:00** — Implemented: 5 commits ahead of `dev`.
+- **2026-10-29T11:36:46-07:00** — Review gate (`/code-review` at medium on PR #218): two sonnet finders and two verifiers, eight candidates, six kept. Codex drafted four of the fixes in one pass (`codex exec`, workspace-write sandbox), and the main session finished one of them, reviewed the diff, re-ran the checks, and committed `b8ec75c`.
+  - Review follow-up, actioned with tests: `search()` arguments after `lang` are now keyword-only, so a positional `num_results` also raises `TypeError` rather than binding to `start` (`test_search_rejects_positional_num_results`); the `search` log event carries `start`, both on the record and in `JsonlFormatter`'s JSONL line, which omits it when `None` and keeps `0` (`test_search_logs_start`, `test_search_event_carries_start_offset`); the unreached `send_request` monkeypatch and the vacuous `num=` assertion are dropped. CHANGELOG `Added` and `Removed` entries updated to match.
+  - Conscious no-ops: pydantic's lax coercion of `start=True` to 1 (every other `SearchParams` field coerces the same way); the `start is not None and start > 0` guard that overlaps the falsy filter (harmless). Rejected in verification: `ws-demo show` ignoring `start` (pre-existing last-match behavior, outside decision 7), and two test-scaffolding duplication claims (both follow the files' own conventions).
+  - Brief notes: the brief named the fix sites, so Codex made each change where it was asked. It added `start` only to the `extra=` dict, and in its final message it reported that `JsonlFormatter` serializes a fixed key list and drops the field. The main session added the formatter key and rewrote Codex's caplog test to use `make_engine` instead of patching `Logger.start`. A brief that names a log field should also name its serializer.
+  - Checks: ruff check, ruff format, pyrefly clean; 934 passed, coverage 85.86%, 121 snapshots unchanged.
+
+## Retrospective
+
+- The live investigation earned its place before any code. It confirmed decision 5 (a bare `start` URL works with no session tokens). It also turned up two facts the docstring and any future paging helper depend on: `start` is a sliding offset, not a page number, and pages past the first are not stable between fetches.
+- Decision 1 promised a `TypeError` for the removed argument but only tested the keyword form. Reusing a removed argument's positional slot is a silent break, and the review caught it, not the plan. When a parameter is removed, make the parameters after it keyword-only, or test the positional call too.
+- A structured log field has two ends: the `extra=` dict and the formatter that serializes a fixed key list. Codex wrote only the first, as briefed, and its report flagged the gap. Briefs that touch logging should name `JsonlFormatter`.
+- Codex drafted cleanly when the brief named the existing fakes and seams (`FakeSearcher`, `FakePage`, `_run_cli`). The one test it improvised, which patched `Logger.start`, was where it had no seam to follow.
+- Left for follow-ups, as scoped: a multi-page helper stepping by 10 and deduping on `(title, cite)`, deep offsets, `filter=0`, block rates under paging, and a live patchright paging check.

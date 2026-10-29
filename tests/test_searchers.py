@@ -4,6 +4,7 @@ import logging
 from typing import override
 
 import orjson
+import pytest
 
 from WebSearcher.models.data import ParsedSERP, ResponseOutput
 from WebSearcher.models.searches import SearchParams
@@ -138,12 +139,16 @@ def test_save_record_writes_metadata_only_line_when_unparsed(tmp_path):
 class FakeSearcher(RequestsSearcher):
     """Return a canned response instead of sending a request."""
 
-    def __init__(self, url: str):
+    def __init__(self, url: str | None = None):
         self.url = url
 
     @override
     def send_request(self, search_params: SearchParams) -> ResponseOutput:
-        return ResponseOutput(url=self.url, html="<html></html>", response_code=200)
+        return ResponseOutput(
+            url=self.url if self.url is not None else search_params.url,
+            html="<html></html>",
+            response_code=200,
+        )
 
 
 def search_with(url: str) -> SearchEngine:
@@ -152,6 +157,40 @@ def search_with(url: str) -> SearchEngine:
     se.session_data = {"method": "patchright", "version": "0.9.0", "crawl_id": ""}
     se.search("pizza")
     return se
+
+
+def test_search_rejects_num_results():
+    with SearchEngine(method="requests", log_config={"console": False}) as se:
+        with pytest.raises(TypeError, match="num_results"):
+            se.search("q", num_results=10)  # pyrefly: ignore[unexpected-keyword]
+
+
+def test_search_rejects_positional_num_results():
+    with SearchEngine(method="requests", log_config={"console": False}) as se:
+        with pytest.raises(TypeError, match="positional"):
+            se.search("q", None, "en", 10)  # pyrefly: ignore[bad-argument-count]
+
+
+def test_search_requests_records_start(monkeypatch):
+    with SearchEngine(method="requests", log_config={"console": False}) as se:
+        monkeypatch.setattr(se.searcher, "send_request", FakeSearcher().send_request)
+        se.search("q", start=10)
+        assert "start=10" in se.serp["url"]
+        assert se.serp["start"] == 10
+        se.search("q")
+        assert se.serp["start"] is None
+        assert se.serp["url"] == "https://www.google.com/search?q=q"
+
+
+def test_search_logs_start(caplog):
+    se = make_engine(SERP, ParsedSERP())
+    se.searcher = FakeSearcher()
+    se.session_data = {"method": "requests", "version": "0.9.0", "crawl_id": ""}
+    with caplog.at_level(logging.INFO, logger="test_searchers"):
+        se.search("q", start=10)
+    events = [r for r in caplog.records if getattr(r, "event", None) == "search"]
+    assert len(events) == 1
+    assert getattr(events[0], "start") == 10
 
 
 def captcha_events(caplog) -> list[logging.LogRecord]:

@@ -12,8 +12,10 @@ class SearchParams(BaseConfig):
     """Contains parameters for a search request and utility methods for URL generation"""
 
     qry: str = Field("", description="The search query text")
-    num_results: int | None = Field(None, description="Number of results to return")
     lang: str | None = Field(None, description="Language code (e.g., 'en')")
+    start: int | None = Field(
+        None, description="Google's result offset; None or 0 is the first page"
+    )
     loc: str | None = Field(None, description="Location in Canonical Name format")
     base_url: str = Field("https://www.google.com/search", description="Base search engine URL")
     ai_expand: bool = Field(False, description="Expand AI overviews if present")
@@ -25,7 +27,7 @@ class SearchParams(BaseConfig):
         """Generates a dictionary of URL parameters based on the search parameters"""
         params: dict[str, Any] = {"q": utils.encode_param_value(self.qry)}
         opt_params = {
-            "num": self.num_results,
+            "start": self.start if self.start is not None and self.start > 0 else None,
             "hl": self.lang,
             "uule": locations.convert_canonical_name_to_uule(self.loc) if self.loc else None,
         }
@@ -49,6 +51,7 @@ class SearchParams(BaseConfig):
             "qry": self.qry,
             "loc": self.loc,
             "lang": self.lang,
+            "start": self.start,
             "url": self.url,
             "serp_id": self.serp_id,
         }

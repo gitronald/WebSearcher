@@ -116,6 +116,9 @@ class BaseSERP(BaseModel):
     qry: str = Field(..., description="Search query")
     loc: str | None = Field(None, description="Location if set, in Canonical Name format")
     lang: str | None = Field(None, description="Language code if set")
+    start: int | None = Field(
+        None, description="Google's result offset; None or 0 is the first page"
+    )
     url: str = Field(..., description="URL of the SERP")
     html: str = Field(..., description="Raw HTML of the SERP")
     timestamp: str = Field(..., description="ISO format timestamp of the crawl")

@@ -68,6 +68,7 @@ def search(
     data_dir: str | None = None,
     ai_expand: bool = True,
     user_data_dir: str | None = None,
+    start: int | None = None,
 ):
     """Search and parse a single query (patchright or requests), saving serps/parsed/searches."""
     data_path = Path(data_dir) if data_dir else _default_data_dir()
@@ -75,13 +76,15 @@ def search(
     fps = {k: data_path / f"{k}.json" for k in ("serps", "parsed", "searches")}
 
     header = f"WebSearcher v{ws.__version__}\nSearch Query: {query}\n"
+    if start is not None:
+        header += f"Start: {start}\n"
     header += f"Output Dir: {data_path}\n"
     if user_data_dir:
         header += f"Browser Profile: {user_data_dir}\n"
     print(header)
 
     se = _search_engine(method, user_data_dir)
-    se.search(query, ai_expand=ai_expand)
+    se.search(query, ai_expand=ai_expand, start=start)
     se.parse_serp()
     se.save_serp(append_to=fps["serps"])
     se.save_search(append_to=fps["searches"])

@@ -19,7 +19,7 @@ class JsonlFormatter(logging.Formatter):
     mechanism -- ``"external"`` for foreign logs, ``None`` for ad-hoc WebSearcher
     lines; ``message`` is the human text and is
     ``None`` when empty (a structured event puts its data in fields, not the
-    message). Search fields (``response_code``/``qry``/``loc``) are likewise read
+    message). Search fields (``response_code``/``qry``/``loc``/``start``) are likewise read
     from ``extra=`` and are ``None`` off the search path; ``output`` carries the
     formatted traceback on error lines. ``source`` is the originating logger name,
     but only for foreign logs (urllib3/requests/asyncio bubbling up to the root
@@ -46,6 +46,7 @@ class JsonlFormatter(logging.Formatter):
             "response_code": getattr(record, "response_code", None),
             "qry": getattr(record, "qry", None),
             "loc": getattr(record, "loc", None),
+            "start": getattr(record, "start", None),
             "output": self.formatException(record.exc_info) if record.exc_info else None,
             "source": None if is_own else name,
         }
