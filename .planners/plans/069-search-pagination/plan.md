@@ -112,6 +112,9 @@ fetched independently. Revise the decisions before implementing.
 - `search()` passes `start` through to the recorded `serp["url"]` and `serp["start"]`
   (with the requests backend mocked).
 - `ws-demo search --start 10` reaches `search()` with `start=10`.
+- The patchright backend navigates to the offset URL: with `page.goto` mocked,
+  `search(..., start=10)` on a patchright engine loads a URL carrying `start=10`, and the
+  recorded `serp["start"]` is 10.
 
 ### Order
 
@@ -126,6 +129,13 @@ fetched independently. Revise the decisions before implementing.
 - A multi-page collection helper or crawl loop (decision 4's follow-up)
 - Combining several pages into one ranked result list
 - Continuous scroll or "More results" button loading
+- `filter=0` (Google's "repeat the search with the omitted results included"), a
+  separate question from paging
+- Measuring deep offsets (`start=50` to `90`) and where pages run short or empty
+- Measuring block rates under paging volume
+- A live test of paging on the patchright backend. The `start` argument still reaches
+  it (decision 5), with a mocked test.
+- Surveying page SERPs for new `unknown` component families
 
 ## Log
 
@@ -137,3 +147,4 @@ fetched independently. Revise the decisions before implementing.
   - One sweep of the canonical pages `start=0,10,20,30` gave 37-39 `general` rows, 2-5 of them repeated on more than one page. Results that fell between pages and appeared on none cannot be counted from this test.
   - Implications: decision 2 stands (a raw `start`), but the docstring should say that a multiple of 10 lands on a page boundary and any other value slides the window. A multi-page helper (decision 4's follow-up) should step by 10 and dedupe across pages on `(title, cite)`, since `/goto` hrefs differ per render; its output is a sample of the top results, not one consistent ranking. Decision 6 stands: a cross-page rank would imply a consistency the pages do not have.
   - Not covered: deep offsets (`start=50` to `90`) and short or empty pages, `filter=0`, block rate under paging volume, the patchright backend, and whether page SERPs add new `unknown` families.
+- **2026-10-29T10:46:15-07:00** — Investigation closed; the remaining open questions are out of scope for this plan: `filter=0`, deep offsets, block rates under paging volume, a live patchright test, and new `unknown` families on page SERPs. `start` still goes to both backends: patchright loads `search_params.url`, so it gets the offset with no backend change, and a mocked test covers it. Out of scope and Tests updated to match.
