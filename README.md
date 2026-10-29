@@ -10,6 +10,7 @@ classifications and position-based specifications.
 
 ## Recent Changes
 
+- `0.14.0`: **Breaking** -- `num_results` is removed from `search()` and `SearchParams`, since the engine no longer honors it, and `start`, `ai_expand`, and `headers` are keyword-only; a new `start` offset fetches later result pages (`ws-demo search --start N`) and is saved on the SERP record and the `search` log event
 - `0.13.1`: Empty AI overviews whose body had not loaded are `sub_type="not_loaded"` instead of `unavailable`, which now requires a shown decline message, and the browser's no-`#search` capture warning names the query and location
 - `0.13.0`: Browser captures wait for the page to settle instead of fixed sleeps and start each query from a blank page, a `has_search` flag on responses and SERP records, `captcha` keyed on challenge markup instead of page text, a locations updater that records every geotargets release, and `brotli>=1.2.1` for a security fix
 - `0.12.3`: Sponsored listing and vehicle ad carousels, the 2026-10 "Complementary Results" right-hand panel, local place ads, and entity facts that keep their full value
