@@ -29,14 +29,25 @@ SHOW_MORE_SELECTOR = 'div[jsname="rPRdsc"][role="button"]'
 SHOW_MORE_EXPANDED_SELECTOR = f'{SHOW_MORE_SELECTOR}[aria-expanded="true"]'
 SHOW_ALL_SELECTOR = 'div.trEk7e[role="button"]'
 
+# An AI overview's container while its answer is still generating. The page's
+# script sets data-loaded="1" once the answer has streamed in. data-attnms leaves
+# "l" about a second in, while a conversational overview still reads "Thinking",
+# so it does not mark the end.
+AI_OVERVIEW_PENDING_SELECTOR = 'div[jscontroller="EYwa3d"]:not([data-loaded="1"])'
+
 # Capture timing (ms). A SERP can replace itself once more after #search first
 # renders, and a streamed AI overview keeps loading for a few seconds after it
-# (plan 066), so a capture waits for load and then for the network to go quiet.
-# The quiet wait is capped because a page's background requests can keep it busy.
-# The cap is about twice the latest stream end seen (about 4.2 s from goto); it
-# costs time only on a page still busy at the cap.
+# (plan 066), so a capture waits for load, then for any AI overview to finish,
+# then for the network to go quiet. The overview wait starts after the load wait
+# ends, which is at most LOAD_TIMEOUT_MS in, and its cap is about three times the
+# slowest overview seen (done about 5 s from goto, for "Tell me about" queries);
+# a page without a pending overview skips it. The quiet wait is capped because a
+# page's background requests can keep it busy. Its cap is about twice the latest
+# stream end seen (about 4.2 s from goto); it costs time only on a page still
+# busy at the cap.
 SEARCH_TIMEOUT_MS = 10_000
 LOAD_TIMEOUT_MS = 5_000
+AI_OVERVIEW_TIMEOUT_MS = 15_000
 NETWORKIDLE_TIMEOUT_MS = 8_000
 RESET_TIMEOUT_MS = 5_000
 EXPAND_TIMEOUT_MS = 5_000
@@ -307,7 +318,7 @@ class PatchrightSearcher:
         self.page = self.context.new_page()
 
     def settle_page(self, require_search: bool = True) -> None:
-        """Wait for load and a quiet network, then confirm ``#search`` is attached.
+        """Wait for load, any AI overview, and a quiet network, then confirm ``#search``.
 
         Each wait is bounded and its timeout ignored: a page's background
         requests can keep the network busy, and a late capture beats none. The
@@ -318,6 +329,7 @@ class PatchrightSearcher:
             self.page.wait_for_load_state("load", timeout=LOAD_TIMEOUT_MS)
         except Exception:
             pass
+        self.wait_for_ai_overview()
         if self.network is not None and not self.network.wait_for_idle(NETWORKIDLE_TIMEOUT_MS):
             self.log.debug(
                 f"SERP | network busy at cap | {len(self.network.inflight)} in flight",
@@ -325,6 +337,33 @@ class PatchrightSearcher:
             )
         if require_search:
             self.page.wait_for_selector("#search", state="attached", timeout=SEARCH_TIMEOUT_MS)
+
+    def wait_for_ai_overview(self) -> None:
+        """Wait until no AI overview on the page is still generating, up to its cap.
+
+        Returns at once when none is pending. Otherwise logs an ``ai_wait`` event:
+        how long the overview took to load, or that the cap passed (its answer
+        will parse as ``not_loaded``). A failed check ends the wait.
+        """
+        try:
+            pending = self.page.locator(AI_OVERVIEW_PENDING_SELECTOR)
+            if pending.count() == 0:
+                return
+            start = time.monotonic()
+            deadline = start + AI_OVERVIEW_TIMEOUT_MS / 1000
+            while pending.count():
+                if time.monotonic() >= deadline:
+                    self.log.debug(
+                        "SERP | ai overview not loaded at cap", extra={"event": "ai_wait"}
+                    )
+                    return
+                self.page.wait_for_timeout(IDLE_POLL_MS)
+            self.log.debug(
+                f"SERP | ai overview loaded | {time.monotonic() - start:.2f} s",
+                extra={"event": "ai_wait"},
+            )
+        except Exception as e:
+            self.log.debug(f"SERP | ai overview check failed | {e}", extra={"event": "ai_wait"})
 
     def page_content(self, require_search: bool = True) -> str:
         """Return ``page.content()``, retrying while the page is navigating.
