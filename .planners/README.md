@@ -2,7 +2,7 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 069 | [Replace num_results with start-offset pagination](plans/069-search-pagination/plan.md) | active | — | — |
+| 069 | [Replace num_results with start-offset pagination](plans/069-search-pagination/plan.md) | active | — | [#218](https://github.com/gitronald/WebSearcher/pull/218) |
 | 068 | [Add a websearcher command with a demo group](plans/068-websearcher-cli/plan.md) | draft | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
