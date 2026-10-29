@@ -126,3 +126,14 @@ fetched independently. Revise the decisions before implementing.
 - A multi-page collection helper or crawl loop (decision 4's follow-up)
 - Combining several pages into one ranked result list
 - Continuous scroll or "More results" button loading
+
+## Log
+
+- **2026-10-29T10:42:11-07:00** — Tested bare `&start=N` URLs against live Google: WebSearcher 0.13.1, `requests` backend, a fresh engine per search, 57 searches over three queries at offsets 0-30 in steps of 5, each sweep repeated 2-3 times a few minutes apart. Every search returned 200 with no CAPTCHA or block.
+  - A bare offset works: `/search?q=<q>&start=N`, with none of the footer's session tokens, returns a page past the first, and the footer marks the expected page as current. Decision 5 holds: pages can be fetched independently.
+  - `start` is a result offset, not a page number. The footer's current page is `ceil(start / 10) + 1` (`start=5` shows page 2, `15` page 3, `25` page 4), but the results slide with the offset: placed in the list built from the canonical pages (`start=0,10,20,30`), the first result at `start=5` sits about 3-4 places in, at `15` about 12-16, at `30` about 19-27. It runs a few places below `start` because page 1 carries only 7-9 `general` rows; other components take the remaining slots.
+  - The footer's page links keep an off-boundary offset's phase: a `start=15` page links to `start=5` and `start=25` (and `0` for page 1), so following "next" from such a page stays off the boundary.
+  - Pages past the first are not stable between fetches. At a fixed offset, the first `general` result differed between rounds in most cases past page 1; page 1 was mostly stable. The `start=10` page's `general` set had a Jaccard similarity of 0.11-0.54 across rounds. Offsets 5 apart, which would share 5 results under a stable ranking, shared 1-6. Some first results at an offset appeared on none of the same round's canonical pages.
+  - One sweep of the canonical pages `start=0,10,20,30` gave 37-39 `general` rows, 2-5 of them repeated on more than one page. Results that fell between pages and appeared on none cannot be counted from this test.
+  - Implications: decision 2 stands (a raw `start`), but the docstring should say that a multiple of 10 lands on a page boundary and any other value slides the window. A multi-page helper (decision 4's follow-up) should step by 10 and dedupe across pages on `(title, cite)`, since `/goto` hrefs differ per render; its output is a sample of the top results, not one consistent ranking. Decision 6 stands: a cross-page rank would imply a consistency the pages do not have.
+  - Not covered: deep offsets (`start=50` to `90`) and short or empty pages, `filter=0`, block rate under paging volume, the patchright backend, and whether page SERPs add new `unknown` families.
