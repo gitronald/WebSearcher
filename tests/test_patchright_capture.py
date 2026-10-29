@@ -328,6 +328,24 @@ def test_no_ai_overview_wait_without_pending_overview(caplog):
     assert ai_wait_messages(caplog) == []
 
 
+class FakeOverviewCheckErrorPage(FakePage):
+    """A page whose AI-overview check raises, as when its context is destroyed."""
+
+    @override
+    def locator(self, selector) -> FakeLocator:
+        return FakeLocator(count_error=Exception("context destroyed"))
+
+
+def test_ai_overview_check_failure_ends_wait(caplog):
+    page = FakeOverviewCheckErrorPage()
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        out = search(make_patchright(page))
+    assert out.html == SERP_HTML
+    assert page.captured_at is not None
+    assert page.captured_at <= IDLE_MS / 1000 + 0.2
+    assert ai_wait_messages(caplog) == ["SERP | ai overview check failed | context destroyed"]
+
+
 def test_send_request_detaches_network_tracker():
     page = FakePage()
     searcher = make_patchright(page)
