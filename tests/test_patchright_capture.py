@@ -2,9 +2,10 @@
 
 Pinned: each request starts from a blank page (replacing the page when a late
 navigation of the previous SERP interrupts the reset); the capture settles the
-page (load, then a quiet network that ignores speculative prefetches) and
-retries ``content()`` only while the page is navigating; a capture without
-``#search`` is flagged; and the AI-overview expansion logs its outcome.
+page (load, then any AI overview still generating, then a quiet network that
+ignores speculative prefetches) and retries ``content()`` only while the page is
+navigating; a capture without ``#search`` is flagged; and the AI-overview
+expansion logs its outcome.
 """
 
 import logging
@@ -17,6 +18,8 @@ from WebSearcher.models.data import ResponseOutput
 from WebSearcher.models.searches import SearchParams
 from WebSearcher.searchers import SearchEngine, patchright_searcher
 from WebSearcher.searchers.patchright_searcher import (
+    AI_OVERVIEW_PENDING_SELECTOR,
+    AI_OVERVIEW_TIMEOUT_MS,
     CONTENT_ATTEMPTS,
     IDLE_MS,
     NETWORKIDLE_TIMEOUT_MS,
@@ -58,19 +61,65 @@ class FakeResponse:
     status = 200
 
 
+class FakeLocator:
+    def __init__(self, count=1, aria_expanded=None, click_error=None, count_error=None):
+        self._count = count
+        self.aria_expanded = aria_expanded
+        self.click_error = click_error
+        self.count_error = count_error
+
+    @property
+    def first(self):
+        return self
+
+    def count(self):
+        if self.count_error:
+            raise self.count_error
+        return self._count
+
+    def get_attribute(self, name, timeout=None):
+        return self.aria_expanded
+
+    def click(self, timeout=None):
+        if self.click_error:
+            raise self.click_error
+        if self.aria_expanded == "false":
+            self.aria_expanded = "true"
+
+
+class FakePendingOverview(FakeLocator):
+    """Locator for a generating AI overview: one match until ``page.overview_loaded_at``."""
+
+    def __init__(self, page):
+        super().__init__()
+        self.page = page
+
+    @override
+    def count(self):
+        loaded_at = self.page.overview_loaded_at
+        return int(loaded_at is not None and FakeClock.now < loaded_at)
+
+
 class FakePage:
     """A page that navigates as asked and serves ``contents`` in turn.
 
     Each item of ``contents`` is the HTML to return, or an exception to raise.
-    ``calls`` records every method call, in order.
+    ``calls`` records every method call, in order. With ``overview_loaded_at``
+    set, the page holds an AI overview that is generating until that time.
     """
 
-    def __init__(self, url="about:blank", contents=(SERP_HTML,)):
+    def __init__(self, url="about:blank", contents=(SERP_HTML,), overview_loaded_at=None):
         self.url = url
         self.contents = list(contents)
         self.calls: list[tuple] = []
         self.closed = False
         self.handlers: dict[str, list] = {}
+        self.overview_loaded_at = overview_loaded_at
+        self.captured_at: float | None = None
+
+    def locator(self, selector) -> FakeLocator:
+        assert selector == AI_OVERVIEW_PENDING_SELECTOR
+        return FakePendingOverview(self)
 
     def on(self, event, handler):
         self.handlers.setdefault(event, []).append(handler)
@@ -98,6 +147,7 @@ class FakePage:
 
     def content(self):
         self.calls.append(("content",))
+        self.captured_at = FakeClock.now
         item = self.contents.pop(0) if len(self.contents) > 1 else self.contents[0]
         if isinstance(item, Exception):
             raise item
@@ -211,7 +261,6 @@ class FakeBusyPage(FakePage):
         super().__init__(**kwargs)
         self.busy_s = busy_s
         self.request: FakeRequest | None = FakeRequest("https://www.google.com/async/folsrch")
-        self.captured_at: float | None = None
 
     @override
     def goto(self, url, wait_until=None, timeout=None):
@@ -226,11 +275,6 @@ class FakeBusyPage(FakePage):
         if self.request is not None and FakeClock.now >= self.busy_s:
             self.emit("requestfinished", self.request)
             self.request = None
-
-    @override
-    def content(self):
-        self.captured_at = FakeClock.now
-        return super().content()
 
 
 def test_capture_waits_for_request_in_flight():
@@ -249,6 +293,39 @@ def test_capture_waits_no_longer_than_cap(caplog):
     assert page.captured_at is not None
     assert page.captured_at <= NETWORKIDLE_TIMEOUT_MS / 1000 + 0.2
     assert any("network busy at cap" in r.getMessage() for r in caplog.records)
+
+
+def ai_wait_messages(caplog) -> list[str]:
+    return [r.getMessage() for r in caplog.records if getattr(r, "event", None) == "ai_wait"]
+
+
+def test_capture_waits_for_generating_ai_overview(caplog):
+    page = FakePage(overview_loaded_at=3.0)
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        out = search(make_patchright(page))
+    assert out.html == SERP_HTML
+    assert page.captured_at is not None
+    assert page.captured_at >= 3.0
+    assert ai_wait_messages(caplog) == ["SERP | ai overview loaded | 3.00 s"]
+
+
+def test_ai_overview_wait_stops_at_cap(caplog):
+    page = FakePage(overview_loaded_at=60.0)
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        out = search(make_patchright(page))
+    assert out.html == SERP_HTML
+    assert page.captured_at is not None
+    assert page.captured_at <= AI_OVERVIEW_TIMEOUT_MS / 1000 + IDLE_MS / 1000 + 0.2
+    assert ai_wait_messages(caplog) == ["SERP | ai overview not loaded at cap"]
+
+
+def test_no_ai_overview_wait_without_pending_overview(caplog):
+    page = FakePage()
+    with caplog.at_level(logging.DEBUG, logger=LOG.name):
+        search(make_patchright(page))
+    assert page.captured_at is not None
+    assert page.captured_at <= IDLE_MS / 1000 + 0.2
+    assert ai_wait_messages(caplog) == []
 
 
 def test_send_request_detaches_network_tracker():
@@ -347,39 +424,14 @@ def test_has_search_in_response_dump():
 # AI-overview expansion -----------------------------------------------------------
 
 
-class FakeLocator:
-    def __init__(self, count=1, aria_expanded=None, click_error=None, count_error=None):
-        self._count = count
-        self.aria_expanded = aria_expanded
-        self.click_error = click_error
-        self.count_error = count_error
-
-    @property
-    def first(self):
-        return self
-
-    def count(self):
-        if self.count_error:
-            raise self.count_error
-        return self._count
-
-    def get_attribute(self, name, timeout=None):
-        return self.aria_expanded
-
-    def click(self, timeout=None):
-        if self.click_error:
-            raise self.click_error
-        if self.aria_expanded == "false":
-            self.aria_expanded = "true"
-
-
 class FakeExpandPage(FakePage):
     def __init__(self, show_more: FakeLocator, expands=True):
         super().__init__(contents=["<html>expanded</html>"])
         self.show_more = show_more
         self.expands = expands
 
-    def locator(self, selector):
+    @override
+    def locator(self, selector) -> FakeLocator:
         if selector == SHOW_MORE_SELECTOR:
             return self.show_more
         return FakeLocator(click_error=Exception("no show-all control"))
