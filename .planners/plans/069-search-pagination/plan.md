@@ -153,3 +153,10 @@ fetched independently. Revise the decisions before implementing.
   - Base: `dev` at `51b637f`
   - Worktree: `.worktrees/069-search-pagination`
   - PR: pending
+- **2026-10-29T11:04:14-07:00** — Steps 2-5 implemented: Codex (`codex exec`, workspace-write sandbox) drafted it in one pass, and the main session reviewed the diff, re-ran the checks, and committed. No live searches were run; every new test mocks the request.
+  - `num_results` and the `num` URL entry are removed from `SearchParams` and `SearchEngine.search()`. A stale `num_results` key in `SearchParams.create` is dropped silently, and `search(num_results=...)` raises `TypeError`.
+  - `start` sits in `search()`'s old `num_results` slot, after `lang`. In the URL it follows `q`, ahead of `hl` and `uule`, and only a positive value is emitted, so `None`, `0`, and a negative value all give the first-page URL. The SERP records `start` as passed, `0` included.
+  - `BaseSERP.start` sits after `lang`. All 121 snapshots passed unchanged.
+  - `ws-demo search --start N` is only on `search` (plan 068 has not landed). A test checks that `searches`, `locations`, and `headers` reject the flag.
+  - Tests: `SearchParams` URL with and without `start`, the stale-key drop, the `TypeError`, requests-backend and patchright-backend (`page.goto` mocked) recording of `start`, and CLI and demo pass-through. Full suite: 931 passed, coverage 85.86%. ruff check, ruff format, and pyrefly are clean.
+  - Brief notes: banning network use and naming the existing fakes (`FakeSearcher`, `FakePage`, `_run_cli`) gave a clean first draft, with no revision pass needed. Codex added a throwaway offline pytest plugin under `/tmp` for its own runs and left nothing in the repo.
