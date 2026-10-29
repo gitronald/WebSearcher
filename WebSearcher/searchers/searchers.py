@@ -104,7 +104,7 @@ class SearchEngine:
         qry: str,
         location: str | None = None,
         lang: str | None = None,
-        num_results: int | None = None,
+        start: int | None = None,
         ai_expand: bool = False,
         headers: dict[str, str] = {},
     ):
@@ -114,7 +114,8 @@ class SearchEngine:
             qry: The search query
             location: A location's Canonical Name
             lang: A language code (e.g., 'en')
-            num_results: The number of results to return
+            start: Google's result offset: multiples of 10 land on page boundaries;
+                other values slide the window. None or 0 is the first page.
             ai_expand: Whether to expand AI overviews (browser backend only)
             headers: Custom headers to include in the request (requests backend
                 only; the browser backend sends Chrome's own headers)
@@ -126,7 +127,7 @@ class SearchEngine:
                 "qry": str(qry),
                 "loc": str(location) if location is not None else "",
                 "lang": str(lang) if lang is not None else "",
-                "num_results": num_results,
+                "start": start,
                 "ai_expand": ai_expand,
                 "headers": headers,
             }

@@ -15,7 +15,7 @@ import pytest
 from WebSearcher.models.configs import PatchrightConfig
 from WebSearcher.models.data import ResponseOutput
 from WebSearcher.models.searches import SearchParams
-from WebSearcher.searchers import patchright_searcher
+from WebSearcher.searchers import SearchEngine, patchright_searcher
 from WebSearcher.searchers.patchright_searcher import (
     CONTENT_ATTEMPTS,
     IDLE_MS,
@@ -158,6 +158,23 @@ def test_reset_skipped_on_blank_page():
     params = SearchParams.create({"qry": "test"})
     make_patchright(page).send_request(params)
     assert [c[1] for c in page.calls if c[0] == "goto"] == [params.url]
+
+
+def test_search_patchright_records_start(monkeypatch):
+    page = FakePage(url=PREV_URL)
+
+    def init_driver(searcher):
+        searcher.page = page
+        searcher.context = FakeContext(FakePage())
+
+    monkeypatch.setattr(PatchrightSearcher, "init_driver", init_driver)
+    monkeypatch.setattr(PatchrightSearcher, "cleanup", lambda self: True)
+    with SearchEngine(method="patchright", log_config={"console": False}) as se:
+        se.search("q", start=10)
+        gotos = [c[1] for c in page.calls if c[0] == "goto"]
+        assert gotos == ["about:blank", "https://www.google.com/search?q=q&start=10"]
+        assert se.serp["url"] == gotos[-1]
+        assert se.serp["start"] == 10
 
 
 def test_late_navigation_replaces_page_and_never_records_previous_serp():

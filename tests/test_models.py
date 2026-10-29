@@ -124,9 +124,23 @@ def test_search_params_url_with_lang():
     assert "hl=en" in params.url
 
 
-def test_search_params_url_with_num_results():
+@pytest.mark.parametrize("start", [5, 10])
+def test_search_params_url_with_start(start):
+    params = SearchParams.create({"qry": "test", "start": start, "lang": "en"})
+    assert params.url == f"https://www.google.com/search?q=test&start={start}&hl=en"
+
+
+@pytest.mark.parametrize("start", [None, 0, -10])
+def test_search_params_url_omits_nonpositive_start(start):
+    config = {"qry": "test", "lang": "en", "loc": "Boston,Massachusetts,United States"}
+    params = SearchParams.create({**config, "start": start})
+    assert "start=" not in params.url
+    assert params.url == SearchParams.create(config).url
+
+
+def test_search_params_ignores_stale_num_results():
     params = SearchParams.create({"qry": "test", "num_results": 20})
-    assert "num=20" in params.url
+    assert "num=" not in params.url
 
 
 def test_search_params_url_with_location():
@@ -135,7 +149,7 @@ def test_search_params_url_with_location():
 
 
 def test_search_params_url_omits_none():
-    params = SearchParams.create({"qry": "test", "lang": None, "num_results": None})
+    params = SearchParams.create({"qry": "test", "lang": None})
     assert "hl=" not in params.url
     assert "num=" not in params.url
 
@@ -146,11 +160,13 @@ def test_search_params_serp_id_is_hex():
     assert all(c in "0123456789abcdef" for c in params.serp_id)
 
 
-def test_search_params_to_serp_output():
-    params = SearchParams.create({"qry": "test query", "loc": "New York"})
+@pytest.mark.parametrize("start", [None, 0, 10])
+def test_search_params_to_serp_output(start):
+    params = SearchParams.create({"qry": "test query", "loc": "New York", "start": start})
     output = params.to_serp_output()
     assert output["qry"] == "test query"
     assert output["loc"] == "New York"
+    assert output["start"] == start
     assert "url" in output
     assert "serp_id" in output
 
