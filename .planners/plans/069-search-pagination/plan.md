@@ -1,8 +1,8 @@
 ---
 id: 69
 slug: search-pagination
-status: draft
-branch:
+status: active
+branch: feature/search-pagination
 created: 2026-10-29T10:20:59-07:00
 concluded:
 pr:
@@ -148,3 +148,8 @@ fetched independently. Revise the decisions before implementing.
   - Implications: decision 2 stands (a raw `start`), but the docstring should say that a multiple of 10 lands on a page boundary and any other value slides the window. A multi-page helper (decision 4's follow-up) should step by 10 and dedupe across pages on `(title, cite)`, since `/goto` hrefs differ per render; its output is a sample of the top results, not one consistent ranking. Decision 6 stands: a cross-page rank would imply a consistency the pages do not have.
   - Not covered: deep offsets (`start=50` to `90`) and short or empty pages, `filter=0`, block rate under paging volume, the patchright backend, and whether page SERPs add new `unknown` families.
 - **2026-10-29T10:46:15-07:00** — Investigation closed; the remaining open questions are out of scope for this plan: `filter=0`, deep offsets, block rates under paging volume, a live patchright test, and new `unknown` families on page SERPs. `start` still goes to both backends: patchright loads `search_params.url`, so it gets the offset with no backend change, and a mocked test covers it. Out of scope and Tests updated to match.
+- **2026-10-29T10:57:20-07:00** — Activated.
+  - Branch: `feature/search-pagination`
+  - Base: `dev` at `51b637f`
+  - Worktree: `.worktrees/069-search-pagination`
+  - PR: pending
