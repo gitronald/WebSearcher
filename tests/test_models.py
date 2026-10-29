@@ -151,7 +151,6 @@ def test_search_params_url_with_location():
 def test_search_params_url_omits_none():
     params = SearchParams.create({"qry": "test", "lang": None})
     assert "hl=" not in params.url
-    assert "num=" not in params.url
 
 
 def test_search_params_serp_id_is_hex():

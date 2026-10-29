@@ -10,12 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - `start` on `SearchEngine.search()` and `SearchParams` sets Google's result offset. Multiples of 10 land on page boundaries; other values slide the window, and `None` or `0` selects the first page. Each call fetches one page, parsed as its own SERP with ranks starting at 0.
-- The `start` field on the SERP record saves the requested offset.
+- The `start` field on the SERP record saves the requested offset, and the `search` log event carries it when set.
 - `ws-demo search --start N` fetches a page at the given result offset.
 
 ### Removed
 
-- `num_results` on `SearchEngine.search()` and `SearchParams`. Google stopped honoring `num` in September 2025 and [confirmed that it does not support a results-per-page parameter](https://searchengineland.com/google-search-confirms-it-does-not-support-the-results-per-page-parameter-462244). Passing `num_results=` to `search()` now raises `TypeError`.
+- `num_results` on `SearchEngine.search()` and `SearchParams`. Google stopped honoring `num` in September 2025 and [confirmed that it does not support a results-per-page parameter](https://searchengineland.com/google-search-confirms-it-does-not-support-the-results-per-page-parameter-462244). Passing `num_results=` to `search()` now raises `TypeError`. `start`, `ai_expand`, and `headers` are now keyword-only, so a positional `num_results` also raises `TypeError`.
 
 ## [0.13.1] - 2026-10-28
 

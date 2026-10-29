@@ -104,6 +104,7 @@ class SearchEngine:
         qry: str,
         location: str | None = None,
         lang: str | None = None,
+        *,
         start: int | None = None,
         ai_expand: bool = False,
         headers: dict[str, str] = {},
@@ -147,6 +148,7 @@ class SearchEngine:
                 "response_code": self.serp["response_code"],
                 "qry": self.serp["qry"],
                 "loc": self.serp["loc"],
+                "start": self.serp["start"],
             },
         )
         if utils.is_sorry_redirect(self.serp["url"]):
