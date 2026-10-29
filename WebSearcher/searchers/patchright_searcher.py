@@ -38,10 +38,10 @@ AI_OVERVIEW_PENDING_SELECTOR = 'div[jscontroller="EYwa3d"]:not([data-loaded="1"]
 # Capture timing (ms). A SERP can replace itself once more after #search first
 # renders, and a streamed AI overview keeps loading for a few seconds after it
 # (plan 066), so a capture waits for load, then for any AI overview to finish,
-# then for the network to go quiet. The overview wait starts once the page has
-# loaded, and its cap is about three times the slowest overview seen (done about
-# 5 s from goto, for "Tell me about" queries); a page without a pending overview
-# skips it. The quiet wait is capped because a
+# then for the network to go quiet. The overview wait starts after the load wait
+# ends, which is at most LOAD_TIMEOUT_MS in, and its cap is about three times the
+# slowest overview seen (done about 5 s from goto, for "Tell me about" queries);
+# a page without a pending overview skips it. The quiet wait is capped because a
 # page's background requests can keep it busy. Its cap is about twice the latest
 # stream end seen (about 4.2 s from goto); it costs time only on a page still
 # busy at the cap.
