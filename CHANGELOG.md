@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-10-29
+
 ### Added
 
 - `start` on `SearchEngine.search()` and `SearchParams` sets Google's result offset. Multiples of 10 land on page boundaries; other values slide the window, and `None` or `0` selects the first page. Each call fetches one page, parsed as its own SERP with ranks starting at 0.
