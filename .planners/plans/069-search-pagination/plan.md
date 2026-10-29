@@ -1,10 +1,10 @@
 ---
 id: 69
 slug: search-pagination
-status: implemented
+status: done
 branch: feature/search-pagination
 created: 2026-10-29T10:20:59-07:00
-concluded:
+concluded: 2026-10-29T11:36:34-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/218
 ---
 
@@ -167,3 +167,11 @@ fetched independently. Revise the decisions before implementing.
   - Conscious no-ops: pydantic's lax coercion of `start=True` to 1 (every other `SearchParams` field coerces the same way); the `start is not None and start > 0` guard that overlaps the falsy filter (harmless). Rejected in verification: `ws-demo show` ignoring `start` (pre-existing last-match behavior, outside decision 7), and two test-scaffolding duplication claims (both follow the files' own conventions).
   - Brief notes: the brief named the fix sites, so Codex made each change where it was asked. It added `start` only to the `extra=` dict, and in its final message it reported that `JsonlFormatter` serializes a fixed key list and drops the field. The main session added the formatter key and rewrote Codex's caplog test to use `make_engine` instead of patching `Logger.start`. A brief that names a log field should also name its serializer.
   - Checks: ruff check, ruff format, pyrefly clean; 934 passed, coverage 85.86%, 121 snapshots unchanged.
+
+## Retrospective
+
+- The live investigation earned its place before any code. It confirmed decision 5 (a bare `start` URL works with no session tokens). It also turned up two facts the docstring and any future paging helper depend on: `start` is a sliding offset, not a page number, and pages past the first are not stable between fetches.
+- Decision 1 promised a `TypeError` for the removed argument but only tested the keyword form. Reusing a removed argument's positional slot is a silent break, and the review caught it, not the plan. When a parameter is removed, make the parameters after it keyword-only, or test the positional call too.
+- A structured log field has two ends: the `extra=` dict and the formatter that serializes a fixed key list. Codex wrote only the first, as briefed, and its report flagged the gap. Briefs that touch logging should name `JsonlFormatter`.
+- Codex drafted cleanly when the brief named the existing fakes and seams (`FakeSearcher`, `FakePage`, `_run_cli`). The one test it improvised, which patched `Logger.start`, was where it had no seam to follow.
+- Left for follow-ups, as scoped: a multi-page helper stepping by 10 and deduping on `(title, cite)`, deep offsets, `filter=0`, block rates under paging, and a live patchright paging check.

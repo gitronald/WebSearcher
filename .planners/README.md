@@ -2,11 +2,11 @@
 
 | # | Plan | Status | Concluded | PR |
 |---|---|---|---|---|
-| 069 | [Replace num_results with start-offset pagination](plans/069-search-pagination/plan.md) | implemented | — | [#218](https://github.com/gitronald/WebSearcher/pull/218) |
 | 068 | [Add a websearcher command with a demo group](plans/068-websearcher-cli/plan.md) | draft | — | — |
 | 062 | [Resolve /goto redirect tokens to target URLs](plans/062-goto-redirect-resolution/plan.md) | draft | — | — |
 | 055 | [Emit ad and local result labels as a details field](plans/055-label-as-details-field/plan.md) | draft | — | — |
 | 053 | [Omit unset loc and lang from SERP records and logs](plans/053-omit-unset-loc-lang/plan.md) | draft | — | — |
+| 069 | [Replace num_results with start-offset pagination](plans/069-search-pagination/plan.md) | done | 2026-10-29 11:36 PT | [#218](https://github.com/gitronald/WebSearcher/pull/218) |
 | 067 | [Tell a not-loaded AI overview from a declined one](plans/067-ai-overview-not-loaded/plan.md) | done | 2026-10-28 13:11 PT | [#216](https://github.com/gitronald/WebSearcher/pull/216) |
 | 066 | [Make patchright captures settle, isolate requests, and detect challenges by markup](plans/066-patchright-capture-fixes/plan.md) | done | 2026-10-28 11:49 PT | [#213](https://github.com/gitronald/WebSearcher/pull/213) |
 | 065 | [Keep every geotargets release in the locations history](plans/065-keep-every-geotargets-release/plan.md) | done | 2026-10-28 10:53 PT | [#214](https://github.com/gitronald/WebSearcher/pull/214) |
