@@ -3,7 +3,7 @@ id: 36
 slug: component-signals-and-extractor-hotpath
 status: done
 branch: feature/v0.10.0-component-signals-hotpath
-created: 2026-06-01T13:35:50Z
+created: 2026-06-01T06:35:50-07:00
 concluded: 2026-06-06T14:51:25-07:00
 pr: https://github.com/gitronald/WebSearcher/pull/157
 ---

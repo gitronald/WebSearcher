@@ -3,8 +3,8 @@ id: 0
 slug: component-parsers-update
 status: done
 branch: parser-updates
-created: 2026-03-29T11:46:49-07:00
-concluded: 2026-02-06T03:18:54Z
+created: 2026-02-05T19:18:54-08:00
+concluded: 2026-02-05T19:18:54-08:00
 pr: https://github.com/gitronald/WebSearcher/pull/93
 ---
 

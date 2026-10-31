@@ -37,7 +37,7 @@
 | 036 | [`_ComponentSignals` consolidation + extractor hot-path review](plans/036-component-signals-and-extractor-hotpath/plan.md) | done | 2026-06-06 14:51 PT | [#157](https://github.com/gitronald/WebSearcher/pull/157) |
 | 038 | [Consolidate .claude/skills from 8 to 4 and absorb every skill-only script](plans/038-consolidate-skills-absorb-scripts/plan.md) | done | 2026-06-05 17:37 PT | [#152](https://github.com/gitronald/WebSearcher/pull/152) |
 | 037 | [Audit scripts/: absorb demos into the package, extract skills, retire one-offs](plans/037-scripts-audit-and-reorg/plan.md) | done | 2026-06-05 17:37 PT | [#152](https://github.com/gitronald/WebSearcher/pull/152) |
-| 035 | [`get_text` native-`text()` fast path (post-selectolax benchmark)](plans/035-get-text-native-fastpath/plan.md) | done | 2026-06-01 14:13 UTC | [#145](https://github.com/gitronald/WebSearcher/pull/145) |
+| 035 | [`get_text` native-`text()` fast path (post-selectolax benchmark)](plans/035-get-text-native-fastpath/plan.md) | done | 2026-06-01 07:13 PT | [#145](https://github.com/gitronald/WebSearcher/pull/145) |
 | 033 | [Parse kp-wholepage tabs as mini-SERP sub-columns](plans/033-kp-wholepage-tab-subcolumn-extraction/plan.md) | done | 2026-05-31 16:50 PT | — |
 | 032 | [Annotate and prune the bulk SERP fixture corpus](plans/032-fixture-corpus-notes-and-pruning/plan.md) | done | 2026-05-31 14:00 PT | [#143](https://github.com/gitronald/WebSearcher/pull/143) |
 | 030 | [Main-Section Layout: Known Issues & Follow-ups](plans/030-main-layout-known-issues/plan.md) | done | 2026-05-30 23:21 PT | [#142](https://github.com/gitronald/WebSearcher/pull/142) |
@@ -63,10 +63,10 @@
 | 008 | [Add compressed test fixtures for CI](plans/008-ci-test-data/plan.md) | done | 2026-02-06 12:26 PT | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
 | 007 | [Implement `get_text_by_selectors` refactor across WebSearcher](plans/007-formalize-get-title-prompt/plan.md) | done | 2026-02-06 12:26 PT | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
 | 006 | [Formalize multi-selector text extraction with `get_text_by_selectors`](plans/006-formalize-get-title/plan.md) | done | 2026-02-06 12:26 PT | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
-| 004 | [Ads Parser Format vs Other Component Parsers](plans/004-ads-vs-other-parsers/plan.md) | done | 2026-02-06 20:26 UTC | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
+| 004 | [Ads Parser Format vs Other Component Parsers](plans/004-ads-vs-other-parsers/plan.md) | done | 2026-02-06 12:26 PT | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
 | 003 | [Ad Parser Structure](plans/003-ad-parser-structure/plan.md) | done | 2026-02-06 12:26 PT | [#94](https://github.com/gitronald/WebSearcher/pull/94) |
 | 005 | [Parser Updates (v0.6.7a2) — Completed](plans/005-parser-updates-v0-6-7a2/plan.md) | done | 2026-02-05 19:18 PT | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
-| 000 | [Component Parsers Refactoring Plan](plans/000-component-parsers-update/plan.md) | done | 2026-02-06 03:18 UTC | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
+| 000 | [Component Parsers Refactoring Plan](plans/000-component-parsers-update/plan.md) | done | 2026-02-05 19:18 PT | [#93](https://github.com/gitronald/WebSearcher/pull/93) |
 | 043 | [Audit Twitter component parsers against 2024-2026 SERP evolution](plans/043-twitter-cards-modern-serps/plan.md) | inactive | — | — |
 | 042 | [Investigate missing URLs in the results_for local results variant](plans/042-local-results-results-for-urls/plan.md) | inactive | — | — |
 | 018 | [Add a `visible` flag to parsed results](plans/018-visible-flag-on-results/plan.md) | retired | 2026-06-07 12:58 PT | [#160](https://github.com/gitronald/WebSearcher/pull/160) |
