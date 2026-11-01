@@ -1,8 +1,8 @@
 ---
 id: 70
 slug: deferred-html-parsers
-status: draft
-branch:
+status: active
+branch: dev
 created: 2026-11-01T15:23:16-08:00
 concluded:
 pr:
@@ -70,6 +70,12 @@ gained, rows lost, and any feature field that changed.
 - Running JavaScript at parse time.
 
 ## Log
+
+- **2026-11-01T15:23:28-08:00** — Activated.
+  - Branch: `dev`
+  - Base: `dev` at `955c09a`
+  - Worktree: none (main checkout)
+  - PR: pending
 
 ## Handoff
 
