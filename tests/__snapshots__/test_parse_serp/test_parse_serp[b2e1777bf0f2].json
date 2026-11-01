@@ -537,6 +537,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -554,6 +555,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jul 18, 2024",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -569,7 +571,10 @@
       "cite": "phalpern · X",
       "cmpt_rank": 8,
       "details": {
+        "author_url": "https://x.com/phalpern?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "timestamp": "4 days ago",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -587,6 +592,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 days ago",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -604,6 +610,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -621,6 +628,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
+        "topic": "Einstein's wisdom and philosophical insights",
         "type": "item"
       },
       "section": "main",
@@ -638,6 +646,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 12, 2025",
+        "topic": "Relativity and its implications",
         "type": "item"
       },
       "section": "main",
@@ -655,6 +664,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Oct 18, 2025",
+        "topic": "Relativity and its implications",
         "type": "item"
       },
       "section": "main",
@@ -677,6 +687,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/lcjdwSY2AzM/hqdefault.jpg",
         "timestamp": "Apr 14, 2025",
         "title": "The Biggest Misconception in Physics",
+        "topic": "Relativity and its implications",
         "type": "video"
       },
       "section": "main",
@@ -694,6 +705,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
+        "topic": "Relativity and its implications",
         "type": "item"
       },
       "section": "main",
@@ -711,6 +723,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "6 days ago",
+        "topic": "Relativity and its implications",
         "type": "item"
       },
       "section": "main",
@@ -728,6 +741,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
+        "topic": "Relativity and its implications",
         "type": "item"
       },
       "section": "main",
@@ -745,6 +759,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 days ago",
+        "topic": "Einstein's brain size matters?",
         "type": "item"
       },
       "section": "main",
@@ -767,6 +782,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/MVbpJB2Oi8E/hqdefault.jpg",
         "timestamp": "Aug 24, 2025",
         "title": "Einstein's Brain: Why Size Doesn't Equal Genius w /Carl Sagan",
+        "topic": "Einstein's brain size matters?",
         "type": "video"
       },
       "section": "main",
@@ -784,6 +800,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
+        "topic": "Einstein's brain size matters?",
         "type": "item"
       },
       "section": "main",
@@ -801,6 +818,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 days ago",
+        "topic": "Einstein's brain size matters?",
         "type": "item"
       },
       "section": "main",
@@ -818,6 +836,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jan 17, 2024",
+        "topic": "Einstein's brain size matters?",
         "type": "item"
       },
       "section": "main",
@@ -835,6 +854,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
+        "topic": "Einstein's brain size matters?",
         "type": "item"
       },
       "section": "main",
@@ -852,6 +872,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jun 20, 2025",
+        "topic": "Manhattan Project involvement",
         "type": "item",
         "visible": false
       },
@@ -875,6 +896,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/movDYUI0Fx4/hqdefault.jpg",
         "timestamp": "Jan 1, 2024",
         "title": "Einstein Saved The World? w/ Neil deGrasse Tyson",
+        "topic": "Manhattan Project involvement",
         "type": "video",
         "visible": false
       },
@@ -893,6 +915,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jul 28, 2023",
+        "topic": "Manhattan Project involvement",
         "type": "item",
         "visible": false
       },
@@ -911,6 +934,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
+        "topic": "Manhattan Project involvement",
         "type": "item",
         "visible": false
       },
@@ -929,6 +953,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jun 17, 2025",
+        "topic": "Manhattan Project involvement",
         "type": "item",
         "visible": false
       },
@@ -952,6 +977,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/KyJLDBYXc6w/hqdefault.jpg",
         "timestamp": "Jul 24, 2023",
         "title": "Final de Oppenheimer explicado #oppenheimer #christophernolan ...",
+        "topic": "Manhattan Project involvement",
         "type": "video",
         "visible": false
       },
@@ -975,6 +1001,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/baM33j7rcU8/hqdefault.jpg",
         "timestamp": "Oct 21, 2025",
         "title": "The Doctor Who Stole Einstein's Brains Surgeon Reacts",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "video",
         "visible": false
       },
@@ -993,6 +1020,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Jul 9, 2024",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "item",
         "visible": false
       },
@@ -1016,6 +1044,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/JqDKyvq89l8/hqdefault.jpg",
         "timestamp": "Sep 27, 2025",
         "title": "The Doctor Who Stole Einstein's Brain",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "video",
         "visible": false
       },
@@ -1034,6 +1063,7 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Oct 12, 2025",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "item",
         "visible": false
       },
@@ -1057,6 +1087,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/maFNCBCJVWE/hqdefault.jpg",
         "timestamp": "May 11, 2025",
         "title": "How Einstein's Brain Was Stolen..",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "video",
         "visible": false
       },
@@ -1080,6 +1111,7 @@
         "thumbnail_url": "http://img.youtube.com/vi/RRLrFqb3G50/hqdefault.jpg",
         "timestamp": "May 25, 2025",
         "title": "Albert Einstein's Brain ILLEGALLY STOLEN! What Happened NEXT ...",
+        "topic": "The controversy surrounding Einstein's brain",
         "type": "video",
         "visible": false
       },

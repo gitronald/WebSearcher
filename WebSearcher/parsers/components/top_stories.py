@@ -14,11 +14,14 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import class_tokens, get_text, has_text, is_element
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row, mark_timestamp_row
+from ._deferred_html import fill_deferred_html
 from ._video_card import parse_evlb_card
 
 
 def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, Any]]:
     node: Node = elem
+    # Cards past the first few, and those in collapsed topics, are deferred.
+    fill_deferred_html(node)
     divs: list[Node] = []
     divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
     # find_children equivalent: direct element children of div.qmv19b (no empty
@@ -55,8 +58,43 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     divs = [d for d in divs if not (d.mem_id in seen or seen.add(d.mem_id))]
 
     if divs:
-        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
+        topics = _topics_by_panel(node)
+        return [
+            _mark_topic(parse_top_story(div, ctype, i), div, topics) for i, div in enumerate(divs)
+        ]
     return [{"type": ctype, "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
+
+
+def _row_details(parsed: dict[str, Any]) -> dict[str, Any]:
+    """The row's ``details``, created as a metadata-only ``item`` when it has none."""
+    details = parsed.get("details")
+    if isinstance(details, dict):
+        return details
+    details = {"type": "item"}
+    parsed["details"] = details
+    return details
+
+
+def _topics_by_panel(node: Node) -> dict[int, str]:
+    """Label of each collapsible topic, keyed by the ``mem_id`` of the panel it opens."""
+    topics: dict[int, str] = {}
+    for button in node.css('[role="button"][aria-expanded][aria-controls]'):
+        panel = node.css_first(f'[id="{button.attrs["aria-controls"]}"]')
+        label = get_text(button.css_first("span"), " ", strip=True)
+        if panel is not None and label:
+            topics[panel.mem_id] = label
+    return topics
+
+
+def _mark_topic(parsed: dict[str, Any], sub: Node, topics: dict[int, str]) -> dict[str, Any]:
+    """Record the collapsible topic a card sits under, if any, in ``details``."""
+    parent = sub.parent
+    while topics and parent is not None:
+        if label := topics.get(parent.mem_id):
+            _row_details(parsed)["topic"] = label
+            break
+        parent = parent.parent
+    return parsed
 
 
 def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
@@ -91,6 +129,12 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
             if is_element(c) and c.tag == "span" and "Uz7khf" not in class_tokens(c)
         ]
         mark_timestamp_row(parsed, get_text(spans[-1], " ", strip=True) if spans else None)
+    # Embedded posts carry the age in a span[data-ts] and link their author apart
+    # from the post.
+    mark_timestamp_row(parsed, get_text(sub.css_first("span[data-ts]"), " ", strip=True))
+    author = sub.css_first('div[id^="twitter_attribution"] a[href]')
+    if author is not None:
+        _row_details(parsed)["author_url"] = author.attrs.get("href")
     return mark_hidden_row(parsed, sub)
 
 
@@ -102,6 +146,15 @@ def get_cite(sub: Node) -> str | None:
     tweet_cite = sub.css_first("div.Du2Vwd")  # Perspectives - embedded tweet
     if tweet_cite is not None:
         return get_text(tweet_cite, " ")
+
+    attribution = sub.css_first("atx-attribution div.sTl1Td")  # 2026-10 Perspectives
+    if attribution is not None:
+        return get_text(attribution, " ", strip=True)
+
+    author = get_text(sub.css_first("div.R8BTeb"), " ", strip=True)  # 2026-10 Recent posts
+    if author:
+        platform = get_text(sub.css_first("div.xuPcX"), " ", strip=True)
+        return f"{author} · {platform}" if platform else author
 
     img_cite = sub.css_first("g-img.sL0zmc")  # Top Stories - image cite
     if img_cite is not None:

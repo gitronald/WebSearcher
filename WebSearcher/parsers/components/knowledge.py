@@ -14,6 +14,7 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text, node_string, walk_descendants
 from ...utils import slugify
 from ._common import parse_alink, parse_lab_fact, under_any
+from ._deferred_html import fill_deferred_html
 from .general import parse_general_result
 
 
@@ -56,6 +57,10 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
     heading = node.css_first('div[role="heading"]')
     if heading is not None and (heading_text := get_text(heading, " ", strip=True)):
         details["heading"] = heading_text
+
+    # A match header's highlight clips past the first two are deferred.
+    for carousel in node.css(".imso_mh__mh-bma g-scrolling-carousel"):
+        fill_deferred_html(carousel)
 
     alinks = list(node.css("a"))
     if alinks:

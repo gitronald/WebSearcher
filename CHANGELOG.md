@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- `perspectives`, `recent_posts`, `top_stories`, and `local_news` rows now cover the cards Google defers. A `requests` capture holds those cards only as inline `jsl.dh` script text, including carousel cards past the first few and posts in collapsed topics, so they were dropped. These parsers now fill their own placeholders first. A browser capture has already run the scripts, and a placeholder that holds content is left alone.
+- A match header's deferred highlight clips are now in the `knowledge` row's `details.urls`.
+- `details.topic` on a card under a collapsed topic, such as "Christian McCaffrey suffers thigh injury".
+- `details.author_url` on an embedded post, which links its author apart from the post.
+
+### Changed
+
+- 2026-10 post cards now fill `cite` from their attribution line, such as "oursf49ers · Instagram".
+- Embedded posts now record `details.timestamp`.
+
 ## [0.14.1] - 2026-10-29
 
 ### Changed

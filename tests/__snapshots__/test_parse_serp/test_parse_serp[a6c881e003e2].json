@@ -11,7 +11,7 @@
   },
   "results": [
     {
-      "cite": null,
+      "cite": "Chron",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "34 minutes ago",
@@ -27,9 +27,13 @@
       "url": "https://www.chron.com/news/houston-texas/article/methodist-sugarland-morgue-renovation-21338750.php"
     },
     {
-      "cite": null,
+      "cite": "SBISD · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/SBISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 1,
       "sub_rank": 1,
@@ -40,9 +44,13 @@
       "url": "https://x.com/SBISD/status/2019554130931699756?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "GalenaParkISD · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/GalenaParkISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "2 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 2,
       "sub_rank": 2,
@@ -53,7 +61,7 @@
       "url": "https://x.com/GalenaParkISD/status/2019893869148557574?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "Click2Houston",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "57 minutes ago",
@@ -69,9 +77,13 @@
       "url": "https://www.click2houston.com/video/news/2026/02/06/houston-area-high-school-students-protest-against-ice-during-walkout-in-houston/"
     },
     {
-      "cite": null,
+      "cite": "AldineISD · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/AldineISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 4,
@@ -82,7 +94,7 @@
       "url": "https://x.com/AldineISD/status/2019882739328229700?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "Community Impact | News",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "18 hours ago",
@@ -98,9 +110,13 @@
       "url": "https://communityimpact.com/houston/cypress/education/2026/02/06/cy-fair-isd-tables-bond-proposal-until-november-due-to-lack-of-election-equipment-from-harris-county/"
     },
     {
-      "cite": null,
+      "cite": "SheldonISD · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/SheldonISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 6,
@@ -111,7 +127,7 @@
       "url": "https://x.com/SheldonISD/status/2019886137473421314?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "KHOU",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "1 hour ago",
@@ -127,9 +143,13 @@
       "url": "https://www.khou.com/video/news/live_stream/khou-11-news-at-5pm/285-0883b902-1b7a-4e1b-be64-19b08b212012"
     },
     {
-      "cite": null,
+      "cite": "TxDOTHouston · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/TxDOTHouston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "1 day ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 8,
@@ -140,7 +160,7 @@
       "url": "https://x.com/TxDOTHouston/status/2019541909581242689?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "Houston Public Media",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "2 hours ago",
@@ -156,9 +176,13 @@
       "url": "https://www.houstonpublicmedia.org/articles/shows/hello-houston/2026/02/06/542772/hello-houston-the-commuter-cut-february-6-2026/"
     },
     {
-      "cite": null,
+      "cite": "MarioforHouston · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/MarioforHouston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "2 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 10,
@@ -169,7 +193,7 @@
       "url": "https://x.com/MarioforHouston/status/2019900262756860199?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "CultureMap Houston",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "1 day ago",
@@ -185,9 +209,13 @@
       "url": "https://houston.culturemap.com/news/restaurants-bars/succulent-fine-dining-restaurant-closed/"
     },
     {
-      "cite": null,
+      "cite": "CW39Houston · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/CW39Houston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "19 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 12,
@@ -198,7 +226,7 @@
       "url": "https://x.com/CW39Houston/status/2019631165838078216?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
-      "cite": null,
+      "cite": "COLlive",
       "cmpt_rank": 0,
       "details": {
         "timestamp": "20 hours ago",
@@ -214,9 +242,13 @@
       "url": "https://collive.com/back-from-bondi-leibel-lazaroff-returns-home-to-texas/"
     },
     {
-      "cite": null,
+      "cite": "salinasforhtx · X",
       "cmpt_rank": 0,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/salinasforhtx?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "timestamp": "7 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 14,
