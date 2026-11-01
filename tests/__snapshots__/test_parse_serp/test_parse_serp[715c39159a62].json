@@ -28,11 +28,13 @@
           },
           {
             "text": "0:22|Kaleb Smith somehow snags the tipped ball for a Virginia Tech 1st down|ESPN+",
-            "url": "/goto?url=CAESlQEB6zswFQZ5MgvYwELvnwCiJF8I0MRJYdNmCVNduALcEpJN_Jio6eoqJiUWKd7IYpJT9oGSJPrm1ZXiqrOQBfcDDD4XEbscV8qAwbwtRfI8Y-09RCcxvenVGR9luiWSPMefyQ4808yX9l24VSucDzG_zvZtaxKftcHZHYfX1UXjwoatG28gogwKfRjiAcirE6ICf19iqg"
+            "url": "/goto?url=CAESlQEB6zswFQZ5MgvYwELvnwCiJF8I0MRJYdNmCVNduALcEpJN_Jio6eoqJiUWKd7IYpJT9oGSJPrm1ZXiqrOQBfcDDD4XEbscV8qAwbwtRfI8Y-09RCcxvenVGR9luiWSPMefyQ4808yX9l24VSucDzG_zvZtaxKftcHZHYfX1UXjwoatG28gogwKfRjiAcirE6ICf19iqg",
+            "visible": false
           },
           {
             "text": "0:40|VT's Kaleb Smith hauls in dime from Grant Wells for TD|ESPN+",
-            "url": "/goto?url=CAESlQEB6zswFatAnEkH9asjpdyx6F2e1IgG07iDqfTyFaWqWiVPqNOMFmj5jG-BUkiAhUAifsvENGkVK1vqA0csuJy9f2Iq5BWprIirw7ge4WtkmPuqUBfVmNPaDifvxhDgE-TGKs1pmCq9hhcLvwa_3PjaD3ejtV8GuF0dAy7PIOHkMoPxOj5DcjtlAmeKzDqlLV5KZH_lTw"
+            "url": "/goto?url=CAESlQEB6zswFatAnEkH9asjpdyx6F2e1IgG07iDqfTyFaWqWiVPqNOMFmj5jG-BUkiAhUAifsvENGkVK1vqA0csuJy9f2Iq5BWprIirw7ge4WtkmPuqUBfVmNPaDifvxhDgE-TGKs1pmCq9hhcLvwa_3PjaD3ejtV8GuF0dAy7PIOHkMoPxOj5DcjtlAmeKzDqlLV5KZH_lTw",
+            "visible": false
           }
         ]
       },
@@ -270,7 +272,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,

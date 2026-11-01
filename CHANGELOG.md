@@ -10,14 +10,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - `perspectives`, `recent_posts`, `top_stories`, and `local_news` rows now cover the cards Google defers. A `requests` capture holds those cards only as inline `jsl.dh` script text, including carousel cards past the first few and posts in collapsed topics, so they were dropped. These parsers now fill their own placeholders first. A browser capture has already run the scripts, and a placeholder that holds content is left alone.
-- A match header's deferred highlight clips are now in the `knowledge` row's `details.urls`.
-- `details.topic` on a card under a collapsed topic, such as "Christian McCaffrey suffers thigh injury".
+- A match header's deferred highlight clips are now in the `knowledge` row's `details.urls`, each with `visible: false`.
+- `details.section_heading` and `details.section_summary` on a card in a collapsible section of a carousel, such as "Christian McCaffrey suffers thigh injury".
 - `details.author_url` on an embedded post, which links its author apart from the post.
 
 ### Changed
 
 - 2026-10 post cards now fill `cite` from their attribution line, such as "oursf49ers · Instagram".
 - Embedded posts now record `details.timestamp`.
+- `details.visible` is now `false` on a `perspectives`, `recent_posts`, `top_stories`, `local_news`, or `latest_from` card that Google marks `data-init-vis="false"` or that sits in a collapsed section. These cards are not on screen when the page loads, and browser captures now flag them too, so counts filtered on `visible` change.
 
 ## [0.14.1] - 2026-10-29
 

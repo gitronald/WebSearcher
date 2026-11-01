@@ -104,7 +104,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 4,
@@ -120,7 +121,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 5,
@@ -136,7 +138,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 6,
@@ -152,7 +155,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "15 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 7,
@@ -168,7 +172,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "18 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -184,7 +189,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -200,7 +206,8 @@
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -366,7 +373,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -383,7 +391,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -400,7 +409,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -417,7 +427,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,

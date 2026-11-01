@@ -401,7 +401,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 27, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,

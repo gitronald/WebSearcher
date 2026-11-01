@@ -321,7 +321,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/n4ElQOE3lyI/hqdefault.jpg",
         "timestamp": "4 weeks ago",
         "title": "Why is the Sky Blue?",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -338,7 +339,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -355,7 +357,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -372,7 +375,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -389,7 +393,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -406,7 +411,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Dec 10, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -423,7 +429,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -440,7 +447,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -462,7 +470,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/o1pTCw8cg10/hqdefault.jpg",
         "timestamp": "Nov 25, 2025",
         "title": "Can Sky become Green? | Why is our sky Blue? | #shorts",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,

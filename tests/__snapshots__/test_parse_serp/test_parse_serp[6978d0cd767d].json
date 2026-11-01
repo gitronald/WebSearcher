@@ -166,7 +166,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/9UNIK5wIKBU/hqdefault.jpg",
         "timestamp": "Dec 11, 2025",
         "title": "Top 5 Programming Languages to learn in 2026! (Important)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -183,7 +184,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -200,7 +202,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -217,7 +220,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -234,7 +238,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -256,7 +261,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/xqI_6fnNU_c/hqdefault.jpg",
         "timestamp": "3 weeks ago",
         "title": "YouTube",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -273,7 +279,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 27, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -290,7 +297,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -312,7 +320,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/MaJVlbBc9ro/hqdefault.jpg",
         "timestamp": "3 weeks ago",
         "title": "What Programming Language to Learn in 2026",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,

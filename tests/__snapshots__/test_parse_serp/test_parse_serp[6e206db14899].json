@@ -533,7 +533,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/mC4nyib2sfg/hqdefault.jpg",
         "timestamp": "Nov 19, 2025",
         "title": "How I Would Learn Python FAST (if I could start over)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -555,7 +556,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/9MzgIGAWnKE/hqdefault.jpg",
         "timestamp": "1 week ago",
         "title": "Python Tutorial for Beginners (2026)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -577,7 +579,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/vaH36xfNL4M/hqdefault.jpg",
         "timestamp": "3 weeks ago",
         "title": "Learn Python in 8 Weeks: Live, Guided & Beginner-Friendly!",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -599,7 +602,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/Dt6I6UOsOsw/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "Learn Python Programming Quickly (Perfect for Beginners)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -616,7 +620,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -633,7 +638,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -650,7 +656,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -672,7 +679,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/iqjUOyW9Zn8/hqdefault.jpg",
         "timestamp": "1 week ago",
         "title": "Python for Beginners #3 : Let's create Rock, Paper, Scissors",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -694,7 +702,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/UR-fU34qjKc/hqdefault.jpg",
         "timestamp": "Dec 9, 2025",
         "title": "Python in 2 Minutes – Crash Course for Beginners",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,

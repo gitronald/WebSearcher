@@ -65,7 +65,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "57 minutes ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 3,
@@ -82,7 +83,8 @@
       "details": {
         "author_url": "https://x.com/AldineISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 4,
@@ -98,7 +100,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "18 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 5,
@@ -115,7 +118,8 @@
       "details": {
         "author_url": "https://x.com/SheldonISD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 6,
@@ -131,7 +135,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "1 hour ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 7,
@@ -148,7 +153,8 @@
       "details": {
         "author_url": "https://x.com/TxDOTHouston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -164,7 +170,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "2 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -181,7 +188,8 @@
       "details": {
         "author_url": "https://x.com/MarioforHouston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "2 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -197,7 +205,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -214,7 +223,8 @@
       "details": {
         "author_url": "https://x.com/CW39Houston?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "19 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -230,7 +240,8 @@
       "cmpt_rank": 0,
       "details": {
         "timestamp": "20 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -247,7 +258,8 @@
       "details": {
         "author_url": "https://x.com/salinasforhtx?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "timestamp": "7 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,

@@ -365,7 +365,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -382,7 +383,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "11 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -399,7 +401,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -416,7 +419,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -433,7 +437,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -450,7 +455,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -467,7 +473,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -484,7 +491,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "6 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -502,7 +510,8 @@
         "author_url": "https://x.com/NBCOlympics?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
         "timestamp": "5 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -519,9 +528,11 @@
       "details": {
         "author_url": "https://x.com/PopCrave?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "10 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -537,9 +548,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "11 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -555,9 +568,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "11 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -574,9 +589,11 @@
       "details": {
         "author_url": "https://x.com/PopBase?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "11 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -593,9 +610,11 @@
       "details": {
         "author_url": "https://x.com/PopCrave?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "10 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -612,9 +631,11 @@
       "details": {
         "author_url": "https://x.com/PopCrave?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Opalite's music video is out!",
+        "section_summary": "The 'Opalite' music video is out, featuring a star-studded cast and shot on film, generating excitement among fans.",
         "timestamp": "10 hours ago",
-        "topic": "Opalite's music video is out!",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -630,9 +651,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "4 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -648,9 +671,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "3 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -667,9 +692,11 @@
       "details": {
         "author_url": "https://x.com/TheSwiftSociety?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "5 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -686,9 +713,11 @@
       "details": {
         "author_url": "https://x.com/TSUpdating?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "3 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -705,9 +734,11 @@
       "details": {
         "author_url": "https://x.com/NBCOlympics?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "5 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -724,9 +755,11 @@
       "details": {
         "author_url": "https://x.com/swifferupdates?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Winter Olympics message",
+        "section_summary": "Taylor Swift sends a good luck message to the athletes competing in the 2026 Winter Olympics.",
         "timestamp": "4 hours ago",
-        "topic": "Winter Olympics message",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -743,9 +776,11 @@
       "details": {
         "author_url": "https://x.com/TSUpdating?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "23 hours ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,
@@ -761,9 +796,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "2 days ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 40,
@@ -779,9 +816,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "2 days ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 41,
@@ -798,9 +837,11 @@
       "details": {
         "author_url": "https://x.com/NFL_DovKleiman?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "2 days ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 42,
@@ -817,9 +858,11 @@
       "details": {
         "author_url": "https://x.com/TSUpdating?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "3 days ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 43,
@@ -836,9 +879,11 @@
       "details": {
         "author_url": "https://x.com/TheSwiftSociety?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Travis broke Taylor's chair",
+        "section_summary": "Travis Kelce jokes about breaking Taylor Swift's chair, blaming it on sourdough-induced weight gain, and she found it funny.",
         "timestamp": "23 hours ago",
-        "topic": "Travis broke Taylor's chair",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 44,
@@ -854,8 +899,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "4 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -873,8 +919,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "10 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -892,8 +939,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "7 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -911,8 +959,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "8 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -930,8 +979,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "8 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -949,8 +999,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Decoding \"Opalite's\" symbolism",
+        "section_summary": "Fans are actively decoding the symbolism within the 'Opalite' music video, looking for easter eggs and hidden meanings.",
         "timestamp": "4 hours ago",
-        "topic": "Decoding \"Opalite's\" symbolism",
         "type": "item",
         "visible": false
       },
@@ -968,8 +1019,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "20 hours ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -988,8 +1040,9 @@
       "details": {
         "author_url": "https://x.com/PopTingz?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "1 day ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -1007,8 +1060,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "1 day ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -1026,8 +1080,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "1 day ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -1045,8 +1100,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "1 day ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -1064,8 +1120,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Why no YouTube release?",
+        "section_summary": "Fans speculate on the strategic reasons behind the decision to not release 'Opalite' on YouTube.",
         "timestamp": "1 day ago",
-        "topic": "Why no YouTube release?",
         "type": "item",
         "visible": false
       },
@@ -1083,8 +1140,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "9 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },
@@ -1103,8 +1161,9 @@
       "details": {
         "author_url": "https://x.com/dontblamealex?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "16 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },
@@ -1122,8 +1181,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "2 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },
@@ -1141,8 +1201,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "8 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },
@@ -1160,8 +1221,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "10 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },
@@ -1179,8 +1241,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Brunette Taylor is back",
+        "section_summary": "Taylor Swift sports brunette hair in the 'Opalite' music video, exciting fans and sparking nostalgia.",
         "timestamp": "15 hours ago",
-        "topic": "Brunette Taylor is back",
         "type": "item",
         "visible": false
       },

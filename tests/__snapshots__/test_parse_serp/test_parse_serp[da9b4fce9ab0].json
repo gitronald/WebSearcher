@@ -477,7 +477,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/sRJYxpj6QaY/hqdefault.jpg",
         "timestamp": "8 hours ago",
         "title": "I Ranked The Best American Express Credit Cards…Here's What's Actually Good",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -494,7 +495,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -516,7 +518,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/3oN-S9_bTH8/hqdefault.jpg",
         "timestamp": "2 weeks ago",
         "title": "6 Best Cash Back Credit Cards of 2026",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -533,7 +536,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -555,7 +559,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/3DTMnplqGYQ/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "Ranking All My 21 Credit Cards (Focus on THESE)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -572,7 +577,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -594,7 +600,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/uYV6R6Tv7eE/hqdefault.jpg",
         "timestamp": "2 weeks ago",
         "title": "5 Perfect Credit Cards For Retirement Travel And 2 To Avoid",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -611,7 +618,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 14, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -633,7 +641,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/pvCqU6zwcQ0/hqdefault.jpg",
         "timestamp": "1 week ago",
         "title": "What's the Best Credit Card? How To Choose the RIGHT Card for You #Chime",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,

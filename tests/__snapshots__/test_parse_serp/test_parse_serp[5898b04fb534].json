@@ -974,7 +974,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 48,
@@ -991,7 +992,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 49,
@@ -1008,7 +1010,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 50,
@@ -1030,7 +1033,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/2FXz6sjriXU/hqdefault.jpg",
         "timestamp": "4 weeks ago",
         "title": "We Finally Found a Good Hotel in New York City?!",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 51,
@@ -1047,7 +1051,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 52,
@@ -1064,7 +1069,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 21, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 53,
@@ -1081,7 +1087,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 54,
@@ -1098,7 +1105,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "16 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 55,
@@ -1115,7 +1123,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 56,

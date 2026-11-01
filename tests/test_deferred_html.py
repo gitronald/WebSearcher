@@ -37,7 +37,7 @@ def test_fill_runs_in_document_order_so_a_fragment_can_fill_a_later_target():
         + _fragment("outer", r"\x3cdiv id=\"inner\">\x3c/div>")
         + _fragment("inner", "text")
     )
-    assert fill_deferred_html(scope) == 2
+    assert len(fill_deferred_html(scope)) == 2
     assert _text(scope, "#inner") == "text"
 
 
@@ -45,7 +45,7 @@ def test_fill_leaves_a_target_that_already_holds_content():
     scope = _scope(
         '<div id="scope"><div id="done">loaded</div></div>' + _fragment("done", "original")
     )
-    assert fill_deferred_html(scope) == 0
+    assert fill_deferred_html(scope) == []
     assert _text(scope, "#done") == "loaded"
 
 
@@ -55,11 +55,11 @@ def test_fill_stays_inside_the_scope():
         + _fragment("in", "a")
         + _fragment("out", "b")
     )
-    assert fill_deferred_html(scope) == 1
+    assert len(fill_deferred_html(scope)) == 1
     assert "b" not in (scope.text() or "")
 
 
-def test_perspectives_reads_deferred_cards_and_their_collapsed_topic():
+def test_perspectives_reads_deferred_cards_and_their_collapsed_section():
     card = (
         r"\x3ca class=\"aJWbwf\" href=\"/goto?url=POST\">\x3cdiv class=\"eAaXgc\">Post\x3c/div>"
         r"\x3catx-attribution>\x3cdiv class=\"sTl1Td\">fan · Instagram\x3c/div>"
@@ -67,18 +67,39 @@ def test_perspectives_reads_deferred_cards_and_their_collapsed_topic():
     )
     scope = _scope(
         '<div id="scope"><span role="heading" aria-level="2">What people are saying</span>'
-        '<div role="list"><div role="listitem" id="shown"></div></div>'
+        '<div role="list">'
+        '<div role="listitem" data-init-vis="true"><a href="/goto?url=SHOWN"></a>'
+        '<div class="eAaXgc">Shown</div></div>'
+        '<div role="listitem" data-init-vis="false" id="tail"></div>'
+        "</div>"
         '<div role="button" aria-expanded="false" aria-controls="panel">'
-        "<span>Team loses</span></div>"
-        '<div id="panel"><div role="listitem" id="hidden"></div></div></div>'
-        + _fragment("shown", card)
+        '<span>Team loses</span><span class="nmhWwf">A summary.</span></div>'
+        '<div id="panel"><div role="listitem" data-init-vis="true" id="hidden"></div></div></div>'
+        + _fragment("tail", card)
         + _fragment("hidden", card)
     )
-    rows = parse_perspectives(scope)
-    assert [r["url"] for r in rows] == ["/goto?url=POST", "/goto?url=POST"]
-    assert rows[0]["cite"] == "fan · Instagram"
-    assert "topic" not in rows[0]["details"]
-    assert rows[1]["details"]["topic"] == "Team loses"
+    shown, tail, hidden = parse_perspectives(scope)
+    assert shown["url"] == "/goto?url=SHOWN"
+    assert "visible" not in shown["details"]
+    assert "section_heading" not in shown["details"]
+    assert tail["cite"] == "fan · Instagram"
+    assert tail["details"]["visible"] is False
+    assert "section_heading" not in tail["details"]
+    assert hidden["details"]["visible"] is False
+    assert hidden["details"]["section_heading"] == "Team loses"
+    assert hidden["details"]["section_summary"] == "A summary."
+
+
+def test_expanded_section_keeps_its_cards_visible():
+    scope = _scope(
+        '<div id="scope"><div role="button" aria-expanded="true" aria-controls="panel">'
+        "<span>Team loses</span></div>"
+        '<div id="panel"><div role="listitem"><a href="/goto?url=POST"></a>'
+        '<div class="eAaXgc">Post</div></div></div></div>'
+    )
+    details = parse_perspectives(scope)[0]["details"]
+    assert details["section_heading"] == "Team loses"
+    assert "visible" not in details
 
 
 def test_embedded_post_keeps_its_age_and_author_link():
@@ -115,5 +136,8 @@ def test_match_header_reads_deferred_highlight_clips():
         "</g-scrolling-carousel></div></div>"
         + _fragment("clip", r"\x3ca href=\"/goto?url=CLIP\">Touchdown\x3c/a>")
     )
-    urls = parse_knowledge_panel(scope)[0]["details"]["urls"]
-    assert [u["url"] for u in urls] == ["/goto?url=FIRST", "/goto?url=CLIP"]
+    first, clip = parse_knowledge_panel(scope)[0]["details"]["urls"]
+    assert first["url"] == "/goto?url=FIRST"
+    assert "visible" not in first
+    assert clip["url"] == "/goto?url=CLIP"
+    assert clip["visible"] is False

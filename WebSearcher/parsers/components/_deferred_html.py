@@ -44,17 +44,17 @@ def unescape_js_string(text: str) -> str:
     return decoded
 
 
-def fill_deferred_html(scope: Node) -> int:
-    """Fill each empty ``jsl.dh`` target inside ``scope``.
+def fill_deferred_html(scope: Node) -> list[Node]:
+    """Fill each empty ``jsl.dh`` target inside ``scope``, returning the targets filled.
 
     Fragments run in document order, as in a browser, so a fragment can fill a
-    placeholder that an earlier fragment created. Returns how many were applied.
+    placeholder that an earlier fragment created.
     """
-    applied = 0
+    filled: list[Node] = []
     for target_id, body in _RX_FRAGMENT.findall(_root_html(scope)):
         target = scope.css_first(f'[id="{target_id}"]')
         if target is None or (target.inner_html or "").strip():
             continue
         target.inner_html = unescape_js_string(body)
-        applied += 1
-    return applied
+        filled.append(target)
+    return filled

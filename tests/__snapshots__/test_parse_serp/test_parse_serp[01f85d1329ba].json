@@ -286,7 +286,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -303,7 +304,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -320,7 +322,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -342,7 +345,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/zAP859pN3UU/hqdefault.jpg",
         "timestamp": "3 days ago",
         "title": "Best Places to See the Northern Lights (Where & When to Go)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -359,7 +363,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "15 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -376,7 +381,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "12 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -393,7 +399,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -410,7 +417,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "20 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -427,7 +435,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 hour ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -443,9 +452,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "5 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -462,9 +473,11 @@
       "details": {
         "author_url": "https://x.com/thetatvaindia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "6 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -480,9 +493,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "6 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -498,9 +513,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "4 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -516,9 +533,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "6 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -535,9 +554,11 @@
       "details": {
         "author_url": "https://x.com/NightSkyToday?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Historic solar storm hits Earth",
+        "section_summary": "A historic solar storm caused rare red auroras and breathtaking displays, visible even in typically unseen locations, globally.",
         "timestamp": "4 days ago",
-        "topic": "Historic solar storm hits Earth",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -553,9 +574,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "1 week ago",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -571,9 +594,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "Dec 1, 2025",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -589,9 +614,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "2 weeks ago",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -607,9 +634,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "3 days ago",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -625,9 +654,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "Oct 4, 2024",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -643,9 +674,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Witnessing the Aurora during darkness",
+        "section_summary": "From Alaska to Norway, social media showcases the surreal beauty and allure of auroras during polar nights around the world.",
         "timestamp": "5 days ago",
-        "topic": "Witnessing the Aurora during darkness",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -661,9 +694,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "timestamp": "4 days ago",
-        "topic": "Chasing the Northern Lights",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -679,9 +714,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "timestamp": "6 days ago",
-        "topic": "Chasing the Northern Lights",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -699,12 +736,14 @@
         "channel": "Sarah Sarosh",
         "heading": "What people are saying",
         "publish_date": "Apr 10, 2025",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/UI9eajgOH24/hqdefault.jpg",
         "timestamp": "Apr 10, 2025",
         "title": "*SOLO* Bucketlist Experience Travel! chasing the Northern Lights ...",
-        "topic": "Chasing the Northern Lights",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,
@@ -720,9 +759,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "timestamp": "4 days ago",
-        "topic": "Chasing the Northern Lights",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 40,
@@ -738,9 +779,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "timestamp": "5 days ago",
-        "topic": "Chasing the Northern Lights",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 41,
@@ -756,9 +799,11 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Chasing the Northern Lights",
+        "section_summary": "Thrill-seekers and photographers share their passion for hunting auroras, traveling to remote locations to capture the mesmerizing displays.",
         "timestamp": "Nov 8, 2025",
-        "topic": "Chasing the Northern Lights",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 42,
@@ -774,8 +819,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "Oct 18, 2025",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -793,8 +839,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "Apr 13, 2024",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -812,8 +859,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "May 16, 2025",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -832,8 +880,9 @@
       "details": {
         "author_url": "https://x.com/NightSkyToday?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "4 days ago",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -852,8 +901,9 @@
       "details": {
         "author_url": "https://x.com/forallcurious?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "2 weeks ago",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -872,8 +922,9 @@
       "details": {
         "author_url": "https://x.com/AmazingNature00?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Aurora transforms the landscape colors",
+        "section_summary": "The aurora borealis is so intense that it can light up the ground and turn the snow green.",
         "timestamp": "6 days ago",
-        "topic": "Aurora transforms the landscape colors",
         "type": "item",
         "visible": false
       },
@@ -891,8 +942,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "2 weeks ago",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },
@@ -910,8 +962,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "Nov 11, 2025",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },
@@ -929,8 +982,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "2 weeks ago",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },
@@ -948,8 +1002,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "2 weeks ago",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },
@@ -968,8 +1023,9 @@
       "details": {
         "author_url": "https://x.com/MatthewCappucci?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "2 weeks ago",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },
@@ -987,8 +1043,9 @@
       "cmpt_rank": 5,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Solar flares cause stronger auroras?",
+        "section_summary": "Solar flares and geomagnetic storms are causing stronger and more visible auroras, reaching unusual locations and captivating viewers worldwide.",
         "timestamp": "2 weeks ago",
-        "topic": "Solar flares cause stronger auroras?",
         "type": "item",
         "visible": false
       },

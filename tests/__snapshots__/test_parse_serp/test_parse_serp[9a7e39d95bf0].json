@@ -326,7 +326,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/dtZVbrog_mU/hqdefault.jpg",
         "timestamp": "Nov 13, 2025",
         "title": "Photosynthesis | A-Level Biology Revision Livestream",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -348,7 +349,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/r90D4XK42c4/hqdefault.jpg",
         "timestamp": "Dec 6, 2025",
         "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,

@@ -361,7 +361,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/NHxROlR9SH8/hqdefault.jpg",
         "timestamp": "2 hours ago",
         "title": "Why Is No One Talking About This Jenna Ortega Movie?!",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -378,7 +379,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -400,7 +402,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/kCOi1vCl5MM/hqdefault.jpg",
         "timestamp": "6 hours ago",
         "title": "Amy Adams STRESSED Over 'Drowning' Jenna Ortega in 'Klara and the Sun' \n(Exclusive)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -417,7 +420,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -439,7 +443,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/QEUuQEQugtU/hqdefault.jpg",
         "timestamp": "15 hours ago",
         "title": "YouTube",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -456,7 +461,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -473,7 +479,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "21 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -490,7 +497,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "8 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -507,7 +515,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "8 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -523,9 +532,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Disney training impacts fan boundaries",
+        "section_summary": "Jenna Ortega opens up about how childhood Disney Channel media training complicates her efforts to set healthy boundaries today.",
         "timestamp": "12 hours ago",
-        "topic": "Disney training impacts fan boundaries",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -542,9 +553,11 @@
       "details": {
         "author_url": "/goto?url=CAEShwEB6zswFTUWjuWsy-FIAc8f4TAQKqQpON5Xmsy-uvuexYaAHwKV4qXccrLLCFvmrL-sNS44uW2xs-jMF9g6Ftc-bgO1u8FcrCK2-KluL-X0Cdu7Bdb0ImnwOgb64xvvytpp5sIKcxZu_n_Z0SH06ueM2ca4Ahp3UvSDxdcVP-5_cef4KdyKkq0",
         "heading": "What people are saying",
+        "section_heading": "Disney training impacts fan boundaries",
+        "section_summary": "Jenna Ortega opens up about how childhood Disney Channel media training complicates her efforts to set healthy boundaries today.",
         "timestamp": "1 day ago",
-        "topic": "Disney training impacts fan boundaries",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -561,9 +574,11 @@
       "details": {
         "author_url": "/goto?url=CAESiQEB6zswFVEB61xBhw7RS6qYlABXG2JCfzmALFHZ_MOVtBmanWSs9tLbSiHaZCBP0dOP8cLCU-z_aV2-jIkRp0sPFGfS7nDr74ESDXjVS4HSI_b5P4lzGQzF7t8hxgb_8wZ-kpzEf0QtsvDkOKtwKOca-VTdJDtPRshOG0UdieVy1I3bVERr1dbGmQ",
         "heading": "What people are saying",
+        "section_heading": "Disney training impacts fan boundaries",
+        "section_summary": "Jenna Ortega opens up about how childhood Disney Channel media training complicates her efforts to set healthy boundaries today.",
         "timestamp": "1 day ago",
-        "topic": "Disney training impacts fan boundaries",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -579,9 +594,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Disney training impacts fan boundaries",
+        "section_summary": "Jenna Ortega opens up about how childhood Disney Channel media training complicates her efforts to set healthy boundaries today.",
         "timestamp": "56 minutes ago",
-        "topic": "Disney training impacts fan boundaries",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -597,9 +614,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -615,9 +634,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -633,9 +654,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "2 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -651,9 +674,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -669,9 +694,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -688,9 +715,11 @@
       "details": {
         "author_url": "/goto?url=CAEShwEB6zswFaP39DG2CIf_UWMp5bt5DUAvUlDiAqT0l41SOrhy7mMX_gA-difrMLX8kJPvsut3uCsuaXupP5btKfBsMXxrwEuWyAHPJYj9mP6_8V5JsVZk4HBUJ_8l-_t_DZDOD_jrsHX-3CCjfR7IrkvoyMFHLvCww6XHQHCSpo_4OhoGnh_x9uo",
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega covers Vogue Magazine",
+        "section_summary": "Fans and fashionistas react to Jenna Ortega’s Renaissance-inspired November cover shoot, sparking debate over the photographer's signature style.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega covers Vogue Magazine",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -706,9 +735,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "timestamp": "1 day ago",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -726,12 +757,14 @@
         "channel": "KISS",
         "heading": "What people are saying",
         "publish_date": "Oct 24, 2026",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/eV6fkub4Wa4/hqdefault.jpg",
         "timestamp": "1 day ago",
         "title": "Amy Adams & Jenna Ortega Spill Friendship Flags & Florence ...",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,
@@ -747,9 +780,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "timestamp": "2 days ago",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 40,
@@ -765,9 +800,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "timestamp": "5 days ago",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 41,
@@ -783,9 +820,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "timestamp": "1 day ago",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 42,
@@ -801,9 +840,11 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Ortega and Adams' wholesome chemistry",
+        "section_summary": "Fans are gushing over Jenna Ortega and Amy Adams' adorable bond during interviews for their film Klara and the Sun.",
         "timestamp": "1 week ago",
-        "topic": "Ortega and Adams' wholesome chemistry",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 43,
@@ -819,8 +860,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "2 days ago",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -838,8 +880,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -857,8 +900,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "Dec 4, 2024",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -876,8 +920,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "3 days ago",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -896,8 +941,9 @@
       "details": {
         "author_url": "/goto?url=CAESjAEB6zswFdRd2RlH9o8iQPyW15T96cDccDP1hUv7hGwZv9Mp8OrCNQptqIxJ5SghqO-XdkXmkLstlbm0o5V5UWgk7-E1ecN7W6soBXDzvujqLvbn0gzH52_kzbTnRmslTkyN8PbKB4Ir3CMRe1Ko4PlC8de0YzpYJPWCweunezMgjxkfWmHirHtOFztN9g",
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "1 day ago",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -916,8 +962,9 @@
       "details": {
         "author_url": "/goto?url=CAESjAEB6zswFQ-DYVQHGy-Fexp_ryaRccrOqVdA5xEjBprnQj2MCiWW396EeqdqqAJWjnX8MycDDuwLx7m0ca-cnQbswbaN7lMoR7wA391fzhYAXZ7eSBQ_RbxnthQPsiXDTTcsdwz7H_omode2wKnC44VBbV9JqqB4AeEu9z4ulpsYkDDCdTE8Lsh5jP2aKA",
         "heading": "What people are saying",
+        "section_heading": "Jenna Ortega planning television break",
+        "section_summary": "Jenna Ortega reveals plans to step away from television roles to explore new creative projects after Wednesday wraps.",
         "timestamp": "1 day ago",
-        "topic": "Jenna Ortega planning television break",
         "type": "item",
         "visible": false
       },
@@ -935,8 +982,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "2 days ago",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -954,8 +1002,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "Aug 25, 2024",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -973,8 +1022,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "Aug 25, 2024",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -992,8 +1042,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "Sep 27, 2024",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -1011,8 +1062,9 @@
       "cmpt_rank": 6,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "Aug 9, 2025",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -1031,8 +1083,9 @@
       "details": {
         "author_url": "/goto?url=CAEShgEB6zswFS8fxqOxtKm46PnGrYniiJiidUdzjqjJAYxcPzNtqDGonHmClcG_yZqy0h9XmRKuLkt7IrThaS_K2ygZ07Fhf8tmO9-pePyzuhBl-uJJTAaT2_wcL2nm1lGL9RmI6XiXj7-tg03-BSuQPUTf4f82xCuvo1qdCBd6yjW_9lJBgAABQw",
         "heading": "What people are saying",
+        "section_heading": "Opening up about childhood OCD",
+        "section_summary": "Fans praise Jenna Ortega for candidly sharing how her obsessive-compulsive disorder has impacted her since age seven.",
         "timestamp": "3 days ago",
-        "topic": "Opening up about childhood OCD",
         "type": "item",
         "visible": false
       },
@@ -1124,7 +1177,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 61,

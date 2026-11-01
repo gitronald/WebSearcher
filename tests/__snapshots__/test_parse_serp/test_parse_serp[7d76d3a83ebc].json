@@ -262,7 +262,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -278,7 +279,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "11 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -294,7 +296,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -310,7 +313,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "16 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -326,7 +330,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "17 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -342,7 +347,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -358,7 +364,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -462,7 +469,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/7hmzdUBt0M4/hqdefault.jpg",
         "timestamp": "15 hours ago",
         "title": "WATCH: Trump says he will revoke church tax exempt status if leaders 'say \nsomething bad about' him",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -479,7 +487,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -496,7 +505,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -513,7 +523,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -530,7 +541,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "12 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -547,7 +559,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -564,7 +577,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "6 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -586,7 +600,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/Og51cLThBYQ/hqdefault.jpg",
         "timestamp": "1 day ago",
         "title": "What Trump says he learned from Minneapolis chaos",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -603,7 +618,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,

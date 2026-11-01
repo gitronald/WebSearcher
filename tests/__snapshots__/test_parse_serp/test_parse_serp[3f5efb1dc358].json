@@ -270,7 +270,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -292,7 +293,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/JQxFQark-q0/hqdefault.jpg",
         "timestamp": "2 weeks ago",
         "title": "Understanding the science behind earthquakes",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -314,7 +316,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/qqSC5o58zvg/hqdefault.jpg",
         "timestamp": "4 weeks ago",
         "title": "Anatomy of an earthquake",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -336,7 +339,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/hzEpGpofkK4/hqdefault.jpg",
         "timestamp": "Nov 27, 2025",
         "title": "The exact cause of 25000 earthquakes | Scienceplained",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -353,7 +357,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -370,7 +375,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 25, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,

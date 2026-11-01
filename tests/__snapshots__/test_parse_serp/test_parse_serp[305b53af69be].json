@@ -368,7 +368,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "12 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -385,7 +386,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -402,7 +404,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -419,7 +422,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "16 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -436,7 +440,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "7 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -453,7 +458,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -470,7 +476,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -492,7 +499,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/Og51cLThBYQ/hqdefault.jpg",
         "timestamp": "1 day ago",
         "title": "What Trump says he learned from Minneapolis chaos",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -509,7 +517,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "15 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -586,7 +595,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -602,7 +612,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -618,7 +629,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -634,7 +646,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -650,7 +663,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -666,7 +680,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -682,7 +697,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,

@@ -158,8 +158,8 @@
       "cmpt_rank": 10,
       "details": {
         "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
         "timestamp": "3 hours ago",
-        "topic": "Latest posts from Twitter",
         "type": "item"
       },
       "section": "main",
@@ -176,8 +176,8 @@
       "cmpt_rank": 10,
       "details": {
         "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
         "timestamp": "5 hours ago",
-        "topic": "Latest posts from Twitter",
         "type": "item"
       },
       "section": "main",
@@ -194,8 +194,8 @@
       "cmpt_rank": 10,
       "details": {
         "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
         "timestamp": "8 hours ago",
-        "topic": "Latest posts from Twitter",
         "type": "item"
       },
       "section": "main",
@@ -212,9 +212,10 @@
       "cmpt_rank": 10,
       "details": {
         "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
         "timestamp": "11 hours ago",
-        "topic": "Latest posts from Twitter",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -230,9 +231,10 @@
       "cmpt_rank": 10,
       "details": {
         "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
         "timestamp": "15 hours ago",
-        "topic": "Latest posts from Twitter",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,

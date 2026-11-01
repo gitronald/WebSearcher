@@ -18,6 +18,16 @@ from ._deferred_html import fill_deferred_html
 from .general import parse_general_result
 
 
+def _is_under(node: Node, mem_ids: set[int]) -> bool:
+    """True when an ancestor of ``node`` is one of ``mem_ids``."""
+    parent = node.parent
+    while parent is not None:
+        if parent.mem_id in mem_ids:
+            return True
+        parent = parent.parent
+    return False
+
+
 def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
     node: Node = elem
 
@@ -58,9 +68,11 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
     if heading is not None and (heading_text := get_text(heading, " ", strip=True)):
         details["heading"] = heading_text
 
-    # A match header's highlight clips past the first two are deferred.
+    # A match header's highlight clips past the first two are deferred, and out
+    # of view until the carousel scrolls.
+    deferred: set[int] = set()
     for carousel in node.css(".imso_mh__mh-bma g-scrolling-carousel"):
-        fill_deferred_html(carousel)
+        deferred.update(target.mem_id for target in fill_deferred_html(carousel))
 
     alinks = list(node.css("a"))
     if alinks:
@@ -70,7 +82,10 @@ def parse_knowledge_panel(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]
             href = a.attrs.get("href")
             if href is not None and href != "#" and href not in seen_urls:
                 seen_urls.add(href)
-                urls.append(parse_alink(a, "|"))
+                link = parse_alink(a, "|")
+                if deferred and _is_under(a, deferred):
+                    link["visible"] = False
+                urls.append(link)
         if urls:
             details["urls"] = urls
 

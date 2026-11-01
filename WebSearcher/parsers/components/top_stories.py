@@ -7,7 +7,7 @@ component. Also backs the perspectives, latest_from, local_news and
 recent_posts parsers via the ``ctype`` argument.
 """
 
-from typing import Any
+from typing import Any, NamedTuple
 
 from selectolax.lexbor import LexborNode as Node
 
@@ -58,9 +58,10 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     divs = [d for d in divs if not (d.mem_id in seen or seen.add(d.mem_id))]
 
     if divs:
-        topics = _topics_by_panel(node)
+        sections = _sections_by_panel(node)
         return [
-            _mark_topic(parse_top_story(div, ctype, i), div, topics) for i, div in enumerate(divs)
+            _mark_card_context(parse_top_story(div, ctype, i), div, sections)
+            for i, div in enumerate(divs)
         ]
     return [{"type": ctype, "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
 
@@ -75,25 +76,49 @@ def _row_details(parsed: dict[str, Any]) -> dict[str, Any]:
     return details
 
 
-def _topics_by_panel(node: Node) -> dict[int, str]:
-    """Label of each collapsible topic, keyed by the ``mem_id`` of the panel it opens."""
-    topics: dict[int, str] = {}
+class _Section(NamedTuple):
+    """A themed, collapsible group of cards inside a carousel component."""
+
+    heading: str
+    summary: str | None
+    collapsed: bool
+
+
+def _sections_by_panel(node: Node) -> dict[int, _Section]:
+    """Each collapsible section, keyed by the ``mem_id`` of the panel it opens."""
+    sections: dict[int, _Section] = {}
     for button in node.css('[role="button"][aria-expanded][aria-controls]'):
         panel = node.css_first(f'[id="{button.attrs["aria-controls"]}"]')
-        label = get_text(button.css_first("span"), " ", strip=True)
-        if panel is not None and label:
-            topics[panel.mem_id] = label
-    return topics
+        heading = get_text(button.css_first("span"), " ", strip=True)
+        if panel is not None and heading:
+            sections[panel.mem_id] = _Section(
+                heading,
+                get_text(button.css_first("span.nmhWwf"), " ", strip=True),
+                button.attrs.get("aria-expanded") == "false",
+            )
+    return sections
 
 
-def _mark_topic(parsed: dict[str, Any], sub: Node, topics: dict[int, str]) -> dict[str, Any]:
-    """Record the collapsible topic a card sits under, if any, in ``details``."""
+def _mark_card_context(
+    parsed: dict[str, Any], sub: Node, sections: dict[int, _Section]
+) -> dict[str, Any]:
+    """Record a card's section, and that it is not shown on load, in ``details``.
+
+    Google marks the cards past a carousel's first few ``data-init-vis="false"``,
+    loaded or not, and a card in a collapsed section stays out of view until opened.
+    """
+    section = None
     parent = sub.parent
-    while topics and parent is not None:
-        if label := topics.get(parent.mem_id):
-            _row_details(parsed)["topic"] = label
-            break
+    while sections and parent is not None and section is None:
+        section = sections.get(parent.mem_id)
         parent = parent.parent
+    if section is not None:
+        details = _row_details(parsed)
+        details["section_heading"] = section.heading
+        if section.summary:
+            details["section_summary"] = section.summary
+    if sub.attrs.get("data-init-vis") == "false" or (section is not None and section.collapsed):
+        _row_details(parsed)["visible"] = False
     return parsed
 
 
