@@ -14,23 +14,32 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text, is_element, is_hidden
 
 
+def mark_not_visible(parsed: dict[str, Any]) -> dict[str, Any]:
+    """Record ``visible=False`` in a result row's ``details``.
+
+    A row with no content payload gains a metadata-only ``details``
+    (``type="item"``); a content row gets the flag as a sibling key. Call
+    **after** the row's content ``details`` is built so the flag is not
+    overwritten.
+    """
+    details = parsed.get("details")
+    if isinstance(details, dict):
+        details["visible"] = False
+    else:
+        parsed["details"] = {"type": "item", "visible": False}
+    return parsed
+
+
 def mark_hidden_row(parsed: dict[str, Any], node: Node | None) -> dict[str, Any]:
     """Record ``visible=False`` in a result row's ``details`` when ``node`` is
-    hidden (the inline ``display:none`` lazy-render pattern; see
-    :func:`._slx.is_hidden`).
+    hidden: the inline ``display:none`` lazy-render pattern (see
+    :func:`._slx.is_hidden`) or Google's ``data-init-vis="false"`` on the node.
 
     ``visible`` is recorded *only when False* (the default is visible), so this
-    is a no-op for shown rows. A row with no content payload gains a
-    metadata-only ``details`` (``type="item"``); a content row gets the flag as
-    a sibling key. Call **after** the row's content ``details`` is built so the
-    flag is not overwritten.
+    is a no-op for shown rows.
     """
-    if is_hidden(node):
-        details = parsed.get("details")
-        if isinstance(details, dict):
-            details["visible"] = False
-        else:
-            parsed["details"] = {"type": "item", "visible": False}
+    if is_hidden(node) or (node is not None and node.attrs.get("data-init-vis") == "false"):
+        mark_not_visible(parsed)
     return parsed
 
 
