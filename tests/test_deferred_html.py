@@ -4,6 +4,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from WebSearcher import utils
 from WebSearcher.parsers.components._deferred_html import fill_deferred_html, unescape_js_string
+from WebSearcher.parsers.components.ai_overview import parse_ai_overview
 from WebSearcher.parsers.components.knowledge import parse_knowledge_panel
 from WebSearcher.parsers.components.perspectives import parse_perspectives
 from WebSearcher.parsers.components.recent_posts import parse_recent_posts
@@ -141,3 +142,51 @@ def test_match_header_reads_deferred_highlight_clips():
     assert "visible" not in first
     assert clip["url"] == "/goto?url=CLIP"
     assert clip["visible"] is False
+
+
+_TRAY = (
+    r"\x3cdiv style=\"display:none\">\x3cul>"
+    r"\x3cli class=\"LLtSOc\">\x3ca class=\"KEVENd\" href=\"/goto?url=T1\">\x3c/a>"
+    r"\x3cdiv class=\"R8BTeb\">one.example\x3c/div>\x3c/li>"
+    r"\x3cli class=\"LLtSOc\">\x3ca class=\"KEVENd\" href=\"/goto?url=T2\">\x3c/a>"
+    r"\x3cdiv class=\"R8BTeb\">two.example\x3c/div>\x3c/li>"
+    r"\x3c/ul>\x3c/div>"
+)
+
+
+def _overview_page() -> Node:
+    return _scope(
+        '<div id="scope"><div class="mZJni"><div class="n6owBd">The answer.</div></div>'
+        '<div data-src-id="1"><a href="/goto?url=CARD">Card</a></div>'
+        '<div id="tray"></div><div id="other"></div></div>'
+        + _fragment("tray", _TRAY)
+        + _fragment("other", r"\x3cdiv class=\"n6owBd\">Not the answer.\x3c/div>")
+    )
+
+
+def test_overview_reads_its_tray_apart_from_its_source_cards():
+    [row] = parse_ai_overview(_overview_page())
+    details = row["details"]
+    assert [s["url"] for s in details["sources"]] == ["/goto?url=CARD"]
+    assert [(s["url"], s["publisher"], s["visible"]) for s in details["source_tray"]] == [
+        ("/goto?url=T1", "one.example", False),
+        ("/goto?url=T2", "two.example", False),
+    ]
+
+
+def test_overview_tray_fill_leaves_the_body_and_other_fragments_alone():
+    scope = _overview_page()
+    [row] = parse_ai_overview(scope)
+    assert row["text"] == "The answer."
+    other = scope.css_first("#other")
+    assert other is not None
+    assert not (other.inner_html or "").strip()
+
+
+def test_fill_can_be_limited_to_fragments_holding_a_marker():
+    scope = _scope(
+        '<div id="scope"><div id="a"></div><div id="b"></div></div>'
+        + _fragment("a", "wanted")
+        + _fragment("b", "other")
+    )
+    assert [t.attrs.get("id") for t in fill_deferred_html(scope, containing="wanted")] == ["a"]

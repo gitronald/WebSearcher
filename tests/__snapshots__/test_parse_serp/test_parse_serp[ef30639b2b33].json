@@ -78,6 +78,71 @@
             "text": "When the sun sets or rises, its light must travel through a much thicker layer of the atmosphere to reach your eyes. This longer path scatters almost all the blue and violet light away before it gets to you. The longer wavelengths—such as red, orange, and yellow—pass straight through to your eyes. Learn more about light physics and space science at the NASA Space Place or read the breakdown by the National Environmental Satellite, Data, and Information Service ."
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "spaceplace.nasa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESYAHrOzAVDcQQlKVw60t_s4-UhXVOQkac6U7q17f9xtz4fCJ_r3BC06ZE4NeLOecSIX-JWSsL46G-vdKQ9xkAPZPu0u9bQFYApP9hpqvj4aeq9ZLhfAJqPMCfJDYxqUWZ4w",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "nesdis.noaa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAEShwEB6zswFasMgczKoeMgaQZNGwAadxERGpHa14S9BhK2FpOpWyxp6lKNyueDpezFWezvxscuwdVvxg3G6c52FSSUVgRRSrqbtldfmG3SfO3oQNaUGK4RE4Cb4C4SJqYDYx6-h53Rt9EcGSL408QXCYGLpLjL6w1PBNcEy9cBhorhpsqZ38Ub_sA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "plus.nasa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESgwEB6zswFSK245usAJVF-sz8ik1RQT2aR5sspNBnKJ1F-pPyGxVCyf6W0xNksp5Am53K4iAfNE5BKB-K_9Vq8Qtad9CIxhp3PNENXUdiVvlcCQSzn_aLM5Dq860boNpyUWT4awcZ_uOX-MOi6f-NoOBtcY1x3kRIMeFyH6lPkLURlR0c3g",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "math.ucr.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESfwHrOzAV8g8lvnyLcCDZQKDKYnQKlFWFO6YVsdWHdE8M25uaWHdtBUY8TNTRDPeFV-JrpGpcOk6dI1pnpmjV8XVhNLmdsv_YmO9KPi_-WfaVzeKAwuC0s_6Umm82-TvpLZF16WsSGy1qXG49jywh5bVP6Ge5TfIVcZmfEjkUme8",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZQHrOzAVg2eYC6iOfxkIYgfLjjnM0h_u4_zaK3LF_ganwPpsikXecQomgRl2bWhcNOVydNnAFp4n845xNx7UnErpiAXz9IMMMXkyEOlI8qr2Sz7JE4L626V9NSLSV1KhkgPIOZhq",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "montrealsciencecentre.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESdgHrOzAV1CGA7vkGBkt8cF7NfuhFnv14-p73-1Rb9endQDm9UQWaxWz8sQJFadOX3b8CfLFQK7jjRk-_-EMhA1eUcRcMaekShkrToyDsE7H7ywNz9A2NSjUwEiPzfLC7BoY-YRyhBM80p3se0cwK6TeEEe-KyBk",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "weather.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESXgHrOzAVoEBgtyHfwVFICcXt0sZJa2eOnfeQarbdGVFrYrlwV6Bwenxb-380srgZBWbPL1ja7xL1bxRh8AQNYBsG_QgdoMzKH-RTkXvkOFBOSOI4ohKSH8DDCtsXQeo",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn3.gstatic.com/faviconV2?url=https://spaceplace.nasa.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

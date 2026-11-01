@@ -17,7 +17,7 @@ import re
 
 from selectolax.lexbor import LexborNode as Node
 
-from .ai_overview import _root_html
+from ._common import root_html
 
 _RX_FRAGMENT = re.compile(
     r"""\{id:'([^']+)'\},function\(\)\{jsl\.dh\(this\.id,"([^"\\]*(?:\\.[^"\\]*)*)\"""",
@@ -44,14 +44,17 @@ def unescape_js_string(text: str) -> str:
     return decoded
 
 
-def fill_deferred_html(scope: Node) -> list[Node]:
+def fill_deferred_html(scope: Node, containing: str | None = None) -> list[Node]:
     """Fill each empty ``jsl.dh`` target inside ``scope``, returning the targets filled.
 
     Fragments run in document order, as in a browser, so a fragment can fill a
-    placeholder that an earlier fragment created.
+    placeholder that an earlier fragment created. ``containing`` limits the fill to
+    fragments whose source holds that text, for a parser that wants one kind.
     """
     filled: list[Node] = []
-    for target_id, body in _RX_FRAGMENT.findall(_root_html(scope)):
+    for target_id, body in _RX_FRAGMENT.findall(root_html(scope)):
+        if containing is not None and containing not in body:
+            continue
         target = scope.css_first(f'[id="{target_id}"]')
         if target is None or (target.inner_html or "").strip():
             continue

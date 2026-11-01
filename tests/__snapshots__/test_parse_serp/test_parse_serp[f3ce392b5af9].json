@@ -43,6 +43,71 @@
             "source_ids": []
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESYwHrOzAV98EpKlg4dSQbeYqUubRCSHVseRMFHhh0WwW2KiHT_gT0ODUvGQMs_wImxXBMAmlE19qa96xsdErd0aDc-LmcWAgjImgflXTNDuhBCdTY4aDcKTjy34GHR1nTno75ZA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "planters.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESXgHrOzAVHwxEHa5D8qW-xnm2AX6jLboKuTjVZ0en_g35Z3E7khsHfqfdgYxfaAOEPOkCvdYvQq28We4gKdCGWFVX8vhy9wZ5lKqBaXco4TgGB-O4nRGylTfvN86ihQk",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "americanhistory.si.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESngEB6zswFbTPpaTSTuEBMyJGOhzw3yDKI50_lO6q_Mqm9AKdNTweN0joZ9qKDXCwdVObPH5_Jo_6A7YMnrSmSjJNonnAoX3JxL-TjOLhOuKNlfhSNDzLhQcvAAMXxPTVv57qe0LZQBjLAdOgpENkyBwi3fCTFWVwZNj-PVGHZFJu--cFkM9ArqzpSF4WzgOHLjVFcxyrgluwz8RqjszLHw",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "mascots.fandom.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZQHrOzAV-ocyMp2z_tRTrx-Tokz4SqMwoEMBVSz9W6w-p9M967-mMBtD5t5r_LuB5tuL6VMXIbaTyq2BzmlMuvKCS978uiZEs0Yp66dCet6f20FfM0AiiwlspufiDa94E2wMyshT",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "hormelfoods.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAEShAEB6zswFV10O8X_MHX9ocPRYqOc3QeBmCRHQ-fsEuEFFa51-KmEdziVByZYtsvSLy2w7vLXDs6CQPO4qDGl4fhcvN2540xGXPb1qTHSpL9UMiBpE0NBajb4l9KGso7UOq5s_WLgwIipKNZ_dSbpLiykZhz-pL9eaeBDwkId55PDPPfFLxU",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZgHrOzAVyw3-s7D_IATiXku6Kp75lucfCkIOikqHelyVf48WWmnSx8ARuEQ4A8PdzoMQ_FpzQdOiUx3Q-mCywtoK8RqK5zscPgVcAEAnobAY5-hyuFQV5_vFCDIBxtdwGukDGFb16A",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZgHrOzAVBpNzXkbmI5aUDBcD9zDRMAG6g1yDRFNuWawbPmo9y-dXlrkCpCvtd9cz26a-pQ0til3J38LVQF1MOEWqxB3BkkyzFAsz468aBUAhgNh30BduPxaUAIkUNJ5TycVN-2g1jg",
+            "visible": false
+          }
+        ],
         "type": "ai_overview"
       },
       "section": "main",

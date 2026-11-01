@@ -55,6 +55,89 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "knowatom.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.knowatom.com/science-phenomena-videos/6th-grade-science/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "sciencefocus.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.sciencefocus.com/nature/how-does-photosynthesis-work",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "education.nationalgeographic.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://education.nationalgeographic.org/resource/photosynthesis/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "life.illinois.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.life.illinois.edu/govindjee/page2.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=fTXh7A7Uc2M",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "khanacademy.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "britannica.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.britannica.com/science/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=CL9A8YhwUps",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://education.nationalgeographic.org&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

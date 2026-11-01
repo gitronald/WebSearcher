@@ -5,7 +5,7 @@ from selectolax.lexbor import LexborNode as Node
 from .. import utils
 from ..extractors import Extractor
 from ..extractors.extractor_serp_features import FeatureExtractor
-from .components.ai_overview import raw_serp_html
+from .components._common import raw_serp_html
 
 
 def parse_serp(serp: str | Node, url: str | None = None) -> dict[str, Any]:

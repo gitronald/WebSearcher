@@ -107,6 +107,116 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "42krunning.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://42krunning.com/en/10-tips-for-your-first-marathon/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=3IqKhHUZwpg",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/Marathon_Training/comments/1jsrdzq/any_tips_here_for_a_first_marathon_runner/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=kBo-q4DwqPM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=v7OCbZv2iEM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "coachdebbieruns.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://coachdebbieruns.com/your-first-marathon/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/Marathon_Training/comments/18r1rsq/first_time_marathon_runner_what_advice_did_you/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/running/comments/wllvue/your_number_one_tip_for_a_first_time_marathoner/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=ZdOcD1UmLNs",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "highfive.co.uk",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://highfive.co.uk/blogs/news/top-5-tips-on-marathon-race-day",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "runningandstuff.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "http://www.runningandstuff.com/surviving-your-first-marathon",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/Marathon_Training/comments/179mylo/what_are_some_things_you_wish_you_knew_before/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reddit.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

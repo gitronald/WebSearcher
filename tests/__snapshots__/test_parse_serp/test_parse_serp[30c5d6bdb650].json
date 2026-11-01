@@ -36,6 +36,80 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "finance.yahoo.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://finance.yahoo.com/topic/tech/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "nytimes.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.nytimes.com/section/technology",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "washingtonpost.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.washingtonpost.com/business/technology/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reuters.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reuters.com/technology/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "technologyreview.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.technologyreview.com/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "technewsworld.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.technewsworld.com/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "news.mit.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://news.mit.edu/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "indianexpress.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://indianexpress.com/section/technology/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.reuters.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

@@ -39,6 +39,107 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/selfreliance/comments/iuliat/how_to_change_a_car_tire/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "lesschwab.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.lesschwab.com/article/tires/how-to-change-a-tire.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/shorts/bInihYJPtEU",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "africa.michelin.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=A_SMlicOjxI",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=QjZ5ohr7sGA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "pitstoparabia.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.pitstoparabia.com/en/news/how-to-change-car-tyres",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "michelinman.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "truecar.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.truecar.com/blog/change-tire-10-easy-steps/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

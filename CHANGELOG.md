@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `details.section_heading` and `details.section_summary` on a card in a collapsible section of a carousel, such as "Christian McCaffrey suffers thigh injury".
 - `details.author_url` on an embedded post, which links its author apart from the post.
 - `details.key_moments` on a `videos` or `general` video row, one entry per moment with its `seconds`, `title`, and `url`. A `requests` capture holds these only as inline script text, along with the video card behind `details.channel` and `details.publish_date`, which these rows now fill too.
+- `details.source_tray` on an `ai_overview` row, the hidden list of source links each with `visible: false`. On a `requests` capture it holds more than `details.sources`, which it overlaps, so count one or the other.
 
 ### Changed
 

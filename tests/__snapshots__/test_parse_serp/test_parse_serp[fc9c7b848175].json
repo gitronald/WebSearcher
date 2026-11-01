@@ -81,6 +81,98 @@
             "source_ids": []
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/Rambler_American",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "hemmings.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.hemmings.com/stories/1967-amc-rambler-american-rogue/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "conceptcarz.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.conceptcarz.com/s32289/amc-rambler-american.aspx",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/AMC_Rebel",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "xr793.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://xr793.com/wp-content/uploads/2018/01/1967-AMC-Rambler.pdf",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "classic.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/year-1967/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "classic.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=z9bYgXppslM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "facebook.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.facebook.com/groups/84517340861/posts/10161964098545862/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "diy.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.diy.org/article/rambler_american",
+            "visible": false
+          }
+        ],
         "type": "ai_overview"
       },
       "section": "main",

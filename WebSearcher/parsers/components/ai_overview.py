@@ -44,19 +44,14 @@ recovers the full URL where a payload header names it.
 
 from __future__ import annotations
 
-import contextvars
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import class_tokens, get_text, is_hidden, subtree_css, walk_descendants
 from ._ai_overview_payloads import extract_payloads
-
-# Set by ``parse_serp`` so ``_root_html`` skips a full-document serialization
-# per AI overview component. ``None`` outside that context (e.g. direct tests).
-raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
-    "raw_serp_html", default=None
-)
+from ._common import mark_hidden_item, root_html
+from ._deferred_html import fill_deferred_html
 
 
 def parse_ai_overview(elem: Node, sub_rank: int = 0) -> list[dict[str, Any]]:
@@ -108,12 +103,16 @@ def extract_overview(content: Node, scope: Node) -> dict[str, Any]:
     """
     # Payload extraction serializes the whole document; only the current DOM
     # ships these JSON citation payloads, so legacy SERPs never reach it.
-    payloads = extract_payloads(_root_html(content))
+    payloads = extract_payloads(root_html(content))
     type_a_by_src_id = _index_type_a_by_src_id(payloads)
     full_url_by_goto = _index_full_url_by_goto(payloads)
     lede, lede_citations, sections = _extract_body(content, payloads, full_url_by_goto)
     sources = _extract_sources(scope, type_a_by_src_id, full_url_by_goto)
-    return _overview_fields(lede, sections, lede_citations, sources, _extract_follow_up(content))
+    fields = _overview_fields(lede, sections, lede_citations, sources, _extract_follow_up(content))
+    source_tray = _extract_source_tray(scope)
+    if source_tray:
+        fields["source_tray"] = source_tray
+    return fields
 
 
 def _overview_fields(
@@ -190,24 +189,6 @@ def _decline_messages_shown(node: Node) -> bool | None:
         if not is_hidden(elem):
             return True
     return False if found else None
-
-
-def _root_html(node: Node) -> str:
-    """Document HTML for payload extraction.
-
-    The ``lDPB.push`` fallback payload form lives in script tags outside the
-    AI overview component, so we need the full document. ``parse_serp`` publishes
-    the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
-    serializing the document root when called outside that context (e.g.
-    direct tests of the parser).
-    """
-    cached = raw_serp_html.get()
-    if cached is not None:
-        return cached
-    cur = node
-    while cur.parent is not None:
-        cur = cur.parent
-    return cur.html or ""
 
 
 def _extract_follow_up(content: Node) -> str | None:
@@ -584,8 +565,26 @@ def _legacy_section_heading(elem: Node) -> str | None:
     return text or None
 
 
+def _extract_source_tray(scope: Node) -> list[dict[str, Any]]:
+    """The current DOM's hidden ``li.LLtSOc`` tray of source links.
+
+    A browser capture's tray matches its source cards in number. A ``requests``
+    capture holds few cards and has the tray only as a deferred fragment, so there
+    the tray is the fuller list. It stays apart from ``sources``: the two overlap,
+    and on a ``/goto`` page the same source has a different link in each, so a merged
+    list would count it twice. Fill it after the body and cards are read, and fill
+    nothing else.
+    """
+    fill_deferred_html(scope, containing=_LEGACY_SOURCE_LI_CLASS)
+    return _tray_sources(scope, flag_hidden=True)
+
+
 def _extract_sources_legacy(node: Node) -> list[dict[str, Any]]:
     """Build the sources list from the legacy ``li.LLtSOc`` tray cards."""
+    return _tray_sources(node)
+
+
+def _tray_sources(node: Node, flag_hidden: bool = False) -> list[dict[str, Any]]:
     sources: list[dict[str, Any]] = []
     seen: set[str] = set()
     for li in node.css(f"li.{_LEGACY_SOURCE_LI_CLASS}"):
@@ -616,4 +615,6 @@ def _extract_sources_legacy(node: Node) -> list[dict[str, Any]]:
                 "favicon": None,
             }
         )
+        if flag_hidden:
+            mark_hidden_item(sources[-1], li)
     return sources

@@ -42,6 +42,80 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "nesdis.noaa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "math.ucr.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "weather.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.weather.gov/fgz/SkyBlue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "britannica.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.britannica.com/story/why-is-the-sky-blue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "rmg.co.uk",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "facebook.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "wsav.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.wsav.com/weather-news/why-the-sky-looks-bluer-in-fall-and-winter/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "instagram.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.instagram.com/reel/DIZJjPvOtIN/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.weather.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

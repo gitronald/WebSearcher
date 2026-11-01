@@ -157,6 +157,107 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "nerdwallet.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.nerdwallet.com/credit-cards/best",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "forbes.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.forbes.com/advisor/credit-cards/best-credit-cards/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "bankrate.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.bankrate.com/credit-cards/best-credit-cards/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "creditcards.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.creditcards.com/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "wallethub.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://wallethub.com/answers/cc/which-credit-card-is-best-for-everything-2140781254/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "finance.yahoo.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://finance.yahoo.com/personal-finance/credit-cards/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "usa.visa.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://usa.visa.com/pay-with-visa/find-card/apply-credit-card/good",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "wallethub.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://wallethub.com/d/citi-double-cash-card-121c",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "creditcards.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.creditcards.com/cash-back/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "finance.yahoo.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://finance.yahoo.com/personal-finance/credit-cards/article/bank-credit-card-174043611.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "cnet.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.cnet.com/personal-finance/credit-cards/eating-out-have-one-of-these-cards-in-your-wallet/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn1.gstatic.com/faviconV2?url=https://www.bankrate.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

@@ -37,6 +37,89 @@
             ]
           }
         ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "usgs.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.usgs.gov/faqs/what-earthquake-and-what-causes-them-happen",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "mauiready.wordpress.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://mauiready.wordpress.com/be-informed-2/earthquakes/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "mtu.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.mtu.edu/geo/community/seismology/learn/earthquake-cause/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "bbc.co.uk",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.bbc.co.uk/bitesize/guides/zcv7hyc/revision/3",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "earthquakescanada.nrcan.gc.ca",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.earthquakescanada.nrcan.gc.ca/info-gen/faq-en.php",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "study.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://study.com/learn/lesson/video/earthquake-causes-effects-locations.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "usgs.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.usgs.gov/programs/earthquake-hazards/science-earthquakes",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "britannica.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.britannica.com/science/earthquake-geology",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "seismo.ethz.ch",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "http://www.seismo.ethz.ch/en/knowledge/faq/what-causes-earthquakes/",
+            "visible": false
+          }
+        ],
         "sources": [
           {
             "favicon": "https://encrypted-tbn0.gstatic.com/faviconV2?url=https://www.usgs.gov&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",

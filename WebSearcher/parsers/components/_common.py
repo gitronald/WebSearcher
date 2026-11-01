@@ -6,12 +6,19 @@ small, documented behavior differences (text separator, ``data-url`` fallback)
 via explicit arguments.
 """
 
+import contextvars
 from collections.abc import Iterable
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, is_element, is_hidden
+
+# Set by ``parse_serp`` so ``root_html`` skips a full-document serialization
+# per AI overview component. ``None`` outside that context (e.g. direct tests).
+raw_serp_html: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "raw_serp_html", default=None
+)
 
 
 def mark_not_visible(parsed: dict[str, Any]) -> dict[str, Any]:
@@ -149,3 +156,21 @@ def parse_alink_list(alinks: Iterable[Node], sep: str = "") -> list[dict[str, An
         if is_element(a) and "href" in a.attrs:
             items.append(parse_alink(a, sep))
     return items
+
+
+def root_html(node: Node) -> str:
+    """Document HTML for payload extraction.
+
+    The ``lDPB.push`` fallback payload form lives in script tags outside the
+    AI overview component, so we need the full document. ``parse_serp`` publishes
+    the raw markup via a ``ContextVar`` (``raw_serp_html``); we fall back to
+    serializing the document root when called outside that context (e.g.
+    direct tests of the parser).
+    """
+    cached = raw_serp_html.get()
+    if cached is not None:
+        return cached
+    cur = node
+    while cur.parent is not None:
+        cur = cur.parent
+    return cur.html or ""
