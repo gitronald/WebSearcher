@@ -284,6 +284,53 @@
       "cmpt_rank": 5,
       "details": {
         "channel": "Howdini",
+        "key_moments": [
+          {
+            "seconds": 3,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=3"
+          },
+          {
+            "seconds": 25,
+            "title": "Remove the old tire",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=25"
+          },
+          {
+            "seconds": 39,
+            "title": "Jack up the vehicle",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=39"
+          },
+          {
+            "seconds": 163,
+            "title": "Loosen lug nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=163"
+          },
+          {
+            "seconds": 208,
+            "title": "Mount the spare tire",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=208"
+          },
+          {
+            "seconds": 225,
+            "title": "Install the lug nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=225"
+          },
+          {
+            "seconds": 240,
+            "title": "Tighten Lug Nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=240"
+          },
+          {
+            "seconds": 266,
+            "title": "Lower the vehicle",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=266"
+          },
+          {
+            "seconds": 312,
+            "title": "Final Tips",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=312"
+          }
+        ],
         "publish_date": "Jan 30, 2008",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPFyNNW7CptPTgDybPHkpgB2qBFvCiwkwl5N1UGPDttoA92iKLONjwTA&s",

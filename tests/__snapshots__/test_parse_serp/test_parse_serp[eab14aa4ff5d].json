@@ -308,6 +308,33 @@
       "cmpt_rank": 7,
       "details": {
         "channel": "Ben Parkes",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=4OFWRZ7r0GQ&t=0"
+          },
+          {
+            "seconds": 27,
+            "title": "Pre-race prep & logistics",
+            "url": "https://www.youtube.com/watch?v=4OFWRZ7r0GQ&t=27"
+          },
+          {
+            "seconds": 289,
+            "title": "Race morning & start line",
+            "url": "https://www.youtube.com/watch?v=4OFWRZ7r0GQ&t=289"
+          },
+          {
+            "seconds": 509,
+            "title": "In-race strategies",
+            "url": "https://www.youtube.com/watch?v=4OFWRZ7r0GQ&t=509"
+          },
+          {
+            "seconds": 837,
+            "title": "Post race recovery",
+            "url": "https://www.youtube.com/watch?v=4OFWRZ7r0GQ&t=837"
+          }
+        ],
         "publish_date": "Mar 23, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKNUtUs-2kKxJmUtdw5pWfMWSrLEYEl4Ef08cosrOjQufGnZJO1Cr1VA&s",

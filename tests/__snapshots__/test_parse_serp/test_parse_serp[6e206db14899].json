@@ -300,6 +300,133 @@
       "cmpt_rank": 2,
       "details": {
         "channel": "Programming with Mosh",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Introduction",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=0"
+          },
+          {
+            "seconds": 56,
+            "title": "What is Python?",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=56"
+          },
+          {
+            "seconds": 336,
+            "title": "Python Interpreter",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=336"
+          },
+          {
+            "seconds": 529,
+            "title": "Your First Python Program",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=529"
+          },
+          {
+            "seconds": 866,
+            "title": "Linting Python Code",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=866"
+          },
+          {
+            "seconds": 1120,
+            "title": "Formatting Python Code",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=1120"
+          },
+          {
+            "seconds": 1470,
+            "title": "Python Implementations",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=1470"
+          },
+          {
+            "seconds": 1785,
+            "title": "Quiz",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=1785"
+          },
+          {
+            "seconds": 1904,
+            "title": "Variables",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=1904"
+          },
+          {
+            "seconds": 2271,
+            "title": "Strings",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=2271"
+          },
+          {
+            "seconds": 2600,
+            "title": "Escape Sequences",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=2600"
+          },
+          {
+            "seconds": 2889,
+            "title": "String Methods",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=2889"
+          },
+          {
+            "seconds": 3410,
+            "title": "Working With Numbers",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=3410"
+          },
+          {
+            "seconds": 3843,
+            "title": "Quiz",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=3843"
+          },
+          {
+            "seconds": 4126,
+            "title": "Conditional Statements",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=4126"
+          },
+          {
+            "seconds": 4376,
+            "title": "Ternary Operator",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=4376"
+          },
+          {
+            "seconds": 4747,
+            "title": "Short-circuit Evaluations",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=4747"
+          },
+          {
+            "seconds": 4955,
+            "title": "Quiz",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=4955"
+          },
+          {
+            "seconds": 5276,
+            "title": "For..Else",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=5276"
+          },
+          {
+            "seconds": 5606,
+            "title": "Iterables",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=5606"
+          },
+          {
+            "seconds": 5794,
+            "title": "While Loops",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=5794"
+          },
+          {
+            "seconds": 6190,
+            "title": "Exercise",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=6190"
+          },
+          {
+            "seconds": 6457,
+            "title": "Arguments",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=6457"
+          },
+          {
+            "seconds": 6839,
+            "title": "Keyword Arguments",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=6839"
+          },
+          {
+            "seconds": 7054,
+            "title": "xargs",
+            "url": "https://www.youtube.com/watch?v=K5KVEU3aaeQ&t=7054"
+          }
+        ],
         "publish_date": "Feb 12, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AX2rWIamt-gsjh0nOzRf98C4y-ebbpREtsUxf0qFzvGLksgBCYr7OA&s",
@@ -320,6 +447,48 @@
       "cmpt_rank": 2,
       "details": {
         "channel": "Dave Gray",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=0"
+          },
+          {
+            "seconds": 5,
+            "title": "Welcome",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=5"
+          },
+          {
+            "seconds": 13,
+            "title": "Start the Python REPL",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=13"
+          },
+          {
+            "seconds": 66,
+            "title": "Variables",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=66"
+          },
+          {
+            "seconds": 235,
+            "title": "Expressions vs Statements",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=235"
+          },
+          {
+            "seconds": 308,
+            "title": "Create a Welcome program",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=308"
+          },
+          {
+            "seconds": 489,
+            "title": "Code Comments",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=489"
+          },
+          {
+            "seconds": 553,
+            "title": "Python Indentations",
+            "url": "https://www.youtube.com/watch?v=fLAfa-BQtOQ&t=553"
+          }
+        ],
         "publish_date": "Feb 21, 2023",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_3jfr-PZrBY7mKLqX2sE8pxaABN_uDc8XfzdzjBXAB9IE_l4SHRJlVw&s",
@@ -340,6 +509,133 @@
       "cmpt_rank": 2,
       "details": {
         "channel": "Programming with Mosh",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Introduction",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=0"
+          },
+          {
+            "seconds": 370,
+            "title": "Your First Python Program",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=370"
+          },
+          {
+            "seconds": 684,
+            "title": "How Long It Takes To Learn Python",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=684"
+          },
+          {
+            "seconds": 1101,
+            "title": "Receiving Input",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=1101"
+          },
+          {
+            "seconds": 1366,
+            "title": "Type Conversion",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=1366"
+          },
+          {
+            "seconds": 2256,
+            "title": "Formatted Strings",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=2256"
+          },
+          {
+            "seconds": 2913,
+            "title": "Arithmetic Operations",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=2913"
+          },
+          {
+            "seconds": 3304,
+            "title": "Math Functions",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=3304"
+          },
+          {
+            "seconds": 3992,
+            "title": "Logical Operators",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=3992"
+          },
+          {
+            "seconds": 4577,
+            "title": "Weight Converter Program",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=4577"
+          },
+          {
+            "seconds": 5047,
+            "title": "Building a Guessing Game",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=5047"
+          },
+          {
+            "seconds": 6108,
+            "title": "For Loops",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=6108"
+          },
+          {
+            "seconds": 6950,
+            "title": "Lists",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=6950"
+          },
+          {
+            "seconds": 7511,
+            "title": "My Complete Python Course",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=7511"
+          },
+          {
+            "seconds": 8005,
+            "title": "Tuples",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=8005"
+          },
+          {
+            "seconds": 8301,
+            "title": "Dictionaries",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=8301"
+          },
+          {
+            "seconds": 9031,
+            "title": "Functions",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=9031"
+          },
+          {
+            "seconds": 9564,
+            "title": "Keyword Arguments",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=9564"
+          },
+          {
+            "seconds": 10135,
+            "title": "Creating a Reusable Function",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=10135"
+          },
+          {
+            "seconds": 10754,
+            "title": "Comments",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=10754"
+          },
+          {
+            "seconds": 11266,
+            "title": "Constructors",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=11266"
+          },
+          {
+            "seconds": 11973,
+            "title": "Modules",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=11973"
+          },
+          {
+            "seconds": 12982,
+            "title": "Generating Random Values",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=12982"
+          },
+          {
+            "seconds": 13847,
+            "title": "Pypi and Pip",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=13847"
+          },
+          {
+            "seconds": 17917,
+            "title": "Project 3: Building a Website with Django",
+            "url": "https://www.youtube.com/watch?v=_uQrJ0TkZlc&vl=en&t=17917"
+          }
+        ],
         "publish_date": "Feb 18, 2019",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaEFAAeHHAvWg6gH46bC0Imd8hnaG_UzEQCQKGh8LJCGRlqacAoUZWow&s",
@@ -360,6 +656,108 @@
       "cmpt_rank": 2,
       "details": {
         "channel": "Kevin Stratvert",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Introduction",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=0"
+          },
+          {
+            "seconds": 85,
+            "title": "Why program?",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=85"
+          },
+          {
+            "seconds": 138,
+            "title": "Why Python?",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=138"
+          },
+          {
+            "seconds": 273,
+            "title": "Get Python",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=273"
+          },
+          {
+            "seconds": 403,
+            "title": "Run code in Python terminal",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=403"
+          },
+          {
+            "seconds": 553,
+            "title": "Write code in a text editor like Notepad",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=553"
+          },
+          {
+            "seconds": 719,
+            "title": "Get an IDE like Visual Studio Code for free",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=719"
+          },
+          {
+            "seconds": 860,
+            "title": "Set up VS Code",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=860"
+          },
+          {
+            "seconds": 994,
+            "title": "Run code in VS Code",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=994"
+          },
+          {
+            "seconds": 1092,
+            "title": "Work with numbers & operators",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=1092"
+          },
+          {
+            "seconds": 1344,
+            "title": "Work with text / strings",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=1344"
+          },
+          {
+            "seconds": 1443,
+            "title": "Comments",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=1443"
+          },
+          {
+            "seconds": 1537,
+            "title": "Variables",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=1537"
+          },
+          {
+            "seconds": 1921,
+            "title": "Conditional logic",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=1921"
+          },
+          {
+            "seconds": 2095,
+            "title": "If, elif, & else statements",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=2095"
+          },
+          {
+            "seconds": 2474,
+            "title": "Functions",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=2474"
+          },
+          {
+            "seconds": 3279,
+            "title": "While & for loops",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=3279"
+          },
+          {
+            "seconds": 3540,
+            "title": "Import libraries",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=3540"
+          },
+          {
+            "seconds": 3602,
+            "title": "Troubleshooting code.",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=3602"
+          },
+          {
+            "seconds": 3748,
+            "title": "Wrap up",
+            "url": "https://www.youtube.com/watch?v=b093aqAZiPU&t=3748"
+          }
+        ],
         "publish_date": "Mar 25, 2021",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVnCpIeyn8zDQHiTC-QYAmMDJ908mCRgb8osKjZJhSYHAXy9GrmcKt3A&s",

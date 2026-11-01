@@ -234,7 +234,14 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "channel": "truTV",
+        "publish_date": "Aug 3, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlNy5UW7I3WfJWeHpQLTe0R0tUFC3WorxLByQpZTFVibnLVmivRA_Aag&s",
+        "title": "Top Moments of Johnny Drama Being ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 0,
@@ -247,7 +254,14 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "channel": "Parachute Adams",
+        "publish_date": "Apr 10, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqA2KNszpZu9Igxs47nJ5Yg4oUxg0eNC1A8iBxayuA-oOhsdxGBuzcMw&s",
+        "title": "Johnny Drama Point Breaks Stuff - Entourage",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 1,
@@ -260,7 +274,14 @@
     {
       "cite": null,
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "channel": "truTV",
+        "publish_date": "May 21, 2023",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSGg29fTksRuGenVh7PI7CzsfcIQ9pn44-9RORHO3vrfbmggwK6Vib6w&s",
+        "title": "E Makes It Official + Johnny Drama's Nightmare Audition ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 2,

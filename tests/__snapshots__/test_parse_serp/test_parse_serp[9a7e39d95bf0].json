@@ -205,6 +205,48 @@
       "cmpt_rank": 5,
       "details": {
         "channel": "Amoeba Sisters",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=0"
+          },
+          {
+            "seconds": 33,
+            "title": "Why does photosynthesis matter?",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=33"
+          },
+          {
+            "seconds": 83,
+            "title": "Photosyn vs Cellular Resp Equations",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=83"
+          },
+          {
+            "seconds": 137,
+            "title": "Chlorophyll and other pigments",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=137"
+          },
+          {
+            "seconds": 213,
+            "title": "Light dependent reactions",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=213"
+          },
+          {
+            "seconds": 276,
+            "title": "Light independent reactions (Calvin Cycle)",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=276"
+          },
+          {
+            "seconds": 348,
+            "title": "Big picture overview",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=348"
+          },
+          {
+            "seconds": 399,
+            "title": "Examples of adaptations for photosyn",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=399"
+          }
+        ],
         "publish_date": "Jul 14, 2021",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4DMEY9W4eFpgjGQpL9SARr5Wct0UPYwmPV2dBfNka8XA5bJrFS54WQ&s",

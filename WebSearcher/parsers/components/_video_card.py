@@ -13,11 +13,60 @@ data-side enrichment and says nothing about visibility, so callers must not
 set ``visible`` based on a card hit.
 """
 
+import re
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, walk_descendants
+from ._deferred_html import fill_deferred_html
+
+# "Prompt engineering fundamentals. 2 of 24, 3 minutes, 8 seconds. "
+_RX_MOMENT_LABEL = re.compile(r"^(.*)\. \d+ of \d+, ")
+
+
+def _moment_title(moment: Node) -> str | None:
+    """A moment's label: the last of its text lines (time, label), or, on the
+    expander's image-only form, the start of its ``aria-label``."""
+    lines = (moment.text(separator="\n", strip=True) or "").split("\n")
+    if lines[-1]:
+        return lines[-1]
+    match = _RX_MOMENT_LABEL.match(moment.attrs.get("aria-label") or "")
+    return match.group(1) if match else None
+
+
+def parse_key_moments(scope: Node) -> list[dict[str, Any]]:
+    """A video's key moments, each with its start in seconds, title, and link.
+
+    A tile holds them behind its expander, its ``evlb_*`` card, or both, and both
+    use the same links, so each start time counts once. They are not on screen as
+    the page loads, as no key moment is until opened, so none carries ``visible``.
+    """
+    moments: dict[str, dict[str, Any]] = {}
+    for moment in scope.css("a[data-time]"):
+        start = moment.attrs.get("data-time") or ""
+        if not start.isdigit():
+            continue
+        title = _moment_title(moment)
+        if start not in moments:
+            moments[start] = {
+                "seconds": int(start),
+                "title": title,
+                "url": moment.attrs.get("href"),
+            }
+        elif title and not moments[start]["title"]:
+            moments[start]["title"] = title
+    return list(moments.values())
+
+
+def video_details(scope: Node) -> dict[str, Any] | None:
+    """A video tile's ``details`` from its deferred card and key moments, or ``None``."""
+    fill_deferred_html(scope)
+    fields = parse_evlb_card(scope) or {}
+    moments = parse_key_moments(scope)
+    if moments:
+        fields["key_moments"] = moments
+    return {"type": "video", **fields} if fields else None
 
 
 def _card_fields(card: Node) -> dict[str, Any] | None:

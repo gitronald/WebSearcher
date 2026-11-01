@@ -431,6 +431,28 @@
       "cmpt_rank": 7,
       "details": {
         "channel": "Korean with Ina",
+        "key_moments": [
+          {
+            "seconds": 11,
+            "title": "Thank you. (Formal)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=11"
+          },
+          {
+            "seconds": 29,
+            "title": "Thank you. (Polite)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=29"
+          },
+          {
+            "seconds": 36,
+            "title": "Thank you. (Casual)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=36"
+          },
+          {
+            "seconds": 42,
+            "title": "Thank you. (Text slang)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=42"
+          }
+        ],
         "publish_date": "May 21, 2023",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5NQtXDW9tbydHRIbiIKErKnWITf2hQLl5IMhwwN6X1guH7o4fqOD54Q&s",

@@ -293,6 +293,38 @@
       "cmpt_rank": 3,
       "details": {
         "channel": "NASA Space Place",
+        "key_moments": [
+          {
+            "seconds": 12,
+            "title": "How the sun's light reaches Earth",
+            "url": "/goto?url=CAESawHrOzAVdqQxVUpvbv09XlVmJcu409v-vRy9Ruth3HIiFMhHyMSgYXBcxfxctPFfwptoCRj5ZWJPNEy1ho8Y9WaYS-5U-s-jd_TQ1yjtrPvDnfNn2RHuXROXAl34oT8WGEEpnQ2bXgFj1hT7"
+          },
+          {
+            "seconds": 35,
+            "title": "How light energy travels in waves",
+            "url": "/goto?url=CAESawHrOzAVBP0fcuJw58d6fFQ_P6DPbQH4CyVN351iWeaj63Fs248FI_mSaL24tIwT2UVN3tI8kdHdLSU1SSLmtf8mQ6ebstDtZ-CfRX9NIKsxOUEpCsqzSSCfzBF7EeuqpTgRNCY58WNEj8g4"
+          },
+          {
+            "seconds": 99,
+            "title": "Why is the sky different color at sunset?",
+            "url": "/goto?url=CAESawHrOzAV2tzUUq0lElO28B1IuqbkkCu7By5t66mTzoDYo5_lrD6BNuU0VZSx-JqHWtfd2NQ1cXjgZi1rQyujx0qL9ZD1Va5PIsjBak9In65IMa6u4rwPcVa7QZkMMSkV6eOdkectO7SDsTfQ"
+          },
+          {
+            "seconds": 120,
+            "title": "Why is the sky red?",
+            "url": "/goto?url=CAESbAHrOzAVqxy7X5_FGohdSNBzyLBrf3q5eTEemsgxqgnqemY3Qusb8LrGQtioj24M8OjI8NIv-EGQ5rdN35FGLU76uaOw3Rz839g1Flub1FgS401zaH6xbBjC6gpVhncLf6Io26R1VMxFJBUFjw"
+          },
+          {
+            "seconds": 132,
+            "title": "Aerosols",
+            "url": "/goto?url=CAESbAHrOzAVljQVhhVaDJq9ohrLQrLwuwaTELc2sk1G47bzF5bo471ojZsACZvSf9zOqRNJB6ciGfmmFnhxMRHBzH__faWe4MYO39IXPR0jMxS764cxD6WZdElKcQo9AJ1jXUQjHseBugFHc6Hp1A"
+          },
+          {
+            "seconds": 147,
+            "title": "Conclusion",
+            "url": "/goto?url=CAESbAHrOzAV9bVXR_chKmPAvC8WqTf4VVUbju-TQHbFhj8tLlKkBd4-Tt6ymE-yxTBoiQWn2NxvAk2oNshBY8KWN5atEuoHKVSjzh6c55mttLl9vjQbZbWAMentBn3SmUCf-W4epCnXMRBI4--usQ"
+          }
+        ],
         "publish_date": "Mar 2, 2020",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6e5kcoZuPcjkmdHwg_vN6fp2WJ-wuDZaCpYurvlr8Z4EGoW2YQcLOCQ&s",

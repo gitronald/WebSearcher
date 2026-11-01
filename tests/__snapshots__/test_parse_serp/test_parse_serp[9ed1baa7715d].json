@@ -227,6 +227,108 @@
       "cmpt_rank": 9,
       "details": {
         "channel": "The Office",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Season 5 Episode 26 - Company Picnic",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=0"
+          },
+          {
+            "seconds": 146,
+            "title": "Season 6 Episode 13 - The Banker",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=146"
+          },
+          {
+            "seconds": 184,
+            "title": "Season 7 Episode 3 - Andy's Play",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=184"
+          },
+          {
+            "seconds": 286,
+            "title": "Season 5 Episode 6 - Customer Survey",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=286"
+          },
+          {
+            "seconds": 374,
+            "title": "Season 6 Episode 10 - Shareholder Meeting",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=374"
+          },
+          {
+            "seconds": 472,
+            "title": "Season 3 Episode 21 - Product Recall",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=472"
+          },
+          {
+            "seconds": 549,
+            "title": "Season 3 Episode 6 - Diwali",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=549"
+          },
+          {
+            "seconds": 598,
+            "title": "Season 7 Episode 13 - Ultimatum",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=598"
+          },
+          {
+            "seconds": 693,
+            "title": "Season 9 Episode 4 - Work Bus",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=693"
+          },
+          {
+            "seconds": 806,
+            "title": "Season 8 Episode 2 - The Incentive",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=806"
+          },
+          {
+            "seconds": 945,
+            "title": "Season 5 Episode 17 - Golden Ticket",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=945"
+          },
+          {
+            "seconds": 1029,
+            "title": "Season 6 Episode 4 - Niagara",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1029"
+          },
+          {
+            "seconds": 1135,
+            "title": "Season 3 Episode 3 - The Coup",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1135"
+          },
+          {
+            "seconds": 1189,
+            "title": "Season 8 Episode 13 - Jury Duty",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1189"
+          },
+          {
+            "seconds": 1255,
+            "title": "Season 7 Episode 24 - Search Committee",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1255"
+          },
+          {
+            "seconds": 1307,
+            "title": "Season 4 Episode 3 - Launch Party",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1307"
+          },
+          {
+            "seconds": 1483,
+            "title": "Season 6 Episode 9 - Murder",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1483"
+          },
+          {
+            "seconds": 1606,
+            "title": "Season 6 Episode 18 - New Leads",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1606"
+          },
+          {
+            "seconds": 1676,
+            "title": "Season 9 Episode 5 - Here Comes Treble",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1676"
+          },
+          {
+            "seconds": 1730,
+            "title": "Season 3 Episode 11 - Back From Vacation",
+            "url": "https://www.youtube.com/watch?v=TuuTnZ3kRYo&t=1730"
+          }
+        ],
         "publish_date": "May 16, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTckDW5EL6ATnfmt5YDi6ecNlV71t8dsIX8sioPwfjOmf3aMc4p5G6bIg&s",

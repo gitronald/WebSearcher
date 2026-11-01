@@ -148,6 +148,43 @@
       "cmpt_rank": 3,
       "details": {
         "channel": "Big Bong",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Introduction",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=0"
+          },
+          {
+            "seconds": 56,
+            "title": "Good afternoon",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=56"
+          },
+          {
+            "seconds": 143,
+            "title": "Good evening",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=143"
+          },
+          {
+            "seconds": 244,
+            "title": "Good morning",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=244"
+          },
+          {
+            "seconds": 320,
+            "title": "Good night",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=320"
+          },
+          {
+            "seconds": 351,
+            "title": "Casual 'hi'",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=351"
+          },
+          {
+            "seconds": 409,
+            "title": "Recap",
+            "url": "https://www.youtube.com/watch?v=meKcOJdh-9k&t=409"
+          }
+        ],
         "publish_date": "Feb 5, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuc7nIk-zNCfStA9mvnB_aA_Vgc9kxZEO7D4THiB1KD_lydQREapJE5A&s",
@@ -181,6 +218,28 @@
       "cmpt_rank": 5,
       "details": {
         "channel": "Big Bong",
+        "key_moments": [
+          {
+            "seconds": 9,
+            "title": "intonations",
+            "url": "https://www.youtube.com/shorts/53h4he8bbIg?t=9"
+          },
+          {
+            "seconds": 16,
+            "title": "Konichiwa",
+            "url": "https://www.youtube.com/shorts/53h4he8bbIg?t=16"
+          },
+          {
+            "seconds": 31,
+            "title": "topic particle",
+            "url": "https://www.youtube.com/shorts/53h4he8bbIg?t=31"
+          },
+          {
+            "seconds": 46,
+            "title": "gokigen",
+            "url": "https://www.youtube.com/shorts/53h4he8bbIg?t=46"
+          }
+        ],
         "publish_date": "Nov 10, 2024",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUZJiVdBg59eNApx7Su641vg9OCMh6nyk4CpA57SBA-CdCDTtQHxszMg&s",

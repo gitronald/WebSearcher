@@ -115,7 +115,14 @@
     {
       "cite": null,
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "The Athletic FC",
+        "publish_date": "Jun 30, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqhR2JfzCHqyWmWreZdP1n9RHZ7i4LAYI43deev_JVdeN3xis3v0mv_A&s",
+        "title": "Are Portugal better or worse with Ronaldo?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,
@@ -218,7 +225,14 @@
     {
       "cite": "69.8K+ views  ·  3 weeks ago",
       "cmpt_rank": 8,
-      "details": null,
+      "details": {
+        "channel": "Raymar Football",
+        "publish_date": "Jun 7, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzDy4pN3E20xSO7pp9c1o2IFF2bJJyNcwoXHjepxUnSr5Hcb2Y9BmZnA&s",
+        "title": "Portugal's World Cup Squad Is A MASSIVE Problem",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,

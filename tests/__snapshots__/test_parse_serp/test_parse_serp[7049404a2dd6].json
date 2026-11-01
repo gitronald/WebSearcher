@@ -425,6 +425,38 @@
       "cmpt_rank": 8,
       "details": {
         "channel": "NASA Space Place",
+        "key_moments": [
+          {
+            "seconds": 12,
+            "title": "How the sun's light reaches Earth",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=12"
+          },
+          {
+            "seconds": 35,
+            "title": "How light energy travels in waves",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=35"
+          },
+          {
+            "seconds": 99,
+            "title": "Why is the sky different color at sunset?",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=99"
+          },
+          {
+            "seconds": 120,
+            "title": "Why is the sky red?",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=120"
+          },
+          {
+            "seconds": 132,
+            "title": "Aerosols",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=132"
+          },
+          {
+            "seconds": 147,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=147"
+          }
+        ],
         "publish_date": "Mar 2, 2020",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6e5kcoZuPcjkmdHwg_vN6fp2WJ-wuDZaCpYurvlr8Z4EGoW2YQcLOCQ&s",

@@ -199,7 +199,56 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "key_moments": [
+          {
+            "seconds": 20,
+            "title": "If You're Happy and You Know It: Elmo",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=20"
+          },
+          {
+            "seconds": 219,
+            "title": "Grouch Drummer (Elma)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=219"
+          },
+          {
+            "seconds": 338,
+            "title": "It's Not Easy Being Green (Original Song)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=338"
+          },
+          {
+            "seconds": 616,
+            "title": "Letter of the Day: H",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=616"
+          },
+          {
+            "seconds": 765,
+            "title": "Happy horses, humming in harmony",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=765"
+          },
+          {
+            "seconds": 843,
+            "title": "The No, No, No Dance",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=843"
+          },
+          {
+            "seconds": 1268,
+            "title": "Swamp, Mushy, Muddy",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1268"
+          },
+          {
+            "seconds": 1438,
+            "title": "Letter B (Jelly Monster)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1438"
+          },
+          {
+            "seconds": 1775,
+            "title": "Stop restarting Starburst",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1775"
+          }
+        ],
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 0,

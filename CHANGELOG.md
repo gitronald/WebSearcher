@@ -13,12 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - A match header's deferred highlight clips are now in the `knowledge` row's `details.urls`, each with `visible: false`.
 - `details.section_heading` and `details.section_summary` on a card in a collapsible section of a carousel, such as "Christian McCaffrey suffers thigh injury".
 - `details.author_url` on an embedded post, which links its author apart from the post.
+- `details.key_moments` on a `videos` or `general` video row, one entry per moment with its `seconds`, `title`, and `url`. A `requests` capture holds these only as inline script text, along with the video card behind `details.channel` and `details.publish_date`, which these rows now fill too.
 
 ### Changed
 
 - 2026-10 post cards now fill `cite` from their attribution line, such as "oursf49ers · Instagram".
 - Embedded posts now record `details.timestamp`.
 - `details.visible` is now `false` on a `perspectives`, `recent_posts`, `top_stories`, `local_news`, or `latest_from` card that Google marks `data-init-vis="false"` or that sits in a collapsed section. These cards are not on screen when the page loads, and browser captures now flag them too, so counts filtered on `visible` change.
+- `ad` carousels now keep cards not yet shown, with `details.visible: false`, where they used to drop them. Ad row counts rise and `sub_rank` moves for any consumer that counts every row.
+- `images` rows now record `details.visible: false` under an inline `display:none` or on `data-init-vis="false"`, such as the tail of a "more images" block.
 
 ## [0.14.1] - 2026-10-29
 

@@ -73,7 +73,14 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "channel": "i24NEWS Arabic",
+        "publish_date": "Jun 30, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXI8JelP2nRm22EsCpSq0pjaYacBBW5w7zjt5mFTqE-DyxAgz_mriGzw&s",
+        "title": "محلل قطري: قطر همشت إسرائيل في مفاوضات إيران وحجمتها في ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 3,
       "sub_rank": 1,
@@ -221,7 +228,14 @@
     {
       "cite": "3.7K+ views  ·  9 years ago",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "channel": "Ambassade de France au Qatar",
+        "publish_date": "Mar 7, 2017",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOl0haqQIq1AuRYRjM6WUq-QV7Hay74QIs2-v7URlZEet32HurPnzVUw&s",
+        "title": "نساء قطريات يمدّدن آفاقهن",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 0,

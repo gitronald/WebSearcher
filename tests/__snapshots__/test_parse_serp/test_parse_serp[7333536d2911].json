@@ -137,7 +137,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -150,7 +153,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -163,7 +169,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -176,7 +185,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -189,7 +201,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 7,
@@ -202,7 +217,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 8,
