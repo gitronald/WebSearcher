@@ -250,3 +250,29 @@ def test_parse_serp_reports_the_share_of_calls_read():
 def test_parse_serp_without_raw_markup_reports_no_counts():
     features = ws.parse_serp(utils.make_soup("<html><body></body></html>"))["features"]
     assert (features["deferred_calls"], features["deferred_read"]) == (None, None)
+
+
+def test_source_card_text_fills_what_no_payload_gave():
+    scope = _scope(
+        '<div id="scope"><div class="mZJni"><div class="n6owBd">The answer.</div></div>'
+        '<div data-src-id="1"><a href="/goto?url=C" aria-label="A video, Video, watch"></a>'
+        '<span class="EsfOKc"><span>YouTube</span></span><span class="kKUaS"><span>A channel</span></span>'
+        '<div class="gpZmoc"><span>A video</span></div><span class="hxIQcc"><span>Its snippet</span></span>'
+        '<div class="llCCib"><span>2m</span></div></div>'
+        '<div data-src-id="2"><a href="/goto?url=D"></a><span class="EsfOKc">Atlassian</span>'
+        '<div class="gpZmoc">A page</div></div></div>'
+    )
+    video, page = parse_ai_overview(scope)[0]["details"]["sources"]
+    assert video == {
+        "source_id": "1",
+        "url": "/goto?url=C",
+        "title": "A video",
+        "snippet": "Its snippet",
+        "publisher": "YouTube",
+        "favicon": None,
+        "channel": "A channel",
+        "duration": "2m",
+    }
+    assert (page["title"], page["publisher"], page["snippet"]) == ("A page", "Atlassian", None)
+    assert "channel" not in page
+    assert "duration" not in page

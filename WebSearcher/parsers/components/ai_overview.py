@@ -454,6 +454,14 @@ def _names_source(header: dict[str, Any], entry: dict[str, Any]) -> bool:
     )
 
 
+# A source card's own text. A ``requests`` capture often has no payload for its cards.
+_CARD_PUBLISHER_CSS = "span.Z1JFYc, span.EsfOKc"
+_CARD_CHANNEL_CSS = "span.kKUaS"
+_CARD_TITLE_CSS = "div.gpZmoc"
+_CARD_SNIPPET_CSS = "span.hxIQcc"
+_CARD_DURATION_CSS = "div.llCCib"
+
+
 def _extract_sources(
     node: Node,
     type_a_by_src_id: dict[str, dict[str, Any]],
@@ -485,21 +493,27 @@ def _extract_sources(
         payload: dict[str, Any] = type_a_by_src_id.get(src_id, {}) if src_id else {}
         publisher = payload.get("publisher") or _tray_publisher(card) or ""
         url = payload.get("url") or href
-        sources.append(
-            {
-                "source_id": src_id,
-                "url": full_url_by_goto.get(url, url),
-                "title": payload.get("title"),
-                "snippet": payload.get("snippet"),
-                "publisher": publisher,
-                "favicon": payload.get("favicon"),
-            }
-        )
+        source = {
+            "source_id": src_id,
+            "url": full_url_by_goto.get(url, url),
+            "title": payload.get("title")
+            or get_text(card.css_first(_CARD_TITLE_CSS), " ", strip=True),
+            "snippet": payload.get("snippet")
+            or get_text(card.css_first(_CARD_SNIPPET_CSS), " ", strip=True),
+            "publisher": publisher,
+            "favicon": payload.get("favicon"),
+        }
+        # Only a video's card has these, and no payload does.
+        for key, css in (("channel", _CARD_CHANNEL_CSS), ("duration", _CARD_DURATION_CSS)):
+            value = get_text(card.css_first(css), " ", strip=True)
+            if value:
+                source[key] = value
+        sources.append(source)
     return sources
 
 
 def _tray_publisher(li: Node) -> str | None:
-    span = li.css_first("span.Z1JFYc")
+    span = li.css_first(_CARD_PUBLISHER_CSS)
     if span is None:
         return None
     text = get_text(span, " ", strip=True)

@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `details.author_url` on an embedded post, which links its author apart from the post.
 - `details.key_moments` on a `videos` or `general` video row, one entry per moment with its `seconds`, `title`, and `url`. A `requests` capture holds these only as inline script text, along with the video card behind `details.channel` and `details.publish_date`, which these rows now fill too.
 - `features.deferred_calls` and `features.deferred_read`, the `jsl.dh` calls on a page and how many could be read. A share read that falls across a crawl means Google changed the format and deferred results are going missing. A rename of the call itself shows as `deferred_calls` falling to zero.
+- `ai_overview` entries in `details.sources` now take their `title`, `snippet`, and `publisher` from the source card when no payload gives them, as on most `requests` captures, where they were empty. A video's card also adds `channel` and `duration`.
 - `details.source_tray` on an `ai_overview` row, the hidden list of source links each with `visible: false`. On a `requests` capture it holds more than `details.sources`, which it overlaps, so count one or the other.
 
 ### Changed
