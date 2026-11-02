@@ -97,10 +97,11 @@ gained, rows lost, and any feature field that changed.
   Checked and ruled out: no page in the 149 has a template element, so the unfilled calls are targets created by other fragments. Overviews marked not_loaded have no body anywhere, including in fragments, so nothing is recoverable there.
   Identical rows: a row matching another in its component in every field but sub_rank is dropped and the rest renumbered (0.14.2a8). Over 149 pages that removed 8 image rows, with no distinct row lost.
   Survey of unread fragment text by component on non-browser pages: most is interface text (AI Mode prompts, feedback dialogs, share menus). The matching is rough and has false positives, including overview headings and video cards the parser already reads, and only a few examples of each type were read.
+- **2026-11-01T18:03:30-08:00** — Seven more parsers fill their own subtree (0.14.2a10). Each was first run with the fill on in a scratch harness and its gains read. Over 149 pages: 10 pages changed, no rows lost, no other type moved. A full folder of about 100,000 2026-10 pages then parsed with every jsl.dh call read and no page lost; the largest page is 94 rows. Rows added by a fill carry no flag unless they have a marker, so visible may overstate what was on screen for those rows.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a9, pushed. Step 6 needs no work (see the Log).
+- State: steps 1 to 5 are done on `dev` at 0.14.2a10, pushed. Step 6 needs no work (see the Log).
   Step 7, the stable release, waits on the owner.
 - Open questions:
   1. Run-together `videos` titles. Answered 2026-11-01 and done in 0.14.2a6: the title alone, with the
@@ -110,11 +111,10 @@ gained, rows lost, and any feature field that changed.
      text and 7 are others, such as jump links). The links probably reach the row's own thread, and
      none was resolved to check. Recommended: leave them out of this release. Open.
   3. Keep `details.title` as Google's card has it, "YouTube" included? Answered 2026-11-01: yes.
-  4. Which remaining components to fill before the stable release? Open. A rough text survey of the
-     non-browser pages finds real content in fragments for `products` (the largest), `images`,
-     `election_results`, `election_dates`, `buying_guide`, `most_read_articles`, `locations`,
-     `twitter_cards`, and `short_videos`, mostly on older pages. Recommended: release first, since
-     none of these is common on current pages, and take them as a later step.
+  4. Which remaining components to fill before the stable release? Answered 2026-11-01: fill them first.
+     `products`, `images`, `buying_guide`, `most_read_articles`, `locations`, `twitter_cards`, and
+     `short_videos` are done in 0.14.2a10. Left out on evidence: `knowledge` and `ad` take in interface
+     text, `election_results` gains only repeated links, and `election_dates` needs new parser work.
 - Limits of the counts: a rename of `jsl.dh` itself shows as `deferred_calls` falling to zero, not as
   a falling share, and nothing alerts on it beyond the warning `deferred_read` below `deferred_calls`
   prints for a consumer that checks. Selectors on Google's class names remain as fragile as before.
