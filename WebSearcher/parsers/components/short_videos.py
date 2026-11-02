@@ -11,11 +11,13 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row
+from ._deferred_html import fill_deferred_html
 from ._video_card import evlb_fields_by_tile
 
 
 def parse_short_videos(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     # Filter to full card links (with heading), skip thumbnail-only duplicates.
     cards = [a for a in node.css("a.rIRoqf") if a.css_first('div[role="heading"]') is not None]
     if not cards:

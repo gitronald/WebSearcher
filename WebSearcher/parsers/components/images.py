@@ -11,10 +11,12 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ._common import mark_hidden_row
+from ._deferred_html import fill_deferred_html
 
 
 def parse_images(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     parsed_list: list[dict[str, Any]] = []
 
     if node.css_first("g-expandable-container") is not None:

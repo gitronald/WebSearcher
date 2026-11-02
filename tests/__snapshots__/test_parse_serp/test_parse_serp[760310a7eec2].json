@@ -215,11 +215,28 @@
       "url": "https://www.levi.com/US/en_US/levis-vintage-clothing/levis-vintage-clothing-for-men/c/levi_clothing_men_vintage_clothing_us"
     },
     {
+      "cite": null,
+      "cmpt_rank": 7,
+      "details": {
+        "n_reviews": "142",
+        "rating": "4.7",
+        "type": "ratings"
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 3,
+      "sub_type": "brands",
+      "text": "Shop Ralph Lauren Vintage men's clothing from Ralph Lauren. Free Shipping \nWith an RL Account & Free Returns.",
+      "title": "Ralph Lauren",
+      "type": "products",
+      "url": "https://www.ralphlauren.com/men-clothing/r/ralph-lauren-vintage"
+    },
+    {
       "cite": "https://www.etsy.com  › market › old_school_men's_wear",
       "cmpt_rank": 8,
       "details": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 15,
       "sub_rank": 0,
       "sub_type": "image_strip",
       "text": "Check out our  old school men's wear  selection for the very best in unique or custom, handmade pieces from our t- shirts  shops.",
@@ -232,7 +249,7 @@
       "cmpt_rank": 9,
       "details": null,
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Welcome to our store, where you can find the finest  vintage  style  clothing  for your every need. Take a look at our collections and enjoy shopping online at ...",
@@ -245,7 +262,7 @@
       "cmpt_rank": 10,
       "details": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "image_strip",
       "text": "Mens Old  West Costumes and Frontier  Fashion  We carry a full line of period-correct 1800s  clothing , perfect for cowboy shooters, living history enthusiasts, ...",
@@ -258,7 +275,7 @@
       "cmpt_rank": 11,
       "details": null,
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 18,
       "sub_rank": 0,
       "sub_type": "shopping",
       "text": "Shop deals",
@@ -277,7 +294,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -294,7 +311,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 20,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -313,7 +330,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 21,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -332,7 +349,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 22,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -349,7 +366,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 23,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -368,7 +385,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 23,
+      "serp_rank": 24,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -385,7 +402,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 24,
+      "serp_rank": 25,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -402,7 +419,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 25,
+      "serp_rank": 26,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -419,7 +436,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 26,
+      "serp_rank": 27,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -438,7 +455,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 27,
+      "serp_rank": 28,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -457,7 +474,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 28,
+      "serp_rank": 29,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -474,7 +491,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 29,
+      "serp_rank": 30,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -491,7 +508,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 30,
+      "serp_rank": 31,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -508,7 +525,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 31,
+      "serp_rank": 32,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -525,7 +542,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 32,
+      "serp_rank": 33,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -544,7 +561,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 33,
+      "serp_rank": 34,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -561,7 +578,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 34,
+      "serp_rank": 35,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -580,7 +597,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 35,
+      "serp_rank": 36,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -597,7 +614,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 36,
+      "serp_rank": 37,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -614,7 +631,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 37,
+      "serp_rank": 38,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -631,7 +648,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 38,
+      "serp_rank": 39,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -648,7 +665,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 39,
+      "serp_rank": 40,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -667,7 +684,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 40,
+      "serp_rank": 41,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -684,7 +701,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 41,
+      "serp_rank": 42,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -708,7 +725,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 42,
+      "serp_rank": 43,
       "sub_rank": 0,
       "sub_type": "related_searches",
       "text": "modern vintage outfit for male<|>vintage mens clothing 1970s<|>retro outfit for male 90s<|>old school dressing for females<|>old school dressing in the 70s<|>old school outfits 90s",

@@ -12,9 +12,16 @@ from WebSearcher.parsers.components._deferred_html import (
     unescape_js_string,
 )
 from WebSearcher.parsers.components.ai_overview import parse_ai_overview
+from WebSearcher.parsers.components.buying_guide import parse_buying_guide
+from WebSearcher.parsers.components.images import parse_images
 from WebSearcher.parsers.components.knowledge import parse_knowledge_panel
+from WebSearcher.parsers.components.locations import parse_locations
+from WebSearcher.parsers.components.most_read_articles import parse_most_read_articles
 from WebSearcher.parsers.components.perspectives import parse_perspectives
+from WebSearcher.parsers.components.products import parse_products
 from WebSearcher.parsers.components.recent_posts import parse_recent_posts
+from WebSearcher.parsers.components.short_videos import parse_short_videos
+from WebSearcher.parsers.components.twitter_cards import parse_twitter_cards
 
 
 def _scope(html: str) -> Node:
@@ -290,3 +297,42 @@ def test_overview_reads_answer_text_held_in_fragments():
     assert "Shipped: in the page." in text
     assert "Deferred: held in a script." in text
     assert "A later paragraph." in text
+
+
+@pytest.mark.parametrize(
+    "parser",
+    [
+        parse_buying_guide,
+        parse_images,
+        parse_locations,
+        parse_most_read_articles,
+        parse_products,
+        parse_short_videos,
+        parse_twitter_cards,
+    ],
+)
+def test_a_parser_that_opts_in_fills_its_own_subtree(parser, monkeypatch):
+    filled = []
+    monkeypatch.setattr(
+        f"{parser.__module__}.fill_deferred_html",
+        lambda scope, containing=None: filled.append(scope),
+    )
+    scope = _scope('<div id="scope"><div>x</div></div>')
+    parser(scope)
+    assert filled == [scope]
+
+
+def test_most_read_articles_reads_deferred_items():
+    scope = _scope(
+        '<div id="scope"><div role="listitem"><a href="https://shown.example">'
+        '<div aria-level="3">Shown</div></a></div><div id="more"></div></div>'
+        + _fragment(
+            "more",
+            r"\x3cdiv role=\"listitem\">\x3ca href=\"https://deferred.example\">"
+            r"\x3cdiv aria-level=\"3\">Deferred\x3c/div>\x3c/a>\x3c/div>",
+        )
+    )
+    assert [row["url"] for row in parse_most_read_articles(scope)] == [
+        "https://shown.example",
+        "https://deferred.example",
+    ]

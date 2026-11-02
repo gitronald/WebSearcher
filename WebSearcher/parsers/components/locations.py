@@ -11,10 +11,12 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ...models.data import ERR_NO_HOTELS, ERR_UNKNOWN_SUBTYPE, error_details
+from ._deferred_html import fill_deferred_html
 
 
 def parse_locations(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     sub_type = classify_locations_sub_type(node)
     if sub_type == "hotels":
         return parse_hotels(node)

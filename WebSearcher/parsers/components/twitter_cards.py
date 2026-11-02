@@ -11,10 +11,12 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
 from ...utils import url_unquote
+from ._deferred_html import fill_deferred_html
 
 
 def parse_twitter_cards(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     parsed_header = parse_twitter_header(node)
     carousel = node.css_first("g-scrolling-carousel")
     subs = list(carousel.css("g-inner-card")) if carousel is not None else list[Node]()

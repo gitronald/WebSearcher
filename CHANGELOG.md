@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `features.deferred_calls` and `features.deferred_read`, the `jsl.dh` calls on a page and how many could be read. A share read that falls across a crawl means Google changed the format and deferred results are going missing. A rename of the call itself shows as `deferred_calls` falling to zero.
 - `ai_overview` entries in `details.sources` now take their `title`, `snippet`, and `publisher` from the source card when no payload gives them, as on most `requests` captures, where they were empty. A video's card also adds `channel` and `duration`.
 - An `ai_overview` row now reads the whole answer on a `requests` capture. Parts of it, down to single list items and whole sections, sit in deferred fragments, and were cut off: about half the answer text on the pages checked. `details.sections`, `citations`, `sources`, and `follow_up` grow with it, so text and counts from earlier parses of these captures are low.
+- `products`, `images`, `buying_guide`, `most_read_articles`, `locations`, `twitter_cards`, and `short_videos` now read their deferred content on a `requests` capture: more rows, a buying guide's answers, and a short video's channel and date. Row counts for these types rise on those captures.
 - `details.source_tray` on an `ai_overview` row, the hidden list of source links each with `visible: false`. On a `requests` capture it holds more than `details.sources`, which it overlaps, so count one or the other.
 
 ### Changed
