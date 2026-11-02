@@ -22,6 +22,9 @@ were 0 of 27 in fixtures from before 2026-07, 2 of 21 on 2026-07-01, and 29 of 7
 
 ### Decisions
 
+- Capture types keep what each one has. Data is never dropped or merged so that `requests` and browser
+  captures parse the same; a field goes beside the other, and a field empty on one capture type gets a
+  search of the page before the gap is accepted.
 - Fill per parser, never across a whole page. A whole-page fill was tried and corrupted People
   also ask, knowledge headings, and ads, because fragments also hold dialogs and menus. Only an
   empty target is filled, so a browser capture keeps what it already ran.
@@ -88,10 +91,11 @@ gained, rows lost, and any feature field that changed.
   A key moment title no longer falls back to parsing its aria-label, which was English only. An expander-only moment has a null title. No page in the set has that form alone.
   Released as 0.14.2a5.
 - **2026-11-01T17:01:01-08:00** — Video titles: a videos row's title is now the heading's first part, and its source line goes to cite, read by position since the classes are generated. Any heading that is not two parts with a title in the first is read whole, as before. The line replaces an existing cite it contains (a bare YouTube on 37 rows), since it holds the only duration on those rows, and a different cite is kept. Over the 149 pages: 135 rows split, each new title a prefix of the old one and the rest of the old title found in the new cite. No other field changed, and no rows gained or lost. Released as 0.14.2a6.
+- **2026-11-01T17:16:55-08:00** — Source cards: details.sources on requests captures had no title, snippet, or publisher, because the parser read them only from a payload that these pages mostly lack. The card holds them in its own markup, so it is now the fallback. A video's card adds channel and duration, which no payload has. Over the 149 pages: all 30 sources on requests captures now have all three fields, and 4 browser sources gain a duration, 2 a channel, with no existing value changed and no rows gained or lost. Tray items still have only a domain. Their titles appear in script data for 35 of 80 sampled items, which is not read. Released as 0.14.2a7.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a6, pushed. Step 6 needs no work (see the Log).
+- State: steps 1 to 5 are done on `dev` at 0.14.2a7, pushed. Step 6 needs no work (see the Log).
   Step 7, the stable release, waits on the owner.
 - Open questions:
   1. Run-together `videos` titles. Answered 2026-11-01 and done in 0.14.2a6: the title alone, with the
