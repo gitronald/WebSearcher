@@ -22,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - 2026-10 post cards now fill `cite` from their attribution line, such as "oursf49ers · Instagram".
 - Embedded posts now record `details.timestamp`.
 - `details.visible` is now `false` on a `perspectives`, `recent_posts`, `top_stories`, `local_news`, or `latest_from` card that Google marks `data-init-vis="false"` or that sits in a collapsed section. These cards are not on screen when the page loads, and browser captures now flag them too, so counts filtered on `visible` change.
+- A `videos` row's `title` is now the title alone. Its source line, such as "YouTube · A channel 6 minutes, 55 seconds 2 weeks ago", moved to `cite`, unless the row has a different cite of its own, so anything matching or grouping on `title` or a videos `cite` changes.
 - `ad` carousels now keep cards not yet shown, with `details.visible: false`, where they used to drop them. Ad row counts rise and `sub_rank` moves for any consumer that counts every row.
 - `images` rows now record `details.visible: false` under an inline `display:none` or on `data-init-vis="false"`, such as the tail of a "more images" block.
 

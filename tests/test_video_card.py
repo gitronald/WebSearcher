@@ -266,3 +266,53 @@ def test_general_video_reads_moments_without_changing_its_core_fields():
     assert (row["title"], row["url"]) == ("A video", "/goto?url=VIDEO")
     assert row["details"]["duration"] == "10:32"
     assert [m["seconds"] for m in row["details"]["key_moments"]] == [0, 188]
+
+
+# --- the heading's title and source line -----------------------------------------
+
+
+def _heading_tile(heading: str, extra: str = "") -> Node:
+    node = utils.make_soup(
+        f'<div id="scope"><div class="sHEJob"><a href="/v"></a>'
+        f'<div role="heading">{heading}</div>{extra}</div></div>'
+    ).css_first("#scope")
+    assert node is not None
+    return node
+
+
+_TWO_PARTS = (
+    "<div><span>A video</span></div>"
+    "<div><span>YouTube</span><span><span> ·</span> A channel</span><div>May 20, 2025</div></div>"
+)
+
+
+def test_a_two_part_heading_gives_a_title_and_a_cite():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS))
+    assert row["title"] == "A video"
+    assert row["cite"] == "YouTube · A channel May 20, 2025"
+
+
+def test_the_source_line_replaces_a_cite_it_contains():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS, "<cite>YouTube</cite>"))
+    assert row["cite"] == "YouTube · A channel May 20, 2025"
+
+
+def test_a_different_cite_of_the_tiles_own_is_kept():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS, "<cite>www.example.com</cite>"))
+    assert row["title"] == "A video"
+    assert row["cite"] == "www.example.com"
+
+
+@pytest.mark.parametrize(
+    "heading",
+    [
+        "A video",
+        "<span>A video</span>",
+        "<div>A video</div><div>one</div><div>two</div>",
+        "<div></div><div>A video</div>",
+    ],
+)
+def test_any_other_heading_is_read_whole_with_no_cite(heading):
+    [row] = parse_videos(_heading_tile(heading))
+    assert "A video" in row["title"]
+    assert row.get("cite") is None
