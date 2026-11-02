@@ -89,10 +89,15 @@
                 "additional_count": 2,
                 "publisher": "Virginia Tech Athletics",
                 "source_ids": []
+              },
+              {
+                "additional_count": 1,
+                "publisher": "West Virginia University Athletics",
+                "source_ids": []
               }
             ],
             "heading": "Upcoming Men's Basketball Series",
-            "text": "The two programs are renewing their rivalry on the hardcourt with a three-game men's basketball series: Game 1: December 5, 2026, at Hope Coliseum (Morgantown, WV) Game 2: 2027–28 season at Cassell Coliseum (Blacksburg, VA) Game 3: 2028–29 season at Charleston Coliseum (Charleston, WV) West Virginia leads the all-time men's basketball series 49–30, having won the last meeting 88–63 on December 30, 2015"
+            "text": "The two programs are renewing their rivalry on the hardcourt with a three-game men's basketball series: Game 1: December 5, 2026, at Hope Coliseum (Morgantown, WV) Game 2: 2027–28 season at Cassell Coliseum (Blacksburg, VA) Game 3: 2028–29 season at Charleston Coliseum (Charleston, WV) West Virginia leads the all-time men's basketball series 49–30, having won the last meeting 88–63 on December 30, 2015 . Watch highlights from the most recent football meeting between the two schools:"
           }
         ],
         "source_tray": [
@@ -131,6 +136,48 @@
             "title": null,
             "url": "https://support.google.com/knowledgepanel/answer/9787176",
             "visible": false
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "5",
+            "title": null,
+            "url": "/goto?url=CAESjQEB6zswFY-vwykZDvNdjd8RuTz6A6TTavSA_r4yik2LGjd-OeUbAaukd8HODFCT9BBDfFYRg-_8FqLnwc01NvZpW34sJVc2vj2K4apRHX0Nx-uHu4-OTfU3rwPxr6IGbXP5i8ogCE7m82aJf9_R5fTff65u97QSwDWUceoGgA7_zLYGOXT7UaXPJpUfDGE"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "14",
+            "title": null,
+            "url": "/goto?url=CAESdAHrOzAVw-24KToGlx4jl0AXNgZF5z_3qIYERIv8_GTHTbP9Sd20Nt_XicFsKtrB8JGLcN1UekphUDDvkMfG4jVgiPuRl3SqZBH8_L0x7cp6Rtoq3blteKVlbQ3VSA6BKdGOuLC-g4DBy3nlJXyTL2wVPeUF"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "10",
+            "title": null,
+            "url": "/goto?url=CAESoQEB6zswFX-VzeKKOsy9i5w3WQLevs8dfgjWW-kw2jKz7pGsqZmArc3FWxiZeBivcFW-n35GNFT9aRoEM2md6vAm8RYqQzV9-KFWAUnU6_Y3G1lLIY6K6-N8i--wwcZeF6bOGARnItcpkEx80ImLZQ7bJbMr1NGovVEhoh9SLB0ZliyoAboiexa4tQ77J5We67Ve_nXWQhSTrA9gUas82Njy-A"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "8",
+            "title": null,
+            "url": "/goto?url=CAESrAEB6zswFfzGUwFHOqvCybK3iEJoT_-WWaDVSfEKShnBvhgcpCGexDzkzNSr1o-Hb2tA-KWriCEXkfOuFFte16_yxMk6Fdsn4EqiOTawpvXwk1qnDOmVawH-IAbmyei5tofcAD-xfukLfPx_XG69ecKmuqaVU5qT0k6QR0XgSrJZ7ec-F_ZkAOBxDSBoIoesNRF01gZiF70ZMtRrx8cbz4--hX9Szsf_GGZfAaks"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "4_0",
+            "title": null,
+            "url": "https://support.google.com/knowledgepanel/answer/9787176"
           }
         ],
         "type": "ai_overview"

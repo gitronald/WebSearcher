@@ -36,6 +36,7 @@
             "source_ids": []
           }
         ],
+        "follow_up": "If you tell me which room you are shopping for and your ceiling height , I can recommend the right size and style options for your space.",
         "sections": [
           {
             "citations": [
@@ -47,6 +48,11 @@
               {
                 "additional_count": 2,
                 "publisher": "Shades of Light",
+                "source_ids": []
+              },
+              {
+                "additional_count": 2,
+                "publisher": "The Home Depot",
                 "source_ids": []
               }
             ],
@@ -69,7 +75,23 @@
                 "url": "/goto?url=CAEScwHrOzAVKus5Lu1OPkif7ZX_0vnthUShTr1EBPJuXLH3H8leLT6qCRHR3VubisLxTjM6WASIYO9hedkndQBqfMoL2-sdHAsa2mZGRZzohw6P0iNa9Tsli5v7YNayLxMCPeGxigNlQkh1hyvu7zvVWT29Kfc"
               }
             ],
-            "text": "Flush Mount / Low-Profile: Ideal for hallways, bedrooms, and low ceilings. Options like the Merra 5-Light Chrome Flush Mount Chandelier with K9 Crystals Go to product viewer dialog for this item. start around $46 at Home Depot , while larger tiered pieces like the House of Hampton Shullsburg 12-Light Flush Mount Go to product viewer dialog for this item. run around $530 at Wayfair . Hanging & Empire Chandeliers: Classic multi-tier or chain-hung styles—such as the Edvivi Clarus 7-Light Empire Chandelier Go to product viewer dialog for this item. —cost around $182 , whereas designer lines from Visual Comfort or Shades of Light range from $300 to over $3,500 depending on the materials and size."
+            "text": "Flush Mount / Low-Profile: Ideal for hallways, bedrooms, and low ceilings. Options like the Merra 5-Light Chrome Flush Mount Chandelier with K9 Crystals Go to product viewer dialog for this item. start around $46 at Home Depot , while larger tiered pieces like the House of Hampton Shullsburg 12-Light Flush Mount Go to product viewer dialog for this item. run around $530 at Wayfair . Hanging & Empire Chandeliers: Classic multi-tier or chain-hung styles—such as the Edvivi Clarus 7-Light Empire Chandelier Go to product viewer dialog for this item. —cost around $182 , whereas designer lines from Visual Comfort or Shades of Light range from $300 to over $3,500 depending on the materials and size. Finishes & Materials: Common choices include brushed brass, matte black, chrome, wood bead farmhouse styles, and K9 crystal glass."
+          },
+          {
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": "Lowe's",
+                "source_ids": []
+              },
+              {
+                "additional_count": 0,
+                "publisher": "Lowe's",
+                "source_ids": []
+              }
+            ],
+            "heading": "Quick Sizing Guide",
+            "text": "Width (in inches): Add your room's length and width in feet (e.g., a 12' x 14' room calls for a chandelier roughly 26 inches wide). Height (in inches): Multiply your ceiling height in feet by 2.5 to 3 inches. Hanging Clearance: Ensure the bottom of a hanging chandelier sits at least 7 to 7.5 feet above the floor in open walkways, or about 30 to 36 inches above a dining table."
           }
         ],
         "source_tray": [

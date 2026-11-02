@@ -276,3 +276,17 @@ def test_source_card_text_fills_what_no_payload_gave():
     assert (page["title"], page["publisher"], page["snippet"]) == ("A page", "Atlassian", None)
     assert "channel" not in page
     assert "duration" not in page
+
+
+def test_overview_reads_answer_text_held_in_fragments():
+    scope = _scope(
+        '<div id="scope"><div class="mZJni"><div class="n6owBd">The lede.</div>'
+        '<ul class="XSq4R"><li>Shipped: in the page.</li><li><div id="item"></div></li></ul>'
+        '<div id="more"></div></div></div>'
+        + _fragment("item", r"Deferred: held in a script.")
+        + _fragment("more", r"\x3cdiv class=\"n6owBd\">A later paragraph.\x3c/div>")
+    )
+    text = str(parse_ai_overview(scope)[0])
+    assert "Shipped: in the page." in text
+    assert "Deferred: held in a script." in text
+    assert "A later paragraph." in text

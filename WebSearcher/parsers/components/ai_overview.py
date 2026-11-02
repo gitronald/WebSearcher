@@ -101,6 +101,9 @@ def extract_overview(content: Node, scope: Node) -> dict[str, Any]:
     answer embedded in people-also-ask. Citation widgets are decomposed from
     ``content`` as the body is read.
     """
+    # A ``requests`` capture can hold part of the answer, down to single list items,
+    # only as deferred fragments.
+    fill_deferred_html(content)
     # Payload extraction serializes the whole document; only the current DOM
     # ships these JSON citation payloads, so legacy SERPs never reach it.
     payloads = extract_payloads(root_html(content))
