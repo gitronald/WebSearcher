@@ -34,8 +34,8 @@ were 0 of 27 in fixtures from before 2026-07, 2 of 21 on 2026-07-01, and 29 of 7
 - `ads.py` keeps hidden ad cards and flags them, where it now drops them.
 - A repeat across components stays. A repeat inside one component (a carousel and a section of
   `perspectives`) also stays for now.
-- Keep `details.title` as Google's card has it, "YouTube" included. Engagement counts ("10.2K+
-  likes") are not captured unless a consumer asks.
+- Engagement counts ("10.2K+ likes") are not captured for now. They are not a priority, and a later
+  parse of the saved HTML can add them.
 
 ### Steps
 
@@ -100,6 +100,8 @@ gained, rows lost, and any feature field that changed.
      An earlier version of this question said 26, which was every unparsed static link (14 have no
      text and 7 are others, such as jump links). The links probably reach the row's own thread, and
      none was resolved to check. Recommended: leave them out of this release. Open.
+  3. Keep `details.title` as Google's card has it, "YouTube" included? Recommended: yes. Open; an
+     earlier version of this plan listed it as decided.
 - Limits of the counts: a rename of `jsl.dh` itself shows as `deferred_calls` falling to zero, not as
   a falling share, and nothing alerts on it beyond the warning `deferred_read` below `deferred_calls`
   prints for a consumer that checks. Selectors on Google's class names remain as fragile as before.
