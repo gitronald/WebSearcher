@@ -102,15 +102,20 @@ gained, rows lost, and any feature field that changed.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a10, pushed. Step 6 needs no work (see the Log).
-  Step 7, the stable release, waits on the owner.
+- State: released as v0.14.2, with steps 1 to 5 and 7 done and step 6 needing no work (see the Log).
+  Remaining before this plan closes:
+  - A repeatable check that compares fragment text with parser output, by component. The survey that
+    found the cut-off answers was a one-off script, and the snapshot tests cannot catch this kind of
+    loss, since they record whatever the parser produced.
+  - `election_dates` holds dates in fragments that its selectors do not read, which needs new parser
+    work.
 - Open questions:
   1. Run-together `videos` titles. Answered 2026-11-01 and done in 0.14.2a6: the title alone, with the
      source line in `cite`.
   2. Forum results carry an "N answers" sublink that no parser reads: 5 links on the sample pages.
      An earlier version of this question said 26, which was every unparsed static link (14 have no
      text and 7 are others, such as jump links). The links probably reach the row's own thread, and
-     none was resolved to check. Recommended: leave them out of this release. Open.
+     none was resolved to check. Left out of this release, as recommended; can be added later.
   3. Keep `details.title` as Google's card has it, "YouTube" included? Answered 2026-11-01: yes.
   4. Which remaining components to fill before the stable release? Answered 2026-11-01: fill them first.
      `products`, `images`, `buying_guide`, `most_read_articles`, `locations`, `twitter_cards`, and
