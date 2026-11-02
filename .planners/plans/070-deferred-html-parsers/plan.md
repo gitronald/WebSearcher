@@ -87,15 +87,15 @@ gained, rows lost, and any feature field that changed.
   features.deferred_calls and features.deferred_read now report the share read. A test pins it at every call for the fixture corpus, and a downstream pipeline run on the 28 sampled pages carried the counts through, at 1,539 of 1,539.
   A key moment title no longer falls back to parsing its aria-label, which was English only. An expander-only moment has a null title. No page in the set has that form alone.
   Released as 0.14.2a5.
+- **2026-11-01T17:01:01-08:00** — Video titles: a videos row's title is now the heading's first part, and its source line goes to cite, read by position since the classes are generated. Any heading that is not two parts with a title in the first is read whole, as before. The line replaces an existing cite it contains (a bare YouTube on 37 rows), since it holds the only duration on those rows, and a different cite is kept. Over the 149 pages: 135 rows split, each new title a prefix of the old one and the rest of the old title found in the new cite. No other field changed, and no rows gained or lost. Released as 0.14.2a6.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a5, pushed. Step 6 needs no work (see the Log).
+- State: steps 1 to 5 are done on `dev` at 0.14.2a6, pushed. Step 6 needs no work (see the Log).
   Step 7, the stable release, waits on the owner.
 - Open questions:
-  1. A `videos` row's `title` runs its source into the heading ("A video YouTube · A channel May 20,
-     2025"), while `details.title` is clean. Recommended: fix the top-level `title` before the
-     release, since a reparse would otherwise carry it. Open.
+  1. Run-together `videos` titles. Answered 2026-11-01 and done in 0.14.2a6: the title alone, with the
+     source line in `cite`.
   2. Forum results carry an "N answers" sublink that no parser reads: 5 links on the sample pages.
      An earlier version of this question said 26, which was every unparsed static link (14 have no
      text and 7 are others, such as jump links). The links probably reach the row's own thread, and
