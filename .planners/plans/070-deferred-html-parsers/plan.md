@@ -35,8 +35,9 @@ were 0 of 27 in fixtures from before 2026-07, 2 of 21 on 2026-07-01, and 29 of 7
   moments do not change its component's row count.
 - Apply the `data-init-vis` rule to `videos` and image carousels.
 - `ads.py` keeps hidden ad cards and flags them, where it now drops them.
-- A repeat across components stays. A repeat inside one component (a carousel and a section of
-  `perspectives`) also stays for now.
+- A repeat across components stays, and so does a repeat inside one component that differs in
+  anything, such as a post in two sections. A row matching another in its component in every field
+  but rank is dropped: over 149 pages that was 8 image rows, where Google showed an image twice.
 - Engagement counts ("10.2K+ likes") are not captured for now. They are not a priority, and a later
   parse of the saved HTML can add them.
 
@@ -92,10 +93,14 @@ gained, rows lost, and any feature field that changed.
   Released as 0.14.2a5.
 - **2026-11-01T17:01:01-08:00** — Video titles: a videos row's title is now the heading's first part, and its source line goes to cite, read by position since the classes are generated. Any heading that is not two parts with a title in the first is read whole, as before. The line replaces an existing cite it contains (a bare YouTube on 37 rows), since it holds the only duration on those rows, and a different cite is kept. Over the 149 pages: 135 rows split, each new title a prefix of the old one and the rest of the old title found in the new cite. No other field changed, and no rows gained or lost. Released as 0.14.2a6.
 - **2026-11-01T17:16:55-08:00** — Source cards: details.sources on requests captures had no title, snippet, or publisher, because the parser read them only from a payload that these pages mostly lack. The card holds them in its own markup, so it is now the fallback. A video's card adds channel and duration, which no payload has. Over the 149 pages: all 30 sources on requests captures now have all three fields, and 7 browser sources gain a duration and 2 a channel, with no existing value changed and no rows gained or lost. Tray items still have only a domain. Their titles appear in script data for 35 of 80 sampled items, which is not read. Released as 0.14.2a7.
+- **2026-11-01T17:33:41-08:00** — AI overview answer text: on requests captures, list items and whole sections of the answer sit in fragments with targets inside div.mZJni, and were cut off. The parser now fills div.mZJni before reading it. Answer characters on the changed rows: 4,276 to 10,070 on one sample set, 2,945 to 5,109 on another, and 2,633 to 4,502 on requests fixtures. Sections went from 16 to 22, citations from 36 to 73, sources from 30 to 53, and follow_up from 0 to 12. No answer shrank, browser captures did not change, and a read of the recovered text found no interface text. This corrects the Log above on tray and cards: requests captures had few cards partly because of this bug. Released as 0.14.2a9.
+  Checked and ruled out: no page in the 149 has a template element, so the unfilled calls are targets created by other fragments. Overviews marked not_loaded have no body anywhere, including in fragments, so nothing is recoverable there.
+  Identical rows: a row matching another in its component in every field but sub_rank is dropped and the rest renumbered (0.14.2a8). Over 149 pages that removed 8 image rows, with no distinct row lost.
+  Survey of unread fragment text by component on non-browser pages: most is interface text (AI Mode prompts, feedback dialogs, share menus). The matching is rough and has false positives, including overview headings and video cards the parser already reads, and only a few examples of each type were read.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a7, pushed. Step 6 needs no work (see the Log).
+- State: steps 1 to 5 are done on `dev` at 0.14.2a9, pushed. Step 6 needs no work (see the Log).
   Step 7, the stable release, waits on the owner.
 - Open questions:
   1. Run-together `videos` titles. Answered 2026-11-01 and done in 0.14.2a6: the title alone, with the
@@ -104,8 +109,12 @@ gained, rows lost, and any feature field that changed.
      An earlier version of this question said 26, which was every unparsed static link (14 have no
      text and 7 are others, such as jump links). The links probably reach the row's own thread, and
      none was resolved to check. Recommended: leave them out of this release. Open.
-  3. Keep `details.title` as Google's card has it, "YouTube" included? Recommended: yes. Open; an
-     earlier version of this plan listed it as decided.
+  3. Keep `details.title` as Google's card has it, "YouTube" included? Answered 2026-11-01: yes.
+  4. Which remaining components to fill before the stable release? Open. A rough text survey of the
+     non-browser pages finds real content in fragments for `products` (the largest), `images`,
+     `election_results`, `election_dates`, `buying_guide`, `most_read_articles`, `locations`,
+     `twitter_cards`, and `short_videos`, mostly on older pages. Recommended: release first, since
+     none of these is common on current pages, and take them as a later step.
 - Limits of the counts: a rename of `jsl.dh` itself shows as `deferred_calls` falling to zero, not as
   a falling share, and nothing alerts on it beyond the warning `deferred_read` below `deferred_calls`
   prints for a consumer that checks. Selectors on Google's class names remain as fragile as before.
