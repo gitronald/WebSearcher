@@ -1,3 +1,4 @@
+import json
 import logging
 import traceback
 from typing import Any
@@ -121,6 +122,7 @@ class Component:
     def add_parsed_result_list(self, parsed_result_list: list[dict[str, Any]]) -> None:
         for parsed_result in parsed_result_list:
             self.add_parsed_result(parsed_result)
+        self.result_list = _drop_identical_rows(self.result_list)
 
     def add_parsed_result(self, parsed_result: dict[str, Any]) -> None:
         """Add a parsed result with BaseResult validation to results_list"""
@@ -139,3 +141,24 @@ class Component:
         result_metadata = {"section": self.section, "cmpt_rank": self.cmpt_rank}
         results_list = [{**result_metadata, **result} for result in self.result_list]
         return results_list
+
+
+def _drop_identical_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Keep the first of rows that match in every field but their rank.
+
+    Google can show the same card twice in a component. A repeat that differs in
+    anything, such as a post in two sections, is not a duplicate and stays.
+    """
+    seen: set[str] = set()
+    kept: list[dict[str, Any]] = []
+    for row in rows:
+        key = json.dumps(
+            {k: v for k, v in row.items() if k != "sub_rank"}, sort_keys=True, default=str
+        )
+        if key not in seen:
+            seen.add(key)
+            kept.append(row)
+    if len(kept) < len(rows):
+        for sub_rank, row in enumerate(kept):
+            row["sub_rank"] = sub_rank
+    return kept

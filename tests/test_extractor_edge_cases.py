@@ -128,6 +128,38 @@ def test_malformed_parser_row_becomes_error_row(monkeypatch, bad_row):
     assert row["details"]["error"].startswith(ERR_EXCEPTION)
 
 
+def _component_rows(monkeypatch, rows):
+    elem = _node('<div class="g">x</div>', "div.g")
+    cmpt = Component(elem, section="main", type="general")
+    monkeypatch.setitem(component_mod.main_parser_dict, "general", lambda node: rows)
+    cmpt.parse_component()
+    return cmpt.result_list
+
+
+def test_identical_rows_keep_the_first_and_renumber(monkeypatch):
+    row = {"type": "general", "title": "same", "url": "/same"}
+    other = {"type": "general", "title": "other", "url": "/other"}
+    rows = _component_rows(
+        monkeypatch,
+        [{**row, "sub_rank": 0}, {**other, "sub_rank": 1}, {**row, "sub_rank": 2}],
+    )
+    assert [(r["title"], r["sub_rank"]) for r in rows] == [("same", 0), ("other", 1)]
+
+
+@pytest.mark.parametrize(
+    "second",
+    [
+        {"details": {"type": "item", "section_heading": "Another section"}},
+        {"details": {"type": "item", "visible": False}},
+        {"text": "other text"},
+    ],
+)
+def test_a_repeat_that_differs_in_anything_stays(monkeypatch, second):
+    row = {"type": "general", "title": "same", "url": "/same"}
+    rows = _component_rows(monkeypatch, [{**row, "sub_rank": 0}, {**row, **second, "sub_rank": 1}])
+    assert [r["sub_rank"] for r in rows] == [0, 1]
+
+
 # ads -------------------------------------------------------------------------------
 
 
