@@ -82,18 +82,27 @@ gained, rows lost, and any feature field that changed.
   Step 4: details.key_moments on videos and general video rows (seconds, title, url). A tile holds moments behind its expander, its evlb card, or both, with the same links. Filling the evlb card also gives these rows their channel and date. Core fields are read before the fill. No moment lacks a title or url.
   Step 5: details.source_tray on AI overview rows, apart from details.sources, and all flagged not visible. Browser captures have as many tray items as source cards (88 and 88 on the 10 rows with both). requests captures have far more in the tray: 29 against 3 in fixtures, and 80 against 27 in sampled pages. A tray and its cards overlap and use different links on a /goto page, so a merged list would count a source twice. root_html and raw_serp_html moved to _common to break an import cycle.
   Step 6 needs no work: of 155 fragments inside People also ask pairs, none holds a /goto link. 44 hold text: 32 are AI Mode prompts, and the other 12 are short (the 8 read are error messages). The answer already shipped expanded under a first question was parsed before this plan.
+- **2026-11-01T16:27:54-08:00** — The fragment regex matched 3,030 of the 10,468 jsl.dh calls on the 149 pages, and none on 31 fixture pages with an older call form. Nothing reported the miss. It is replaced by a reader of the call's arguments, covering window.jsl.dh with either quote style and this.id with either quote style. All 10,468 are now read.
+  Effect against the prior build: 14 older pages changed, all on video rows, which gain their title, channel, and thumbnail. No rows gained or lost, and no other feature changed. So the empty cards on older pages really have no fragment, which the earlier count could not have shown. A 7 ms cost per page went away by removing a word boundary that blocked the literal prefix search, and the scan is cached per page: about 9.3 ms per page now, against 10.3 before.
+  features.deferred_calls and features.deferred_read now report the share read. A test pins it at every call for the fixture corpus, and a downstream pipeline run on the 28 sampled pages carried the counts through, at 1,539 of 1,539.
+  A key moment title no longer falls back to parsing its aria-label, which was English only. An expander-only moment has a null title. No page in the set has that form alone.
+  Released as 0.14.2a5.
 
 ## Handoff
 
-- State: steps 1 to 5 are done on `dev` at 0.14.2a4, pushed. Step 6 needs no work (see the Log).
+- State: steps 1 to 5 are done on `dev` at 0.14.2a5, pushed. Step 6 needs no work (see the Log).
   Step 7, the stable release, waits on the owner.
 - Open questions:
   1. A `videos` row's `title` runs its source into the heading ("A video YouTube · A channel May 20,
      2025"), while `details.title` is clean. Recommended: fix the top-level `title` before the
      release, since a reparse would otherwise carry it. Open.
-  2. Forum results carry an "N answers" sublink that no parser reads, the largest remaining group
-     on the sample pages (26 links). Recommended: add it to the result's `details` before the
-     release. Open.
+  2. Forum results carry an "N answers" sublink that no parser reads: 5 links on the sample pages.
+     An earlier version of this question said 26, which was every unparsed static link (14 have no
+     text and 7 are others, such as jump links). The links probably reach the row's own thread, and
+     none was resolved to check. Recommended: leave them out of this release. Open.
+- Limits of the counts: a rename of `jsl.dh` itself shows as `deferred_calls` falling to zero, not as
+  a falling share, and nothing alerts on it beyond the warning `deferred_read` below `deferred_calls`
+  prints for a consumer that checks. Selectors on Google's class names remain as fragile as before.
 - Not verified:
   - No page was checked against a rendered screenshot in steps 2 to 5; the checks were the page diff
     and link counts.
