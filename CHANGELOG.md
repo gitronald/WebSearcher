@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.14.2] - 2026-11-01
+
 ### Added
 
 - `perspectives`, `recent_posts`, `top_stories`, and `local_news` rows now cover the cards Google defers. A `requests` capture holds those cards only as inline `jsl.dh` script text, including carousel cards past the first few and posts in collapsed topics, so they were dropped. These parsers now fill their own placeholders first. A browser capture has already run the scripts, and a placeholder that holds content is left alone.
