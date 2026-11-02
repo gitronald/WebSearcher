@@ -12,7 +12,7 @@ from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import class_tokens, get_text, next_sibling, subtree_css, subtree_first
 from ._common import parse_alink_list
-from ._video_card import parse_evlb_card
+from ._video_card import video_details
 
 
 def parse_general_results(elem: Node) -> list[dict[str, Any]]:
@@ -254,13 +254,10 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
     title_el = sub.css_first("h3.LC20lb")
     body_el = sub.css_first(".ITZIwc")
     cite_el = sub.css_first("cite")
-    fields = parse_evlb_card(sub) or {}
     # Duration only exists on the visible tile's overlay (older layouts), never
     # in the hidden card -- keep its selector as a merged legacy path.
     duration = get_text(sub.css_first(".JIv15d"), strip=True)
-    if duration:
-        fields["duration"] = duration
-    return {
+    parsed: dict[str, Any] = {
         "type": "general",
         "sub_type": "video",
         "sub_rank": sub_rank,
@@ -268,5 +265,10 @@ def parse_general_video(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "url": a.attrs.get("href", "") if a is not None else None,
         "text": get_text(body_el, strip=True),
         "cite": get_text(cite_el, strip=False),
-        "details": {"type": "video", **fields} if fields else None,
     }
+    # Filled only now, since the deferred card holds headings and links of its own.
+    details = video_details(sub) or {}
+    if duration:
+        details = {"type": "video", **details, "duration": duration}
+    parsed["details"] = details or None
+    return parsed

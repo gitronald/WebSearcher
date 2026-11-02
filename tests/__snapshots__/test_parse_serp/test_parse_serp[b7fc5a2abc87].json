@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 41,
+    "deferred_read": 41,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -156,7 +158,12 @@
     {
       "cite": "Inc",
       "cmpt_rank": 10,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
+        "timestamp": "3 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 0,
@@ -169,7 +176,12 @@
     {
       "cite": "Inc",
       "cmpt_rank": 10,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
+        "timestamp": "5 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 1,
@@ -182,7 +194,12 @@
     {
       "cite": "Inc",
       "cmpt_rank": 10,
-      "details": null,
+      "details": {
+        "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
+        "timestamp": "8 hours ago",
+        "type": "item"
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 2,
@@ -191,6 +208,44 @@
       "title": "A new study reveals that top executives don't just revise their environmental strategies—they rely on a surprising communication habit to signal true control. trib.al/f7Y5sSR",
       "type": "recent_posts",
       "url": "https://x.com/Inc/status/2072052243725984101?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": "Inc",
+      "cmpt_rank": 10,
+      "details": {
+        "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
+        "timestamp": "11 hours ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 3,
+      "sub_type": null,
+      "text": null,
+      "title": "A massive new study warns that 80 percent of us are deficient in an essential element linked to slower brain aging—even if we hit our daily serving goals. trib.al/M7BfaaK",
+      "type": "recent_posts",
+      "url": "https://x.com/Inc/status/2071995681632374835?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
+    },
+    {
+      "cite": "Inc",
+      "cmpt_rank": 10,
+      "details": {
+        "author_url": "https://x.com/Inc?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+        "section_heading": "Latest posts from Twitter",
+        "timestamp": "15 hours ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 4,
+      "sub_type": null,
+      "text": null,
+      "title": "Research shows a 20-second fake smile 'improves physiology during acute stress, improves stress recover, and reduces illness over time.' Can't beat that. trib.al/861JHiH",
+      "type": "recent_posts",
+      "url": "https://x.com/Inc/status/2071938188868723174?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet"
     },
     {
       "cite": null,
@@ -210,7 +265,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 13,
+      "serp_rank": 15,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Twitter sign in<|>Twitter sign up<|>Twitter web<|>Twitter owner<|>Twitter sign up or login<|>Twitter app download<|>Twitter Inc phone Number<|>When did Twitter become popular",
@@ -226,7 +281,7 @@
         "type": "panel"
       },
       "section": "rhs",
-      "serp_rank": 14,
+      "serp_rank": 16,
       "sub_rank": 0,
       "sub_type": "panel",
       "text": null,
@@ -248,7 +303,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 15,
+      "serp_rank": 17,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "March 21, 2006, San Francisco, CA",
@@ -282,7 +337,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 16,
+      "serp_rank": 18,
       "sub_rank": 2,
       "sub_type": "fact",
       "text": "Jack Dorsey , Biz Stone , Noah Glass , Evan Williams",
@@ -304,7 +359,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 17,
+      "serp_rank": 19,
       "sub_rank": 3,
       "sub_type": "fact",
       "text": "San Francisco, CA",
@@ -337,7 +392,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 18,
+      "serp_rank": 20,
       "sub_rank": 4,
       "sub_type": "links",
       "text": null,

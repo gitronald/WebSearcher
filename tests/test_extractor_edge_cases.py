@@ -128,6 +128,38 @@ def test_malformed_parser_row_becomes_error_row(monkeypatch, bad_row):
     assert row["details"]["error"].startswith(ERR_EXCEPTION)
 
 
+def _component_rows(monkeypatch, rows):
+    elem = _node('<div class="g">x</div>', "div.g")
+    cmpt = Component(elem, section="main", type="general")
+    monkeypatch.setitem(component_mod.main_parser_dict, "general", lambda node: rows)
+    cmpt.parse_component()
+    return cmpt.result_list
+
+
+def test_identical_rows_keep_the_first_and_renumber(monkeypatch):
+    row = {"type": "general", "title": "same", "url": "/same"}
+    other = {"type": "general", "title": "other", "url": "/other"}
+    rows = _component_rows(
+        monkeypatch,
+        [{**row, "sub_rank": 0}, {**other, "sub_rank": 1}, {**row, "sub_rank": 2}],
+    )
+    assert [(r["title"], r["sub_rank"]) for r in rows] == [("same", 0), ("other", 1)]
+
+
+@pytest.mark.parametrize(
+    "second",
+    [
+        {"details": {"type": "item", "section_heading": "Another section"}},
+        {"details": {"type": "item", "visible": False}},
+        {"text": "other text"},
+    ],
+)
+def test_a_repeat_that_differs_in_anything_stays(monkeypatch, second):
+    row = {"type": "general", "title": "same", "url": "/same"}
+    rows = _component_rows(monkeypatch, [{**row, "sub_rank": 0}, {**row, **second, "sub_rank": 1}])
+    assert [r["sub_rank"] for r in rows] == [0, 1]
+
+
 # ads -------------------------------------------------------------------------------
 
 
@@ -152,13 +184,29 @@ def test_parse_ads_renumbers_sub_rank_across_layouts():
         ("legacy", 1),
         ("carousel", 2),
         ("carousel", 3),
+        ("carousel", 4),
     ]
 
 
-def test_parse_ad_carousel_skips_hidden_cards_without_gaps():
+def test_parse_ad_carousel_keeps_hidden_cards_and_flags_them():
     node = _node(f"<div>{_CAROUSEL}</div>", "div")
     rows = parse_ad_carousel(node)
-    assert [(r["title"], r["sub_rank"]) for r in rows] == [("C1", 0), ("C2", 1)]
+    assert [(r["title"], r["sub_rank"]) for r in rows] == [("C1", 0), ("hidden", 1), ("C2", 2)]
+    assert [(r.get("details") or {}).get("visible") for r in rows] == [None, False, None]
+
+
+def test_parse_ad_carousel_keeps_hidden_divs_and_flags_them():
+    node = _node(
+        '<div><g-scrolling-carousel><div class="ZPze1e"><div class="e7SMre">D1</div></div>'
+        '<div class="ZPze1e" data-has-shown="false"><div class="e7SMre">D2</div></div>'
+        "</g-scrolling-carousel></div>",
+        "div",
+    )
+    rows = parse_ad_carousel(node)
+    assert [(r["title"], (r.get("details") or {}).get("visible")) for r in rows] == [
+        ("D1", None),
+        ("D2", False),
+    ]
 
 
 def test_rhs_with_knowledge_attrids_routes_to_knowledge_rhs():

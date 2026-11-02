@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 121,
+    "deferred_read": 121,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -34,6 +36,7 @@
             "source_ids": []
           }
         ],
+        "follow_up": "If you tell me which room you are shopping for and your ceiling height , I can recommend the right size and style options for your space.",
         "sections": [
           {
             "citations": [
@@ -45,6 +48,11 @@
               {
                 "additional_count": 2,
                 "publisher": "Shades of Light",
+                "source_ids": []
+              },
+              {
+                "additional_count": 2,
+                "publisher": "The Home Depot",
                 "source_ids": []
               }
             ],
@@ -67,32 +75,122 @@
                 "url": "/goto?url=CAEScwHrOzAVKus5Lu1OPkif7ZX_0vnthUShTr1EBPJuXLH3H8leLT6qCRHR3VubisLxTjM6WASIYO9hedkndQBqfMoL2-sdHAsa2mZGRZzohw6P0iNa9Tsli5v7YNayLxMCPeGxigNlQkh1hyvu7zvVWT29Kfc"
               }
             ],
-            "text": "Flush Mount / Low-Profile: Ideal for hallways, bedrooms, and low ceilings. Options like the Merra 5-Light Chrome Flush Mount Chandelier with K9 Crystals Go to product viewer dialog for this item. start around $46 at Home Depot , while larger tiered pieces like the House of Hampton Shullsburg 12-Light Flush Mount Go to product viewer dialog for this item. run around $530 at Wayfair . Hanging & Empire Chandeliers: Classic multi-tier or chain-hung styles—such as the Edvivi Clarus 7-Light Empire Chandelier Go to product viewer dialog for this item. —cost around $182 , whereas designer lines from Visual Comfort or Shades of Light range from $300 to over $3,500 depending on the materials and size."
+            "text": "Flush Mount / Low-Profile: Ideal for hallways, bedrooms, and low ceilings. Options like the Merra 5-Light Chrome Flush Mount Chandelier with K9 Crystals Go to product viewer dialog for this item. start around $46 at Home Depot , while larger tiered pieces like the House of Hampton Shullsburg 12-Light Flush Mount Go to product viewer dialog for this item. run around $530 at Wayfair . Hanging & Empire Chandeliers: Classic multi-tier or chain-hung styles—such as the Edvivi Clarus 7-Light Empire Chandelier Go to product viewer dialog for this item. —cost around $182 , whereas designer lines from Visual Comfort or Shades of Light range from $300 to over $3,500 depending on the materials and size. Finishes & Materials: Common choices include brushed brass, matte black, chrome, wood bead farmhouse styles, and K9 crystal glass."
+          },
+          {
+            "citations": [
+              {
+                "additional_count": 0,
+                "publisher": "Lowe's",
+                "source_ids": []
+              },
+              {
+                "additional_count": 0,
+                "publisher": "Lowe's",
+                "source_ids": []
+              }
+            ],
+            "heading": "Quick Sizing Guide",
+            "text": "Width (in inches): Add your room's length and width in feet (e.g., a 12' x 14' room calls for a chandelier roughly 26 inches wide). Height (in inches): Multiply your ceiling height in feet by 2.5 to 3 inches. Hanging Clearance: Ensure the bottom of a hanging chandelier sits at least 7 to 7.5 feet above the floor in open walkways, or about 30 to 36 inches above a dining table."
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "mirodemi.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESbwHrOzAVBD_mVJCDs5ZSaCxfq3SZvB60tilsOvYerANvrKgaJOZf_bDFjJ8HnUzPO6SvGQePpJFP7cwmAE2jBsP6OKHhujRPc_2JcloAnJq9J_qz1a5H2Sc1NDFxnvqKaxaRaJ3WewG5s4uJUIdHag",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "Google",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.google.com/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "lampsplus.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESYwHrOzAV7S6YryEqf2zZII5bWTKVhX8OwTMKTUSh3u3rj2A_MSGPRLZhi53FEzOxTy0iiCIKEq2QiMgQizmeqBrxyDlba8wIZm0lVHN6cHnqw77GnG6DFtO19n7ugO1dQKG5_w",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "shadesoflight.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAEScwHrOzAVXb63u-SztstPmHL03zKhuSR_laxdqTA4OsgNysZu0aOPWHtZ7P1grF7UpFAyjI2RlISRF74zkRiiWq4ApI4oytQIGWv-Rp5p5_cDpC9e4HrLwK3Uk1FJ2VN7reIwkQTsRy7EJMzLo_vZh7dkSjQ",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "visualcomfort.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAEScAHrOzAVeq_otTAEk-hNqt1aib6sJGbcUKcumbqdKSwCDOln0rcpjp0PDtnXnoJhQyZzNqi2g7YejduNtyPQ1wsRVP3ltTjYjX_N-BuVJdihVj4XrfHmZOk_jHpG90sOHJtvwnDMuhovt5FUEathOJM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "homedepot.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESeAHrOzAVLpaGgvRoOh56V-uRlRH-2PJEF7_EXg6TCovSaNwRpBeLdnwIa3SKtws2YT847Ki-N0z6g29dmhI_P0sr3PKDuipuNS4GxEmnSFYuxbpM6UbjH4-nHT4VTIY-sJleNPRb-OiDGBgUBFySWDX827cRpam8lA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "1800lighting.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESdAHrOzAVPecrSCSk-sGau7NBh3c48uZ_GYo1gTLt0em0c258qKc-Ws1Du5YK0q5Ldxq8g_Jga_qC4b0brWdYAdCazzA-wV6ORrJj9pgTzL_k8pjjegFdWU103ekebHYXc1qHCXxZH_DlekJq4WziuvdqDXeM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "lowes.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESgwEB6zswFWiOnkIvVce2hoC7ORosMKZE_VfjkUv_ByUO7g0NtcRQIv9Xqe5QqXA16YMdF-4J9r7q-Sp-hXJoZO20YAWsX9R-EqHP-GF3cLfqzgJ40HLJws2kvpAX6LTyi37I4FGVEgAc5s8qWcPgEET3yfSFdBKQ6i4rkWSwLGgOZftfdg",
+            "visible": false
           }
         ],
         "sources": [
           {
             "favicon": null,
-            "publisher": "",
-            "snippet": null,
+            "publisher": "Mirodemi",
+            "snippet": "Lighting by Category. Flush mount chandeliers combine the sparkle of a chandelier with a low-profile ceiling fit — ideal for bedro...",
             "source_id": "9",
-            "title": null,
+            "title": "Modern Flush Mount Ceiling Chandeliers - Mirodemi",
             "url": "/goto?url=CAESbwHrOzAV57FN1OU6mGA6U4qX2ti4K5kkAvOpIhoiMEMDOzku8yFDJrMXInpJLHqwJ-u1WwIC_1pvCmHqZSis0FpWmc87cOYB9mzcZQDBr1Hv2xnDHvBkKHWB8yBY22pZSglj83KJQDPV9xdAg_PkKQ"
           },
           {
             "favicon": null,
-            "publisher": "",
-            "snippet": null,
+            "publisher": "The Home Depot",
+            "snippet": "Chandeliers by Finish & Design You have so many colors to choose from when shopping for chandeliers. Try a brass chandelier or gol...",
             "source_id": "7",
-            "title": null,
+            "title": "Chandeliers",
             "url": "/goto?url=CAESeAHrOzAV7BZ4eBL6FdQLw2kdmxsSLqBkpwaJk2jIiKKmuOwcAz4xMv9korzK4fpQG1t8-AnekH13tFu5WaXKHOW9pnIoIddQATvPdSToL_N0r76zIcmSOQQynp5oaGMEOwTQhj1bVLEK78NJ2FS6gyxteRDR1MAR8w"
           },
           {
             "favicon": null,
-            "publisher": "",
-            "snippet": null,
+            "publisher": "Shades of Light",
+            "snippet": "All Chandeliers * Quick View for Kalini Double Drum Convertible Chandelier Kalini Double Drum Convertible Chandelier $598.00 * Qui...",
             "source_id": "6",
-            "title": null,
+            "title": "Shop Modern Chandelier Light Fixtures",
             "url": "/goto?url=CAEScwHrOzAVKus5Lu1OPkif7ZX_0vnthUShTr1EBPJuXLH3H8leLT6qCRHR3VubisLxTjM6WASIYO9hedkndQBqfMoL2-sdHAsa2mZGRZzohw6P0iNa9Tsli5v7YNayLxMCPeGxigNlQkh1hyvu7zvVWT29Kfc"
           }
         ],

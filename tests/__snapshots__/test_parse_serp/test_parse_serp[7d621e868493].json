@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 73,
+    "deferred_read": 73,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-overview",
@@ -171,11 +173,37 @@
       "url": "https://twitter.com/OscarTheGrouch/status/1765083198092935472?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
     },
     {
+      "cite": "Posted on X  ·  Feb 24, 2024",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 4,
+      "sub_type": "card",
+      "text": "Cockroaches are kinda cute. 🪳",
+      "title": "@OscarTheGrouch",
+      "type": "twitter_cards",
+      "url": "https://twitter.com/OscarTheGrouch/status/1761419190525649326?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
+    },
+    {
+      "cite": "Posted on X  ·  Feb 21, 2024",
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 5,
+      "sub_type": "card",
+      "text": "Being happy         →       Being grouchy        makes me grouchy        make me happy\n        ↑                                                ↓\nBeing grouchy    ←    Being happy makes makes me happy                      me grouchy",
+      "title": "@OscarTheGrouch",
+      "type": "twitter_cards",
+      "url": "https://twitter.com/OscarTheGrouch/status/1760391522065797406?ref_src=twsrc^google|twcamp^serp|twgr^tweet"
+    },
+    {
       "cite": "https://muppet.fandom.com  › wiki › Oscar_the_Grouch",
       "cmpt_rank": 5,
       "details": null,
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 12,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Oscar the Grouch  is a furry, green Grouch who lives in a trash can on Sesame Street. In fact, he loves trash so much that he's rarely seen outside of his ...",
@@ -188,7 +216,7 @@
       "cmpt_rank": 6,
       "details": null,
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Oscar , Sesame Street's resident  Grouch , despises all things “nice” like rainbows, candy, and chocolate. Being  grouchy  makes him happy, but being happy makes him ...",
@@ -197,54 +225,121 @@
       "url": "https://sesameworkshop.org/our-work/shows/sesame-street/sesame-street-characters/oscar-the-grouch/"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Sesame Street 30 minutes, 15 seconds May 27, 2022",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "key_moments": [
+          {
+            "seconds": 20,
+            "title": "If You're Happy and You Know It: Elmo",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=20"
+          },
+          {
+            "seconds": 219,
+            "title": "Grouch Drummer (Elma)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=219"
+          },
+          {
+            "seconds": 338,
+            "title": "It's Not Easy Being Green (Original Song)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=338"
+          },
+          {
+            "seconds": 616,
+            "title": "Letter of the Day: H",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=616"
+          },
+          {
+            "seconds": 765,
+            "title": "Happy horses, humming in harmony",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=765"
+          },
+          {
+            "seconds": 843,
+            "title": "The No, No, No Dance",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=843"
+          },
+          {
+            "seconds": 1268,
+            "title": "Swamp, Mushy, Muddy",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1268"
+          },
+          {
+            "seconds": 1438,
+            "title": "Letter B (Jelly Monster)",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1438"
+          },
+          {
+            "seconds": 1775,
+            "title": "Stop restarting Starburst",
+            "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1775"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/FiZvEXqWGI0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kiVZ-3rb-MmU6lpQlSkJl1r8Gnjg",
+        "title": "Sesame Street: Best of Oscar the Grouch Compilation | Happy ...",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 14,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Sesame Street: Best of Oscar the Grouch Compilation | Happy ... YouTube  ·  Sesame Street 30 minutes, 15 seconds May 27, 2022",
+      "title": "Sesame Street: Best of Oscar the Grouch Compilation | Happy ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Sesame Street 2 minutes, 30 seconds Dec 18, 2009",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/rxgWHzMvXOY/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3k6dgZMaS2Ccy0Kq2BPmRlt14faVA",
+        "title": "Sesame Street: I Love Trash",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 15,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Sesame Street: I Love Trash YouTube  ·  Sesame Street 2 minutes, 30 seconds Dec 18, 2009",
+      "title": "Sesame Street: I Love Trash",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=rxgWHzMvXOY"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Sesame Street 25 minutes, 57 seconds Mar 3, 2023",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/avyZ67cRZiY/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3m2ic8d0I7_O8yNqNcewXDrTg_VOg",
+        "title": "Elmo the Grouch | Sesame Street Full Episode",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 16,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Elmo the Grouch | Sesame Street Full Episode YouTube  ·  Sesame Street 25 minutes, 57 seconds Mar 3, 2023",
+      "title": "Elmo the Grouch | Sesame Street Full Episode",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=avyZ67cRZiY"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Sesame Street 38 seconds Apr 6, 2020",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/0wGYi6o6qT0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lTWXUQwpDKTZYppo5u3vFcrmxx6g",
+        "title": "Sesame Street: Oscar the Grouch Says #StayHome",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 17,
       "sub_rank": 3,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Sesame Street: Oscar the Grouch Says #StayHome YouTube  ·  Sesame Street 38 seconds Apr 6, 2020",
+      "title": "Sesame Street: Oscar the Grouch Says #StayHome",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=0wGYi6o6qT0"
     },
@@ -253,7 +348,7 @@
       "cmpt_rank": 8,
       "details": null,
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 18,
       "sub_rank": 0,
       "sub_type": null,
       "text": "A new  Oscar  is built with a more circular head and longer, shaggier fur. This variant first appeared in A Swingin' Sesame Street Celebration. During season 51, ...",
@@ -270,7 +365,7 @@
         "type": "product"
       },
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 19,
       "sub_rank": 0,
       "sub_type": "submenu_product",
       "text": "Oscar  features a friendly embroidered smile and outstretched arms, ready for a hug! This plush toy is surface-washable for easy cleaning and ships in a ...",
@@ -295,7 +390,7 @@
         "type": "panel"
       },
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 20,
       "sub_rank": 0,
       "sub_type": "movies",
       "text": "The Adventures of Elmo in Grouchland",
@@ -349,7 +444,7 @@
         "type": "songs"
       },
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 21,
       "sub_rank": 0,
       "sub_type": "songs",
       "text": null,
@@ -362,7 +457,7 @@
       "cmpt_rank": 12,
       "details": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 22,
       "sub_rank": 0,
       "sub_type": null,
       "text": "1970-1980.  Oscar  is a green furry monster who lives in a trash can on Sesame Street and frequently argues with the other Muppet and human characters. Despite ...",
@@ -382,7 +477,7 @@
         "type": "panel"
       },
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 23,
       "sub_rank": 0,
       "sub_type": "played-by",
       "text": "Caroll Spinney",
@@ -408,7 +503,7 @@
         "type": "text"
       },
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 24,
       "sub_rank": 0,
       "sub_type": "related_searches",
       "text": "why was oscar the grouch removed from sesame street<|>oscar the grouch puppet<|>oscar the grouch costume<|>oscar the grouch controversy<|>oscar the grouch girlfriend<|>oscar the grouch gif<|>why was oscar the grouch orange<|>oscar the grouch shirt",
@@ -421,7 +516,7 @@
       "cmpt_rank": 15,
       "details": null,
       "section": "rhs",
-      "serp_rank": 23,
+      "serp_rank": 25,
       "sub_rank": 0,
       "sub_type": "panel",
       "text": "Oscar the Grouch is a Muppet character created by Jim Henson and Jon Stone for the PBS/HBO children's television program Sesame Street. He has a green body, no visible nose, and lives in a trash can.",
@@ -451,7 +546,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 24,
+      "serp_rank": 26,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "X (Twitter) YouTube Facebook",
@@ -480,7 +575,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
+      "serp_rank": 27,
       "sub_rank": 2,
       "sub_type": "links",
       "text": null,
@@ -501,7 +596,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 26,
+      "serp_rank": 28,
       "sub_rank": 3,
       "sub_type": "links",
       "text": null,
@@ -534,7 +629,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 27,
+      "serp_rank": 29,
       "sub_rank": 4,
       "sub_type": "links",
       "text": null,

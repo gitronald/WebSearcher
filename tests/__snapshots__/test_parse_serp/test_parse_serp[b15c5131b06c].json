@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 40,
+    "deferred_read": 40,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -136,7 +138,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "18 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 6,
@@ -153,7 +156,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 7,
@@ -170,7 +174,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -187,7 +192,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "5 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -204,7 +210,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "17 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,

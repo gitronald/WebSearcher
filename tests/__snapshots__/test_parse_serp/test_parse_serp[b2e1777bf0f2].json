@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 202,
+    "deferred_read": 202,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -379,7 +381,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -396,7 +399,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -413,7 +417,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -430,7 +435,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -452,7 +458,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/WxI2WNr4apY/hqdefault.jpg",
         "timestamp": "Nov 18, 2025",
         "title": "Einstein's Genius on Redefining Space, Time, and Relativity",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -469,7 +476,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -486,7 +494,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -503,7 +512,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -520,7 +530,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -536,8 +547,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -553,8 +567,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
         "timestamp": "Jul 18, 2024",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -569,8 +586,13 @@
       "cite": "phalpern · X",
       "cmpt_rank": 8,
       "details": {
+        "author_url": "https://x.com/phalpern?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
         "heading": "What people are saying",
-        "type": "item"
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
+        "timestamp": "4 days ago",
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -586,8 +608,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
         "timestamp": "3 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -603,8 +628,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -620,8 +648,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's wisdom and philosophical insights",
+        "section_summary": "Explore Einstein's quotes on imagination, value, and life's miracles, plus advice to Marie Curie, revealing his profound wisdom.",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -637,8 +668,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "timestamp": "Nov 12, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -654,8 +688,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "timestamp": "Oct 18, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,
@@ -673,11 +710,14 @@
         "channel": "Veritasium",
         "heading": "What people are saying",
         "publish_date": "Apr 14, 2025",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/lcjdwSY2AzM/hqdefault.jpg",
         "timestamp": "Apr 14, 2025",
         "title": "The Biggest Misconception in Physics",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 40,
@@ -693,8 +733,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 41,
@@ -710,8 +753,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "timestamp": "6 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 42,
@@ -727,8 +773,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Relativity and its implications",
+        "section_summary": "Explore Einstein's relativity: how gravity bends spacetime, time dilation, and its influence on GPS, plus dispelling lone genius myths.",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 43,
@@ -744,8 +793,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "timestamp": "3 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 44,
@@ -763,11 +815,14 @@
         "channel": "TopGears",
         "heading": "What people are saying",
         "publish_date": "Aug 24, 2025",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/MVbpJB2Oi8E/hqdefault.jpg",
         "timestamp": "Aug 24, 2025",
         "title": "Einstein's Brain: Why Size Doesn't Equal Genius w /Carl Sagan",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 45,
@@ -783,8 +838,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 46,
@@ -800,8 +858,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "timestamp": "3 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 47,
@@ -817,8 +878,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "timestamp": "Jan 17, 2024",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 48,
@@ -834,8 +898,11 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Einstein's brain size matters?",
+        "section_summary": "Einstein's brain was smaller, sparking debate on size versus genius, theft, ethics, and understanding life, not just smarts.",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 49,
@@ -851,6 +918,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "timestamp": "Jun 20, 2025",
         "type": "item",
         "visible": false
@@ -871,6 +940,8 @@
         "channel": "Universe Lair",
         "heading": "What people are saying",
         "publish_date": "Jan 1, 2024",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/movDYUI0Fx4/hqdefault.jpg",
         "timestamp": "Jan 1, 2024",
@@ -892,6 +963,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "timestamp": "Jul 28, 2023",
         "type": "item",
         "visible": false
@@ -910,6 +983,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "timestamp": "4 days ago",
         "type": "item",
         "visible": false
@@ -928,6 +1003,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "timestamp": "Jun 17, 2025",
         "type": "item",
         "visible": false
@@ -948,6 +1025,8 @@
         "channel": "Angel Garay",
         "heading": "What people are saying",
         "publish_date": "Jul 24, 2023",
+        "section_heading": "Manhattan Project involvement",
+        "section_summary": "Einstein's equation (E=mc2) laid groundwork for the atomic bomb, plus a letter to FDR, and connections to Russian spies.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/KyJLDBYXc6w/hqdefault.jpg",
         "timestamp": "Jul 24, 2023",
@@ -971,6 +1050,8 @@
         "channel": "Dr. Michael Gartner FACS Plastic Surgeon",
         "heading": "What people are saying",
         "publish_date": "Oct 21, 2025",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/baM33j7rcU8/hqdefault.jpg",
         "timestamp": "Oct 21, 2025",
@@ -992,6 +1073,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "timestamp": "Jul 9, 2024",
         "type": "item",
         "visible": false
@@ -1012,6 +1095,8 @@
         "channel": "Zack D. Films",
         "heading": "What people are saying",
         "publish_date": "Sep 27, 2025",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/JqDKyvq89l8/hqdefault.jpg",
         "timestamp": "Sep 27, 2025",
@@ -1033,6 +1118,8 @@
       "cmpt_rank": 8,
       "details": {
         "heading": "What people are saying",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "timestamp": "Oct 12, 2025",
         "type": "item",
         "visible": false
@@ -1053,6 +1140,8 @@
         "channel": "Sean Andrew",
         "heading": "What people are saying",
         "publish_date": "May 11, 2025",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/maFNCBCJVWE/hqdefault.jpg",
         "timestamp": "May 11, 2025",
@@ -1076,6 +1165,8 @@
         "channel": "FactTechz",
         "heading": "What people are saying",
         "publish_date": "May 25, 2025",
+        "section_heading": "The controversy surrounding Einstein's brain",
+        "section_summary": "Explore the controversy surrounding Einstein's brain theft, ethical debates, scientific significance, and the pathologist who kept it.",
         "source": "YouTube",
         "thumbnail_url": "http://img.youtube.com/vi/RRLrFqb3G50/hqdefault.jpg",
         "timestamp": "May 25, 2025",

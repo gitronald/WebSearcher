@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 55,
+    "deferred_read": 55,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -225,6 +227,7 @@
             "url": "https://www.sleepfoundation.org/best-mattress#:~:text=%E2%80%9CThe%20mattress%20feels%20medium%20firm,wife%20indicated%20she%20is%20comfortable.%E2%80%9D"
           },
           {
+            "duration": "1m",
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
             "publisher": "YouTube",
             "snippet": "but overall both beds have a similar feel and performed equally well in our testing birch beds come with a 100 night sleep trial l...",
@@ -241,6 +244,7 @@
             "url": "https://forum.mattressunderground.com/t/best-or-least-terrible-national-brands/35917#:~:text=I%20watched%20every%20affiliate%20website,have%20body%20profile%20mattress%20testing."
           },
           {
+            "duration": "1m",
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
             "publisher": "YouTube",
             "snippet": "they also have a good deal on a bedding accessory bundle that includes two pillows cotton sheets. and a mattress protector for an ...",
@@ -249,6 +253,7 @@
             "url": "https://www.youtube.com/watch?v=aVi59gVcJjI&t=189"
           },
           {
+            "duration": "1m",
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
             "publisher": "YouTube",
             "snippet": "experience while also offering you plenty of support where you need it and nice pressure relief as well plus there are multiple fi...",
@@ -454,7 +459,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -471,7 +477,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -488,7 +495,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -505,7 +513,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -522,7 +531,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Dec 10, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -539,7 +549,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 20, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,

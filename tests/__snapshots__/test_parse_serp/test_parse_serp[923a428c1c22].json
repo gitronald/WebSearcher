@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 88,
+    "deferred_read": 88,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -52,7 +54,7 @@
       "url": "https://www.nasa.gov/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "10 minutes ago",
@@ -68,7 +70,7 @@
       "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasas-spacex-crew-12-flies-to-nasa-kennedy/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "42 minutes ago",
@@ -84,7 +86,7 @@
       "url": "https://www.nasa.gov/earth-science-at-ames/who-we-are/biospheric-science/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "3 hours ago",
@@ -100,11 +102,12 @@
       "url": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-agencys-spacex-crew-12-launch-docking/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "7 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 4,
@@ -116,11 +119,12 @@
       "url": "https://www.nasa.gov/blogs/commercialcrew/2026/02/06/nasa-partners-conduct-crew-12-flight-readiness-review/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 5,
@@ -132,11 +136,12 @@
       "url": "https://www.nasa.gov/news-release/nasa-selects-two-earth-system-explorers-missions/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 6,
@@ -148,11 +153,12 @@
       "url": "https://www.nasa.gov/blogs/spacestation/2026/02/05/dragon-preps-artificial-intelligence-and-medical-gear-fill-crews-day/"
     },
     {
-      "cite": null,
+      "cite": "NASA (.gov)",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 7,
@@ -391,7 +397,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -408,7 +415,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -430,7 +438,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/CngcQx4Rc2c/hqdefault.jpg",
         "timestamp": "5 days ago",
         "title": "Back to the moon: Inside NASA's Artemis II mission",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -452,7 +461,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/pFUorE3ldlM/hqdefault.jpg",
         "timestamp": "3 days ago",
         "title": "NASA delays Artemis II mission to March after hydrogen leak",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -469,7 +479,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -491,7 +502,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/xalPEv7KqVU/hqdefault.jpg",
         "timestamp": "2 days ago",
         "title": "The Real Reason U.S. Is Racing to the Moon Again",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -508,7 +520,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "6 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -530,7 +543,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/IdnCRkO6_fY/hqdefault.jpg",
         "timestamp": "2 days ago",
         "title": "Hydrogen Leaks & Delays: Is NASA's Artemis II Ready for Humans?",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -547,7 +561,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,

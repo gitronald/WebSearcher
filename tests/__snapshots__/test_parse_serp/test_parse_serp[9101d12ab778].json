@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 171,
+    "deferred_read": 171,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -37,6 +39,107 @@
               "12",
               "11"
             ]
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/selfreliance/comments/iuliat/how_to_change_a_car_tire/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "lesschwab.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.lesschwab.com/article/tires/how-to-change-a-tire.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/shorts/bInihYJPtEU",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "africa.michelin.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://africa.michelin.com/en/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=A_SMlicOjxI",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "reddit.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.reddit.com/r/everymanshouldknow/comments/1icjyx/emsk_how_to_change_a_flat_tire/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=QjZ5ohr7sGA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "pitstoparabia.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.pitstoparabia.com/en/news/how-to-change-car-tyres",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "michelinman.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.michelinman.com/auto/auto-tips-and-advice/tire-maintenance/how-to-change-a-car-tire",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "truecar.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.truecar.com/blog/change-tire-10-easy-steps/",
+            "visible": false
           }
         ],
         "sources": [
@@ -177,7 +280,7 @@
       "url": "/localservices/prolist?hl=en-US&gl=us&ssta=1&src=1&slp=Ig9jYXJfbWFpbnRlbmFuY2UyFQoTGhEKD2Nhcl9tYWludGVuYW5jZTq4AUNoTUltckxHa1l6R2tnTVY4WjZEQngwSlRncmxFaU1JQkJBQkdnd0kzZGVKd1JvUXJKZncxQ2dnZ09PLUNqQzk2WU1XT01DeG53VklBQkltQ0FRUUFob01DS3JFOGIwQkVQdUI1LXdvSUlEanZnb3dnT08tQ2pqQXNaOEZTTUN4bndVaUJnZ0VFQUlZQWlnTU1oejUxYkVDbXMyeEF0bklzUUxXeUxFQy1OV3hBdC0xc1FLaTFyRUNaD0NhciBNYWludGVuYW5jZQ%3D%3D&spp=EnIKEgiqxPG9ARD7gefsKBj_x6-gJRIxeGNhdDpzZXJ2aWNlX2FyZWFfYnVzaW5lc3NfYXV0b19yZXBhaXJfc2hvcDplbi1VU0ITCJqyxpGMxpIDFfGegwcdCU4K5UgEUAKCAQ9jYXJfbWFpbnRlbmFuY2U%3D&scp=CjF4Y2F0OnNlcnZpY2VfYXJlYV9idXNpbmVzc19hdXRvX3JlcGFpcl9zaG9wOmVuLVVTEiAaEglt-raQF7uPgBEHN_0tUilmiSIFOTQzMDE4n6KnBCoQQXV0byByZXBhaXIgc2hvcEoVChMImrLGkYzGkgMV8Z6DBx0JTgrlWg9jYXJfbWFpbnRlbmFuY2U%3D&q=how+to+change+a+tire"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Dad Advice From Bo Jul 6, 2023",
       "cmpt_rank": 2,
       "details": {
         "channel": "Dad Advice From Bo",
@@ -192,12 +295,12 @@
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "How to change a tire in 60 seconds YouTube  ·  Dad Advice From Bo Jul 6, 2023",
+      "title": "How to change a tire in 60 seconds",
       "type": "videos",
       "url": "https://www.youtube.com/shorts/bInihYJPtEU"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Dad Advice From Bo Mar 11, 2025",
       "cmpt_rank": 2,
       "details": {
         "channel": "Dad Advice From Bo",
@@ -212,12 +315,12 @@
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "How to change a tire. Love, Dad YouTube  ·  Dad Advice From Bo Mar 11, 2025",
+      "title": "How to change a tire. Love, Dad",
       "type": "videos",
       "url": "https://www.youtube.com/shorts/eVtytg89T84"
     },
     {
-      "cite": null,
+      "cite": "TikTok · dadadvicefrombo Apr 5, 2023",
       "cmpt_rank": 2,
       "details": null,
       "section": "main",
@@ -225,7 +328,7 @@
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "How to change a tire. Love, Dad | How To Change A Tire TikTok  ·  dadadvicefrombo Apr 5, 2023",
+      "title": "How to change a tire. Love, Dad | How To Change A Tire",
       "type": "videos",
       "url": "https://www.tiktok.com/@dadadvicefrombo/video/7218752181535542571?lang=en"
     },
@@ -284,6 +387,53 @@
       "cmpt_rank": 5,
       "details": {
         "channel": "Howdini",
+        "key_moments": [
+          {
+            "seconds": 3,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=3"
+          },
+          {
+            "seconds": 25,
+            "title": "Remove the old tire",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=25"
+          },
+          {
+            "seconds": 39,
+            "title": "Jack up the vehicle",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=39"
+          },
+          {
+            "seconds": 163,
+            "title": "Loosen lug nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=163"
+          },
+          {
+            "seconds": 208,
+            "title": "Mount the spare tire",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=208"
+          },
+          {
+            "seconds": 225,
+            "title": "Install the lug nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=225"
+          },
+          {
+            "seconds": 240,
+            "title": "Tighten Lug Nuts",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=240"
+          },
+          {
+            "seconds": 266,
+            "title": "Lower the vehicle",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=266"
+          },
+          {
+            "seconds": 312,
+            "title": "Final Tips",
+            "url": "https://www.youtube.com/watch?v=joBmbh0AGSQ&t=312"
+          }
+        ],
         "publish_date": "Jan 30, 2008",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPFyNNW7CptPTgDybPHkpgB2qBFvCiwkwl5N1UGPDttoA92iKLONjwTA&s",
@@ -559,7 +709,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -576,7 +727,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -598,7 +750,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/JkhCzA4Oo4Q/hqdefault.jpg",
         "timestamp": "2 weeks ago",
         "title": "How to change a tire...electrically ⚡️",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -615,7 +768,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -632,7 +786,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -649,7 +804,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 11, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -671,7 +827,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/spd8PzTh4u8/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "Buggy Tire Change – DIY",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -693,7 +850,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/s4-s1FEdLw0/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "How to CHANGE a Tire (on the trail) Using a SCISSOR JACK",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -710,7 +868,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,

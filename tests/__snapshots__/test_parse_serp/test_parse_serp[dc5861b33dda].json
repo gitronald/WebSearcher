@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 25,
+    "deferred_read": 25,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -78,6 +80,7 @@
             "url": "https://annualreport.mbari.org/2018/story/measuring-the-impact-of-climate-change-on-coral-reefs#:~:text=Great%20Barrier%20Reef.-,Sadly%2C%20coral%20reefs%20have%20been%20deteriorating%20worldwide%20due%20to%20human,fatal%20when%20warming%20is%20prolonged."
           },
           {
+            "duration": "9m",
             "favicon": "https://encrypted-tbn2.gstatic.com/faviconV2?url=https://www.youtube.com&client=AIM&size=128&type=FAVICON&fallback_opts=TYPE,SIZE,URL",
             "publisher": "YouTube",
             "snippet": "this is Apppropo the planet's tropical coral reefs have almost certainly crossed a point of no return that's according to a major ...",

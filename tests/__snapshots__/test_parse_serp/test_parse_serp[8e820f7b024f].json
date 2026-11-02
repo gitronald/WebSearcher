@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 90,
+    "deferred_read": 90,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -171,6 +173,38 @@
       "cmpt_rank": 7,
       "details": {
         "channel": "Learn French With Frencheezi",
+        "key_moments": [
+          {
+            "seconds": 13,
+            "title": "Bonjour - Hello",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=13"
+          },
+          {
+            "seconds": 42,
+            "title": "Bonsoir - Good Evening",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=42"
+          },
+          {
+            "seconds": 65,
+            "title": "Madame, Monsieur, Msieur, Mademoiselle",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=65"
+          },
+          {
+            "seconds": 101,
+            "title": "Informal greetings",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=101"
+          },
+          {
+            "seconds": 111,
+            "title": "Salut - Hello",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=111"
+          },
+          {
+            "seconds": 126,
+            "title": "Coucou",
+            "url": "https://www.youtube.com/watch?v=ufOJd4rK_Zg&t=126"
+          }
+        ],
         "publish_date": "Apr 7, 2017",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI15cqtOuh_3r9UETB8KYUKhA-Bc1BVViXQ5TZkrwFUXP9fUThe2X2Mg&s",

@@ -10,10 +10,12 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ._deferred_html import fill_deferred_html
 
 
 def parse_buying_guide(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     out: list[dict[str, Any]] = []
     for row in node.css("div.ITWcLb"):
         text = get_text(row, " ", strip=True)

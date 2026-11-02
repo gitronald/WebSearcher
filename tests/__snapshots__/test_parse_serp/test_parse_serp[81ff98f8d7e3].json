@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 29,
+    "deferred_read": 29,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -67,33 +69,79 @@
       "url": "https://thegymwrap.com/?srsltid=AfmBOoq4hn6NYZehgfKQV9ONxBH_Fnce4rYeAOg7LDnxewrjc69Ougx6"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Kibibi La Vie May 21, 2014",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Kibibi La Vie",
+        "key_moments": [
+          {
+            "seconds": 18,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=18"
+          },
+          {
+            "seconds": 65,
+            "title": "Post workout",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=65"
+          },
+          {
+            "seconds": 151,
+            "title": "How much does it cost?",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=151"
+          },
+          {
+            "seconds": 163,
+            "title": "Why I chose this wrap",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=163"
+          },
+          {
+            "seconds": 229,
+            "title": "How I used it",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=229"
+          },
+          {
+            "seconds": 261,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=93rAygcmJF0&t=261"
+          }
+        ],
+        "publish_date": "May 21, 2014",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxb9LckMqVA8YP7KTX-RDVkrdpH1ZmPDzZp7oZvUOaEX1yWGOX4ZT4Dg&s",
+        "title": "'Save Your Do' Gym Wrap Review - Relaxed Hair & Weave",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "'Save Your Do' Gym Wrap Review - Relaxed Hair & Weave YouTube  ·  Kibibi La Vie May 21, 2014",
+      "title": "'Save Your Do' Gym Wrap Review - Relaxed Hair & Weave",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=93rAygcmJF0"
     },
     {
-      "cite": null,
+      "cite": "YouTube · AS SEEN BY SB Jul 9, 2020",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "AS SEEN BY SB",
+        "publish_date": "Jul 9, 2020",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGE_sdXKW6IqiMfBC9mI6UFl28IsJ-s8o_5DMo2QU4Cd56dgCct7J9bw&s",
+        "title": "Save Your Do Head Wrap [GYM WRAP REVIEW]",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "Save Your Do Head Wrap [GYM WRAP REVIEW] YouTube  ·  AS SEEN BY SB Jul 9, 2020",
+      "title": "Save Your Do Head Wrap [GYM WRAP REVIEW]",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=1Cs3boGqox0"
     },
     {
-      "cite": null,
+      "cite": "Instagram · Shauniece Jan 2, 2026",
       "cmpt_rank": 4,
       "details": null,
       "section": "main",
@@ -101,12 +149,12 @@
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "Listen, in 2026 we're not sacrificing the gym to save our hair. I ... Instagram  ·  Shauniece Jan 2, 2026",
+      "title": "Listen, in 2026 we're not sacrificing the gym to save our hair. I ...",
       "type": "videos",
       "url": "https://www.instagram.com/reel/DTAq9MEjVMp/"
     },
     {
-      "cite": null,
+      "cite": "Instagram · Gymwrap Nov 12, 2024",
       "cmpt_rank": 4,
       "details": null,
       "section": "main",
@@ -114,7 +162,7 @@
       "sub_rank": 3,
       "sub_type": "vertical",
       "text": null,
-      "title": "Gymwrap on Instagram: \"Want to work out with No Worries ... Instagram  ·  Gymwrap Nov 12, 2024",
+      "title": "Gymwrap on Instagram: \"Want to work out with No Worries ...",
       "type": "videos",
       "url": "https://www.instagram.com/reel/DCR1rflRXT4/?hl=en"
     },

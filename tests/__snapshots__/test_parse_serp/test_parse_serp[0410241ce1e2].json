@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 78,
+    "deferred_read": 78,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -185,6 +187,45 @@
       "url": "https://never2.com/collections/sports-energy-gels"
     },
     {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 10,
+      "sub_rank": 3,
+      "sub_type": "brands",
+      "text": "Real Food Endurance Energy GU Maurten Gel. Low Sugar Healthy Carbs For \nRunning, Cycling And Other Endurance Activities With No Maltodextrin Or \nPreservatives ...",
+      "title": "myspringenergy",
+      "type": "products",
+      "url": "https://myspringenergy.com/"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 11,
+      "sub_rank": 4,
+      "sub_type": "brands",
+      "text": "Hammer Gel all natural energy gel. Long lasting energy with no sugar crash. \nAvailable in 12 Delicious Flavors! Order Direct from the Source: \n800-336-1977.",
+      "title": "Hammer Nutrition",
+      "type": "products",
+      "url": "https://hammernutrition.com/products/hammer-gel"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 4,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 5,
+      "sub_type": "brands",
+      "text": "Great tasting, high energy, fast working & gentle on the stomach. If you \nare looking for calories that are easy to consume, you can't go past KODA \nEnergy ...",
+      "title": "KODA Nutrition",
+      "type": "products",
+      "url": "https://www.kodanutrition.com/collections/energy-gel"
+    },
+    {
       "cite": "Amazon.com",
       "cmpt_rank": 5,
       "details": {
@@ -195,7 +236,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 10,
+      "serp_rank": 13,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -214,7 +255,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 11,
+      "serp_rank": 14,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -233,7 +274,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 12,
+      "serp_rank": 15,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -252,7 +293,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 16,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -271,7 +312,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 17,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -290,7 +331,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 18,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -309,7 +350,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 16,
+      "serp_rank": 19,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -328,7 +369,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 20,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -341,7 +382,7 @@
       "cmpt_rank": 6,
       "details": null,
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 21,
       "sub_rank": 0,
       "sub_type": null,
       "text": "From low-calorie hydration, to medium-carb hydration, to high-carb  energy , and even post-workout recovery, our range of drinks provide you with key ...",
@@ -354,7 +395,7 @@
       "cmpt_rank": 7,
       "details": null,
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 22,
       "sub_rank": 0,
       "sub_type": null,
       "text": "A ROCTANE  Energy Gel  contains 3x the branched chain amino acids (BCAA's) and 2x the electrolytes compared to our original  Energy Gels . They also contain the ...",
@@ -367,7 +408,7 @@
       "cmpt_rank": 7,
       "details": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 23,
       "sub_rank": 1,
       "sub_type": null,
       "text": "The main differences are that eGel is twice the size of  Gu , does not come in caffeinated varieties and has more electrolytes. While eGel has more electrolytes ...",
@@ -380,7 +421,7 @@
       "cmpt_rank": 7,
       "details": null,
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 24,
       "sub_rank": 2,
       "sub_type": null,
       "text": "Running gels, also called carb gels and  energy gels , are small packets of carbohydrates that endurance athletes consume to maintain adequate blood sugar ...",
@@ -393,7 +434,7 @@
       "cmpt_rank": 8,
       "details": null,
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 25,
       "sub_rank": 0,
       "sub_type": "image_strip",
       "text": "Elevate your game with  GU gels  and more! Athlete-focused fuel from hydration tabs to flavored  energy gels . Shop now!",
@@ -410,7 +451,7 @@
         "type": "product"
       },
       "section": "main",
-      "serp_rank": 23,
+      "serp_rank": 26,
       "sub_rank": 0,
       "sub_type": "submenu_product",
       "text": "Sustain all forms of athletic activity with the highly compact, portable, and calorie-dense GU  Energy Gels . They are packed with carbohydrates that can be ...",
@@ -423,7 +464,7 @@
       "cmpt_rank": 10,
       "details": null,
       "section": "main",
-      "serp_rank": 24,
+      "serp_rank": 27,
       "sub_rank": 0,
       "sub_type": "image_strip",
       "text": "GU Energy Original Sports Nutrition  Energy Gel , Vegan, Gluten-Free, Kosher, and Dairy-Free On-the-Go Energy for Any Workout, 8-Count, Vanilla Bean.",
@@ -449,7 +490,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 25,
+      "serp_rank": 28,
       "sub_rank": 0,
       "sub_type": "related_searches",
       "text": "gu energy gel<|>gu energy gel how to use<|>gu gels near me<|>gu energy gel nutrition facts<|>gu energy gel ingredients<|>where to buy gu energy gel<|>gu energy gel review<|>gu energy chews",
@@ -470,7 +511,7 @@
         "type": "panel"
       },
       "section": "rhs",
-      "serp_rank": 26,
+      "serp_rank": 29,
       "sub_rank": 0,
       "sub_type": "panel",
       "text": null,

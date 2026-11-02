@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 71,
+    "deferred_read": 71,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-overview",
@@ -140,54 +142,74 @@
       "url": null
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pitbull 2 minutes, 28 seconds Apr 12, 2020",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Pitbull",
+        "thumbnail_url": "https://i.ytimg.com/vi/BBre0xNcr5c/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3n_ExOhTzl8t8m8G8EnazqgwaMAZA",
+        "title": "Pitbull - I Believe That We Will Win [World Anthem] (Official ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Pitbull - I Believe That We Will Win [World Anthem] (Official ... YouTube  ·  Pitbull 2 minutes, 28 seconds Apr 12, 2020",
+      "title": "Pitbull - I Believe That We Will Win [World Anthem] (Official ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=BBre0xNcr5c"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pitbull 2 minutes, 28 seconds Apr 24, 2020",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Pitbull",
+        "thumbnail_url": "https://i.ytimg.com/vi/A9p50gpCf-k/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3m28vpktePOxFtpKMo97iJeG-1K2A",
+        "title": "Pitbull - I Believe That We Will Win [World Anthem] (Audio Video)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Pitbull - I Believe That We Will Win [World Anthem] (Audio Video) YouTube  ·  Pitbull 2 minutes, 28 seconds Apr 24, 2020",
+      "title": "Pitbull - I Believe That We Will Win [World Anthem] (Audio Video)",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=A9p50gpCf-k"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pitbull 3 minutes Jun 26, 2020",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Pitbull",
+        "thumbnail_url": "https://i.ytimg.com/vi/vzGbIecs4_o/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mUgqlQdqck2I1eei5aD7JwatjfqA",
+        "title": "Pitbull - I Believe That We Will Win | World Anthem - Thombs ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Pitbull - I Believe That We Will Win | World Anthem - Thombs ... YouTube  ·  Pitbull 3 minutes Jun 26, 2020",
+      "title": "Pitbull - I Believe That We Will Win | World Anthem - Thombs ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=vzGbIecs4_o"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pitbull 1 minute, 50 seconds May 21, 2020",
       "cmpt_rank": 3,
-      "details": null,
+      "details": {
+        "channel": "Pitbull",
+        "thumbnail_url": "https://i.ytimg.com/vi/BdEP6pDZWFE/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3nv3qlr_husMiYrlAXVk-srmhagyQ",
+        "title": "Pitbull - I Believe That We Will Win | World Anthem (Official BTS)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 3,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Pitbull - I Believe That We Will Win | World Anthem (Official BTS) YouTube  ·  Pitbull 1 minute, 50 seconds May 21, 2020",
+      "title": "Pitbull - I Believe That We Will Win | World Anthem (Official BTS)",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=BdEP6pDZWFE"
     },
@@ -229,7 +251,10 @@
       "cite": "36.6K+ views  ·  3 years ago",
       "cmpt_rank": 6,
       "details": {
+        "channel": "Mr Lyrics",
         "duration": "2:38",
+        "thumbnail_url": "https://i.ytimg.com/vi/Y1ZsKjCYCbs/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mvuvhnufslVrZUL26Yo4h2ooVczQ",
+        "title": "Pitbull - I Believe That We Will Win (Lyrics)",
         "type": "video"
       },
       "section": "main",
@@ -271,7 +296,10 @@
       "cite": "753.2K+ views  ·  3 years ago",
       "cmpt_rank": 9,
       "details": {
+        "channel": "Pitbull - Topic",
         "duration": "2:28",
+        "thumbnail_url": "https://i.ytimg.com/vi/qLxpmLl4fto/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3l3-xeKvzmfHlwWodmsuA5YhcyWNg",
+        "title": "I Believe That We Will Win (World Anthem)",
         "type": "video"
       },
       "section": "main",
@@ -287,7 +315,10 @@
       "cite": "83.7K+ views  ·  3 years ago",
       "cmpt_rank": 10,
       "details": {
+        "channel": "REFITREV",
         "duration": "3:04",
+        "thumbnail_url": "https://i.ytimg.com/vi/nHi2NPv2Bz0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kAAQ2sfl5trjZdICueIhIBpVqxwg",
+        "title": "“I Believe That We Will Win (World Anthem)” || Pitbull || Dance ...",
         "type": "video"
       },
       "section": "main",

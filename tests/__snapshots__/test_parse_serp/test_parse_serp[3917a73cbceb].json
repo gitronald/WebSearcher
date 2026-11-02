@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 41,
+    "deferred_read": 41,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -89,7 +91,10 @@
       "cite": "11.4M+ views  ·  8 years ago",
       "cmpt_rank": 3,
       "details": {
+        "channel": "Billy Joel - Topic",
         "duration": "4:44",
+        "thumbnail_url": "https://i.ytimg.com/vi/NlvU-EHk4Nc/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3nqt5udOGowf3TFdgxWJnRNKtXRMg",
+        "title": "My Life",
         "type": "video"
       },
       "section": "main",
@@ -121,7 +126,10 @@
       "cite": "3K+ views  ·  1 year ago",
       "cmpt_rank": 5,
       "details": {
+        "channel": "Georgy Porgy's Favorites",
         "duration": "4:26",
+        "thumbnail_url": "https://i.ytimg.com/vi/l_gDOtI1Tdw/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3krNsOzWbjqoflvR8VY-sA5O6x0Cg",
+        "title": "Billy Joel ~ My Life (1978)",
         "type": "video"
       },
       "section": "main",
@@ -137,7 +145,10 @@
       "cite": "4.5K+ views  ·  1 year ago",
       "cmpt_rank": 6,
       "details": {
+        "channel": "Musictainment TV 🇺🇸",
         "duration": "4:40",
+        "thumbnail_url": "https://i.ytimg.com/vi/lzB2n2jr71Q/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mvjCVTwTJ3mJ6xRrFgVQTd8HPFmg",
+        "title": "My Life - Billy Joel (Lyrics) 🎵",
         "type": "video"
       },
       "section": "main",
@@ -169,7 +180,10 @@
       "cite": "85.3K+ views  ·  7 years ago",
       "cmpt_rank": 8,
       "details": {
+        "channel": "Billy Joel - Topic",
         "duration": "4:42",
+        "thumbnail_url": "https://i.ytimg.com/vi/zQra7WumCTQ/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mr-01N9gLNqZDsQLms85-_j8ZbrA",
+        "title": "Billy Joel - My Life",
         "type": "video"
       },
       "section": "main",
@@ -185,7 +199,10 @@
       "cite": "33.9K+ views  ·  3 years ago",
       "cmpt_rank": 9,
       "details": {
+        "channel": "Covid19 SoundTrip",
         "duration": "4:40",
+        "thumbnail_url": "https://i.ytimg.com/vi/sA7OcLYZ2qk/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lf5hwrWwK_iae8ncWxnCuGLOHZSw",
+        "title": "Billy Joel - My Life (Lyrics)",
         "type": "video"
       },
       "section": "main",
@@ -201,7 +218,10 @@
       "cite": "1.7M+ views  ·  12 years ago",
       "cmpt_rank": 10,
       "details": {
+        "channel": "MrUkuleleninja",
         "duration": "4:46",
+        "thumbnail_url": "https://i.ytimg.com/vi/HYayK5uEvfo/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kyB7MCJnFtz54Io9B1o_J-XVHJlA",
+        "title": "My Life - Billy Joel",
         "type": "video"
       },
       "section": "main",

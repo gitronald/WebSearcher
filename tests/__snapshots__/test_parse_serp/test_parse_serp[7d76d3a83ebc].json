@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 65,
+    "deferred_read": 65,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -210,7 +212,7 @@
       "url": "https://www.thedailybeast.com/obsessed/furious-jimmy-kimmel-loses-it-at-donald-trump-how-dare-you/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 3,
       "details": {
         "timestamp": "5 hours ago",
@@ -258,11 +260,12 @@
       "url": "https://www.instagram.com/p/DUZGePGCZIo/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 3,
       "details": {
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -278,7 +281,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "11 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -294,7 +298,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -306,11 +311,12 @@
       "url": "https://www.facebook.com/WhiteHouse/posts/to-be-a-great-nation-you-have-to-have-religion-you-have-to-have-faith-you-have-t/122165272874723345/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 3,
       "details": {
         "timestamp": "16 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -326,7 +332,8 @@
       "cmpt_rank": 3,
       "details": {
         "timestamp": "17 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -338,11 +345,12 @@
       "url": "https://www.facebook.com/POTUS/posts/president-trump-attends-the-national-prayer-breakfast/1271317968218851/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 3,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -354,11 +362,12 @@
       "url": "https://www.instagram.com/reel/DUW-J_Fimz9/"
     },
     {
-      "cite": null,
+      "cite": "realdonaldtrump · Instagram",
       "cmpt_rank": 3,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -462,7 +471,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/7hmzdUBt0M4/hqdefault.jpg",
         "timestamp": "15 hours ago",
         "title": "WATCH: Trump says he will revoke church tax exempt status if leaders 'say \nsomething bad about' him",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -479,7 +489,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -496,7 +507,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -513,7 +525,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -530,7 +543,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "12 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,
@@ -547,7 +561,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 31,
@@ -564,7 +579,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "6 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 32,
@@ -586,7 +602,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/Og51cLThBYQ/hqdefault.jpg",
         "timestamp": "1 day ago",
         "title": "What Trump says he learned from Minneapolis chaos",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -603,7 +620,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "9 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,

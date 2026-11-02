@@ -10,10 +10,13 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text
+from ._common import mark_hidden_row
+from ._deferred_html import fill_deferred_html
 
 
 def parse_images(elem: Node) -> list[dict[str, Any]]:
     node: Node = elem
+    fill_deferred_html(node)
     parsed_list: list[dict[str, Any]] = []
 
     if node.css_first("g-expandable-container") is not None:
@@ -68,7 +71,7 @@ def parse_image_strip(node: Node) -> list[dict[str, Any]]:
 
 
 def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
-    return {
+    parsed = {
         "type": "images",
         "sub_type": "multimedia",
         "sub_rank": sub_rank,
@@ -76,6 +79,7 @@ def parse_image_multimedia(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "url": get_img_url(sub),
         "text": None,
     }
+    return mark_hidden_row(parsed, sub)
 
 
 def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
@@ -97,7 +101,7 @@ def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         fallback_a = sub.css_first("a.EZAeBe, a.ddkIM")
         url = fallback_a.attrs.get("href") if fallback_a is not None else None
 
-    return {
+    parsed = {
         "type": "images",
         "sub_type": "medium",
         "sub_rank": sub_rank,
@@ -106,10 +110,11 @@ def parse_image_medium(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "text": None,
         "cite": get_text(sub.css_first("div.ptes9b"), " "),
     }
+    return mark_hidden_row(parsed, sub)
 
 
 def parse_image_small(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
-    return {
+    parsed = {
         "type": "images",
         "sub_type": "small",
         "sub_rank": sub_rank,
@@ -117,6 +122,7 @@ def parse_image_small(sub: Node, sub_rank: int = 0) -> dict[str, Any]:
         "url": None,
         "text": None,
     }
+    return mark_hidden_row(parsed, sub)
 
 
 def get_img_url(sub: Node) -> str | None:

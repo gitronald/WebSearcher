@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 54,
+    "deferred_read": 54,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard-overview",
@@ -299,6 +301,40 @@
     },
     {
       "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.9",
+        "reviews": "(80)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 5,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "The Painted Lady Bed & Breakfast and Tea Room",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=The+Painted+Lady+Bed+%26+Breakfast+and+Tea+Room&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARPecIJQQU-eQ&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQi6wFegQIbRA4"
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 10,
+      "details": {
+        "rating": "4.3",
+        "reviews": "(3)",
+        "type": "item"
+      },
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 6,
+      "sub_type": "hotels",
+      "text": null,
+      "title": "T & S Ranch Guest House",
+      "type": "locations",
+      "url": "https://search.google.com/local/places/hotel/navigational?q=T+%26+S+Ranch+Guest+House&hotel_dates=2026-09-25,2026-09-26&placeid=ChIJAAAAAAAAAAARcTX9uVfke4E&sca_esv=12c5d7b316a6f56c&sa=X&ved=2ahUKEwiaxvmJyrCVAxWk1fACHfB8CAMQi6wFegQIbRA_"
+    },
+    {
+      "cite": null,
       "cmpt_rank": 11,
       "details": {
         "heading": "People also search for",
@@ -315,7 +351,7 @@
         "type": "text"
       },
       "section": "main",
-      "serp_rank": 15,
+      "serp_rank": 17,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Seven Feathers Casino app download<|>Seven Feathers Casino Resort prices<|>Seven Feathers Casino Resort upcoming events<|>Seven feathers casino buffet<|>Is Seven Feathers Casino open 24 hours<|>Seven Feathers Casino Resort reviews<|>Seven feathers casino promotions<|>Seven feathers casino restaurants",
@@ -341,7 +377,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 16,
+      "serp_rank": 18,
       "sub_rank": 0,
       "sub_type": "fact",
       "text": "Website Directions +3 Save Saved Share Call Check availability",
@@ -363,7 +399,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 17,
+      "serp_rank": 19,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "Departments: Seven Feathers Bingo",
@@ -385,7 +421,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 18,
+      "serp_rank": 20,
       "sub_rank": 2,
       "sub_type": "fact",
       "text": "146 Chief Miwaleta Ln, Canyonville, OR 97417",
@@ -401,7 +437,7 @@
         "type": "item"
       },
       "section": "rhs",
-      "serp_rank": 19,
+      "serp_rank": 21,
       "sub_rank": 3,
       "sub_type": "fact",
       "text": "(800) 548-8461",
@@ -423,7 +459,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 20,
+      "serp_rank": 22,
       "sub_rank": 4,
       "sub_type": "fact",
       "text": "Open · Closes 2:30 AM · More hours",
@@ -453,7 +489,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 21,
+      "serp_rank": 23,
       "sub_rank": 5,
       "sub_type": "fact",
       "text": "Save $60 if you stay Fri, Sep 18–Sat, Sep 19 Nightly price with fees Select check-in date. Current check-in date is Fri, Sep 25 Fri, Sep 25 Select check-out date. Current check-out date is Sat, Sep 26 Sat, Sep 26 2 1 guest 2 guests 3 guests 4 guests 5 guests 6 guests All options $220 Seven Feathers Casino Resort Official site Free cancellation until Sep 24 $240 Booking.com Free cancellation until Sep 23 View 14 more from $240 Couldn't update prices. Try again .",
@@ -495,7 +531,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 22,
+      "serp_rank": 24,
       "sub_rank": 6,
       "sub_type": "fact",
       "text": "Google reviews More info Reviews are automatically processed to detect inappropriate content like fake reviews and spam. We may take down reviews that are flagged in order to comply with Google policies or legal obligations. Write a review Edit your review Add photos Thanks for sharing! Your photo will be posted publicly on Google. Contribute More Done There was an error adding your photos. Please try again. \"Absolutely awesome fish, steak, sides, drinks , atmosphere and service .\" \"Food options, rooms on-site and nearby great parking and shuttle options .\" \" Staff are sooo friendly, the place is nice, clean good beer and great vibes .\" View all reviews",
@@ -511,7 +547,7 @@
         "type": "item"
       },
       "section": "rhs",
-      "serp_rank": 23,
+      "serp_rank": 25,
       "sub_rank": 7,
       "sub_type": "fact",
       "text": "Mon Tue Wed Thu Fri Sat Sun Live: A little busy 6a 9a 12p 3p 6p 9p 12a 3a People typically spend 1.5-4 hours here",
@@ -527,7 +563,7 @@
         "type": "item"
       },
       "section": "rhs",
-      "serp_rank": 24,
+      "serp_rank": 26,
       "sub_rank": 8,
       "sub_type": "fact",
       "text": "From Seven Feathers Casino Resort \"Nestled in the heart of the Umpqua Valley, Seven Feathers Casino Resort offers an exhilarating array of entertainment and relaxation. It features a lively casino floor, luxurious spa treatments, comfortable hotel accommodations, and delectable dining... More",
@@ -561,7 +597,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 25,
+      "serp_rank": 27,
       "sub_rank": 9,
       "sub_type": "fact",
       "text": "Profiles Facebook YouTube Instagram LinkedIn",
@@ -583,7 +619,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 26,
+      "serp_rank": 28,
       "sub_rank": 10,
       "sub_type": "fact",
       "text": "Help improve accuracy Provide feedback Suggest an edit · Own this business?",
@@ -608,7 +644,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 27,
+      "serp_rank": 29,
       "sub_rank": 11,
       "sub_type": "links",
       "text": null,

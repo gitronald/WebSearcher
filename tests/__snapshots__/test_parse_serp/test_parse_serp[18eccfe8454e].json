@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 90,
+    "deferred_read": 90,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -144,7 +146,7 @@
       "url": "https://withthewoodruffs.com/best-austin-texas-restaurants/"
     },
     {
-      "cite": null,
+      "cite": "Austin American-Statesman",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 week ago",
@@ -160,7 +162,7 @@
       "url": "https://www.statesman.com/entertainment/dining/article/best-romantic-restaurants-austin-2026-21312008.php"
     },
     {
-      "cite": null,
+      "cite": "KVUE",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 week ago",
@@ -176,7 +178,7 @@
       "url": "https://www.kvue.com/article/life/food/austin-round-rock-restaurants-yelp-top-100-us-restaurants-2026-featured/269-a8feee19-5adf-478a-b26b-4eaa2fd77114"
     },
     {
-      "cite": null,
+      "cite": "WhatNow",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 day ago",
@@ -192,11 +194,12 @@
       "url": "https://whatnow.com/austin/restaurants/pasta-bar-will-be-replaced-by-a-new-scratch-restaurants-concept/"
     },
     {
-      "cite": null,
+      "cite": "The Austinot",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -208,11 +211,12 @@
       "url": "https://austinot.com/super-bowl-food-specials-austin"
     },
     {
-      "cite": null,
+      "cite": "Austin American-Statesman",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -224,11 +228,12 @@
       "url": "https://www.statesman.com/entertainment/dining/article/austin-valentines-day-restaurants-desserts-2026-21331667.php"
     },
     {
-      "cite": null,
+      "cite": "Austin American-Statesman",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -240,11 +245,12 @@
       "url": "https://www.statesman.com/entertainment/dining/article/austin-taqueria-de-diez-moving-6th-street-21332012.php"
     },
     {
-      "cite": null,
+      "cite": "WhatNow",
       "cmpt_rank": 6,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -312,7 +318,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -329,7 +336,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 19,
@@ -346,7 +354,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 9, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -363,7 +372,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -385,7 +395,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/l2GLS-W_TyE/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "Top Chef Host Kristen Kish's 3 Best Restaurants in Austin",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -402,7 +413,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -419,7 +431,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -436,7 +449,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -453,7 +467,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,

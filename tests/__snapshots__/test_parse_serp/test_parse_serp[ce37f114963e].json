@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 97,
+    "deferred_read": 97,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -401,7 +403,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 27, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -426,10 +429,32 @@
       "url": "https://www.busuu.com/en/korean/thank-you"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Korean with Ina May 20, 2023",
       "cmpt_rank": 7,
       "details": {
         "channel": "Korean with Ina",
+        "key_moments": [
+          {
+            "seconds": 11,
+            "title": "Thank you. (Formal)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=11"
+          },
+          {
+            "seconds": 29,
+            "title": "Thank you. (Polite)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=29"
+          },
+          {
+            "seconds": 36,
+            "title": "Thank you. (Casual)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=36"
+          },
+          {
+            "seconds": 42,
+            "title": "Thank you. (Text slang)",
+            "url": "https://www.youtube.com/shorts/oPPA6Bcip-o?t=42"
+          }
+        ],
         "publish_date": "May 21, 2023",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5NQtXDW9tbydHRIbiIKErKnWITf2hQLl5IMhwwN6X1guH7o4fqOD54Q&s",
@@ -441,12 +466,12 @@
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "5 Different Ways to Say 'Thank you' in Korean! #koreanteacher YouTube  ·  Korean with Ina May 20, 2023",
+      "title": "5 Different Ways to Say 'Thank you' in Korean! #koreanteacher",
       "type": "videos",
       "url": "https://www.youtube.com/shorts/oPPA6Bcip-o"
     },
     {
-      "cite": null,
+      "cite": "TikTok · gracesooda Dec 13, 2023",
       "cmpt_rank": 7,
       "details": null,
       "section": "main",
@@ -454,12 +479,12 @@
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "Learn How to Say Thank You in Korean! Essential Phrases for ... TikTok  ·  gracesooda Dec 13, 2023",
+      "title": "Learn How to Say Thank You in Korean! Essential Phrases for ...",
       "type": "videos",
       "url": "https://www.tiktok.com/@gracesooda/video/7312079788250860801?lang=en"
     },
     {
-      "cite": null,
+      "cite": "YouTube · mahalodotcom Oct 22, 2010",
       "cmpt_rank": 7,
       "details": {
         "channel": "mahalodotcom",
@@ -474,12 +499,12 @@
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "How to Say \"Thank You\" in Korean YouTube  ·  mahalodotcom Oct 22, 2010",
+      "title": "How to Say \"Thank You\" in Korean",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=w7Cm5Vd8pGM"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Tammy Korean Oct 27, 2025",
       "cmpt_rank": 7,
       "details": {
         "channel": "Tammy Korean",
@@ -494,7 +519,7 @@
       "sub_rank": 3,
       "sub_type": "vertical",
       "text": null,
-      "title": "8 Ways to Say \"Thank You\" in Korean for Every Situation ... YouTube  ·  Tammy Korean Oct 27, 2025",
+      "title": "8 Ways to Say \"Thank You\" in Korean for Every Situation ...",
       "type": "videos",
       "url": "https://www.youtube.com/shorts/v-FbniRD4JY"
     },

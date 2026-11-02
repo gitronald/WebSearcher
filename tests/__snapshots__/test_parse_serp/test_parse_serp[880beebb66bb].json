@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 78,
+    "deferred_read": 78,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -162,25 +164,90 @@
       "url": null
     },
     {
-      "cite": "SoccerBible",
+      "cite": null,
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
       "serp_rank": 11,
-      "sub_rank": 14,
-      "sub_type": "medium",
+      "sub_rank": 8,
+      "sub_type": "small",
       "text": null,
-      "title": "Kaka - A career in adidas football boots - 09/06/09 ... SoccerBible",
+      "title": "red",
       "type": "images",
-      "url": "https://www.soccerbible.com/news-archive/2009/06/kaka-a-history-of-adidas-football-boots-09-06-09/"
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 12,
+      "sub_rank": 9,
+      "sub_type": "small",
+      "text": null,
+      "title": "predator boots",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 10,
+      "sub_type": "small",
+      "text": null,
+      "title": "real madrid",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 11,
+      "sub_type": "small",
+      "text": null,
+      "title": "adidas adipure",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 12,
+      "sub_type": "small",
+      "text": null,
+      "title": "ac milan",
+      "type": "images",
+      "url": null
+    },
+    {
+      "cite": null,
+      "cmpt_rank": 3,
+      "details": null,
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 13,
+      "sub_type": "small",
+      "text": null,
+      "title": "blackout boots",
+      "type": "images",
+      "url": null
     },
     {
       "cite": "SoccerBible",
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
-      "serp_rank": 12,
-      "sub_rank": 15,
+      "serp_rank": 17,
+      "sub_rank": 14,
       "sub_type": "medium",
       "text": null,
       "title": "Kaka - A career in adidas football boots - 09/06/09 ... SoccerBible",
@@ -192,8 +259,8 @@
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
-      "serp_rank": 13,
-      "sub_rank": 16,
+      "serp_rank": 18,
+      "sub_rank": 15,
       "sub_type": "medium",
       "text": null,
       "title": "No More Adidas? Kaka Trains in Blackout Boots - Footy Headlines Footy Headlines",
@@ -205,8 +272,8 @@
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
-      "serp_rank": 14,
-      "sub_rank": 17,
+      "serp_rank": 19,
+      "sub_rank": 16,
       "sub_type": "medium",
       "text": null,
       "title": "Kaka Boot Switch from Adidas to Mizuno? WHY? YouTube",
@@ -218,8 +285,8 @@
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
-      "serp_rank": 15,
-      "sub_rank": 18,
+      "serp_rank": 20,
+      "sub_rank": 17,
       "sub_type": "medium",
       "text": null,
       "title": "KAKA' RICARDO 2011/2012 LIMITED EDITION #UNLEASHED MATCH WORN BOOTS *REAL  MADRID C.F.* Dieci Auctions",
@@ -231,8 +298,8 @@
       "cmpt_rank": 3,
       "details": null,
       "section": "main",
-      "serp_rank": 16,
-      "sub_rank": 19,
+      "serp_rank": 21,
+      "sub_rank": 18,
       "sub_type": "medium",
       "text": null,
       "title": "Closer look | Kaká's Unique Adidas Copa Mundial Boots and ... Footy Headlines",
@@ -240,41 +307,115 @@
       "url": "https://www.footyheadlines.com/2015/08/closer-look-kakas-unique-adidas-copa-mundial-boots-shinpads.html"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pro:Direct Soccer 20 minutes, 22 seconds Dec 1, 2023",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Pro:Direct Soccer",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Kaka's football boot collection",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=0"
+          },
+          {
+            "seconds": 19,
+            "title": "Brazil debut and winning the 2002 World Cup",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=19"
+          },
+          {
+            "seconds": 98,
+            "title": "Learning Lessons from Losing a Final",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=98"
+          },
+          {
+            "seconds": 179,
+            "title": "Personalising Kaka's Boots",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=179"
+          },
+          {
+            "seconds": 291,
+            "title": "2006 World Cup with the Best Brazil Team Ever?",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=291"
+          },
+          {
+            "seconds": 490,
+            "title": "Winning the Champions League and Ballon d'Or",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=490"
+          },
+          {
+            "seconds": 841,
+            "title": "Moving to Real Madrid",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=841"
+          },
+          {
+            "seconds": 1095,
+            "title": "Adidas Predator Anniversary Boots",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=1095"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/817vcbPN7cw/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kVbqw2yZqrdDexCqs7_MqU7a5VJg",
+        "title": "KAKA goes through his ICONIC PREDATOR BOOTS ...",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 17,
+      "serp_rank": 22,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "KAKA goes through his ICONIC PREDATOR BOOTS ... YouTube  ·  Pro:Direct Soccer 20 minutes, 22 seconds Dec 1, 2023",
+      "title": "KAKA goes through his ICONIC PREDATOR BOOTS ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=817vcbPN7cw"
     },
     {
-      "cite": "TikTok",
+      "cite": "TikTok · prodirectsoccer 26 seconds Dec 5, 2023",
       "cmpt_rank": 4,
       "details": null,
       "section": "main",
-      "serp_rank": 18,
+      "serp_rank": 23,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Kaka has still got it! Kaka & @Lucaneta bring the samba skills ... TikTok  ·  prodirectsoccer 26 seconds Dec 5, 2023",
+      "title": "Kaka has still got it! Kaka & @Lucaneta bring the samba skills ...",
       "type": "videos",
       "url": "https://www.tiktok.com/@prodirectsoccer/video/7309198096108490017"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Soccer Reviews For You 8 minutes, 29 seconds Apr 10, 2017",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Soccer Reviews For You",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=0"
+          },
+          {
+            "seconds": 262,
+            "title": "Why players black out their shoes?",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=262"
+          },
+          {
+            "seconds": 452,
+            "title": "My Recommendation",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=452"
+          },
+          {
+            "seconds": 477,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=477"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/-87JMoMNxW8/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lSiTw5oHj0MdYU3W5Q6erlpAHLSg",
+        "title": "Kaka Boot Switch from Adidas to Mizuno? WHY?",
+        "type": "video"
+      },
       "section": "main",
-      "serp_rank": 19,
+      "serp_rank": 24,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Kaka Boot Switch from Adidas to Mizuno? WHY? YouTube  ·  Soccer Reviews For You 8 minutes, 29 seconds Apr 10, 2017",
+      "title": "Kaka Boot Switch from Adidas to Mizuno? WHY?",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=-87JMoMNxW8"
     },
@@ -283,7 +424,7 @@
       "cmpt_rank": 5,
       "details": null,
       "section": "main",
-      "serp_rank": 20,
+      "serp_rank": 25,
       "sub_rank": 0,
       "sub_type": "shopping",
       "text": "Shop deals",
@@ -300,7 +441,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 21,
+      "serp_rank": 26,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -317,7 +458,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 22,
+      "serp_rank": 27,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -334,7 +475,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 23,
+      "serp_rank": 28,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -351,7 +492,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 24,
+      "serp_rank": 29,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -370,7 +511,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 25,
+      "serp_rank": 30,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -387,7 +528,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 26,
+      "serp_rank": 31,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -404,7 +545,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 27,
+      "serp_rank": 32,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -423,7 +564,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 28,
+      "serp_rank": 33,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -440,7 +581,7 @@
         "type": "product"
       },
       "section": "main",
-      "serp_rank": 29,
+      "serp_rank": 34,
       "sub_rank": 0,
       "sub_type": "submenu_product",
       "text": "Adidas AdiPure II SG Ricardo  KAKA  Elit Red  boots  mens Football/Soccers ; Item Number. 285503771170 ; Brand. adidas ; Main Color. Burgundy ; Accurate description.",
@@ -453,7 +594,7 @@
       "cmpt_rank": 8,
       "details": null,
       "section": "main",
-      "serp_rank": 30,
+      "serp_rank": 35,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Kaká  Football  Boots  - Brazil Defender  Kaká  (42) wears adidas Predator Accuracy.1 L soccer cleats in 2022-2023.",
@@ -470,7 +611,7 @@
         "type": "product"
       },
       "section": "main",
-      "serp_rank": 31,
+      "serp_rank": 36,
       "sub_rank": 0,
       "sub_type": "submenu_product",
       "text": "Adidas AdiPure II Ricardo  Kaka  FG Elit White. Condition - Good - no insoles. Professional model.",
@@ -483,7 +624,7 @@
       "cmpt_rank": 10,
       "details": null,
       "section": "main",
-      "serp_rank": 32,
+      "serp_rank": 37,
       "sub_rank": 0,
       "sub_type": null,
       "text": "Model: Adidas Predator LZ #UNLEASH. - Player:  Kaká . - Condition: Match worn & hand signed. - Season: 2011-12. - Size: UK9 / US9.5. - Soleplate: FG.",
@@ -496,7 +637,7 @@
       "cmpt_rank": 11,
       "details": null,
       "section": "main",
-      "serp_rank": 33,
+      "serp_rank": 38,
       "sub_rank": 0,
       "sub_type": null,
       "text": "File: Kaka boots .jpg ... Size of this preview: 800 × 600 pixels. Other resolutions: 320 × 240 pixels | 640 × 480 pixels | 1,024 × 768 pixels | 1,280 × 960 pixels | ...",
@@ -509,7 +650,7 @@
       "cmpt_rank": 12,
       "details": null,
       "section": "main",
-      "serp_rank": 34,
+      "serp_rank": 39,
       "sub_rank": 0,
       "sub_type": null,
       "text": "28K likes, 38 comments - prodirectsoccer on December 4, 2023: \"The  boots  that won it all @ kaka  celebrates 30 years of adidas Predator by ...",
@@ -526,7 +667,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 35,
+      "serp_rank": 40,
       "sub_rank": 0,
       "sub_type": "grid",
       "text": null,
@@ -543,7 +684,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 36,
+      "serp_rank": 41,
       "sub_rank": 1,
       "sub_type": "grid",
       "text": null,
@@ -560,7 +701,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 37,
+      "serp_rank": 42,
       "sub_rank": 2,
       "sub_type": "grid",
       "text": null,
@@ -577,7 +718,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 38,
+      "serp_rank": 43,
       "sub_rank": 3,
       "sub_type": "grid",
       "text": null,
@@ -596,7 +737,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 39,
+      "serp_rank": 44,
       "sub_rank": 4,
       "sub_type": "grid",
       "text": null,
@@ -615,7 +756,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 40,
+      "serp_rank": 45,
       "sub_rank": 5,
       "sub_type": "grid",
       "text": null,
@@ -634,7 +775,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 41,
+      "serp_rank": 46,
       "sub_rank": 6,
       "sub_type": "grid",
       "text": null,
@@ -653,7 +794,7 @@
         "type": "ratings"
       },
       "section": "main",
-      "serp_rank": 42,
+      "serp_rank": 47,
       "sub_rank": 7,
       "sub_type": "grid",
       "text": null,
@@ -677,7 +818,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 43,
+      "serp_rank": 48,
       "sub_rank": 0,
       "sub_type": "related_searches",
       "text": "kaka adidas predator<|>kaka mizuno<|>adidas predator boots<|>what cleats did kaka wear<|>football boots<|>jude bellingham boots",

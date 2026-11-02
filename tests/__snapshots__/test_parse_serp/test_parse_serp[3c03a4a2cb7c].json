@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 32,
+    "deferred_read": 32,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -104,7 +106,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 3,
@@ -117,7 +122,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 4,
@@ -130,7 +138,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 5,
@@ -143,7 +154,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 6,
@@ -156,7 +170,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 7,
@@ -169,7 +186,10 @@
     {
       "cite": null,
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 8,

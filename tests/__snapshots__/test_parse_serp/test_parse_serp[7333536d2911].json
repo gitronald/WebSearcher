@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 70,
+    "deferred_read": 70,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -32,6 +34,62 @@
               "5",
               "1"
             ]
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=0WCErY3OYng",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "pekoproduce.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://pekoproduce.com/blogs/produce-nutrition/green-to-yellow-to-spotty-how-do-bananas-ripen",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "quora.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.quora.com/Why-are-bananas-yellow",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "scienceabc.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.scienceabc.com/nature/bananas-change-colour-upon-ripening.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "ck12.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.ck12.org/flexi/physical-science/Light-in-Physics/what-makes-bananas-yellow/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "pace.oceansciences.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://pace.oceansciences.org/color_determination.cgi",
+            "visible": false
           }
         ],
         "sources": [
@@ -137,7 +195,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 3,
@@ -150,7 +211,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 4,
@@ -163,7 +227,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 5,
@@ -176,7 +243,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 6,
@@ -189,7 +259,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 7,
@@ -202,7 +275,10 @@
     {
       "cite": null,
       "cmpt_rank": 1,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 8,

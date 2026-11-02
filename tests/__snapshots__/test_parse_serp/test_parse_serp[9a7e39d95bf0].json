@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 108,
+    "deferred_read": 108,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -53,6 +55,89 @@
             "source_ids": [
               "8"
             ]
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "knowatom.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.knowatom.com/science-phenomena-videos/6th-grade-science/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "sciencefocus.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.sciencefocus.com/nature/how-does-photosynthesis-work",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "education.nationalgeographic.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://education.nationalgeographic.org/resource/photosynthesis/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "life.illinois.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.life.illinois.edu/govindjee/page2.html",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=fTXh7A7Uc2M",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "khanacademy.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.khanacademy.org/science/ap-biology/cellular-energetics/photosynthesis/v/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "britannica.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.britannica.com/science/photosynthesis",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=CL9A8YhwUps",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/Photosynthesis",
+            "visible": false
           }
         ],
         "sources": [
@@ -205,6 +290,48 @@
       "cmpt_rank": 5,
       "details": {
         "channel": "Amoeba Sisters",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=0"
+          },
+          {
+            "seconds": 33,
+            "title": "Why does photosynthesis matter?",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=33"
+          },
+          {
+            "seconds": 83,
+            "title": "Photosyn vs Cellular Resp Equations",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=83"
+          },
+          {
+            "seconds": 137,
+            "title": "Chlorophyll and other pigments",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=137"
+          },
+          {
+            "seconds": 213,
+            "title": "Light dependent reactions",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=213"
+          },
+          {
+            "seconds": 276,
+            "title": "Light independent reactions (Calvin Cycle)",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=276"
+          },
+          {
+            "seconds": 348,
+            "title": "Big picture overview",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=348"
+          },
+          {
+            "seconds": 399,
+            "title": "Examples of adaptations for photosyn",
+            "url": "https://www.youtube.com/watch?v=CMiPYHNNg28&t=399"
+          }
+        ],
         "publish_date": "Jul 14, 2021",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX4DMEY9W4eFpgjGQpL9SARr5Wct0UPYwmPV2dBfNka8XA5bJrFS54WQ&s",
@@ -326,7 +453,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/dtZVbrog_mU/hqdefault.jpg",
         "timestamp": "Nov 13, 2025",
         "title": "Photosynthesis | A-Level Biology Revision Livestream",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -348,7 +476,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/r90D4XK42c4/hqdefault.jpg",
         "timestamp": "Dec 6, 2025",
         "title": "Photosynthesis Explained in 20 Seconds | How Plants Make Food Using Sunlight",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,

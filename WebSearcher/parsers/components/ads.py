@@ -14,7 +14,7 @@ from typing import Any
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import get_text, has_text, is_element, next_siblings
-from ._common import first_text, mark_hidden_row, under_any
+from ._common import first_text, mark_hidden_row, mark_not_visible, under_any
 from .shopping_ads import parse_listing_card_details, parse_shopping_ads
 
 # bs4 ``find("div", {"class": "X"})`` -> CSS class selector. Insertion order is
@@ -363,17 +363,23 @@ def parse_ad_carousel(elem: Node) -> list[dict[str, Any]]:
         return []
 
     # Possible ad carousel item types -- card layout first, then div fallback.
-    # Hidden (not-yet-shown) items are dropped before numbering so sub_rank
-    # stays contiguous.
+    # Items not yet shown stay in the output, flagged.
     carousel_cards = [d for d in ad_carousel.css("g-inner-card") if has_text(d)]
     if carousel_cards:
-        visible = [d for d in carousel_cards if not _is_hidden_card(d)]
-        return [_parse_ad_carousel_card(sub, sub_rank) for sub_rank, sub in enumerate(visible)]
+        return [
+            _flag_if(_parse_ad_carousel_card(sub, sub_rank), _is_hidden_card(sub))
+            for sub_rank, sub in enumerate(carousel_cards)
+        ]
 
-    carousel_divs = [
-        d for d in ad_carousel.css("div.ZPze1e") if has_text(d) and not _is_hidden_div(d)
+    carousel_divs = [d for d in ad_carousel.css("div.ZPze1e") if has_text(d)]
+    return [
+        _flag_if(_parse_ad_carousel_div(sub, sub_rank), _is_hidden_div(sub))
+        for sub_rank, sub in enumerate(carousel_divs)
     ]
-    return [_parse_ad_carousel_div(sub, sub_rank) for sub_rank, sub in enumerate(carousel_divs)]
+
+
+def _flag_if(parsed: dict[str, Any], hidden: bool) -> dict[str, Any]:
+    return mark_not_visible(parsed) if hidden else parsed
 
 
 def _is_hidden_div(sub: Node) -> bool:

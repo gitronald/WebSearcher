@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 73,
+    "deferred_read": 73,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-overview",
@@ -143,54 +145,74 @@
       "url": "https://www.youtube.com/playlist?list=PLjnjB1Z6t-kWlcoGCm4IOgVQSJwayjngQ"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pixar Cars 1 hour, 16 minutes, 37 seconds Nov 11, 2023",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Pixar Cars",
+        "thumbnail_url": "https://i.ytimg.com/vi/8mN4loP4b3s/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mpn8Kt2lrGJRlzdFiea4bJvsq2oQ",
+        "title": "Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 0,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars YouTube  ·  Pixar Cars 1 hour, 16 minutes, 37 seconds Nov 11, 2023",
+      "title": "Best of Tow Mater's Funniest Moments | Compilation | Pixar Cars",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=8mN4loP4b3s"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Disney Junior 6 minutes, 55 seconds 2 weeks ago",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Disney Junior",
+        "thumbnail_url": "https://i.ytimg.com/vi/5jMvKu4j3lA/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3nJmgod93rA9x1ITFjuK4Y7vYm21Q",
+        "title": "Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 1,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ... YouTube  ·  Disney Junior 6 minutes, 55 seconds 2 weeks ago",
+      "title": "Tokyo Mater | Pixar's Cars Toon - Mater’s Tall Tales | Episode ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=5jMvKu4j3lA"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pixar Cars 7 minutes, 35 seconds Dec 27, 2023",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Pixar Cars",
+        "thumbnail_url": "https://i.ytimg.com/vi/RMmB8ss4BRI/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3ltjvT1_wM9UbVcyoXf9nayVmZFxw",
+        "title": "Best of Mater's Adventures | Pixar's Cars Toon - Mater’s Tall ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 2,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Best of Mater's Adventures | Pixar's Cars Toon - Mater’s Tall ... YouTube  ·  Pixar Cars 7 minutes, 35 seconds Dec 27, 2023",
+      "title": "Best of Mater's Adventures | Pixar's Cars Toon - Mater’s Tall ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=RMmB8ss4BRI"
     },
     {
-      "cite": "YouTube",
+      "cite": "YouTube · Pixar Cars 1 minute, 55 seconds 6 days ago",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Pixar Cars",
+        "thumbnail_url": "https://i.ytimg.com/vi/S4GnwSo0s0A/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kxINQ_-eYMJaVSqCpZuD4Ryy-ktg",
+        "title": "Lightning McQueen and Mater Race in Tokyo | Pixar's Cars ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 3,
       "sub_type": "unspecified-3",
       "text": null,
-      "title": "Lightning McQueen and Mater Race in Tokyo | Pixar's Cars ... YouTube  ·  Pixar Cars 1 minute, 55 seconds 6 days ago",
+      "title": "Lightning McQueen and Mater Race in Tokyo | Pixar's Cars ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=S4GnwSo0s0A"
     },
@@ -248,7 +270,10 @@
       "cite": "3.7M+ views  ·  9 months ago",
       "cmpt_rank": 10,
       "details": {
+        "channel": "Pixar Cars",
         "duration": "17:52",
+        "thumbnail_url": "https://i.ytimg.com/vi/4VxEPhl03ww/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mGa3hGYdoOglF_Ybde8iMRxouQjg",
+        "title": "Best of Tow Mater | Pixar Cars",
         "type": "video"
       },
       "section": "main",
@@ -264,7 +289,10 @@
       "cite": "1.3M+ views  ·  8 months ago",
       "cmpt_rank": 11,
       "details": {
+        "channel": "Pixar Cars",
         "duration": "6:20",
+        "thumbnail_url": "https://i.ytimg.com/vi/dGXkG8caVyM/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kofc4YzwtHa-nrwD0Wzg1LRC0F6g",
+        "title": "Mater's Spy Moments in Cars 2 | Pixar Cars",
         "type": "video"
       },
       "section": "main",

@@ -7,18 +7,21 @@ component. Also backs the perspectives, latest_from, local_news and
 recent_posts parsers via the ``ctype`` argument.
 """
 
-from typing import Any
+from typing import Any, NamedTuple
 
 from selectolax.lexbor import LexborNode as Node
 
 from ..._slx import class_tokens, get_text, has_text, is_element
 from ...models.data import ERR_NO_SUBCOMPONENTS, error_details
 from ._common import mark_hidden_row, mark_timestamp_row
+from ._deferred_html import fill_deferred_html
 from ._video_card import parse_evlb_card
 
 
 def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, Any]]:
     node: Node = elem
+    # Cards past the first few, and those in collapsed topics, are deferred.
+    fill_deferred_html(node)
     divs: list[Node] = []
     divs.extend(d for d in node.css("g-inner-card") if has_text(d))  # Top Stories
     # find_children equivalent: direct element children of div.qmv19b (no empty
@@ -55,8 +58,68 @@ def parse_top_stories(elem: Node, ctype: str = "top_stories") -> list[dict[str, 
     divs = [d for d in divs if not (d.mem_id in seen or seen.add(d.mem_id))]
 
     if divs:
-        return [parse_top_story(div, ctype, i) for i, div in enumerate(divs)]
+        sections = _sections_by_panel(node)
+        return [
+            _mark_card_context(parse_top_story(div, ctype, i), div, sections)
+            for i, div in enumerate(divs)
+        ]
     return [{"type": ctype, "sub_rank": 0, "details": error_details(ERR_NO_SUBCOMPONENTS)}]
+
+
+def _row_details(parsed: dict[str, Any]) -> dict[str, Any]:
+    """The row's ``details``, created as a metadata-only ``item`` when it has none."""
+    details = parsed.get("details")
+    if isinstance(details, dict):
+        return details
+    details = {"type": "item"}
+    parsed["details"] = details
+    return details
+
+
+class _Section(NamedTuple):
+    """A themed, collapsible group of cards inside a carousel component."""
+
+    heading: str
+    summary: str | None
+    collapsed: bool
+
+
+def _sections_by_panel(node: Node) -> dict[int, _Section]:
+    """Each collapsible section, keyed by the ``mem_id`` of the panel it opens."""
+    sections: dict[int, _Section] = {}
+    for button in node.css('[role="button"][aria-expanded][aria-controls]'):
+        panel = node.css_first(f'[id="{button.attrs["aria-controls"]}"]')
+        heading = get_text(button.css_first("span"), " ", strip=True)
+        if panel is not None and heading:
+            sections[panel.mem_id] = _Section(
+                heading,
+                get_text(button.css_first("span.nmhWwf"), " ", strip=True),
+                button.attrs.get("aria-expanded") == "false",
+            )
+    return sections
+
+
+def _mark_card_context(
+    parsed: dict[str, Any], sub: Node, sections: dict[int, _Section]
+) -> dict[str, Any]:
+    """Record a card's section, and that it is not shown on load, in ``details``.
+
+    Google marks the cards past a carousel's first few ``data-init-vis="false"``,
+    loaded or not, and a card in a collapsed section stays out of view until opened.
+    """
+    section = None
+    parent = sub.parent
+    while sections and parent is not None and section is None:
+        section = sections.get(parent.mem_id)
+        parent = parent.parent
+    if section is not None:
+        details = _row_details(parsed)
+        details["section_heading"] = section.heading
+        if section.summary:
+            details["section_summary"] = section.summary
+    if sub.attrs.get("data-init-vis") == "false" or (section is not None and section.collapsed):
+        _row_details(parsed)["visible"] = False
+    return parsed
 
 
 def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
@@ -91,6 +154,12 @@ def parse_top_story(sub: Node, ctype: str, sub_rank: int = 0) -> dict[str, Any]:
             if is_element(c) and c.tag == "span" and "Uz7khf" not in class_tokens(c)
         ]
         mark_timestamp_row(parsed, get_text(spans[-1], " ", strip=True) if spans else None)
+    # Embedded posts carry the age in a span[data-ts] and link their author apart
+    # from the post.
+    mark_timestamp_row(parsed, get_text(sub.css_first("span[data-ts]"), " ", strip=True))
+    author = sub.css_first('div[id^="twitter_attribution"] a[href]')
+    if author is not None:
+        _row_details(parsed)["author_url"] = author.attrs.get("href")
     return mark_hidden_row(parsed, sub)
 
 
@@ -102,6 +171,15 @@ def get_cite(sub: Node) -> str | None:
     tweet_cite = sub.css_first("div.Du2Vwd")  # Perspectives - embedded tweet
     if tweet_cite is not None:
         return get_text(tweet_cite, " ")
+
+    attribution = sub.css_first("atx-attribution div.sTl1Td")  # 2026-10 Perspectives
+    if attribution is not None:
+        return get_text(attribution, " ", strip=True)
+
+    author = get_text(sub.css_first("div.R8BTeb"), " ", strip=True)  # 2026-10 Recent posts
+    if author:
+        platform = get_text(sub.css_first("div.xuPcX"), " ", strip=True)
+        return f"{author} · {platform}" if platform else author
 
     img_cite = sub.css_first("g-img.sL0zmc")  # Top Stories - image cite
     if img_cite is not None:

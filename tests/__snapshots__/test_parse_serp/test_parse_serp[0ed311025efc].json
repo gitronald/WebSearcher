@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 81,
+    "deferred_read": 81,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -52,7 +54,7 @@
       "url": "https://www.nytimes.com/"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "40 minutes ago",
@@ -68,7 +70,7 @@
       "url": "https://www.nytimes.com/live/2026/02/06/us/trump-news"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "55 minutes ago",
@@ -84,7 +86,7 @@
       "url": "https://www.nytimes.com/2026/02/06/us/politics/trump-obamas-video-apes-truth-social.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 hour ago",
@@ -100,11 +102,12 @@
       "url": "https://www.nytimes.com/2026/02/06/us/us-deportation-liam-conejo-ramos-minnesota.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 4,
@@ -116,11 +119,12 @@
       "url": "https://www.nytimes.com/2026/02/06/world/middleeast/iran-missile-nuclear-repairs.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 5,
@@ -132,11 +136,12 @@
       "url": "https://www.nytimes.com/2026/02/06/us/jeffrey-epstein-leverage.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "14 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 6,
@@ -148,11 +153,12 @@
       "url": "https://www.nytimes.com/2026/02/06/us/politics/aoc-run-for-president-or-senate-2028.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "15 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 7,
@@ -164,11 +170,12 @@
       "url": "https://www.nytimes.com/2026/02/06/world/europe/russian-general-shot-moscow-alekseyev.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "18 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -180,11 +187,12 @@
       "url": "https://www.nytimes.com/2026/02/06/opinion/canada-america-anger-carney.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -196,11 +204,12 @@
       "url": "https://www.nytimes.com/2026/02/05/us/politics/katie-britt-trump-immigration.html"
     },
     {
-      "cite": null,
+      "cite": "The New York Times",
       "cmpt_rank": 1,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -366,7 +375,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -383,7 +393,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -400,7 +411,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -417,7 +429,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,

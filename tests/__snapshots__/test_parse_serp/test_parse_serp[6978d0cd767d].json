@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 92,
+    "deferred_read": 92,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -166,7 +168,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/9UNIK5wIKBU/hqdefault.jpg",
         "timestamp": "Dec 11, 2025",
         "title": "Top 5 Programming Languages to learn in 2026! (Important)",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 8,
@@ -183,7 +186,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 9,
@@ -200,7 +204,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -217,7 +222,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -234,7 +240,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -256,7 +263,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/xqI_6fnNU_c/hqdefault.jpg",
         "timestamp": "3 weeks ago",
         "title": "YouTube",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -273,7 +281,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 27, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -290,7 +299,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -312,7 +322,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/MaJVlbBc9ro/hqdefault.jpg",
         "timestamp": "3 weeks ago",
         "title": "What Programming Language to Learn in 2026",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -341,6 +352,48 @@
       "cmpt_rank": 7,
       "details": {
         "channel": "Tech With Tim",
+        "key_moments": [
+          {
+            "seconds": 29,
+            "title": "Your Overall Goal",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=29"
+          },
+          {
+            "seconds": 99,
+            "title": "Javascript",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=99"
+          },
+          {
+            "seconds": 285,
+            "title": "Python",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=285"
+          },
+          {
+            "seconds": 388,
+            "title": "C / Net",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=388"
+          },
+          {
+            "seconds": 478,
+            "title": "Go or Golang",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=478"
+          },
+          {
+            "seconds": 546,
+            "title": "Java",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=546"
+          },
+          {
+            "seconds": 697,
+            "title": "Php",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=697"
+          },
+          {
+            "seconds": 768,
+            "title": "Rust",
+            "url": "https://www.youtube.com/watch?v=8BBHhLioIus&t=768"
+          }
+        ],
         "publish_date": "Oct 24, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUJunwd1EHV6vDYFgtbJmqR6iz3jtQ3aKtPw12pRmYfcg9IflVe75H1A&s",
@@ -400,6 +453,48 @@
       "cmpt_rank": 11,
       "details": {
         "channel": "Tech With Tim",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "STOP Learning JS & Python",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=0"
+          },
+          {
+            "seconds": 27,
+            "title": "First, Answer This Question",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=27"
+          },
+          {
+            "seconds": 68,
+            "title": "Most Popular Languages",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=68"
+          },
+          {
+            "seconds": 231,
+            "title": "Specific Languages by Use Case",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=231"
+          },
+          {
+            "seconds": 281,
+            "title": "Less Popular Languages to Consider",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=281"
+          },
+          {
+            "seconds": 421,
+            "title": "Ecosystem and Resources",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=421"
+          },
+          {
+            "seconds": 460,
+            "title": "My Recommendations",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=460"
+          },
+          {
+            "seconds": 578,
+            "title": "Should You Even Learn to Code?",
+            "url": "https://www.youtube.com/watch?v=ADjyDF0RNY8&t=578"
+          }
+        ],
         "publish_date": "Apr 7, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSE_Cwg0j7oS2r2JUlbsvHWAbdcYWWHe362E0m_2DlKvz6jS_GB8JoyNA&s",

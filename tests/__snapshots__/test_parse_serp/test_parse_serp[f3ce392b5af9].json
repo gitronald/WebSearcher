@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 78,
+    "deferred_read": 78,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -41,6 +43,146 @@
             "additional_count": 3,
             "publisher": "PLANTERS® Brand",
             "source_ids": []
+          },
+          {
+            "additional_count": 1,
+            "publisher": "PLANTERS® Brand",
+            "source_ids": []
+          },
+          {
+            "additional_count": 2,
+            "publisher": "Hormel Foods",
+            "source_ids": []
+          },
+          {
+            "additional_count": 0,
+            "publisher": "PLANTERS® Brand",
+            "source_ids": []
+          }
+        ],
+        "follow_up": "Would you like to explore more about Antonio Gentile's story , the evolution of the NUTmobile , or details on specific Planters marketing campaigns ?",
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESYwHrOzAV98EpKlg4dSQbeYqUubRCSHVseRMFHhh0WwW2KiHT_gT0ODUvGQMs_wImxXBMAmlE19qa96xsdErd0aDc-LmcWAgjImgflXTNDuhBCdTY4aDcKTjy34GHR1nTno75ZA",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "planters.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESXgHrOzAVHwxEHa5D8qW-xnm2AX6jLboKuTjVZ0en_g35Z3E7khsHfqfdgYxfaAOEPOkCvdYvQq28We4gKdCGWFVX8vhy9wZ5lKqBaXco4TgGB-O4nRGylTfvN86ihQk",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "americanhistory.si.edu",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESngEB6zswFbTPpaTSTuEBMyJGOhzw3yDKI50_lO6q_Mqm9AKdNTweN0joZ9qKDXCwdVObPH5_Jo_6A7YMnrSmSjJNonnAoX3JxL-TjOLhOuKNlfhSNDzLhQcvAAMXxPTVv57qe0LZQBjLAdOgpENkyBwi3fCTFWVwZNj-PVGHZFJu--cFkM9ArqzpSF4WzgOHLjVFcxyrgluwz8RqjszLHw",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "mascots.fandom.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZQHrOzAV-ocyMp2z_tRTrx-Tokz4SqMwoEMBVSz9W6w-p9M967-mMBtD5t5r_LuB5tuL6VMXIbaTyq2BzmlMuvKCS978uiZEs0Yp66dCet6f20FfM0AiiwlspufiDa94E2wMyshT",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "hormelfoods.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAEShAEB6zswFV10O8X_MHX9ocPRYqOc3QeBmCRHQ-fsEuEFFa51-KmEdziVByZYtsvSLy2w7vLXDs6CQPO4qDGl4fhcvN2540xGXPb1qTHSpL9UMiBpE0NBajb4l9KGso7UOq5s_WLgwIipKNZ_dSbpLiykZhz-pL9eaeBDwkId55PDPPfFLxU",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZgHrOzAVyw3-s7D_IATiXku6Kp75lucfCkIOikqHelyVf48WWmnSx8ARuEQ4A8PdzoMQ_FpzQdOiUx3Q-mCywtoK8RqK5zscPgVcAEAnobAY5-hyuFQV5_vFCDIBxtdwGukDGFb16A",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "/goto?url=CAESZgHrOzAVBpNzXkbmI5aUDBcD9zDRMAG6g1yDRFNuWawbPmo9y-dXlrkCpCvtd9cz26a-pQ0til3J38LVQF1MOEWqxB3BkkyzFAsz468aBUAhgNh30BduPxaUAIkUNJ5TycVN-2g1jg",
+            "visible": false
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "3",
+            "title": null,
+            "url": "/goto?url=CAESXgHrOzAV-9MxTBFZf8kECEsMA3LfrR-HreqbDnVKBWFE2vOeNMN3itattqwb9JTfiUp_RiAjR4u8MqmaPSR5XLgiM4SIWSWLuuu4kqom3vlUN2iDrvt8U3Mfmb6wLKI"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "4",
+            "title": null,
+            "url": "/goto?url=CAESYwHrOzAVyXyrYWRYpAVMMLNbgI7tklxp5iXhzzUda9kzf4Ri8MxLwBECpzcxAjKpSj8k-1BQ3zu8pr61IYMFrIUDyyrfTb9H7r7OibqFW7W9L_QJIG6bIEWHLM3Xl2Z6w79ohw"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "11",
+            "title": null,
+            "url": "/goto?url=CAESngEB6zswFWHTnDJ2ev-nFCR6pBcJhx67prxUXG5Gzsku1SfE_AOuNsvI9iExip2eN6YCUlXAr0ZwwCrITGFmbSyH3YJvS0X2E5FZ8W--PZrvxO8aQPt0IHyeYwZvr5vBrmwbdRR-69_rXPClBmhoqs7IU-sYYl9NL4_ox4WtBG9tof16VXbTbnh_R-6OsdvTG8GNEDuaI8uWzb_0KMHJ3A"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "10",
+            "title": null,
+            "url": "/goto?url=CAEShAEB6zswFTjCWYLiXy28QaLgyqnEpAXj9gaDz_SlIg2cBaQNCxvEIZ1x6zFhzKJPOGDtAPXqAqJgcgFt-c2UXSvmwnU261tnzFfvHDpMlFJ3nV1vsPVNcxWX0ddGS7TPChtXpmxsTU3fae7r3suRLIAWDxZvyj_p3S_NjLIzaBzzp-_6WmQ"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "5_0",
+            "title": null,
+            "url": "/goto?url=CAESZgHrOzAVcJWdRr2zI2NuxatK8e7MIl84kSaTH2snFHnY2xy-cdBir5VgqJnakzQPIV6PPfYaFornPqx9BE_z6SF99o8Y8r8jKHszsjv8apY3SZ_yz1QqgPmvokHZj3ERQu3zqMHQ1A"
+          },
+          {
+            "duration": "1m",
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "9_0",
+            "title": null,
+            "url": "/goto?url=CAESagHrOzAV1kR2o25IzHt6LQ6b_k_LpxHN0fF51vj0nHUHxqViKrNRRbJ3WZpadATXd6uQGnBSe4OEtGzZgVfmOKanlZpR4vL9fo_jJW-lzbziu4o77uoQluHf2ZcEXZcogMg8nq_PJ4X8lNs"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "16",
+            "title": null,
+            "url": "/goto?url=CAESZQHrOzAVyGIvs0Rvuel6_wkGC61xdqY_TtL_xpocz1vzoSoV7b6mUmRnDZby_m2ExAXpswfiIBSH6WvpF4728c04o9kScGQIpQiU01Q5dmJch6p0YZaiQkIYkm2uCdc3ciCYregc"
           }
         ],
         "type": "ai_overview"
@@ -49,7 +191,7 @@
       "serp_rank": 1,
       "sub_rank": 0,
       "sub_type": "flat",
-      "text": "Mr. Peanut (properly named Bartholomew Richard Fitzgerald-Smythe ) is the iconic anthropomorphic Mr. Peanut mascot and advertising logo for the Planters snack-food brand. Origin: He was created in 1916 by 14-year-old Antonio Gentile as part of a student design contest held by the Planters Nut and Chocolate Company . The Look: Gentile’s original sketch was enhanced by a commercial artist who added his signature top hat, monocle, cane, spats, and white gloves to give him the appearance of an old-fashioned gentleman. Identity: He is traditionally characterized as having British heritage and a refined demeanor.",
+      "text": "Mr. Peanut (properly named Bartholomew Richard Fitzgerald-Smythe ) is the iconic anthropomorphic Mr. Peanut mascot and advertising logo for the Planters snack-food brand. Origin: He was created in 1916 by 14-year-old Antonio Gentile as part of a student design contest held by the Planters Nut and Chocolate Company . The Look: Gentile’s original sketch was enhanced by a commercial artist who added his signature top hat, monocle, cane, spats, and white gloves to give him the appearance of an old-fashioned gentleman. Identity: He is traditionally characterized as having British heritage and a refined demeanor. Voice: For most of his history, Mr. Peanut remained a silent mascot. He spoke for the first time in 2010, voiced by actor Robert Downey Jr., and has later been voiced by figures like Bill Hader. The \"Death\" Campaign: In January 2020, Planters ran a viral Super Bowl marketing campaign where the 104-year-old mascot seemingly sacrificed himself to save actors Matt Walsh and Wesley Snipes, followed by a televised \"funeral\". Cultural Status: He has been inducted into Madison Avenue's Advertising Walk of Fame and the Smithsonian Institution.",
       "title": null,
       "type": "ai_overview",
       "url": null
@@ -167,12 +309,17 @@
       "url": "/goto?url=CAESWQHrOzAVnZ5nOZvb_fyayU4bWmogpwF7qzTw09aK_vlTHBi0xa4F0IlhMnilIpJj6bBvm-X6xJnFuJKbxE0vmPtCrYcxRsvmtjQZijGHgLei2rNbgbpRweOG"
     },
     {
-      "cite": null,
+      "cite": "Barry Lewis · YouTube",
       "cmpt_rank": 10,
       "details": {
+        "channel": "Barry Lewis",
         "heading": "What people are saying",
+        "publish_date": "Oct 22, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/X6tAxKOnpyo/hqdefault.jpg",
         "timestamp": "3 days ago",
-        "type": "item"
+        "title": "YouTube",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 10,
@@ -184,12 +331,17 @@
       "url": "/goto?url=CAESZgHrOzAVneaxAebxngDZf62pYmPxAbP_5Nru2xwjUL727b8okWycK-EEEhUng16r2Tk2MhF65_JNEGWVWckmAhPQSJKiOyQbUIhZbggWIXnaYmXx1QH5hRW2UeCDXnbsfnGxPPk39w"
     },
     {
-      "cite": null,
+      "cite": "Burntpeanutclips",
       "cmpt_rank": 10,
       "details": {
+        "channel": "Burntpeanutclips",
         "heading": "What people are saying",
+        "publish_date": "Aug 14, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/3jhQ3lkrB3c/hqdefault.jpg",
         "timestamp": "Aug 14, 2026",
-        "type": "item"
+        "title": "Peanut Found His New Bestfriend",
+        "type": "video"
       },
       "section": "main",
       "serp_rank": 11,
@@ -201,7 +353,7 @@
       "url": "/goto?url=CAESZQHrOzAVI34kebZAz5ZpPQfwWALU6Hfj7WN-m-5iryUzRu_K70zoHKrycBduC2O5T6Vtopi2Qw_dWAS6C9dynymvYMvzGzZ_5bSCTCzZRYhNBRRgCb3ccKfW9aWEh1Zl5cU5M9kM"
     },
     {
-      "cite": null,
+      "cite": "penn.true",
       "cmpt_rank": 10,
       "details": {
         "heading": "What people are saying",
@@ -218,11 +370,160 @@
       "url": "/goto?url=CAESyQEB6zswFXCvB8VtVKWUxHOfDSxskvUTKrIjvamfTpfSzPo1z_oK7DYaaknt6Qc_u4-R23Vou4teX8Y8_ypQT4yHyIOXCfppwDEUnBU7SNYqJ8X-qJ8h2CM3c0rLyibT2xb5l3v8F-VaF0rk13b2yOAgnCQDj2jY3bqLZA_Iw9nK3UqzkTuI2NF1TIs6frKj0waslpU0dFJZRukTUBB9XE8cj8Iska0DMksWpizYaxhic4cWu3LpCawVC3OtFWt8Y9BTPJ4eq9JDeFk"
     },
     {
+      "cite": "popfaction · Instagram",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "Aug 12, 2026",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 13,
+      "sub_rank": 3,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Mr. Peanut shares new post about ‘The Odyssey’:\n\n“Odyssey this, odyssey that, maybe you odyssey some 🥜”\n\n#explore #popculture #popfaction #reels",
+      "type": "perspectives",
+      "url": "/goto?url=CAESYwHrOzAVlu8EzGpT3rsnkdwIt1jCSwB6bBETJHUKwT4H_b0v9YBxb9PdXXCvqI1nUufWI9yg8AFmKNqmRVo4GFrO3LhPMK1MdUzjjk3W347j198GBpD4dA8M8AhTaRS-0dQY-g"
+    },
+    {
+      "cite": "Facebook",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "1 month ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 14,
+      "sub_rank": 4,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Mr. Peanut coming in Hot in the morning",
+      "type": "perspectives",
+      "url": "/goto?url=CAESowEB6zswFdyq5BJL3rBLRk-9FnjWDVjCmyDUuufSoDiIhy-VRi7H5mzNX59No0iAPCTdwJvfgDmJ1Q1Lri27vEnPFtjQmsv-PYxBakW4L2Xrb-OQAKYi2ZmMQZ_AKLDAQOAZ8w4mk4XrJsCfGz4khjjXxTnThKnKyBqxzFoIrhNT122ossiqCyemdXWgmJGTNoz74UYMM00xJtqr1wxCSTaUCNaw"
+    },
+    {
+      "cite": "Peanut Vault",
+      "cmpt_rank": 10,
+      "details": {
+        "channel": "Peanut Vault",
+        "heading": "What people are saying",
+        "publish_date": "Aug 3, 2026",
+        "source": "YouTube",
+        "thumbnail_url": "http://img.youtube.com/vi/c9Kcn4q8f8U/hqdefault.jpg",
+        "timestamp": "Aug 3, 2026",
+        "title": "PEANUT Made Everyone REGRET Playing With Him | Super Battle Golf",
+        "type": "video",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 15,
+      "sub_rank": 5,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "PEANUT Made Everyone REGRET Playing With Him | Super Battle Golf",
+      "type": "perspectives",
+      "url": "/goto?url=CAESZgHrOzAVsDl2j7O57dDYVMrQkx1QWvb1xvp5L_ZX6y4DIib947chegcmk134qIflyHXBEE1VbnJbb7PJp4Tqvbx5VlvBT6jPNomrueIVw3xv0iwNzsL3JMO0IG5lZgncABdRhPDTrA"
+    },
+    {
+      "cite": "igtvcheaters · Instagram",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "Aug 19, 2026",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 16,
+      "sub_rank": 6,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "A whimsical Threads post wishing someone could literally eat music exploded after the official Mr. Peanut account replied: “You can’t eat music, but you can eat nuts!”",
+      "type": "perspectives",
+      "url": "/goto?url=CAESYwHrOzAVhyGGGgv1T8nrdclYdq7YZ1vDLjSn8JyaSsrrxRZspRixVMWcshwgn1vjFJQ6K4mPkAbowP_kIqpJjj0_iW3Y0q7BQaU6dWYv1mjeR0y07tLyKpiVJDSfSSCIEil6VQ"
+    },
+    {
+      "cite": "GBlessInternet · Facebook",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "1 week ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 17,
+      "sub_rank": 7,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "I think Mr Peanuts is trying to get a role in Rambo movie...",
+      "type": "perspectives",
+      "url": "/goto?url=CAEStQEB6zswFSZrTbZWSM0WwOHwcGS2E_qrKPaZCw1hJcV8ZoslQkPVnaBBFRby5ZoOGwtMSfx9psweBP6e1wfdyHRbV7rs715q08JgRlOGSI4sXCDDP7puhfjU-hRBT2s7HPVeY6OOC7L7F4aRQaykfB62_xBqaPCH7zst8NxGkBrukMkUqqnPiLuQhhFxt7Kc5mO8buOqBwSyLAQJiqNf84apFWfqZLxdBQdyny9uEIYktvBuh1p4"
+    },
+    {
+      "cite": "whatstrending · Facebook",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "Aug 11, 2026",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 18,
+      "sub_rank": 8,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Mr. Peanut has jokes.😅 \"Odyssey this, odyssey that, maybe you odyssey some 🥜\" The account shared on threads regarding 'The Odyssey'",
+      "type": "perspectives",
+      "url": "/goto?url=CAESywEB6zswFR10EHMdTW1UWlpBOLKrWhIgAgrd_YzV8Hrnfacij-xECwJbIub8KXQ68VggVI54DjI2hTABqz39IAUoDM0S7cBUv5eicOeisfRYmSZGGx6eZZ8ExedXEMr5xY5hwkM9McQ7Lr2YPhdo5cmZucMh-MLsm4NmJqojQEaTBySGACCPLJPLKqArHGPfT6DZxX9xxfdo4iXjZYnCXXC7345XnHxeKSqntdvswwhj2084CoXFyjuNsCldFcVHVzuHz9XJeOboYmM7BA"
+    },
+    {
+      "cite": "Clippariz",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "1 month ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 19,
+      "sub_rank": 9,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "When mr. Peanut comes home and Mrs peanut is ready for him 🥵🥜 @theburntpeanut #theburntpeanutclips #theburntpeanut #burntpeanut #peanut #backtoit",
+      "type": "perspectives",
+      "url": "/goto?url=CAESyAEB6zswFaiPjV3GwSBbRaPsbb2DavzbQmNzEeddE_mKl1Fsw-qcM2L0BMPUUgWsi77ZL0tC8GRPprjitT09G58_9P3XxwBdIbnaO2R06kOzPhjHI-tHPHM66TykQS5oaDno0kHcgjOSH11FS5yol62-hRplxcbuyaqk5Y6q3EpEW85aaxpFz5umLaaZHYTMlwWZsPxBOvBtT8kXofCRQfN6OPEvJTOEd6bMuzDXIs_VTHSaOg0ni9LUmEU5AkPbbWoWOi-wFTykEQ"
+    },
+    {
+      "cite": "It's Always Sunny in Philadelphia Implication Posting · Facebook",
+      "cmpt_rank": 10,
+      "details": {
+        "heading": "What people are saying",
+        "timestamp": "1 month ago",
+        "type": "item",
+        "visible": false
+      },
+      "section": "main",
+      "serp_rank": 20,
+      "sub_rank": 10,
+      "sub_type": "what_people_are_saying",
+      "text": null,
+      "title": "Mr. Peanut is a fan",
+      "type": "perspectives",
+      "url": "/goto?url=CAESggEB6zswFfGCM03T4X6IjB0tHGwvaMSzKZ-Xu75LQpDa1f6LIhIGoSIW_lvb-RKMMI--Xv-41V_TPrNW42ZcsLKiGyiAalIMjRJeWrwkEdPIiCGVIgKUpq1sr1sOLC2Icdd4BEMTACfU2hJRemt2q-rzAqZydWNjA0ez3WlqVZo1dck6"
+    },
+    {
       "cite": "https://americanhistory.si.edu  › explore › stories › mr-p...",
       "cmpt_rank": 11,
       "details": null,
       "section": "main",
-      "serp_rank": 13,
+      "serp_rank": 21,
       "sub_rank": 0,
       "sub_type": null,
       "text": "May 6, 2014  —  Gentile earned $5, and became forever known as the young boy who created  Mr .  Peanut . polish from a graphic artist.  Mr .  Peanut , the trademark ...",
@@ -235,7 +536,7 @@
       "cmpt_rank": 12,
       "details": null,
       "section": "main",
-      "serp_rank": 14,
+      "serp_rank": 22,
       "sub_rank": 0,
       "sub_type": null,
       "text": "A man suspected of killing his wife  is investigated by detectives with their own marital troubles, while a mysterious hitman named Mobius complicates the case.",
@@ -261,7 +562,7 @@
         "type": "text"
       },
       "section": "footer",
-      "serp_rank": 15,
+      "serp_rank": 23,
       "sub_rank": 0,
       "sub_type": "people_also_search_for",
       "text": "Mr peanut death<|>Mr Peanut streamer<|>Mr Peanut costume<|>Mr peanut brand<|>Mr Peanut products<|>Mr peanut Baby<|>Mr Peanut Mandela<|>Mr Peanut name",
@@ -283,7 +584,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 16,
+      "serp_rank": 24,
       "sub_rank": 0,
       "sub_type": "fact",
       "text": "Antonio Gentile",
@@ -306,7 +607,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 17,
+      "serp_rank": 25,
       "sub_rank": 1,
       "sub_type": "fact",
       "text": "1916",
@@ -339,7 +640,7 @@
         "type": "hyperlinks"
       },
       "section": "rhs",
-      "serp_rank": 18,
+      "serp_rank": 26,
       "sub_rank": 2,
       "sub_type": "links",
       "text": null,

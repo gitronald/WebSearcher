@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 43,
+    "deferred_read": 43,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -197,10 +199,47 @@
       "url": "https://www.reddit.com/r/bioinformatics/comments/1e0s55e/did_the_deep_learning_algorithm_alphaford_2/"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Quanta Magazine Oct 23, 2024",
       "cmpt_rank": 5,
       "details": {
         "channel": "Quanta Magazine",
+        "key_moments": [
+          {
+            "seconds": 174,
+            "title": "The Protein Folding Problem",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=174"
+          },
+          {
+            "seconds": 241,
+            "title": "X-Ray Crystalallography",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=241"
+          },
+          {
+            "seconds": 346,
+            "title": "Christian Afenson",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=346"
+          },
+          {
+            "seconds": 596,
+            "title": "First Casp Challenge",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=596"
+          },
+          {
+            "seconds": 695,
+            "title": "Deep Learning",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=695"
+          },
+          {
+            "seconds": 968,
+            "title": "Factors to Alphafold 2 Success",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=968"
+          },
+          {
+            "seconds": 1067,
+            "title": "Applying Ai to Protein Design",
+            "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw&t=1067"
+          }
+        ],
         "publish_date": "Oct 23, 2024",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzj3LpUHWSpHvy_conSAqce6JzwAy6YljXaKiVxDDP-yzcGM1IL6Di1Q&s",
@@ -212,15 +251,97 @@
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "How AI Cracked the Protein Folding Code and Won a Nobel ... YouTube  ·  Quanta Magazine Oct 23, 2024",
+      "title": "How AI Cracked the Protein Folding Code and Won a Nobel ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=cx7l9ZGFZkw"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Manolis Kellis Apr 26, 2021",
       "cmpt_rank": 5,
       "details": {
         "channel": "Manolis Kellis",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Introduction",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=0"
+          },
+          {
+            "seconds": 492,
+            "title": "Protein surfaces",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=492"
+          },
+          {
+            "seconds": 585,
+            "title": "Geometric deep learning",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=585"
+          },
+          {
+            "seconds": 788,
+            "title": "Molecular surface interaction fingerprints",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=788"
+          },
+          {
+            "seconds": 1482,
+            "title": "De novo design of protein-protein interactions",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=1482"
+          },
+          {
+            "seconds": 1770,
+            "title": "Protein structure prediction",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=1770"
+          },
+          {
+            "seconds": 2362,
+            "title": "Coevolution analysis",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=2362"
+          },
+          {
+            "seconds": 2608,
+            "title": "Previous supervised learning methods",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=2608"
+          },
+          {
+            "seconds": 2961,
+            "title": "Deep learning",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=2961"
+          },
+          {
+            "seconds": 3414,
+            "title": "Building a 3d structure from pairwise distance",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=3414"
+          },
+          {
+            "seconds": 3660,
+            "title": "Ideas for improvement",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=3660"
+          },
+          {
+            "seconds": 4319,
+            "title": "Algorithm space for protein structure prediction",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=4319"
+          },
+          {
+            "seconds": 4785,
+            "title": "Decomposing algorithm space",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=4785"
+          },
+          {
+            "seconds": 5317,
+            "title": "RGN",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=5317"
+          },
+          {
+            "seconds": 5702,
+            "title": "RGN2",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=5702"
+          },
+          {
+            "seconds": 5933,
+            "title": "Model performance",
+            "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA&t=5933"
+          }
+        ],
         "publish_date": "Apr 26, 2021",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS51l7i2vxJV1HvjWFPPdxNXCXglizYgpN32rbMfqyFkA6d3ChAFea8Zw&s",
@@ -232,15 +353,67 @@
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "Deep Learning for Protein Folding - Lecture 17 - MIT Deep ... YouTube  ·  Manolis Kellis Apr 26, 2021",
+      "title": "Deep Learning for Protein Folding - Lecture 17 - MIT Deep ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=1YHsSFWn5OA"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Veritasium Feb 10, 2025",
       "cmpt_rank": 5,
       "details": {
         "channel": "Veritasium",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "How to determine protein structures",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=0"
+          },
+          {
+            "seconds": 230,
+            "title": "Why are proteins so complicated?",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=230"
+          },
+          {
+            "seconds": 334,
+            "title": "The CASP Competition and Deep Mind",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=334"
+          },
+          {
+            "seconds": 548,
+            "title": "How does Alphafold work?",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=548"
+          },
+          {
+            "seconds": 726,
+            "title": "3 ways to get better AI",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=726"
+          },
+          {
+            "seconds": 864,
+            "title": "What is a Transformer in AI?",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=864"
+          },
+          {
+            "seconds": 1035,
+            "title": "The Structure Module",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=1035"
+          },
+          {
+            "seconds": 1115,
+            "title": "Alphafold 2 wins the Nobel Prize",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=1115"
+          },
+          {
+            "seconds": 1236,
+            "title": "Designing New Proteins - RF Diffusion",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=1236"
+          },
+          {
+            "seconds": 1378,
+            "title": "The Future of AI",
+            "url": "https://www.youtube.com/watch?v=P_fHJIYENdI&t=1378"
+          }
+        ],
         "publish_date": "Feb 10, 2025",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbu_7V82fyQThZJzie9QY3L3zkd-m0gcPJ_TyxLZOJv3oCn-S2O4YGvw&s",
@@ -252,7 +425,7 @@
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "AlphaFold - The Most Useful Thing AI Has Ever Done YouTube  ·  Veritasium Feb 10, 2025",
+      "title": "AlphaFold - The Most Useful Thing AI Has Ever Done",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=P_fHJIYENdI"
     },

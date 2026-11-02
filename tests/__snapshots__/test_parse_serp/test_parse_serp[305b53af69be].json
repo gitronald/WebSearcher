@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 67,
+    "deferred_read": 67,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -249,7 +251,7 @@
       "url": "https://trumpwhitehouse.archives.gov/people/donald-j-trump/"
     },
     {
-      "cite": null,
+      "cite": "YouTube · BBC News 14 hours ago",
       "cmpt_rank": 6,
       "details": {
         "channel": "BBC News",
@@ -264,12 +266,12 @@
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "US President Donald Trump touts 'softer touch' on immigration ... YouTube  ·  BBC News 14 hours ago",
+      "title": "US President Donald Trump touts 'softer touch' on immigration ...",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=rv7c0jAm_ys"
     },
     {
-      "cite": null,
+      "cite": "YouTube · NBC News 1 day ago",
       "cmpt_rank": 6,
       "details": {
         "channel": "NBC News",
@@ -284,12 +286,12 @@
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "Extended interview: Tom Llamas exclusive with President Trump YouTube  ·  NBC News 1 day ago",
+      "title": "Extended interview: Tom Llamas exclusive with President Trump",
       "type": "videos",
       "url": "https://www.youtube.com/watch?v=L5qpkmzaRXo"
     },
     {
-      "cite": null,
+      "cite": "The White House · The White House 9 hours ago",
       "cmpt_rank": 6,
       "details": null,
       "section": "main",
@@ -297,7 +299,7 @@
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "President Trump Attends the National Prayer Breakfast – The ... The White House  ·  The White House 9 hours ago",
+      "title": "President Trump Attends the National Prayer Breakfast – The ...",
       "type": "videos",
       "url": "https://www.whitehouse.gov/videos/president-trump-attends-the-national-prayer-breakfast/"
     },
@@ -368,7 +370,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "12 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 20,
@@ -385,7 +388,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 21,
@@ -402,7 +406,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -419,7 +424,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "16 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -436,7 +442,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "7 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -453,7 +460,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -470,7 +478,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "10 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -492,7 +501,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/Og51cLThBYQ/hqdefault.jpg",
         "timestamp": "1 day ago",
         "title": "What Trump says he learned from Minneapolis chaos",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -509,7 +519,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "15 hours ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -550,7 +561,7 @@
       "url": "https://www.facebook.com/POTUS/posts/president-trump-attends-the-national-prayer-breakfast/1271317968218851/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
@@ -566,7 +577,7 @@
       "url": "https://www.instagram.com/reel/DUW-J_Fimz9/"
     },
     {
-      "cite": null,
+      "cite": "realdonaldtrump · Instagram",
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
@@ -582,11 +593,12 @@
       "url": "https://www.instagram.com/reel/DUWrLYEjNWf/"
     },
     {
-      "cite": null,
+      "cite": "potus · Instagram",
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 33,
@@ -598,11 +610,12 @@
       "url": "https://www.instagram.com/reel/DUWThmGk7i5/"
     },
     {
-      "cite": null,
+      "cite": "President Donald J Trump · TikTok",
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 34,
@@ -618,7 +631,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "1 day ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 35,
@@ -634,7 +648,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 36,
@@ -650,7 +665,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 37,
@@ -666,7 +682,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 38,
@@ -682,7 +699,8 @@
       "cmpt_rank": 9,
       "details": {
         "timestamp": "2 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 39,

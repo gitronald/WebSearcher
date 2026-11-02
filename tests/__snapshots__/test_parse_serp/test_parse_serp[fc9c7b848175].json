@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 39,
+    "deferred_read": 39,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -79,6 +81,166 @@
             "additional_count": 0,
             "publisher": "Hemmings",
             "source_ids": []
+          },
+          {
+            "additional_count": 1,
+            "publisher": "Wikipedia",
+            "source_ids": []
+          },
+          {
+            "additional_count": 1,
+            "publisher": "Classic.com",
+            "source_ids": []
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/Rambler_American",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "hemmings.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.hemmings.com/stories/1967-amc-rambler-american-rogue/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "conceptcarz.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.conceptcarz.com/s32289/amc-rambler-american.aspx",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "en.wikipedia.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/AMC_Rebel",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "xr793.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://xr793.com/wp-content/uploads/2018/01/1967-AMC-Rambler.pdf",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "classic.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/year-1967/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "classic.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "youtube.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.youtube.com/watch?v=z9bYgXppslM",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "facebook.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.facebook.com/groups/84517340861/posts/10161964098545862/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "diy.org",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.diy.org/article/rambler_american",
+            "visible": false
+          }
+        ],
+        "sources": [
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "75",
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/year-1967/"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "71",
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/Rambler_American"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "85",
+            "title": null,
+            "url": "https://www.conceptcarz.com/s32289/amc-rambler-american.aspx"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "102",
+            "title": null,
+            "url": "https://en.wikipedia.org/wiki/AMC_Rebel"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "78",
+            "title": null,
+            "url": "https://www.hemmings.com/stories/1967-amc-rambler-american-rogue/"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "82",
+            "title": null,
+            "url": "https://www.classic.com/m/rambler/american/"
+          },
+          {
+            "favicon": null,
+            "publisher": "",
+            "snippet": null,
+            "source_id": "84",
+            "title": null,
+            "url": "https://xr793.com/wp-content/uploads/2018/01/1967-AMC-Rambler.pdf"
           }
         ],
         "type": "ai_overview"
@@ -87,7 +249,7 @@
       "serp_rank": 3,
       "sub_rank": 0,
       "sub_type": "flat",
-      "text": "The phrase \"American 1967\" typically refers to the Rambler American , a highly popular and affordable compact car manufactured by American Motors Corporation (AMC). The 1967 Rambler American is especially notable as it was the final year AMC offered a convertible body style for this compact line. The 1967 American featured specific highlights: Models & Trim Levels: Available as a 2-door sedan, station wagon, hardtop, and the sporty Rogue . Performance:",
+      "text": "The phrase \"American 1967\" typically refers to the Rambler American , a highly popular and affordable compact car manufactured by American Motors Corporation (AMC). The 1967 Rambler American is especially notable as it was the final year AMC offered a convertible body style for this compact line. The 1967 American featured specific highlights: Models & Trim Levels: Available as a 2-door sedan, station wagon, hardtop, and the sporty Rogue . Performance: While economical 199 and 232 cubic-inch (CID) six-cylinders were standard, buyers could opt for 290 or 343 CID V8 engines, turning the compact car into a \"budget muscle\" machine. Price: It was one of the lowest-priced vehicles built in the U.S. at the time, originally costing between approximately $2,070 and $2,610. Market for 1967 Rambler Americans Today, the 1967 model is a sought-after collectible. Recent classic car market data shows that the average sale price for a 1967 Rambler American sits around $16,495, depending heavily on the condition and engine. If you are looking to research, buy, or restore one, explore enthusiast listings on CLASSIC.COM or browse parts and vehicle classifieds on Hemmings .",
       "title": null,
       "type": "ai_overview",
       "url": null

@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 69,
+    "deferred_read": 69,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -154,41 +156,104 @@
       "url": "/goto?url=CAESYAHrOzAV8IrhHj5GXVmATH8EzSgyzofHOauz5Vv1T5kLW1Z0NyJ5iPTeV0XFJy4QyYfLTJ5GxZaY-ZgczsqTUn_Amdp8Gmsxx9cMIZ1S2pkedtmRew3nOWWY44SFHXHr9g"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Fear: The Home Of Horror Jan 25, 2024",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Fear: The Home Of Horror",
+        "publish_date": "Jan 25, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM-2D8mFhAZcQ6_K1pn3Z2qB7q_vnsd5Yr7pQ2bNLaErLMpWEb5k_Ctg&s",
+        "title": "The Police Chase The Supernatural Killer Car | The Car (1977)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 0,
       "sub_type": "vertical",
       "text": null,
-      "title": "The Police Chase The Supernatural Killer Car | The Car (1977) YouTube  ·  Fear: The Home Of Horror Jan 25, 2024",
+      "title": "The Police Chase The Supernatural Killer Car | The Car (1977)",
       "type": "videos",
       "url": "/goto?url=CAESZgHrOzAVgcWiQ-fdQBs3bPoi2UwPASGwkcPW3yOMGipqGE7cmBLYL6ZbQfyVxYsLqns-vYADI9qRHkum41WIbG79sNpSgC848F9Lu0xOR89Lzv6ooSKBYlVMnHSpVFlCkiCaAApKNw"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Fear: The Home Of Horror Mar 27, 2024",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Fear: The Home Of Horror",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Opening Titles",
+            "url": "/goto?url=CAESagHrOzAVJM0CHw1eCQQvVKye3Lkl2HG4EIUSBkJcw-IgWtDGrQm6XcGnlPrXNpNewz6VRDxIJ7yG_D8OB8O4t7KAeZ8dYFpf0HKD7LgtSHPO64CxeSgzdibQdTFx_BONXXB6rKBVENk_lBI"
+          },
+          {
+            "seconds": 19,
+            "title": "The First Victims",
+            "url": "/goto?url=CAESawHrOzAV0jGHw1FA8ZNwn5EEEOes4YEA-zh54hllW6jUugPiIwSsQb9R2KNLUKSbxsED2gs5xXDVLr9Zq68COQ9_NyjL07Z-Pw6qxjeTM-faAMFMV8XiMpPPutKBEDM3p3Wc1WLpReze6Dnf"
+          },
+          {
+            "seconds": 87,
+            "title": "The Hitchhiker Meets The Car",
+            "url": "/goto?url=CAESawHrOzAV6t4Zdiw5bdjc3Em4QGiDnAh_pnpib9ES5aDgKEyHSLcolqGMdtkVhiLGiuApsKxhN4xUhbgDsBK_rQv-QlLhZrJIQDXxQFNsreo4wiV6-opmbiNsa-cz5f3_mAHbOymIK8vwWikW"
+          },
+          {
+            "seconds": 165,
+            "title": "Late Night Road Rage",
+            "url": "/goto?url=CAESbAHrOzAV8gYKaQCfMaRNq4bFMm7oqgcH55WYrxOxxDacFcXwy5QEx9YK1zBMOa4NbR4B8OsZtu44V7CvI--xX3ey3u0gAiT8dP_7o2gmpch6uOvOPS5ves5AwhzZ9t4XO4ClW6UVUIK-BWg2YQ"
+          },
+          {
+            "seconds": 210,
+            "title": "The Car Chases The Kids",
+            "url": "/goto?url=CAESbAHrOzAVgwbZBWxB3Z4rXc0jJf0IoH0inwujxLXJ7zDZvrXddC3PSRnA4oqhwrJYTRSpgWjJWMyzlicTCrZwXUN-Q--Jrz_EazQBBWZLouSWU11xkXQM6llLXwrIWso0LQPBNZ8Foy3X1Ns-ig"
+          },
+          {
+            "seconds": 252,
+            "title": "The Car vs. The Cops",
+            "url": "/goto?url=CAESbAHrOzAVl8opl8GXhzivsLYjLNvTzhSyaJQ-2Ml4xqjcKOxEsiiJMt93DOBkK-Tv6CvHgKkMx46Hm7gFtBug1FEdLjinplIJ7TuY1dgqZXTyRMzTEfng_8gdl46wBBWvEiBLpIH1VULxezBYxQ"
+          },
+          {
+            "seconds": 348,
+            "title": "What's The In The Window?",
+            "url": "/goto?url=CAESbAHrOzAV-vZYvllcxQ654aJEEKZmD1DRbXl0sOk7NAuC_VO-X8kZTBSLSbR1w7ZPv9uMiNFXd7NtTUl9cijeLsZKvtS5UTDqEhSuntdoXYS5fUjSHJtVPODyls0cZLoMwE7H9bic2hJZGkdylg"
+          },
+          {
+            "seconds": 390,
+            "title": "Defeating The Car",
+            "url": "/goto?url=CAESbAHrOzAVEYCgSS3ittth-7AW7Cu2BDyhQy393PkFZdRvG6S2SVPG-DpxQpbIZd5RDgHZujXOxHMlEaW85hXKbFw6jnJSfoUMXkyDj4ql8mfWaFJvGzEmQs7pU2it7rJACdV1x_r77fhUa48yTw"
+          }
+        ],
+        "publish_date": "Mar 27, 2024",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw_lQzJpnZHeNRu1mAszoHRac0_CL190HG8HyKxftr4wc-xj9tpPAagg&s",
+        "title": "The Car (1977) Death Count | Fear: The Home Of Horror",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 1,
       "sub_type": "vertical",
       "text": null,
-      "title": "The Car (1977) Death Count | Fear: The Home Of Horror YouTube  ·  Fear: The Home Of Horror Mar 27, 2024",
+      "title": "The Car (1977) Death Count | Fear: The Home Of Horror",
       "type": "videos",
       "url": "/goto?url=CAESZgHrOzAVOAlRL9UxXxk_D86BVxl46U2N3IWxPSZlRc0HESaHw4-U9RUyk6qHmLefjkm17K6dJ2QY7l6Ok2zcy3p4rfewSTJwz6PX1V4O09pu4eXDYogGw7BBZ9TsnXZxSneIGI3Kiw"
     },
     {
-      "cite": null,
+      "cite": "YouTube · Tony's Fords and Mustangs Oct 11, 2025",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Tony's Fords and Mustangs",
+        "publish_date": "Oct 11, 2025",
+        "source": "YouTube",
+        "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGqXiVyTEG0ZMVJuDs1XVRjDh332qbmv3bcDH7Cjh5aMJFbMAnrAzs0A&s",
+        "title": "The history of the Demon car & did ONE survive?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 2,
       "sub_type": "vertical",
       "text": null,
-      "title": "The history of the Demon car & did ONE survive? YouTube  ·  Tony's Fords and Mustangs Oct 11, 2025",
+      "title": "The history of the Demon car & did ONE survive?",
       "type": "videos",
       "url": "/goto?url=CAESbwHrOzAVIglHGKYlFWtnp-rfmXR-Ne--0Lkf6Ktw7RGe0x09b3RyDPPyz5CWElSyQl_gO4x5it71lnCoebIWOSALrpccCoad7fX37GStzGMqUOtIYgknmON88BPUeRpltBPL8palNPP_qR3cvKIEzA"
     },

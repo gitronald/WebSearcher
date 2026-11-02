@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 111,
+    "deferred_read": 111,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -125,7 +127,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 8,
       "sub_rank": 6,
@@ -138,7 +143,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 7,
@@ -151,7 +159,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 8,
@@ -164,7 +175,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 9,
@@ -177,7 +191,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 12,
       "sub_rank": 10,
@@ -190,7 +207,10 @@
     {
       "cite": null,
       "cmpt_rank": 2,
-      "details": null,
+      "details": {
+        "type": "item",
+        "visible": false
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 11,
@@ -327,7 +347,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "4 days ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 22,
@@ -344,7 +365,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 23,
@@ -361,7 +383,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 24,
@@ -378,7 +401,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 25,
@@ -395,7 +419,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 26,
@@ -412,7 +437,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 12, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 27,
@@ -429,7 +455,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 28,
@@ -446,7 +473,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "2 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 29,
@@ -463,7 +491,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 30,

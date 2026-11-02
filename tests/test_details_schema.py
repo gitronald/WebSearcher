@@ -19,6 +19,7 @@ from WebSearcher.parsers.components._common import (
     mark_hidden_row,
     mark_timestamp_row,
 )
+from WebSearcher.parsers.components.images import parse_images
 
 
 def _dump(**row) -> dict:
@@ -133,3 +134,33 @@ def test_hidden_item_flagged():
 
 def test_shown_item_unflagged():
     assert mark_hidden_item({"url": "u"}, None) == {"url": "u"}
+
+
+def test_mark_hidden_row_reads_data_init_vis_on_the_node_only():
+    def card(html):
+        return utils.make_soup(html).css_first("span.card")
+
+    assert mark_hidden_row({}, card('<span class="card" data-init-vis="false">x</span>')) == {
+        "details": {"type": "item", "visible": False}
+    }
+    assert mark_hidden_row({}, card('<span class="card" data-init-vis="true">x</span>')) == {}
+    # A marker on an ancestor says nothing about this node.
+    html = '<div data-init-vis="false"><span class="card">x</span></div>'
+    assert mark_hidden_row({}, card(html)) == {}
+    assert mark_hidden_row({}, None) == {}
+
+
+def test_image_rows_flag_a_card_not_shown_on_load():
+    html = (
+        '<div id="scope"><g-scrolling-carousel>'
+        '<div class="eA0Zlc"><img src="https://x.example/a.jpg" alt="shown"></div>'
+        '<div class="eA0Zlc" data-init-vis="false"><img src="https://x.example/b.jpg" alt="tail"></div>'
+        "</g-scrolling-carousel></div>"
+    )
+    node = utils.make_soup(html).css_first("#scope")
+    assert node is not None
+    rows = parse_images(node)
+    assert [(r["title"], (r.get("details") or {}).get("visible")) for r in rows] == [
+        ("alt-text: shown", None),
+        ("alt-text: tail", False),
+    ]

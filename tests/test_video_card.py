@@ -17,6 +17,8 @@ from selectolax.lexbor import LexborNode as Node
 import WebSearcher as ws
 from WebSearcher import utils
 from WebSearcher.parsers.components._video_card import evlb_fields_by_tile, parse_evlb_card
+from WebSearcher.parsers.components.general import parse_general_video
+from WebSearcher.parsers.components.videos import parse_videos
 
 SERPS_PATH = Path(__file__).parent / "fixtures" / "serps.json.bz2"
 
@@ -168,3 +170,149 @@ def test_enriched_thumbnail_matches_row_video_id(corpus_results):
     # Most thumbnails are data: lazy-load placeholders with no embedded id;
     # 9 rows on these SERPs carry a real /vi/<id>/ URL to cross-check.
     assert checked >= 5
+
+
+# --- key moments, from deferred fragments ---------------------------------------
+
+
+def _fragment(target_id: str, body: str) -> str:
+    return f"<script>[{{id:'{target_id}'}},function(){{jsl.dh(this.id,\"{body}\");}}]</script>"
+
+
+_EXPANDER_MOMENTS = (
+    r"\x3ca data-time=\"0\" href=\"/goto?url=M0\""
+    r" aria-label=\"Intro. Part one. 1 of 2, 0 seconds. \">\x3cimg>\x3c/a>"
+    r"\x3ca data-time=\"188\" href=\"/goto?url=M1\""
+    r" aria-label=\"Basics. 2 of 2, 3 minutes, 8 seconds. \">\x3cimg>\x3c/a>"
+)
+_CARD = (
+    r"\x3cspan class=\"PNsAZd\">A channel\x3c/span>\x3cspan class=\"DKsccc\">Jun 5, 2026\x3c/span>"
+    r"\x3cdiv role=\"heading\">In this video\x3c/div>"
+    r"\x3ca data-time=\"0\" href=\"/goto?url=M0\">\x3cspan>00:00\x3c/span>\x3cspan>Intro\x3c/span>\x3c/a>"
+    r"\x3ca data-time=\"188\" href=\"/goto?url=M1\">\x3cspan>03:08\x3c/span>\x3cspan>Basics\x3c/span>\x3c/a>"
+)
+
+
+def _videos_page(tile_body: str, fragments: str) -> Node:
+    html = (
+        '<div id="scope"><div class="sHEJob">'
+        '<a href="/goto?url=VIDEO"></a><div role="heading">A video</div>'
+        f"{tile_body}</div></div>{fragments}"
+    )
+    node = utils.make_soup(html).css_first("#scope")
+    assert node is not None
+    return node
+
+
+def test_video_row_reads_card_and_key_moments_from_fragments():
+    node = _videos_page('<div style="display:none" id="evlb_1"></div>', _fragment("evlb_1", _CARD))
+    [row] = parse_videos(node)
+    assert row["title"] == "A video"
+    assert row["url"] == "/goto?url=VIDEO"
+    assert row["details"] == {
+        "type": "video",
+        "channel": "A channel",
+        "publish_date": "Jun 5, 2026",
+        "key_moments": [
+            {"seconds": 0, "title": "Intro", "url": "/goto?url=M0"},
+            {"seconds": 188, "title": "Basics", "url": "/goto?url=M1"},
+        ],
+    }
+
+
+def test_key_moments_from_the_expander_and_the_card_count_once():
+    node = _videos_page(
+        '<div id="tsuid_1"></div><div style="display:none" id="evlb_1"></div>',
+        _fragment("tsuid_1", _EXPANDER_MOMENTS) + _fragment("evlb_1", _CARD),
+    )
+    moments = parse_videos(node)[0]["details"]["key_moments"]
+    assert [(m["seconds"], m["url"]) for m in moments] == [
+        (0, "/goto?url=M0"),
+        (188, "/goto?url=M1"),
+    ]
+
+
+def test_key_moments_from_the_expander_alone_have_no_title():
+    # Its aria-label is a sentence in the page's language, so it is not parsed.
+    node = _videos_page('<div id="tsuid_1"></div>', _fragment("tsuid_1", _EXPANDER_MOMENTS))
+    assert [
+        (m["seconds"], m["title"]) for m in parse_videos(node)[0]["details"]["key_moments"]
+    ] == [
+        (0, None),
+        (188, None),
+    ]
+
+
+def test_a_video_with_no_fragment_has_no_details():
+    assert parse_videos(_videos_page("<div>text</div>", ""))[0].get("details") is None
+
+
+def test_a_browser_capture_keeps_its_filled_card():
+    node = _videos_page(
+        '<div id="evlb_1"><span class="PNsAZd">Kept</span></div>',
+        _fragment("evlb_1", r"\x3cspan class=\"PNsAZd\">Overwritten\x3c/span>"),
+    )
+    assert parse_videos(node)[0]["details"]["channel"] == "Kept"
+
+
+def test_general_video_reads_moments_without_changing_its_core_fields():
+    node = utils.make_soup(
+        '<div id="tile" class="PmEWq"><a href="/goto?url=VIDEO"></a><h3 class="LC20lb">A video</h3>'
+        '<span class="JIv15d">10:32</span><div id="evlb_1"></div></div>'
+        + _fragment("evlb_1", _CARD)
+    ).css_first("#tile")
+    assert node is not None
+    row = parse_general_video(node)
+    assert (row["title"], row["url"]) == ("A video", "/goto?url=VIDEO")
+    assert row["details"]["duration"] == "10:32"
+    assert [m["seconds"] for m in row["details"]["key_moments"]] == [0, 188]
+
+
+# --- the heading's title and source line -----------------------------------------
+
+
+def _heading_tile(heading: str, extra: str = "") -> Node:
+    node = utils.make_soup(
+        f'<div id="scope"><div class="sHEJob"><a href="/v"></a>'
+        f'<div role="heading">{heading}</div>{extra}</div></div>'
+    ).css_first("#scope")
+    assert node is not None
+    return node
+
+
+_TWO_PARTS = (
+    "<div><span>A video</span></div>"
+    "<div><span>YouTube</span><span><span> ·</span> A channel</span><div>May 20, 2025</div></div>"
+)
+
+
+def test_a_two_part_heading_gives_a_title_and_a_cite():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS))
+    assert row["title"] == "A video"
+    assert row["cite"] == "YouTube · A channel May 20, 2025"
+
+
+def test_the_source_line_replaces_a_cite_it_contains():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS, "<cite>YouTube</cite>"))
+    assert row["cite"] == "YouTube · A channel May 20, 2025"
+
+
+def test_a_different_cite_of_the_tiles_own_is_kept():
+    [row] = parse_videos(_heading_tile(_TWO_PARTS, "<cite>www.example.com</cite>"))
+    assert row["title"] == "A video"
+    assert row["cite"] == "www.example.com"
+
+
+@pytest.mark.parametrize(
+    "heading",
+    [
+        "A video",
+        "<span>A video</span>",
+        "<div>A video</div><div>one</div><div>two</div>",
+        "<div></div><div>A video</div>",
+    ],
+)
+def test_any_other_heading_is_read_whole_with_no_cite(heading):
+    [row] = parse_videos(_heading_tile(heading))
+    assert "A video" in row["title"]
+    assert row.get("cite") is None

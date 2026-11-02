@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 56,
+    "deferred_read": 56,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -210,7 +212,10 @@
       "cite": "104.4K+ views  ·  3 months ago",
       "cmpt_rank": 9,
       "details": {
+        "channel": "Food Network",
         "duration": "3:11",
+        "thumbnail_url": "https://i.ytimg.com/vi/Dg8OZF5masQ/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mSub9ql-Hs4ewoIDdd6oR_MT_oqw",
+        "title": "Ree Drummond's Biscuits and Sausage Pepper Gravy | The ...",
         "type": "video"
       },
       "section": "main",

@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 118,
+    "deferred_read": 118,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -32,6 +34,62 @@
               "14",
               "9"
             ]
+          }
+        ],
+        "source_tray": [
+          {
+            "favicon": null,
+            "publisher": "nesdis.noaa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.nesdis.noaa.gov/about/k-12-education/atmosphere/why-the-sky-blue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "weather.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.weather.gov/fgz/SkyBlue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "facebook.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.facebook.com/jakedunnekwch/posts/why-is-the-sky-blue-its-an-age-old-question-that-actually-has-a-very-simple-answ/1104044168200325/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "spaceplace.nasa.gov",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://spaceplace.nasa.gov/blue-sky/",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "rmg.co.uk",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.rmg.co.uk/stories/space-astronomy/why-sky-blue",
+            "visible": false
+          },
+          {
+            "favicon": null,
+            "publisher": "montrealsciencecentre.com",
+            "snippet": null,
+            "source_id": null,
+            "title": null,
+            "url": "https://www.montrealsciencecentre.com/blog/why-the-sky-blue",
+            "visible": false
           }
         ],
         "sources": [
@@ -259,7 +317,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 10,
@@ -276,7 +335,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 week ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 11,
@@ -293,7 +353,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "3 weeks ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 12,
@@ -310,7 +371,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 13,
@@ -327,7 +389,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 14,
@@ -349,7 +412,8 @@
         "thumbnail_url": "http://img.youtube.com/vi/o1pTCw8cg10/hqdefault.jpg",
         "timestamp": "1 month ago",
         "title": "Can Sky become Green? | Why is our sky Blue? | #shorts",
-        "type": "video"
+        "type": "video",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 15,
@@ -366,7 +430,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 12, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 16,
@@ -383,7 +448,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "Nov 14, 2025",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 17,
@@ -400,7 +466,8 @@
       "details": {
         "heading": "What people are saying",
         "timestamp": "1 month ago",
-        "type": "item"
+        "type": "item",
+        "visible": false
       },
       "section": "main",
       "serp_rank": 18,
@@ -416,6 +483,38 @@
       "cmpt_rank": 8,
       "details": {
         "channel": "NASA Space Place",
+        "key_moments": [
+          {
+            "seconds": 12,
+            "title": "How the sun's light reaches Earth",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=12"
+          },
+          {
+            "seconds": 35,
+            "title": "How light energy travels in waves",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=35"
+          },
+          {
+            "seconds": 99,
+            "title": "Why is the sky different color at sunset?",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=99"
+          },
+          {
+            "seconds": 120,
+            "title": "Why is the sky red?",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=120"
+          },
+          {
+            "seconds": 132,
+            "title": "Aerosols",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=132"
+          },
+          {
+            "seconds": 147,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=ehUIlhKhzDA&t=147"
+          }
+        ],
         "publish_date": "Mar 2, 2020",
         "source": "YouTube",
         "thumbnail_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6e5kcoZuPcjkmdHwg_vN6fp2WJ-wuDZaCpYurvlr8Z4EGoW2YQcLOCQ&s",

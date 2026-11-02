@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.14.2] - 2026-11-01
+
+### Added
+
+- `perspectives`, `recent_posts`, `top_stories`, and `local_news` rows now cover the cards Google defers. A `requests` capture holds those cards only as inline `jsl.dh` script text, including carousel cards past the first few and posts in collapsed topics, so they were dropped. These parsers now fill their own placeholders first. A browser capture has already run the scripts, and a placeholder that holds content is left alone.
+- A match header's deferred highlight clips are now in the `knowledge` row's `details.urls`, each with `visible: false`.
+- `details.section_heading` and `details.section_summary` on a card in a collapsible section of a carousel, such as "Christian McCaffrey suffers thigh injury".
+- `details.author_url` on an embedded post, which links its author apart from the post.
+- `details.key_moments` on a `videos` or `general` video row, one entry per moment with its `seconds`, `title`, and `url`. A `requests` capture holds these only as inline script text, along with the video card behind `details.channel` and `details.publish_date`, which these rows now fill too.
+- `features.deferred_calls` and `features.deferred_read`, the `jsl.dh` calls on a page and how many could be read. A share read that falls across a crawl means Google changed the format and deferred results are going missing. A rename of the call itself shows as `deferred_calls` falling to zero.
+- `ai_overview` entries in `details.sources` now take their `title`, `snippet`, and `publisher` from the source card when no payload gives them, as on most `requests` captures, where they were empty. A video's card also adds `channel` and `duration`.
+- An `ai_overview` row now reads the whole answer on a `requests` capture. Parts of it, down to single list items and whole sections, sit in deferred fragments, and were cut off: about half the answer text on the pages checked. `details.sections`, `citations`, `sources`, and `follow_up` grow with it, so text and counts from earlier parses of these captures are low.
+- `products`, `images`, `buying_guide`, `most_read_articles`, `locations`, `twitter_cards`, and `short_videos` now read their deferred content on a `requests` capture: more rows, a buying guide's answers, and a short video's channel and date. Row counts for these types rise on those captures.
+- `details.source_tray` on an `ai_overview` row, the hidden list of source links each with `visible: false`. On a `requests` capture it holds more than `details.sources`, which it overlaps, so count one or the other.
+
+### Changed
+
+- 2026-10 post cards now fill `cite` from their attribution line, such as "oursf49ers · Instagram".
+- Embedded posts now record `details.timestamp`.
+- `details.visible` is now `false` on a `perspectives`, `recent_posts`, `top_stories`, `local_news`, or `latest_from` card that Google marks `data-init-vis="false"` or that sits in a collapsed section. These cards are not on screen when the page loads, and browser captures now flag them too, so counts filtered on `visible` change.
+- A row identical to another in its component in every field but `sub_rank` is now dropped, and the rest renumbered. Google sometimes shows the same image twice in one block. A repeat that differs in anything, such as a post in two sections, stays.
+- A `videos` row's `title` is now the title alone. Its source line, such as "YouTube · A channel 6 minutes, 55 seconds 2 weeks ago", moved to `cite`, unless the row has a different cite of its own, so anything matching or grouping on `title` or a videos `cite` changes.
+- `ad` carousels now keep cards not yet shown, with `details.visible: false`, where they used to drop them. Ad row counts rise and `sub_rank` moves for any consumer that counts every row.
+- `images` rows now record `details.visible: false` under an inline `display:none` or on `data-init-vis="false"`, such as the tail of a "more images" block.
+
 ## [0.14.1] - 2026-10-29
 
 ### Changed
