@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 60,
+    "deferred_read": 60,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-kp-wholepage",
@@ -146,7 +148,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "We Are Iowa Local 5 News",
+        "thumbnail_url": "https://i.ytimg.com/vi/wnoCyRUKlPk/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lNOuOkPdtk7gwBjBOlpV0jjwXSUg",
+        "title": "Breaking down the difference between the popular vote and ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 9,
       "sub_rank": 0,
@@ -159,7 +166,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "The Federalist Society",
+        "thumbnail_url": "https://i.ytimg.com/vi/ca7I25kD2e8/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lXqwa7ROWXk5dmZc8uUlRGR14CNQ",
+        "title": "The National Popular Vote v. the Electoral College [POLICYbrief]",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 10,
       "sub_rank": 1,
@@ -172,7 +184,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 9,
-      "details": null,
+      "details": {
+        "channel": "USA TODAY",
+        "thumbnail_url": "https://i.ytimg.com/vi/RiPL-XHKnCk/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3meo_3CtzlctGEOB2kUKEW8su0eUg",
+        "title": "Electoral vote vs. the popular vote: explained | Just The FAQs",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 11,
       "sub_rank": 2,

@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 127,
+    "deferred_read": 127,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",

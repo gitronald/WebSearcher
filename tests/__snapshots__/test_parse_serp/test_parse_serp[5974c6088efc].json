@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 109,
+    "deferred_read": 109,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-kp-wholepage",
@@ -163,7 +165,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Rotten Tomatoes Classic Trailers",
+        "thumbnail_url": "https://i.ytimg.com/vi/P4narQca4Oc/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mT8QV2mEPxQqxz7hoy8oNL08IaMQ",
+        "title": "Footloose (1984) Trailer #1 | Movieclips Classic Trailers",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 7,
       "sub_rank": 1,

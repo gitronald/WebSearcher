@@ -232,13 +232,14 @@ def test_key_moments_from_the_expander_and_the_card_count_once():
     ]
 
 
-def test_key_moments_from_the_expander_alone_take_their_aria_label():
+def test_key_moments_from_the_expander_alone_have_no_title():
+    # Its aria-label is a sentence in the page's language, so it is not parsed.
     node = _videos_page('<div id="tsuid_1"></div>', _fragment("tsuid_1", _EXPANDER_MOMENTS))
     assert [
         (m["seconds"], m["title"]) for m in parse_videos(node)[0]["details"]["key_moments"]
     ] == [
-        (0, "Intro. Part one"),
-        (188, "Basics"),
+        (0, None),
+        (188, None),
     ]
 
 

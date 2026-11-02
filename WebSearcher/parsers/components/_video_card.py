@@ -13,7 +13,6 @@ data-side enrichment and says nothing about visibility, so callers must not
 set ``visible`` based on a card hit.
 """
 
-import re
 from typing import Any
 
 from selectolax.lexbor import LexborNode as Node
@@ -21,18 +20,11 @@ from selectolax.lexbor import LexborNode as Node
 from ..._slx import get_text, walk_descendants
 from ._deferred_html import fill_deferred_html
 
-# "Prompt engineering fundamentals. 2 of 24, 3 minutes, 8 seconds. "
-_RX_MOMENT_LABEL = re.compile(r"^(.*)\. \d+ of \d+, ")
-
 
 def _moment_title(moment: Node) -> str | None:
-    """A moment's label: the last of its text lines (time, label), or, on the
-    expander's image-only form, the start of its ``aria-label``."""
-    lines = (moment.text(separator="\n", strip=True) or "").split("\n")
-    if lines[-1]:
-        return lines[-1]
-    match = _RX_MOMENT_LABEL.match(moment.attrs.get("aria-label") or "")
-    return match.group(1) if match else None
+    """A moment's label: the last of its text lines (time, label). The expander's
+    image-only form has none; its ``aria-label`` is a sentence in the page's language."""
+    return (moment.text(separator="\n", strip=True) or "").split("\n")[-1] or None
 
 
 def parse_key_moments(scope: Node) -> list[dict[str, Any]]:

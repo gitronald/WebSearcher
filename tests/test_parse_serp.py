@@ -210,3 +210,9 @@ def test_features_expose_main_layout(all_parsed_serps):
         assert layout is None or isinstance(layout, str)
         seen.add(layout)
     assert {"standard", "standard-overview", "standard-airfares"} <= seen
+
+
+def test_every_call_in_the_fixture_corpus_is_read(all_parsed_serps):
+    for serp in all_parsed_serps:
+        features = serp["features"]
+        assert features["deferred_read"] == features["deferred_calls"]

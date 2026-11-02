@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 60,
+    "deferred_read": 60,
     "infinity_scroll": false,
     "language": "en",
     "main_layout": "standard",
@@ -99,7 +101,12 @@
     {
       "cite": "9.9K+ views  ·  4 weeks ago",
       "cmpt_rank": 6,
-      "details": null,
+      "details": {
+        "channel": "Global News",
+        "thumbnail_url": "https://i.ytimg.com/vi/r-fgimurh2g/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mul6Vod8C5zp_1DEK2D-iZqilz4g",
+        "title": "Tesla Cybertruck explosion: Police discover additional ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 0,

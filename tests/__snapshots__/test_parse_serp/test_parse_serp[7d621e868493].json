@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 73,
+    "deferred_read": 73,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-overview",
@@ -200,6 +202,7 @@
       "cite": "YouTube",
       "cmpt_rank": 7,
       "details": {
+        "channel": "Sesame Street",
         "key_moments": [
           {
             "seconds": 20,
@@ -247,6 +250,8 @@
             "url": "https://www.youtube.com/watch?v=FiZvEXqWGI0&t=1775"
           }
         ],
+        "thumbnail_url": "https://i.ytimg.com/vi/FiZvEXqWGI0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kiVZ-3rb-MmU6lpQlSkJl1r8Gnjg",
+        "title": "Sesame Street: Best of Oscar the Grouch Compilation | Happy ...",
         "type": "video"
       },
       "section": "main",
@@ -261,7 +266,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/rxgWHzMvXOY/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3k6dgZMaS2Ccy0Kq2BPmRlt14faVA",
+        "title": "Sesame Street: I Love Trash",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 13,
       "sub_rank": 1,
@@ -274,7 +284,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/avyZ67cRZiY/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3m2ic8d0I7_O8yNqNcewXDrTg_VOg",
+        "title": "Elmo the Grouch | Sesame Street Full Episode",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 14,
       "sub_rank": 2,
@@ -287,7 +302,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 7,
-      "details": null,
+      "details": {
+        "channel": "Sesame Street",
+        "thumbnail_url": "https://i.ytimg.com/vi/0wGYi6o6qT0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lTWXUQwpDKTZYppo5u3vFcrmxx6g",
+        "title": "Sesame Street: Oscar the Grouch Says #StayHome",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 15,
       "sub_rank": 3,

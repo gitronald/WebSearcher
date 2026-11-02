@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 116,
+    "deferred_read": 116,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -658,7 +660,24 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "channel": "Aaron Rutten",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=kaUOuYUDi5M&t=0"
+          },
+          {
+            "seconds": 1613,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=kaUOuYUDi5M&t=1613"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/kaUOuYUDi5M/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mTewnpxN5yX_B3RLTnrX_OULMQ4A",
+        "title": "10 Best DRAWING TABLETS To Buy In 2024",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 33,
       "sub_rank": 0,
@@ -671,7 +690,29 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "channel": "Brad Colbow",
+        "key_moments": [
+          {
+            "seconds": 34,
+            "title": "NUMBER ONE AN IPAD",
+            "url": "https://www.youtube.com/watch?v=Dh49NwMt1yw&t=34"
+          },
+          {
+            "seconds": 360,
+            "title": "HUION TABLET",
+            "url": "https://www.youtube.com/watch?v=Dh49NwMt1yw&t=360"
+          },
+          {
+            "seconds": 586,
+            "title": "WHAT IS NOT ON THIS LIST?",
+            "url": "https://www.youtube.com/watch?v=Dh49NwMt1yw&t=586"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/Dh49NwMt1yw/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kq7jkCCdq4wDAGduTFVf3mi3X-JQ",
+        "title": "Best Drawing Tablets for Beginners - What I Recommend",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 34,
       "sub_rank": 1,
@@ -684,7 +725,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 11,
-      "details": null,
+      "details": {
+        "channel": "Brad Colbow",
+        "thumbnail_url": "https://i.ytimg.com/vi/rgvM59DBJag/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3mxrB6Tc3C_LOECTkB9rTtznfFfRQ",
+        "title": "The Cheapest Drawing Tablet VS the Most Expensive",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 35,
       "sub_rank": 2,

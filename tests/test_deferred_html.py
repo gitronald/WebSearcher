@@ -1,9 +1,16 @@
 """Deferred ``jsl.dh`` fragments, and the card fields that come with them."""
 
+import pytest
 from selectolax.lexbor import LexborNode as Node
 
+import WebSearcher as ws
 from WebSearcher import utils
-from WebSearcher.parsers.components._deferred_html import fill_deferred_html, unescape_js_string
+from WebSearcher.parsers.components._deferred_html import (
+    DeferredCalls,
+    fill_deferred_html,
+    read_deferred_calls,
+    unescape_js_string,
+)
 from WebSearcher.parsers.components.ai_overview import parse_ai_overview
 from WebSearcher.parsers.components.knowledge import parse_knowledge_panel
 from WebSearcher.parsers.components.perspectives import parse_perspectives
@@ -190,3 +197,56 @@ def test_fill_can_be_limited_to_fragments_holding_a_marker():
         + _fragment("b", "other")
     )
     assert [t.attrs.get("id") for t in fill_deferred_html(scope, containing="wanted")] == ["a"]
+
+
+@pytest.mark.parametrize(
+    "call",
+    [
+        """<script>[{id:'t'},function(){jsl.dh(this.id,"\\x3cb>x\\x3c/b>");}]</script>""",
+        """<script>[{id:'t'},function(){jsl.dh(this.id,'\\x3cb>x\\x3c/b>');}]</script>""",
+        """<script>(function(){window.jsl.dh('t',"\\x3cb>x\\x3c/b>");})();</script>""",
+        """<script>(function(){window.jsl.dh('t','\\x3cb>x\\x3c/b>');})();</script>""",
+        """<script>(function(){window.jsl.dh("t","\\x3cb>x\\x3c/b>");})();</script>""",
+        """<script>[{id: 't'}, function() { window.jsl.dh( this.id , "\\x3cb>x\\x3c/b>" ); }]</script>""",
+    ],
+)
+def test_fill_reads_every_form_of_the_call(call):
+    scope = _scope(f'<div id="scope"><div id="t"></div></div>{call}')
+    assert [t.attrs.get("id") for t in fill_deferred_html(scope)] == ["t"]
+    assert _text(scope, "#t b") == "x"
+
+
+def test_read_handles_a_quote_of_the_other_kind_and_an_escaped_one_in_a_body():
+    html = """window.jsl.dh('a',"it's \\"x\\"");window.jsl.dh("b",'say "y" isn\\'t');"""
+    assert read_deferred_calls(html) == DeferredCalls(
+        2, (("a", 'it\'s \\"x\\"'), ("b", 'say "y" isn\\\'t'))
+    )
+
+
+@pytest.mark.parametrize(
+    "html",
+    [
+        "jsl.dh(someVar,'x')",  # the id is not a literal
+        "jsl.dh('a',someVar)",  # the body is not a literal
+        "jsl.dh('a')",  # no body
+        "jsl.dh(this.id,'x')",  # no owner object before it
+        "jsl.dh('a','unterminated",
+    ],
+)
+def test_a_call_that_cannot_be_read_is_counted_and_not_returned(html):
+    assert read_deferred_calls(html) == DeferredCalls(1, ())
+
+
+def test_the_name_alone_is_not_a_call():
+    assert read_deferred_calls("window.jsl.dh=function(){};x('jsl.dh');").n_calls == 0
+
+
+def test_parse_serp_reports_the_share_of_calls_read():
+    html = "<html><body><script>window.jsl.dh('a','x');jsl.dh(v,'y');</script></body></html>"
+    features = ws.parse_serp(html)["features"]
+    assert (features["deferred_calls"], features["deferred_read"]) == (2, 1)
+
+
+def test_parse_serp_without_raw_markup_reports_no_counts():
+    features = ws.parse_serp(utils.make_soup("<html><body></body></html>"))["features"]
+    assert (features["deferred_calls"], features["deferred_read"]) == (None, None)

@@ -6,6 +6,7 @@ from .. import utils
 from ..extractors import Extractor
 from ..extractors.extractor_serp_features import FeatureExtractor
 from .components._common import raw_serp_html
+from .components._deferred_html import read_deferred_calls
 
 
 def parse_serp(serp: str | Node, url: str | None = None) -> dict[str, Any]:
@@ -53,6 +54,10 @@ def parse_serp(serp: str | Node, url: str | None = None) -> dict[str, Any]:
     # layout label is internal to extraction, so surface it on the features here.
     features = FeatureExtractor.extract_features(serp, soup=soup, url=url)
     features.main_layout = extractor.main_handler.layout_label
+    if raw_html is not None:
+        deferred = read_deferred_calls(raw_html)
+        features.deferred_calls = deferred.n_calls
+        features.deferred_read = len(deferred.fragments)
     return {
         "features": features.model_dump(),
         "results": results,

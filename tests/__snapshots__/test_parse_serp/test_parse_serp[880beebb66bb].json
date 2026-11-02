@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 78,
+    "deferred_read": 78,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard",
@@ -242,7 +244,54 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Pro:Direct Soccer",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Kaka's football boot collection",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=0"
+          },
+          {
+            "seconds": 19,
+            "title": "Brazil debut and winning the 2002 World Cup",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=19"
+          },
+          {
+            "seconds": 98,
+            "title": "Learning Lessons from Losing a Final",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=98"
+          },
+          {
+            "seconds": 179,
+            "title": "Personalising Kaka's Boots",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=179"
+          },
+          {
+            "seconds": 291,
+            "title": "2006 World Cup with the Best Brazil Team Ever?",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=291"
+          },
+          {
+            "seconds": 490,
+            "title": "Winning the Champions League and Ballon d'Or",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=490"
+          },
+          {
+            "seconds": 841,
+            "title": "Moving to Real Madrid",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=841"
+          },
+          {
+            "seconds": 1095,
+            "title": "Adidas Predator Anniversary Boots",
+            "url": "https://www.youtube.com/watch?v=817vcbPN7cw&t=1095"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/817vcbPN7cw/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3kVbqw2yZqrdDexCqs7_MqU7a5VJg",
+        "title": "KAKA goes through his ICONIC PREDATOR BOOTS ...",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 17,
       "sub_rank": 0,
@@ -268,7 +317,34 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Soccer Reviews For You",
+        "key_moments": [
+          {
+            "seconds": 0,
+            "title": "Intro",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=0"
+          },
+          {
+            "seconds": 262,
+            "title": "Why players black out their shoes?",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=262"
+          },
+          {
+            "seconds": 452,
+            "title": "My Recommendation",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=452"
+          },
+          {
+            "seconds": 477,
+            "title": "Conclusion",
+            "url": "https://www.youtube.com/watch?v=-87JMoMNxW8&t=477"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/-87JMoMNxW8/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lSiTw5oHj0MdYU3W5Q6erlpAHLSg",
+        "title": "Kaka Boot Switch from Adidas to Mizuno? WHY?",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 19,
       "sub_rank": 2,

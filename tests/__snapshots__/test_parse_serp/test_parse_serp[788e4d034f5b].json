@@ -1,6 +1,8 @@
 {
   "features": {
     "captcha": false,
+    "deferred_calls": 62,
+    "deferred_read": 62,
     "infinity_scroll": true,
     "language": "en",
     "main_layout": "standard-kp-wholepage",
@@ -75,7 +77,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Shadow Music",
+        "thumbnail_url": "https://i.ytimg.com/vi/ZW2xa__89p0/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3nbu1bHEchBz6v128eCKkhiIRoD3w",
+        "title": "Alicia Keys - Empire State Of Mind (Lyrics)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 4,
       "sub_rank": 0,
@@ -88,7 +95,12 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "VibersVibin",
+        "thumbnail_url": "https://i.ytimg.com/vi/GoLerKmXQhU/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3lB2tbmmMzr_P2KJLL_ywO9eh3t9g",
+        "title": "Alicia Keys - New York Empire State of Mind (Lyrics)",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 5,
       "sub_rank": 1,
@@ -101,7 +113,29 @@
     {
       "cite": "YouTube",
       "cmpt_rank": 4,
-      "details": null,
+      "details": {
+        "channel": "Loku",
+        "key_moments": [
+          {
+            "seconds": 17,
+            "title": "And since I made it here, I can make it anywhere",
+            "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg&t=17"
+          },
+          {
+            "seconds": 157,
+            "title": "Verse 2",
+            "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg&t=157"
+          },
+          {
+            "seconds": 291,
+            "title": "These streets will make you feel free",
+            "url": "https://www.youtube.com/watch?v=V8gvSEtzOQg&t=291"
+          }
+        ],
+        "thumbnail_url": "https://i.ytimg.com/vi/V8gvSEtzOQg/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3l0qu5UO1NyvC2NXXd-XJW1vVrbJQ",
+        "title": "JAY-Z - Empire State Of Mind (Lyrics) ft. Alicia Keys",
+        "type": "video"
+      },
       "section": "main",
       "serp_rank": 6,
       "sub_rank": 2,
@@ -201,7 +235,10 @@
       "cite": "319.9K+ views  ·  10 years ago",
       "cmpt_rank": 11,
       "details": {
+        "channel": "Erietta-Andrea Constantinou",
         "duration": "4:11",
+        "thumbnail_url": "https://i.ytimg.com/vi/Yo30YqEdQi8/mqdefault.jpg?sqp=-oaymwEFCJQBEFM&rs=AMzJL3ld6GuFr85xUd-mLn3VdRbCft9E1Q",
+        "title": "new york -alicia keys (with lyrics)",
         "type": "video"
       },
       "section": "main",
