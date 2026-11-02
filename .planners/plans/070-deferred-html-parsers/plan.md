@@ -98,6 +98,7 @@ gained, rows lost, and any feature field that changed.
   Identical rows: a row matching another in its component in every field but sub_rank is dropped and the rest renumbered (0.14.2a8). Over 149 pages that removed 8 image rows, with no distinct row lost.
   Survey of unread fragment text by component on non-browser pages: most is interface text (AI Mode prompts, feedback dialogs, share menus). The matching is rough and has false positives, including overview headings and video cards the parser already reads, and only a few examples of each type were read.
 - **2026-11-01T18:03:30-08:00** — Seven more parsers fill their own subtree (0.14.2a10). Each was first run with the fill on in a scratch harness and its gains read. Over 149 pages: 10 pages changed, no rows lost, no other type moved. A full folder of about 100,000 2026-10 pages then parsed with every jsl.dh call read and no page lost; the largest page is 94 rows. Rows added by a fill carry no flag unless they have a marker, so visible may overstate what was on screen for those rows.
+- **2026-11-01T18:21:52-08:00** — Before the stable release: two full folders of about 100,000 2026-10 pages each parsed with every jsl.dh call read, no page lost, the largest page at 94 rows, and answer text 1.9 times the earlier parse, none shrinking. Not done: no change in this plan was compared with a rendered page. The owner chose to release after the second folder.
 
 ## Handoff
 
