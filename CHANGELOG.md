@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.14.3] - 2026-11-13
+
 ### Changed
 
 - Development tooling follows the repotemplates 0.15.0 release: ruff 0.17.3, newer SHA-pinned CI actions, and updated Renovate and workflow guide links
