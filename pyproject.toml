@@ -25,8 +25,8 @@ repository = "https://github.com/gitronald/WebSearcher"
 [project.scripts]
 ws-demo = 'WebSearcher.demos:main'
 
-# proj-template release stamp, set by proj-init.sh and install-template; inert to consumers.
-[tool.proj-template]
+# repotemplates release stamp, set by init.sh and install-template; inert to consumers.
+[tool.repotemplates]
 version = "0.11.7"
 
 [dependency-groups]
