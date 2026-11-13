@@ -1,6 +1,6 @@
 [project]
 name = "WebSearcher"
-version = "0.14.2"
+version = "0.14.3"
 description = "Tools for conducting, collecting, and parsing web search"
 authors = [{name = "Ronald E. Robertson", email = "rer@acm.org"}]
 keywords = ["web", "search", "parser"]
@@ -25,9 +25,9 @@ repository = "https://github.com/gitronald/WebSearcher"
 [project.scripts]
 ws-demo = 'WebSearcher.demos:main'
 
-# proj-template release stamp, set by proj-init.sh and install-template; inert to consumers.
-[tool.proj-template]
-version = "0.11.7"
+# repotemplates release stamp, set by init.sh and install-template; inert to consumers.
+[tool.repotemplates]
+version = "0.15.0"
 
 [dependency-groups]
 dev = [
